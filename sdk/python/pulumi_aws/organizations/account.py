@@ -29,16 +29,6 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[_builtins.str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        :param pulumi.Input[_builtins.bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        :param pulumi.Input[_builtins.bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        :param pulumi.Input[_builtins.str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        :param pulumi.Input[_builtins.str] name: Friendly name for the member account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        :param pulumi.Input[_builtins.str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "email", email)
         if close_on_deletion is not None:
@@ -59,9 +49,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
-        """
-        Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -71,9 +58,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter(name="closeOnDeletion")
     def close_on_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        """
         return pulumi.get(self, "close_on_deletion")
 
     @close_on_deletion.setter
@@ -83,9 +67,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter(name="createGovcloud")
     def create_govcloud(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        """
         return pulumi.get(self, "create_govcloud")
 
     @create_govcloud.setter
@@ -95,9 +76,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter(name="iamUserAccessToBilling")
     def iam_user_access_to_billing(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        """
         return pulumi.get(self, "iam_user_access_to_billing")
 
     @iam_user_access_to_billing.setter
@@ -107,11 +85,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name for the member account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -121,9 +94,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
@@ -133,9 +103,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -145,9 +112,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,23 +139,6 @@ class _AccountState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
-        :param pulumi.Input[_builtins.str] arn: ARN for this account.
-        :param pulumi.Input[_builtins.bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        :param pulumi.Input[_builtins.bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        :param pulumi.Input[_builtins.str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        :param pulumi.Input[_builtins.str] govcloud_id: ID for a GovCloud account created with the account.
-        :param pulumi.Input[_builtins.str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        :param pulumi.Input[_builtins.str] joined_method: Method by which the account joined the organization.
-        :param pulumi.Input[_builtins.str] joined_timestamp: Date the account became a part of the organization.
-        :param pulumi.Input[_builtins.str] name: Friendly name for the member account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        :param pulumi.Input[_builtins.str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        :param pulumi.Input[_builtins.str] state: State of the account in the organization.
-        :param pulumi.Input[_builtins.str] status: (**Deprecated** use `state` instead) Status of the account in the organization.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -230,9 +177,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for this account.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -242,9 +186,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="closeOnDeletion")
     def close_on_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        """
         return pulumi.get(self, "close_on_deletion")
 
     @close_on_deletion.setter
@@ -254,9 +195,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="createGovcloud")
     def create_govcloud(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        """
         return pulumi.get(self, "create_govcloud")
 
     @create_govcloud.setter
@@ -266,9 +204,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -278,9 +213,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="govcloudId")
     def govcloud_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID for a GovCloud account created with the account.
-        """
         return pulumi.get(self, "govcloud_id")
 
     @govcloud_id.setter
@@ -290,9 +222,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="iamUserAccessToBilling")
     def iam_user_access_to_billing(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        """
         return pulumi.get(self, "iam_user_access_to_billing")
 
     @iam_user_access_to_billing.setter
@@ -302,9 +231,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
     def joined_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Method by which the account joined the organization.
-        """
         return pulumi.get(self, "joined_method")
 
     @joined_method.setter
@@ -314,9 +240,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
     def joined_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the account became a part of the organization.
-        """
         return pulumi.get(self, "joined_timestamp")
 
     @joined_timestamp.setter
@@ -326,11 +249,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name for the member account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -340,9 +258,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
@@ -352,9 +267,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -364,9 +276,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the account in the organization.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -377,9 +286,6 @@ class _AccountState:
     @pulumi.getter
     @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (**Deprecated** use `state` instead) Status of the account in the organization.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -389,9 +295,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -401,9 +304,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -427,77 +327,9 @@ class Account(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to create a member account in the current organization.
-
-        > **Note:** Account management must be done from the organization's root account.
-
-        > **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `close_on_deletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `close_on_deletion` argument, which can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        account = aws.organizations.Account("account",
-            name="my_new_account",
-            email="john@doe.org")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` (String) ID of the AWS Organizations account.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import the AWS member account using the `account_id`. For example:
-
-        % pulumi import aws_organizations_account.example 111111111111
-
-        To import accounts that have set iam_user_access_to_billing, use the following:
-
-        % pulumi import aws_organizations_account.example 111111111111_ALLOW
-
-        Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
-
-        terraform
-
-        resource "aws_organizations_account" "account" {
-
-          name      = "my_new_account"
-
-          email     = "john@doe.org"
-
-          role_name = "myOrganizationRole"
-
-        # There is no AWS Organizations API for reading role_name
-
-          lifecycle {
-
-            ignore_changes = [role_name]
-
-          }
-
-        }
-
+        Create a Account resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        :param pulumi.Input[_builtins.bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        :param pulumi.Input[_builtins.str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        :param pulumi.Input[_builtins.str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        :param pulumi.Input[_builtins.str] name: Friendly name for the member account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        :param pulumi.Input[_builtins.str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -506,65 +338,7 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create a member account in the current organization.
-
-        > **Note:** Account management must be done from the organization's root account.
-
-        > **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `close_on_deletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `close_on_deletion` argument, which can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        account = aws.organizations.Account("account",
-            name="my_new_account",
-            email="john@doe.org")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` (String) ID of the AWS Organizations account.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import the AWS member account using the `account_id`. For example:
-
-        % pulumi import aws_organizations_account.example 111111111111
-
-        To import accounts that have set iam_user_access_to_billing, use the following:
-
-        % pulumi import aws_organizations_account.example 111111111111_ALLOW
-
-        Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
-
-        terraform
-
-        resource "aws_organizations_account" "account" {
-
-          name      = "my_new_account"
-
-          email     = "john@doe.org"
-
-          role_name = "myOrganizationRole"
-
-        # There is no AWS Organizations API for reading role_name
-
-          lifecycle {
-
-            ignore_changes = [role_name]
-
-          }
-
-        }
-
+        Create a Account resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -646,23 +420,6 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN for this account.
-        :param pulumi.Input[_builtins.bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        :param pulumi.Input[_builtins.bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        :param pulumi.Input[_builtins.str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        :param pulumi.Input[_builtins.str] govcloud_id: ID for a GovCloud account created with the account.
-        :param pulumi.Input[_builtins.str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        :param pulumi.Input[_builtins.str] joined_method: Method by which the account joined the organization.
-        :param pulumi.Input[_builtins.str] joined_timestamp: Date the account became a part of the organization.
-        :param pulumi.Input[_builtins.str] name: Friendly name for the member account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        :param pulumi.Input[_builtins.str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        :param pulumi.Input[_builtins.str] state: State of the account in the organization.
-        :param pulumi.Input[_builtins.str] status: (**Deprecated** use `state` instead) Status of the account in the organization.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -688,123 +445,76 @@ class Account(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for this account.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="closeOnDeletion")
     def close_on_deletion(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        """
         return pulumi.get(self, "close_on_deletion")
 
     @_builtins.property
     @pulumi.getter(name="createGovcloud")
     def create_govcloud(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        """
         return pulumi.get(self, "create_govcloud")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
-        """
-        Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter(name="govcloudId")
     def govcloud_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID for a GovCloud account created with the account.
-        """
         return pulumi.get(self, "govcloud_id")
 
     @_builtins.property
     @pulumi.getter(name="iamUserAccessToBilling")
     def iam_user_access_to_billing(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        """
         return pulumi.get(self, "iam_user_access_to_billing")
 
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
     def joined_method(self) -> pulumi.Output[_builtins.str]:
-        """
-        Method by which the account joined the organization.
-        """
         return pulumi.get(self, "joined_method")
 
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
     def joined_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the account became a part of the organization.
-        """
         return pulumi.get(self, "joined_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Friendly name for the member account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        """
         return pulumi.get(self, "parent_id")
 
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        """
         return pulumi.get(self, "role_name")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the account in the organization.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        (**Deprecated** use `state` instead) Status of the account in the organization.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

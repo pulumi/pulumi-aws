@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccessPointPublicAccessBlockConfiguration {
-    /**
-     * @return Whether Amazon S3 blocks public ACLs for buckets in this account.
-     * 
-     */
     private Boolean blockPublicAcls;
-    /**
-     * @return Whether Amazon S3 blocks public bucket policies for buckets in this account.
-     * 
-     */
     private Boolean blockPublicPolicy;
-    /**
-     * @return Whether Amazon S3 ignores public ACLs for buckets in this account.
-     * 
-     */
     private Boolean ignorePublicAcls;
-    /**
-     * @return Whether Amazon S3 restricts public bucket policies for buckets in this account.
-     * 
-     */
     private Boolean restrictPublicBuckets;
 
     private GetAccessPointPublicAccessBlockConfiguration() {}
-    /**
-     * @return Whether Amazon S3 blocks public ACLs for buckets in this account.
-     * 
-     */
     public Boolean blockPublicAcls() {
         return this.blockPublicAcls;
     }
-    /**
-     * @return Whether Amazon S3 blocks public bucket policies for buckets in this account.
-     * 
-     */
     public Boolean blockPublicPolicy() {
         return this.blockPublicPolicy;
     }
-    /**
-     * @return Whether Amazon S3 ignores public ACLs for buckets in this account.
-     * 
-     */
     public Boolean ignorePublicAcls() {
         return this.ignorePublicAcls;
     }
-    /**
-     * @return Whether Amazon S3 restricts public bucket policies for buckets in this account.
-     * 
-     */
     public Boolean restrictPublicBuckets() {
         return this.restrictPublicBuckets;
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
-        /// </summary>
         [Input("supportType")]
         public Input<string>? SupportType { get; set; }
 

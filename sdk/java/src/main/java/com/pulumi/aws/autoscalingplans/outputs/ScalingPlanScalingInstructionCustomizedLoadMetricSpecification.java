@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     private @Nullable Map<String,String> dimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private String metricName;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private String namespace;
-    /**
-     * @return Statistic of the metric. Currently, the value must always be `Sum`.
-     * 
-     */
     private String statistic;
-    /**
-     * @return Unit of the metric.
-     * 
-     */
     private @Nullable String unit;
 
     private ScalingPlanScalingInstructionCustomizedLoadMetricSpecification() {}
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public Map<String,String> dimensions() {
         return this.dimensions == null ? Map.of() : this.dimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }
-    /**
-     * @return Statistic of the metric. Currently, the value must always be `Sum`.
-     * 
-     */
     public String statistic() {
         return this.statistic;
     }
-    /**
-     * @return Unit of the metric.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

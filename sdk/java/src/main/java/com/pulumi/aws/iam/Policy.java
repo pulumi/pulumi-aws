@@ -16,222 +16,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM policy.
- * 
- * &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var policy = new Policy("policy", PolicyArgs.builder()
- *             .name("test_policy")
- *             .path("/")
- *             .description("My test policy")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", "*")
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
- * 
- * Using `pulumi import`, import IAM Policies using the `arn`. For example:
- * 
- * % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
- * 
- */
 @ResourceType(type="aws:iam/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN assigned by AWS to this policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN assigned by AWS to this policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Number of entities (users, groups, and roles) that the policy is attached to.
-     * 
-     */
     @Export(name="attachmentCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentCount;
 
-    /**
-     * @return Number of entities (users, groups, and roles) that the policy is attached to.
-     * 
-     */
     public Output<Integer> attachmentCount() {
         return this.attachmentCount;
     }
-    /**
-     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-     * 
-     */
     @Export(name="delayAfterPolicyCreationInMs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> delayAfterPolicyCreationInMs;
 
-    /**
-     * @return Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-     * 
-     */
     public Output<Optional<Integer>> delayAfterPolicyCreationInMs() {
         return Codegen.optional(this.delayAfterPolicyCreationInMs);
     }
-    /**
-     * Description of the IAM policy.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the IAM policy.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the policy. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the policy. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-     * 
-     */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
-    /**
-     * @return Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-     * 
-     */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
-    /**
-     * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Policy&#39;s ID.
-     * 
-     */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
-    /**
-     * @return Policy&#39;s ID.
-     * 
-     */
     public Output<String> policyId() {
         return this.policyId;
     }
-    /**
-     * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

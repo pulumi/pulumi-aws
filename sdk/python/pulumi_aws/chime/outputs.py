@@ -46,18 +46,12 @@ class SdkvoiceGlobalSettingsVoiceConnector(dict):
 
     def __init__(__self__, *,
                  cdr_bucket: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str cdr_bucket: The S3 bucket that stores the Voice Connector's call detail records.
-        """
         if cdr_bucket is not None:
             pulumi.set(__self__, "cdr_bucket", cdr_bucket)
 
     @_builtins.property
     @pulumi.getter(name="cdrBucket")
     def cdr_bucket(self) -> Optional[_builtins.str]:
-        """
-        The S3 bucket that stores the Voice Connector's call detail records.
-        """
         return pulumi.get(self, "cdr_bucket")
 
 
@@ -82,17 +76,11 @@ class SdkvoiceSipMediaApplicationEndpoints(dict):
 
     def __init__(__self__, *,
                  lambda_arn: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-        """
         return pulumi.get(self, "lambda_arn")
 
 
@@ -121,11 +109,6 @@ class SdkvoiceSipRuleTargetApplication(dict):
                  aws_region: _builtins.str,
                  priority: _builtins.int,
                  sip_media_application_id: _builtins.str):
-        """
-        :param _builtins.str aws_region: The AWS Region of the target application.
-        :param _builtins.int priority: Priority of the SIP media application in the target list.
-        :param _builtins.str sip_media_application_id: The SIP media application ID.
-        """
         pulumi.set(__self__, "aws_region", aws_region)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "sip_media_application_id", sip_media_application_id)
@@ -133,25 +116,16 @@ class SdkvoiceSipRuleTargetApplication(dict):
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> _builtins.str:
-        """
-        The AWS Region of the target application.
-        """
         return pulumi.get(self, "aws_region")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        Priority of the SIP media application in the target list.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="sipMediaApplicationId")
     def sip_media_application_id(self) -> _builtins.str:
-        """
-        The SIP media application ID.
-        """
         return pulumi.get(self, "sip_media_application_id")
 
 
@@ -176,21 +150,11 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_arn: _builtins.str):
-        """
-        :param _builtins.str kms_key_arn: ARN for KMS Key.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        ARN for KMS Key.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -216,27 +180,17 @@ class VoiceConnectorGroupConnector(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
                  voice_connector_id: _builtins.str):
-        """
-        :param _builtins.int priority: The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-        :param _builtins.str voice_connector_id: The Amazon Chime Voice Connector ID.
-        """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "voice_connector_id", voice_connector_id)
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="voiceConnectorId")
     def voice_connector_id(self) -> _builtins.str:
-        """
-        The Amazon Chime Voice Connector ID.
-        """
         return pulumi.get(self, "voice_connector_id")
 
 
@@ -248,13 +202,6 @@ class VoiceConnectorOriginationRoute(dict):
                  protocol: _builtins.str,
                  weight: _builtins.int,
                  port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str host: The FQDN or IP address to contact for origination traffic.
-        :param _builtins.int priority: The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-        :param _builtins.str protocol: The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-        :param _builtins.int weight: The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-        :param _builtins.int port: The designated origination route port. Defaults to `5060`.
-        """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
@@ -265,41 +212,26 @@ class VoiceConnectorOriginationRoute(dict):
     @_builtins.property
     @pulumi.getter
     def host(self) -> _builtins.str:
-        """
-        The FQDN or IP address to contact for origination traffic.
-        """
         return pulumi.get(self, "host")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
-        """
-        The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter
     def weight(self) -> _builtins.int:
-        """
-        The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-        """
         return pulumi.get(self, "weight")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        The designated origination route port. Defaults to `5060`.
-        """
         return pulumi.get(self, "port")
 
 
@@ -325,10 +257,6 @@ class VoiceConnectorStreamingMediaInsightsConfiguration(dict):
     def __init__(__self__, *,
                  configuration_arn: Optional[_builtins.str] = None,
                  disabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str configuration_arn: The media insights configuration that will be invoked by the Voice Connector.
-        :param _builtins.bool disabled: When `true`, the media insights configuration is not enabled. Defaults to `false`.
-        """
         if configuration_arn is not None:
             pulumi.set(__self__, "configuration_arn", configuration_arn)
         if disabled is not None:
@@ -337,17 +265,11 @@ class VoiceConnectorStreamingMediaInsightsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="configurationArn")
     def configuration_arn(self) -> Optional[_builtins.str]:
-        """
-        The media insights configuration that will be invoked by the Voice Connector.
-        """
         return pulumi.get(self, "configuration_arn")
 
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> Optional[_builtins.bool]:
-        """
-        When `true`, the media insights configuration is not enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "disabled")
 
 
@@ -356,27 +278,17 @@ class VoiceConnectorTerminationCredentialsCredential(dict):
     def __init__(__self__, *,
                  password: _builtins.str,
                  username: _builtins.str):
-        """
-        :param _builtins.str password: RFC2617 compliant password associated with the SIP credentials.
-        :param _builtins.str username: RFC2617 compliant username associated with the SIP credentials.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> _builtins.str:
-        """
-        RFC2617 compliant password associated with the SIP credentials.
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> _builtins.str:
-        """
-        RFC2617 compliant username associated with the SIP credentials.
-        """
         return pulumi.get(self, "username")
 
 

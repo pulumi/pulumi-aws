@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterKerberosAttributes {
-    /**
-     * @return Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     private @Nullable String adDomainJoinPassword;
-    /**
-     * @return Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     private @Nullable String adDomainJoinUser;
-    /**
-     * @return Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     private @Nullable String crossRealmTrustPrincipalPassword;
-    /**
-     * @return Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     private String kdcAdminPassword;
-    /**
-     * @return Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-     * 
-     */
     private String realm;
 
     private ClusterKerberosAttributes() {}
-    /**
-     * @return Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Optional<String> adDomainJoinPassword() {
         return Optional.ofNullable(this.adDomainJoinPassword);
     }
-    /**
-     * @return Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Optional<String> adDomainJoinUser() {
         return Optional.ofNullable(this.adDomainJoinUser);
     }
-    /**
-     * @return Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Optional<String> crossRealmTrustPrincipalPassword() {
         return Optional.ofNullable(this.crossRealmTrustPrincipalPassword);
     }
-    /**
-     * @return Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public String kdcAdminPassword() {
         return this.kdcAdminPassword;
     }
-    /**
-     * @return Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-     * 
-     */
     public String realm() {
         return this.realm;
     }

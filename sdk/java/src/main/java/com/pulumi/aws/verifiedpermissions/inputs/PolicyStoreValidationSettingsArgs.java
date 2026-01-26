@@ -14,21 +14,9 @@ public final class PolicyStoreValidationSettingsArgs extends com.pulumi.resource
 
     public static final PolicyStoreValidationSettingsArgs Empty = new PolicyStoreValidationSettingsArgs();
 
-    /**
-     * The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
@@ -57,27 +45,11 @@ public final class PolicyStoreValidationSettingsArgs extends com.pulumi.resource
             $ = new PolicyStoreValidationSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mode The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

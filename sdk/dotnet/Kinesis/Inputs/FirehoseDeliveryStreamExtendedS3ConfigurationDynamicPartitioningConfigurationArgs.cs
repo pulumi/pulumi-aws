@@ -12,17 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables or disables dynamic partitioning. Defaults to `False`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
-        /// 
-        /// &gt; **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
-        /// </summary>
         [Input("retryDuration")]
         public Input<int>? RetryDuration { get; set; }
 

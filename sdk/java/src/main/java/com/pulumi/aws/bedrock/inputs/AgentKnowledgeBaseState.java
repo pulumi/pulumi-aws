@@ -20,47 +20,23 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
 
     public static final AgentKnowledgeBaseState Empty = new AgentKnowledgeBaseState();
 
-    /**
-     * ARN of the knowledge base.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the knowledge base.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Time at which the knowledge base was created.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return Time at which the knowledge base was created.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Description of the knowledge base.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the knowledge base.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -72,111 +48,51 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.failureReasons);
     }
 
-    /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-     * 
-     */
     @Import(name="knowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
 
-    /**
-     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>> knowledgeBaseConfiguration() {
         return Optional.ofNullable(this.knowledgeBaseConfiguration);
     }
 
-    /**
-     * Name of the knowledge base.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the knowledge base.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     * 
-     */
     @Import(name="storageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
 
-    /**
-     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationArgs>> storageConfiguration() {
         return Optional.ofNullable(this.storageConfiguration);
     }
 
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -188,17 +104,9 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Time at which the knowledge base was last updated.
-     * 
-     */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
-    /**
-     * @return Time at which the knowledge base was last updated.
-     * 
-     */
     public Optional<Output<String>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
@@ -239,65 +147,29 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
             $ = new AgentKnowledgeBaseState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param createdAt Time at which the knowledge base was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt Time at which the knowledge base was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param description Description of the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -315,153 +187,65 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
             return failureReasons(List.of(failureReasons));
         }
 
-        /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration) {
             $.knowledgeBaseConfiguration = knowledgeBaseConfiguration;
             return this;
         }
 
-        /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs knowledgeBaseConfiguration) {
             return knowledgeBaseConfiguration(Output.of(knowledgeBaseConfiguration));
         }
 
-        /**
-         * @param name Name of the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageConfiguration(@Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration) {
             $.storageConfiguration = storageConfiguration;
             return this;
         }
 
-        /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs storageConfiguration) {
             return storageConfiguration(Output.of(storageConfiguration));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -475,23 +259,11 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param updatedAt Time at which the knowledge base was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(@Nullable Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
-        /**
-         * @param updatedAt Time at which the knowledge base was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

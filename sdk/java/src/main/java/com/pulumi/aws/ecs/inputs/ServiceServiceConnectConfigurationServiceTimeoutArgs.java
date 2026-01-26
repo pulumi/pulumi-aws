@@ -15,32 +15,16 @@ public final class ServiceServiceConnectConfigurationServiceTimeoutArgs extends 
 
     public static final ServiceServiceConnectConfigurationServiceTimeoutArgs Empty = new ServiceServiceConnectConfigurationServiceTimeoutArgs();
 
-    /**
-     * Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-     * 
-     */
     @Import(name="idleTimeoutSeconds")
     private @Nullable Output<Integer> idleTimeoutSeconds;
 
-    /**
-     * @return Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-     * 
-     */
     public Optional<Output<Integer>> idleTimeoutSeconds() {
         return Optional.ofNullable(this.idleTimeoutSeconds);
     }
 
-    /**
-     * Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn&#39;t TCP.
-     * 
-     */
     @Import(name="perRequestTimeoutSeconds")
     private @Nullable Output<Integer> perRequestTimeoutSeconds;
 
-    /**
-     * @return Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn&#39;t TCP.
-     * 
-     */
     public Optional<Output<Integer>> perRequestTimeoutSeconds() {
         return Optional.ofNullable(this.perRequestTimeoutSeconds);
     }
@@ -70,44 +54,20 @@ public final class ServiceServiceConnectConfigurationServiceTimeoutArgs extends 
             $ = new ServiceServiceConnectConfigurationServiceTimeoutArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleTimeoutSeconds Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutSeconds(@Nullable Output<Integer> idleTimeoutSeconds) {
             $.idleTimeoutSeconds = idleTimeoutSeconds;
             return this;
         }
 
-        /**
-         * @param idleTimeoutSeconds Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutSeconds(Integer idleTimeoutSeconds) {
             return idleTimeoutSeconds(Output.of(idleTimeoutSeconds));
         }
 
-        /**
-         * @param perRequestTimeoutSeconds Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn&#39;t TCP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder perRequestTimeoutSeconds(@Nullable Output<Integer> perRequestTimeoutSeconds) {
             $.perRequestTimeoutSeconds = perRequestTimeoutSeconds;
             return this;
         }
 
-        /**
-         * @param perRequestTimeoutSeconds Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn&#39;t TCP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder perRequestTimeoutSeconds(Integer perRequestTimeoutSeconds) {
             return perRequestTimeoutSeconds(Output.of(perRequestTimeoutSeconds));
         }

@@ -18,9 +18,6 @@ namespace Pulumi.Aws.DataExchange.Inputs
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
 
-        /// <summary>
-        /// A block specifying the source bucket for the asset. This block supports the following:
-        /// </summary>
         [Input("assetSource")]
         public Input<Inputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceGetArgs>? AssetSource { get; set; }
 

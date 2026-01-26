@@ -19,62 +19,30 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
 
     public static final DataSetPhysicalTableMapArgs Empty = new DataSetPhysicalTableMapArgs();
 
-    /**
-     * A physical table type built from the results of the custom SQL query. See custom_sql.
-     * 
-     */
     @Import(name="customSql")
     private @Nullable Output<DataSetPhysicalTableMapCustomSqlArgs> customSql;
 
-    /**
-     * @return A physical table type built from the results of the custom SQL query. See custom_sql.
-     * 
-     */
     public Optional<Output<DataSetPhysicalTableMapCustomSqlArgs>> customSql() {
         return Optional.ofNullable(this.customSql);
     }
 
-    /**
-     * Key of the physical table map.
-     * 
-     */
     @Import(name="physicalTableMapId", required=true)
     private Output<String> physicalTableMapId;
 
-    /**
-     * @return Key of the physical table map.
-     * 
-     */
     public Output<String> physicalTableMapId() {
         return this.physicalTableMapId;
     }
 
-    /**
-     * A physical table type for relational data sources. See relational_table.
-     * 
-     */
     @Import(name="relationalTable")
     private @Nullable Output<DataSetPhysicalTableMapRelationalTableArgs> relationalTable;
 
-    /**
-     * @return A physical table type for relational data sources. See relational_table.
-     * 
-     */
     public Optional<Output<DataSetPhysicalTableMapRelationalTableArgs>> relationalTable() {
         return Optional.ofNullable(this.relationalTable);
     }
 
-    /**
-     * A physical table type for as S3 data source. See s3_source.
-     * 
-     */
     @Import(name="s3Source")
     private @Nullable Output<DataSetPhysicalTableMapS3SourceArgs> s3Source;
 
-    /**
-     * @return A physical table type for as S3 data source. See s3_source.
-     * 
-     */
     public Optional<Output<DataSetPhysicalTableMapS3SourceArgs>> s3Source() {
         return Optional.ofNullable(this.s3Source);
     }
@@ -106,86 +74,38 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
             $ = new DataSetPhysicalTableMapArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customSql A physical table type built from the results of the custom SQL query. See custom_sql.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customSql(@Nullable Output<DataSetPhysicalTableMapCustomSqlArgs> customSql) {
             $.customSql = customSql;
             return this;
         }
 
-        /**
-         * @param customSql A physical table type built from the results of the custom SQL query. See custom_sql.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customSql(DataSetPhysicalTableMapCustomSqlArgs customSql) {
             return customSql(Output.of(customSql));
         }
 
-        /**
-         * @param physicalTableMapId Key of the physical table map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder physicalTableMapId(Output<String> physicalTableMapId) {
             $.physicalTableMapId = physicalTableMapId;
             return this;
         }
 
-        /**
-         * @param physicalTableMapId Key of the physical table map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder physicalTableMapId(String physicalTableMapId) {
             return physicalTableMapId(Output.of(physicalTableMapId));
         }
 
-        /**
-         * @param relationalTable A physical table type for relational data sources. See relational_table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relationalTable(@Nullable Output<DataSetPhysicalTableMapRelationalTableArgs> relationalTable) {
             $.relationalTable = relationalTable;
             return this;
         }
 
-        /**
-         * @param relationalTable A physical table type for relational data sources. See relational_table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relationalTable(DataSetPhysicalTableMapRelationalTableArgs relationalTable) {
             return relationalTable(Output.of(relationalTable));
         }
 
-        /**
-         * @param s3Source A physical table type for as S3 data source. See s3_source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Source(@Nullable Output<DataSetPhysicalTableMapS3SourceArgs> s3Source) {
             $.s3Source = s3Source;
             return this;
         }
 
-        /**
-         * @param s3Source A physical table type for as S3 data source. See s3_source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Source(DataSetPhysicalTableMapS3SourceArgs s3Source) {
             return s3Source(Output.of(s3Source));
         }

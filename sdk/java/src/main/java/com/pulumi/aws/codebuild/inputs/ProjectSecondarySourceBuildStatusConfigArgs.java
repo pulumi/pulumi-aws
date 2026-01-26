@@ -15,36 +15,16 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
 
     public static final ProjectSecondarySourceBuildStatusConfigArgs Empty = new ProjectSecondarySourceBuildStatusConfigArgs();
 
-    /**
-     * Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-     * this parameter depends on the source provider.
-     * 
-     */
     @Import(name="context")
     private @Nullable Output<String> context;
 
-    /**
-     * @return Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-     * this parameter depends on the source provider.
-     * 
-     */
     public Optional<Output<String>> context() {
         return Optional.ofNullable(this.context);
     }
 
-    /**
-     * Specifies the target url of the build status CodeBuild sends to the source provider. The
-     * usage of this parameter depends on the source provider.
-     * 
-     */
     @Import(name="targetUrl")
     private @Nullable Output<String> targetUrl;
 
-    /**
-     * @return Specifies the target url of the build status CodeBuild sends to the source provider. The
-     * usage of this parameter depends on the source provider.
-     * 
-     */
     public Optional<Output<String>> targetUrl() {
         return Optional.ofNullable(this.targetUrl);
     }
@@ -74,48 +54,20 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
             $ = new ProjectSecondarySourceBuildStatusConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param context Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-         * this parameter depends on the source provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder context(@Nullable Output<String> context) {
             $.context = context;
             return this;
         }
 
-        /**
-         * @param context Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-         * this parameter depends on the source provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder context(String context) {
             return context(Output.of(context));
         }
 
-        /**
-         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The
-         * usage of this parameter depends on the source provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetUrl(@Nullable Output<String> targetUrl) {
             $.targetUrl = targetUrl;
             return this;
         }
 
-        /**
-         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The
-         * usage of this parameter depends on the source provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetUrl(String targetUrl) {
             return targetUrl(Output.of(targetUrl));
         }

@@ -15,13 +15,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     {
         public readonly int? OriginKeepaliveTimeout;
         public readonly int? OriginReadTimeout;
-        /// <summary>
-        /// The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-        /// </summary>
         public readonly string? OwnerAccountId;
-        /// <summary>
-        /// The VPC origin ID.
-        /// </summary>
         public readonly string VpcOriginId;
 
         [OutputConstructor]

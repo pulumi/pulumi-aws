@@ -11,61 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Shield Protection.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := shield.LookupProtection(ctx, &shield.LookupProtectionArgs{
-//				ProtectionId: pulumi.StringRef("abc123"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### By Resource ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := shield.LookupProtection(ctx, &shield.LookupProtectionArgs{
-//				ResourceArn: pulumi.StringRef("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupProtection(ctx *pulumi.Context, args *LookupProtectionArgs, opts ...pulumi.InvokeOption) (*LookupProtectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProtectionResult
@@ -78,20 +23,14 @@ func LookupProtection(ctx *pulumi.Context, args *LookupProtectionArgs, opts ...p
 
 // A collection of arguments for invoking getProtection.
 type LookupProtectionArgs struct {
-	// Unique identifier for the protection.
 	ProtectionId *string `pulumi:"protectionId"`
-	// ARN (Amazon Resource Name) of the resource being protected.
-	//
-	// > Exactly one of `protectionId` or `resourceArn` is required.
-	ResourceArn *string `pulumi:"resourceArn"`
+	ResourceArn  *string `pulumi:"resourceArn"`
 }
 
 // A collection of values returned by getProtection.
 type LookupProtectionResult struct {
-	Id string `pulumi:"id"`
-	// Name of the protection.
-	Name string `pulumi:"name"`
-	// ARN of the protection.
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
 	ProtectionArn string `pulumi:"protectionArn"`
 	ProtectionId  string `pulumi:"protectionId"`
 	ResourceArn   string `pulumi:"resourceArn"`
@@ -108,12 +47,8 @@ func LookupProtectionOutput(ctx *pulumi.Context, args LookupProtectionOutputArgs
 
 // A collection of arguments for invoking getProtection.
 type LookupProtectionOutputArgs struct {
-	// Unique identifier for the protection.
 	ProtectionId pulumi.StringPtrInput `pulumi:"protectionId"`
-	// ARN (Amazon Resource Name) of the resource being protected.
-	//
-	// > Exactly one of `protectionId` or `resourceArn` is required.
-	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
+	ResourceArn  pulumi.StringPtrInput `pulumi:"resourceArn"`
 }
 
 func (LookupProtectionOutputArgs) ElementType() reflect.Type {
@@ -139,12 +74,10 @@ func (o LookupProtectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProtectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the protection.
 func (o LookupProtectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProtectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// ARN of the protection.
 func (o LookupProtectionResultOutput) ProtectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProtectionResult) string { return v.ProtectionArn }).(pulumi.StringOutput)
 }

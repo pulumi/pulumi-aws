@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
     [OutputType]
     public sealed class DirectoryCertificateBasedAuthProperties
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-        /// </summary>
         public readonly string? CertificateAuthorityArn;
-        /// <summary>
-        /// Status of certificate-based authentication. Default `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

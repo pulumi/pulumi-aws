@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeploymentConfigurationLifecycleHook {
-    /**
-     * @return Additional details for the hook
-     * 
-     */
     private String hookDetails;
-    /**
-     * @return ARN of the Lambda function to invoke
-     * 
-     */
     private String hookTargetArn;
-    /**
-     * @return Deployment stages when hook is invoked
-     * 
-     */
     private List<String> lifecycleStages;
-    /**
-     * @return ARN of the IAM role that allows ECS to manage the target groups.
-     * 
-     */
     private String roleArn;
 
     private GetServiceDeploymentConfigurationLifecycleHook() {}
-    /**
-     * @return Additional details for the hook
-     * 
-     */
     public String hookDetails() {
         return this.hookDetails;
     }
-    /**
-     * @return ARN of the Lambda function to invoke
-     * 
-     */
     public String hookTargetArn() {
         return this.hookTargetArn;
     }
-    /**
-     * @return Deployment stages when hook is invoked
-     * 
-     */
     public List<String> lifecycleStages() {
         return this.lifecycleStages;
     }
-    /**
-     * @return ARN of the IAM role that allows ECS to manage the target groups.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

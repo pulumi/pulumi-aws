@@ -16,47 +16,23 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
 
     public static final EventSourceMappingDocumentDbEventSourceConfigArgs Empty = new EventSourceMappingDocumentDbEventSourceConfigArgs();
 
-    /**
-     * Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-     * 
-     */
     @Import(name="collectionName")
     private @Nullable Output<String> collectionName;
 
-    /**
-     * @return Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-     * 
-     */
     public Optional<Output<String>> collectionName() {
         return Optional.ofNullable(this.collectionName);
     }
 
-    /**
-     * Name of the database to consume within the DocumentDB cluster.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the database to consume within the DocumentDB cluster.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-     * 
-     */
     @Import(name="fullDocument")
     private @Nullable Output<String> fullDocument;
 
-    /**
-     * @return Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-     * 
-     */
     public Optional<Output<String>> fullDocument() {
         return Optional.ofNullable(this.fullDocument);
     }
@@ -87,65 +63,29 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
             $ = new EventSourceMappingDocumentDbEventSourceConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param collectionName Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collectionName(@Nullable Output<String> collectionName) {
             $.collectionName = collectionName;
             return this;
         }
 
-        /**
-         * @param collectionName Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collectionName(String collectionName) {
             return collectionName(Output.of(collectionName));
         }
 
-        /**
-         * @param databaseName Name of the database to consume within the DocumentDB cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the database to consume within the DocumentDB cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param fullDocument Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullDocument(@Nullable Output<String> fullDocument) {
             $.fullDocument = fullDocument;
             return this;
         }
 
-        /**
-         * @param fullDocument Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullDocument(String fullDocument) {
             return fullDocument(Output.of(fullDocument));
         }

@@ -17,32 +17,16 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
 
     public static final ClassificationExportConfigurationArgs Empty = new ClassificationExportConfigurationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block for a S3 Destination. Defined below
-     * 
-     */
     @Import(name="s3Destination", required=true)
     private Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination;
 
-    /**
-     * @return Configuration block for a S3 Destination. Defined below
-     * 
-     */
     public Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination() {
         return this.s3Destination;
     }
@@ -72,44 +56,20 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
             $ = new ClassificationExportConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3Destination Configuration block for a S3 Destination. Defined below
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination) {
             $.s3Destination = s3Destination;
             return this;
         }
 
-        /**
-         * @param s3Destination Configuration block for a S3 Destination. Defined below
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(ClassificationExportConfigurationS3DestinationArgs s3Destination) {
             return s3Destination(Output.of(s3Destination));
         }

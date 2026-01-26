@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace {
-    /**
-     * @return The namespace to use for aggregation
-     * 
-     */
     private String namespace;
 
     private RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace() {}
-    /**
-     * @return The namespace to use for aggregation
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

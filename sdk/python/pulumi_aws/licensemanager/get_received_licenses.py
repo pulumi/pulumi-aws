@@ -45,9 +45,6 @@ class GetReceivedLicensesResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        List of all the license ARNs found.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -85,25 +82,7 @@ def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesF
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReceivedLicensesResult:
     """
-    This resource can be used to get a set of license ARNs matching a filter.
-
-    ## Example Usage
-
-    The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.licensemanager.get_received_licenses(filters=[{
-        "name": "IssuerName",
-        "values": ["AWS/Marketplace"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -120,25 +99,7 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicensesResult]:
     """
-    This resource can be used to get a set of license ARNs matching a filter.
-
-    ## Example Usage
-
-    The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.licensemanager.get_received_licenses(filters=[{
-        "name": "IssuerName",
-        "values": ["AWS/Marketplace"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppCampaignHook {
-    /**
-     * @return Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
-     * 
-     */
     private @Nullable String lambdaFunctionName;
-    /**
-     * @return What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-     * 
-     */
     private @Nullable String mode;
-    /**
-     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
-     * 
-     */
     private @Nullable String webUrl;
 
     private AppCampaignHook() {}
-    /**
-     * @return Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
-     * 
-     */
     public Optional<String> lambdaFunctionName() {
         return Optional.ofNullable(this.lambdaFunctionName);
     }
-    /**
-     * @return What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
-    /**
-     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
-     * 
-     */
     public Optional<String> webUrl() {
         return Optional.ofNullable(this.webUrl);
     }

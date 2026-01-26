@@ -9,79 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Uploads an SSH public key and associates it with the specified IAM user.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var user = new Aws.Iam.User("user", new()
-    ///     {
-    ///         Name = "test-user",
-    ///         Path = "/",
-    ///     });
-    /// 
-    ///     var userSshKey = new Aws.Iam.SshKey("user", new()
-    ///     {
-    ///         Username = user.Name,
-    ///         Encoding = "SSH",
-    ///         PublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 mytest@mydomain.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/sshKey:SshKey")]
     public partial class SshKey : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        /// </summary>
         [Output("encoding")]
         public Output<string> Encoding { get; private set; } = null!;
 
-        /// <summary>
-        /// The MD5 message digest of the SSH public key.
-        /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
-        /// <summary>
-        /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the SSH public key.
-        /// </summary>
         [Output("sshPublicKeyId")]
         public Output<string> SshPublicKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `Active`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the IAM user to associate the SSH public key with.
-        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -131,27 +76,15 @@ namespace Pulumi.Aws.Iam
 
     public sealed class SshKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        /// </summary>
         [Input("encoding", required: true)]
         public Input<string> Encoding { get; set; } = null!;
 
-        /// <summary>
-        /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
 
-        /// <summary>
-        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `Active`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the IAM user to associate the SSH public key with.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -163,39 +96,21 @@ namespace Pulumi.Aws.Iam
 
     public sealed class SshKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
-        /// <summary>
-        /// The MD5 message digest of the SSH public key.
-        /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
 
-        /// <summary>
-        /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the SSH public key.
-        /// </summary>
         [Input("sshPublicKeyId")]
         public Input<string>? SshPublicKeyId { get; set; }
 
-        /// <summary>
-        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `Active`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the IAM user to associate the SSH public key with.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

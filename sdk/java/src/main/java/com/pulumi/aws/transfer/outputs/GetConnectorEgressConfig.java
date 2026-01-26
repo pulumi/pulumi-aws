@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectorEgressConfig {
-    /**
-     * @return VPC Lattice configuration. Contains the following attributes:
-     * 
-     */
     private List<GetConnectorEgressConfigVpcLattice> vpcLattices;
 
     private GetConnectorEgressConfig() {}
-    /**
-     * @return VPC Lattice configuration. Contains the following attributes:
-     * 
-     */
     public List<GetConnectorEgressConfigVpcLattice> vpcLattices() {
         return this.vpcLattices;
     }

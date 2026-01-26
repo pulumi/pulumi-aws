@@ -12,89 +12,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings {
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     private @Nullable Double bitrate;
-    /**
-     * @return Dolby Digital Plus with Dolby Atmos coding mode.
-     * 
-     */
     private @Nullable String codingMode;
-    /**
-     * @return Sets the dialnorm for the output.
-     * 
-     */
     private @Nullable Double dialnorm;
-    /**
-     * @return Sets the Dolby dynamic range compression profile.
-     * 
-     */
     private @Nullable String drcLine;
-    /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
-     * 
-     */
     private @Nullable String drcRf;
-    /**
-     * @return Height dimensional trim.
-     * 
-     */
     private @Nullable Double heightTrim;
-    /**
-     * @return Surround dimensional trim.
-     * 
-     */
     private @Nullable Double surroundTrim;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings() {}
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Optional<Double> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
-    /**
-     * @return Dolby Digital Plus with Dolby Atmos coding mode.
-     * 
-     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
-    /**
-     * @return Sets the dialnorm for the output.
-     * 
-     */
     public Optional<Double> dialnorm() {
         return Optional.ofNullable(this.dialnorm);
     }
-    /**
-     * @return Sets the Dolby dynamic range compression profile.
-     * 
-     */
     public Optional<String> drcLine() {
         return Optional.ofNullable(this.drcLine);
     }
-    /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
-     * 
-     */
     public Optional<String> drcRf() {
         return Optional.ofNullable(this.drcRf);
     }
-    /**
-     * @return Height dimensional trim.
-     * 
-     */
     public Optional<Double> heightTrim() {
         return Optional.ofNullable(this.heightTrim);
     }
-    /**
-     * @return Surround dimensional trim.
-     * 
-     */
     public Optional<Double> surroundTrim() {
         return Optional.ofNullable(this.surroundTrim);
     }

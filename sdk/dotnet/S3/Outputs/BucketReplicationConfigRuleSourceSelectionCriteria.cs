@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketReplicationConfigRuleSourceSelectionCriteria
     {
-        /// <summary>
-        /// Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `Filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-        /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications? ReplicaModifications;
-        /// <summary>
-        /// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `ReplicaKmsKeyId` in `Destination` `EncryptionConfiguration` must be specified as well.
-        /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects? SseKmsEncryptedObjects;
 
         [OutputConstructor]

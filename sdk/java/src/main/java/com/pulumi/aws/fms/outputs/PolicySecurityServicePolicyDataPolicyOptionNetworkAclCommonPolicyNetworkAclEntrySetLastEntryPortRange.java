@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange {
-    /**
-     * @return The beginning port number of the range.
-     * 
-     */
     private @Nullable Integer from;
-    /**
-     * @return The ending port number of the range.
-     * 
-     */
     private @Nullable Integer to;
 
     private PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange() {}
-    /**
-     * @return The beginning port number of the range.
-     * 
-     */
     public Optional<Integer> from() {
         return Optional.ofNullable(this.from);
     }
-    /**
-     * @return The ending port number of the range.
-     * 
-     */
     public Optional<Integer> to() {
         return Optional.ofNullable(this.to);
     }

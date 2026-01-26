@@ -13,10 +13,6 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     [OutputType]
     public sealed class OrganizationConfigurationDatasourcesKubernetes
     {
-        /// <summary>
-        /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        /// See Kubernetes Audit Logs below for more details.
-        /// </summary>
         public readonly Outputs.OrganizationConfigurationDatasourcesKubernetesAuditLogs AuditLogs;
 
         [OutputConstructor]

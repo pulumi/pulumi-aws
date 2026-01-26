@@ -13,49 +13,16 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class GetSupportedInstanceTypesSupportedInstanceTypeResult
     {
-        /// <summary>
-        /// CPU architecture.
-        /// </summary>
         public readonly string Architecture;
-        /// <summary>
-        /// Indicates whether the instance type supports Amazon EBS optimization.
-        /// </summary>
         public readonly bool EbsOptimizedAvailable;
-        /// <summary>
-        /// Indicates whether the instance type uses Amazon EBS optimization by default.
-        /// </summary>
         public readonly bool EbsOptimizedByDefault;
-        /// <summary>
-        /// Indicates whether the instance type only supports Amazon EBS.
-        /// </summary>
         public readonly bool EbsStorageOnly;
-        /// <summary>
-        /// The Amazon EC2 family and generation for the instance type.
-        /// </summary>
         public readonly string InstanceFamilyId;
-        /// <summary>
-        /// Indicates whether the instance type only supports 64-bit architecture.
-        /// </summary>
         public readonly bool Is64BitsOnly;
-        /// <summary>
-        /// Memory that is available to Amazon EMR from the instance type.
-        /// </summary>
         public readonly double MemoryGb;
-        /// <summary>
-        /// Number of disks for the instance type.
-        /// </summary>
         public readonly int NumberOfDisks;
-        /// <summary>
-        /// Storage capacity of the instance type.
-        /// </summary>
         public readonly int StorageGb;
-        /// <summary>
-        /// Amazon EC2 instance type. For example, `m5.xlarge`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The number of vCPUs available for the instance type.
-        /// </summary>
         public readonly int Vcpu;
 
         [OutputConstructor]

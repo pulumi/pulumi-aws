@@ -13,18 +13,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GetGroupWarmPoolResult
     {
-        /// <summary>
-        /// List of instance reuse policy objects.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupWarmPoolInstanceReusePolicyResult> InstanceReusePolicies;
         public readonly int MaxGroupPreparedCapacity;
-        /// <summary>
-        /// Minimum number of instances to maintain in the warm pool.
-        /// </summary>
         public readonly int MinSize;
-        /// <summary>
-        /// Instance state to transition to after the lifecycle actions are complete.
-        /// </summary>
         public readonly string PoolState;
 
         [OutputConstructor]

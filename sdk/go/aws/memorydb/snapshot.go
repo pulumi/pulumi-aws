@@ -12,67 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a MemoryDB Snapshot.
-//
-// More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.NewSnapshot(ctx, "example", &memorydb.SnapshotArgs{
-//				ClusterName: pulumi.Any(exampleAwsMemorydbCluster.Name),
-//				Name:        pulumi.String("my-snapshot"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a snapshot using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
-// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration of the cluster from which the snapshot was taken.
+	Arn                   pulumi.StringOutput                     `pulumi:"arn"`
 	ClusterConfigurations SnapshotClusterConfigurationArrayOutput `pulumi:"clusterConfigurations"`
-	// Name of the MemoryDB cluster to take a snapshot of.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// ARN of the KMS key used to encrypt the snapshot at rest.
-	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-	Source pulumi.StringOutput `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ClusterName           pulumi.StringOutput                     `pulumi:"clusterName"`
+	KmsKeyArn             pulumi.StringPtrOutput                  `pulumi:"kmsKeyArn"`
+	Name                  pulumi.StringOutput                     `pulumi:"name"`
+	NamePrefix            pulumi.StringOutput                     `pulumi:"namePrefix"`
+	Region                pulumi.StringOutput                     `pulumi:"region"`
+	Source                pulumi.StringOutput                     `pulumi:"source"`
+	Tags                  pulumi.StringMapOutput                  `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                  `pulumi:"tagsAll"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -108,49 +60,29 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// The ARN of the snapshot.
-	Arn *string `pulumi:"arn"`
-	// The configuration of the cluster from which the snapshot was taken.
+	Arn                   *string                        `pulumi:"arn"`
 	ClusterConfigurations []SnapshotClusterConfiguration `pulumi:"clusterConfigurations"`
-	// Name of the MemoryDB cluster to take a snapshot of.
-	ClusterName *string `pulumi:"clusterName"`
-	// ARN of the KMS key used to encrypt the snapshot at rest.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-	Source *string `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ClusterName           *string                        `pulumi:"clusterName"`
+	KmsKeyArn             *string                        `pulumi:"kmsKeyArn"`
+	Name                  *string                        `pulumi:"name"`
+	NamePrefix            *string                        `pulumi:"namePrefix"`
+	Region                *string                        `pulumi:"region"`
+	Source                *string                        `pulumi:"source"`
+	Tags                  map[string]string              `pulumi:"tags"`
+	TagsAll               map[string]string              `pulumi:"tagsAll"`
 }
 
 type SnapshotState struct {
-	// The ARN of the snapshot.
-	Arn pulumi.StringPtrInput
-	// The configuration of the cluster from which the snapshot was taken.
+	Arn                   pulumi.StringPtrInput
 	ClusterConfigurations SnapshotClusterConfigurationArrayInput
-	// Name of the MemoryDB cluster to take a snapshot of.
-	ClusterName pulumi.StringPtrInput
-	// ARN of the KMS key used to encrypt the snapshot at rest.
-	KmsKeyArn pulumi.StringPtrInput
-	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-	Source pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ClusterName           pulumi.StringPtrInput
+	KmsKeyArn             pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	NamePrefix            pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Source                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {
@@ -158,34 +90,22 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// Name of the MemoryDB cluster to take a snapshot of.
-	ClusterName string `pulumi:"clusterName"`
-	// ARN of the KMS key used to encrypt the snapshot at rest.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ClusterName string            `pulumi:"clusterName"`
+	KmsKeyArn   *string           `pulumi:"kmsKeyArn"`
+	Name        *string           `pulumi:"name"`
+	NamePrefix  *string           `pulumi:"namePrefix"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// Name of the MemoryDB cluster to take a snapshot of.
 	ClusterName pulumi.StringInput
-	// ARN of the KMS key used to encrypt the snapshot at rest.
-	KmsKeyArn pulumi.StringPtrInput
-	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	KmsKeyArn   pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	NamePrefix  pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -275,52 +195,42 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-// The ARN of the snapshot.
 func (o SnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration of the cluster from which the snapshot was taken.
 func (o SnapshotOutput) ClusterConfigurations() SnapshotClusterConfigurationArrayOutput {
 	return o.ApplyT(func(v *Snapshot) SnapshotClusterConfigurationArrayOutput { return v.ClusterConfigurations }).(SnapshotClusterConfigurationArrayOutput)
 }
 
-// Name of the MemoryDB cluster to take a snapshot of.
 func (o SnapshotOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// ARN of the KMS key used to encrypt the snapshot at rest.
 func (o SnapshotOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o SnapshotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o SnapshotOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 func (o SnapshotOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

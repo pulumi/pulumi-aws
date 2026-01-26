@@ -19,47 +19,23 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
 
     public static final ServiceServiceConnectConfigurationLogConfigurationArgs Empty = new ServiceServiceConnectConfigurationLogConfigurationArgs();
 
-    /**
-     * Log driver to use for the container.
-     * 
-     */
     @Import(name="logDriver", required=true)
     private Output<String> logDriver;
 
-    /**
-     * @return Log driver to use for the container.
-     * 
-     */
     public Output<String> logDriver() {
         return this.logDriver;
     }
 
-    /**
-     * Configuration options to send to the log driver.
-     * 
-     */
     @Import(name="options")
     private @Nullable Output<Map<String,String>> options;
 
-    /**
-     * @return Configuration options to send to the log driver.
-     * 
-     */
     public Optional<Output<Map<String,String>>> options() {
         return Optional.ofNullable(this.options);
     }
 
-    /**
-     * Secrets to pass to the log configuration. See below.
-     * 
-     */
     @Import(name="secretOptions")
     private @Nullable Output<List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs>> secretOptions;
 
-    /**
-     * @return Secrets to pass to the log configuration. See below.
-     * 
-     */
     public Optional<Output<List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs>>> secretOptions() {
         return Optional.ofNullable(this.secretOptions);
     }
@@ -90,75 +66,33 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
             $ = new ServiceServiceConnectConfigurationLogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logDriver Log driver to use for the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDriver(Output<String> logDriver) {
             $.logDriver = logDriver;
             return this;
         }
 
-        /**
-         * @param logDriver Log driver to use for the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDriver(String logDriver) {
             return logDriver(Output.of(logDriver));
         }
 
-        /**
-         * @param options Configuration options to send to the log driver.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(@Nullable Output<Map<String,String>> options) {
             $.options = options;
             return this;
         }
 
-        /**
-         * @param options Configuration options to send to the log driver.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(Map<String,String> options) {
             return options(Output.of(options));
         }
 
-        /**
-         * @param secretOptions Secrets to pass to the log configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretOptions(@Nullable Output<List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs>> secretOptions) {
             $.secretOptions = secretOptions;
             return this;
         }
 
-        /**
-         * @param secretOptions Secrets to pass to the log configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretOptions(List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs> secretOptions) {
             return secretOptions(Output.of(secretOptions));
         }
 
-        /**
-         * @param secretOptions Secrets to pass to the log configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretOptions(ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs... secretOptions) {
             return secretOptions(List.of(secretOptions));
         }

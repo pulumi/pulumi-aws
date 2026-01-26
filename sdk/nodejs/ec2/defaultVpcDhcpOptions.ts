@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
- * in the current region.
- *
- * Each AWS region comes with a default set of DHCP options.
- * **This is an advanced resource**, and has special caveats to be aware of when
- * using it. Please read this document in its entirety before using this resource.
- *
- * The `aws.ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
- * this provider does not _create_ this resource, but instead "adopts" it
- * into management.
- *
- * ## Example Usage
- *
- * Basic usage with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.ec2.DefaultVpcDhcpOptions("default", {tags: {
- *     Name: "Default DHCP Option Set",
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
- * ```
- */
 export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
     /**
      * Get an existing DefaultVpcDhcpOptions resource's state with the given name, ID, and optional extra
@@ -65,30 +32,15 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultVpcDhcpOptions.__pulumiType;
     }
 
-    /**
-     * The ARN of the DHCP Options Set.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly domainName: pulumi.Output<string>;
     declare public /*out*/ readonly domainNameServers: pulumi.Output<string>;
     declare public /*out*/ readonly ipv6AddressPreferredLeaseTime: pulumi.Output<string>;
-    /**
-     * List of NETBIOS name servers.
-     */
     declare public /*out*/ readonly netbiosNameServers: pulumi.Output<string>;
-    /**
-     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-     */
     declare public /*out*/ readonly netbiosNodeType: pulumi.Output<string>;
     declare public /*out*/ readonly ntpServers: pulumi.Output<string>;
-    /**
-     * The ID of the AWS account that owns the DHCP options set.
-     */
     declare public readonly ownerId: pulumi.Output<string>;
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -139,30 +91,15 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultVpcDhcpOptions resources.
  */
 export interface DefaultVpcDhcpOptionsState {
-    /**
-     * The ARN of the DHCP Options Set.
-     */
     arn?: pulumi.Input<string>;
     domainName?: pulumi.Input<string>;
     domainNameServers?: pulumi.Input<string>;
     ipv6AddressPreferredLeaseTime?: pulumi.Input<string>;
-    /**
-     * List of NETBIOS name servers.
-     */
     netbiosNameServers?: pulumi.Input<string>;
-    /**
-     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-     */
     netbiosNodeType?: pulumi.Input<string>;
     ntpServers?: pulumi.Input<string>;
-    /**
-     * The ID of the AWS account that owns the DHCP options set.
-     */
     ownerId?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -171,13 +108,7 @@ export interface DefaultVpcDhcpOptionsState {
  * The set of arguments for constructing a DefaultVpcDhcpOptions resource.
  */
 export interface DefaultVpcDhcpOptionsArgs {
-    /**
-     * The ID of the AWS account that owns the DHCP options set.
-     */
     ownerId?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

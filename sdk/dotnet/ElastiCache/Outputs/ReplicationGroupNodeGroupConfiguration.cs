@@ -13,33 +13,12 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class ReplicationGroupNodeGroupConfiguration
     {
-        /// <summary>
-        /// ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-        /// </summary>
         public readonly string? NodeGroupId;
-        /// <summary>
-        /// Availability zone for the primary node.
-        /// </summary>
         public readonly string? PrimaryAvailabilityZone;
-        /// <summary>
-        /// ARN of the Outpost for the primary node.
-        /// </summary>
         public readonly string? PrimaryOutpostArn;
-        /// <summary>
-        /// List of availability zones for the replica nodes.
-        /// </summary>
         public readonly ImmutableArray<string> ReplicaAvailabilityZones;
-        /// <summary>
-        /// Number of replica nodes in this node group.
-        /// </summary>
         public readonly int? ReplicaCount;
-        /// <summary>
-        /// List of ARNs of the Outposts for the replica nodes.
-        /// </summary>
         public readonly ImmutableArray<string> ReplicaOutpostArns;
-        /// <summary>
-        /// Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-        /// </summary>
         public readonly string? Slots;
 
         [OutputConstructor]

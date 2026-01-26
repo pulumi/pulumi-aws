@@ -14,16 +14,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEmailIdentityResult {
-    /**
-     * @return ARN of the Email Identity.
-     * 
-     */
     private String arn;
     private String configurationSetName;
-    /**
-     * @return A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
-     * 
-     */
     private List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes;
     private String emailIdentity;
     /**
@@ -31,43 +23,19 @@ public final class GetEmailIdentityResult {
      * 
      */
     private String id;
-    /**
-     * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-     * 
-     */
     private String identityType;
     private String region;
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-     * 
-     */
     private String verificationStatus;
-    /**
-     * @return Specifies whether or not the identity is verified.
-     * 
-     */
     private Boolean verifiedForSendingStatus;
 
     private GetEmailIdentityResult() {}
-    /**
-     * @return ARN of the Email Identity.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String configurationSetName() {
         return this.configurationSetName;
     }
-    /**
-     * @return A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
-     * 
-     */
     public List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes() {
         return this.dkimSigningAttributes;
     }
@@ -81,34 +49,18 @@ public final class GetEmailIdentityResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-     * 
-     */
     public String identityType() {
         return this.identityType;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-     * 
-     */
     public String verificationStatus() {
         return this.verificationStatus;
     }
-    /**
-     * @return Specifies whether or not the identity is verified.
-     * 
-     */
     public Boolean verifiedForSendingStatus() {
         return this.verifiedForSendingStatus;
     }

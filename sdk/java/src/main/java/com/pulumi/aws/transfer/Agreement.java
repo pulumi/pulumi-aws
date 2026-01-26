@@ -15,183 +15,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a AWS Transfer AS2 Agreement resource.
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.transfer.Agreement;
- * import com.pulumi.aws.transfer.AgreementArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Agreement("example", AgreementArgs.builder()
- *             .accessRole(test.arn())
- *             .baseDirectory("/DOC-EXAMPLE-BUCKET/home/mydirectory")
- *             .description("example")
- *             .localProfileId(local.profileId())
- *             .partnerProfileId(partner.profileId())
- *             .serverId(testAwsTransferServer.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
- * ```
- * 
- */
 @ResourceType(type="aws:transfer/agreement:Agreement")
 public class Agreement extends com.pulumi.resources.CustomResource {
-    /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-     * 
-     */
     @Export(name="accessRole", refs={String.class}, tree="[0]")
     private Output<String> accessRole;
 
-    /**
-     * @return The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-     * 
-     */
     public Output<String> accessRole() {
         return this.accessRole;
     }
-    /**
-     * The unique identifier for the AS2 agreement.
-     * 
-     */
     @Export(name="agreementId", refs={String.class}, tree="[0]")
     private Output<String> agreementId;
 
-    /**
-     * @return The unique identifier for the AS2 agreement.
-     * 
-     */
     public Output<String> agreementId() {
         return this.agreementId;
     }
-    /**
-     * The ARN of the agreement.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the agreement.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The landing directory for the files transferred by using the AS2 protocol.
-     * 
-     */
     @Export(name="baseDirectory", refs={String.class}, tree="[0]")
     private Output<String> baseDirectory;
 
-    /**
-     * @return The landing directory for the files transferred by using the AS2 protocol.
-     * 
-     */
     public Output<String> baseDirectory() {
         return this.baseDirectory;
     }
-    /**
-     * The Optional description of the transdfer.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The Optional description of the transdfer.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The unique identifier for the AS2 local profile.
-     * 
-     */
     @Export(name="localProfileId", refs={String.class}, tree="[0]")
     private Output<String> localProfileId;
 
-    /**
-     * @return The unique identifier for the AS2 local profile.
-     * 
-     */
     public Output<String> localProfileId() {
         return this.localProfileId;
     }
-    /**
-     * The unique identifier for the AS2 partner profile.
-     * 
-     */
     @Export(name="partnerProfileId", refs={String.class}, tree="[0]")
     private Output<String> partnerProfileId;
 
-    /**
-     * @return The unique identifier for the AS2 partner profile.
-     * 
-     */
     public Output<String> partnerProfileId() {
         return this.partnerProfileId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The unique server identifier for the server instance. This is the specific server the agreement uses.
-     * 
-     */
     @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
-    /**
-     * @return The unique server identifier for the server instance. This is the specific server the agreement uses.
-     * 
-     */
     public Output<String> serverId() {
         return this.serverId;
     }
@@ -201,17 +77,9 @@ public class Agreement extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

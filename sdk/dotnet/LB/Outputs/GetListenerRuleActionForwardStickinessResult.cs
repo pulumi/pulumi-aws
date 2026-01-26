@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionForwardStickinessResult
     {
-        /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target group.
-        /// </summary>
         public readonly int Duration;
-        /// <summary>
-        /// Indicates whether target group stickiness is enabled.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

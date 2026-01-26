@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class MultitenantDistributionOriginOriginShieldArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Origin Shield is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// AWS Region for Origin Shield. Required when `Enabled` is `True`.
-        /// </summary>
         [Input("originShieldRegion")]
         public Input<string>? OriginShieldRegion { get; set; }
 

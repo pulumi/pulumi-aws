@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAmiFilter {
-    /**
-     * @return Name of the AMI that was provided during image creation.
-     * 
-     */
     private String name;
     private List<String> values;
 
     private GetAmiFilter() {}
-    /**
-     * @return Name of the AMI that was provided during image creation.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleAction {
-    /**
-     * @return valid values are: `BLOCK`, `ALLOW`, or `COUNT`
-     * 
-     */
     private String type;
 
     private WebAclRuleAction() {}
-    /**
-     * @return valid values are: `BLOCK`, `ALLOW`, or `COUNT`
-     * 
-     */
     public String type() {
         return this.type;
     }

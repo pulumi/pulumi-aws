@@ -16,32 +16,16 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TaskSetScaleArgs Empty = new TaskSetScaleArgs();
 
-    /**
-     * The unit of measure for the scale value. Default: `PERCENT`.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return The unit of measure for the scale value. Default: `PERCENT`.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
 
-    /**
-     * The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Double> value;
 
-    /**
-     * @return The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
-     * 
-     */
     public Optional<Output<Double>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -71,44 +55,20 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TaskSetScaleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param unit The unit of measure for the scale value. Default: `PERCENT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit The unit of measure for the scale value. Default: `PERCENT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
-        /**
-         * @param value The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Double> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Double value) {
             return value(Output.of(value));
         }

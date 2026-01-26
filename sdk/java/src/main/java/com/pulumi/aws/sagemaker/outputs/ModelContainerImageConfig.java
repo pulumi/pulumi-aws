@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ModelContainerImageConfig {
-    /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-     * 
-     */
     private String repositoryAccessMode;
-    /**
-     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
-     * 
-     */
     private @Nullable ModelContainerImageConfigRepositoryAuthConfig repositoryAuthConfig;
 
     private ModelContainerImageConfig() {}
-    /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-     * 
-     */
     public String repositoryAccessMode() {
         return this.repositoryAccessMode;
     }
-    /**
-     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
-     * 
-     */
     public Optional<ModelContainerImageConfigRepositoryAuthConfig> repositoryAuthConfig() {
         return Optional.ofNullable(this.repositoryAuthConfig);
     }

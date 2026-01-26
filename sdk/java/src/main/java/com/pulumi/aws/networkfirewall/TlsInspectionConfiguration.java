@@ -22,482 +22,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Network Firewall TLS Inspection Configuration.
- * 
- * ## Example Usage
- * 
- * &gt; **NOTE:** You must configure either inbound inspection, outbound inspection, or both.
- * 
- * ### Basic inbound/ingress inspection
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TlsInspectionConfiguration("example", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId("AWS_OWNED_KMS_KEY")
- *                 .type("AWS_OWNED_KMS_KEY")
- *                 .build())
- *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
- *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
- *                         .resourceArn(example1.arn())
- *                         .build())
- *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
- *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
- *                             .fromPort(443)
- *                             .toPort(443)
- *                             .build())
- *                         .destinations(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .sourcePorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs.builder()
- *                             .fromPort(0)
- *                             .toPort(65535)
- *                             .build())
- *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Basic outbound/engress inspection
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TlsInspectionConfiguration("example", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId("AWS_OWNED_KMS_KEY")
- *                 .type("AWS_OWNED_KMS_KEY")
- *                 .build())
- *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
- *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .certificateAuthorityArn(example1.arn())
- *                     .checkCertificateRevocationStatus(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.builder()
- *                         .revokedStatusAction("REJECT")
- *                         .unknownStatusAction("PASS")
- *                         .build())
- *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
- *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
- *                             .fromPort(443)
- *                             .toPort(443)
- *                             .build())
- *                         .destinations(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .sourcePorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs.builder()
- *                             .fromPort(0)
- *                             .toPort(65535)
- *                             .build())
- *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Inbound with encryption configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()
- *             .description("example")
- *             .deletionWindowInDays(7)
- *             .build());
- * 
- *         var exampleTlsInspectionConfiguration = new TlsInspectionConfiguration("exampleTlsInspectionConfiguration", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId(example.arn())
- *                 .type("CUSTOMER_KMS")
- *                 .build())
- *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
- *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
- *                         .resourceArn(example1.arn())
- *                         .build())
- *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
- *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
- *                             .fromPort(443)
- *                             .toPort(443)
- *                             .build())
- *                         .destinations(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .sourcePorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs.builder()
- *                             .fromPort(0)
- *                             .toPort(65535)
- *                             .build())
- *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Outbound with encryption configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()
- *             .description("example")
- *             .deletionWindowInDays(7)
- *             .build());
- * 
- *         var exampleTlsInspectionConfiguration = new TlsInspectionConfiguration("exampleTlsInspectionConfiguration", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId(example.arn())
- *                 .type("CUSTOMER_KMS")
- *                 .build())
- *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
- *                 .serverCertificateConfigurations(List.of(Map.ofEntries(
- *                     Map.entry("certificateAuthorityArn", example1.arn()),
- *                     Map.entry("checkCertificateRevocationStatus", List.of(Map.ofEntries(
- *                         Map.entry("revokedStatusAction", "REJECT"),
- *                         Map.entry("unknownStatusAction", "PASS")
- *                     ))),
- *                     Map.entry("scope", List.of(Map.ofEntries(
- *                         Map.entry("protocols", List.of(6)),
- *                         Map.entry("destinationPorts", List.of(Map.ofEntries(
- *                             Map.entry("fromPort", 443),
- *                             Map.entry("toPort", 443)
- *                         ))),
- *                         Map.entry("destination", List.of(Map.of("addressDefinition", "0.0.0.0/0"))),
- *                         Map.entry("sourcePorts", List.of(Map.ofEntries(
- *                             Map.entry("fromPort", 0),
- *                             Map.entry("toPort", 65535)
- *                         ))),
- *                         Map.entry("source", List.of(Map.of("addressDefinition", "0.0.0.0/0")))
- *                     )))
- *                 )))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Combined inbound and outbound
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
- * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TlsInspectionConfiguration("example", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId("AWS_OWNED_KMS_KEY")
- *                 .type("AWS_OWNED_KMS_KEY")
- *                 .build())
- *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
- *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .certificateAuthorityArn(example1.arn())
- *                     .checkCertificateRevocationStatus(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.builder()
- *                         .revokedStatusAction("REJECT")
- *                         .unknownStatusAction("PASS")
- *                         .build())
- *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
- *                         .resourceArn(example2.arn())
- *                         .build())
- *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
- *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
- *                             .fromPort(443)
- *                             .toPort(443)
- *                             .build())
- *                         .destinations(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .sourcePorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs.builder()
- *                             .fromPort(0)
- *                             .toPort(65535)
- *                             .build())
- *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
- *                             .addressDefinition("0.0.0.0/0")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
- * 
- * Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
- * 
- * % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::&lt;region&gt;:&lt;account_id&gt;:tls-configuration/example
- * 
- */
 @ResourceType(type="aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration")
 public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the TLS Inspection Configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the TLS Inspection Configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Certificate Manager certificate block. See Certificate Authority below for details.
-     * 
-     */
     @Export(name="certificateAuthorities", refs={List.class,TlsInspectionConfigurationCertificateAuthority.class}, tree="[0,1]")
     private Output<List<TlsInspectionConfigurationCertificateAuthority>> certificateAuthorities;
 
-    /**
-     * @return Certificate Manager certificate block. See Certificate Authority below for details.
-     * 
-     */
     public Output<List<TlsInspectionConfigurationCertificateAuthority>> certificateAuthorities() {
         return this.certificateAuthorities;
     }
-    /**
-     * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-     * 
-     */
     @Export(name="certificates", refs={List.class,TlsInspectionConfigurationCertificate.class}, tree="[0,1]")
     private Output<List<TlsInspectionConfigurationCertificate>> certificates;
 
-    /**
-     * @return List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-     * 
-     */
     public Output<List<TlsInspectionConfigurationCertificate>> certificates() {
         return this.certificates;
     }
-    /**
-     * Description of the TLS inspection configuration.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the TLS inspection configuration.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Encryption configuration block. Detailed below.
-     * 
-     */
     @Export(name="encryptionConfigurations", refs={List.class,TlsInspectionConfigurationEncryptionConfiguration.class}, tree="[0,1]")
     private Output<List<TlsInspectionConfigurationEncryptionConfiguration>> encryptionConfigurations;
 
-    /**
-     * @return Encryption configuration block. Detailed below.
-     * 
-     */
     public Output<List<TlsInspectionConfigurationEncryptionConfiguration>> encryptionConfigurations() {
         return this.encryptionConfigurations;
     }
-    /**
-     * Descriptive name of the TLS inspection configuration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Descriptive name of the TLS inspection configuration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Number of firewall policies that use this TLS inspection configuration.
-     * 
-     */
     @Export(name="numberOfAssociations", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfAssociations;
 
-    /**
-     * @return Number of firewall policies that use this TLS inspection configuration.
-     * 
-     */
     public Output<Integer> numberOfAssociations() {
         return this.numberOfAssociations;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -519,49 +90,21 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
     public Output<Optional<TlsInspectionConfigurationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * TLS inspection configuration block. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="tlsInspectionConfiguration", refs={TlsInspectionConfigurationTlsInspectionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ TlsInspectionConfigurationTlsInspectionConfiguration> tlsInspectionConfiguration;
 
-    /**
-     * @return TLS inspection configuration block. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<TlsInspectionConfigurationTlsInspectionConfiguration>> tlsInspectionConfiguration() {
         return Codegen.optional(this.tlsInspectionConfiguration);
     }
-    /**
-     * A unique identifier for the TLS inspection configuration.
-     * 
-     */
     @Export(name="tlsInspectionConfigurationId", refs={String.class}, tree="[0]")
     private Output<String> tlsInspectionConfigurationId;
 
-    /**
-     * @return A unique identifier for the TLS inspection configuration.
-     * 
-     */
     public Output<String> tlsInspectionConfigurationId() {
         return this.tlsInspectionConfigurationId;
     }
-    /**
-     * String token used when updating the rule group.
-     * 
-     */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
     private Output<String> updateToken;
 
-    /**
-     * @return String token used when updating the rule group.
-     * 
-     */
     public Output<String> updateToken() {
         return this.updateToken;
     }

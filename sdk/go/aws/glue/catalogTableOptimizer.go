@@ -12,144 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Glue Catalog Table Optimizer.
-//
-// ## Example Usage
-//
-// ### Compaction Optimizer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
-//				CatalogId:    pulumi.String("123456789012"),
-//				DatabaseName: pulumi.String("example_database"),
-//				TableName:    pulumi.String("example_table"),
-//				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
-//					Enabled: pulumi.Bool(true),
-//				},
-//				Type: pulumi.String("compaction"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Snapshot Retention Optimizer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
-//				CatalogId:    pulumi.String("123456789012"),
-//				DatabaseName: pulumi.String("example_database"),
-//				TableName:    pulumi.String("example_table"),
-//				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
-//					Enabled: pulumi.Bool(true),
-//					RetentionConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationArgs{
-//						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{
-//							SnapshotRetentionPeriodInDays: pulumi.Int(7),
-//							NumberOfSnapshotsToRetain:     pulumi.Int(3),
-//							CleanExpiredFiles:             pulumi.Bool(true),
-//						},
-//					},
-//				},
-//				Type: pulumi.String("retention"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Orphan File Deletion Optimizer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
-//				CatalogId:    pulumi.String("123456789012"),
-//				DatabaseName: pulumi.String("example_database"),
-//				TableName:    pulumi.String("example_table"),
-//				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
-//					Enabled: pulumi.Bool(true),
-//					OrphanFileDeletionConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{
-//						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{
-//							OrphanFileRetentionPeriodInDays: pulumi.Int(7),
-//							Location:                        pulumi.String("s3://example-bucket/example_table/"),
-//						},
-//					},
-//				},
-//				Type: pulumi.String("orphan_file_deletion"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
-//
-// ```sh
-// $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
-// ```
 type CatalogTableOptimizer struct {
 	pulumi.CustomResourceState
 
-	// The Catalog ID of the table.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+	CatalogId     pulumi.StringOutput                         `pulumi:"catalogId"`
 	Configuration CatalogTableOptimizerConfigurationPtrOutput `pulumi:"configuration"`
-	// The name of the database in the catalog in which the table resides.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the table.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DatabaseName  pulumi.StringOutput                         `pulumi:"databaseName"`
+	Region        pulumi.StringOutput                         `pulumi:"region"`
+	TableName     pulumi.StringOutput                         `pulumi:"tableName"`
+	Type          pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewCatalogTableOptimizer registers a new resource with the given unique name, arguments, and options.
@@ -194,33 +65,21 @@ func GetCatalogTableOptimizer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogTableOptimizer resources.
 type catalogTableOptimizerState struct {
-	// The Catalog ID of the table.
-	CatalogId *string `pulumi:"catalogId"`
-	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+	CatalogId     *string                             `pulumi:"catalogId"`
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
-	// The name of the database in the catalog in which the table resides.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the table.
-	TableName *string `pulumi:"tableName"`
-	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-	Type *string `pulumi:"type"`
+	DatabaseName  *string                             `pulumi:"databaseName"`
+	Region        *string                             `pulumi:"region"`
+	TableName     *string                             `pulumi:"tableName"`
+	Type          *string                             `pulumi:"type"`
 }
 
 type CatalogTableOptimizerState struct {
-	// The Catalog ID of the table.
-	CatalogId pulumi.StringPtrInput
-	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+	CatalogId     pulumi.StringPtrInput
 	Configuration CatalogTableOptimizerConfigurationPtrInput
-	// The name of the database in the catalog in which the table resides.
-	DatabaseName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the table.
-	TableName pulumi.StringPtrInput
-	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-	Type pulumi.StringPtrInput
+	DatabaseName  pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	TableName     pulumi.StringPtrInput
+	Type          pulumi.StringPtrInput
 }
 
 func (CatalogTableOptimizerState) ElementType() reflect.Type {
@@ -228,34 +87,22 @@ func (CatalogTableOptimizerState) ElementType() reflect.Type {
 }
 
 type catalogTableOptimizerArgs struct {
-	// The Catalog ID of the table.
-	CatalogId string `pulumi:"catalogId"`
-	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+	CatalogId     string                              `pulumi:"catalogId"`
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
-	// The name of the database in the catalog in which the table resides.
-	DatabaseName string `pulumi:"databaseName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the table.
-	TableName string `pulumi:"tableName"`
-	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-	Type string `pulumi:"type"`
+	DatabaseName  string                              `pulumi:"databaseName"`
+	Region        *string                             `pulumi:"region"`
+	TableName     string                              `pulumi:"tableName"`
+	Type          string                              `pulumi:"type"`
 }
 
 // The set of arguments for constructing a CatalogTableOptimizer resource.
 type CatalogTableOptimizerArgs struct {
-	// The Catalog ID of the table.
-	CatalogId pulumi.StringInput
-	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+	CatalogId     pulumi.StringInput
 	Configuration CatalogTableOptimizerConfigurationPtrInput
-	// The name of the database in the catalog in which the table resides.
-	DatabaseName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the table.
-	TableName pulumi.StringInput
-	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-	Type pulumi.StringInput
+	DatabaseName  pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	TableName     pulumi.StringInput
+	Type          pulumi.StringInput
 }
 
 func (CatalogTableOptimizerArgs) ElementType() reflect.Type {
@@ -345,32 +192,26 @@ func (o CatalogTableOptimizerOutput) ToCatalogTableOptimizerOutputWithContext(ct
 	return o
 }
 
-// The Catalog ID of the table.
 func (o CatalogTableOptimizerOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// A configuration block that defines the table optimizer settings. See Configuration for additional details.
 func (o CatalogTableOptimizerOutput) Configuration() CatalogTableOptimizerConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) CatalogTableOptimizerConfigurationPtrOutput { return v.Configuration }).(CatalogTableOptimizerConfigurationPtrOutput)
 }
 
-// The name of the database in the catalog in which the table resides.
 func (o CatalogTableOptimizerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CatalogTableOptimizerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the table.
 func (o CatalogTableOptimizerOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }
 
-// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
 func (o CatalogTableOptimizerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

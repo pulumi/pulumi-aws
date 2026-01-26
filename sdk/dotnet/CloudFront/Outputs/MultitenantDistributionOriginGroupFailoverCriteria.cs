@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionOriginGroupFailoverCriteria
     {
-        /// <summary>
-        /// List of HTTP status codes that trigger a failover to the secondary origin.
-        /// </summary>
         public readonly ImmutableArray<int> StatusCodes;
 
         [OutputConstructor]

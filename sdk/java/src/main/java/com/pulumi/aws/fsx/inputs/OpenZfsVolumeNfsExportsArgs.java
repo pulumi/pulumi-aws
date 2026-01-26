@@ -15,17 +15,9 @@ public final class OpenZfsVolumeNfsExportsArgs extends com.pulumi.resources.Reso
 
     public static final OpenZfsVolumeNfsExportsArgs Empty = new OpenZfsVolumeNfsExportsArgs();
 
-    /**
-     * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
-     * 
-     */
     @Import(name="clientConfigurations", required=true)
     private Output<List<OpenZfsVolumeNfsExportsClientConfigurationArgs>> clientConfigurations;
 
-    /**
-     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
-     * 
-     */
     public Output<List<OpenZfsVolumeNfsExportsClientConfigurationArgs>> clientConfigurations() {
         return this.clientConfigurations;
     }
@@ -54,33 +46,15 @@ public final class OpenZfsVolumeNfsExportsArgs extends com.pulumi.resources.Reso
             $ = new OpenZfsVolumeNfsExportsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientConfigurations(Output<List<OpenZfsVolumeNfsExportsClientConfigurationArgs>> clientConfigurations) {
             $.clientConfigurations = clientConfigurations;
             return this;
         }
 
-        /**
-         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientConfigurations(List<OpenZfsVolumeNfsExportsClientConfigurationArgs> clientConfigurations) {
             return clientConfigurations(Output.of(clientConfigurations));
         }
 
-        /**
-         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientConfigurations(OpenZfsVolumeNfsExportsClientConfigurationArgs... clientConfigurations) {
             return clientConfigurations(List.of(clientConfigurations));
         }

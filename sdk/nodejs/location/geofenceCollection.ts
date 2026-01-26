@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Location Geofence Collection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.location.GeofenceCollection("example", {collectionName: "example"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
- * ```
- */
 export class GeofenceCollection extends pulumi.CustomResource {
     /**
      * Get an existing GeofenceCollection resource's state with the given name, ID, and optional extra
@@ -52,40 +32,14 @@ export class GeofenceCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === GeofenceCollection.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
-     */
     declare public /*out*/ readonly collectionArn: pulumi.Output<string>;
-    /**
-     * The name of the geofence collection.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly collectionName: pulumi.Output<string>;
-    /**
-     * The timestamp for when the geofence collection resource was created in ISO 8601 format.
-     */
     declare public /*out*/ readonly createTime: pulumi.Output<string>;
-    /**
-     * The optional description for the geofence collection.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
-     */
     declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
@@ -134,40 +88,14 @@ export class GeofenceCollection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GeofenceCollection resources.
  */
 export interface GeofenceCollectionState {
-    /**
-     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
-     */
     collectionArn?: pulumi.Input<string>;
-    /**
-     * The name of the geofence collection.
-     *
-     * The following arguments are optional:
-     */
     collectionName?: pulumi.Input<string>;
-    /**
-     * The timestamp for when the geofence collection resource was created in ISO 8601 format.
-     */
     createTime?: pulumi.Input<string>;
-    /**
-     * The optional description for the geofence collection.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
-     */
     updateTime?: pulumi.Input<string>;
 }
 
@@ -175,26 +103,9 @@ export interface GeofenceCollectionState {
  * The set of arguments for constructing a GeofenceCollection resource.
  */
 export interface GeofenceCollectionArgs {
-    /**
-     * The name of the geofence collection.
-     *
-     * The following arguments are optional:
-     */
     collectionName: pulumi.Input<string>;
-    /**
-     * The optional description for the geofence collection.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

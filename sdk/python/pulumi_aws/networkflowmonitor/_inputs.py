@@ -36,13 +36,7 @@ MYPY = False
 if not MYPY:
     class MonitorLocalResourceArgsDict(TypedDict):
         identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
 elif False:
     MonitorLocalResourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -51,19 +45,12 @@ class MonitorLocalResourceArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param pulumi.Input[_builtins.str] type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -73,9 +60,6 @@ class MonitorLocalResourceArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -86,13 +70,7 @@ class MonitorLocalResourceArgs:
 if not MYPY:
     class MonitorRemoteResourceArgsDict(TypedDict):
         identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
 elif False:
     MonitorRemoteResourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -101,19 +79,12 @@ class MonitorRemoteResourceArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param pulumi.Input[_builtins.str] type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -123,9 +94,6 @@ class MonitorRemoteResourceArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -208,13 +176,7 @@ class MonitorTimeoutsArgs:
 if not MYPY:
     class ScopeTargetArgsDict(TypedDict):
         region: pulumi.Input[_builtins.str]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         target_identifier: NotRequired[pulumi.Input['ScopeTargetTargetIdentifierArgsDict']]
-        """
-        A target identifier is a pair of identifying information for a scope.
-        """
 elif False:
     ScopeTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -223,10 +185,6 @@ class ScopeTargetArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
                  target_identifier: Optional[pulumi.Input['ScopeTargetTargetIdentifierArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ScopeTargetTargetIdentifierArgs'] target_identifier: A target identifier is a pair of identifying information for a scope.
-        """
         pulumi.set(__self__, "region", region)
         if target_identifier is not None:
             pulumi.set(__self__, "target_identifier", target_identifier)
@@ -234,9 +192,6 @@ class ScopeTargetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -246,9 +201,6 @@ class ScopeTargetArgs:
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> Optional[pulumi.Input['ScopeTargetTargetIdentifierArgs']]:
-        """
-        A target identifier is a pair of identifying information for a scope.
-        """
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
@@ -259,13 +211,7 @@ class ScopeTargetArgs:
 if not MYPY:
     class ScopeTargetTargetIdentifierArgsDict(TypedDict):
         target_type: pulumi.Input[_builtins.str]
-        """
-        The type of a target. A target type is currently always `ACCOUNT`.
-        """
         target_id: NotRequired[pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgsDict']]
-        """
-        The identifier for a target, which is currently always an account ID.
-        """
 elif False:
     ScopeTargetTargetIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -274,10 +220,6 @@ class ScopeTargetTargetIdentifierArgs:
     def __init__(__self__, *,
                  target_type: pulumi.Input[_builtins.str],
                  target_id: Optional[pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] target_type: The type of a target. A target type is currently always `ACCOUNT`.
-        :param pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs'] target_id: The identifier for a target, which is currently always an account ID.
-        """
         pulumi.set(__self__, "target_type", target_type)
         if target_id is not None:
             pulumi.set(__self__, "target_id", target_id)
@@ -285,9 +227,6 @@ class ScopeTargetTargetIdentifierArgs:
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of a target. A target type is currently always `ACCOUNT`.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -297,9 +236,6 @@ class ScopeTargetTargetIdentifierArgs:
     @_builtins.property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgs']]:
-        """
-        The identifier for a target, which is currently always an account ID.
-        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -310,9 +246,6 @@ class ScopeTargetTargetIdentifierArgs:
 if not MYPY:
     class ScopeTargetTargetIdentifierTargetIdArgsDict(TypedDict):
         account_id: pulumi.Input[_builtins.str]
-        """
-        AWS account ID.
-        """
 elif False:
     ScopeTargetTargetIdentifierTargetIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -320,17 +253,11 @@ elif False:
 class ScopeTargetTargetIdentifierTargetIdArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID.
-        """
         pulumi.set(__self__, "account_id", account_id)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter

@@ -13,31 +13,11 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerRuleCondition
     {
-        /// <summary>
-        /// Host header patterns to match. Host Header block fields documented below.
-        /// </summary>
         public readonly Outputs.ListenerRuleConditionHostHeader? HostHeader;
-        /// <summary>
-        /// HTTP headers to match. HTTP Header block fields documented below.
-        /// </summary>
         public readonly Outputs.ListenerRuleConditionHttpHeader? HttpHeader;
-        /// <summary>
-        /// Contains a single `Values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-        /// </summary>
         public readonly Outputs.ListenerRuleConditionHttpRequestMethod? HttpRequestMethod;
-        /// <summary>
-        /// Path patterns to match against the request URL. Path Pattern block fields documented below.
-        /// </summary>
         public readonly Outputs.ListenerRuleConditionPathPattern? PathPattern;
-        /// <summary>
-        /// Query strings to match. Query String block fields documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ListenerRuleConditionQueryString> QueryStrings;
-        /// <summary>
-        /// Contains a single `Values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `HttpHeader` condition instead.
-        /// 
-        /// &gt; **NOTE::** Exactly one of `HostHeader`, `HttpHeader`, `HttpRequestMethod`, `PathPattern`, `QueryString` or `SourceIp` must be set per condition.
-        /// </summary>
         public readonly Outputs.ListenerRuleConditionSourceIp? SourceIp;
 
         [OutputConstructor]

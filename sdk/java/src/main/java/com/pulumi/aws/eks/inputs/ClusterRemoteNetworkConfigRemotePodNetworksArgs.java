@@ -16,17 +16,9 @@ public final class ClusterRemoteNetworkConfigRemotePodNetworksArgs extends com.p
 
     public static final ClusterRemoteNetworkConfigRemotePodNetworksArgs Empty = new ClusterRemoteNetworkConfigRemotePodNetworksArgs();
 
-    /**
-     * List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     @Import(name="cidrs")
     private @Nullable Output<List<String>> cidrs;
 
-    /**
-     * @return List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     public Optional<Output<List<String>>> cidrs() {
         return Optional.ofNullable(this.cidrs);
     }
@@ -55,33 +47,15 @@ public final class ClusterRemoteNetworkConfigRemotePodNetworksArgs extends com.p
             $ = new ClusterRemoteNetworkConfigRemotePodNetworksArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidrs List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(@Nullable Output<List<String>> cidrs) {
             $.cidrs = cidrs;
             return this;
         }
 
-        /**
-         * @param cidrs List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(List<String> cidrs) {
             return cidrs(Output.of(cidrs));
         }
 
-        /**
-         * @param cidrs List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }

@@ -9,60 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Account
 {
-    /// <summary>
-    /// Enable (Opt-In) or Disable (Opt-Out) a particular Region for an AWS account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Account.Region("example", new()
-    ///     {
-    ///         RegionName = "ap-southeast-3",
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:account/region:Region example ap-southeast-3
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:account/region:Region")]
     public partial class Region : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        /// </summary>
         [Output("accountId")]
         public Output<string?> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the region is enabled.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The region opt status.
-        /// </summary>
         [Output("optStatus")]
         public Output<string> OptStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// The region name to manage.
-        /// </summary>
         [Output("regionName")]
         public Output<string> RegionName { get; private set; } = null!;
 
@@ -112,21 +70,12 @@ namespace Pulumi.Aws.Account
 
     public sealed class RegionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Whether the region is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// The region name to manage.
-        /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;
 
@@ -138,27 +87,15 @@ namespace Pulumi.Aws.Account
 
     public sealed class RegionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Whether the region is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The region opt status.
-        /// </summary>
         [Input("optStatus")]
         public Input<string>? OptStatus { get; set; }
 
-        /// <summary>
-        /// The region name to manage.
-        /// </summary>
         [Input("regionName")]
         public Input<string>? RegionName { get; set; }
 

@@ -18,47 +18,23 @@ public final class PipelineTriggerGitConfigurationPullRequestArgs extends com.pu
 
     public static final PipelineTriggerGitConfigurationPullRequestArgs Empty = new PipelineTriggerGitConfigurationPullRequestArgs();
 
-    /**
-     * The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-     * 
-     */
     @Import(name="branches")
     private @Nullable Output<PipelineTriggerGitConfigurationPullRequestBranchesArgs> branches;
 
-    /**
-     * @return The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-     * 
-     */
     public Optional<Output<PipelineTriggerGitConfigurationPullRequestBranchesArgs>> branches() {
         return Optional.ofNullable(this.branches);
     }
 
-    /**
-     * A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-     * 
-     */
     @Import(name="events")
     private @Nullable Output<List<String>> events;
 
-    /**
-     * @return A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-     * 
-     */
     public Optional<Output<List<String>>> events() {
         return Optional.ofNullable(this.events);
     }
 
-    /**
-     * The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     @Import(name="filePaths")
     private @Nullable Output<PipelineTriggerGitConfigurationPullRequestFilePathsArgs> filePaths;
 
-    /**
-     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     public Optional<Output<PipelineTriggerGitConfigurationPullRequestFilePathsArgs>> filePaths() {
         return Optional.ofNullable(this.filePaths);
     }
@@ -89,75 +65,33 @@ public final class PipelineTriggerGitConfigurationPullRequestArgs extends com.pu
             $ = new PipelineTriggerGitConfigurationPullRequestArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branches The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branches(@Nullable Output<PipelineTriggerGitConfigurationPullRequestBranchesArgs> branches) {
             $.branches = branches;
             return this;
         }
 
-        /**
-         * @param branches The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branches(PipelineTriggerGitConfigurationPullRequestBranchesArgs branches) {
             return branches(Output.of(branches));
         }
 
-        /**
-         * @param events A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(@Nullable Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(String... events) {
             return events(List.of(events));
         }
 
-        /**
-         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filePaths(@Nullable Output<PipelineTriggerGitConfigurationPullRequestFilePathsArgs> filePaths) {
             $.filePaths = filePaths;
             return this;
         }
 
-        /**
-         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filePaths(PipelineTriggerGitConfigurationPullRequestFilePathsArgs filePaths) {
             return filePaths(Output.of(filePaths));
         }

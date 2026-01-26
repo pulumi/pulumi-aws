@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleFlexibleTimeWindow {
-    /**
-     * @return Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-     * 
-     */
     private @Nullable Integer maximumWindowInMinutes;
-    /**
-     * @return Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-     * 
-     */
     private String mode;
 
     private ScheduleFlexibleTimeWindow() {}
-    /**
-     * @return Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-     * 
-     */
     public Optional<Integer> maximumWindowInMinutes() {
         return Optional.ofNullable(this.maximumWindowInMinutes);
     }
-    /**
-     * @return Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }

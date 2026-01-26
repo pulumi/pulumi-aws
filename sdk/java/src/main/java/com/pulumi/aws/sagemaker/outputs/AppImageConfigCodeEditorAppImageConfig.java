@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppImageConfigCodeEditorAppImageConfig {
-    /**
-     * @return The configuration used to run the application image container. See Container Config details below.
-     * 
-     */
     private @Nullable AppImageConfigCodeEditorAppImageConfigContainerConfig containerConfig;
-    /**
-     * @return The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     private @Nullable AppImageConfigCodeEditorAppImageConfigFileSystemConfig fileSystemConfig;
 
     private AppImageConfigCodeEditorAppImageConfig() {}
-    /**
-     * @return The configuration used to run the application image container. See Container Config details below.
-     * 
-     */
     public Optional<AppImageConfigCodeEditorAppImageConfigContainerConfig> containerConfig() {
         return Optional.ofNullable(this.containerConfig);
     }
-    /**
-     * @return The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     public Optional<AppImageConfigCodeEditorAppImageConfigFileSystemConfig> fileSystemConfig() {
         return Optional.ofNullable(this.fileSystemConfig);
     }

@@ -12,71 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Kendra Thesaurus.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewThesaurus(ctx, "example", &kendra.ThesaurusArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("Example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				SourceS3Path: &kendra.ThesaurusSourceS3PathArgs{
-//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//					Key:    pulumi.Any(exampleAwsS3Object.Key),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Thesaurus"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
-// ```
 type Thesaurus struct {
 	pulumi.CustomResourceState
 
-	// ARN of the thesaurus.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The identifier of the index for a thesaurus.
-	IndexId pulumi.StringOutput `pulumi:"indexId"`
-	// The name for the thesaurus.
-	Name   pulumi.StringOutput `pulumi:"name"`
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	Arn          pulumi.StringOutput         `pulumi:"arn"`
+	Description  pulumi.StringPtrOutput      `pulumi:"description"`
+	IndexId      pulumi.StringOutput         `pulumi:"indexId"`
+	Name         pulumi.StringOutput         `pulumi:"name"`
+	Region       pulumi.StringOutput         `pulumi:"region"`
+	RoleArn      pulumi.StringOutput         `pulumi:"roleArn"`
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
-	// The current status of the thesaurus.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
-	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
+	Status       pulumi.StringOutput         `pulumi:"status"`
+	Tags         pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	ThesaurusId  pulumi.StringOutput         `pulumi:"thesaurusId"`
 }
 
 // NewThesaurus registers a new resource with the given unique name, arguments, and options.
@@ -118,45 +67,31 @@ func GetThesaurus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Thesaurus resources.
 type thesaurusState struct {
-	// ARN of the thesaurus.
-	Arn         *string `pulumi:"arn"`
-	Description *string `pulumi:"description"`
-	// The identifier of the index for a thesaurus.
-	IndexId *string `pulumi:"indexId"`
-	// The name for the thesaurus.
-	Name   *string `pulumi:"name"`
-	Region *string `pulumi:"region"`
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-	RoleArn *string `pulumi:"roleArn"`
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	Arn          *string                `pulumi:"arn"`
+	Description  *string                `pulumi:"description"`
+	IndexId      *string                `pulumi:"indexId"`
+	Name         *string                `pulumi:"name"`
+	Region       *string                `pulumi:"region"`
+	RoleArn      *string                `pulumi:"roleArn"`
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
-	// The current status of the thesaurus.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll     map[string]string `pulumi:"tagsAll"`
-	ThesaurusId *string           `pulumi:"thesaurusId"`
+	Status       *string                `pulumi:"status"`
+	Tags         map[string]string      `pulumi:"tags"`
+	TagsAll      map[string]string      `pulumi:"tagsAll"`
+	ThesaurusId  *string                `pulumi:"thesaurusId"`
 }
 
 type ThesaurusState struct {
-	// ARN of the thesaurus.
-	Arn         pulumi.StringPtrInput
-	Description pulumi.StringPtrInput
-	// The identifier of the index for a thesaurus.
-	IndexId pulumi.StringPtrInput
-	// The name for the thesaurus.
-	Name   pulumi.StringPtrInput
-	Region pulumi.StringPtrInput
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-	RoleArn pulumi.StringPtrInput
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	Arn          pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	IndexId      pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	RoleArn      pulumi.StringPtrInput
 	SourceS3Path ThesaurusSourceS3PathPtrInput
-	// The current status of the thesaurus.
-	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll     pulumi.StringMapInput
-	ThesaurusId pulumi.StringPtrInput
+	Status       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	ThesaurusId  pulumi.StringPtrInput
 }
 
 func (ThesaurusState) ElementType() reflect.Type {
@@ -164,30 +99,22 @@ func (ThesaurusState) ElementType() reflect.Type {
 }
 
 type thesaurusArgs struct {
-	Description *string `pulumi:"description"`
-	// The identifier of the index for a thesaurus.
-	IndexId string `pulumi:"indexId"`
-	// The name for the thesaurus.
-	Name   *string `pulumi:"name"`
-	Region *string `pulumi:"region"`
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-	RoleArn string `pulumi:"roleArn"`
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	Description  *string               `pulumi:"description"`
+	IndexId      string                `pulumi:"indexId"`
+	Name         *string               `pulumi:"name"`
+	Region       *string               `pulumi:"region"`
+	RoleArn      string                `pulumi:"roleArn"`
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	Tags         map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Thesaurus resource.
 type ThesaurusArgs struct {
-	Description pulumi.StringPtrInput
-	// The identifier of the index for a thesaurus.
-	IndexId pulumi.StringInput
-	// The name for the thesaurus.
-	Name   pulumi.StringPtrInput
-	Region pulumi.StringPtrInput
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-	RoleArn pulumi.StringInput
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	Description  pulumi.StringPtrInput
+	IndexId      pulumi.StringInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	RoleArn      pulumi.StringInput
 	SourceS3Path ThesaurusSourceS3PathInput
 	Tags         pulumi.StringMapInput
 }
@@ -279,7 +206,6 @@ func (o ThesaurusOutput) ToThesaurusOutputWithContext(ctx context.Context) Thesa
 	return o
 }
 
-// ARN of the thesaurus.
 func (o ThesaurusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -288,12 +214,10 @@ func (o ThesaurusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the index for a thesaurus.
 func (o ThesaurusOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// The name for the thesaurus.
 func (o ThesaurusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -302,17 +226,14 @@ func (o ThesaurusOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 func (o ThesaurusOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The S3 path where your thesaurus file sits in S3. Detailed below.
 func (o ThesaurusOutput) SourceS3Path() ThesaurusSourceS3PathOutput {
 	return o.ApplyT(func(v *Thesaurus) ThesaurusSourceS3PathOutput { return v.SourceS3Path }).(ThesaurusSourceS3PathOutput)
 }
 
-// The current status of the thesaurus.
 func (o ThesaurusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -321,7 +242,6 @@ func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

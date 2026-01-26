@@ -13,25 +13,10 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class ScheduledActionTargetActionResizeCluster
     {
-        /// <summary>
-        /// A boolean value indicating whether the resize operation is using the classic resize process. Default: `False`.
-        /// </summary>
         public readonly bool? Classic;
-        /// <summary>
-        /// The unique identifier for the cluster to resize.
-        /// </summary>
         public readonly string ClusterIdentifier;
-        /// <summary>
-        /// The new cluster type for the specified cluster.
-        /// </summary>
         public readonly string? ClusterType;
-        /// <summary>
-        /// The new node type for the nodes you are adding.
-        /// </summary>
         public readonly string? NodeType;
-        /// <summary>
-        /// The new number of nodes for the cluster.
-        /// </summary>
         public readonly int? NumberOfNodes;
 
         [OutputConstructor]

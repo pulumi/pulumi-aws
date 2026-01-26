@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowSourceFlowConfig {
-    /**
-     * @return API version that the destination connector uses.
-     * 
-     */
     private @Nullable String apiVersion;
-    /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-     * 
-     */
     private @Nullable String connectorProfileName;
-    /**
-     * @return Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-     * 
-     */
     private String connectorType;
-    /**
-     * @return Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigIncrementalPullConfig incrementalPullConfig;
-    /**
-     * @return Information that is required to query a particular source connector. See Source Connector Properties for details.
-     * 
-     */
     private FlowSourceFlowConfigSourceConnectorProperties sourceConnectorProperties;
 
     private FlowSourceFlowConfig() {}
-    /**
-     * @return API version that the destination connector uses.
-     * 
-     */
     public Optional<String> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
     }
-    /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-     * 
-     */
     public Optional<String> connectorProfileName() {
         return Optional.ofNullable(this.connectorProfileName);
     }
-    /**
-     * @return Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-     * 
-     */
     public String connectorType() {
         return this.connectorType;
     }
-    /**
-     * @return Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigIncrementalPullConfig> incrementalPullConfig() {
         return Optional.ofNullable(this.incrementalPullConfig);
     }
-    /**
-     * @return Information that is required to query a particular source connector. See Source Connector Properties for details.
-     * 
-     */
     public FlowSourceFlowConfigSourceConnectorProperties sourceConnectorProperties() {
         return this.sourceConnectorProperties;
     }

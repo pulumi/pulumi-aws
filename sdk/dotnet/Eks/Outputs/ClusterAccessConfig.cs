@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterAccessConfig
     {
-        /// <summary>
-        /// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        /// </summary>
         public readonly string? AuthenticationMode;
-        /// <summary>
-        /// Whether or not to bootstrap the access config values to the cluster. Default is `True`.
-        /// </summary>
         public readonly bool? BootstrapClusterCreatorAdminPermissions;
 
         [OutputConstructor]

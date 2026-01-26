@@ -14,20 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CustomActionTypeConfigurationProperty struct {
-	// The description of the action configuration property.
 	Description *string `pulumi:"description"`
-	// Whether the configuration property is a key.
-	Key bool `pulumi:"key"`
-	// The name of the action configuration property.
-	Name string `pulumi:"name"`
-	// Indicates that the property will be used in conjunction with PollForJobs.
-	Queryable *bool `pulumi:"queryable"`
-	// Whether the configuration property is a required value.
-	Required bool `pulumi:"required"`
-	// Whether the configuration property is secret.
-	Secret bool `pulumi:"secret"`
-	// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-	Type *string `pulumi:"type"`
+	Key         bool    `pulumi:"key"`
+	Name        string  `pulumi:"name"`
+	Queryable   *bool   `pulumi:"queryable"`
+	Required    bool    `pulumi:"required"`
+	Secret      bool    `pulumi:"secret"`
+	Type        *string `pulumi:"type"`
 }
 
 // CustomActionTypeConfigurationPropertyInput is an input type that accepts CustomActionTypeConfigurationPropertyArgs and CustomActionTypeConfigurationPropertyOutput values.
@@ -42,20 +35,13 @@ type CustomActionTypeConfigurationPropertyInput interface {
 }
 
 type CustomActionTypeConfigurationPropertyArgs struct {
-	// The description of the action configuration property.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Whether the configuration property is a key.
-	Key pulumi.BoolInput `pulumi:"key"`
-	// The name of the action configuration property.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates that the property will be used in conjunction with PollForJobs.
-	Queryable pulumi.BoolPtrInput `pulumi:"queryable"`
-	// Whether the configuration property is a required value.
-	Required pulumi.BoolInput `pulumi:"required"`
-	// Whether the configuration property is secret.
-	Secret pulumi.BoolInput `pulumi:"secret"`
-	// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Key         pulumi.BoolInput      `pulumi:"key"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	Queryable   pulumi.BoolPtrInput   `pulumi:"queryable"`
+	Required    pulumi.BoolInput      `pulumi:"required"`
+	Secret      pulumi.BoolInput      `pulumi:"secret"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CustomActionTypeConfigurationPropertyArgs) ElementType() reflect.Type {
@@ -109,37 +95,30 @@ func (o CustomActionTypeConfigurationPropertyOutput) ToCustomActionTypeConfigura
 	return o
 }
 
-// The description of the action configuration property.
 func (o CustomActionTypeConfigurationPropertyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether the configuration property is a key.
 func (o CustomActionTypeConfigurationPropertyOutput) Key() pulumi.BoolOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) bool { return v.Key }).(pulumi.BoolOutput)
 }
 
-// The name of the action configuration property.
 func (o CustomActionTypeConfigurationPropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates that the property will be used in conjunction with PollForJobs.
 func (o CustomActionTypeConfigurationPropertyOutput) Queryable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) *bool { return v.Queryable }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the configuration property is a required value.
 func (o CustomActionTypeConfigurationPropertyOutput) Required() pulumi.BoolOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
-// Whether the configuration property is secret.
 func (o CustomActionTypeConfigurationPropertyOutput) Secret() pulumi.BoolOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) bool { return v.Secret }).(pulumi.BoolOutput)
 }
 
-// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
 func (o CustomActionTypeConfigurationPropertyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -165,9 +144,7 @@ func (o CustomActionTypeConfigurationPropertyArrayOutput) Index(i pulumi.IntInpu
 }
 
 type CustomActionTypeInputArtifactDetails struct {
-	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MaximumCount int `pulumi:"maximumCount"`
-	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MinimumCount int `pulumi:"minimumCount"`
 }
 
@@ -183,9 +160,7 @@ type CustomActionTypeInputArtifactDetailsInput interface {
 }
 
 type CustomActionTypeInputArtifactDetailsArgs struct {
-	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
-	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
 }
 
@@ -266,12 +241,10 @@ func (o CustomActionTypeInputArtifactDetailsOutput) ToCustomActionTypeInputArtif
 	}).(CustomActionTypeInputArtifactDetailsPtrOutput)
 }
 
-// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeInputArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeInputArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
 }
 
-// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeInputArtifactDetailsOutput) MinimumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeInputArtifactDetails) int { return v.MinimumCount }).(pulumi.IntOutput)
 }
@@ -300,7 +273,6 @@ func (o CustomActionTypeInputArtifactDetailsPtrOutput) Elem() CustomActionTypeIn
 	}).(CustomActionTypeInputArtifactDetailsOutput)
 }
 
-// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeInputArtifactDetailsPtrOutput) MaximumCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeInputArtifactDetails) *int {
 		if v == nil {
@@ -310,7 +282,6 @@ func (o CustomActionTypeInputArtifactDetailsPtrOutput) MaximumCount() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeInputArtifactDetailsPtrOutput) MinimumCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeInputArtifactDetails) *int {
 		if v == nil {
@@ -321,9 +292,7 @@ func (o CustomActionTypeInputArtifactDetailsPtrOutput) MinimumCount() pulumi.Int
 }
 
 type CustomActionTypeOutputArtifactDetails struct {
-	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MaximumCount int `pulumi:"maximumCount"`
-	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MinimumCount int `pulumi:"minimumCount"`
 }
 
@@ -339,9 +308,7 @@ type CustomActionTypeOutputArtifactDetailsInput interface {
 }
 
 type CustomActionTypeOutputArtifactDetailsArgs struct {
-	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
-	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
 }
 
@@ -422,12 +389,10 @@ func (o CustomActionTypeOutputArtifactDetailsOutput) ToCustomActionTypeOutputArt
 	}).(CustomActionTypeOutputArtifactDetailsPtrOutput)
 }
 
-// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeOutputArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeOutputArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
 }
 
-// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeOutputArtifactDetailsOutput) MinimumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeOutputArtifactDetails) int { return v.MinimumCount }).(pulumi.IntOutput)
 }
@@ -456,7 +421,6 @@ func (o CustomActionTypeOutputArtifactDetailsPtrOutput) Elem() CustomActionTypeO
 	}).(CustomActionTypeOutputArtifactDetailsOutput)
 }
 
-// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeOutputArtifactDetailsPtrOutput) MaximumCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeOutputArtifactDetails) *int {
 		if v == nil {
@@ -466,7 +430,6 @@ func (o CustomActionTypeOutputArtifactDetailsPtrOutput) MaximumCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeOutputArtifactDetailsPtrOutput) MinimumCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeOutputArtifactDetails) *int {
 		if v == nil {
@@ -477,13 +440,9 @@ func (o CustomActionTypeOutputArtifactDetailsPtrOutput) MinimumCount() pulumi.In
 }
 
 type CustomActionTypeSettings struct {
-	// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-	EntityUrlTemplate *string `pulumi:"entityUrlTemplate"`
-	// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-	ExecutionUrlTemplate *string `pulumi:"executionUrlTemplate"`
-	// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-	RevisionUrlTemplate *string `pulumi:"revisionUrlTemplate"`
-	// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+	EntityUrlTemplate          *string `pulumi:"entityUrlTemplate"`
+	ExecutionUrlTemplate       *string `pulumi:"executionUrlTemplate"`
+	RevisionUrlTemplate        *string `pulumi:"revisionUrlTemplate"`
 	ThirdPartyConfigurationUrl *string `pulumi:"thirdPartyConfigurationUrl"`
 }
 
@@ -499,13 +458,9 @@ type CustomActionTypeSettingsInput interface {
 }
 
 type CustomActionTypeSettingsArgs struct {
-	// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-	EntityUrlTemplate pulumi.StringPtrInput `pulumi:"entityUrlTemplate"`
-	// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-	ExecutionUrlTemplate pulumi.StringPtrInput `pulumi:"executionUrlTemplate"`
-	// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-	RevisionUrlTemplate pulumi.StringPtrInput `pulumi:"revisionUrlTemplate"`
-	// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+	EntityUrlTemplate          pulumi.StringPtrInput `pulumi:"entityUrlTemplate"`
+	ExecutionUrlTemplate       pulumi.StringPtrInput `pulumi:"executionUrlTemplate"`
+	RevisionUrlTemplate        pulumi.StringPtrInput `pulumi:"revisionUrlTemplate"`
 	ThirdPartyConfigurationUrl pulumi.StringPtrInput `pulumi:"thirdPartyConfigurationUrl"`
 }
 
@@ -586,22 +541,18 @@ func (o CustomActionTypeSettingsOutput) ToCustomActionTypeSettingsPtrOutputWithC
 	}).(CustomActionTypeSettingsPtrOutput)
 }
 
-// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
 func (o CustomActionTypeSettingsOutput) EntityUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.EntityUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
 func (o CustomActionTypeSettingsOutput) ExecutionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.ExecutionUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
 func (o CustomActionTypeSettingsOutput) RevisionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.RevisionUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 func (o CustomActionTypeSettingsOutput) ThirdPartyConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.ThirdPartyConfigurationUrl }).(pulumi.StringPtrOutput)
 }
@@ -630,7 +581,6 @@ func (o CustomActionTypeSettingsPtrOutput) Elem() CustomActionTypeSettingsOutput
 	}).(CustomActionTypeSettingsOutput)
 }
 
-// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
 func (o CustomActionTypeSettingsPtrOutput) EntityUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {
@@ -640,7 +590,6 @@ func (o CustomActionTypeSettingsPtrOutput) EntityUrlTemplate() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
 func (o CustomActionTypeSettingsPtrOutput) ExecutionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {
@@ -650,7 +599,6 @@ func (o CustomActionTypeSettingsPtrOutput) ExecutionUrlTemplate() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
 func (o CustomActionTypeSettingsPtrOutput) RevisionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {
@@ -660,7 +608,6 @@ func (o CustomActionTypeSettingsPtrOutput) RevisionUrlTemplate() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 func (o CustomActionTypeSettingsPtrOutput) ThirdPartyConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {
@@ -671,14 +618,10 @@ func (o CustomActionTypeSettingsPtrOutput) ThirdPartyConfigurationUrl() pulumi.S
 }
 
 type PipelineArtifactStore struct {
-	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 	EncryptionKey *PipelineArtifactStoreEncryptionKey `pulumi:"encryptionKey"`
-	// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-	Location string `pulumi:"location"`
-	// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-	Region *string `pulumi:"region"`
-	// The type of the artifact store, such as Amazon S3
-	Type string `pulumi:"type"`
+	Location      string                              `pulumi:"location"`
+	Region        *string                             `pulumi:"region"`
+	Type          string                              `pulumi:"type"`
 }
 
 // PipelineArtifactStoreInput is an input type that accepts PipelineArtifactStoreArgs and PipelineArtifactStoreOutput values.
@@ -693,14 +636,10 @@ type PipelineArtifactStoreInput interface {
 }
 
 type PipelineArtifactStoreArgs struct {
-	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 	EncryptionKey PipelineArtifactStoreEncryptionKeyPtrInput `pulumi:"encryptionKey"`
-	// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The type of the artifact store, such as Amazon S3
-	Type pulumi.StringInput `pulumi:"type"`
+	Location      pulumi.StringInput                         `pulumi:"location"`
+	Region        pulumi.StringPtrInput                      `pulumi:"region"`
+	Type          pulumi.StringInput                         `pulumi:"type"`
 }
 
 func (PipelineArtifactStoreArgs) ElementType() reflect.Type {
@@ -754,22 +693,18 @@ func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutputWithContext(ct
 	return o
 }
 
-// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 func (o PipelineArtifactStoreOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
 func (o PipelineArtifactStoreOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
 func (o PipelineArtifactStoreOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The type of the artifact store, such as Amazon S3
 func (o PipelineArtifactStoreOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -795,9 +730,7 @@ func (o PipelineArtifactStoreArrayOutput) Index(i pulumi.IntInput) PipelineArtif
 }
 
 type PipelineArtifactStoreEncryptionKey struct {
-	// The KMS key ARN or ID
-	Id string `pulumi:"id"`
-	// The type of key; currently only `KMS` is supported
+	Id   string `pulumi:"id"`
 	Type string `pulumi:"type"`
 }
 
@@ -813,9 +746,7 @@ type PipelineArtifactStoreEncryptionKeyInput interface {
 }
 
 type PipelineArtifactStoreEncryptionKeyArgs struct {
-	// The KMS key ARN or ID
-	Id pulumi.StringInput `pulumi:"id"`
-	// The type of key; currently only `KMS` is supported
+	Id   pulumi.StringInput `pulumi:"id"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -896,12 +827,10 @@ func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncrypt
 	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-// The KMS key ARN or ID
 func (o PipelineArtifactStoreEncryptionKeyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The type of key; currently only `KMS` is supported
 func (o PipelineArtifactStoreEncryptionKeyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -930,7 +859,6 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Elem() PipelineArtifactStor
 	}).(PipelineArtifactStoreEncryptionKeyOutput)
 }
 
-// The KMS key ARN or ID
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) *string {
 		if v == nil {
@@ -940,7 +868,6 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of key; currently only `KMS` is supported
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) *string {
 		if v == nil {
@@ -951,16 +878,11 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutp
 }
 
 type PipelineStage struct {
-	// The action(s) to include in the stage. Defined as an `action` block below
-	Actions []PipelineStageAction `pulumi:"actions"`
-	// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+	Actions     []PipelineStageAction     `pulumi:"actions"`
 	BeforeEntry *PipelineStageBeforeEntry `pulumi:"beforeEntry"`
-	// The name of the stage.
-	Name string `pulumi:"name"`
-	// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
-	OnFailure *PipelineStageOnFailure `pulumi:"onFailure"`
-	// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
-	OnSuccess *PipelineStageOnSuccess `pulumi:"onSuccess"`
+	Name        string                    `pulumi:"name"`
+	OnFailure   *PipelineStageOnFailure   `pulumi:"onFailure"`
+	OnSuccess   *PipelineStageOnSuccess   `pulumi:"onSuccess"`
 }
 
 // PipelineStageInput is an input type that accepts PipelineStageArgs and PipelineStageOutput values.
@@ -975,16 +897,11 @@ type PipelineStageInput interface {
 }
 
 type PipelineStageArgs struct {
-	// The action(s) to include in the stage. Defined as an `action` block below
-	Actions PipelineStageActionArrayInput `pulumi:"actions"`
-	// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+	Actions     PipelineStageActionArrayInput    `pulumi:"actions"`
 	BeforeEntry PipelineStageBeforeEntryPtrInput `pulumi:"beforeEntry"`
-	// The name of the stage.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
-	OnFailure PipelineStageOnFailurePtrInput `pulumi:"onFailure"`
-	// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
-	OnSuccess PipelineStageOnSuccessPtrInput `pulumi:"onSuccess"`
+	Name        pulumi.StringInput               `pulumi:"name"`
+	OnFailure   PipelineStageOnFailurePtrInput   `pulumi:"onFailure"`
+	OnSuccess   PipelineStageOnSuccessPtrInput   `pulumi:"onSuccess"`
 }
 
 func (PipelineStageArgs) ElementType() reflect.Type {
@@ -1038,27 +955,22 @@ func (o PipelineStageOutput) ToPipelineStageOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The action(s) to include in the stage. Defined as an `action` block below
 func (o PipelineStageOutput) Actions() PipelineStageActionArrayOutput {
 	return o.ApplyT(func(v PipelineStage) []PipelineStageAction { return v.Actions }).(PipelineStageActionArrayOutput)
 }
 
-// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
 func (o PipelineStageOutput) BeforeEntry() PipelineStageBeforeEntryPtrOutput {
 	return o.ApplyT(func(v PipelineStage) *PipelineStageBeforeEntry { return v.BeforeEntry }).(PipelineStageBeforeEntryPtrOutput)
 }
 
-// The name of the stage.
 func (o PipelineStageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStage) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
 func (o PipelineStageOutput) OnFailure() PipelineStageOnFailurePtrOutput {
 	return o.ApplyT(func(v PipelineStage) *PipelineStageOnFailure { return v.OnFailure }).(PipelineStageOnFailurePtrOutput)
 }
 
-// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
 func (o PipelineStageOutput) OnSuccess() PipelineStageOnSuccessPtrOutput {
 	return o.ApplyT(func(v PipelineStage) *PipelineStageOnSuccess { return v.OnSuccess }).(PipelineStageOnSuccessPtrOutput)
 }
@@ -1084,32 +996,19 @@ func (o PipelineStageArrayOutput) Index(i pulumi.IntInput) PipelineStageOutput {
 }
 
 type PipelineStageAction struct {
-	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-	Category string `pulumi:"category"`
-	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
-	Configuration map[string]string `pulumi:"configuration"`
-	// A list of artifact names to be worked on.
-	InputArtifacts []string `pulumi:"inputArtifacts"`
-	// The action declaration's name.
-	Name string `pulumi:"name"`
-	// The namespace all output variables will be accessed from.
-	Namespace *string `pulumi:"namespace"`
-	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
-	OutputArtifacts []string `pulumi:"outputArtifacts"`
-	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-	Owner string `pulumi:"owner"`
-	// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-	Provider string `pulumi:"provider"`
-	// The region in which to run the action.
-	Region *string `pulumi:"region"`
-	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-	RoleArn *string `pulumi:"roleArn"`
-	// The order in which actions are run.
-	RunOrder *int `pulumi:"runOrder"`
-	// The action timeout for the rule.
-	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
-	// A string that identifies the action type.
-	Version string `pulumi:"version"`
+	Category         string            `pulumi:"category"`
+	Configuration    map[string]string `pulumi:"configuration"`
+	InputArtifacts   []string          `pulumi:"inputArtifacts"`
+	Name             string            `pulumi:"name"`
+	Namespace        *string           `pulumi:"namespace"`
+	OutputArtifacts  []string          `pulumi:"outputArtifacts"`
+	Owner            string            `pulumi:"owner"`
+	Provider         string            `pulumi:"provider"`
+	Region           *string           `pulumi:"region"`
+	RoleArn          *string           `pulumi:"roleArn"`
+	RunOrder         *int              `pulumi:"runOrder"`
+	TimeoutInMinutes *int              `pulumi:"timeoutInMinutes"`
+	Version          string            `pulumi:"version"`
 }
 
 // PipelineStageActionInput is an input type that accepts PipelineStageActionArgs and PipelineStageActionOutput values.
@@ -1124,32 +1023,19 @@ type PipelineStageActionInput interface {
 }
 
 type PipelineStageActionArgs struct {
-	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-	Category pulumi.StringInput `pulumi:"category"`
-	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
-	Configuration pulumi.StringMapInput `pulumi:"configuration"`
-	// A list of artifact names to be worked on.
-	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
-	// The action declaration's name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The namespace all output variables will be accessed from.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
-	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
-	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-	Owner pulumi.StringInput `pulumi:"owner"`
-	// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-	Provider pulumi.StringInput `pulumi:"provider"`
-	// The region in which to run the action.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The order in which actions are run.
-	RunOrder pulumi.IntPtrInput `pulumi:"runOrder"`
-	// The action timeout for the rule.
-	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
-	// A string that identifies the action type.
-	Version pulumi.StringInput `pulumi:"version"`
+	Category         pulumi.StringInput      `pulumi:"category"`
+	Configuration    pulumi.StringMapInput   `pulumi:"configuration"`
+	InputArtifacts   pulumi.StringArrayInput `pulumi:"inputArtifacts"`
+	Name             pulumi.StringInput      `pulumi:"name"`
+	Namespace        pulumi.StringPtrInput   `pulumi:"namespace"`
+	OutputArtifacts  pulumi.StringArrayInput `pulumi:"outputArtifacts"`
+	Owner            pulumi.StringInput      `pulumi:"owner"`
+	Provider         pulumi.StringInput      `pulumi:"provider"`
+	Region           pulumi.StringPtrInput   `pulumi:"region"`
+	RoleArn          pulumi.StringPtrInput   `pulumi:"roleArn"`
+	RunOrder         pulumi.IntPtrInput      `pulumi:"runOrder"`
+	TimeoutInMinutes pulumi.IntPtrInput      `pulumi:"timeoutInMinutes"`
+	Version          pulumi.StringInput      `pulumi:"version"`
 }
 
 func (PipelineStageActionArgs) ElementType() reflect.Type {
@@ -1203,67 +1089,54 @@ func (o PipelineStageActionOutput) ToPipelineStageActionOutputWithContext(ctx co
 	return o
 }
 
-// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 func (o PipelineStageActionOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
 func (o PipelineStageActionOutput) Configuration() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineStageAction) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }
 
-// A list of artifact names to be worked on.
 func (o PipelineStageActionOutput) InputArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageAction) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// The action declaration's name.
 func (o PipelineStageActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The namespace all output variables will be accessed from.
 func (o PipelineStageActionOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 func (o PipelineStageActionOutput) OutputArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageAction) []string { return v.OutputArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 func (o PipelineStageActionOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 func (o PipelineStageActionOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Provider }).(pulumi.StringOutput)
 }
 
-// The region in which to run the action.
 func (o PipelineStageActionOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 func (o PipelineStageActionOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The order in which actions are run.
 func (o PipelineStageActionOutput) RunOrder() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *int { return v.RunOrder }).(pulumi.IntPtrOutput)
 }
 
-// The action timeout for the rule.
 func (o PipelineStageActionOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// A string that identifies the action type.
 func (o PipelineStageActionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1289,7 +1162,6 @@ func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageAc
 }
 
 type PipelineStageBeforeEntry struct {
-	// The conditions that are configured as entry condition. Defined as a `condition` block below.
 	Condition PipelineStageBeforeEntryCondition `pulumi:"condition"`
 }
 
@@ -1305,7 +1177,6 @@ type PipelineStageBeforeEntryInput interface {
 }
 
 type PipelineStageBeforeEntryArgs struct {
-	// The conditions that are configured as entry condition. Defined as a `condition` block below.
 	Condition PipelineStageBeforeEntryConditionInput `pulumi:"condition"`
 }
 
@@ -1386,7 +1257,6 @@ func (o PipelineStageBeforeEntryOutput) ToPipelineStageBeforeEntryPtrOutputWithC
 	}).(PipelineStageBeforeEntryPtrOutput)
 }
 
-// The conditions that are configured as entry condition. Defined as a `condition` block below.
 func (o PipelineStageBeforeEntryOutput) Condition() PipelineStageBeforeEntryConditionOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntry) PipelineStageBeforeEntryCondition { return v.Condition }).(PipelineStageBeforeEntryConditionOutput)
 }
@@ -1415,7 +1285,6 @@ func (o PipelineStageBeforeEntryPtrOutput) Elem() PipelineStageBeforeEntryOutput
 	}).(PipelineStageBeforeEntryOutput)
 }
 
-// The conditions that are configured as entry condition. Defined as a `condition` block below.
 func (o PipelineStageBeforeEntryPtrOutput) Condition() PipelineStageBeforeEntryConditionPtrOutput {
 	return o.ApplyT(func(v *PipelineStageBeforeEntry) *PipelineStageBeforeEntryCondition {
 		if v == nil {
@@ -1426,10 +1295,8 @@ func (o PipelineStageBeforeEntryPtrOutput) Condition() PipelineStageBeforeEntryC
 }
 
 type PipelineStageBeforeEntryCondition struct {
-	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-	Result *string `pulumi:"result"`
-	// The rules that make up the condition. Defined as a `rule` block below.
-	Rules []PipelineStageBeforeEntryConditionRule `pulumi:"rules"`
+	Result *string                                 `pulumi:"result"`
+	Rules  []PipelineStageBeforeEntryConditionRule `pulumi:"rules"`
 }
 
 // PipelineStageBeforeEntryConditionInput is an input type that accepts PipelineStageBeforeEntryConditionArgs and PipelineStageBeforeEntryConditionOutput values.
@@ -1444,10 +1311,8 @@ type PipelineStageBeforeEntryConditionInput interface {
 }
 
 type PipelineStageBeforeEntryConditionArgs struct {
-	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-	Result pulumi.StringPtrInput `pulumi:"result"`
-	// The rules that make up the condition. Defined as a `rule` block below.
-	Rules PipelineStageBeforeEntryConditionRuleArrayInput `pulumi:"rules"`
+	Result pulumi.StringPtrInput                           `pulumi:"result"`
+	Rules  PipelineStageBeforeEntryConditionRuleArrayInput `pulumi:"rules"`
 }
 
 func (PipelineStageBeforeEntryConditionArgs) ElementType() reflect.Type {
@@ -1527,12 +1392,10 @@ func (o PipelineStageBeforeEntryConditionOutput) ToPipelineStageBeforeEntryCondi
 	}).(PipelineStageBeforeEntryConditionPtrOutput)
 }
 
-// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageBeforeEntryConditionOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryCondition) *string { return v.Result }).(pulumi.StringPtrOutput)
 }
 
-// The rules that make up the condition. Defined as a `rule` block below.
 func (o PipelineStageBeforeEntryConditionOutput) Rules() PipelineStageBeforeEntryConditionRuleArrayOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryCondition) []PipelineStageBeforeEntryConditionRule { return v.Rules }).(PipelineStageBeforeEntryConditionRuleArrayOutput)
 }
@@ -1561,7 +1424,6 @@ func (o PipelineStageBeforeEntryConditionPtrOutput) Elem() PipelineStageBeforeEn
 	}).(PipelineStageBeforeEntryConditionOutput)
 }
 
-// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageBeforeEntryConditionPtrOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineStageBeforeEntryCondition) *string {
 		if v == nil {
@@ -1571,7 +1433,6 @@ func (o PipelineStageBeforeEntryConditionPtrOutput) Result() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rules that make up the condition. Defined as a `rule` block below.
 func (o PipelineStageBeforeEntryConditionPtrOutput) Rules() PipelineStageBeforeEntryConditionRuleArrayOutput {
 	return o.ApplyT(func(v *PipelineStageBeforeEntryCondition) []PipelineStageBeforeEntryConditionRule {
 		if v == nil {
@@ -1582,22 +1443,14 @@ func (o PipelineStageBeforeEntryConditionPtrOutput) Rules() PipelineStageBeforeE
 }
 
 type PipelineStageBeforeEntryConditionRule struct {
-	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-	Commands []string `pulumi:"commands"`
-	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Configuration map[string]string `pulumi:"configuration"`
-	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-	InputArtifacts []string `pulumi:"inputArtifacts"`
-	// The name of the rule that is created for the condition, such as `VariableCheck`.
-	Name string `pulumi:"name"`
-	// The Region for the condition associated with the rule.
-	Region *string `pulumi:"region"`
-	// The pipeline role ARN associated with the rule.
-	RoleArn *string `pulumi:"roleArn"`
-	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-	RuleTypeId PipelineStageBeforeEntryConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
-	// The action timeout for the rule.
-	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+	Commands         []string                                        `pulumi:"commands"`
+	Configuration    map[string]string                               `pulumi:"configuration"`
+	InputArtifacts   []string                                        `pulumi:"inputArtifacts"`
+	Name             string                                          `pulumi:"name"`
+	Region           *string                                         `pulumi:"region"`
+	RoleArn          *string                                         `pulumi:"roleArn"`
+	RuleTypeId       PipelineStageBeforeEntryConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
+	TimeoutInMinutes *int                                            `pulumi:"timeoutInMinutes"`
 }
 
 // PipelineStageBeforeEntryConditionRuleInput is an input type that accepts PipelineStageBeforeEntryConditionRuleArgs and PipelineStageBeforeEntryConditionRuleOutput values.
@@ -1612,22 +1465,14 @@ type PipelineStageBeforeEntryConditionRuleInput interface {
 }
 
 type PipelineStageBeforeEntryConditionRuleArgs struct {
-	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Configuration pulumi.StringMapInput `pulumi:"configuration"`
-	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
-	// The name of the rule that is created for the condition, such as `VariableCheck`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Region for the condition associated with the rule.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The pipeline role ARN associated with the rule.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-	RuleTypeId PipelineStageBeforeEntryConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
-	// The action timeout for the rule.
-	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+	Commands         pulumi.StringArrayInput                              `pulumi:"commands"`
+	Configuration    pulumi.StringMapInput                                `pulumi:"configuration"`
+	InputArtifacts   pulumi.StringArrayInput                              `pulumi:"inputArtifacts"`
+	Name             pulumi.StringInput                                   `pulumi:"name"`
+	Region           pulumi.StringPtrInput                                `pulumi:"region"`
+	RoleArn          pulumi.StringPtrInput                                `pulumi:"roleArn"`
+	RuleTypeId       PipelineStageBeforeEntryConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
+	TimeoutInMinutes pulumi.IntPtrInput                                   `pulumi:"timeoutInMinutes"`
 }
 
 func (PipelineStageBeforeEntryConditionRuleArgs) ElementType() reflect.Type {
@@ -1681,44 +1526,36 @@ func (o PipelineStageBeforeEntryConditionRuleOutput) ToPipelineStageBeforeEntryC
 	return o
 }
 
-// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
 func (o PipelineStageBeforeEntryConditionRuleOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
 func (o PipelineStageBeforeEntryConditionRuleOutput) Configuration() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }
 
-// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
 func (o PipelineStageBeforeEntryConditionRuleOutput) InputArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// The name of the rule that is created for the condition, such as `VariableCheck`.
 func (o PipelineStageBeforeEntryConditionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Region for the condition associated with the rule.
 func (o PipelineStageBeforeEntryConditionRuleOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The pipeline role ARN associated with the rule.
 func (o PipelineStageBeforeEntryConditionRuleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
 func (o PipelineStageBeforeEntryConditionRuleOutput) RuleTypeId() PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) PipelineStageBeforeEntryConditionRuleRuleTypeId {
 		return v.RuleTypeId
 	}).(PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput)
 }
 
-// The action timeout for the rule.
 func (o PipelineStageBeforeEntryConditionRuleOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1744,14 +1581,10 @@ func (o PipelineStageBeforeEntryConditionRuleArrayOutput) Index(i pulumi.IntInpu
 }
 
 type PipelineStageBeforeEntryConditionRuleRuleTypeId struct {
-	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-	Category string `pulumi:"category"`
-	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-	Owner *string `pulumi:"owner"`
-	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Provider string `pulumi:"provider"`
-	// A string that describes the rule version.
-	Version *string `pulumi:"version"`
+	Category string  `pulumi:"category"`
+	Owner    *string `pulumi:"owner"`
+	Provider string  `pulumi:"provider"`
+	Version  *string `pulumi:"version"`
 }
 
 // PipelineStageBeforeEntryConditionRuleRuleTypeIdInput is an input type that accepts PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs and PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput values.
@@ -1766,14 +1599,10 @@ type PipelineStageBeforeEntryConditionRuleRuleTypeIdInput interface {
 }
 
 type PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs struct {
-	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-	Category pulumi.StringInput `pulumi:"category"`
-	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-	Owner pulumi.StringPtrInput `pulumi:"owner"`
-	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Provider pulumi.StringInput `pulumi:"provider"`
-	// A string that describes the rule version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Category pulumi.StringInput    `pulumi:"category"`
+	Owner    pulumi.StringPtrInput `pulumi:"owner"`
+	Provider pulumi.StringInput    `pulumi:"provider"`
+	Version  pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs) ElementType() reflect.Type {
@@ -1802,32 +1631,25 @@ func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) ToPipelineStageBe
 	return o
 }
 
-// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
 func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
 func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
 func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) string { return v.Provider }).(pulumi.StringOutput)
 }
 
-// A string that describes the rule version.
 func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type PipelineStageOnFailure struct {
-	// The conditions that are failure conditions. Defined as a `condition` block below.
-	Condition *PipelineStageOnFailureCondition `pulumi:"condition"`
-	// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-	Result *string `pulumi:"result"`
-	// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
+	Condition          *PipelineStageOnFailureCondition          `pulumi:"condition"`
+	Result             *string                                   `pulumi:"result"`
 	RetryConfiguration *PipelineStageOnFailureRetryConfiguration `pulumi:"retryConfiguration"`
 }
 
@@ -1843,11 +1665,8 @@ type PipelineStageOnFailureInput interface {
 }
 
 type PipelineStageOnFailureArgs struct {
-	// The conditions that are failure conditions. Defined as a `condition` block below.
-	Condition PipelineStageOnFailureConditionPtrInput `pulumi:"condition"`
-	// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-	Result pulumi.StringPtrInput `pulumi:"result"`
-	// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
+	Condition          PipelineStageOnFailureConditionPtrInput          `pulumi:"condition"`
+	Result             pulumi.StringPtrInput                            `pulumi:"result"`
 	RetryConfiguration PipelineStageOnFailureRetryConfigurationPtrInput `pulumi:"retryConfiguration"`
 }
 
@@ -1928,17 +1747,14 @@ func (o PipelineStageOnFailureOutput) ToPipelineStageOnFailurePtrOutputWithConte
 	}).(PipelineStageOnFailurePtrOutput)
 }
 
-// The conditions that are failure conditions. Defined as a `condition` block below.
 func (o PipelineStageOnFailureOutput) Condition() PipelineStageOnFailureConditionPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailure) *PipelineStageOnFailureCondition { return v.Condition }).(PipelineStageOnFailureConditionPtrOutput)
 }
 
-// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageOnFailureOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailure) *string { return v.Result }).(pulumi.StringPtrOutput)
 }
 
-// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
 func (o PipelineStageOnFailureOutput) RetryConfiguration() PipelineStageOnFailureRetryConfigurationPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailure) *PipelineStageOnFailureRetryConfiguration { return v.RetryConfiguration }).(PipelineStageOnFailureRetryConfigurationPtrOutput)
 }
@@ -1967,7 +1783,6 @@ func (o PipelineStageOnFailurePtrOutput) Elem() PipelineStageOnFailureOutput {
 	}).(PipelineStageOnFailureOutput)
 }
 
-// The conditions that are failure conditions. Defined as a `condition` block below.
 func (o PipelineStageOnFailurePtrOutput) Condition() PipelineStageOnFailureConditionPtrOutput {
 	return o.ApplyT(func(v *PipelineStageOnFailure) *PipelineStageOnFailureCondition {
 		if v == nil {
@@ -1977,7 +1792,6 @@ func (o PipelineStageOnFailurePtrOutput) Condition() PipelineStageOnFailureCondi
 	}).(PipelineStageOnFailureConditionPtrOutput)
 }
 
-// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageOnFailurePtrOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineStageOnFailure) *string {
 		if v == nil {
@@ -1987,7 +1801,6 @@ func (o PipelineStageOnFailurePtrOutput) Result() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
 func (o PipelineStageOnFailurePtrOutput) RetryConfiguration() PipelineStageOnFailureRetryConfigurationPtrOutput {
 	return o.ApplyT(func(v *PipelineStageOnFailure) *PipelineStageOnFailureRetryConfiguration {
 		if v == nil {
@@ -1998,10 +1811,8 @@ func (o PipelineStageOnFailurePtrOutput) RetryConfiguration() PipelineStageOnFai
 }
 
 type PipelineStageOnFailureCondition struct {
-	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-	Result *string `pulumi:"result"`
-	// The rules that make up the condition. Defined as a `rule` block below.
-	Rules []PipelineStageOnFailureConditionRule `pulumi:"rules"`
+	Result *string                               `pulumi:"result"`
+	Rules  []PipelineStageOnFailureConditionRule `pulumi:"rules"`
 }
 
 // PipelineStageOnFailureConditionInput is an input type that accepts PipelineStageOnFailureConditionArgs and PipelineStageOnFailureConditionOutput values.
@@ -2016,10 +1827,8 @@ type PipelineStageOnFailureConditionInput interface {
 }
 
 type PipelineStageOnFailureConditionArgs struct {
-	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-	Result pulumi.StringPtrInput `pulumi:"result"`
-	// The rules that make up the condition. Defined as a `rule` block below.
-	Rules PipelineStageOnFailureConditionRuleArrayInput `pulumi:"rules"`
+	Result pulumi.StringPtrInput                         `pulumi:"result"`
+	Rules  PipelineStageOnFailureConditionRuleArrayInput `pulumi:"rules"`
 }
 
 func (PipelineStageOnFailureConditionArgs) ElementType() reflect.Type {
@@ -2099,12 +1908,10 @@ func (o PipelineStageOnFailureConditionOutput) ToPipelineStageOnFailureCondition
 	}).(PipelineStageOnFailureConditionPtrOutput)
 }
 
-// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageOnFailureConditionOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureCondition) *string { return v.Result }).(pulumi.StringPtrOutput)
 }
 
-// The rules that make up the condition. Defined as a `rule` block below.
 func (o PipelineStageOnFailureConditionOutput) Rules() PipelineStageOnFailureConditionRuleArrayOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureCondition) []PipelineStageOnFailureConditionRule { return v.Rules }).(PipelineStageOnFailureConditionRuleArrayOutput)
 }
@@ -2133,7 +1940,6 @@ func (o PipelineStageOnFailureConditionPtrOutput) Elem() PipelineStageOnFailureC
 	}).(PipelineStageOnFailureConditionOutput)
 }
 
-// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageOnFailureConditionPtrOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineStageOnFailureCondition) *string {
 		if v == nil {
@@ -2143,7 +1949,6 @@ func (o PipelineStageOnFailureConditionPtrOutput) Result() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rules that make up the condition. Defined as a `rule` block below.
 func (o PipelineStageOnFailureConditionPtrOutput) Rules() PipelineStageOnFailureConditionRuleArrayOutput {
 	return o.ApplyT(func(v *PipelineStageOnFailureCondition) []PipelineStageOnFailureConditionRule {
 		if v == nil {
@@ -2154,22 +1959,14 @@ func (o PipelineStageOnFailureConditionPtrOutput) Rules() PipelineStageOnFailure
 }
 
 type PipelineStageOnFailureConditionRule struct {
-	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-	Commands []string `pulumi:"commands"`
-	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Configuration map[string]string `pulumi:"configuration"`
-	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-	InputArtifacts []string `pulumi:"inputArtifacts"`
-	// The name of the rule that is created for the condition, such as `VariableCheck`.
-	Name string `pulumi:"name"`
-	// The Region for the condition associated with the rule.
-	Region *string `pulumi:"region"`
-	// The pipeline role ARN associated with the rule.
-	RoleArn *string `pulumi:"roleArn"`
-	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-	RuleTypeId PipelineStageOnFailureConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
-	// The action timeout for the rule.
-	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+	Commands         []string                                      `pulumi:"commands"`
+	Configuration    map[string]string                             `pulumi:"configuration"`
+	InputArtifacts   []string                                      `pulumi:"inputArtifacts"`
+	Name             string                                        `pulumi:"name"`
+	Region           *string                                       `pulumi:"region"`
+	RoleArn          *string                                       `pulumi:"roleArn"`
+	RuleTypeId       PipelineStageOnFailureConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
+	TimeoutInMinutes *int                                          `pulumi:"timeoutInMinutes"`
 }
 
 // PipelineStageOnFailureConditionRuleInput is an input type that accepts PipelineStageOnFailureConditionRuleArgs and PipelineStageOnFailureConditionRuleOutput values.
@@ -2184,22 +1981,14 @@ type PipelineStageOnFailureConditionRuleInput interface {
 }
 
 type PipelineStageOnFailureConditionRuleArgs struct {
-	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Configuration pulumi.StringMapInput `pulumi:"configuration"`
-	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
-	// The name of the rule that is created for the condition, such as `VariableCheck`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Region for the condition associated with the rule.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The pipeline role ARN associated with the rule.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-	RuleTypeId PipelineStageOnFailureConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
-	// The action timeout for the rule.
-	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+	Commands         pulumi.StringArrayInput                            `pulumi:"commands"`
+	Configuration    pulumi.StringMapInput                              `pulumi:"configuration"`
+	InputArtifacts   pulumi.StringArrayInput                            `pulumi:"inputArtifacts"`
+	Name             pulumi.StringInput                                 `pulumi:"name"`
+	Region           pulumi.StringPtrInput                              `pulumi:"region"`
+	RoleArn          pulumi.StringPtrInput                              `pulumi:"roleArn"`
+	RuleTypeId       PipelineStageOnFailureConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
+	TimeoutInMinutes pulumi.IntPtrInput                                 `pulumi:"timeoutInMinutes"`
 }
 
 func (PipelineStageOnFailureConditionRuleArgs) ElementType() reflect.Type {
@@ -2253,44 +2042,36 @@ func (o PipelineStageOnFailureConditionRuleOutput) ToPipelineStageOnFailureCondi
 	return o
 }
 
-// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
 func (o PipelineStageOnFailureConditionRuleOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
 func (o PipelineStageOnFailureConditionRuleOutput) Configuration() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }
 
-// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
 func (o PipelineStageOnFailureConditionRuleOutput) InputArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// The name of the rule that is created for the condition, such as `VariableCheck`.
 func (o PipelineStageOnFailureConditionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Region for the condition associated with the rule.
 func (o PipelineStageOnFailureConditionRuleOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The pipeline role ARN associated with the rule.
 func (o PipelineStageOnFailureConditionRuleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
 func (o PipelineStageOnFailureConditionRuleOutput) RuleTypeId() PipelineStageOnFailureConditionRuleRuleTypeIdOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) PipelineStageOnFailureConditionRuleRuleTypeId {
 		return v.RuleTypeId
 	}).(PipelineStageOnFailureConditionRuleRuleTypeIdOutput)
 }
 
-// The action timeout for the rule.
 func (o PipelineStageOnFailureConditionRuleOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -2316,14 +2097,10 @@ func (o PipelineStageOnFailureConditionRuleArrayOutput) Index(i pulumi.IntInput)
 }
 
 type PipelineStageOnFailureConditionRuleRuleTypeId struct {
-	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-	Category string `pulumi:"category"`
-	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-	Owner *string `pulumi:"owner"`
-	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Provider string `pulumi:"provider"`
-	// A string that describes the rule version.
-	Version *string `pulumi:"version"`
+	Category string  `pulumi:"category"`
+	Owner    *string `pulumi:"owner"`
+	Provider string  `pulumi:"provider"`
+	Version  *string `pulumi:"version"`
 }
 
 // PipelineStageOnFailureConditionRuleRuleTypeIdInput is an input type that accepts PipelineStageOnFailureConditionRuleRuleTypeIdArgs and PipelineStageOnFailureConditionRuleRuleTypeIdOutput values.
@@ -2338,14 +2115,10 @@ type PipelineStageOnFailureConditionRuleRuleTypeIdInput interface {
 }
 
 type PipelineStageOnFailureConditionRuleRuleTypeIdArgs struct {
-	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-	Category pulumi.StringInput `pulumi:"category"`
-	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-	Owner pulumi.StringPtrInput `pulumi:"owner"`
-	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Provider pulumi.StringInput `pulumi:"provider"`
-	// A string that describes the rule version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Category pulumi.StringInput    `pulumi:"category"`
+	Owner    pulumi.StringPtrInput `pulumi:"owner"`
+	Provider pulumi.StringInput    `pulumi:"provider"`
+	Version  pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PipelineStageOnFailureConditionRuleRuleTypeIdArgs) ElementType() reflect.Type {
@@ -2374,28 +2147,23 @@ func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) ToPipelineStageOnFa
 	return o
 }
 
-// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
 func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
 func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
 func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) string { return v.Provider }).(pulumi.StringOutput)
 }
 
-// A string that describes the rule version.
 func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type PipelineStageOnFailureRetryConfiguration struct {
-	// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
 	RetryMode *string `pulumi:"retryMode"`
 }
 
@@ -2411,7 +2179,6 @@ type PipelineStageOnFailureRetryConfigurationInput interface {
 }
 
 type PipelineStageOnFailureRetryConfigurationArgs struct {
-	// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
 	RetryMode pulumi.StringPtrInput `pulumi:"retryMode"`
 }
 
@@ -2492,7 +2259,6 @@ func (o PipelineStageOnFailureRetryConfigurationOutput) ToPipelineStageOnFailure
 	}).(PipelineStageOnFailureRetryConfigurationPtrOutput)
 }
 
-// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
 func (o PipelineStageOnFailureRetryConfigurationOutput) RetryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnFailureRetryConfiguration) *string { return v.RetryMode }).(pulumi.StringPtrOutput)
 }
@@ -2521,7 +2287,6 @@ func (o PipelineStageOnFailureRetryConfigurationPtrOutput) Elem() PipelineStageO
 	}).(PipelineStageOnFailureRetryConfigurationOutput)
 }
 
-// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
 func (o PipelineStageOnFailureRetryConfigurationPtrOutput) RetryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineStageOnFailureRetryConfiguration) *string {
 		if v == nil {
@@ -2532,7 +2297,6 @@ func (o PipelineStageOnFailureRetryConfigurationPtrOutput) RetryMode() pulumi.St
 }
 
 type PipelineStageOnSuccess struct {
-	// The conditions that are success conditions. Defined as a `condition` block below.
 	Condition PipelineStageOnSuccessCondition `pulumi:"condition"`
 }
 
@@ -2548,7 +2312,6 @@ type PipelineStageOnSuccessInput interface {
 }
 
 type PipelineStageOnSuccessArgs struct {
-	// The conditions that are success conditions. Defined as a `condition` block below.
 	Condition PipelineStageOnSuccessConditionInput `pulumi:"condition"`
 }
 
@@ -2629,7 +2392,6 @@ func (o PipelineStageOnSuccessOutput) ToPipelineStageOnSuccessPtrOutputWithConte
 	}).(PipelineStageOnSuccessPtrOutput)
 }
 
-// The conditions that are success conditions. Defined as a `condition` block below.
 func (o PipelineStageOnSuccessOutput) Condition() PipelineStageOnSuccessConditionOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccess) PipelineStageOnSuccessCondition { return v.Condition }).(PipelineStageOnSuccessConditionOutput)
 }
@@ -2658,7 +2420,6 @@ func (o PipelineStageOnSuccessPtrOutput) Elem() PipelineStageOnSuccessOutput {
 	}).(PipelineStageOnSuccessOutput)
 }
 
-// The conditions that are success conditions. Defined as a `condition` block below.
 func (o PipelineStageOnSuccessPtrOutput) Condition() PipelineStageOnSuccessConditionPtrOutput {
 	return o.ApplyT(func(v *PipelineStageOnSuccess) *PipelineStageOnSuccessCondition {
 		if v == nil {
@@ -2669,10 +2430,8 @@ func (o PipelineStageOnSuccessPtrOutput) Condition() PipelineStageOnSuccessCondi
 }
 
 type PipelineStageOnSuccessCondition struct {
-	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-	Result *string `pulumi:"result"`
-	// The rules that make up the condition. Defined as a `rule` block below.
-	Rules []PipelineStageOnSuccessConditionRule `pulumi:"rules"`
+	Result *string                               `pulumi:"result"`
+	Rules  []PipelineStageOnSuccessConditionRule `pulumi:"rules"`
 }
 
 // PipelineStageOnSuccessConditionInput is an input type that accepts PipelineStageOnSuccessConditionArgs and PipelineStageOnSuccessConditionOutput values.
@@ -2687,10 +2446,8 @@ type PipelineStageOnSuccessConditionInput interface {
 }
 
 type PipelineStageOnSuccessConditionArgs struct {
-	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-	Result pulumi.StringPtrInput `pulumi:"result"`
-	// The rules that make up the condition. Defined as a `rule` block below.
-	Rules PipelineStageOnSuccessConditionRuleArrayInput `pulumi:"rules"`
+	Result pulumi.StringPtrInput                         `pulumi:"result"`
+	Rules  PipelineStageOnSuccessConditionRuleArrayInput `pulumi:"rules"`
 }
 
 func (PipelineStageOnSuccessConditionArgs) ElementType() reflect.Type {
@@ -2770,12 +2527,10 @@ func (o PipelineStageOnSuccessConditionOutput) ToPipelineStageOnSuccessCondition
 	}).(PipelineStageOnSuccessConditionPtrOutput)
 }
 
-// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageOnSuccessConditionOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessCondition) *string { return v.Result }).(pulumi.StringPtrOutput)
 }
 
-// The rules that make up the condition. Defined as a `rule` block below.
 func (o PipelineStageOnSuccessConditionOutput) Rules() PipelineStageOnSuccessConditionRuleArrayOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessCondition) []PipelineStageOnSuccessConditionRule { return v.Rules }).(PipelineStageOnSuccessConditionRuleArrayOutput)
 }
@@ -2804,7 +2559,6 @@ func (o PipelineStageOnSuccessConditionPtrOutput) Elem() PipelineStageOnSuccessC
 	}).(PipelineStageOnSuccessConditionOutput)
 }
 
-// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
 func (o PipelineStageOnSuccessConditionPtrOutput) Result() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineStageOnSuccessCondition) *string {
 		if v == nil {
@@ -2814,7 +2568,6 @@ func (o PipelineStageOnSuccessConditionPtrOutput) Result() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rules that make up the condition. Defined as a `rule` block below.
 func (o PipelineStageOnSuccessConditionPtrOutput) Rules() PipelineStageOnSuccessConditionRuleArrayOutput {
 	return o.ApplyT(func(v *PipelineStageOnSuccessCondition) []PipelineStageOnSuccessConditionRule {
 		if v == nil {
@@ -2825,22 +2578,14 @@ func (o PipelineStageOnSuccessConditionPtrOutput) Rules() PipelineStageOnSuccess
 }
 
 type PipelineStageOnSuccessConditionRule struct {
-	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-	Commands []string `pulumi:"commands"`
-	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Configuration map[string]string `pulumi:"configuration"`
-	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-	InputArtifacts []string `pulumi:"inputArtifacts"`
-	// The name of the rule that is created for the condition, such as `VariableCheck`.
-	Name string `pulumi:"name"`
-	// The Region for the condition associated with the rule.
-	Region *string `pulumi:"region"`
-	// The pipeline role ARN associated with the rule.
-	RoleArn *string `pulumi:"roleArn"`
-	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-	RuleTypeId PipelineStageOnSuccessConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
-	// The action timeout for the rule.
-	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+	Commands         []string                                      `pulumi:"commands"`
+	Configuration    map[string]string                             `pulumi:"configuration"`
+	InputArtifacts   []string                                      `pulumi:"inputArtifacts"`
+	Name             string                                        `pulumi:"name"`
+	Region           *string                                       `pulumi:"region"`
+	RoleArn          *string                                       `pulumi:"roleArn"`
+	RuleTypeId       PipelineStageOnSuccessConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
+	TimeoutInMinutes *int                                          `pulumi:"timeoutInMinutes"`
 }
 
 // PipelineStageOnSuccessConditionRuleInput is an input type that accepts PipelineStageOnSuccessConditionRuleArgs and PipelineStageOnSuccessConditionRuleOutput values.
@@ -2855,22 +2600,14 @@ type PipelineStageOnSuccessConditionRuleInput interface {
 }
 
 type PipelineStageOnSuccessConditionRuleArgs struct {
-	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Configuration pulumi.StringMapInput `pulumi:"configuration"`
-	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
-	// The name of the rule that is created for the condition, such as `VariableCheck`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Region for the condition associated with the rule.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The pipeline role ARN associated with the rule.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-	RuleTypeId PipelineStageOnSuccessConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
-	// The action timeout for the rule.
-	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+	Commands         pulumi.StringArrayInput                            `pulumi:"commands"`
+	Configuration    pulumi.StringMapInput                              `pulumi:"configuration"`
+	InputArtifacts   pulumi.StringArrayInput                            `pulumi:"inputArtifacts"`
+	Name             pulumi.StringInput                                 `pulumi:"name"`
+	Region           pulumi.StringPtrInput                              `pulumi:"region"`
+	RoleArn          pulumi.StringPtrInput                              `pulumi:"roleArn"`
+	RuleTypeId       PipelineStageOnSuccessConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
+	TimeoutInMinutes pulumi.IntPtrInput                                 `pulumi:"timeoutInMinutes"`
 }
 
 func (PipelineStageOnSuccessConditionRuleArgs) ElementType() reflect.Type {
@@ -2924,44 +2661,36 @@ func (o PipelineStageOnSuccessConditionRuleOutput) ToPipelineStageOnSuccessCondi
 	return o
 }
 
-// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
 func (o PipelineStageOnSuccessConditionRuleOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
 func (o PipelineStageOnSuccessConditionRuleOutput) Configuration() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }
 
-// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
 func (o PipelineStageOnSuccessConditionRuleOutput) InputArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// The name of the rule that is created for the condition, such as `VariableCheck`.
 func (o PipelineStageOnSuccessConditionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Region for the condition associated with the rule.
 func (o PipelineStageOnSuccessConditionRuleOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The pipeline role ARN associated with the rule.
 func (o PipelineStageOnSuccessConditionRuleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
 func (o PipelineStageOnSuccessConditionRuleOutput) RuleTypeId() PipelineStageOnSuccessConditionRuleRuleTypeIdOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) PipelineStageOnSuccessConditionRuleRuleTypeId {
 		return v.RuleTypeId
 	}).(PipelineStageOnSuccessConditionRuleRuleTypeIdOutput)
 }
 
-// The action timeout for the rule.
 func (o PipelineStageOnSuccessConditionRuleOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -2987,14 +2716,10 @@ func (o PipelineStageOnSuccessConditionRuleArrayOutput) Index(i pulumi.IntInput)
 }
 
 type PipelineStageOnSuccessConditionRuleRuleTypeId struct {
-	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-	Category string `pulumi:"category"`
-	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-	Owner *string `pulumi:"owner"`
-	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Provider string `pulumi:"provider"`
-	// A string that describes the rule version.
-	Version *string `pulumi:"version"`
+	Category string  `pulumi:"category"`
+	Owner    *string `pulumi:"owner"`
+	Provider string  `pulumi:"provider"`
+	Version  *string `pulumi:"version"`
 }
 
 // PipelineStageOnSuccessConditionRuleRuleTypeIdInput is an input type that accepts PipelineStageOnSuccessConditionRuleRuleTypeIdArgs and PipelineStageOnSuccessConditionRuleRuleTypeIdOutput values.
@@ -3009,14 +2734,10 @@ type PipelineStageOnSuccessConditionRuleRuleTypeIdInput interface {
 }
 
 type PipelineStageOnSuccessConditionRuleRuleTypeIdArgs struct {
-	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-	Category pulumi.StringInput `pulumi:"category"`
-	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-	Owner pulumi.StringPtrInput `pulumi:"owner"`
-	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-	Provider pulumi.StringInput `pulumi:"provider"`
-	// A string that describes the rule version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Category pulumi.StringInput    `pulumi:"category"`
+	Owner    pulumi.StringPtrInput `pulumi:"owner"`
+	Provider pulumi.StringInput    `pulumi:"provider"`
+	Version  pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PipelineStageOnSuccessConditionRuleRuleTypeIdArgs) ElementType() reflect.Type {
@@ -3045,31 +2766,25 @@ func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) ToPipelineStageOnSu
 	return o
 }
 
-// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
 func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
 func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
 func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) string { return v.Provider }).(pulumi.StringOutput)
 }
 
-// A string that describes the rule version.
 func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type PipelineTrigger struct {
-	// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
 	GitConfiguration PipelineTriggerGitConfiguration `pulumi:"gitConfiguration"`
-	// The source provider for the event. Possible value is `CodeStarSourceConnection`.
-	ProviderType string `pulumi:"providerType"`
+	ProviderType     string                          `pulumi:"providerType"`
 }
 
 // PipelineTriggerInput is an input type that accepts PipelineTriggerArgs and PipelineTriggerOutput values.
@@ -3084,10 +2799,8 @@ type PipelineTriggerInput interface {
 }
 
 type PipelineTriggerArgs struct {
-	// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
 	GitConfiguration PipelineTriggerGitConfigurationInput `pulumi:"gitConfiguration"`
-	// The source provider for the event. Possible value is `CodeStarSourceConnection`.
-	ProviderType pulumi.StringInput `pulumi:"providerType"`
+	ProviderType     pulumi.StringInput                   `pulumi:"providerType"`
 }
 
 func (PipelineTriggerArgs) ElementType() reflect.Type {
@@ -3141,12 +2854,10 @@ func (o PipelineTriggerOutput) ToPipelineTriggerOutputWithContext(ctx context.Co
 	return o
 }
 
-// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
 func (o PipelineTriggerOutput) GitConfiguration() PipelineTriggerGitConfigurationOutput {
 	return o.ApplyT(func(v PipelineTrigger) PipelineTriggerGitConfiguration { return v.GitConfiguration }).(PipelineTriggerGitConfigurationOutput)
 }
 
-// The source provider for the event. Possible value is `CodeStarSourceConnection`.
 func (o PipelineTriggerOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineTrigger) string { return v.ProviderType }).(pulumi.StringOutput)
 }
@@ -3172,10 +2883,8 @@ func (o PipelineTriggerArrayOutput) Index(i pulumi.IntInput) PipelineTriggerOutp
 }
 
 type PipelineTriggerAll struct {
-	// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
 	GitConfigurations []PipelineTriggerAllGitConfiguration `pulumi:"gitConfigurations"`
-	// The source provider for the event. Possible value is `CodeStarSourceConnection`.
-	ProviderType *string `pulumi:"providerType"`
+	ProviderType      *string                              `pulumi:"providerType"`
 }
 
 // PipelineTriggerAllInput is an input type that accepts PipelineTriggerAllArgs and PipelineTriggerAllOutput values.
@@ -3190,10 +2899,8 @@ type PipelineTriggerAllInput interface {
 }
 
 type PipelineTriggerAllArgs struct {
-	// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
 	GitConfigurations PipelineTriggerAllGitConfigurationArrayInput `pulumi:"gitConfigurations"`
-	// The source provider for the event. Possible value is `CodeStarSourceConnection`.
-	ProviderType pulumi.StringPtrInput `pulumi:"providerType"`
+	ProviderType      pulumi.StringPtrInput                        `pulumi:"providerType"`
 }
 
 func (PipelineTriggerAllArgs) ElementType() reflect.Type {
@@ -3247,12 +2954,10 @@ func (o PipelineTriggerAllOutput) ToPipelineTriggerAllOutputWithContext(ctx cont
 	return o
 }
 
-// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
 func (o PipelineTriggerAllOutput) GitConfigurations() PipelineTriggerAllGitConfigurationArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAll) []PipelineTriggerAllGitConfiguration { return v.GitConfigurations }).(PipelineTriggerAllGitConfigurationArrayOutput)
 }
 
-// The source provider for the event. Possible value is `CodeStarSourceConnection`.
 func (o PipelineTriggerAllOutput) ProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineTriggerAll) *string { return v.ProviderType }).(pulumi.StringPtrOutput)
 }
@@ -3278,12 +2983,9 @@ func (o PipelineTriggerAllArrayOutput) Index(i pulumi.IntInput) PipelineTriggerA
 }
 
 type PipelineTriggerAllGitConfiguration struct {
-	// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-	PullRequests []PipelineTriggerAllGitConfigurationPullRequest `pulumi:"pullRequests"`
-	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-	Pushes []PipelineTriggerAllGitConfigurationPush `pulumi:"pushes"`
-	// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-	SourceActionName *string `pulumi:"sourceActionName"`
+	PullRequests     []PipelineTriggerAllGitConfigurationPullRequest `pulumi:"pullRequests"`
+	Pushes           []PipelineTriggerAllGitConfigurationPush        `pulumi:"pushes"`
+	SourceActionName *string                                         `pulumi:"sourceActionName"`
 }
 
 // PipelineTriggerAllGitConfigurationInput is an input type that accepts PipelineTriggerAllGitConfigurationArgs and PipelineTriggerAllGitConfigurationOutput values.
@@ -3298,12 +3000,9 @@ type PipelineTriggerAllGitConfigurationInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationArgs struct {
-	// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-	PullRequests PipelineTriggerAllGitConfigurationPullRequestArrayInput `pulumi:"pullRequests"`
-	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-	Pushes PipelineTriggerAllGitConfigurationPushArrayInput `pulumi:"pushes"`
-	// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-	SourceActionName pulumi.StringPtrInput `pulumi:"sourceActionName"`
+	PullRequests     PipelineTriggerAllGitConfigurationPullRequestArrayInput `pulumi:"pullRequests"`
+	Pushes           PipelineTriggerAllGitConfigurationPushArrayInput        `pulumi:"pushes"`
+	SourceActionName pulumi.StringPtrInput                                   `pulumi:"sourceActionName"`
 }
 
 func (PipelineTriggerAllGitConfigurationArgs) ElementType() reflect.Type {
@@ -3357,19 +3056,16 @@ func (o PipelineTriggerAllGitConfigurationOutput) ToPipelineTriggerAllGitConfigu
 	return o
 }
 
-// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
 func (o PipelineTriggerAllGitConfigurationOutput) PullRequests() PipelineTriggerAllGitConfigurationPullRequestArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfiguration) []PipelineTriggerAllGitConfigurationPullRequest {
 		return v.PullRequests
 	}).(PipelineTriggerAllGitConfigurationPullRequestArrayOutput)
 }
 
-// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
 func (o PipelineTriggerAllGitConfigurationOutput) Pushes() PipelineTriggerAllGitConfigurationPushArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfiguration) []PipelineTriggerAllGitConfigurationPush { return v.Pushes }).(PipelineTriggerAllGitConfigurationPushArrayOutput)
 }
 
-// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
 func (o PipelineTriggerAllGitConfigurationOutput) SourceActionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfiguration) *string { return v.SourceActionName }).(pulumi.StringPtrOutput)
 }
@@ -3395,11 +3091,8 @@ func (o PipelineTriggerAllGitConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type PipelineTriggerAllGitConfigurationPullRequest struct {
-	// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-	Branches []PipelineTriggerAllGitConfigurationPullRequestBranch `pulumi:"branches"`
-	// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-	Events []string `pulumi:"events"`
-	// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+	Branches  []PipelineTriggerAllGitConfigurationPullRequestBranch   `pulumi:"branches"`
+	Events    []string                                                `pulumi:"events"`
 	FilePaths []PipelineTriggerAllGitConfigurationPullRequestFilePath `pulumi:"filePaths"`
 }
 
@@ -3415,11 +3108,8 @@ type PipelineTriggerAllGitConfigurationPullRequestInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationPullRequestArgs struct {
-	// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-	Branches PipelineTriggerAllGitConfigurationPullRequestBranchArrayInput `pulumi:"branches"`
-	// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-	Events pulumi.StringArrayInput `pulumi:"events"`
-	// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+	Branches  PipelineTriggerAllGitConfigurationPullRequestBranchArrayInput   `pulumi:"branches"`
+	Events    pulumi.StringArrayInput                                         `pulumi:"events"`
 	FilePaths PipelineTriggerAllGitConfigurationPullRequestFilePathArrayInput `pulumi:"filePaths"`
 }
 
@@ -3474,19 +3164,16 @@ func (o PipelineTriggerAllGitConfigurationPullRequestOutput) ToPipelineTriggerAl
 	return o
 }
 
-// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
 func (o PipelineTriggerAllGitConfigurationPullRequestOutput) Branches() PipelineTriggerAllGitConfigurationPullRequestBranchArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPullRequest) []PipelineTriggerAllGitConfigurationPullRequestBranch {
 		return v.Branches
 	}).(PipelineTriggerAllGitConfigurationPullRequestBranchArrayOutput)
 }
 
-// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
 func (o PipelineTriggerAllGitConfigurationPullRequestOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPullRequest) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
 func (o PipelineTriggerAllGitConfigurationPullRequestOutput) FilePaths() PipelineTriggerAllGitConfigurationPullRequestFilePathArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPullRequest) []PipelineTriggerAllGitConfigurationPullRequestFilePath {
 		return v.FilePaths
@@ -3514,9 +3201,7 @@ func (o PipelineTriggerAllGitConfigurationPullRequestArrayOutput) Index(i pulumi
 }
 
 type PipelineTriggerAllGitConfigurationPullRequestBranch struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3532,9 +3217,7 @@ type PipelineTriggerAllGitConfigurationPullRequestBranchInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationPullRequestBranchArgs struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -3589,12 +3272,10 @@ func (o PipelineTriggerAllGitConfigurationPullRequestBranchOutput) ToPipelineTri
 	return o
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerAllGitConfigurationPullRequestBranchOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPullRequestBranch) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerAllGitConfigurationPullRequestBranchOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPullRequestBranch) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -3620,9 +3301,7 @@ func (o PipelineTriggerAllGitConfigurationPullRequestBranchArrayOutput) Index(i 
 }
 
 type PipelineTriggerAllGitConfigurationPullRequestFilePath struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3638,9 +3317,7 @@ type PipelineTriggerAllGitConfigurationPullRequestFilePathInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationPullRequestFilePathArgs struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -3695,12 +3372,10 @@ func (o PipelineTriggerAllGitConfigurationPullRequestFilePathOutput) ToPipelineT
 	return o
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerAllGitConfigurationPullRequestFilePathOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPullRequestFilePath) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerAllGitConfigurationPullRequestFilePathOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPullRequestFilePath) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -3726,12 +3401,9 @@ func (o PipelineTriggerAllGitConfigurationPullRequestFilePathArrayOutput) Index(
 }
 
 type PipelineTriggerAllGitConfigurationPush struct {
-	// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-	Branches []PipelineTriggerAllGitConfigurationPushBranch `pulumi:"branches"`
-	// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+	Branches  []PipelineTriggerAllGitConfigurationPushBranch   `pulumi:"branches"`
 	FilePaths []PipelineTriggerAllGitConfigurationPushFilePath `pulumi:"filePaths"`
-	// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-	Tags []PipelineTriggerAllGitConfigurationPushTag `pulumi:"tags"`
+	Tags      []PipelineTriggerAllGitConfigurationPushTag      `pulumi:"tags"`
 }
 
 // PipelineTriggerAllGitConfigurationPushInput is an input type that accepts PipelineTriggerAllGitConfigurationPushArgs and PipelineTriggerAllGitConfigurationPushOutput values.
@@ -3746,12 +3418,9 @@ type PipelineTriggerAllGitConfigurationPushInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationPushArgs struct {
-	// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-	Branches PipelineTriggerAllGitConfigurationPushBranchArrayInput `pulumi:"branches"`
-	// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+	Branches  PipelineTriggerAllGitConfigurationPushBranchArrayInput   `pulumi:"branches"`
 	FilePaths PipelineTriggerAllGitConfigurationPushFilePathArrayInput `pulumi:"filePaths"`
-	// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-	Tags PipelineTriggerAllGitConfigurationPushTagArrayInput `pulumi:"tags"`
+	Tags      PipelineTriggerAllGitConfigurationPushTagArrayInput      `pulumi:"tags"`
 }
 
 func (PipelineTriggerAllGitConfigurationPushArgs) ElementType() reflect.Type {
@@ -3805,21 +3474,18 @@ func (o PipelineTriggerAllGitConfigurationPushOutput) ToPipelineTriggerAllGitCon
 	return o
 }
 
-// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
 func (o PipelineTriggerAllGitConfigurationPushOutput) Branches() PipelineTriggerAllGitConfigurationPushBranchArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPush) []PipelineTriggerAllGitConfigurationPushBranch {
 		return v.Branches
 	}).(PipelineTriggerAllGitConfigurationPushBranchArrayOutput)
 }
 
-// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
 func (o PipelineTriggerAllGitConfigurationPushOutput) FilePaths() PipelineTriggerAllGitConfigurationPushFilePathArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPush) []PipelineTriggerAllGitConfigurationPushFilePath {
 		return v.FilePaths
 	}).(PipelineTriggerAllGitConfigurationPushFilePathArrayOutput)
 }
 
-// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
 func (o PipelineTriggerAllGitConfigurationPushOutput) Tags() PipelineTriggerAllGitConfigurationPushTagArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPush) []PipelineTriggerAllGitConfigurationPushTag {
 		return v.Tags
@@ -3847,9 +3513,7 @@ func (o PipelineTriggerAllGitConfigurationPushArrayOutput) Index(i pulumi.IntInp
 }
 
 type PipelineTriggerAllGitConfigurationPushBranch struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3865,9 +3529,7 @@ type PipelineTriggerAllGitConfigurationPushBranchInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationPushBranchArgs struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -3922,12 +3584,10 @@ func (o PipelineTriggerAllGitConfigurationPushBranchOutput) ToPipelineTriggerAll
 	return o
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerAllGitConfigurationPushBranchOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPushBranch) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerAllGitConfigurationPushBranchOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPushBranch) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -3953,9 +3613,7 @@ func (o PipelineTriggerAllGitConfigurationPushBranchArrayOutput) Index(i pulumi.
 }
 
 type PipelineTriggerAllGitConfigurationPushFilePath struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3971,9 +3629,7 @@ type PipelineTriggerAllGitConfigurationPushFilePathInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationPushFilePathArgs struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -4028,12 +3684,10 @@ func (o PipelineTriggerAllGitConfigurationPushFilePathOutput) ToPipelineTriggerA
 	return o
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerAllGitConfigurationPushFilePathOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPushFilePath) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerAllGitConfigurationPushFilePathOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPushFilePath) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -4059,9 +3713,7 @@ func (o PipelineTriggerAllGitConfigurationPushFilePathArrayOutput) Index(i pulum
 }
 
 type PipelineTriggerAllGitConfigurationPushTag struct {
-	// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -4077,9 +3729,7 @@ type PipelineTriggerAllGitConfigurationPushTagInput interface {
 }
 
 type PipelineTriggerAllGitConfigurationPushTagArgs struct {
-	// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -4134,12 +3784,10 @@ func (o PipelineTriggerAllGitConfigurationPushTagOutput) ToPipelineTriggerAllGit
 	return o
 }
 
-// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerAllGitConfigurationPushTagOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPushTag) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerAllGitConfigurationPushTagOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerAllGitConfigurationPushTag) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -4165,12 +3813,9 @@ func (o PipelineTriggerAllGitConfigurationPushTagArrayOutput) Index(i pulumi.Int
 }
 
 type PipelineTriggerGitConfiguration struct {
-	// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-	PullRequests []PipelineTriggerGitConfigurationPullRequest `pulumi:"pullRequests"`
-	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-	Pushes []PipelineTriggerGitConfigurationPush `pulumi:"pushes"`
-	// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-	SourceActionName string `pulumi:"sourceActionName"`
+	PullRequests     []PipelineTriggerGitConfigurationPullRequest `pulumi:"pullRequests"`
+	Pushes           []PipelineTriggerGitConfigurationPush        `pulumi:"pushes"`
+	SourceActionName string                                       `pulumi:"sourceActionName"`
 }
 
 // PipelineTriggerGitConfigurationInput is an input type that accepts PipelineTriggerGitConfigurationArgs and PipelineTriggerGitConfigurationOutput values.
@@ -4185,12 +3830,9 @@ type PipelineTriggerGitConfigurationInput interface {
 }
 
 type PipelineTriggerGitConfigurationArgs struct {
-	// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-	PullRequests PipelineTriggerGitConfigurationPullRequestArrayInput `pulumi:"pullRequests"`
-	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-	Pushes PipelineTriggerGitConfigurationPushArrayInput `pulumi:"pushes"`
-	// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-	SourceActionName pulumi.StringInput `pulumi:"sourceActionName"`
+	PullRequests     PipelineTriggerGitConfigurationPullRequestArrayInput `pulumi:"pullRequests"`
+	Pushes           PipelineTriggerGitConfigurationPushArrayInput        `pulumi:"pushes"`
+	SourceActionName pulumi.StringInput                                   `pulumi:"sourceActionName"`
 }
 
 func (PipelineTriggerGitConfigurationArgs) ElementType() reflect.Type {
@@ -4219,29 +3861,23 @@ func (o PipelineTriggerGitConfigurationOutput) ToPipelineTriggerGitConfiguration
 	return o
 }
 
-// The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
 func (o PipelineTriggerGitConfigurationOutput) PullRequests() PipelineTriggerGitConfigurationPullRequestArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfiguration) []PipelineTriggerGitConfigurationPullRequest {
 		return v.PullRequests
 	}).(PipelineTriggerGitConfigurationPullRequestArrayOutput)
 }
 
-// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
 func (o PipelineTriggerGitConfigurationOutput) Pushes() PipelineTriggerGitConfigurationPushArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfiguration) []PipelineTriggerGitConfigurationPush { return v.Pushes }).(PipelineTriggerGitConfigurationPushArrayOutput)
 }
 
-// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
 func (o PipelineTriggerGitConfigurationOutput) SourceActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfiguration) string { return v.SourceActionName }).(pulumi.StringOutput)
 }
 
 type PipelineTriggerGitConfigurationPullRequest struct {
-	// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-	Branches *PipelineTriggerGitConfigurationPullRequestBranches `pulumi:"branches"`
-	// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-	Events []string `pulumi:"events"`
-	// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+	Branches  *PipelineTriggerGitConfigurationPullRequestBranches  `pulumi:"branches"`
+	Events    []string                                             `pulumi:"events"`
 	FilePaths *PipelineTriggerGitConfigurationPullRequestFilePaths `pulumi:"filePaths"`
 }
 
@@ -4257,11 +3893,8 @@ type PipelineTriggerGitConfigurationPullRequestInput interface {
 }
 
 type PipelineTriggerGitConfigurationPullRequestArgs struct {
-	// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-	Branches PipelineTriggerGitConfigurationPullRequestBranchesPtrInput `pulumi:"branches"`
-	// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-	Events pulumi.StringArrayInput `pulumi:"events"`
-	// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
+	Branches  PipelineTriggerGitConfigurationPullRequestBranchesPtrInput  `pulumi:"branches"`
+	Events    pulumi.StringArrayInput                                     `pulumi:"events"`
 	FilePaths PipelineTriggerGitConfigurationPullRequestFilePathsPtrInput `pulumi:"filePaths"`
 }
 
@@ -4316,19 +3949,16 @@ func (o PipelineTriggerGitConfigurationPullRequestOutput) ToPipelineTriggerGitCo
 	return o
 }
 
-// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
 func (o PipelineTriggerGitConfigurationPullRequestOutput) Branches() PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequest) *PipelineTriggerGitConfigurationPullRequestBranches {
 		return v.Branches
 	}).(PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput)
 }
 
-// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
 func (o PipelineTriggerGitConfigurationPullRequestOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequest) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-// The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
 func (o PipelineTriggerGitConfigurationPullRequestOutput) FilePaths() PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequest) *PipelineTriggerGitConfigurationPullRequestFilePaths {
 		return v.FilePaths
@@ -4356,9 +3986,7 @@ func (o PipelineTriggerGitConfigurationPullRequestArrayOutput) Index(i pulumi.In
 }
 
 type PipelineTriggerGitConfigurationPullRequestBranches struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -4374,9 +4002,7 @@ type PipelineTriggerGitConfigurationPullRequestBranchesInput interface {
 }
 
 type PipelineTriggerGitConfigurationPullRequestBranchesArgs struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -4457,12 +4083,10 @@ func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) ToPipelineTrig
 	}).(PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestBranches) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestBranchesOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestBranches) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -4491,7 +4115,6 @@ func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Elem() Pipe
 	}).(PipelineTriggerGitConfigurationPullRequestBranchesOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestBranches) []string {
 		if v == nil {
@@ -4501,7 +4124,6 @@ func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Excludes() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestBranches) []string {
 		if v == nil {
@@ -4512,9 +4134,7 @@ func (o PipelineTriggerGitConfigurationPullRequestBranchesPtrOutput) Includes() 
 }
 
 type PipelineTriggerGitConfigurationPullRequestFilePaths struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -4530,9 +4150,7 @@ type PipelineTriggerGitConfigurationPullRequestFilePathsInput interface {
 }
 
 type PipelineTriggerGitConfigurationPullRequestFilePathsArgs struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -4613,12 +4231,10 @@ func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) ToPipelineTri
 	}).(PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestFilePaths) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestFilePathsOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPullRequestFilePaths) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -4647,7 +4263,6 @@ func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Elem() Pip
 	}).(PipelineTriggerGitConfigurationPullRequestFilePathsOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestFilePaths) []string {
 		if v == nil {
@@ -4657,7 +4272,6 @@ func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Excludes()
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPullRequestFilePaths) []string {
 		if v == nil {
@@ -4668,12 +4282,9 @@ func (o PipelineTriggerGitConfigurationPullRequestFilePathsPtrOutput) Includes()
 }
 
 type PipelineTriggerGitConfigurationPush struct {
-	// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-	Branches *PipelineTriggerGitConfigurationPushBranches `pulumi:"branches"`
-	// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+	Branches  *PipelineTriggerGitConfigurationPushBranches  `pulumi:"branches"`
 	FilePaths *PipelineTriggerGitConfigurationPushFilePaths `pulumi:"filePaths"`
-	// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-	Tags *PipelineTriggerGitConfigurationPushTags `pulumi:"tags"`
+	Tags      *PipelineTriggerGitConfigurationPushTags      `pulumi:"tags"`
 }
 
 // PipelineTriggerGitConfigurationPushInput is an input type that accepts PipelineTriggerGitConfigurationPushArgs and PipelineTriggerGitConfigurationPushOutput values.
@@ -4688,12 +4299,9 @@ type PipelineTriggerGitConfigurationPushInput interface {
 }
 
 type PipelineTriggerGitConfigurationPushArgs struct {
-	// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-	Branches PipelineTriggerGitConfigurationPushBranchesPtrInput `pulumi:"branches"`
-	// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
+	Branches  PipelineTriggerGitConfigurationPushBranchesPtrInput  `pulumi:"branches"`
 	FilePaths PipelineTriggerGitConfigurationPushFilePathsPtrInput `pulumi:"filePaths"`
-	// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-	Tags PipelineTriggerGitConfigurationPushTagsPtrInput `pulumi:"tags"`
+	Tags      PipelineTriggerGitConfigurationPushTagsPtrInput      `pulumi:"tags"`
 }
 
 func (PipelineTriggerGitConfigurationPushArgs) ElementType() reflect.Type {
@@ -4747,21 +4355,18 @@ func (o PipelineTriggerGitConfigurationPushOutput) ToPipelineTriggerGitConfigura
 	return o
 }
 
-// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
 func (o PipelineTriggerGitConfigurationPushOutput) Branches() PipelineTriggerGitConfigurationPushBranchesPtrOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPush) *PipelineTriggerGitConfigurationPushBranches {
 		return v.Branches
 	}).(PipelineTriggerGitConfigurationPushBranchesPtrOutput)
 }
 
-// The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
 func (o PipelineTriggerGitConfigurationPushOutput) FilePaths() PipelineTriggerGitConfigurationPushFilePathsPtrOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPush) *PipelineTriggerGitConfigurationPushFilePaths {
 		return v.FilePaths
 	}).(PipelineTriggerGitConfigurationPushFilePathsPtrOutput)
 }
 
-// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
 func (o PipelineTriggerGitConfigurationPushOutput) Tags() PipelineTriggerGitConfigurationPushTagsPtrOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPush) *PipelineTriggerGitConfigurationPushTags { return v.Tags }).(PipelineTriggerGitConfigurationPushTagsPtrOutput)
 }
@@ -4787,9 +4392,7 @@ func (o PipelineTriggerGitConfigurationPushArrayOutput) Index(i pulumi.IntInput)
 }
 
 type PipelineTriggerGitConfigurationPushBranches struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -4805,9 +4408,7 @@ type PipelineTriggerGitConfigurationPushBranchesInput interface {
 }
 
 type PipelineTriggerGitConfigurationPushBranchesArgs struct {
-	// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -4888,12 +4489,10 @@ func (o PipelineTriggerGitConfigurationPushBranchesOutput) ToPipelineTriggerGitC
 	}).(PipelineTriggerGitConfigurationPushBranchesPtrOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPushBranchesOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushBranches) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPushBranchesOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushBranches) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -4922,7 +4521,6 @@ func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Elem() PipelineTri
 	}).(PipelineTriggerGitConfigurationPushBranchesOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushBranches) []string {
 		if v == nil {
@@ -4932,7 +4530,6 @@ func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Excludes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushBranches) []string {
 		if v == nil {
@@ -4943,9 +4540,7 @@ func (o PipelineTriggerGitConfigurationPushBranchesPtrOutput) Includes() pulumi.
 }
 
 type PipelineTriggerGitConfigurationPushFilePaths struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -4961,9 +4556,7 @@ type PipelineTriggerGitConfigurationPushFilePathsInput interface {
 }
 
 type PipelineTriggerGitConfigurationPushFilePathsArgs struct {
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -5044,12 +4637,10 @@ func (o PipelineTriggerGitConfigurationPushFilePathsOutput) ToPipelineTriggerGit
 	}).(PipelineTriggerGitConfigurationPushFilePathsPtrOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPushFilePathsOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushFilePaths) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPushFilePathsOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushFilePaths) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -5078,7 +4669,6 @@ func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Elem() PipelineTr
 	}).(PipelineTriggerGitConfigurationPushFilePathsOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushFilePaths) []string {
 		if v == nil {
@@ -5088,7 +4678,6 @@ func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Excludes() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushFilePaths) []string {
 		if v == nil {
@@ -5099,9 +4688,7 @@ func (o PipelineTriggerGitConfigurationPushFilePathsPtrOutput) Includes() pulumi
 }
 
 type PipelineTriggerGitConfigurationPushTags struct {
-	// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
 	Excludes []string `pulumi:"excludes"`
-	// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -5117,9 +4704,7 @@ type PipelineTriggerGitConfigurationPushTagsInput interface {
 }
 
 type PipelineTriggerGitConfigurationPushTagsArgs struct {
-	// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -5200,12 +4785,10 @@ func (o PipelineTriggerGitConfigurationPushTagsOutput) ToPipelineTriggerGitConfi
 	}).(PipelineTriggerGitConfigurationPushTagsPtrOutput)
 }
 
-// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPushTagsOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushTags) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPushTagsOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfigurationPushTags) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -5234,7 +4817,6 @@ func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Elem() PipelineTrigger
 	}).(PipelineTriggerGitConfigurationPushTagsOutput)
 }
 
-// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
 func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushTags) []string {
 		if v == nil {
@@ -5244,7 +4826,6 @@ func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Excludes() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
 func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineTriggerGitConfigurationPushTags) []string {
 		if v == nil {
@@ -5255,12 +4836,9 @@ func (o PipelineTriggerGitConfigurationPushTagsPtrOutput) Includes() pulumi.Stri
 }
 
 type PipelineVariable struct {
-	// The default value of a pipeline-level variable.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// The description of a pipeline-level variable.
-	Description *string `pulumi:"description"`
-	// The name of a pipeline-level variable.
-	Name string `pulumi:"name"`
+	Description  *string `pulumi:"description"`
+	Name         string  `pulumi:"name"`
 }
 
 // PipelineVariableInput is an input type that accepts PipelineVariableArgs and PipelineVariableOutput values.
@@ -5275,12 +4853,9 @@ type PipelineVariableInput interface {
 }
 
 type PipelineVariableArgs struct {
-	// The default value of a pipeline-level variable.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// The description of a pipeline-level variable.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of a pipeline-level variable.
-	Name pulumi.StringInput `pulumi:"name"`
+	Description  pulumi.StringPtrInput `pulumi:"description"`
+	Name         pulumi.StringInput    `pulumi:"name"`
 }
 
 func (PipelineVariableArgs) ElementType() reflect.Type {
@@ -5334,17 +4909,14 @@ func (o PipelineVariableOutput) ToPipelineVariableOutputWithContext(ctx context.
 	return o
 }
 
-// The default value of a pipeline-level variable.
 func (o PipelineVariableOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineVariable) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The description of a pipeline-level variable.
 func (o PipelineVariableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of a pipeline-level variable.
 func (o PipelineVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5370,10 +4942,8 @@ func (o PipelineVariableArrayOutput) Index(i pulumi.IntInput) PipelineVariableOu
 }
 
 type WebhookAuthenticationConfiguration struct {
-	// A valid CIDR block for `IP` filtering. Required for `IP`.
 	AllowedIpRange *string `pulumi:"allowedIpRange"`
-	// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
-	SecretToken *string `pulumi:"secretToken"`
+	SecretToken    *string `pulumi:"secretToken"`
 }
 
 // WebhookAuthenticationConfigurationInput is an input type that accepts WebhookAuthenticationConfigurationArgs and WebhookAuthenticationConfigurationOutput values.
@@ -5388,10 +4958,8 @@ type WebhookAuthenticationConfigurationInput interface {
 }
 
 type WebhookAuthenticationConfigurationArgs struct {
-	// A valid CIDR block for `IP` filtering. Required for `IP`.
 	AllowedIpRange pulumi.StringPtrInput `pulumi:"allowedIpRange"`
-	// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
-	SecretToken pulumi.StringPtrInput `pulumi:"secretToken"`
+	SecretToken    pulumi.StringPtrInput `pulumi:"secretToken"`
 }
 
 func (WebhookAuthenticationConfigurationArgs) ElementType() reflect.Type {
@@ -5471,12 +5039,10 @@ func (o WebhookAuthenticationConfigurationOutput) ToWebhookAuthenticationConfigu
 	}).(WebhookAuthenticationConfigurationPtrOutput)
 }
 
-// A valid CIDR block for `IP` filtering. Required for `IP`.
 func (o WebhookAuthenticationConfigurationOutput) AllowedIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
 }
 
-// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 func (o WebhookAuthenticationConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
 }
@@ -5505,7 +5071,6 @@ func (o WebhookAuthenticationConfigurationPtrOutput) Elem() WebhookAuthenticatio
 	}).(WebhookAuthenticationConfigurationOutput)
 }
 
-// A valid CIDR block for `IP` filtering. Required for `IP`.
 func (o WebhookAuthenticationConfigurationPtrOutput) AllowedIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) *string {
 		if v == nil {
@@ -5515,7 +5080,6 @@ func (o WebhookAuthenticationConfigurationPtrOutput) AllowedIpRange() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 func (o WebhookAuthenticationConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) *string {
 		if v == nil {
@@ -5526,9 +5090,7 @@ func (o WebhookAuthenticationConfigurationPtrOutput) SecretToken() pulumi.String
 }
 
 type WebhookFilter struct {
-	// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-	JsonPath string `pulumi:"jsonPath"`
-	// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+	JsonPath    string `pulumi:"jsonPath"`
 	MatchEquals string `pulumi:"matchEquals"`
 }
 
@@ -5544,9 +5106,7 @@ type WebhookFilterInput interface {
 }
 
 type WebhookFilterArgs struct {
-	// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
-	// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+	JsonPath    pulumi.StringInput `pulumi:"jsonPath"`
 	MatchEquals pulumi.StringInput `pulumi:"matchEquals"`
 }
 
@@ -5601,12 +5161,10 @@ func (o WebhookFilterOutput) ToWebhookFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
 func (o WebhookFilterOutput) JsonPath() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookFilter) string { return v.JsonPath }).(pulumi.StringOutput)
 }
 
-// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
 func (o WebhookFilterOutput) MatchEquals() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookFilter) string { return v.MatchEquals }).(pulumi.StringOutput)
 }

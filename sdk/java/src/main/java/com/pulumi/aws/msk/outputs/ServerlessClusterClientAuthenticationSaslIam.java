@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ServerlessClusterClientAuthenticationSaslIam {
-    /**
-     * @return Whether SASL/IAM authentication is enabled or not.
-     * 
-     */
     private Boolean enabled;
 
     private ServerlessClusterClientAuthenticationSaslIam() {}
-    /**
-     * @return Whether SASL/IAM authentication is enabled or not.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

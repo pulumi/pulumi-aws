@@ -66,9 +66,6 @@ class GetVpcIpamsResult:
     @_builtins.property
     @pulumi.getter
     def ipams(self) -> Sequence['outputs.GetVpcIpamsIpamResult']:
-        """
-        List of IPAM resources matching the provided arguments.
-        """
         return pulumi.get(self, "ipams")
 
     @_builtins.property
@@ -95,49 +92,7 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamsResult:
     """
-    Data source for managing VPC IPAMs.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipams(ipam_ids=["ipam-abcd1234"])
-    ```
-
-    ### Filter by `tags`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipams(filters=[{
-        "name": "tags.Some",
-        "values": ["Value"],
-    }])
-    ```
-
-    ### Filter by `tier`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipams(filters=[{
-        "name": "tier",
-        "values": ["free"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAMs.
-    :param Sequence[_builtins.str] ipam_ids: IDs of the IPAM resources to query for.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -157,49 +112,7 @@ def get_vpc_ipams_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamsResult]:
     """
-    Data source for managing VPC IPAMs.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipams(ipam_ids=["ipam-abcd1234"])
-    ```
-
-    ### Filter by `tags`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipams(filters=[{
-        "name": "tags.Some",
-        "values": ["Value"],
-    }])
-    ```
-
-    ### Filter by `tier`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipams(filters=[{
-        "name": "tier",
-        "values": ["free"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAMs.
-    :param Sequence[_builtins.str] ipam_ids: IDs of the IPAM resources to query for.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -30,13 +30,6 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
-        :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "policy", policy)
         if delay_after_policy_creation_in_ms is not None:
@@ -55,9 +48,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
-        """
-        Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -67,9 +57,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter(name="delayAfterPolicyCreationInMs")
     def delay_after_policy_creation_in_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        """
         return pulumi.get(self, "delay_after_policy_creation_in_ms")
 
     @delay_after_policy_creation_in_ms.setter
@@ -79,9 +66,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the IAM policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -91,9 +75,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the policy. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -103,9 +84,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -115,9 +93,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -127,9 +102,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -153,17 +125,6 @@ class _PolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
-        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this policy.
-        :param pulumi.Input[_builtins.int] attachment_count: Number of entities (users, groups, and roles) that the policy is attached to.
-        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
-        :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[_builtins.str] policy_id: Policy's ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -191,9 +152,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN assigned by AWS to this policy.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -203,9 +161,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter(name="attachmentCount")
     def attachment_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of entities (users, groups, and roles) that the policy is attached to.
-        """
         return pulumi.get(self, "attachment_count")
 
     @attachment_count.setter
@@ -215,9 +170,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter(name="delayAfterPolicyCreationInMs")
     def delay_after_policy_creation_in_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        """
         return pulumi.get(self, "delay_after_policy_creation_in_ms")
 
     @delay_after_policy_creation_in_ms.setter
@@ -227,9 +179,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the IAM policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -239,9 +188,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the policy. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -251,9 +197,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -263,9 +206,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -275,9 +215,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
-        """
-        Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -287,9 +224,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Policy's ID.
-        """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
@@ -299,9 +233,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -311,9 +242,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -336,52 +264,9 @@ class Policy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an IAM policy.
-
-        > **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        policy = aws.iam.Policy("policy",
-            name="test_policy",
-            path="/",
-            description="My test policy",
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
-
-        Using `pulumi import`, import IAM Policies using the `arn`. For example:
-
-        % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
-        :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -390,43 +275,7 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IAM policy.
-
-        > **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        policy = aws.iam.Policy("policy",
-            name="test_policy",
-            path="/",
-            description="My test policy",
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
-
-        Using `pulumi import`, import IAM Policies using the `arn`. For example:
-
-        % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -499,17 +348,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this policy.
-        :param pulumi.Input[_builtins.int] attachment_count: Number of entities (users, groups, and roles) that the policy is attached to.
-        :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
-        :param pulumi.Input[_builtins.str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        :param pulumi.Input[_builtins.str] policy_id: Policy's ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -531,88 +369,55 @@ class Policy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN assigned by AWS to this policy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="attachmentCount")
     def attachment_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of entities (users, groups, and roles) that the policy is attached to.
-        """
         return pulumi.get(self, "attachment_count")
 
     @_builtins.property
     @pulumi.getter(name="delayAfterPolicyCreationInMs")
     def delay_after_policy_creation_in_ms(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        """
         return pulumi.get(self, "delay_after_policy_creation_in_ms")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the IAM policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the policy. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Policy's ID.
-        """
         return pulumi.get(self, "policy_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

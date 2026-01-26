@@ -13,27 +13,10 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class ObjectCopyGrant
     {
-        /// <summary>
-        /// Email address of the grantee. Used only when `Type` is `AmazonCustomerByEmail`.
-        /// </summary>
         public readonly string? Email;
-        /// <summary>
-        /// Canonical user ID of the grantee. Used only when `Type` is `CanonicalUser`.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-        /// </summary>
         public readonly ImmutableArray<string> Permissions;
-        /// <summary>
-        /// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-        /// 
-        /// This configuration block has the following optional arguments (one of the three is required):
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// URI of the grantee group. Used only when `Type` is `Group`.
-        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]

@@ -16,47 +16,23 @@ public final class ListenerCertificateArgs extends com.pulumi.resources.Resource
 
     public static final ListenerCertificateArgs Empty = new ListenerCertificateArgs();
 
-    /**
-     * The ARN of the certificate to attach to the listener.
-     * 
-     */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
-    /**
-     * @return The ARN of the certificate to attach to the listener.
-     * 
-     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
 
-    /**
-     * The ARN of the listener to which to attach the certificate.
-     * 
-     */
     @Import(name="listenerArn", required=true)
     private Output<String> listenerArn;
 
-    /**
-     * @return The ARN of the listener to which to attach the certificate.
-     * 
-     */
     public Output<String> listenerArn() {
         return this.listenerArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class ListenerCertificateArgs extends com.pulumi.resources.Resource
             $ = new ListenerCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateArn The ARN of the certificate to attach to the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn The ARN of the certificate to attach to the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
-        /**
-         * @param listenerArn The ARN of the listener to which to attach the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArn(Output<String> listenerArn) {
             $.listenerArn = listenerArn;
             return this;
         }
 
-        /**
-         * @param listenerArn The ARN of the listener to which to attach the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArn(String listenerArn) {
             return listenerArn(Output.of(listenerArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

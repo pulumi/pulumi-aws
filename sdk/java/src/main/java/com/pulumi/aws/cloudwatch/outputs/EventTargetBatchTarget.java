@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetBatchTarget {
-    /**
-     * @return The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-     * 
-     */
     private @Nullable Integer arraySize;
-    /**
-     * @return The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-     * 
-     */
     private @Nullable Integer jobAttempts;
-    /**
-     * @return The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-     * 
-     */
     private String jobDefinition;
-    /**
-     * @return The name to use for this execution of the job, if the target is an AWS Batch job.
-     * 
-     */
     private String jobName;
 
     private EventTargetBatchTarget() {}
-    /**
-     * @return The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-     * 
-     */
     public Optional<Integer> arraySize() {
         return Optional.ofNullable(this.arraySize);
     }
-    /**
-     * @return The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-     * 
-     */
     public Optional<Integer> jobAttempts() {
         return Optional.ofNullable(this.jobAttempts);
     }
-    /**
-     * @return The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-     * 
-     */
     public String jobDefinition() {
         return this.jobDefinition;
     }
-    /**
-     * @return The name to use for this execution of the job, if the target is an AWS Batch job.
-     * 
-     */
     public String jobName() {
         return this.jobName;
     }

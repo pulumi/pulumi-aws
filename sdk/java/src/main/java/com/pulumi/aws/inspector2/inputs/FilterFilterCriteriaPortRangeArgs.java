@@ -14,32 +14,16 @@ public final class FilterFilterCriteriaPortRangeArgs extends com.pulumi.resource
 
     public static final FilterFilterCriteriaPortRangeArgs Empty = new FilterFilterCriteriaPortRangeArgs();
 
-    /**
-     * (Required) The beginning of the port range, inclusive.
-     * 
-     */
     @Import(name="beginInclusive", required=true)
     private Output<Integer> beginInclusive;
 
-    /**
-     * @return (Required) The beginning of the port range, inclusive.
-     * 
-     */
     public Output<Integer> beginInclusive() {
         return this.beginInclusive;
     }
 
-    /**
-     * (Required) The end of the port range, inclusive.
-     * 
-     */
     @Import(name="endInclusive", required=true)
     private Output<Integer> endInclusive;
 
-    /**
-     * @return (Required) The end of the port range, inclusive.
-     * 
-     */
     public Output<Integer> endInclusive() {
         return this.endInclusive;
     }
@@ -69,44 +53,20 @@ public final class FilterFilterCriteriaPortRangeArgs extends com.pulumi.resource
             $ = new FilterFilterCriteriaPortRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param beginInclusive (Required) The beginning of the port range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder beginInclusive(Output<Integer> beginInclusive) {
             $.beginInclusive = beginInclusive;
             return this;
         }
 
-        /**
-         * @param beginInclusive (Required) The beginning of the port range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder beginInclusive(Integer beginInclusive) {
             return beginInclusive(Output.of(beginInclusive));
         }
 
-        /**
-         * @param endInclusive (Required) The end of the port range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endInclusive(Output<Integer> endInclusive) {
             $.endInclusive = endInclusive;
             return this;
         }
 
-        /**
-         * @param endInclusive (Required) The end of the port range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endInclusive(Integer endInclusive) {
             return endInclusive(Output.of(endInclusive));
         }

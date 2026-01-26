@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class ResolverRuleTargetIp
     {
-        /// <summary>
-        /// One IPv4 address that you want to forward DNS queries to.
-        /// </summary>
         public readonly string? Ip;
-        /// <summary>
-        /// One IPv6 address that you want to forward DNS queries to.
-        /// </summary>
         public readonly string? Ipv6;
-        /// <summary>
-        /// Port at `Ip` that you want to forward DNS queries to. Default value is `53`.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
-        /// </summary>
         public readonly string? Protocol;
 
         [OutputConstructor]

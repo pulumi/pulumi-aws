@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     [OutputType]
     public sealed class GetResponsePlanActionResult
     {
-        /// <summary>
-        /// The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponsePlanActionSsmAutomationResult> SsmAutomations;
 
         [OutputConstructor]

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.msk.Configuration("example", {
- *     kafkaVersions: ["2.1.0"],
- *     name: "example",
- *     serverProperties: `auto.create.topics.enable = true
- * delete.topic.enable = true
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- */
 export class Configuration extends pulumi.CustomResource {
     /**
      * Get an existing Configuration resource's state with the given name, ID, and optional extra
@@ -58,33 +32,12 @@ export class Configuration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Configuration.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of the configuration.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * List of Apache Kafka versions which can use this configuration.
-     */
     declare public readonly kafkaVersions: pulumi.Output<string[] | undefined>;
-    /**
-     * Latest revision of the configuration.
-     */
     declare public /*out*/ readonly latestRevision: pulumi.Output<number>;
-    /**
-     * Name of the configuration.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-     */
     declare public readonly serverProperties: pulumi.Output<string>;
 
     /**
@@ -129,33 +82,12 @@ export class Configuration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Configuration resources.
  */
 export interface ConfigurationState {
-    /**
-     * Amazon Resource Name (ARN) of the configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * List of Apache Kafka versions which can use this configuration.
-     */
     kafkaVersions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Latest revision of the configuration.
-     */
     latestRevision?: pulumi.Input<number>;
-    /**
-     * Name of the configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-     */
     serverProperties?: pulumi.Input<string>;
 }
 
@@ -163,24 +95,9 @@ export interface ConfigurationState {
  * The set of arguments for constructing a Configuration resource.
  */
 export interface ConfigurationArgs {
-    /**
-     * Description of the configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * List of Apache Kafka versions which can use this configuration.
-     */
     kafkaVersions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-     */
     serverProperties: pulumi.Input<string>;
 }

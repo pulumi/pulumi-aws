@@ -17,38 +17,16 @@ public final class EventTargetInputTransformerArgs extends com.pulumi.resources.
 
     public static final EventTargetInputTransformerArgs Empty = new EventTargetInputTransformerArgs();
 
-    /**
-     * Key value pairs specified in the form of JSONPath (for example, time = $.time)
-     * * You can have as many as 100 key-value pairs.
-     * * You must use JSON dot notation, not bracket notation.
-     * * The keys can&#39;t start with &#34;AWS&#34;.
-     * 
-     */
     @Import(name="inputPaths")
     private @Nullable Output<Map<String,String>> inputPaths;
 
-    /**
-     * @return Key value pairs specified in the form of JSONPath (for example, time = $.time)
-     * * You can have as many as 100 key-value pairs.
-     * * You must use JSON dot notation, not bracket notation.
-     * * The keys can&#39;t start with &#34;AWS&#34;.
-     * 
-     */
     public Optional<Output<Map<String,String>>> inputPaths() {
         return Optional.ofNullable(this.inputPaths);
     }
 
-    /**
-     * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-     * 
-     */
     @Import(name="inputTemplate", required=true)
     private Output<String> inputTemplate;
 
-    /**
-     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-     * 
-     */
     public Output<String> inputTemplate() {
         return this.inputTemplate;
     }
@@ -78,50 +56,20 @@ public final class EventTargetInputTransformerArgs extends com.pulumi.resources.
             $ = new EventTargetInputTransformerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inputPaths Key value pairs specified in the form of JSONPath (for example, time = $.time)
-         * * You can have as many as 100 key-value pairs.
-         * * You must use JSON dot notation, not bracket notation.
-         * * The keys can&#39;t start with &#34;AWS&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputPaths(@Nullable Output<Map<String,String>> inputPaths) {
             $.inputPaths = inputPaths;
             return this;
         }
 
-        /**
-         * @param inputPaths Key value pairs specified in the form of JSONPath (for example, time = $.time)
-         * * You can have as many as 100 key-value pairs.
-         * * You must use JSON dot notation, not bracket notation.
-         * * The keys can&#39;t start with &#34;AWS&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputPaths(Map<String,String> inputPaths) {
             return inputPaths(Output.of(inputPaths));
         }
 
-        /**
-         * @param inputTemplate Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputTemplate(Output<String> inputTemplate) {
             $.inputTemplate = inputTemplate;
             return this;
         }
 
-        /**
-         * @param inputTemplate Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputTemplate(String inputTemplate) {
             return inputTemplate(Output.of(inputTemplate));
         }

@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Returns a list of Amazon Bedrock custom models.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.GetCustomModels(ctx, &bedrock.GetCustomModelsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCustomModels(ctx *pulumi.Context, args *GetCustomModelsArgs, opts ...pulumi.InvokeOption) (*GetCustomModelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCustomModelsResult
@@ -48,14 +23,12 @@ func GetCustomModels(ctx *pulumi.Context, args *GetCustomModelsArgs, opts ...pul
 
 // A collection of arguments for invoking getCustomModels.
 type GetCustomModelsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCustomModels.
 type GetCustomModelsResult struct {
-	Id string `pulumi:"id"`
-	// Model summaries.
+	Id             string                        `pulumi:"id"`
 	ModelSummaries []GetCustomModelsModelSummary `pulumi:"modelSummaries"`
 	Region         string                        `pulumi:"region"`
 }
@@ -71,7 +44,6 @@ func GetCustomModelsOutput(ctx *pulumi.Context, args GetCustomModelsOutputArgs, 
 
 // A collection of arguments for invoking getCustomModels.
 type GetCustomModelsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -98,7 +70,6 @@ func (o GetCustomModelsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCustomModelsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Model summaries.
 func (o GetCustomModelsResultOutput) ModelSummaries() GetCustomModelsModelSummaryArrayOutput {
 	return o.ApplyT(func(v GetCustomModelsResult) []GetCustomModelsModelSummary { return v.ModelSummaries }).(GetCustomModelsModelSummaryArrayOutput)
 }

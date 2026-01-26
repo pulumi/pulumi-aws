@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserGroupsGroup {
-    /**
-     * @return Description of the user group.
-     * 
-     */
     private String description;
-    /**
-     * @return Name of the user group.
-     * 
-     */
     private String groupName;
-    /**
-     * @return Precedence of the user group.
-     * 
-     */
     private Integer precedence;
-    /**
-     * @return ARN of the IAM role to be associated with the user group.
-     * 
-     */
     private String roleArn;
 
     private GetUserGroupsGroup() {}
-    /**
-     * @return Description of the user group.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Name of the user group.
-     * 
-     */
     public String groupName() {
         return this.groupName;
     }
-    /**
-     * @return Precedence of the user group.
-     * 
-     */
     public Integer precedence() {
         return this.precedence;
     }
-    /**
-     * @return ARN of the IAM role to be associated with the user group.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

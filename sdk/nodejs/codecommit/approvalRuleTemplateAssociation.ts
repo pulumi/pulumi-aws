@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates a CodeCommit Approval Rule Template with a Repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codecommit.ApprovalRuleTemplateAssociation("example", {
- *     approvalRuleTemplateName: exampleAwsCodecommitApprovalRuleTemplate.name,
- *     repositoryName: exampleAwsCodecommitRepository.repositoryName,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
- * ```
- */
 export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ApprovalRuleTemplateAssociation resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApprovalRuleTemplateAssociation.__pulumiType;
     }
 
-    /**
-     * The name for the approval rule template.
-     */
     declare public readonly approvalRuleTemplateName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the repository that you want to associate with the template.
-     */
     declare public readonly repositoryName: pulumi.Output<string>;
 
     /**
@@ -105,17 +73,8 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApprovalRuleTemplateAssociation resources.
  */
 export interface ApprovalRuleTemplateAssociationState {
-    /**
-     * The name for the approval rule template.
-     */
     approvalRuleTemplateName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the repository that you want to associate with the template.
-     */
     repositoryName?: pulumi.Input<string>;
 }
 
@@ -123,16 +82,7 @@ export interface ApprovalRuleTemplateAssociationState {
  * The set of arguments for constructing a ApprovalRuleTemplateAssociation resource.
  */
 export interface ApprovalRuleTemplateAssociationArgs {
-    /**
-     * The name for the approval rule template.
-     */
     approvalRuleTemplateName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the repository that you want to associate with the template.
-     */
     repositoryName: pulumi.Input<string>;
 }

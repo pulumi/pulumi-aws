@@ -12,9 +12,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainOffPeakWindowOptionsOffPeakWindowArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// 10h window for updates
-        /// </summary>
         [Input("windowStartTime")]
         public Input<Inputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>? WindowStartTime { get; set; }
 

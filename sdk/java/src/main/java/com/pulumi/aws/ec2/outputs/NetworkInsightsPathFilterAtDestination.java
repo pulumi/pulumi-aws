@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NetworkInsightsPathFilterAtDestination {
-    /**
-     * @return The destination IPv4 address.
-     * 
-     */
     private @Nullable String destinationAddress;
-    /**
-     * @return The destination port range. See below for details.
-     * 
-     */
     private @Nullable NetworkInsightsPathFilterAtDestinationDestinationPortRange destinationPortRange;
-    /**
-     * @return IP address of the source resource.
-     * 
-     */
     private @Nullable String sourceAddress;
-    /**
-     * @return The source port range. See below for details.
-     * 
-     */
     private @Nullable NetworkInsightsPathFilterAtDestinationSourcePortRange sourcePortRange;
 
     private NetworkInsightsPathFilterAtDestination() {}
-    /**
-     * @return The destination IPv4 address.
-     * 
-     */
     public Optional<String> destinationAddress() {
         return Optional.ofNullable(this.destinationAddress);
     }
-    /**
-     * @return The destination port range. See below for details.
-     * 
-     */
     public Optional<NetworkInsightsPathFilterAtDestinationDestinationPortRange> destinationPortRange() {
         return Optional.ofNullable(this.destinationPortRange);
     }
-    /**
-     * @return IP address of the source resource.
-     * 
-     */
     public Optional<String> sourceAddress() {
         return Optional.ofNullable(this.sourceAddress);
     }
-    /**
-     * @return The source port range. See below for details.
-     * 
-     */
     public Optional<NetworkInsightsPathFilterAtDestinationSourcePortRange> sourcePortRange() {
         return Optional.ofNullable(this.sourcePortRange);
     }

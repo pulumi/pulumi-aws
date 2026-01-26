@@ -52,9 +52,6 @@ class GetOrderableClusterResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[_builtins.str]:
-        """
-        List of Availability Zone names where the Redshift Cluster is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
@@ -113,27 +110,7 @@ def get_orderable_cluster(cluster_type: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableClusterResult:
     """
-    Information about Redshift Orderable Clusters and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
-        preferred_node_types=[
-            "dc2.large",
-            "ds2.xlarge",
-        ])
-    ```
-
-
-    :param _builtins.str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
-    :param _builtins.str cluster_version: Redshift Cluster versionE.g., `1.0`
-    :param _builtins.str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
-    :param Sequence[_builtins.str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterType'] = cluster_type
@@ -159,27 +136,7 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[_b
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableClusterResult]:
     """
-    Information about Redshift Orderable Clusters and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
-        preferred_node_types=[
-            "dc2.large",
-            "ds2.xlarge",
-        ])
-    ```
-
-
-    :param _builtins.str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
-    :param _builtins.str cluster_version: Redshift Cluster versionE.g., `1.0`
-    :param _builtins.str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
-    :param Sequence[_builtins.str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterType'] = cluster_type

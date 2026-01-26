@@ -24,32 +24,16 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         return this.maxVcpuCount;
     }
 
-    /**
-     * The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-     * 
-     */
     @Import(name="scalingMode", required=true)
     private Output<String> scalingMode;
 
-    /**
-     * @return The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-     * 
-     */
     public Output<String> scalingMode() {
         return this.scalingMode;
     }
 
-    /**
-     * List of scaling policies. See Scaling Policies below.
-     * 
-     */
     @Import(name="scalingPolicies", required=true)
     private Output<List<CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs>> scalingPolicies;
 
-    /**
-     * @return List of scaling policies. See Scaling Policies below.
-     * 
-     */
     public Output<List<CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs>> scalingPolicies() {
         return this.scalingPolicies;
     }
@@ -89,54 +73,24 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
             return maxVcpuCount(Output.of(maxVcpuCount));
         }
 
-        /**
-         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingMode(Output<String> scalingMode) {
             $.scalingMode = scalingMode;
             return this;
         }
 
-        /**
-         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingMode(String scalingMode) {
             return scalingMode(Output.of(scalingMode));
         }
 
-        /**
-         * @param scalingPolicies List of scaling policies. See Scaling Policies below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingPolicies(Output<List<CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs>> scalingPolicies) {
             $.scalingPolicies = scalingPolicies;
             return this;
         }
 
-        /**
-         * @param scalingPolicies List of scaling policies. See Scaling Policies below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingPolicies(List<CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs> scalingPolicies) {
             return scalingPolicies(Output.of(scalingPolicies));
         }
 
-        /**
-         * @param scalingPolicies List of scaling policies. See Scaling Policies below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingPolicies(CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs... scalingPolicies) {
             return scalingPolicies(List.of(scalingPolicies));
         }

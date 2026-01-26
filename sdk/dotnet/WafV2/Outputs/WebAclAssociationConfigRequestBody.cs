@@ -13,25 +13,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclAssociationConfigRequestBody
     {
-        /// <summary>
-        /// Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `Scope` is set to `CLOUDFRONT`. See `ApiGateway` below for details.
-        /// </summary>
         public readonly Outputs.WebAclAssociationConfigRequestBodyApiGateway? ApiGateway;
-        /// <summary>
-        /// Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `Scope` is set to `REGIONAL`. See `AppRunnerService` below for details.
-        /// </summary>
         public readonly Outputs.WebAclAssociationConfigRequestBodyAppRunnerService? AppRunnerService;
-        /// <summary>
-        /// Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `Scope` is set to `REGIONAL`. See `Cloudfront` below for details.
-        /// </summary>
         public readonly Outputs.WebAclAssociationConfigRequestBodyCloudfront? Cloudfront;
-        /// <summary>
-        /// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `Scope` is set to `REGIONAL`. See `CognitoUserPool` below for details.
-        /// </summary>
         public readonly Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool? CognitoUserPool;
-        /// <summary>
-        /// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `Scope` is set to `REGIONAL`. See `VerifiedAccessInstance` below for details.
-        /// </summary>
         public readonly Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance? VerifiedAccessInstance;
 
         [OutputConstructor]

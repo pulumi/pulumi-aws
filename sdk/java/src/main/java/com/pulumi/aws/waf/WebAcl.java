@@ -19,259 +19,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Web ACL Resource
- * 
- * ## Example Usage
- * 
- * This example blocks requests coming from `192.0.7.0/24` and allows everything else.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.waf.IpSet;
- * import com.pulumi.aws.waf.IpSetArgs;
- * import com.pulumi.aws.waf.inputs.IpSetIpSetDescriptorArgs;
- * import com.pulumi.aws.waf.Rule;
- * import com.pulumi.aws.waf.RuleArgs;
- * import com.pulumi.aws.waf.inputs.RulePredicateArgs;
- * import com.pulumi.aws.waf.WebAcl;
- * import com.pulumi.aws.waf.WebAclArgs;
- * import com.pulumi.aws.waf.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.waf.inputs.WebAclRuleArgs;
- * import com.pulumi.aws.waf.inputs.WebAclRuleActionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ipset = new IpSet("ipset", IpSetArgs.builder()
- *             .name("tfIPSet")
- *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type("IPV4")
- *                 .value("192.0.7.0/24")
- *                 .build())
- *             .build());
- * 
- *         var wafrule = new Rule("wafrule", RuleArgs.builder()
- *             .name("tfWAFRule")
- *             .metricName("tfWAFRule")
- *             .predicates(RulePredicateArgs.builder()
- *                 .dataId(ipset.id())
- *                 .negated(false)
- *                 .type("IPMatch")
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(ipset)
- *                 .build());
- * 
- *         var wafAcl = new WebAcl("wafAcl", WebAclArgs.builder()
- *             .name("tfWebACL")
- *             .metricName("tfWebACL")
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type("ALLOW")
- *                 .build())
- *             .rules(WebAclRuleArgs.builder()
- *                 .action(WebAclRuleActionArgs.builder()
- *                     .type("BLOCK")
- *                     .build())
- *                 .priority(1)
- *                 .ruleId(wafrule.id())
- *                 .type("REGULAR")
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     ipset,
- *                     wafrule)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Logging
- * 
- * &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.waf.WebAcl;
- * import com.pulumi.aws.waf.WebAclArgs;
- * import com.pulumi.aws.waf.inputs.WebAclLoggingConfigurationArgs;
- * import com.pulumi.aws.waf.inputs.WebAclLoggingConfigurationRedactedFieldsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new WebAcl("example", WebAclArgs.builder()
- *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
- *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()
- *                     .fieldToMatches(                    
- *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
- *                             .type("URI")
- *                             .build(),
- *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
- *                             .data("referer")
- *                             .type("HEADER")
- *                             .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAF Web ACL using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
- * ```
- * 
- */
 @ResourceType(type="aws:waf/webAcl:WebAcl")
 public class WebAcl extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the WAF WebACL.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the WAF WebACL.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-     * 
-     */
     @Export(name="defaultAction", refs={WebAclDefaultAction.class}, tree="[0]")
     private Output<WebAclDefaultAction> defaultAction;
 
-    /**
-     * @return Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-     * 
-     */
     public Output<WebAclDefaultAction> defaultAction() {
         return this.defaultAction;
     }
-    /**
-     * Configuration block to enable WAF logging. Detailed below.
-     * 
-     */
     @Export(name="loggingConfiguration", refs={WebAclLoggingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WebAclLoggingConfiguration> loggingConfiguration;
 
-    /**
-     * @return Configuration block to enable WAF logging. Detailed below.
-     * 
-     */
     public Output<Optional<WebAclLoggingConfiguration>> loggingConfiguration() {
         return Codegen.optional(this.loggingConfiguration);
     }
-    /**
-     * The name or description for the Amazon CloudWatch metric of this web ACL.
-     * 
-     */
     @Export(name="metricName", refs={String.class}, tree="[0]")
     private Output<String> metricName;
 
-    /**
-     * @return The name or description for the Amazon CloudWatch metric of this web ACL.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
-    /**
-     * The name or description of the web ACL.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the web ACL.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-     * 
-     */
     @Export(name="rules", refs={List.class,WebAclRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclRule>> rules;
 
-    /**
-     * @return Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-     * 
-     */
     public Output<Optional<List<WebAclRule>>> rules() {
         return Codegen.optional(this.rules);
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

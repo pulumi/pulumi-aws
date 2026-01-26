@@ -16,148 +16,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM OpenID Connect provider.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.OpenIdConnectProvider;
- * import com.pulumi.aws.iam.OpenIdConnectProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new OpenIdConnectProvider("default", OpenIdConnectProviderArgs.builder()
- *             .url("https://accounts.google.com")
- *             .clientIdLists("266362248691-342342xasdasdasda-apps.googleusercontent.com")
- *             .thumbprintLists("cf23df2207d99a74fbe169e3eba035e633b65d94")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Without A Thumbprint
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.OpenIdConnectProvider;
- * import com.pulumi.aws.iam.OpenIdConnectProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new OpenIdConnectProvider("default", OpenIdConnectProviderArgs.builder()
- *             .url("https://accounts.google.com")
- *             .clientIdLists("266362248691-342342xasdasdasda-apps.googleusercontent.com")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
- * 
- * Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
- * 
- * % pulumi import aws_iam_openid_connect_provider.default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
- * 
- */
 @ResourceType(type="aws:iam/openIdConnectProvider:OpenIdConnectProvider")
 public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN assigned by AWS for this provider.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN assigned by AWS for this provider.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
-     * 
-     */
     @Export(name="clientIdLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clientIdLists;
 
-    /**
-     * @return List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
-     * 
-     */
     public Output<List<String>> clientIdLists() {
         return this.clientIdLists;
     }
-    /**
-     * Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -167,17 +48,9 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
     public Output<List<String>> thumbprintLists() {
         return this.thumbprintLists;
     }
-    /**
-     * URL of the identity provider, corresponding to the `iss` claim.
-     * 
-     */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
-    /**
-     * @return URL of the identity provider, corresponding to the `iss` claim.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }

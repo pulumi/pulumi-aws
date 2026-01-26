@@ -11,63 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon Security Lake AWS Log Source.
-//
-// > **NOTE:** A single `securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
-//
-// > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.AwsLogSource`. Use a `dependsOn` statement.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securitylake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitylake.NewAwsLogSource(ctx, "example", &securitylake.AwsLogSourceArgs{
-//				Source: &securitylake.AwsLogSourceSourceArgs{
-//					Accounts: pulumi.StringArray{
-//						pulumi.String("123456789012"),
-//					},
-//					Regions: pulumi.StringArray{
-//						pulumi.String("eu-west-1"),
-//					},
-//					SourceName: pulumi.String("ROUTE53"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSecuritylakeDataLake,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS log sources using the source name. For example:
-//
-// ```sh
-// $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
-// ```
 type AwsLogSource struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specify the natively-supported AWS service to add as a source in Security Lake.
+	Region pulumi.StringOutput         `pulumi:"region"`
 	Source AwsLogSourceSourcePtrOutput `pulumi:"source"`
 }
 
@@ -101,16 +48,12 @@ func GetAwsLogSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AwsLogSource resources.
 type awsLogSourceState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specify the natively-supported AWS service to add as a source in Security Lake.
+	Region *string             `pulumi:"region"`
 	Source *AwsLogSourceSource `pulumi:"source"`
 }
 
 type AwsLogSourceState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specify the natively-supported AWS service to add as a source in Security Lake.
 	Source AwsLogSourceSourcePtrInput
 }
 
@@ -119,17 +62,13 @@ func (AwsLogSourceState) ElementType() reflect.Type {
 }
 
 type awsLogSourceArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specify the natively-supported AWS service to add as a source in Security Lake.
+	Region *string             `pulumi:"region"`
 	Source *AwsLogSourceSource `pulumi:"source"`
 }
 
 // The set of arguments for constructing a AwsLogSource resource.
 type AwsLogSourceArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specify the natively-supported AWS service to add as a source in Security Lake.
 	Source AwsLogSourceSourcePtrInput
 }
 
@@ -220,12 +159,10 @@ func (o AwsLogSourceOutput) ToAwsLogSourceOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AwsLogSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsLogSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specify the natively-supported AWS service to add as a source in Security Lake.
 func (o AwsLogSourceOutput) Source() AwsLogSourceSourcePtrOutput {
 	return o.ApplyT(func(v *AwsLogSource) AwsLogSourceSourcePtrOutput { return v.Source }).(AwsLogSourceSourcePtrOutput)
 }

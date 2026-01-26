@@ -16,165 +16,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
- * 
- * &gt; **Note:** Setting `skipDestroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
- * 
- * ## Example Usage
- * 
- * ### Alias Name
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfig;
- * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProvisionedConcurrencyConfig("example", ProvisionedConcurrencyConfigArgs.builder()
- *             .functionName(exampleAwsLambdaAlias.functionName())
- *             .provisionedConcurrentExecutions(1)
- *             .qualifier(exampleAwsLambdaAlias.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Function Version
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfig;
- * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProvisionedConcurrencyConfig("example", ProvisionedConcurrencyConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .provisionedConcurrentExecutions(1)
- *             .qualifier(exampleAwsLambdaFunction.version())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")
 public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
-     * 
-     */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
-    /**
-     * @return Name or Amazon Resource Name (ARN) of the Lambda Function.
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
-    /**
-     * Amount of capacity to allocate. Must be greater than or equal to 1.
-     * 
-     */
     @Export(name="provisionedConcurrentExecutions", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedConcurrentExecutions;
 
-    /**
-     * @return Amount of capacity to allocate. Must be greater than or equal to 1.
-     * 
-     */
     public Output<Integer> provisionedConcurrentExecutions() {
         return this.provisionedConcurrentExecutions;
     }
-    /**
-     * Lambda Function version or Lambda Alias name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output<String> qualifier;
 
-    /**
-     * @return Lambda Function version or Lambda Alias name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> qualifier() {
         return this.qualifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-     * 
-     */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
-    /**
-     * @return Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-     * 
-     */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }

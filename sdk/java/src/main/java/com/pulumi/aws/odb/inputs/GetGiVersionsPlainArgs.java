@@ -14,32 +14,16 @@ public final class GetGiVersionsPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetGiVersionsPlainArgs Empty = new GetGiVersionsPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The system shape.
-     * 
-     */
     @Import(name="shape")
     private @Nullable String shape;
 
-    /**
-     * @return The system shape.
-     * 
-     */
     public Optional<String> shape() {
         return Optional.ofNullable(this.shape);
     }
@@ -69,23 +53,11 @@ public final class GetGiVersionsPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetGiVersionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param shape The system shape.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shape(@Nullable String shape) {
             $.shape = shape;
             return this;

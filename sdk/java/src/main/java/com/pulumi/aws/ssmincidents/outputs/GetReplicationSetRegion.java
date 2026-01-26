@@ -10,55 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationSetRegion {
-    /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) encryption key.
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return The name of the Region.
-     * 
-     */
     private String name;
-    /**
-     * @return The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     private String status;
-    /**
-     * @return More information about the status of a Region.
-     * 
-     */
     private String statusMessage;
 
     private GetReplicationSetRegion() {}
-    /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) encryption key.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return The name of the Region.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return More information about the status of a Region.
-     * 
-     */
     public String statusMessage() {
         return this.statusMessage;
     }

@@ -12,95 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for registering an AWS Systems Manager Default Patch Baseline.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "example", &ssm.PatchBaselineArgs{
-//				Name: pulumi.String("example"),
-//				ApprovedPatches: pulumi.StringArray{
-//					pulumi.String("KB123456"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewDefaultPatchBaseline(ctx, "example", &ssm.DefaultPatchBaselineArgs{
-//				BaselineId:      examplePatchBaseline.ID(),
-//				OperatingSystem: examplePatchBaseline.OperatingSystem,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using the patch baseline ARN:
-//
-// Using the operating system value:
-//
-// __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
-//
-// Using the patch baseline ID:
-//
-// ```sh
-// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
-// ```
-// Using the patch baseline ARN:
-//
-// ```sh
-// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
-// ```
-// Using the operating system value:
-//
-// ```sh
-// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
-// ```
 type DefaultPatchBaseline struct {
 	pulumi.CustomResourceState
 
-	// ID of the patch baseline.
-	// Can be an ID or an ARN.
-	// When specifying an AWS-provided patch baseline, must be the ARN.
-	BaselineId pulumi.StringOutput `pulumi:"baselineId"`
-	// The operating system the patch baseline applies to.
-	// Valid values are
-	// `AMAZON_LINUX`,
-	// `AMAZON_LINUX_2`,
-	// `AMAZON_LINUX_2022`,
-	// `AMAZON_LINUX_2023`,
-	// `CENTOS`,
-	// `DEBIAN`,
-	// `MACOS`,
-	// `ORACLE_LINUX`,
-	// `RASPBIAN`,
-	// `REDHAT_ENTERPRISE_LINUX`,
-	// `ROCKY_LINUX`,
-	// `SUSE`,
-	// `UBUNTU`, and
-	// `WINDOWS`.
+	BaselineId      pulumi.StringOutput `pulumi:"baselineId"`
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDefaultPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -139,55 +56,15 @@ func GetDefaultPatchBaseline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultPatchBaseline resources.
 type defaultPatchBaselineState struct {
-	// ID of the patch baseline.
-	// Can be an ID or an ARN.
-	// When specifying an AWS-provided patch baseline, must be the ARN.
-	BaselineId *string `pulumi:"baselineId"`
-	// The operating system the patch baseline applies to.
-	// Valid values are
-	// `AMAZON_LINUX`,
-	// `AMAZON_LINUX_2`,
-	// `AMAZON_LINUX_2022`,
-	// `AMAZON_LINUX_2023`,
-	// `CENTOS`,
-	// `DEBIAN`,
-	// `MACOS`,
-	// `ORACLE_LINUX`,
-	// `RASPBIAN`,
-	// `REDHAT_ENTERPRISE_LINUX`,
-	// `ROCKY_LINUX`,
-	// `SUSE`,
-	// `UBUNTU`, and
-	// `WINDOWS`.
+	BaselineId      *string `pulumi:"baselineId"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region          *string `pulumi:"region"`
 }
 
 type DefaultPatchBaselineState struct {
-	// ID of the patch baseline.
-	// Can be an ID or an ARN.
-	// When specifying an AWS-provided patch baseline, must be the ARN.
-	BaselineId pulumi.StringPtrInput
-	// The operating system the patch baseline applies to.
-	// Valid values are
-	// `AMAZON_LINUX`,
-	// `AMAZON_LINUX_2`,
-	// `AMAZON_LINUX_2022`,
-	// `AMAZON_LINUX_2023`,
-	// `CENTOS`,
-	// `DEBIAN`,
-	// `MACOS`,
-	// `ORACLE_LINUX`,
-	// `RASPBIAN`,
-	// `REDHAT_ENTERPRISE_LINUX`,
-	// `ROCKY_LINUX`,
-	// `SUSE`,
-	// `UBUNTU`, and
-	// `WINDOWS`.
+	BaselineId      pulumi.StringPtrInput
 	OperatingSystem pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (DefaultPatchBaselineState) ElementType() reflect.Type {
@@ -195,56 +72,16 @@ func (DefaultPatchBaselineState) ElementType() reflect.Type {
 }
 
 type defaultPatchBaselineArgs struct {
-	// ID of the patch baseline.
-	// Can be an ID or an ARN.
-	// When specifying an AWS-provided patch baseline, must be the ARN.
-	BaselineId string `pulumi:"baselineId"`
-	// The operating system the patch baseline applies to.
-	// Valid values are
-	// `AMAZON_LINUX`,
-	// `AMAZON_LINUX_2`,
-	// `AMAZON_LINUX_2022`,
-	// `AMAZON_LINUX_2023`,
-	// `CENTOS`,
-	// `DEBIAN`,
-	// `MACOS`,
-	// `ORACLE_LINUX`,
-	// `RASPBIAN`,
-	// `REDHAT_ENTERPRISE_LINUX`,
-	// `ROCKY_LINUX`,
-	// `SUSE`,
-	// `UBUNTU`, and
-	// `WINDOWS`.
-	OperatingSystem string `pulumi:"operatingSystem"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	BaselineId      string  `pulumi:"baselineId"`
+	OperatingSystem string  `pulumi:"operatingSystem"`
+	Region          *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DefaultPatchBaseline resource.
 type DefaultPatchBaselineArgs struct {
-	// ID of the patch baseline.
-	// Can be an ID or an ARN.
-	// When specifying an AWS-provided patch baseline, must be the ARN.
-	BaselineId pulumi.StringInput
-	// The operating system the patch baseline applies to.
-	// Valid values are
-	// `AMAZON_LINUX`,
-	// `AMAZON_LINUX_2`,
-	// `AMAZON_LINUX_2022`,
-	// `AMAZON_LINUX_2023`,
-	// `CENTOS`,
-	// `DEBIAN`,
-	// `MACOS`,
-	// `ORACLE_LINUX`,
-	// `RASPBIAN`,
-	// `REDHAT_ENTERPRISE_LINUX`,
-	// `ROCKY_LINUX`,
-	// `SUSE`,
-	// `UBUNTU`, and
-	// `WINDOWS`.
+	BaselineId      pulumi.StringInput
 	OperatingSystem pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (DefaultPatchBaselineArgs) ElementType() reflect.Type {
@@ -334,34 +171,14 @@ func (o DefaultPatchBaselineOutput) ToDefaultPatchBaselineOutputWithContext(ctx 
 	return o
 }
 
-// ID of the patch baseline.
-// Can be an ID or an ARN.
-// When specifying an AWS-provided patch baseline, must be the ARN.
 func (o DefaultPatchBaselineOutput) BaselineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.BaselineId }).(pulumi.StringOutput)
 }
 
-// The operating system the patch baseline applies to.
-// Valid values are
-// `AMAZON_LINUX`,
-// `AMAZON_LINUX_2`,
-// `AMAZON_LINUX_2022`,
-// `AMAZON_LINUX_2023`,
-// `CENTOS`,
-// `DEBIAN`,
-// `MACOS`,
-// `ORACLE_LINUX`,
-// `RASPBIAN`,
-// `REDHAT_ENTERPRISE_LINUX`,
-// `ROCKY_LINUX`,
-// `SUSE`,
-// `UBUNTU`, and
-// `WINDOWS`.
 func (o DefaultPatchBaselineOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultPatchBaselineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

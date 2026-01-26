@@ -18,14 +18,14 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
     public static final WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs Empty = new WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs();
 
     /**
-     * Action to use instead of the rule&#39;s original action. See below.
+     * Action to use in place of the rule action.
      * 
      */
     @Import(name="actionToUse")
     private @Nullable Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs> actionToUse;
 
     /**
-     * @return Action to use instead of the rule&#39;s original action. See below.
+     * @return Action to use in place of the rule action.
      * 
      */
     public Optional<Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs>> actionToUse() {
@@ -33,14 +33,14 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
     }
 
     /**
-     * Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
+     * Name of the rule to override.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
+     * @return Name of the rule to override.
      * 
      */
     public Output<String> name() {
@@ -73,7 +73,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
         }
 
         /**
-         * @param actionToUse Action to use instead of the rule&#39;s original action. See below.
+         * @param actionToUse Action to use in place of the rule action.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
         }
 
         /**
-         * @param actionToUse Action to use instead of the rule&#39;s original action. See below.
+         * @param actionToUse Action to use in place of the rule action.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
         }
 
         /**
-         * @param name Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
+         * @param name Name of the rule to override.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
         }
 
         /**
-         * @param name Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
+         * @param name Name of the rule to override.
          * 
          * @return builder
          * 

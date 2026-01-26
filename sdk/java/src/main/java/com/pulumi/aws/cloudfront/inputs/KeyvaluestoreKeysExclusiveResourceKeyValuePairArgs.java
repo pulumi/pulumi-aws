@@ -15,14 +15,14 @@ public final class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs extends co
     public static final KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs Empty = new KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs();
 
     /**
-     * Key to put.
+     * The key to put.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Key to put.
+     * @return The key to put.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs extends co
     }
 
     /**
-     * Value to put.
+     * The value to put.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value to put.
+     * @return The value to put.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs extends co
         }
 
         /**
-         * @param key Key to put.
+         * @param key The key to put.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs extends co
         }
 
         /**
-         * @param key Key to put.
+         * @param key The key to put.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs extends co
         }
 
         /**
-         * @param value Value to put.
+         * @param value The value to put.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs extends co
         }
 
         /**
-         * @param value Value to put.
+         * @param value The value to put.
          * 
          * @return builder
          * 

@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Direct Connect Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directconnect.Gateway("example", {
- *     name: "tf-dxg-example",
- *     amazonSideAsn: "64512",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `id` (String) ID of the Direct Connect Gateway.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
- *
- * % pulumi import aws_dx_gateway.example abcd1234-dcba-5678-be23-cdef9876ab45
- */
 export class Gateway extends pulumi.CustomResource {
     /**
      * Get an existing Gateway resource's state with the given name, ID, and optional extra
@@ -65,29 +32,11 @@ export class Gateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === Gateway.__pulumiType;
     }
 
-    /**
-     * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-     */
     declare public readonly amazonSideAsn: pulumi.Output<string>;
-    /**
-     * The ARN of the gateway.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the connection.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * AWS Account ID of the gateway.
-     */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -130,29 +79,11 @@ export class Gateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Gateway resources.
  */
 export interface GatewayState {
-    /**
-     * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-     */
     amazonSideAsn?: pulumi.Input<string>;
-    /**
-     * The ARN of the gateway.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the connection.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * AWS Account ID of the gateway.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -160,16 +91,7 @@ export interface GatewayState {
  * The set of arguments for constructing a Gateway resource.
  */
 export interface GatewayArgs {
-    /**
-     * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-     */
     amazonSideAsn: pulumi.Input<string>;
-    /**
-     * The name of the connection.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

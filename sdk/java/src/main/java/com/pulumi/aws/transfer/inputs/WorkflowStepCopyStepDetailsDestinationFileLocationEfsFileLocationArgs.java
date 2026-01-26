@@ -15,32 +15,16 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 
     public static final WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs Empty = new WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs();
 
-    /**
-     * The ID of the file system, assigned by Amazon EFS.
-     * 
-     */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
-    /**
-     * @return The ID of the file system, assigned by Amazon EFS.
-     * 
-     */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
-    /**
-     * The pathname for the folder being used by a workflow.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return The pathname for the folder being used by a workflow.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -70,44 +54,20 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLoca
             $ = new WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fileSystemId The ID of the file system, assigned by Amazon EFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId The ID of the file system, assigned by Amazon EFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param path The pathname for the folder being used by a workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The pathname for the folder being used by a workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

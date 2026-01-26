@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule {
-    /**
-     * @return Configuration for an issue detection rule.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration issueDetectionConfiguration;
-    /**
-     * @return Configuration for a keyword match rule.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration keywordMatchConfiguration;
-    /**
-     * @return Configuration for a sentiment rule.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration sentimentConfiguration;
-    /**
-     * @return Rule type.
-     * 
-     */
     private String type;
 
     private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule() {}
-    /**
-     * @return Configuration for an issue detection rule.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration> issueDetectionConfiguration() {
         return Optional.ofNullable(this.issueDetectionConfiguration);
     }
-    /**
-     * @return Configuration for a keyword match rule.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration> keywordMatchConfiguration() {
         return Optional.ofNullable(this.keywordMatchConfiguration);
     }
-    /**
-     * @return Configuration for a sentiment rule.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration> sentimentConfiguration() {
         return Optional.ofNullable(this.sentimentConfiguration);
     }
-    /**
-     * @return Rule type.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Local file certificate.
-        /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs>? File { get; set; }
 
-        /// <summary>
-        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        /// </summary>
         [Input("sds")]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs>? Sds { get; set; }
 

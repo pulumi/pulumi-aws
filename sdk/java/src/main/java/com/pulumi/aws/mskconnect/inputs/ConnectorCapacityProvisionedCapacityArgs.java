@@ -16,32 +16,16 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
 
     public static final ConnectorCapacityProvisionedCapacityArgs Empty = new ConnectorCapacityProvisionedCapacityArgs();
 
-    /**
-     * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     @Import(name="mcuCount")
     private @Nullable Output<Integer> mcuCount;
 
-    /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     public Optional<Output<Integer>> mcuCount() {
         return Optional.ofNullable(this.mcuCount);
     }
 
-    /**
-     * The number of workers that are allocated to the connector.
-     * 
-     */
     @Import(name="workerCount", required=true)
     private Output<Integer> workerCount;
 
-    /**
-     * @return The number of workers that are allocated to the connector.
-     * 
-     */
     public Output<Integer> workerCount() {
         return this.workerCount;
     }
@@ -71,44 +55,20 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
             $ = new ConnectorCapacityProvisionedCapacityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcuCount(@Nullable Output<Integer> mcuCount) {
             $.mcuCount = mcuCount;
             return this;
         }
 
-        /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcuCount(Integer mcuCount) {
             return mcuCount(Output.of(mcuCount));
         }
 
-        /**
-         * @param workerCount The number of workers that are allocated to the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workerCount(Output<Integer> workerCount) {
             $.workerCount = workerCount;
             return this;
         }
 
-        /**
-         * @param workerCount The number of workers that are allocated to the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workerCount(Integer workerCount) {
             return workerCount(Output.of(workerCount));
         }

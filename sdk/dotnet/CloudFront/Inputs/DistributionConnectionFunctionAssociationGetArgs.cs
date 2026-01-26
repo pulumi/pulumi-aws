@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionConnectionFunctionAssociationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

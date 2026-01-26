@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionViewerCertificate {
-    /**
-     * @return ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-     * 
-     */
     private @Nullable String acmCertificateArn;
-    /**
-     * @return Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
-     * 
-     */
     private @Nullable Boolean cloudfrontDefaultCertificate;
-    /**
-     * @return Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-     * 
-     */
     private @Nullable String minimumProtocolVersion;
-    /**
-     * @return How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
-     * 
-     */
     private @Nullable String sslSupportMethod;
 
     private MultitenantDistributionViewerCertificate() {}
-    /**
-     * @return ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-     * 
-     */
     public Optional<String> acmCertificateArn() {
         return Optional.ofNullable(this.acmCertificateArn);
     }
-    /**
-     * @return Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
-     * 
-     */
     public Optional<Boolean> cloudfrontDefaultCertificate() {
         return Optional.ofNullable(this.cloudfrontDefaultCertificate);
     }
-    /**
-     * @return Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-     * 
-     */
     public Optional<String> minimumProtocolVersion() {
         return Optional.ofNullable(this.minimumProtocolVersion);
     }
-    /**
-     * @return How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
-     * 
-     */
     public Optional<String> sslSupportMethod() {
         return Optional.ofNullable(this.sslSupportMethod);
     }

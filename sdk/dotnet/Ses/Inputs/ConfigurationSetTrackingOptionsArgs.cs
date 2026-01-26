@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ses.Inputs
 
     public sealed class ConfigurationSetTrackingOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-        /// </summary>
         [Input("customRedirectDomain")]
         public Input<string>? CustomRedirectDomain { get; set; }
 

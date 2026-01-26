@@ -18,47 +18,23 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArg
 
     public static final AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs Empty = new AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs();
 
-    /**
-     * Configuration block for the source code location and configuration details. See `code` below.
-     * 
-     */
     @Import(name="code")
     private @Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs> code;
 
-    /**
-     * @return Configuration block for the source code location and configuration details. See `code` below.
-     * 
-     */
     public Optional<Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs>> code() {
         return Optional.ofNullable(this.code);
     }
 
-    /**
-     * Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `[&#34;main.py&#34;]`, `[&#34;opentelemetry-instrument&#34;, &#34;main.py&#34;]`.
-     * 
-     */
     @Import(name="entryPoints", required=true)
     private Output<List<String>> entryPoints;
 
-    /**
-     * @return Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `[&#34;main.py&#34;]`, `[&#34;opentelemetry-instrument&#34;, &#34;main.py&#34;]`.
-     * 
-     */
     public Output<List<String>> entryPoints() {
         return this.entryPoints;
     }
 
-    /**
-     * Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
-     * 
-     */
     @Import(name="runtime", required=true)
     private Output<String> runtime;
 
-    /**
-     * @return Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
-     * 
-     */
     public Output<String> runtime() {
         return this.runtime;
     }
@@ -89,75 +65,33 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArg
             $ = new AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param code Configuration block for the source code location and configuration details. See `code` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(@Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs> code) {
             $.code = code;
             return this;
         }
 
-        /**
-         * @param code Configuration block for the source code location and configuration details. See `code` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs code) {
             return code(Output.of(code));
         }
 
-        /**
-         * @param entryPoints Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `[&#34;main.py&#34;]`, `[&#34;opentelemetry-instrument&#34;, &#34;main.py&#34;]`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPoints(Output<List<String>> entryPoints) {
             $.entryPoints = entryPoints;
             return this;
         }
 
-        /**
-         * @param entryPoints Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `[&#34;main.py&#34;]`, `[&#34;opentelemetry-instrument&#34;, &#34;main.py&#34;]`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPoints(List<String> entryPoints) {
             return entryPoints(Output.of(entryPoints));
         }
 
-        /**
-         * @param entryPoints Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `[&#34;main.py&#34;]`, `[&#34;opentelemetry-instrument&#34;, &#34;main.py&#34;]`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPoints(String... entryPoints) {
             return entryPoints(List.of(entryPoints));
         }
 
-        /**
-         * @param runtime Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtime(Output<String> runtime) {
             $.runtime = runtime;
             return this;
         }
 
-        /**
-         * @param runtime Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtime(String runtime) {
             return runtime(Output.of(runtime));
         }

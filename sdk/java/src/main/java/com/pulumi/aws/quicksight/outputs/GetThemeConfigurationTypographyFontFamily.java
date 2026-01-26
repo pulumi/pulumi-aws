@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfigurationTypographyFontFamily {
-    /**
-     * @return Font family name.
-     * 
-     */
     private String fontFamily;
 
     private GetThemeConfigurationTypographyFontFamily() {}
-    /**
-     * @return Font family name.
-     * 
-     */
     public String fontFamily() {
         return this.fontFamily;
     }

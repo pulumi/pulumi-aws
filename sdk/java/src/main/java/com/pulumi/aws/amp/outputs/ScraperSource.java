@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScraperSource {
-    /**
-     * @return Configuration block for an EKS cluster source. See `eks`.
-     * 
-     */
     private @Nullable ScraperSourceEks eks;
 
     private ScraperSource() {}
-    /**
-     * @return Configuration block for an EKS cluster source. See `eks`.
-     * 
-     */
     public Optional<ScraperSourceEks> eks() {
         return Optional.ofNullable(this.eks);
     }

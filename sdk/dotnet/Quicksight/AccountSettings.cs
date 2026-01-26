@@ -9,72 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing an AWS QuickSight Account Settings.
-    /// 
-    /// &gt; Deletion of this resource will not modify any settings, only remove the resource from state.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var subscription = new Aws.Quicksight.AccountSubscription("subscription", new()
-    ///     {
-    ///         AccountName = "quicksight-terraform",
-    ///         AuthenticationMethod = "IAM_AND_QUICKSIGHT",
-    ///         Edition = "ENTERPRISE",
-    ///         NotificationEmail = "notification@email.com",
-    ///     });
-    /// 
-    ///     var example = new Aws.Quicksight.AccountSettings("example", new()
-    ///     {
-    ///         TerminationProtectionEnabled = false,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             subscription,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight Account Settings using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/accountSettings:AccountSettings example "012345678901"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/accountSettings:AccountSettings")]
     public partial class AccountSettings : global::Pulumi.CustomResource
     {
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The default namespace for this Amazon Web Services account. Currently, the default is `Default`.
-        /// </summary>
         [Output("defaultNamespace")]
         public Output<string> DefaultNamespace { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
-        /// </summary>
         [Output("terminationProtectionEnabled")]
         public Output<bool> TerminationProtectionEnabled { get; private set; } = null!;
 
@@ -130,21 +76,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The default namespace for this Amazon Web Services account. Currently, the default is `Default`.
-        /// </summary>
         [Input("defaultNamespace")]
         public Input<string>? DefaultNamespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
-        /// </summary>
         [Input("terminationProtectionEnabled")]
         public Input<bool>? TerminationProtectionEnabled { get; set; }
 
@@ -162,21 +99,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The default namespace for this Amazon Web Services account. Currently, the default is `Default`.
-        /// </summary>
         [Input("defaultNamespace")]
         public Input<string>? DefaultNamespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
-        /// </summary>
         [Input("terminationProtectionEnabled")]
         public Input<bool>? TerminationProtectionEnabled { get; set; }
 

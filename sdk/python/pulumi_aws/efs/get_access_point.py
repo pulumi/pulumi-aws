@@ -67,25 +67,16 @@ class GetAccessPointResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name of the file system.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name of the file system.
-        """
         return pulumi.get(self, "file_system_arn")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> _builtins.str:
-        """
-        ID of the file system for which the access point is intended.
-        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
@@ -104,9 +95,6 @@ class GetAccessPointResult:
     @_builtins.property
     @pulumi.getter(name="posixUsers")
     def posix_users(self) -> Sequence['outputs.GetAccessPointPosixUserResult']:
-        """
-        Single element list containing operating system user and group applied to all file system requests made using the access point.
-        """
         return pulumi.get(self, "posix_users")
 
     @_builtins.property
@@ -117,17 +105,11 @@ class GetAccessPointResult:
     @_builtins.property
     @pulumi.getter(name="rootDirectories")
     def root_directories(self) -> Sequence['outputs.GetAccessPointRootDirectoryResult']:
-        """
-        Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
-        """
         return pulumi.get(self, "root_directories")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value mapping of resource tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -154,21 +136,7 @@ def get_access_point(access_point_id: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointResult:
     """
-    Provides information about an Elastic File System (EFS) Access Point.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_point(access_point_id="fsap-12345678")
-    ```
-
-
-    :param _builtins.str access_point_id: ID that identifies the file system.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
@@ -193,21 +161,7 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[_builtins.str
                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
-    Provides information about an Elastic File System (EFS) Access Point.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_point(access_point_id="fsap-12345678")
-    ```
-
-
-    :param _builtins.str access_point_id: ID that identifies the file system.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id

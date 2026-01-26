@@ -16,25 +16,9 @@ public final class GetSessionContextResult {
      * 
      */
     private String id;
-    /**
-     * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuerArn` is equal to `arn`.
-     * 
-     */
     private String issuerArn;
-    /**
-     * @return Unique identifier of the IAM role that issues the STS assumed role.
-     * 
-     */
     private String issuerId;
-    /**
-     * @return Name of the source role. Only available if `arn` corresponds to an STS assumed role.
-     * 
-     */
     private String issuerName;
-    /**
-     * @return Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
-     * 
-     */
     private String sessionName;
 
     private GetSessionContextResult() {}
@@ -48,31 +32,15 @@ public final class GetSessionContextResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuerArn` is equal to `arn`.
-     * 
-     */
     public String issuerArn() {
         return this.issuerArn;
     }
-    /**
-     * @return Unique identifier of the IAM role that issues the STS assumed role.
-     * 
-     */
     public String issuerId() {
         return this.issuerId;
     }
-    /**
-     * @return Name of the source role. Only available if `arn` corresponds to an STS assumed role.
-     * 
-     */
     public String issuerName() {
         return this.issuerName;
     }
-    /**
-     * @return Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
-     * 
-     */
     public String sessionName() {
         return this.sessionName;
     }

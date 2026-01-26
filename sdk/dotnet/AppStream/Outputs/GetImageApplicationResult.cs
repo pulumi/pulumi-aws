@@ -13,67 +13,20 @@ namespace Pulumi.Aws.AppStream.Outputs
     [OutputType]
     public sealed class GetImageApplicationResult
     {
-        /// <summary>
-        /// The app block ARN of the application.
-        /// </summary>
         public readonly string AppBlockArn;
-        /// <summary>
-        /// ARN of the image being searched for. Cannot be used with `NameRegex` or `Name`.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Time at which this image was created.
-        /// </summary>
         public readonly string CreatedTime;
-        /// <summary>
-        /// Description of image.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Image name to display.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// Bool based on if the application is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// A list named IconS3Location that contains the following:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetImageApplicationIconS3LocationResult> IconS3Locations;
-        /// <summary>
-        /// URL of the application icon. This URL may be time-limited.
-        /// </summary>
         public readonly string IconUrl;
-        /// <summary>
-        /// List of the instance families of the application.
-        /// </summary>
         public readonly ImmutableArray<string> InstanceFamilies;
-        /// <summary>
-        /// Arguments that are passed to the application at it's launch.
-        /// </summary>
         public readonly string LaunchParameters;
-        /// <summary>
-        /// Path to the application's excecutable in the instance.
-        /// </summary>
         public readonly string LaunchPath;
-        /// <summary>
-        /// String to string map that contains additional attributes used to describe the application.
-        /// * `Name` - Name of the application.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
-        /// <summary>
-        /// Name of the image being searched for. Cannot be used with `NameRegex` or `Arn`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Array of strings describing the platforms on which the application can run.
-        /// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-        /// </summary>
         public readonly ImmutableArray<string> Platforms;
-        /// <summary>
-        /// Working directory for the application.
-        /// </summary>
         public readonly string WorkingDirectory;
 
         [OutputConstructor]

@@ -18,47 +18,23 @@ public final class LogResourcePolicyArgs extends com.pulumi.resources.ResourceAr
 
     public static final LogResourcePolicyArgs Empty = new LogResourcePolicyArgs();
 
-    /**
-     * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-     * 
-     */
     @Import(name="policyDocument", required=true)
     private Output<Either<String,PolicyDocumentArgs>> policyDocument;
 
-    /**
-     * @return Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-     * 
-     */
     public Output<Either<String,PolicyDocumentArgs>> policyDocument() {
         return this.policyDocument;
     }
 
-    /**
-     * Name of the resource policy.
-     * 
-     */
     @Import(name="policyName", required=true)
     private Output<String> policyName;
 
-    /**
-     * @return Name of the resource policy.
-     * 
-     */
     public Output<String> policyName() {
         return this.policyName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -89,85 +65,37 @@ public final class LogResourcePolicyArgs extends com.pulumi.resources.ResourceAr
             $ = new LogResourcePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyDocument Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(Output<Either<String,PolicyDocumentArgs>> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(Either<String,PolicyDocumentArgs> policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param policyDocument Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Either.ofLeft(policyDocument));
         }
 
-        /**
-         * @param policyDocument Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(PolicyDocumentArgs policyDocument) {
             return policyDocument(Either.ofRight(policyDocument));
         }
 
-        /**
-         * @param policyName Name of the resource policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(Output<String> policyName) {
             $.policyName = policyName;
             return this;
         }
 
-        /**
-         * @param policyName Name of the resource policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(String policyName) {
             return policyName(Output.of(policyName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

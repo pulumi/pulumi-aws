@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class TableEncryptionSpecification
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer managed KMS key.
-        /// </summary>
         public readonly string? KmsKeyIdentifier;
-        /// <summary>
-        /// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

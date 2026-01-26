@@ -15,32 +15,16 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
 
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs();
 
-    /**
-     * An integer value containing ICMP code.
-     * 
-     */
     @Import(name="code")
     private @Nullable Output<Integer> code;
 
-    /**
-     * @return An integer value containing ICMP code.
-     * 
-     */
     public Optional<Output<Integer>> code() {
         return Optional.ofNullable(this.code);
     }
 
-    /**
-     * An integer value containing ICMP type.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<Integer> type;
 
-    /**
-     * @return An integer value containing ICMP type.
-     * 
-     */
     public Optional<Output<Integer>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -70,44 +54,20 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
             $ = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param code An integer value containing ICMP code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(@Nullable Output<Integer> code) {
             $.code = code;
             return this;
         }
 
-        /**
-         * @param code An integer value containing ICMP code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(Integer code) {
             return code(Output.of(code));
         }
 
-        /**
-         * @param type An integer value containing ICMP type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<Integer> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type An integer value containing ICMP type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Integer type) {
             return type(Output.of(type));
         }

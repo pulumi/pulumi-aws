@@ -14,32 +14,16 @@ public final class KxEnvironmentCustomDnsConfigurationArgs extends com.pulumi.re
 
     public static final KxEnvironmentCustomDnsConfigurationArgs Empty = new KxEnvironmentCustomDnsConfigurationArgs();
 
-    /**
-     * IP address of the DNS server.
-     * 
-     */
     @Import(name="customDnsServerIp", required=true)
     private Output<String> customDnsServerIp;
 
-    /**
-     * @return IP address of the DNS server.
-     * 
-     */
     public Output<String> customDnsServerIp() {
         return this.customDnsServerIp;
     }
 
-    /**
-     * Name of the DNS server.
-     * 
-     */
     @Import(name="customDnsServerName", required=true)
     private Output<String> customDnsServerName;
 
-    /**
-     * @return Name of the DNS server.
-     * 
-     */
     public Output<String> customDnsServerName() {
         return this.customDnsServerName;
     }
@@ -69,44 +53,20 @@ public final class KxEnvironmentCustomDnsConfigurationArgs extends com.pulumi.re
             $ = new KxEnvironmentCustomDnsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customDnsServerIp IP address of the DNS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDnsServerIp(Output<String> customDnsServerIp) {
             $.customDnsServerIp = customDnsServerIp;
             return this;
         }
 
-        /**
-         * @param customDnsServerIp IP address of the DNS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDnsServerIp(String customDnsServerIp) {
             return customDnsServerIp(Output.of(customDnsServerIp));
         }
 
-        /**
-         * @param customDnsServerName Name of the DNS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDnsServerName(Output<String> customDnsServerName) {
             $.customDnsServerName = customDnsServerName;
             return this;
         }
 
-        /**
-         * @param customDnsServerName Name of the DNS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDnsServerName(String customDnsServerName) {
             return customDnsServerName(Output.of(customDnsServerName));
         }

@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Global Accelerator custom routing endpoint group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.globalaccelerator.CustomRoutingEndpointGroup("example", {
- *     listenerArn: exampleAwsGlobalacceleratorCustomRoutingListener.arn,
- *     destinationConfigurations: [{
- *         fromPort: 80,
- *         toPort: 8080,
- *         protocols: ["TCP"],
- *     }],
- *     endpointConfigurations: [{
- *         endpointId: exampleAwsSubnet.id,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
- *
- * Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
- *
- * % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
- */
 export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     /**
      * Get an existing CustomRoutingEndpointGroup resource's state with the given name, ID, and optional extra
@@ -69,25 +35,10 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomRoutingEndpointGroup.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-     */
     declare public readonly destinationConfigurations: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration[]>;
-    /**
-     * The list of endpoint objects. Fields documented below.
-     */
     declare public readonly endpointConfigurations: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration[] | undefined>;
-    /**
-     * The name of the AWS Region where the custom routing endpoint group is located.
-     */
     declare public readonly endpointGroupRegion: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
-     */
     declare public readonly listenerArn: pulumi.Output<string>;
 
     /**
@@ -131,25 +82,10 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomRoutingEndpointGroup resources.
  */
 export interface CustomRoutingEndpointGroupState {
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-     */
     destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration>[]>;
-    /**
-     * The list of endpoint objects. Fields documented below.
-     */
     endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
-    /**
-     * The name of the AWS Region where the custom routing endpoint group is located.
-     */
     endpointGroupRegion?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
-     */
     listenerArn?: pulumi.Input<string>;
 }
 
@@ -157,20 +93,8 @@ export interface CustomRoutingEndpointGroupState {
  * The set of arguments for constructing a CustomRoutingEndpointGroup resource.
  */
 export interface CustomRoutingEndpointGroupArgs {
-    /**
-     * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-     */
     destinationConfigurations: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration>[]>;
-    /**
-     * The list of endpoint objects. Fields documented below.
-     */
     endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
-    /**
-     * The name of the AWS Region where the custom routing endpoint group is located.
-     */
     endpointGroupRegion?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
-     */
     listenerArn: pulumi.Input<string>;
 }

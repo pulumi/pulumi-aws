@@ -11,19 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
-    /**
-     * @return Enables using the slot values as a custom vocabulary for recognizing user utterances.
-     * Valid value is `UseSlotValuesAsCustomVocabulary`.
-     * 
-     */
     private @Nullable String audioRecognitionStrategy;
 
     private V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting() {}
-    /**
-     * @return Enables using the slot values as a custom vocabulary for recognizing user utterances.
-     * Valid value is `UseSlotValuesAsCustomVocabulary`.
-     * 
-     */
     public Optional<String> audioRecognitionStrategy() {
         return Optional.ofNullable(this.audioRecognitionStrategy);
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom handling for counted requests. See below.
-        /// </summary>
         [Input("customRequestHandling")]
         public Input<Inputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
 

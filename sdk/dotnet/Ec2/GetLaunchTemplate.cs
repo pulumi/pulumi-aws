@@ -11,159 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetLaunchTemplate
     {
-        /// <summary>
-        /// Provides information about a Launch Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @default = Aws.Ec2.GetLaunchTemplate.Invoke(new()
-        ///     {
-        ///         Name = "my-launch-template",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetLaunchTemplate.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetLaunchTemplateFilterInputArgs
-        ///             {
-        ///                 Name = "launch-template-name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "some-template",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Launch Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @default = Aws.Ec2.GetLaunchTemplate.Invoke(new()
-        ///     {
-        ///         Name = "my-launch-template",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetLaunchTemplate.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetLaunchTemplateFilterInputArgs
-        ///             {
-        ///                 Name = "launch-template-name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "some-template",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Launch Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @default = Aws.Ec2.GetLaunchTemplate.Invoke(new()
-        ///     {
-        ///         Name = "my-launch-template",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetLaunchTemplate.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetLaunchTemplateFilterInputArgs
-        ///             {
-        ///                 Name = "launch-template-name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "some-template",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithDefaults());
     }
@@ -173,40 +26,23 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetLaunchTemplateFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public List<Inputs.GetLaunchTemplateFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetLaunchTemplateFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific launch template to retrieve.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Name of the launch template.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -223,40 +59,23 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetLaunchTemplateFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetLaunchTemplateFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetLaunchTemplateFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific launch template to retrieve.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the launch template.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -287,9 +106,6 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLaunchTemplateFilterResult> Filters;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> HibernationOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfileResult> IamInstanceProfiles;
-        /// <summary>
-        /// ID of the launch template.
-        /// </summary>
         public readonly string Id;
         public readonly string ImageId;
         public readonly string InstanceInitiatedShutdownBehavior;

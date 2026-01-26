@@ -14,62 +14,30 @@ public final class GetInstanceTypeOfferingsPlainArgs extends com.pulumi.resource
 
     public static final GetInstanceTypeOfferingsPlainArgs Empty = new GetInstanceTypeOfferingsPlainArgs();
 
-    /**
-     * Filter response by engine type.
-     * 
-     */
     @Import(name="engineType")
     private @Nullable String engineType;
 
-    /**
-     * @return Filter response by engine type.
-     * 
-     */
     public Optional<String> engineType() {
         return Optional.ofNullable(this.engineType);
     }
 
-    /**
-     * Filter response by host instance type.
-     * 
-     */
     @Import(name="hostInstanceType")
     private @Nullable String hostInstanceType;
 
-    /**
-     * @return Filter response by host instance type.
-     * 
-     */
     public Optional<String> hostInstanceType() {
         return Optional.ofNullable(this.hostInstanceType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Filter response by storage type.
-     * 
-     */
     @Import(name="storageType")
     private @Nullable String storageType;
 
-    /**
-     * @return Filter response by storage type.
-     * 
-     */
     public Optional<String> storageType() {
         return Optional.ofNullable(this.storageType);
     }
@@ -101,45 +69,21 @@ public final class GetInstanceTypeOfferingsPlainArgs extends com.pulumi.resource
             $ = new GetInstanceTypeOfferingsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param engineType Filter response by engine type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineType(@Nullable String engineType) {
             $.engineType = engineType;
             return this;
         }
 
-        /**
-         * @param hostInstanceType Filter response by host instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostInstanceType(@Nullable String hostInstanceType) {
             $.hostInstanceType = hostInstanceType;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param storageType Filter response by storage type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageType(@Nullable String storageType) {
             $.storageType = storageType;
             return this;

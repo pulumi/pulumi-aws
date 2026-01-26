@@ -13,13 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration
     {
-        /// <summary>
-        /// Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-        /// </summary>
         public readonly string? ApplicationRestoreType;
-        /// <summary>
-        /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `ApplicationRestoreType`.
-        /// </summary>
         public readonly string? SnapshotName;
 
         [OutputConstructor]

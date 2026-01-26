@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterAccessConfig {
-    /**
-     * @return Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-     * 
-     */
     private String authenticationMode;
-    /**
-     * @return Default to `true`.
-     * 
-     */
     private Boolean bootstrapClusterCreatorAdminPermissions;
 
     private GetClusterAccessConfig() {}
-    /**
-     * @return Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-     * 
-     */
     public String authenticationMode() {
         return this.authenticationMode;
     }
-    /**
-     * @return Default to `true`.
-     * 
-     */
     public Boolean bootstrapClusterCreatorAdminPermissions() {
         return this.bootstrapClusterCreatorAdminPermissions;
     }

@@ -15,17 +15,9 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
 
     public static final WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs Empty = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs();
 
-    /**
-     * Custom handling for allowed requests. See below.
-     * 
-     */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs> customRequestHandling;
 
-    /**
-     * @return Custom handling for allowed requests. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs>> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
             $ = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRequestHandling Custom handling for allowed requests. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(@Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs> customRequestHandling) {
             $.customRequestHandling = customRequestHandling;
             return this;
         }
 
-        /**
-         * @param customRequestHandling Custom handling for allowed requests. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs customRequestHandling) {
             return customRequestHandling(Output.of(customRequestHandling));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("parameterDefinitions")]
         private InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionGetArgs>? _parameterDefinitions;
-
-        /// <summary>
-        /// One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-        /// </summary>
         public InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionGetArgs> ParameterDefinitions
         {
             get => _parameterDefinitions ?? (_parameterDefinitions = new InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionGetArgs>());

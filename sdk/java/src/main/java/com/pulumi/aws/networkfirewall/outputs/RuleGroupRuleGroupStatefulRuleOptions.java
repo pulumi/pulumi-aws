@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupStatefulRuleOptions {
-    /**
-     * @return Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     private String ruleOrder;
 
     private RuleGroupRuleGroupStatefulRuleOptions() {}
-    /**
-     * @return Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     public String ruleOrder() {
         return this.ruleOrder;
     }

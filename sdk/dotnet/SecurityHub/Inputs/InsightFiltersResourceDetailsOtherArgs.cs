@@ -15,9 +15,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         [Input("comparison", required: true)]
         public Input<string> Comparison { get; set; } = null!;
 
-        /// <summary>
-        /// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

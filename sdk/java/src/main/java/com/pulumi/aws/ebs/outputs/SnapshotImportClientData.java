@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SnapshotImportClientData {
-    /**
-     * @return A user-defined comment about the disk upload.
-     * 
-     */
     private @Nullable String comment;
-    /**
-     * @return The time that the disk upload ends.
-     * 
-     */
     private @Nullable String uploadEnd;
-    /**
-     * @return The size of the uploaded disk image, in GiB.
-     * 
-     */
     private @Nullable Double uploadSize;
-    /**
-     * @return The time that the disk upload starts.
-     * 
-     */
     private @Nullable String uploadStart;
 
     private SnapshotImportClientData() {}
-    /**
-     * @return A user-defined comment about the disk upload.
-     * 
-     */
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
     }
-    /**
-     * @return The time that the disk upload ends.
-     * 
-     */
     public Optional<String> uploadEnd() {
         return Optional.ofNullable(this.uploadEnd);
     }
-    /**
-     * @return The size of the uploaded disk image, in GiB.
-     * 
-     */
     public Optional<Double> uploadSize() {
         return Optional.ofNullable(this.uploadSize);
     }
-    /**
-     * @return The time that the disk upload starts.
-     * 
-     */
     public Optional<String> uploadStart() {
         return Optional.ofNullable(this.uploadStart);
     }

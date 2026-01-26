@@ -29,13 +29,6 @@ class ServiceNetworkResourceAssociationArgs:
                  timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
-        :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
-        :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
@@ -51,9 +44,6 @@ class ServiceNetworkResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
     def resource_configuration_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of Resource Configuration to associate to the Service Network.
-        """
         return pulumi.get(self, "resource_configuration_identifier")
 
     @resource_configuration_identifier.setter
@@ -63,11 +53,6 @@ class ServiceNetworkResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the Service Network to associate the Resource to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_network_identifier")
 
     @service_network_identifier.setter
@@ -77,9 +62,6 @@ class ServiceNetworkResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
-        """
         return pulumi.get(self, "private_dns_enabled")
 
     @private_dns_enabled.setter
@@ -89,9 +71,6 @@ class ServiceNetworkResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -101,9 +80,6 @@ class ServiceNetworkResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -134,16 +110,6 @@ class _ServiceNetworkResourceAssociationState:
                  timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Service Network Resource Association.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]] dns_entries: DNS entry of the association in the service network.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
-        :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -167,9 +133,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Service Network Resource Association.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -179,9 +142,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]]:
-        """
-        DNS entry of the association in the service network.
-        """
         return pulumi.get(self, "dns_entries")
 
     @dns_entries.setter
@@ -191,9 +151,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
-        """
         return pulumi.get(self, "private_dns_enabled")
 
     @private_dns_enabled.setter
@@ -203,9 +160,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -215,9 +169,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
     def resource_configuration_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of Resource Configuration to associate to the Service Network.
-        """
         return pulumi.get(self, "resource_configuration_identifier")
 
     @resource_configuration_identifier.setter
@@ -227,11 +178,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the Service Network to associate the Resource to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_network_identifier")
 
     @service_network_identifier.setter
@@ -241,9 +187,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -253,9 +196,6 @@ class _ServiceNetworkResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -286,41 +226,9 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC Lattice Service Network Resource Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ServiceNetworkResourceAssociation("example",
-            resource_configuration_identifier=example_aws_vpclattice_resource_configuration["id"],
-            service_network_identifier=example_aws_vpclattice_service_network["id"],
-            tags={
-                "Name": "Example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
-        ```
-
+        Create a ServiceNetworkResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
-        :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -329,32 +237,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                  args: ServiceNetworkResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC Lattice Service Network Resource Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ServiceNetworkResourceAssociation("example",
-            resource_configuration_identifier=example_aws_vpclattice_resource_configuration["id"],
-            service_network_identifier=example_aws_vpclattice_service_network["id"],
-            tags={
-                "Name": "Example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
-        ```
-
+        Create a ServiceNetworkResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceNetworkResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -424,16 +307,6 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Service Network Resource Association.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]] dns_entries: DNS entry of the association in the service network.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
-        :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -453,67 +326,41 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Service Network Resource Association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> pulumi.Output[Sequence['outputs.ServiceNetworkResourceAssociationDnsEntry']]:
-        """
-        DNS entry of the association in the service network.
-        """
         return pulumi.get(self, "dns_entries")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
-        """
         return pulumi.get(self, "private_dns_enabled")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
     def resource_configuration_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of Resource Configuration to associate to the Service Network.
-        """
         return pulumi.get(self, "resource_configuration_identifier")
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the Service Network to associate the Resource to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_network_identifier")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

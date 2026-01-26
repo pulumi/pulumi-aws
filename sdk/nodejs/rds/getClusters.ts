@@ -7,25 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS RDS (Relational Database) Clusters.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getClusters({
- *     filters: [{
- *         name: "engine",
- *         values: ["aurora-postgresql"],
- *     }],
- * });
- * ```
- */
 export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,13 +20,7 @@ export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getClusters.
  */
 export interface GetClustersArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.rds.GetClustersFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -53,13 +28,7 @@ export interface GetClustersArgs {
  * A collection of values returned by getClusters.
  */
 export interface GetClustersResult {
-    /**
-     * Set of cluster ARNs of the matched RDS clusters.
-     */
     readonly clusterArns: string[];
-    /**
-     * Set of ARNs of cluster identifiers of the matched RDS clusters.
-     */
     readonly clusterIdentifiers: string[];
     readonly filters?: outputs.rds.GetClustersFilter[];
     /**
@@ -68,25 +37,6 @@ export interface GetClustersResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing an AWS RDS (Relational Database) Clusters.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getClusters({
- *     filters: [{
- *         name: "engine",
- *         values: ["aurora-postgresql"],
- *     }],
- * });
- * ```
- */
 export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClustersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,12 +50,6 @@ export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getClusters.
  */
 export interface GetClustersOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetClustersFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

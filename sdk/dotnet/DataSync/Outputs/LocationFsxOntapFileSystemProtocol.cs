@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class LocationFsxOntapFileSystemProtocol
     {
-        /// <summary>
-        /// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-        /// </summary>
         public readonly Outputs.LocationFsxOntapFileSystemProtocolNfs? Nfs;
-        /// <summary>
-        /// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-        /// </summary>
         public readonly Outputs.LocationFsxOntapFileSystemProtocolSmb? Smb;
 
         [OutputConstructor]

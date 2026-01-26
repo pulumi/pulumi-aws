@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings idleSettings;
 
     private UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement() {}
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings> idleSettings() {
         return Optional.ofNullable(this.idleSettings);
     }

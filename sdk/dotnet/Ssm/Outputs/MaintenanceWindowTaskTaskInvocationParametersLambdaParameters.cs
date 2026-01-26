@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
     {
-        /// <summary>
-        /// Pass client-specific information to the Lambda function that you are invoking.
-        /// </summary>
         public readonly string? ClientContext;
-        /// <summary>
-        /// JSON to provide to your Lambda function as input.
-        /// </summary>
         public readonly string? Payload;
-        /// <summary>
-        /// Specify a Lambda function version or alias name.
-        /// </summary>
         public readonly string? Qualifier;
 
         [OutputConstructor]

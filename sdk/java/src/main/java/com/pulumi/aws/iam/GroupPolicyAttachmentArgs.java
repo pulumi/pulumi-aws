@@ -14,32 +14,16 @@ public final class GroupPolicyAttachmentArgs extends com.pulumi.resources.Resour
 
     public static final GroupPolicyAttachmentArgs Empty = new GroupPolicyAttachmentArgs();
 
-    /**
-     * The group the policy should be applied to
-     * 
-     */
     @Import(name="group", required=true)
     private Output<String> group;
 
-    /**
-     * @return The group the policy should be applied to
-     * 
-     */
     public Output<String> group() {
         return this.group;
     }
 
-    /**
-     * The ARN of the policy you want to apply
-     * 
-     */
     @Import(name="policyArn", required=true)
     private Output<String> policyArn;
 
-    /**
-     * @return The ARN of the policy you want to apply
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
@@ -69,44 +53,20 @@ public final class GroupPolicyAttachmentArgs extends com.pulumi.resources.Resour
             $ = new GroupPolicyAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param group The group the policy should be applied to
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(Output<String> group) {
             $.group = group;
             return this;
         }
 
-        /**
-         * @param group The group the policy should be applied to
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(String group) {
             return group(Output.of(group));
         }
 
-        /**
-         * @param policyArn The ARN of the policy you want to apply
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(Output<String> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
 
-        /**
-         * @param policyArn The ARN of the policy you want to apply
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
         }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage
     {
-        /// <summary>
-        /// The name of the App Image Config.
-        /// </summary>
         public readonly string AppImageConfigName;
-        /// <summary>
-        /// The name of the Custom Image.
-        /// </summary>
         public readonly string ImageName;
-        /// <summary>
-        /// The version number of the Custom Image.
-        /// </summary>
         public readonly int? ImageVersionNumber;
 
         [OutputConstructor]

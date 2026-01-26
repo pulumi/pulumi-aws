@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCoreInstanceFleet {
-    /**
-     * @return ID of the cluster.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Configuration block for instance fleet.
-     * 
-     */
     private @Nullable List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs;
-    /**
-     * @return Configuration block for launch specification.
-     * 
-     */
     private @Nullable ClusterCoreInstanceFleetLaunchSpecifications launchSpecifications;
-    /**
-     * @return Friendly name given to the instance fleet.
-     * 
-     */
     private @Nullable String name;
     private @Nullable Integer provisionedOnDemandCapacity;
     private @Nullable Integer provisionedSpotCapacity;
-    /**
-     * @return The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     private @Nullable Integer targetOnDemandCapacity;
-    /**
-     * @return Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     private @Nullable Integer targetSpotCapacity;
 
     private ClusterCoreInstanceFleet() {}
-    /**
-     * @return ID of the cluster.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Configuration block for instance fleet.
-     * 
-     */
     public List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs() {
         return this.instanceTypeConfigs == null ? List.of() : this.instanceTypeConfigs;
     }
-    /**
-     * @return Configuration block for launch specification.
-     * 
-     */
     public Optional<ClusterCoreInstanceFleetLaunchSpecifications> launchSpecifications() {
         return Optional.ofNullable(this.launchSpecifications);
     }
-    /**
-     * @return Friendly name given to the instance fleet.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -83,17 +43,9 @@ public final class ClusterCoreInstanceFleet {
     public Optional<Integer> provisionedSpotCapacity() {
         return Optional.ofNullable(this.provisionedSpotCapacity);
     }
-    /**
-     * @return The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     public Optional<Integer> targetOnDemandCapacity() {
         return Optional.ofNullable(this.targetOnDemandCapacity);
     }
-    /**
-     * @return Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     public Optional<Integer> targetSpotCapacity() {
         return Optional.ofNullable(this.targetSpotCapacity);
     }

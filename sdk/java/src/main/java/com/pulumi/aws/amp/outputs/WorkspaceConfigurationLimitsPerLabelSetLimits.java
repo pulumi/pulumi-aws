@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkspaceConfigurationLimitsPerLabelSetLimits {
-    /**
-     * @return Maximum number of active time series that can be ingested for metrics matching the label set.
-     * 
-     */
     private Integer maxSeries;
 
     private WorkspaceConfigurationLimitsPerLabelSetLimits() {}
-    /**
-     * @return Maximum number of active time series that can be ingested for metrics matching the label set.
-     * 
-     */
     public Integer maxSeries() {
         return this.maxSeries;
     }

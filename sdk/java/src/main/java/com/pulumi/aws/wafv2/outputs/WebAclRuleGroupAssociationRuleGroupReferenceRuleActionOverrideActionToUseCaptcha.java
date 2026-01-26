@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptcha {
-    /**
-     * @return Custom handling for CAPTCHA requests. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandling customRequestHandling;
 
     private WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptcha() {}
-    /**
-     * @return Custom handling for CAPTCHA requests. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandling> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }

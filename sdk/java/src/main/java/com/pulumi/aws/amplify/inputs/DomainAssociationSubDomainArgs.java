@@ -17,62 +17,30 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
 
     public static final DomainAssociationSubDomainArgs Empty = new DomainAssociationSubDomainArgs();
 
-    /**
-     * Branch name setting for the subdomain.
-     * 
-     */
     @Import(name="branchName", required=true)
     private Output<String> branchName;
 
-    /**
-     * @return Branch name setting for the subdomain.
-     * 
-     */
     public Output<String> branchName() {
         return this.branchName;
     }
 
-    /**
-     * DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
-     * 
-     */
     @Import(name="dnsRecord")
     private @Nullable Output<String> dnsRecord;
 
-    /**
-     * @return DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
-     * 
-     */
     public Optional<Output<String>> dnsRecord() {
         return Optional.ofNullable(this.dnsRecord);
     }
 
-    /**
-     * Prefix setting for the subdomain.
-     * 
-     */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
-    /**
-     * @return Prefix setting for the subdomain.
-     * 
-     */
     public Output<String> prefix() {
         return this.prefix;
     }
 
-    /**
-     * Verified status of the subdomain.
-     * 
-     */
     @Import(name="verified")
     private @Nullable Output<Boolean> verified;
 
-    /**
-     * @return Verified status of the subdomain.
-     * 
-     */
     public Optional<Output<Boolean>> verified() {
         return Optional.ofNullable(this.verified);
     }
@@ -104,86 +72,38 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
             $ = new DomainAssociationSubDomainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branchName Branch name setting for the subdomain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branchName(Output<String> branchName) {
             $.branchName = branchName;
             return this;
         }
 
-        /**
-         * @param branchName Branch name setting for the subdomain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branchName(String branchName) {
             return branchName(Output.of(branchName));
         }
 
-        /**
-         * @param dnsRecord DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsRecord(@Nullable Output<String> dnsRecord) {
             $.dnsRecord = dnsRecord;
             return this;
         }
 
-        /**
-         * @param dnsRecord DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsRecord(String dnsRecord) {
             return dnsRecord(Output.of(dnsRecord));
         }
 
-        /**
-         * @param prefix Prefix setting for the subdomain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Prefix setting for the subdomain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param verified Verified status of the subdomain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verified(@Nullable Output<Boolean> verified) {
             $.verified = verified;
             return this;
         }
 
-        /**
-         * @param verified Verified status of the subdomain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verified(Boolean verified) {
             return verified(Output.of(verified));
         }

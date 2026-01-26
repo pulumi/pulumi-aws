@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppStream.Outputs
     [OutputType]
     public sealed class FleetVpcConfig
     {
-        /// <summary>
-        /// Identifiers of the security groups for the fleet or image builder.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

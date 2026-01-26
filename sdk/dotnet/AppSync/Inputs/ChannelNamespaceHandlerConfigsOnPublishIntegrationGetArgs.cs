@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ChannelNamespaceHandlerConfigsOnPublishIntegrationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name of the data source that has been configured on the API.
-        /// </summary>
         [Input("dataSourceName", required: true)]
         public Input<string> DataSourceName { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration for a Lambda data source. See Lambda Config below.
-        /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigGetArgs>? LambdaConfig { get; set; }
 

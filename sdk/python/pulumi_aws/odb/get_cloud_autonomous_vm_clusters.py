@@ -41,9 +41,6 @@ class GetCloudAutonomousVmClustersResult:
     @_builtins.property
     @pulumi.getter(name="cloudAutonomousVmClusters")
     def cloud_autonomous_vm_clusters(self) -> Sequence['outputs.GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult']:
-        """
-        List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
-        """
         return pulumi.get(self, "cloud_autonomous_vm_clusters")
 
     @_builtins.property
@@ -74,23 +71,7 @@ class AwaitableGetCloudAutonomousVmClustersResult(GetCloudAutonomousVmClustersRe
 def get_cloud_autonomous_vm_clusters(region: Optional[_builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudAutonomousVmClustersResult:
     """
-    Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_cloud_autonomous_vm_clusters()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -104,23 +85,7 @@ def get_cloud_autonomous_vm_clusters(region: Optional[_builtins.str] = None,
 def get_cloud_autonomous_vm_clusters_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudAutonomousVmClustersResult]:
     """
-    Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_cloud_autonomous_vm_clusters()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

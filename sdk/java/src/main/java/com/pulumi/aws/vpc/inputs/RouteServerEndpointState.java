@@ -17,141 +17,65 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
 
     public static final RouteServerEndpointState Empty = new RouteServerEndpointState();
 
-    /**
-     * The ARN of the route server endpoint.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the route server endpoint.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The IP address of the Elastic network interface for the endpoint.
-     * 
-     */
     @Import(name="eniAddress")
     private @Nullable Output<String> eniAddress;
 
-    /**
-     * @return The IP address of the Elastic network interface for the endpoint.
-     * 
-     */
     public Optional<Output<String>> eniAddress() {
         return Optional.ofNullable(this.eniAddress);
     }
 
-    /**
-     * The ID of the Elastic network interface for the endpoint.
-     * 
-     */
     @Import(name="eniId")
     private @Nullable Output<String> eniId;
 
-    /**
-     * @return The ID of the Elastic network interface for the endpoint.
-     * 
-     */
     public Optional<Output<String>> eniId() {
         return Optional.ofNullable(this.eniId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique identifier of the route server endpoint.
-     * 
-     */
     @Import(name="routeServerEndpointId")
     private @Nullable Output<String> routeServerEndpointId;
 
-    /**
-     * @return The unique identifier of the route server endpoint.
-     * 
-     */
     public Optional<Output<String>> routeServerEndpointId() {
         return Optional.ofNullable(this.routeServerEndpointId);
     }
 
-    /**
-     * The ID of the route server for which to create an endpoint.
-     * 
-     */
     @Import(name="routeServerId")
     private @Nullable Output<String> routeServerId;
 
-    /**
-     * @return The ID of the route server for which to create an endpoint.
-     * 
-     */
     public Optional<Output<String>> routeServerId() {
         return Optional.ofNullable(this.routeServerId);
     }
 
-    /**
-     * The ID of the subnet in which to create the route server endpoint.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet in which to create the route server endpoint.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -163,17 +87,9 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The ID of the VPC containing the endpoint.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC containing the endpoint.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -212,195 +128,83 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
             $ = new RouteServerEndpointState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param eniAddress The IP address of the Elastic network interface for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eniAddress(@Nullable Output<String> eniAddress) {
             $.eniAddress = eniAddress;
             return this;
         }
 
-        /**
-         * @param eniAddress The IP address of the Elastic network interface for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eniAddress(String eniAddress) {
             return eniAddress(Output.of(eniAddress));
         }
 
-        /**
-         * @param eniId The ID of the Elastic network interface for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eniId(@Nullable Output<String> eniId) {
             $.eniId = eniId;
             return this;
         }
 
-        /**
-         * @param eniId The ID of the Elastic network interface for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eniId(String eniId) {
             return eniId(Output.of(eniId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeServerEndpointId The unique identifier of the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerEndpointId(@Nullable Output<String> routeServerEndpointId) {
             $.routeServerEndpointId = routeServerEndpointId;
             return this;
         }
 
-        /**
-         * @param routeServerEndpointId The unique identifier of the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerEndpointId(String routeServerEndpointId) {
             return routeServerEndpointId(Output.of(routeServerEndpointId));
         }
 
-        /**
-         * @param routeServerId The ID of the route server for which to create an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(@Nullable Output<String> routeServerId) {
             $.routeServerId = routeServerId;
             return this;
         }
 
-        /**
-         * @param routeServerId The ID of the route server for which to create an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(String routeServerId) {
             return routeServerId(Output.of(routeServerId));
         }
 
-        /**
-         * @param subnetId The ID of the subnet in which to create the route server endpoint.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet in which to create the route server endpoint.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -414,23 +218,11 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcId The ID of the VPC containing the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC containing the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

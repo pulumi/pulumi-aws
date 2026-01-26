@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolWebAuthnConfiguration {
-    /**
-     * @return The authentication domain that passkeys providers use as a relying party.
-     * 
-     */
     private @Nullable String relyingPartyId;
-    /**
-     * @return If your user pool should require a passkey. Must be one of `required` or `preferred`.
-     * 
-     */
     private @Nullable String userVerification;
 
     private UserPoolWebAuthnConfiguration() {}
-    /**
-     * @return The authentication domain that passkeys providers use as a relying party.
-     * 
-     */
     public Optional<String> relyingPartyId() {
         return Optional.ofNullable(this.relyingPartyId);
     }
-    /**
-     * @return If your user pool should require a passkey. Must be one of `required` or `preferred`.
-     * 
-     */
     public Optional<String> userVerification() {
         return Optional.ofNullable(this.userVerification);
     }

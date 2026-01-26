@@ -13,33 +13,12 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     {
-        /// <summary>
-        /// Customized capacity metric specification. See supported fields below.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification? CustomizedCapacityMetricSpecification;
-        /// <summary>
-        /// Customized load metric specification. See supported fields below.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification? CustomizedLoadMetricSpecification;
-        /// <summary>
-        /// Customized scaling metric specification. See supported fields below.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification? CustomizedScalingMetricSpecification;
-        /// <summary>
-        /// Predefined load metric specification. See supported fields below.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification? PredefinedLoadMetricSpecification;
-        /// <summary>
-        /// Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification? PredefinedMetricPairSpecification;
-        /// <summary>
-        /// Predefined scaling metric specification. See supported fields below.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification? PredefinedScalingMetricSpecification;
-        /// <summary>
-        /// Target utilization.
-        /// </summary>
         public readonly string TargetValue;
 
         [OutputConstructor]

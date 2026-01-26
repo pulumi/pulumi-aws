@@ -12,60 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CodeCatalyst Project.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewProject(ctx, "test", &codecatalyst.ProjectArgs{
-//				SpaceName:   pulumi.String("myproject"),
-//				DisplayName: pulumi.String("MyProject"),
-//				Description: pulumi.String("My CodeCatalyst Project created using Pulumi"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
-// ```
 type Project struct {
 	pulumi.CustomResourceState
 
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The friendly name of the project that will be displayed to users.
-	//
-	// The following arguments are optional:
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The name of the project in the space.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the space.
-	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
+	DisplayName pulumi.StringOutput    `pulumi:"displayName"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	SpaceName   pulumi.StringOutput    `pulumi:"spaceName"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -104,33 +58,19 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description *string `pulumi:"description"`
-	// The friendly name of the project that will be displayed to users.
-	//
-	// The following arguments are optional:
 	DisplayName *string `pulumi:"displayName"`
-	// The name of the project in the space.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the space.
-	SpaceName *string `pulumi:"spaceName"`
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
+	SpaceName   *string `pulumi:"spaceName"`
 }
 
 type ProjectState struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description pulumi.StringPtrInput
-	// The friendly name of the project that will be displayed to users.
-	//
-	// The following arguments are optional:
 	DisplayName pulumi.StringPtrInput
-	// The name of the project in the space.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the space.
-	SpaceName pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	SpaceName   pulumi.StringPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -138,30 +78,18 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description *string `pulumi:"description"`
-	// The friendly name of the project that will be displayed to users.
-	//
-	// The following arguments are optional:
-	DisplayName string `pulumi:"displayName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the space.
-	SpaceName string `pulumi:"spaceName"`
+	DisplayName string  `pulumi:"displayName"`
+	Region      *string `pulumi:"region"`
+	SpaceName   string  `pulumi:"spaceName"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description pulumi.StringPtrInput
-	// The friendly name of the project that will be displayed to users.
-	//
-	// The following arguments are optional:
 	DisplayName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the space.
-	SpaceName pulumi.StringInput
+	Region      pulumi.StringPtrInput
+	SpaceName   pulumi.StringInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -251,29 +179,22 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of the project that will be displayed to users.
-//
-// The following arguments are optional:
 func (o ProjectOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The name of the project in the space.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProjectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the space.
 func (o ProjectOutput) SpaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.SpaceName }).(pulumi.StringOutput)
 }

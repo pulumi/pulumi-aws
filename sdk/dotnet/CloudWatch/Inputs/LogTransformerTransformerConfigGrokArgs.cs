@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogTransformerTransformerConfigGrokArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the grok pattern to match against the log event.
-        /// </summary>
         [Input("match", required: true)]
         public Input<string> Match { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 

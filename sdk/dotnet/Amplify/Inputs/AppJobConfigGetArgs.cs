@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Amplify.Inputs
 
     public sealed class AppJobConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-        /// </summary>
         [Input("buildComputeType")]
         public Input<string>? BuildComputeType { get; set; }
 

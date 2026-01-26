@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigParsePostgres
     {
-        /// <summary>
-        /// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]

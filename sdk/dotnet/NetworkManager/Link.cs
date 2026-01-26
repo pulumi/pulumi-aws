@@ -9,98 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages a Network Manager link. Use this resource to create a link for a site.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.Link("example", new()
-    ///     {
-    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
-    ///         SiteId = exampleAwsNetworkmanagerSite.Id,
-    ///         Bandwidth = new Aws.NetworkManager.Inputs.LinkBandwidthArgs
-    ///         {
-    ///             UploadSpeed = 10,
-    ///             DownloadSpeed = 50,
-    ///         },
-    ///         ProviderName = "MegaCorp",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/link:Link")]
     public partial class Link : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Link ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Upload speed and download speed in Mbps. See below.
-        /// </summary>
         [Output("bandwidth")]
         public Output<Outputs.LinkBandwidth> Bandwidth { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the link.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Provider of the link.
-        /// </summary>
         [Output("providerName")]
         public Output<string?> ProviderName { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the site.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("siteId")]
         public Output<string> SiteId { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the link. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the link.
-        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -150,53 +85,29 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class LinkArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Upload speed and download speed in Mbps. See below.
-        /// </summary>
         [Input("bandwidth", required: true)]
         public Input<Inputs.LinkBandwidthArgs> Bandwidth { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the link.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Provider of the link.
-        /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
-        /// <summary>
-        /// ID of the site.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("siteId", required: true)]
         public Input<string> SiteId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the link. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Type of the link.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -208,50 +119,26 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class LinkState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Link ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Upload speed and download speed in Mbps. See below.
-        /// </summary>
         [Input("bandwidth")]
         public Input<Inputs.LinkBandwidthGetArgs>? Bandwidth { get; set; }
 
-        /// <summary>
-        /// Description of the link.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// Provider of the link.
-        /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
-        /// <summary>
-        /// ID of the site.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the link. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -260,19 +147,12 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Type of the link.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -19,77 +19,37 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesAmisArgs extends com
 
     public static final LifecyclePolicyPolicyDetailExclusionRulesAmisArgs Empty = new LifecyclePolicyPolicyDetailExclusionRulesAmisArgs();
 
-    /**
-     * Configures whether public AMIs are excluded from the lifecycle action.
-     * 
-     */
     @Import(name="isPublic")
     private @Nullable Output<Boolean> isPublic;
 
-    /**
-     * @return Configures whether public AMIs are excluded from the lifecycle action.
-     * 
-     */
     public Optional<Output<Boolean>> isPublic() {
         return Optional.ofNullable(this.isPublic);
     }
 
-    /**
-     * Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-     * 
-     */
     @Import(name="lastLaunched")
     private @Nullable Output<LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs> lastLaunched;
 
-    /**
-     * @return Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs>> lastLaunched() {
         return Optional.ofNullable(this.lastLaunched);
     }
 
-    /**
-     * Configures AWS Regions that are excluded from the lifecycle action.
-     * 
-     */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
-    /**
-     * @return Configures AWS Regions that are excluded from the lifecycle action.
-     * 
-     */
     public Optional<Output<List<String>>> regions() {
         return Optional.ofNullable(this.regions);
     }
 
-    /**
-     * Specifies AWS accounts whose resources are excluded from the lifecycle action.
-     * 
-     */
     @Import(name="sharedAccounts")
     private @Nullable Output<List<String>> sharedAccounts;
 
-    /**
-     * @return Specifies AWS accounts whose resources are excluded from the lifecycle action.
-     * 
-     */
     public Optional<Output<List<String>>> sharedAccounts() {
         return Optional.ofNullable(this.sharedAccounts);
     }
 
-    /**
-     * Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-     * 
-     */
     @Import(name="tagMap")
     private @Nullable Output<Map<String,String>> tagMap;
 
-    /**
-     * @return Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagMap() {
         return Optional.ofNullable(this.tagMap);
     }
@@ -122,127 +82,55 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesAmisArgs extends com
             $ = new LifecyclePolicyPolicyDetailExclusionRulesAmisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param isPublic Configures whether public AMIs are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isPublic(@Nullable Output<Boolean> isPublic) {
             $.isPublic = isPublic;
             return this;
         }
 
-        /**
-         * @param isPublic Configures whether public AMIs are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isPublic(Boolean isPublic) {
             return isPublic(Output.of(isPublic));
         }
 
-        /**
-         * @param lastLaunched Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastLaunched(@Nullable Output<LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs> lastLaunched) {
             $.lastLaunched = lastLaunched;
             return this;
         }
 
-        /**
-         * @param lastLaunched Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastLaunched(LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs lastLaunched) {
             return lastLaunched(Output.of(lastLaunched));
         }
 
-        /**
-         * @param regions Configures AWS Regions that are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions Configures AWS Regions that are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions Configures AWS Regions that are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
 
-        /**
-         * @param sharedAccounts Specifies AWS accounts whose resources are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(@Nullable Output<List<String>> sharedAccounts) {
             $.sharedAccounts = sharedAccounts;
             return this;
         }
 
-        /**
-         * @param sharedAccounts Specifies AWS accounts whose resources are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(List<String> sharedAccounts) {
             return sharedAccounts(Output.of(sharedAccounts));
         }
 
-        /**
-         * @param sharedAccounts Specifies AWS accounts whose resources are excluded from the lifecycle action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(String... sharedAccounts) {
             return sharedAccounts(List.of(sharedAccounts));
         }
 
-        /**
-         * @param tagMap Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMap(@Nullable Output<Map<String,String>> tagMap) {
             $.tagMap = tagMap;
             return this;
         }
 
-        /**
-         * @param tagMap Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMap(Map<String,String> tagMap) {
             return tagMap(Output.of(tagMap));
         }

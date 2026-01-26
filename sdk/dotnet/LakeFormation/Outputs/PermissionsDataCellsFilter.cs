@@ -13,21 +13,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class PermissionsDataCellsFilter
     {
-        /// <summary>
-        /// The name of the database.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// The name of the data cells filter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The ID of the Data Catalog.
-        /// </summary>
         public readonly string TableCatalogId;
-        /// <summary>
-        /// The name of the table.
-        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

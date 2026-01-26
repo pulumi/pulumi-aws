@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectDataDelivery {
-    /**
-     * @return A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
-     * 
-     */
     private @Nullable ProjectDataDeliveryCloudwatchLogs cloudwatchLogs;
-    /**
-     * @return A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
-     * 
-     */
     private @Nullable ProjectDataDeliveryS3Destination s3Destination;
 
     private ProjectDataDelivery() {}
-    /**
-     * @return A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
-     * 
-     */
     public Optional<ProjectDataDeliveryCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
-    /**
-     * @return A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
-     * 
-     */
     public Optional<ProjectDataDeliveryS3Destination> s3Destination() {
         return Optional.ofNullable(this.s3Destination);
     }

@@ -29,12 +29,6 @@ class WorkforceArgs:
                  workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Workforce resource.
-        :param pulumi.Input[_builtins.str] workforce_name: The name of the Workforce (must be unique).
-        :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
-        :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         pulumi.set(__self__, "workforce_name", workforce_name)
         if cognito_config is not None:
@@ -51,9 +45,6 @@ class WorkforceArgs:
     @_builtins.property
     @pulumi.getter(name="workforceName")
     def workforce_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Workforce (must be unique).
-        """
         return pulumi.get(self, "workforce_name")
 
     @workforce_name.setter
@@ -63,9 +54,6 @@ class WorkforceArgs:
     @_builtins.property
     @pulumi.getter(name="cognitoConfig")
     def cognito_config(self) -> Optional[pulumi.Input['WorkforceCognitoConfigArgs']]:
-        """
-        Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
-        """
         return pulumi.get(self, "cognito_config")
 
     @cognito_config.setter
@@ -75,9 +63,6 @@ class WorkforceArgs:
     @_builtins.property
     @pulumi.getter(name="oidcConfig")
     def oidc_config(self) -> Optional[pulumi.Input['WorkforceOidcConfigArgs']]:
-        """
-        Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
-        """
         return pulumi.get(self, "oidc_config")
 
     @oidc_config.setter
@@ -87,9 +72,6 @@ class WorkforceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,9 +81,6 @@ class WorkforceArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIpConfig")
     def source_ip_config(self) -> Optional[pulumi.Input['WorkforceSourceIpConfigArgs']]:
-        """
-        A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        """
         return pulumi.get(self, "source_ip_config")
 
     @source_ip_config.setter
@@ -111,9 +90,6 @@ class WorkforceArgs:
     @_builtins.property
     @pulumi.getter(name="workforceVpcConfig")
     def workforce_vpc_config(self) -> Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']]:
-        """
-        configure a workforce using VPC. see Workforce VPC Config details below.
-        """
         return pulumi.get(self, "workforce_vpc_config")
 
     @workforce_vpc_config.setter
@@ -134,14 +110,6 @@ class _WorkforceState:
                  workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Workforce resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-        :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
-        :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        :param pulumi.Input[_builtins.str] subdomain: The subdomain for your OIDC Identity Provider.
-        :param pulumi.Input[_builtins.str] workforce_name: The name of the Workforce (must be unique).
-        :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -163,9 +131,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -175,9 +140,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter(name="cognitoConfig")
     def cognito_config(self) -> Optional[pulumi.Input['WorkforceCognitoConfigArgs']]:
-        """
-        Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
-        """
         return pulumi.get(self, "cognito_config")
 
     @cognito_config.setter
@@ -187,9 +149,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter(name="oidcConfig")
     def oidc_config(self) -> Optional[pulumi.Input['WorkforceOidcConfigArgs']]:
-        """
-        Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
-        """
         return pulumi.get(self, "oidc_config")
 
     @oidc_config.setter
@@ -199,9 +158,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -211,9 +167,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter(name="sourceIpConfig")
     def source_ip_config(self) -> Optional[pulumi.Input['WorkforceSourceIpConfigArgs']]:
-        """
-        A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        """
         return pulumi.get(self, "source_ip_config")
 
     @source_ip_config.setter
@@ -223,9 +176,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter
     def subdomain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The subdomain for your OIDC Identity Provider.
-        """
         return pulumi.get(self, "subdomain")
 
     @subdomain.setter
@@ -235,9 +185,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter(name="workforceName")
     def workforce_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Workforce (must be unique).
-        """
         return pulumi.get(self, "workforce_name")
 
     @workforce_name.setter
@@ -247,9 +194,6 @@ class _WorkforceState:
     @_builtins.property
     @pulumi.getter(name="workforceVpcConfig")
     def workforce_vpc_config(self) -> Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']]:
-        """
-        configure a workforce using VPC. see Workforce VPC Config details below.
-        """
         return pulumi.get(self, "workforce_vpc_config")
 
     @workforce_vpc_config.setter
@@ -271,68 +215,9 @@ class Workforce(pulumi.CustomResource):
                  workforce_vpc_config: Optional[pulumi.Input[Union['WorkforceWorkforceVpcConfigArgs', 'WorkforceWorkforceVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Workforce resource.
-
-        ## Example Usage
-
-        ### Cognito Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("example", name="example")
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            generate_secret=True,
-            user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example_user_pool.id)
-        example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
-            cognito_config={
-                "client_id": example_user_pool_client.id,
-                "user_pool": example_user_pool_domain.user_pool_id,
-            })
-        ```
-
-        ### Oidc Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
-            oidc_config={
-                "authorization_endpoint": "https://example.com",
-                "client_id": "example",
-                "client_secret": "example",
-                "issuer": "https://example.com",
-                "jwks_uri": "https://example.com",
-                "logout_endpoint": "https://example.com",
-                "token_endpoint": "https://example.com",
-                "user_info_endpoint": "https://example.com",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Workforces using the `workforce_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/workforce:Workforce example example
-        ```
-
+        Create a Workforce resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
-        :param pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        :param pulumi.Input[_builtins.str] workforce_name: The name of the Workforce (must be unique).
-        :param pulumi.Input[Union['WorkforceWorkforceVpcConfigArgs', 'WorkforceWorkforceVpcConfigArgsDict']] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         ...
     @overload
@@ -341,60 +226,7 @@ class Workforce(pulumi.CustomResource):
                  args: WorkforceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Workforce resource.
-
-        ## Example Usage
-
-        ### Cognito Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("example", name="example")
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            generate_secret=True,
-            user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example_user_pool.id)
-        example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
-            cognito_config={
-                "client_id": example_user_pool_client.id,
-                "user_pool": example_user_pool_domain.user_pool_id,
-            })
-        ```
-
-        ### Oidc Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
-            oidc_config={
-                "authorization_endpoint": "https://example.com",
-                "client_id": "example",
-                "client_secret": "example",
-                "issuer": "https://example.com",
-                "jwks_uri": "https://example.com",
-                "logout_endpoint": "https://example.com",
-                "token_endpoint": "https://example.com",
-                "user_info_endpoint": "https://example.com",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Workforces using the `workforce_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/workforce:Workforce example example
-        ```
-
+        Create a Workforce resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkforceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -460,14 +292,6 @@ class Workforce(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-        :param pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
-        :param pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        :param pulumi.Input[_builtins.str] subdomain: The subdomain for your OIDC Identity Provider.
-        :param pulumi.Input[_builtins.str] workforce_name: The name of the Workforce (must be unique).
-        :param pulumi.Input[Union['WorkforceWorkforceVpcConfigArgs', 'WorkforceWorkforceVpcConfigArgsDict']] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -486,64 +310,40 @@ class Workforce(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cognitoConfig")
     def cognito_config(self) -> pulumi.Output[Optional['outputs.WorkforceCognitoConfig']]:
-        """
-        Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
-        """
         return pulumi.get(self, "cognito_config")
 
     @_builtins.property
     @pulumi.getter(name="oidcConfig")
     def oidc_config(self) -> pulumi.Output[Optional['outputs.WorkforceOidcConfig']]:
-        """
-        Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
-        """
         return pulumi.get(self, "oidc_config")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceIpConfig")
     def source_ip_config(self) -> pulumi.Output['outputs.WorkforceSourceIpConfig']:
-        """
-        A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        """
         return pulumi.get(self, "source_ip_config")
 
     @_builtins.property
     @pulumi.getter
     def subdomain(self) -> pulumi.Output[_builtins.str]:
-        """
-        The subdomain for your OIDC Identity Provider.
-        """
         return pulumi.get(self, "subdomain")
 
     @_builtins.property
     @pulumi.getter(name="workforceName")
     def workforce_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Workforce (must be unique).
-        """
         return pulumi.get(self, "workforce_name")
 
     @_builtins.property
     @pulumi.getter(name="workforceVpcConfig")
     def workforce_vpc_config(self) -> pulumi.Output[Optional['outputs.WorkforceWorkforceVpcConfig']]:
-        """
-        configure a workforce using VPC. see Workforce VPC Config details below.
-        """
         return pulumi.get(self, "workforce_vpc_config")
 

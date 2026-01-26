@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class UserPoolUserAttributeUpdateSettings {
-    /**
-     * @return A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
-     * 
-     */
     private List<String> attributesRequireVerificationBeforeUpdates;
 
     private UserPoolUserAttributeUpdateSettings() {}
-    /**
-     * @return A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
-     * 
-     */
     public List<String> attributesRequireVerificationBeforeUpdates() {
         return this.attributesRequireVerificationBeforeUpdates;
     }

@@ -16,17 +16,9 @@ public final class ExportExportDestinationConfigurationArgs extends com.pulumi.r
 
     public static final ExportExportDestinationConfigurationArgs Empty = new ExportExportDestinationConfigurationArgs();
 
-    /**
-     * Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
-     * 
-     */
     @Import(name="s3Destinations")
     private @Nullable Output<List<ExportExportDestinationConfigurationS3DestinationArgs>> s3Destinations;
 
-    /**
-     * @return Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
-     * 
-     */
     public Optional<Output<List<ExportExportDestinationConfigurationS3DestinationArgs>>> s3Destinations() {
         return Optional.ofNullable(this.s3Destinations);
     }
@@ -55,33 +47,15 @@ public final class ExportExportDestinationConfigurationArgs extends com.pulumi.r
             $ = new ExportExportDestinationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destinations(@Nullable Output<List<ExportExportDestinationConfigurationS3DestinationArgs>> s3Destinations) {
             $.s3Destinations = s3Destinations;
             return this;
         }
 
-        /**
-         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destinations(List<ExportExportDestinationConfigurationS3DestinationArgs> s3Destinations) {
             return s3Destinations(Output.of(s3Destinations));
         }
 
-        /**
-         * @param s3Destinations Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destinations(ExportExportDestinationConfigurationS3DestinationArgs... s3Destinations) {
             return s3Destinations(List.of(s3Destinations));
         }

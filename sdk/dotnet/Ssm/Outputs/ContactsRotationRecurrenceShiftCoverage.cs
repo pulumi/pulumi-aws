@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class ContactsRotationRecurrenceShiftCoverage
     {
-        /// <summary>
-        /// (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTime> CoverageTimes;
         public readonly string MapBlockKey;
 

@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAmiBlockDeviceMapping {
-    /**
-     * @return Physical name of the device.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs[&#34;volumeSize&#34;]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
-     * 
-     */
     private Map<String,String> ebs;
-    /**
-     * @return Suppresses the specified device included in the block device mapping of the AMI.
-     * 
-     */
     private String noDevice;
-    /**
-     * @return Virtual device name (for instance stores).
-     * 
-     */
     private String virtualName;
 
     private GetAmiBlockDeviceMapping() {}
-    /**
-     * @return Physical name of the device.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs[&#34;volumeSize&#34;]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
-     * 
-     */
     public Map<String,String> ebs() {
         return this.ebs;
     }
-    /**
-     * @return Suppresses the specified device included in the block device mapping of the AMI.
-     * 
-     */
     public String noDevice() {
         return this.noDevice;
     }
-    /**
-     * @return Virtual device name (for instance stores).
-     * 
-     */
     public String virtualName() {
         return this.virtualName;
     }

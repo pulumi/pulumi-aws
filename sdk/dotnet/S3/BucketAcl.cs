@@ -9,284 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides an S3 bucket ACL resource.
-    /// 
-    /// &gt; **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
-    /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### With `Private` ACL
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "my-tf-example-bucket",
-    ///     });
-    /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
-    ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Acl = "private",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleBucketOwnershipControls,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With `public-read` ACL
-    /// 
-    /// &gt; This example explicitly disables the default S3 bucket security settings. This
-    /// should be done with caution, as all bucket objects become publicly exposed.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "my-tf-example-bucket",
-    ///     });
-    /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
-    ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         BlockPublicAcls = false,
-    ///         BlockPublicPolicy = false,
-    ///         IgnorePublicAcls = false,
-    ///         RestrictPublicBuckets = false,
-    ///     });
-    /// 
-    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Acl = "public-read",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleBucketOwnershipControls,
-    ///             exampleBucketPublicAccessBlock,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Grants
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
-    /// 
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "my-tf-example-bucket",
-    ///     });
-    /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
-    ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclAccessControlPolicyArgs
-    ///         {
-    ///             Grants = new[]
-    ///             {
-    ///                 new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantArgs
-    ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantGranteeArgs
-    ///                     {
-    ///                         Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///                         Type = "CanonicalUser",
-    ///                     },
-    ///                     Permission = "READ",
-    ///                 },
-    ///                 new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantArgs
-    ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantGranteeArgs
-    ///                     {
-    ///                         Type = "Group",
-    ///                         Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
-    ///                     },
-    ///                     Permission = "READ_ACP",
-    ///                 },
-    ///             },
-    ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
-    ///             {
-    ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleBucketOwnershipControls,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `bucket` (String) S3 bucket name.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `acl` (String) Canned ACL to apply to the bucket.
-    /// 
-    /// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a
-    /// 
-    /// [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = aws_s3_bucket_acl.example
-    /// 
-    ///   id = "bucket-name,private"
-    /// 
-    /// }
-    /// 
-    /// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = aws_s3_bucket_acl.example
-    /// 
-    ///   id = "bucket-name,123456789012"
-    /// 
-    /// }
-    /// 
-    /// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a
-    /// 
-    /// [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = aws_s3_bucket_acl.example
-    /// 
-    ///   id = "bucket-name,123456789012,private"
-    /// 
-    /// }
-    /// 
-    /// **Using `pulumi import` to import** using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:
-    /// 
-    /// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **not configured** with a
-    /// 
-    /// [canned ACL][1] (i.e. predefined grant), import using the `bucket`:
-    /// 
-    /// % pulumi import aws_s3_bucket_acl.example bucket-name
-    /// 
-    /// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
-    /// 
-    /// % pulumi import aws_s3_bucket_acl.example bucket-name,private
-    /// 
-    /// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012
-    /// 
-    /// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-    /// 
-    /// % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012,private
-    /// 
-    /// [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
-    /// </summary>
     [AwsResourceType("aws:s3/bucketAcl:BucketAcl")]
     public partial class BucketAcl : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block that sets the ACL permissions for an object per grantee. See below.
-        /// </summary>
         [Output("accessControlPolicy")]
         public Output<Outputs.BucketAclAccessControlPolicy> AccessControlPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the Canned ACL to apply to the bucket. Valid values: `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-        /// </summary>
         [Output("acl")]
         public Output<string?> Acl { get; private set; } = null!;
 
-        /// <summary>
-        /// Bucket to which to apply the ACL.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -340,33 +77,18 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAclArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block that sets the ACL permissions for an object per grantee. See below.
-        /// </summary>
         [Input("accessControlPolicy")]
         public Input<Inputs.BucketAclAccessControlPolicyArgs>? AccessControlPolicy { get; set; }
 
-        /// <summary>
-        /// Specifies the Canned ACL to apply to the bucket. Valid values: `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-        /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
 
-        /// <summary>
-        /// Bucket to which to apply the ACL.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -378,33 +100,18 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAclState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block that sets the ACL permissions for an object per grantee. See below.
-        /// </summary>
         [Input("accessControlPolicy")]
         public Input<Inputs.BucketAclAccessControlPolicyGetArgs>? AccessControlPolicy { get; set; }
 
-        /// <summary>
-        /// Specifies the Canned ACL to apply to the bucket. Valid values: `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-        /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
 
-        /// <summary>
-        /// Bucket to which to apply the ACL.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

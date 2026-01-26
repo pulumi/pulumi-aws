@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
     public sealed class FilterFilterCriteriaFirstObservedAtGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required) The end of the port range, inclusive.
-        /// </summary>
         [Input("endInclusive")]
         public Input<string>? EndInclusive { get; set; }
 
-        /// <summary>
-        /// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        /// </summary>
         [Input("startInclusive")]
         public Input<string>? StartInclusive { get; set; }
 

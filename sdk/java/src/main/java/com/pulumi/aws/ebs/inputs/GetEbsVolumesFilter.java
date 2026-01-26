@@ -14,110 +14,16 @@ public final class GetEbsVolumesFilter extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEbsVolumesFilter Empty = new GetEbsVolumesFilter();
 
-    /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-     * For example, if matching against the `size` filter, use:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
-     *             .filters(GetEbsVolumesFilterArgs.builder()
-     *                 .name("size")
-     *                 .values(                
-     *                     "10",
-     *                     "20")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-     * For example, if matching against the `size` filter, use:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
-     *             .filters(GetEbsVolumesFilterArgs.builder()
-     *                 .name("size")
-     *                 .values(                
-     *                     "10",
-     *                     "20")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Set of values that are accepted for the given field.
-     * EBS Volume IDs will be selected if any one of the given values match.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of values that are accepted for the given field.
-     * EBS Volume IDs will be selected if any one of the given values match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -147,74 +53,16 @@ public final class GetEbsVolumesFilter extends com.pulumi.resources.InvokeArgs {
             $ = new GetEbsVolumesFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-         * For example, if matching against the `size` filter, use:
-         * 
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.aws.ebs.EbsFunctions;
-         * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
-         *             .filters(GetEbsVolumesFilterArgs.builder()
-         *                 .name("size")
-         *                 .values(                
-         *                     "10",
-         *                     "20")
-         *                 .build())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * EBS Volume IDs will be selected if any one of the given values match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * EBS Volume IDs will be selected if any one of the given values match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

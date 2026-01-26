@@ -37,20 +37,6 @@ class DirectoryArgs:
                  vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None):
         """
         The set of arguments for constructing a Directory resource.
-        :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
-        :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
-        :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        :param pulumi.Input['DirectoryConnectSettingsArgs'] connect_settings: Connector related information about the directory. Fields documented below.
-        :param pulumi.Input[_builtins.str] description: A textual description for the directory.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] short_name: The short name of the directory, such as `CORP`.
-        :param pulumi.Input[_builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "password", password)
@@ -82,9 +68,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The fully qualified name for the directory, such as `corp.example.com`
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -94,9 +77,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[_builtins.str]:
-        """
-        The password for the directory administrator or connector user.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -106,9 +86,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -118,9 +95,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="connectSettings")
     def connect_settings(self) -> Optional[pulumi.Input['DirectoryConnectSettingsArgs']]:
-        """
-        Connector related information about the directory. Fields documented below.
-        """
         return pulumi.get(self, "connect_settings")
 
     @connect_settings.setter
@@ -130,9 +104,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A textual description for the directory.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -142,9 +113,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
     def desired_number_of_domain_controllers(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        """
         return pulumi.get(self, "desired_number_of_domain_controllers")
 
     @desired_number_of_domain_controllers.setter
@@ -154,9 +122,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        """
         return pulumi.get(self, "edition")
 
     @edition.setter
@@ -166,9 +131,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_sso")
 
     @enable_sso.setter
@@ -178,9 +140,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -190,9 +149,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="shortName")
     def short_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The short name of the directory, such as `CORP`.
-        """
         return pulumi.get(self, "short_name")
 
     @short_name.setter
@@ -202,9 +158,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -214,9 +167,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -226,9 +176,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -238,9 +185,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> Optional[pulumi.Input['DirectoryVpcSettingsArgs']]:
-        """
-        VPC related information about the directory. Fields documented below.
-        """
         return pulumi.get(self, "vpc_settings")
 
     @vpc_settings.setter
@@ -271,24 +215,6 @@ class _DirectoryState:
                  vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering Directory resources.
-        :param pulumi.Input[_builtins.str] access_url: The access URL for the directory, such as `http://alias.awsapps.com`.
-        :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        :param pulumi.Input['DirectoryConnectSettingsArgs'] connect_settings: Connector related information about the directory. Fields documented below.
-        :param pulumi.Input[_builtins.str] description: A textual description for the directory.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
-        :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
-        :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group created by the directory.
-        :param pulumi.Input[_builtins.str] short_name: The short name of the directory, such as `CORP`.
-        :param pulumi.Input[_builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
         """
         if access_url is not None:
             pulumi.set(__self__, "access_url", access_url)
@@ -330,9 +256,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="accessUrl")
     def access_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access URL for the directory, such as `http://alias.awsapps.com`.
-        """
         return pulumi.get(self, "access_url")
 
     @access_url.setter
@@ -342,9 +265,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -354,9 +274,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="connectSettings")
     def connect_settings(self) -> Optional[pulumi.Input['DirectoryConnectSettingsArgs']]:
-        """
-        Connector related information about the directory. Fields documented below.
-        """
         return pulumi.get(self, "connect_settings")
 
     @connect_settings.setter
@@ -366,9 +283,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A textual description for the directory.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -378,9 +292,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
     def desired_number_of_domain_controllers(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        """
         return pulumi.get(self, "desired_number_of_domain_controllers")
 
     @desired_number_of_domain_controllers.setter
@@ -390,9 +301,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of IP addresses of the DNS servers for the directory or connector.
-        """
         return pulumi.get(self, "dns_ip_addresses")
 
     @dns_ip_addresses.setter
@@ -402,9 +310,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        """
         return pulumi.get(self, "edition")
 
     @edition.setter
@@ -414,9 +319,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_sso")
 
     @enable_sso.setter
@@ -426,9 +328,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fully qualified name for the directory, such as `corp.example.com`
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -438,9 +337,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The password for the directory administrator or connector user.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -450,9 +346,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -462,9 +355,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the security group created by the directory.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -474,9 +364,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="shortName")
     def short_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The short name of the directory, such as `CORP`.
-        """
         return pulumi.get(self, "short_name")
 
     @short_name.setter
@@ -486,9 +373,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -498,9 +382,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -510,9 +391,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -522,9 +400,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -534,9 +409,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> Optional[pulumi.Input['DirectoryVpcSettingsArgs']]:
-        """
-        VPC related information about the directory. Fields documented below.
-        """
         return pulumi.get(self, "vpc_settings")
 
     @vpc_settings.setter
@@ -566,128 +438,9 @@ class Directory(pulumi.CustomResource):
                  vpc_settings: Optional[pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a Simple or Managed Microsoft directory in AWS Directory Service.
-
-        ## Example Usage
-
-        ### SimpleAD
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
-            vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("bar",
-            vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            vpc_settings={
-                "vpc_id": main.id,
-                "subnet_ids": [
-                    foo.id,
-                    bar_subnet.id,
-                ],
-            },
-            tags={
-                "Project": "foo",
-            })
-        ```
-
-        ### Microsoft Active Directory (MicrosoftAD)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
-            vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("bar",
-            vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
-            vpc_settings={
-                "vpc_id": main.id,
-                "subnet_ids": [
-                    foo.id,
-                    bar_subnet.id,
-                ],
-            },
-            tags={
-                "Project": "foo",
-            })
-        ```
-
-        ### Microsoft Active Directory Connector (ADConnector)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
-            vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar = aws.ec2.Subnet("bar",
-            vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        connector = aws.directoryservice.Directory("connector",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector",
-            connect_settings={
-                "customer_dns_ips": ["A.B.C.D"],
-                "customer_username": "Admin",
-                "subnet_ids": [
-                    foo.id,
-                    bar.id,
-                ],
-                "vpc_id": main.id,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
-        ```
-
+        Create a Directory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        :param pulumi.Input[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict']] connect_settings: Connector related information about the directory. Fields documented below.
-        :param pulumi.Input[_builtins.str] description: A textual description for the directory.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
-        :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] short_name: The short name of the directory, such as `CORP`.
-        :param pulumi.Input[_builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        :param pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']] vpc_settings: VPC related information about the directory. Fields documented below.
         """
         ...
     @overload
@@ -696,112 +449,7 @@ class Directory(pulumi.CustomResource):
                  args: DirectoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Simple or Managed Microsoft directory in AWS Directory Service.
-
-        ## Example Usage
-
-        ### SimpleAD
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
-            vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("bar",
-            vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            vpc_settings={
-                "vpc_id": main.id,
-                "subnet_ids": [
-                    foo.id,
-                    bar_subnet.id,
-                ],
-            },
-            tags={
-                "Project": "foo",
-            })
-        ```
-
-        ### Microsoft Active Directory (MicrosoftAD)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
-            vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("bar",
-            vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
-            vpc_settings={
-                "vpc_id": main.id,
-                "subnet_ids": [
-                    foo.id,
-                    bar_subnet.id,
-                ],
-            },
-            tags={
-                "Project": "foo",
-            })
-        ```
-
-        ### Microsoft Active Directory Connector (ADConnector)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
-            vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar = aws.ec2.Subnet("bar",
-            vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        connector = aws.directoryservice.Directory("connector",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector",
-            connect_settings={
-                "customer_dns_ips": ["A.B.C.D"],
-                "customer_username": "Admin",
-                "subnet_ids": [
-                    foo.id,
-                    bar.id,
-                ],
-                "vpc_id": main.id,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
-        ```
-
+        Create a Directory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DirectoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -899,24 +547,6 @@ class Directory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_url: The access URL for the directory, such as `http://alias.awsapps.com`.
-        :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        :param pulumi.Input[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict']] connect_settings: Connector related information about the directory. Fields documented below.
-        :param pulumi.Input[_builtins.str] description: A textual description for the directory.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
-        :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
-        :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group created by the directory.
-        :param pulumi.Input[_builtins.str] short_name: The short name of the directory, such as `CORP`.
-        :param pulumi.Input[_builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        :param pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']] vpc_settings: VPC related information about the directory. Fields documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -945,144 +575,90 @@ class Directory(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessUrl")
     def access_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The access URL for the directory, such as `http://alias.awsapps.com`.
-        """
         return pulumi.get(self, "access_url")
 
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:
-        """
-        The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
     @pulumi.getter(name="connectSettings")
     def connect_settings(self) -> pulumi.Output[Optional['outputs.DirectoryConnectSettings']]:
-        """
-        Connector related information about the directory. Fields documented below.
-        """
         return pulumi.get(self, "connect_settings")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A textual description for the directory.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
     def desired_number_of_domain_controllers(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        """
         return pulumi.get(self, "desired_number_of_domain_controllers")
 
     @_builtins.property
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of IP addresses of the DNS servers for the directory or connector.
-        """
         return pulumi.get(self, "dns_ip_addresses")
 
     @_builtins.property
     @pulumi.getter
     def edition(self) -> pulumi.Output[_builtins.str]:
-        """
-        The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        """
         return pulumi.get(self, "edition")
 
     @_builtins.property
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_sso")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The fully qualified name for the directory, such as `corp.example.com`
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[_builtins.str]:
-        """
-        The password for the directory administrator or connector user.
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the security group created by the directory.
-        """
         return pulumi.get(self, "security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="shortName")
     def short_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The short name of the directory, such as `CORP`.
-        """
         return pulumi.get(self, "short_name")
 
     @_builtins.property
     @pulumi.getter
     def size(self) -> pulumi.Output[_builtins.str]:
-        """
-        (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        """
         return pulumi.get(self, "size")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> pulumi.Output[Optional['outputs.DirectoryVpcSettings']]:
-        """
-        VPC related information about the directory. Fields documented below.
-        """
         return pulumi.get(self, "vpc_settings")
 

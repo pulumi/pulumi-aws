@@ -7,19 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing odb Network resource in AWS for Oracle Database@AWS.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Using `pulumi import`, import Odb Network using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:odb/network:Network example example
- * ```
- */
 export class Network extends pulumi.CustomResource {
     /**
      * Get an existing Network resource's state with the given name, ID, and optional extra
@@ -48,9 +35,6 @@ export class Network extends pulumi.CustomResource {
         return obj['__pulumiType'] === Network.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the odb network resource.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly availabilityZone: pulumi.Output<string>;
     declare public readonly availabilityZoneId: pulumi.Output<string>;
@@ -71,11 +55,11 @@ export class Network extends pulumi.CustomResource {
     declare public readonly deleteAssociatedResources: pulumi.Output<boolean>;
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      */
     declare public /*out*/ readonly managedServices: pulumi.Output<outputs.odb.NetworkManagedService[]>;
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
      */
     declare public /*out*/ readonly ociDnsForwardingConfigs: pulumi.Output<outputs.odb.NetworkOciDnsForwardingConfig[]>;
     /**
@@ -106,9 +90,6 @@ export class Network extends pulumi.CustomResource {
      * The amount of progress made on the current operation on the ODB network, expressed as a percentage.
      */
     declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
      * Specifies the configuration for Amazon S3 access from the ODB network.
@@ -126,16 +107,11 @@ export class Network extends pulumi.CustomResource {
      * Additional information about the current status of the ODB network.
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.odb.NetworkTimeouts | undefined>;
     /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
-     *
-     * The following arguments are optional:
      */
     declare public readonly zeroEtlAccess: pulumi.Output<string>;
 
@@ -238,9 +214,6 @@ export class Network extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Network resources.
  */
 export interface NetworkState {
-    /**
-     * Amazon Resource Name (ARN) of the odb network resource.
-     */
     arn?: pulumi.Input<string>;
     availabilityZone?: pulumi.Input<string>;
     availabilityZoneId?: pulumi.Input<string>;
@@ -261,11 +234,11 @@ export interface NetworkState {
     deleteAssociatedResources?: pulumi.Input<boolean>;
     displayName?: pulumi.Input<string>;
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      */
     managedServices?: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedService>[]>;
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
      */
     ociDnsForwardingConfigs?: pulumi.Input<pulumi.Input<inputs.odb.NetworkOciDnsForwardingConfig>[]>;
     /**
@@ -296,9 +269,6 @@ export interface NetworkState {
      * The amount of progress made on the current operation on the ODB network, expressed as a percentage.
      */
     percentProgress?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Specifies the configuration for Amazon S3 access from the ODB network.
@@ -316,16 +286,11 @@ export interface NetworkState {
      * Additional information about the current status of the ODB network.
      */
     statusReason?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.odb.NetworkTimeouts>;
     /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
-     *
-     * The following arguments are optional:
      */
     zeroEtlAccess?: pulumi.Input<string>;
 }
@@ -348,9 +313,6 @@ export interface NetworkArgs {
      */
     deleteAssociatedResources?: pulumi.Input<boolean>;
     displayName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Specifies the configuration for Amazon S3 access from the ODB network.
@@ -360,15 +322,10 @@ export interface NetworkArgs {
      * Specifies the endpoint policy for Amazon S3 access from the ODB network.
      */
     s3PolicyDocument?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.odb.NetworkTimeouts>;
     /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
-     *
-     * The following arguments are optional:
      */
     zeroEtlAccess: pulumi.Input<string>;
 }

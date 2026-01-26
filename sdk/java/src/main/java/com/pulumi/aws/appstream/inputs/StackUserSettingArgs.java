@@ -14,36 +14,16 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
 
     public static final StackUserSettingArgs Empty = new StackUserSettingArgs();
 
-    /**
-     * Action that is enabled or disabled.
-     * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<String> action;
 
-    /**
-     * @return Action that is enabled or disabled.
-     * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
 
-    /**
-     * Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
-    /**
-     * @return Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public Output<String> permission() {
         return this.permission;
     }
@@ -73,48 +53,20 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
             $ = new StackUserSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action that is enabled or disabled.
-         * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action that is enabled or disabled.
-         * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param permission Whether the action is enabled or disabled.
-         * Valid values are `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(Output<String> permission) {
             $.permission = permission;
             return this;
         }
 
-        /**
-         * @param permission Whether the action is enabled or disabled.
-         * Valid values are `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
         }

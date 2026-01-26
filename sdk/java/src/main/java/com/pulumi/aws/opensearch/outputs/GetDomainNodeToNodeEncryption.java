@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainNodeToNodeEncryption {
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     private Boolean enabled;
 
     private GetDomainNodeToNodeEncryption() {}
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

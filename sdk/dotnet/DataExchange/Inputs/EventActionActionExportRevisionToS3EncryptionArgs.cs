@@ -12,16 +12,9 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class EventActionActionExportRevisionToS3EncryptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the KMS key used for encryption.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Type of server-side encryption.
-        /// Valid values are `aws:kms` or `aws:s3`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

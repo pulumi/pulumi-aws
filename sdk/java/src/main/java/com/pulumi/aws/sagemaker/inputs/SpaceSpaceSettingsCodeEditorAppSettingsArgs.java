@@ -17,32 +17,16 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
 
     public static final SpaceSpaceSettingsCodeEditorAppSettingsArgs Empty = new SpaceSpaceSettingsCodeEditorAppSettingsArgs();
 
-    /**
-     * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
-     * 
-     */
     @Import(name="appLifecycleManagement")
     private @Nullable Output<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
 
-    /**
-     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
 
-    /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
-     * 
-     */
     @Import(name="defaultResourceSpec", required=true)
     private Output<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
-     * 
-     */
     public Output<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
         return this.defaultResourceSpec;
     }
@@ -72,44 +56,20 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
             $ = new SpaceSpaceSettingsCodeEditorAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appLifecycleManagement(@Nullable Output<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement) {
             $.appLifecycleManagement = appLifecycleManagement;
             return this;
         }
 
-        /**
-         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appLifecycleManagement(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs appLifecycleManagement) {
             return appLifecycleManagement(Output.of(appLifecycleManagement));
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(Output<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }

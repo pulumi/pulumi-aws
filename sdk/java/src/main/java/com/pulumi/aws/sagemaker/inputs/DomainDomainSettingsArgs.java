@@ -18,62 +18,30 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
 
     public static final DomainDomainSettingsArgs Empty = new DomainDomainSettingsArgs();
 
-    /**
-     * A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
-     * 
-     */
     @Import(name="dockerSettings")
     private @Nullable Output<DomainDomainSettingsDockerSettingsArgs> dockerSettings;
 
-    /**
-     * @return A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDomainSettingsDockerSettingsArgs>> dockerSettings() {
         return Optional.ofNullable(this.dockerSettings);
     }
 
-    /**
-     * The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-     * 
-     */
     @Import(name="executionRoleIdentityConfig")
     private @Nullable Output<String> executionRoleIdentityConfig;
 
-    /**
-     * @return The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> executionRoleIdentityConfig() {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
     }
 
-    /**
-     * A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
-     * 
-     */
     @Import(name="rStudioServerProDomainSettings")
     private @Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs> rStudioServerProDomainSettings;
 
-    /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs>> rStudioServerProDomainSettings() {
         return Optional.ofNullable(this.rStudioServerProDomainSettings);
     }
 
-    /**
-     * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
@@ -105,96 +73,42 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
             $ = new DomainDomainSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerSettings(@Nullable Output<DomainDomainSettingsDockerSettingsArgs> dockerSettings) {
             $.dockerSettings = dockerSettings;
             return this;
         }
 
-        /**
-         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerSettings(DomainDomainSettingsDockerSettingsArgs dockerSettings) {
             return dockerSettings(Output.of(dockerSettings));
         }
 
-        /**
-         * @param executionRoleIdentityConfig The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleIdentityConfig(@Nullable Output<String> executionRoleIdentityConfig) {
             $.executionRoleIdentityConfig = executionRoleIdentityConfig;
             return this;
         }
 
-        /**
-         * @param executionRoleIdentityConfig The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleIdentityConfig(String executionRoleIdentityConfig) {
             return executionRoleIdentityConfig(Output.of(executionRoleIdentityConfig));
         }
 
-        /**
-         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rStudioServerProDomainSettings(@Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs> rStudioServerProDomainSettings) {
             $.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
             return this;
         }
 
-        /**
-         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rStudioServerProDomainSettings(DomainDomainSettingsRStudioServerProDomainSettingsArgs rStudioServerProDomainSettings) {
             return rStudioServerProDomainSettings(Output.of(rStudioServerProDomainSettings));
         }
 
-        /**
-         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }

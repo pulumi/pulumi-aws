@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GlobalSecondaryIndexProvisionedThroughput {
-    /**
-     * @return Number of read capacity units for this index.
-     * 
-     */
     private @Nullable Integer readCapacityUnits;
-    /**
-     * @return Number of write capacity units for this index.
-     * 
-     */
     private @Nullable Integer writeCapacityUnits;
 
     private GlobalSecondaryIndexProvisionedThroughput() {}
-    /**
-     * @return Number of read capacity units for this index.
-     * 
-     */
     public Optional<Integer> readCapacityUnits() {
         return Optional.ofNullable(this.readCapacityUnits);
     }
-    /**
-     * @return Number of write capacity units for this index.
-     * 
-     */
     public Optional<Integer> writeCapacityUnits() {
         return Optional.ofNullable(this.writeCapacityUnits);
     }

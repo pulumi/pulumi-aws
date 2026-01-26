@@ -15,32 +15,16 @@ public final class ServerlessCacheReaderEndpointArgs extends com.pulumi.resource
 
     public static final ServerlessCacheReaderEndpointArgs Empty = new ServerlessCacheReaderEndpointArgs();
 
-    /**
-     * The DNS hostname of the cache node.
-     * 
-     */
     @Import(name="address", required=true)
     private Output<String> address;
 
-    /**
-     * @return The DNS hostname of the cache node.
-     * 
-     */
     public Output<String> address() {
         return this.address;
     }
 
-    /**
-     * The port number that the cache engine is listening on. Set as integer.
-     * 
-     */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
-    /**
-     * @return The port number that the cache engine is listening on. Set as integer.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
@@ -70,44 +54,20 @@ public final class ServerlessCacheReaderEndpointArgs extends com.pulumi.resource
             $ = new ServerlessCacheReaderEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address The DNS hostname of the cache node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(Output<String> address) {
             $.address = address;
             return this;
         }
 
-        /**
-         * @param address The DNS hostname of the cache node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
 
-        /**
-         * @param port The port number that the cache engine is listening on. Set as integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port number that the cache engine is listening on. Set as integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }

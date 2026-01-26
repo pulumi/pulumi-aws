@@ -9,136 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Resource for managing an AWS Security Hub Automation Rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.AutomationRule("example", new()
-    ///     {
-    ///         Description = "Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
-    ///         RuleName = "Elevate severity of findings that relate to important resources",
-    ///         RuleOrder = 1,
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.SecurityHub.Inputs.AutomationRuleActionArgs
-    ///             {
-    ///                 FindingFieldsUpdate = new Aws.SecurityHub.Inputs.AutomationRuleActionFindingFieldsUpdateArgs
-    ///                 {
-    ///                     Severity = new Aws.SecurityHub.Inputs.AutomationRuleActionFindingFieldsUpdateSeverityArgs
-    ///                     {
-    ///                         Label = "CRITICAL",
-    ///                         Product = 0,
-    ///                     },
-    ///                     Note = new Aws.SecurityHub.Inputs.AutomationRuleActionFindingFieldsUpdateNoteArgs
-    ///                     {
-    ///                         Text = "This is a critical resource. Please review ASAP.",
-    ///                         UpdatedBy = "sechub-automation",
-    ///                     },
-    ///                     Types = new[]
-    ///                     {
-    ///                         "Software and Configuration Checks/Industry and Regulatory Standards",
-    ///                     },
-    ///                     UserDefinedFields = 
-    ///                     {
-    ///                         { "key", "value" },
-    ///                     },
-    ///                 },
-    ///                 Type = "FINDING_FIELDS_UPDATE",
-    ///             },
-    ///         },
-    ///         Criteria = new Aws.SecurityHub.Inputs.AutomationRuleCriteriaArgs
-    ///         {
-    ///             ResourceIds = new[]
-    ///             {
-    ///                 new Aws.SecurityHub.Inputs.AutomationRuleCriteriaResourceIdArgs
-    ///                 {
-    ///                     Comparison = "EQUALS",
-    ///                     Value = "arn:aws:s3:::examplebucket/*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
-    /// 
-    /// Using `pulumi import`, import Security Hub automation rule using their ARN. For example:
-    /// 
-    /// % pulumi import aws_securityhub_automation_rule.example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
-    /// </summary>
     [AwsResourceType("aws:securityhub/automationRule:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.AutomationRuleAction>> Actions { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the Security Hub automation rule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        /// </summary>
         [Output("criteria")]
         public Output<Outputs.AutomationRuleCriteria?> Criteria { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the rule.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `False`.
-        /// </summary>
         [Output("isTerminal")]
         public Output<bool> IsTerminal { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the rule.
-        /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
-        /// <summary>
-        /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        /// </summary>
         [Output("ruleOrder")]
         public Output<int> RuleOrder { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the rule is active after it is created.
-        /// </summary>
         [Output("ruleStatus")]
         public Output<string> RuleStatus { get; private set; } = null!;
 
@@ -196,55 +93,30 @@ namespace Pulumi.Aws.SecurityHub
     {
         [Input("actions")]
         private InputList<Inputs.AutomationRuleActionArgs>? _actions;
-
-        /// <summary>
-        /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AutomationRuleActionArgs>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        /// </summary>
         [Input("criteria")]
         public Input<Inputs.AutomationRuleCriteriaArgs>? Criteria { get; set; }
 
-        /// <summary>
-        /// The description of the rule.
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `False`.
-        /// </summary>
         [Input("isTerminal")]
         public Input<bool>? IsTerminal { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the rule.
-        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
-        /// <summary>
-        /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        /// </summary>
         [Input("ruleOrder", required: true)]
         public Input<int> RuleOrder { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the rule is active after it is created.
-        /// </summary>
         [Input("ruleStatus")]
         public Input<string>? RuleStatus { get; set; }
 
@@ -266,61 +138,33 @@ namespace Pulumi.Aws.SecurityHub
     {
         [Input("actions")]
         private InputList<Inputs.AutomationRuleActionGetArgs>? _actions;
-
-        /// <summary>
-        /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleActionGetArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AutomationRuleActionGetArgs>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// The ARN of the Security Hub automation rule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        /// </summary>
         [Input("criteria")]
         public Input<Inputs.AutomationRuleCriteriaGetArgs>? Criteria { get; set; }
 
-        /// <summary>
-        /// The description of the rule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `False`.
-        /// </summary>
         [Input("isTerminal")]
         public Input<bool>? IsTerminal { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the rule.
-        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
-        /// <summary>
-        /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        /// </summary>
         [Input("ruleOrder")]
         public Input<int>? RuleOrder { get; set; }
 
-        /// <summary>
-        /// Whether the rule is active after it is created.
-        /// </summary>
         [Input("ruleStatus")]
         public Input<string>? RuleStatus { get; set; }
 

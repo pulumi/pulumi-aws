@@ -14,22 +14,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectPeerConfiguration {
     private @Nullable List<ConnectPeerConfigurationBgpConfiguration> bgpConfigurations;
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     private @Nullable String coreNetworkAddress;
-    /**
-     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     private @Nullable List<String> insideCidrBlocks;
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private @Nullable String peerAddress;
     private @Nullable String protocol;
 
@@ -37,26 +23,12 @@ public final class ConnectPeerConfiguration {
     public List<ConnectPeerConfigurationBgpConfiguration> bgpConfigurations() {
         return this.bgpConfigurations == null ? List.of() : this.bgpConfigurations;
     }
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     public Optional<String> coreNetworkAddress() {
         return Optional.ofNullable(this.coreNetworkAddress);
     }
-    /**
-     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     public List<String> insideCidrBlocks() {
         return this.insideCidrBlocks == null ? List.of() : this.insideCidrBlocks;
     }
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<String> peerAddress() {
         return Optional.ofNullable(this.peerAddress);
     }

@@ -18,72 +18,30 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
 
     public static final TableImportTableArgs Empty = new TableImportTableArgs();
 
-    /**
-     * Type of compression to be used on the input coming from the imported table.
-     * Valid values are `GZIP`, `ZSTD` and `NONE`.
-     * 
-     */
     @Import(name="inputCompressionType")
     private @Nullable Output<String> inputCompressionType;
 
-    /**
-     * @return Type of compression to be used on the input coming from the imported table.
-     * Valid values are `GZIP`, `ZSTD` and `NONE`.
-     * 
-     */
     public Optional<Output<String>> inputCompressionType() {
         return Optional.ofNullable(this.inputCompressionType);
     }
 
-    /**
-     * The format of the source data.
-     * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
-     * 
-     */
     @Import(name="inputFormat", required=true)
     private Output<String> inputFormat;
 
-    /**
-     * @return The format of the source data.
-     * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
-     * 
-     */
     public Output<String> inputFormat() {
         return this.inputFormat;
     }
 
-    /**
-     * Describe the format options for the data that was imported into the target table.
-     * There is one value, `csv`.
-     * See below.
-     * 
-     */
     @Import(name="inputFormatOptions")
     private @Nullable Output<TableImportTableInputFormatOptionsArgs> inputFormatOptions;
 
-    /**
-     * @return Describe the format options for the data that was imported into the target table.
-     * There is one value, `csv`.
-     * See below.
-     * 
-     */
     public Optional<Output<TableImportTableInputFormatOptionsArgs>> inputFormatOptions() {
         return Optional.ofNullable(this.inputFormatOptions);
     }
 
-    /**
-     * Values for the S3 bucket the source file is imported from.
-     * See below.
-     * 
-     */
     @Import(name="s3BucketSource", required=true)
     private Output<TableImportTableS3BucketSourceArgs> s3BucketSource;
 
-    /**
-     * @return Values for the S3 bucket the source file is imported from.
-     * See below.
-     * 
-     */
     public Output<TableImportTableS3BucketSourceArgs> s3BucketSource() {
         return this.s3BucketSource;
     }
@@ -115,96 +73,38 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
             $ = new TableImportTableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inputCompressionType Type of compression to be used on the input coming from the imported table.
-         * Valid values are `GZIP`, `ZSTD` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputCompressionType(@Nullable Output<String> inputCompressionType) {
             $.inputCompressionType = inputCompressionType;
             return this;
         }
 
-        /**
-         * @param inputCompressionType Type of compression to be used on the input coming from the imported table.
-         * Valid values are `GZIP`, `ZSTD` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputCompressionType(String inputCompressionType) {
             return inputCompressionType(Output.of(inputCompressionType));
         }
 
-        /**
-         * @param inputFormat The format of the source data.
-         * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormat(Output<String> inputFormat) {
             $.inputFormat = inputFormat;
             return this;
         }
 
-        /**
-         * @param inputFormat The format of the source data.
-         * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormat(String inputFormat) {
             return inputFormat(Output.of(inputFormat));
         }
 
-        /**
-         * @param inputFormatOptions Describe the format options for the data that was imported into the target table.
-         * There is one value, `csv`.
-         * See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormatOptions(@Nullable Output<TableImportTableInputFormatOptionsArgs> inputFormatOptions) {
             $.inputFormatOptions = inputFormatOptions;
             return this;
         }
 
-        /**
-         * @param inputFormatOptions Describe the format options for the data that was imported into the target table.
-         * There is one value, `csv`.
-         * See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormatOptions(TableImportTableInputFormatOptionsArgs inputFormatOptions) {
             return inputFormatOptions(Output.of(inputFormatOptions));
         }
 
-        /**
-         * @param s3BucketSource Values for the S3 bucket the source file is imported from.
-         * See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketSource(Output<TableImportTableS3BucketSourceArgs> s3BucketSource) {
             $.s3BucketSource = s3BucketSource;
             return this;
         }
 
-        /**
-         * @param s3BucketSource Values for the S3 bucket the source file is imported from.
-         * See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketSource(TableImportTableS3BucketSourceArgs s3BucketSource) {
             return s3BucketSource(Output.of(s3BucketSource));
         }

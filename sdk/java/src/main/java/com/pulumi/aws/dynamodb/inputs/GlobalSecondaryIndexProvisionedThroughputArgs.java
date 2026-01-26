@@ -15,32 +15,16 @@ public final class GlobalSecondaryIndexProvisionedThroughputArgs extends com.pul
 
     public static final GlobalSecondaryIndexProvisionedThroughputArgs Empty = new GlobalSecondaryIndexProvisionedThroughputArgs();
 
-    /**
-     * Number of read capacity units for this index.
-     * 
-     */
     @Import(name="readCapacityUnits")
     private @Nullable Output<Integer> readCapacityUnits;
 
-    /**
-     * @return Number of read capacity units for this index.
-     * 
-     */
     public Optional<Output<Integer>> readCapacityUnits() {
         return Optional.ofNullable(this.readCapacityUnits);
     }
 
-    /**
-     * Number of write capacity units for this index.
-     * 
-     */
     @Import(name="writeCapacityUnits")
     private @Nullable Output<Integer> writeCapacityUnits;
 
-    /**
-     * @return Number of write capacity units for this index.
-     * 
-     */
     public Optional<Output<Integer>> writeCapacityUnits() {
         return Optional.ofNullable(this.writeCapacityUnits);
     }
@@ -70,44 +54,20 @@ public final class GlobalSecondaryIndexProvisionedThroughputArgs extends com.pul
             $ = new GlobalSecondaryIndexProvisionedThroughputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param readCapacityUnits Number of read capacity units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readCapacityUnits(@Nullable Output<Integer> readCapacityUnits) {
             $.readCapacityUnits = readCapacityUnits;
             return this;
         }
 
-        /**
-         * @param readCapacityUnits Number of read capacity units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readCapacityUnits(Integer readCapacityUnits) {
             return readCapacityUnits(Output.of(readCapacityUnits));
         }
 
-        /**
-         * @param writeCapacityUnits Number of write capacity units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeCapacityUnits(@Nullable Output<Integer> writeCapacityUnits) {
             $.writeCapacityUnits = writeCapacityUnits;
             return this;
         }
 
-        /**
-         * @param writeCapacityUnits Number of write capacity units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeCapacityUnits(Integer writeCapacityUnits) {
             return writeCapacityUnits(Output.of(writeCapacityUnits));
         }

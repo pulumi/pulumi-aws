@@ -20,10 +20,6 @@ public final class GetVpcPeeringConnectionsResult {
      * 
      */
     private String id;
-    /**
-     * @return IDs of the VPC Peering Connections.
-     * 
-     */
     private List<String> ids;
     private String region;
     private Map<String,String> tags;
@@ -39,10 +35,6 @@ public final class GetVpcPeeringConnectionsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IDs of the VPC Peering Connections.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

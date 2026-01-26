@@ -13,66 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **Note:** There is only a single account alias per AWS account.
- * 
- * Manages the account alias for the AWS Account.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.AccountAlias;
- * import com.pulumi.aws.iam.AccountAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var alias = new AccountAlias("alias", AccountAliasArgs.builder()
- *             .accountAlias("my-account-alias")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
- * ```
- * 
- */
 @ResourceType(type="aws:iam/accountAlias:AccountAlias")
 public class AccountAlias extends com.pulumi.resources.CustomResource {
-    /**
-     * The account alias
-     * 
-     */
     @Export(name="accountAlias", refs={String.class}, tree="[0]")
     private Output<String> accountAlias;
 
-    /**
-     * @return The account alias
-     * 
-     */
     public Output<String> accountAlias() {
         return this.accountAlias;
     }

@@ -14,128 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CodeCatalyst Source Repository.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codecatalyst.SourceRepository;
- * import com.pulumi.aws.codecatalyst.SourceRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SourceRepository("example", SourceRepositoryArgs.builder()
- *             .name("example-repo")
- *             .projectName("example-project")
- *             .spaceName("example-space")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
- * ```
- * 
- */
 @ResourceType(type="aws:codecatalyst/sourceRepository:SourceRepository")
 public class SourceRepository extends com.pulumi.resources.CustomResource {
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The name of the project in the CodeCatalyst space.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
-    /**
-     * @return The name of the project in the CodeCatalyst space.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> projectName() {
         return this.projectName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the CodeCatalyst space.
-     * 
-     */
     @Export(name="spaceName", refs={String.class}, tree="[0]")
     private Output<String> spaceName;
 
-    /**
-     * @return The name of the CodeCatalyst space.
-     * 
-     */
     public Output<String> spaceName() {
         return this.spaceName;
     }

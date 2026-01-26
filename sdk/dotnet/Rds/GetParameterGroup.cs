@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetParameterGroup
     {
-        /// <summary>
-        /// Information about a database parameter group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetParameterGroup.Invoke(new()
-        ///     {
-        ///         Name = "default.postgres15",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws:rds/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about a database parameter group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetParameterGroup.Invoke(new()
-        ///     {
-        ///         Name = "default.postgres15",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws:rds/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about a database parameter group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetParameterGroup.Invoke(new()
-        ///     {
-        ///         Name = "default.postgres15",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws:rds/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetParameterGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// DB parameter group name.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// DB parameter group name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,17 +54,8 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetParameterGroupResult
     {
-        /// <summary>
-        /// ARN of the parameter group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the parameter group.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Family of the parameter group.
-        /// </summary>
         public readonly string Family;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -15,47 +15,23 @@ public final class DistributionTenantManagedCertificateRequestArgs extends com.p
 
     public static final DistributionTenantManagedCertificateRequestArgs Empty = new DistributionTenantManagedCertificateRequestArgs();
 
-    /**
-     * Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-     * 
-     */
     @Import(name="certificateTransparencyLoggingPreference")
     private @Nullable Output<String> certificateTransparencyLoggingPreference;
 
-    /**
-     * @return Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-     * 
-     */
     public Optional<Output<String>> certificateTransparencyLoggingPreference() {
         return Optional.ofNullable(this.certificateTransparencyLoggingPreference);
     }
 
-    /**
-     * Primary domain name for the certificate.
-     * 
-     */
     @Import(name="primaryDomainName")
     private @Nullable Output<String> primaryDomainName;
 
-    /**
-     * @return Primary domain name for the certificate.
-     * 
-     */
     public Optional<Output<String>> primaryDomainName() {
         return Optional.ofNullable(this.primaryDomainName);
     }
 
-    /**
-     * Host for validation token. Valid values: `cloudfront`, `domain`.
-     * 
-     */
     @Import(name="validationTokenHost")
     private @Nullable Output<String> validationTokenHost;
 
-    /**
-     * @return Host for validation token. Valid values: `cloudfront`, `domain`.
-     * 
-     */
     public Optional<Output<String>> validationTokenHost() {
         return Optional.ofNullable(this.validationTokenHost);
     }
@@ -86,65 +62,29 @@ public final class DistributionTenantManagedCertificateRequestArgs extends com.p
             $ = new DistributionTenantManagedCertificateRequestArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateTransparencyLoggingPreference Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateTransparencyLoggingPreference(@Nullable Output<String> certificateTransparencyLoggingPreference) {
             $.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
             return this;
         }
 
-        /**
-         * @param certificateTransparencyLoggingPreference Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateTransparencyLoggingPreference(String certificateTransparencyLoggingPreference) {
             return certificateTransparencyLoggingPreference(Output.of(certificateTransparencyLoggingPreference));
         }
 
-        /**
-         * @param primaryDomainName Primary domain name for the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryDomainName(@Nullable Output<String> primaryDomainName) {
             $.primaryDomainName = primaryDomainName;
             return this;
         }
 
-        /**
-         * @param primaryDomainName Primary domain name for the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryDomainName(String primaryDomainName) {
             return primaryDomainName(Output.of(primaryDomainName));
         }
 
-        /**
-         * @param validationTokenHost Host for validation token. Valid values: `cloudfront`, `domain`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationTokenHost(@Nullable Output<String> validationTokenHost) {
             $.validationTokenHost = validationTokenHost;
             return this;
         }
 
-        /**
-         * @param validationTokenHost Host for validation token. Valid values: `cloudfront`, `domain`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationTokenHost(String validationTokenHost) {
             return validationTokenHost(Output.of(validationTokenHost));
         }

@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorColumn {
-    /**
-     * @return Free-form text comment.
-     * 
-     */
     private String comment;
-    /**
-     * @return Name of the table.
-     * 
-     */
     private String name;
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     private Map<String,String> parameters;
-    /**
-     * @return Datatype of data in the Column.
-     * 
-     */
     private String type;
 
     private GetCatalogTableStorageDescriptorColumn() {}
-    /**
-     * @return Free-form text comment.
-     * 
-     */
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return Name of the table.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters;
     }
-    /**
-     * @return Datatype of data in the Column.
-     * 
-     */
     public String type() {
         return this.type;
     }

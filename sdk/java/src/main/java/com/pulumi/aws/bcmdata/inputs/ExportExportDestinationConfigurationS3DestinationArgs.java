@@ -18,62 +18,30 @@ public final class ExportExportDestinationConfigurationS3DestinationArgs extends
 
     public static final ExportExportDestinationConfigurationS3DestinationArgs Empty = new ExportExportDestinationConfigurationS3DestinationArgs();
 
-    /**
-     * Name of the Amazon S3 bucket used as the destination of a data export file.
-     * 
-     */
     @Import(name="s3Bucket", required=true)
     private Output<String> s3Bucket;
 
-    /**
-     * @return Name of the Amazon S3 bucket used as the destination of a data export file.
-     * 
-     */
     public Output<String> s3Bucket() {
         return this.s3Bucket;
     }
 
-    /**
-     * Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
-     * 
-     */
     @Import(name="s3OutputConfigurations")
     private @Nullable Output<List<ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs>> s3OutputConfigurations;
 
-    /**
-     * @return Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
-     * 
-     */
     public Optional<Output<List<ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs>>> s3OutputConfigurations() {
         return Optional.ofNullable(this.s3OutputConfigurations);
     }
 
-    /**
-     * S3 path prefix you want prepended to the name of your data export.
-     * 
-     */
     @Import(name="s3Prefix", required=true)
     private Output<String> s3Prefix;
 
-    /**
-     * @return S3 path prefix you want prepended to the name of your data export.
-     * 
-     */
     public Output<String> s3Prefix() {
         return this.s3Prefix;
     }
 
-    /**
-     * S3 bucket region.
-     * 
-     */
     @Import(name="s3Region", required=true)
     private Output<String> s3Region;
 
-    /**
-     * @return S3 bucket region.
-     * 
-     */
     public Output<String> s3Region() {
         return this.s3Region;
     }
@@ -105,96 +73,42 @@ public final class ExportExportDestinationConfigurationS3DestinationArgs extends
             $ = new ExportExportDestinationConfigurationS3DestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Bucket Name of the Amazon S3 bucket used as the destination of a data export file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(Output<String> s3Bucket) {
             $.s3Bucket = s3Bucket;
             return this;
         }
 
-        /**
-         * @param s3Bucket Name of the Amazon S3 bucket used as the destination of a data export file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(String s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
         }
 
-        /**
-         * @param s3OutputConfigurations Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputConfigurations(@Nullable Output<List<ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs>> s3OutputConfigurations) {
             $.s3OutputConfigurations = s3OutputConfigurations;
             return this;
         }
 
-        /**
-         * @param s3OutputConfigurations Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputConfigurations(List<ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs> s3OutputConfigurations) {
             return s3OutputConfigurations(Output.of(s3OutputConfigurations));
         }
 
-        /**
-         * @param s3OutputConfigurations Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputConfigurations(ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs... s3OutputConfigurations) {
             return s3OutputConfigurations(List.of(s3OutputConfigurations));
         }
 
-        /**
-         * @param s3Prefix S3 path prefix you want prepended to the name of your data export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(Output<String> s3Prefix) {
             $.s3Prefix = s3Prefix;
             return this;
         }
 
-        /**
-         * @param s3Prefix S3 path prefix you want prepended to the name of your data export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(String s3Prefix) {
             return s3Prefix(Output.of(s3Prefix));
         }
 
-        /**
-         * @param s3Region S3 bucket region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Region(Output<String> s3Region) {
             $.s3Region = s3Region;
             return this;
         }
 
-        /**
-         * @param s3Region S3 bucket region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Region(String s3Region) {
             return s3Region(Output.of(s3Region));
         }

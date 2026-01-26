@@ -11,341 +11,125 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDbNodeResult {
-    /**
-     * @return Additional information about the planned maintenance.
-     * 
-     */
     private String additionalDetails;
     private String arn;
-    /**
-     * @return The Oracle Cloud ID (OCID) of the backup IP address that&#39;s associated with the DB node.
-     * 
-     */
     private String backupIpId;
-    /**
-     * @return The OCID of the second backup VNIC.
-     * 
-     */
     private String backupVnic2Id;
-    /**
-     * @return The OCID of the backup VNIC.
-     * 
-     */
     private String backupVnicId;
-    /**
-     * @return The ID of the cloud VM cluster.
-     * 
-     */
     private String cloudVmClusterId;
-    /**
-     * @return The number of CPU cores enabled on the DB node.
-     * 
-     */
     private Integer cpuCoreCount;
-    /**
-     * @return The date and time when the DB node was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return The unique identifier of the DB server that is associated with the DB node.
-     * 
-     */
     private String dbServerId;
-    /**
-     * @return The amount of local node storage, in gigabytes (GB), allocated on the DB node.
-     * 
-     */
     private Integer dbStorageSizeInGbs;
-    /**
-     * @return The OCID of the DB system.
-     * 
-     */
     private String dbSystemId;
-    /**
-     * @return The name of the fault domain the instance is contained in.
-     * 
-     */
     private String faultDomain;
-    /**
-     * @return The floating IP address assigned to the DB node.
-     * 
-     */
     private String floatingIpAddress;
-    /**
-     * @return The OCID of the host IP address that&#39;s associated with the DB node.
-     * 
-     */
     private String hostIpId;
-    /**
-     * @return The host name for the DB node.
-     * 
-     */
     private String hostname;
     private String id;
-    /**
-     * @return The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
-     * 
-     */
     private String maintenanceType;
-    /**
-     * @return The allocated memory in GBs on the DB node.
-     * 
-     */
     private Integer memorySizeInGbs;
-    /**
-     * @return The name of the OCI resource anchor for the DB node.
-     * 
-     */
     private String ociResourceAnchorName;
-    /**
-     * @return The OCID of the DB node.
-     * 
-     */
     private String ocid;
-    /**
-     * @return The private IP address assigned to the DB node.
-     * 
-     */
     private String privateIpAddress;
     private String region;
-    /**
-     * @return The size (in GB) of the block storage volume allocation for the DB system.
-     * 
-     */
     private Integer softwareStorageSizeInGbs;
-    /**
-     * @return The current status of the DB node.
-     * 
-     */
     private String status;
-    /**
-     * @return Additional information about the status of the DB node.
-     * 
-     */
     private String statusReason;
-    /**
-     * @return The end date and time of the maintenance window.
-     * 
-     */
     private String timeMaintenanceWindowEnd;
-    /**
-     * @return The start date and time of the maintenance window.
-     * 
-     */
     private String timeMaintenanceWindowStart;
-    /**
-     * @return The total number of CPU cores reserved on the DB node.
-     * 
-     */
     private Integer totalCpuCoreCount;
-    /**
-     * @return The OCID of the second VNIC.
-     * 
-     */
     private String vnic2Id;
-    /**
-     * @return The OCID of the VNIC.
-     * 
-     */
     private String vnicId;
 
     private GetDbNodeResult() {}
-    /**
-     * @return Additional information about the planned maintenance.
-     * 
-     */
     public String additionalDetails() {
         return this.additionalDetails;
     }
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The Oracle Cloud ID (OCID) of the backup IP address that&#39;s associated with the DB node.
-     * 
-     */
     public String backupIpId() {
         return this.backupIpId;
     }
-    /**
-     * @return The OCID of the second backup VNIC.
-     * 
-     */
     public String backupVnic2Id() {
         return this.backupVnic2Id;
     }
-    /**
-     * @return The OCID of the backup VNIC.
-     * 
-     */
     public String backupVnicId() {
         return this.backupVnicId;
     }
-    /**
-     * @return The ID of the cloud VM cluster.
-     * 
-     */
     public String cloudVmClusterId() {
         return this.cloudVmClusterId;
     }
-    /**
-     * @return The number of CPU cores enabled on the DB node.
-     * 
-     */
     public Integer cpuCoreCount() {
         return this.cpuCoreCount;
     }
-    /**
-     * @return The date and time when the DB node was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return The unique identifier of the DB server that is associated with the DB node.
-     * 
-     */
     public String dbServerId() {
         return this.dbServerId;
     }
-    /**
-     * @return The amount of local node storage, in gigabytes (GB), allocated on the DB node.
-     * 
-     */
     public Integer dbStorageSizeInGbs() {
         return this.dbStorageSizeInGbs;
     }
-    /**
-     * @return The OCID of the DB system.
-     * 
-     */
     public String dbSystemId() {
         return this.dbSystemId;
     }
-    /**
-     * @return The name of the fault domain the instance is contained in.
-     * 
-     */
     public String faultDomain() {
         return this.faultDomain;
     }
-    /**
-     * @return The floating IP address assigned to the DB node.
-     * 
-     */
     public String floatingIpAddress() {
         return this.floatingIpAddress;
     }
-    /**
-     * @return The OCID of the host IP address that&#39;s associated with the DB node.
-     * 
-     */
     public String hostIpId() {
         return this.hostIpId;
     }
-    /**
-     * @return The host name for the DB node.
-     * 
-     */
     public String hostname() {
         return this.hostname;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
-     * 
-     */
     public String maintenanceType() {
         return this.maintenanceType;
     }
-    /**
-     * @return The allocated memory in GBs on the DB node.
-     * 
-     */
     public Integer memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
-    /**
-     * @return The name of the OCI resource anchor for the DB node.
-     * 
-     */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
-    /**
-     * @return The OCID of the DB node.
-     * 
-     */
     public String ocid() {
         return this.ocid;
     }
-    /**
-     * @return The private IP address assigned to the DB node.
-     * 
-     */
     public String privateIpAddress() {
         return this.privateIpAddress;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The size (in GB) of the block storage volume allocation for the DB system.
-     * 
-     */
     public Integer softwareStorageSizeInGbs() {
         return this.softwareStorageSizeInGbs;
     }
-    /**
-     * @return The current status of the DB node.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Additional information about the status of the DB node.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }
-    /**
-     * @return The end date and time of the maintenance window.
-     * 
-     */
     public String timeMaintenanceWindowEnd() {
         return this.timeMaintenanceWindowEnd;
     }
-    /**
-     * @return The start date and time of the maintenance window.
-     * 
-     */
     public String timeMaintenanceWindowStart() {
         return this.timeMaintenanceWindowStart;
     }
-    /**
-     * @return The total number of CPU cores reserved on the DB node.
-     * 
-     */
     public Integer totalCpuCoreCount() {
         return this.totalCpuCoreCount;
     }
-    /**
-     * @return The OCID of the second VNIC.
-     * 
-     */
     public String vnic2Id() {
         return this.vnic2Id;
     }
-    /**
-     * @return The OCID of the VNIC.
-     * 
-     */
     public String vnicId() {
         return this.vnicId;
     }

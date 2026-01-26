@@ -14,22 +14,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     {
         [Input("computeTypesAlloweds")]
         private InputList<string>? _computeTypesAlloweds;
-
-        /// <summary>
-        /// An array of strings that specify the compute types that are allowed for the batch
-        /// build.
-        /// See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
-        /// in the AWS CodeBuild User Guide for these values.
-        /// </summary>
         public InputList<string> ComputeTypesAlloweds
         {
             get => _computeTypesAlloweds ?? (_computeTypesAlloweds = new InputList<string>());
             set => _computeTypesAlloweds = value;
         }
 
-        /// <summary>
-        /// Specifies the maximum number of builds allowed.
-        /// </summary>
         [Input("maximumBuildsAllowed")]
         public Input<int>? MaximumBuildsAllowed { get; set; }
 

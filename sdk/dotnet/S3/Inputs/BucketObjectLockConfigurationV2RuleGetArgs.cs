@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketObjectLockConfigurationV2RuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-        /// </summary>
         [Input("defaultRetention", required: true)]
         public Input<Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionGetArgs> DefaultRetention { get; set; } = null!;
 

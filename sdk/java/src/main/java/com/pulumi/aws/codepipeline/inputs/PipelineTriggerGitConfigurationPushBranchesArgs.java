@@ -16,32 +16,16 @@ public final class PipelineTriggerGitConfigurationPushBranchesArgs extends com.p
 
     public static final PipelineTriggerGitConfigurationPushBranchesArgs Empty = new PipelineTriggerGitConfigurationPushBranchesArgs();
 
-    /**
-     * A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
-     * 
-     */
     @Import(name="excludes")
     private @Nullable Output<List<String>> excludes;
 
-    /**
-     * @return A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
-     * 
-     */
     public Optional<Output<List<String>>> excludes() {
         return Optional.ofNullable(this.excludes);
     }
 
-    /**
-     * A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-     * 
-     */
     @Import(name="includes")
     private @Nullable Output<List<String>> includes;
 
-    /**
-     * @return A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-     * 
-     */
     public Optional<Output<List<String>>> includes() {
         return Optional.ofNullable(this.includes);
     }
@@ -71,64 +55,28 @@ public final class PipelineTriggerGitConfigurationPushBranchesArgs extends com.p
             $ = new PipelineTriggerGitConfigurationPushBranchesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param excludes A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludes(@Nullable Output<List<String>> excludes) {
             $.excludes = excludes;
             return this;
         }
 
-        /**
-         * @param excludes A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludes(List<String> excludes) {
             return excludes(Output.of(excludes));
         }
 
-        /**
-         * @param excludes A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludes(String... excludes) {
             return excludes(List.of(excludes));
         }
 
-        /**
-         * @param includes A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(@Nullable Output<List<String>> includes) {
             $.includes = includes;
             return this;
         }
 
-        /**
-         * @param includes A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(List<String> includes) {
             return includes(Output.of(includes));
         }
 
-        /**
-         * @param includes A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(String... includes) {
             return includes(List.of(includes));
         }

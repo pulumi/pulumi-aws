@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperienceConfiguration {
-    /**
-     * @return The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     * 
-     */
     private @Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration;
-    /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-     * 
-     */
     private @Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration;
 
     private ExperienceConfiguration() {}
-    /**
-     * @return The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     * 
-     */
     public Optional<ExperienceConfigurationContentSourceConfiguration> contentSourceConfiguration() {
         return Optional.ofNullable(this.contentSourceConfiguration);
     }
-    /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-     * 
-     */
     public Optional<ExperienceConfigurationUserIdentityConfiguration> userIdentityConfiguration() {
         return Optional.ofNullable(this.userIdentityConfiguration);
     }

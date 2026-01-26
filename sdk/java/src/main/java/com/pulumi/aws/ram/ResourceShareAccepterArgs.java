@@ -16,32 +16,16 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
 
     public static final ResourceShareAccepterArgs Empty = new ResourceShareAccepterArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ARN of the resource share.
-     * 
-     */
     @Import(name="shareArn", required=true)
     private Output<String> shareArn;
 
-    /**
-     * @return The ARN of the resource share.
-     * 
-     */
     public Output<String> shareArn() {
         return this.shareArn;
     }
@@ -71,44 +55,20 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
             $ = new ResourceShareAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param shareArn The ARN of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareArn(Output<String> shareArn) {
             $.shareArn = shareArn;
             return this;
         }
 
-        /**
-         * @param shareArn The ARN of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareArn(String shareArn) {
             return shareArn(Output.of(shareArn));
         }

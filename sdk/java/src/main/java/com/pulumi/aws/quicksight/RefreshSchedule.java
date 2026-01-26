@@ -15,171 +15,11 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing a QuickSight Refresh Schedule.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.RefreshSchedule;
- * import com.pulumi.aws.quicksight.RefreshScheduleArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
- *             .dataSetId("dataset-id")
- *             .scheduleId("schedule-id")
- *             .schedule(RefreshScheduleScheduleArgs.builder()
- *                 .refreshType("FULL_REFRESH")
- *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
- *                     .interval("HOURLY")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Weekly Refresh
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.RefreshSchedule;
- * import com.pulumi.aws.quicksight.RefreshScheduleArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
- *             .dataSetId("dataset-id")
- *             .scheduleId("schedule-id")
- *             .schedule(RefreshScheduleScheduleArgs.builder()
- *                 .refreshType("INCREMENTAL_REFRESH")
- *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
- *                     .interval("WEEKLY")
- *                     .timeOfTheDay("01:00")
- *                     .timezone("Europe/London")
- *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
- *                         .dayOfWeek("MONDAY")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Monthly Refresh
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.RefreshSchedule;
- * import com.pulumi.aws.quicksight.RefreshScheduleArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyArgs;
- * import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
- *             .dataSetId("dataset-id")
- *             .scheduleId("schedule-id")
- *             .schedule(RefreshScheduleScheduleArgs.builder()
- *                 .refreshType("INCREMENTAL_REFRESH")
- *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
- *                     .interval("MONTHLY")
- *                     .timeOfTheDay("01:00")
- *                     .timezone("Europe/London")
- *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
- *                         .dayOfMonth("1")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/refreshSchedule:RefreshSchedule")
 public class RefreshSchedule extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the refresh schedule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the refresh schedule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -189,63 +29,27 @@ public class RefreshSchedule extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * The ID of the dataset.
-     * 
-     */
     @Export(name="dataSetId", refs={String.class}, tree="[0]")
     private Output<String> dataSetId;
 
-    /**
-     * @return The ID of the dataset.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="schedule", refs={RefreshScheduleSchedule.class}, tree="[0]")
     private Output</* @Nullable */ RefreshScheduleSchedule> schedule;
 
-    /**
-     * @return The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<RefreshScheduleSchedule>> schedule() {
         return Codegen.optional(this.schedule);
     }
-    /**
-     * The ID of the refresh schedule.
-     * 
-     */
     @Export(name="scheduleId", refs={String.class}, tree="[0]")
     private Output<String> scheduleId;
 
-    /**
-     * @return The ID of the refresh schedule.
-     * 
-     */
     public Output<String> scheduleId() {
         return this.scheduleId;
     }

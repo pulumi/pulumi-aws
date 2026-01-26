@@ -4,82 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an Amazon CloudFront origin access identity.
- *
- * For information about CloudFront distributions, see the
- * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
- * origin access identities, see
- * [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
- *
- * ## Example Usage
- *
- * The following example below creates a CloudFront origin access identity.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.OriginAccessIdentity("example", {comment: "Some comment"});
- * ```
- *
- * ## Using With CloudFront
- *
- * Normally, when referencing an origin access identity in CloudFront, you need to
- * prefix the ID with the `origin-access-identity/cloudfront/` special path.
- * The `cloudfrontAccessIdentityPath` allows this to be circumvented.
- * The below snippet demonstrates use with the `s3OriginConfig` structure for the
- * `aws.cloudfront.Distribution` resource:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.Distribution("example", {origins: [{
- *     s3OriginConfig: {
- *         originAccessIdentity: exampleAwsCloudfrontOriginAccessIdentity.cloudfrontAccessIdentityPath,
- *     },
- * }]});
- * ```
- *
- * ### Updating your bucket policy
- *
- * Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
- * principal into an `AWS` IAM ARN principal when supplied in an
- * `aws.s3.Bucket` bucket policy, causing spurious diffs. If
- * you see this behavior, use the `iamArn` instead:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const s3Policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["s3:GetObject"],
- *         resources: [`${exampleAwsS3Bucket.arn}/*`],
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [exampleAwsCloudfrontOriginAccessIdentity.iamArn],
- *         }],
- *     }],
- * });
- * const example = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleAwsS3Bucket.id,
- *     policy: s3Policy.then(s3Policy => s3Policy.json),
- * });
- * ```
- *
- * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
- * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
- *
- * ## Import
- *
- * Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
- * ```
- */
 export class OriginAccessIdentity extends pulumi.CustomResource {
     /**
      * Get an existing OriginAccessIdentity resource's state with the given name, ID, and optional extra
@@ -108,40 +32,12 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginAccessIdentity.__pulumiType;
     }
 
-    /**
-     * The origin access identity ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Internal value used by CloudFront to allow future
-     * updates to the origin access identity.
-     */
     declare public /*out*/ readonly callerReference: pulumi.Output<string>;
-    /**
-     * A shortcut to the full path for the
-     * origin access identity to use in CloudFront, see below.
-     */
     declare public /*out*/ readonly cloudfrontAccessIdentityPath: pulumi.Output<string>;
-    /**
-     * An optional comment for the origin access identity.
-     */
     declare public readonly comment: pulumi.Output<string | undefined>;
-    /**
-     * The current version of the origin access identity's information.
-     * For example: `E2QWRUHAPOMQZL`.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * A pre-generated ARN for use in S3 bucket policies (see below).
-     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
-     * E2QWRUHAPOMQZL`.
-     */
     declare public /*out*/ readonly iamArn: pulumi.Output<string>;
-    /**
-     * The Amazon S3 canonical user ID for the origin
-     * access identity, which you use when giving the origin access identity read
-     * permission to an object in Amazon S3.
-     */
     declare public /*out*/ readonly s3CanonicalUserId: pulumi.Output<string>;
 
     /**
@@ -183,40 +79,12 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OriginAccessIdentity resources.
  */
 export interface OriginAccessIdentityState {
-    /**
-     * The origin access identity ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Internal value used by CloudFront to allow future
-     * updates to the origin access identity.
-     */
     callerReference?: pulumi.Input<string>;
-    /**
-     * A shortcut to the full path for the
-     * origin access identity to use in CloudFront, see below.
-     */
     cloudfrontAccessIdentityPath?: pulumi.Input<string>;
-    /**
-     * An optional comment for the origin access identity.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * The current version of the origin access identity's information.
-     * For example: `E2QWRUHAPOMQZL`.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * A pre-generated ARN for use in S3 bucket policies (see below).
-     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
-     * E2QWRUHAPOMQZL`.
-     */
     iamArn?: pulumi.Input<string>;
-    /**
-     * The Amazon S3 canonical user ID for the origin
-     * access identity, which you use when giving the origin access identity read
-     * permission to an object in Amazon S3.
-     */
     s3CanonicalUserId?: pulumi.Input<string>;
 }
 
@@ -224,8 +92,5 @@ export interface OriginAccessIdentityState {
  * The set of arguments for constructing a OriginAccessIdentity resource.
  */
 export interface OriginAccessIdentityArgs {
-    /**
-     * An optional comment for the origin access identity.
-     */
     comment?: pulumi.Input<string>;
 }

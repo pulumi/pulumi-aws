@@ -9,131 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acmpca
 {
-    /// <summary>
-    /// Attaches a resource based policy to a private CA.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "1",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             current.AccountId,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "acm-pca:DescribeCertificateAuthority",
-    ///                     "acm-pca:GetCertificate",
-    ///                     "acm-pca:GetCertificateAuthorityCertificate",
-    ///                     "acm-pca:ListPermissions",
-    ///                     "acm-pca:ListTags",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
-    ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "2",
-    ///                 Effect = allow,
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             current.AccountId,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "acm-pca:IssueCertificate",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "acm-pca:TemplateArn",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "arn:aws:acm-pca:::template/EndEntityCertificate/V1",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePolicy = new Aws.Acmpca.Policy("example", new()
-    ///     {
-    ///         ResourceArn = exampleAwsAcmpcaCertificateAuthority.Arn,
-    ///         PolicyDetails = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
-    /// 
-    /// Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
-    /// 
-    /// % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-    /// </summary>
     [AwsResourceType("aws:acmpca/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// JSON-formatted IAM policy to attach to the specified private CA resource.
-        /// </summary>
         [Output("policy")]
         public Output<string> PolicyDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the private CA to associate with the policy.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -183,21 +67,12 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON-formatted IAM policy to attach to the specified private CA resource.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> PolicyDetails { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the private CA to associate with the policy.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -209,21 +84,12 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON-formatted IAM policy to attach to the specified private CA resource.
-        /// </summary>
         [Input("policy")]
         public Input<string>? PolicyDetails { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the private CA to associate with the policy.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

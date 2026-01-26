@@ -12,81 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserName {
-    /**
-     * @return The family name of the user.
-     * 
-     */
     private String familyName;
-    /**
-     * @return The name that is typically displayed when the name is shown for display.
-     * 
-     */
     private @Nullable String formatted;
-    /**
-     * @return The given name of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String givenName;
-    /**
-     * @return The honorific prefix of the user.
-     * 
-     */
     private @Nullable String honorificPrefix;
-    /**
-     * @return The honorific suffix of the user.
-     * 
-     */
     private @Nullable String honorificSuffix;
-    /**
-     * @return The middle name of the user.
-     * 
-     */
     private @Nullable String middleName;
 
     private UserName() {}
-    /**
-     * @return The family name of the user.
-     * 
-     */
     public String familyName() {
         return this.familyName;
     }
-    /**
-     * @return The name that is typically displayed when the name is shown for display.
-     * 
-     */
     public Optional<String> formatted() {
         return Optional.ofNullable(this.formatted);
     }
-    /**
-     * @return The given name of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String givenName() {
         return this.givenName;
     }
-    /**
-     * @return The honorific prefix of the user.
-     * 
-     */
     public Optional<String> honorificPrefix() {
         return Optional.ofNullable(this.honorificPrefix);
     }
-    /**
-     * @return The honorific suffix of the user.
-     * 
-     */
     public Optional<String> honorificSuffix() {
         return Optional.ofNullable(this.honorificSuffix);
     }
-    /**
-     * @return The middle name of the user.
-     * 
-     */
     public Optional<String> middleName() {
         return Optional.ofNullable(this.middleName);
     }

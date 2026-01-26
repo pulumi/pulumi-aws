@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudWatch Observability Access Manager Sink.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.oam.Sink("example", {
- *     name: "ExampleSink",
- *     tags: {
- *         Env: "prod",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
- * ```
- */
 export class Sink extends pulumi.CustomResource {
     /**
      * Get an existing Sink resource's state with the given name, ID, and optional extra
@@ -59,27 +32,10 @@ export class Sink extends pulumi.CustomResource {
         return obj['__pulumiType'] === Sink.__pulumiType;
     }
 
-    /**
-     * ARN of the Sink.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name for the sink.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID string that AWS generated as part of the sink ARN.
-     */
     declare public /*out*/ readonly sinkId: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -120,27 +76,10 @@ export class Sink extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Sink resources.
  */
 export interface SinkState {
-    /**
-     * ARN of the Sink.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name for the sink.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID string that AWS generated as part of the sink ARN.
-     */
     sinkId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -149,18 +88,7 @@ export interface SinkState {
  * The set of arguments for constructing a Sink resource.
  */
 export interface SinkArgs {
-    /**
-     * Name for the sink.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -26,25 +26,10 @@ MYPY = False
 if not MYPY:
     class ReplicationConfigurationTemplatePitPolicyArgsDict(TypedDict):
         interval: pulumi.Input[_builtins.int]
-        """
-        How often, in the chosen units, a snapshot should be taken.
-        """
         retention_duration: pulumi.Input[_builtins.int]
-        """
-        Duration to retain a snapshot for, in the chosen `units`.
-        """
         units: pulumi.Input[_builtins.str]
-        """
-        Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-        """
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this rule is enabled or not.
-        """
         rule_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        ID of the rule. Valid values are integers.
-        """
 elif False:
     ReplicationConfigurationTemplatePitPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -56,13 +41,6 @@ class ReplicationConfigurationTemplatePitPolicyArgs:
                  units: pulumi.Input[_builtins.str],
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  rule_id: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] interval: How often, in the chosen units, a snapshot should be taken.
-        :param pulumi.Input[_builtins.int] retention_duration: Duration to retain a snapshot for, in the chosen `units`.
-        :param pulumi.Input[_builtins.str] units: Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-        :param pulumi.Input[_builtins.bool] enabled: Whether this rule is enabled or not.
-        :param pulumi.Input[_builtins.int] rule_id: ID of the rule. Valid values are integers.
-        """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "retention_duration", retention_duration)
         pulumi.set(__self__, "units", units)
@@ -74,9 +52,6 @@ class ReplicationConfigurationTemplatePitPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def interval(self) -> pulumi.Input[_builtins.int]:
-        """
-        How often, in the chosen units, a snapshot should be taken.
-        """
         return pulumi.get(self, "interval")
 
     @interval.setter
@@ -86,9 +61,6 @@ class ReplicationConfigurationTemplatePitPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="retentionDuration")
     def retention_duration(self) -> pulumi.Input[_builtins.int]:
-        """
-        Duration to retain a snapshot for, in the chosen `units`.
-        """
         return pulumi.get(self, "retention_duration")
 
     @retention_duration.setter
@@ -98,9 +70,6 @@ class ReplicationConfigurationTemplatePitPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def units(self) -> pulumi.Input[_builtins.str]:
-        """
-        Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-        """
         return pulumi.get(self, "units")
 
     @units.setter
@@ -110,9 +79,6 @@ class ReplicationConfigurationTemplatePitPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether this rule is enabled or not.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -122,9 +88,6 @@ class ReplicationConfigurationTemplatePitPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        ID of the rule. Valid values are integers.
-        """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter

@@ -17,32 +17,16 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaArgs extends com.
 
     public static final GetCoreNetworkPolicyDocumentSegmentActionViaArgs Empty = new GetCoreNetworkPolicyDocumentSegmentActionViaArgs();
 
-    /**
-     * A list of strings. The network function group to use for the service insertion action.
-     * 
-     */
     @Import(name="networkFunctionGroups")
     private @Nullable Output<List<String>> networkFunctionGroups;
 
-    /**
-     * @return A list of strings. The network function group to use for the service insertion action.
-     * 
-     */
     public Optional<Output<List<String>>> networkFunctionGroups() {
         return Optional.ofNullable(this.networkFunctionGroups);
     }
 
-    /**
-     * Any edge overrides and the preferred edge to use.
-     * 
-     */
     @Import(name="withEdgeOverrides")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs>> withEdgeOverrides;
 
-    /**
-     * @return Any edge overrides and the preferred edge to use.
-     * 
-     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs>>> withEdgeOverrides() {
         return Optional.ofNullable(this.withEdgeOverrides);
     }
@@ -72,64 +56,28 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaArgs extends com.
             $ = new GetCoreNetworkPolicyDocumentSegmentActionViaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkFunctionGroups A list of strings. The network function group to use for the service insertion action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFunctionGroups(@Nullable Output<List<String>> networkFunctionGroups) {
             $.networkFunctionGroups = networkFunctionGroups;
             return this;
         }
 
-        /**
-         * @param networkFunctionGroups A list of strings. The network function group to use for the service insertion action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFunctionGroups(List<String> networkFunctionGroups) {
             return networkFunctionGroups(Output.of(networkFunctionGroups));
         }
 
-        /**
-         * @param networkFunctionGroups A list of strings. The network function group to use for the service insertion action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFunctionGroups(String... networkFunctionGroups) {
             return networkFunctionGroups(List.of(networkFunctionGroups));
         }
 
-        /**
-         * @param withEdgeOverrides Any edge overrides and the preferred edge to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withEdgeOverrides(@Nullable Output<List<GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs>> withEdgeOverrides) {
             $.withEdgeOverrides = withEdgeOverrides;
             return this;
         }
 
-        /**
-         * @param withEdgeOverrides Any edge overrides and the preferred edge to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withEdgeOverrides(List<GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs> withEdgeOverrides) {
             return withEdgeOverrides(Output.of(withEdgeOverrides));
         }
 
-        /**
-         * @param withEdgeOverrides Any edge overrides and the preferred edge to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withEdgeOverrides(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs... withEdgeOverrides) {
             return withEdgeOverrides(List.of(withEdgeOverrides));
         }

@@ -12,115 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect User Hierarchy Group resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// > **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUserHierarchyGroup(ctx, "example", &connect.UserHierarchyGroupArgs{
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:       pulumi.String("example"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example User Hierarchy Group"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With a parent group
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			parent, err := connect.NewUserHierarchyGroup(ctx, "parent", &connect.UserHierarchyGroupArgs{
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:       pulumi.String("parent"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example User Hierarchy Group Parent"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = connect.NewUserHierarchyGroup(ctx, "child", &connect.UserHierarchyGroupArgs{
-//				InstanceId:    pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:          pulumi.String("child"),
-//				ParentGroupId: parent.HierarchyGroupId,
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example User Hierarchy Group Child"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-// ```
 type UserHierarchyGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the hierarchy group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The identifier for the hierarchy group.
-	HierarchyGroupId pulumi.StringOutput `pulumi:"hierarchyGroupId"`
-	// A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
-	HierarchyPaths UserHierarchyGroupHierarchyPathArrayOutput `pulumi:"hierarchyPaths"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// The identifier of the level in the hierarchy group.
-	LevelId pulumi.StringOutput `pulumi:"levelId"`
-	// The name of the user hierarchy group. Must not be more than 100 characters.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-	ParentGroupId pulumi.StringPtrOutput `pulumi:"parentGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput                        `pulumi:"arn"`
+	HierarchyGroupId pulumi.StringOutput                        `pulumi:"hierarchyGroupId"`
+	HierarchyPaths   UserHierarchyGroupHierarchyPathArrayOutput `pulumi:"hierarchyPaths"`
+	InstanceId       pulumi.StringOutput                        `pulumi:"instanceId"`
+	LevelId          pulumi.StringOutput                        `pulumi:"levelId"`
+	Name             pulumi.StringOutput                        `pulumi:"name"`
+	ParentGroupId    pulumi.StringPtrOutput                     `pulumi:"parentGroupId"`
+	Region           pulumi.StringOutput                        `pulumi:"region"`
+	Tags             pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput                     `pulumi:"tagsAll"`
 }
 
 // NewUserHierarchyGroup registers a new resource with the given unique name, arguments, and options.
@@ -156,51 +60,29 @@ func GetUserHierarchyGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserHierarchyGroup resources.
 type userHierarchyGroupState struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
-	Arn *string `pulumi:"arn"`
-	// The identifier for the hierarchy group.
-	HierarchyGroupId *string `pulumi:"hierarchyGroupId"`
-	// A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
-	HierarchyPaths []UserHierarchyGroupHierarchyPath `pulumi:"hierarchyPaths"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// The identifier of the level in the hierarchy group.
-	LevelId *string `pulumi:"levelId"`
-	// The name of the user hierarchy group. Must not be more than 100 characters.
-	Name *string `pulumi:"name"`
-	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-	ParentGroupId *string `pulumi:"parentGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string                           `pulumi:"arn"`
+	HierarchyGroupId *string                           `pulumi:"hierarchyGroupId"`
+	HierarchyPaths   []UserHierarchyGroupHierarchyPath `pulumi:"hierarchyPaths"`
+	InstanceId       *string                           `pulumi:"instanceId"`
+	LevelId          *string                           `pulumi:"levelId"`
+	Name             *string                           `pulumi:"name"`
+	ParentGroupId    *string                           `pulumi:"parentGroupId"`
+	Region           *string                           `pulumi:"region"`
+	Tags             map[string]string                 `pulumi:"tags"`
+	TagsAll          map[string]string                 `pulumi:"tagsAll"`
 }
 
 type UserHierarchyGroupState struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
-	Arn pulumi.StringPtrInput
-	// The identifier for the hierarchy group.
+	Arn              pulumi.StringPtrInput
 	HierarchyGroupId pulumi.StringPtrInput
-	// A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
-	HierarchyPaths UserHierarchyGroupHierarchyPathArrayInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// The identifier of the level in the hierarchy group.
-	LevelId pulumi.StringPtrInput
-	// The name of the user hierarchy group. Must not be more than 100 characters.
-	Name pulumi.StringPtrInput
-	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-	ParentGroupId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	HierarchyPaths   UserHierarchyGroupHierarchyPathArrayInput
+	InstanceId       pulumi.StringPtrInput
+	LevelId          pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	ParentGroupId    pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (UserHierarchyGroupState) ElementType() reflect.Type {
@@ -208,32 +90,20 @@ func (UserHierarchyGroupState) ElementType() reflect.Type {
 }
 
 type userHierarchyGroupArgs struct {
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// The name of the user hierarchy group. Must not be more than 100 characters.
-	Name *string `pulumi:"name"`
-	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-	ParentGroupId *string `pulumi:"parentGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	InstanceId    string            `pulumi:"instanceId"`
+	Name          *string           `pulumi:"name"`
+	ParentGroupId *string           `pulumi:"parentGroupId"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a UserHierarchyGroup resource.
 type UserHierarchyGroupArgs struct {
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// The name of the user hierarchy group. Must not be more than 100 characters.
-	Name pulumi.StringPtrInput
-	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+	InstanceId    pulumi.StringInput
+	Name          pulumi.StringPtrInput
 	ParentGroupId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the hierarchy group. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (UserHierarchyGroupArgs) ElementType() reflect.Type {
@@ -323,53 +193,42 @@ func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
 func (o UserHierarchyGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The identifier for the hierarchy group.
 func (o UserHierarchyGroupOutput) HierarchyGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.HierarchyGroupId }).(pulumi.StringOutput)
 }
 
-// A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
 func (o UserHierarchyGroupOutput) HierarchyPaths() UserHierarchyGroupHierarchyPathArrayOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) UserHierarchyGroupHierarchyPathArrayOutput { return v.HierarchyPaths }).(UserHierarchyGroupHierarchyPathArrayOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o UserHierarchyGroupOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// The identifier of the level in the hierarchy group.
 func (o UserHierarchyGroupOutput) LevelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.LevelId }).(pulumi.StringOutput)
 }
 
-// The name of the user hierarchy group. Must not be more than 100 characters.
 func (o UserHierarchyGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 func (o UserHierarchyGroupOutput) ParentGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.ParentGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserHierarchyGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the hierarchy group. If configured with a provider
-// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserHierarchyGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserHierarchyGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -14,250 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudWatch Log Account Policy resource.
- * 
- * ## Example Usage
- * 
- * ### Account Data Protection Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogAccountPolicy;
- * import com.pulumi.aws.cloudwatch.LogAccountPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dataProtection = new LogAccountPolicy("dataProtection", LogAccountPolicyArgs.builder()
- *             .policyName("data-protection")
- *             .policyType("DATA_PROTECTION_POLICY")
- *             .policyDocument(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Name", "DataProtection"),
- *                     jsonProperty("Version", "2021-06-01"),
- *                     jsonProperty("Statement", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("Sid", "Audit"),
- *                             jsonProperty("DataIdentifier", jsonArray("arn:aws:dataprotection::aws:data-identifier/EmailAddress")),
- *                             jsonProperty("Operation", jsonObject(
- *                                 jsonProperty("Audit", jsonObject(
- *                                     jsonProperty("FindingsDestination", jsonObject(
- * 
- *                                     ))
- *                                 ))
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("Sid", "Redact"),
- *                             jsonProperty("DataIdentifier", jsonArray("arn:aws:dataprotection::aws:data-identifier/EmailAddress")),
- *                             jsonProperty("Operation", jsonObject(
- *                                 jsonProperty("Deidentify", jsonObject(
- *                                     jsonProperty("MaskConfig", jsonObject(
- * 
- *                                     ))
- *                                 ))
- *                             ))
- *                         )
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Subscription Filter Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogAccountPolicy;
- * import com.pulumi.aws.cloudwatch.LogAccountPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var subscriptionFilter = new LogAccountPolicy("subscriptionFilter", LogAccountPolicyArgs.builder()
- *             .policyName("subscription-filter")
- *             .policyType("SUBSCRIPTION_FILTER_POLICY")
- *             .policyDocument(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("DestinationArn", test.arn()),
- *                     jsonProperty("FilterPattern", "test")
- *                 )))
- *             .selectionCriteria("LogGroupName NOT IN [\"excluded_log_group_name\"]")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Field Index Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogAccountPolicy;
- * import com.pulumi.aws.cloudwatch.LogAccountPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var fieldIndex = new LogAccountPolicy("fieldIndex", LogAccountPolicyArgs.builder()
- *             .policyName("field-index")
- *             .policyType("FIELD_INDEX_POLICY")
- *             .policyDocument(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Fields", jsonArray(
- *                         "field1", 
- *                         "field2"
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example &#34;my-account-policy:SUBSCRIPTION_FILTER_POLICY&#34;
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logAccountPolicy:LogAccountPolicy")
 public class LogAccountPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
-    /**
-     * @return Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
-    /**
-     * Name of the account policy.
-     * 
-     */
     @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
-    /**
-     * @return Name of the account policy.
-     * 
-     */
     public Output<String> policyName() {
         return this.policyName;
     }
-    /**
-     * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-     * 
-     */
     @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output<String> policyType;
 
-    /**
-     * @return Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-     * 
-     */
     public Output<String> policyType() {
         return this.policyType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Currently defaults to and only accepts the value: `ALL`.
-     * 
-     */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
-    /**
-     * @return Currently defaults to and only accepts the value: `ALL`.
-     * 
-     */
     public Output<Optional<String>> scope() {
         return Codegen.optional(this.scope);
     }
-    /**
-     * Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-     * 
-     */
     @Export(name="selectionCriteria", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> selectionCriteria;
 
-    /**
-     * @return Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-     * 
-     */
     public Output<Optional<String>> selectionCriteria() {
         return Codegen.optional(this.selectionCriteria);
     }

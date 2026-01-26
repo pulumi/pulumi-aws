@@ -12,95 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("tf-test"),
-//				EngineVersion: pulumi.String("OpenSearch_1.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("*"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("es:*"),
-//						},
-//						Resources: pulumi.StringArray{
-//							example.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("IpAddress"),
-//								Variable: pulumi.String("aws:SourceIp"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("127.0.0.1/32"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = opensearch.NewDomainPolicy(ctx, "main", &opensearch.DomainPolicyArgs{
-//				DomainName: example.DomainName,
-//				AccessPolicies: pulumi.String(main.ApplyT(func(main iam.GetPolicyDocumentResult) (*string, error) {
-//					return &main.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
-// ```
 type DomainPolicy struct {
 	pulumi.CustomResourceState
 
-	// IAM policy document specifying the access policies for the domain
 	AccessPolicies pulumi.StringOutput `pulumi:"accessPolicies"`
-	// Name of the domain.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	DomainName     pulumi.StringOutput `pulumi:"domainName"`
+	Region         pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomainPolicy registers a new resource with the given unique name, arguments, and options.
@@ -139,21 +56,15 @@ func GetDomainPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainPolicy resources.
 type domainPolicyState struct {
-	// IAM policy document specifying the access policies for the domain
 	AccessPolicies *string `pulumi:"accessPolicies"`
-	// Name of the domain.
-	DomainName *string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DomainName     *string `pulumi:"domainName"`
+	Region         *string `pulumi:"region"`
 }
 
 type DomainPolicyState struct {
-	// IAM policy document specifying the access policies for the domain
 	AccessPolicies pulumi.StringPtrInput
-	// Name of the domain.
-	DomainName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DomainName     pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (DomainPolicyState) ElementType() reflect.Type {
@@ -161,22 +72,16 @@ func (DomainPolicyState) ElementType() reflect.Type {
 }
 
 type domainPolicyArgs struct {
-	// IAM policy document specifying the access policies for the domain
-	AccessPolicies string `pulumi:"accessPolicies"`
-	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccessPolicies string  `pulumi:"accessPolicies"`
+	DomainName     string  `pulumi:"domainName"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainPolicy resource.
 type DomainPolicyArgs struct {
-	// IAM policy document specifying the access policies for the domain
 	AccessPolicies pulumi.StringInput
-	// Name of the domain.
-	DomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DomainName     pulumi.StringInput
+	Region         pulumi.StringPtrInput
 }
 
 func (DomainPolicyArgs) ElementType() reflect.Type {
@@ -266,17 +171,14 @@ func (o DomainPolicyOutput) ToDomainPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// IAM policy document specifying the access policies for the domain
 func (o DomainPolicyOutput) AccessPolicies() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.AccessPolicies }).(pulumi.StringOutput)
 }
 
-// Name of the domain.
 func (o DomainPolicyOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

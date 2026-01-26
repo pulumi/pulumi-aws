@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LinkLinkConfigurationLogGroupConfiguration {
-    /**
-     * @return Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-     * 
-     */
     private String filter;
 
     private LinkLinkConfigurationLogGroupConfiguration() {}
-    /**
-     * @return Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-     * 
-     */
     public String filter() {
         return this.filter;
     }

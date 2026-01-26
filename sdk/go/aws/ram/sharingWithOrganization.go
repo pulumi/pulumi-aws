@@ -11,41 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Resource Access Manager (RAM) Resource Sharing with AWS Organizations. If you enable sharing with your organization, you can share resources without using invitations. Refer to the [AWS RAM user guide](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs) for more details.
-//
-// > **NOTE:** Use this resource to manage resource sharing within your organization, **not** the `organizations.Organization` resource with `ram.amazonaws.com` configured in `awsServiceAccessPrincipals`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ram.NewSharingWithOrganization(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the resource using the current AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
-// ```
 type SharingWithOrganization struct {
 	pulumi.CustomResourceState
 }

@@ -61,9 +61,6 @@ class GetVpcIpamPoolCidrsResult:
     @_builtins.property
     @pulumi.getter(name="ipamPoolCidrs")
     def ipam_pool_cidrs(self) -> Sequence['outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult']:
-        """
-        The CIDRs provisioned into the IPAM pool, described below.
-        """
         return pulumi.get(self, "ipam_pool_cidrs")
 
     @_builtins.property
@@ -95,57 +92,7 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolCidrsResult:
     """
-    `ec2_get_vpc_ipam_pool_cidrs` provides details about an IPAM pool.
-
-    This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
-
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    p = aws.ec2.get_vpc_ipam_pool(filters=[
-        {
-            "name": "description",
-            "values": ["*mypool*"],
-        },
-        {
-            "name": "address-family",
-            "values": ["ipv4"],
-        },
-    ])
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
-    ```
-
-    Filtering:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
-        filters=[{
-            "name": "cidr",
-            "values": ["10.*"],
-        }])
-    mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
-    pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{"key": k, "value": v} for k, v in mycidrs].apply(lambda entries: [{
-            "cidr": entry["value"],
-            "description": entry["value"],
-        } for entry in entries]),
-        name=f"IPAM Pool ({test['id']}) Cidrs",
-        address_family="IPv4",
-        max_entries=len(mycidrs))
-    ```
-
-
-    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -165,57 +112,7 @@ def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Seque
                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamPoolCidrsResult]:
     """
-    `ec2_get_vpc_ipam_pool_cidrs` provides details about an IPAM pool.
-
-    This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
-
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    p = aws.ec2.get_vpc_ipam_pool(filters=[
-        {
-            "name": "description",
-            "values": ["*mypool*"],
-        },
-        {
-            "name": "address-family",
-            "values": ["ipv4"],
-        },
-    ])
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
-    ```
-
-    Filtering:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
-        filters=[{
-            "name": "cidr",
-            "values": ["10.*"],
-        }])
-    mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
-    pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{"key": k, "value": v} for k, v in mycidrs].apply(lambda entries: [{
-            "cidr": entry["value"],
-            "description": entry["value"],
-        } for entry in entries]),
-        name=f"IPAM Pool ({test['id']}) Cidrs",
-        address_family="IPv4",
-        max_entries=len(mycidrs))
-    ```
-
-
-    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

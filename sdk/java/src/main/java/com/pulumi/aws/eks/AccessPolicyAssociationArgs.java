@@ -17,77 +17,37 @@ public final class AccessPolicyAssociationArgs extends com.pulumi.resources.Reso
 
     public static final AccessPolicyAssociationArgs Empty = new AccessPolicyAssociationArgs();
 
-    /**
-     * The configuration block to determine the scope of the access. See `accessScope` Block below.
-     * 
-     */
     @Import(name="accessScope", required=true)
     private Output<AccessPolicyAssociationAccessScopeArgs> accessScope;
 
-    /**
-     * @return The configuration block to determine the scope of the access. See `accessScope` Block below.
-     * 
-     */
     public Output<AccessPolicyAssociationAccessScopeArgs> accessScope() {
         return this.accessScope;
     }
 
-    /**
-     * Name of the EKS Cluster.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the EKS Cluster.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * The ARN of the access policy that you&#39;re associating.
-     * 
-     */
     @Import(name="policyArn", required=true)
     private Output<String> policyArn;
 
-    /**
-     * @return The ARN of the access policy that you&#39;re associating.
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
 
-    /**
-     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     @Import(name="principalArn", required=true)
     private Output<String> principalArn;
 
-    /**
-     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     public Output<String> principalArn() {
         return this.principalArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -120,107 +80,47 @@ public final class AccessPolicyAssociationArgs extends com.pulumi.resources.Reso
             $ = new AccessPolicyAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessScope The configuration block to determine the scope of the access. See `accessScope` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessScope(Output<AccessPolicyAssociationAccessScopeArgs> accessScope) {
             $.accessScope = accessScope;
             return this;
         }
 
-        /**
-         * @param accessScope The configuration block to determine the scope of the access. See `accessScope` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessScope(AccessPolicyAssociationAccessScopeArgs accessScope) {
             return accessScope(Output.of(accessScope));
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param policyArn The ARN of the access policy that you&#39;re associating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(Output<String> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
 
-        /**
-         * @param policyArn The ARN of the access policy that you&#39;re associating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
         }
 
-        /**
-         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
-        /**
-         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

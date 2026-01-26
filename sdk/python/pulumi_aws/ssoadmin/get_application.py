@@ -62,9 +62,6 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter(name="applicationAccount")
     def application_account(self) -> _builtins.str:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "application_account")
 
     @_builtins.property
@@ -75,49 +72,31 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter(name="applicationProviderArn")
     def application_provider_arn(self) -> _builtins.str:
-        """
-        ARN of the application provider.
-        """
         return pulumi.get(self, "application_provider_arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> _builtins.str:
-        """
-        ARN of the instance of IAM Identity Center.
-        """
         return pulumi.get(self, "instance_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the application.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="portalOptions")
     def portal_options(self) -> Sequence['outputs.GetApplicationPortalOptionResult']:
-        """
-        Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
-        """
         return pulumi.get(self, "portal_options")
 
     @_builtins.property
@@ -128,9 +107,6 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the application.
-        """
         return pulumi.get(self, "status")
 
 
@@ -156,22 +132,7 @@ def get_application(application_arn: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Data source for managing an AWS SSO Admin Application.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
-    ```
-
-
-    :param _builtins.str application_arn: ARN of the application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
@@ -194,22 +155,7 @@ def get_application_output(application_arn: Optional[pulumi.Input[_builtins.str]
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Data source for managing an AWS SSO Admin Application.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
-    ```
-
-
-    :param _builtins.str application_arn: ARN of the application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn

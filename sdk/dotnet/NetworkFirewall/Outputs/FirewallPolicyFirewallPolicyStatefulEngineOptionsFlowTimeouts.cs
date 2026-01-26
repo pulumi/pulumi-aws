@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts
     {
-        /// <summary>
-        /// Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
-        /// </summary>
         public readonly int? TcpIdleTimeoutSeconds;
 
         [OutputConstructor]

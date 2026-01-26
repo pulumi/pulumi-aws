@@ -101,89 +101,56 @@ class GetNetworkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the odb network resource.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The availability zone where the ODB network is located.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
-        """
-        The AZ ID of the AZ where the ODB network is located.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
     def backup_subnet_cidr(self) -> _builtins.str:
-        """
-        The CIDR range of the backup subnet for the ODB network.
-        """
         return pulumi.get(self, "backup_subnet_cidr")
 
     @_builtins.property
     @pulumi.getter(name="clientSubnetCidr")
     def client_subnet_cidr(self) -> _builtins.str:
-        """
-        The CIDR notation for the network resource.
-        """
         return pulumi.get(self, "client_subnet_cidr")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        The date and time when the ODB network was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> _builtins.str:
-        """
-        The name of the custom domain that the network is located.
-        """
         return pulumi.get(self, "custom_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> _builtins.str:
-        """
-        The default DNS prefix for the network resource.
-        """
         return pulumi.get(self, "default_dns_prefix")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Display name for the network resource.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Unique identifier of the odb network resource.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> Sequence['outputs.GetNetworkManagedServiceResult']:
-        """
-        The managed services configuration for the ODB network.
-        """
         return pulumi.get(self, "managed_services")
 
     @_builtins.property
@@ -194,57 +161,36 @@ class GetNetworkResult:
     @_builtins.property
     @pulumi.getter(name="ociNetworkAnchorId")
     def oci_network_anchor_id(self) -> _builtins.str:
-        """
-        The unique identifier of the OCI network anchor for the ODB network.
-        """
         return pulumi.get(self, "oci_network_anchor_id")
 
     @_builtins.property
     @pulumi.getter(name="ociNetworkAnchorUrl")
     def oci_network_anchor_url(self) -> _builtins.str:
-        """
-        The URL of the OCI network anchor for the ODB network.
-        """
         return pulumi.get(self, "oci_network_anchor_url")
 
     @_builtins.property
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> _builtins.str:
-        """
-        The name of the OCI resource anchor for the ODB network.
-        """
         return pulumi.get(self, "oci_resource_anchor_name")
 
     @_builtins.property
     @pulumi.getter(name="ociVcnId")
     def oci_vcn_id(self) -> _builtins.str:
-        """
-        The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
-        """
         return pulumi.get(self, "oci_vcn_id")
 
     @_builtins.property
     @pulumi.getter(name="ociVcnUrl")
     def oci_vcn_url(self) -> _builtins.str:
-        """
-        The URL of the OCI VCN for the ODB network.
-        """
         return pulumi.get(self, "oci_vcn_url")
 
     @_builtins.property
     @pulumi.getter(name="peeredCidrs")
     def peered_cidrs(self) -> Sequence[_builtins.str]:
-        """
-        The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
-        """
         return pulumi.get(self, "peered_cidrs")
 
     @_builtins.property
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> _builtins.float:
-        """
-        The amount of progress made on the current operation on the ODB network, expressed as a percentage.
-        """
         return pulumi.get(self, "percent_progress")
 
     @_builtins.property
@@ -255,17 +201,11 @@ class GetNetworkResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The status of the network resource.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> _builtins.str:
-        """
-        Additional information about the current status of the ODB network.
-        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
@@ -309,24 +249,7 @@ def get_network(id: Optional[_builtins.str] = None,
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
     """
-    Data source for to retrieve network resource in AWS for Oracle Database@AWS.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_network(id="example")
-    ```
-
-
-    :param _builtins.str id: Unique identifier of the odb network resource.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -362,24 +285,7 @@ def get_network_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
-    Data source for to retrieve network resource in AWS for Oracle Database@AWS.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_network(id="example")
-    ```
-
-
-    :param _builtins.str id: Unique identifier of the odb network resource.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

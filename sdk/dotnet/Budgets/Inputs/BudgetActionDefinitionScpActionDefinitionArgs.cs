@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Budgets.Inputs
 
     public sealed class BudgetActionDefinitionScpActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy ID attached.
-        /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
         [Input("targetIds", required: true)]
         private InputList<string>? _targetIds;
-
-        /// <summary>
-        /// A list of target IDs.
-        /// </summary>
         public InputList<string> TargetIds
         {
             get => _targetIds ?? (_targetIds = new InputList<string>());

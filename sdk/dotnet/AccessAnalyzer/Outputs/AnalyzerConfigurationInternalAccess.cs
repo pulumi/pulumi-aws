@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerConfigurationInternalAccess
     {
-        /// <summary>
-        /// Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `AnalysisRule` Block for Internal Access Analyzer for details.
-        /// </summary>
         public readonly Outputs.AnalyzerConfigurationInternalAccessAnalysisRule? AnalysisRule;
 
         [OutputConstructor]

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleSqsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL of the Amazon SQS queue.
-        /// </summary>
         [Input("queueUrl", required: true)]
         public Input<string> QueueUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether to use Base64 encoding.
-        /// </summary>
         [Input("useBase64", required: true)]
         public Input<bool> UseBase64 { get; set; } = null!;
 

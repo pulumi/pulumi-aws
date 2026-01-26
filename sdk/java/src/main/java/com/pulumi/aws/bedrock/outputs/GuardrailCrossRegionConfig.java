@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GuardrailCrossRegionConfig {
-    /**
-     * @return Guardrail profile ARN.
-     * 
-     */
     private String guardrailProfileIdentifier;
 
     private GuardrailCrossRegionConfig() {}
-    /**
-     * @return Guardrail profile ARN.
-     * 
-     */
     public String guardrailProfileIdentifier() {
         return this.guardrailProfileIdentifier;
     }

@@ -11,113 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackInstancesStackInstanceSummary {
-    /**
-     * @return Account ID in which the instance is deployed.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
-     * 
-     */
     private @Nullable String detailedStatus;
-    /**
-     * @return Status of the stack instance&#39;s actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
-     * 
-     */
     private @Nullable String driftStatus;
-    /**
-     * @return Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
-     * 
-     */
     private @Nullable String organizationalUnitId;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return ID of the stack instance.
-     * 
-     */
     private @Nullable String stackId;
-    /**
-     * @return Name or unique ID of the stack set that the stack instance is associated with.
-     * 
-     */
     private @Nullable String stackSetId;
-    /**
-     * @return Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return Explanation for the specific status code assigned to this stack instance.
-     * 
-     */
     private @Nullable String statusReason;
 
     private StackInstancesStackInstanceSummary() {}
-    /**
-     * @return Account ID in which the instance is deployed.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
-     * 
-     */
     public Optional<String> detailedStatus() {
         return Optional.ofNullable(this.detailedStatus);
     }
-    /**
-     * @return Status of the stack instance&#39;s actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
-     * 
-     */
     public Optional<String> driftStatus() {
         return Optional.ofNullable(this.driftStatus);
     }
-    /**
-     * @return Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
-     * 
-     */
     public Optional<String> organizationalUnitId() {
         return Optional.ofNullable(this.organizationalUnitId);
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return ID of the stack instance.
-     * 
-     */
     public Optional<String> stackId() {
         return Optional.ofNullable(this.stackId);
     }
-    /**
-     * @return Name or unique ID of the stack set that the stack instance is associated with.
-     * 
-     */
     public Optional<String> stackSetId() {
         return Optional.ofNullable(this.stackSetId);
     }
-    /**
-     * @return Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return Explanation for the specific status code assigned to this stack instance.
-     * 
-     */
     public Optional<String> statusReason() {
         return Optional.ofNullable(this.statusReason);
     }

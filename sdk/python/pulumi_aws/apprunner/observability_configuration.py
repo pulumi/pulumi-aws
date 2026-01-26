@@ -27,10 +27,6 @@ class ObservabilityConfigurationArgs:
                  trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ObservabilityConfiguration resource.
-        :param pulumi.Input[_builtins.str] observability_configuration_name: Name of the observability configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         pulumi.set(__self__, "observability_configuration_name", observability_configuration_name)
         if region is not None:
@@ -43,9 +39,6 @@ class ObservabilityConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationName")
     def observability_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the observability configuration.
-        """
         return pulumi.get(self, "observability_configuration_name")
 
     @observability_configuration_name.setter
@@ -55,9 +48,6 @@ class ObservabilityConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -67,9 +57,6 @@ class ObservabilityConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,9 +66,6 @@ class ObservabilityConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="traceConfiguration")
     def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]:
-        """
-        Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
-        """
         return pulumi.get(self, "trace_configuration")
 
     @trace_configuration.setter
@@ -103,15 +87,6 @@ class _ObservabilityConfigurationState:
                  trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ObservabilityConfiguration resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of this observability configuration.
-        :param pulumi.Input[_builtins.bool] latest: Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
-        :param pulumi.Input[_builtins.str] observability_configuration_name: Name of the observability configuration.
-        :param pulumi.Input[_builtins.int] observability_configuration_revision: The revision of this observability configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -135,9 +110,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of this observability configuration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -147,9 +119,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter
     def latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
-        """
         return pulumi.get(self, "latest")
 
     @latest.setter
@@ -159,9 +128,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationName")
     def observability_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the observability configuration.
-        """
         return pulumi.get(self, "observability_configuration_name")
 
     @observability_configuration_name.setter
@@ -171,9 +137,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationRevision")
     def observability_configuration_revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The revision of this observability configuration.
-        """
         return pulumi.get(self, "observability_configuration_revision")
 
     @observability_configuration_revision.setter
@@ -183,9 +146,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -195,9 +155,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -207,9 +164,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -219,9 +173,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -231,9 +182,6 @@ class _ObservabilityConfigurationState:
     @_builtins.property
     @pulumi.getter(name="traceConfiguration")
     def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]:
-        """
-        Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
-        """
         return pulumi.get(self, "trace_configuration")
 
     @trace_configuration.setter
@@ -253,42 +201,9 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                  trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an App Runner Observability Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apprunner.ObservabilityConfiguration("example",
-            observability_configuration_name="example",
-            trace_configuration={
-                "vendor": "AWSXRAY",
-            },
-            tags={
-                "Name": "example-apprunner-observability-configuration",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the App Runner observability configuration.
-
-        Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
-
-        % pulumi import aws_apprunner_observability_configuration.example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
-
+        Create a ObservabilityConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] observability_configuration_name: Name of the observability configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         ...
     @overload
@@ -297,36 +212,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                  args: ObservabilityConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Runner Observability Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apprunner.ObservabilityConfiguration("example",
-            observability_configuration_name="example",
-            trace_configuration={
-                "vendor": "AWSXRAY",
-            },
-            tags={
-                "Name": "example-apprunner-observability-configuration",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the App Runner observability configuration.
-
-        Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
-
-        % pulumi import aws_apprunner_observability_configuration.example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
-
+        Create a ObservabilityConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ObservabilityConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -392,15 +278,6 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of this observability configuration.
-        :param pulumi.Input[_builtins.bool] latest: Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
-        :param pulumi.Input[_builtins.str] observability_configuration_name: Name of the observability configuration.
-        :param pulumi.Input[_builtins.int] observability_configuration_revision: The revision of this observability configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -420,72 +297,45 @@ class ObservabilityConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of this observability configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def latest(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
-        """
         return pulumi.get(self, "latest")
 
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationName")
     def observability_configuration_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the observability configuration.
-        """
         return pulumi.get(self, "observability_configuration_name")
 
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationRevision")
     def observability_configuration_revision(self) -> pulumi.Output[_builtins.int]:
-        """
-        The revision of this observability configuration.
-        """
         return pulumi.get(self, "observability_configuration_revision")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="traceConfiguration")
     def trace_configuration(self) -> pulumi.Output[Optional['outputs.ObservabilityConfigurationTraceConfiguration']]:
-        """
-        Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
-        """
         return pulumi.get(self, "trace_configuration")
 

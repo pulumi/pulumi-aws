@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContinuousDeploymentPolicyStagingDistributionDnsNames {
-    /**
-     * @return A list of CloudFront domain names for the staging distribution.
-     * 
-     */
     private @Nullable List<String> items;
-    /**
-     * @return Number of CloudFront domain names in the staging distribution.
-     * 
-     */
     private Integer quantity;
 
     private ContinuousDeploymentPolicyStagingDistributionDnsNames() {}
-    /**
-     * @return A list of CloudFront domain names for the staging distribution.
-     * 
-     */
     public List<String> items() {
         return this.items == null ? List.of() : this.items;
     }
-    /**
-     * @return Number of CloudFront domain names in the staging distribution.
-     * 
-     */
     public Integer quantity() {
         return this.quantity;
     }

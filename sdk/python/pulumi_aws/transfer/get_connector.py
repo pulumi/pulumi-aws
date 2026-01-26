@@ -68,33 +68,21 @@ class GetConnectorResult:
     @_builtins.property
     @pulumi.getter(name="accessRole")
     def access_role(self) -> _builtins.str:
-        """
-        ARN of the AWS Identity and Access Management role.
-        """
         return pulumi.get(self, "access_role")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Connector.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="as2Configs")
     def as2_configs(self) -> Sequence['outputs.GetConnectorAs2ConfigResult']:
-        """
-        Structure containing the parameters for an AS2 connector object. Contains the following attributes:
-        """
         return pulumi.get(self, "as2_configs")
 
     @_builtins.property
     @pulumi.getter(name="egressConfigs")
     def egress_configs(self) -> Sequence['outputs.GetConnectorEgressConfigResult']:
-        """
-        Egress configuration for the connector. Contains the following attributes:
-        """
         return pulumi.get(self, "egress_configs")
 
     @_builtins.property
@@ -105,9 +93,6 @@ class GetConnectorResult:
     @_builtins.property
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> _builtins.str:
-        """
-        ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
-        """
         return pulumi.get(self, "logging_role")
 
     @_builtins.property
@@ -118,41 +103,26 @@ class GetConnectorResult:
     @_builtins.property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> _builtins.str:
-        """
-        Name of security policy.
-        """
         return pulumi.get(self, "security_policy_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceManagedEgressIpAddresses")
     def service_managed_egress_ip_addresses(self) -> Sequence[_builtins.str]:
-        """
-        List of egress Ip addresses.
-        """
         return pulumi.get(self, "service_managed_egress_ip_addresses")
 
     @_builtins.property
     @pulumi.getter(name="sftpConfigs")
     def sftp_configs(self) -> Sequence['outputs.GetConnectorSftpConfigResult']:
-        """
-        Object containing the following attributes:
-        """
         return pulumi.get(self, "sftp_configs")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Object containing the following attributes:
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> _builtins.str:
-        """
-        URL of the partner's AS2 or SFTP endpoint.
-        """
         return pulumi.get(self, "url")
 
 
@@ -180,20 +150,7 @@ def get_connector(id: Optional[_builtins.str] = None,
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Data source for managing an AWS Transfer Family Connector.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.transfer.get_connector(id="c-xxxxxxxxxxxxxx")
-    ```
-
-
-    :param _builtins.str id: Unique identifier for connector
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -218,20 +175,7 @@ def get_connector_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    Data source for managing an AWS Transfer Family Connector.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.transfer.get_connector(id="c-xxxxxxxxxxxxxx")
-    ```
-
-
-    :param _builtins.str id: Unique identifier for connector
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

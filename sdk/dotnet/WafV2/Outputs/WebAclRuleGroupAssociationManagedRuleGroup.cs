@@ -18,15 +18,15 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Override actions for specific rules within the rule group. See below.
+        /// Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride> RuleActionOverrides;
         /// <summary>
-        /// Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+        /// Name of the managed rule group vendor.
         /// </summary>
         public readonly string VendorName;
         /// <summary>
-        /// Version of the managed rule group. If not specified, the default version is used.
+        /// Version of the managed rule group. Omit this to use the default version.
         /// </summary>
         public readonly string? Version;
 

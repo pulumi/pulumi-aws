@@ -11,52 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages regional EC2 instance metadata default settings.
-// More information can be found in the [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html) user guide.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewInstanceMetadataDefaults(ctx, "enforce-imdsv2", &ec2.InstanceMetadataDefaultsArgs{
-//				HttpTokens:              pulumi.String("required"),
-//				HttpPutResponseHopLimit: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import this resource.
 type InstanceMetadataDefaults struct {
 	pulumi.CustomResourceState
 
-	// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpEndpoint pulumi.StringOutput `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
-	HttpPutResponseHopLimit pulumi.IntOutput `pulumi:"httpPutResponseHopLimit"`
-	// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpTokens pulumi.StringOutput `pulumi:"httpTokens"`
-	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	InstanceMetadataTags pulumi.StringOutput `pulumi:"instanceMetadataTags"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	HttpEndpoint            pulumi.StringOutput `pulumi:"httpEndpoint"`
+	HttpPutResponseHopLimit pulumi.IntOutput    `pulumi:"httpPutResponseHopLimit"`
+	HttpTokens              pulumi.StringOutput `pulumi:"httpTokens"`
+	InstanceMetadataTags    pulumi.StringOutput `pulumi:"instanceMetadataTags"`
+	Region                  pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInstanceMetadataDefaults registers a new resource with the given unique name, arguments, and options.
@@ -89,29 +51,19 @@ func GetInstanceMetadataDefaults(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceMetadataDefaults resources.
 type instanceMetadataDefaultsState struct {
-	// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpEndpoint *string `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
-	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpTokens *string `pulumi:"httpTokens"`
-	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	HttpEndpoint            *string `pulumi:"httpEndpoint"`
+	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
+	HttpTokens              *string `pulumi:"httpTokens"`
+	InstanceMetadataTags    *string `pulumi:"instanceMetadataTags"`
+	Region                  *string `pulumi:"region"`
 }
 
 type InstanceMetadataDefaultsState struct {
-	// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpEndpoint pulumi.StringPtrInput
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
+	HttpEndpoint            pulumi.StringPtrInput
 	HttpPutResponseHopLimit pulumi.IntPtrInput
-	// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpTokens pulumi.StringPtrInput
-	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	InstanceMetadataTags pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	HttpTokens              pulumi.StringPtrInput
+	InstanceMetadataTags    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 }
 
 func (InstanceMetadataDefaultsState) ElementType() reflect.Type {
@@ -119,30 +71,20 @@ func (InstanceMetadataDefaultsState) ElementType() reflect.Type {
 }
 
 type instanceMetadataDefaultsArgs struct {
-	// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpEndpoint *string `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
-	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpTokens *string `pulumi:"httpTokens"`
-	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	HttpEndpoint            *string `pulumi:"httpEndpoint"`
+	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
+	HttpTokens              *string `pulumi:"httpTokens"`
+	InstanceMetadataTags    *string `pulumi:"instanceMetadataTags"`
+	Region                  *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InstanceMetadataDefaults resource.
 type InstanceMetadataDefaultsArgs struct {
-	// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpEndpoint pulumi.StringPtrInput
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
+	HttpEndpoint            pulumi.StringPtrInput
 	HttpPutResponseHopLimit pulumi.IntPtrInput
-	// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
-	HttpTokens pulumi.StringPtrInput
-	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
-	InstanceMetadataTags pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	HttpTokens              pulumi.StringPtrInput
+	InstanceMetadataTags    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 }
 
 func (InstanceMetadataDefaultsArgs) ElementType() reflect.Type {
@@ -232,27 +174,22 @@ func (o InstanceMetadataDefaultsOutput) ToInstanceMetadataDefaultsOutputWithCont
 	return o
 }
 
-// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 func (o InstanceMetadataDefaultsOutput) HttpEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceMetadataDefaults) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
 func (o InstanceMetadataDefaultsOutput) HttpPutResponseHopLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *InstanceMetadataDefaults) pulumi.IntOutput { return v.HttpPutResponseHopLimit }).(pulumi.IntOutput)
 }
 
-// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
 func (o InstanceMetadataDefaultsOutput) HttpTokens() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceMetadataDefaults) pulumi.StringOutput { return v.HttpTokens }).(pulumi.StringOutput)
 }
 
-// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 func (o InstanceMetadataDefaultsOutput) InstanceMetadataTags() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceMetadataDefaults) pulumi.StringOutput { return v.InstanceMetadataTags }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceMetadataDefaultsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceMetadataDefaults) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

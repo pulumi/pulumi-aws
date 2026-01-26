@@ -13,15 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerDefaultActionForwardTargetGroup
     {
-        /// <summary>
-        /// ARN of the target group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Weight. The range is 0 to 999.
-        /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]

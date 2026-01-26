@@ -31,15 +31,6 @@ class AgentcoreBrowserArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreBrowser resource.
-        :param pulumi.Input[_builtins.str] description: Description of the browser.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
-        :param pulumi.Input[_builtins.str] name: Name of the browser.
-        :param pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for the browser. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input['AgentcoreBrowserRecordingArgs'] recording: Recording configuration for browser sessions. See `recording` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -61,9 +52,6 @@ class AgentcoreBrowserArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the browser.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,9 +61,6 @@ class AgentcoreBrowserArgs:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that the browser assumes for execution.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -85,9 +70,6 @@ class AgentcoreBrowserArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the browser.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,11 +79,6 @@ class AgentcoreBrowserArgs:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']]:
-        """
-        Network configuration for the browser. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -111,9 +88,6 @@ class AgentcoreBrowserArgs:
     @_builtins.property
     @pulumi.getter
     def recording(self) -> Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']]:
-        """
-        Recording configuration for browser sessions. See `recording` below.
-        """
         return pulumi.get(self, "recording")
 
     @recording.setter
@@ -123,9 +97,6 @@ class AgentcoreBrowserArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -135,9 +106,6 @@ class AgentcoreBrowserArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -170,18 +138,6 @@ class _AgentcoreBrowserState:
                  timeouts: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreBrowser resources.
-        :param pulumi.Input[_builtins.str] browser_arn: ARN of the Browser.
-        :param pulumi.Input[_builtins.str] browser_id: Unique identifier of the Browser.
-        :param pulumi.Input[_builtins.str] description: Description of the browser.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
-        :param pulumi.Input[_builtins.str] name: Name of the browser.
-        :param pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for the browser. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input['AgentcoreBrowserRecordingArgs'] recording: Recording configuration for browser sessions. See `recording` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if browser_arn is not None:
             pulumi.set(__self__, "browser_arn", browser_arn)
@@ -209,9 +165,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter(name="browserArn")
     def browser_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Browser.
-        """
         return pulumi.get(self, "browser_arn")
 
     @browser_arn.setter
@@ -221,9 +174,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter(name="browserId")
     def browser_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the Browser.
-        """
         return pulumi.get(self, "browser_id")
 
     @browser_id.setter
@@ -233,9 +183,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the browser.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -245,9 +192,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that the browser assumes for execution.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -257,9 +201,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the browser.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -269,11 +210,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']]:
-        """
-        Network configuration for the browser. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -283,9 +219,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter
     def recording(self) -> Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']]:
-        """
-        Recording configuration for browser sessions. See `recording` below.
-        """
         return pulumi.get(self, "recording")
 
     @recording.setter
@@ -295,9 +228,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -307,9 +237,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -319,9 +246,6 @@ class _AgentcoreBrowserState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -354,98 +278,9 @@ class AgentcoreBrowser(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Browser. Browser provides AI agents with web browsing capabilities, allowing them to navigate websites, extract information, and interact with web content in a controlled environment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser for web data extraction",
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ### Browser with VPC Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc_example = aws.bedrock.AgentcoreBrowser("vpc_example",
-            name="vpc-browser",
-            description="Browser with VPC configuration",
-            network_configuration={
-                "network_mode": "VPC",
-                "vpc_config": {
-                    "security_groups": ["sg-12345678"],
-                    "subnets": [
-                        "subnet-12345678",
-                        "subnet-87654321",
-                    ],
-                },
-            })
-        ```
-
-        ### Browser with Execution Role and Recording
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-browser-role",
-            assume_role_policy=assume_role.json)
-        recording = aws.s3.Bucket("recording", bucket="browser-recording-bucket")
-        example_agentcore_browser = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser with recording enabled",
-            execution_role_arn=example.arn,
-            network_configuration={
-                "network_mode": "PUBLIC",
-            },
-            recording={
-                "enabled": True,
-                "s3_location": {
-                    "bucket": recording.bucket,
-                    "prefix": "browser-sessions/",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Browser using the browser ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreBrowser:AgentcoreBrowser example BROWSER1234567890
-        ```
-
+        Create a AgentcoreBrowser resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the browser.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
-        :param pulumi.Input[_builtins.str] name: Name of the browser.
-        :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for the browser. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']] recording: Recording configuration for browser sessions. See `recording` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -454,87 +289,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
                  args: Optional[AgentcoreBrowserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Browser. Browser provides AI agents with web browsing capabilities, allowing them to navigate websites, extract information, and interact with web content in a controlled environment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser for web data extraction",
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ### Browser with VPC Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc_example = aws.bedrock.AgentcoreBrowser("vpc_example",
-            name="vpc-browser",
-            description="Browser with VPC configuration",
-            network_configuration={
-                "network_mode": "VPC",
-                "vpc_config": {
-                    "security_groups": ["sg-12345678"],
-                    "subnets": [
-                        "subnet-12345678",
-                        "subnet-87654321",
-                    ],
-                },
-            })
-        ```
-
-        ### Browser with Execution Role and Recording
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-browser-role",
-            assume_role_policy=assume_role.json)
-        recording = aws.s3.Bucket("recording", bucket="browser-recording-bucket")
-        example_agentcore_browser = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser with recording enabled",
-            execution_role_arn=example.arn,
-            network_configuration={
-                "network_mode": "PUBLIC",
-            },
-            recording={
-                "enabled": True,
-                "s3_location": {
-                    "bucket": recording.bucket,
-                    "prefix": "browser-sessions/",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Browser using the browser ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreBrowser:AgentcoreBrowser example BROWSER1234567890
-        ```
-
+        Create a AgentcoreBrowser resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentcoreBrowserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -606,18 +361,6 @@ class AgentcoreBrowser(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] browser_arn: ARN of the Browser.
-        :param pulumi.Input[_builtins.str] browser_id: Unique identifier of the Browser.
-        :param pulumi.Input[_builtins.str] description: Description of the browser.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
-        :param pulumi.Input[_builtins.str] name: Name of the browser.
-        :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for the browser. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']] recording: Recording configuration for browser sessions. See `recording` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -639,83 +382,51 @@ class AgentcoreBrowser(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="browserArn")
     def browser_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Browser.
-        """
         return pulumi.get(self, "browser_arn")
 
     @_builtins.property
     @pulumi.getter(name="browserId")
     def browser_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the Browser.
-        """
         return pulumi.get(self, "browser_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the browser.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the IAM role that the browser assumes for execution.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the browser.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreBrowserNetworkConfiguration']]:
-        """
-        Network configuration for the browser. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @_builtins.property
     @pulumi.getter
     def recording(self) -> pulumi.Output[Optional['outputs.AgentcoreBrowserRecording']]:
-        """
-        Recording configuration for browser sessions. See `recording` below.
-        """
         return pulumi.get(self, "recording")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

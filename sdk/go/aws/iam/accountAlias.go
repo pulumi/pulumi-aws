@@ -12,47 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** There is only a single account alias per AWS account.
-//
-// Manages the account alias for the AWS Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewAccountAlias(ctx, "alias", &iam.AccountAliasArgs{
-//				AccountAlias: pulumi.String("my-account-alias"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
-// ```
 type AccountAlias struct {
 	pulumi.CustomResourceState
 
-	// The account alias
 	AccountAlias pulumi.StringOutput `pulumi:"accountAlias"`
 }
 
@@ -89,12 +51,10 @@ func GetAccountAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountAlias resources.
 type accountAliasState struct {
-	// The account alias
 	AccountAlias *string `pulumi:"accountAlias"`
 }
 
 type AccountAliasState struct {
-	// The account alias
 	AccountAlias pulumi.StringPtrInput
 }
 
@@ -103,13 +63,11 @@ func (AccountAliasState) ElementType() reflect.Type {
 }
 
 type accountAliasArgs struct {
-	// The account alias
 	AccountAlias string `pulumi:"accountAlias"`
 }
 
 // The set of arguments for constructing a AccountAlias resource.
 type AccountAliasArgs struct {
-	// The account alias
 	AccountAlias pulumi.StringInput
 }
 
@@ -200,7 +158,6 @@ func (o AccountAliasOutput) ToAccountAliasOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The account alias
 func (o AccountAliasOutput) AccountAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAlias) pulumi.StringOutput { return v.AccountAlias }).(pulumi.StringOutput)
 }

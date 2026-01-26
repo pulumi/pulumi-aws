@@ -10,44 +10,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationAccount {
-    /**
-     * @return ARN of the root.
-     * 
-     */
     private String arn;
-    /**
-     * @return Email of the account.
-     * 
-     */
     private String email;
-    /**
-     * @return Identifier of the root.
-     * 
-     */
     private String id;
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     private String joinedMethod;
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     private String joinedTimestamp;
-    /**
-     * @return Name of the policy type.
-     * 
-     */
     private String name;
-    /**
-     * @return State of the account.
-     * 
-     */
     private String state;
     /**
-     * @return Status of the policy type as it relates to the associated root.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 
@@ -56,58 +26,28 @@ public final class GetOrganizationAccount {
     private String status;
 
     private GetOrganizationAccount() {}
-    /**
-     * @return ARN of the root.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Email of the account.
-     * 
-     */
     public String email() {
         return this.email;
     }
-    /**
-     * @return Identifier of the root.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     public String joinedMethod() {
         return this.joinedMethod;
     }
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     public String joinedTimestamp() {
         return this.joinedTimestamp;
     }
-    /**
-     * @return Name of the policy type.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return State of the account.
-     * 
-     */
     public String state() {
         return this.state;
     }
     /**
-     * @return Status of the policy type as it relates to the associated root.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 

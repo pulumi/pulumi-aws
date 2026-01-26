@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcIngressConnectionIngressVpcConfiguration {
-    /**
-     * @return The ID of the VPC endpoint that your App Runner service connects to.
-     * 
-     */
     private @Nullable String vpcEndpointId;
-    /**
-     * @return The ID of the VPC that is used for the VPC endpoint.
-     * 
-     */
     private @Nullable String vpcId;
 
     private VpcIngressConnectionIngressVpcConfiguration() {}
-    /**
-     * @return The ID of the VPC endpoint that your App Runner service connects to.
-     * 
-     */
     public Optional<String> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
-    /**
-     * @return The ID of the VPC that is used for the VPC endpoint.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }

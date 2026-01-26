@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS DMS (Database Migration) Certificate.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.LookupCertificate(ctx, &dms.LookupCertificateArgs{
-//				CertificateId: test.CertificateId,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateResult
@@ -52,38 +23,27 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
-	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-	CertificateId string `pulumi:"certificateId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	CertificateId string            `pulumi:"certificateId"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn string `pulumi:"certificateArn"`
-	// The date that the certificate was created.
+	CertificateArn          string `pulumi:"certificateArn"`
 	CertificateCreationDate string `pulumi:"certificateCreationDate"`
 	CertificateId           string `pulumi:"certificateId"`
-	// The owner of the certificate.
-	CertificateOwner string `pulumi:"certificateOwner"`
-	// The contents of a .pem file, which contains an X.509 certificate.
-	CertificatePem string `pulumi:"certificatePem"`
-	// The owner of the certificate.
-	CertificateWallet string `pulumi:"certificateWallet"`
+	CertificateOwner        string `pulumi:"certificateOwner"`
+	CertificatePem          string `pulumi:"certificatePem"`
+	CertificateWallet       string `pulumi:"certificateWallet"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The key length of the cryptographic algorithm being used.
-	KeyLength int    `pulumi:"keyLength"`
-	Region    string `pulumi:"region"`
-	// The algorithm for the certificate.
+	Id               string            `pulumi:"id"`
+	KeyLength        int               `pulumi:"keyLength"`
+	Region           string            `pulumi:"region"`
 	SigningAlgorithm string            `pulumi:"signingAlgorithm"`
 	Tags             map[string]string `pulumi:"tags"`
-	// The beginning date that the certificate is valid.
-	ValidFromDate string `pulumi:"validFromDate"`
-	// The final date that the certificate is valid.
-	ValidToDate string `pulumi:"validToDate"`
+	ValidFromDate    string            `pulumi:"validFromDate"`
+	ValidToDate      string            `pulumi:"validToDate"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -97,11 +57,9 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
-	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-	CertificateId pulumi.StringInput `pulumi:"certificateId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	CertificateId pulumi.StringInput    `pulumi:"certificateId"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
+	Tags          pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {
@@ -123,12 +81,10 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the certificate.
 func (o LookupCertificateResultOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// The date that the certificate was created.
 func (o LookupCertificateResultOutput) CertificateCreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateCreationDate }).(pulumi.StringOutput)
 }
@@ -137,17 +93,14 @@ func (o LookupCertificateResultOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateId }).(pulumi.StringOutput)
 }
 
-// The owner of the certificate.
 func (o LookupCertificateResultOutput) CertificateOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateOwner }).(pulumi.StringOutput)
 }
 
-// The contents of a .pem file, which contains an X.509 certificate.
 func (o LookupCertificateResultOutput) CertificatePem() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificatePem }).(pulumi.StringOutput)
 }
 
-// The owner of the certificate.
 func (o LookupCertificateResultOutput) CertificateWallet() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateWallet }).(pulumi.StringOutput)
 }
@@ -157,7 +110,6 @@ func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The key length of the cryptographic algorithm being used.
 func (o LookupCertificateResultOutput) KeyLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCertificateResult) int { return v.KeyLength }).(pulumi.IntOutput)
 }
@@ -166,7 +118,6 @@ func (o LookupCertificateResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The algorithm for the certificate.
 func (o LookupCertificateResultOutput) SigningAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
@@ -175,12 +126,10 @@ func (o LookupCertificateResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCertificateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The beginning date that the certificate is valid.
 func (o LookupCertificateResultOutput) ValidFromDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.ValidFromDate }).(pulumi.StringOutput)
 }
 
-// The final date that the certificate is valid.
 func (o LookupCertificateResultOutput) ValidToDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.ValidToDate }).(pulumi.StringOutput)
 }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ApiEventConfigAuthProviderCognitoConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Regular expression for matching the client ID.
-        /// </summary>
         [Input("appIdClientRegex")]
         public Input<string>? AppIdClientRegex { get; set; }
 
-        /// <summary>
-        /// AWS region where the user pool is located.
-        /// </summary>
         [Input("awsRegion", required: true)]
         public Input<string> AwsRegion { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the Cognito user pool.
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

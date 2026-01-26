@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     [OutputType]
     public sealed class StackSetInstanceStackInstanceSummary
     {
-        /// <summary>
-        /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-        /// </summary>
         public readonly string? AccountId;
-        /// <summary>
-        /// Organizational unit ID in which the stack is deployed.
-        /// </summary>
         public readonly string? OrganizationalUnitId;
-        /// <summary>
-        /// Stack identifier.
-        /// </summary>
         public readonly string? StackId;
 
         [OutputConstructor]

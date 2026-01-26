@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainRegistrantContactExtraParam {
-    /**
-     * @return The name of an additional parameter that is required by a top-level domain.
-     * 
-     */
     private String name;
-    /**
-     * @return The value that corresponds with the name of an extra parameter.
-     * 
-     */
     private String value;
 
     private DomainRegistrantContactExtraParam() {}
-    /**
-     * @return The name of an additional parameter that is required by a top-level domain.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value that corresponds with the name of an extra parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

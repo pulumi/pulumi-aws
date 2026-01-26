@@ -15,17 +15,9 @@ public final class AppJobConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AppJobConfigArgs Empty = new AppJobConfigArgs();
 
-    /**
-     * Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-     * 
-     */
     @Import(name="buildComputeType")
     private @Nullable Output<String> buildComputeType;
 
-    /**
-     * @return Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-     * 
-     */
     public Optional<Output<String>> buildComputeType() {
         return Optional.ofNullable(this.buildComputeType);
     }
@@ -54,23 +46,11 @@ public final class AppJobConfigArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AppJobConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param buildComputeType Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buildComputeType(@Nullable Output<String> buildComputeType) {
             $.buildComputeType = buildComputeType;
             return this;
         }
 
-        /**
-         * @param buildComputeType Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buildComputeType(String buildComputeType) {
             return buildComputeType(Output.of(buildComputeType));
         }

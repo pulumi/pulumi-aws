@@ -13,14 +13,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class OpenZfsVolumeUserAndGroupQuota
     {
-        /// <summary>
-        /// The ID of the user or group. Valid values between `0` and `2147483647`
-        /// </summary>
         public readonly int Id;
-        /// <summary>
-        /// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-        /// * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
-        /// </summary>
         public readonly int StorageCapacityQuotaGib;
         public readonly string Type;
 

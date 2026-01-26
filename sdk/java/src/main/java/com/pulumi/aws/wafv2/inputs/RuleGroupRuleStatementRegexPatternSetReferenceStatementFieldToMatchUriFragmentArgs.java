@@ -15,17 +15,9 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
 
     public static final RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs Empty = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs();
 
-    /**
-     * What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-     * 
-     */
     @Import(name="fallbackBehavior")
     private @Nullable Output<String> fallbackBehavior;
 
-    /**
-     * @return What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-     * 
-     */
     public Optional<Output<String>> fallbackBehavior() {
         return Optional.ofNullable(this.fallbackBehavior);
     }
@@ -54,23 +46,11 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             $ = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fallbackBehavior What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(@Nullable Output<String> fallbackBehavior) {
             $.fallbackBehavior = fallbackBehavior;
             return this;
         }
 
-        /**
-         * @param fallbackBehavior What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(String fallbackBehavior) {
             return fallbackBehavior(Output.of(fallbackBehavior));
         }

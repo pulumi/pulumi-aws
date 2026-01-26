@@ -25,8 +25,8 @@ endif
 
 # Strips debug information from the provider binary to reduce its size and speed up builds
 LDFLAGS_STRIP_SYMBOLS=-s -w
-LDFLAGS_PROJ_VERSION=-X $(PROJECT)/$(VERSION_PATH)=$(PROVIDER_VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(PROVIDER_VERSION)
-LDFLAGS_UPSTREAM_VERSION=-X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=v$(PROVIDER_VERSION)
+LDFLAGS_PROJ_VERSION=-X $(PROJECT)/$(VERSION_PATH)=$(PROVIDER_VERSION) -X github.com/blampe/patches/mirrors/aws/v6/version.ProviderVersion=$(PROVIDER_VERSION)
+LDFLAGS_UPSTREAM_VERSION=-X github.com/blampe/patches/mirrors/aws/v6/version.ProviderVersion=v$(PROVIDER_VERSION)
 LDFLAGS_EXTRAS=
 LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS) $(LDFLAGS_STRIP_SYMBOLS)
 
@@ -48,7 +48,7 @@ development: build
 only_build: build
 # Prepare the workspace for building the provider and SDKs
 # Importantly this is run by CI ahead of restoring the bin directory and resuming SDK builds
-prepare_local_workspace: .make/mise_install upstream
+prepare_local_workspace: .make/mise_install
 prepare_local_workspace: | mise_env
 # Creates all generated files which need to be committed
 generate: generate_sdks schema
@@ -97,7 +97,6 @@ help:
 	@echo "Internal Targets (automatically run as dependencies of other targets)"
 	@echo "  prepare_local_workspace  Prepare for building"
 	@echo "  mise_install             Install tools with mise"
-	@echo "  upstream                 Initialize the upstream submodule, if present"
 	@echo ""
 	@echo "Language-Specific Targets"
 	@echo "  generate_[language]    Generate the SDK files ready for committing"
@@ -214,13 +213,13 @@ install_nodejs_sdk: .make/install_nodejs_sdk
 install_python_sdk:
 .PHONY: install_dotnet_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_python_sdk
 
-lint_provider: upstream
+lint_provider:
 	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml
 	git grep -l 'goembed' -- provider | xargs perl -i -pe 's/ goembed/go:embed/g'
 # `lint_provider.fix` is a utility target meant to be run manually
 # that will run the linter and fix errors when possible.
-lint_provider.fix: upstream
+lint_provider.fix:
 	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix
 	git grep -l 'goembed' -- provider | xargs perl -i -pe 's/ goembed/go:embed/g'
@@ -244,7 +243,7 @@ test:
 .PHONY: test
 test_provider_cmd = cd provider && go test -v -short \
 	-coverprofile="coverage.txt" \
-	-coverpkg="./...,github.com/hashicorp/terraform-provider-..." \
+	-coverpkg="./...,github.com/blampe/patches/..." \
 	-parallel $(TESTPARALLELISM) \
 	./...
 test_provider:
@@ -260,26 +259,18 @@ tfgen_no_deps: .make/schema
 .make/schema: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 .make/schema: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 .make/schema: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
-.make/schema: bin/$(CODEGEN) .make/mise_install .make/upstream
+.make/schema: bin/$(CODEGEN) .make/mise_install
 .make/schema: | mise_env
 	$(WORKING_DIR)/bin/$(CODEGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(PROVIDER_VERSION) go generate cmd/$(PROVIDER)/main.go)
 	@touch $@
 tfgen_build_only: bin/$(CODEGEN)
-bin/$(CODEGEN): provider/*.go provider/go.* .make/upstream
+bin/$(CODEGEN): provider/*.go provider/go.*
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(CODEGEN) -ldflags "$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_EXTRAS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(CODEGEN))
 .PHONY: tfgen schema tfgen_no_deps tfgen_build_only
 
 # Apply patches to the upstream submodule, if it exists
-upstream: .make/upstream
-# Re-run if the upstream commit or the patches change.
-.make/upstream: $(wildcard patches/*) $(shell ./scripts/upstream.sh file_target)
-	./scripts/upstream.sh init
-	# Ensure tool is installed
-	cd upstream-tools && yarn install --frozen-lockfile
-	# Apply all automated changes
-	cd upstream-tools && yarn --silent run apply
-	@touch $@
+upstream:
 .PHONY: upstream
 
 # To make an immediately observable change to .ci-mgmt.yaml:

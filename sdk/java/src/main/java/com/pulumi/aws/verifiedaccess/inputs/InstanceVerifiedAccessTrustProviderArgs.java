@@ -15,77 +15,37 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
 
     public static final InstanceVerifiedAccessTrustProviderArgs Empty = new InstanceVerifiedAccessTrustProviderArgs();
 
-    /**
-     * A description for the AWS Verified Access Instance.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for the AWS Verified Access Instance.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The type of device-based trust provider.
-     * 
-     */
     @Import(name="deviceTrustProviderType")
     private @Nullable Output<String> deviceTrustProviderType;
 
-    /**
-     * @return The type of device-based trust provider.
-     * 
-     */
     public Optional<Output<String>> deviceTrustProviderType() {
         return Optional.ofNullable(this.deviceTrustProviderType);
     }
 
-    /**
-     * The type of trust provider (user- or device-based).
-     * 
-     */
     @Import(name="trustProviderType")
     private @Nullable Output<String> trustProviderType;
 
-    /**
-     * @return The type of trust provider (user- or device-based).
-     * 
-     */
     public Optional<Output<String>> trustProviderType() {
         return Optional.ofNullable(this.trustProviderType);
     }
 
-    /**
-     * The type of user-based trust provider.
-     * 
-     */
     @Import(name="userTrustProviderType")
     private @Nullable Output<String> userTrustProviderType;
 
-    /**
-     * @return The type of user-based trust provider.
-     * 
-     */
     public Optional<Output<String>> userTrustProviderType() {
         return Optional.ofNullable(this.userTrustProviderType);
     }
 
-    /**
-     * The ID of the trust provider.
-     * 
-     */
     @Import(name="verifiedAccessTrustProviderId")
     private @Nullable Output<String> verifiedAccessTrustProviderId;
 
-    /**
-     * @return The ID of the trust provider.
-     * 
-     */
     public Optional<Output<String>> verifiedAccessTrustProviderId() {
         return Optional.ofNullable(this.verifiedAccessTrustProviderId);
     }
@@ -118,107 +78,47 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
             $ = new InstanceVerifiedAccessTrustProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description for the AWS Verified Access Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for the AWS Verified Access Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param deviceTrustProviderType The type of device-based trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceTrustProviderType(@Nullable Output<String> deviceTrustProviderType) {
             $.deviceTrustProviderType = deviceTrustProviderType;
             return this;
         }
 
-        /**
-         * @param deviceTrustProviderType The type of device-based trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceTrustProviderType(String deviceTrustProviderType) {
             return deviceTrustProviderType(Output.of(deviceTrustProviderType));
         }
 
-        /**
-         * @param trustProviderType The type of trust provider (user- or device-based).
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustProviderType(@Nullable Output<String> trustProviderType) {
             $.trustProviderType = trustProviderType;
             return this;
         }
 
-        /**
-         * @param trustProviderType The type of trust provider (user- or device-based).
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustProviderType(String trustProviderType) {
             return trustProviderType(Output.of(trustProviderType));
         }
 
-        /**
-         * @param userTrustProviderType The type of user-based trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userTrustProviderType(@Nullable Output<String> userTrustProviderType) {
             $.userTrustProviderType = userTrustProviderType;
             return this;
         }
 
-        /**
-         * @param userTrustProviderType The type of user-based trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userTrustProviderType(String userTrustProviderType) {
             return userTrustProviderType(Output.of(userTrustProviderType));
         }
 
-        /**
-         * @param verifiedAccessTrustProviderId The ID of the trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAccessTrustProviderId(@Nullable Output<String> verifiedAccessTrustProviderId) {
             $.verifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
             return this;
         }
 
-        /**
-         * @param verifiedAccessTrustProviderId The ID of the trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAccessTrustProviderId(String verifiedAccessTrustProviderId) {
             return verifiedAccessTrustProviderId(Output.of(verifiedAccessTrustProviderId));
         }

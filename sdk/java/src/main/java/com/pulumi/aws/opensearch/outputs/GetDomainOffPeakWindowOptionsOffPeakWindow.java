@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainOffPeakWindowOptionsOffPeakWindow {
-    /**
-     * @return 10h window for updates
-     * 
-     */
     private List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes;
 
     private GetDomainOffPeakWindowOptionsOffPeakWindow() {}
-    /**
-     * @return 10h window for updates
-     * 
-     */
     public List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes() {
         return this.windowStartTimes;
     }

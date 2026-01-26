@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration {
-    /**
-     * @return The log driver to use for the container.
-     * 
-     */
     private String logDriver;
-    /**
-     * @return The configuration options to send to the log driver.
-     * 
-     */
     private Map<String,String> options;
-    /**
-     * @return The secrets to pass to the log configuration.
-     * 
-     */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption> secretOptions;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration() {}
-    /**
-     * @return The log driver to use for the container.
-     * 
-     */
     public String logDriver() {
         return this.logDriver;
     }
-    /**
-     * @return The configuration options to send to the log driver.
-     * 
-     */
     public Map<String,String> options() {
         return this.options;
     }
-    /**
-     * @return The secrets to pass to the log configuration.
-     * 
-     */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption> secretOptions() {
         return this.secretOptions;
     }

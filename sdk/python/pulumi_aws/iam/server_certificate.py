@@ -28,22 +28,6 @@ class ServerCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerCertificate resource.
-        :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate in
-               PEM-encoded format.
-        :param pulumi.Input[_builtins.str] private_key: The contents of the private key in PEM-encoded format.
-        :param pulumi.Input[_builtins.str] certificate_chain: The contents of the certificate chain.
-               This is typically a concatenation of the PEM-encoded public key certificates
-               of the chain.
-        :param pulumi.Input[_builtins.str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: The IAM path for the server certificate.  If it is not
-               included, it defaults to a slash (/). If this certificate is for use with
-               AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         """
         pulumi.set(__self__, "certificate_body", certificate_body)
         pulumi.set(__self__, "private_key", private_key)
@@ -61,10 +45,6 @@ class ServerCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Input[_builtins.str]:
-        """
-        The contents of the public key certificate in
-        PEM-encoded format.
-        """
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
@@ -74,9 +54,6 @@ class ServerCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The contents of the private key in PEM-encoded format.
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -86,11 +63,6 @@ class ServerCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The contents of the certificate chain.
-        This is typically a concatenation of the PEM-encoded public key certificates
-        of the chain.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -100,9 +72,6 @@ class ServerCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -112,10 +81,6 @@ class ServerCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -125,12 +90,6 @@ class ServerCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM path for the server certificate.  If it is not
-        included, it defaults to a slash (/). If this certificate is for use with
-        AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -140,11 +99,6 @@ class ServerCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -168,26 +122,6 @@ class _ServerCertificateState:
                  upload_date: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerCertificate resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the server certificate.
-        :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate in
-               PEM-encoded format.
-        :param pulumi.Input[_builtins.str] certificate_chain: The contents of the certificate chain.
-               This is typically a concatenation of the PEM-encoded public key certificates
-               of the chain.
-        :param pulumi.Input[_builtins.str] expiration: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-        :param pulumi.Input[_builtins.str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: The IAM path for the server certificate.  If it is not
-               included, it defaults to a slash (/). If this certificate is for use with
-               AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        :param pulumi.Input[_builtins.str] private_key: The contents of the private key in PEM-encoded format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] upload_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -215,9 +149,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) specifying the server certificate.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -227,10 +158,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The contents of the public key certificate in
-        PEM-encoded format.
-        """
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
@@ -240,11 +167,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The contents of the certificate chain.
-        This is typically a concatenation of the PEM-encoded public key certificates
-        of the chain.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -254,9 +176,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-        """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
@@ -266,9 +185,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -278,10 +194,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -291,12 +203,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM path for the server certificate.  If it is not
-        included, it defaults to a slash (/). If this certificate is for use with
-        AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -306,9 +212,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The contents of the private key in PEM-encoded format.
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -318,11 +221,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -332,9 +230,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -344,9 +239,6 @@ class _ServerCertificateState:
     @_builtins.property
     @pulumi.getter(name="uploadDate")
     def upload_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
-        """
         return pulumi.get(self, "upload_date")
 
     @upload_date.setter
@@ -369,85 +261,9 @@ class ServerCertificate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an IAM Server Certificate resource to upload Server Certificates.
-        Certs uploaded to IAM can easily work with other AWS services such as:
-
-        - AWS Elastic Beanstalk
-        - Elastic Load Balancing
-        - CloudFront
-        - AWS OpsWorks
-
-        For information about server certificates in IAM, see [Managing Server
-        Certificates][2] in AWS Documentation.
-
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.ServerCertificate("test_cert",
-            name="some_test_cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result,
-            private_key=std.file(input="test-key.pem").result)
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.ServerCertificate("test_cert_alt",
-            name="alt_test_cert",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-        \"\"\",
-            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
-        [......] # cert contents
-        -----END RSA PRIVATE KEY-----
-        \"\"\")
-        ```
-
-        **Use in combination with an AWS ELB resource:**
-
-        Some properties of an IAM Server Certificates cannot be updated while they are
-        in use. In order for the provider to effectively manage a Certificate in this situation, it is
-        recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy`. This will allow this provider
-        to create a new, updated `iam.ServerCertificate` resource and replace it in
-        dependant resources before attempting to destroy the old version.
-
-        ## Import
-
-        Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
-        ```
-
+        Create a ServerCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate in
-               PEM-encoded format.
-        :param pulumi.Input[_builtins.str] certificate_chain: The contents of the certificate chain.
-               This is typically a concatenation of the PEM-encoded public key certificates
-               of the chain.
-        :param pulumi.Input[_builtins.str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: The IAM path for the server certificate.  If it is not
-               included, it defaults to a slash (/). If this certificate is for use with
-               AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        :param pulumi.Input[_builtins.str] private_key: The contents of the private key in PEM-encoded format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         """
         ...
     @overload
@@ -456,67 +272,7 @@ class ServerCertificate(pulumi.CustomResource):
                  args: ServerCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IAM Server Certificate resource to upload Server Certificates.
-        Certs uploaded to IAM can easily work with other AWS services such as:
-
-        - AWS Elastic Beanstalk
-        - Elastic Load Balancing
-        - CloudFront
-        - AWS OpsWorks
-
-        For information about server certificates in IAM, see [Managing Server
-        Certificates][2] in AWS Documentation.
-
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.ServerCertificate("test_cert",
-            name="some_test_cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result,
-            private_key=std.file(input="test-key.pem").result)
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.ServerCertificate("test_cert_alt",
-            name="alt_test_cert",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-        \"\"\",
-            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
-        [......] # cert contents
-        -----END RSA PRIVATE KEY-----
-        \"\"\")
-        ```
-
-        **Use in combination with an AWS ELB resource:**
-
-        Some properties of an IAM Server Certificates cannot be updated while they are
-        in use. In order for the provider to effectively manage a Certificate in this situation, it is
-        recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy`. This will allow this provider
-        to create a new, updated `iam.ServerCertificate` resource and replace it in
-        dependant resources before attempting to destroy the old version.
-
-        ## Import
-
-        Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
-        ```
-
+        Create a ServerCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -593,26 +349,6 @@ class ServerCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the server certificate.
-        :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate in
-               PEM-encoded format.
-        :param pulumi.Input[_builtins.str] certificate_chain: The contents of the certificate chain.
-               This is typically a concatenation of the PEM-encoded public key certificates
-               of the chain.
-        :param pulumi.Input[_builtins.str] expiration: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-        :param pulumi.Input[_builtins.str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] path: The IAM path for the server certificate.  If it is not
-               included, it defaults to a slash (/). If this certificate is for use with
-               AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        :param pulumi.Input[_builtins.str] private_key: The contents of the private key in PEM-encoded format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] upload_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -634,97 +370,55 @@ class ServerCertificate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) specifying the server certificate.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Output[_builtins.str]:
-        """
-        The contents of the public key certificate in
-        PEM-encoded format.
-        """
         return pulumi.get(self, "certificate_body")
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The contents of the certificate chain.
-        This is typically a concatenation of the PEM-encoded public key certificates
-        of the chain.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-        """
         return pulumi.get(self, "expiration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IAM path for the server certificate.  If it is not
-        included, it defaults to a slash (/). If this certificate is for use with
-        AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        The contents of the private key in PEM-encoded format.
-        """
         return pulumi.get(self, "private_key")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="uploadDate")
     def upload_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
-        """
         return pulumi.get(self, "upload_date")
 

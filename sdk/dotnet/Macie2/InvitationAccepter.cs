@@ -9,77 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Macie2
 {
-    /// <summary>
-    /// Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.Macie2.Account("primary");
-    /// 
-    ///     var member = new Aws.Macie2.Account("member");
-    /// 
-    ///     var primaryMember = new Aws.Macie2.Member("primary", new()
-    ///     {
-    ///         AccountId = "ACCOUNT ID",
-    ///         Email = "EMAIL",
-    ///         Invite = true,
-    ///         InvitationMessage = "Message of the invite",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primary,
-    ///         },
-    ///     });
-    /// 
-    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("member", new()
-    ///     {
-    ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primaryMember,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:macie2/invitationAccepter:InvitationAccepter")]
     public partial class InvitationAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
-        /// </summary>
         [Output("administratorAccountId")]
         public Output<string> AdministratorAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the invitation.
-        /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -129,15 +67,9 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class InvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
-        /// </summary>
         [Input("administratorAccountId", required: true)]
         public Input<string> AdministratorAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -149,21 +81,12 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class InvitationAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
-        /// </summary>
         [Input("administratorAccountId")]
         public Input<string>? AdministratorAccountId { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the invitation.
-        /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

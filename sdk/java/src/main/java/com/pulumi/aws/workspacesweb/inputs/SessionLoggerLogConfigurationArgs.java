@@ -15,17 +15,9 @@ public final class SessionLoggerLogConfigurationArgs extends com.pulumi.resource
 
     public static final SessionLoggerLogConfigurationArgs Empty = new SessionLoggerLogConfigurationArgs();
 
-    /**
-     * Configuration block for S3 log delivery. See S3 Configuration below.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<SessionLoggerLogConfigurationS3Args> s3;
 
-    /**
-     * @return Configuration block for S3 log delivery. See S3 Configuration below.
-     * 
-     */
     public Optional<Output<SessionLoggerLogConfigurationS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -54,23 +46,11 @@ public final class SessionLoggerLogConfigurationArgs extends com.pulumi.resource
             $ = new SessionLoggerLogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3 Configuration block for S3 log delivery. See S3 Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<SessionLoggerLogConfigurationS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 Configuration block for S3 log delivery. See S3 Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(SessionLoggerLogConfigurationS3Args s3) {
             return s3(Output.of(s3));
         }

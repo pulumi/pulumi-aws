@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualRouterSpecListenerPortMapping {
-    /**
-     * @return Port used for the port mapping.
-     * 
-     */
     private Integer port;
-    /**
-     * @return Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
-     * 
-     */
     private String protocol;
 
     private VirtualRouterSpecListenerPortMapping() {}
-    /**
-     * @return Port used for the port mapping.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }

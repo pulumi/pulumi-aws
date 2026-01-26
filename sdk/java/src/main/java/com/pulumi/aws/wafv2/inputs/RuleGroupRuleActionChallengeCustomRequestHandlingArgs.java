@@ -15,17 +15,9 @@ public final class RuleGroupRuleActionChallengeCustomRequestHandlingArgs extends
 
     public static final RuleGroupRuleActionChallengeCustomRequestHandlingArgs Empty = new RuleGroupRuleActionChallengeCustomRequestHandlingArgs();
 
-    /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     @Import(name="insertHeaders", required=true)
     private Output<List<RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     public Output<List<RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
         return this.insertHeaders;
     }
@@ -54,33 +46,15 @@ public final class RuleGroupRuleActionChallengeCustomRequestHandlingArgs extends
             $ = new RuleGroupRuleActionChallengeCustomRequestHandlingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(Output<List<RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(List<RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs> insertHeaders) {
             return insertHeaders(Output.of(insertHeaders));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }

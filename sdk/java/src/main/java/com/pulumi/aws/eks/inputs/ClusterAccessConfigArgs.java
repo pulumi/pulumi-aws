@@ -16,32 +16,16 @@ public final class ClusterAccessConfigArgs extends com.pulumi.resources.Resource
 
     public static final ClusterAccessConfigArgs Empty = new ClusterAccessConfigArgs();
 
-    /**
-     * The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-     * 
-     */
     @Import(name="authenticationMode")
     private @Nullable Output<String> authenticationMode;
 
-    /**
-     * @return The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-     * 
-     */
     public Optional<Output<String>> authenticationMode() {
         return Optional.ofNullable(this.authenticationMode);
     }
 
-    /**
-     * Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-     * 
-     */
     @Import(name="bootstrapClusterCreatorAdminPermissions")
     private @Nullable Output<Boolean> bootstrapClusterCreatorAdminPermissions;
 
-    /**
-     * @return Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> bootstrapClusterCreatorAdminPermissions() {
         return Optional.ofNullable(this.bootstrapClusterCreatorAdminPermissions);
     }
@@ -71,44 +55,20 @@ public final class ClusterAccessConfigArgs extends com.pulumi.resources.Resource
             $ = new ClusterAccessConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationMode The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
             $.authenticationMode = authenticationMode;
             return this;
         }
 
-        /**
-         * @param authenticationMode The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMode(String authenticationMode) {
             return authenticationMode(Output.of(authenticationMode));
         }
 
-        /**
-         * @param bootstrapClusterCreatorAdminPermissions Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bootstrapClusterCreatorAdminPermissions(@Nullable Output<Boolean> bootstrapClusterCreatorAdminPermissions) {
             $.bootstrapClusterCreatorAdminPermissions = bootstrapClusterCreatorAdminPermissions;
             return this;
         }
 
-        /**
-         * @param bootstrapClusterCreatorAdminPermissions Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bootstrapClusterCreatorAdminPermissions(Boolean bootstrapClusterCreatorAdminPermissions) {
             return bootstrapClusterCreatorAdminPermissions(Output.of(bootstrapClusterCreatorAdminPermissions));
         }

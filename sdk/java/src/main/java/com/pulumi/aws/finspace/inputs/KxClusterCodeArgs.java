@@ -16,47 +16,23 @@ public final class KxClusterCodeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KxClusterCodeArgs Empty = new KxClusterCodeArgs();
 
-    /**
-     * Unique name for the S3 bucket.
-     * 
-     */
     @Import(name="s3Bucket", required=true)
     private Output<String> s3Bucket;
 
-    /**
-     * @return Unique name for the S3 bucket.
-     * 
-     */
     public Output<String> s3Bucket() {
         return this.s3Bucket;
     }
 
-    /**
-     * Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-     * 
-     */
     @Import(name="s3Key", required=true)
     private Output<String> s3Key;
 
-    /**
-     * @return Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-     * 
-     */
     public Output<String> s3Key() {
         return this.s3Key;
     }
 
-    /**
-     * Version of an S3 Object.
-     * 
-     */
     @Import(name="s3ObjectVersion")
     private @Nullable Output<String> s3ObjectVersion;
 
-    /**
-     * @return Version of an S3 Object.
-     * 
-     */
     public Optional<Output<String>> s3ObjectVersion() {
         return Optional.ofNullable(this.s3ObjectVersion);
     }
@@ -87,65 +63,29 @@ public final class KxClusterCodeArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KxClusterCodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Bucket Unique name for the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(Output<String> s3Bucket) {
             $.s3Bucket = s3Bucket;
             return this;
         }
 
-        /**
-         * @param s3Bucket Unique name for the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(String s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
         }
 
-        /**
-         * @param s3Key Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Key(Output<String> s3Key) {
             $.s3Key = s3Key;
             return this;
         }
 
-        /**
-         * @param s3Key Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Key(String s3Key) {
             return s3Key(Output.of(s3Key));
         }
 
-        /**
-         * @param s3ObjectVersion Version of an S3 Object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ObjectVersion(@Nullable Output<String> s3ObjectVersion) {
             $.s3ObjectVersion = s3ObjectVersion;
             return this;
         }
 
-        /**
-         * @param s3ObjectVersion Version of an S3 Object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ObjectVersion(String s3ObjectVersion) {
             return s3ObjectVersion(Output.of(s3ObjectVersion));
         }

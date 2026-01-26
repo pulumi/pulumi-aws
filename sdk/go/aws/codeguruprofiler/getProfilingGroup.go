@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS CodeGuru Profiler Profiling Group.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeguruprofiler"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeguruprofiler.LookupProfilingGroup(ctx, &codeguruprofiler.LookupProfilingGroupArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupProfilingGroup(ctx *pulumi.Context, args *LookupProfilingGroupArgs, opts ...pulumi.InvokeOption) (*LookupProfilingGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProfilingGroupResult
@@ -52,31 +23,22 @@ func LookupProfilingGroup(ctx *pulumi.Context, args *LookupProfilingGroupArgs, o
 
 // A collection of arguments for invoking getProfilingGroup.
 type LookupProfilingGroupArgs struct {
-	// The name of the profiling group.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProfilingGroup.
 type LookupProfilingGroupResult struct {
-	// Profiling Group agent orchestration config
 	AgentOrchestrationConfigs []GetProfilingGroupAgentOrchestrationConfig `pulumi:"agentOrchestrationConfigs"`
-	// ARN of the Profiling Group.
-	Arn string `pulumi:"arn"`
-	// The compute platform of the profiling group.
-	ComputePlatform string `pulumi:"computePlatform"`
-	// Timestamp when Profiling Group was created.
-	CreatedAt string `pulumi:"createdAt"`
-	Id        string `pulumi:"id"`
-	Name      string `pulumi:"name"`
-	// The status of the Profiling Group.
-	ProfilingStatuses []GetProfilingGroupProfilingStatus `pulumi:"profilingStatuses"`
-	Region            string                             `pulumi:"region"`
-	// Mapping of Key-Value tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Timestamp when Profiling Group was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	Arn                       string                                      `pulumi:"arn"`
+	ComputePlatform           string                                      `pulumi:"computePlatform"`
+	CreatedAt                 string                                      `pulumi:"createdAt"`
+	Id                        string                                      `pulumi:"id"`
+	Name                      string                                      `pulumi:"name"`
+	ProfilingStatuses         []GetProfilingGroupProfilingStatus          `pulumi:"profilingStatuses"`
+	Region                    string                                      `pulumi:"region"`
+	Tags                      map[string]string                           `pulumi:"tags"`
+	UpdatedAt                 string                                      `pulumi:"updatedAt"`
 }
 
 func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupProfilingGroupResultOutput {
@@ -90,9 +52,7 @@ func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOu
 
 // A collection of arguments for invoking getProfilingGroup.
 type LookupProfilingGroupOutputArgs struct {
-	// The name of the profiling group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -115,24 +75,20 @@ func (o LookupProfilingGroupResultOutput) ToLookupProfilingGroupResultOutputWith
 	return o
 }
 
-// Profiling Group agent orchestration config
 func (o LookupProfilingGroupResultOutput) AgentOrchestrationConfigs() GetProfilingGroupAgentOrchestrationConfigArrayOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) []GetProfilingGroupAgentOrchestrationConfig {
 		return v.AgentOrchestrationConfigs
 	}).(GetProfilingGroupAgentOrchestrationConfigArrayOutput)
 }
 
-// ARN of the Profiling Group.
 func (o LookupProfilingGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The compute platform of the profiling group.
 func (o LookupProfilingGroupResultOutput) ComputePlatform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) string { return v.ComputePlatform }).(pulumi.StringOutput)
 }
 
-// Timestamp when Profiling Group was created.
 func (o LookupProfilingGroupResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -145,7 +101,6 @@ func (o LookupProfilingGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The status of the Profiling Group.
 func (o LookupProfilingGroupResultOutput) ProfilingStatuses() GetProfilingGroupProfilingStatusArrayOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) []GetProfilingGroupProfilingStatus { return v.ProfilingStatuses }).(GetProfilingGroupProfilingStatusArrayOutput)
 }
@@ -154,12 +109,10 @@ func (o LookupProfilingGroupResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Mapping of Key-Value tags for the resource.
 func (o LookupProfilingGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Timestamp when Profiling Group was updated.
 func (o LookupProfilingGroupResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

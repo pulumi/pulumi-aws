@@ -16,17 +16,9 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
 
     public static final GetQuicksightAnalysisPlainArgs Empty = new GetQuicksightAnalysisPlainArgs();
 
-    /**
-     * Identifier for the analysis.
-     * 
-     */
     @Import(name="analysisId", required=true)
     private String analysisId;
 
-    /**
-     * @return Identifier for the analysis.
-     * 
-     */
     public String analysisId() {
         return this.analysisId;
     }
@@ -38,17 +30,9 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,12 +71,6 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
             $ = new GetQuicksightAnalysisPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param analysisId Identifier for the analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analysisId(String analysisId) {
             $.analysisId = analysisId;
             return this;
@@ -103,12 +81,6 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataQualityJobDefinitionJobResources {
-    /**
-     * @return The configuration for the cluster resources used to run the processing job. Fields are documented below.
-     * 
-     */
     private DataQualityJobDefinitionJobResourcesClusterConfig clusterConfig;
 
     private DataQualityJobDefinitionJobResources() {}
-    /**
-     * @return The configuration for the cluster resources used to run the processing job. Fields are documented below.
-     * 
-     */
     public DataQualityJobDefinitionJobResourcesClusterConfig clusterConfig() {
         return this.clusterConfig;
     }

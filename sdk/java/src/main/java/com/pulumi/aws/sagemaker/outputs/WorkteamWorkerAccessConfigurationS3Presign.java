@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkteamWorkerAccessConfigurationS3Presign {
-    /**
-     * @return Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-     * 
-     */
     private @Nullable WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints iamPolicyConstraints;
 
     private WorkteamWorkerAccessConfigurationS3Presign() {}
-    /**
-     * @return Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-     * 
-     */
     public Optional<WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints> iamPolicyConstraints() {
         return Optional.ofNullable(this.iamPolicyConstraints);
     }

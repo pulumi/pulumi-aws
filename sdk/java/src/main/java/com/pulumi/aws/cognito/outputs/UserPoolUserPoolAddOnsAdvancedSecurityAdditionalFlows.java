@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows {
-    /**
-     * @return Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-     * 
-     */
     private @Nullable String customAuthMode;
 
     private UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows() {}
-    /**
-     * @return Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-     * 
-     */
     public Optional<String> customAuthMode() {
         return Optional.ofNullable(this.customAuthMode);
     }

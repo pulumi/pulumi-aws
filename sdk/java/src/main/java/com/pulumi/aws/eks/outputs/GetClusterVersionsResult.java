@@ -15,15 +15,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterVersionsResult {
-    /**
-     * @return Type of cluster that the version belongs to.
-     * 
-     */
     private @Nullable String clusterType;
-    /**
-     * @return A list of Kubernetes version information.
-     * 
-     */
     private List<GetClusterVersionsClusterVersion> clusterVersions;
     private @Nullable List<String> clusterVersionsOnlies;
     private @Nullable Boolean defaultOnly;
@@ -34,24 +26,12 @@ public final class GetClusterVersionsResult {
     private String id;
     private @Nullable Boolean includeAll;
     private String region;
-    /**
-     * @return Status of the EKS cluster version.
-     * 
-     */
     private @Nullable String versionStatus;
 
     private GetClusterVersionsResult() {}
-    /**
-     * @return Type of cluster that the version belongs to.
-     * 
-     */
     public Optional<String> clusterType() {
         return Optional.ofNullable(this.clusterType);
     }
-    /**
-     * @return A list of Kubernetes version information.
-     * 
-     */
     public List<GetClusterVersionsClusterVersion> clusterVersions() {
         return this.clusterVersions;
     }
@@ -74,10 +54,6 @@ public final class GetClusterVersionsResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the EKS cluster version.
-     * 
-     */
     public Optional<String> versionStatus() {
         return Optional.ofNullable(this.versionStatus);
     }

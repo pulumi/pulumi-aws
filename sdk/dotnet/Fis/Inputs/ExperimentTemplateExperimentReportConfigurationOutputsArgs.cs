@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Fis.Inputs
 
     public sealed class ExperimentTemplateExperimentReportConfigurationOutputsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The data sources for the experiment report. See below.
-        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs>? S3Configuration { get; set; }
 

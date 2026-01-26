@@ -14,32 +14,16 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
 
     public static final ServiceNetworkResourceAssociationDnsEntryArgs Empty = new ServiceNetworkResourceAssociationDnsEntryArgs();
 
-    /**
-     * The domain name of the association in the service network.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return The domain name of the association in the service network.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * The ID of the hosted zone containing the domain name.
-     * 
-     */
     @Import(name="hostedZoneId", required=true)
     private Output<String> hostedZoneId;
 
-    /**
-     * @return The ID of the hosted zone containing the domain name.
-     * 
-     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
@@ -69,44 +53,20 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
             $ = new ServiceNetworkResourceAssociationDnsEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName The domain name of the association in the service network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The domain name of the association in the service network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param hostedZoneId The ID of the hosted zone containing the domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(Output<String> hostedZoneId) {
             $.hostedZoneId = hostedZoneId;
             return this;
         }
 
-        /**
-         * @param hostedZoneId The ID of the hosted zone containing the domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
         }

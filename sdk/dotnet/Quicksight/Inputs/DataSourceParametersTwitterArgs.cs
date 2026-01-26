@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceParametersTwitterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum number of rows to query.
-        /// </summary>
         [Input("maxRows", required: true)]
         public Input<int> MaxRows { get; set; } = null!;
 
-        /// <summary>
-        /// The Twitter query to retrieve the data.
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

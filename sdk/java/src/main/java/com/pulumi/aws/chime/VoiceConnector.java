@@ -16,168 +16,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new VoiceConnector("test", VoiceConnectorArgs.builder()
- *             .name("connector-test-1")
- *             .requireEncryption(true)
- *             .awsRegion("us-east-1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Configuration Recorder using the name. For example:
- * 
- * ```sh
- * $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
- * ```
- * 
- */
 @ResourceType(type="aws:chime/voiceConnector:VoiceConnector")
 public class VoiceConnector extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     @Export(name="awsRegion", refs={String.class}, tree="[0]")
     private Output<String> awsRegion;
 
-    /**
-     * @return The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     public Output<String> awsRegion() {
         return this.awsRegion;
     }
-    /**
-     * The name of the Amazon Chime Voice Connector.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Amazon Chime Voice Connector.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The outbound host name for the Amazon Chime Voice Connector.
-     * 
-     */
     @Export(name="outboundHostName", refs={String.class}, tree="[0]")
     private Output<String> outboundHostName;
 
-    /**
-     * @return The outbound host name for the Amazon Chime Voice Connector.
-     * 
-     */
     public Output<String> outboundHostName() {
         return this.outboundHostName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="requireEncryption", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireEncryption;
 
-    /**
-     * @return When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Boolean> requireEncryption() {
         return this.requireEncryption;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

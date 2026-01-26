@@ -16,197 +16,93 @@ public final class PrimaryContactArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final PrimaryContactArgs Empty = new PrimaryContactArgs();
 
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The first line of the primary contact address.
-     * 
-     */
     @Import(name="addressLine1", required=true)
     private Output<String> addressLine1;
 
-    /**
-     * @return The first line of the primary contact address.
-     * 
-     */
     public Output<String> addressLine1() {
         return this.addressLine1;
     }
 
-    /**
-     * The second line of the primary contact address, if any.
-     * 
-     */
     @Import(name="addressLine2")
     private @Nullable Output<String> addressLine2;
 
-    /**
-     * @return The second line of the primary contact address, if any.
-     * 
-     */
     public Optional<Output<String>> addressLine2() {
         return Optional.ofNullable(this.addressLine2);
     }
 
-    /**
-     * The third line of the primary contact address, if any.
-     * 
-     */
     @Import(name="addressLine3")
     private @Nullable Output<String> addressLine3;
 
-    /**
-     * @return The third line of the primary contact address, if any.
-     * 
-     */
     public Optional<Output<String>> addressLine3() {
         return Optional.ofNullable(this.addressLine3);
     }
 
-    /**
-     * The city of the primary contact address.
-     * 
-     */
     @Import(name="city", required=true)
     private Output<String> city;
 
-    /**
-     * @return The city of the primary contact address.
-     * 
-     */
     public Output<String> city() {
         return this.city;
     }
 
-    /**
-     * The name of the company associated with the primary contact information, if any.
-     * 
-     */
     @Import(name="companyName")
     private @Nullable Output<String> companyName;
 
-    /**
-     * @return The name of the company associated with the primary contact information, if any.
-     * 
-     */
     public Optional<Output<String>> companyName() {
         return Optional.ofNullable(this.companyName);
     }
 
-    /**
-     * The ISO-3166 two-letter country code for the primary contact address.
-     * 
-     */
     @Import(name="countryCode", required=true)
     private Output<String> countryCode;
 
-    /**
-     * @return The ISO-3166 two-letter country code for the primary contact address.
-     * 
-     */
     public Output<String> countryCode() {
         return this.countryCode;
     }
 
-    /**
-     * The district or county of the primary contact address, if any.
-     * 
-     */
     @Import(name="districtOrCounty")
     private @Nullable Output<String> districtOrCounty;
 
-    /**
-     * @return The district or county of the primary contact address, if any.
-     * 
-     */
     public Optional<Output<String>> districtOrCounty() {
         return Optional.ofNullable(this.districtOrCounty);
     }
 
-    /**
-     * The full name of the primary contact address.
-     * 
-     */
     @Import(name="fullName", required=true)
     private Output<String> fullName;
 
-    /**
-     * @return The full name of the primary contact address.
-     * 
-     */
     public Output<String> fullName() {
         return this.fullName;
     }
 
-    /**
-     * The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-     * 
-     */
     @Import(name="phoneNumber", required=true)
     private Output<String> phoneNumber;
 
-    /**
-     * @return The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-     * 
-     */
     public Output<String> phoneNumber() {
         return this.phoneNumber;
     }
 
-    /**
-     * The postal code of the primary contact address.
-     * 
-     */
     @Import(name="postalCode", required=true)
     private Output<String> postalCode;
 
-    /**
-     * @return The postal code of the primary contact address.
-     * 
-     */
     public Output<String> postalCode() {
         return this.postalCode;
     }
 
-    /**
-     * The state or region of the primary contact address. This field is required in selected countries.
-     * 
-     */
     @Import(name="stateOrRegion")
     private @Nullable Output<String> stateOrRegion;
 
-    /**
-     * @return The state or region of the primary contact address. This field is required in selected countries.
-     * 
-     */
     public Optional<Output<String>> stateOrRegion() {
         return Optional.ofNullable(this.stateOrRegion);
     }
 
-    /**
-     * The URL of the website associated with the primary contact information, if any.
-     * 
-     */
     @Import(name="websiteUrl")
     private @Nullable Output<String> websiteUrl;
 
-    /**
-     * @return The URL of the website associated with the primary contact information, if any.
-     * 
-     */
     public Optional<Output<String>> websiteUrl() {
         return Optional.ofNullable(this.websiteUrl);
     }
@@ -247,275 +143,119 @@ public final class PrimaryContactArgs extends com.pulumi.resources.ResourceArgs 
             $ = new PrimaryContactArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param addressLine1 The first line of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressLine1(Output<String> addressLine1) {
             $.addressLine1 = addressLine1;
             return this;
         }
 
-        /**
-         * @param addressLine1 The first line of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressLine1(String addressLine1) {
             return addressLine1(Output.of(addressLine1));
         }
 
-        /**
-         * @param addressLine2 The second line of the primary contact address, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressLine2(@Nullable Output<String> addressLine2) {
             $.addressLine2 = addressLine2;
             return this;
         }
 
-        /**
-         * @param addressLine2 The second line of the primary contact address, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressLine2(String addressLine2) {
             return addressLine2(Output.of(addressLine2));
         }
 
-        /**
-         * @param addressLine3 The third line of the primary contact address, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressLine3(@Nullable Output<String> addressLine3) {
             $.addressLine3 = addressLine3;
             return this;
         }
 
-        /**
-         * @param addressLine3 The third line of the primary contact address, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressLine3(String addressLine3) {
             return addressLine3(Output.of(addressLine3));
         }
 
-        /**
-         * @param city The city of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder city(Output<String> city) {
             $.city = city;
             return this;
         }
 
-        /**
-         * @param city The city of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder city(String city) {
             return city(Output.of(city));
         }
 
-        /**
-         * @param companyName The name of the company associated with the primary contact information, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder companyName(@Nullable Output<String> companyName) {
             $.companyName = companyName;
             return this;
         }
 
-        /**
-         * @param companyName The name of the company associated with the primary contact information, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder companyName(String companyName) {
             return companyName(Output.of(companyName));
         }
 
-        /**
-         * @param countryCode The ISO-3166 two-letter country code for the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countryCode(Output<String> countryCode) {
             $.countryCode = countryCode;
             return this;
         }
 
-        /**
-         * @param countryCode The ISO-3166 two-letter country code for the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countryCode(String countryCode) {
             return countryCode(Output.of(countryCode));
         }
 
-        /**
-         * @param districtOrCounty The district or county of the primary contact address, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder districtOrCounty(@Nullable Output<String> districtOrCounty) {
             $.districtOrCounty = districtOrCounty;
             return this;
         }
 
-        /**
-         * @param districtOrCounty The district or county of the primary contact address, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder districtOrCounty(String districtOrCounty) {
             return districtOrCounty(Output.of(districtOrCounty));
         }
 
-        /**
-         * @param fullName The full name of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullName(Output<String> fullName) {
             $.fullName = fullName;
             return this;
         }
 
-        /**
-         * @param fullName The full name of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullName(String fullName) {
             return fullName(Output.of(fullName));
         }
 
-        /**
-         * @param phoneNumber The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(Output<String> phoneNumber) {
             $.phoneNumber = phoneNumber;
             return this;
         }
 
-        /**
-         * @param phoneNumber The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(String phoneNumber) {
             return phoneNumber(Output.of(phoneNumber));
         }
 
-        /**
-         * @param postalCode The postal code of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postalCode(Output<String> postalCode) {
             $.postalCode = postalCode;
             return this;
         }
 
-        /**
-         * @param postalCode The postal code of the primary contact address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postalCode(String postalCode) {
             return postalCode(Output.of(postalCode));
         }
 
-        /**
-         * @param stateOrRegion The state or region of the primary contact address. This field is required in selected countries.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateOrRegion(@Nullable Output<String> stateOrRegion) {
             $.stateOrRegion = stateOrRegion;
             return this;
         }
 
-        /**
-         * @param stateOrRegion The state or region of the primary contact address. This field is required in selected countries.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateOrRegion(String stateOrRegion) {
             return stateOrRegion(Output.of(stateOrRegion));
         }
 
-        /**
-         * @param websiteUrl The URL of the website associated with the primary contact information, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder websiteUrl(@Nullable Output<String> websiteUrl) {
             $.websiteUrl = websiteUrl;
             return this;
         }
 
-        /**
-         * @param websiteUrl The URL of the website associated with the primary contact information, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder websiteUrl(String websiteUrl) {
             return websiteUrl(Output.of(websiteUrl));
         }

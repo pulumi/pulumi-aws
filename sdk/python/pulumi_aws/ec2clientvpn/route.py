@@ -26,11 +26,6 @@ class RouteArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        :param pulumi.Input[_builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        :param pulumi.Input[_builtins.str] description: A brief description of the route.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -43,9 +38,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Client VPN endpoint.
-        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @client_vpn_endpoint_id.setter
@@ -55,9 +47,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -67,9 +56,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="targetVpcSubnetId")
     def target_vpc_subnet_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        """
         return pulumi.get(self, "target_vpc_subnet_id")
 
     @target_vpc_subnet_id.setter
@@ -79,9 +65,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A brief description of the route.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -91,9 +74,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,13 +93,6 @@ class _RouteState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] description: A brief description of the route.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        :param pulumi.Input[_builtins.str] origin: Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        :param pulumi.Input[_builtins.str] type: The type of the route.
         """
         if client_vpn_endpoint_id is not None:
             pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
@@ -139,9 +112,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Client VPN endpoint.
-        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @client_vpn_endpoint_id.setter
@@ -151,9 +121,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A brief description of the route.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -163,9 +130,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -175,9 +139,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter
     def origin(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-        """
         return pulumi.get(self, "origin")
 
     @origin.setter
@@ -187,9 +148,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -199,9 +157,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="targetVpcSubnetId")
     def target_vpc_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        """
         return pulumi.get(self, "target_vpc_subnet_id")
 
     @target_vpc_subnet_id.setter
@@ -211,9 +166,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the route.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -234,50 +186,9 @@ class Route(pulumi.CustomResource):
                  target_vpc_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
-        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_endpoint = aws.ec2clientvpn.Endpoint("example",
-            description="Example Client VPN endpoint",
-            server_certificate_arn=example_aws_acm_certificate["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[{
-                "type": "certificate-authentication",
-                "root_certificate_chain_arn": example_aws_acm_certificate["arn"],
-            }],
-            connection_log_options={
-                "enabled": False,
-            })
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
-            client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=example_aws_subnet["id"])
-        example = aws.ec2clientvpn.Route("example",
-            client_vpn_endpoint_id=example_endpoint.id,
-            destination_cidr_block="0.0.0.0/0",
-            target_vpc_subnet_id=example_network_association.subnet_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
-        ```
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] description: A brief description of the route.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         """
         ...
     @overload
@@ -286,43 +197,7 @@ class Route(pulumi.CustomResource):
                  args: RouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
-        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_endpoint = aws.ec2clientvpn.Endpoint("example",
-            description="Example Client VPN endpoint",
-            server_certificate_arn=example_aws_acm_certificate["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[{
-                "type": "certificate-authentication",
-                "root_certificate_chain_arn": example_aws_acm_certificate["arn"],
-            }],
-            connection_log_options={
-                "enabled": False,
-            })
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
-            client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=example_aws_subnet["id"])
-        example = aws.ec2clientvpn.Route("example",
-            client_vpn_endpoint_id=example_endpoint.id,
-            destination_cidr_block="0.0.0.0/0",
-            target_vpc_subnet_id=example_network_association.subnet_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
-        ```
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -389,13 +264,6 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] description: A brief description of the route.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        :param pulumi.Input[_builtins.str] origin: Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        :param pulumi.Input[_builtins.str] type: The type of the route.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -413,56 +281,35 @@ class Route(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Client VPN endpoint.
-        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A brief description of the route.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @_builtins.property
     @pulumi.getter
     def origin(self) -> pulumi.Output[_builtins.str]:
-        """
-        Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-        """
         return pulumi.get(self, "origin")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="targetVpcSubnetId")
     def target_vpc_subnet_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        """
         return pulumi.get(self, "target_vpc_subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the route.
-        """
         return pulumi.get(self, "type")
 

@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetStatus {
-    /**
-     * @return Additional information about a compute fleet.
-     * 
-     */
     private @Nullable String context;
-    /**
-     * @return Message associated with the status of a compute fleet.
-     * 
-     */
     private @Nullable String message;
-    /**
-     * @return Status code of the compute fleet.
-     * 
-     */
     private @Nullable String statusCode;
 
     private FleetStatus() {}
-    /**
-     * @return Additional information about a compute fleet.
-     * 
-     */
     public Optional<String> context() {
         return Optional.ofNullable(this.context);
     }
-    /**
-     * @return Message associated with the status of a compute fleet.
-     * 
-     */
     public Optional<String> message() {
         return Optional.ofNullable(this.message);
     }
-    /**
-     * @return Status code of the compute fleet.
-     * 
-     */
     public Optional<String> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }

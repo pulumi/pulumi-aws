@@ -12,61 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: example.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
-//
-// ```sh
-// $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
-// ```
 type BucketOwnershipControls struct {
 	pulumi.CustomResourceState
 
-	// Name of the bucket that you want to associate this access point with.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRuleOutput `pulumi:"rule"`
+	Bucket pulumi.StringOutput               `pulumi:"bucket"`
+	Region pulumi.StringOutput               `pulumi:"region"`
+	Rule   BucketOwnershipControlsRuleOutput `pulumi:"rule"`
 }
 
 // NewBucketOwnershipControls registers a new resource with the given unique name, arguments, and options.
@@ -105,21 +56,15 @@ func GetBucketOwnershipControls(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketOwnershipControls resources.
 type bucketOwnershipControlsState struct {
-	// Name of the bucket that you want to associate this access point with.
-	Bucket *string `pulumi:"bucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule *BucketOwnershipControlsRule `pulumi:"rule"`
+	Bucket *string                      `pulumi:"bucket"`
+	Region *string                      `pulumi:"region"`
+	Rule   *BucketOwnershipControlsRule `pulumi:"rule"`
 }
 
 type BucketOwnershipControlsState struct {
-	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRulePtrInput
+	Rule   BucketOwnershipControlsRulePtrInput
 }
 
 func (BucketOwnershipControlsState) ElementType() reflect.Type {
@@ -127,22 +72,16 @@ func (BucketOwnershipControlsState) ElementType() reflect.Type {
 }
 
 type bucketOwnershipControlsArgs struct {
-	// Name of the bucket that you want to associate this access point with.
-	Bucket string `pulumi:"bucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRule `pulumi:"rule"`
+	Bucket string                      `pulumi:"bucket"`
+	Region *string                     `pulumi:"region"`
+	Rule   BucketOwnershipControlsRule `pulumi:"rule"`
 }
 
 // The set of arguments for constructing a BucketOwnershipControls resource.
 type BucketOwnershipControlsArgs struct {
-	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRuleInput
+	Rule   BucketOwnershipControlsRuleInput
 }
 
 func (BucketOwnershipControlsArgs) ElementType() reflect.Type {
@@ -232,17 +171,14 @@ func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContex
 	return o
 }
 
-// Name of the bucket that you want to associate this access point with.
 func (o BucketOwnershipControlsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketOwnershipControlsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block(s) with Ownership Controls rules. Detailed below.
 func (o BucketOwnershipControlsOutput) Rule() BucketOwnershipControlsRuleOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) BucketOwnershipControlsRuleOutput { return v.Rule }).(BucketOwnershipControlsRuleOutput)
 }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCount {
-    /**
-     * @return Custom handling for counted requests. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandling customRequestHandling;
 
     private WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCount() {}
-    /**
-     * @return Custom handling for counted requests. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandling> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }

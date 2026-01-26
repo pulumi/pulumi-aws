@@ -14,32 +14,16 @@ public final class VoiceConnectorTerminationCredentialsCredentialArgs extends co
 
     public static final VoiceConnectorTerminationCredentialsCredentialArgs Empty = new VoiceConnectorTerminationCredentialsCredentialArgs();
 
-    /**
-     * RFC2617 compliant password associated with the SIP credentials.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return RFC2617 compliant password associated with the SIP credentials.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * RFC2617 compliant username associated with the SIP credentials.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return RFC2617 compliant username associated with the SIP credentials.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -69,44 +53,20 @@ public final class VoiceConnectorTerminationCredentialsCredentialArgs extends co
             $ = new VoiceConnectorTerminationCredentialsCredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param password RFC2617 compliant password associated with the SIP credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password RFC2617 compliant password associated with the SIP credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param username RFC2617 compliant username associated with the SIP credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username RFC2617 compliant username associated with the SIP credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

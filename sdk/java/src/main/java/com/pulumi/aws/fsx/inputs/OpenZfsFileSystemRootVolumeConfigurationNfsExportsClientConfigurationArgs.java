@@ -15,32 +15,16 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
 
     public static final OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs Empty = new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs();
 
-    /**
-     * A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-     * 
-     */
     @Import(name="clients", required=true)
     private Output<String> clients;
 
-    /**
-     * @return A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-     * 
-     */
     public Output<String> clients() {
         return this.clients;
     }
 
-    /**
-     * The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
-     * 
-     */
     @Import(name="options", required=true)
     private Output<List<String>> options;
 
-    /**
-     * @return The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
-     * 
-     */
     public Output<List<String>> options() {
         return this.options;
     }
@@ -70,54 +54,24 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
             $ = new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clients A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clients(Output<String> clients) {
             $.clients = clients;
             return this;
         }
 
-        /**
-         * @param clients A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clients(String clients) {
             return clients(Output.of(clients));
         }
 
-        /**
-         * @param options The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(Output<List<String>> options) {
             $.options = options;
             return this;
         }
 
-        /**
-         * @param options The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(List<String> options) {
             return options(Output.of(options));
         }
 
-        /**
-         * @param options The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(String... options) {
             return options(List.of(options));
         }

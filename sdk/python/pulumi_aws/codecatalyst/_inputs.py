@@ -30,13 +30,7 @@ MYPY = False
 if not MYPY:
     class DevEnvironmentIdesArgsDict(TypedDict):
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-        """
         runtime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
-        """
 elif False:
     DevEnvironmentIdesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -45,10 +39,6 @@ class DevEnvironmentIdesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  runtime: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-        :param pulumi.Input[_builtins.str] runtime: A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if runtime is not None:
@@ -57,9 +47,6 @@ class DevEnvironmentIdesArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -69,9 +56,6 @@ class DevEnvironmentIdesArgs:
     @_builtins.property
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
-        """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
@@ -82,9 +66,6 @@ class DevEnvironmentIdesArgs:
 if not MYPY:
     class DevEnvironmentPersistentStorageArgsDict(TypedDict):
         size: pulumi.Input[_builtins.int]
-        """
-        The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-        """
 elif False:
     DevEnvironmentPersistentStorageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -92,17 +73,11 @@ elif False:
 class DevEnvironmentPersistentStorageArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] size: The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-        """
         pulumi.set(__self__, "size", size)
 
     @_builtins.property
     @pulumi.getter
     def size(self) -> pulumi.Input[_builtins.int]:
-        """
-        The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -113,15 +88,7 @@ class DevEnvironmentPersistentStorageArgs:
 if not MYPY:
     class DevEnvironmentRepositoryArgsDict(TypedDict):
         repository_name: pulumi.Input[_builtins.str]
-        """
-        The name of the source repository.
-        """
         branch_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the branch in a source repository.
-
-        persistent storage (` persistent_storage`) supports the following:
-        """
 elif False:
     DevEnvironmentRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -130,12 +97,6 @@ class DevEnvironmentRepositoryArgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[_builtins.str],
                  branch_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] repository_name: The name of the source repository.
-        :param pulumi.Input[_builtins.str] branch_name: The name of the branch in a source repository.
-               
-               persistent storage (` persistent_storage`) supports the following:
-        """
         pulumi.set(__self__, "repository_name", repository_name)
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
@@ -143,9 +104,6 @@ class DevEnvironmentRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the source repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -155,11 +113,6 @@ class DevEnvironmentRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the branch in a source repository.
-
-        persistent storage (` persistent_storage`) supports the following:
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter

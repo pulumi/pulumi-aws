@@ -12,76 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a firewall endpoint for an AWS Network Firewall firewall.
-//
-// Use `networkfirewall.VpcEndpointAssociation` to establish new firewall endpoints in any Availability Zone where the firewall is already being used. The first use of a firewall in an Availability Zone must be defined by `networkfirewall.Firewall` resource and `subnetMapping` argument.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewVpcEndpointAssociation(ctx, "example", &networkfirewall.VpcEndpointAssociationArgs{
-//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
-//				VpcId:       pulumi.Any(exampleAwsVpc.Id),
-//				SubnetMapping: &networkfirewall.VpcEndpointAssociationSubnetMappingArgs{
-//					SubnetId: pulumi.Any(exampleAwsSubnet.Id),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example endpoint"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Firewall VPC Endpoint Association using the `vpc_endpoint_association_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation example arn:aws:network-firewall:us-west-1:123456789012:vpc-endpoint-association/example
-// ```
 type VpcEndpointAssociation struct {
 	pulumi.CustomResourceState
 
-	// A description of the VPC endpoint association.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) that identifies the firewall.
-	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-	SubnetMapping VpcEndpointAssociationSubnetMappingPtrOutput `pulumi:"subnetMapping"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                  `pulumi:"tagsAll"`
-	Timeouts VpcEndpointAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// ARN of the VPC Endpoint Association.
-	VpcEndpointAssociationArn pulumi.StringOutput `pulumi:"vpcEndpointAssociationArn"`
-	// The unique identifier of the VPC endpoint association.
-	VpcEndpointAssociationId pulumi.StringOutput `pulumi:"vpcEndpointAssociationId"`
-	// Nested list of information about the current status of the VPC Endpoint Association.
+	Description                    pulumi.StringPtrOutput                                        `pulumi:"description"`
+	FirewallArn                    pulumi.StringOutput                                           `pulumi:"firewallArn"`
+	Region                         pulumi.StringOutput                                           `pulumi:"region"`
+	SubnetMapping                  VpcEndpointAssociationSubnetMappingPtrOutput                  `pulumi:"subnetMapping"`
+	Tags                           pulumi.StringMapOutput                                        `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput                                        `pulumi:"tagsAll"`
+	Timeouts                       VpcEndpointAssociationTimeoutsPtrOutput                       `pulumi:"timeouts"`
+	VpcEndpointAssociationArn      pulumi.StringOutput                                           `pulumi:"vpcEndpointAssociationArn"`
+	VpcEndpointAssociationId       pulumi.StringOutput                                           `pulumi:"vpcEndpointAssociationId"`
 	VpcEndpointAssociationStatuses VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput `pulumi:"vpcEndpointAssociationStatuses"`
-	// The unique identifier of the VPC for the endpoint association.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId                          pulumi.StringOutput                                           `pulumi:"vpcId"`
 }
 
 // NewVpcEndpointAssociation registers a new resource with the given unique name, arguments, and options.
@@ -120,51 +64,31 @@ func GetVpcEndpointAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointAssociation resources.
 type vpcEndpointAssociationState struct {
-	// A description of the VPC endpoint association.
-	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) that identifies the firewall.
-	FirewallArn *string `pulumi:"firewallArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-	SubnetMapping *VpcEndpointAssociationSubnetMapping `pulumi:"subnetMapping"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string               `pulumi:"tagsAll"`
-	Timeouts *VpcEndpointAssociationTimeouts `pulumi:"timeouts"`
-	// ARN of the VPC Endpoint Association.
-	VpcEndpointAssociationArn *string `pulumi:"vpcEndpointAssociationArn"`
-	// The unique identifier of the VPC endpoint association.
-	VpcEndpointAssociationId *string `pulumi:"vpcEndpointAssociationId"`
-	// Nested list of information about the current status of the VPC Endpoint Association.
+	Description                    *string                                              `pulumi:"description"`
+	FirewallArn                    *string                                              `pulumi:"firewallArn"`
+	Region                         *string                                              `pulumi:"region"`
+	SubnetMapping                  *VpcEndpointAssociationSubnetMapping                 `pulumi:"subnetMapping"`
+	Tags                           map[string]string                                    `pulumi:"tags"`
+	TagsAll                        map[string]string                                    `pulumi:"tagsAll"`
+	Timeouts                       *VpcEndpointAssociationTimeouts                      `pulumi:"timeouts"`
+	VpcEndpointAssociationArn      *string                                              `pulumi:"vpcEndpointAssociationArn"`
+	VpcEndpointAssociationId       *string                                              `pulumi:"vpcEndpointAssociationId"`
 	VpcEndpointAssociationStatuses []VpcEndpointAssociationVpcEndpointAssociationStatus `pulumi:"vpcEndpointAssociationStatuses"`
-	// The unique identifier of the VPC for the endpoint association.
-	VpcId *string `pulumi:"vpcId"`
+	VpcId                          *string                                              `pulumi:"vpcId"`
 }
 
 type VpcEndpointAssociationState struct {
-	// A description of the VPC endpoint association.
-	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that identifies the firewall.
-	FirewallArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-	SubnetMapping VpcEndpointAssociationSubnetMappingPtrInput
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts VpcEndpointAssociationTimeoutsPtrInput
-	// ARN of the VPC Endpoint Association.
-	VpcEndpointAssociationArn pulumi.StringPtrInput
-	// The unique identifier of the VPC endpoint association.
-	VpcEndpointAssociationId pulumi.StringPtrInput
-	// Nested list of information about the current status of the VPC Endpoint Association.
+	Description                    pulumi.StringPtrInput
+	FirewallArn                    pulumi.StringPtrInput
+	Region                         pulumi.StringPtrInput
+	SubnetMapping                  VpcEndpointAssociationSubnetMappingPtrInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
+	Timeouts                       VpcEndpointAssociationTimeoutsPtrInput
+	VpcEndpointAssociationArn      pulumi.StringPtrInput
+	VpcEndpointAssociationId       pulumi.StringPtrInput
 	VpcEndpointAssociationStatuses VpcEndpointAssociationVpcEndpointAssociationStatusArrayInput
-	// The unique identifier of the VPC for the endpoint association.
-	VpcId pulumi.StringPtrInput
+	VpcId                          pulumi.StringPtrInput
 }
 
 func (VpcEndpointAssociationState) ElementType() reflect.Type {
@@ -172,36 +96,24 @@ func (VpcEndpointAssociationState) ElementType() reflect.Type {
 }
 
 type vpcEndpointAssociationArgs struct {
-	// A description of the VPC endpoint association.
-	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) that identifies the firewall.
-	FirewallArn string `pulumi:"firewallArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
+	Description   *string                              `pulumi:"description"`
+	FirewallArn   string                               `pulumi:"firewallArn"`
+	Region        *string                              `pulumi:"region"`
 	SubnetMapping *VpcEndpointAssociationSubnetMapping `pulumi:"subnetMapping"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string               `pulumi:"tags"`
-	Timeouts *VpcEndpointAssociationTimeouts `pulumi:"timeouts"`
-	// The unique identifier of the VPC for the endpoint association.
-	VpcId string `pulumi:"vpcId"`
+	Tags          map[string]string                    `pulumi:"tags"`
+	Timeouts      *VpcEndpointAssociationTimeouts      `pulumi:"timeouts"`
+	VpcId         string                               `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpcEndpointAssociation resource.
 type VpcEndpointAssociationArgs struct {
-	// A description of the VPC endpoint association.
-	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that identifies the firewall.
-	FirewallArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
+	Description   pulumi.StringPtrInput
+	FirewallArn   pulumi.StringInput
+	Region        pulumi.StringPtrInput
 	SubnetMapping VpcEndpointAssociationSubnetMappingPtrInput
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts VpcEndpointAssociationTimeoutsPtrInput
-	// The unique identifier of the VPC for the endpoint association.
-	VpcId pulumi.StringInput
+	Tags          pulumi.StringMapInput
+	Timeouts      VpcEndpointAssociationTimeoutsPtrInput
+	VpcId         pulumi.StringInput
 }
 
 func (VpcEndpointAssociationArgs) ElementType() reflect.Type {
@@ -291,32 +203,26 @@ func (o VpcEndpointAssociationOutput) ToVpcEndpointAssociationOutputWithContext(
 	return o
 }
 
-// A description of the VPC endpoint association.
 func (o VpcEndpointAssociationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that identifies the firewall.
 func (o VpcEndpointAssociationOutput) FirewallArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
 func (o VpcEndpointAssociationOutput) SubnetMapping() VpcEndpointAssociationSubnetMappingPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) VpcEndpointAssociationSubnetMappingPtrOutput { return v.SubnetMapping }).(VpcEndpointAssociationSubnetMappingPtrOutput)
 }
 
-// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcEndpointAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcEndpointAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -325,24 +231,20 @@ func (o VpcEndpointAssociationOutput) Timeouts() VpcEndpointAssociationTimeoutsP
 	return o.ApplyT(func(v *VpcEndpointAssociation) VpcEndpointAssociationTimeoutsPtrOutput { return v.Timeouts }).(VpcEndpointAssociationTimeoutsPtrOutput)
 }
 
-// ARN of the VPC Endpoint Association.
 func (o VpcEndpointAssociationOutput) VpcEndpointAssociationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringOutput { return v.VpcEndpointAssociationArn }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the VPC endpoint association.
 func (o VpcEndpointAssociationOutput) VpcEndpointAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringOutput { return v.VpcEndpointAssociationId }).(pulumi.StringOutput)
 }
 
-// Nested list of information about the current status of the VPC Endpoint Association.
 func (o VpcEndpointAssociationOutput) VpcEndpointAssociationStatuses() VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput {
 		return v.VpcEndpointAssociationStatuses
 	}).(VpcEndpointAssociationVpcEndpointAssociationStatusArrayOutput)
 }
 
-// The unique identifier of the VPC for the endpoint association.
 func (o VpcEndpointAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

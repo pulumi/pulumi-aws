@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreAgentRuntimeNetworkConfiguration
     {
-        /// <summary>
-        /// Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-        /// </summary>
         public readonly string NetworkMode;
-        /// <summary>
-        /// Network mode configuration. See `NetworkModeConfig` below.
-        /// </summary>
         public readonly Outputs.AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig? NetworkModeConfig;
 
         [OutputConstructor]

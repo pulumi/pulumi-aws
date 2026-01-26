@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule
     {
-        /// <summary>
-        /// Configuration for an issue detection rule.
-        /// </summary>
         public readonly Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration? IssueDetectionConfiguration;
-        /// <summary>
-        /// Configuration for a keyword match rule.
-        /// </summary>
         public readonly Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration? KeywordMatchConfiguration;
-        /// <summary>
-        /// Configuration for a sentiment rule.
-        /// </summary>
         public readonly Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration? SentimentConfiguration;
-        /// <summary>
-        /// Rule type.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

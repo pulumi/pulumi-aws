@@ -18,10 +18,6 @@ public final class GetResourceResult {
      */
     private String id;
     private String identifier;
-    /**
-     * @return JSON string matching the CloudFormation resource type schema with current configuration.
-     * 
-     */
     private String properties;
     private String region;
     private @Nullable String roleArn;
@@ -39,10 +35,6 @@ public final class GetResourceResult {
     public String identifier() {
         return this.identifier;
     }
-    /**
-     * @return JSON string matching the CloudFormation resource type schema with current configuration.
-     * 
-     */
     public String properties() {
         return this.properties;
     }

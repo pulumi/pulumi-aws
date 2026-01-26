@@ -18,32 +18,16 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs();
 
-    /**
-     * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
-     * 
-     */
     @Import(name="patternObjectFilters")
     private @Nullable Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs>> patternObjectFilters;
 
-    /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
-     * 
-     */
     public Optional<Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs>>> patternObjectFilters() {
         return Optional.ofNullable(this.patternObjectFilters);
     }
 
-    /**
-     * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -73,54 +57,24 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
             $ = new AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param patternObjectFilters The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternObjectFilters(@Nullable Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs>> patternObjectFilters) {
             $.patternObjectFilters = patternObjectFilters;
             return this;
         }
 
-        /**
-         * @param patternObjectFilters The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternObjectFilters(List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs> patternObjectFilters) {
             return patternObjectFilters(Output.of(patternObjectFilters));
         }
 
-        /**
-         * @param patternObjectFilters The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternObjectFilters(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs... patternObjectFilters) {
             return patternObjectFilters(List.of(patternObjectFilters));
         }
 
-        /**
-         * @param type The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

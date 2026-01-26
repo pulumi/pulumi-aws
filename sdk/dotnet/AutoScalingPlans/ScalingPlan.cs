@@ -9,231 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AutoScalingPlans
 {
-    /// <summary>
-    /// Manages an AWS Auto Scaling scaling plan.
-    /// More information can be found in the [AWS Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html).
-    /// 
-    /// &gt; **NOTE:** The AWS Auto Scaling service uses an AWS IAM service-linked role to manage predictive scaling of Amazon EC2 Auto Scaling groups. The service attempts to automatically create this role the first time a scaling plan with predictive scaling enabled is created.
-    /// An `aws.iam.ServiceLinkedRole` resource can be used to manually manage this role.
-    /// See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Dynamic Scaling
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke();
-    /// 
-    ///     var example = new Aws.AutoScaling.Group("example", new()
-    ///     {
-    ///         NamePrefix = "example",
-    ///         LaunchConfiguration = exampleAwsLaunchConfiguration.Name,
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         },
-    ///         MinSize = 0,
-    ///         MaxSize = 3,
-    ///         Tags = new[]
-    ///         {
-    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///             {
-    ///                 Key = "application",
-    ///                 Value = "example",
-    ///                 PropagateAtLaunch = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleScalingPlan = new Aws.AutoScalingPlans.ScalingPlan("example", new()
-    ///     {
-    ///         Name = "example-dynamic-cost-optimization",
-    ///         ApplicationSource = new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceArgs
-    ///         {
-    ///             TagFilters = new[]
-    ///             {
-    ///                 new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceTagFilterArgs
-    ///                 {
-    ///                     Key = "application",
-    ///                     Values = new[]
-    ///                     {
-    ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         ScalingInstructions = new[]
-    ///         {
-    ///             new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
-    ///             {
-    ///                 MaxCapacity = 3,
-    ///                 MinCapacity = 0,
-    ///                 ResourceId = Std.Format.Invoke(new()
-    ///                 {
-    ///                     Input = "autoScalingGroup/%s",
-    ///                     Args = new[]
-    ///                     {
-    ///                         example.Name,
-    ///                     },
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
-    ///                 ServiceNamespace = "autoscaling",
-    ///                 TargetTrackingConfigurations = new[]
-    ///                 {
-    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
-    ///                     {
-    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
-    ///                         {
-    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
-    ///                         },
-    ///                         TargetValue = 70,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Basic Predictive Scaling
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke();
-    /// 
-    ///     var example = new Aws.AutoScaling.Group("example", new()
-    ///     {
-    ///         NamePrefix = "example",
-    ///         LaunchConfiguration = exampleAwsLaunchConfiguration.Name,
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         },
-    ///         MinSize = 0,
-    ///         MaxSize = 3,
-    ///         Tags = new[]
-    ///         {
-    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///             {
-    ///                 Key = "application",
-    ///                 Value = "example",
-    ///                 PropagateAtLaunch = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleScalingPlan = new Aws.AutoScalingPlans.ScalingPlan("example", new()
-    ///     {
-    ///         Name = "example-predictive-cost-optimization",
-    ///         ApplicationSource = new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceArgs
-    ///         {
-    ///             TagFilters = new[]
-    ///             {
-    ///                 new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceTagFilterArgs
-    ///                 {
-    ///                     Key = "application",
-    ///                     Values = new[]
-    ///                     {
-    ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         ScalingInstructions = new[]
-    ///         {
-    ///             new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
-    ///             {
-    ///                 DisableDynamicScaling = true,
-    ///                 MaxCapacity = 3,
-    ///                 MinCapacity = 0,
-    ///                 ResourceId = Std.Format.Invoke(new()
-    ///                 {
-    ///                     Input = "autoScalingGroup/%s",
-    ///                     Args = new[]
-    ///                     {
-    ///                         example.Name,
-    ///                     },
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
-    ///                 ServiceNamespace = "autoscaling",
-    ///                 TargetTrackingConfigurations = new[]
-    ///                 {
-    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
-    ///                     {
-    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
-    ///                         {
-    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
-    ///                         },
-    ///                         TargetValue = 70,
-    ///                     },
-    ///                 },
-    ///                 PredictiveScalingMaxCapacityBehavior = "SetForecastCapacityToMaxCapacity",
-    ///                 PredictiveScalingMode = "ForecastAndScale",
-    ///                 PredefinedLoadMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs
-    ///                 {
-    ///                     PredefinedLoadMetricType = "ASGTotalCPUUtilization",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]
     public partial class ScalingPlan : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-        /// </summary>
         [Output("applicationSource")]
         public Output<Outputs.ScalingPlanApplicationSource> ApplicationSource { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
-        /// </summary>
         [Output("scalingInstructions")]
         public Output<ImmutableArray<Outputs.ScalingPlanScalingInstruction>> ScalingInstructions { get; private set; } = null!;
 
-        /// <summary>
-        /// The version number of the scaling plan. This value is always 1.
-        /// </summary>
         [Output("scalingPlanVersion")]
         public Output<int> ScalingPlanVersion { get; private set; } = null!;
 
@@ -283,30 +73,17 @@ namespace Pulumi.Aws.AutoScalingPlans
 
     public sealed class ScalingPlanArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-        /// </summary>
         [Input("applicationSource", required: true)]
         public Input<Inputs.ScalingPlanApplicationSourceArgs> ApplicationSource { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("scalingInstructions", required: true)]
         private InputList<Inputs.ScalingPlanScalingInstructionArgs>? _scalingInstructions;
-
-        /// <summary>
-        /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
-        /// </summary>
         public InputList<Inputs.ScalingPlanScalingInstructionArgs> ScalingInstructions
         {
             get => _scalingInstructions ?? (_scalingInstructions = new InputList<Inputs.ScalingPlanScalingInstructionArgs>());
@@ -321,39 +98,23 @@ namespace Pulumi.Aws.AutoScalingPlans
 
     public sealed class ScalingPlanState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-        /// </summary>
         [Input("applicationSource")]
         public Input<Inputs.ScalingPlanApplicationSourceGetArgs>? ApplicationSource { get; set; }
 
-        /// <summary>
-        /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("scalingInstructions")]
         private InputList<Inputs.ScalingPlanScalingInstructionGetArgs>? _scalingInstructions;
-
-        /// <summary>
-        /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
-        /// </summary>
         public InputList<Inputs.ScalingPlanScalingInstructionGetArgs> ScalingInstructions
         {
             get => _scalingInstructions ?? (_scalingInstructions = new InputList<Inputs.ScalingPlanScalingInstructionGetArgs>());
             set => _scalingInstructions = value;
         }
 
-        /// <summary>
-        /// The version number of the scaling plan. This value is always 1.
-        /// </summary>
         [Input("scalingPlanVersion")]
         public Input<int>? ScalingPlanVersion { get; set; }
 

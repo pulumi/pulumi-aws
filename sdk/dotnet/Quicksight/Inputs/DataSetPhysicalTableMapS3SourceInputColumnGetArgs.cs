@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetPhysicalTableMapS3SourceInputColumnGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of this column in the underlying data source.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Data type of the column.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

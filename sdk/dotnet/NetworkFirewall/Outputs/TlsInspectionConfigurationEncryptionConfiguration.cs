@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class TlsInspectionConfigurationEncryptionConfiguration
     {
-        /// <summary>
-        /// ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-        /// </summary>
         public readonly string KeyId;
-        /// <summary>
-        /// Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

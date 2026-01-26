@@ -14,135 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a load balancer to an Auto Scaling group.
- * 
- * &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.autoscaling.Attachment;
- * import com.pulumi.aws.autoscaling.AttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create a new load balancer attachment
- *         var example = new Attachment("example", AttachmentArgs.builder()
- *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
- *             .elb(exampleAwsElb.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.autoscaling.Attachment;
- * import com.pulumi.aws.autoscaling.AttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create a new ALB Target Group attachment
- *         var example = new Attachment("example", AttachmentArgs.builder()
- *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
- *             .lbTargetGroupArn(exampleAwsLbTargetGroup.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:autoscaling/attachment:Attachment")
 public class Attachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of ASG to associate with the ELB.
-     * 
-     */
     @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
-    /**
-     * @return Name of ASG to associate with the ELB.
-     * 
-     */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
-    /**
-     * Name of the ELB.
-     * 
-     */
     @Export(name="elb", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> elb;
 
-    /**
-     * @return Name of the ELB.
-     * 
-     */
     public Output<Optional<String>> elb() {
         return Codegen.optional(this.elb);
     }
-    /**
-     * ARN of a load balancer target group.
-     * 
-     */
     @Export(name="lbTargetGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lbTargetGroupArn;
 
-    /**
-     * @return ARN of a load balancer target group.
-     * 
-     */
     public Output<Optional<String>> lbTargetGroupArn() {
         return Codegen.optional(this.lbTargetGroupArn);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

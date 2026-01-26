@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobDefinitionEksPropertiesPodPropertiesImagePullSecretGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique identifier.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

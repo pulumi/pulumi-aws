@@ -13,17 +13,8 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis
     {
-        /// <summary>
-        /// Partition key used for partitioning, which can be a default MeasureName or a customer defined partition key.
-        /// </summary>
         public readonly ImmutableArray<string> PartitionKeys;
-        /// <summary>
-        /// ARN of the table which is queried with the largest time range.
-        /// </summary>
         public readonly string? TableArn;
-        /// <summary>
-        /// Maximum duration in nanoseconds between the start and end of the query.
-        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

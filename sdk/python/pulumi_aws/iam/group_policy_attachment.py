@@ -23,8 +23,6 @@ class GroupPolicyAttachmentArgs:
                  policy_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GroupPolicyAttachment resource.
-        :param pulumi.Input[_builtins.str] group: The group the policy should be applied to
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "policy_arn", policy_arn)
@@ -32,9 +30,6 @@ class GroupPolicyAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def group(self) -> pulumi.Input[_builtins.str]:
-        """
-        The group the policy should be applied to
-        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -44,9 +39,6 @@ class GroupPolicyAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -61,8 +53,6 @@ class _GroupPolicyAttachmentState:
                  policy_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachment resources.
-        :param pulumi.Input[_builtins.str] group: The group the policy should be applied to
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         if group is not None:
             pulumi.set(__self__, "group", group)
@@ -72,9 +62,6 @@ class _GroupPolicyAttachmentState:
     @_builtins.property
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The group the policy should be applied to
-        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -84,9 +71,6 @@ class _GroupPolicyAttachmentState:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -104,38 +88,9 @@ class GroupPolicyAttachment(pulumi.CustomResource):
                  policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches a Managed IAM Policy to an IAM group
-
-        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        group = aws.iam.Group("group", name="test-group")
-        policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
-            policy="{ ... policy JSON ... }")
-        test_attach = aws.iam.GroupPolicyAttachment("test-attach",
-            group=group.name,
-            policy_arn=policy.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
-
+        Create a GroupPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group: The group the policy should be applied to
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         ...
     @overload
@@ -144,34 +99,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
                  args: GroupPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a Managed IAM Policy to an IAM group
-
-        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        group = aws.iam.Group("group", name="test-group")
-        policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
-            policy="{ ... policy JSON ... }")
-        test_attach = aws.iam.GroupPolicyAttachment("test-attach",
-            group=group.name,
-            policy_arn=policy.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
-
+        Create a GroupPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,8 +151,6 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group: The group the policy should be applied to
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -237,16 +163,10 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def group(self) -> pulumi.Output[_builtins.str]:
-        """
-        The group the policy should be applied to
-        """
         return pulumi.get(self, "group")
 
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 

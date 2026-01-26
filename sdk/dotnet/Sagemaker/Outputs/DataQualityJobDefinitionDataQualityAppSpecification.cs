@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityAppSpecification
     {
-        /// <summary>
-        /// Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Environment;
-        /// <summary>
-        /// The container image that the data quality monitoring job runs.
-        /// </summary>
         public readonly string ImageUri;
-        /// <summary>
-        /// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-        /// </summary>
         public readonly string? PostAnalyticsProcessorSourceUri;
-        /// <summary>
-        /// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-        /// </summary>
         public readonly string? RecordPreprocessorSourceUri;
 
         [OutputConstructor]

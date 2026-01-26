@@ -9,103 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MediaLive
 {
-    /// <summary>
-    /// Resource for managing an AWS MediaLive Multiplex.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///     });
-    /// 
-    ///     var example = new Aws.MediaLive.Multiplex("example", new()
-    ///     {
-    ///         Name = "example-multiplex-changed",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
-    ///         },
-    ///         MultiplexSettings = new Aws.MediaLive.Inputs.MultiplexMultiplexSettingsArgs
-    ///         {
-    ///             TransportStreamBitrate = 1000000,
-    ///             TransportStreamId = 1,
-    ///             TransportStreamReservedBitrate = 1,
-    ///             MaximumVideoBufferDelayMilliseconds = 1000,
-    ///         },
-    ///         StartMultiplex = true,
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:medialive/multiplex:Multiplex")]
     public partial class Multiplex : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Multiplex.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of availability zones. You must specify exactly two.
-        /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
-        /// <summary>
-        /// Multiplex settings. See Multiplex Settings for more details.
-        /// </summary>
         [Output("multiplexSettings")]
         public Output<Outputs.MultiplexMultiplexSettings?> MultiplexSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// name of Multiplex.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to start the Multiplex. Defaults to `False`.
-        /// </summary>
         [Output("startMultiplex")]
         public Output<bool?> StartMultiplex { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -160,48 +84,26 @@ namespace Pulumi.Aws.MediaLive
     {
         [Input("availabilityZones", required: true)]
         private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// A list of availability zones. You must specify exactly two.
-        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
 
-        /// <summary>
-        /// Multiplex settings. See Multiplex Settings for more details.
-        /// </summary>
         [Input("multiplexSettings")]
         public Input<Inputs.MultiplexMultiplexSettingsArgs>? MultiplexSettings { get; set; }
 
-        /// <summary>
-        /// name of Multiplex.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether to start the Multiplex. Defaults to `False`.
-        /// </summary>
         [Input("startMultiplex")]
         public Input<bool>? StartMultiplex { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -216,56 +118,31 @@ namespace Pulumi.Aws.MediaLive
 
     public sealed class MultiplexState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Multiplex.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// A list of availability zones. You must specify exactly two.
-        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
 
-        /// <summary>
-        /// Multiplex settings. See Multiplex Settings for more details.
-        /// </summary>
         [Input("multiplexSettings")]
         public Input<Inputs.MultiplexMultiplexSettingsGetArgs>? MultiplexSettings { get; set; }
 
-        /// <summary>
-        /// name of Multiplex.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether to start the Multiplex. Defaults to `False`.
-        /// </summary>
         [Input("startMultiplex")]
         public Input<bool>? StartMultiplex { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

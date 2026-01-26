@@ -15,17 +15,9 @@ public final class ThemeConfigurationSheetTileBorderArgs extends com.pulumi.reso
 
     public static final ThemeConfigurationSheetTileBorderArgs Empty = new ThemeConfigurationSheetTileBorderArgs();
 
-    /**
-     * The option to enable display of borders for visuals.
-     * 
-     */
     @Import(name="show")
     private @Nullable Output<Boolean> show;
 
-    /**
-     * @return The option to enable display of borders for visuals.
-     * 
-     */
     public Optional<Output<Boolean>> show() {
         return Optional.ofNullable(this.show);
     }
@@ -54,23 +46,11 @@ public final class ThemeConfigurationSheetTileBorderArgs extends com.pulumi.reso
             $ = new ThemeConfigurationSheetTileBorderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param show The option to enable display of borders for visuals.
-         * 
-         * @return builder
-         * 
-         */
         public Builder show(@Nullable Output<Boolean> show) {
             $.show = show;
             return this;
         }
 
-        /**
-         * @param show The option to enable display of borders for visuals.
-         * 
-         * @return builder
-         * 
-         */
         public Builder show(Boolean show) {
             return show(Output.of(show));
         }

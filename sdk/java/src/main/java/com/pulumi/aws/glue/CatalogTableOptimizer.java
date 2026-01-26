@@ -15,243 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Glue Catalog Table Optimizer.
- * 
- * ## Example Usage
- * 
- * ### Compaction Optimizer
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.CatalogTableOptimizer;
- * import com.pulumi.aws.glue.CatalogTableOptimizerArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
- *             .catalogId("123456789012")
- *             .databaseName("example_database")
- *             .tableName("example_table")
- *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
- *                 .enabled(true)
- *                 .build())
- *             .type("compaction")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Snapshot Retention Optimizer
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.CatalogTableOptimizer;
- * import com.pulumi.aws.glue.CatalogTableOptimizerArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationRetentionConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
- *             .catalogId("123456789012")
- *             .databaseName("example_database")
- *             .tableName("example_table")
- *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
- *                 .enabled(true)
- *                 .retentionConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationArgs.builder()
- *                     .icebergConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs.builder()
- *                         .snapshotRetentionPeriodInDays(7)
- *                         .numberOfSnapshotsToRetain(3)
- *                         .cleanExpiredFiles(true)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .type("retention")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Orphan File Deletion Optimizer
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.CatalogTableOptimizer;
- * import com.pulumi.aws.glue.CatalogTableOptimizerArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
- *             .catalogId("123456789012")
- *             .databaseName("example_database")
- *             .tableName("example_table")
- *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
- *                 .enabled(true)
- *                 .orphanFileDeletionConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs.builder()
- *                     .icebergConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs.builder()
- *                         .orphanFileRetentionPeriodInDays(7)
- *                         .location("s3://example-bucket/example_table/")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .type("orphan_file_deletion")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
- * 
- * ```sh
- * $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
- * ```
- * 
- */
 @ResourceType(type="aws:glue/catalogTableOptimizer:CatalogTableOptimizer")
 public class CatalogTableOptimizer extends com.pulumi.resources.CustomResource {
-    /**
-     * The Catalog ID of the table.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
-    /**
-     * @return The Catalog ID of the table.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
-    /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
-     * 
-     */
     @Export(name="configuration", refs={CatalogTableOptimizerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTableOptimizerConfiguration> configuration;
 
-    /**
-     * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
-     * 
-     */
     public Output<Optional<CatalogTableOptimizerConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    /**
-     * The name of the database in the catalog in which the table resides.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the database in the catalog in which the table resides.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the table.
-     * 
-     */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
-    /**
-     * @return The name of the table.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
-    /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

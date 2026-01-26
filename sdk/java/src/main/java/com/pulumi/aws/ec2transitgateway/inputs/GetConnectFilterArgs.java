@@ -15,32 +15,16 @@ public final class GetConnectFilterArgs extends com.pulumi.resources.ResourceArg
 
     public static final GetConnectFilterArgs Empty = new GetConnectFilterArgs();
 
-    /**
-     * Name of the filter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the filter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * List of one or more values for the filter.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class GetConnectFilterArgs extends com.pulumi.resources.ResourceArg
             $ = new GetConnectFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

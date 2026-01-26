@@ -38,17 +38,9 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicRuleState Empty = new TopicRuleState();
 
-    /**
-     * The ARN of the topic rule
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the topic rule
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -74,17 +66,9 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cloudwatchMetrics);
     }
 
-    /**
-     * The description of the rule.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the rule.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -110,32 +94,16 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.elasticsearch);
     }
 
-    /**
-     * Specifies whether the rule is enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Specifies whether the rule is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
-     * 
-     */
     @Import(name="errorAction")
     private @Nullable Output<TopicRuleErrorActionArgs> errorAction;
 
-    /**
-     * @return Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
-     * 
-     */
     public Optional<Output<TopicRuleErrorActionArgs>> errorAction() {
         return Optional.ofNullable(this.errorAction);
     }
@@ -189,32 +157,16 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.lambdas);
     }
 
-    /**
-     * The name of the rule.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the rule.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -240,32 +192,16 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sns);
     }
 
-    /**
-     * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-     * 
-     */
     @Import(name="sql")
     private @Nullable Output<String> sql;
 
-    /**
-     * @return The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-     * 
-     */
     public Optional<Output<String>> sql() {
         return Optional.ofNullable(this.sql);
     }
 
-    /**
-     * The version of the SQL rules engine to use when evaluating the rule.
-     * 
-     */
     @Import(name="sqlVersion")
     private @Nullable Output<String> sqlVersion;
 
-    /**
-     * @return The version of the SQL rules engine to use when evaluating the rule.
-     * 
-     */
     public Optional<Output<String>> sqlVersion() {
         return Optional.ofNullable(this.sqlVersion);
     }
@@ -284,32 +220,16 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.stepFunctions);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -373,23 +293,11 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
             $ = new TopicRuleState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the topic rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the topic rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -433,23 +341,11 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
             return cloudwatchMetrics(List.of(cloudwatchMetrics));
         }
 
-        /**
-         * @param description The description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -493,44 +389,20 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
             return elasticsearch(List.of(elasticsearch));
         }
 
-        /**
-         * @param enabled Specifies whether the rule is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Specifies whether the rule is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param errorAction Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorAction(@Nullable Output<TopicRuleErrorActionArgs> errorAction) {
             $.errorAction = errorAction;
             return this;
         }
 
-        /**
-         * @param errorAction Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorAction(TopicRuleErrorActionArgs errorAction) {
             return errorAction(Output.of(errorAction));
         }
@@ -626,44 +498,20 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
             return lambdas(List.of(lambdas));
         }
 
-        /**
-         * @param name The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -707,44 +555,20 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
             return sns(List.of(sns));
         }
 
-        /**
-         * @param sql The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(@Nullable Output<String> sql) {
             $.sql = sql;
             return this;
         }
 
-        /**
-         * @param sql The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(String sql) {
             return sql(Output.of(sql));
         }
 
-        /**
-         * @param sqlVersion The version of the SQL rules engine to use when evaluating the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlVersion(@Nullable Output<String> sqlVersion) {
             $.sqlVersion = sqlVersion;
             return this;
         }
 
-        /**
-         * @param sqlVersion The version of the SQL rules engine to use when evaluating the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlVersion(String sqlVersion) {
             return sqlVersion(Output.of(sqlVersion));
         }
@@ -775,44 +599,20 @@ public final class TopicRuleState extends com.pulumi.resources.ResourceArgs {
             return stepFunctions(List.of(stepFunctions));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

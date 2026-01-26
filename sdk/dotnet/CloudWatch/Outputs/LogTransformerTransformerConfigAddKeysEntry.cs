@@ -13,18 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigAddKeysEntry
     {
-        /// <summary>
-        /// Specifies the key with the value that will be converted to a different type.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Specifies whether to overwrite the value if the destination key already exists. Defaults to `False`.
-        /// * `renameTo` - (Required) Specifies the new name of the key.
-        /// </summary>
         public readonly bool? OverwriteIfExists;
-        /// <summary>
-        /// Specifies the value of the new entry to be added to the log event.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -53,9 +53,6 @@ class GetResourceTagsResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of key=value pairs for each tag set on the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -74,20 +71,7 @@ def get_resource_tags(resource_id: Optional[_builtins.str] = None,
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceTagsResult:
     """
-    Get tags attached to the specified AWS Organizations resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    account = aws.organizations.get_resource_tags(resource_id="123456123846")
-    ```
-
-
-    :param _builtins.str resource_id: ID of the resource with the tags to list. See details below.
-    :param Mapping[str, _builtins.str] tags: Map of key=value pairs for each tag set on the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
@@ -103,20 +87,7 @@ def get_resource_tags_output(resource_id: Optional[pulumi.Input[_builtins.str]] 
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceTagsResult]:
     """
-    Get tags attached to the specified AWS Organizations resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    account = aws.organizations.get_resource_tags(resource_id="123456123846")
-    ```
-
-
-    :param _builtins.str resource_id: ID of the resource with the tags to list. See details below.
-    :param Mapping[str, _builtins.str] tags: Map of key=value pairs for each tag set on the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
-    /**
-     * @return The configuration of the lambda function.
-     * 
-     */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration transformationLambdaConfiguration;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction() {}
-    /**
-     * @return The configuration of the lambda function.
-     * 
-     */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration> transformationLambdaConfiguration() {
         return Optional.ofNullable(this.transformationLambdaConfiguration);
     }

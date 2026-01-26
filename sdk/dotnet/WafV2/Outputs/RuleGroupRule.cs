@@ -13,33 +13,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRule
     {
-        /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleAction Action;
-        /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleCaptchaConfig? CaptchaConfig;
-        /// <summary>
-        /// A friendly name of the rule.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority`. AWS WAF processes rules with lower priority first.
-        /// </summary>
         public readonly int Priority;
-        /// <summary>
-        /// Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleRuleLabel> RuleLabels;
-        /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See Statement below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleStatement Statement;
-        /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleVisibilityConfig VisibilityConfig;
 
         [OutputConstructor]

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class InfrastructureConfigurationPlacementArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Availability Zone where your build and test instances will launch.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// ID of the Dedicated Host on which build and test instances run. Conflicts with `HostResourceGroupArn`.
-        /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
 
-        /// <summary>
-        /// ARN of the host resource group in which to launch build and test instances. Conflicts with `HostId`.
-        /// </summary>
         [Input("hostResourceGroupArn")]
         public Input<string>? HostResourceGroupArn { get; set; }
 
-        /// <summary>
-        /// Placement tenancy of the instance. Valid values: `Default`, `Dedicated` and `Host`.
-        /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 

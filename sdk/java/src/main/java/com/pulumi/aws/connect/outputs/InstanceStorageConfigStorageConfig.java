@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceStorageConfigStorageConfig {
-    /**
-     * @return A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-     * 
-     */
     private @Nullable InstanceStorageConfigStorageConfigKinesisFirehoseConfig kinesisFirehoseConfig;
-    /**
-     * @return A block that specifies the configuration of the Kinesis data stream. Documented below.
-     * 
-     */
     private @Nullable InstanceStorageConfigStorageConfigKinesisStreamConfig kinesisStreamConfig;
-    /**
-     * @return A block that specifies the configuration of the Kinesis video stream. Documented below.
-     * 
-     */
     private @Nullable InstanceStorageConfigStorageConfigKinesisVideoStreamConfig kinesisVideoStreamConfig;
-    /**
-     * @return A block that specifies the configuration of S3 Bucket. Documented below.
-     * 
-     */
     private @Nullable InstanceStorageConfigStorageConfigS3Config s3Config;
-    /**
-     * @return A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-     * 
-     */
     private String storageType;
 
     private InstanceStorageConfigStorageConfig() {}
-    /**
-     * @return A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-     * 
-     */
     public Optional<InstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfig() {
         return Optional.ofNullable(this.kinesisFirehoseConfig);
     }
-    /**
-     * @return A block that specifies the configuration of the Kinesis data stream. Documented below.
-     * 
-     */
     public Optional<InstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfig() {
         return Optional.ofNullable(this.kinesisStreamConfig);
     }
-    /**
-     * @return A block that specifies the configuration of the Kinesis video stream. Documented below.
-     * 
-     */
     public Optional<InstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfig() {
         return Optional.ofNullable(this.kinesisVideoStreamConfig);
     }
-    /**
-     * @return A block that specifies the configuration of S3 Bucket. Documented below.
-     * 
-     */
     public Optional<InstanceStorageConfigStorageConfigS3Config> s3Config() {
         return Optional.ofNullable(this.s3Config);
     }
-    /**
-     * @return A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-     * 
-     */
     public String storageType() {
         return this.storageType;
     }

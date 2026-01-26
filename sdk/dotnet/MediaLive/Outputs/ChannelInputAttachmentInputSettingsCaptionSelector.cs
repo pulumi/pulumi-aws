@@ -14,11 +14,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelector
     {
         public readonly string? LanguageCode;
-        /// <summary>
-        /// Name of the Channel.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? SelectorSettings;
 

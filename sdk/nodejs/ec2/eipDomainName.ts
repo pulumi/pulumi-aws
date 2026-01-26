@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.Eip("example", {domain: "vpc"});
- * const exampleRecord = new aws.route53.Record("example", {
- *     zoneId: main.zoneId,
- *     name: "reverse",
- *     type: aws.route53.RecordType.A,
- *     records: [example.publicIp],
- * });
- * const exampleEipDomainName = new aws.ec2.EipDomainName("example", {
- *     allocationId: example.allocationId,
- *     domainName: exampleRecord.fqdn,
- * });
- * ```
- */
 export class EipDomainName extends pulumi.CustomResource {
     /**
      * Get an existing EipDomainName resource's state with the given name, ID, and optional extra
@@ -57,21 +35,9 @@ export class EipDomainName extends pulumi.CustomResource {
         return obj['__pulumiType'] === EipDomainName.__pulumiType;
     }
 
-    /**
-     * The allocation ID.
-     */
     declare public readonly allocationId: pulumi.Output<string>;
-    /**
-     * The domain name to modify for the IP address.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * The DNS pointer (PTR) record for the IP address.
-     */
     declare public /*out*/ readonly ptrRecord: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.EipDomainNameTimeouts | undefined>;
 
@@ -116,21 +82,9 @@ export class EipDomainName extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EipDomainName resources.
  */
 export interface EipDomainNameState {
-    /**
-     * The allocation ID.
-     */
     allocationId?: pulumi.Input<string>;
-    /**
-     * The domain name to modify for the IP address.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * The DNS pointer (PTR) record for the IP address.
-     */
     ptrRecord?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts>;
 }
@@ -139,17 +93,8 @@ export interface EipDomainNameState {
  * The set of arguments for constructing a EipDomainName resource.
  */
 export interface EipDomainNameArgs {
-    /**
-     * The allocation ID.
-     */
     allocationId: pulumi.Input<string>;
-    /**
-     * The domain name to modify for the IP address.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts>;
 }

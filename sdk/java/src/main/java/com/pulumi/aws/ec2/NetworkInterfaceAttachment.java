@@ -14,150 +14,47 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attach an Elastic network interface (ENI) resource with EC2 instance.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NetworkInterfaceAttachment;
- * import com.pulumi.aws.ec2.NetworkInterfaceAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new NetworkInterfaceAttachment("test", NetworkInterfaceAttachmentArgs.builder()
- *             .instanceId(testAwsInstance.id())
- *             .networkInterfaceId(testAwsNetworkInterface.id())
- *             .deviceIndex(0)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")
 public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The ENI Attachment ID.
-     * 
-     */
     @Export(name="attachmentId", refs={String.class}, tree="[0]")
     private Output<String> attachmentId;
 
-    /**
-     * @return The ENI Attachment ID.
-     * 
-     */
     public Output<String> attachmentId() {
         return this.attachmentId;
     }
-    /**
-     * Network interface index (int).
-     * 
-     */
     @Export(name="deviceIndex", refs={Integer.class}, tree="[0]")
     private Output<Integer> deviceIndex;
 
-    /**
-     * @return Network interface index (int).
-     * 
-     */
     public Output<Integer> deviceIndex() {
         return this.deviceIndex;
     }
-    /**
-     * Instance ID to attach.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return Instance ID to attach.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-     * 
-     */
     @Export(name="networkCardIndex", refs={Integer.class}, tree="[0]")
     private Output<Integer> networkCardIndex;
 
-    /**
-     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-     * 
-     */
     public Output<Integer> networkCardIndex() {
         return this.networkCardIndex;
     }
-    /**
-     * ENI ID to attach.
-     * 
-     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
-    /**
-     * @return ENI ID to attach.
-     * 
-     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The status of the Network Interface Attachment.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of the Network Interface Attachment.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

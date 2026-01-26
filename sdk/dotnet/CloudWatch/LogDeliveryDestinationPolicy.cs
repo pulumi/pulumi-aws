@@ -9,56 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.LogDeliveryDestinationPolicy("example", new()
-    ///     {
-    ///         DeliveryDestinationName = exampleAwsCloudwatchLogDeliveryDestination.Name,
-    ///         DeliveryDestinationPolicy = exampleAwsIamPolicyDocument.Json,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy")]
     public partial class LogDeliveryDestinationPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the delivery destination to assign this policy to.
-        /// </summary>
         [Output("deliveryDestinationName")]
         public Output<string> DeliveryDestinationName { get; private set; } = null!;
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Output("deliveryDestinationPolicy")]
         public Output<string> DeliveryDestinationPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -108,21 +67,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDeliveryDestinationPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the delivery destination to assign this policy to.
-        /// </summary>
         [Input("deliveryDestinationName", required: true)]
         public Input<string> DeliveryDestinationName { get; set; } = null!;
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Input("deliveryDestinationPolicy", required: true)]
         public Input<string> DeliveryDestinationPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -134,21 +84,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDeliveryDestinationPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the delivery destination to assign this policy to.
-        /// </summary>
         [Input("deliveryDestinationName")]
         public Input<string>? DeliveryDestinationName { get; set; }
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Input("deliveryDestinationPolicy")]
         public Input<string>? DeliveryDestinationPolicy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

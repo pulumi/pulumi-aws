@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
-    /**
-     * @return The access token aud claim values that you want to accept in your policy store.
-     * 
-     */
     private @Nullable List<String> audiences;
-    /**
-     * @return The claim that determines the principal in OIDC access tokens.
-     * 
-     */
     private @Nullable String principalIdClaim;
 
     private IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly() {}
-    /**
-     * @return The access token aud claim values that you want to accept in your policy store.
-     * 
-     */
     public List<String> audiences() {
         return this.audiences == null ? List.of() : this.audiences;
     }
-    /**
-     * @return The claim that determines the principal in OIDC access tokens.
-     * 
-     */
     public Optional<String> principalIdClaim() {
         return Optional.ofNullable(this.principalIdClaim);
     }

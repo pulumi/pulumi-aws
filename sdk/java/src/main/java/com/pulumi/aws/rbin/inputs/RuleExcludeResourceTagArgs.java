@@ -16,36 +16,16 @@ public final class RuleExcludeResourceTagArgs extends com.pulumi.resources.Resou
 
     public static final RuleExcludeResourceTagArgs Empty = new RuleExcludeResourceTagArgs();
 
-    /**
-     * Tag key.
-     * 
-     * The following argument is optional:
-     * 
-     */
     @Import(name="resourceTagKey", required=true)
     private Output<String> resourceTagKey;
 
-    /**
-     * @return Tag key.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public Output<String> resourceTagKey() {
         return this.resourceTagKey;
     }
 
-    /**
-     * Tag value.
-     * 
-     */
     @Import(name="resourceTagValue")
     private @Nullable Output<String> resourceTagValue;
 
-    /**
-     * @return Tag value.
-     * 
-     */
     public Optional<Output<String>> resourceTagValue() {
         return Optional.ofNullable(this.resourceTagValue);
     }
@@ -75,48 +55,20 @@ public final class RuleExcludeResourceTagArgs extends com.pulumi.resources.Resou
             $ = new RuleExcludeResourceTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceTagKey Tag key.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTagKey(Output<String> resourceTagKey) {
             $.resourceTagKey = resourceTagKey;
             return this;
         }
 
-        /**
-         * @param resourceTagKey Tag key.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTagKey(String resourceTagKey) {
             return resourceTagKey(Output.of(resourceTagKey));
         }
 
-        /**
-         * @param resourceTagValue Tag value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTagValue(@Nullable Output<String> resourceTagValue) {
             $.resourceTagValue = resourceTagValue;
             return this;
         }
 
-        /**
-         * @param resourceTagValue Tag value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTagValue(String resourceTagValue) {
             return resourceTagValue(Output.of(resourceTagValue));
         }

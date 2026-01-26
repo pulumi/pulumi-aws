@@ -17,47 +17,23 @@ public final class UserHierarchyStructureArgs extends com.pulumi.resources.Resou
 
     public static final UserHierarchyStructureArgs Empty = new UserHierarchyStructureArgs();
 
-    /**
-     * A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
-     * 
-     */
     @Import(name="hierarchyStructure", required=true)
     private Output<UserHierarchyStructureHierarchyStructureArgs> hierarchyStructure;
 
-    /**
-     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
-     * 
-     */
     public Output<UserHierarchyStructureHierarchyStructureArgs> hierarchyStructure() {
         return this.hierarchyStructure;
     }
 
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
-    /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,65 +64,29 @@ public final class UserHierarchyStructureArgs extends com.pulumi.resources.Resou
             $ = new UserHierarchyStructureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hierarchyStructure(Output<UserHierarchyStructureHierarchyStructureArgs> hierarchyStructure) {
             $.hierarchyStructure = hierarchyStructure;
             return this;
         }
 
-        /**
-         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs hierarchyStructure) {
             return hierarchyStructure(Output.of(hierarchyStructure));
         }
 
-        /**
-         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

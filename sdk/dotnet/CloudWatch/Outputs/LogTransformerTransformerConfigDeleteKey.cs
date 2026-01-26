@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigDeleteKey
     {
-        /// <summary>
-        /// Specifies the keys to be deleted.
-        /// </summary>
         public readonly ImmutableArray<string> WithKeys;
 
         [OutputConstructor]

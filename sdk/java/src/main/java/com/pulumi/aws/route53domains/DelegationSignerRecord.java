@@ -16,187 +16,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a [delegation signer record](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html#dns-configuring-dnssec-enable-signing-step-1) in the parent DNS zone for domains registered with Route53.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.route53.Zone;
- * import com.pulumi.aws.route53.ZoneArgs;
- * import com.pulumi.aws.route53.KeySigningKey;
- * import com.pulumi.aws.route53.KeySigningKeyArgs;
- * import com.pulumi.aws.route53.HostedZoneDnsSec;
- * import com.pulumi.aws.route53.HostedZoneDnsSecArgs;
- * import com.pulumi.aws.route53domains.DelegationSignerRecord;
- * import com.pulumi.aws.route53domains.DelegationSignerRecordArgs;
- * import com.pulumi.aws.route53domains.inputs.DelegationSignerRecordSigningAttributesArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new Key("example", KeyArgs.builder()
- *             .customerMasterKeySpec("ECC_NIST_P256")
- *             .deletionWindowInDays(7)
- *             .keyUsage("SIGN_VERIFY")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Statement", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "kms:DescribeKey", 
- *                                 "kms:GetPublicKey", 
- *                                 "kms:Sign"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "dnssec-route53.amazonaws.com")
- *                             )),
- *                             jsonProperty("Sid", "Allow Route 53 DNSSEC Service"),
- *                             jsonProperty("Resource", "*"),
- *                             jsonProperty("Condition", jsonObject(
- *                                 jsonProperty("StringEquals", jsonObject(
- *                                     jsonProperty("aws:SourceAccount", current.accountId())
- *                                 )),
- *                                 jsonProperty("ArnLike", jsonObject(
- *                                     jsonProperty("aws:SourceArn", "arn:aws:route53:::hostedzone/*")
- *                                 ))
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("Action", "kms:CreateGrant"),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "dnssec-route53.amazonaws.com")
- *                             )),
- *                             jsonProperty("Sid", "Allow Route 53 DNSSEC Service to CreateGrant"),
- *                             jsonProperty("Resource", "*"),
- *                             jsonProperty("Condition", jsonObject(
- *                                 jsonProperty("Bool", jsonObject(
- *                                     jsonProperty("kms:GrantIsForAWSResource", "true")
- *                                 ))
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("Action", "kms:*"),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
- *                             )),
- *                             jsonProperty("Resource", "*"),
- *                             jsonProperty("Sid", "Enable IAM User Permissions")
- *                         )
- *                     )),
- *                     jsonProperty("Version", "2012-10-17")
- *                 )))
- *             .build());
- * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
- *             .name("example.com")
- *             .build());
- * 
- *         var exampleKeySigningKey = new KeySigningKey("exampleKeySigningKey", KeySigningKeyArgs.builder()
- *             .hostedZoneId(test.id())
- *             .keyManagementServiceArn(testAwsKmsKey.arn())
- *             .name("example")
- *             .build());
- * 
- *         var exampleHostedZoneDnsSec = new HostedZoneDnsSec("exampleHostedZoneDnsSec", HostedZoneDnsSecArgs.builder()
- *             .hostedZoneId(exampleKeySigningKey.hostedZoneId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleKeySigningKey)
- *                 .build());
- * 
- *         var exampleDelegationSignerRecord = new DelegationSignerRecord("exampleDelegationSignerRecord", DelegationSignerRecordArgs.builder()
- *             .domainName("example.com")
- *             .signingAttributes(DelegationSignerRecordSigningAttributesArgs.builder()
- *                 .algorithm(exampleKeySigningKey.signingAlgorithmType())
- *                 .flags(exampleKeySigningKey.flag())
- *                 .publicKey(exampleKeySigningKey.publicKey())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
- * ```
- * 
- */
 @ResourceType(type="aws:route53domains/delegationSignerRecord:DelegationSignerRecord")
 public class DelegationSignerRecord extends com.pulumi.resources.CustomResource {
-    /**
-     * An ID assigned to the created DS record.
-     * 
-     */
     @Export(name="dnssecKeyId", refs={String.class}, tree="[0]")
     private Output<String> dnssecKeyId;
 
-    /**
-     * @return An ID assigned to the created DS record.
-     * 
-     */
     public Output<String> dnssecKeyId() {
         return this.dnssecKeyId;
     }
-    /**
-     * The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * The information about a key, including the algorithm, public key-value, and flags.
-     * 
-     */
     @Export(name="signingAttributes", refs={DelegationSignerRecordSigningAttributes.class}, tree="[0]")
     private Output</* @Nullable */ DelegationSignerRecordSigningAttributes> signingAttributes;
 
-    /**
-     * @return The information about a key, including the algorithm, public key-value, and flags.
-     * 
-     */
     public Output<Optional<DelegationSignerRecordSigningAttributes>> signingAttributes() {
         return Codegen.optional(this.signingAttributes);
     }

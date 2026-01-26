@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DataZone.Inputs
 
     public sealed class EnvironmentUserParameterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of an environment profile parameter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The value of an environment profile parameter.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

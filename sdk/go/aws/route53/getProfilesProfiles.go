@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Route 53 Profiles.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetProfilesProfiles(ctx, &route53.GetProfilesProfilesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetProfilesProfiles(ctx *pulumi.Context, args *GetProfilesProfilesArgs, opts ...pulumi.InvokeOption) (*GetProfilesProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProfilesProfilesResult
@@ -50,15 +23,13 @@ func GetProfilesProfiles(ctx *pulumi.Context, args *GetProfilesProfilesArgs, opt
 
 // A collection of arguments for invoking getProfilesProfiles.
 type GetProfilesProfilesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProfilesProfiles.
 type GetProfilesProfilesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of Profiles.
+	Id       string                       `pulumi:"id"`
 	Profiles []GetProfilesProfilesProfile `pulumi:"profiles"`
 	Region   string                       `pulumi:"region"`
 }
@@ -74,7 +45,6 @@ func GetProfilesProfilesOutput(ctx *pulumi.Context, args GetProfilesProfilesOutp
 
 // A collection of arguments for invoking getProfilesProfiles.
 type GetProfilesProfilesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -102,7 +72,6 @@ func (o GetProfilesProfilesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProfilesProfilesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of Profiles.
 func (o GetProfilesProfilesResultOutput) Profiles() GetProfilesProfilesProfileArrayOutput {
 	return o.ApplyT(func(v GetProfilesProfilesResult) []GetProfilesProfilesProfile { return v.Profiles }).(GetProfilesProfilesProfileArrayOutput)
 }

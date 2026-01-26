@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigRenameKey {
-    /**
-     * @return Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
-     * 
-     */
     private List<LogTransformerTransformerConfigRenameKeyEntry> entries;
 
     private LogTransformerTransformerConfigRenameKey() {}
-    /**
-     * @return Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigRenameKeyEntry> entries() {
         return this.entries;
     }

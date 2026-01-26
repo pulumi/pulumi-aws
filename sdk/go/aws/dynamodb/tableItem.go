@@ -12,82 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DynamoDB table item resource
-//
-// > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
-//
-//	You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:          pulumi.String("example-name"),
-//				ReadCapacity:  pulumi.Int(10),
-//				WriteCapacity: pulumi.Int(10),
-//				HashKey:       pulumi.String("exampleHashKey"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("exampleHashKey"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewTableItem(ctx, "example", &dynamodb.TableItemArgs{
-//				TableName: exampleTable.Name,
-//				HashKey:   exampleTable.HashKey,
-//				Item: pulumi.String(`{
-//	  \"exampleHashKey\": {\"S\": \"something\"},
-//	  \"one\": {\"N\": \"11111\"},
-//	  \"two\": {\"N\": \"22222\"},
-//	  \"three\": {\"N\": \"33333\"},
-//	  \"four\": {\"N\": \"44444\"}
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import DynamoDB table items.
 type TableItem struct {
 	pulumi.CustomResourceState
 
-	// Hash key to use for lookups and identification of the item
-	HashKey pulumi.StringOutput `pulumi:"hashKey"`
-	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-	Item pulumi.StringOutput `pulumi:"item"`
-	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the table to contain the item.
-	//
-	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
+	HashKey   pulumi.StringOutput    `pulumi:"hashKey"`
+	Item      pulumi.StringOutput    `pulumi:"item"`
+	RangeKey  pulumi.StringPtrOutput `pulumi:"rangeKey"`
+	Region    pulumi.StringOutput    `pulumi:"region"`
+	TableName pulumi.StringOutput    `pulumi:"tableName"`
 }
 
 // NewTableItem registers a new resource with the given unique name, arguments, and options.
@@ -129,32 +61,18 @@ func GetTableItem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableItem resources.
 type tableItemState struct {
-	// Hash key to use for lookups and identification of the item
-	HashKey *string `pulumi:"hashKey"`
-	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-	Item *string `pulumi:"item"`
-	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-	RangeKey *string `pulumi:"rangeKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the table to contain the item.
-	//
-	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
+	HashKey   *string `pulumi:"hashKey"`
+	Item      *string `pulumi:"item"`
+	RangeKey  *string `pulumi:"rangeKey"`
+	Region    *string `pulumi:"region"`
 	TableName *string `pulumi:"tableName"`
 }
 
 type TableItemState struct {
-	// Hash key to use for lookups and identification of the item
-	HashKey pulumi.StringPtrInput
-	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-	Item pulumi.StringPtrInput
-	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-	RangeKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the table to contain the item.
-	//
-	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
+	HashKey   pulumi.StringPtrInput
+	Item      pulumi.StringPtrInput
+	RangeKey  pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 	TableName pulumi.StringPtrInput
 }
 
@@ -163,33 +81,19 @@ func (TableItemState) ElementType() reflect.Type {
 }
 
 type tableItemArgs struct {
-	// Hash key to use for lookups and identification of the item
-	HashKey string `pulumi:"hashKey"`
-	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-	Item string `pulumi:"item"`
-	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-	RangeKey *string `pulumi:"rangeKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the table to contain the item.
-	//
-	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-	TableName string `pulumi:"tableName"`
+	HashKey   string  `pulumi:"hashKey"`
+	Item      string  `pulumi:"item"`
+	RangeKey  *string `pulumi:"rangeKey"`
+	Region    *string `pulumi:"region"`
+	TableName string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a TableItem resource.
 type TableItemArgs struct {
-	// Hash key to use for lookups and identification of the item
-	HashKey pulumi.StringInput
-	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-	Item pulumi.StringInput
-	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-	RangeKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the table to contain the item.
-	//
-	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
+	HashKey   pulumi.StringInput
+	Item      pulumi.StringInput
+	RangeKey  pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 	TableName pulumi.StringInput
 }
 
@@ -280,29 +184,22 @@ func (o TableItemOutput) ToTableItemOutputWithContext(ctx context.Context) Table
 	return o
 }
 
-// Hash key to use for lookups and identification of the item
 func (o TableItemOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.HashKey }).(pulumi.StringOutput)
 }
 
-// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 func (o TableItemOutput) Item() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.Item }).(pulumi.StringOutput)
 }
 
-// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 func (o TableItemOutput) RangeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringPtrOutput { return v.RangeKey }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableItemOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the table to contain the item.
-//
-// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 func (o TableItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

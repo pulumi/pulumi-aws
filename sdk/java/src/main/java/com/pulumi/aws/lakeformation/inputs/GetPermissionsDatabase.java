@@ -13,36 +13,16 @@ public final class GetPermissionsDatabase extends com.pulumi.resources.InvokeArg
 
     public static final GetPermissionsDatabase Empty = new GetPermissionsDatabase();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private String catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
 
-    /**
-     * Name of the database resource. Unique to the Data Catalog.
-     * 
-     * The following argument is optional:
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the database resource. Unique to the Data Catalog.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -72,25 +52,11 @@ public final class GetPermissionsDatabase extends com.pulumi.resources.InvokeArg
             $ = new GetPermissionsDatabase(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param name Name of the database resource. Unique to the Data Catalog.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

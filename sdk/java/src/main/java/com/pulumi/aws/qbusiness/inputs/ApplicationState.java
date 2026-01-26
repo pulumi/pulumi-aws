@@ -19,45 +19,29 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
     public static final ApplicationState Empty = new ApplicationState();
 
-    /**
-     * ARN of the Q Business application.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Q Business application.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-     * 
-     */
     @Import(name="attachmentsConfiguration")
     private @Nullable Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration;
 
-    /**
-     * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-     * 
-     */
     public Optional<Output<ApplicationAttachmentsConfigurationArgs>> attachmentsConfiguration() {
         return Optional.ofNullable(this.attachmentsConfiguration);
     }
 
     /**
-     * Description of the Amazon Q application.
+     * A description of the Amazon Q application.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the Amazon Q application.
+     * @return A description of the Amazon Q application.
      * 
      */
     public Optional<Output<String>> description() {
@@ -65,95 +49,67 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Amazon Q application.
+     * The display name of the Amazon Q application.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Name of the Amazon Q application.
+     * @return The display name of the Amazon Q application.
      * 
      */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * Information about encryption configuration. See `encryptionConfiguration` below.
-     * 
-     */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<ApplicationEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return Information about encryption configuration. See `encryptionConfiguration` below.
-     * 
-     */
     public Optional<Output<ApplicationEncryptionConfigurationArgs>> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
 
     /**
-     * ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
      * 
      */
     @Import(name="iamServiceRoleArn")
     private @Nullable Output<String> iamServiceRoleArn;
 
     /**
-     * @return ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * @return The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
      * 
      */
     public Optional<Output<String>> iamServiceRoleArn() {
         return Optional.ofNullable(this.iamServiceRoleArn);
     }
 
-    /**
-     * ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-     * 
-     */
     @Import(name="identityCenterApplicationArn")
     private @Nullable Output<String> identityCenterApplicationArn;
 
-    /**
-     * @return ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-     * 
-     */
     public Optional<Output<String>> identityCenterApplicationArn() {
         return Optional.ofNullable(this.identityCenterApplicationArn);
     }
 
     /**
-     * ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-     * 
-     * The following arguments are optional:
+     * ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
      * 
      */
     @Import(name="identityCenterInstanceArn")
     private @Nullable Output<String> identityCenterInstanceArn;
 
     /**
-     * @return ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-     * 
-     * The following arguments are optional:
+     * @return ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
      * 
      */
     public Optional<Output<String>> identityCenterInstanceArn() {
         return Optional.ofNullable(this.identityCenterInstanceArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -165,17 +121,9 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -222,50 +170,26 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
             $ = new ApplicationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Q Business application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Q Business application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param attachmentsConfiguration Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentsConfiguration(@Nullable Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration) {
             $.attachmentsConfiguration = attachmentsConfiguration;
             return this;
         }
 
-        /**
-         * @param attachmentsConfiguration Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentsConfiguration(ApplicationAttachmentsConfigurationArgs attachmentsConfiguration) {
             return attachmentsConfiguration(Output.of(attachmentsConfiguration));
         }
 
         /**
-         * @param description Description of the Amazon Q application.
+         * @param description A description of the Amazon Q application.
          * 
          * @return builder
          * 
@@ -276,7 +200,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the Amazon Q application.
+         * @param description A description of the Amazon Q application.
          * 
          * @return builder
          * 
@@ -286,7 +210,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Name of the Amazon Q application.
+         * @param displayName The display name of the Amazon Q application.
          * 
          * @return builder
          * 
@@ -297,7 +221,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Name of the Amazon Q application.
+         * @param displayName The display name of the Amazon Q application.
          * 
          * @return builder
          * 
@@ -306,29 +230,17 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param encryptionConfiguration Information about encryption configuration. See `encryptionConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(@Nullable Output<ApplicationEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration Information about encryption configuration. See `encryptionConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(ApplicationEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**
-         * @param iamServiceRoleArn ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+         * @param iamServiceRoleArn The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
          * 
          * @return builder
          * 
@@ -339,7 +251,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamServiceRoleArn ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+         * @param iamServiceRoleArn The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
          * 
          * @return builder
          * 
@@ -348,31 +260,17 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
             return iamServiceRoleArn(Output.of(iamServiceRoleArn));
         }
 
-        /**
-         * @param identityCenterApplicationArn ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterApplicationArn(@Nullable Output<String> identityCenterApplicationArn) {
             $.identityCenterApplicationArn = identityCenterApplicationArn;
             return this;
         }
 
-        /**
-         * @param identityCenterApplicationArn ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterApplicationArn(String identityCenterApplicationArn) {
             return identityCenterApplicationArn(Output.of(identityCenterApplicationArn));
         }
 
         /**
-         * @param identityCenterInstanceArn ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-         * 
-         * The following arguments are optional:
+         * @param identityCenterInstanceArn ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
          * 
          * @return builder
          * 
@@ -383,9 +281,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityCenterInstanceArn ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-         * 
-         * The following arguments are optional:
+         * @param identityCenterInstanceArn ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
          * 
          * @return builder
          * 
@@ -394,23 +290,11 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
             return identityCenterInstanceArn(Output.of(identityCenterInstanceArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -424,23 +308,11 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

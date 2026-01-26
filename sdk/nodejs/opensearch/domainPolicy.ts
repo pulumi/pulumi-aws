@@ -4,49 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.Domain("example", {
- *     domainName: "tf-test",
- *     engineVersion: "OpenSearch_1.1",
- * });
- * const main = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["es:*"],
- *         resources: [pulumi.interpolate`${example.arn}/*`],
- *         conditions: [{
- *             test: "IpAddress",
- *             variable: "aws:SourceIp",
- *             values: ["127.0.0.1/32"],
- *         }],
- *     }],
- * });
- * const mainDomainPolicy = new aws.opensearch.DomainPolicy("main", {
- *     domainName: example.domainName,
- *     accessPolicies: main.apply(main => main.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
- * ```
- */
 export class DomainPolicy extends pulumi.CustomResource {
     /**
      * Get an existing DomainPolicy resource's state with the given name, ID, and optional extra
@@ -75,17 +32,8 @@ export class DomainPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainPolicy.__pulumiType;
     }
 
-    /**
-     * IAM policy document specifying the access policies for the domain
-     */
     declare public readonly accessPolicies: pulumi.Output<string>;
-    /**
-     * Name of the domain.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -125,17 +73,8 @@ export class DomainPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainPolicy resources.
  */
 export interface DomainPolicyState {
-    /**
-     * IAM policy document specifying the access policies for the domain
-     */
     accessPolicies?: pulumi.Input<string>;
-    /**
-     * Name of the domain.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -143,16 +82,7 @@ export interface DomainPolicyState {
  * The set of arguments for constructing a DomainPolicy resource.
  */
 export interface DomainPolicyArgs {
-    /**
-     * IAM policy document specifying the access policies for the domain
-     */
     accessPolicies: pulumi.Input<string>;
-    /**
-     * Name of the domain.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

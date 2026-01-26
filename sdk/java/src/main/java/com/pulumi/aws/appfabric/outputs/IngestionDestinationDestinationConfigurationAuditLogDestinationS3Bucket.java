@@ -13,20 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket {
     private String bucketName;
-    /**
-     * @return The object key to use.
-     * 
-     */
     private @Nullable String prefix;
 
     private IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket() {}
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The object key to use.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

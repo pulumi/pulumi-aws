@@ -11,78 +11,12 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetAuthorizer
     {
-        /// <summary>
-        /// Provides details about a specific API Gateway Authorizer.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetAuthorizer.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
-        ///         AuthorizerId = exampleAwsApiGatewayAuthorizers.Ids[0],
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAuthorizerResult> InvokeAsync(GetAuthorizerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizerResult>("aws:apigateway/getAuthorizer:getAuthorizer", args ?? new GetAuthorizerArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific API Gateway Authorizer.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetAuthorizer.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
-        ///         AuthorizerId = exampleAwsApiGatewayAuthorizers.Ids[0],
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws:apigateway/getAuthorizer:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific API Gateway Authorizer.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetAuthorizer.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
-        ///         AuthorizerId = exampleAwsApiGatewayAuthorizers.Ids[0],
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws:apigateway/getAuthorizer:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
     }
@@ -90,21 +24,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetAuthorizerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Authorizer identifier.
-        /// </summary>
         [Input("authorizerId", required: true)]
         public string AuthorizerId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
 
@@ -116,21 +41,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetAuthorizerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Authorizer identifier.
-        /// </summary>
         [Input("authorizerId", required: true)]
         public Input<string> AuthorizerId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
@@ -144,48 +60,21 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetAuthorizerResult
     {
-        /// <summary>
-        /// ARN of the API Gateway Authorizer.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Credentials required for the authorizer.
-        /// </summary>
         public readonly string AuthorizerCredentials;
         public readonly string AuthorizerId;
-        /// <summary>
-        /// TTL of cached authorizer results in seconds.
-        /// </summary>
         public readonly int AuthorizerResultTtlInSeconds;
-        /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI).
-        /// </summary>
         public readonly string AuthorizerUri;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Source of the identity in an incoming request.
-        /// </summary>
         public readonly string IdentitySource;
-        /// <summary>
-        /// Validation expression for the incoming identity.
-        /// </summary>
         public readonly string IdentityValidationExpression;
-        /// <summary>
-        /// Name of the authorizer.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of the Amazon Cognito user pool ARNs.
-        /// </summary>
         public readonly ImmutableArray<string> ProviderArns;
         public readonly string Region;
         public readonly string RestApiId;
-        /// <summary>
-        /// Type of the authorizer.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

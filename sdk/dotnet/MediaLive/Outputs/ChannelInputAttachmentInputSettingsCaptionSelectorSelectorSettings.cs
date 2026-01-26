@@ -13,33 +13,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings
     {
-        /// <summary>
-        /// Ancillary Source Settings. See Ancillary Source Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings? AncillarySourceSettings;
-        /// <summary>
-        /// ARIB Source Settings.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings? AribSourceSettings;
-        /// <summary>
-        /// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings? DvbSubSourceSettings;
-        /// <summary>
-        /// Embedded Source Settings. See Embedded Source Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings? EmbeddedSourceSettings;
-        /// <summary>
-        /// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings? Scte20SourceSettings;
-        /// <summary>
-        /// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings? Scte27SourceSettings;
-        /// <summary>
-        /// Teletext Source Settings. See Teletext Source Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings? TeletextSourceSettings;
 
         [OutputConstructor]

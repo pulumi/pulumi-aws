@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
-    /**
-     * @return The inline schema payload content.
-     * 
-     */
     private String payload;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload() {}
-    /**
-     * @return The inline schema payload content.
-     * 
-     */
     public String payload() {
         return this.payload;
     }

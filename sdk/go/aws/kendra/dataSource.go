@@ -12,662 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Kendra Data Source.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId:      pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:         pulumi.String("example"),
-//				Description:  pulumi.String("example"),
-//				LanguageCode: pulumi.String("en"),
-//				Type:         pulumi.String("CUSTOM"),
-//				Tags: pulumi.StringMap{
-//					"hello": pulumi.String("world"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### S3 Connector
-//
-// ### With Schedule
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId:  pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:     pulumi.String("example"),
-//				Type:     pulumi.String("S3"),
-//				RoleArn:  pulumi.Any(exampleAwsIamRole.Arn),
-//				Schedule: pulumi.String("cron(9 10 1 * ? *)"),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
-//						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Access Control List
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("S3"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
-//						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
-//						AccessControlListConfiguration: &kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{
-//							KeyPath: pulumi.Sprintf("s3://%v/path-1", exampleAwsS3Bucket.Id),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Documents Metadata Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("S3"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
-//						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
-//						ExclusionPatterns: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//						InclusionPatterns: pulumi.StringArray{
-//							pulumi.String("hello"),
-//						},
-//						InclusionPrefixes: pulumi.StringArray{
-//							pulumi.String("world"),
-//						},
-//						DocumentsMetadataConfiguration: &kendra.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{
-//							S3Prefix: pulumi.String("example"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Web Crawler Connector
-//
-// ### With Seed URLs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Site Maps
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SiteMapsConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs{
-//								SiteMaps: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Web Crawler Mode
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								WebCrawlerMode: pulumi.String("SUBDOMAINS"),
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Authentication Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						AuthenticationConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs{
-//							BasicAuthentications: kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray{
-//								&kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs{
-//									Credentials: pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
-//									Host:        pulumi.String("a.example.com"),
-//									Port:        pulumi.Int(443),
-//								},
-//							},
-//						},
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSecretsmanagerSecretVersion,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Crawl Depth
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						CrawlDepth: pulumi.Int(3),
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Max Links Per Page
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						MaxLinksPerPage: pulumi.Int(100),
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Max Urls Per Minute Crawl Rate
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						MaxUrlsPerMinuteCrawlRate: pulumi.Int(300),
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Proxy Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						ProxyConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs{
-//							Credentials: pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
-//							Host:        pulumi.String("a.example.com"),
-//							Port:        pulumi.Int(443),
-//						},
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSecretsmanagerSecretVersion,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With URL Exclusion and Inclusion Patterns
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						UrlExclusionPatterns: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//						UrlInclusionPatterns: pulumi.StringArray{
-//							pulumi.String("hello"),
-//						},
-//						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
-//							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
-//								SeedUrls: pulumi.StringArray{
-//									pulumi.String("REPLACE_WITH_YOUR_URL"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With `WEBCRAWLERV2` Template
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"connectionConfiguration": map[string]interface{}{
-//					"repositoryEndpointMetadata": map[string]interface{}{
-//						"seedUrlConnections": []map[string]interface{}{
-//							map[string]interface{}{
-//								"seedUrl": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index",
-//							},
-//						},
-//					},
-//				},
-//				"additionalProperties": map[string]interface{}{
-//					"inclusionURLIndexPatterns": []string{
-//						"https:\\/\\/registry[.]terraform[.]io\\/providers\\/hashicorp\\/aws\\/latest\\/docs\\/resources\\/kendra_index",
-//					},
-//				},
-//				"version":  "1.0.0",
-//				"syncMode": "FULL_CRAWL",
-//				"type":     "WEBCRAWLERV2",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("TEMPLATE"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					TemplateConfiguration: &kendra.DataSourceConfigurationTemplateConfigurationArgs{
-//						Template: pulumi.String(json0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
-// ```
 type DataSource struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Data Source.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-	Configuration DataSourceConfigurationPtrOutput `pulumi:"configuration"`
-	// The Unix time stamp of when the Data Source was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+	Arn                                   pulumi.StringOutput                                      `pulumi:"arn"`
+	Configuration                         DataSourceConfigurationPtrOutput                         `pulumi:"configuration"`
+	CreatedAt                             pulumi.StringOutput                                      `pulumi:"createdAt"`
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrOutput `pulumi:"customDocumentEnrichmentConfiguration"`
-	// The unique identifiers of the Data Source.
-	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
-	// A description for the Data Source connector.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// The identifier of the index for your Amazon Kendra data source.
-	IndexId pulumi.StringOutput `pulumi:"indexId"`
-	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// A name for your data source connector.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
-	// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-	//
-	// The following arguments are optional:
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The Unix time stamp of when the Data Source was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	DataSourceId                          pulumi.StringOutput                                      `pulumi:"dataSourceId"`
+	Description                           pulumi.StringPtrOutput                                   `pulumi:"description"`
+	ErrorMessage                          pulumi.StringOutput                                      `pulumi:"errorMessage"`
+	IndexId                               pulumi.StringOutput                                      `pulumi:"indexId"`
+	LanguageCode                          pulumi.StringOutput                                      `pulumi:"languageCode"`
+	Name                                  pulumi.StringOutput                                      `pulumi:"name"`
+	Region                                pulumi.StringOutput                                      `pulumi:"region"`
+	RoleArn                               pulumi.StringPtrOutput                                   `pulumi:"roleArn"`
+	Schedule                              pulumi.StringPtrOutput                                   `pulumi:"schedule"`
+	Status                                pulumi.StringOutput                                      `pulumi:"status"`
+	Tags                                  pulumi.StringMapOutput                                   `pulumi:"tags"`
+	TagsAll                               pulumi.StringMapOutput                                   `pulumi:"tagsAll"`
+	Type                                  pulumi.StringOutput                                      `pulumi:"type"`
+	UpdatedAt                             pulumi.StringOutput                                      `pulumi:"updatedAt"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
@@ -706,85 +71,45 @@ func GetDataSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSource resources.
 type dataSourceState struct {
-	// ARN of the Data Source.
-	Arn *string `pulumi:"arn"`
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-	Configuration *DataSourceConfiguration `pulumi:"configuration"`
-	// The Unix time stamp of when the Data Source was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+	Arn                                   *string                                          `pulumi:"arn"`
+	Configuration                         *DataSourceConfiguration                         `pulumi:"configuration"`
+	CreatedAt                             *string                                          `pulumi:"createdAt"`
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
-	// The unique identifiers of the Data Source.
-	DataSourceId *string `pulumi:"dataSourceId"`
-	// A description for the Data Source connector.
-	Description *string `pulumi:"description"`
-	// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
-	ErrorMessage *string `pulumi:"errorMessage"`
-	// The identifier of the index for your Amazon Kendra data source.
-	IndexId *string `pulumi:"indexId"`
-	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-	LanguageCode *string `pulumi:"languageCode"`
-	// A name for your data source connector.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
-	RoleArn *string `pulumi:"roleArn"`
-	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-	Schedule *string `pulumi:"schedule"`
-	// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-	//
-	// The following arguments are optional:
-	Type *string `pulumi:"type"`
-	// The Unix time stamp of when the Data Source was last updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	DataSourceId                          *string                                          `pulumi:"dataSourceId"`
+	Description                           *string                                          `pulumi:"description"`
+	ErrorMessage                          *string                                          `pulumi:"errorMessage"`
+	IndexId                               *string                                          `pulumi:"indexId"`
+	LanguageCode                          *string                                          `pulumi:"languageCode"`
+	Name                                  *string                                          `pulumi:"name"`
+	Region                                *string                                          `pulumi:"region"`
+	RoleArn                               *string                                          `pulumi:"roleArn"`
+	Schedule                              *string                                          `pulumi:"schedule"`
+	Status                                *string                                          `pulumi:"status"`
+	Tags                                  map[string]string                                `pulumi:"tags"`
+	TagsAll                               map[string]string                                `pulumi:"tagsAll"`
+	Type                                  *string                                          `pulumi:"type"`
+	UpdatedAt                             *string                                          `pulumi:"updatedAt"`
 }
 
 type DataSourceState struct {
-	// ARN of the Data Source.
-	Arn pulumi.StringPtrInput
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-	Configuration DataSourceConfigurationPtrInput
-	// The Unix time stamp of when the Data Source was created.
-	CreatedAt pulumi.StringPtrInput
-	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+	Arn                                   pulumi.StringPtrInput
+	Configuration                         DataSourceConfigurationPtrInput
+	CreatedAt                             pulumi.StringPtrInput
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrInput
-	// The unique identifiers of the Data Source.
-	DataSourceId pulumi.StringPtrInput
-	// A description for the Data Source connector.
-	Description pulumi.StringPtrInput
-	// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
-	ErrorMessage pulumi.StringPtrInput
-	// The identifier of the index for your Amazon Kendra data source.
-	IndexId pulumi.StringPtrInput
-	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-	LanguageCode pulumi.StringPtrInput
-	// A name for your data source connector.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
-	RoleArn pulumi.StringPtrInput
-	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-	Schedule pulumi.StringPtrInput
-	// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-	//
-	// The following arguments are optional:
-	Type pulumi.StringPtrInput
-	// The Unix time stamp of when the Data Source was last updated.
-	UpdatedAt pulumi.StringPtrInput
+	DataSourceId                          pulumi.StringPtrInput
+	Description                           pulumi.StringPtrInput
+	ErrorMessage                          pulumi.StringPtrInput
+	IndexId                               pulumi.StringPtrInput
+	LanguageCode                          pulumi.StringPtrInput
+	Name                                  pulumi.StringPtrInput
+	Region                                pulumi.StringPtrInput
+	RoleArn                               pulumi.StringPtrInput
+	Schedule                              pulumi.StringPtrInput
+	Status                                pulumi.StringPtrInput
+	Tags                                  pulumi.StringMapInput
+	TagsAll                               pulumi.StringMapInput
+	Type                                  pulumi.StringPtrInput
+	UpdatedAt                             pulumi.StringPtrInput
 }
 
 func (DataSourceState) ElementType() reflect.Type {
@@ -792,58 +117,32 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-	Configuration *DataSourceConfiguration `pulumi:"configuration"`
-	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+	Configuration                         *DataSourceConfiguration                         `pulumi:"configuration"`
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
-	// A description for the Data Source connector.
-	Description *string `pulumi:"description"`
-	// The identifier of the index for your Amazon Kendra data source.
-	IndexId string `pulumi:"indexId"`
-	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-	LanguageCode *string `pulumi:"languageCode"`
-	// A name for your data source connector.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
-	RoleArn *string `pulumi:"roleArn"`
-	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-	Schedule *string `pulumi:"schedule"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-	//
-	// The following arguments are optional:
-	Type string `pulumi:"type"`
+	Description                           *string                                          `pulumi:"description"`
+	IndexId                               string                                           `pulumi:"indexId"`
+	LanguageCode                          *string                                          `pulumi:"languageCode"`
+	Name                                  *string                                          `pulumi:"name"`
+	Region                                *string                                          `pulumi:"region"`
+	RoleArn                               *string                                          `pulumi:"roleArn"`
+	Schedule                              *string                                          `pulumi:"schedule"`
+	Tags                                  map[string]string                                `pulumi:"tags"`
+	Type                                  string                                           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-	Configuration DataSourceConfigurationPtrInput
-	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+	Configuration                         DataSourceConfigurationPtrInput
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrInput
-	// A description for the Data Source connector.
-	Description pulumi.StringPtrInput
-	// The identifier of the index for your Amazon Kendra data source.
-	IndexId pulumi.StringInput
-	// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-	LanguageCode pulumi.StringPtrInput
-	// A name for your data source connector.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
-	RoleArn pulumi.StringPtrInput
-	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-	Schedule pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-	//
-	// The following arguments are optional:
-	Type pulumi.StringInput
+	Description                           pulumi.StringPtrInput
+	IndexId                               pulumi.StringInput
+	LanguageCode                          pulumi.StringPtrInput
+	Name                                  pulumi.StringPtrInput
+	Region                                pulumi.StringPtrInput
+	RoleArn                               pulumi.StringPtrInput
+	Schedule                              pulumi.StringPtrInput
+	Tags                                  pulumi.StringMapInput
+	Type                                  pulumi.StringInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -933,96 +232,76 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
-// ARN of the Data Source.
 func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 func (o DataSourceOutput) Configuration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationPtrOutput { return v.Configuration }).(DataSourceConfigurationPtrOutput)
 }
 
-// The Unix time stamp of when the Data Source was created.
 func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
 func (o DataSourceOutput) CustomDocumentEnrichmentConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 		return v.CustomDocumentEnrichmentConfiguration
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
-// The unique identifiers of the Data Source.
 func (o DataSourceOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// A description for the Data Source connector.
 func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
 func (o DataSourceOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The identifier of the index for your Amazon Kendra data source.
 func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 func (o DataSourceOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// A name for your data source connector.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 func (o DataSourceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
 func (o DataSourceOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Schedule }).(pulumi.StringPtrOutput)
 }
 
-// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
 func (o DataSourceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DataSourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataSourceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-//
-// The following arguments are optional:
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Unix time stamp of when the Data Source was last updated.
 func (o DataSourceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

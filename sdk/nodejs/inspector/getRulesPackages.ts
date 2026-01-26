@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
- * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
- * configured in the provider.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Declare the data source
- * const rules = aws.inspector.getRulesPackages({});
- * // e.g., Use in aws_inspector_assessment_template
- * const group = new aws.inspector.ResourceGroup("group", {tags: {
- *     test: "test",
- * }});
- * const assessment = new aws.inspector.AssessmentTarget("assessment", {
- *     name: "test",
- *     resourceGroupArn: group.arn,
- * });
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
- *     name: "Test",
- *     targetArn: assessment.arn,
- *     duration: 60,
- *     rulesPackageArns: rules.then(rules => rules.arns),
- * });
- * ```
- */
 export function getRulesPackages(args?: GetRulesPackagesArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,9 +16,6 @@ export function getRulesPackages(args?: GetRulesPackagesArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getRulesPackages.
  */
 export interface GetRulesPackagesArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -55,9 +23,6 @@ export interface GetRulesPackagesArgs {
  * A collection of values returned by getRulesPackages.
  */
 export interface GetRulesPackagesResult {
-    /**
-     * List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
-     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -65,35 +30,6 @@ export interface GetRulesPackagesResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
- * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
- * configured in the provider.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Declare the data source
- * const rules = aws.inspector.getRulesPackages({});
- * // e.g., Use in aws_inspector_assessment_template
- * const group = new aws.inspector.ResourceGroup("group", {tags: {
- *     test: "test",
- * }});
- * const assessment = new aws.inspector.AssessmentTarget("assessment", {
- *     name: "test",
- *     resourceGroupArn: group.arn,
- * });
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
- *     name: "Test",
- *     targetArn: assessment.arn,
- *     duration: 60,
- *     rulesPackageArns: rules.then(rules => rules.arns),
- * });
- * ```
- */
 export function getRulesPackagesOutput(args?: GetRulesPackagesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesPackagesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,8 +42,5 @@ export function getRulesPackagesOutput(args?: GetRulesPackagesOutputArgs, opts?:
  * A collection of arguments for invoking getRulesPackages.
  */
 export interface GetRulesPackagesOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

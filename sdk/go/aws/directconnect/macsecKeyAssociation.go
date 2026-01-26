@@ -12,107 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
-//
-// Creating this resource will also create a resource of type `secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
-//
-// > **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
-// **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
-//
-// ## Example Usage
-//
-// ### Create MACSec key with CKN and CAK
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
-//				Name: "tf-dx-connection",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
-//				ConnectionId: pulumi.String(example.Id),
-//				Ckn:          pulumi.String("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"),
-//				Cak:          pulumi.String("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create MACSec key with existing Secrets Manager secret
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
-//				Name: "tf-dx-connection",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetSecret, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
-//				Name: pulumi.StringRef("directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
-//				ConnectionId: pulumi.String(example.Id),
-//				SecretArn:    pulumi.String(exampleGetSecret.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type MacsecKeyAssociation struct {
 	pulumi.CustomResourceState
 
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-	Cak pulumi.StringPtrOutput `pulumi:"cak"`
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-	Ckn pulumi.StringOutput `pulumi:"ckn"`
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
-	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-	StartOn pulumi.StringOutput `pulumi:"startOn"`
-	// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-	State pulumi.StringOutput `pulumi:"state"`
+	Cak          pulumi.StringPtrOutput `pulumi:"cak"`
+	Ckn          pulumi.StringOutput    `pulumi:"ckn"`
+	ConnectionId pulumi.StringOutput    `pulumi:"connectionId"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	SecretArn    pulumi.StringOutput    `pulumi:"secretArn"`
+	StartOn      pulumi.StringOutput    `pulumi:"startOn"`
+	State        pulumi.StringOutput    `pulumi:"state"`
 }
 
 // NewMacsecKeyAssociation registers a new resource with the given unique name, arguments, and options.
@@ -148,41 +57,23 @@ func GetMacsecKeyAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MacsecKeyAssociation resources.
 type macsecKeyAssociationState struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-	Cak *string `pulumi:"cak"`
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-	Ckn *string `pulumi:"ckn"`
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	Cak          *string `pulumi:"cak"`
+	Ckn          *string `pulumi:"ckn"`
 	ConnectionId *string `pulumi:"connectionId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-	SecretArn *string `pulumi:"secretArn"`
-	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-	StartOn *string `pulumi:"startOn"`
-	// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-	State *string `pulumi:"state"`
+	Region       *string `pulumi:"region"`
+	SecretArn    *string `pulumi:"secretArn"`
+	StartOn      *string `pulumi:"startOn"`
+	State        *string `pulumi:"state"`
 }
 
 type MacsecKeyAssociationState struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-	Cak pulumi.StringPtrInput
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-	Ckn pulumi.StringPtrInput
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	Cak          pulumi.StringPtrInput
+	Ckn          pulumi.StringPtrInput
 	ConnectionId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-	SecretArn pulumi.StringPtrInput
-	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-	StartOn pulumi.StringPtrInput
-	// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-	State pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	SecretArn    pulumi.StringPtrInput
+	StartOn      pulumi.StringPtrInput
+	State        pulumi.StringPtrInput
 }
 
 func (MacsecKeyAssociationState) ElementType() reflect.Type {
@@ -190,34 +81,20 @@ func (MacsecKeyAssociationState) ElementType() reflect.Type {
 }
 
 type macsecKeyAssociationArgs struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-	Cak *string `pulumi:"cak"`
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-	Ckn *string `pulumi:"ckn"`
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-	ConnectionId string `pulumi:"connectionId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-	SecretArn *string `pulumi:"secretArn"`
+	Cak          *string `pulumi:"cak"`
+	Ckn          *string `pulumi:"ckn"`
+	ConnectionId string  `pulumi:"connectionId"`
+	Region       *string `pulumi:"region"`
+	SecretArn    *string `pulumi:"secretArn"`
 }
 
 // The set of arguments for constructing a MacsecKeyAssociation resource.
 type MacsecKeyAssociationArgs struct {
-	// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-	Cak pulumi.StringPtrInput
-	// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-	Ckn pulumi.StringPtrInput
-	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+	Cak          pulumi.StringPtrInput
+	Ckn          pulumi.StringPtrInput
 	ConnectionId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-	//
-	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-	SecretArn pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	SecretArn    pulumi.StringPtrInput
 }
 
 func (MacsecKeyAssociationArgs) ElementType() reflect.Type {
@@ -307,39 +184,30 @@ func (o MacsecKeyAssociationOutput) ToMacsecKeyAssociationOutputWithContext(ctx 
 	return o
 }
 
-// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
 func (o MacsecKeyAssociationOutput) Cak() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringPtrOutput { return v.Cak }).(pulumi.StringPtrOutput)
 }
 
-// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
 func (o MacsecKeyAssociationOutput) Ckn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.Ckn }).(pulumi.StringOutput)
 }
 
-// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 func (o MacsecKeyAssociationOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MacsecKeyAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-//
-// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 func (o MacsecKeyAssociationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }
 
-// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
 func (o MacsecKeyAssociationOutput) StartOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.StartOn }).(pulumi.StringOutput)
 }
 
-// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
 func (o MacsecKeyAssociationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

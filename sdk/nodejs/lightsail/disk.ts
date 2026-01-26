@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Lightsail disk. Use this resource to create additional block storage that can be attached to Lightsail instances for extra storage capacity.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const example = new aws.lightsail.Disk("example", {
- *     name: "example-disk",
- *     sizeInGb: 8,
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
- *
- * ```sh
- * $ pulumi import aws:lightsail/disk:Disk example example-disk
- * ```
- */
 export class Disk extends pulumi.CustomResource {
     /**
      * Get an existing Disk resource's state with the given name, ID, and optional extra
@@ -63,43 +32,14 @@ export class Disk extends pulumi.CustomResource {
         return obj['__pulumiType'] === Disk.__pulumiType;
     }
 
-    /**
-     * ARN of the disk.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Availability Zone in which to create the disk.
-     */
     declare public readonly availabilityZone: pulumi.Output<string>;
-    /**
-     * Date and time when the disk was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Size of the disk in GB.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly sizeInGb: pulumi.Output<number>;
-    /**
-     * Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
-     */
     declare public /*out*/ readonly supportCode: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -151,43 +91,14 @@ export class Disk extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Disk resources.
  */
 export interface DiskState {
-    /**
-     * ARN of the disk.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Availability Zone in which to create the disk.
-     */
     availabilityZone?: pulumi.Input<string>;
-    /**
-     * Date and time when the disk was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Size of the disk in GB.
-     *
-     * The following arguments are optional:
-     */
     sizeInGb?: pulumi.Input<number>;
-    /**
-     * Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
-     */
     supportCode?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -195,26 +106,9 @@ export interface DiskState {
  * The set of arguments for constructing a Disk resource.
  */
 export interface DiskArgs {
-    /**
-     * Availability Zone in which to create the disk.
-     */
     availabilityZone: pulumi.Input<string>;
-    /**
-     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Size of the disk in GB.
-     *
-     * The following arguments are optional:
-     */
     sizeInGb: pulumi.Input<number>;
-    /**
-     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

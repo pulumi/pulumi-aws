@@ -16,32 +16,16 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
     public static final EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs Empty = new EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs();
 
-    /**
-     * CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
-     * 
-     */
     @Import(name="csvContentTypes")
     private @Nullable Output<List<String>> csvContentTypes;
 
-    /**
-     * @return CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
-     * 
-     */
     public Optional<Output<List<String>>> csvContentTypes() {
         return Optional.ofNullable(this.csvContentTypes);
     }
 
-    /**
-     * The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
-     * 
-     */
     @Import(name="jsonContentTypes")
     private @Nullable Output<List<String>> jsonContentTypes;
 
-    /**
-     * @return The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
-     * 
-     */
     public Optional<Output<List<String>>> jsonContentTypes() {
         return Optional.ofNullable(this.jsonContentTypes);
     }
@@ -71,64 +55,28 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
             $ = new EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param csvContentTypes CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csvContentTypes(@Nullable Output<List<String>> csvContentTypes) {
             $.csvContentTypes = csvContentTypes;
             return this;
         }
 
-        /**
-         * @param csvContentTypes CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csvContentTypes(List<String> csvContentTypes) {
             return csvContentTypes(Output.of(csvContentTypes));
         }
 
-        /**
-         * @param csvContentTypes CSV content type headers to capture. One of `csvContentTypes` or `jsonContentTypes` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csvContentTypes(String... csvContentTypes) {
             return csvContentTypes(List.of(csvContentTypes));
         }
 
-        /**
-         * @param jsonContentTypes The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonContentTypes(@Nullable Output<List<String>> jsonContentTypes) {
             $.jsonContentTypes = jsonContentTypes;
             return this;
         }
 
-        /**
-         * @param jsonContentTypes The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonContentTypes(List<String> jsonContentTypes) {
             return jsonContentTypes(Output.of(jsonContentTypes));
         }
 
-        /**
-         * @param jsonContentTypes The JSON content type headers to capture. One of `jsonContentTypes` or `csvContentTypes` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonContentTypes(String... jsonContentTypes) {
             return jsonContentTypes(List.of(jsonContentTypes));
         }

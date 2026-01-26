@@ -18,81 +18,37 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
 
     public static final ServiceLoadBalancerArgs Empty = new ServiceLoadBalancerArgs();
 
-    /**
-     * Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-     * 
-     */
     @Import(name="advancedConfiguration")
     private @Nullable Output<ServiceLoadBalancerAdvancedConfigurationArgs> advancedConfiguration;
 
-    /**
-     * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-     * 
-     */
     public Optional<Output<ServiceLoadBalancerAdvancedConfigurationArgs>> advancedConfiguration() {
         return Optional.ofNullable(this.advancedConfiguration);
     }
 
-    /**
-     * Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
-    /**
-     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     public Output<String> containerName() {
         return this.containerName;
     }
 
-    /**
-     * Port on the container to associate with the load balancer.
-     * 
-     */
     @Import(name="containerPort", required=true)
     private Output<Integer> containerPort;
 
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     public Output<Integer> containerPort() {
         return this.containerPort;
     }
 
-    /**
-     * Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     @Import(name="elbName")
     private @Nullable Output<String> elbName;
 
-    /**
-     * @return Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     public Optional<Output<String>> elbName() {
         return Optional.ofNullable(this.elbName);
     }
 
-    /**
-     * ARN of the Load Balancer target group to associate with the service.
-     * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-     * 
-     */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
-    /**
-     * @return ARN of the Load Balancer target group to associate with the service.
-     * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-     * 
-     */
     public Optional<Output<String>> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }
@@ -125,111 +81,47 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
             $ = new ServiceLoadBalancerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param advancedConfiguration Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedConfiguration(@Nullable Output<ServiceLoadBalancerAdvancedConfigurationArgs> advancedConfiguration) {
             $.advancedConfiguration = advancedConfiguration;
             return this;
         }
 
-        /**
-         * @param advancedConfiguration Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedConfiguration(ServiceLoadBalancerAdvancedConfigurationArgs advancedConfiguration) {
             return advancedConfiguration(Output.of(advancedConfiguration));
         }
 
-        /**
-         * @param containerName Name of the container to associate with the load balancer (as it appears in a container definition).
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
-        /**
-         * @param containerName Name of the container to associate with the load balancer (as it appears in a container definition).
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
-        /**
-         * @param containerPort Port on the container to associate with the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Output<Integer> containerPort) {
             $.containerPort = containerPort;
             return this;
         }
 
-        /**
-         * @param containerPort Port on the container to associate with the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Integer containerPort) {
             return containerPort(Output.of(containerPort));
         }
 
-        /**
-         * @param elbName Name of the ELB (Classic) to associate with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elbName(@Nullable Output<String> elbName) {
             $.elbName = elbName;
             return this;
         }
 
-        /**
-         * @param elbName Name of the ELB (Classic) to associate with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elbName(String elbName) {
             return elbName(Output.of(elbName));
         }
 
-        /**
-         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
-         * 
-         * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(@Nullable Output<String> targetGroupArn) {
             $.targetGroupArn = targetGroupArn;
             return this;
         }
 
-        /**
-         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
-         * 
-         * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(String targetGroupArn) {
             return targetGroupArn(Output.of(targetGroupArn));
         }

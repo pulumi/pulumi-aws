@@ -16,102 +16,44 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetZonePlainArgs Empty = new GetZonePlainArgs();
 
-    /**
-     * Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-     * 
-     */
     @Import(name="enableAcceleratedRecovery")
     private @Nullable Boolean enableAcceleratedRecovery;
 
-    /**
-     * @return Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-     * 
-     */
     public Optional<Boolean> enableAcceleratedRecovery() {
         return Optional.ofNullable(this.enableAcceleratedRecovery);
     }
 
-    /**
-     * Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Filter to only private Hosted Zones.
-     * 
-     */
     @Import(name="privateZone")
     private @Nullable Boolean privateZone;
 
-    /**
-     * @return Filter to only private Hosted Zones.
-     * 
-     */
     public Optional<Boolean> privateZone() {
         return Optional.ofNullable(this.privateZone);
     }
 
-    /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-     * 
-     * The arguments of this data source act as filters for querying the available Hosted Zone.
-     * 
-     * - The given filter must match exactly one Hosted Zone.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-     * 
-     * The arguments of this data source act as filters for querying the available Hosted Zone.
-     * 
-     * - The given filter must match exactly one Hosted Zone.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Filter to private Hosted Zones associated with the specified `vpcId`.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
-    /**
-     * @return Filter to private Hosted Zones associated with the specified `vpcId`.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
 
-    /**
-     * and `name` are mutually exclusive.
-     * - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
-     * 
-     */
     @Import(name="zoneId")
     private @Nullable String zoneId;
 
-    /**
-     * @return and `name` are mutually exclusive.
-     * - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
-     * 
-     */
     public Optional<String> zoneId() {
         return Optional.ofNullable(this.zoneId);
     }
@@ -145,72 +87,31 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetZonePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableAcceleratedRecovery Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableAcceleratedRecovery(@Nullable Boolean enableAcceleratedRecovery) {
             $.enableAcceleratedRecovery = enableAcceleratedRecovery;
             return this;
         }
 
-        /**
-         * @param name Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param privateZone Filter to only private Hosted Zones.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateZone(@Nullable Boolean privateZone) {
             $.privateZone = privateZone;
             return this;
         }
 
-        /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-         * 
-         * The arguments of this data source act as filters for querying the available Hosted Zone.
-         * 
-         * - The given filter must match exactly one Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param vpcId Filter to private Hosted Zones associated with the specified `vpcId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable String vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param zoneId and `name` are mutually exclusive.
-         * - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(@Nullable String zoneId) {
             $.zoneId = zoneId;
             return this;

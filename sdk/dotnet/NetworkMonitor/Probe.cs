@@ -9,114 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkMonitor
 {
-    /// <summary>
-    /// Resource for managing an AWS Network Monitor Probe.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkMonitor.Monitor("example", new()
-    ///     {
-    ///         AggregationPeriod = 30,
-    ///         MonitorName = "example",
-    ///     });
-    /// 
-    ///     var exampleProbe = new Aws.NetworkMonitor.Probe("example", new()
-    ///     {
-    ///         MonitorName = example.MonitorName,
-    ///         Destination = "127.0.0.1",
-    ///         DestinationPort = 80,
-    ///         Protocol = "TCP",
-    ///         SourceArn = exampleAwsSubnet.Arn,
-    ///         PacketSize = 200,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmonitor_probe` using the monitor name and probe id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmonitor/probe:Probe")]
     public partial class Probe : global::Pulumi.CustomResource
     {
         [Output("addressFamily")]
         public Output<string> AddressFamily { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the attachment.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The destination IP address. This must be either IPV4 or IPV6.
-        /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
 
-        /// <summary>
-        /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-        /// </summary>
         [Output("destinationPort")]
         public Output<int?> DestinationPort { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the monitor.
-        /// </summary>
         [Output("monitorName")]
         public Output<string> MonitorName { get; private set; } = null!;
 
-        /// <summary>
-        /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// </summary>
         [Output("packetSize")]
         public Output<int> PacketSize { get; private set; } = null!;
 
         [Output("probeId")]
         public Output<string> ProbeId { get; private set; } = null!;
 
-        /// <summary>
-        /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-        /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the subnet.
-        /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the monitor. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -169,54 +97,29 @@ namespace Pulumi.Aws.NetworkMonitor
 
     public sealed class ProbeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The destination IP address. This must be either IPV4 or IPV6.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
-        /// <summary>
-        /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-        /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
-        /// <summary>
-        /// The name of the monitor.
-        /// </summary>
         [Input("monitorName", required: true)]
         public Input<string> MonitorName { get; set; } = null!;
 
-        /// <summary>
-        /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// </summary>
         [Input("packetSize")]
         public Input<int>? PacketSize { get; set; }
 
-        /// <summary>
-        /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the subnet.
-        /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the monitor. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -234,63 +137,35 @@ namespace Pulumi.Aws.NetworkMonitor
         [Input("addressFamily")]
         public Input<string>? AddressFamily { get; set; }
 
-        /// <summary>
-        /// The ARN of the attachment.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The destination IP address. This must be either IPV4 or IPV6.
-        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
-        /// <summary>
-        /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-        /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
-        /// <summary>
-        /// The name of the monitor.
-        /// </summary>
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }
 
-        /// <summary>
-        /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// </summary>
         [Input("packetSize")]
         public Input<int>? PacketSize { get; set; }
 
         [Input("probeId")]
         public Input<string>? ProbeId { get; set; }
 
-        /// <summary>
-        /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the subnet.
-        /// </summary>
         [Input("sourceArn")]
         public Input<string>? SourceArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the monitor. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -299,10 +174,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

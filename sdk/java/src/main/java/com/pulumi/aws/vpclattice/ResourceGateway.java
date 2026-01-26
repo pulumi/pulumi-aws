@@ -18,268 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC Lattice Resource Gateway.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpclattice.ResourceGateway;
- * import com.pulumi.aws.vpclattice.ResourceGatewayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGateway("example", ResourceGatewayArgs.builder()
- *             .name("Example")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
- *             .tags(Map.of("Environment", "Example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Specifying IP address type
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpclattice.ResourceGateway;
- * import com.pulumi.aws.vpclattice.ResourceGatewayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGateway("example", ResourceGatewayArgs.builder()
- *             .name("Example")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
- *             .ipAddressType("DUALSTACK")
- *             .tags(Map.of("Environment", "Example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With security groups
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpclattice.ResourceGateway;
- * import com.pulumi.aws.vpclattice.ResourceGatewayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGateway("example", ResourceGatewayArgs.builder()
- *             .name("Example")
- *             .vpcId(exampleAwsVpc.id())
- *             .securityGroupIds(test.id())
- *             .subnetIds(exampleAwsSubnet.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Lattice Resource Gateway using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:vpclattice/resourceGateway:ResourceGateway example rgw-0a1b2c3d4e5f
- * ```
- * 
- */
 @ResourceType(type="aws:vpclattice/resourceGateway:ResourceGateway")
 public class ResourceGateway extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the resource gateway.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the resource gateway.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-     * 
-     */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
-    /**
-     * @return IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-     * 
-     */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
     }
-    /**
-     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-     * 
-     */
     @Export(name="ipv4AddressesPerEni", refs={Integer.class}, tree="[0]")
     private Output<Integer> ipv4AddressesPerEni;
 
-    /**
-     * @return The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-     * 
-     */
     public Output<Integer> ipv4AddressesPerEni() {
         return this.ipv4AddressesPerEni;
     }
-    /**
-     * Name of the resource gateway.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the resource gateway.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * Status of the resource gateway.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the resource gateway.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * IDs of the VPC subnets in which to create the resource gateway.
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return IDs of the VPC subnets in which to create the resource gateway.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -289,21 +86,9 @@ public class ResourceGateway extends com.pulumi.resources.CustomResource {
     public Output<Optional<ResourceGatewayTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * ID of the VPC for the resource gateway.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return ID of the VPC for the resource gateway.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

@@ -12,110 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Image Builder Infrastructure Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewInfrastructureConfiguration(ctx, "example", &imagebuilder.InfrastructureConfigurationArgs{
-//				Description:         pulumi.String("example description"),
-//				InstanceProfileName: pulumi.Any(exampleAwsIamInstanceProfile.Name),
-//				InstanceTypes: pulumi.StringArray{
-//					pulumi.String("t2.nano"),
-//					pulumi.String("t3.micro"),
-//				},
-//				KeyPair: pulumi.Any(exampleAwsKeyPair.KeyName),
-//				Name:    pulumi.String("example"),
-//				SecurityGroupIds: pulumi.StringArray{
-//					exampleAwsSecurityGroup.Id,
-//				},
-//				SnsTopicArn:                pulumi.Any(exampleAwsSnsTopic.Arn),
-//				SubnetId:                   pulumi.Any(main.Id),
-//				TerminateInstanceOnFailure: pulumi.Bool(true),
-//				Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
-//					S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
-//						S3BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
-//						S3KeyPrefix:  pulumi.String("logs"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
-//
-// Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
 type InfrastructureConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Date when the configuration was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// Date when the configuration was updated.
-	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
-	// Description for the configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
-	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrOutput `pulumi:"instanceMetadataOptions"`
-	// Name of IAM Instance Profile.
-	InstanceProfileName pulumi.StringOutput `pulumi:"instanceProfileName"`
-	// Set of EC2 Instance Types.
-	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
-	// Name of EC2 Key Pair.
-	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
-	// Configuration block with logging settings. Detailed below.
-	Logging InfrastructureConfigurationLoggingPtrOutput `pulumi:"logging"`
-	// Name for the configuration.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-	Placement InfrastructureConfigurationPlacementPtrOutput `pulumi:"placement"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags to assign to infrastructure created by the configuration.
-	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
-	// Set of EC2 Security Group identifiers.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Amazon Resource Name (ARN) of SNS Topic.
-	SnsTopicArn pulumi.StringPtrOutput `pulumi:"snsTopicArn"`
-	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
-	TerminateInstanceOnFailure pulumi.BoolPtrOutput `pulumi:"terminateInstanceOnFailure"`
+	Arn                        pulumi.StringOutput                                         `pulumi:"arn"`
+	DateCreated                pulumi.StringOutput                                         `pulumi:"dateCreated"`
+	DateUpdated                pulumi.StringOutput                                         `pulumi:"dateUpdated"`
+	Description                pulumi.StringPtrOutput                                      `pulumi:"description"`
+	InstanceMetadataOptions    InfrastructureConfigurationInstanceMetadataOptionsPtrOutput `pulumi:"instanceMetadataOptions"`
+	InstanceProfileName        pulumi.StringOutput                                         `pulumi:"instanceProfileName"`
+	InstanceTypes              pulumi.StringArrayOutput                                    `pulumi:"instanceTypes"`
+	KeyPair                    pulumi.StringPtrOutput                                      `pulumi:"keyPair"`
+	Logging                    InfrastructureConfigurationLoggingPtrOutput                 `pulumi:"logging"`
+	Name                       pulumi.StringOutput                                         `pulumi:"name"`
+	Placement                  InfrastructureConfigurationPlacementPtrOutput               `pulumi:"placement"`
+	Region                     pulumi.StringOutput                                         `pulumi:"region"`
+	ResourceTags               pulumi.StringMapOutput                                      `pulumi:"resourceTags"`
+	SecurityGroupIds           pulumi.StringArrayOutput                                    `pulumi:"securityGroupIds"`
+	SnsTopicArn                pulumi.StringPtrOutput                                      `pulumi:"snsTopicArn"`
+	SubnetId                   pulumi.StringPtrOutput                                      `pulumi:"subnetId"`
+	Tags                       pulumi.StringMapOutput                                      `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput                                      `pulumi:"tagsAll"`
+	TerminateInstanceOnFailure pulumi.BoolPtrOutput                                        `pulumi:"terminateInstanceOnFailure"`
 }
 
 // NewInfrastructureConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -151,88 +69,46 @@ func GetInfrastructureConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InfrastructureConfiguration resources.
 type infrastructureConfigurationState struct {
-	// Amazon Resource Name (ARN) of the configuration.
-	Arn *string `pulumi:"arn"`
-	// Date when the configuration was created.
-	DateCreated *string `pulumi:"dateCreated"`
-	// Date when the configuration was updated.
-	DateUpdated *string `pulumi:"dateUpdated"`
-	// Description for the configuration.
-	Description *string `pulumi:"description"`
-	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
-	InstanceMetadataOptions *InfrastructureConfigurationInstanceMetadataOptions `pulumi:"instanceMetadataOptions"`
-	// Name of IAM Instance Profile.
-	InstanceProfileName *string `pulumi:"instanceProfileName"`
-	// Set of EC2 Instance Types.
-	InstanceTypes []string `pulumi:"instanceTypes"`
-	// Name of EC2 Key Pair.
-	KeyPair *string `pulumi:"keyPair"`
-	// Configuration block with logging settings. Detailed below.
-	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
-	// Name for the configuration.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags to assign to infrastructure created by the configuration.
-	ResourceTags map[string]string `pulumi:"resourceTags"`
-	// Set of EC2 Security Group identifiers.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Amazon Resource Name (ARN) of SNS Topic.
-	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
-	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
-	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
+	Arn                        *string                                             `pulumi:"arn"`
+	DateCreated                *string                                             `pulumi:"dateCreated"`
+	DateUpdated                *string                                             `pulumi:"dateUpdated"`
+	Description                *string                                             `pulumi:"description"`
+	InstanceMetadataOptions    *InfrastructureConfigurationInstanceMetadataOptions `pulumi:"instanceMetadataOptions"`
+	InstanceProfileName        *string                                             `pulumi:"instanceProfileName"`
+	InstanceTypes              []string                                            `pulumi:"instanceTypes"`
+	KeyPair                    *string                                             `pulumi:"keyPair"`
+	Logging                    *InfrastructureConfigurationLogging                 `pulumi:"logging"`
+	Name                       *string                                             `pulumi:"name"`
+	Placement                  *InfrastructureConfigurationPlacement               `pulumi:"placement"`
+	Region                     *string                                             `pulumi:"region"`
+	ResourceTags               map[string]string                                   `pulumi:"resourceTags"`
+	SecurityGroupIds           []string                                            `pulumi:"securityGroupIds"`
+	SnsTopicArn                *string                                             `pulumi:"snsTopicArn"`
+	SubnetId                   *string                                             `pulumi:"subnetId"`
+	Tags                       map[string]string                                   `pulumi:"tags"`
+	TagsAll                    map[string]string                                   `pulumi:"tagsAll"`
+	TerminateInstanceOnFailure *bool                                               `pulumi:"terminateInstanceOnFailure"`
 }
 
 type InfrastructureConfigurationState struct {
-	// Amazon Resource Name (ARN) of the configuration.
-	Arn pulumi.StringPtrInput
-	// Date when the configuration was created.
-	DateCreated pulumi.StringPtrInput
-	// Date when the configuration was updated.
-	DateUpdated pulumi.StringPtrInput
-	// Description for the configuration.
-	Description pulumi.StringPtrInput
-	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
-	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrInput
-	// Name of IAM Instance Profile.
-	InstanceProfileName pulumi.StringPtrInput
-	// Set of EC2 Instance Types.
-	InstanceTypes pulumi.StringArrayInput
-	// Name of EC2 Key Pair.
-	KeyPair pulumi.StringPtrInput
-	// Configuration block with logging settings. Detailed below.
-	Logging InfrastructureConfigurationLoggingPtrInput
-	// Name for the configuration.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-	Placement InfrastructureConfigurationPlacementPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags to assign to infrastructure created by the configuration.
-	ResourceTags pulumi.StringMapInput
-	// Set of EC2 Security Group identifiers.
-	SecurityGroupIds pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of SNS Topic.
-	SnsTopicArn pulumi.StringPtrInput
-	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
-	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+	Arn                        pulumi.StringPtrInput
+	DateCreated                pulumi.StringPtrInput
+	DateUpdated                pulumi.StringPtrInput
+	Description                pulumi.StringPtrInput
+	InstanceMetadataOptions    InfrastructureConfigurationInstanceMetadataOptionsPtrInput
+	InstanceProfileName        pulumi.StringPtrInput
+	InstanceTypes              pulumi.StringArrayInput
+	KeyPair                    pulumi.StringPtrInput
+	Logging                    InfrastructureConfigurationLoggingPtrInput
+	Name                       pulumi.StringPtrInput
+	Placement                  InfrastructureConfigurationPlacementPtrInput
+	Region                     pulumi.StringPtrInput
+	ResourceTags               pulumi.StringMapInput
+	SecurityGroupIds           pulumi.StringArrayInput
+	SnsTopicArn                pulumi.StringPtrInput
+	SubnetId                   pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
 }
 
@@ -241,73 +117,39 @@ func (InfrastructureConfigurationState) ElementType() reflect.Type {
 }
 
 type infrastructureConfigurationArgs struct {
-	// Description for the configuration.
-	Description *string `pulumi:"description"`
-	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
-	InstanceMetadataOptions *InfrastructureConfigurationInstanceMetadataOptions `pulumi:"instanceMetadataOptions"`
-	// Name of IAM Instance Profile.
-	InstanceProfileName string `pulumi:"instanceProfileName"`
-	// Set of EC2 Instance Types.
-	InstanceTypes []string `pulumi:"instanceTypes"`
-	// Name of EC2 Key Pair.
-	KeyPair *string `pulumi:"keyPair"`
-	// Configuration block with logging settings. Detailed below.
-	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
-	// Name for the configuration.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags to assign to infrastructure created by the configuration.
-	ResourceTags map[string]string `pulumi:"resourceTags"`
-	// Set of EC2 Security Group identifiers.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Amazon Resource Name (ARN) of SNS Topic.
-	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
-	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
-	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
+	Description                *string                                             `pulumi:"description"`
+	InstanceMetadataOptions    *InfrastructureConfigurationInstanceMetadataOptions `pulumi:"instanceMetadataOptions"`
+	InstanceProfileName        string                                              `pulumi:"instanceProfileName"`
+	InstanceTypes              []string                                            `pulumi:"instanceTypes"`
+	KeyPair                    *string                                             `pulumi:"keyPair"`
+	Logging                    *InfrastructureConfigurationLogging                 `pulumi:"logging"`
+	Name                       *string                                             `pulumi:"name"`
+	Placement                  *InfrastructureConfigurationPlacement               `pulumi:"placement"`
+	Region                     *string                                             `pulumi:"region"`
+	ResourceTags               map[string]string                                   `pulumi:"resourceTags"`
+	SecurityGroupIds           []string                                            `pulumi:"securityGroupIds"`
+	SnsTopicArn                *string                                             `pulumi:"snsTopicArn"`
+	SubnetId                   *string                                             `pulumi:"subnetId"`
+	Tags                       map[string]string                                   `pulumi:"tags"`
+	TerminateInstanceOnFailure *bool                                               `pulumi:"terminateInstanceOnFailure"`
 }
 
 // The set of arguments for constructing a InfrastructureConfiguration resource.
 type InfrastructureConfigurationArgs struct {
-	// Description for the configuration.
-	Description pulumi.StringPtrInput
-	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
-	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrInput
-	// Name of IAM Instance Profile.
-	InstanceProfileName pulumi.StringInput
-	// Set of EC2 Instance Types.
-	InstanceTypes pulumi.StringArrayInput
-	// Name of EC2 Key Pair.
-	KeyPair pulumi.StringPtrInput
-	// Configuration block with logging settings. Detailed below.
-	Logging InfrastructureConfigurationLoggingPtrInput
-	// Name for the configuration.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-	Placement InfrastructureConfigurationPlacementPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags to assign to infrastructure created by the configuration.
-	ResourceTags pulumi.StringMapInput
-	// Set of EC2 Security Group identifiers.
-	SecurityGroupIds pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of SNS Topic.
-	SnsTopicArn pulumi.StringPtrInput
-	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
-	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+	Description                pulumi.StringPtrInput
+	InstanceMetadataOptions    InfrastructureConfigurationInstanceMetadataOptionsPtrInput
+	InstanceProfileName        pulumi.StringInput
+	InstanceTypes              pulumi.StringArrayInput
+	KeyPair                    pulumi.StringPtrInput
+	Logging                    InfrastructureConfigurationLoggingPtrInput
+	Name                       pulumi.StringPtrInput
+	Placement                  InfrastructureConfigurationPlacementPtrInput
+	Region                     pulumi.StringPtrInput
+	ResourceTags               pulumi.StringMapInput
+	SecurityGroupIds           pulumi.StringArrayInput
+	SnsTopicArn                pulumi.StringPtrInput
+	SubnetId                   pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
 }
 
@@ -398,101 +240,80 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWi
 	return o
 }
 
-// Amazon Resource Name (ARN) of the configuration.
 func (o InfrastructureConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date when the configuration was created.
 func (o InfrastructureConfigurationOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Date when the configuration was updated.
 func (o InfrastructureConfigurationOutput) DateUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.DateUpdated }).(pulumi.StringOutput)
 }
 
-// Description for the configuration.
 func (o InfrastructureConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
 func (o InfrastructureConfigurationOutput) InstanceMetadataOptions() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
 		return v.InstanceMetadataOptions
 	}).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
 }
 
-// Name of IAM Instance Profile.
 func (o InfrastructureConfigurationOutput) InstanceProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.InstanceProfileName }).(pulumi.StringOutput)
 }
 
-// Set of EC2 Instance Types.
 func (o InfrastructureConfigurationOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringArrayOutput { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Name of EC2 Key Pair.
 func (o InfrastructureConfigurationOutput) KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block with logging settings. Detailed below.
 func (o InfrastructureConfigurationOutput) Logging() InfrastructureConfigurationLoggingPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationLoggingPtrOutput { return v.Logging }).(InfrastructureConfigurationLoggingPtrOutput)
 }
 
-// Name for the configuration.
-//
-// The following arguments are optional:
 func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 func (o InfrastructureConfigurationOutput) Placement() InfrastructureConfigurationPlacementPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationPlacementPtrOutput { return v.Placement }).(InfrastructureConfigurationPlacementPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InfrastructureConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags to assign to infrastructure created by the configuration.
 func (o InfrastructureConfigurationOutput) ResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.ResourceTags }).(pulumi.StringMapOutput)
 }
 
-// Set of EC2 Security Group identifiers.
 func (o InfrastructureConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of SNS Topic.
 func (o InfrastructureConfigurationOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 func (o InfrastructureConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InfrastructureConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InfrastructureConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 func (o InfrastructureConfigurationOutput) TerminateInstanceOnFailure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.BoolPtrOutput { return v.TerminateInstanceOnFailure }).(pulumi.BoolPtrOutput)
 }

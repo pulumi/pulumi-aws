@@ -16,47 +16,23 @@ public final class GetScriptDagNodeArg extends com.pulumi.resources.InvokeArgs {
 
     public static final GetScriptDagNodeArg Empty = new GetScriptDagNodeArg();
 
-    /**
-     * Name of the argument or property.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the argument or property.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Boolean if the value is used as a parameter. Defaults to `false`.
-     * 
-     */
     @Import(name="param")
     private @Nullable Boolean param;
 
-    /**
-     * @return Boolean if the value is used as a parameter. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> param() {
         return Optional.ofNullable(this.param);
     }
 
-    /**
-     * Value of the argument or property.
-     * 
-     */
     @Import(name="value", required=true)
     private String value;
 
-    /**
-     * @return Value of the argument or property.
-     * 
-     */
     public String value() {
         return this.value;
     }
@@ -87,34 +63,16 @@ public final class GetScriptDagNodeArg extends com.pulumi.resources.InvokeArgs {
             $ = new GetScriptDagNodeArg(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the argument or property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param param Boolean if the value is used as a parameter. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder param(@Nullable Boolean param) {
             $.param = param;
             return this;
         }
 
-        /**
-         * @param value Value of the argument or property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             $.value = value;
             return this;

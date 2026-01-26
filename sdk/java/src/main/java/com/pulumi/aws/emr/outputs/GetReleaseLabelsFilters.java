@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReleaseLabelsFilters {
-    /**
-     * @return Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
-     * 
-     */
     private @Nullable String application;
-    /**
-     * @return Optional release label version prefix filter. For example, `emr-5`.
-     * 
-     */
     private @Nullable String prefix;
 
     private GetReleaseLabelsFilters() {}
-    /**
-     * @return Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
-     * 
-     */
     public Optional<String> application() {
         return Optional.ofNullable(this.application);
     }
-    /**
-     * @return Optional release label version prefix filter. For example, `emr-5`.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

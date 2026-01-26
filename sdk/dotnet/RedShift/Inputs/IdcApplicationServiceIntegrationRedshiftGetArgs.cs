@@ -12,9 +12,6 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class IdcApplicationServiceIntegrationRedshiftGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Redshift connect service integration scope.
-        /// </summary>
         [Input("connect")]
         public Input<Inputs.IdcApplicationServiceIntegrationRedshiftConnectGetArgs>? Connect { get; set; }
 

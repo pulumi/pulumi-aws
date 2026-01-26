@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCallerIdentityResult {
-    /**
-     * @return AWS Account ID number of the account that owns or contains the calling entity.
-     * 
-     */
     private String accountId;
-    /**
-     * @return ARN associated with the calling entity.
-     * 
-     */
     private String arn;
-    /**
-     * @return Account ID number of the account that owns or contains the calling entity.
-     * 
-     */
     private String id;
-    /**
-     * @return Unique identifier of the calling entity.
-     * 
-     */
     private String userId;
 
     private GetCallerIdentityResult() {}
-    /**
-     * @return AWS Account ID number of the account that owns or contains the calling entity.
-     * 
-     */
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return ARN associated with the calling entity.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Account ID number of the account that owns or contains the calling entity.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Unique identifier of the calling entity.
-     * 
-     */
     public String userId() {
         return this.userId;
     }

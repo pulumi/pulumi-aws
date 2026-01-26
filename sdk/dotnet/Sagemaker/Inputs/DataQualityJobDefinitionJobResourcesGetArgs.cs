@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionJobResourcesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration for the cluster resources used to run the processing job. Fields are documented below.
-        /// </summary>
         [Input("clusterConfig", required: true)]
         public Input<Inputs.DataQualityJobDefinitionJobResourcesClusterConfigGetArgs> ClusterConfig { get; set; } = null!;
 

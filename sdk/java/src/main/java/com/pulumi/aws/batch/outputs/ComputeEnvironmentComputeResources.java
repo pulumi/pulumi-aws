@@ -17,209 +17,73 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ComputeEnvironmentComputeResources {
-    /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable String allocationStrategy;
-    /**
-     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable Integer bidPercentage;
-    /**
-     * @return The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable Integer desiredVcpus;
-    /**
-     * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations;
-    /**
-     * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable String ec2KeyPair;
-    /**
-     * @return The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
-     * 
-     */
     private @Nullable String imageId;
-    /**
-     * @return The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable String instanceRole;
-    /**
-     * @return A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable List<String> instanceTypes;
-    /**
-     * @return The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate;
-    /**
-     * @return The maximum number of EC2 vCPUs that an environment can reach.
-     * 
-     */
     private Integer maxVcpus;
-    /**
-     * @return The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable Integer minVcpus;
-    /**
-     * @return The Amazon EC2 placement group to associate with your compute resources.
-     * 
-     */
     private @Nullable String placementGroup;
-    /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable String spotIamFleetRole;
-    /**
-     * @return A list of VPC subnets into which the compute resources are launched.
-     * 
-     */
     private List<String> subnets;
-    /**
-     * @return Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-     * 
-     */
     private String type;
 
     private ComputeEnvironmentComputeResources() {}
-    /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<String> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
-    /**
-     * @return Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<Integer> bidPercentage() {
         return Optional.ofNullable(this.bidPercentage);
     }
-    /**
-     * @return The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<Integer> desiredVcpus() {
         return Optional.ofNullable(this.desiredVcpus);
     }
-    /**
-     * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations() {
         return this.ec2Configurations == null ? List.of() : this.ec2Configurations;
     }
-    /**
-     * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<String> ec2KeyPair() {
         return Optional.ofNullable(this.ec2KeyPair);
     }
-    /**
-     * @return The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
-     * 
-     */
     public Optional<String> imageId() {
         return Optional.ofNullable(this.imageId);
     }
-    /**
-     * @return The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<String> instanceRole() {
         return Optional.ofNullable(this.instanceRole);
     }
-    /**
-     * @return A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public List<String> instanceTypes() {
         return this.instanceTypes == null ? List.of() : this.instanceTypes;
     }
-    /**
-     * @return The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<ComputeEnvironmentComputeResourcesLaunchTemplate> launchTemplate() {
         return Optional.ofNullable(this.launchTemplate);
     }
-    /**
-     * @return The maximum number of EC2 vCPUs that an environment can reach.
-     * 
-     */
     public Integer maxVcpus() {
         return this.maxVcpus;
     }
-    /**
-     * @return The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<Integer> minVcpus() {
         return Optional.ofNullable(this.minVcpus);
     }
-    /**
-     * @return The Amazon EC2 placement group to associate with your compute resources.
-     * 
-     */
     public Optional<String> placementGroup() {
         return Optional.ofNullable(this.placementGroup);
     }
-    /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Optional<String> spotIamFleetRole() {
         return Optional.ofNullable(this.spotIamFleetRole);
     }
-    /**
-     * @return A list of VPC subnets into which the compute resources are launched.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }
-    /**
-     * @return Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -75,9 +75,6 @@ class GetConfigurationSetResult:
     @_builtins.property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Sequence['outputs.GetConfigurationSetDeliveryOptionResult']:
-        """
-        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        """
         return pulumi.get(self, "delivery_options")
 
     @_builtins.property
@@ -96,49 +93,31 @@ class GetConfigurationSetResult:
     @_builtins.property
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> Sequence['outputs.GetConfigurationSetReputationOptionResult']:
-        """
-        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        """
         return pulumi.get(self, "reputation_options")
 
     @_builtins.property
     @pulumi.getter(name="sendingOptions")
     def sending_options(self) -> Sequence['outputs.GetConfigurationSetSendingOptionResult']:
-        """
-        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        """
         return pulumi.get(self, "sending_options")
 
     @_builtins.property
     @pulumi.getter(name="suppressionOptions")
     def suppression_options(self) -> Sequence['outputs.GetConfigurationSetSuppressionOptionResult']:
-        """
-        An object that contains information about the suppression list preferences for your account.
-        """
         return pulumi.get(self, "suppression_options")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the container recipe.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Sequence['outputs.GetConfigurationSetTrackingOptionResult']:
-        """
-        An object that defines the open and click tracking options for emails that you send using the configuration set.
-        """
         return pulumi.get(self, "tracking_options")
 
     @_builtins.property
     @pulumi.getter(name="vdmOptions")
     def vdm_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionResult']:
-        """
-        An object that contains information about the VDM preferences for your configuration set.
-        """
         return pulumi.get(self, "vdm_options")
 
 
@@ -166,23 +145,7 @@ def get_configuration_set(configuration_set_name: Optional[_builtins.str] = None
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationSetResult:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_configuration_set(configuration_set_name="example")
-    ```
-
-
-    :param _builtins.str configuration_set_name: The name of the configuration set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the container recipe.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['configurationSetName'] = configuration_set_name
@@ -208,23 +171,7 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[_
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetResult]:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_configuration_set(configuration_set_name="example")
-    ```
-
-
-    :param _builtins.str configuration_set_name: The name of the configuration set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the container recipe.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['configurationSetName'] = configuration_set_name

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettingsStudioWebPortalSettings
     {
-        /// <summary>
-        /// The Applications supported in Studio that are hidden from the Studio left navigation pane.
-        /// </summary>
         public readonly ImmutableArray<string> HiddenAppTypes;
-        /// <summary>
-        /// The instance types you are hiding from the Studio user interface.
-        /// </summary>
         public readonly ImmutableArray<string> HiddenInstanceTypes;
-        /// <summary>
-        /// The machine learning tools that are hidden from the Studio left navigation pane.
-        /// </summary>
         public readonly ImmutableArray<string> HiddenMlTools;
 
         [OutputConstructor]

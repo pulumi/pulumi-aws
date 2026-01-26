@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingSourceAccessConfiguration
     {
-        /// <summary>
-        /// Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `SubnetId` is the value you would find in an aws.ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `SecurityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource's id attribute.
-        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

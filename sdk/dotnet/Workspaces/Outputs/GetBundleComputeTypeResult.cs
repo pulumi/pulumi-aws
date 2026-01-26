@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Workspaces.Outputs
     [OutputType]
     public sealed class GetBundleComputeTypeResult
     {
-        /// <summary>
-        /// Name of the bundle. You cannot combine this parameter with `BundleId`.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

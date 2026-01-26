@@ -17,47 +17,23 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcLinkArgs Empty = new GetVpcLinkArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * VPC Link Tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return VPC Link Tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * VPC Link ID
-     * 
-     */
     @Import(name="vpcLinkId", required=true)
     private Output<String> vpcLinkId;
 
-    /**
-     * @return VPC Link ID
-     * 
-     */
     public Output<String> vpcLinkId() {
         return this.vpcLinkId;
     }
@@ -88,65 +64,29 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcLinkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags VPC Link Tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags VPC Link Tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcLinkId VPC Link ID
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcLinkId(Output<String> vpcLinkId) {
             $.vpcLinkId = vpcLinkId;
             return this;
         }
 
-        /**
-         * @param vpcLinkId VPC Link ID
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcLinkId(String vpcLinkId) {
             return vpcLinkId(Output.of(vpcLinkId));
         }

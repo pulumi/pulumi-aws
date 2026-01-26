@@ -12,70 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS QuickSight IAM Policy Assignment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewIamPolicyAssignment(ctx, "example", &quicksight.IamPolicyAssignmentArgs{
-//				AssignmentName:   pulumi.String("example"),
-//				AssignmentStatus: pulumi.String("ENABLED"),
-//				PolicyArn:        pulumi.Any(exampleAwsIamPolicy.Arn),
-//				Identities: &quicksight.IamPolicyAssignmentIdentitiesArgs{
-//					Users: pulumi.StringArray{
-//						exampleAwsQuicksightUser.UserName,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
-// ```
 type IamPolicyAssignment struct {
 	pulumi.CustomResourceState
 
-	// Assignment ID.
-	AssignmentId pulumi.StringOutput `pulumi:"assignmentId"`
-	// Name of the assignment.
-	AssignmentName pulumi.StringOutput `pulumi:"assignmentName"`
-	// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-	//
-	// The following arguments are optional:
-	AssignmentStatus pulumi.StringOutput `pulumi:"assignmentStatus"`
-	AwsAccountId     pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-	Identities IamPolicyAssignmentIdentitiesPtrOutput `pulumi:"identities"`
-	// Namespace that contains the assignment. Defaults to `default`.
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-	PolicyArn pulumi.StringPtrOutput `pulumi:"policyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AssignmentId     pulumi.StringOutput                    `pulumi:"assignmentId"`
+	AssignmentName   pulumi.StringOutput                    `pulumi:"assignmentName"`
+	AssignmentStatus pulumi.StringOutput                    `pulumi:"assignmentStatus"`
+	AwsAccountId     pulumi.StringOutput                    `pulumi:"awsAccountId"`
+	Identities       IamPolicyAssignmentIdentitiesPtrOutput `pulumi:"identities"`
+	Namespace        pulumi.StringOutput                    `pulumi:"namespace"`
+	PolicyArn        pulumi.StringPtrOutput                 `pulumi:"policyArn"`
+	Region           pulumi.StringOutput                    `pulumi:"region"`
 }
 
 // NewIamPolicyAssignment registers a new resource with the given unique name, arguments, and options.
@@ -114,43 +61,25 @@ func GetIamPolicyAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IamPolicyAssignment resources.
 type iamPolicyAssignmentState struct {
-	// Assignment ID.
-	AssignmentId *string `pulumi:"assignmentId"`
-	// Name of the assignment.
-	AssignmentName *string `pulumi:"assignmentName"`
-	// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-	//
-	// The following arguments are optional:
-	AssignmentStatus *string `pulumi:"assignmentStatus"`
-	AwsAccountId     *string `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
-	// Namespace that contains the assignment. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-	PolicyArn *string `pulumi:"policyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AssignmentId     *string                        `pulumi:"assignmentId"`
+	AssignmentName   *string                        `pulumi:"assignmentName"`
+	AssignmentStatus *string                        `pulumi:"assignmentStatus"`
+	AwsAccountId     *string                        `pulumi:"awsAccountId"`
+	Identities       *IamPolicyAssignmentIdentities `pulumi:"identities"`
+	Namespace        *string                        `pulumi:"namespace"`
+	PolicyArn        *string                        `pulumi:"policyArn"`
+	Region           *string                        `pulumi:"region"`
 }
 
 type IamPolicyAssignmentState struct {
-	// Assignment ID.
-	AssignmentId pulumi.StringPtrInput
-	// Name of the assignment.
-	AssignmentName pulumi.StringPtrInput
-	// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-	//
-	// The following arguments are optional:
+	AssignmentId     pulumi.StringPtrInput
+	AssignmentName   pulumi.StringPtrInput
 	AssignmentStatus pulumi.StringPtrInput
 	AwsAccountId     pulumi.StringPtrInput
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-	Identities IamPolicyAssignmentIdentitiesPtrInput
-	// Namespace that contains the assignment. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-	PolicyArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Identities       IamPolicyAssignmentIdentitiesPtrInput
+	Namespace        pulumi.StringPtrInput
+	PolicyArn        pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (IamPolicyAssignmentState) ElementType() reflect.Type {
@@ -158,40 +87,24 @@ func (IamPolicyAssignmentState) ElementType() reflect.Type {
 }
 
 type iamPolicyAssignmentArgs struct {
-	// Name of the assignment.
-	AssignmentName string `pulumi:"assignmentName"`
-	// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-	//
-	// The following arguments are optional:
-	AssignmentStatus string  `pulumi:"assignmentStatus"`
-	AwsAccountId     *string `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
-	// Namespace that contains the assignment. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-	PolicyArn *string `pulumi:"policyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AssignmentName   string                         `pulumi:"assignmentName"`
+	AssignmentStatus string                         `pulumi:"assignmentStatus"`
+	AwsAccountId     *string                        `pulumi:"awsAccountId"`
+	Identities       *IamPolicyAssignmentIdentities `pulumi:"identities"`
+	Namespace        *string                        `pulumi:"namespace"`
+	PolicyArn        *string                        `pulumi:"policyArn"`
+	Region           *string                        `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IamPolicyAssignment resource.
 type IamPolicyAssignmentArgs struct {
-	// Name of the assignment.
-	AssignmentName pulumi.StringInput
-	// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-	//
-	// The following arguments are optional:
+	AssignmentName   pulumi.StringInput
 	AssignmentStatus pulumi.StringInput
 	AwsAccountId     pulumi.StringPtrInput
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-	Identities IamPolicyAssignmentIdentitiesPtrInput
-	// Namespace that contains the assignment. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-	PolicyArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Identities       IamPolicyAssignmentIdentitiesPtrInput
+	Namespace        pulumi.StringPtrInput
+	PolicyArn        pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (IamPolicyAssignmentArgs) ElementType() reflect.Type {
@@ -281,19 +194,14 @@ func (o IamPolicyAssignmentOutput) ToIamPolicyAssignmentOutputWithContext(ctx co
 	return o
 }
 
-// Assignment ID.
 func (o IamPolicyAssignmentOutput) AssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AssignmentId }).(pulumi.StringOutput)
 }
 
-// Name of the assignment.
 func (o IamPolicyAssignmentOutput) AssignmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AssignmentName }).(pulumi.StringOutput)
 }
 
-// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-//
-// The following arguments are optional:
 func (o IamPolicyAssignmentOutput) AssignmentStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AssignmentStatus }).(pulumi.StringOutput)
 }
@@ -302,22 +210,18 @@ func (o IamPolicyAssignmentOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 func (o IamPolicyAssignmentOutput) Identities() IamPolicyAssignmentIdentitiesPtrOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) IamPolicyAssignmentIdentitiesPtrOutput { return v.Identities }).(IamPolicyAssignmentIdentitiesPtrOutput)
 }
 
-// Namespace that contains the assignment. Defaults to `default`.
 func (o IamPolicyAssignmentOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
 func (o IamPolicyAssignmentOutput) PolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringPtrOutput { return v.PolicyArn }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IamPolicyAssignmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

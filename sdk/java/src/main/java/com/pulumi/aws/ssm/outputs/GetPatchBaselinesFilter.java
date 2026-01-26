@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPatchBaselinesFilter {
-    /**
-     * @return Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-     * 
-     */
     private String key;
-    /**
-     * @return Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-     * 
-     */
     private List<String> values;
 
     private GetPatchBaselinesFilter() {}
-    /**
-     * @return Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

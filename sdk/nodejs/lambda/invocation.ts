@@ -4,115 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Lambda Function invocation. Use this resource to invoke a Lambda function with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
- *
- * > **Note:** By default this resource _only_ invokes the function when the arguments call for a create or replace. After an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source. To invoke the Lambda function when the Pulumi resource is updated and deleted, see the CRUD Lifecycle Management example below.
- *
- * > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
- *
- * ## Example Usage
- *
- * ### Basic Invocation
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * // Lambda function to invoke
- * const example = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("function.zip"),
- *     name: "data_processor",
- *     role: lambdaRole.arn,
- *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.Python3d12,
- * });
- * // Invoke the function once during resource creation
- * const exampleInvocation = new aws.lambda.Invocation("example", {
- *     functionName: example.name,
- *     input: JSON.stringify({
- *         operation: "initialize",
- *         config: {
- *             environment: "production",
- *             debug: false,
- *         },
- *     }),
- * });
- * export const initializationResult = std.jsondecodeOutput({
- *     input: exampleInvocation.result,
- * }).apply(invoke => invoke.result?.status);
- * ```
- *
- * ### Dynamic Invocation with Triggers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.lambda.Invocation("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     triggers: {
- *         function_version: exampleAwsLambdaFunction.version,
- *         config_hash: std.sha256Output({
- *             input: JSON.stringify({
- *                 environment: environment,
- *                 timestamp: std.timestamp({}).then(invoke => invoke.result),
- *             }),
- *         }).apply(invoke => invoke.result),
- *     },
- *     input: JSON.stringify({
- *         operation: "process_data",
- *         environment: environment,
- *         batch_id: batchId.result,
- *     }),
- * });
- * ```
- *
- * ### CRUD Lifecycle Management
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.Invocation("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     input: JSON.stringify({
- *         resource_name: "database_setup",
- *         database_url: exampleAwsDbInstance.endpoint,
- *         credentials: {
- *             username: dbUsername,
- *             password: dbPassword,
- *         },
- *     }),
- *     lifecycleScope: "CRUD",
- * });
- * ```
- *
- * > **Note:** `lifecycleScope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the Lambda function to handle different lifecycle transitions uniquely. If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumiKey` argument.
- *
- * The lifecycle key gets added with subkeys:
- *
- * * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
- * * `prevInput` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
- *
- * When the resource from the CRUD example above is created, the Lambda will receive the following JSON payload:
- *
- * If the `databaseUrl` changes, the Lambda will be invoked again with:
- *
- * When the invocation resource is removed, the final invocation will have:
- *
- * ## Import
- *
- * Using `pulumi import`, import Lambda Invocation using the `function_name,qualifier,result_hash`. For example:
- *
- * ```sh
- * $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
- * ```
- * Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
- * To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
- */
 export class Invocation extends pulumi.CustomResource {
     /**
      * Get an existing Invocation resource's state with the given name, ID, and optional extra
@@ -141,40 +32,14 @@ export class Invocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === Invocation.__pulumiType;
     }
 
-    /**
-     * Name of the Lambda function.
-     */
     declare public readonly functionName: pulumi.Output<string>;
-    /**
-     * JSON payload to the Lambda function.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly input: pulumi.Output<string>;
-    /**
-     * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
-     */
     declare public readonly lifecycleScope: pulumi.Output<string | undefined>;
-    /**
-     * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
-     */
     declare public readonly qualifier: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * String result of the Lambda function invocation.
-     */
     declare public /*out*/ readonly result: pulumi.Output<string>;
-    /**
-     * Tenant Id to serve invocations from specified tenant.
-     */
     declare public readonly tenantId: pulumi.Output<string | undefined>;
     declare public readonly terraformKey: pulumi.Output<string | undefined>;
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-     */
     declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -226,40 +91,14 @@ export class Invocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Invocation resources.
  */
 export interface InvocationState {
-    /**
-     * Name of the Lambda function.
-     */
     functionName?: pulumi.Input<string>;
-    /**
-     * JSON payload to the Lambda function.
-     *
-     * The following arguments are optional:
-     */
     input?: pulumi.Input<string>;
-    /**
-     * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
-     */
     lifecycleScope?: pulumi.Input<string>;
-    /**
-     * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
-     */
     qualifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * String result of the Lambda function invocation.
-     */
     result?: pulumi.Input<string>;
-    /**
-     * Tenant Id to serve invocations from specified tenant.
-     */
     tenantId?: pulumi.Input<string>;
     terraformKey?: pulumi.Input<string>;
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -267,35 +106,12 @@ export interface InvocationState {
  * The set of arguments for constructing a Invocation resource.
  */
 export interface InvocationArgs {
-    /**
-     * Name of the Lambda function.
-     */
     functionName: pulumi.Input<string>;
-    /**
-     * JSON payload to the Lambda function.
-     *
-     * The following arguments are optional:
-     */
     input: pulumi.Input<string>;
-    /**
-     * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
-     */
     lifecycleScope?: pulumi.Input<string>;
-    /**
-     * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
-     */
     qualifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tenant Id to serve invocations from specified tenant.
-     */
     tenantId?: pulumi.Input<string>;
     terraformKey?: pulumi.Input<string>;
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

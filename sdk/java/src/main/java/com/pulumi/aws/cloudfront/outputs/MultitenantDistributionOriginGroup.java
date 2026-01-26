@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionOriginGroup {
-    /**
-     * @return Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-     * 
-     */
     private @Nullable MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria;
-    /**
-     * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionOriginGroupMember> members;
-    /**
-     * @return Unique identifier for the origin group.
-     * 
-     */
     private String originId;
 
     private MultitenantDistributionOriginGroup() {}
-    /**
-     * @return Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-     * 
-     */
     public Optional<MultitenantDistributionOriginGroupFailoverCriteria> failoverCriteria() {
         return Optional.ofNullable(this.failoverCriteria);
     }
-    /**
-     * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-     * 
-     */
     public List<MultitenantDistributionOriginGroupMember> members() {
         return this.members == null ? List.of() : this.members;
     }
-    /**
-     * @return Unique identifier for the origin group.
-     * 
-     */
     public String originId() {
         return this.originId;
     }

@@ -15,32 +15,16 @@ public final class GetInstanceTypeOfferingFilterArgs extends com.pulumi.resource
 
     public static final GetInstanceTypeOfferingFilterArgs Empty = new GetInstanceTypeOfferingFilterArgs();
 
-    /**
-     * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * List of one or more values for the filter.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class GetInstanceTypeOfferingFilterArgs extends com.pulumi.resource
             $ = new GetInstanceTypeOfferingFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

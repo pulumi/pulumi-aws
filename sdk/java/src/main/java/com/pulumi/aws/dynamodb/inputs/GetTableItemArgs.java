@@ -24,70 +24,30 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.expressionAttributeNames);
     }
 
-    /**
-     * A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-     * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-     * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-     * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-     * 
-     */
     @Import(name="projectionExpression")
     private @Nullable Output<String> projectionExpression;
 
-    /**
-     * @return A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-     * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-     * 
-     */
     public Optional<Output<String>> projectionExpression() {
         return Optional.ofNullable(this.projectionExpression);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the table containing the requested item.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the table containing the requested item.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -129,94 +89,38 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
             return expressionAttributeNames(Output.of(expressionAttributeNames));
         }
 
-        /**
-         * @param key A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-         * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-         * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param projectionExpression A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-         * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectionExpression(@Nullable Output<String> projectionExpression) {
             $.projectionExpression = projectionExpression;
             return this;
         }
 
-        /**
-         * @param projectionExpression A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-         * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectionExpression(String projectionExpression) {
             return projectionExpression(Output.of(projectionExpression));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableName The name of the table containing the requested item.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the table containing the requested item.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

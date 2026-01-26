@@ -16,32 +16,16 @@ public final class GetReceivedLicenseArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetReceivedLicenseArgs Empty = new GetReceivedLicenseArgs();
 
-    /**
-     * The ARN of the received license you want data for.
-     * 
-     */
     @Import(name="licenseArn", required=true)
     private Output<String> licenseArn;
 
-    /**
-     * @return The ARN of the received license you want data for.
-     * 
-     */
     public Output<String> licenseArn() {
         return this.licenseArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class GetReceivedLicenseArgs extends com.pulumi.resources.InvokeArg
             $ = new GetReceivedLicenseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param licenseArn The ARN of the received license you want data for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseArn(Output<String> licenseArn) {
             $.licenseArn = licenseArn;
             return this;
         }
 
-        /**
-         * @param licenseArn The ARN of the received license you want data for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseArn(String licenseArn) {
             return licenseArn(Output.of(licenseArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

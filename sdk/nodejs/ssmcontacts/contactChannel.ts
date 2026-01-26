@@ -7,61 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SSM Contacts Contact Channel.
- *
- * > **NOTE:** The contact channel needs to be activated in the AWS Systems Manager console, otherwise it can't be used to engage the contact. See the [Contacts section of the Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/contacts.html) for more information.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmcontacts.ContactChannel("example", {
- *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
- *     deliveryAddress: {
- *         simpleAddress: "email@example.com",
- *     },
- *     name: "Example contact channel",
- *     type: "EMAIL",
- * });
- * ```
- *
- * ### Usage with SSM Contact
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleContact = new aws.ssmcontacts.Contact("example_contact", {
- *     alias: "example_contact",
- *     type: "PERSONAL",
- * });
- * const example = new aws.ssmcontacts.ContactChannel("example", {
- *     contactId: exampleContact.arn,
- *     deliveryAddress: {
- *         simpleAddress: "email@example.com",
- *     },
- *     name: "Example contact channel",
- *     type: "EMAIL",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
- *
- * Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
- *
- * % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
- */
 export class ContactChannel extends pulumi.CustomResource {
     /**
      * Get an existing ContactChannel resource's state with the given name, ID, and optional extra
@@ -90,33 +35,12 @@ export class ContactChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContactChannel.__pulumiType;
     }
 
-    /**
-     * Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-     */
     declare public /*out*/ readonly activationStatus: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the contact channel.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-     */
     declare public readonly contactId: pulumi.Output<string>;
-    /**
-     * Block that contains contact engagement details. See details below.
-     */
     declare public readonly deliveryAddress: pulumi.Output<outputs.ssmcontacts.ContactChannelDeliveryAddress>;
-    /**
-     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -167,33 +91,12 @@ export class ContactChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContactChannel resources.
  */
 export interface ContactChannelState {
-    /**
-     * Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-     */
     activationStatus?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the contact channel.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-     */
     contactId?: pulumi.Input<string>;
-    /**
-     * Block that contains contact engagement details. See details below.
-     */
     deliveryAddress?: pulumi.Input<inputs.ssmcontacts.ContactChannelDeliveryAddress>;
-    /**
-     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -201,24 +104,9 @@ export interface ContactChannelState {
  * The set of arguments for constructing a ContactChannel resource.
  */
 export interface ContactChannelArgs {
-    /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-     */
     contactId: pulumi.Input<string>;
-    /**
-     * Block that contains contact engagement details. See details below.
-     */
     deliveryAddress: pulumi.Input<inputs.ssmcontacts.ContactChannelDeliveryAddress>;
-    /**
-     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-     */
     type: pulumi.Input<string>;
 }

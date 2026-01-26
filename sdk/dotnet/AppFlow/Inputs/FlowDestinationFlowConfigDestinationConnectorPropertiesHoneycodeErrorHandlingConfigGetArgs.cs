@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Amazon S3 bucket.
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// Amazon S3 bucket prefix.
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        /// </summary>
         [Input("failOnFirstDestinationError")]
         public Input<bool>? FailOnFirstDestinationError { get; set; }
 

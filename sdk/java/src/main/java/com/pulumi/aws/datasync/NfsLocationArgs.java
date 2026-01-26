@@ -19,92 +19,44 @@ public final class NfsLocationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NfsLocationArgs Empty = new NfsLocationArgs();
 
-    /**
-     * Configuration block containing mount options used by DataSync to access the NFS Server.
-     * 
-     */
     @Import(name="mountOptions")
     private @Nullable Output<NfsLocationMountOptionsArgs> mountOptions;
 
-    /**
-     * @return Configuration block containing mount options used by DataSync to access the NFS Server.
-     * 
-     */
     public Optional<Output<NfsLocationMountOptionsArgs>> mountOptions() {
         return Optional.ofNullable(this.mountOptions);
     }
 
-    /**
-     * Configuration block containing information for connecting to the NFS File System.
-     * 
-     */
     @Import(name="onPremConfig", required=true)
     private Output<NfsLocationOnPremConfigArgs> onPremConfig;
 
-    /**
-     * @return Configuration block containing information for connecting to the NFS File System.
-     * 
-     */
     public Output<NfsLocationOnPremConfigArgs> onPremConfig() {
         return this.onPremConfig;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-     * 
-     */
     @Import(name="serverHostname", required=true)
     private Output<String> serverHostname;
 
-    /**
-     * @return Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-     * 
-     */
     public Output<String> serverHostname() {
         return this.serverHostname;
     }
 
-    /**
-     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-     * 
-     */
     @Import(name="subdirectory", required=true)
     private Output<String> subdirectory;
 
-    /**
-     * @return Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-     * 
-     */
     public Output<String> subdirectory() {
         return this.subdirectory;
     }
 
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -138,128 +90,56 @@ public final class NfsLocationArgs extends com.pulumi.resources.ResourceArgs {
             $ = new NfsLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mountOptions Configuration block containing mount options used by DataSync to access the NFS Server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(@Nullable Output<NfsLocationMountOptionsArgs> mountOptions) {
             $.mountOptions = mountOptions;
             return this;
         }
 
-        /**
-         * @param mountOptions Configuration block containing mount options used by DataSync to access the NFS Server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(NfsLocationMountOptionsArgs mountOptions) {
             return mountOptions(Output.of(mountOptions));
         }
 
-        /**
-         * @param onPremConfig Configuration block containing information for connecting to the NFS File System.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onPremConfig(Output<NfsLocationOnPremConfigArgs> onPremConfig) {
             $.onPremConfig = onPremConfig;
             return this;
         }
 
-        /**
-         * @param onPremConfig Configuration block containing information for connecting to the NFS File System.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onPremConfig(NfsLocationOnPremConfigArgs onPremConfig) {
             return onPremConfig(Output.of(onPremConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverHostname Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverHostname(Output<String> serverHostname) {
             $.serverHostname = serverHostname;
             return this;
         }
 
-        /**
-         * @param serverHostname Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverHostname(String serverHostname) {
             return serverHostname(Output.of(serverHostname));
         }
 
-        /**
-         * @param subdirectory Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdirectory(Output<String> subdirectory) {
             $.subdirectory = subdirectory;
             return this;
         }
 
-        /**
-         * @param subdirectory Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdirectory(String subdirectory) {
             return subdirectory(Output.of(subdirectory));
         }
 
-        /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

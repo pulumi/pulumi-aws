@@ -17,183 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudWatch Logs Delivery. A delivery is a connection between an `aws.cloudwatch.LogDeliverySource` and an `aws.cloudwatch.LogDeliveryDestination`.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogDelivery;
- * import com.pulumi.aws.cloudwatch.LogDeliveryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogDelivery("example", LogDeliveryArgs.builder()
- *             .deliverySourceName(exampleAwsCloudwatchLogDeliverySource.name())
- *             .deliveryDestinationArn(exampleAwsCloudwatchLogDeliveryDestination.arn())
- *             .fieldDelimiter(",")
- *             .recordFields(            
- *                 "event_timestamp",
- *                 "event")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Logs Delivery using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logDelivery:LogDelivery example jsoGVi4Zq8VlYp9n
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logDelivery:LogDelivery")
 public class LogDelivery extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the delivery.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delivery.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the delivery destination to use for this delivery.
-     * 
-     */
     @Export(name="deliveryDestinationArn", refs={String.class}, tree="[0]")
     private Output<String> deliveryDestinationArn;
 
-    /**
-     * @return The ARN of the delivery destination to use for this delivery.
-     * 
-     */
     public Output<String> deliveryDestinationArn() {
         return this.deliveryDestinationArn;
     }
-    /**
-     * The name of the delivery source to use for this delivery.
-     * 
-     */
     @Export(name="deliverySourceName", refs={String.class}, tree="[0]")
     private Output<String> deliverySourceName;
 
-    /**
-     * @return The name of the delivery source to use for this delivery.
-     * 
-     */
     public Output<String> deliverySourceName() {
         return this.deliverySourceName;
     }
-    /**
-     * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-     * 
-     */
     @Export(name="fieldDelimiter", refs={String.class}, tree="[0]")
     private Output<String> fieldDelimiter;
 
-    /**
-     * @return The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-     * 
-     */
     public Output<String> fieldDelimiter() {
         return this.fieldDelimiter;
     }
-    /**
-     * The list of record fields to be delivered to the destination, in order.
-     * 
-     */
     @Export(name="recordFields", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> recordFields;
 
-    /**
-     * @return The list of record fields to be delivered to the destination, in order.
-     * 
-     */
     public Output<List<String>> recordFields() {
         return this.recordFields;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
-     * 
-     */
     @Export(name="s3DeliveryConfigurations", refs={List.class,LogDeliveryS3DeliveryConfiguration.class}, tree="[0,1]")
     private Output<List<LogDeliveryS3DeliveryConfiguration>> s3DeliveryConfigurations;
 
-    /**
-     * @return Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
-     * 
-     */
     public Output<List<LogDeliveryS3DeliveryConfiguration>> s3DeliveryConfigurations() {
         return this.s3DeliveryConfigurations;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

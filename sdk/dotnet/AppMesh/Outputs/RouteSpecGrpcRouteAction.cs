@@ -13,10 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecGrpcRouteAction
     {
-        /// <summary>
-        /// Targets that traffic is routed to when a request matches the route.
-        /// You can specify one or more targets and their relative weights with which to distribute traffic.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RouteSpecGrpcRouteActionWeightedTarget> WeightedTargets;
 
         [OutputConstructor]

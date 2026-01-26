@@ -14,17 +14,9 @@ public final class RecordingConfigurationDestinationConfigurationArgs extends co
 
     public static final RecordingConfigurationDestinationConfigurationArgs Empty = new RecordingConfigurationDestinationConfigurationArgs();
 
-    /**
-     * S3 destination configuration where recorded videos will be stored.
-     * 
-     */
     @Import(name="s3", required=true)
     private Output<RecordingConfigurationDestinationConfigurationS3Args> s3;
 
-    /**
-     * @return S3 destination configuration where recorded videos will be stored.
-     * 
-     */
     public Output<RecordingConfigurationDestinationConfigurationS3Args> s3() {
         return this.s3;
     }
@@ -53,23 +45,11 @@ public final class RecordingConfigurationDestinationConfigurationArgs extends co
             $ = new RecordingConfigurationDestinationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3 S3 destination configuration where recorded videos will be stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(Output<RecordingConfigurationDestinationConfigurationS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 S3 destination configuration where recorded videos will be stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(RecordingConfigurationDestinationConfigurationS3Args s3) {
             return s3(Output.of(s3));
         }

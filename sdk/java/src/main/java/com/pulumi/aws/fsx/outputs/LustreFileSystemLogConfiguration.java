@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LustreFileSystemLogConfiguration {
-    /**
-     * @return The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
-     * 
-     */
     private @Nullable String destination;
-    /**
-     * @return Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
-     * 
-     */
     private @Nullable String level;
 
     private LustreFileSystemLogConfiguration() {}
-    /**
-     * @return The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
-     * 
-     */
     public Optional<String> destination() {
         return Optional.ofNullable(this.destination);
     }
-    /**
-     * @return Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
-     * 
-     */
     public Optional<String> level() {
         return Optional.ofNullable(this.level);
     }

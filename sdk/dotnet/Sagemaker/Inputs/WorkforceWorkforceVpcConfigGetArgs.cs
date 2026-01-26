@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -26,25 +22,15 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("subnets")]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// The ID of the subnets in the VPC that you want to connect.
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());
             set => _subnets = value;
         }
 
-        /// <summary>
-        /// The IDs for the VPC service endpoints of your VPC workforce.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC that the workforce uses for communication.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

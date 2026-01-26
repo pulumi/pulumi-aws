@@ -13,17 +13,8 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleTransformResult
     {
-        /// <summary>
-        /// Block for host header rewrite. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleTransformHostHeaderRewriteConfigResult> HostHeaderRewriteConfigs;
-        /// <summary>
-        /// Type of transform.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Block for URL rewrite. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleTransformUrlRewriteConfigResult> UrlRewriteConfigs;
 
         [OutputConstructor]

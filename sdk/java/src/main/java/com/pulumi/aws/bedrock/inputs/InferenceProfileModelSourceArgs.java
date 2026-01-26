@@ -14,17 +14,9 @@ public final class InferenceProfileModelSourceArgs extends com.pulumi.resources.
 
     public static final InferenceProfileModelSourceArgs Empty = new InferenceProfileModelSourceArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the model.
-     * 
-     */
     @Import(name="copyFrom", required=true)
     private Output<String> copyFrom;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the model.
-     * 
-     */
     public Output<String> copyFrom() {
         return this.copyFrom;
     }
@@ -53,23 +45,11 @@ public final class InferenceProfileModelSourceArgs extends com.pulumi.resources.
             $ = new InferenceProfileModelSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param copyFrom The Amazon Resource Name (ARN) of the model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyFrom(Output<String> copyFrom) {
             $.copyFrom = copyFrom;
             return this;
         }
 
-        /**
-         * @param copyFrom The Amazon Resource Name (ARN) of the model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyFrom(String copyFrom) {
             return copyFrom(Output.of(copyFrom));
         }

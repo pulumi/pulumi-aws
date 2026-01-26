@@ -9,108 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Logs Delivery Destination.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.LogDeliveryDestination("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
-    ///         {
-    ///             DestinationResourceArn = exampleAwsCloudwatchLogGroup.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### X-Ray Trace Delivery
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var xray = new Aws.CloudWatch.LogDeliveryDestination("xray", new()
-    ///     {
-    ///         Name = "xray-traces",
-    ///         DeliveryDestinationType = "XRAY",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination")]
     public partial class LogDeliveryDestination : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the delivery destination.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-        /// </summary>
         [Output("deliveryDestinationConfiguration")]
         public Output<Outputs.LogDeliveryDestinationDeliveryDestinationConfiguration?> DeliveryDestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `DestinationResourceArn`.
-        /// </summary>
         [Output("deliveryDestinationType")]
         public Output<string> DeliveryDestinationType { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for this delivery destination.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The format of the logs that are sent to this delivery destination. Valid values: `Json`, `Plain`, `W3c`, `Raw`, `Parquet`.
-        /// </summary>
         [Output("outputFormat")]
         public Output<string?> OutputFormat { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -160,42 +82,23 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDeliveryDestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-        /// </summary>
         [Input("deliveryDestinationConfiguration")]
         public Input<Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs>? DeliveryDestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `DestinationResourceArn`.
-        /// </summary>
         [Input("deliveryDestinationType")]
         public Input<string>? DeliveryDestinationType { get; set; }
 
-        /// <summary>
-        /// The name for this delivery destination.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The format of the logs that are sent to this delivery destination. Valid values: `Json`, `Plain`, `W3c`, `Raw`, `Parquet`.
-        /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -210,48 +113,26 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDeliveryDestinationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the delivery destination.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-        /// </summary>
         [Input("deliveryDestinationConfiguration")]
         public Input<Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationGetArgs>? DeliveryDestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `DestinationResourceArn`.
-        /// </summary>
         [Input("deliveryDestinationType")]
         public Input<string>? DeliveryDestinationType { get; set; }
 
-        /// <summary>
-        /// The name for this delivery destination.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The format of the logs that are sent to this delivery destination. Valid values: `Json`, `Plain`, `W3c`, `Raw`, `Parquet`.
-        /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -260,10 +141,6 @@ namespace Pulumi.Aws.CloudWatch
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

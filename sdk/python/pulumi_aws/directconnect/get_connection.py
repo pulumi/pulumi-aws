@@ -70,25 +70,16 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the connection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> _builtins.str:
-        """
-        Direct Connect endpoint on which the physical connection terminates.
-        """
         return pulumi.get(self, "aws_device")
 
     @_builtins.property
     @pulumi.getter
     def bandwidth(self) -> _builtins.str:
-        """
-        Bandwidth of the connection.
-        """
         return pulumi.get(self, "bandwidth")
 
     @_builtins.property
@@ -102,9 +93,6 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def location(self) -> _builtins.str:
-        """
-        AWS Direct Connect location where the connection is located.
-        """
         return pulumi.get(self, "location")
 
     @_builtins.property
@@ -115,25 +103,16 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the connection.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
     @pulumi.getter(name="partnerName")
     def partner_name(self) -> _builtins.str:
-        """
-        The name of the AWS Direct Connect service provider associated with the connection.
-        """
         return pulumi.get(self, "partner_name")
 
     @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> _builtins.str:
-        """
-        Name of the service provider associated with the connection.
-        """
         return pulumi.get(self, "provider_name")
 
     @_builtins.property
@@ -144,25 +123,16 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        State of the connection.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vlanId")
     def vlan_id(self) -> _builtins.int:
-        """
-        The VLAN ID.
-        """
         return pulumi.get(self, "vlan_id")
 
 
@@ -192,21 +162,7 @@ def get_connection(name: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Retrieve information about a Direct Connect Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_connection(name="tf-dx-connection")
-    ```
-
-
-    :param _builtins.str name: Name of the connection to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -234,21 +190,7 @@ def get_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    Retrieve information about a Direct Connect Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_connection(name="tf-dx-connection")
-    ```
-
-
-    :param _builtins.str name: Name of the connection to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

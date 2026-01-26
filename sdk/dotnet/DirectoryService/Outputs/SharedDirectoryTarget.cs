@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     [OutputType]
     public sealed class SharedDirectoryTarget
     {
-        /// <summary>
-        /// Identifier of the directory consumer account.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Type of identifier to be used in the `Id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

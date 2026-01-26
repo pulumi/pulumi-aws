@@ -16,32 +16,16 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
 
     public static final ConfigurationSetTrackingOptionsArgs Empty = new ConfigurationSetTrackingOptionsArgs();
 
-    /**
-     * The domain to use for tracking open and click events.
-     * 
-     */
     @Import(name="customRedirectDomain", required=true)
     private Output<String> customRedirectDomain;
 
-    /**
-     * @return The domain to use for tracking open and click events.
-     * 
-     */
     public Output<String> customRedirectDomain() {
         return this.customRedirectDomain;
     }
 
-    /**
-     * The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-     * 
-     */
     @Import(name="httpsPolicy")
     private @Nullable Output<String> httpsPolicy;
 
-    /**
-     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-     * 
-     */
     public Optional<Output<String>> httpsPolicy() {
         return Optional.ofNullable(this.httpsPolicy);
     }
@@ -71,44 +55,20 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
             $ = new ConfigurationSetTrackingOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRedirectDomain The domain to use for tracking open and click events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRedirectDomain(Output<String> customRedirectDomain) {
             $.customRedirectDomain = customRedirectDomain;
             return this;
         }
 
-        /**
-         * @param customRedirectDomain The domain to use for tracking open and click events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRedirectDomain(String customRedirectDomain) {
             return customRedirectDomain(Output.of(customRedirectDomain));
         }
 
-        /**
-         * @param httpsPolicy The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsPolicy(@Nullable Output<String> httpsPolicy) {
             $.httpsPolicy = httpsPolicy;
             return this;
         }
 
-        /**
-         * @param httpsPolicy The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsPolicy(String httpsPolicy) {
             return httpsPolicy(Output.of(httpsPolicy));
         }

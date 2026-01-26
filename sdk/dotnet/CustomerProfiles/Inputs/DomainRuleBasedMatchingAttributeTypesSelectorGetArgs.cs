@@ -14,28 +14,17 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
     {
         [Input("addresses")]
         private InputList<string>? _addresses;
-
-        /// <summary>
-        /// The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-        /// </summary>
         public InputList<string> Addresses
         {
             get => _addresses ?? (_addresses = new InputList<string>());
             set => _addresses = value;
         }
 
-        /// <summary>
-        /// Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-        /// </summary>
         [Input("attributeMatchingModel", required: true)]
         public Input<string> AttributeMatchingModel { get; set; } = null!;
 
         [Input("emailAddresses")]
         private InputList<string>? _emailAddresses;
-
-        /// <summary>
-        /// The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-        /// </summary>
         public InputList<string> EmailAddresses
         {
             get => _emailAddresses ?? (_emailAddresses = new InputList<string>());
@@ -44,10 +33,6 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
 
         [Input("phoneNumbers")]
         private InputList<string>? _phoneNumbers;
-
-        /// <summary>
-        /// The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-        /// </summary>
         public InputList<string> PhoneNumbers
         {
             get => _phoneNumbers ?? (_phoneNumbers = new InputList<string>());

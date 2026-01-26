@@ -28,13 +28,7 @@ MYPY = False
 if not MYPY:
     class GroupConfigurationArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of group configuration item.
-        """
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
-        """
-        A collection of parameters for this group configuration item. See below for details.
-        """
 elif False:
     GroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -43,10 +37,6 @@ class GroupConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Specifies the type of group configuration item.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
-        """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -54,9 +44,6 @@ class GroupConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the type of group configuration item.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -66,9 +53,6 @@ class GroupConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
-        """
-        A collection of parameters for this group configuration item. See below for details.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -79,13 +63,7 @@ class GroupConfigurationArgs:
 if not MYPY:
     class GroupConfigurationParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the group configuration parameter.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The value or values to be used for the specified parameter.
-        """
 elif False:
     GroupConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -94,19 +72,12 @@ class GroupConfigurationParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the group configuration parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The value or values to be used for the specified parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the group configuration parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -116,9 +87,6 @@ class GroupConfigurationParameterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The value or values to be used for the specified parameter.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -129,13 +97,7 @@ class GroupConfigurationParameterArgs:
 if not MYPY:
     class GroupResourceQueryArgsDict(TypedDict):
         query: pulumi.Input[_builtins.str]
-        """
-        The resource query as a JSON string.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
 elif False:
     GroupResourceQueryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -144,10 +106,6 @@ class GroupResourceQueryArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[_builtins.str],
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] query: The resource query as a JSON string.
-        :param pulumi.Input[_builtins.str] type: The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
         pulumi.set(__self__, "query", query)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -155,9 +113,6 @@ class GroupResourceQueryArgs:
     @_builtins.property
     @pulumi.getter
     def query(self) -> pulumi.Input[_builtins.str]:
-        """
-        The resource query as a JSON string.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -167,9 +122,6 @@ class GroupResourceQueryArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter

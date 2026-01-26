@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KeyRegistrationKeyRegistration {
-    /**
-     * @return Whether the key is set as the default key for encryption and decryption use.
-     * 
-     */
     private @Nullable Boolean defaultKey;
-    /**
-     * @return ARN of the AWS KMS key that is registered for encryption and decryption use.
-     * 
-     */
     private String keyArn;
 
     private KeyRegistrationKeyRegistration() {}
-    /**
-     * @return Whether the key is set as the default key for encryption and decryption use.
-     * 
-     */
     public Optional<Boolean> defaultKey() {
         return Optional.ofNullable(this.defaultKey);
     }
-    /**
-     * @return ARN of the AWS KMS key that is registered for encryption and decryption use.
-     * 
-     */
     public String keyArn() {
         return this.keyArn;
     }

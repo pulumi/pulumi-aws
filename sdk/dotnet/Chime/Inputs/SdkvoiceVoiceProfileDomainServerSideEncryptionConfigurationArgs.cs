@@ -12,11 +12,6 @@ namespace Pulumi.Aws.Chime.Inputs
 
     public sealed class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN for KMS Key.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 

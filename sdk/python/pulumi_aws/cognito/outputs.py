@@ -116,11 +116,6 @@ class IdentityPoolCognitoIdentityProvider(dict):
                  client_id: Optional[_builtins.str] = None,
                  provider_name: Optional[_builtins.str] = None,
                  server_side_token_check: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str client_id: The client ID for the Amazon Cognito Identity User Pool.
-        :param _builtins.str provider_name: The provider name for an Amazon Cognito Identity User Pool.
-        :param _builtins.bool server_side_token_check: Whether server-side token validation is enabled for the identity provider’s token or not.
-        """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if provider_name is not None:
@@ -131,25 +126,16 @@ class IdentityPoolCognitoIdentityProvider(dict):
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
-        """
-        The client ID for the Amazon Cognito Identity User Pool.
-        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[_builtins.str]:
-        """
-        The provider name for an Amazon Cognito Identity User Pool.
-        """
         return pulumi.get(self, "provider_name")
 
     @_builtins.property
     @pulumi.getter(name="serverSideTokenCheck")
     def server_side_token_check(self) -> Optional[_builtins.bool]:
-        """
-        Whether server-side token validation is enabled for the identity provider’s token or not.
-        """
         return pulumi.get(self, "server_side_token_check")
 
 
@@ -181,12 +167,6 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
                  type: _builtins.str,
                  ambiguous_role_resolution: Optional[_builtins.str] = None,
                  mapping_rules: Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule']] = None):
-        """
-        :param _builtins.str identity_provider: A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
-        :param _builtins.str type: The role mapping type.
-        :param _builtins.str ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        :param Sequence['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs'] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        """
         pulumi.set(__self__, "identity_provider", identity_provider)
         pulumi.set(__self__, "type", type)
         if ambiguous_role_resolution is not None:
@@ -197,33 +177,21 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
     @_builtins.property
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> _builtins.str:
-        """
-        A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
-        """
         return pulumi.get(self, "identity_provider")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The role mapping type.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="ambiguousRoleResolution")
     def ambiguous_role_resolution(self) -> Optional[_builtins.str]:
-        """
-        Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        """
         return pulumi.get(self, "ambiguous_role_resolution")
 
     @_builtins.property
     @pulumi.getter(name="mappingRules")
     def mapping_rules(self) -> Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule']]:
-        """
-        The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        """
         return pulumi.get(self, "mapping_rules")
 
 
@@ -253,12 +221,6 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
                  match_type: _builtins.str,
                  role_arn: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str claim: The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        :param _builtins.str match_type: The match condition that specifies how closely the claim value in the IdP token must match Value.
-        :param _builtins.str role_arn: The role ARN.
-        :param _builtins.str value: A brief string that the claim must match, for example, "paid" or "yes".
-        """
         pulumi.set(__self__, "claim", claim)
         pulumi.set(__self__, "match_type", match_type)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -267,33 +229,21 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
     @_builtins.property
     @pulumi.getter
     def claim(self) -> _builtins.str:
-        """
-        The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        """
         return pulumi.get(self, "claim")
 
     @_builtins.property
     @pulumi.getter(name="matchType")
     def match_type(self) -> _builtins.str:
-        """
-        The match condition that specifies how closely the claim value in the IdP token must match Value.
-        """
         return pulumi.get(self, "match_type")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The role ARN.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        A brief string that the claim must match, for example, "paid" or "yes".
-        """
         return pulumi.get(self, "value")
 
 
@@ -330,15 +280,6 @@ class LogDeliveryConfigurationLogConfiguration(dict):
                  cloud_watch_logs_configuration: Optional['outputs.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration'] = None,
                  firehose_configuration: Optional['outputs.LogDeliveryConfigurationLogConfigurationFirehoseConfiguration'] = None,
                  s3_configuration: Optional['outputs.LogDeliveryConfigurationLogConfigurationS3Configuration'] = None):
-        """
-        :param _builtins.str event_source: The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-        :param _builtins.str log_level: The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-        :param 'LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs' cloud_watch_logs_configuration: Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-        :param 'LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs' firehose_configuration: Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-        :param 'LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs' s3_configuration: Configuration for S3 delivery. See S3 Configuration below.
-               
-               > **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
-        """
         pulumi.set(__self__, "event_source", event_source)
         pulumi.set(__self__, "log_level", log_level)
         if cloud_watch_logs_configuration is not None:
@@ -351,43 +292,26 @@ class LogDeliveryConfigurationLogConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="eventSource")
     def event_source(self) -> _builtins.str:
-        """
-        The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-        """
         return pulumi.get(self, "event_source")
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> _builtins.str:
-        """
-        The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-        """
         return pulumi.get(self, "log_level")
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsConfiguration")
     def cloud_watch_logs_configuration(self) -> Optional['outputs.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration']:
-        """
-        Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-        """
         return pulumi.get(self, "cloud_watch_logs_configuration")
 
     @_builtins.property
     @pulumi.getter(name="firehoseConfiguration")
     def firehose_configuration(self) -> Optional['outputs.LogDeliveryConfigurationLogConfigurationFirehoseConfiguration']:
-        """
-        Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-        """
         return pulumi.get(self, "firehose_configuration")
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional['outputs.LogDeliveryConfigurationLogConfigurationS3Configuration']:
-        """
-        Configuration for S3 delivery. See S3 Configuration below.
-
-        > **Note:** At least one destination configuration (`cloud_watch_logs_configuration`, `firehose_configuration`, or `s3_configuration`) must be specified for each log configuration.
-        """
         return pulumi.get(self, "s3_configuration")
 
 
@@ -412,18 +336,12 @@ class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration(dict):
 
     def __init__(__self__, *,
                  log_group_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str log_group_arn: The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-        """
         if log_group_arn is not None:
             pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-        """
         return pulumi.get(self, "log_group_arn")
 
 
@@ -448,18 +366,12 @@ class LogDeliveryConfigurationLogConfigurationFirehoseConfiguration(dict):
 
     def __init__(__self__, *,
                  stream_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str stream_arn: The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-        """
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-        """
         return pulumi.get(self, "stream_arn")
 
 
@@ -484,18 +396,12 @@ class LogDeliveryConfigurationLogConfigurationS3Configuration(dict):
 
     def __init__(__self__, *,
                  bucket_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_arn: The ARN of the S3 bucket to which the logs should be delivered.
-        """
         if bucket_arn is not None:
             pulumi.set(__self__, "bucket_arn", bucket_arn)
 
     @_builtins.property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the S3 bucket to which the logs should be delivered.
-        """
         return pulumi.get(self, "bucket_arn")
 
 
@@ -526,12 +432,6 @@ class ManagedLoginBrandingAsset(dict):
                  extension: _builtins.str,
                  bytes: Optional[_builtins.str] = None,
                  resource_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str category: Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-        :param _builtins.str color_mode: Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-        :param _builtins.str bytes: Image file, in Base64-encoded binary.
-        :param _builtins.str resource_id: Asset ID.
-        """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "color_mode", color_mode)
         pulumi.set(__self__, "extension", extension)
@@ -543,17 +443,11 @@ class ManagedLoginBrandingAsset(dict):
     @_builtins.property
     @pulumi.getter
     def category(self) -> _builtins.str:
-        """
-        Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-        """
         return pulumi.get(self, "category")
 
     @_builtins.property
     @pulumi.getter(name="colorMode")
     def color_mode(self) -> _builtins.str:
-        """
-        Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-        """
         return pulumi.get(self, "color_mode")
 
     @_builtins.property
@@ -564,17 +458,11 @@ class ManagedLoginBrandingAsset(dict):
     @_builtins.property
     @pulumi.getter
     def bytes(self) -> Optional[_builtins.str]:
-        """
-        Image file, in Base64-encoded binary.
-        """
         return pulumi.get(self, "bytes")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[_builtins.str]:
-        """
-        Asset ID.
-        """
         return pulumi.get(self, "resource_id")
 
 
@@ -611,13 +499,6 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
                  external_id: Optional[_builtins.str] = None,
                  role_arn: Optional[_builtins.str] = None,
                  user_data_shared: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str application_arn: Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
-        :param _builtins.str application_id: Unique identifier for an Amazon Pinpoint application.
-        :param _builtins.str external_id: ID for the Analytics Configuration and conflicts with `application_arn`.
-        :param _builtins.str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
-        :param _builtins.bool user_data_shared: If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
         if application_id is not None:
@@ -632,41 +513,26 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[_builtins.str]:
-        """
-        Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier for an Amazon Pinpoint application.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
-        """
-        ID for the Analytics Configuration and conflicts with `application_arn`.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="userDataShared")
     def user_data_shared(self) -> Optional[_builtins.bool]:
-        """
-        If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        """
         return pulumi.get(self, "user_data_shared")
 
 
@@ -692,10 +558,6 @@ class ManagedUserPoolClientRefreshTokenRotation(dict):
     def __init__(__self__, *,
                  feature: _builtins.str,
                  retry_grace_period_seconds: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str feature: The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-        :param _builtins.int retry_grace_period_seconds: A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-        """
         pulumi.set(__self__, "feature", feature)
         if retry_grace_period_seconds is not None:
             pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
@@ -703,17 +565,11 @@ class ManagedUserPoolClientRefreshTokenRotation(dict):
     @_builtins.property
     @pulumi.getter
     def feature(self) -> _builtins.str:
-        """
-        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "feature")
 
     @_builtins.property
     @pulumi.getter(name="retryGracePeriodSeconds")
     def retry_grace_period_seconds(self) -> Optional[_builtins.int]:
-        """
-        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-        """
         return pulumi.get(self, "retry_grace_period_seconds")
 
 
@@ -744,11 +600,6 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
                  access_token: Optional[_builtins.str] = None,
                  id_token: Optional[_builtins.str] = None,
                  refresh_token: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str access_token: Time unit for the value in `access_token_validity` and defaults to `hours`.
-        :param _builtins.str id_token: Time unit for the value in `id_token_validity`, and it defaults to `hours`.
-        :param _builtins.str refresh_token: Time unit for the value in `refresh_token_validity` and defaults to `days`.
-        """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if id_token is not None:
@@ -759,25 +610,16 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
     @_builtins.property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[_builtins.str]:
-        """
-        Time unit for the value in `access_token_validity` and defaults to `hours`.
-        """
         return pulumi.get(self, "access_token")
 
     @_builtins.property
     @pulumi.getter(name="idToken")
     def id_token(self) -> Optional[_builtins.str]:
-        """
-        Time unit for the value in `id_token_validity`, and it defaults to `hours`.
-        """
         return pulumi.get(self, "id_token")
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[_builtins.str]:
-        """
-        Time unit for the value in `refresh_token_validity` and defaults to `days`.
-        """
         return pulumi.get(self, "refresh_token")
 
 
@@ -805,27 +647,17 @@ class ResourceServerScope(dict):
     def __init__(__self__, *,
                  scope_description: _builtins.str,
                  scope_name: _builtins.str):
-        """
-        :param _builtins.str scope_description: The scope description.
-        :param _builtins.str scope_name: The scope name.
-        """
         pulumi.set(__self__, "scope_description", scope_description)
         pulumi.set(__self__, "scope_name", scope_name)
 
     @_builtins.property
     @pulumi.getter(name="scopeDescription")
     def scope_description(self) -> _builtins.str:
-        """
-        The scope description.
-        """
         return pulumi.get(self, "scope_description")
 
     @_builtins.property
     @pulumi.getter(name="scopeName")
     def scope_name(self) -> _builtins.str:
-        """
-        The scope name.
-        """
         return pulumi.get(self, "scope_name")
 
 
@@ -851,10 +683,6 @@ class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
     def __init__(__self__, *,
                  actions: 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions',
                  notify_configuration: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration'] = None):
-        """
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs' actions: Account takeover risk configuration actions. See details below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs' notify_configuration: The notify configuration used to construct email notifications. See details below.
-        """
         pulumi.set(__self__, "actions", actions)
         if notify_configuration is not None:
             pulumi.set(__self__, "notify_configuration", notify_configuration)
@@ -862,17 +690,11 @@ class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def actions(self) -> 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions':
-        """
-        Account takeover risk configuration actions. See details below.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter(name="notifyConfiguration")
     def notify_configuration(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration']:
-        """
-        The notify configuration used to construct email notifications. See details below.
-        """
         return pulumi.get(self, "notify_configuration")
 
 
@@ -903,11 +725,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
                  high_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction'] = None,
                  low_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction'] = None,
                  medium_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction'] = None):
-        """
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs' high_action: Action to take for a high risk. See action block below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs' low_action: Action to take for a low risk. See action block below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs' medium_action: Action to take for a medium risk. See action block below.
-        """
         if high_action is not None:
             pulumi.set(__self__, "high_action", high_action)
         if low_action is not None:
@@ -918,25 +735,16 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
     @_builtins.property
     @pulumi.getter(name="highAction")
     def high_action(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction']:
-        """
-        Action to take for a high risk. See action block below.
-        """
         return pulumi.get(self, "high_action")
 
     @_builtins.property
     @pulumi.getter(name="lowAction")
     def low_action(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction']:
-        """
-        Action to take for a low risk. See action block below.
-        """
         return pulumi.get(self, "low_action")
 
     @_builtins.property
     @pulumi.getter(name="mediumAction")
     def medium_action(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction']:
-        """
-        Action to take for a medium risk. See action block below.
-        """
         return pulumi.get(self, "medium_action")
 
 
@@ -962,9 +770,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
     def __init__(__self__, *,
                  event_action: _builtins.str,
                  notify: _builtins.bool):
-        """
-        :param _builtins.bool notify: Whether to send a notification.
-        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -976,9 +781,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
     @_builtins.property
     @pulumi.getter
     def notify(self) -> _builtins.bool:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
 
@@ -1004,9 +806,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
     def __init__(__self__, *,
                  event_action: _builtins.str,
                  notify: _builtins.bool):
-        """
-        :param _builtins.bool notify: Whether to send a notification.
-        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -1018,9 +817,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
     @_builtins.property
     @pulumi.getter
     def notify(self) -> _builtins.bool:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
 
@@ -1046,9 +842,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict)
     def __init__(__self__, *,
                  event_action: _builtins.str,
                  notify: _builtins.bool):
-        """
-        :param _builtins.bool notify: Whether to send a notification.
-        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -1060,9 +853,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict)
     @_builtins.property
     @pulumi.getter
     def notify(self) -> _builtins.bool:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
 
@@ -1102,14 +892,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict)
                  mfa_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail'] = None,
                  no_action_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail'] = None,
                  reply_to: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs' block_email: Email template used when a detected risk event is blocked. See notify email type below.
-        :param _builtins.str from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs' mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs' no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
-        :param _builtins.str reply_to: The destination to which the receiver of an email should reply to.
-        """
         pulumi.set(__self__, "source_arn", source_arn)
         if block_email is not None:
             pulumi.set(__self__, "block_email", block_email)
@@ -1125,49 +907,31 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict)
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-        """
         return pulumi.get(self, "source_arn")
 
     @_builtins.property
     @pulumi.getter(name="blockEmail")
     def block_email(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail']:
-        """
-        Email template used when a detected risk event is blocked. See notify email type below.
-        """
         return pulumi.get(self, "block_email")
 
     @_builtins.property
     @pulumi.getter(name="from")
     def from_(self) -> Optional[_builtins.str]:
-        """
-        The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        """
         return pulumi.get(self, "from_")
 
     @_builtins.property
     @pulumi.getter(name="mfaEmail")
     def mfa_email(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail']:
-        """
-        The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-        """
         return pulumi.get(self, "mfa_email")
 
     @_builtins.property
     @pulumi.getter(name="noActionEmail")
     def no_action_email(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail']:
-        """
-        The email template used when a detected risk event is allowed. See notify email type below.
-        """
         return pulumi.get(self, "no_action_email")
 
     @_builtins.property
     @pulumi.getter(name="replyTo")
     def reply_to(self) -> Optional[_builtins.str]:
-        """
-        The destination to which the receiver of an email should reply to.
-        """
         return pulumi.get(self, "reply_to")
 
 
@@ -1196,11 +960,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
                  html_body: _builtins.str,
                  subject: _builtins.str,
                  text_body: _builtins.str):
-        """
-        :param _builtins.str html_body: The email HTML body.
-        :param _builtins.str subject: The email subject.
-        :param _builtins.str text_body: The email text body.
-        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -1208,25 +967,16 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @_builtins.property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> _builtins.str:
-        """
-        The email HTML body.
-        """
         return pulumi.get(self, "html_body")
 
     @_builtins.property
     @pulumi.getter
     def subject(self) -> _builtins.str:
-        """
-        The email subject.
-        """
         return pulumi.get(self, "subject")
 
     @_builtins.property
     @pulumi.getter(name="textBody")
     def text_body(self) -> _builtins.str:
-        """
-        The email text body.
-        """
         return pulumi.get(self, "text_body")
 
 
@@ -1255,11 +1005,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
                  html_body: _builtins.str,
                  subject: _builtins.str,
                  text_body: _builtins.str):
-        """
-        :param _builtins.str html_body: The email HTML body.
-        :param _builtins.str subject: The email subject.
-        :param _builtins.str text_body: The email text body.
-        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -1267,25 +1012,16 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @_builtins.property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> _builtins.str:
-        """
-        The email HTML body.
-        """
         return pulumi.get(self, "html_body")
 
     @_builtins.property
     @pulumi.getter
     def subject(self) -> _builtins.str:
-        """
-        The email subject.
-        """
         return pulumi.get(self, "subject")
 
     @_builtins.property
     @pulumi.getter(name="textBody")
     def text_body(self) -> _builtins.str:
-        """
-        The email text body.
-        """
         return pulumi.get(self, "text_body")
 
 
@@ -1314,11 +1050,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
                  html_body: _builtins.str,
                  subject: _builtins.str,
                  text_body: _builtins.str):
-        """
-        :param _builtins.str html_body: The email HTML body.
-        :param _builtins.str subject: The email subject.
-        :param _builtins.str text_body: The email text body.
-        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -1326,25 +1057,16 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @_builtins.property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> _builtins.str:
-        """
-        The email HTML body.
-        """
         return pulumi.get(self, "html_body")
 
     @_builtins.property
     @pulumi.getter
     def subject(self) -> _builtins.str:
-        """
-        The email subject.
-        """
         return pulumi.get(self, "subject")
 
     @_builtins.property
     @pulumi.getter(name="textBody")
     def text_body(self) -> _builtins.str:
-        """
-        The email text body.
-        """
         return pulumi.get(self, "text_body")
 
 
@@ -1370,10 +1092,6 @@ class RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
     def __init__(__self__, *,
                  actions: 'outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions',
                  event_filters: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param 'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs' actions: The compromised credentials risk configuration actions. See details below.
-        :param Sequence[_builtins.str] event_filters: Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-        """
         pulumi.set(__self__, "actions", actions)
         if event_filters is not None:
             pulumi.set(__self__, "event_filters", event_filters)
@@ -1381,17 +1099,11 @@ class RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def actions(self) -> 'outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions':
-        """
-        The compromised credentials risk configuration actions. See details below.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter(name="eventFilters")
     def event_filters(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-        """
         return pulumi.get(self, "event_filters")
 
 
@@ -1416,17 +1128,11 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationActions(dict):
 
     def __init__(__self__, *,
                  event_action: _builtins.str):
-        """
-        :param _builtins.str event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
-        """
         pulumi.set(__self__, "event_action", event_action)
 
     @_builtins.property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> _builtins.str:
-        """
-        The event action. Valid values are `BLOCK` or `NO_ACTION`.
-        """
         return pulumi.get(self, "event_action")
 
 
@@ -1454,14 +1160,6 @@ class RiskConfigurationRiskExceptionConfiguration(dict):
     def __init__(__self__, *,
                  blocked_ip_range_lists: Optional[Sequence[_builtins.str]] = None,
                  skipped_ip_range_lists: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] blocked_ip_range_lists: Overrides the risk decision to always block the pre-authentication requests.
-               The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-               Can contain a maximum of 200 items.
-        :param Sequence[_builtins.str] skipped_ip_range_lists: Risk detection isn't performed on the IP addresses in this range list.
-               The IP range is in CIDR notation.
-               Can contain a maximum of 200 items.
-        """
         if blocked_ip_range_lists is not None:
             pulumi.set(__self__, "blocked_ip_range_lists", blocked_ip_range_lists)
         if skipped_ip_range_lists is not None:
@@ -1470,21 +1168,11 @@ class RiskConfigurationRiskExceptionConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="blockedIpRangeLists")
     def blocked_ip_range_lists(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Overrides the risk decision to always block the pre-authentication requests.
-        The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-        Can contain a maximum of 200 items.
-        """
         return pulumi.get(self, "blocked_ip_range_lists")
 
     @_builtins.property
     @pulumi.getter(name="skippedIpRangeLists")
     def skipped_ip_range_lists(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Risk detection isn't performed on the IP addresses in this range list.
-        The IP range is in CIDR notation.
-        Can contain a maximum of 200 items.
-        """
         return pulumi.get(self, "skipped_ip_range_lists")
 
 
@@ -1509,18 +1197,12 @@ class UserPoolAccountRecoverySetting(dict):
 
     def __init__(__self__, *,
                  recovery_mechanisms: Optional[Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']] = None):
-        """
-        :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArgs'] recovery_mechanisms: List of Account Recovery Options of the following structure:
-        """
         if recovery_mechanisms is not None:
             pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
 
     @_builtins.property
     @pulumi.getter(name="recoveryMechanisms")
     def recovery_mechanisms(self) -> Optional[Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']]:
-        """
-        List of Account Recovery Options of the following structure:
-        """
         return pulumi.get(self, "recovery_mechanisms")
 
 
@@ -1529,27 +1211,17 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  priority: _builtins.int):
-        """
-        :param _builtins.str name: Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
-        :param _builtins.int priority: Positive integer specifying priority of a method with 1 being the highest priority.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        Positive integer specifying priority of a method with 1 being the highest priority.
-        """
         return pulumi.get(self, "priority")
 
 
@@ -1577,10 +1249,6 @@ class UserPoolAdminCreateUserConfig(dict):
     def __init__(__self__, *,
                  allow_admin_create_user_only: Optional[_builtins.bool] = None,
                  invite_message_template: Optional['outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate'] = None):
-        """
-        :param _builtins.bool allow_admin_create_user_only: Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        :param 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs' invite_message_template: Invite message template structure. Detailed below.
-        """
         if allow_admin_create_user_only is not None:
             pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
         if invite_message_template is not None:
@@ -1589,17 +1257,11 @@ class UserPoolAdminCreateUserConfig(dict):
     @_builtins.property
     @pulumi.getter(name="allowAdminCreateUserOnly")
     def allow_admin_create_user_only(self) -> Optional[_builtins.bool]:
-        """
-        Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        """
         return pulumi.get(self, "allow_admin_create_user_only")
 
     @_builtins.property
     @pulumi.getter(name="inviteMessageTemplate")
     def invite_message_template(self) -> Optional['outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate']:
-        """
-        Invite message template structure. Detailed below.
-        """
         return pulumi.get(self, "invite_message_template")
 
 
@@ -1630,11 +1292,6 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
                  email_message: Optional[_builtins.str] = None,
                  email_subject: Optional[_builtins.str] = None,
                  sms_message: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str email_message: Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-        :param _builtins.str email_subject: Subject line for email messages.
-        :param _builtins.str sms_message: Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-        """
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
         if email_subject is not None:
@@ -1645,25 +1302,16 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
     @_builtins.property
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> Optional[_builtins.str]:
-        """
-        Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-        """
         return pulumi.get(self, "email_message")
 
     @_builtins.property
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> Optional[_builtins.str]:
-        """
-        Subject line for email messages.
-        """
         return pulumi.get(self, "email_subject")
 
     @_builtins.property
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> Optional[_builtins.str]:
-        """
-        Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-        """
         return pulumi.get(self, "sms_message")
 
 
@@ -1700,13 +1348,6 @@ class UserPoolClientAnalyticsConfiguration(dict):
                  external_id: Optional[_builtins.str] = None,
                  role_arn: Optional[_builtins.str] = None,
                  user_data_shared: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str application_arn: Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
-        :param _builtins.str application_id: Application ID for an Amazon Pinpoint application.
-        :param _builtins.str external_id: ID for the Analytics Configuration. Conflicts with `application_arn`.
-        :param _builtins.str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
-        :param _builtins.bool user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
         if application_id is not None:
@@ -1721,41 +1362,26 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[_builtins.str]:
-        """
-        Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[_builtins.str]:
-        """
-        Application ID for an Amazon Pinpoint application.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
-        """
-        ID for the Analytics Configuration. Conflicts with `application_arn`.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="userDataShared")
     def user_data_shared(self) -> Optional[_builtins.bool]:
-        """
-        If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        """
         return pulumi.get(self, "user_data_shared")
 
 
@@ -1781,10 +1407,6 @@ class UserPoolClientRefreshTokenRotation(dict):
     def __init__(__self__, *,
                  feature: _builtins.str,
                  retry_grace_period_seconds: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str feature: The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-        :param _builtins.int retry_grace_period_seconds: A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-        """
         pulumi.set(__self__, "feature", feature)
         if retry_grace_period_seconds is not None:
             pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
@@ -1792,17 +1414,11 @@ class UserPoolClientRefreshTokenRotation(dict):
     @_builtins.property
     @pulumi.getter
     def feature(self) -> _builtins.str:
-        """
-        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "feature")
 
     @_builtins.property
     @pulumi.getter(name="retryGracePeriodSeconds")
     def retry_grace_period_seconds(self) -> Optional[_builtins.int]:
-        """
-        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-        """
         return pulumi.get(self, "retry_grace_period_seconds")
 
 
@@ -1833,11 +1449,6 @@ class UserPoolClientTokenValidityUnits(dict):
                  access_token: Optional[_builtins.str] = None,
                  id_token: Optional[_builtins.str] = None,
                  refresh_token: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str access_token: Time unit in for the value in `access_token_validity`, defaults to `hours`.
-        :param _builtins.str id_token: Time unit in for the value in `id_token_validity`, defaults to `hours`.
-        :param _builtins.str refresh_token: Time unit in for the value in `refresh_token_validity`, defaults to `days`.
-        """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if id_token is not None:
@@ -1848,25 +1459,16 @@ class UserPoolClientTokenValidityUnits(dict):
     @_builtins.property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[_builtins.str]:
-        """
-        Time unit in for the value in `access_token_validity`, defaults to `hours`.
-        """
         return pulumi.get(self, "access_token")
 
     @_builtins.property
     @pulumi.getter(name="idToken")
     def id_token(self) -> Optional[_builtins.str]:
-        """
-        Time unit in for the value in `id_token_validity`, defaults to `hours`.
-        """
         return pulumi.get(self, "id_token")
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[_builtins.str]:
-        """
-        Time unit in for the value in `refresh_token_validity`, defaults to `days`.
-        """
         return pulumi.get(self, "refresh_token")
 
 
@@ -1894,10 +1496,6 @@ class UserPoolDeviceConfiguration(dict):
     def __init__(__self__, *,
                  challenge_required_on_new_device: Optional[_builtins.bool] = None,
                  device_only_remembered_on_user_prompt: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool challenge_required_on_new_device: Whether a challenge is required on a new device. Only applicable to a new device.
-        :param _builtins.bool device_only_remembered_on_user_prompt: Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
-        """
         if challenge_required_on_new_device is not None:
             pulumi.set(__self__, "challenge_required_on_new_device", challenge_required_on_new_device)
         if device_only_remembered_on_user_prompt is not None:
@@ -1906,17 +1504,11 @@ class UserPoolDeviceConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="challengeRequiredOnNewDevice")
     def challenge_required_on_new_device(self) -> Optional[_builtins.bool]:
-        """
-        Whether a challenge is required on a new device. Only applicable to a new device.
-        """
         return pulumi.get(self, "challenge_required_on_new_device")
 
     @_builtins.property
     @pulumi.getter(name="deviceOnlyRememberedOnUserPrompt")
     def device_only_remembered_on_user_prompt(self) -> Optional[_builtins.bool]:
-        """
-        Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
-        """
         return pulumi.get(self, "device_only_remembered_on_user_prompt")
 
 
@@ -1953,13 +1545,6 @@ class UserPoolEmailConfiguration(dict):
                  from_email_address: Optional[_builtins.str] = None,
                  reply_to_email_address: Optional[_builtins.str] = None,
                  source_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str configuration_set: Email configuration set name from SES.
-        :param _builtins.str email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
-        :param _builtins.str from_email_address: Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
-        :param _builtins.str reply_to_email_address: REPLY-TO email address.
-        :param _builtins.str source_arn: ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
-        """
         if configuration_set is not None:
             pulumi.set(__self__, "configuration_set", configuration_set)
         if email_sending_account is not None:
@@ -1974,41 +1559,26 @@ class UserPoolEmailConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="configurationSet")
     def configuration_set(self) -> Optional[_builtins.str]:
-        """
-        Email configuration set name from SES.
-        """
         return pulumi.get(self, "configuration_set")
 
     @_builtins.property
     @pulumi.getter(name="emailSendingAccount")
     def email_sending_account(self) -> Optional[_builtins.str]:
-        """
-        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
-        """
         return pulumi.get(self, "email_sending_account")
 
     @_builtins.property
     @pulumi.getter(name="fromEmailAddress")
     def from_email_address(self) -> Optional[_builtins.str]:
-        """
-        Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
-        """
         return pulumi.get(self, "from_email_address")
 
     @_builtins.property
     @pulumi.getter(name="replyToEmailAddress")
     def reply_to_email_address(self) -> Optional[_builtins.str]:
-        """
-        REPLY-TO email address.
-        """
         return pulumi.get(self, "reply_to_email_address")
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
-        """
         return pulumi.get(self, "source_arn")
 
 
@@ -2017,10 +1587,6 @@ class UserPoolEmailMfaConfiguration(dict):
     def __init__(__self__, *,
                  message: Optional[_builtins.str] = None,
                  subject: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str message: The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
-        :param _builtins.str subject: The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if subject is not None:
@@ -2029,17 +1595,11 @@ class UserPoolEmailMfaConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
-        """
-        The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
-        """
         return pulumi.get(self, "message")
 
     @_builtins.property
     @pulumi.getter
     def subject(self) -> Optional[_builtins.str]:
-        """
-        The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-        """
         return pulumi.get(self, "subject")
 
 
@@ -2103,22 +1663,6 @@ class UserPoolLambdaConfig(dict):
                  pre_token_generation_config: Optional['outputs.UserPoolLambdaConfigPreTokenGenerationConfig'] = None,
                  user_migration: Optional[_builtins.str] = None,
                  verify_auth_challenge_response: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str create_auth_challenge: ARN of the lambda creating an authentication challenge.
-        :param 'UserPoolLambdaConfigCustomEmailSenderArgs' custom_email_sender: A custom email sender AWS Lambda trigger. See custom_email_sender Below.
-        :param _builtins.str custom_message: Custom Message AWS Lambda trigger.
-        :param 'UserPoolLambdaConfigCustomSmsSenderArgs' custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
-        :param _builtins.str define_auth_challenge: Defines the authentication challenge.
-        :param _builtins.str kms_key_id: The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
-        :param _builtins.str post_authentication: Post-authentication AWS Lambda trigger.
-        :param _builtins.str post_confirmation: Post-confirmation AWS Lambda trigger.
-        :param _builtins.str pre_authentication: Pre-authentication AWS Lambda trigger.
-        :param _builtins.str pre_sign_up: Pre-registration AWS Lambda trigger.
-        :param _builtins.str pre_token_generation: Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
-        :param 'UserPoolLambdaConfigPreTokenGenerationConfigArgs' pre_token_generation_config: Allow to customize access tokens. See pre_token_configuration_type
-        :param _builtins.str user_migration: User migration Lambda config type.
-        :param _builtins.str verify_auth_challenge_response: Verifies the authentication challenge response.
-        """
         if create_auth_challenge is not None:
             pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
         if custom_email_sender is not None:
@@ -2151,113 +1695,71 @@ class UserPoolLambdaConfig(dict):
     @_builtins.property
     @pulumi.getter(name="createAuthChallenge")
     def create_auth_challenge(self) -> Optional[_builtins.str]:
-        """
-        ARN of the lambda creating an authentication challenge.
-        """
         return pulumi.get(self, "create_auth_challenge")
 
     @_builtins.property
     @pulumi.getter(name="customEmailSender")
     def custom_email_sender(self) -> Optional['outputs.UserPoolLambdaConfigCustomEmailSender']:
-        """
-        A custom email sender AWS Lambda trigger. See custom_email_sender Below.
-        """
         return pulumi.get(self, "custom_email_sender")
 
     @_builtins.property
     @pulumi.getter(name="customMessage")
     def custom_message(self) -> Optional[_builtins.str]:
-        """
-        Custom Message AWS Lambda trigger.
-        """
         return pulumi.get(self, "custom_message")
 
     @_builtins.property
     @pulumi.getter(name="customSmsSender")
     def custom_sms_sender(self) -> Optional['outputs.UserPoolLambdaConfigCustomSmsSender']:
-        """
-        A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
-        """
         return pulumi.get(self, "custom_sms_sender")
 
     @_builtins.property
     @pulumi.getter(name="defineAuthChallenge")
     def define_auth_challenge(self) -> Optional[_builtins.str]:
-        """
-        Defines the authentication challenge.
-        """
         return pulumi.get(self, "define_auth_challenge")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="postAuthentication")
     def post_authentication(self) -> Optional[_builtins.str]:
-        """
-        Post-authentication AWS Lambda trigger.
-        """
         return pulumi.get(self, "post_authentication")
 
     @_builtins.property
     @pulumi.getter(name="postConfirmation")
     def post_confirmation(self) -> Optional[_builtins.str]:
-        """
-        Post-confirmation AWS Lambda trigger.
-        """
         return pulumi.get(self, "post_confirmation")
 
     @_builtins.property
     @pulumi.getter(name="preAuthentication")
     def pre_authentication(self) -> Optional[_builtins.str]:
-        """
-        Pre-authentication AWS Lambda trigger.
-        """
         return pulumi.get(self, "pre_authentication")
 
     @_builtins.property
     @pulumi.getter(name="preSignUp")
     def pre_sign_up(self) -> Optional[_builtins.str]:
-        """
-        Pre-registration AWS Lambda trigger.
-        """
         return pulumi.get(self, "pre_sign_up")
 
     @_builtins.property
     @pulumi.getter(name="preTokenGeneration")
     def pre_token_generation(self) -> Optional[_builtins.str]:
-        """
-        Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
-        """
         return pulumi.get(self, "pre_token_generation")
 
     @_builtins.property
     @pulumi.getter(name="preTokenGenerationConfig")
     def pre_token_generation_config(self) -> Optional['outputs.UserPoolLambdaConfigPreTokenGenerationConfig']:
-        """
-        Allow to customize access tokens. See pre_token_configuration_type
-        """
         return pulumi.get(self, "pre_token_generation_config")
 
     @_builtins.property
     @pulumi.getter(name="userMigration")
     def user_migration(self) -> Optional[_builtins.str]:
-        """
-        User migration Lambda config type.
-        """
         return pulumi.get(self, "user_migration")
 
     @_builtins.property
     @pulumi.getter(name="verifyAuthChallengeResponse")
     def verify_auth_challenge_response(self) -> Optional[_builtins.str]:
-        """
-        Verifies the authentication challenge response.
-        """
         return pulumi.get(self, "verify_auth_challenge_response")
 
 
@@ -2285,27 +1787,17 @@ class UserPoolLambdaConfigCustomEmailSender(dict):
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
                  lambda_version: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-        :param _builtins.str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> _builtins.str:
-        """
-        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
-        """
         return pulumi.get(self, "lambda_version")
 
 
@@ -2333,27 +1825,17 @@ class UserPoolLambdaConfigCustomSmsSender(dict):
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
                  lambda_version: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-        :param _builtins.str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> _builtins.str:
-        """
-        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
-        """
         return pulumi.get(self, "lambda_version")
 
 
@@ -2434,17 +1916,6 @@ class UserPoolPasswordPolicy(dict):
                  require_symbols: Optional[_builtins.bool] = None,
                  require_uppercase: Optional[_builtins.bool] = None,
                  temporary_password_validity_days: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int minimum_length: Minimum length of the password policy that you have set.
-        :param _builtins.int password_history_size: Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
-               
-               **Note:** This argument requires advanced security features to be active in the user pool.
-        :param _builtins.bool require_lowercase: Whether you have required users to use at least one lowercase letter in their password.
-        :param _builtins.bool require_numbers: Whether you have required users to use at least one number in their password.
-        :param _builtins.bool require_symbols: Whether you have required users to use at least one symbol in their password.
-        :param _builtins.bool require_uppercase: Whether you have required users to use at least one uppercase letter in their password.
-        :param _builtins.int temporary_password_validity_days: In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-        """
         if minimum_length is not None:
             pulumi.set(__self__, "minimum_length", minimum_length)
         if password_history_size is not None:
@@ -2463,59 +1934,36 @@ class UserPoolPasswordPolicy(dict):
     @_builtins.property
     @pulumi.getter(name="minimumLength")
     def minimum_length(self) -> Optional[_builtins.int]:
-        """
-        Minimum length of the password policy that you have set.
-        """
         return pulumi.get(self, "minimum_length")
 
     @_builtins.property
     @pulumi.getter(name="passwordHistorySize")
     def password_history_size(self) -> Optional[_builtins.int]:
-        """
-        Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
-
-        **Note:** This argument requires advanced security features to be active in the user pool.
-        """
         return pulumi.get(self, "password_history_size")
 
     @_builtins.property
     @pulumi.getter(name="requireLowercase")
     def require_lowercase(self) -> Optional[_builtins.bool]:
-        """
-        Whether you have required users to use at least one lowercase letter in their password.
-        """
         return pulumi.get(self, "require_lowercase")
 
     @_builtins.property
     @pulumi.getter(name="requireNumbers")
     def require_numbers(self) -> Optional[_builtins.bool]:
-        """
-        Whether you have required users to use at least one number in their password.
-        """
         return pulumi.get(self, "require_numbers")
 
     @_builtins.property
     @pulumi.getter(name="requireSymbols")
     def require_symbols(self) -> Optional[_builtins.bool]:
-        """
-        Whether you have required users to use at least one symbol in their password.
-        """
         return pulumi.get(self, "require_symbols")
 
     @_builtins.property
     @pulumi.getter(name="requireUppercase")
     def require_uppercase(self) -> Optional[_builtins.bool]:
-        """
-        Whether you have required users to use at least one uppercase letter in their password.
-        """
         return pulumi.get(self, "require_uppercase")
 
     @_builtins.property
     @pulumi.getter(name="temporaryPasswordValidityDays")
     def temporary_password_validity_days(self) -> Optional[_builtins.int]:
-        """
-        In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-        """
         return pulumi.get(self, "temporary_password_validity_days")
 
 
@@ -2552,15 +2000,6 @@ class UserPoolSchema(dict):
                  number_attribute_constraints: Optional['outputs.UserPoolSchemaNumberAttributeConstraints'] = None,
                  required: Optional[_builtins.bool] = None,
                  string_attribute_constraints: Optional['outputs.UserPoolSchemaStringAttributeConstraints'] = None):
-        """
-        :param _builtins.str attribute_data_type: Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        :param _builtins.str name: Name of the attribute.
-        :param _builtins.bool developer_only_attribute: Whether the attribute type is developer only.
-        :param _builtins.bool mutable: Whether the attribute can be changed once it has been created.
-        :param 'UserPoolSchemaNumberAttributeConstraintsArgs' number_attribute_constraints: Configuration block for the constraints for an attribute of the number type. Detailed below.
-        :param _builtins.bool required: Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        :param 'UserPoolSchemaStringAttributeConstraintsArgs' string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
-        """
         pulumi.set(__self__, "attribute_data_type", attribute_data_type)
         pulumi.set(__self__, "name", name)
         if developer_only_attribute is not None:
@@ -2577,57 +2016,36 @@ class UserPoolSchema(dict):
     @_builtins.property
     @pulumi.getter(name="attributeDataType")
     def attribute_data_type(self) -> _builtins.str:
-        """
-        Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
-        """
         return pulumi.get(self, "attribute_data_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the attribute.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="developerOnlyAttribute")
     def developer_only_attribute(self) -> Optional[_builtins.bool]:
-        """
-        Whether the attribute type is developer only.
-        """
         return pulumi.get(self, "developer_only_attribute")
 
     @_builtins.property
     @pulumi.getter
     def mutable(self) -> Optional[_builtins.bool]:
-        """
-        Whether the attribute can be changed once it has been created.
-        """
         return pulumi.get(self, "mutable")
 
     @_builtins.property
     @pulumi.getter(name="numberAttributeConstraints")
     def number_attribute_constraints(self) -> Optional['outputs.UserPoolSchemaNumberAttributeConstraints']:
-        """
-        Configuration block for the constraints for an attribute of the number type. Detailed below.
-        """
         return pulumi.get(self, "number_attribute_constraints")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        """
         return pulumi.get(self, "required")
 
     @_builtins.property
     @pulumi.getter(name="stringAttributeConstraints")
     def string_attribute_constraints(self) -> Optional['outputs.UserPoolSchemaStringAttributeConstraints']:
-        """
-        Constraints for an attribute of the string type. Detailed below.
-        """
         return pulumi.get(self, "string_attribute_constraints")
 
 
@@ -2655,10 +2073,6 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
     def __init__(__self__, *,
                  max_value: Optional[_builtins.str] = None,
                  min_value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str max_value: Maximum value of an attribute that is of the number data type.
-        :param _builtins.str min_value: Minimum value of an attribute that is of the number data type.
-        """
         if max_value is not None:
             pulumi.set(__self__, "max_value", max_value)
         if min_value is not None:
@@ -2667,17 +2081,11 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
     @_builtins.property
     @pulumi.getter(name="maxValue")
     def max_value(self) -> Optional[_builtins.str]:
-        """
-        Maximum value of an attribute that is of the number data type.
-        """
         return pulumi.get(self, "max_value")
 
     @_builtins.property
     @pulumi.getter(name="minValue")
     def min_value(self) -> Optional[_builtins.str]:
-        """
-        Minimum value of an attribute that is of the number data type.
-        """
         return pulumi.get(self, "min_value")
 
 
@@ -2705,10 +2113,6 @@ class UserPoolSchemaStringAttributeConstraints(dict):
     def __init__(__self__, *,
                  max_length: Optional[_builtins.str] = None,
                  min_length: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str max_length: Maximum length of an attribute value of the string type.
-        :param _builtins.str min_length: Minimum length of an attribute value of the string type.
-        """
         if max_length is not None:
             pulumi.set(__self__, "max_length", max_length)
         if min_length is not None:
@@ -2717,17 +2121,11 @@ class UserPoolSchemaStringAttributeConstraints(dict):
     @_builtins.property
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[_builtins.str]:
-        """
-        Maximum length of an attribute value of the string type.
-        """
         return pulumi.get(self, "max_length")
 
     @_builtins.property
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[_builtins.str]:
-        """
-        Minimum length of an attribute value of the string type.
-        """
         return pulumi.get(self, "min_length")
 
 
@@ -2752,18 +2150,12 @@ class UserPoolSignInPolicy(dict):
 
     def __init__(__self__, *,
                  allowed_first_auth_factors: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] allowed_first_auth_factors: The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-        """
         if allowed_first_auth_factors is not None:
             pulumi.set(__self__, "allowed_first_auth_factors", allowed_first_auth_factors)
 
     @_builtins.property
     @pulumi.getter(name="allowedFirstAuthFactors")
     def allowed_first_auth_factors(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-        """
         return pulumi.get(self, "allowed_first_auth_factors")
 
 
@@ -2794,11 +2186,6 @@ class UserPoolSmsConfiguration(dict):
                  external_id: _builtins.str,
                  sns_caller_arn: _builtins.str,
                  sns_region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str external_id: External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-        :param _builtins.str sns_caller_arn: ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
-        :param _builtins.str sns_region: The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
-        """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
         if sns_region is not None:
@@ -2807,25 +2194,16 @@ class UserPoolSmsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> _builtins.str:
-        """
-        External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="snsCallerArn")
     def sns_caller_arn(self) -> _builtins.str:
-        """
-        ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
-        """
         return pulumi.get(self, "sns_caller_arn")
 
     @_builtins.property
     @pulumi.getter(name="snsRegion")
     def sns_region(self) -> Optional[_builtins.str]:
-        """
-        The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
-        """
         return pulumi.get(self, "sns_region")
 
 
@@ -2833,17 +2211,11 @@ class UserPoolSmsConfiguration(dict):
 class UserPoolSoftwareTokenMfaConfiguration(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool):
-        """
-        :param _builtins.bool enabled: Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -2868,17 +2240,11 @@ class UserPoolUserAttributeUpdateSettings(dict):
 
     def __init__(__self__, *,
                  attributes_require_verification_before_updates: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] attributes_require_verification_before_updates: A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
-        """
         pulumi.set(__self__, "attributes_require_verification_before_updates", attributes_require_verification_before_updates)
 
     @_builtins.property
     @pulumi.getter(name="attributesRequireVerificationBeforeUpdates")
     def attributes_require_verification_before_updates(self) -> Sequence[_builtins.str]:
-        """
-        A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
-        """
         return pulumi.get(self, "attributes_require_verification_before_updates")
 
 
@@ -2906,10 +2272,6 @@ class UserPoolUserPoolAddOns(dict):
     def __init__(__self__, *,
                  advanced_security_mode: _builtins.str,
                  advanced_security_additional_flows: Optional['outputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows'] = None):
-        """
-        :param _builtins.str advanced_security_mode: Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
-        :param 'UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs' advanced_security_additional_flows: A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-        """
         pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
         if advanced_security_additional_flows is not None:
             pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
@@ -2917,17 +2279,11 @@ class UserPoolUserPoolAddOns(dict):
     @_builtins.property
     @pulumi.getter(name="advancedSecurityMode")
     def advanced_security_mode(self) -> _builtins.str:
-        """
-        Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
-        """
         return pulumi.get(self, "advanced_security_mode")
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityAdditionalFlows")
     def advanced_security_additional_flows(self) -> Optional['outputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows']:
-        """
-        A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-        """
         return pulumi.get(self, "advanced_security_additional_flows")
 
 
@@ -2952,18 +2308,12 @@ class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows(dict):
 
     def __init__(__self__, *,
                  custom_auth_mode: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str custom_auth_mode: Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-        """
         if custom_auth_mode is not None:
             pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
 
     @_builtins.property
     @pulumi.getter(name="customAuthMode")
     def custom_auth_mode(self) -> Optional[_builtins.str]:
-        """
-        Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-        """
         return pulumi.get(self, "custom_auth_mode")
 
 
@@ -2988,18 +2338,12 @@ class UserPoolUsernameConfiguration(dict):
 
     def __init__(__self__, *,
                  case_sensitive: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool case_sensitive: Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-        """
         if case_sensitive is not None:
             pulumi.set(__self__, "case_sensitive", case_sensitive)
 
     @_builtins.property
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[_builtins.bool]:
-        """
-        Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-        """
         return pulumi.get(self, "case_sensitive")
 
 
@@ -3039,14 +2383,6 @@ class UserPoolVerificationMessageTemplate(dict):
                  email_subject: Optional[_builtins.str] = None,
                  email_subject_by_link: Optional[_builtins.str] = None,
                  sms_message: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str default_email_option: Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-        :param _builtins.str email_message: Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        :param _builtins.str email_message_by_link: Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-        :param _builtins.str email_subject: Subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        :param _builtins.str email_subject_by_link: Subject line for the email message template for sending a confirmation link to the user.
-        :param _builtins.str sms_message: SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        """
         if default_email_option is not None:
             pulumi.set(__self__, "default_email_option", default_email_option)
         if email_message is not None:
@@ -3063,49 +2399,31 @@ class UserPoolVerificationMessageTemplate(dict):
     @_builtins.property
     @pulumi.getter(name="defaultEmailOption")
     def default_email_option(self) -> Optional[_builtins.str]:
-        """
-        Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-        """
         return pulumi.get(self, "default_email_option")
 
     @_builtins.property
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> Optional[_builtins.str]:
-        """
-        Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        """
         return pulumi.get(self, "email_message")
 
     @_builtins.property
     @pulumi.getter(name="emailMessageByLink")
     def email_message_by_link(self) -> Optional[_builtins.str]:
-        """
-        Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-        """
         return pulumi.get(self, "email_message_by_link")
 
     @_builtins.property
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> Optional[_builtins.str]:
-        """
-        Subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        """
         return pulumi.get(self, "email_subject")
 
     @_builtins.property
     @pulumi.getter(name="emailSubjectByLink")
     def email_subject_by_link(self) -> Optional[_builtins.str]:
-        """
-        Subject line for the email message template for sending a confirmation link to the user.
-        """
         return pulumi.get(self, "email_subject_by_link")
 
     @_builtins.property
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> Optional[_builtins.str]:
-        """
-        SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        """
         return pulumi.get(self, "sms_message")
 
 
@@ -3133,10 +2451,6 @@ class UserPoolWebAuthnConfiguration(dict):
     def __init__(__self__, *,
                  relying_party_id: Optional[_builtins.str] = None,
                  user_verification: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str relying_party_id: The authentication domain that passkeys providers use as a relying party.
-        :param _builtins.str user_verification: If your user pool should require a passkey. Must be one of `required` or `preferred`.
-        """
         if relying_party_id is not None:
             pulumi.set(__self__, "relying_party_id", relying_party_id)
         if user_verification is not None:
@@ -3145,17 +2459,11 @@ class UserPoolWebAuthnConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="relyingPartyId")
     def relying_party_id(self) -> Optional[_builtins.str]:
-        """
-        The authentication domain that passkeys providers use as a relying party.
-        """
         return pulumi.get(self, "relying_party_id")
 
     @_builtins.property
     @pulumi.getter(name="userVerification")
     def user_verification(self) -> Optional[_builtins.str]:
-        """
-        If your user pool should require a passkey. Must be one of `required` or `preferred`.
-        """
         return pulumi.get(self, "user_verification")
 
 
@@ -3192,12 +2500,6 @@ class GetUserGroupsGroupResult(dict):
                  group_name: _builtins.str,
                  precedence: _builtins.int,
                  role_arn: _builtins.str):
-        """
-        :param _builtins.str description: Description of the user group.
-        :param _builtins.str group_name: Name of the user group.
-        :param _builtins.int precedence: Precedence of the user group.
-        :param _builtins.str role_arn: ARN of the IAM role to be associated with the user group.
-        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "precedence", precedence)
@@ -3206,33 +2508,21 @@ class GetUserGroupsGroupResult(dict):
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the user group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> _builtins.str:
-        """
-        Name of the user group.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
     @pulumi.getter
     def precedence(self) -> _builtins.int:
-        """
-        Precedence of the user group.
-        """
         return pulumi.get(self, "precedence")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM role to be associated with the user group.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -3253,27 +2543,17 @@ class GetUserPoolAccountRecoverySettingRecoveryMechanismResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  priority: _builtins.int):
-        """
-        :param _builtins.str name: - Name of the attribute.
-        :param _builtins.int priority: - Priority of this mechanism in the recovery process (lower numbers are higher priority).
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        - Name of the attribute.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        - Priority of this mechanism in the recovery process (lower numbers are higher priority).
-        """
         return pulumi.get(self, "priority")
 
 
@@ -3283,11 +2563,6 @@ class GetUserPoolAdminCreateUserConfigResult(dict):
                  allow_admin_create_user_only: _builtins.bool,
                  invite_message_templates: Sequence['outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult'],
                  unused_account_validity_days: _builtins.int):
-        """
-        :param _builtins.bool allow_admin_create_user_only: - Whether only admins can create users.
-        :param _builtins.int unused_account_validity_days: - Number of days an unconfirmed user account remains valid.
-               * invite_message_template - Templates for invitation messages.
-        """
         pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
         pulumi.set(__self__, "invite_message_templates", invite_message_templates)
         pulumi.set(__self__, "unused_account_validity_days", unused_account_validity_days)
@@ -3295,9 +2570,6 @@ class GetUserPoolAdminCreateUserConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="allowAdminCreateUserOnly")
     def allow_admin_create_user_only(self) -> _builtins.bool:
-        """
-        - Whether only admins can create users.
-        """
         return pulumi.get(self, "allow_admin_create_user_only")
 
     @_builtins.property
@@ -3308,10 +2580,6 @@ class GetUserPoolAdminCreateUserConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="unusedAccountValidityDays")
     def unused_account_validity_days(self) -> _builtins.int:
-        """
-        - Number of days an unconfirmed user account remains valid.
-        * invite_message_template - Templates for invitation messages.
-        """
         return pulumi.get(self, "unused_account_validity_days")
 
 
@@ -3321,11 +2589,6 @@ class GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult(dict):
                  email_message: _builtins.str,
                  email_subject: _builtins.str,
                  sms_message: _builtins.str):
-        """
-        :param _builtins.str email_message: - Email message content.
-        :param _builtins.str email_subject: - Email message subject.
-        :param _builtins.str sms_message: - SMS message content.
-        """
         pulumi.set(__self__, "email_message", email_message)
         pulumi.set(__self__, "email_subject", email_subject)
         pulumi.set(__self__, "sms_message", sms_message)
@@ -3333,25 +2596,16 @@ class GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult(dict):
     @_builtins.property
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> _builtins.str:
-        """
-        - Email message content.
-        """
         return pulumi.get(self, "email_message")
 
     @_builtins.property
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> _builtins.str:
-        """
-        - Email message subject.
-        """
         return pulumi.get(self, "email_subject")
 
     @_builtins.property
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> _builtins.str:
-        """
-        - SMS message content.
-        """
         return pulumi.get(self, "sms_message")
 
 
@@ -3363,13 +2617,6 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
                  external_id: _builtins.str,
                  role_arn: _builtins.str,
                  user_data_shared: _builtins.bool):
-        """
-        :param _builtins.str application_arn: (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
-        :param _builtins.str application_id: (Optional) Application ID for an Amazon Pinpoint application.
-        :param _builtins.str external_id: (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
-        :param _builtins.str role_arn: (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
-        :param _builtins.bool user_data_shared: (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "external_id", external_id)
@@ -3379,41 +2626,26 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> _builtins.str:
-        """
-        (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> _builtins.str:
-        """
-        (Optional) Application ID for an Amazon Pinpoint application.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> _builtins.str:
-        """
-        (Optional) ID for the Analytics Configuration. Conflicts with `application_arn`.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="userDataShared")
     def user_data_shared(self) -> _builtins.bool:
-        """
-        (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        """
         return pulumi.get(self, "user_data_shared")
 
 
@@ -3422,27 +2654,17 @@ class GetUserPoolClientRefreshTokenRotationResult(dict):
     def __init__(__self__, *,
                  feature: _builtins.str,
                  retry_grace_period_seconds: _builtins.int):
-        """
-        :param _builtins.str feature: (Required) The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-        :param _builtins.int retry_grace_period_seconds: (Optional) A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-        """
         pulumi.set(__self__, "feature", feature)
         pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
 
     @_builtins.property
     @pulumi.getter
     def feature(self) -> _builtins.str:
-        """
-        (Required) The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "feature")
 
     @_builtins.property
     @pulumi.getter(name="retryGracePeriodSeconds")
     def retry_grace_period_seconds(self) -> _builtins.int:
-        """
-        (Optional) A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-        """
         return pulumi.get(self, "retry_grace_period_seconds")
 
 
@@ -3452,11 +2674,6 @@ class GetUserPoolClientTokenValidityUnitResult(dict):
                  access_token: _builtins.str,
                  id_token: _builtins.str,
                  refresh_token: _builtins.str):
-        """
-        :param _builtins.str access_token: (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
-        :param _builtins.str id_token: (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
-        :param _builtins.str refresh_token: (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
-        """
         pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "id_token", id_token)
         pulumi.set(__self__, "refresh_token", refresh_token)
@@ -3464,25 +2681,16 @@ class GetUserPoolClientTokenValidityUnitResult(dict):
     @_builtins.property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> _builtins.str:
-        """
-        (Optional) Time unit in for the value in `access_token_validity`, defaults to `hours`.
-        """
         return pulumi.get(self, "access_token")
 
     @_builtins.property
     @pulumi.getter(name="idToken")
     def id_token(self) -> _builtins.str:
-        """
-        (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
-        """
         return pulumi.get(self, "id_token")
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> _builtins.str:
-        """
-        (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
-        """
         return pulumi.get(self, "refresh_token")
 
 
@@ -3491,27 +2699,17 @@ class GetUserPoolDeviceConfigurationResult(dict):
     def __init__(__self__, *,
                  challenge_required_on_new_device: _builtins.bool,
                  device_only_remembered_on_user_prompt: _builtins.bool):
-        """
-        :param _builtins.bool challenge_required_on_new_device: - Whether a challenge is required on new devices.
-        :param _builtins.bool device_only_remembered_on_user_prompt: - Whether devices are only remembered if the user prompts it.
-        """
         pulumi.set(__self__, "challenge_required_on_new_device", challenge_required_on_new_device)
         pulumi.set(__self__, "device_only_remembered_on_user_prompt", device_only_remembered_on_user_prompt)
 
     @_builtins.property
     @pulumi.getter(name="challengeRequiredOnNewDevice")
     def challenge_required_on_new_device(self) -> _builtins.bool:
-        """
-        - Whether a challenge is required on new devices.
-        """
         return pulumi.get(self, "challenge_required_on_new_device")
 
     @_builtins.property
     @pulumi.getter(name="deviceOnlyRememberedOnUserPrompt")
     def device_only_remembered_on_user_prompt(self) -> _builtins.bool:
-        """
-        - Whether devices are only remembered if the user prompts it.
-        """
         return pulumi.get(self, "device_only_remembered_on_user_prompt")
 
 
@@ -3523,13 +2721,6 @@ class GetUserPoolEmailConfigurationResult(dict):
                  from_: _builtins.str,
                  reply_to_email_address: _builtins.str,
                  source_arn: _builtins.str):
-        """
-        :param _builtins.str configuration_set: - Configuration set used for sending emails.
-        :param _builtins.str email_sending_account: - Email sending account.
-        :param _builtins.str from_: - Email sender address.
-        :param _builtins.str reply_to_email_address: - Reply-to email address.
-        :param _builtins.str source_arn: - Source Amazon Resource Name (ARN) for emails.
-        """
         pulumi.set(__self__, "configuration_set", configuration_set)
         pulumi.set(__self__, "email_sending_account", email_sending_account)
         pulumi.set(__self__, "from_", from_)
@@ -3539,41 +2730,26 @@ class GetUserPoolEmailConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter(name="configurationSet")
     def configuration_set(self) -> _builtins.str:
-        """
-        - Configuration set used for sending emails.
-        """
         return pulumi.get(self, "configuration_set")
 
     @_builtins.property
     @pulumi.getter(name="emailSendingAccount")
     def email_sending_account(self) -> _builtins.str:
-        """
-        - Email sending account.
-        """
         return pulumi.get(self, "email_sending_account")
 
     @_builtins.property
     @pulumi.getter(name="from")
     def from_(self) -> _builtins.str:
-        """
-        - Email sender address.
-        """
         return pulumi.get(self, "from_")
 
     @_builtins.property
     @pulumi.getter(name="replyToEmailAddress")
     def reply_to_email_address(self) -> _builtins.str:
-        """
-        - Reply-to email address.
-        """
         return pulumi.get(self, "reply_to_email_address")
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> _builtins.str:
-        """
-        - Source Amazon Resource Name (ARN) for emails.
-        """
         return pulumi.get(self, "source_arn")
 
 
@@ -3685,27 +2861,17 @@ class GetUserPoolLambdaConfigCustomEmailSenderResult(dict):
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
                  lambda_version: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: - ARN of the Lambda function.
-        :param _builtins.str lambda_version: - Version of the Lambda function.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        - ARN of the Lambda function.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> _builtins.str:
-        """
-        - Version of the Lambda function.
-        """
         return pulumi.get(self, "lambda_version")
 
 
@@ -3714,27 +2880,17 @@ class GetUserPoolLambdaConfigCustomSmsSenderResult(dict):
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
                  lambda_version: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: - ARN of the Lambda function.
-        :param _builtins.str lambda_version: - Version of the Lambda function.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        - ARN of the Lambda function.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> _builtins.str:
-        """
-        - Version of the Lambda function.
-        """
         return pulumi.get(self, "lambda_version")
 
 
@@ -3743,27 +2899,17 @@ class GetUserPoolLambdaConfigPreTokenGenerationConfigResult(dict):
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
                  lambda_version: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: - ARN of the Lambda function.
-        :param _builtins.str lambda_version: - Version of the Lambda function.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        - ARN of the Lambda function.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> _builtins.str:
-        """
-        - Version of the Lambda function.
-        """
         return pulumi.get(self, "lambda_version")
 
 
@@ -3777,15 +2923,6 @@ class GetUserPoolSchemaAttributeResult(dict):
                  number_attribute_constraints: Sequence['outputs.GetUserPoolSchemaAttributeNumberAttributeConstraintResult'],
                  required: _builtins.bool,
                  string_attribute_constraints: Sequence['outputs.GetUserPoolSchemaAttributeStringAttributeConstraintResult']):
-        """
-        :param _builtins.str attribute_data_type: - Data type of the attribute (e.g., string, number).
-        :param _builtins.bool developer_only_attribute: - Whether the attribute is for developer use only.
-        :param _builtins.bool mutable: - Whether the attribute can be changed after user creation.
-        :param _builtins.str name: - Name of the attribute.
-        :param _builtins.bool required: - Whether the attribute is required during user registration.
-               * number_attribute_constraints - Constraints for numeric attributes.
-               * string_attribute_constraints - Constraints for string attributes.
-        """
         pulumi.set(__self__, "attribute_data_type", attribute_data_type)
         pulumi.set(__self__, "developer_only_attribute", developer_only_attribute)
         pulumi.set(__self__, "mutable", mutable)
@@ -3797,33 +2934,21 @@ class GetUserPoolSchemaAttributeResult(dict):
     @_builtins.property
     @pulumi.getter(name="attributeDataType")
     def attribute_data_type(self) -> _builtins.str:
-        """
-        - Data type of the attribute (e.g., string, number).
-        """
         return pulumi.get(self, "attribute_data_type")
 
     @_builtins.property
     @pulumi.getter(name="developerOnlyAttribute")
     def developer_only_attribute(self) -> _builtins.bool:
-        """
-        - Whether the attribute is for developer use only.
-        """
         return pulumi.get(self, "developer_only_attribute")
 
     @_builtins.property
     @pulumi.getter
     def mutable(self) -> _builtins.bool:
-        """
-        - Whether the attribute can be changed after user creation.
-        """
         return pulumi.get(self, "mutable")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        - Name of the attribute.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -3834,11 +2959,6 @@ class GetUserPoolSchemaAttributeResult(dict):
     @_builtins.property
     @pulumi.getter
     def required(self) -> _builtins.bool:
-        """
-        - Whether the attribute is required during user registration.
-        * number_attribute_constraints - Constraints for numeric attributes.
-        * string_attribute_constraints - Constraints for string attributes.
-        """
         return pulumi.get(self, "required")
 
     @_builtins.property
@@ -3852,27 +2972,17 @@ class GetUserPoolSchemaAttributeNumberAttributeConstraintResult(dict):
     def __init__(__self__, *,
                  max_value: _builtins.str,
                  min_value: _builtins.str):
-        """
-        :param _builtins.str max_value: - Maximum allowed value.
-        :param _builtins.str min_value: - Minimum allowed value.
-        """
         pulumi.set(__self__, "max_value", max_value)
         pulumi.set(__self__, "min_value", min_value)
 
     @_builtins.property
     @pulumi.getter(name="maxValue")
     def max_value(self) -> _builtins.str:
-        """
-        - Maximum allowed value.
-        """
         return pulumi.get(self, "max_value")
 
     @_builtins.property
     @pulumi.getter(name="minValue")
     def min_value(self) -> _builtins.str:
-        """
-        - Minimum allowed value.
-        """
         return pulumi.get(self, "min_value")
 
 
@@ -3881,27 +2991,17 @@ class GetUserPoolSchemaAttributeStringAttributeConstraintResult(dict):
     def __init__(__self__, *,
                  max_length: _builtins.str,
                  min_length: _builtins.str):
-        """
-        :param _builtins.str max_length: - Maximum allowed length.
-        :param _builtins.str min_length: - Minimum allowed length.
-        """
         pulumi.set(__self__, "max_length", max_length)
         pulumi.set(__self__, "min_length", min_length)
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
     def max_length(self) -> _builtins.str:
-        """
-        - Maximum allowed length.
-        """
         return pulumi.get(self, "max_length")
 
     @_builtins.property
     @pulumi.getter(name="minLength")
     def min_length(self) -> _builtins.str:
-        """
-        - Minimum allowed length.
-        """
         return pulumi.get(self, "min_length")
 
 
@@ -3910,27 +3010,17 @@ class GetUserPoolUserPoolAddOnResult(dict):
     def __init__(__self__, *,
                  advanced_security_additional_flows: Sequence['outputs.GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult'],
                  advanced_security_mode: _builtins.str):
-        """
-        :param Sequence['GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs'] advanced_security_additional_flows: A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-        :param _builtins.str advanced_security_mode: Mode for advanced security.
-        """
         pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
         pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityAdditionalFlows")
     def advanced_security_additional_flows(self) -> Sequence['outputs.GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult']:
-        """
-        A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-        """
         return pulumi.get(self, "advanced_security_additional_flows")
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityMode")
     def advanced_security_mode(self) -> _builtins.str:
-        """
-        Mode for advanced security.
-        """
         return pulumi.get(self, "advanced_security_mode")
 
 
@@ -3938,17 +3028,11 @@ class GetUserPoolUserPoolAddOnResult(dict):
 class GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult(dict):
     def __init__(__self__, *,
                  custom_auth_mode: _builtins.str):
-        """
-        :param _builtins.str custom_auth_mode: Mode of threat protection operation in custom authentication.
-        """
         pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
 
     @_builtins.property
     @pulumi.getter(name="customAuthMode")
     def custom_auth_mode(self) -> _builtins.str:
-        """
-        Mode of threat protection operation in custom authentication.
-        """
         return pulumi.get(self, "custom_auth_mode")
 
 

@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailActionIncludeResources {
-    /**
-     * @return Specifies whether the lifecycle action should apply to distributed AMIs.
-     * 
-     */
     private @Nullable Boolean amis;
-    /**
-     * @return Specifies whether the lifecycle action should apply to distributed containers.
-     * 
-     */
     private @Nullable Boolean containers;
-    /**
-     * @return Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-     * 
-     */
     private @Nullable Boolean snapshots;
 
     private LifecyclePolicyPolicyDetailActionIncludeResources() {}
-    /**
-     * @return Specifies whether the lifecycle action should apply to distributed AMIs.
-     * 
-     */
     public Optional<Boolean> amis() {
         return Optional.ofNullable(this.amis);
     }
-    /**
-     * @return Specifies whether the lifecycle action should apply to distributed containers.
-     * 
-     */
     public Optional<Boolean> containers() {
         return Optional.ofNullable(this.containers);
     }
-    /**
-     * @return Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-     * 
-     */
     public Optional<Boolean> snapshots() {
         return Optional.ofNullable(this.snapshots);
     }

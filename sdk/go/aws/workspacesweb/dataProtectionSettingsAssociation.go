@@ -12,59 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Data Protection Settings Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataProtectionSettings, err := workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewDataProtectionSettingsAssociation(ctx, "example", &workspacesweb.DataProtectionSettingsAssociationArgs{
-//				DataProtectionSettingsArn: exampleDataProtectionSettings.DataProtectionSettingsArn,
-//				PortalArn:                 example.PortalArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DataProtectionSettingsAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
 	DataProtectionSettingsArn pulumi.StringOutput `pulumi:"dataProtectionSettingsArn"`
-	// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	PortalArn                 pulumi.StringOutput `pulumi:"portalArn"`
+	Region                    pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDataProtectionSettingsAssociation registers a new resource with the given unique name, arguments, and options.
@@ -103,25 +56,15 @@ func GetDataProtectionSettingsAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataProtectionSettingsAssociation resources.
 type dataProtectionSettingsAssociationState struct {
-	// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
 	DataProtectionSettingsArn *string `pulumi:"dataProtectionSettingsArn"`
-	// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PortalArn                 *string `pulumi:"portalArn"`
+	Region                    *string `pulumi:"region"`
 }
 
 type DataProtectionSettingsAssociationState struct {
-	// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
 	DataProtectionSettingsArn pulumi.StringPtrInput
-	// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortalArn                 pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
 }
 
 func (DataProtectionSettingsAssociationState) ElementType() reflect.Type {
@@ -129,26 +72,16 @@ func (DataProtectionSettingsAssociationState) ElementType() reflect.Type {
 }
 
 type dataProtectionSettingsAssociationArgs struct {
-	// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-	DataProtectionSettingsArn string `pulumi:"dataProtectionSettingsArn"`
-	// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DataProtectionSettingsArn string  `pulumi:"dataProtectionSettingsArn"`
+	PortalArn                 string  `pulumi:"portalArn"`
+	Region                    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DataProtectionSettingsAssociation resource.
 type DataProtectionSettingsAssociationArgs struct {
-	// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
 	DataProtectionSettingsArn pulumi.StringInput
-	// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortalArn                 pulumi.StringInput
+	Region                    pulumi.StringPtrInput
 }
 
 func (DataProtectionSettingsAssociationArgs) ElementType() reflect.Type {
@@ -238,19 +171,14 @@ func (o DataProtectionSettingsAssociationOutput) ToDataProtectionSettingsAssocia
 	return o
 }
 
-// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
 func (o DataProtectionSettingsAssociationOutput) DataProtectionSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsAssociation) pulumi.StringOutput { return v.DataProtectionSettingsArn }).(pulumi.StringOutput)
 }
 
-// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-//
-// The following arguments are optional:
 func (o DataProtectionSettingsAssociationOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsAssociation) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataProtectionSettingsAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -12,185 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskOptions {
-    /**
-     * @return A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-     * 
-     */
     private @Nullable String atime;
-    /**
-     * @return Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
-     * 
-     */
     private @Nullable Integer bytesPerSecond;
-    /**
-     * @return Group identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-     * 
-     */
     private @Nullable String gid;
-    /**
-     * @return Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
-     * 
-     */
     private @Nullable String logLevel;
-    /**
-     * @return A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-     * 
-     */
     private @Nullable String mtime;
-    /**
-     * @return Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
-     * 
-     */
     private @Nullable String objectTags;
-    /**
-     * @return Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
-     * 
-     */
     private @Nullable String overwriteMode;
-    /**
-     * @return Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-     * 
-     */
     private @Nullable String posixPermissions;
-    /**
-     * @return Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
-     * 
-     */
     private @Nullable String preserveDeletedFiles;
-    /**
-     * @return Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-     * 
-     */
     private @Nullable String preserveDevices;
-    /**
-     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
-     * 
-     */
     private @Nullable String securityDescriptorCopyFlags;
-    /**
-     * @return Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
-     * 
-     */
     private @Nullable String taskQueueing;
-    /**
-     * @return Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
-     * 
-     */
     private @Nullable String transferMode;
-    /**
-     * @return User identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-     * 
-     */
     private @Nullable String uid;
-    /**
-     * @return Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
-     * 
-     */
     private @Nullable String verifyMode;
 
     private TaskOptions() {}
-    /**
-     * @return A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-     * 
-     */
     public Optional<String> atime() {
         return Optional.ofNullable(this.atime);
     }
-    /**
-     * @return Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
-     * 
-     */
     public Optional<Integer> bytesPerSecond() {
         return Optional.ofNullable(this.bytesPerSecond);
     }
-    /**
-     * @return Group identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-     * 
-     */
     public Optional<String> gid() {
         return Optional.ofNullable(this.gid);
     }
-    /**
-     * @return Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
-     * 
-     */
     public Optional<String> logLevel() {
         return Optional.ofNullable(this.logLevel);
     }
-    /**
-     * @return A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-     * 
-     */
     public Optional<String> mtime() {
         return Optional.ofNullable(this.mtime);
     }
-    /**
-     * @return Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
-     * 
-     */
     public Optional<String> objectTags() {
         return Optional.ofNullable(this.objectTags);
     }
-    /**
-     * @return Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
-     * 
-     */
     public Optional<String> overwriteMode() {
         return Optional.ofNullable(this.overwriteMode);
     }
-    /**
-     * @return Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-     * 
-     */
     public Optional<String> posixPermissions() {
         return Optional.ofNullable(this.posixPermissions);
     }
-    /**
-     * @return Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
-     * 
-     */
     public Optional<String> preserveDeletedFiles() {
         return Optional.ofNullable(this.preserveDeletedFiles);
     }
-    /**
-     * @return Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-     * 
-     */
     public Optional<String> preserveDevices() {
         return Optional.ofNullable(this.preserveDevices);
     }
-    /**
-     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
-     * 
-     */
     public Optional<String> securityDescriptorCopyFlags() {
         return Optional.ofNullable(this.securityDescriptorCopyFlags);
     }
-    /**
-     * @return Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
-     * 
-     */
     public Optional<String> taskQueueing() {
         return Optional.ofNullable(this.taskQueueing);
     }
-    /**
-     * @return Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
-     * 
-     */
     public Optional<String> transferMode() {
         return Optional.ofNullable(this.transferMode);
     }
-    /**
-     * @return User identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-     * 
-     */
     public Optional<String> uid() {
         return Optional.ofNullable(this.uid);
     }
-    /**
-     * @return Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
-     * 
-     */
     public Optional<String> verifyMode() {
         return Optional.ofNullable(this.verifyMode);
     }

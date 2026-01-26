@@ -57,25 +57,16 @@ class GetServerlessSecurityConfigResult:
     @_builtins.property
     @pulumi.getter(name="configVersion")
     def config_version(self) -> _builtins.str:
-        """
-        The version of the security configuration.
-        """
         return pulumi.get(self, "config_version")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        The date the configuration was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the security configuration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -86,9 +77,6 @@ class GetServerlessSecurityConfigResult:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> _builtins.str:
-        """
-        The date the configuration was last modified.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
@@ -99,17 +87,11 @@ class GetServerlessSecurityConfigResult:
     @_builtins.property
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional[Sequence['outputs.GetServerlessSecurityConfigSamlOptionResult']]:
-        """
-        SAML options for the security configuration.
-        """
         return pulumi.get(self, "saml_options")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of security configuration.
-        """
         return pulumi.get(self, "type")
 
 
@@ -134,23 +116,7 @@ def get_serverless_security_config(id: Optional[_builtins.str] = None,
                                    saml_options: Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessSecurityConfigResult:
     """
-    Data source for managing an AWS OpenSearch Serverless Security Config.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_config(id="saml/12345678912/example")
-    ```
-
-
-    :param _builtins.str id: The unique identifier of the security configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -173,23 +139,7 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[_builtins.st
                                           saml_options: Optional[pulumi.Input[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
     """
-    Data source for managing an AWS OpenSearch Serverless Security Config.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_config(id="saml/12345678912/example")
-    ```
-
-
-    :param _builtins.str id: The unique identifier of the security configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

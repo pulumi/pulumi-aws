@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis {
-    /**
-     * @return Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
-     * 
-     */
     private @Nullable List<String> partitionKeys;
-    /**
-     * @return ARN of the table which is queried with the largest time range.
-     * 
-     */
     private @Nullable String tableArn;
-    /**
-     * @return Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     private @Nullable Double value;
 
     private ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis() {}
-    /**
-     * @return Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
-     * 
-     */
     public List<String> partitionKeys() {
         return this.partitionKeys == null ? List.of() : this.partitionKeys;
     }
-    /**
-     * @return ARN of the table which is queried with the largest time range.
-     * 
-     */
     public Optional<String> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
-    /**
-     * @return Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     public Optional<Double> value() {
         return Optional.ofNullable(this.value);
     }

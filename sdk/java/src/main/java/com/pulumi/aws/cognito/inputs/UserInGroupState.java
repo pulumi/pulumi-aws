@@ -15,62 +15,30 @@ public final class UserInGroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserInGroupState Empty = new UserInGroupState();
 
-    /**
-     * The name of the group to which the user is to be added.
-     * 
-     */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
-    /**
-     * @return The name of the group to which the user is to be added.
-     * 
-     */
     public Optional<Output<String>> groupName() {
         return Optional.ofNullable(this.groupName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The user pool ID of the user and group.
-     * 
-     */
     @Import(name="userPoolId")
     private @Nullable Output<String> userPoolId;
 
-    /**
-     * @return The user pool ID of the user and group.
-     * 
-     */
     public Optional<Output<String>> userPoolId() {
         return Optional.ofNullable(this.userPoolId);
     }
 
-    /**
-     * The username of the user to be added to the group.
-     * 
-     */
     @Import(name="username")
     private @Nullable Output<String> username;
 
-    /**
-     * @return The username of the user to be added to the group.
-     * 
-     */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -102,86 +70,38 @@ public final class UserInGroupState extends com.pulumi.resources.ResourceArgs {
             $ = new UserInGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName The name of the group to which the user is to be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName The name of the group to which the user is to be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userPoolId The user pool ID of the user and group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(@Nullable Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId The user pool ID of the user and group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }
 
-        /**
-         * @param username The username of the user to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username The username of the user to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

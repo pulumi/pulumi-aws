@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetLogicalTableMap {
-    /**
-     * @return A display name for the logical table.
-     * 
-     */
     private String alias;
-    /**
-     * @return Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-     * 
-     */
     private @Nullable List<DataSetLogicalTableMapDataTransform> dataTransforms;
-    /**
-     * @return Key of the logical table map.
-     * 
-     */
     private String logicalTableMapId;
-    /**
-     * @return Source of this logical table. See source.
-     * 
-     */
     private DataSetLogicalTableMapSource source;
 
     private DataSetLogicalTableMap() {}
-    /**
-     * @return A display name for the logical table.
-     * 
-     */
     public String alias() {
         return this.alias;
     }
-    /**
-     * @return Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-     * 
-     */
     public List<DataSetLogicalTableMapDataTransform> dataTransforms() {
         return this.dataTransforms == null ? List.of() : this.dataTransforms;
     }
-    /**
-     * @return Key of the logical table map.
-     * 
-     */
     public String logicalTableMapId() {
         return this.logicalTableMapId;
     }
-    /**
-     * @return Source of this logical table. See source.
-     * 
-     */
     public DataSetLogicalTableMapSource source() {
         return this.source;
     }

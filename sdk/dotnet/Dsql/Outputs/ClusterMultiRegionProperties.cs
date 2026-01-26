@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Dsql.Outputs
     [OutputType]
     public sealed class ClusterMultiRegionProperties
     {
-        /// <summary>
-        /// List of DSQL Cluster ARNs peered to this cluster.
-        /// </summary>
         public readonly ImmutableArray<string> Clusters;
-        /// <summary>
-        /// Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        /// </summary>
         public readonly string? WitnessRegion;
 
         [OutputConstructor]

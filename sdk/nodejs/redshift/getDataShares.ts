@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing AWS Redshift Data Shares.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getDataShares({});
- * ```
- */
 export function getDataShares(args?: GetDataSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSharesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,9 +19,6 @@ export function getDataShares(args?: GetDataSharesArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getDataShares.
  */
 export interface GetDataSharesArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -43,30 +26,10 @@ export interface GetDataSharesArgs {
  * A collection of values returned by getDataShares.
  */
 export interface GetDataSharesResult {
-    /**
-     * An array of all data shares in the current region. See `dataShares` below.
-     */
     readonly dataShares: outputs.redshift.GetDataSharesDataShare[];
-    /**
-     * AWS region.
-     */
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing AWS Redshift Data Shares.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getDataShares({});
- * ```
- */
 export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataSharesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,8 +42,5 @@ export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulum
  * A collection of arguments for invoking getDataShares.
  */
 export interface GetDataSharesOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.macie2.Account("example", {});
- * const exampleClassificationExportConfiguration = new aws.macie2.ClassificationExportConfiguration("example", {s3Destination: {
- *     bucketName: exampleAwsS3Bucket.bucket,
- *     keyPrefix: "exampleprefix/",
- *     kmsKeyArn: exampleAwsKmsKey.arn,
- * }}, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the region. For example:
- *
- * ```sh
- * $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example us-west-2
- * ```
- */
 export class ClassificationExportConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing ClassificationExportConfiguration resource's state with the given name, ID, and optional extra
@@ -62,13 +35,7 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClassificationExportConfiguration.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration block for a S3 Destination. Defined below
-     */
     declare public readonly s3Destination: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination>;
 
     /**
@@ -103,13 +70,7 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClassificationExportConfiguration resources.
  */
 export interface ClassificationExportConfigurationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block for a S3 Destination. Defined below
-     */
     s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
 }
 
@@ -117,12 +78,6 @@ export interface ClassificationExportConfigurationState {
  * The set of arguments for constructing a ClassificationExportConfiguration resource.
  */
 export interface ClassificationExportConfigurationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block for a S3 Destination. Defined below
-     */
     s3Destination: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
 }

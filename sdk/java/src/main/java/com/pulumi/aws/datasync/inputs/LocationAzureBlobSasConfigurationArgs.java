@@ -14,17 +14,9 @@ public final class LocationAzureBlobSasConfigurationArgs extends com.pulumi.reso
 
     public static final LocationAzureBlobSasConfigurationArgs Empty = new LocationAzureBlobSasConfigurationArgs();
 
-    /**
-     * A SAS token that provides permissions to access your Azure Blob Storage.
-     * 
-     */
     @Import(name="token", required=true)
     private Output<String> token;
 
-    /**
-     * @return A SAS token that provides permissions to access your Azure Blob Storage.
-     * 
-     */
     public Output<String> token() {
         return this.token;
     }
@@ -53,23 +45,11 @@ public final class LocationAzureBlobSasConfigurationArgs extends com.pulumi.reso
             $ = new LocationAzureBlobSasConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param token A SAS token that provides permissions to access your Azure Blob Storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder token(Output<String> token) {
             $.token = token;
             return this;
         }
 
-        /**
-         * @param token A SAS token that provides permissions to access your Azure Blob Storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder token(String token) {
             return token(Output.of(token));
         }

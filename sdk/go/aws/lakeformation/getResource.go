@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a Lake Formation resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.LookupResource(ctx, &lakeformation.LookupResourceArgs{
-//				Arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceResult
@@ -50,28 +23,21 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
-	// ARN of the resource, an S3 path.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    string  `pulumi:"arn"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
-	Arn string `pulumi:"arn"`
-	// Flag to enable AWS LakeFormation hybrid access permission mode.
-	HybridAccessEnabled bool `pulumi:"hybridAccessEnabled"`
+	Arn                 string `pulumi:"arn"`
+	HybridAccessEnabled bool   `pulumi:"hybridAccessEnabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	LastModified string `pulumi:"lastModified"`
-	Region       string `pulumi:"region"`
-	// Role that the resource was registered with.
-	RoleArn string `pulumi:"roleArn"`
-	// Whether the resource is a federated resource.
-	WithFederation bool `pulumi:"withFederation"`
-	// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-	WithPrivilegedAccess bool `pulumi:"withPrivilegedAccess"`
+	Id                   string `pulumi:"id"`
+	LastModified         string `pulumi:"lastModified"`
+	Region               string `pulumi:"region"`
+	RoleArn              string `pulumi:"roleArn"`
+	WithFederation       bool   `pulumi:"withFederation"`
+	WithPrivilegedAccess bool   `pulumi:"withPrivilegedAccess"`
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
@@ -85,9 +51,7 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
-	// ARN of the resource, an S3 path.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -114,7 +78,6 @@ func (o LookupResourceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Flag to enable AWS LakeFormation hybrid access permission mode.
 func (o LookupResourceResultOutput) HybridAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupResourceResult) bool { return v.HybridAccessEnabled }).(pulumi.BoolOutput)
 }
@@ -124,7 +87,6 @@ func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o LookupResourceResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.LastModified }).(pulumi.StringOutput)
 }
@@ -133,17 +95,14 @@ func (o LookupResourceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Role that the resource was registered with.
 func (o LookupResourceResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Whether the resource is a federated resource.
 func (o LookupResourceResultOutput) WithFederation() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupResourceResult) bool { return v.WithFederation }).(pulumi.BoolOutput)
 }
 
-// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 func (o LookupResourceResultOutput) WithPrivilegedAccess() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupResourceResult) bool { return v.WithPrivilegedAccess }).(pulumi.BoolOutput)
 }

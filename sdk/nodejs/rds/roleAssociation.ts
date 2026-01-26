@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an RDS DB Instance association with an IAM Role. Example use cases:
- *
- * * [Amazon RDS Oracle integration with Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html)
- * * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
- *
- * > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `aws.rds.Instance` resource `monitoringRoleArn` argument instead.
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
- * ```
- */
 export class RoleAssociation extends pulumi.CustomResource {
     /**
      * Get an existing RoleAssociation resource's state with the given name, ID, and optional extra
@@ -48,21 +32,9 @@ export class RoleAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleAssociation.__pulumiType;
     }
 
-    /**
-     * DB Instance Identifier to associate with the IAM Role.
-     */
     declare public readonly dbInstanceIdentifier: pulumi.Output<string>;
-    /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     */
     declare public readonly featureName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
 
     /**
@@ -107,21 +79,9 @@ export class RoleAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoleAssociation resources.
  */
 export interface RoleAssociationState {
-    /**
-     * DB Instance Identifier to associate with the IAM Role.
-     */
     dbInstanceIdentifier?: pulumi.Input<string>;
-    /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     */
     featureName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-     */
     roleArn?: pulumi.Input<string>;
 }
 
@@ -129,20 +89,8 @@ export interface RoleAssociationState {
  * The set of arguments for constructing a RoleAssociation resource.
  */
 export interface RoleAssociationArgs {
-    /**
-     * DB Instance Identifier to associate with the IAM Role.
-     */
     dbInstanceIdentifier: pulumi.Input<string>;
-    /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     */
     featureName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-     */
     roleArn: pulumi.Input<string>;
 }

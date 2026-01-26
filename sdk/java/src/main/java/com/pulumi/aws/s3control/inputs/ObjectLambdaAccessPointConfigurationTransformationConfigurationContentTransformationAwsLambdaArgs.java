@@ -16,32 +16,16 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
 
     public static final ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs Empty = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the AWS Lambda function.
-     * 
-     */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the AWS Lambda function.
-     * 
-     */
     public Output<String> functionArn() {
         return this.functionArn;
     }
 
-    /**
-     * Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-     * 
-     */
     @Import(name="functionPayload")
     private @Nullable Output<String> functionPayload;
 
-    /**
-     * @return Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-     * 
-     */
     public Optional<Output<String>> functionPayload() {
         return Optional.ofNullable(this.functionPayload);
     }
@@ -71,44 +55,20 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
             $ = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionArn The Amazon Resource Name (ARN) of the AWS Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(Output<String> functionArn) {
             $.functionArn = functionArn;
             return this;
         }
 
-        /**
-         * @param functionArn The Amazon Resource Name (ARN) of the AWS Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(String functionArn) {
             return functionArn(Output.of(functionArn));
         }
 
-        /**
-         * @param functionPayload Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionPayload(@Nullable Output<String> functionPayload) {
             $.functionPayload = functionPayload;
             return this;
         }
 
-        /**
-         * @param functionPayload Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionPayload(String functionPayload) {
             return functionPayload(Output.of(functionPayload));
         }

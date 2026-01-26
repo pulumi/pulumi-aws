@@ -18,10 +18,6 @@ public final class GetProductResult {
      * 
      */
     private String id;
-    /**
-     * @return Set to the product returned from the API.
-     * 
-     */
     private String result;
     private String serviceCode;
 
@@ -36,10 +32,6 @@ public final class GetProductResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set to the product returned from the API.
-     * 
-     */
     public String result() {
         return this.result;
     }

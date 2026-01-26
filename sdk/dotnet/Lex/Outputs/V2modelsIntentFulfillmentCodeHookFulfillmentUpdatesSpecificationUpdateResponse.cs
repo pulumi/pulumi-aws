@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse
     {
-        /// <summary>
-        /// Whether the user can interrupt the start message while it is playing.
-        /// </summary>
         public readonly bool? AllowInterrupt;
-        /// <summary>
-        /// Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-        /// </summary>
         public readonly int FrequencyInSeconds;
-        /// <summary>
-        /// Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `MessageGroup`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> MessageGroups;
 
         [OutputConstructor]

@@ -15,172 +15,68 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetProductResult {
     private @Nullable String acceptLanguage;
-    /**
-     * @return ARN of the product.
-     * 
-     */
     private String arn;
-    /**
-     * @return Time when the product was created.
-     * 
-     */
     private String createdTime;
-    /**
-     * @return Description of the product.
-     * 
-     */
     private String description;
-    /**
-     * @return Vendor of the product.
-     * 
-     */
     private String distributor;
-    /**
-     * @return Whether the product has a default path.
-     * 
-     */
     private Boolean hasDefaultPath;
     private String id;
-    /**
-     * @return Name of the product.
-     * 
-     */
     private String name;
-    /**
-     * @return Owner of the product.
-     * 
-     */
     private String owner;
     private String region;
-    /**
-     * @return Status of the product.
-     * 
-     */
     private String status;
-    /**
-     * @return Field that provides support information about the product.
-     * 
-     */
     private String supportDescription;
-    /**
-     * @return Contact email for product support.
-     * 
-     */
     private String supportEmail;
-    /**
-     * @return Contact URL for product support.
-     * 
-     */
     private String supportUrl;
-    /**
-     * @return Tags applied to the product.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of product.
-     * 
-     */
     private String type;
 
     private GetProductResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
-    /**
-     * @return ARN of the product.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Time when the product was created.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
-    /**
-     * @return Description of the product.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Vendor of the product.
-     * 
-     */
     public String distributor() {
         return this.distributor;
     }
-    /**
-     * @return Whether the product has a default path.
-     * 
-     */
     public Boolean hasDefaultPath() {
         return this.hasDefaultPath;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the product.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Owner of the product.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the product.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Field that provides support information about the product.
-     * 
-     */
     public String supportDescription() {
         return this.supportDescription;
     }
-    /**
-     * @return Contact email for product support.
-     * 
-     */
     public String supportEmail() {
         return this.supportEmail;
     }
-    /**
-     * @return Contact URL for product support.
-     * 
-     */
     public String supportUrl() {
         return this.supportUrl;
     }
-    /**
-     * @return Tags applied to the product.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of product.
-     * 
-     */
     public String type() {
         return this.type;
     }

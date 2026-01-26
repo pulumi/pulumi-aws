@@ -28,13 +28,7 @@ MYPY = False
 if not MYPY:
     class LinkLinkConfigurationArgsDict(TypedDict):
         log_group_configuration: NotRequired[pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgsDict']]
-        """
-        Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
-        """
         metric_configuration: NotRequired[pulumi.Input['LinkLinkConfigurationMetricConfigurationArgsDict']]
-        """
-        Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
-        """
 elif False:
     LinkLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -43,10 +37,6 @@ class LinkLinkConfigurationArgs:
     def __init__(__self__, *,
                  log_group_configuration: Optional[pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgs']] = None,
                  metric_configuration: Optional[pulumi.Input['LinkLinkConfigurationMetricConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgs'] log_group_configuration: Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
-        :param pulumi.Input['LinkLinkConfigurationMetricConfigurationArgs'] metric_configuration: Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
-        """
         if log_group_configuration is not None:
             pulumi.set(__self__, "log_group_configuration", log_group_configuration)
         if metric_configuration is not None:
@@ -55,9 +45,6 @@ class LinkLinkConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="logGroupConfiguration")
     def log_group_configuration(self) -> Optional[pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgs']]:
-        """
-        Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
-        """
         return pulumi.get(self, "log_group_configuration")
 
     @log_group_configuration.setter
@@ -67,9 +54,6 @@ class LinkLinkConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="metricConfiguration")
     def metric_configuration(self) -> Optional[pulumi.Input['LinkLinkConfigurationMetricConfigurationArgs']]:
-        """
-        Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
-        """
         return pulumi.get(self, "metric_configuration")
 
     @metric_configuration.setter
@@ -80,9 +64,6 @@ class LinkLinkConfigurationArgs:
 if not MYPY:
     class LinkLinkConfigurationLogGroupConfigurationArgsDict(TypedDict):
         filter: pulumi.Input[_builtins.str]
-        """
-        Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-        """
 elif False:
     LinkLinkConfigurationLogGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -90,17 +71,11 @@ elif False:
 class LinkLinkConfigurationLogGroupConfigurationArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] filter: Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-        """
         pulumi.set(__self__, "filter", filter)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> pulumi.Input[_builtins.str]:
-        """
-        Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -111,9 +86,6 @@ class LinkLinkConfigurationLogGroupConfigurationArgs:
 if not MYPY:
     class LinkLinkConfigurationMetricConfigurationArgsDict(TypedDict):
         filter: pulumi.Input[_builtins.str]
-        """
-        Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
 elif False:
     LinkLinkConfigurationMetricConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -121,17 +93,11 @@ elif False:
 class LinkLinkConfigurationMetricConfigurationArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] filter: Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         pulumi.set(__self__, "filter", filter)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> pulumi.Input[_builtins.str]:
-        """
-        Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         return pulumi.get(self, "filter")
 
     @filter.setter

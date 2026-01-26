@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
-    /**
-     * @return Endpoint for the MCP server target configuration.
-     * 
-     */
     private String endpoint;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServer() {}
-    /**
-     * @return Endpoint for the MCP server target configuration.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }

@@ -4,52 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS User Notifications Notification Configuration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.notifications.NotificationConfiguration("example", {
- *     name: "example",
- *     description: "Example notification configuration",
- *     tags: {
- *         Environment: "production",
- *         Project: "example",
- *     },
- * });
- * ```
- *
- * ### With Aggregation Duration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.notifications.NotificationConfiguration("example", {
- *     name: "example-aggregation",
- *     description: "Example notification configuration with aggregation",
- *     aggregationDuration: "SHORT",
- *     tags: {
- *         Environment: "production",
- *         Project: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import User Notifications Notification Configuration using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
- * ```
- */
 export class NotificationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing NotificationConfiguration resource's state with the given name, ID, and optional extra
@@ -78,38 +32,11 @@ export class NotificationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationConfiguration.__pulumiType;
     }
 
-    /**
-     * Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-     * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-     * notifications). Default: `NONE`.
-     */
     declare public readonly aggregationDuration: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-     * maximum length of 256.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-     * defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-     * configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -152,38 +79,11 @@ export class NotificationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationConfiguration resources.
  */
 export interface NotificationConfigurationState {
-    /**
-     * Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-     * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-     * notifications). Default: `NONE`.
-     */
     aggregationDuration?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-     * maximum length of 256.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-     * defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-     * configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -191,28 +91,8 @@ export interface NotificationConfigurationState {
  * The set of arguments for constructing a NotificationConfiguration resource.
  */
 export interface NotificationConfigurationArgs {
-    /**
-     * Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-     * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-     * notifications). Default: `NONE`.
-     */
     aggregationDuration?: pulumi.Input<string>;
-    /**
-     * Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-     * maximum length of 256.
-     */
     description: pulumi.Input<string>;
-    /**
-     * Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-     * defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

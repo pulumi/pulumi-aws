@@ -17,32 +17,16 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
 
     public static final ChannelNamespaceHandlerConfigsOnSubscribeArgs Empty = new ChannelNamespaceHandlerConfigsOnSubscribeArgs();
 
-    /**
-     * Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-     * 
-     */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
-    /**
-     * @return Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-     * 
-     */
     public Output<String> behavior() {
         return this.behavior;
     }
 
-    /**
-     * Integration data source configuration for the handler. See Integration below.
-     * 
-     */
     @Import(name="integration")
     private @Nullable Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration;
 
-    /**
-     * @return Integration data source configuration for the handler. See Integration below.
-     * 
-     */
     public Optional<Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs>> integration() {
         return Optional.ofNullable(this.integration);
     }
@@ -72,44 +56,20 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
             $ = new ChannelNamespaceHandlerConfigsOnSubscribeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param behavior Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behavior(Output<String> behavior) {
             $.behavior = behavior;
             return this;
         }
 
-        /**
-         * @param behavior Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behavior(String behavior) {
             return behavior(Output.of(behavior));
         }
 
-        /**
-         * @param integration Integration data source configuration for the handler. See Integration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder integration(@Nullable Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration) {
             $.integration = integration;
             return this;
         }
 
-        /**
-         * @param integration Integration data source configuration for the handler. See Integration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder integration(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs integration) {
             return integration(Output.of(integration));
         }

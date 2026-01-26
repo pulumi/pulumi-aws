@@ -18,111 +18,51 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCertificateArgs Empty = new GetCertificateArgs();
 
-    /**
-     * Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
-     * 
-     */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
-    /**
-     * @return Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
-     * 
-     */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
     }
 
-    /**
-     * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-     * 
-     */
     @Import(name="keyTypes")
     private @Nullable Output<List<String>> keyTypes;
 
-    /**
-     * @return List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-     * 
-     */
     public Optional<Output<List<String>>> keyTypes() {
         return Optional.ofNullable(this.keyTypes);
     }
 
-    /**
-     * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
-    /**
-     * @return If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-     * 
-     */
     public Optional<Output<Boolean>> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-     * are returned.
-     * 
-     */
     @Import(name="statuses")
     private @Nullable Output<List<String>> statuses;
 
-    /**
-     * @return List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-     * are returned.
-     * 
-     */
     public Optional<Output<List<String>>> statuses() {
         return Optional.ofNullable(this.statuses);
     }
 
-    /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
-     * 
-     */
     @Import(name="types")
     private @Nullable Output<List<String>> types;
 
-    /**
-     * @return List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
-     * 
-     */
     public Optional<Output<List<String>>> types() {
         return Optional.ofNullable(this.types);
     }
@@ -157,185 +97,77 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(@Nullable Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param keyTypes List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyTypes(@Nullable Output<List<String>> keyTypes) {
             $.keyTypes = keyTypes;
             return this;
         }
 
-        /**
-         * @param keyTypes List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyTypes(List<String> keyTypes) {
             return keyTypes(Output.of(keyTypes));
         }
 
-        /**
-         * @param keyTypes List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyTypes(String... keyTypes) {
             return keyTypes(List.of(keyTypes));
         }
 
-        /**
-         * @param mostRecent If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Output<Boolean> mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param mostRecent If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-         * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-         * are returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statuses(@Nullable Output<List<String>> statuses) {
             $.statuses = statuses;
             return this;
         }
 
-        /**
-         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-         * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-         * are returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statuses(List<String> statuses) {
             return statuses(Output.of(statuses));
         }
 
-        /**
-         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-         * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-         * are returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statuses(String... statuses) {
             return statuses(List.of(statuses));
         }
 
-        /**
-         * @param tags A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder types(@Nullable Output<List<String>> types) {
             $.types = types;
             return this;
         }
 
-        /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder types(List<String> types) {
             return types(Output.of(types));
         }
 
-        /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder types(String... types) {
             return types(List.of(types));
         }

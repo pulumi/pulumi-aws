@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-// These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
-//
-// > **Note:** This data source is different from the `directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.GetLocation(ctx, &directconnect.GetLocationArgs{
-//				LocationCode: "CS32A-24FL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.InvokeOption) (*GetLocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationResult
@@ -53,24 +23,18 @@ func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getLocation.
 type GetLocationArgs struct {
-	// Code for the location to retrieve.
-	LocationCode string `pulumi:"locationCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	LocationCode string  `pulumi:"locationCode"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocation.
 type GetLocationResult struct {
-	// The available MAC Security (MACsec) port speeds for the location.
 	AvailableMacsecPortSpeeds []string `pulumi:"availableMacsecPortSpeeds"`
-	// The available port speeds for the location.
-	AvailablePortSpeeds []string `pulumi:"availablePortSpeeds"`
-	// Names of the service providers for the location.
-	AvailableProviders []string `pulumi:"availableProviders"`
+	AvailablePortSpeeds       []string `pulumi:"availablePortSpeeds"`
+	AvailableProviders        []string `pulumi:"availableProviders"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
 	LocationCode string `pulumi:"locationCode"`
-	// Name of the location. This includes the name of the colocation partner and the physical site of the building.
 	LocationName string `pulumi:"locationName"`
 	Region       string `pulumi:"region"`
 }
@@ -86,10 +50,8 @@ func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...
 
 // A collection of arguments for invoking getLocation.
 type GetLocationOutputArgs struct {
-	// Code for the location to retrieve.
-	LocationCode pulumi.StringInput `pulumi:"locationCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	LocationCode pulumi.StringInput    `pulumi:"locationCode"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLocationOutputArgs) ElementType() reflect.Type {
@@ -111,17 +73,14 @@ func (o GetLocationResultOutput) ToGetLocationResultOutputWithContext(ctx contex
 	return o
 }
 
-// The available MAC Security (MACsec) port speeds for the location.
 func (o GetLocationResultOutput) AvailableMacsecPortSpeeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailableMacsecPortSpeeds }).(pulumi.StringArrayOutput)
 }
 
-// The available port speeds for the location.
 func (o GetLocationResultOutput) AvailablePortSpeeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailablePortSpeeds }).(pulumi.StringArrayOutput)
 }
 
-// Names of the service providers for the location.
 func (o GetLocationResultOutput) AvailableProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailableProviders }).(pulumi.StringArrayOutput)
 }
@@ -135,7 +94,6 @@ func (o GetLocationResultOutput) LocationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.LocationCode }).(pulumi.StringOutput)
 }
 
-// Name of the location. This includes the name of the colocation partner and the physical site of the building.
 func (o GetLocationResultOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.LocationName }).(pulumi.StringOutput)
 }

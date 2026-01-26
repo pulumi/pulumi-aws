@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTargetEcsParametersNetworkConfiguration {
-    /**
-     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
-     * 
-     */
     private @Nullable Boolean assignPublicIp;
-    /**
-     * @return Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
-     * 
-     */
     private List<String> subnets;
 
     private ScheduleTargetEcsParametersNetworkConfiguration() {}
-    /**
-     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
-     * 
-     */
     public Optional<Boolean> assignPublicIp() {
         return Optional.ofNullable(this.assignPublicIp);
     }
-    /**
-     * @return Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

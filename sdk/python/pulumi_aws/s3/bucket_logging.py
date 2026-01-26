@@ -30,13 +30,6 @@ class BucketLoggingInitArgs:
                  target_object_key_format: Optional[pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs']] = None):
         """
         The set of arguments for constructing a BucketLogging resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "target_bucket", target_bucket)
@@ -53,9 +46,6 @@ class BucketLoggingInitArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -65,9 +55,6 @@ class BucketLoggingInitArgs:
     @_builtins.property
     @pulumi.getter(name="targetBucket")
     def target_bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the bucket where you want Amazon S3 to store server access logs.
-        """
         return pulumi.get(self, "target_bucket")
 
     @target_bucket.setter
@@ -77,9 +64,6 @@ class BucketLoggingInitArgs:
     @_builtins.property
     @pulumi.getter(name="targetPrefix")
     def target_prefix(self) -> pulumi.Input[_builtins.str]:
-        """
-        Prefix for all log object keys.
-        """
         return pulumi.get(self, "target_prefix")
 
     @target_prefix.setter
@@ -89,9 +73,6 @@ class BucketLoggingInitArgs:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -101,9 +82,6 @@ class BucketLoggingInitArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,9 +91,6 @@ class BucketLoggingInitArgs:
     @_builtins.property
     @pulumi.getter(name="targetGrants")
     def target_grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]]]:
-        """
-        Set of configuration blocks with information for granting permissions. See below.
-        """
         return pulumi.get(self, "target_grants")
 
     @target_grants.setter
@@ -125,9 +100,6 @@ class BucketLoggingInitArgs:
     @_builtins.property
     @pulumi.getter(name="targetObjectKeyFormat")
     def target_object_key_format(self) -> Optional[pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs']]:
-        """
-        Amazon S3 key format for log objects. See below.
-        """
         return pulumi.get(self, "target_object_key_format")
 
     @target_object_key_format.setter
@@ -147,13 +119,6 @@ class _BucketLoggingState:
                  target_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketLogging resources.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
-        :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -173,9 +138,6 @@ class _BucketLoggingState:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -185,9 +147,6 @@ class _BucketLoggingState:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -197,9 +156,6 @@ class _BucketLoggingState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -209,9 +165,6 @@ class _BucketLoggingState:
     @_builtins.property
     @pulumi.getter(name="targetBucket")
     def target_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket where you want Amazon S3 to store server access logs.
-        """
         return pulumi.get(self, "target_bucket")
 
     @target_bucket.setter
@@ -221,9 +174,6 @@ class _BucketLoggingState:
     @_builtins.property
     @pulumi.getter(name="targetGrants")
     def target_grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]]]:
-        """
-        Set of configuration blocks with information for granting permissions. See below.
-        """
         return pulumi.get(self, "target_grants")
 
     @target_grants.setter
@@ -233,9 +183,6 @@ class _BucketLoggingState:
     @_builtins.property
     @pulumi.getter(name="targetObjectKeyFormat")
     def target_object_key_format(self) -> Optional[pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs']]:
-        """
-        Amazon S3 key format for log objects. See below.
-        """
         return pulumi.get(self, "target_object_key_format")
 
     @target_object_key_format.setter
@@ -245,9 +192,6 @@ class _BucketLoggingState:
     @_builtins.property
     @pulumi.getter(name="targetPrefix")
     def target_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Prefix for all log object keys.
-        """
         return pulumi.get(self, "target_prefix")
 
     @target_prefix.setter
@@ -270,121 +214,9 @@ class BucketLogging(pulumi.CustomResource):
                  target_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an S3 bucket (server access) logging resource. For more information, see [Logging requests using server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html)
-        in the AWS S3 User Guide.
-
-        > **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
-        to decide which method meets your requirements.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ### Grant permission by using bucket policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
-        logging_bucket_policy = logging.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "principals": [{
-                "identifiers": ["logging.s3.amazonaws.com"],
-                "type": "Service",
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [f"{arn}/*"],
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "aws:SourceAccount",
-                "values": [current.account_id],
-            }],
-        }]))
-        logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
-            bucket=logging.bucket,
-            policy=logging_bucket_policy.json)
-        example = aws.s3.Bucket("example", bucket="example-bucket")
-        example_bucket_logging = aws.s3.BucketLogging("example",
-            bucket=example.bucket,
-            target_bucket=logging.bucket,
-            target_prefix="log/",
-            target_object_key_format={
-                "partitioned_prefix": {
-                    "partition_date_source": "EventTime",
-                },
-            })
-        ```
-
-        ### Grant permission by using bucket ACL
-
-        The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
-        example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example.id,
-            acl="private")
-        log_bucket = aws.s3.Bucket("log_bucket", bucket="my-tf-log-bucket")
-        log_bucket_acl = aws.s3.BucketAcl("log_bucket_acl",
-            bucket=log_bucket.id,
-            acl="log-delivery-write")
-        example_bucket_logging = aws.s3.BucketLogging("example",
-            bucket=example.id,
-            target_bucket=log_bucket.id,
-            target_prefix="log/")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) S3 bucket name.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-
-        * `region` (String) Region where this resource is managed.
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_logging.example
-
-          id = "bucket-name,123456789012"
-
-        }
-
-        **Using `pulumi import` to import** S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-
-        % pulumi import aws_s3_bucket_logging.example bucket-name
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        % pulumi import aws_s3_bucket_logging.example bucket-name,123456789012
-
+        Create a BucketLogging resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
-        :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
         """
         ...
     @overload
@@ -393,112 +225,7 @@ class BucketLogging(pulumi.CustomResource):
                  args: BucketLoggingInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an S3 bucket (server access) logging resource. For more information, see [Logging requests using server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html)
-        in the AWS S3 User Guide.
-
-        > **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
-        to decide which method meets your requirements.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ### Grant permission by using bucket policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
-        logging_bucket_policy = logging.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "principals": [{
-                "identifiers": ["logging.s3.amazonaws.com"],
-                "type": "Service",
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [f"{arn}/*"],
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "aws:SourceAccount",
-                "values": [current.account_id],
-            }],
-        }]))
-        logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
-            bucket=logging.bucket,
-            policy=logging_bucket_policy.json)
-        example = aws.s3.Bucket("example", bucket="example-bucket")
-        example_bucket_logging = aws.s3.BucketLogging("example",
-            bucket=example.bucket,
-            target_bucket=logging.bucket,
-            target_prefix="log/",
-            target_object_key_format={
-                "partitioned_prefix": {
-                    "partition_date_source": "EventTime",
-                },
-            })
-        ```
-
-        ### Grant permission by using bucket ACL
-
-        The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
-        example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example.id,
-            acl="private")
-        log_bucket = aws.s3.Bucket("log_bucket", bucket="my-tf-log-bucket")
-        log_bucket_acl = aws.s3.BucketAcl("log_bucket_acl",
-            bucket=log_bucket.id,
-            acl="log-delivery-write")
-        example_bucket_logging = aws.s3.BucketLogging("example",
-            bucket=example.id,
-            target_bucket=log_bucket.id,
-            target_prefix="log/")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) S3 bucket name.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-
-        * `region` (String) Region where this resource is managed.
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_logging.example
-
-          id = "bucket-name,123456789012"
-
-        }
-
-        **Using `pulumi import` to import** S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-
-        % pulumi import aws_s3_bucket_logging.example bucket-name
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        % pulumi import aws_s3_bucket_logging.example bucket-name,123456789012
-
+        Create a BucketLogging resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketLoggingInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -569,13 +296,6 @@ class BucketLogging(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
-        :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -593,56 +313,35 @@ class BucketLogging(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="targetBucket")
     def target_bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket where you want Amazon S3 to store server access logs.
-        """
         return pulumi.get(self, "target_bucket")
 
     @_builtins.property
     @pulumi.getter(name="targetGrants")
     def target_grants(self) -> pulumi.Output[Optional[Sequence['outputs.BucketLoggingTargetGrant']]]:
-        """
-        Set of configuration blocks with information for granting permissions. See below.
-        """
         return pulumi.get(self, "target_grants")
 
     @_builtins.property
     @pulumi.getter(name="targetObjectKeyFormat")
     def target_object_key_format(self) -> pulumi.Output[Optional['outputs.BucketLoggingTargetObjectKeyFormat']]:
-        """
-        Amazon S3 key format for log objects. See below.
-        """
         return pulumi.get(self, "target_object_key_format")
 
     @_builtins.property
     @pulumi.getter(name="targetPrefix")
     def target_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Prefix for all log object keys.
-        """
         return pulumi.get(self, "target_prefix")
 

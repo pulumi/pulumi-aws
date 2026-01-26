@@ -43,43 +43,6 @@ class BucketV2Args:
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None):
         """
         The set of arguments for constructing a BucketV2 resource.
-        :param pulumi.Input[_builtins.str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketAccelerateConfiguration` instead.
-        :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
-        :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]] lifecycle_rules: Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLifecycleConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLogging` instead.
-        :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               The provider wil only perform drift detection if a configuration value is provided.
-               Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[_builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketReplicationConfig` instead.
-        :param pulumi.Input[_builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
-               Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
-               See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketRequestPaymentConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are deprecated, and will be removed in a future major version:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketWebsiteConfiguration` instead.
         """
         if acceleration_status is not None:
             warnings.warn("""acceleration_status is deprecated. Use the s3.BucketAccelerateConfiguration resource instead.""", DeprecationWarning)
@@ -165,10 +128,6 @@ class BucketV2Args:
     @pulumi.getter(name="accelerationStatus")
     @_utilities.deprecated("""acceleration_status is deprecated. Use the s3.BucketAccelerateConfiguration resource instead.""")
     def acceleration_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketAccelerateConfiguration` instead.
-        """
         return pulumi.get(self, "acceleration_status")
 
     @acceleration_status.setter
@@ -179,9 +138,6 @@ class BucketV2Args:
     @pulumi.getter
     @_utilities.deprecated("""acl is deprecated. Use the s3.BucketAcl resource instead.""")
     def acl(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        """
         return pulumi.get(self, "acl")
 
     @acl.setter
@@ -191,9 +147,6 @@ class BucketV2Args:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -203,9 +156,6 @@ class BucketV2Args:
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -216,9 +166,6 @@ class BucketV2Args:
     @pulumi.getter(name="corsRules")
     @_utilities.deprecated("""cors_rule is deprecated. Use the s3.BucketCorsConfiguration resource instead.""")
     def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]]]:
-        """
-        Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
-        """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -228,9 +175,6 @@ class BucketV2Args:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -241,9 +185,6 @@ class BucketV2Args:
     @pulumi.getter
     @_utilities.deprecated("""grant is deprecated. Use the s3.BucketAcl resource instead.""")
     def grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]]]:
-        """
-        An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        """
         return pulumi.get(self, "grants")
 
     @grants.setter
@@ -254,10 +195,6 @@ class BucketV2Args:
     @pulumi.getter(name="lifecycleRules")
     @_utilities.deprecated("""lifecycle_rule is deprecated. Use the s3.BucketLifecycleConfiguration resource instead.""")
     def lifecycle_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]]]:
-        """
-        Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketLifecycleConfiguration` instead.
-        """
         return pulumi.get(self, "lifecycle_rules")
 
     @lifecycle_rules.setter
@@ -268,10 +205,6 @@ class BucketV2Args:
     @pulumi.getter
     @_utilities.deprecated("""logging is deprecated. Use the s3.BucketLogging resource instead.""")
     def loggings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]]]:
-        """
-        Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketLogging` instead.
-        """
         return pulumi.get(self, "loggings")
 
     @loggings.setter
@@ -282,11 +215,6 @@ class BucketV2Args:
     @pulumi.getter(name="objectLockConfiguration")
     @_utilities.deprecated("""object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfiguration resource instead.""")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
-        """
-        Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-        The provider wil only perform drift detection if a configuration value is provided.
-        Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
-        """
         return pulumi.get(self, "object_lock_configuration")
 
     @object_lock_configuration.setter
@@ -296,9 +224,6 @@ class BucketV2Args:
     @_builtins.property
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        """
         return pulumi.get(self, "object_lock_enabled")
 
     @object_lock_enabled.setter
@@ -309,11 +234,6 @@ class BucketV2Args:
     @pulumi.getter
     @_utilities.deprecated("""policy is deprecated. Use the s3.BucketPolicy resource instead.""")
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketPolicy` instead.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -323,9 +243,6 @@ class BucketV2Args:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -336,10 +253,6 @@ class BucketV2Args:
     @pulumi.getter(name="replicationConfigurations")
     @_utilities.deprecated("""replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.""")
     def replication_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]]]:
-        """
-        Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketReplicationConfig` instead.
-        """
         return pulumi.get(self, "replication_configurations")
 
     @replication_configurations.setter
@@ -350,13 +263,6 @@ class BucketV2Args:
     @pulumi.getter(name="requestPayer")
     @_utilities.deprecated("""request_payer is deprecated. Use the s3.BucketRequestPaymentConfiguration resource instead.""")
     def request_payer(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies who should bear the cost of Amazon S3 data transfer.
-        Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
-        See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketRequestPaymentConfiguration` instead.
-        """
         return pulumi.get(self, "request_payer")
 
     @request_payer.setter
@@ -367,11 +273,6 @@ class BucketV2Args:
     @pulumi.getter(name="serverSideEncryptionConfigurations")
     @_utilities.deprecated("""server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.""")
     def server_side_encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]]:
-        """
-        Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
-        """
         return pulumi.get(self, "server_side_encryption_configurations")
 
     @server_side_encryption_configurations.setter
@@ -381,11 +282,6 @@ class BucketV2Args:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        The following arguments are deprecated, and will be removed in a future major version:
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -395,9 +291,6 @@ class BucketV2Args:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -408,9 +301,6 @@ class BucketV2Args:
     @pulumi.getter
     @_utilities.deprecated("""versioning is deprecated. Use the s3.BucketVersioning resource instead.""")
     def versionings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]]:
-        """
-        Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
-        """
         return pulumi.get(self, "versionings")
 
     @versionings.setter
@@ -421,10 +311,6 @@ class BucketV2Args:
     @pulumi.getter
     @_utilities.deprecated("""website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.""")
     def websites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]]:
-        """
-        Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketWebsiteConfiguration` instead.
-        """
         return pulumi.get(self, "websites")
 
     @websites.setter
@@ -464,50 +350,6 @@ class _BucketV2State:
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketV2 resources.
-        :param pulumi.Input[_builtins.str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketAccelerateConfiguration` instead.
-        :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[_builtins.str] arn: ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
-        :param pulumi.Input[_builtins.str] bucket_domain_name: Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-        :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        :param pulumi.Input[_builtins.str] bucket_region: AWS region this bucket resides in.
-        :param pulumi.Input[_builtins.str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]] lifecycle_rules: Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLifecycleConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLogging` instead.
-        :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               The provider wil only perform drift detection if a configuration value is provided.
-               Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[_builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketReplicationConfig` instead.
-        :param pulumi.Input[_builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
-               Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
-               See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketRequestPaymentConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are deprecated, and will be removed in a future major version:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
-        :param pulumi.Input[_builtins.str] website_domain: (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        :param pulumi.Input[_builtins.str] website_endpoint: (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketWebsiteConfiguration` instead.
         """
         if acceleration_status is not None:
             warnings.warn("""acceleration_status is deprecated. Use the s3.BucketAccelerateConfiguration resource instead.""", DeprecationWarning)
@@ -613,10 +455,6 @@ class _BucketV2State:
     @pulumi.getter(name="accelerationStatus")
     @_utilities.deprecated("""acceleration_status is deprecated. Use the s3.BucketAccelerateConfiguration resource instead.""")
     def acceleration_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketAccelerateConfiguration` instead.
-        """
         return pulumi.get(self, "acceleration_status")
 
     @acceleration_status.setter
@@ -627,9 +465,6 @@ class _BucketV2State:
     @pulumi.getter
     @_utilities.deprecated("""acl is deprecated. Use the s3.BucketAcl resource instead.""")
     def acl(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        """
         return pulumi.get(self, "acl")
 
     @acl.setter
@@ -639,9 +474,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -651,9 +483,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -663,9 +492,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="bucketDomainName")
     def bucket_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-        """
         return pulumi.get(self, "bucket_domain_name")
 
     @bucket_domain_name.setter
@@ -675,9 +501,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -687,9 +510,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS region this bucket resides in.
-        """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
@@ -699,9 +519,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="bucketRegionalDomainName")
     def bucket_regional_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-        """
         return pulumi.get(self, "bucket_regional_domain_name")
 
     @bucket_regional_domain_name.setter
@@ -712,9 +529,6 @@ class _BucketV2State:
     @pulumi.getter(name="corsRules")
     @_utilities.deprecated("""cors_rule is deprecated. Use the s3.BucketCorsConfiguration resource instead.""")
     def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]]]:
-        """
-        Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
-        """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -724,9 +538,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -737,9 +548,6 @@ class _BucketV2State:
     @pulumi.getter
     @_utilities.deprecated("""grant is deprecated. Use the s3.BucketAcl resource instead.""")
     def grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]]]:
-        """
-        An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        """
         return pulumi.get(self, "grants")
 
     @grants.setter
@@ -749,9 +557,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -762,10 +567,6 @@ class _BucketV2State:
     @pulumi.getter(name="lifecycleRules")
     @_utilities.deprecated("""lifecycle_rule is deprecated. Use the s3.BucketLifecycleConfiguration resource instead.""")
     def lifecycle_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]]]:
-        """
-        Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketLifecycleConfiguration` instead.
-        """
         return pulumi.get(self, "lifecycle_rules")
 
     @lifecycle_rules.setter
@@ -776,10 +577,6 @@ class _BucketV2State:
     @pulumi.getter
     @_utilities.deprecated("""logging is deprecated. Use the s3.BucketLogging resource instead.""")
     def loggings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]]]:
-        """
-        Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketLogging` instead.
-        """
         return pulumi.get(self, "loggings")
 
     @loggings.setter
@@ -790,11 +587,6 @@ class _BucketV2State:
     @pulumi.getter(name="objectLockConfiguration")
     @_utilities.deprecated("""object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfiguration resource instead.""")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
-        """
-        Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-        The provider wil only perform drift detection if a configuration value is provided.
-        Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
-        """
         return pulumi.get(self, "object_lock_configuration")
 
     @object_lock_configuration.setter
@@ -804,9 +596,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        """
         return pulumi.get(self, "object_lock_enabled")
 
     @object_lock_enabled.setter
@@ -817,11 +606,6 @@ class _BucketV2State:
     @pulumi.getter
     @_utilities.deprecated("""policy is deprecated. Use the s3.BucketPolicy resource instead.""")
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketPolicy` instead.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -831,9 +615,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -844,10 +625,6 @@ class _BucketV2State:
     @pulumi.getter(name="replicationConfigurations")
     @_utilities.deprecated("""replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.""")
     def replication_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]]]:
-        """
-        Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketReplicationConfig` instead.
-        """
         return pulumi.get(self, "replication_configurations")
 
     @replication_configurations.setter
@@ -858,13 +635,6 @@ class _BucketV2State:
     @pulumi.getter(name="requestPayer")
     @_utilities.deprecated("""request_payer is deprecated. Use the s3.BucketRequestPaymentConfiguration resource instead.""")
     def request_payer(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies who should bear the cost of Amazon S3 data transfer.
-        Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
-        See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketRequestPaymentConfiguration` instead.
-        """
         return pulumi.get(self, "request_payer")
 
     @request_payer.setter
@@ -875,11 +645,6 @@ class _BucketV2State:
     @pulumi.getter(name="serverSideEncryptionConfigurations")
     @_utilities.deprecated("""server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.""")
     def server_side_encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]]:
-        """
-        Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
-        """
         return pulumi.get(self, "server_side_encryption_configurations")
 
     @server_side_encryption_configurations.setter
@@ -889,11 +654,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        The following arguments are deprecated, and will be removed in a future major version:
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -903,9 +663,6 @@ class _BucketV2State:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -916,9 +673,6 @@ class _BucketV2State:
     @pulumi.getter
     @_utilities.deprecated("""versioning is deprecated. Use the s3.BucketVersioning resource instead.""")
     def versionings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]]:
-        """
-        Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
-        """
         return pulumi.get(self, "versionings")
 
     @versionings.setter
@@ -929,9 +683,6 @@ class _BucketV2State:
     @pulumi.getter(name="websiteDomain")
     @_utilities.deprecated("""website_domain is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.""")
     def website_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        """
         return pulumi.get(self, "website_domain")
 
     @website_domain.setter
@@ -942,9 +693,6 @@ class _BucketV2State:
     @pulumi.getter(name="websiteEndpoint")
     @_utilities.deprecated("""website_endpoint is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.""")
     def website_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        """
         return pulumi.get(self, "website_endpoint")
 
     @website_endpoint.setter
@@ -955,10 +703,6 @@ class _BucketV2State:
     @pulumi.getter
     @_utilities.deprecated("""website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.""")
     def websites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]]:
-        """
-        Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketWebsiteConfiguration` instead.
-        """
         return pulumi.get(self, "websites")
 
     @websites.setter
@@ -999,87 +743,9 @@ class BucketV2(pulumi.CustomResource):
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketV2WebsiteArgs', 'BucketV2WebsiteArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a S3 bucket resource.
-
-        > This resource provides functionality for managing S3 general purpose buckets in an AWS Partition. To manage Amazon S3 Express directory buckets, use the `aws_directory_bucket` resource. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), use the `s3control.Bucket` resource.
-
-        > Object Lock can be enabled by using the `object_lock_enable` attribute or by using the `s3.BucketObjectLockConfiguration` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
-
-        > To support ABAC (Attribute Based Access Control) in general purpose buckets, this resource will now attempt to send tags in the create request and use the S3 Control tagging APIs [`TagResource`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html), [`UntagResource`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html), and [`ListTagsForResource`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html) for read and update operations. The calling principal must have the corresponding `s3:TagResource`, `s3:UntagResource`, and `s3:ListTagsForResource` [IAM permissions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-actions-as-permissions). If the principal lacks the appropriate permissions, the provider will fall back to tagging after creation and using the S3 tagging APIs [`PutBucketTagging`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html), [`DeleteBucketTagging`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html), and [`GetBucketTagging`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html) instead. With ABAC enabled, tag modifications may fail with the fall back behavior. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html) for additional details on enabling ABAC in general purpose buckets.
-
-        ## Example Usage
-
-        ### Private Bucket With Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example",
-            bucket="my-tf-test-bucket",
-            tags={
-                "Name": "My bucket",
-                "Environment": "Dev",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) Name of the S3 bucket.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import S3 bucket using the `bucket`. For example:
-
-        % pulumi import aws_s3_bucket.example bucket-name
-
+        Create a BucketV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketAccelerateConfiguration` instead.
-        :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
-        :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2CorsRuleArgs', 'BucketV2CorsRuleArgsDict']]]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2GrantArgs', 'BucketV2GrantArgsDict']]]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2LifecycleRuleArgs', 'BucketV2LifecycleRuleArgsDict']]]] lifecycle_rules: Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLifecycleConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2LoggingArgs', 'BucketV2LoggingArgsDict']]]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLogging` instead.
-        :param pulumi.Input[Union['BucketV2ObjectLockConfigurationArgs', 'BucketV2ObjectLockConfigurationArgsDict']] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               The provider wil only perform drift detection if a configuration value is provided.
-               Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[_builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2ReplicationConfigurationArgs', 'BucketV2ReplicationConfigurationArgsDict']]]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketReplicationConfig` instead.
-        :param pulumi.Input[_builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
-               Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
-               See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketRequestPaymentConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2ServerSideEncryptionConfigurationArgs', 'BucketV2ServerSideEncryptionConfigurationArgsDict']]]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are deprecated, and will be removed in a future major version:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2VersioningArgs', 'BucketV2VersioningArgsDict']]]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2WebsiteArgs', 'BucketV2WebsiteArgsDict']]]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketWebsiteConfiguration` instead.
         """
         ...
     @overload
@@ -1088,48 +754,7 @@ class BucketV2(pulumi.CustomResource):
                  args: Optional[BucketV2Args] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a S3 bucket resource.
-
-        > This resource provides functionality for managing S3 general purpose buckets in an AWS Partition. To manage Amazon S3 Express directory buckets, use the `aws_directory_bucket` resource. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), use the `s3control.Bucket` resource.
-
-        > Object Lock can be enabled by using the `object_lock_enable` attribute or by using the `s3.BucketObjectLockConfiguration` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
-
-        > To support ABAC (Attribute Based Access Control) in general purpose buckets, this resource will now attempt to send tags in the create request and use the S3 Control tagging APIs [`TagResource`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html), [`UntagResource`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html), and [`ListTagsForResource`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html) for read and update operations. The calling principal must have the corresponding `s3:TagResource`, `s3:UntagResource`, and `s3:ListTagsForResource` [IAM permissions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-actions-as-permissions). If the principal lacks the appropriate permissions, the provider will fall back to tagging after creation and using the S3 tagging APIs [`PutBucketTagging`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html), [`DeleteBucketTagging`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html), and [`GetBucketTagging`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html) instead. With ABAC enabled, tag modifications may fail with the fall back behavior. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html) for additional details on enabling ABAC in general purpose buckets.
-
-        ## Example Usage
-
-        ### Private Bucket With Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example",
-            bucket="my-tf-test-bucket",
-            tags={
-                "Name": "My bucket",
-                "Environment": "Dev",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) Name of the S3 bucket.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import S3 bucket using the `bucket`. For example:
-
-        % pulumi import aws_s3_bucket.example bucket-name
-
+        Create a BucketV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1246,50 +871,6 @@ class BucketV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketAccelerateConfiguration` instead.
-        :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[_builtins.str] arn: ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
-        :param pulumi.Input[_builtins.str] bucket_domain_name: Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-        :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        :param pulumi.Input[_builtins.str] bucket_region: AWS region this bucket resides in.
-        :param pulumi.Input[_builtins.str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2CorsRuleArgs', 'BucketV2CorsRuleArgsDict']]]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2GrantArgs', 'BucketV2GrantArgsDict']]]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2LifecycleRuleArgs', 'BucketV2LifecycleRuleArgsDict']]]] lifecycle_rules: Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLifecycleConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2LoggingArgs', 'BucketV2LoggingArgsDict']]]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketLogging` instead.
-        :param pulumi.Input[Union['BucketV2ObjectLockConfigurationArgs', 'BucketV2ObjectLockConfigurationArgsDict']] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               The provider wil only perform drift detection if a configuration value is provided.
-               Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
-        :param pulumi.Input[_builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[_builtins.str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2ReplicationConfigurationArgs', 'BucketV2ReplicationConfigurationArgsDict']]]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketReplicationConfig` instead.
-        :param pulumi.Input[_builtins.str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
-               Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
-               See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketRequestPaymentConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2ServerSideEncryptionConfigurationArgs', 'BucketV2ServerSideEncryptionConfigurationArgsDict']]]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are deprecated, and will be removed in a future major version:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2VersioningArgs', 'BucketV2VersioningArgsDict']]]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
-        :param pulumi.Input[_builtins.str] website_domain: (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        :param pulumi.Input[_builtins.str] website_endpoint: (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2WebsiteArgs', 'BucketV2WebsiteArgsDict']]]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketWebsiteConfiguration` instead.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1328,247 +909,149 @@ class BucketV2(pulumi.CustomResource):
     @pulumi.getter(name="accelerationStatus")
     @_utilities.deprecated("""acceleration_status is deprecated. Use the s3.BucketAccelerateConfiguration resource instead.""")
     def acceleration_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketAccelerateConfiguration` instead.
-        """
         return pulumi.get(self, "acceleration_status")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""acl is deprecated. Use the s3.BucketAcl resource instead.""")
     def acl(self) -> pulumi.Output[_builtins.str]:
-        """
-        The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        """
         return pulumi.get(self, "acl")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="bucketDomainName")
     def bucket_domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-        """
         return pulumi.get(self, "bucket_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS region this bucket resides in.
-        """
         return pulumi.get(self, "bucket_region")
 
     @_builtins.property
     @pulumi.getter(name="bucketRegionalDomainName")
     def bucket_regional_domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-        """
         return pulumi.get(self, "bucket_regional_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="corsRules")
     @_utilities.deprecated("""cors_rule is deprecated. Use the s3.BucketCorsConfiguration resource instead.""")
     def cors_rules(self) -> pulumi.Output[Sequence['outputs.BucketV2CorsRule']]:
-        """
-        Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
-        """
         return pulumi.get(self, "cors_rules")
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        """
         return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""grant is deprecated. Use the s3.BucketAcl resource instead.""")
     def grants(self) -> pulumi.Output[Sequence['outputs.BucketV2Grant']]:
-        """
-        An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
-        """
         return pulumi.get(self, "grants")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleRules")
     @_utilities.deprecated("""lifecycle_rule is deprecated. Use the s3.BucketLifecycleConfiguration resource instead.""")
     def lifecycle_rules(self) -> pulumi.Output[Sequence['outputs.BucketV2LifecycleRule']]:
-        """
-        Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketLifecycleConfiguration` instead.
-        """
         return pulumi.get(self, "lifecycle_rules")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""logging is deprecated. Use the s3.BucketLogging resource instead.""")
     def loggings(self) -> pulumi.Output[Sequence['outputs.BucketV2Logging']]:
-        """
-        Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketLogging` instead.
-        """
         return pulumi.get(self, "loggings")
 
     @_builtins.property
     @pulumi.getter(name="objectLockConfiguration")
     @_utilities.deprecated("""object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfiguration resource instead.""")
     def object_lock_configuration(self) -> pulumi.Output['outputs.BucketV2ObjectLockConfiguration']:
-        """
-        Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-        The provider wil only perform drift detection if a configuration value is provided.
-        Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfiguration` instead.
-        """
         return pulumi.get(self, "object_lock_configuration")
 
     @_builtins.property
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        """
         return pulumi.get(self, "object_lock_enabled")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""policy is deprecated. Use the s3.BucketPolicy resource instead.""")
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketPolicy` instead.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replicationConfigurations")
     @_utilities.deprecated("""replication_configuration is deprecated. Use the s3.BucketReplicationConfig resource instead.""")
     def replication_configurations(self) -> pulumi.Output[Sequence['outputs.BucketV2ReplicationConfiguration']]:
-        """
-        Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketReplicationConfig` instead.
-        """
         return pulumi.get(self, "replication_configurations")
 
     @_builtins.property
     @pulumi.getter(name="requestPayer")
     @_utilities.deprecated("""request_payer is deprecated. Use the s3.BucketRequestPaymentConfiguration resource instead.""")
     def request_payer(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies who should bear the cost of Amazon S3 data transfer.
-        Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
-        See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketRequestPaymentConfiguration` instead.
-        """
         return pulumi.get(self, "request_payer")
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfigurations")
     @_utilities.deprecated("""server_side_encryption_configuration is deprecated. Use the s3.BucketServerSideEncryptionConfiguration resource instead.""")
     def server_side_encryption_configurations(self) -> pulumi.Output[Sequence['outputs.BucketV2ServerSideEncryptionConfiguration']]:
-        """
-        Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketServerSideEncryptionConfiguration` instead.
-        """
         return pulumi.get(self, "server_side_encryption_configurations")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        The following arguments are deprecated, and will be removed in a future major version:
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""versioning is deprecated. Use the s3.BucketVersioning resource instead.""")
     def versionings(self) -> pulumi.Output[Sequence['outputs.BucketV2Versioning']]:
-        """
-        Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioning` instead.
-        """
         return pulumi.get(self, "versionings")
 
     @_builtins.property
     @pulumi.getter(name="websiteDomain")
     @_utilities.deprecated("""website_domain is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.""")
     def website_domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        """
         return pulumi.get(self, "website_domain")
 
     @_builtins.property
     @pulumi.getter(name="websiteEndpoint")
     @_utilities.deprecated("""website_endpoint is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.""")
     def website_endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfiguration` instead.
-        """
         return pulumi.get(self, "website_endpoint")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""website is deprecated. Use the s3.BucketWebsiteConfiguration resource instead.""")
     def websites(self) -> pulumi.Output[Sequence['outputs.BucketV2Website']]:
-        """
-        Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketWebsiteConfiguration` instead.
-        """
         return pulumi.get(self, "websites")
 

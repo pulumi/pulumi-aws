@@ -11,87 +11,12 @@ namespace Pulumi.Aws.Quicksight
 {
     public static class GetQuicksightGroup
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// QuickSight group. By using this data source, you can reference QuickSight group
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightGroup.Invoke(new()
-        ///     {
-        ///         GroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetQuicksightGroupResult> InvokeAsync(GetQuicksightGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// QuickSight group. By using this data source, you can reference QuickSight group
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightGroup.Invoke(new()
-        ///     {
-        ///         GroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuicksightGroupResult> Invoke(GetQuicksightGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// QuickSight group. By using this data source, you can reference QuickSight group
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightGroup.Invoke(new()
-        ///     {
-        ///         GroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuicksightGroupResult> Invoke(GetQuicksightGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupInvokeArgs(), options.WithDefaults());
     }
@@ -102,23 +27,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The name of the group that you want to match.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("groupName", required: true)]
         public string GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// QuickSight namespace. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public string? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -133,23 +47,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The name of the group that you want to match.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// QuickSight namespace. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -163,14 +66,8 @@ namespace Pulumi.Aws.Quicksight
     [OutputType]
     public sealed class GetQuicksightGroupResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the group.
-        /// </summary>
         public readonly string Arn;
         public readonly string AwsAccountId;
-        /// <summary>
-        /// The group description.
-        /// </summary>
         public readonly string Description;
         public readonly string GroupName;
         /// <summary>
@@ -178,9 +75,6 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public readonly string Id;
         public readonly string? Namespace;
-        /// <summary>
-        /// The principal ID of the group.
-        /// </summary>
         public readonly string PrincipalId;
         public readonly string Region;
 

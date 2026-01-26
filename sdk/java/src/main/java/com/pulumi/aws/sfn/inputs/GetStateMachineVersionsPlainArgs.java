@@ -15,32 +15,16 @@ public final class GetStateMachineVersionsPlainArgs extends com.pulumi.resources
 
     public static final GetStateMachineVersionsPlainArgs Empty = new GetStateMachineVersionsPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the State Machine.
-     * 
-     */
     @Import(name="statemachineArn", required=true)
     private String statemachineArn;
 
-    /**
-     * @return ARN of the State Machine.
-     * 
-     */
     public String statemachineArn() {
         return this.statemachineArn;
     }
@@ -70,23 +54,11 @@ public final class GetStateMachineVersionsPlainArgs extends com.pulumi.resources
             $ = new GetStateMachineVersionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param statemachineArn ARN of the State Machine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statemachineArn(String statemachineArn) {
             $.statemachineArn = statemachineArn;
             return this;

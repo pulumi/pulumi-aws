@@ -13,9 +13,6 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainNodeToNodeEncryption
     {
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `NodeToNodeEncryption` block is not provided then this defaults to `False`. Enabling node-to-node encryption of a new domain requires an `EngineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

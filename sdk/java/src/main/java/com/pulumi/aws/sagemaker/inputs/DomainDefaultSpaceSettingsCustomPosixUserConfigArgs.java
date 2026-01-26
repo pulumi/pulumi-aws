@@ -14,32 +14,16 @@ public final class DomainDefaultSpaceSettingsCustomPosixUserConfigArgs extends c
 
     public static final DomainDefaultSpaceSettingsCustomPosixUserConfigArgs Empty = new DomainDefaultSpaceSettingsCustomPosixUserConfigArgs();
 
-    /**
-     * The POSIX group ID.
-     * 
-     */
     @Import(name="gid", required=true)
     private Output<Integer> gid;
 
-    /**
-     * @return The POSIX group ID.
-     * 
-     */
     public Output<Integer> gid() {
         return this.gid;
     }
 
-    /**
-     * The POSIX user ID.
-     * 
-     */
     @Import(name="uid", required=true)
     private Output<Integer> uid;
 
-    /**
-     * @return The POSIX user ID.
-     * 
-     */
     public Output<Integer> uid() {
         return this.uid;
     }
@@ -69,44 +53,20 @@ public final class DomainDefaultSpaceSettingsCustomPosixUserConfigArgs extends c
             $ = new DomainDefaultSpaceSettingsCustomPosixUserConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gid The POSIX group ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gid(Output<Integer> gid) {
             $.gid = gid;
             return this;
         }
 
-        /**
-         * @param gid The POSIX group ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gid(Integer gid) {
             return gid(Output.of(gid));
         }
 
-        /**
-         * @param uid The POSIX user ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uid(Output<Integer> uid) {
             $.uid = uid;
             return this;
         }
 
-        /**
-         * @param uid The POSIX user ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uid(Integer uid) {
             return uid(Output.of(uid));
         }

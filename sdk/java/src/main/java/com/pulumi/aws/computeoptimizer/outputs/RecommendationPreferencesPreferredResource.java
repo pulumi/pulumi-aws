@@ -12,30 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecommendationPreferencesPreferredResource {
-    /**
-     * @return The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     private @Nullable List<String> excludeLists;
-    /**
-     * @return The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     private @Nullable List<String> includeLists;
     private String name;
 
     private RecommendationPreferencesPreferredResource() {}
-    /**
-     * @return The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     public List<String> excludeLists() {
         return this.excludeLists == null ? List.of() : this.excludeLists;
     }
-    /**
-     * @return The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     public List<String> includeLists() {
         return this.includeLists == null ? List.of() : this.includeLists;
     }

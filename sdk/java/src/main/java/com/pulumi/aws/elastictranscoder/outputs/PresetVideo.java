@@ -11,161 +11,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PresetVideo {
-    /**
-     * @return The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
-     * 
-     */
     private @Nullable String aspectRatio;
-    /**
-     * @return The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
-     * 
-     */
     private @Nullable String bitRate;
-    /**
-     * @return The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
-     * 
-     */
     private @Nullable String codec;
-    /**
-     * @return The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
-     * 
-     */
     private @Nullable String displayAspectRatio;
-    /**
-     * @return Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
-     * 
-     */
     private @Nullable String fixedGop;
-    /**
-     * @return The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
-     * 
-     */
     private @Nullable String frameRate;
-    /**
-     * @return The maximum number of frames between key frames. Not applicable for containers of type gif.
-     * 
-     */
     private @Nullable String keyframesMaxDist;
-    /**
-     * @return If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
-     * 
-     */
     private @Nullable String maxFrameRate;
-    /**
-     * @return The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
-     * 
-     */
     private @Nullable String maxHeight;
-    /**
-     * @return The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
-     * 
-     */
     private @Nullable String maxWidth;
-    /**
-     * @return When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
-     * 
-     */
     private @Nullable String paddingPolicy;
-    /**
-     * @return The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
-     * 
-     */
     private @Nullable String resolution;
-    /**
-     * @return A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
-     * 
-     */
     private @Nullable String sizingPolicy;
 
     private PresetVideo() {}
-    /**
-     * @return The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
-     * 
-     */
     public Optional<String> aspectRatio() {
         return Optional.ofNullable(this.aspectRatio);
     }
-    /**
-     * @return The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
-     * 
-     */
     public Optional<String> bitRate() {
         return Optional.ofNullable(this.bitRate);
     }
-    /**
-     * @return The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
-     * 
-     */
     public Optional<String> codec() {
         return Optional.ofNullable(this.codec);
     }
-    /**
-     * @return The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
-     * 
-     */
     public Optional<String> displayAspectRatio() {
         return Optional.ofNullable(this.displayAspectRatio);
     }
-    /**
-     * @return Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
-     * 
-     */
     public Optional<String> fixedGop() {
         return Optional.ofNullable(this.fixedGop);
     }
-    /**
-     * @return The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
-     * 
-     */
     public Optional<String> frameRate() {
         return Optional.ofNullable(this.frameRate);
     }
-    /**
-     * @return The maximum number of frames between key frames. Not applicable for containers of type gif.
-     * 
-     */
     public Optional<String> keyframesMaxDist() {
         return Optional.ofNullable(this.keyframesMaxDist);
     }
-    /**
-     * @return If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
-     * 
-     */
     public Optional<String> maxFrameRate() {
         return Optional.ofNullable(this.maxFrameRate);
     }
-    /**
-     * @return The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
-     * 
-     */
     public Optional<String> maxHeight() {
         return Optional.ofNullable(this.maxHeight);
     }
-    /**
-     * @return The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
-     * 
-     */
     public Optional<String> maxWidth() {
         return Optional.ofNullable(this.maxWidth);
     }
-    /**
-     * @return When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
-     * 
-     */
     public Optional<String> paddingPolicy() {
         return Optional.ofNullable(this.paddingPolicy);
     }
-    /**
-     * @return The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
-     * 
-     */
     public Optional<String> resolution() {
         return Optional.ofNullable(this.resolution);
     }
-    /**
-     * @return A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
-     * 
-     */
     public Optional<String> sizingPolicy() {
         return Optional.ofNullable(this.sizingPolicy);
     }

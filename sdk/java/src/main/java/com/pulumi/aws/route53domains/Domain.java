@@ -24,403 +24,137 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53domains.Domain;
- * import com.pulumi.aws.route53domains.DomainArgs;
- * import com.pulumi.aws.route53domains.inputs.DomainAdminContactArgs;
- * import com.pulumi.aws.route53domains.inputs.DomainRegistrantContactArgs;
- * import com.pulumi.aws.route53domains.inputs.DomainTechContactArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example.com")
- *             .autoRenew(false)
- *             .adminContact(DomainAdminContactArgs.builder()
- *                 .addressLine1("101 Main Street")
- *                 .city("San Francisco")
- *                 .contactType("COMPANY")
- *                 .countryCode("US")
- *                 .email("pulumi-acctest}{@literal @}{@code example.com")
- *                 .fax("+1.4155551234")
- *                 .firstName("Terraform")
- *                 .lastName("Team")
- *                 .organizationName("HashiCorp")
- *                 .phoneNumber("+1.4155551234")
- *                 .state("CA")
- *                 .zipCode("94105")
- *                 .build())
- *             .registrantContact(DomainRegistrantContactArgs.builder()
- *                 .addressLine1("101 Main Street")
- *                 .city("San Francisco")
- *                 .contactType("COMPANY")
- *                 .countryCode("US")
- *                 .email("pulumi-acctest}{@literal @}{@code example.com")
- *                 .fax("+1.4155551234")
- *                 .firstName("Terraform")
- *                 .lastName("Team")
- *                 .organizationName("HashiCorp")
- *                 .phoneNumber("+1.4155551234")
- *                 .state("CA")
- *                 .zipCode("94105")
- *                 .build())
- *             .techContact(DomainTechContactArgs.builder()
- *                 .addressLine1("101 Main Street")
- *                 .city("San Francisco")
- *                 .contactType("COMPANY")
- *                 .countryCode("US")
- *                 .email("pulumi-acctest}{@literal @}{@code example.com")
- *                 .fax("+1.4155551234")
- *                 .firstName("Terraform")
- *                 .lastName("Team")
- *                 .organizationName("HashiCorp")
- *                 .phoneNumber("+1.4155551234")
- *                 .state("CA")
- *                 .zipCode("94105")
- *                 .build())
- *             .tags(Map.of("Environment", "test"))
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import domains using the `domain_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53domains/domain:Domain example example.com
- * ```
- * 
- */
 @ResourceType(type="aws:route53domains/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
-    /**
-     * Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-     * 
-     */
     @Export(name="abuseContactEmail", refs={String.class}, tree="[0]")
     private Output<String> abuseContactEmail;
 
-    /**
-     * @return Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-     * 
-     */
     public Output<String> abuseContactEmail() {
         return this.abuseContactEmail;
     }
-    /**
-     * Phone number for reporting abuse.
-     * 
-     */
     @Export(name="abuseContactPhone", refs={String.class}, tree="[0]")
     private Output<String> abuseContactPhone;
 
-    /**
-     * @return Phone number for reporting abuse.
-     * 
-     */
     public Output<String> abuseContactPhone() {
         return this.abuseContactPhone;
     }
-    /**
-     * Details about the domain administrative contact. See Contact Blocks for more details.
-     * 
-     */
     @Export(name="adminContact", refs={DomainAdminContact.class}, tree="[0]")
     private Output</* @Nullable */ DomainAdminContact> adminContact;
 
-    /**
-     * @return Details about the domain administrative contact. See Contact Blocks for more details.
-     * 
-     */
     public Output<Optional<DomainAdminContact>> adminContact() {
         return Codegen.optional(this.adminContact);
     }
-    /**
-     * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     @Export(name="adminPrivacy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> adminPrivacy;
 
-    /**
-     * @return Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     public Output<Boolean> adminPrivacy() {
         return this.adminPrivacy;
     }
-    /**
-     * Whether the domain registration is set to renew automatically. Default: `true`.
-     * 
-     */
     @Export(name="autoRenew", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoRenew;
 
-    /**
-     * @return Whether the domain registration is set to renew automatically. Default: `true`.
-     * 
-     */
     public Output<Boolean> autoRenew() {
         return this.autoRenew;
     }
-    /**
-     * Details about the domain billing contact. See Contact Blocks for more details.
-     * 
-     */
     @Export(name="billingContacts", refs={List.class,DomainBillingContact.class}, tree="[0,1]")
     private Output<List<DomainBillingContact>> billingContacts;
 
-    /**
-     * @return Details about the domain billing contact. See Contact Blocks for more details.
-     * 
-     */
     public Output<List<DomainBillingContact>> billingContacts() {
         return this.billingContacts;
     }
-    /**
-     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     @Export(name="billingPrivacy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> billingPrivacy;
 
-    /**
-     * @return Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     public Output<Boolean> billingPrivacy() {
         return this.billingPrivacy;
     }
-    /**
-     * The date when the domain was created as found in the response to a WHOIS query.
-     * 
-     */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
-    /**
-     * @return The date when the domain was created as found in the response to a WHOIS query.
-     * 
-     */
     public Output<String> creationDate() {
         return this.creationDate;
     }
-    /**
-     * The name of the domain.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The name of the domain.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
-     * 
-     */
     @Export(name="durationInYears", refs={Integer.class}, tree="[0]")
     private Output<Integer> durationInYears;
 
-    /**
-     * @return The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
-     * 
-     */
     public Output<Integer> durationInYears() {
         return this.durationInYears;
     }
-    /**
-     * The date when the registration for the domain is set to expire.
-     * 
-     */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
-    /**
-     * @return The date when the registration for the domain is set to expire.
-     * 
-     */
     public Output<String> expirationDate() {
         return this.expirationDate;
     }
-    /**
-     * The ID of the public Route 53 hosted zone created for the domain. This hosted zone is deleted when the domain is deregistered.
-     * 
-     */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
-    /**
-     * @return The ID of the public Route 53 hosted zone created for the domain. This hosted zone is deleted when the domain is deregistered.
-     * 
-     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
-    /**
-     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
-     * 
-     */
     @Export(name="nameServers", refs={List.class,DomainNameServer.class}, tree="[0,1]")
     private Output<List<DomainNameServer>> nameServers;
 
-    /**
-     * @return The list of nameservers for the domain. See `nameServer` Blocks for more details.
-     * 
-     */
     public Output<List<DomainNameServer>> nameServers() {
         return this.nameServers;
     }
-    /**
-     * Details about the domain registrant. See Contact Blocks for more details.
-     * 
-     */
     @Export(name="registrantContact", refs={DomainRegistrantContact.class}, tree="[0]")
     private Output</* @Nullable */ DomainRegistrantContact> registrantContact;
 
-    /**
-     * @return Details about the domain registrant. See Contact Blocks for more details.
-     * 
-     */
     public Output<Optional<DomainRegistrantContact>> registrantContact() {
         return Codegen.optional(this.registrantContact);
     }
-    /**
-     * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     @Export(name="registrantPrivacy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> registrantPrivacy;
 
-    /**
-     * @return Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     public Output<Boolean> registrantPrivacy() {
         return this.registrantPrivacy;
     }
-    /**
-     * Name of the registrar of the domain as identified in the registry.
-     * 
-     */
     @Export(name="registrarName", refs={String.class}, tree="[0]")
     private Output<String> registrarName;
 
-    /**
-     * @return Name of the registrar of the domain as identified in the registry.
-     * 
-     */
     public Output<String> registrarName() {
         return this.registrarName;
     }
-    /**
-     * Web address of the registrar.
-     * 
-     */
     @Export(name="registrarUrl", refs={String.class}, tree="[0]")
     private Output<String> registrarUrl;
 
-    /**
-     * @return Web address of the registrar.
-     * 
-     */
     public Output<String> registrarUrl() {
         return this.registrarUrl;
     }
-    /**
-     * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-     * 
-     */
     @Export(name="statusLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> statusLists;
 
-    /**
-     * @return List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-     * 
-     */
     public Output<List<String>> statusLists() {
         return this.statusLists;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Details about the domain technical contact. See Contact Blocks for more details.
-     * 
-     */
     @Export(name="techContact", refs={DomainTechContact.class}, tree="[0]")
     private Output</* @Nullable */ DomainTechContact> techContact;
 
-    /**
-     * @return Details about the domain technical contact. See Contact Blocks for more details.
-     * 
-     */
     public Output<Optional<DomainTechContact>> techContact() {
         return Codegen.optional(this.techContact);
     }
-    /**
-     * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     @Export(name="techPrivacy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> techPrivacy;
 
-    /**
-     * @return Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-     * 
-     */
     public Output<Boolean> techPrivacy() {
         return this.techPrivacy;
     }
@@ -430,49 +164,21 @@ public class Domain extends com.pulumi.resources.CustomResource {
     public Output<Optional<DomainTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Whether the domain is locked for transfer. Default: `true`.
-     * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
-     * 
-     */
     @Export(name="transferLock", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> transferLock;
 
-    /**
-     * @return Whether the domain is locked for transfer. Default: `true`.
-     * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
-     * 
-     */
     public Output<Boolean> transferLock() {
         return this.transferLock;
     }
-    /**
-     * The last updated date of the domain as found in the response to a WHOIS query.
-     * 
-     */
     @Export(name="updatedDate", refs={String.class}, tree="[0]")
     private Output<String> updatedDate;
 
-    /**
-     * @return The last updated date of the domain as found in the response to a WHOIS query.
-     * 
-     */
     public Output<String> updatedDate() {
         return this.updatedDate;
     }
-    /**
-     * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-     * 
-     */
     @Export(name="whoisServer", refs={String.class}, tree="[0]")
     private Output<String> whoisServer;
 
-    /**
-     * @return The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-     * 
-     */
     public Output<String> whoisServer() {
         return this.whoisServer;
     }

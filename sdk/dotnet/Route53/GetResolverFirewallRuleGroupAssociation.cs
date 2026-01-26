@@ -11,87 +11,12 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetResolverFirewallRuleGroupAssociation
     {
-        /// <summary>
-        /// `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
-        /// 
-        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a firewall rule group association from its id.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroupAssociation.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupAssociationId = "rslvr-frgassoc-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResolverFirewallRuleGroupAssociationResult> InvokeAsync(GetResolverFirewallRuleGroupAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallRuleGroupAssociationResult>("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args ?? new GetResolverFirewallRuleGroupAssociationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
-        /// 
-        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a firewall rule group association from its id.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroupAssociation.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupAssociationId = "rslvr-frgassoc-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverFirewallRuleGroupAssociationResult> Invoke(GetResolverFirewallRuleGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRuleGroupAssociationResult>("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args ?? new GetResolverFirewallRuleGroupAssociationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
-        /// 
-        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a firewall rule group association from its id.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroupAssociation.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupAssociationId = "rslvr-frgassoc-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverFirewallRuleGroupAssociationResult> Invoke(GetResolverFirewallRuleGroupAssociationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRuleGroupAssociationResult>("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args ?? new GetResolverFirewallRuleGroupAssociationInvokeArgs(), options.WithDefaults());
     }
@@ -99,15 +24,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRuleGroupAssociationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for the association.
-        /// </summary>
         [Input("firewallRuleGroupAssociationId", required: true)]
         public string FirewallRuleGroupAssociationId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -119,15 +38,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRuleGroupAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for the association.
-        /// </summary>
         [Input("firewallRuleGroupAssociationId", required: true)]
         public Input<string> FirewallRuleGroupAssociationId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,59 +54,23 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallRuleGroupAssociationResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the firewall rule group association.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// A unique string defined by you to identify the request.
-        /// </summary>
         public readonly string CreatorRequestId;
         public readonly string FirewallRuleGroupAssociationId;
-        /// <summary>
-        /// The unique identifier of the firewall rule group.
-        /// </summary>
         public readonly string FirewallRuleGroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The owner of the association, used only for associations that are not managed by you.
-        /// </summary>
         public readonly string ManagedOwnerName;
-        /// <summary>
-        /// The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
-        /// </summary>
         public readonly string ModificationTime;
-        /// <summary>
-        /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
-        /// </summary>
         public readonly string MutationProtection;
-        /// <summary>
-        /// The name of the association.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
-        /// </summary>
         public readonly int Priority;
         public readonly string Region;
-        /// <summary>
-        /// The current status of the association.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Additional information about the status of the response, if available.
-        /// </summary>
         public readonly string StatusMessage;
-        /// <summary>
-        /// The unique identifier of the VPC that is associated with the rule group.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

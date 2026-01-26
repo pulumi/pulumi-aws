@@ -9,71 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.HsmClientCertificate("example", new()
-    ///     {
-    ///         HsmClientCertificateIdentifier = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/hsmClientCertificate:HsmClientCertificate")]
     public partial class HsmClientCertificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the HSM client certificate.
-        /// </summary>
         [Output("hsmClientCertificateIdentifier")]
         public Output<string> HsmClientCertificateIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-        /// </summary>
         [Output("hsmClientCertificatePublicKey")]
         public Output<string> HsmClientCertificatePublicKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -123,24 +76,14 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class HsmClientCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the HSM client certificate.
-        /// </summary>
         [Input("hsmClientCertificateIdentifier", required: true)]
         public Input<string> HsmClientCertificateIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -155,36 +98,20 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class HsmClientCertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The identifier of the HSM client certificate.
-        /// </summary>
         [Input("hsmClientCertificateIdentifier")]
         public Input<string>? HsmClientCertificateIdentifier { get; set; }
 
-        /// <summary>
-        /// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-        /// </summary>
         [Input("hsmClientCertificatePublicKey")]
         public Input<string>? HsmClientCertificatePublicKey { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -193,10 +120,6 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

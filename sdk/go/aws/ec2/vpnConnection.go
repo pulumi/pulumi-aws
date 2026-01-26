@@ -12,347 +12,86 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
-// Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
-//
-// > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
-// [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
-//
-// ## Example Usage
-//
-// ### EC2 Transit Gateway
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2transitgateway.NewTransitGateway(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "example", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  example.ID(),
-//				Type:              exampleCustomerGateway.Type,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Virtual Private Gateway
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpn_gateway", &ec2.VpnGatewayArgs{
-//				VpcId: vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customer_gateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-//				VpnGatewayId:      vpnGateway.ID(),
-//				CustomerGatewayId: customerGateway.ID(),
-//				Type:              pulumi.String("ipsec.1"),
-//				StaticRoutesOnly:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### AWS Site to Site Private VPN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				Name:          pulumi.String("example_ipsec_vpn_example"),
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
-//				AmazonSideAsn: pulumi.Int(64513),
-//				Description:   pulumi.String("example_ipsec_vpn_example"),
-//				TransitGatewayCidrBlocks: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "example", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("64514"),
-//				IpAddress: pulumi.String("10.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example_ipsec_vpn_example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         exampleGateway.ID(),
-//				AssociatedGatewayId: exampleTransitGateway.ID(),
-//				AllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/8"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//				DxGatewayId:      exampleGateway.ID(),
-//			}, nil)
-//			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId:    exampleCustomerGateway.ID(),
-//				OutsideIpAddressType: pulumi.String("PrivateIpv4"),
-//				TransitGatewayId:     exampleTransitGateway.ID(),
-//				TransportTransitGatewayAttachmentId: pulumi.String(example.ApplyT(func(example ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (*string, error) {
-//					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Type: pulumi.String("ipsec.1"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example_ipsec_vpn_example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
-// ```
 type VpnConnection struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the VPN Connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// The ARN of the core network attachment.
-	CoreNetworkAttachmentArn pulumi.StringOutput `pulumi:"coreNetworkAttachmentArn"`
-	// The configuration information for the VPN connection's customer gateway (in the native XML format).
-	CustomerGatewayConfiguration pulumi.StringOutput `pulumi:"customerGatewayConfiguration"`
-	// The ID of the customer gateway.
-	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
-	// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
-	EnableAcceleration pulumi.BoolOutput `pulumi:"enableAcceleration"`
-	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv4NetworkCidr pulumi.StringOutput `pulumi:"localIpv4NetworkCidr"`
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv6NetworkCidr pulumi.StringOutput `pulumi:"localIpv6NetworkCidr"`
-	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
-	OutsideIpAddressType pulumi.StringOutput `pulumi:"outsideIpAddressType"`
-	// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
-	PresharedKeyArn pulumi.StringOutput `pulumi:"presharedKeyArn"`
-	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
-	PresharedKeyStorage pulumi.StringOutput `pulumi:"presharedKeyStorage"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The IPv4 CIDR on the AWS side of the VPN connection.
-	RemoteIpv4NetworkCidr pulumi.StringOutput `pulumi:"remoteIpv4NetworkCidr"`
-	// The IPv6 CIDR on the AWS side of the VPN connection.
-	RemoteIpv6NetworkCidr pulumi.StringOutput `pulumi:"remoteIpv6NetworkCidr"`
-	// The static routes associated with the VPN connection. Detailed below.
-	Routes VpnConnectionRouteTypeArrayOutput `pulumi:"routes"`
-	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
-	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
-	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
-	TransportTransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transportTransitGatewayAttachmentId"`
-	// The public IP address of the first VPN tunnel.
-	Tunnel1Address pulumi.StringOutput `pulumi:"tunnel1Address"`
-	// The bgp asn number of the first VPN tunnel.
-	Tunnel1BgpAsn pulumi.StringOutput `pulumi:"tunnel1BgpAsn"`
-	// The bgp holdtime of the first VPN tunnel.
-	Tunnel1BgpHoldtime pulumi.IntOutput `pulumi:"tunnel1BgpHoldtime"`
-	// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
-	Tunnel1CgwInsideAddress pulumi.StringOutput `pulumi:"tunnel1CgwInsideAddress"`
-	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel1DpdTimeoutAction pulumi.StringPtrOutput `pulumi:"tunnel1DpdTimeoutAction"`
-	// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel1DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"tunnel1DpdTimeoutSeconds"`
-	// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
-	Tunnel1EnableTunnelLifecycleControl pulumi.BoolPtrOutput `pulumi:"tunnel1EnableTunnelLifecycleControl"`
-	// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel1IkeVersions pulumi.StringArrayOutput `pulumi:"tunnel1IkeVersions"`
-	// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel1InsideCidr pulumi.StringOutput `pulumi:"tunnel1InsideCidr"`
-	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel1InsideIpv6Cidr pulumi.StringOutput `pulumi:"tunnel1InsideIpv6Cidr"`
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel1LogOptions VpnConnectionTunnel1LogOptionsOutput `pulumi:"tunnel1LogOptions"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel1Phase1DhGroupNumbers pulumi.IntArrayOutput `pulumi:"tunnel1Phase1DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase1EncryptionAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel1Phase1EncryptionAlgorithms"`
-	// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase1IntegrityAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel1Phase1IntegrityAlgorithms"`
-	// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel1Phase1LifetimeSeconds pulumi.IntPtrOutput `pulumi:"tunnel1Phase1LifetimeSeconds"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel1Phase2DhGroupNumbers pulumi.IntArrayOutput `pulumi:"tunnel1Phase2DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase2EncryptionAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel1Phase2EncryptionAlgorithms"`
-	// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase2IntegrityAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel1Phase2IntegrityAlgorithms"`
-	// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel1Phase2LifetimeSeconds pulumi.IntPtrOutput `pulumi:"tunnel1Phase2LifetimeSeconds"`
-	// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel1PresharedKey pulumi.StringOutput `pulumi:"tunnel1PresharedKey"`
-	// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel1RekeyFuzzPercentage pulumi.IntPtrOutput `pulumi:"tunnel1RekeyFuzzPercentage"`
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
-	Tunnel1RekeyMarginTimeSeconds pulumi.IntPtrOutput `pulumi:"tunnel1RekeyMarginTimeSeconds"`
-	// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel1ReplayWindowSize pulumi.IntPtrOutput `pulumi:"tunnel1ReplayWindowSize"`
-	// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel1StartupAction pulumi.StringPtrOutput `pulumi:"tunnel1StartupAction"`
-	// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
-	Tunnel1VgwInsideAddress pulumi.StringOutput `pulumi:"tunnel1VgwInsideAddress"`
-	// The public IP address of the second VPN tunnel.
-	Tunnel2Address pulumi.StringOutput `pulumi:"tunnel2Address"`
-	// The bgp asn number of the second VPN tunnel.
-	Tunnel2BgpAsn pulumi.StringOutput `pulumi:"tunnel2BgpAsn"`
-	// The bgp holdtime of the second VPN tunnel.
-	Tunnel2BgpHoldtime pulumi.IntOutput `pulumi:"tunnel2BgpHoldtime"`
-	// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
-	Tunnel2CgwInsideAddress pulumi.StringOutput `pulumi:"tunnel2CgwInsideAddress"`
-	// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel2DpdTimeoutAction pulumi.StringPtrOutput `pulumi:"tunnel2DpdTimeoutAction"`
-	// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel2DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"tunnel2DpdTimeoutSeconds"`
-	// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
-	Tunnel2EnableTunnelLifecycleControl pulumi.BoolPtrOutput `pulumi:"tunnel2EnableTunnelLifecycleControl"`
-	// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel2IkeVersions pulumi.StringArrayOutput `pulumi:"tunnel2IkeVersions"`
-	// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel2InsideCidr pulumi.StringOutput `pulumi:"tunnel2InsideCidr"`
-	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel2InsideIpv6Cidr pulumi.StringOutput `pulumi:"tunnel2InsideIpv6Cidr"`
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel2LogOptions VpnConnectionTunnel2LogOptionsOutput `pulumi:"tunnel2LogOptions"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel2Phase1DhGroupNumbers pulumi.IntArrayOutput `pulumi:"tunnel2Phase1DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase1EncryptionAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel2Phase1EncryptionAlgorithms"`
-	// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase1IntegrityAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel2Phase1IntegrityAlgorithms"`
-	// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel2Phase1LifetimeSeconds pulumi.IntPtrOutput `pulumi:"tunnel2Phase1LifetimeSeconds"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel2Phase2DhGroupNumbers pulumi.IntArrayOutput `pulumi:"tunnel2Phase2DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase2EncryptionAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel2Phase2EncryptionAlgorithms"`
-	// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase2IntegrityAlgorithms pulumi.StringArrayOutput `pulumi:"tunnel2Phase2IntegrityAlgorithms"`
-	// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel2Phase2LifetimeSeconds pulumi.IntPtrOutput `pulumi:"tunnel2Phase2LifetimeSeconds"`
-	// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel2PresharedKey pulumi.StringOutput `pulumi:"tunnel2PresharedKey"`
-	// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel2RekeyFuzzPercentage pulumi.IntPtrOutput `pulumi:"tunnel2RekeyFuzzPercentage"`
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
-	Tunnel2RekeyMarginTimeSeconds pulumi.IntPtrOutput `pulumi:"tunnel2RekeyMarginTimeSeconds"`
-	// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel2ReplayWindowSize pulumi.IntPtrOutput `pulumi:"tunnel2ReplayWindowSize"`
-	// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel2StartupAction pulumi.StringPtrOutput `pulumi:"tunnel2StartupAction"`
-	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
-	Tunnel2VgwInsideAddress pulumi.StringOutput `pulumi:"tunnel2VgwInsideAddress"`
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
-	TunnelBandwidth pulumi.StringOutput `pulumi:"tunnelBandwidth"`
-	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
-	TunnelInsideIpVersion pulumi.StringOutput `pulumi:"tunnelInsideIpVersion"`
-	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Telemetry for the VPN tunnels. Detailed below.
-	VgwTelemetries VpnConnectionVgwTelemetryArrayOutput `pulumi:"vgwTelemetries"`
-	// ID of the VPN concentrator to associate with the VPN connection.
-	VpnConcentratorId pulumi.StringPtrOutput `pulumi:"vpnConcentratorId"`
-	// The ID of the Virtual Private Gateway.
-	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
+	Arn                                 pulumi.StringOutput                  `pulumi:"arn"`
+	CoreNetworkArn                      pulumi.StringOutput                  `pulumi:"coreNetworkArn"`
+	CoreNetworkAttachmentArn            pulumi.StringOutput                  `pulumi:"coreNetworkAttachmentArn"`
+	CustomerGatewayConfiguration        pulumi.StringOutput                  `pulumi:"customerGatewayConfiguration"`
+	CustomerGatewayId                   pulumi.StringOutput                  `pulumi:"customerGatewayId"`
+	EnableAcceleration                  pulumi.BoolOutput                    `pulumi:"enableAcceleration"`
+	LocalIpv4NetworkCidr                pulumi.StringOutput                  `pulumi:"localIpv4NetworkCidr"`
+	LocalIpv6NetworkCidr                pulumi.StringOutput                  `pulumi:"localIpv6NetworkCidr"`
+	OutsideIpAddressType                pulumi.StringOutput                  `pulumi:"outsideIpAddressType"`
+	PresharedKeyArn                     pulumi.StringOutput                  `pulumi:"presharedKeyArn"`
+	PresharedKeyStorage                 pulumi.StringOutput                  `pulumi:"presharedKeyStorage"`
+	Region                              pulumi.StringOutput                  `pulumi:"region"`
+	RemoteIpv4NetworkCidr               pulumi.StringOutput                  `pulumi:"remoteIpv4NetworkCidr"`
+	RemoteIpv6NetworkCidr               pulumi.StringOutput                  `pulumi:"remoteIpv6NetworkCidr"`
+	Routes                              VpnConnectionRouteTypeArrayOutput    `pulumi:"routes"`
+	StaticRoutesOnly                    pulumi.BoolOutput                    `pulumi:"staticRoutesOnly"`
+	Tags                                pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll                             pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	TransitGatewayAttachmentId          pulumi.StringOutput                  `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayId                    pulumi.StringPtrOutput               `pulumi:"transitGatewayId"`
+	TransportTransitGatewayAttachmentId pulumi.StringPtrOutput               `pulumi:"transportTransitGatewayAttachmentId"`
+	Tunnel1Address                      pulumi.StringOutput                  `pulumi:"tunnel1Address"`
+	Tunnel1BgpAsn                       pulumi.StringOutput                  `pulumi:"tunnel1BgpAsn"`
+	Tunnel1BgpHoldtime                  pulumi.IntOutput                     `pulumi:"tunnel1BgpHoldtime"`
+	Tunnel1CgwInsideAddress             pulumi.StringOutput                  `pulumi:"tunnel1CgwInsideAddress"`
+	Tunnel1DpdTimeoutAction             pulumi.StringPtrOutput               `pulumi:"tunnel1DpdTimeoutAction"`
+	Tunnel1DpdTimeoutSeconds            pulumi.IntPtrOutput                  `pulumi:"tunnel1DpdTimeoutSeconds"`
+	Tunnel1EnableTunnelLifecycleControl pulumi.BoolPtrOutput                 `pulumi:"tunnel1EnableTunnelLifecycleControl"`
+	Tunnel1IkeVersions                  pulumi.StringArrayOutput             `pulumi:"tunnel1IkeVersions"`
+	Tunnel1InsideCidr                   pulumi.StringOutput                  `pulumi:"tunnel1InsideCidr"`
+	Tunnel1InsideIpv6Cidr               pulumi.StringOutput                  `pulumi:"tunnel1InsideIpv6Cidr"`
+	Tunnel1LogOptions                   VpnConnectionTunnel1LogOptionsOutput `pulumi:"tunnel1LogOptions"`
+	Tunnel1Phase1DhGroupNumbers         pulumi.IntArrayOutput                `pulumi:"tunnel1Phase1DhGroupNumbers"`
+	Tunnel1Phase1EncryptionAlgorithms   pulumi.StringArrayOutput             `pulumi:"tunnel1Phase1EncryptionAlgorithms"`
+	Tunnel1Phase1IntegrityAlgorithms    pulumi.StringArrayOutput             `pulumi:"tunnel1Phase1IntegrityAlgorithms"`
+	Tunnel1Phase1LifetimeSeconds        pulumi.IntPtrOutput                  `pulumi:"tunnel1Phase1LifetimeSeconds"`
+	Tunnel1Phase2DhGroupNumbers         pulumi.IntArrayOutput                `pulumi:"tunnel1Phase2DhGroupNumbers"`
+	Tunnel1Phase2EncryptionAlgorithms   pulumi.StringArrayOutput             `pulumi:"tunnel1Phase2EncryptionAlgorithms"`
+	Tunnel1Phase2IntegrityAlgorithms    pulumi.StringArrayOutput             `pulumi:"tunnel1Phase2IntegrityAlgorithms"`
+	Tunnel1Phase2LifetimeSeconds        pulumi.IntPtrOutput                  `pulumi:"tunnel1Phase2LifetimeSeconds"`
+	Tunnel1PresharedKey                 pulumi.StringOutput                  `pulumi:"tunnel1PresharedKey"`
+	Tunnel1RekeyFuzzPercentage          pulumi.IntPtrOutput                  `pulumi:"tunnel1RekeyFuzzPercentage"`
+	Tunnel1RekeyMarginTimeSeconds       pulumi.IntPtrOutput                  `pulumi:"tunnel1RekeyMarginTimeSeconds"`
+	Tunnel1ReplayWindowSize             pulumi.IntPtrOutput                  `pulumi:"tunnel1ReplayWindowSize"`
+	Tunnel1StartupAction                pulumi.StringPtrOutput               `pulumi:"tunnel1StartupAction"`
+	Tunnel1VgwInsideAddress             pulumi.StringOutput                  `pulumi:"tunnel1VgwInsideAddress"`
+	Tunnel2Address                      pulumi.StringOutput                  `pulumi:"tunnel2Address"`
+	Tunnel2BgpAsn                       pulumi.StringOutput                  `pulumi:"tunnel2BgpAsn"`
+	Tunnel2BgpHoldtime                  pulumi.IntOutput                     `pulumi:"tunnel2BgpHoldtime"`
+	Tunnel2CgwInsideAddress             pulumi.StringOutput                  `pulumi:"tunnel2CgwInsideAddress"`
+	Tunnel2DpdTimeoutAction             pulumi.StringPtrOutput               `pulumi:"tunnel2DpdTimeoutAction"`
+	Tunnel2DpdTimeoutSeconds            pulumi.IntPtrOutput                  `pulumi:"tunnel2DpdTimeoutSeconds"`
+	Tunnel2EnableTunnelLifecycleControl pulumi.BoolPtrOutput                 `pulumi:"tunnel2EnableTunnelLifecycleControl"`
+	Tunnel2IkeVersions                  pulumi.StringArrayOutput             `pulumi:"tunnel2IkeVersions"`
+	Tunnel2InsideCidr                   pulumi.StringOutput                  `pulumi:"tunnel2InsideCidr"`
+	Tunnel2InsideIpv6Cidr               pulumi.StringOutput                  `pulumi:"tunnel2InsideIpv6Cidr"`
+	Tunnel2LogOptions                   VpnConnectionTunnel2LogOptionsOutput `pulumi:"tunnel2LogOptions"`
+	Tunnel2Phase1DhGroupNumbers         pulumi.IntArrayOutput                `pulumi:"tunnel2Phase1DhGroupNumbers"`
+	Tunnel2Phase1EncryptionAlgorithms   pulumi.StringArrayOutput             `pulumi:"tunnel2Phase1EncryptionAlgorithms"`
+	Tunnel2Phase1IntegrityAlgorithms    pulumi.StringArrayOutput             `pulumi:"tunnel2Phase1IntegrityAlgorithms"`
+	Tunnel2Phase1LifetimeSeconds        pulumi.IntPtrOutput                  `pulumi:"tunnel2Phase1LifetimeSeconds"`
+	Tunnel2Phase2DhGroupNumbers         pulumi.IntArrayOutput                `pulumi:"tunnel2Phase2DhGroupNumbers"`
+	Tunnel2Phase2EncryptionAlgorithms   pulumi.StringArrayOutput             `pulumi:"tunnel2Phase2EncryptionAlgorithms"`
+	Tunnel2Phase2IntegrityAlgorithms    pulumi.StringArrayOutput             `pulumi:"tunnel2Phase2IntegrityAlgorithms"`
+	Tunnel2Phase2LifetimeSeconds        pulumi.IntPtrOutput                  `pulumi:"tunnel2Phase2LifetimeSeconds"`
+	Tunnel2PresharedKey                 pulumi.StringOutput                  `pulumi:"tunnel2PresharedKey"`
+	Tunnel2RekeyFuzzPercentage          pulumi.IntPtrOutput                  `pulumi:"tunnel2RekeyFuzzPercentage"`
+	Tunnel2RekeyMarginTimeSeconds       pulumi.IntPtrOutput                  `pulumi:"tunnel2RekeyMarginTimeSeconds"`
+	Tunnel2ReplayWindowSize             pulumi.IntPtrOutput                  `pulumi:"tunnel2ReplayWindowSize"`
+	Tunnel2StartupAction                pulumi.StringPtrOutput               `pulumi:"tunnel2StartupAction"`
+	Tunnel2VgwInsideAddress             pulumi.StringOutput                  `pulumi:"tunnel2VgwInsideAddress"`
+	TunnelBandwidth                     pulumi.StringOutput                  `pulumi:"tunnelBandwidth"`
+	TunnelInsideIpVersion               pulumi.StringOutput                  `pulumi:"tunnelInsideIpVersion"`
+	Type                                pulumi.StringOutput                  `pulumi:"type"`
+	VgwTelemetries                      VpnConnectionVgwTelemetryArrayOutput `pulumi:"vgwTelemetries"`
+	VpnConcentratorId                   pulumi.StringPtrOutput               `pulumi:"vpnConcentratorId"`
+	VpnGatewayId                        pulumi.StringPtrOutput               `pulumi:"vpnGatewayId"`
 }
 
 // NewVpnConnection registers a new resource with the given unique name, arguments, and options.
@@ -403,317 +142,163 @@ func GetVpnConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnConnection resources.
 type vpnConnectionState struct {
-	// Amazon Resource Name (ARN) of the VPN Connection.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the core network.
-	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// The ARN of the core network attachment.
-	CoreNetworkAttachmentArn *string `pulumi:"coreNetworkAttachmentArn"`
-	// The configuration information for the VPN connection's customer gateway (in the native XML format).
-	CustomerGatewayConfiguration *string `pulumi:"customerGatewayConfiguration"`
-	// The ID of the customer gateway.
-	CustomerGatewayId *string `pulumi:"customerGatewayId"`
-	// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
-	EnableAcceleration *bool `pulumi:"enableAcceleration"`
-	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv4NetworkCidr *string `pulumi:"localIpv4NetworkCidr"`
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
-	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
-	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
-	// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
-	PresharedKeyArn *string `pulumi:"presharedKeyArn"`
-	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
-	PresharedKeyStorage *string `pulumi:"presharedKeyStorage"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IPv4 CIDR on the AWS side of the VPN connection.
-	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
-	// The IPv6 CIDR on the AWS side of the VPN connection.
-	RemoteIpv6NetworkCidr *string `pulumi:"remoteIpv6NetworkCidr"`
-	// The static routes associated with the VPN connection. Detailed below.
-	Routes []VpnConnectionRouteType `pulumi:"routes"`
-	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the EC2 Transit Gateway.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
-	TransportTransitGatewayAttachmentId *string `pulumi:"transportTransitGatewayAttachmentId"`
-	// The public IP address of the first VPN tunnel.
-	Tunnel1Address *string `pulumi:"tunnel1Address"`
-	// The bgp asn number of the first VPN tunnel.
-	Tunnel1BgpAsn *string `pulumi:"tunnel1BgpAsn"`
-	// The bgp holdtime of the first VPN tunnel.
-	Tunnel1BgpHoldtime *int `pulumi:"tunnel1BgpHoldtime"`
-	// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
-	Tunnel1CgwInsideAddress *string `pulumi:"tunnel1CgwInsideAddress"`
-	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel1DpdTimeoutAction *string `pulumi:"tunnel1DpdTimeoutAction"`
-	// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel1DpdTimeoutSeconds *int `pulumi:"tunnel1DpdTimeoutSeconds"`
-	// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
-	Tunnel1EnableTunnelLifecycleControl *bool `pulumi:"tunnel1EnableTunnelLifecycleControl"`
-	// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel1IkeVersions []string `pulumi:"tunnel1IkeVersions"`
-	// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel1InsideCidr *string `pulumi:"tunnel1InsideCidr"`
-	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel1InsideIpv6Cidr *string `pulumi:"tunnel1InsideIpv6Cidr"`
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel1LogOptions *VpnConnectionTunnel1LogOptions `pulumi:"tunnel1LogOptions"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel1Phase1DhGroupNumbers []int `pulumi:"tunnel1Phase1DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase1EncryptionAlgorithms []string `pulumi:"tunnel1Phase1EncryptionAlgorithms"`
-	// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase1IntegrityAlgorithms []string `pulumi:"tunnel1Phase1IntegrityAlgorithms"`
-	// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel1Phase1LifetimeSeconds *int `pulumi:"tunnel1Phase1LifetimeSeconds"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel1Phase2DhGroupNumbers []int `pulumi:"tunnel1Phase2DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase2EncryptionAlgorithms []string `pulumi:"tunnel1Phase2EncryptionAlgorithms"`
-	// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase2IntegrityAlgorithms []string `pulumi:"tunnel1Phase2IntegrityAlgorithms"`
-	// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel1Phase2LifetimeSeconds *int `pulumi:"tunnel1Phase2LifetimeSeconds"`
-	// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel1PresharedKey *string `pulumi:"tunnel1PresharedKey"`
-	// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel1RekeyFuzzPercentage *int `pulumi:"tunnel1RekeyFuzzPercentage"`
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
-	Tunnel1RekeyMarginTimeSeconds *int `pulumi:"tunnel1RekeyMarginTimeSeconds"`
-	// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel1ReplayWindowSize *int `pulumi:"tunnel1ReplayWindowSize"`
-	// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel1StartupAction *string `pulumi:"tunnel1StartupAction"`
-	// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
-	Tunnel1VgwInsideAddress *string `pulumi:"tunnel1VgwInsideAddress"`
-	// The public IP address of the second VPN tunnel.
-	Tunnel2Address *string `pulumi:"tunnel2Address"`
-	// The bgp asn number of the second VPN tunnel.
-	Tunnel2BgpAsn *string `pulumi:"tunnel2BgpAsn"`
-	// The bgp holdtime of the second VPN tunnel.
-	Tunnel2BgpHoldtime *int `pulumi:"tunnel2BgpHoldtime"`
-	// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
-	Tunnel2CgwInsideAddress *string `pulumi:"tunnel2CgwInsideAddress"`
-	// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel2DpdTimeoutAction *string `pulumi:"tunnel2DpdTimeoutAction"`
-	// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel2DpdTimeoutSeconds *int `pulumi:"tunnel2DpdTimeoutSeconds"`
-	// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
-	Tunnel2EnableTunnelLifecycleControl *bool `pulumi:"tunnel2EnableTunnelLifecycleControl"`
-	// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel2IkeVersions []string `pulumi:"tunnel2IkeVersions"`
-	// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel2InsideCidr *string `pulumi:"tunnel2InsideCidr"`
-	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel2InsideIpv6Cidr *string `pulumi:"tunnel2InsideIpv6Cidr"`
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel2LogOptions *VpnConnectionTunnel2LogOptions `pulumi:"tunnel2LogOptions"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel2Phase1DhGroupNumbers []int `pulumi:"tunnel2Phase1DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase1EncryptionAlgorithms []string `pulumi:"tunnel2Phase1EncryptionAlgorithms"`
-	// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase1IntegrityAlgorithms []string `pulumi:"tunnel2Phase1IntegrityAlgorithms"`
-	// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel2Phase1LifetimeSeconds *int `pulumi:"tunnel2Phase1LifetimeSeconds"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel2Phase2DhGroupNumbers []int `pulumi:"tunnel2Phase2DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase2EncryptionAlgorithms []string `pulumi:"tunnel2Phase2EncryptionAlgorithms"`
-	// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase2IntegrityAlgorithms []string `pulumi:"tunnel2Phase2IntegrityAlgorithms"`
-	// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel2Phase2LifetimeSeconds *int `pulumi:"tunnel2Phase2LifetimeSeconds"`
-	// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel2PresharedKey *string `pulumi:"tunnel2PresharedKey"`
-	// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel2RekeyFuzzPercentage *int `pulumi:"tunnel2RekeyFuzzPercentage"`
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
-	Tunnel2RekeyMarginTimeSeconds *int `pulumi:"tunnel2RekeyMarginTimeSeconds"`
-	// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel2ReplayWindowSize *int `pulumi:"tunnel2ReplayWindowSize"`
-	// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel2StartupAction *string `pulumi:"tunnel2StartupAction"`
-	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
-	Tunnel2VgwInsideAddress *string `pulumi:"tunnel2VgwInsideAddress"`
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
-	TunnelBandwidth *string `pulumi:"tunnelBandwidth"`
-	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
-	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
-	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type *string `pulumi:"type"`
-	// Telemetry for the VPN tunnels. Detailed below.
-	VgwTelemetries []VpnConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
-	// ID of the VPN concentrator to associate with the VPN connection.
-	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
-	// The ID of the Virtual Private Gateway.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
+	Arn                                 *string                         `pulumi:"arn"`
+	CoreNetworkArn                      *string                         `pulumi:"coreNetworkArn"`
+	CoreNetworkAttachmentArn            *string                         `pulumi:"coreNetworkAttachmentArn"`
+	CustomerGatewayConfiguration        *string                         `pulumi:"customerGatewayConfiguration"`
+	CustomerGatewayId                   *string                         `pulumi:"customerGatewayId"`
+	EnableAcceleration                  *bool                           `pulumi:"enableAcceleration"`
+	LocalIpv4NetworkCidr                *string                         `pulumi:"localIpv4NetworkCidr"`
+	LocalIpv6NetworkCidr                *string                         `pulumi:"localIpv6NetworkCidr"`
+	OutsideIpAddressType                *string                         `pulumi:"outsideIpAddressType"`
+	PresharedKeyArn                     *string                         `pulumi:"presharedKeyArn"`
+	PresharedKeyStorage                 *string                         `pulumi:"presharedKeyStorage"`
+	Region                              *string                         `pulumi:"region"`
+	RemoteIpv4NetworkCidr               *string                         `pulumi:"remoteIpv4NetworkCidr"`
+	RemoteIpv6NetworkCidr               *string                         `pulumi:"remoteIpv6NetworkCidr"`
+	Routes                              []VpnConnectionRouteType        `pulumi:"routes"`
+	StaticRoutesOnly                    *bool                           `pulumi:"staticRoutesOnly"`
+	Tags                                map[string]string               `pulumi:"tags"`
+	TagsAll                             map[string]string               `pulumi:"tagsAll"`
+	TransitGatewayAttachmentId          *string                         `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayId                    *string                         `pulumi:"transitGatewayId"`
+	TransportTransitGatewayAttachmentId *string                         `pulumi:"transportTransitGatewayAttachmentId"`
+	Tunnel1Address                      *string                         `pulumi:"tunnel1Address"`
+	Tunnel1BgpAsn                       *string                         `pulumi:"tunnel1BgpAsn"`
+	Tunnel1BgpHoldtime                  *int                            `pulumi:"tunnel1BgpHoldtime"`
+	Tunnel1CgwInsideAddress             *string                         `pulumi:"tunnel1CgwInsideAddress"`
+	Tunnel1DpdTimeoutAction             *string                         `pulumi:"tunnel1DpdTimeoutAction"`
+	Tunnel1DpdTimeoutSeconds            *int                            `pulumi:"tunnel1DpdTimeoutSeconds"`
+	Tunnel1EnableTunnelLifecycleControl *bool                           `pulumi:"tunnel1EnableTunnelLifecycleControl"`
+	Tunnel1IkeVersions                  []string                        `pulumi:"tunnel1IkeVersions"`
+	Tunnel1InsideCidr                   *string                         `pulumi:"tunnel1InsideCidr"`
+	Tunnel1InsideIpv6Cidr               *string                         `pulumi:"tunnel1InsideIpv6Cidr"`
+	Tunnel1LogOptions                   *VpnConnectionTunnel1LogOptions `pulumi:"tunnel1LogOptions"`
+	Tunnel1Phase1DhGroupNumbers         []int                           `pulumi:"tunnel1Phase1DhGroupNumbers"`
+	Tunnel1Phase1EncryptionAlgorithms   []string                        `pulumi:"tunnel1Phase1EncryptionAlgorithms"`
+	Tunnel1Phase1IntegrityAlgorithms    []string                        `pulumi:"tunnel1Phase1IntegrityAlgorithms"`
+	Tunnel1Phase1LifetimeSeconds        *int                            `pulumi:"tunnel1Phase1LifetimeSeconds"`
+	Tunnel1Phase2DhGroupNumbers         []int                           `pulumi:"tunnel1Phase2DhGroupNumbers"`
+	Tunnel1Phase2EncryptionAlgorithms   []string                        `pulumi:"tunnel1Phase2EncryptionAlgorithms"`
+	Tunnel1Phase2IntegrityAlgorithms    []string                        `pulumi:"tunnel1Phase2IntegrityAlgorithms"`
+	Tunnel1Phase2LifetimeSeconds        *int                            `pulumi:"tunnel1Phase2LifetimeSeconds"`
+	Tunnel1PresharedKey                 *string                         `pulumi:"tunnel1PresharedKey"`
+	Tunnel1RekeyFuzzPercentage          *int                            `pulumi:"tunnel1RekeyFuzzPercentage"`
+	Tunnel1RekeyMarginTimeSeconds       *int                            `pulumi:"tunnel1RekeyMarginTimeSeconds"`
+	Tunnel1ReplayWindowSize             *int                            `pulumi:"tunnel1ReplayWindowSize"`
+	Tunnel1StartupAction                *string                         `pulumi:"tunnel1StartupAction"`
+	Tunnel1VgwInsideAddress             *string                         `pulumi:"tunnel1VgwInsideAddress"`
+	Tunnel2Address                      *string                         `pulumi:"tunnel2Address"`
+	Tunnel2BgpAsn                       *string                         `pulumi:"tunnel2BgpAsn"`
+	Tunnel2BgpHoldtime                  *int                            `pulumi:"tunnel2BgpHoldtime"`
+	Tunnel2CgwInsideAddress             *string                         `pulumi:"tunnel2CgwInsideAddress"`
+	Tunnel2DpdTimeoutAction             *string                         `pulumi:"tunnel2DpdTimeoutAction"`
+	Tunnel2DpdTimeoutSeconds            *int                            `pulumi:"tunnel2DpdTimeoutSeconds"`
+	Tunnel2EnableTunnelLifecycleControl *bool                           `pulumi:"tunnel2EnableTunnelLifecycleControl"`
+	Tunnel2IkeVersions                  []string                        `pulumi:"tunnel2IkeVersions"`
+	Tunnel2InsideCidr                   *string                         `pulumi:"tunnel2InsideCidr"`
+	Tunnel2InsideIpv6Cidr               *string                         `pulumi:"tunnel2InsideIpv6Cidr"`
+	Tunnel2LogOptions                   *VpnConnectionTunnel2LogOptions `pulumi:"tunnel2LogOptions"`
+	Tunnel2Phase1DhGroupNumbers         []int                           `pulumi:"tunnel2Phase1DhGroupNumbers"`
+	Tunnel2Phase1EncryptionAlgorithms   []string                        `pulumi:"tunnel2Phase1EncryptionAlgorithms"`
+	Tunnel2Phase1IntegrityAlgorithms    []string                        `pulumi:"tunnel2Phase1IntegrityAlgorithms"`
+	Tunnel2Phase1LifetimeSeconds        *int                            `pulumi:"tunnel2Phase1LifetimeSeconds"`
+	Tunnel2Phase2DhGroupNumbers         []int                           `pulumi:"tunnel2Phase2DhGroupNumbers"`
+	Tunnel2Phase2EncryptionAlgorithms   []string                        `pulumi:"tunnel2Phase2EncryptionAlgorithms"`
+	Tunnel2Phase2IntegrityAlgorithms    []string                        `pulumi:"tunnel2Phase2IntegrityAlgorithms"`
+	Tunnel2Phase2LifetimeSeconds        *int                            `pulumi:"tunnel2Phase2LifetimeSeconds"`
+	Tunnel2PresharedKey                 *string                         `pulumi:"tunnel2PresharedKey"`
+	Tunnel2RekeyFuzzPercentage          *int                            `pulumi:"tunnel2RekeyFuzzPercentage"`
+	Tunnel2RekeyMarginTimeSeconds       *int                            `pulumi:"tunnel2RekeyMarginTimeSeconds"`
+	Tunnel2ReplayWindowSize             *int                            `pulumi:"tunnel2ReplayWindowSize"`
+	Tunnel2StartupAction                *string                         `pulumi:"tunnel2StartupAction"`
+	Tunnel2VgwInsideAddress             *string                         `pulumi:"tunnel2VgwInsideAddress"`
+	TunnelBandwidth                     *string                         `pulumi:"tunnelBandwidth"`
+	TunnelInsideIpVersion               *string                         `pulumi:"tunnelInsideIpVersion"`
+	Type                                *string                         `pulumi:"type"`
+	VgwTelemetries                      []VpnConnectionVgwTelemetry     `pulumi:"vgwTelemetries"`
+	VpnConcentratorId                   *string                         `pulumi:"vpnConcentratorId"`
+	VpnGatewayId                        *string                         `pulumi:"vpnGatewayId"`
 }
 
 type VpnConnectionState struct {
-	// Amazon Resource Name (ARN) of the VPN Connection.
-	Arn pulumi.StringPtrInput
-	// The ARN of the core network.
-	CoreNetworkArn pulumi.StringPtrInput
-	// The ARN of the core network attachment.
-	CoreNetworkAttachmentArn pulumi.StringPtrInput
-	// The configuration information for the VPN connection's customer gateway (in the native XML format).
-	CustomerGatewayConfiguration pulumi.StringPtrInput
-	// The ID of the customer gateway.
-	CustomerGatewayId pulumi.StringPtrInput
-	// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
-	EnableAcceleration pulumi.BoolPtrInput
-	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv4NetworkCidr pulumi.StringPtrInput
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv6NetworkCidr pulumi.StringPtrInput
-	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
-	OutsideIpAddressType pulumi.StringPtrInput
-	// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
-	PresharedKeyArn pulumi.StringPtrInput
-	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
-	PresharedKeyStorage pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IPv4 CIDR on the AWS side of the VPN connection.
-	RemoteIpv4NetworkCidr pulumi.StringPtrInput
-	// The IPv6 CIDR on the AWS side of the VPN connection.
-	RemoteIpv6NetworkCidr pulumi.StringPtrInput
-	// The static routes associated with the VPN connection. Detailed below.
-	Routes VpnConnectionRouteTypeArrayInput
-	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
-	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// The ID of the EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringPtrInput
-	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+	Arn                                 pulumi.StringPtrInput
+	CoreNetworkArn                      pulumi.StringPtrInput
+	CoreNetworkAttachmentArn            pulumi.StringPtrInput
+	CustomerGatewayConfiguration        pulumi.StringPtrInput
+	CustomerGatewayId                   pulumi.StringPtrInput
+	EnableAcceleration                  pulumi.BoolPtrInput
+	LocalIpv4NetworkCidr                pulumi.StringPtrInput
+	LocalIpv6NetworkCidr                pulumi.StringPtrInput
+	OutsideIpAddressType                pulumi.StringPtrInput
+	PresharedKeyArn                     pulumi.StringPtrInput
+	PresharedKeyStorage                 pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
+	RemoteIpv4NetworkCidr               pulumi.StringPtrInput
+	RemoteIpv6NetworkCidr               pulumi.StringPtrInput
+	Routes                              VpnConnectionRouteTypeArrayInput
+	StaticRoutesOnly                    pulumi.BoolPtrInput
+	Tags                                pulumi.StringMapInput
+	TagsAll                             pulumi.StringMapInput
+	TransitGatewayAttachmentId          pulumi.StringPtrInput
+	TransitGatewayId                    pulumi.StringPtrInput
 	TransportTransitGatewayAttachmentId pulumi.StringPtrInput
-	// The public IP address of the first VPN tunnel.
-	Tunnel1Address pulumi.StringPtrInput
-	// The bgp asn number of the first VPN tunnel.
-	Tunnel1BgpAsn pulumi.StringPtrInput
-	// The bgp holdtime of the first VPN tunnel.
-	Tunnel1BgpHoldtime pulumi.IntPtrInput
-	// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
-	Tunnel1CgwInsideAddress pulumi.StringPtrInput
-	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel1DpdTimeoutAction pulumi.StringPtrInput
-	// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel1DpdTimeoutSeconds pulumi.IntPtrInput
-	// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+	Tunnel1Address                      pulumi.StringPtrInput
+	Tunnel1BgpAsn                       pulumi.StringPtrInput
+	Tunnel1BgpHoldtime                  pulumi.IntPtrInput
+	Tunnel1CgwInsideAddress             pulumi.StringPtrInput
+	Tunnel1DpdTimeoutAction             pulumi.StringPtrInput
+	Tunnel1DpdTimeoutSeconds            pulumi.IntPtrInput
 	Tunnel1EnableTunnelLifecycleControl pulumi.BoolPtrInput
-	// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel1IkeVersions pulumi.StringArrayInput
-	// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel1InsideCidr pulumi.StringPtrInput
-	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel1InsideIpv6Cidr pulumi.StringPtrInput
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel1LogOptions VpnConnectionTunnel1LogOptionsPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel1Phase1DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase1EncryptionAlgorithms pulumi.StringArrayInput
-	// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase1IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel1Phase1LifetimeSeconds pulumi.IntPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel1Phase2DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase2EncryptionAlgorithms pulumi.StringArrayInput
-	// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase2IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel1Phase2LifetimeSeconds pulumi.IntPtrInput
-	// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel1PresharedKey pulumi.StringPtrInput
-	// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel1RekeyFuzzPercentage pulumi.IntPtrInput
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
-	Tunnel1RekeyMarginTimeSeconds pulumi.IntPtrInput
-	// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel1ReplayWindowSize pulumi.IntPtrInput
-	// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel1StartupAction pulumi.StringPtrInput
-	// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
-	Tunnel1VgwInsideAddress pulumi.StringPtrInput
-	// The public IP address of the second VPN tunnel.
-	Tunnel2Address pulumi.StringPtrInput
-	// The bgp asn number of the second VPN tunnel.
-	Tunnel2BgpAsn pulumi.StringPtrInput
-	// The bgp holdtime of the second VPN tunnel.
-	Tunnel2BgpHoldtime pulumi.IntPtrInput
-	// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
-	Tunnel2CgwInsideAddress pulumi.StringPtrInput
-	// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel2DpdTimeoutAction pulumi.StringPtrInput
-	// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel2DpdTimeoutSeconds pulumi.IntPtrInput
-	// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+	Tunnel1IkeVersions                  pulumi.StringArrayInput
+	Tunnel1InsideCidr                   pulumi.StringPtrInput
+	Tunnel1InsideIpv6Cidr               pulumi.StringPtrInput
+	Tunnel1LogOptions                   VpnConnectionTunnel1LogOptionsPtrInput
+	Tunnel1Phase1DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel1Phase1EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel1Phase1IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel1Phase1LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel1Phase2DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel1Phase2EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel1Phase2IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel1Phase2LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel1PresharedKey                 pulumi.StringPtrInput
+	Tunnel1RekeyFuzzPercentage          pulumi.IntPtrInput
+	Tunnel1RekeyMarginTimeSeconds       pulumi.IntPtrInput
+	Tunnel1ReplayWindowSize             pulumi.IntPtrInput
+	Tunnel1StartupAction                pulumi.StringPtrInput
+	Tunnel1VgwInsideAddress             pulumi.StringPtrInput
+	Tunnel2Address                      pulumi.StringPtrInput
+	Tunnel2BgpAsn                       pulumi.StringPtrInput
+	Tunnel2BgpHoldtime                  pulumi.IntPtrInput
+	Tunnel2CgwInsideAddress             pulumi.StringPtrInput
+	Tunnel2DpdTimeoutAction             pulumi.StringPtrInput
+	Tunnel2DpdTimeoutSeconds            pulumi.IntPtrInput
 	Tunnel2EnableTunnelLifecycleControl pulumi.BoolPtrInput
-	// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel2IkeVersions pulumi.StringArrayInput
-	// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel2InsideCidr pulumi.StringPtrInput
-	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel2InsideIpv6Cidr pulumi.StringPtrInput
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel2LogOptions VpnConnectionTunnel2LogOptionsPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel2Phase1DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase1EncryptionAlgorithms pulumi.StringArrayInput
-	// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase1IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel2Phase1LifetimeSeconds pulumi.IntPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel2Phase2DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase2EncryptionAlgorithms pulumi.StringArrayInput
-	// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase2IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel2Phase2LifetimeSeconds pulumi.IntPtrInput
-	// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel2PresharedKey pulumi.StringPtrInput
-	// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel2RekeyFuzzPercentage pulumi.IntPtrInput
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
-	Tunnel2RekeyMarginTimeSeconds pulumi.IntPtrInput
-	// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel2ReplayWindowSize pulumi.IntPtrInput
-	// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel2StartupAction pulumi.StringPtrInput
-	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
-	Tunnel2VgwInsideAddress pulumi.StringPtrInput
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
-	TunnelBandwidth pulumi.StringPtrInput
-	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
-	TunnelInsideIpVersion pulumi.StringPtrInput
-	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type pulumi.StringPtrInput
-	// Telemetry for the VPN tunnels. Detailed below.
-	VgwTelemetries VpnConnectionVgwTelemetryArrayInput
-	// ID of the VPN concentrator to associate with the VPN connection.
-	VpnConcentratorId pulumi.StringPtrInput
-	// The ID of the Virtual Private Gateway.
-	VpnGatewayId pulumi.StringPtrInput
+	Tunnel2IkeVersions                  pulumi.StringArrayInput
+	Tunnel2InsideCidr                   pulumi.StringPtrInput
+	Tunnel2InsideIpv6Cidr               pulumi.StringPtrInput
+	Tunnel2LogOptions                   VpnConnectionTunnel2LogOptionsPtrInput
+	Tunnel2Phase1DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel2Phase1EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel2Phase1IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel2Phase1LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel2Phase2DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel2Phase2EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel2Phase2IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel2Phase2LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel2PresharedKey                 pulumi.StringPtrInput
+	Tunnel2RekeyFuzzPercentage          pulumi.IntPtrInput
+	Tunnel2RekeyMarginTimeSeconds       pulumi.IntPtrInput
+	Tunnel2ReplayWindowSize             pulumi.IntPtrInput
+	Tunnel2StartupAction                pulumi.StringPtrInput
+	Tunnel2VgwInsideAddress             pulumi.StringPtrInput
+	TunnelBandwidth                     pulumi.StringPtrInput
+	TunnelInsideIpVersion               pulumi.StringPtrInput
+	Type                                pulumi.StringPtrInput
+	VgwTelemetries                      VpnConnectionVgwTelemetryArrayInput
+	VpnConcentratorId                   pulumi.StringPtrInput
+	VpnGatewayId                        pulumi.StringPtrInput
 }
 
 func (VpnConnectionState) ElementType() reflect.Type {
@@ -721,242 +306,126 @@ func (VpnConnectionState) ElementType() reflect.Type {
 }
 
 type vpnConnectionArgs struct {
-	// The ID of the customer gateway.
-	CustomerGatewayId string `pulumi:"customerGatewayId"`
-	// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
-	EnableAcceleration *bool `pulumi:"enableAcceleration"`
-	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv4NetworkCidr *string `pulumi:"localIpv4NetworkCidr"`
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
-	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
-	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
-	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
-	PresharedKeyStorage *string `pulumi:"presharedKeyStorage"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IPv4 CIDR on the AWS side of the VPN connection.
-	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
-	// The IPv6 CIDR on the AWS side of the VPN connection.
-	RemoteIpv6NetworkCidr *string `pulumi:"remoteIpv6NetworkCidr"`
-	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the EC2 Transit Gateway.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
-	TransportTransitGatewayAttachmentId *string `pulumi:"transportTransitGatewayAttachmentId"`
-	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel1DpdTimeoutAction *string `pulumi:"tunnel1DpdTimeoutAction"`
-	// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel1DpdTimeoutSeconds *int `pulumi:"tunnel1DpdTimeoutSeconds"`
-	// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
-	Tunnel1EnableTunnelLifecycleControl *bool `pulumi:"tunnel1EnableTunnelLifecycleControl"`
-	// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel1IkeVersions []string `pulumi:"tunnel1IkeVersions"`
-	// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel1InsideCidr *string `pulumi:"tunnel1InsideCidr"`
-	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel1InsideIpv6Cidr *string `pulumi:"tunnel1InsideIpv6Cidr"`
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel1LogOptions *VpnConnectionTunnel1LogOptions `pulumi:"tunnel1LogOptions"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel1Phase1DhGroupNumbers []int `pulumi:"tunnel1Phase1DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase1EncryptionAlgorithms []string `pulumi:"tunnel1Phase1EncryptionAlgorithms"`
-	// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase1IntegrityAlgorithms []string `pulumi:"tunnel1Phase1IntegrityAlgorithms"`
-	// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel1Phase1LifetimeSeconds *int `pulumi:"tunnel1Phase1LifetimeSeconds"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel1Phase2DhGroupNumbers []int `pulumi:"tunnel1Phase2DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase2EncryptionAlgorithms []string `pulumi:"tunnel1Phase2EncryptionAlgorithms"`
-	// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase2IntegrityAlgorithms []string `pulumi:"tunnel1Phase2IntegrityAlgorithms"`
-	// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel1Phase2LifetimeSeconds *int `pulumi:"tunnel1Phase2LifetimeSeconds"`
-	// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel1PresharedKey *string `pulumi:"tunnel1PresharedKey"`
-	// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel1RekeyFuzzPercentage *int `pulumi:"tunnel1RekeyFuzzPercentage"`
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
-	Tunnel1RekeyMarginTimeSeconds *int `pulumi:"tunnel1RekeyMarginTimeSeconds"`
-	// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel1ReplayWindowSize *int `pulumi:"tunnel1ReplayWindowSize"`
-	// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel1StartupAction *string `pulumi:"tunnel1StartupAction"`
-	// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel2DpdTimeoutAction *string `pulumi:"tunnel2DpdTimeoutAction"`
-	// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel2DpdTimeoutSeconds *int `pulumi:"tunnel2DpdTimeoutSeconds"`
-	// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
-	Tunnel2EnableTunnelLifecycleControl *bool `pulumi:"tunnel2EnableTunnelLifecycleControl"`
-	// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel2IkeVersions []string `pulumi:"tunnel2IkeVersions"`
-	// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel2InsideCidr *string `pulumi:"tunnel2InsideCidr"`
-	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel2InsideIpv6Cidr *string `pulumi:"tunnel2InsideIpv6Cidr"`
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel2LogOptions *VpnConnectionTunnel2LogOptions `pulumi:"tunnel2LogOptions"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel2Phase1DhGroupNumbers []int `pulumi:"tunnel2Phase1DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase1EncryptionAlgorithms []string `pulumi:"tunnel2Phase1EncryptionAlgorithms"`
-	// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase1IntegrityAlgorithms []string `pulumi:"tunnel2Phase1IntegrityAlgorithms"`
-	// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel2Phase1LifetimeSeconds *int `pulumi:"tunnel2Phase1LifetimeSeconds"`
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel2Phase2DhGroupNumbers []int `pulumi:"tunnel2Phase2DhGroupNumbers"`
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase2EncryptionAlgorithms []string `pulumi:"tunnel2Phase2EncryptionAlgorithms"`
-	// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase2IntegrityAlgorithms []string `pulumi:"tunnel2Phase2IntegrityAlgorithms"`
-	// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel2Phase2LifetimeSeconds *int `pulumi:"tunnel2Phase2LifetimeSeconds"`
-	// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel2PresharedKey *string `pulumi:"tunnel2PresharedKey"`
-	// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel2RekeyFuzzPercentage *int `pulumi:"tunnel2RekeyFuzzPercentage"`
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
-	Tunnel2RekeyMarginTimeSeconds *int `pulumi:"tunnel2RekeyMarginTimeSeconds"`
-	// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel2ReplayWindowSize *int `pulumi:"tunnel2ReplayWindowSize"`
-	// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel2StartupAction *string `pulumi:"tunnel2StartupAction"`
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
-	TunnelBandwidth *string `pulumi:"tunnelBandwidth"`
-	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
-	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
-	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type string `pulumi:"type"`
-	// ID of the VPN concentrator to associate with the VPN connection.
-	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
-	// The ID of the Virtual Private Gateway.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
+	CustomerGatewayId                   string                          `pulumi:"customerGatewayId"`
+	EnableAcceleration                  *bool                           `pulumi:"enableAcceleration"`
+	LocalIpv4NetworkCidr                *string                         `pulumi:"localIpv4NetworkCidr"`
+	LocalIpv6NetworkCidr                *string                         `pulumi:"localIpv6NetworkCidr"`
+	OutsideIpAddressType                *string                         `pulumi:"outsideIpAddressType"`
+	PresharedKeyStorage                 *string                         `pulumi:"presharedKeyStorage"`
+	Region                              *string                         `pulumi:"region"`
+	RemoteIpv4NetworkCidr               *string                         `pulumi:"remoteIpv4NetworkCidr"`
+	RemoteIpv6NetworkCidr               *string                         `pulumi:"remoteIpv6NetworkCidr"`
+	StaticRoutesOnly                    *bool                           `pulumi:"staticRoutesOnly"`
+	Tags                                map[string]string               `pulumi:"tags"`
+	TransitGatewayId                    *string                         `pulumi:"transitGatewayId"`
+	TransportTransitGatewayAttachmentId *string                         `pulumi:"transportTransitGatewayAttachmentId"`
+	Tunnel1DpdTimeoutAction             *string                         `pulumi:"tunnel1DpdTimeoutAction"`
+	Tunnel1DpdTimeoutSeconds            *int                            `pulumi:"tunnel1DpdTimeoutSeconds"`
+	Tunnel1EnableTunnelLifecycleControl *bool                           `pulumi:"tunnel1EnableTunnelLifecycleControl"`
+	Tunnel1IkeVersions                  []string                        `pulumi:"tunnel1IkeVersions"`
+	Tunnel1InsideCidr                   *string                         `pulumi:"tunnel1InsideCidr"`
+	Tunnel1InsideIpv6Cidr               *string                         `pulumi:"tunnel1InsideIpv6Cidr"`
+	Tunnel1LogOptions                   *VpnConnectionTunnel1LogOptions `pulumi:"tunnel1LogOptions"`
+	Tunnel1Phase1DhGroupNumbers         []int                           `pulumi:"tunnel1Phase1DhGroupNumbers"`
+	Tunnel1Phase1EncryptionAlgorithms   []string                        `pulumi:"tunnel1Phase1EncryptionAlgorithms"`
+	Tunnel1Phase1IntegrityAlgorithms    []string                        `pulumi:"tunnel1Phase1IntegrityAlgorithms"`
+	Tunnel1Phase1LifetimeSeconds        *int                            `pulumi:"tunnel1Phase1LifetimeSeconds"`
+	Tunnel1Phase2DhGroupNumbers         []int                           `pulumi:"tunnel1Phase2DhGroupNumbers"`
+	Tunnel1Phase2EncryptionAlgorithms   []string                        `pulumi:"tunnel1Phase2EncryptionAlgorithms"`
+	Tunnel1Phase2IntegrityAlgorithms    []string                        `pulumi:"tunnel1Phase2IntegrityAlgorithms"`
+	Tunnel1Phase2LifetimeSeconds        *int                            `pulumi:"tunnel1Phase2LifetimeSeconds"`
+	Tunnel1PresharedKey                 *string                         `pulumi:"tunnel1PresharedKey"`
+	Tunnel1RekeyFuzzPercentage          *int                            `pulumi:"tunnel1RekeyFuzzPercentage"`
+	Tunnel1RekeyMarginTimeSeconds       *int                            `pulumi:"tunnel1RekeyMarginTimeSeconds"`
+	Tunnel1ReplayWindowSize             *int                            `pulumi:"tunnel1ReplayWindowSize"`
+	Tunnel1StartupAction                *string                         `pulumi:"tunnel1StartupAction"`
+	Tunnel2DpdTimeoutAction             *string                         `pulumi:"tunnel2DpdTimeoutAction"`
+	Tunnel2DpdTimeoutSeconds            *int                            `pulumi:"tunnel2DpdTimeoutSeconds"`
+	Tunnel2EnableTunnelLifecycleControl *bool                           `pulumi:"tunnel2EnableTunnelLifecycleControl"`
+	Tunnel2IkeVersions                  []string                        `pulumi:"tunnel2IkeVersions"`
+	Tunnel2InsideCidr                   *string                         `pulumi:"tunnel2InsideCidr"`
+	Tunnel2InsideIpv6Cidr               *string                         `pulumi:"tunnel2InsideIpv6Cidr"`
+	Tunnel2LogOptions                   *VpnConnectionTunnel2LogOptions `pulumi:"tunnel2LogOptions"`
+	Tunnel2Phase1DhGroupNumbers         []int                           `pulumi:"tunnel2Phase1DhGroupNumbers"`
+	Tunnel2Phase1EncryptionAlgorithms   []string                        `pulumi:"tunnel2Phase1EncryptionAlgorithms"`
+	Tunnel2Phase1IntegrityAlgorithms    []string                        `pulumi:"tunnel2Phase1IntegrityAlgorithms"`
+	Tunnel2Phase1LifetimeSeconds        *int                            `pulumi:"tunnel2Phase1LifetimeSeconds"`
+	Tunnel2Phase2DhGroupNumbers         []int                           `pulumi:"tunnel2Phase2DhGroupNumbers"`
+	Tunnel2Phase2EncryptionAlgorithms   []string                        `pulumi:"tunnel2Phase2EncryptionAlgorithms"`
+	Tunnel2Phase2IntegrityAlgorithms    []string                        `pulumi:"tunnel2Phase2IntegrityAlgorithms"`
+	Tunnel2Phase2LifetimeSeconds        *int                            `pulumi:"tunnel2Phase2LifetimeSeconds"`
+	Tunnel2PresharedKey                 *string                         `pulumi:"tunnel2PresharedKey"`
+	Tunnel2RekeyFuzzPercentage          *int                            `pulumi:"tunnel2RekeyFuzzPercentage"`
+	Tunnel2RekeyMarginTimeSeconds       *int                            `pulumi:"tunnel2RekeyMarginTimeSeconds"`
+	Tunnel2ReplayWindowSize             *int                            `pulumi:"tunnel2ReplayWindowSize"`
+	Tunnel2StartupAction                *string                         `pulumi:"tunnel2StartupAction"`
+	TunnelBandwidth                     *string                         `pulumi:"tunnelBandwidth"`
+	TunnelInsideIpVersion               *string                         `pulumi:"tunnelInsideIpVersion"`
+	Type                                string                          `pulumi:"type"`
+	VpnConcentratorId                   *string                         `pulumi:"vpnConcentratorId"`
+	VpnGatewayId                        *string                         `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a VpnConnection resource.
 type VpnConnectionArgs struct {
-	// The ID of the customer gateway.
-	CustomerGatewayId pulumi.StringInput
-	// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
-	EnableAcceleration pulumi.BoolPtrInput
-	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv4NetworkCidr pulumi.StringPtrInput
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-	LocalIpv6NetworkCidr pulumi.StringPtrInput
-	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
-	OutsideIpAddressType pulumi.StringPtrInput
-	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
-	PresharedKeyStorage pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IPv4 CIDR on the AWS side of the VPN connection.
-	RemoteIpv4NetworkCidr pulumi.StringPtrInput
-	// The IPv6 CIDR on the AWS side of the VPN connection.
-	RemoteIpv6NetworkCidr pulumi.StringPtrInput
-	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of the EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringPtrInput
-	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+	CustomerGatewayId                   pulumi.StringInput
+	EnableAcceleration                  pulumi.BoolPtrInput
+	LocalIpv4NetworkCidr                pulumi.StringPtrInput
+	LocalIpv6NetworkCidr                pulumi.StringPtrInput
+	OutsideIpAddressType                pulumi.StringPtrInput
+	PresharedKeyStorage                 pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
+	RemoteIpv4NetworkCidr               pulumi.StringPtrInput
+	RemoteIpv6NetworkCidr               pulumi.StringPtrInput
+	StaticRoutesOnly                    pulumi.BoolPtrInput
+	Tags                                pulumi.StringMapInput
+	TransitGatewayId                    pulumi.StringPtrInput
 	TransportTransitGatewayAttachmentId pulumi.StringPtrInput
-	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel1DpdTimeoutAction pulumi.StringPtrInput
-	// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel1DpdTimeoutSeconds pulumi.IntPtrInput
-	// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+	Tunnel1DpdTimeoutAction             pulumi.StringPtrInput
+	Tunnel1DpdTimeoutSeconds            pulumi.IntPtrInput
 	Tunnel1EnableTunnelLifecycleControl pulumi.BoolPtrInput
-	// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel1IkeVersions pulumi.StringArrayInput
-	// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel1InsideCidr pulumi.StringPtrInput
-	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel1InsideIpv6Cidr pulumi.StringPtrInput
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel1LogOptions VpnConnectionTunnel1LogOptionsPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel1Phase1DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase1EncryptionAlgorithms pulumi.StringArrayInput
-	// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase1IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel1Phase1LifetimeSeconds pulumi.IntPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel1Phase2DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel1Phase2EncryptionAlgorithms pulumi.StringArrayInput
-	// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel1Phase2IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel1Phase2LifetimeSeconds pulumi.IntPtrInput
-	// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel1PresharedKey pulumi.StringPtrInput
-	// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel1RekeyFuzzPercentage pulumi.IntPtrInput
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
-	Tunnel1RekeyMarginTimeSeconds pulumi.IntPtrInput
-	// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel1ReplayWindowSize pulumi.IntPtrInput
-	// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel1StartupAction pulumi.StringPtrInput
-	// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
-	Tunnel2DpdTimeoutAction pulumi.StringPtrInput
-	// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
-	Tunnel2DpdTimeoutSeconds pulumi.IntPtrInput
-	// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+	Tunnel1IkeVersions                  pulumi.StringArrayInput
+	Tunnel1InsideCidr                   pulumi.StringPtrInput
+	Tunnel1InsideIpv6Cidr               pulumi.StringPtrInput
+	Tunnel1LogOptions                   VpnConnectionTunnel1LogOptionsPtrInput
+	Tunnel1Phase1DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel1Phase1EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel1Phase1IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel1Phase1LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel1Phase2DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel1Phase2EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel1Phase2IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel1Phase2LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel1PresharedKey                 pulumi.StringPtrInput
+	Tunnel1RekeyFuzzPercentage          pulumi.IntPtrInput
+	Tunnel1RekeyMarginTimeSeconds       pulumi.IntPtrInput
+	Tunnel1ReplayWindowSize             pulumi.IntPtrInput
+	Tunnel1StartupAction                pulumi.StringPtrInput
+	Tunnel2DpdTimeoutAction             pulumi.StringPtrInput
+	Tunnel2DpdTimeoutSeconds            pulumi.IntPtrInput
 	Tunnel2EnableTunnelLifecycleControl pulumi.BoolPtrInput
-	// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
-	Tunnel2IkeVersions pulumi.StringArrayInput
-	// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
-	Tunnel2InsideCidr pulumi.StringPtrInput
-	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
-	Tunnel2InsideIpv6Cidr pulumi.StringPtrInput
-	// Options for logging VPN tunnel activity. See Log Options below for more details.
-	Tunnel2LogOptions VpnConnectionTunnel2LogOptionsPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
-	Tunnel2Phase1DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase1EncryptionAlgorithms pulumi.StringArrayInput
-	// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase1IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
-	Tunnel2Phase1LifetimeSeconds pulumi.IntPtrInput
-	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
-	Tunnel2Phase2DhGroupNumbers pulumi.IntArrayInput
-	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
-	Tunnel2Phase2EncryptionAlgorithms pulumi.StringArrayInput
-	// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
-	Tunnel2Phase2IntegrityAlgorithms pulumi.StringArrayInput
-	// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
-	Tunnel2Phase2LifetimeSeconds pulumi.IntPtrInput
-	// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
-	Tunnel2PresharedKey pulumi.StringPtrInput
-	// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
-	Tunnel2RekeyFuzzPercentage pulumi.IntPtrInput
-	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
-	Tunnel2RekeyMarginTimeSeconds pulumi.IntPtrInput
-	// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
-	Tunnel2ReplayWindowSize pulumi.IntPtrInput
-	// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
-	Tunnel2StartupAction pulumi.StringPtrInput
-	// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
-	TunnelBandwidth pulumi.StringPtrInput
-	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
-	TunnelInsideIpVersion pulumi.StringPtrInput
-	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type pulumi.StringInput
-	// ID of the VPN concentrator to associate with the VPN connection.
-	VpnConcentratorId pulumi.StringPtrInput
-	// The ID of the Virtual Private Gateway.
-	VpnGatewayId pulumi.StringPtrInput
+	Tunnel2IkeVersions                  pulumi.StringArrayInput
+	Tunnel2InsideCidr                   pulumi.StringPtrInput
+	Tunnel2InsideIpv6Cidr               pulumi.StringPtrInput
+	Tunnel2LogOptions                   VpnConnectionTunnel2LogOptionsPtrInput
+	Tunnel2Phase1DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel2Phase1EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel2Phase1IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel2Phase1LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel2Phase2DhGroupNumbers         pulumi.IntArrayInput
+	Tunnel2Phase2EncryptionAlgorithms   pulumi.StringArrayInput
+	Tunnel2Phase2IntegrityAlgorithms    pulumi.StringArrayInput
+	Tunnel2Phase2LifetimeSeconds        pulumi.IntPtrInput
+	Tunnel2PresharedKey                 pulumi.StringPtrInput
+	Tunnel2RekeyFuzzPercentage          pulumi.IntPtrInput
+	Tunnel2RekeyMarginTimeSeconds       pulumi.IntPtrInput
+	Tunnel2ReplayWindowSize             pulumi.IntPtrInput
+	Tunnel2StartupAction                pulumi.StringPtrInput
+	TunnelBandwidth                     pulumi.StringPtrInput
+	TunnelInsideIpVersion               pulumi.StringPtrInput
+	Type                                pulumi.StringInput
+	VpnConcentratorId                   pulumi.StringPtrInput
+	VpnGatewayId                        pulumi.StringPtrInput
 }
 
 func (VpnConnectionArgs) ElementType() reflect.Type {
@@ -1046,387 +515,310 @@ func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the VPN Connection.
 func (o VpnConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the core network.
 func (o VpnConnectionOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the core network attachment.
 func (o VpnConnectionOutput) CoreNetworkAttachmentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.CoreNetworkAttachmentArn }).(pulumi.StringOutput)
 }
 
-// The configuration information for the VPN connection's customer gateway (in the native XML format).
 func (o VpnConnectionOutput) CustomerGatewayConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.CustomerGatewayConfiguration }).(pulumi.StringOutput)
 }
 
-// The ID of the customer gateway.
 func (o VpnConnectionOutput) CustomerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
 }
 
-// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
 func (o VpnConnectionOutput) EnableAcceleration() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.BoolOutput { return v.EnableAcceleration }).(pulumi.BoolOutput)
 }
 
-// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 func (o VpnConnectionOutput) LocalIpv4NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.LocalIpv4NetworkCidr }).(pulumi.StringOutput)
 }
 
-// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 func (o VpnConnectionOutput) LocalIpv6NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.LocalIpv6NetworkCidr }).(pulumi.StringOutput)
 }
 
-// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.OutsideIpAddressType }).(pulumi.StringOutput)
 }
 
-// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
 func (o VpnConnectionOutput) PresharedKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.PresharedKeyArn }).(pulumi.StringOutput)
 }
 
-// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
 func (o VpnConnectionOutput) PresharedKeyStorage() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.PresharedKeyStorage }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpnConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IPv4 CIDR on the AWS side of the VPN connection.
 func (o VpnConnectionOutput) RemoteIpv4NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.RemoteIpv4NetworkCidr }).(pulumi.StringOutput)
 }
 
-// The IPv6 CIDR on the AWS side of the VPN connection.
 func (o VpnConnectionOutput) RemoteIpv6NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.RemoteIpv6NetworkCidr }).(pulumi.StringOutput)
 }
 
-// The static routes associated with the VPN connection. Detailed below.
 func (o VpnConnectionOutput) Routes() VpnConnectionRouteTypeArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) VpnConnectionRouteTypeArrayOutput { return v.Routes }).(VpnConnectionRouteTypeArrayOutput)
 }
 
-// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 func (o VpnConnectionOutput) StaticRoutesOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.BoolOutput { return v.StaticRoutesOnly }).(pulumi.BoolOutput)
 }
 
-// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpnConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpnConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
 func (o VpnConnectionOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// The ID of the EC2 Transit Gateway.
 func (o VpnConnectionOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
 func (o VpnConnectionOutput) TransportTransitGatewayAttachmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.TransportTransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
-// The public IP address of the first VPN tunnel.
 func (o VpnConnectionOutput) Tunnel1Address() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1Address }).(pulumi.StringOutput)
 }
 
-// The bgp asn number of the first VPN tunnel.
 func (o VpnConnectionOutput) Tunnel1BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1BgpAsn }).(pulumi.StringOutput)
 }
 
-// The bgp holdtime of the first VPN tunnel.
 func (o VpnConnectionOutput) Tunnel1BgpHoldtime() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntOutput { return v.Tunnel1BgpHoldtime }).(pulumi.IntOutput)
 }
 
-// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
 func (o VpnConnectionOutput) Tunnel1CgwInsideAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1CgwInsideAddress }).(pulumi.StringOutput)
 }
 
-// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
 func (o VpnConnectionOutput) Tunnel1DpdTimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.Tunnel1DpdTimeoutAction }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
 func (o VpnConnectionOutput) Tunnel1DpdTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel1DpdTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
 func (o VpnConnectionOutput) Tunnel1EnableTunnelLifecycleControl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.BoolPtrOutput { return v.Tunnel1EnableTunnelLifecycleControl }).(pulumi.BoolPtrOutput)
 }
 
-// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
 func (o VpnConnectionOutput) Tunnel1IkeVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel1IkeVersions }).(pulumi.StringArrayOutput)
 }
 
-// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
 func (o VpnConnectionOutput) Tunnel1InsideCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1InsideCidr }).(pulumi.StringOutput)
 }
 
-// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 func (o VpnConnectionOutput) Tunnel1InsideIpv6Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1InsideIpv6Cidr }).(pulumi.StringOutput)
 }
 
-// Options for logging VPN tunnel activity. See Log Options below for more details.
 func (o VpnConnectionOutput) Tunnel1LogOptions() VpnConnectionTunnel1LogOptionsOutput {
 	return o.ApplyT(func(v *VpnConnection) VpnConnectionTunnel1LogOptionsOutput { return v.Tunnel1LogOptions }).(VpnConnectionTunnel1LogOptionsOutput)
 }
 
-// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 func (o VpnConnectionOutput) Tunnel1Phase1DhGroupNumbers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntArrayOutput { return v.Tunnel1Phase1DhGroupNumbers }).(pulumi.IntArrayOutput)
 }
 
-// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
 func (o VpnConnectionOutput) Tunnel1Phase1EncryptionAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel1Phase1EncryptionAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
 func (o VpnConnectionOutput) Tunnel1Phase1IntegrityAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel1Phase1IntegrityAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
 func (o VpnConnectionOutput) Tunnel1Phase1LifetimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel1Phase1LifetimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
 func (o VpnConnectionOutput) Tunnel1Phase2DhGroupNumbers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntArrayOutput { return v.Tunnel1Phase2DhGroupNumbers }).(pulumi.IntArrayOutput)
 }
 
-// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
 func (o VpnConnectionOutput) Tunnel1Phase2EncryptionAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel1Phase2EncryptionAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
 func (o VpnConnectionOutput) Tunnel1Phase2IntegrityAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel1Phase2IntegrityAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
 func (o VpnConnectionOutput) Tunnel1Phase2LifetimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel1Phase2LifetimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
 func (o VpnConnectionOutput) Tunnel1PresharedKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1PresharedKey }).(pulumi.StringOutput)
 }
 
-// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
 func (o VpnConnectionOutput) Tunnel1RekeyFuzzPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel1RekeyFuzzPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
 func (o VpnConnectionOutput) Tunnel1RekeyMarginTimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel1RekeyMarginTimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
 func (o VpnConnectionOutput) Tunnel1ReplayWindowSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel1ReplayWindowSize }).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
 func (o VpnConnectionOutput) Tunnel1StartupAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.Tunnel1StartupAction }).(pulumi.StringPtrOutput)
 }
 
-// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
 func (o VpnConnectionOutput) Tunnel1VgwInsideAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1VgwInsideAddress }).(pulumi.StringOutput)
 }
 
-// The public IP address of the second VPN tunnel.
 func (o VpnConnectionOutput) Tunnel2Address() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2Address }).(pulumi.StringOutput)
 }
 
-// The bgp asn number of the second VPN tunnel.
 func (o VpnConnectionOutput) Tunnel2BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2BgpAsn }).(pulumi.StringOutput)
 }
 
-// The bgp holdtime of the second VPN tunnel.
 func (o VpnConnectionOutput) Tunnel2BgpHoldtime() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntOutput { return v.Tunnel2BgpHoldtime }).(pulumi.IntOutput)
 }
 
-// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
 func (o VpnConnectionOutput) Tunnel2CgwInsideAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2CgwInsideAddress }).(pulumi.StringOutput)
 }
 
-// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
 func (o VpnConnectionOutput) Tunnel2DpdTimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.Tunnel2DpdTimeoutAction }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
 func (o VpnConnectionOutput) Tunnel2DpdTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel2DpdTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
 func (o VpnConnectionOutput) Tunnel2EnableTunnelLifecycleControl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.BoolPtrOutput { return v.Tunnel2EnableTunnelLifecycleControl }).(pulumi.BoolPtrOutput)
 }
 
-// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
 func (o VpnConnectionOutput) Tunnel2IkeVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel2IkeVersions }).(pulumi.StringArrayOutput)
 }
 
-// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
 func (o VpnConnectionOutput) Tunnel2InsideCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2InsideCidr }).(pulumi.StringOutput)
 }
 
-// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 func (o VpnConnectionOutput) Tunnel2InsideIpv6Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2InsideIpv6Cidr }).(pulumi.StringOutput)
 }
 
-// Options for logging VPN tunnel activity. See Log Options below for more details.
 func (o VpnConnectionOutput) Tunnel2LogOptions() VpnConnectionTunnel2LogOptionsOutput {
 	return o.ApplyT(func(v *VpnConnection) VpnConnectionTunnel2LogOptionsOutput { return v.Tunnel2LogOptions }).(VpnConnectionTunnel2LogOptionsOutput)
 }
 
-// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 func (o VpnConnectionOutput) Tunnel2Phase1DhGroupNumbers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntArrayOutput { return v.Tunnel2Phase1DhGroupNumbers }).(pulumi.IntArrayOutput)
 }
 
-// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
 func (o VpnConnectionOutput) Tunnel2Phase1EncryptionAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel2Phase1EncryptionAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
 func (o VpnConnectionOutput) Tunnel2Phase1IntegrityAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel2Phase1IntegrityAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
 func (o VpnConnectionOutput) Tunnel2Phase1LifetimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel2Phase1LifetimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
 func (o VpnConnectionOutput) Tunnel2Phase2DhGroupNumbers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntArrayOutput { return v.Tunnel2Phase2DhGroupNumbers }).(pulumi.IntArrayOutput)
 }
 
-// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
 func (o VpnConnectionOutput) Tunnel2Phase2EncryptionAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel2Phase2EncryptionAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
 func (o VpnConnectionOutput) Tunnel2Phase2IntegrityAlgorithms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringArrayOutput { return v.Tunnel2Phase2IntegrityAlgorithms }).(pulumi.StringArrayOutput)
 }
 
-// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
 func (o VpnConnectionOutput) Tunnel2Phase2LifetimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel2Phase2LifetimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
 func (o VpnConnectionOutput) Tunnel2PresharedKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2PresharedKey }).(pulumi.StringOutput)
 }
 
-// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
 func (o VpnConnectionOutput) Tunnel2RekeyFuzzPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel2RekeyFuzzPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
 func (o VpnConnectionOutput) Tunnel2RekeyMarginTimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel2RekeyMarginTimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
 func (o VpnConnectionOutput) Tunnel2ReplayWindowSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.Tunnel2ReplayWindowSize }).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
 func (o VpnConnectionOutput) Tunnel2StartupAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.Tunnel2StartupAction }).(pulumi.StringPtrOutput)
 }
 
-// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 func (o VpnConnectionOutput) Tunnel2VgwInsideAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2VgwInsideAddress }).(pulumi.StringOutput)
 }
 
-// Desired bandwidth specification for the VPN tunnel. Valid values are `standard | large`. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. Not supported when `vpnGatewayId` is specified, or `enableAcceleration` is `true`.
 func (o VpnConnectionOutput) TunnelBandwidth() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.TunnelBandwidth }).(pulumi.StringOutput)
 }
 
-// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
 func (o VpnConnectionOutput) TunnelInsideIpVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.TunnelInsideIpVersion }).(pulumi.StringOutput)
 }
 
-// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 func (o VpnConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Telemetry for the VPN tunnels. Detailed below.
 func (o VpnConnectionOutput) VgwTelemetries() VpnConnectionVgwTelemetryArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) VpnConnectionVgwTelemetryArrayOutput { return v.VgwTelemetries }).(VpnConnectionVgwTelemetryArrayOutput)
 }
 
-// ID of the VPN concentrator to associate with the VPN connection.
 func (o VpnConnectionOutput) VpnConcentratorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.VpnConcentratorId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Virtual Private Gateway.
 func (o VpnConnectionOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }

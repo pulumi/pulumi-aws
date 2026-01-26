@@ -7,52 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
- *
- * > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- * });
- * const examplePolicy = new aws.iam.Policy("example", {
- *     name: "TestPolicy",
- *     description: "My test policy",
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * const exampleCustomerManagedPolicyAttachment = new aws.ssoadmin.CustomerManagedPolicyAttachment("example", {
- *     instanceArn: examplePermissionSet.instanceArn,
- *     permissionSetArn: examplePermissionSet.arn,
- *     customerManagedPolicyReference: {
- *         name: examplePolicy.name,
- *         path: "/",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- */
 export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing CustomerManagedPolicyAttachment resource's state with the given name, ID, and optional extra
@@ -81,21 +35,9 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomerManagedPolicyAttachment.__pulumiType;
     }
 
-    /**
-     * Specifies the name and path of a customer managed policy. See below.
-     */
     declare public readonly customerManagedPolicyReference: pulumi.Output<outputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     declare public readonly instanceArn: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     declare public readonly permissionSetArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -140,21 +82,9 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomerManagedPolicyAttachment resources.
  */
 export interface CustomerManagedPolicyAttachmentState {
-    /**
-     * Specifies the name and path of a customer managed policy. See below.
-     */
     customerManagedPolicyReference?: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     instanceArn?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     permissionSetArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -162,20 +92,8 @@ export interface CustomerManagedPolicyAttachmentState {
  * The set of arguments for constructing a CustomerManagedPolicyAttachment resource.
  */
 export interface CustomerManagedPolicyAttachmentArgs {
-    /**
-     * Specifies the name and path of a customer managed policy. See below.
-     */
     customerManagedPolicyReference: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     instanceArn: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     permissionSetArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -15,155 +15,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS SESv2 (Simple Email V2) Tenant.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.Tenant;
- * import com.pulumi.aws.sesv2.TenantArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Tenant("example", TenantArgs.builder()
- *             .tenantName("example-tenant")
- *             .tags(Map.of("Environment", "test"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import an SESv2 Tenant using the `tenant_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sesv2/tenant:Tenant example example-tenant
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/tenant:Tenant")
 public class Tenant extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Current sending status of the tenant.
-     * 
-     */
     @Export(name="sendingStatus", refs={String.class}, tree="[0]")
     private Output<String> sendingStatus;
 
-    /**
-     * @return Current sending status of the tenant.
-     * 
-     */
     public Output<String> sendingStatus() {
         return this.sendingStatus;
     }
-    /**
-     * Map of tags to assign to the tenant.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the tenant.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the tenant, including provider default tags.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the tenant, including provider default tags.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the Tenant.
-     * 
-     */
     @Export(name="tenantArn", refs={String.class}, tree="[0]")
     private Output<String> tenantArn;
 
-    /**
-     * @return ARN of the Tenant.
-     * 
-     */
     public Output<String> tenantArn() {
         return this.tenantArn;
     }
-    /**
-     * ID of the Tenant.
-     * 
-     */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
-    /**
-     * @return ID of the Tenant.
-     * 
-     */
     public Output<String> tenantId() {
         return this.tenantId;
     }
-    /**
-     * Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="tenantName", refs={String.class}, tree="[0]")
     private Output<String> tenantName;
 
-    /**
-     * @return Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> tenantName() {
         return this.tenantName;
     }

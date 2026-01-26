@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class RefreshScheduleScheduleScheduleFrequency
     {
-        /// <summary>
-        /// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
-        /// </summary>
         public readonly string Interval;
-        /// <summary>
-        /// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
-        /// </summary>
         public readonly Outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay? RefreshOnDay;
-        /// <summary>
-        /// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
-        /// </summary>
         public readonly string? TimeOfTheDay;
-        /// <summary>
-        /// The timezone that you want the refresh schedule to use.
-        /// </summary>
         public readonly string? Timezone;
 
         [OutputConstructor]

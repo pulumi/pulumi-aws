@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Connect User Hierarchy Structure
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupUserHierarchyStructure(ctx, &connect.LookupUserHierarchyStructureArgs{
-//				InstanceId: testAwsConnectInstance.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUserHierarchyStructure(ctx *pulumi.Context, args *LookupUserHierarchyStructureArgs, opts ...pulumi.InvokeOption) (*LookupUserHierarchyStructureResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserHierarchyStructureResult
@@ -50,15 +23,12 @@ func LookupUserHierarchyStructure(ctx *pulumi.Context, args *LookupUserHierarchy
 
 // A collection of arguments for invoking getUserHierarchyStructure.
 type LookupUserHierarchyStructureArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceId string  `pulumi:"instanceId"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getUserHierarchyStructure.
 type LookupUserHierarchyStructureResult struct {
-	// Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructures []GetUserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructures"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -77,10 +47,8 @@ func LookupUserHierarchyStructureOutput(ctx *pulumi.Context, args LookupUserHier
 
 // A collection of arguments for invoking getUserHierarchyStructure.
 type LookupUserHierarchyStructureOutputArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	InstanceId pulumi.StringInput    `pulumi:"instanceId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupUserHierarchyStructureOutputArgs) ElementType() reflect.Type {
@@ -102,7 +70,6 @@ func (o LookupUserHierarchyStructureResultOutput) ToLookupUserHierarchyStructure
 	return o
 }
 
-// Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 func (o LookupUserHierarchyStructureResultOutput) HierarchyStructures() GetUserHierarchyStructureHierarchyStructureArrayOutput {
 	return o.ApplyT(func(v LookupUserHierarchyStructureResult) []GetUserHierarchyStructureHierarchyStructure {
 		return v.HierarchyStructures

@@ -15,62 +15,30 @@ public final class ApplicationAssignmentState extends com.pulumi.resources.Resou
 
     public static final ApplicationAssignmentState Empty = new ApplicationAssignmentState();
 
-    /**
-     * ARN of the application.
-     * 
-     */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public Optional<Output<String>> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
 
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public Optional<Output<String>> principalId() {
         return Optional.ofNullable(this.principalId);
     }
 
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public Optional<Output<String>> principalType() {
         return Optional.ofNullable(this.principalType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,86 +70,38 @@ public final class ApplicationAssignmentState extends com.pulumi.resources.Resou
             $ = new ApplicationAssignmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(@Nullable Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(@Nullable Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(@Nullable Output<String> principalType) {
             $.principalType = principalType;
             return this;
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

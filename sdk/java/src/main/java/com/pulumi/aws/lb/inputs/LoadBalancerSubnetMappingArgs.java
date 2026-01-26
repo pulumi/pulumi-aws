@@ -16,32 +16,16 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
 
     public static final LoadBalancerSubnetMappingArgs Empty = new LoadBalancerSubnetMappingArgs();
 
-    /**
-     * Allocation ID of the Elastic IP address for an internet-facing load balancer.
-     * 
-     */
     @Import(name="allocationId")
     private @Nullable Output<String> allocationId;
 
-    /**
-     * @return Allocation ID of the Elastic IP address for an internet-facing load balancer.
-     * 
-     */
     public Optional<Output<String>> allocationId() {
         return Optional.ofNullable(this.allocationId);
     }
 
-    /**
-     * IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-     * 
-     */
     @Import(name="ipv6Address")
     private @Nullable Output<String> ipv6Address;
 
-    /**
-     * @return IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-     * 
-     */
     public Optional<Output<String>> ipv6Address() {
         return Optional.ofNullable(this.ipv6Address);
     }
@@ -53,32 +37,16 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.outpostId);
     }
 
-    /**
-     * Private IPv4 address for an internal load balancer.
-     * 
-     */
     @Import(name="privateIpv4Address")
     private @Nullable Output<String> privateIpv4Address;
 
-    /**
-     * @return Private IPv4 address for an internal load balancer.
-     * 
-     */
     public Optional<Output<String>> privateIpv4Address() {
         return Optional.ofNullable(this.privateIpv4Address);
     }
 
-    /**
-     * ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -111,44 +79,20 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
             $ = new LoadBalancerSubnetMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationId Allocation ID of the Elastic IP address for an internet-facing load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(@Nullable Output<String> allocationId) {
             $.allocationId = allocationId;
             return this;
         }
 
-        /**
-         * @param allocationId Allocation ID of the Elastic IP address for an internet-facing load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(String allocationId) {
             return allocationId(Output.of(allocationId));
         }
 
-        /**
-         * @param ipv6Address IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Address(@Nullable Output<String> ipv6Address) {
             $.ipv6Address = ipv6Address;
             return this;
         }
 
-        /**
-         * @param ipv6Address IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Address(String ipv6Address) {
             return ipv6Address(Output.of(ipv6Address));
         }
@@ -162,44 +106,20 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
             return outpostId(Output.of(outpostId));
         }
 
-        /**
-         * @param privateIpv4Address Private IPv4 address for an internal load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpv4Address(@Nullable Output<String> privateIpv4Address) {
             $.privateIpv4Address = privateIpv4Address;
             return this;
         }
 
-        /**
-         * @param privateIpv4Address Private IPv4 address for an internal load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpv4Address(String privateIpv4Address) {
             return privateIpv4Address(Output.of(privateIpv4Address));
         }
 
-        /**
-         * @param subnetId ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

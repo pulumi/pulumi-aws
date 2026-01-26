@@ -17,34 +17,16 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs exten
 
     public static final RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs Empty = new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs();
 
-    /**
-     * Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-     * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-     * 
-     */
     @Import(name="keyword", required=true)
     private Output<String> keyword;
 
-    /**
-     * @return Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-     * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-     * 
-     */
     public Output<String> keyword() {
         return this.keyword;
     }
 
-    /**
-     * Set of strings for additional settings to use in stateful rule inspection.
-     * 
-     */
     @Import(name="settings")
     private @Nullable Output<List<String>> settings;
 
-    /**
-     * @return Set of strings for additional settings to use in stateful rule inspection.
-     * 
-     */
     public Optional<Output<List<String>>> settings() {
         return Optional.ofNullable(this.settings);
     }
@@ -74,56 +56,24 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs exten
             $ = new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyword Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-         * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyword(Output<String> keyword) {
             $.keyword = keyword;
             return this;
         }
 
-        /**
-         * @param keyword Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-         * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyword(String keyword) {
             return keyword(Output.of(keyword));
         }
 
-        /**
-         * @param settings Set of strings for additional settings to use in stateful rule inspection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(@Nullable Output<List<String>> settings) {
             $.settings = settings;
             return this;
         }
 
-        /**
-         * @param settings Set of strings for additional settings to use in stateful rule inspection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(List<String> settings) {
             return settings(Output.of(settings));
         }
 
-        /**
-         * @param settings Set of strings for additional settings to use in stateful rule inspection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(String... settings) {
             return settings(List.of(settings));
         }

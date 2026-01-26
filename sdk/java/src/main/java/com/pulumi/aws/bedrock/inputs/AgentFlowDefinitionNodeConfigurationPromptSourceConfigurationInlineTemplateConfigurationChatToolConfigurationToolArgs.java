@@ -16,32 +16,16 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs();
 
-    /**
-     * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-     * 
-     */
     @Import(name="cachePoint")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs> cachePoint;
 
-    /**
-     * @return Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs>> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
 
-    /**
-     * The specification for the tool. See Tool Specification for more information.
-     * 
-     */
     @Import(name="toolSpec")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs> toolSpec;
 
-    /**
-     * @return The specification for the tool. See Tool Specification for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs>> toolSpec() {
         return Optional.ofNullable(this.toolSpec);
     }
@@ -71,44 +55,20 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cachePoint Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachePoint(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs> cachePoint) {
             $.cachePoint = cachePoint;
             return this;
         }
 
-        /**
-         * @param cachePoint Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachePoint(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs cachePoint) {
             return cachePoint(Output.of(cachePoint));
         }
 
-        /**
-         * @param toolSpec The specification for the tool. See Tool Specification for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolSpec(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs> toolSpec) {
             $.toolSpec = toolSpec;
             return this;
         }
 
-        /**
-         * @param toolSpec The specification for the tool. See Tool Specification for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolSpec(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs toolSpec) {
             return toolSpec(Output.of(toolSpec));
         }

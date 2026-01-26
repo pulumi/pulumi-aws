@@ -28,12 +28,6 @@ class ResourcePolicyArgs:
                  timeouts: Optional[pulumi.Input['ResourcePolicyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -47,11 +41,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[_builtins.str]:
-        """
-        The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -61,9 +50,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the workspace to attach the resource-based policy to.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -73,9 +59,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -85,9 +68,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The revision ID of the current resource-based policy.
-        """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
@@ -114,12 +94,6 @@ class _ResourcePolicyState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
         """
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
@@ -135,11 +109,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -149,9 +118,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -161,9 +127,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The revision ID of the current resource-based policy.
-        """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
@@ -182,9 +145,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the workspace to attach the resource-based policy to.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -205,123 +165,9 @@ class ResourcePolicy(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Resource Policy.
-
-        Resource-based policies allow you to grant permissions to other AWS accounts or services to access your Prometheus workspace. This enables cross-account access and fine-grained permissions for workspace sharing.
-
-        ## Example Usage
-
-        ### Basic Resource Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_workspace = aws.amp.Workspace("example", alias="example-workspace")
-        current = aws.get_caller_identity()
-        example = example_workspace.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [current.account_id],
-            }],
-            "actions": [
-                "aps:RemoteWrite",
-                "aps:QueryMetrics",
-                "aps:GetSeries",
-                "aps:GetLabels",
-                "aps:GetMetricMetadata",
-            ],
-            "resources": [arn],
-        }]))
-        example_resource_policy = aws.amp.ResourcePolicy("example",
-            workspace_id=example_workspace.id,
-            policy_document=example.json)
-        ```
-
-        ### Cross-Account Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amp.Workspace("example", alias="example-workspace")
-        cross_account = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["arn:aws:iam::123456789012:root"],
-            }],
-            "actions": [
-                "aps:RemoteWrite",
-                "aps:QueryMetrics",
-            ],
-            "resources": [example.arn],
-        }])
-        cross_account_resource_policy = aws.amp.ResourcePolicy("cross_account",
-            workspace_id=example.id,
-            policy_document=cross_account.json)
-        ```
-
-        ### Service-Specific Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amp.Workspace("example", alias="example-workspace")
-        service_access = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["grafana.amazonaws.com"],
-            }],
-            "actions": [
-                "aps:QueryMetrics",
-                "aps:GetSeries",
-                "aps:GetLabels",
-                "aps:GetMetricMetadata",
-            ],
-            "resources": [example.arn],
-        }])
-        service_access_resource_policy = aws.amp.ResourcePolicy("service_access",
-            workspace_id=example.id,
-            policy_document=service_access.json)
-        ```
-
-        ## Supported Actions
-
-        The following actions are supported in resource policies for Prometheus workspaces:
-
-        * `aps:RemoteWrite` - Allows writing metrics to the workspace
-        * `aps:QueryMetrics` - Allows querying metrics from the workspace
-        * `aps:GetSeries` - Allows retrieving time series data
-        * `aps:GetLabels` - Allows retrieving label names and values
-        * `aps:GetMetricMetadata` - Allows retrieving metric metadata
-
-        ## Notes
-
-        * Only Prometheus-compatible APIs can be used for workspace sharing. Non-Prometheus-compatible APIs added to the policy will be ignored.
-        * If your workspace uses customer-managed KMS keys for encryption, you must grant the principals in your resource-based policy access to those KMS keys through KMS grants.
-        * The resource ARN in the policy document must match the workspace ARN that the policy is being attached to.
-        * Resource policies enable cross-account access and fine-grained permissions for Prometheus workspaces.
-
-        ## Import
-
-        Using `pulumi import`, import AMP Resource Policies using the workspace ID. For example:
-
-        ```sh
-        $ pulumi import aws:amp/resourcePolicy:ResourcePolicy example ws-12345678-90ab-cdef-1234-567890abcdef
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
         """
         ...
     @overload
@@ -330,115 +176,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Resource Policy.
-
-        Resource-based policies allow you to grant permissions to other AWS accounts or services to access your Prometheus workspace. This enables cross-account access and fine-grained permissions for workspace sharing.
-
-        ## Example Usage
-
-        ### Basic Resource Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_workspace = aws.amp.Workspace("example", alias="example-workspace")
-        current = aws.get_caller_identity()
-        example = example_workspace.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [current.account_id],
-            }],
-            "actions": [
-                "aps:RemoteWrite",
-                "aps:QueryMetrics",
-                "aps:GetSeries",
-                "aps:GetLabels",
-                "aps:GetMetricMetadata",
-            ],
-            "resources": [arn],
-        }]))
-        example_resource_policy = aws.amp.ResourcePolicy("example",
-            workspace_id=example_workspace.id,
-            policy_document=example.json)
-        ```
-
-        ### Cross-Account Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amp.Workspace("example", alias="example-workspace")
-        cross_account = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["arn:aws:iam::123456789012:root"],
-            }],
-            "actions": [
-                "aps:RemoteWrite",
-                "aps:QueryMetrics",
-            ],
-            "resources": [example.arn],
-        }])
-        cross_account_resource_policy = aws.amp.ResourcePolicy("cross_account",
-            workspace_id=example.id,
-            policy_document=cross_account.json)
-        ```
-
-        ### Service-Specific Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amp.Workspace("example", alias="example-workspace")
-        service_access = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["grafana.amazonaws.com"],
-            }],
-            "actions": [
-                "aps:QueryMetrics",
-                "aps:GetSeries",
-                "aps:GetLabels",
-                "aps:GetMetricMetadata",
-            ],
-            "resources": [example.arn],
-        }])
-        service_access_resource_policy = aws.amp.ResourcePolicy("service_access",
-            workspace_id=example.id,
-            policy_document=service_access.json)
-        ```
-
-        ## Supported Actions
-
-        The following actions are supported in resource policies for Prometheus workspaces:
-
-        * `aps:RemoteWrite` - Allows writing metrics to the workspace
-        * `aps:QueryMetrics` - Allows querying metrics from the workspace
-        * `aps:GetSeries` - Allows retrieving time series data
-        * `aps:GetLabels` - Allows retrieving label names and values
-        * `aps:GetMetricMetadata` - Allows retrieving metric metadata
-
-        ## Notes
-
-        * Only Prometheus-compatible APIs can be used for workspace sharing. Non-Prometheus-compatible APIs added to the policy will be ignored.
-        * If your workspace uses customer-managed KMS keys for encryption, you must grant the principals in your resource-based policy access to those KMS keys through KMS grants.
-        * The resource ARN in the policy document must match the workspace ARN that the policy is being attached to.
-        * Resource policies enable cross-account access and fine-grained permissions for Prometheus workspaces.
-
-        ## Import
-
-        Using `pulumi import`, import AMP Resource Policies using the workspace ID. For example:
-
-        ```sh
-        $ pulumi import aws:amp/resourcePolicy:ResourcePolicy example ws-12345678-90ab-cdef-1234-567890abcdef
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -499,12 +237,6 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -520,27 +252,16 @@ class ResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[_builtins.str]:
-        """
-        The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "policy_document")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The revision ID of the current resource-based policy.
-        """
         return pulumi.get(self, "revision_id")
 
     @_builtins.property
@@ -551,8 +272,5 @@ class ResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the workspace to attach the resource-based policy to.
-        """
         return pulumi.get(self, "workspace_id")
 

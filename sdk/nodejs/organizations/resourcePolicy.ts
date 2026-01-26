@@ -4,56 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.ResourcePolicy("example", {content: `{
- *   \\"Version\\": \\"2012-10-17\\",
- *   \\"Statement\\": [
- *     {
- *       \\"Sid\\": \\"DelegatingNecessaryDescribeListActions\\",
- *       \\"Effect\\": \\"Allow\\",
- *       \\"Principal\\": {
- *         \\"AWS\\": \\"arn:aws:iam::123456789012:root\\"
- *       },
- *       \\"Action\\": [
- *         \\"organizations:DescribeOrganization\\",
- *         \\"organizations:DescribeOrganizationalUnit\\",
- *         \\"organizations:DescribeAccount\\",
- *         \\"organizations:DescribePolicy\\",
- *         \\"organizations:DescribeEffectivePolicy\\",
- *         \\"organizations:ListRoots\\",
- *         \\"organizations:ListOrganizationalUnitsForParent\\",
- *         \\"organizations:ListParents\\",
- *         \\"organizations:ListChildren\\",
- *         \\"organizations:ListAccounts\\",
- *         \\"organizations:ListAccountsForParent\\",
- *         \\"organizations:ListPolicies\\",
- *         \\"organizations:ListPoliciesForTarget\\",
- *         \\"organizations:ListTargetsForPolicy\\",
- *         \\"organizations:ListTagsForResource\\"
- *       ],
- *       \\"Resource\\": \\"*\\"
- *     }
- *   ]
- * }
- * `});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
- *
- * ```sh
- * $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
- * ```
- */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResourcePolicy resource's state with the given name, ID, and optional extra
@@ -82,21 +32,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the resource policy.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-     */
     declare public readonly content: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -135,21 +73,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
-    /**
-     * Amazon Resource Name (ARN) of the resource policy.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-     */
     content?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -157,12 +83,6 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
-    /**
-     * Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-     */
     content: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

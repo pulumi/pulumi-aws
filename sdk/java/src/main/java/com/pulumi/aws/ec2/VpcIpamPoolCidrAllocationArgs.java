@@ -18,92 +18,44 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
 
     public static final VpcIpamPoolCidrAllocationArgs Empty = new VpcIpamPoolCidrAllocationArgs();
 
-    /**
-     * The CIDR you want to assign to the pool.
-     * 
-     */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
-    /**
-     * @return The CIDR you want to assign to the pool.
-     * 
-     */
     public Optional<Output<String>> cidr() {
         return Optional.ofNullable(this.cidr);
     }
 
-    /**
-     * The description for the allocation.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description for the allocation.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     * 
-     */
     @Import(name="disallowedCidrs")
     private @Nullable Output<List<String>> disallowedCidrs;
 
-    /**
-     * @return Exclude a particular CIDR range from being returned by the pool.
-     * 
-     */
     public Optional<Output<List<String>>> disallowedCidrs() {
         return Optional.ofNullable(this.disallowedCidrs);
     }
 
-    /**
-     * The ID of the pool to which you want to assign a CIDR.
-     * 
-     */
     @Import(name="ipamPoolId", required=true)
     private Output<String> ipamPoolId;
 
-    /**
-     * @return The ID of the pool to which you want to assign a CIDR.
-     * 
-     */
     public Output<String> ipamPoolId() {
         return this.ipamPoolId;
     }
 
-    /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-     * 
-     */
     @Import(name="netmaskLength")
     private @Nullable Output<Integer> netmaskLength;
 
-    /**
-     * @return The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-     * 
-     */
     public Optional<Output<Integer>> netmaskLength() {
         return Optional.ofNullable(this.netmaskLength);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -137,138 +89,60 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
             $ = new VpcIpamPoolCidrAllocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidr The CIDR you want to assign to the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(@Nullable Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
-        /**
-         * @param cidr The CIDR you want to assign to the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }
 
-        /**
-         * @param description The description for the allocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description for the allocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disallowedCidrs(@Nullable Output<List<String>> disallowedCidrs) {
             $.disallowedCidrs = disallowedCidrs;
             return this;
         }
 
-        /**
-         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disallowedCidrs(List<String> disallowedCidrs) {
             return disallowedCidrs(Output.of(disallowedCidrs));
         }
 
-        /**
-         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disallowedCidrs(String... disallowedCidrs) {
             return disallowedCidrs(List.of(disallowedCidrs));
         }
 
-        /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(Output<String> ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;
         }
 
-        /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(String ipamPoolId) {
             return ipamPoolId(Output.of(ipamPoolId));
         }
 
-        /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder netmaskLength(@Nullable Output<Integer> netmaskLength) {
             $.netmaskLength = netmaskLength;
             return this;
         }
 
-        /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder netmaskLength(Integer netmaskLength) {
             return netmaskLength(Output.of(netmaskLength));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

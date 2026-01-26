@@ -12,9 +12,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class OutboundConnectionConnectionPropertiesCrossClusterSearchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-        /// </summary>
         [Input("skipUnavailable")]
         public Input<string>? SkipUnavailable { get; set; }
 

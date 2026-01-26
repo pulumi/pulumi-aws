@@ -12,113 +12,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInferenceProfilesInferenceProfileSummary {
-    /**
-     * @return Time at which the inference profile was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Description of the inference profile.
-     * 
-     */
     private String description;
-    /**
-     * @return Amazon Resource Name (ARN) of the inference profile.
-     * 
-     */
     private String inferenceProfileArn;
-    /**
-     * @return Unique identifier of the inference profile.
-     * 
-     */
     private String inferenceProfileId;
-    /**
-     * @return Name of the inference profile.
-     * 
-     */
     private String inferenceProfileName;
-    /**
-     * @return List of information about each model in the inference profile. See `models` Block.
-     * 
-     */
     private List<GetInferenceProfilesInferenceProfileSummaryModel> models;
-    /**
-     * @return Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-     * 
-     */
     private String status;
-    /**
-     * @return Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-     * 
-     */
     private String type;
-    /**
-     * @return Time at which the inference profile was last updated.
-     * 
-     */
     private String updatedAt;
 
     private GetInferenceProfilesInferenceProfileSummary() {}
-    /**
-     * @return Time at which the inference profile was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Description of the inference profile.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the inference profile.
-     * 
-     */
     public String inferenceProfileArn() {
         return this.inferenceProfileArn;
     }
-    /**
-     * @return Unique identifier of the inference profile.
-     * 
-     */
     public String inferenceProfileId() {
         return this.inferenceProfileId;
     }
-    /**
-     * @return Name of the inference profile.
-     * 
-     */
     public String inferenceProfileName() {
         return this.inferenceProfileName;
     }
-    /**
-     * @return List of information about each model in the inference profile. See `models` Block.
-     * 
-     */
     public List<GetInferenceProfilesInferenceProfileSummaryModel> models() {
         return this.models;
     }
-    /**
-     * @return Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Time at which the inference profile was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

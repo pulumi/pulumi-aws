@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation {
-    /**
-     * @return The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-     * 
-     */
     private String edgeLocation;
-    /**
-     * @return The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-     * 
-     */
     private String peerEdgeLocation;
-    /**
-     * @return A set of routing policy names to apply to this edge location pair.
-     * 
-     */
     private List<String> routingPolicyNames;
 
     private GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation() {}
-    /**
-     * @return The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-     * 
-     */
     public String edgeLocation() {
         return this.edgeLocation;
     }
-    /**
-     * @return The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-     * 
-     */
     public String peerEdgeLocation() {
         return this.peerEdgeLocation;
     }
-    /**
-     * @return A set of routing policy names to apply to this edge location pair.
-     * 
-     */
     public List<String> routingPolicyNames() {
         return this.routingPolicyNames;
     }

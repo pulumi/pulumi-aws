@@ -4,67 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS EC2 Image Builder Workflow.
- *
- * > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.Workflow("example", {
- *     name: "example",
- *     version: "1.0.0",
- *     type: "TEST",
- *     data: `name: example
- * description: Workflow to test an image
- * schemaVersion: 1.0
- *
- * parameters:
- *   - name: waitForActionAtEnd
- *     type: boolean
- *
- * steps:
- *   - name: LaunchTestInstance
- *     action: LaunchInstance
- *     onFailure: Abort
- *     inputs:
- *       waitFor: \\"ssmAgent\\"
- *
- *   - name: TerminateTestInstance
- *     action: TerminateInstance
- *     onFailure: Continue
- *     inputs:
- *       instanceId.: \\".stepOutputs.LaunchTestInstance.instanceId\\"
- *
- *   - name: WaitForActionAtEnd
- *     action: WaitForAction
- *     if:
- *       booleanEquals: true
- *       value: \\".parameters.waitForActionAtEnd\\"
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
- *
- * Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
- *
- * % pulumi import aws_imagebuilder_workflow.example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
- *
- * Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
- */
 export class Workflow extends pulumi.CustomResource {
     /**
      * Get an existing Workflow resource's state with the given name, ID, and optional extra
@@ -93,60 +32,19 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the workflow.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Change description of the workflow.
-     */
     declare public readonly changeDescription: pulumi.Output<string | undefined>;
-    /**
-     * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     */
     declare public readonly data: pulumi.Output<string>;
-    /**
-     * Date the workflow was created.
-     */
     declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
-    /**
-     * Description of the workflow.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
-    /**
-     * Name of the workflow.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Owner of the workflow.
-     */
     declare public /*out*/ readonly owner: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`.
-     */
     declare public readonly type: pulumi.Output<string>;
-    /**
-     * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     */
     declare public readonly uri: pulumi.Output<string | undefined>;
-    /**
-     * Version of the workflow.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly version: pulumi.Output<string>;
 
     /**
@@ -208,60 +106,19 @@ export class Workflow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workflow resources.
  */
 export interface WorkflowState {
-    /**
-     * Amazon Resource Name (ARN) of the workflow.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Change description of the workflow.
-     */
     changeDescription?: pulumi.Input<string>;
-    /**
-     * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     */
     data?: pulumi.Input<string>;
-    /**
-     * Date the workflow was created.
-     */
     dateCreated?: pulumi.Input<string>;
-    /**
-     * Description of the workflow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Name of the workflow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Owner of the workflow.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     */
     uri?: pulumi.Input<string>;
-    /**
-     * Version of the workflow.
-     *
-     * The following arguments are optional:
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -269,46 +126,14 @@ export interface WorkflowState {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
-    /**
-     * Change description of the workflow.
-     */
     changeDescription?: pulumi.Input<string>;
-    /**
-     * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     */
     data?: pulumi.Input<string>;
-    /**
-     * Description of the workflow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Name of the workflow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`.
-     */
     type: pulumi.Input<string>;
-    /**
-     * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     */
     uri?: pulumi.Input<string>;
-    /**
-     * Version of the workflow.
-     *
-     * The following arguments are optional:
-     */
     version: pulumi.Input<string>;
 }

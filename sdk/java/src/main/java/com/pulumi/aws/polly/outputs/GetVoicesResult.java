@@ -16,52 +16,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVoicesResult {
     private @Nullable String engine;
-    /**
-     * @return Amazon Polly assigned voice ID.
-     * 
-     */
     private String id;
     private @Nullable Boolean includeAdditionalLanguageCodes;
-    /**
-     * @return Language code of the voice.
-     * 
-     */
     private @Nullable String languageCode;
     private String region;
-    /**
-     * @return List of voices with their properties. See `voices` Attribute Reference below.
-     * 
-     */
     private @Nullable List<GetVoicesVoice> voices;
 
     private GetVoicesResult() {}
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
-    /**
-     * @return Amazon Polly assigned voice ID.
-     * 
-     */
     public String id() {
         return this.id;
     }
     public Optional<Boolean> includeAdditionalLanguageCodes() {
         return Optional.ofNullable(this.includeAdditionalLanguageCodes);
     }
-    /**
-     * @return Language code of the voice.
-     * 
-     */
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of voices with their properties. See `voices` Attribute Reference below.
-     * 
-     */
     public List<GetVoicesVoice> voices() {
         return this.voices == null ? List.of() : this.voices;
     }

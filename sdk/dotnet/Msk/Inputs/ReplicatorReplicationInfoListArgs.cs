@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Msk.Inputs
     {
         [Input("consumerGroupReplications", required: true)]
         private InputList<Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs>? _consumerGroupReplications;
-
-        /// <summary>
-        /// Configuration relating to consumer group replication.
-        /// </summary>
         public InputList<Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs> ConsumerGroupReplications
         {
             get => _consumerGroupReplications ?? (_consumerGroupReplications = new InputList<Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs>());
@@ -27,33 +23,20 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("sourceKafkaClusterAlias")]
         public Input<string>? SourceKafkaClusterAlias { get; set; }
 
-        /// <summary>
-        /// The ARN of the source Kafka cluster.
-        /// </summary>
         [Input("sourceKafkaClusterArn", required: true)]
         public Input<string> SourceKafkaClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// The type of compression to use writing records to target Kafka cluster.
-        /// </summary>
         [Input("targetCompressionType", required: true)]
         public Input<string> TargetCompressionType { get; set; } = null!;
 
         [Input("targetKafkaClusterAlias")]
         public Input<string>? TargetKafkaClusterAlias { get; set; }
 
-        /// <summary>
-        /// The ARN of the target Kafka cluster.
-        /// </summary>
         [Input("targetKafkaClusterArn", required: true)]
         public Input<string> TargetKafkaClusterArn { get; set; } = null!;
 
         [Input("topicReplications", required: true)]
         private InputList<Inputs.ReplicatorReplicationInfoListTopicReplicationArgs>? _topicReplications;
-
-        /// <summary>
-        /// Configuration relating to topic replication.
-        /// </summary>
         public InputList<Inputs.ReplicatorReplicationInfoListTopicReplicationArgs> TopicReplications
         {
             get => _topicReplications ?? (_topicReplications = new InputList<Inputs.ReplicatorReplicationInfoListTopicReplicationArgs>());

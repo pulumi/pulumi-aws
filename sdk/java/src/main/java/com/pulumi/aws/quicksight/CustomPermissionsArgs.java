@@ -25,66 +25,30 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Actions to include in the custom permissions profile. See capabilities.
-     * 
-     */
     @Import(name="capabilities")
     private @Nullable Output<CustomPermissionsCapabilitiesArgs> capabilities;
 
-    /**
-     * @return Actions to include in the custom permissions profile. See capabilities.
-     * 
-     */
     public Optional<Output<CustomPermissionsCapabilitiesArgs>> capabilities() {
         return Optional.ofNullable(this.capabilities);
     }
 
-    /**
-     * Custom permissions profile name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="customPermissionsName", required=true)
     private Output<String> customPermissionsName;
 
-    /**
-     * @return Custom permissions profile name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> customPermissionsName() {
         return this.customPermissionsName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -126,90 +90,38 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param capabilities Actions to include in the custom permissions profile. See capabilities.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capabilities(@Nullable Output<CustomPermissionsCapabilitiesArgs> capabilities) {
             $.capabilities = capabilities;
             return this;
         }
 
-        /**
-         * @param capabilities Actions to include in the custom permissions profile. See capabilities.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capabilities(CustomPermissionsCapabilitiesArgs capabilities) {
             return capabilities(Output.of(capabilities));
         }
 
-        /**
-         * @param customPermissionsName Custom permissions profile name.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPermissionsName(Output<String> customPermissionsName) {
             $.customPermissionsName = customPermissionsName;
             return this;
         }
 
-        /**
-         * @param customPermissionsName Custom permissions profile name.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPermissionsName(String customPermissionsName) {
             return customPermissionsName(Output.of(customPermissionsName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     [OutputType]
     public sealed class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration
     {
-        /// <summary>
-        /// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-        /// </summary>
         public readonly string? EncryptionConflictResolutionStrategy;
-        /// <summary>
-        /// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-        /// </summary>
         public readonly string EncryptionStrategy;
-        /// <summary>
-        /// ARN of the KMS key to use for encryption when `EncryptionStrategy` is `CUSTOMER_MANAGED`.
-        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

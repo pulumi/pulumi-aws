@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecurityConfigurationEncryptionConfigurationS3Encryption {
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-     * 
-     */
     private @Nullable String s3EncryptionMode;
 
     private SecurityConfigurationEncryptionConfigurationS3Encryption() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-     * 
-     */
     public Optional<String> s3EncryptionMode() {
         return Optional.ofNullable(this.s3EncryptionMode);
     }

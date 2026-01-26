@@ -35,20 +35,6 @@ class DataLakeSettingsArgs:
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataLakeSettings resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        :param pulumi.Input[_builtins.bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-               
-               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         if admins is not None:
             pulumi.set(__self__, "admins", admins)
@@ -78,9 +64,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        """
         return pulumi.get(self, "admins")
 
     @admins.setter
@@ -90,9 +73,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="allowExternalDataFiltering")
     def allow_external_data_filtering(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        """
         return pulumi.get(self, "allow_external_data_filtering")
 
     @allow_external_data_filtering.setter
@@ -102,9 +82,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
     def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @allow_full_table_external_data_access.setter
@@ -114,9 +91,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="authorizedSessionTagValueLists")
     def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
     @authorized_session_tag_value_lists.setter
@@ -126,9 +100,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the Data Catalog. By default, the account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -138,9 +109,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
-        """
-        Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
@@ -150,9 +118,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
-        """
-        Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
@@ -162,9 +127,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="externalDataFilteringAllowLists")
     def external_data_filtering_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        """
         return pulumi.get(self, "external_data_filtering_allow_lists")
 
     @external_data_filtering_allow_lists.setter
@@ -174,9 +136,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -186,9 +145,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="readOnlyAdmins")
     def read_only_admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        """
         return pulumi.get(self, "read_only_admins")
 
     @read_only_admins.setter
@@ -198,9 +154,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -210,11 +163,6 @@ class DataLakeSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="trustedResourceOwners")
     def trusted_resource_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-
-        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
-        """
         return pulumi.get(self, "trusted_resource_owners")
 
     @trusted_resource_owners.setter
@@ -239,20 +187,6 @@ class _DataLakeSettingsState:
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataLakeSettings resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        :param pulumi.Input[_builtins.bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-               
-               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         if admins is not None:
             pulumi.set(__self__, "admins", admins)
@@ -282,9 +216,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter
     def admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        """
         return pulumi.get(self, "admins")
 
     @admins.setter
@@ -294,9 +225,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="allowExternalDataFiltering")
     def allow_external_data_filtering(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        """
         return pulumi.get(self, "allow_external_data_filtering")
 
     @allow_external_data_filtering.setter
@@ -306,9 +234,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
     def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @allow_full_table_external_data_access.setter
@@ -318,9 +243,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="authorizedSessionTagValueLists")
     def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
     @authorized_session_tag_value_lists.setter
@@ -330,9 +252,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the Data Catalog. By default, the account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -342,9 +261,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
-        """
-        Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
@@ -354,9 +270,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
-        """
-        Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
@@ -366,9 +279,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="externalDataFilteringAllowLists")
     def external_data_filtering_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        """
         return pulumi.get(self, "external_data_filtering_allow_lists")
 
     @external_data_filtering_allow_lists.setter
@@ -378,9 +288,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -390,9 +297,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="readOnlyAdmins")
     def read_only_admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        """
         return pulumi.get(self, "read_only_admins")
 
     @read_only_admins.setter
@@ -402,9 +306,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -414,11 +315,6 @@ class _DataLakeSettingsState:
     @_builtins.property
     @pulumi.getter(name="trustedResourceOwners")
     def trusted_resource_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-
-        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
-        """
         return pulumi.get(self, "trusted_resource_owners")
 
     @trusted_resource_owners.setter
@@ -446,108 +342,9 @@ class DataLakeSettings(pulumi.CustomResource):
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
-
-        > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
-
-        ## Example Usage
-
-        ### Data Lake Admins
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example", admins=[
-            test["arn"],
-            test_aws_iam_role["arn"],
-        ])
-        ```
-
-        ### Create Default Permissions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example",
-            admins=[
-                test["arn"],
-                test_aws_iam_role["arn"],
-            ],
-            create_database_default_permissions=[{
-                "permissions": [
-                    "SELECT",
-                    "ALTER",
-                    "DROP",
-                ],
-                "principal": test["arn"],
-            }],
-            create_table_default_permissions=[{
-                "permissions": ["ALL"],
-                "principal": test_aws_iam_role["arn"],
-            }])
-        ```
-
-        ### Enable EMR access to LakeFormation resources
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example",
-            admins=[
-                test["arn"],
-                test_aws_iam_role["arn"],
-            ],
-            create_database_default_permissions=[{
-                "permissions": [
-                    "SELECT",
-                    "ALTER",
-                    "DROP",
-                ],
-                "principal": test["arn"],
-            }],
-            create_table_default_permissions=[{
-                "permissions": ["ALL"],
-                "principal": test_aws_iam_role["arn"],
-            }],
-            allow_external_data_filtering=True,
-            external_data_filtering_allow_lists=[
-                current["accountId"],
-                third_party["accountId"],
-            ],
-            authorized_session_tag_value_lists=["Amazon EMR"],
-            allow_full_table_external_data_access=True)
-        ```
-
-        ### Change Cross Account Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example", parameters={
-            "CROSS_ACCOUNT_VERSION": "3",
-        })
-        ```
-
+        Create a DataLakeSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        :param pulumi.Input[_builtins.bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-               
-               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         ...
     @overload
@@ -556,92 +353,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  args: Optional[DataLakeSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
-
-        > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
-
-        ## Example Usage
-
-        ### Data Lake Admins
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example", admins=[
-            test["arn"],
-            test_aws_iam_role["arn"],
-        ])
-        ```
-
-        ### Create Default Permissions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example",
-            admins=[
-                test["arn"],
-                test_aws_iam_role["arn"],
-            ],
-            create_database_default_permissions=[{
-                "permissions": [
-                    "SELECT",
-                    "ALTER",
-                    "DROP",
-                ],
-                "principal": test["arn"],
-            }],
-            create_table_default_permissions=[{
-                "permissions": ["ALL"],
-                "principal": test_aws_iam_role["arn"],
-            }])
-        ```
-
-        ### Enable EMR access to LakeFormation resources
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example",
-            admins=[
-                test["arn"],
-                test_aws_iam_role["arn"],
-            ],
-            create_database_default_permissions=[{
-                "permissions": [
-                    "SELECT",
-                    "ALTER",
-                    "DROP",
-                ],
-                "principal": test["arn"],
-            }],
-            create_table_default_permissions=[{
-                "permissions": ["ALL"],
-                "principal": test_aws_iam_role["arn"],
-            }],
-            allow_external_data_filtering=True,
-            external_data_filtering_allow_lists=[
-                current["accountId"],
-                third_party["accountId"],
-            ],
-            authorized_session_tag_value_lists=["Amazon EMR"],
-            allow_full_table_external_data_access=True)
-        ```
-
-        ### Change Cross Account Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataLakeSettings("example", parameters={
-            "CROSS_ACCOUNT_VERSION": "3",
-        })
-        ```
-
+        Create a DataLakeSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DataLakeSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -719,20 +431,6 @@ class DataLakeSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        :param pulumi.Input[_builtins.bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-               
-               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -755,98 +453,60 @@ class DataLakeSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def admins(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        """
         return pulumi.get(self, "admins")
 
     @_builtins.property
     @pulumi.getter(name="allowExternalDataFiltering")
     def allow_external_data_filtering(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        """
         return pulumi.get(self, "allow_external_data_filtering")
 
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
     def allow_full_table_external_data_access(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @_builtins.property
     @pulumi.getter(name="authorizedSessionTagValueLists")
     def authorized_session_tag_value_lists(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier for the Data Catalog. By default, the account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> pulumi.Output[Sequence['outputs.DataLakeSettingsCreateDatabaseDefaultPermission']]:
-        """
-        Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        """
         return pulumi.get(self, "create_database_default_permissions")
 
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> pulumi.Output[Sequence['outputs.DataLakeSettingsCreateTableDefaultPermission']]:
-        """
-        Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @_builtins.property
     @pulumi.getter(name="externalDataFilteringAllowLists")
     def external_data_filtering_allow_lists(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        """
         return pulumi.get(self, "external_data_filtering_allow_lists")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="readOnlyAdmins")
     def read_only_admins(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        """
         return pulumi.get(self, "read_only_admins")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="trustedResourceOwners")
     def trusted_resource_owners(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-
-        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
-        """
         return pulumi.get(self, "trusted_resource_owners")
 

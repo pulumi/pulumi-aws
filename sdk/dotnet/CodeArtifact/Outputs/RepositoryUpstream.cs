@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeArtifact.Outputs
     [OutputType]
     public sealed class RepositoryUpstream
     {
-        /// <summary>
-        /// The name of an upstream repository.
-        /// </summary>
         public readonly string RepositoryName;
 
         [OutputConstructor]

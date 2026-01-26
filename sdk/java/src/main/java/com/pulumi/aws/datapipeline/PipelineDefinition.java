@@ -18,182 +18,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a DataPipeline Pipeline Definition resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datapipeline.Pipeline;
- * import com.pulumi.aws.datapipeline.PipelineArgs;
- * import com.pulumi.aws.datapipeline.PipelineDefinition;
- * import com.pulumi.aws.datapipeline.PipelineDefinitionArgs;
- * import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionPipelineObjectArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new Pipeline("default", PipelineArgs.builder()
- *             .name("tf-pipeline-default")
- *             .build());
- * 
- *         var example = new PipelineDefinition("example", PipelineDefinitionArgs.builder()
- *             .pipelineId(default_.id())
- *             .pipelineObjects(            
- *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id("Default")
- *                     .name("Default")
- *                     .fields(PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                         .key("workerGroup")
- *                         .stringValue("workerGroup")
- *                         .build())
- *                     .build(),
- *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id("Schedule")
- *                     .name("Schedule")
- *                     .fields(                    
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("startDateTime")
- *                             .stringValue("2012-12-12T00:00:00")
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("type")
- *                             .stringValue("Schedule")
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("period")
- *                             .stringValue("1 hour")
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("endDateTime")
- *                             .stringValue("2012-12-21T18:00:00")
- *                             .build())
- *                     .build(),
- *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id("SayHello")
- *                     .name("SayHello")
- *                     .fields(                    
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("type")
- *                             .stringValue("ShellCommandActivity")
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("command")
- *                             .stringValue("echo hello")
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("parent")
- *                             .stringValue("Default")
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key("schedule")
- *                             .stringValue("Schedule")
- *                             .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
- * ```
- * 
- */
 @ResourceType(type="aws:datapipeline/pipelineDefinition:PipelineDefinition")
 public class PipelineDefinition extends com.pulumi.resources.CustomResource {
-    /**
-     * Configuration block for the parameter objects used in the pipeline definition. See below
-     * 
-     */
     @Export(name="parameterObjects", refs={List.class,PipelineDefinitionParameterObject.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineDefinitionParameterObject>> parameterObjects;
 
-    /**
-     * @return Configuration block for the parameter objects used in the pipeline definition. See below
-     * 
-     */
     public Output<Optional<List<PipelineDefinitionParameterObject>>> parameterObjects() {
         return Codegen.optional(this.parameterObjects);
     }
-    /**
-     * Configuration block for the parameter values used in the pipeline definition. See below
-     * 
-     */
     @Export(name="parameterValues", refs={List.class,PipelineDefinitionParameterValue.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineDefinitionParameterValue>> parameterValues;
 
-    /**
-     * @return Configuration block for the parameter values used in the pipeline definition. See below
-     * 
-     */
     public Output<Optional<List<PipelineDefinitionParameterValue>>> parameterValues() {
         return Codegen.optional(this.parameterValues);
     }
-    /**
-     * ID of the pipeline.
-     * 
-     */
     @Export(name="pipelineId", refs={String.class}, tree="[0]")
     private Output<String> pipelineId;
 
-    /**
-     * @return ID of the pipeline.
-     * 
-     */
     public Output<String> pipelineId() {
         return this.pipelineId;
     }
-    /**
-     * Configuration block for the objects that define the pipeline. See below
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="pipelineObjects", refs={List.class,PipelineDefinitionPipelineObject.class}, tree="[0,1]")
     private Output<List<PipelineDefinitionPipelineObject>> pipelineObjects;
 
-    /**
-     * @return Configuration block for the objects that define the pipeline. See below
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<PipelineDefinitionPipelineObject>> pipelineObjects() {
         return this.pipelineObjects;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

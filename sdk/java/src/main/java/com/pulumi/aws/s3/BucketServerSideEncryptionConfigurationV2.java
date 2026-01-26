@@ -18,160 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a S3 bucket server-side encryption configuration resource.
- * 
- * &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
- * 
- * &gt; **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketServerSideEncryptionConfiguration;
- * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mykey = new Key("mykey", KeyArgs.builder()
- *             .description("This key is used to encrypt bucket objects")
- *             .deletionWindowInDays(10)
- *             .build());
- * 
- *         var mybucket = new Bucket("mybucket", BucketArgs.builder()
- *             .bucket("mybucket")
- *             .build());
- * 
- *         var example = new BucketServerSideEncryptionConfiguration("example", BucketServerSideEncryptionConfigurationArgs.builder()
- *             .bucket(mybucket.id())
- *             .rules(BucketServerSideEncryptionConfigurationRuleArgs.builder()
- *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
- *                     .kmsMasterKeyId(mykey.arn())
- *                     .sseAlgorithm("aws:kms")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Blocking SSE-C Uploads
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketServerSideEncryptionConfiguration;
- * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mykey = new Key("mykey", KeyArgs.builder()
- *             .description("This key is used to encrypt bucket objects")
- *             .deletionWindowInDays(10)
- *             .build());
- * 
- *         var mybucket = new Bucket("mybucket", BucketArgs.builder()
- *             .bucket("mybucket")
- *             .build());
- * 
- *         var example = new BucketServerSideEncryptionConfiguration("example", BucketServerSideEncryptionConfigurationArgs.builder()
- *             .bucket(mybucket.id())
- *             .rules(BucketServerSideEncryptionConfigurationRuleArgs.builder()
- *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
- *                     .kmsMasterKeyId(mykey.arn())
- *                     .sseAlgorithm("aws:kms")
- *                     .build())
- *                 .bucketKeyEnabled(true)
- *                 .blockedEncryptionTypes("SSE-C")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `bucket` (String) S3 bucket name.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * terraform
- * 
- * import {
- * 
- *   to = aws_s3_bucket_server_side_encryption_configuration.example
- * 
- *   id = &#34;bucket-name,123456789012&#34;
- * 
- * }
- * 
- * **Using `pulumi import` to import** S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
- * 
- * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
- * 
- * % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name,123456789012
- * 
  * @deprecated
  * aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration
  * 
@@ -179,59 +25,27 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration */
 @ResourceType(type="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")
 public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resources.CustomResource {
-    /**
-     * ID (name) of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return ID (name) of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-     * 
-     */
     @Export(name="rules", refs={List.class,BucketServerSideEncryptionConfigurationV2Rule.class}, tree="[0,1]")
     private Output<List<BucketServerSideEncryptionConfigurationV2Rule>> rules;
 
-    /**
-     * @return Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-     * 
-     */
     public Output<List<BucketServerSideEncryptionConfigurationV2Rule>> rules() {
         return this.rules;
     }

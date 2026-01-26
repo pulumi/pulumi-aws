@@ -10,101 +10,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDelegatedAdministratorsDelegatedAdministrator {
-    /**
-     * @return The ARN of the delegated administrator&#39;s account.
-     * 
-     */
     private String arn;
-    /**
-     * @return The date when the account was made a delegated administrator.
-     * 
-     */
     private String delegationEnabledDate;
-    /**
-     * @return The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     private String email;
-    /**
-     * @return The unique identifier (ID) of the delegated administrator&#39;s account.
-     * 
-     */
     private String id;
-    /**
-     * @return The method by which the delegated administrator&#39;s account joined the organization.
-     * 
-     */
     private String joinedMethod;
-    /**
-     * @return The date when the delegated administrator&#39;s account became a part of the organization.
-     * 
-     */
     private String joinedTimestamp;
-    /**
-     * @return The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     private String name;
-    /**
-     * @return The status of the delegated administrator&#39;s account in the organization.
-     * 
-     */
     private String status;
 
     private GetDelegatedAdministratorsDelegatedAdministrator() {}
-    /**
-     * @return The ARN of the delegated administrator&#39;s account.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The date when the account was made a delegated administrator.
-     * 
-     */
     public String delegationEnabledDate() {
         return this.delegationEnabledDate;
     }
-    /**
-     * @return The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     public String email() {
         return this.email;
     }
-    /**
-     * @return The unique identifier (ID) of the delegated administrator&#39;s account.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The method by which the delegated administrator&#39;s account joined the organization.
-     * 
-     */
     public String joinedMethod() {
         return this.joinedMethod;
     }
-    /**
-     * @return The date when the delegated administrator&#39;s account became a part of the organization.
-     * 
-     */
     public String joinedTimestamp() {
         return this.joinedTimestamp;
     }
-    /**
-     * @return The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The status of the delegated administrator&#39;s account in the organization.
-     * 
-     */
     public String status() {
         return this.status;
     }

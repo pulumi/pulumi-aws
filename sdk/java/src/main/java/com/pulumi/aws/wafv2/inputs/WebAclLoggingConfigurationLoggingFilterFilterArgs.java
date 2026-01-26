@@ -16,47 +16,23 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
 
     public static final WebAclLoggingConfigurationLoggingFilterFilterArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterArgs();
 
-    /**
-     * Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
-     * 
-     */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
-    /**
-     * @return Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
-     * 
-     */
     public Output<String> behavior() {
         return this.behavior;
     }
 
-    /**
-     * Match condition(s) for the filter. See Condition below for more details.
-     * 
-     */
     @Import(name="conditions", required=true)
     private Output<List<WebAclLoggingConfigurationLoggingFilterFilterConditionArgs>> conditions;
 
-    /**
-     * @return Match condition(s) for the filter. See Condition below for more details.
-     * 
-     */
     public Output<List<WebAclLoggingConfigurationLoggingFilterFilterConditionArgs>> conditions() {
         return this.conditions;
     }
 
-    /**
-     * Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
-     * 
-     */
     @Import(name="requirement", required=true)
     private Output<String> requirement;
 
-    /**
-     * @return Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
-     * 
-     */
     public Output<String> requirement() {
         return this.requirement;
     }
@@ -87,75 +63,33 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
             $ = new WebAclLoggingConfigurationLoggingFilterFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param behavior Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behavior(Output<String> behavior) {
             $.behavior = behavior;
             return this;
         }
 
-        /**
-         * @param behavior Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behavior(String behavior) {
             return behavior(Output.of(behavior));
         }
 
-        /**
-         * @param conditions Match condition(s) for the filter. See Condition below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(Output<List<WebAclLoggingConfigurationLoggingFilterFilterConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions Match condition(s) for the filter. See Condition below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(List<WebAclLoggingConfigurationLoggingFilterFilterConditionArgs> conditions) {
             return conditions(Output.of(conditions));
         }
 
-        /**
-         * @param conditions Match condition(s) for the filter. See Condition below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(WebAclLoggingConfigurationLoggingFilterFilterConditionArgs... conditions) {
             return conditions(List.of(conditions));
         }
 
-        /**
-         * @param requirement Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requirement(Output<String> requirement) {
             $.requirement = requirement;
             return this;
         }
 
-        /**
-         * @param requirement Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requirement(String requirement) {
             return requirement(Output.of(requirement));
         }

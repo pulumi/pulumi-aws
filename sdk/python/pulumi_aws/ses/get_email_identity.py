@@ -43,17 +43,11 @@ class GetEmailIdentityResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the email identity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
-        """
-        Email identity.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
@@ -86,20 +80,7 @@ def get_email_identity(email: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailIdentityResult:
     """
-    Retrieve the active SES email identity
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_email_identity(email="awesome@example.com")
-    ```
-
-
-    :param _builtins.str email: Email identity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['email'] = email
@@ -116,20 +97,7 @@ def get_email_identity_output(email: Optional[pulumi.Input[_builtins.str]] = Non
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
-    Retrieve the active SES email identity
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_email_identity(email="awesome@example.com")
-    ```
-
-
-    :param _builtins.str email: Email identity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['email'] = email

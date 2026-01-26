@@ -17,209 +17,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * ### Add intelligent tiering configuration for entire S3 bucket
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketIntelligentTieringConfiguration;
- * import com.pulumi.aws.s3.BucketIntelligentTieringConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationTieringArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("example")
- *             .build());
- * 
- *         var example_entire_bucket = new BucketIntelligentTieringConfiguration("example-entire-bucket", BucketIntelligentTieringConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .name("EntireBucket")
- *             .tierings(            
- *                 BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                     .accessTier("DEEP_ARCHIVE_ACCESS")
- *                     .days(180)
- *                     .build(),
- *                 BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                     .accessTier("ARCHIVE_ACCESS")
- *                     .days(125)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Add intelligent tiering configuration with S3 object filter
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketIntelligentTieringConfiguration;
- * import com.pulumi.aws.s3.BucketIntelligentTieringConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationTieringArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("example")
- *             .build());
- * 
- *         var example_filtered = new BucketIntelligentTieringConfiguration("example-filtered", BucketIntelligentTieringConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .name("ImportantBlueDocuments")
- *             .status("Disabled")
- *             .filter(BucketIntelligentTieringConfigurationFilterArgs.builder()
- *                 .prefix("documents/")
- *                 .tags(Map.ofEntries(
- *                     Map.entry("priority", "high"),
- *                     Map.entry("class", "blue")
- *                 ))
- *                 .build())
- *             .tierings(BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                 .accessTier("ARCHIVE_ACCESS")
- *                 .days(125)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")
 public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket this intelligent tiering configuration is associated with.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket this intelligent tiering configuration is associated with.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
-     * 
-     */
     @Export(name="filter", refs={BucketIntelligentTieringConfigurationFilter.class}, tree="[0]")
     private Output</* @Nullable */ BucketIntelligentTieringConfigurationFilter> filter;
 
-    /**
-     * @return Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
-     * 
-     */
     public Output<Optional<BucketIntelligentTieringConfigurationFilter>> filter() {
         return Codegen.optional(this.filter);
     }
-    /**
-     * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-     * 
-     */
     @Export(name="tierings", refs={List.class,BucketIntelligentTieringConfigurationTiering.class}, tree="[0,1]")
     private Output<List<BucketIntelligentTieringConfigurationTiering>> tierings;
 
-    /**
-     * @return S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-     * 
-     */
     public Output<List<BucketIntelligentTieringConfigurationTiering>> tierings() {
         return this.tierings;
     }

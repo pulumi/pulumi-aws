@@ -19,129 +19,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTarget {
-    /**
-     * @return ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
-     * 
-     */
     private String arn;
-    /**
-     * @return Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetDeadLetterConfig deadLetterConfig;
-    /**
-     * @return Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetEcsParameters ecsParameters;
-    /**
-     * @return Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetEventbridgeParameters eventbridgeParameters;
-    /**
-     * @return Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
-     * 
-     */
     private @Nullable String input;
-    /**
-     * @return Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetKinesisParameters kinesisParameters;
-    /**
-     * @return Information about the retry policy settings. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetRetryPolicy retryPolicy;
-    /**
-     * @return ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetSagemakerPipelineParameters sagemakerPipelineParameters;
-    /**
-     * @return The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetSqsParameters sqsParameters;
 
     private ScheduleTarget() {}
-    /**
-     * @return ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetDeadLetterConfig> deadLetterConfig() {
         return Optional.ofNullable(this.deadLetterConfig);
     }
-    /**
-     * @return Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetEcsParameters> ecsParameters() {
         return Optional.ofNullable(this.ecsParameters);
     }
-    /**
-     * @return Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetEventbridgeParameters> eventbridgeParameters() {
         return Optional.ofNullable(this.eventbridgeParameters);
     }
-    /**
-     * @return Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
-     * 
-     */
     public Optional<String> input() {
         return Optional.ofNullable(this.input);
     }
-    /**
-     * @return Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetKinesisParameters> kinesisParameters() {
         return Optional.ofNullable(this.kinesisParameters);
     }
-    /**
-     * @return Information about the retry policy settings. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetRetryPolicy> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
-    /**
-     * @return ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetSagemakerPipelineParameters> sagemakerPipelineParameters() {
         return Optional.ofNullable(this.sagemakerPipelineParameters);
     }
-    /**
-     * @return The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetSqsParameters> sqsParameters() {
         return Optional.ofNullable(this.sqsParameters);
     }

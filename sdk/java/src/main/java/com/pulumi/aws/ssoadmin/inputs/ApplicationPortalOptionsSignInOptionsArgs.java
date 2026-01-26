@@ -16,38 +16,16 @@ public final class ApplicationPortalOptionsSignInOptionsArgs extends com.pulumi.
 
     public static final ApplicationPortalOptionsSignInOptionsArgs Empty = new ApplicationPortalOptionsSignInOptionsArgs();
 
-    /**
-     * URL that accepts authentication requests for an application.
-     * 
-     */
     @Import(name="applicationUrl")
     private @Nullable Output<String> applicationUrl;
 
-    /**
-     * @return URL that accepts authentication requests for an application.
-     * 
-     */
     public Optional<Output<String>> applicationUrl() {
         return Optional.ofNullable(this.applicationUrl);
     }
 
-    /**
-     * Determines how IAM Identity Center navigates the user to the target application.
-     * Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-     * If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-     * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-     * 
-     */
     @Import(name="origin", required=true)
     private Output<String> origin;
 
-    /**
-     * @return Determines how IAM Identity Center navigates the user to the target application.
-     * Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-     * If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-     * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-     * 
-     */
     public Output<String> origin() {
         return this.origin;
     }
@@ -77,50 +55,20 @@ public final class ApplicationPortalOptionsSignInOptionsArgs extends com.pulumi.
             $ = new ApplicationPortalOptionsSignInOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationUrl URL that accepts authentication requests for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationUrl(@Nullable Output<String> applicationUrl) {
             $.applicationUrl = applicationUrl;
             return this;
         }
 
-        /**
-         * @param applicationUrl URL that accepts authentication requests for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationUrl(String applicationUrl) {
             return applicationUrl(Output.of(applicationUrl));
         }
 
-        /**
-         * @param origin Determines how IAM Identity Center navigates the user to the target application.
-         * Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-         * If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-         * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder origin(Output<String> origin) {
             $.origin = origin;
             return this;
         }
 
-        /**
-         * @param origin Determines how IAM Identity Center navigates the user to the target application.
-         * Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-         * If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-         * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder origin(String origin) {
             return origin(Output.of(origin));
         }

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Acm.Inputs
 
     public sealed class CertificateDomainValidationOptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Fully qualified domain name (FQDN) in the certificate.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// The name of the DNS record to create to validate the certificate
-        /// </summary>
         [Input("resourceRecordName")]
         public Input<string>? ResourceRecordName { get; set; }
 
-        /// <summary>
-        /// The type of DNS record to create
-        /// </summary>
         [Input("resourceRecordType")]
         public Input<string>? ResourceRecordType { get; set; }
 
-        /// <summary>
-        /// The value the DNS record needs to have
-        /// </summary>
         [Input("resourceRecordValue")]
         public Input<string>? ResourceRecordValue { get; set; }
 

@@ -12,194 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			gdBucket, err := s3.NewBucket(ctx, "gd_bucket", &s3.BucketArgs{
-//				Bucket:       pulumi.String("example"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucketPol := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid: pulumi.String("Allow PutObject"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							gdBucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("guardduty.amazonaws.com"),
-//								},
-//							},
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid: pulumi.String("Allow GetBucketLocation"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketLocation"),
-//						},
-//						Resources: pulumi.StringArray{
-//							gdBucket.Arn,
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("guardduty.amazonaws.com"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			kmsPol, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid: pulumi.StringRef("Allow GuardDuty to encrypt findings"),
-//						Actions: []string{
-//							"kms:GenerateDataKey",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"guardduty.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//					{
-//						Sid: pulumi.StringRef("Allow all users to modify/delete key (test only)"),
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testGd, err := guardduty.NewDetector(ctx, "test_gd", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "gd_bucket_acl", &s3.BucketAclArgs{
-//				Bucket: gdBucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gd_bucket_policy", &s3.BucketPolicyArgs{
-//				Bucket: gdBucket.ID(),
-//				Policy: pulumi.String(bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
-//					return &bucketPol.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			gdKey, err := kms.NewKey(ctx, "gd_key", &kms.KeyArgs{
-//				Description:          pulumi.String("Temporary key for AccTest of TF"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               pulumi.String(kmsPol.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewPublishingDestination(ctx, "test", &guardduty.PublishingDestinationArgs{
-//				DetectorId:     testGd.ID(),
-//				DestinationArn: gdBucket.Arn,
-//				KmsKeyArn:      gdKey.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gdBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
-//
-// ## Import
-//
-// Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
-//
-// ```sh
-// $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
-// ```
 type PublishingDestination struct {
 	pulumi.CustomResourceState
 
-	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
-	// Currently there is only "S3" available as destination type which is also the default value
-	//
-	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+	DestinationArn  pulumi.StringOutput    `pulumi:"destinationArn"`
 	DestinationType pulumi.StringPtrOutput `pulumi:"destinationType"`
-	// The detector ID of the GuardDuty.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	DetectorId      pulumi.StringOutput    `pulumi:"detectorId"`
+	KmsKeyArn       pulumi.StringOutput    `pulumi:"kmsKeyArn"`
+	Region          pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewPublishingDestination registers a new resource with the given unique name, arguments, and options.
@@ -241,33 +61,19 @@ func GetPublishingDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublishingDestination resources.
 type publishingDestinationState struct {
-	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-	DestinationArn *string `pulumi:"destinationArn"`
-	// Currently there is only "S3" available as destination type which is also the default value
-	//
-	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+	DestinationArn  *string `pulumi:"destinationArn"`
 	DestinationType *string `pulumi:"destinationType"`
-	// The detector ID of the GuardDuty.
-	DetectorId *string `pulumi:"detectorId"`
-	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DetectorId      *string `pulumi:"detectorId"`
+	KmsKeyArn       *string `pulumi:"kmsKeyArn"`
+	Region          *string `pulumi:"region"`
 }
 
 type PublishingDestinationState struct {
-	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-	DestinationArn pulumi.StringPtrInput
-	// Currently there is only "S3" available as destination type which is also the default value
-	//
-	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+	DestinationArn  pulumi.StringPtrInput
 	DestinationType pulumi.StringPtrInput
-	// The detector ID of the GuardDuty.
-	DetectorId pulumi.StringPtrInput
-	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-	KmsKeyArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DetectorId      pulumi.StringPtrInput
+	KmsKeyArn       pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (PublishingDestinationState) ElementType() reflect.Type {
@@ -275,34 +81,20 @@ func (PublishingDestinationState) ElementType() reflect.Type {
 }
 
 type publishingDestinationArgs struct {
-	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-	DestinationArn string `pulumi:"destinationArn"`
-	// Currently there is only "S3" available as destination type which is also the default value
-	//
-	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+	DestinationArn  string  `pulumi:"destinationArn"`
 	DestinationType *string `pulumi:"destinationType"`
-	// The detector ID of the GuardDuty.
-	DetectorId string `pulumi:"detectorId"`
-	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DetectorId      string  `pulumi:"detectorId"`
+	KmsKeyArn       string  `pulumi:"kmsKeyArn"`
+	Region          *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PublishingDestination resource.
 type PublishingDestinationArgs struct {
-	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-	DestinationArn pulumi.StringInput
-	// Currently there is only "S3" available as destination type which is also the default value
-	//
-	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+	DestinationArn  pulumi.StringInput
 	DestinationType pulumi.StringPtrInput
-	// The detector ID of the GuardDuty.
-	DetectorId pulumi.StringInput
-	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-	KmsKeyArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DetectorId      pulumi.StringInput
+	KmsKeyArn       pulumi.StringInput
+	Region          pulumi.StringPtrInput
 }
 
 func (PublishingDestinationArgs) ElementType() reflect.Type {
@@ -392,29 +184,22 @@ func (o PublishingDestinationOutput) ToPublishingDestinationOutputWithContext(ct
 	return o
 }
 
-// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 func (o PublishingDestinationOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// Currently there is only "S3" available as destination type which is also the default value
-//
-// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 func (o PublishingDestinationOutput) DestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringPtrOutput { return v.DestinationType }).(pulumi.StringPtrOutput)
 }
 
-// The detector ID of the GuardDuty.
 func (o PublishingDestinationOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 func (o PublishingDestinationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PublishingDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

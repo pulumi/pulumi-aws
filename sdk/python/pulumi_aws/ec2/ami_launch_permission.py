@@ -27,12 +27,6 @@ class AmiLaunchPermissionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AmiLaunchPermission resource.
-        :param pulumi.Input[_builtins.str] image_id: ID of the AMI.
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the launch permission.
-        :param pulumi.Input[_builtins.str] group: Name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[_builtins.str] organization_arn: ARN of an organization for the launch permission.
-        :param pulumi.Input[_builtins.str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "image_id", image_id)
         if account_id is not None:
@@ -49,9 +43,6 @@ class AmiLaunchPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the AMI.
-        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -61,9 +52,6 @@ class AmiLaunchPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID for the launch permission.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -73,9 +61,6 @@ class AmiLaunchPermissionArgs:
     @_builtins.property
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the group for the launch permission. Valid values: `"all"`.
-        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -85,9 +70,6 @@ class AmiLaunchPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="organizationArn")
     def organization_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an organization for the launch permission.
-        """
         return pulumi.get(self, "organization_arn")
 
     @organization_arn.setter
@@ -97,9 +79,6 @@ class AmiLaunchPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitArn")
     def organizational_unit_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an organizational unit for the launch permission.
-        """
         return pulumi.get(self, "organizational_unit_arn")
 
     @organizational_unit_arn.setter
@@ -109,9 +88,6 @@ class AmiLaunchPermissionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -130,12 +106,6 @@ class _AmiLaunchPermissionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AmiLaunchPermission resources.
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the launch permission.
-        :param pulumi.Input[_builtins.str] group: Name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[_builtins.str] image_id: ID of the AMI.
-        :param pulumi.Input[_builtins.str] organization_arn: ARN of an organization for the launch permission.
-        :param pulumi.Input[_builtins.str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -153,9 +123,6 @@ class _AmiLaunchPermissionState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID for the launch permission.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -165,9 +132,6 @@ class _AmiLaunchPermissionState:
     @_builtins.property
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the group for the launch permission. Valid values: `"all"`.
-        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -177,9 +141,6 @@ class _AmiLaunchPermissionState:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the AMI.
-        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -189,9 +150,6 @@ class _AmiLaunchPermissionState:
     @_builtins.property
     @pulumi.getter(name="organizationArn")
     def organization_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an organization for the launch permission.
-        """
         return pulumi.get(self, "organization_arn")
 
     @organization_arn.setter
@@ -201,9 +159,6 @@ class _AmiLaunchPermissionState:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitArn")
     def organizational_unit_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an organizational unit for the launch permission.
-        """
         return pulumi.get(self, "organizational_unit_arn")
 
     @organizational_unit_arn.setter
@@ -213,9 +168,6 @@ class _AmiLaunchPermissionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -237,60 +189,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Adds a launch permission to an Amazon Machine Image (AMI).
-
-        ## Example Usage
-
-        ### AWS Account ID
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            account_id="123456789012")
-        ```
-
-        ### Public Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            group="all")
-        ```
-
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.organizations.get_organization()
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            organization_arn=current.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
-        ```
-
+        Create a AmiLaunchPermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the launch permission.
-        :param pulumi.Input[_builtins.str] group: Name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[_builtins.str] image_id: ID of the AMI.
-        :param pulumi.Input[_builtins.str] organization_arn: ARN of an organization for the launch permission.
-        :param pulumi.Input[_builtins.str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -299,52 +200,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
                  args: AmiLaunchPermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Adds a launch permission to an Amazon Machine Image (AMI).
-
-        ## Example Usage
-
-        ### AWS Account ID
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            account_id="123456789012")
-        ```
-
-        ### Public Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            group="all")
-        ```
-
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.organizations.get_organization()
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            organization_arn=current.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
-        ```
-
+        Create a AmiLaunchPermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AmiLaunchPermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -406,12 +262,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the launch permission.
-        :param pulumi.Input[_builtins.str] group: Name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[_builtins.str] image_id: ID of the AMI.
-        :param pulumi.Input[_builtins.str] organization_arn: ARN of an organization for the launch permission.
-        :param pulumi.Input[_builtins.str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -428,48 +278,30 @@ class AmiLaunchPermission(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        AWS account ID for the launch permission.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def group(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of the group for the launch permission. Valid values: `"all"`.
-        """
         return pulumi.get(self, "group")
 
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the AMI.
-        """
         return pulumi.get(self, "image_id")
 
     @_builtins.property
     @pulumi.getter(name="organizationArn")
     def organization_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of an organization for the launch permission.
-        """
         return pulumi.get(self, "organization_arn")
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitArn")
     def organizational_unit_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of an organizational unit for the launch permission.
-        """
         return pulumi.get(self, "organizational_unit_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

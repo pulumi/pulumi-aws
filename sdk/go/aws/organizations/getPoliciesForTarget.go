@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Organizations Policies For Target.
-//
-// ## Example Usage
-//
-// ### Basic Usage
 func GetPoliciesForTarget(ctx *pulumi.Context, args *GetPoliciesForTargetArgs, opts ...pulumi.InvokeOption) (*GetPoliciesForTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPoliciesForTargetResult
@@ -28,9 +23,7 @@ func GetPoliciesForTarget(ctx *pulumi.Context, args *GetPoliciesForTargetArgs, o
 
 // A collection of arguments for invoking getPoliciesForTarget.
 type GetPoliciesForTargetArgs struct {
-	// Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
-	Filter string `pulumi:"filter"`
-	// The root (string that begins with "r-" followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with "ou-" followed by 4-32 lowercase letters or digits. This string is followed by a second "-" dash and from 8-32 additional lowercase letters or digits.)
+	Filter   string `pulumi:"filter"`
 	TargetId string `pulumi:"targetId"`
 }
 
@@ -38,8 +31,7 @@ type GetPoliciesForTargetArgs struct {
 type GetPoliciesForTargetResult struct {
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the policy ids found.
+	Id       string   `pulumi:"id"`
 	Ids      []string `pulumi:"ids"`
 	TargetId string   `pulumi:"targetId"`
 }
@@ -55,9 +47,7 @@ func GetPoliciesForTargetOutput(ctx *pulumi.Context, args GetPoliciesForTargetOu
 
 // A collection of arguments for invoking getPoliciesForTarget.
 type GetPoliciesForTargetOutputArgs struct {
-	// Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
-	Filter pulumi.StringInput `pulumi:"filter"`
-	// The root (string that begins with "r-" followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with "ou-" followed by 4-32 lowercase letters or digits. This string is followed by a second "-" dash and from 8-32 additional lowercase letters or digits.)
+	Filter   pulumi.StringInput `pulumi:"filter"`
 	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
 
@@ -89,7 +79,6 @@ func (o GetPoliciesForTargetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoliciesForTargetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the policy ids found.
 func (o GetPoliciesForTargetResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPoliciesForTargetResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

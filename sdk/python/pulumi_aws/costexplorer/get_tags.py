@@ -82,9 +82,6 @@ class GetTagsResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Sequence[_builtins.str]:
-        """
-        Tags that match your request.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -115,26 +112,7 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
              time_period: Optional[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
-    Provides the available cost allocation tag keys and tag values for a specified period.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.costexplorer.get_tags(time_period={
-        "start": "2021-01-01",
-        "end": "2022-12-01",
-    })
-    ```
-
-
-    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-    :param _builtins.str search_string: Value that you want to search for.
-    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
-    :param _builtins.str tag_key: Key of the tag that you want to return values for.
-    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -160,26 +138,7 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterA
                     time_period: Optional[pulumi.Input[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
-    Provides the available cost allocation tag keys and tag values for a specified period.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.costexplorer.get_tags(time_period={
-        "start": "2021-01-01",
-        "end": "2022-12-01",
-    })
-    ```
-
-
-    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-    :param _builtins.str search_string: Value that you want to search for.
-    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
-    :param _builtins.str tag_key: Key of the tag that you want to return values for.
-    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filter'] = filter

@@ -17,32 +17,16 @@ public final class FleetLaunchTemplateConfigArgs extends com.pulumi.resources.Re
 
     public static final FleetLaunchTemplateConfigArgs Empty = new FleetLaunchTemplateConfigArgs();
 
-    /**
-     * Nested argument containing EC2 Launch Template to use. Defined below.
-     * 
-     */
     @Import(name="launchTemplateSpecification")
     private @Nullable Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> launchTemplateSpecification;
 
-    /**
-     * @return Nested argument containing EC2 Launch Template to use. Defined below.
-     * 
-     */
     public Optional<Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs>> launchTemplateSpecification() {
         return Optional.ofNullable(this.launchTemplateSpecification);
     }
 
-    /**
-     * Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-     * 
-     */
     @Import(name="overrides")
     private @Nullable Output<List<FleetLaunchTemplateConfigOverrideArgs>> overrides;
 
-    /**
-     * @return Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-     * 
-     */
     public Optional<Output<List<FleetLaunchTemplateConfigOverrideArgs>>> overrides() {
         return Optional.ofNullable(this.overrides);
     }
@@ -72,54 +56,24 @@ public final class FleetLaunchTemplateConfigArgs extends com.pulumi.resources.Re
             $ = new FleetLaunchTemplateConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param launchTemplateSpecification Nested argument containing EC2 Launch Template to use. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateSpecification(@Nullable Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> launchTemplateSpecification) {
             $.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
 
-        /**
-         * @param launchTemplateSpecification Nested argument containing EC2 Launch Template to use. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs launchTemplateSpecification) {
             return launchTemplateSpecification(Output.of(launchTemplateSpecification));
         }
 
-        /**
-         * @param overrides Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overrides(@Nullable Output<List<FleetLaunchTemplateConfigOverrideArgs>> overrides) {
             $.overrides = overrides;
             return this;
         }
 
-        /**
-         * @param overrides Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overrides(List<FleetLaunchTemplateConfigOverrideArgs> overrides) {
             return overrides(Output.of(overrides));
         }
 
-        /**
-         * @param overrides Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overrides(FleetLaunchTemplateConfigOverrideArgs... overrides) {
             return overrides(List.of(overrides));
         }

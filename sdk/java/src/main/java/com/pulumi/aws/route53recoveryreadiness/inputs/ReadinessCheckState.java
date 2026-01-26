@@ -16,81 +16,37 @@ public final class ReadinessCheckState extends com.pulumi.resources.ResourceArgs
 
     public static final ReadinessCheckState Empty = new ReadinessCheckState();
 
-    /**
-     * ARN of the readiness_check
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the readiness_check
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Unique name describing the readiness check.
-     * 
-     */
     @Import(name="readinessCheckName")
     private @Nullable Output<String> readinessCheckName;
 
-    /**
-     * @return Unique name describing the readiness check.
-     * 
-     */
     public Optional<Output<String>> readinessCheckName() {
         return Optional.ofNullable(this.readinessCheckName);
     }
 
-    /**
-     * Name describing the resource set that will be monitored for readiness.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="resourceSetName")
     private @Nullable Output<String> resourceSetName;
 
-    /**
-     * @return Name describing the resource set that will be monitored for readiness.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> resourceSetName() {
         return Optional.ofNullable(this.resourceSetName);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -123,111 +79,47 @@ public final class ReadinessCheckState extends com.pulumi.resources.ResourceArgs
             $ = new ReadinessCheckState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the readiness_check
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the readiness_check
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param readinessCheckName Unique name describing the readiness check.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readinessCheckName(@Nullable Output<String> readinessCheckName) {
             $.readinessCheckName = readinessCheckName;
             return this;
         }
 
-        /**
-         * @param readinessCheckName Unique name describing the readiness check.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readinessCheckName(String readinessCheckName) {
             return readinessCheckName(Output.of(readinessCheckName));
         }
 
-        /**
-         * @param resourceSetName Name describing the resource set that will be monitored for readiness.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSetName(@Nullable Output<String> resourceSetName) {
             $.resourceSetName = resourceSetName;
             return this;
         }
 
-        /**
-         * @param resourceSetName Name describing the resource set that will be monitored for readiness.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSetName(String resourceSetName) {
             return resourceSetName(Output.of(resourceSetName));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

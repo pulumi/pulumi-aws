@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Step Functions Activity data source
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnActivity = aws.sfn.getActivity({
- *     name: "my-activity",
- * });
- * ```
- */
 export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,17 +18,8 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getActivity.
  */
 export interface GetActivityArgs {
-    /**
-     * ARN that identifies the activity.
-     */
     arn?: string;
-    /**
-     * Name that identifies the activity.
-     */
     name?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -51,9 +28,6 @@ export interface GetActivityArgs {
  */
 export interface GetActivityResult {
     readonly arn: string;
-    /**
-     * Date the activity was created.
-     */
     readonly creationDate: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -62,20 +36,6 @@ export interface GetActivityResult {
     readonly name: string;
     readonly region: string;
 }
-/**
- * Provides a Step Functions Activity data source
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnActivity = aws.sfn.getActivity({
- *     name: "my-activity",
- * });
- * ```
- */
 export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActivityResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,16 +50,7 @@ export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getActivity.
  */
 export interface GetActivityOutputArgs {
-    /**
-     * ARN that identifies the activity.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name that identifies the activity.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

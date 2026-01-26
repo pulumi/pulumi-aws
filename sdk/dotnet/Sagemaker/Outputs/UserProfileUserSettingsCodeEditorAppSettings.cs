@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettingsCodeEditorAppSettings
     {
-        /// <summary>
-        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `AppLifecycleManagement` Block below.
-        /// </summary>
         public readonly Outputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement? AppLifecycleManagement;
-        /// <summary>
-        /// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-        /// </summary>
         public readonly string? BuiltInLifecycleConfigArn;
-        /// <summary>
-        /// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImage> CustomImages;
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-        /// </summary>
         public readonly Outputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec? DefaultResourceSpec;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-        /// </summary>
         public readonly ImmutableArray<string> LifecycleConfigArns;
 
         [OutputConstructor]

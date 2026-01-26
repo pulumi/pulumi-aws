@@ -24,9 +24,6 @@ class VaultPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultPolicy resource.
-        :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add policy for.
-        :param pulumi.Input[_builtins.str] policy: The backup vault access policy document in JSON format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         pulumi.set(__self__, "policy", policy)
@@ -36,9 +33,6 @@ class VaultPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the backup vault to add policy for.
-        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -48,9 +42,6 @@ class VaultPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The backup vault access policy document in JSON format.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -60,9 +51,6 @@ class VaultPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,10 +67,6 @@ class _VaultPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultPolicy resources.
-        :param pulumi.Input[_builtins.str] backup_vault_arn: The ARN of the vault.
-        :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add policy for.
-        :param pulumi.Input[_builtins.str] policy: The backup vault access policy document in JSON format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if backup_vault_arn is not None:
             pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
@@ -96,9 +80,6 @@ class _VaultPolicyState:
     @_builtins.property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the vault.
-        """
         return pulumi.get(self, "backup_vault_arn")
 
     @backup_vault_arn.setter
@@ -108,9 +89,6 @@ class _VaultPolicyState:
     @_builtins.property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the backup vault to add policy for.
-        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -120,9 +98,6 @@ class _VaultPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The backup vault access policy document in JSON format.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -132,9 +107,6 @@ class _VaultPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -153,52 +125,9 @@ class VaultPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AWS Backup vault policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_vault = aws.backup.Vault("example", name="example")
-        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [current.account_id],
-            }],
-            "actions": [
-                "backup:DescribeBackupVault",
-                "backup:DeleteBackupVault",
-                "backup:PutBackupVaultAccessPolicy",
-                "backup:DeleteBackupVaultAccessPolicy",
-                "backup:GetBackupVaultAccessPolicy",
-                "backup:StartBackupJob",
-                "backup:GetBackupVaultNotifications",
-                "backup:PutBackupVaultNotifications",
-            ],
-            "resources": [arn],
-        }]))
-        example_vault_policy = aws.backup.VaultPolicy("example",
-            backup_vault_name=example_vault.name,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup vault policy using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
-        ```
-
+        Create a VaultPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add policy for.
-        :param pulumi.Input[_builtins.str] policy: The backup vault access policy document in JSON format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -207,47 +136,7 @@ class VaultPolicy(pulumi.CustomResource):
                  args: VaultPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Backup vault policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_vault = aws.backup.Vault("example", name="example")
-        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [current.account_id],
-            }],
-            "actions": [
-                "backup:DescribeBackupVault",
-                "backup:DeleteBackupVault",
-                "backup:PutBackupVaultAccessPolicy",
-                "backup:DeleteBackupVaultAccessPolicy",
-                "backup:GetBackupVaultAccessPolicy",
-                "backup:StartBackupJob",
-                "backup:GetBackupVaultNotifications",
-                "backup:PutBackupVaultNotifications",
-            ],
-            "resources": [arn],
-        }]))
-        example_vault_policy = aws.backup.VaultPolicy("example",
-            backup_vault_name=example_vault.name,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup vault policy using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
-        ```
-
+        Create a VaultPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VaultPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -304,10 +193,6 @@ class VaultPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] backup_vault_arn: The ARN of the vault.
-        :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add policy for.
-        :param pulumi.Input[_builtins.str] policy: The backup vault access policy document in JSON format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -322,32 +207,20 @@ class VaultPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the vault.
-        """
         return pulumi.get(self, "backup_vault_arn")
 
     @_builtins.property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the backup vault to add policy for.
-        """
         return pulumi.get(self, "backup_vault_name")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The backup vault access policy document in JSON format.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

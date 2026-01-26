@@ -11,67 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudFront Key Value Store.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewKeyValueStore(ctx, "example", &cloudfront.KeyValueStoreArgs{
-//				Name:    pulumi.String("ExampleKeyValueStore"),
-//				Comment: pulumi.String("This is an example key value store"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `name` (String) Name of the CloudFront Key Value Store.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
-//
-// % pulumi import aws_cloudfront_key_value_store.example example_store
 type KeyValueStore struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Comment.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// ETag hash of the KeyValueStore.
-	Etag             pulumi.StringOutput `pulumi:"etag"`
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// Unique name for your CloudFront KeyValueStore.
-	//
-	// The following arguments are optional:
-	Name     pulumi.StringOutput            `pulumi:"name"`
-	Timeouts KeyValueStoreTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn              pulumi.StringOutput            `pulumi:"arn"`
+	Comment          pulumi.StringPtrOutput         `pulumi:"comment"`
+	Etag             pulumi.StringOutput            `pulumi:"etag"`
+	LastModifiedTime pulumi.StringOutput            `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput            `pulumi:"name"`
+	Timeouts         KeyValueStoreTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewKeyValueStore registers a new resource with the given unique name, arguments, and options.
@@ -104,33 +52,21 @@ func GetKeyValueStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyValueStore resources.
 type keyValueStoreState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-	Arn *string `pulumi:"arn"`
-	// Comment.
-	Comment *string `pulumi:"comment"`
-	// ETag hash of the KeyValueStore.
-	Etag             *string `pulumi:"etag"`
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Unique name for your CloudFront KeyValueStore.
-	//
-	// The following arguments are optional:
-	Name     *string                `pulumi:"name"`
-	Timeouts *KeyValueStoreTimeouts `pulumi:"timeouts"`
+	Arn              *string                `pulumi:"arn"`
+	Comment          *string                `pulumi:"comment"`
+	Etag             *string                `pulumi:"etag"`
+	LastModifiedTime *string                `pulumi:"lastModifiedTime"`
+	Name             *string                `pulumi:"name"`
+	Timeouts         *KeyValueStoreTimeouts `pulumi:"timeouts"`
 }
 
 type KeyValueStoreState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-	Arn pulumi.StringPtrInput
-	// Comment.
-	Comment pulumi.StringPtrInput
-	// ETag hash of the KeyValueStore.
+	Arn              pulumi.StringPtrInput
+	Comment          pulumi.StringPtrInput
 	Etag             pulumi.StringPtrInput
 	LastModifiedTime pulumi.StringPtrInput
-	// Unique name for your CloudFront KeyValueStore.
-	//
-	// The following arguments are optional:
-	Name     pulumi.StringPtrInput
-	Timeouts KeyValueStoreTimeoutsPtrInput
+	Name             pulumi.StringPtrInput
+	Timeouts         KeyValueStoreTimeoutsPtrInput
 }
 
 func (KeyValueStoreState) ElementType() reflect.Type {
@@ -138,22 +74,14 @@ func (KeyValueStoreState) ElementType() reflect.Type {
 }
 
 type keyValueStoreArgs struct {
-	// Comment.
-	Comment *string `pulumi:"comment"`
-	// Unique name for your CloudFront KeyValueStore.
-	//
-	// The following arguments are optional:
+	Comment  *string                `pulumi:"comment"`
 	Name     *string                `pulumi:"name"`
 	Timeouts *KeyValueStoreTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a KeyValueStore resource.
 type KeyValueStoreArgs struct {
-	// Comment.
-	Comment pulumi.StringPtrInput
-	// Unique name for your CloudFront KeyValueStore.
-	//
-	// The following arguments are optional:
+	Comment  pulumi.StringPtrInput
 	Name     pulumi.StringPtrInput
 	Timeouts KeyValueStoreTimeoutsPtrInput
 }
@@ -245,17 +173,14 @@ func (o KeyValueStoreOutput) ToKeyValueStoreOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
 func (o KeyValueStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Comment.
 func (o KeyValueStoreOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// ETag hash of the KeyValueStore.
 func (o KeyValueStoreOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
@@ -264,9 +189,6 @@ func (o KeyValueStoreOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// Unique name for your CloudFront KeyValueStore.
-//
-// The following arguments are optional:
 func (o KeyValueStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

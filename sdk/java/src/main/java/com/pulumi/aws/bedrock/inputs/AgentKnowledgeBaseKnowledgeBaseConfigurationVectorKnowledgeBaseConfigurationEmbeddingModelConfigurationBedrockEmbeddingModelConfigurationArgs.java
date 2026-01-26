@@ -16,32 +16,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs();
 
-    /**
-     * Dimension details for the vector configuration used on the Bedrock embeddings model.
-     * 
-     */
     @Import(name="dimensions")
     private @Nullable Output<Integer> dimensions;
 
-    /**
-     * @return Dimension details for the vector configuration used on the Bedrock embeddings model.
-     * 
-     */
     public Optional<Output<Integer>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-     * 
-     */
     @Import(name="embeddingDataType")
     private @Nullable Output<String> embeddingDataType;
 
-    /**
-     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-     * 
-     */
     public Optional<Output<String>> embeddingDataType() {
         return Optional.ofNullable(this.embeddingDataType);
     }
@@ -71,44 +55,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensions Dimension details for the vector configuration used on the Bedrock embeddings model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(@Nullable Output<Integer> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Dimension details for the vector configuration used on the Bedrock embeddings model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(Integer dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param embeddingDataType Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder embeddingDataType(@Nullable Output<String> embeddingDataType) {
             $.embeddingDataType = embeddingDataType;
             return this;
         }
 
-        /**
-         * @param embeddingDataType Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder embeddingDataType(String embeddingDataType) {
             return embeddingDataType(Output.of(embeddingDataType));
         }

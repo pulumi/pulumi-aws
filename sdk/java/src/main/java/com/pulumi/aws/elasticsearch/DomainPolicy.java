@@ -13,107 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticsearch.Domain;
- * import com.pulumi.aws.elasticsearch.DomainArgs;
- * import com.pulumi.aws.elasticsearch.DomainPolicy;
- * import com.pulumi.aws.elasticsearch.DomainPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("tf-test")
- *             .elasticsearchVersion("2.3")
- *             .build());
- * 
- *         var main = new DomainPolicy("main", DomainPolicyArgs.builder()
- *             .domainName(example.domainName())
- *             .accessPolicies(example.arn().applyValue(_arn -> """
- * {
- *     \"Version\": \"2012-10-17\",
- *     \"Statement\": [
- *         {
- *             \"Action\": \"es:*\",
- *             \"Principal\": \"*\",
- *             \"Effect\": \"Allow\",
- *             \"Condition\": {
- *                 \"IpAddress\": {\"aws:SourceIp\": \"127.0.0.1/32\"}
- *             },
- *             \"Resource\": \"%s/*\"
- *         }
- *     ]
- * }
- * ", _arn)))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:elasticsearch/domainPolicy:DomainPolicy")
 public class DomainPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * IAM policy document specifying the access policies for the domain
-     * 
-     */
     @Export(name="accessPolicies", refs={String.class}, tree="[0]")
     private Output<String> accessPolicies;
 
-    /**
-     * @return IAM policy document specifying the access policies for the domain
-     * 
-     */
     public Output<String> accessPolicies() {
         return this.accessPolicies;
     }
-    /**
-     * Name of the domain.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Name of the domain.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

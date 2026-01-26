@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
-    /**
-     * @return The size of the tasks volume in GiB. Must be at least 1.
-     * 
-     */
     private Integer storageSizeGib;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration() {}
-    /**
-     * @return The size of the tasks volume in GiB. Must be at least 1.
-     * 
-     */
     public Integer storageSizeGib() {
         return this.storageSizeGib;
     }

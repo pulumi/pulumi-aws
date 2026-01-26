@@ -19,62 +19,30 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
 
     public static final RuleGroupRuleGroupArgs Empty = new RuleGroupRuleGroupArgs();
 
-    /**
-     * A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
-     * 
-     */
     @Import(name="referenceSets")
     private @Nullable Output<RuleGroupRuleGroupReferenceSetsArgs> referenceSets;
 
-    /**
-     * @return A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleGroupReferenceSetsArgs>> referenceSets() {
         return Optional.ofNullable(this.referenceSets);
     }
 
-    /**
-     * A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
-     * 
-     */
     @Import(name="ruleVariables")
     private @Nullable Output<RuleGroupRuleGroupRuleVariablesArgs> ruleVariables;
 
-    /**
-     * @return A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleGroupRuleVariablesArgs>> ruleVariables() {
         return Optional.ofNullable(this.ruleVariables);
     }
 
-    /**
-     * A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-     * 
-     */
     @Import(name="rulesSource", required=true)
     private Output<RuleGroupRuleGroupRulesSourceArgs> rulesSource;
 
-    /**
-     * @return A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-     * 
-     */
     public Output<RuleGroupRuleGroupRulesSourceArgs> rulesSource() {
         return this.rulesSource;
     }
 
-    /**
-     * A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
-     * 
-     */
     @Import(name="statefulRuleOptions")
     private @Nullable Output<RuleGroupRuleGroupStatefulRuleOptionsArgs> statefulRuleOptions;
 
-    /**
-     * @return A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleGroupStatefulRuleOptionsArgs>> statefulRuleOptions() {
         return Optional.ofNullable(this.statefulRuleOptions);
     }
@@ -106,86 +74,38 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
             $ = new RuleGroupRuleGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceSets(@Nullable Output<RuleGroupRuleGroupReferenceSetsArgs> referenceSets) {
             $.referenceSets = referenceSets;
             return this;
         }
 
-        /**
-         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceSets(RuleGroupRuleGroupReferenceSetsArgs referenceSets) {
             return referenceSets(Output.of(referenceSets));
         }
 
-        /**
-         * @param ruleVariables A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleVariables(@Nullable Output<RuleGroupRuleGroupRuleVariablesArgs> ruleVariables) {
             $.ruleVariables = ruleVariables;
             return this;
         }
 
-        /**
-         * @param ruleVariables A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleVariables(RuleGroupRuleGroupRuleVariablesArgs ruleVariables) {
             return ruleVariables(Output.of(ruleVariables));
         }
 
-        /**
-         * @param rulesSource A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesSource(Output<RuleGroupRuleGroupRulesSourceArgs> rulesSource) {
             $.rulesSource = rulesSource;
             return this;
         }
 
-        /**
-         * @param rulesSource A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesSource(RuleGroupRuleGroupRulesSourceArgs rulesSource) {
             return rulesSource(Output.of(rulesSource));
         }
 
-        /**
-         * @param statefulRuleOptions A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statefulRuleOptions(@Nullable Output<RuleGroupRuleGroupStatefulRuleOptionsArgs> statefulRuleOptions) {
             $.statefulRuleOptions = statefulRuleOptions;
             return this;
         }
 
-        /**
-         * @param statefulRuleOptions A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statefulRuleOptions(RuleGroupRuleGroupStatefulRuleOptionsArgs statefulRuleOptions) {
             return statefulRuleOptions(Output.of(statefulRuleOptions));
         }

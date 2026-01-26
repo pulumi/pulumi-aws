@@ -17,77 +17,37 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
 
     public static final RecorderState Empty = new RecorderState();
 
-    /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Recording group - see below.
-     * 
-     */
     @Import(name="recordingGroup")
     private @Nullable Output<RecorderRecordingGroupArgs> recordingGroup;
 
-    /**
-     * @return Recording group - see below.
-     * 
-     */
     public Optional<Output<RecorderRecordingGroupArgs>> recordingGroup() {
         return Optional.ofNullable(this.recordingGroup);
     }
 
-    /**
-     * Recording mode - see below.
-     * 
-     */
     @Import(name="recordingMode")
     private @Nullable Output<RecorderRecordingModeArgs> recordingMode;
 
-    /**
-     * @return Recording mode - see below.
-     * 
-     */
     public Optional<Output<RecorderRecordingModeArgs>> recordingMode() {
         return Optional.ofNullable(this.recordingMode);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -120,107 +80,47 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
             $ = new RecorderState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param recordingGroup Recording group - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingGroup(@Nullable Output<RecorderRecordingGroupArgs> recordingGroup) {
             $.recordingGroup = recordingGroup;
             return this;
         }
 
-        /**
-         * @param recordingGroup Recording group - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingGroup(RecorderRecordingGroupArgs recordingGroup) {
             return recordingGroup(Output.of(recordingGroup));
         }
 
-        /**
-         * @param recordingMode Recording mode - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingMode(@Nullable Output<RecorderRecordingModeArgs> recordingMode) {
             $.recordingMode = recordingMode;
             return this;
         }
 
-        /**
-         * @param recordingMode Recording mode - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingMode(RecorderRecordingModeArgs recordingMode) {
             return recordingMode(Output.of(recordingMode));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

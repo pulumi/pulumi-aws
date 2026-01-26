@@ -12,83 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS FinSpace Kx Database.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/finspace"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("Example KMS Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "example", &finspace.KxEnvironmentArgs{
-//				Name:     pulumi.String("my-tf-kx-environment"),
-//				KmsKeyId: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = finspace.NewKxDatabase(ctx, "example", &finspace.KxDatabaseArgs{
-//				EnvironmentId: exampleKxEnvironment.ID(),
-//				Name:          pulumi.String("my-tf-kx-database"),
-//				Description:   pulumi.String("Example database description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
-//
-// ```sh
-// $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
-// ```
 type KxDatabase struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX database.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
-	// Description of the KX database.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Unique identifier for the KX environment.
-	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
-	// Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
-	// Name of the KX database.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	CreatedTimestamp      pulumi.StringOutput    `pulumi:"createdTimestamp"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	EnvironmentId         pulumi.StringOutput    `pulumi:"environmentId"`
+	LastModifiedTimestamp pulumi.StringOutput    `pulumi:"lastModifiedTimestamp"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewKxDatabase registers a new resource with the given unique name, arguments, and options.
@@ -124,49 +59,27 @@ func GetKxDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxDatabase resources.
 type kxDatabaseState struct {
-	// Amazon Resource Name (ARN) identifier of the KX database.
-	Arn *string `pulumi:"arn"`
-	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	CreatedTimestamp *string `pulumi:"createdTimestamp"`
-	// Description of the KX database.
-	Description *string `pulumi:"description"`
-	// Unique identifier for the KX environment.
-	EnvironmentId *string `pulumi:"environmentId"`
-	// Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
-	// Name of the KX database.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                   *string           `pulumi:"arn"`
+	CreatedTimestamp      *string           `pulumi:"createdTimestamp"`
+	Description           *string           `pulumi:"description"`
+	EnvironmentId         *string           `pulumi:"environmentId"`
+	LastModifiedTimestamp *string           `pulumi:"lastModifiedTimestamp"`
+	Name                  *string           `pulumi:"name"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type KxDatabaseState struct {
-	// Amazon Resource Name (ARN) identifier of the KX database.
-	Arn pulumi.StringPtrInput
-	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-	CreatedTimestamp pulumi.StringPtrInput
-	// Description of the KX database.
-	Description pulumi.StringPtrInput
-	// Unique identifier for the KX environment.
-	EnvironmentId pulumi.StringPtrInput
-	// Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+	Arn                   pulumi.StringPtrInput
+	CreatedTimestamp      pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	EnvironmentId         pulumi.StringPtrInput
 	LastModifiedTimestamp pulumi.StringPtrInput
-	// Name of the KX database.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (KxDatabaseState) ElementType() reflect.Type {
@@ -174,34 +87,20 @@ func (KxDatabaseState) ElementType() reflect.Type {
 }
 
 type kxDatabaseArgs struct {
-	// Description of the KX database.
-	Description *string `pulumi:"description"`
-	// Unique identifier for the KX environment.
-	EnvironmentId string `pulumi:"environmentId"`
-	// Name of the KX database.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description   *string           `pulumi:"description"`
+	EnvironmentId string            `pulumi:"environmentId"`
+	Name          *string           `pulumi:"name"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KxDatabase resource.
 type KxDatabaseArgs struct {
-	// Description of the KX database.
-	Description pulumi.StringPtrInput
-	// Unique identifier for the KX environment.
+	Description   pulumi.StringPtrInput
 	EnvironmentId pulumi.StringInput
-	// Name of the KX database.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name          pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (KxDatabaseArgs) ElementType() reflect.Type {
@@ -291,49 +190,38 @@ func (o KxDatabaseOutput) ToKxDatabaseOutputWithContext(ctx context.Context) KxD
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX database.
 func (o KxDatabaseOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 func (o KxDatabaseOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// Description of the KX database.
 func (o KxDatabaseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifier for the KX environment.
 func (o KxDatabaseOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
-// Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 func (o KxDatabaseOutput) LastModifiedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.LastModifiedTimestamp }).(pulumi.StringOutput)
 }
 
-// Name of the KX database.
-//
-// The following arguments are optional:
 func (o KxDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KxDatabaseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o KxDatabaseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o KxDatabaseOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.GetRouterConfiguration(ctx, &directconnect.GetRouterConfigurationArgs{
-//				VirtualInterfaceId:   "dxvif-abcde123",
-//				RouterTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArgs, opts ...pulumi.InvokeOption) (*GetRouterConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouterConfigurationResult
@@ -53,26 +23,18 @@ func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArg
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-	//
-	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
-	// ID of the Direct Connect Virtual Interface
-	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
+	Region               *string `pulumi:"region"`
+	RouterTypeIdentifier string  `pulumi:"routerTypeIdentifier"`
+	VirtualInterfaceId   string  `pulumi:"virtualInterfaceId"`
 }
 
 // A collection of values returned by getRouterConfiguration.
 type GetRouterConfigurationResult struct {
-	// Instructions for configuring your router
 	CustomerRouterConfig string `pulumi:"customerRouterConfig"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Router type identifier
-	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
-	// Block of the router type details
+	Id                   string                         `pulumi:"id"`
+	Region               string                         `pulumi:"region"`
+	RouterTypeIdentifier string                         `pulumi:"routerTypeIdentifier"`
 	Routers              []GetRouterConfigurationRouter `pulumi:"routers"`
 	VirtualInterfaceId   string                         `pulumi:"virtualInterfaceId"`
 	VirtualInterfaceName string                         `pulumi:"virtualInterfaceName"`
@@ -89,14 +51,9 @@ func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurati
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-	//
-	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
-	// ID of the Direct Connect Virtual Interface
-	VirtualInterfaceId pulumi.StringInput `pulumi:"virtualInterfaceId"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
+	RouterTypeIdentifier pulumi.StringInput    `pulumi:"routerTypeIdentifier"`
+	VirtualInterfaceId   pulumi.StringInput    `pulumi:"virtualInterfaceId"`
 }
 
 func (GetRouterConfigurationOutputArgs) ElementType() reflect.Type {
@@ -118,7 +75,6 @@ func (o GetRouterConfigurationResultOutput) ToGetRouterConfigurationResultOutput
 	return o
 }
 
-// Instructions for configuring your router
 func (o GetRouterConfigurationResultOutput) CustomerRouterConfig() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.CustomerRouterConfig }).(pulumi.StringOutput)
 }
@@ -132,12 +88,10 @@ func (o GetRouterConfigurationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Router type identifier
 func (o GetRouterConfigurationResultOutput) RouterTypeIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.RouterTypeIdentifier }).(pulumi.StringOutput)
 }
 
-// Block of the router type details
 func (o GetRouterConfigurationResultOutput) Routers() GetRouterConfigurationRouterArrayOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) []GetRouterConfigurationRouter { return v.Routers }).(GetRouterConfigurationRouterArrayOutput)
 }

@@ -12,49 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to designate the active SES receipt rule set
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewActiveReceiptRuleSet(ctx, "main", &ses.ActiveReceiptRuleSetArgs{
-//				RuleSetName: pulumi.String("primary-rules"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:
-//
-// ```sh
-// $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
-// ```
 type ActiveReceiptRuleSet struct {
 	pulumi.CustomResourceState
 
-	// The SES receipt rule set ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the rule set
+	Arn         pulumi.StringOutput `pulumi:"arn"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 }
 
@@ -91,20 +53,14 @@ func GetActiveReceiptRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActiveReceiptRuleSet resources.
 type activeReceiptRuleSetState struct {
-	// The SES receipt rule set ARN.
-	Arn *string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the rule set
+	Arn         *string `pulumi:"arn"`
+	Region      *string `pulumi:"region"`
 	RuleSetName *string `pulumi:"ruleSetName"`
 }
 
 type ActiveReceiptRuleSetState struct {
-	// The SES receipt rule set ARN.
-	Arn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the rule set
+	Arn         pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	RuleSetName pulumi.StringPtrInput
 }
 
@@ -113,17 +69,13 @@ func (ActiveReceiptRuleSetState) ElementType() reflect.Type {
 }
 
 type activeReceiptRuleSetArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the rule set
-	RuleSetName string `pulumi:"ruleSetName"`
+	Region      *string `pulumi:"region"`
+	RuleSetName string  `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a ActiveReceiptRuleSet resource.
 type ActiveReceiptRuleSetArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the rule set
+	Region      pulumi.StringPtrInput
 	RuleSetName pulumi.StringInput
 }
 
@@ -214,17 +166,14 @@ func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetOutputWithContext(ctx 
 	return o
 }
 
-// The SES receipt rule set ARN.
 func (o ActiveReceiptRuleSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveReceiptRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ActiveReceiptRuleSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveReceiptRuleSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the rule set
 func (o ActiveReceiptRuleSetOutput) RuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveReceiptRuleSet) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
 }

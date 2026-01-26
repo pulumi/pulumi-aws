@@ -12,167 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS ECR (Elastic Container Registry) Pull Time Update Exclusion.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example-role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Action": []string{
-//							"ecr:GetAuthorizationToken",
-//							"ecr:BatchCheckLayerAvailability",
-//							"ecr:GetDownloadUrlForLayer",
-//							"ecr:BatchGetImage",
-//						},
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-//				Name:   pulumi.String("example-role-policy"),
-//				Role:   example.ID(),
-//				Policy: pulumi.String(json1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewPullTimeUpdateExclusion(ctx, "example", &ecr.PullTimeUpdateExclusionArgs{
-//				PrincipalArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With IAM User
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iam.NewUser(ctx, "example", &iam.UserArgs{
-//				Name: pulumi.String("example-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Action": []string{
-//							"ecr:GetAuthorizationToken",
-//							"ecr:BatchCheckLayerAvailability",
-//							"ecr:GetDownloadUrlForLayer",
-//							"ecr:BatchGetImage",
-//						},
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewUserPolicy(ctx, "example", &iam.UserPolicyArgs{
-//				Name:   pulumi.String("example-user-policy"),
-//				User:   example.Name,
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewPullTimeUpdateExclusion(ctx, "example", &ecr.PullTimeUpdateExclusionArgs{
-//				PrincipalArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ECR (Elastic Container Registry) Pull Time Update Exclusion using the `principal_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion example arn:aws:iam::123456789012:role/example-role
-// ```
 type PullTimeUpdateExclusion struct {
 	pulumi.CustomResourceState
 
-	// ARN of the IAM principal to exclude from having image pull times recorded.
-	//
-	// The following arguments are optional:
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region       pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPullTimeUpdateExclusion registers a new resource with the given unique name, arguments, and options.
@@ -208,21 +52,13 @@ func GetPullTimeUpdateExclusion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PullTimeUpdateExclusion resources.
 type pullTimeUpdateExclusionState struct {
-	// ARN of the IAM principal to exclude from having image pull times recorded.
-	//
-	// The following arguments are optional:
 	PrincipalArn *string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region       *string `pulumi:"region"`
 }
 
 type PullTimeUpdateExclusionState struct {
-	// ARN of the IAM principal to exclude from having image pull times recorded.
-	//
-	// The following arguments are optional:
 	PrincipalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (PullTimeUpdateExclusionState) ElementType() reflect.Type {
@@ -230,22 +66,14 @@ func (PullTimeUpdateExclusionState) ElementType() reflect.Type {
 }
 
 type pullTimeUpdateExclusionArgs struct {
-	// ARN of the IAM principal to exclude from having image pull times recorded.
-	//
-	// The following arguments are optional:
-	PrincipalArn string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PrincipalArn string  `pulumi:"principalArn"`
+	Region       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PullTimeUpdateExclusion resource.
 type PullTimeUpdateExclusionArgs struct {
-	// ARN of the IAM principal to exclude from having image pull times recorded.
-	//
-	// The following arguments are optional:
 	PrincipalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (PullTimeUpdateExclusionArgs) ElementType() reflect.Type {
@@ -335,14 +163,10 @@ func (o PullTimeUpdateExclusionOutput) ToPullTimeUpdateExclusionOutputWithContex
 	return o
 }
 
-// ARN of the IAM principal to exclude from having image pull times recorded.
-//
-// The following arguments are optional:
 func (o PullTimeUpdateExclusionOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullTimeUpdateExclusion) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PullTimeUpdateExclusionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullTimeUpdateExclusion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

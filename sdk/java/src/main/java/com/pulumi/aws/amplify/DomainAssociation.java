@@ -18,206 +18,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amplify Domain Association resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amplify.App;
- * import com.pulumi.aws.amplify.AppArgs;
- * import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
- * import com.pulumi.aws.amplify.Branch;
- * import com.pulumi.aws.amplify.BranchArgs;
- * import com.pulumi.aws.amplify.DomainAssociation;
- * import com.pulumi.aws.amplify.DomainAssociationArgs;
- * import com.pulumi.aws.amplify.inputs.DomainAssociationSubDomainArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()
- *             .name("app")
- *             .customRules(AppCustomRuleArgs.builder()
- *                 .source("https://example.com")
- *                 .status("302")
- *                 .target("https://www.example.com")
- *                 .build())
- *             .build());
- * 
- *         var master = new Branch("master", BranchArgs.builder()
- *             .appId(example.id())
- *             .branchName("master")
- *             .build());
- * 
- *         var exampleDomainAssociation = new DomainAssociation("exampleDomainAssociation", DomainAssociationArgs.builder()
- *             .appId(example.id())
- *             .domainName("example.com")
- *             .subDomains(            
- *                 DomainAssociationSubDomainArgs.builder()
- *                     .branchName(master.branchName())
- *                     .prefix("")
- *                     .build(),
- *                 DomainAssociationSubDomainArgs.builder()
- *                     .branchName(master.branchName())
- *                     .prefix("www")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
- * ```
- * 
- */
 @ResourceType(type="aws:amplify/domainAssociation:DomainAssociation")
 public class DomainAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Unique ID for an Amplify app.
-     * 
-     */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
-    /**
-     * @return Unique ID for an Amplify app.
-     * 
-     */
     public Output<String> appId() {
         return this.appId;
     }
-    /**
-     * ARN for the domain association.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN for the domain association.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-     * 
-     */
     @Export(name="certificateSettings", refs={DomainAssociationCertificateSettings.class}, tree="[0]")
     private Output<DomainAssociationCertificateSettings> certificateSettings;
 
-    /**
-     * @return The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-     * 
-     */
     public Output<DomainAssociationCertificateSettings> certificateSettings() {
         return this.certificateSettings;
     }
-    /**
-     * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-     * 
-     */
     @Export(name="certificateVerificationDnsRecord", refs={String.class}, tree="[0]")
     private Output<String> certificateVerificationDnsRecord;
 
-    /**
-     * @return DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-     * 
-     */
     public Output<String> certificateVerificationDnsRecord() {
         return this.certificateVerificationDnsRecord;
     }
-    /**
-     * Domain name for the domain association.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Domain name for the domain association.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Enables the automated creation of subdomains for branches.
-     * 
-     */
     @Export(name="enableAutoSubDomain", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableAutoSubDomain;
 
-    /**
-     * @return Enables the automated creation of subdomains for branches.
-     * 
-     */
     public Output<Optional<Boolean>> enableAutoSubDomain() {
         return Codegen.optional(this.enableAutoSubDomain);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Setting for the subdomain. Documented below.
-     * 
-     */
     @Export(name="subDomains", refs={List.class,DomainAssociationSubDomain.class}, tree="[0,1]")
     private Output<List<DomainAssociationSubDomain>> subDomains;
 
-    /**
-     * @return Setting for the subdomain. Documented below.
-     * 
-     */
     public Output<List<DomainAssociationSubDomain>> subDomains() {
         return this.subDomains;
     }
-    /**
-     * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-     * 
-     */
     @Export(name="waitForVerification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForVerification;
 
-    /**
-     * @return If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-     * 
-     */
     public Output<Optional<Boolean>> waitForVerification() {
         return Codegen.optional(this.waitForVerification);
     }

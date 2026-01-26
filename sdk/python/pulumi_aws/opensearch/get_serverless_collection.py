@@ -76,49 +76,31 @@ class GetServerlessCollectionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the collection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="collectionEndpoint")
     def collection_endpoint(self) -> _builtins.str:
-        """
-        Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-        """
         return pulumi.get(self, "collection_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Date the Collection was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> _builtins.str:
-        """
-        Collection-specific endpoint used to access OpenSearch Dashboards.
-        """
         return pulumi.get(self, "dashboard_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the collection.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="failureCode")
     def failure_code(self) -> _builtins.str:
-        """
-        A failure code associated with the collection.
-        """
         return pulumi.get(self, "failure_code")
 
     @_builtins.property
@@ -134,17 +116,11 @@ class GetServerlessCollectionResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> _builtins.str:
-        """
-        Date the Collection was last modified.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
@@ -160,25 +136,16 @@ class GetServerlessCollectionResult:
     @_builtins.property
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> _builtins.str:
-        """
-        Indicates whether standby replicas should be used for a collection.
-        """
         return pulumi.get(self, "standby_replicas")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assign to the collection.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of collection.
-        """
         return pulumi.get(self, "type")
 
 
@@ -210,25 +177,7 @@ def get_serverless_collection(id: Optional[_builtins.str] = None,
                               region: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessCollectionResult:
     """
-    Data source for managing an AWS OpenSearch Serverless Collection.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_collection(name="example")
-    ```
-
-
-    :param _builtins.str id: ID of the collection.
-    :param _builtins.str name: Name of the collection.
-           
-           > Exactly one of `id` or `name` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -258,25 +207,7 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[_builtin
                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCollectionResult]:
     """
-    Data source for managing an AWS OpenSearch Serverless Collection.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_collection(name="example")
-    ```
-
-
-    :param _builtins.str id: ID of the collection.
-    :param _builtins.str name: Name of the collection.
-           
-           > Exactly one of `id` or `name` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
 
     public sealed class PermissionsBoundaryAttachmentPermissionsBoundaryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the name and path of a customer managed policy. See below.
-        /// </summary>
         [Input("customerManagedPolicyReference")]
         public Input<Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceGetArgs>? CustomerManagedPolicyReference { get; set; }
 
-        /// <summary>
-        /// AWS-managed IAM policy ARN to use as the permissions boundary.
-        /// </summary>
         [Input("managedPolicyArn")]
         public Input<string>? ManagedPolicyArn { get; set; }
 

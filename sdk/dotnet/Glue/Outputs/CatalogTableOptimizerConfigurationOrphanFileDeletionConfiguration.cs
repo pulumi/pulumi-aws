@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration
     {
-        /// <summary>
-        /// The configuration for an Iceberg orphan file deletion optimizer.
-        /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration? IcebergConfiguration;
 
         [OutputConstructor]

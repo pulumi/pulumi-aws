@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceVpcLatticeConfiguration {
-    /**
-     * @return The name of the port for a target group associated with the VPC Lattice configuration.
-     * 
-     */
     private String portName;
-    /**
-     * @return The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The full ARN of the target group or groups associated with the VPC Lattice configuration.
-     * 
-     */
     private String targetGroupArn;
 
     private ServiceVpcLatticeConfiguration() {}
-    /**
-     * @return The name of the port for a target group associated with the VPC Lattice configuration.
-     * 
-     */
     public String portName() {
         return this.portName;
     }
-    /**
-     * @return The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The full ARN of the target group or groups associated with the VPC Lattice configuration.
-     * 
-     */
     public String targetGroupArn() {
         return this.targetGroupArn;
     }

@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an individual EC2 resource tag. This resource should only be used in cases where EC2 resources are created outside the provider (e.g. AMIs), being shared via Resource Access Manager (RAM), or implicitly created by other means (e.g. Transit Gateway VPN Attachments).
- *
- * > **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `aws.ec2.Vpc` and `aws.ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `aws.ec2.Vpc` resource will try to remove the tag being added by the `aws.ec2.Tag` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.TransitGateway("example", {});
- * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
- *     bgpAsn: "65000",
- *     ipAddress: "172.0.0.1",
- *     type: "ipsec.1",
- * });
- * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
- *     customerGatewayId: exampleCustomerGateway.id,
- *     transitGatewayId: example.id,
- *     type: exampleCustomerGateway.type,
- * });
- * const exampleTag = new aws.ec2.Tag("example", {
- *     resourceId: exampleVpnConnection.transitGatewayAttachmentId,
- *     key: "Name",
- *     value: "Hello World",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
- * ```
- */
 export class Tag extends pulumi.CustomResource {
     /**
      * Get an existing Tag resource's state with the given name, ID, and optional extra
@@ -69,21 +32,9 @@ export class Tag extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tag.__pulumiType;
     }
 
-    /**
-     * The tag name.
-     */
     declare public readonly key: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the EC2 resource to manage the tag for.
-     */
     declare public readonly resourceId: pulumi.Output<string>;
-    /**
-     * The value of the tag.
-     */
     declare public readonly value: pulumi.Output<string>;
 
     /**
@@ -128,21 +79,9 @@ export class Tag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tag resources.
  */
 export interface TagState {
-    /**
-     * The tag name.
-     */
     key?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the EC2 resource to manage the tag for.
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * The value of the tag.
-     */
     value?: pulumi.Input<string>;
 }
 
@@ -150,20 +89,8 @@ export interface TagState {
  * The set of arguments for constructing a Tag resource.
  */
 export interface TagArgs {
-    /**
-     * The tag name.
-     */
     key: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the EC2 resource to manage the tag for.
-     */
     resourceId: pulumi.Input<string>;
-    /**
-     * The value of the tag.
-     */
     value: pulumi.Input<string>;
 }

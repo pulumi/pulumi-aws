@@ -12,40 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `apigateway.Stage` resource and optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
-//
-// To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
-//
-// * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
-// * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `dependsOn`, since `dependsOn` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
-// ```
-// The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
-//
-// The `triggers` argument cannot be imported.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// Creation date of the deployment
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Description of the deployment.
+	CreatedDate pulumi.StringOutput    `pulumi:"createdDate"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// REST API identifier.
-	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
-	// Map to set on the related stage.
-	Variables pulumi.StringMapOutput `pulumi:"variables"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	RestApi     pulumi.StringOutput    `pulumi:"restApi"`
+	Triggers    pulumi.StringMapOutput `pulumi:"triggers"`
+	Variables   pulumi.StringMapOutput `pulumi:"variables"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -81,33 +56,21 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// Creation date of the deployment
-	CreatedDate *string `pulumi:"createdDate"`
-	// Description of the deployment.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// REST API identifier.
-	RestApi interface{} `pulumi:"restApi"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers map[string]string `pulumi:"triggers"`
-	// Map to set on the related stage.
-	Variables map[string]string `pulumi:"variables"`
+	CreatedDate *string           `pulumi:"createdDate"`
+	Description *string           `pulumi:"description"`
+	Region      *string           `pulumi:"region"`
+	RestApi     interface{}       `pulumi:"restApi"`
+	Triggers    map[string]string `pulumi:"triggers"`
+	Variables   map[string]string `pulumi:"variables"`
 }
 
 type DeploymentState struct {
-	// Creation date of the deployment
 	CreatedDate pulumi.StringPtrInput
-	// Description of the deployment.
 	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// REST API identifier.
-	RestApi pulumi.Input
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers pulumi.StringMapInput
-	// Map to set on the related stage.
-	Variables pulumi.StringMapInput
+	Region      pulumi.StringPtrInput
+	RestApi     pulumi.Input
+	Triggers    pulumi.StringMapInput
+	Variables   pulumi.StringMapInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {
@@ -115,30 +78,20 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// Description of the deployment.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// REST API identifier.
-	RestApi interface{} `pulumi:"restApi"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers map[string]string `pulumi:"triggers"`
-	// Map to set on the related stage.
-	Variables map[string]string `pulumi:"variables"`
+	Description *string           `pulumi:"description"`
+	Region      *string           `pulumi:"region"`
+	RestApi     interface{}       `pulumi:"restApi"`
+	Triggers    map[string]string `pulumi:"triggers"`
+	Variables   map[string]string `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// Description of the deployment.
 	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// REST API identifier.
-	RestApi pulumi.Input
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers pulumi.StringMapInput
-	// Map to set on the related stage.
-	Variables pulumi.StringMapInput
+	Region      pulumi.StringPtrInput
+	RestApi     pulumi.Input
+	Triggers    pulumi.StringMapInput
+	Variables   pulumi.StringMapInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -228,32 +181,26 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// Creation date of the deployment
 func (o DeploymentOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the deployment.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// REST API identifier.
 func (o DeploymentOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 func (o DeploymentOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }
 
-// Map to set on the related stage.
 func (o DeploymentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Variables }).(pulumi.StringMapOutput)
 }

@@ -16,62 +16,30 @@ public final class WorkforceWorkforceVpcConfigArgs extends com.pulumi.resources.
 
     public static final WorkforceWorkforceVpcConfigArgs Empty = new WorkforceWorkforceVpcConfigArgs();
 
-    /**
-     * The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * The ID of the subnets in the VPC that you want to connect.
-     * 
-     */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
-    /**
-     * @return The ID of the subnets in the VPC that you want to connect.
-     * 
-     */
     public Optional<Output<List<String>>> subnets() {
         return Optional.ofNullable(this.subnets);
     }
 
-    /**
-     * The IDs for the VPC service endpoints of your VPC workforce.
-     * 
-     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
-    /**
-     * @return The IDs for the VPC service endpoints of your VPC workforce.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
 
-    /**
-     * The ID of the VPC that the workforce uses for communication.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC that the workforce uses for communication.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -103,106 +71,46 @@ public final class WorkforceWorkforceVpcConfigArgs extends com.pulumi.resources.
             $ = new WorkforceWorkforceVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnets The ID of the subnets in the VPC that you want to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(@Nullable Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets The ID of the subnets in the VPC that you want to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets The ID of the subnets in the VPC that you want to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
 
-        /**
-         * @param vpcEndpointId The IDs for the VPC service endpoints of your VPC workforce.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId The IDs for the VPC service endpoints of your VPC workforce.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
-        /**
-         * @param vpcId The ID of the VPC that the workforce uses for communication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC that the workforce uses for communication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

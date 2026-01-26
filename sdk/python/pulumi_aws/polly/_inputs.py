@@ -24,33 +24,12 @@ MYPY = False
 if not MYPY:
     class GetVoicesVoiceArgsDict(TypedDict):
         additional_language_codes: Sequence[_builtins.str]
-        """
-        Additional codes for languages available for the specified voice in addition to its default language.
-        """
         gender: _builtins.str
-        """
-        Gender of the voice.
-        """
         id: _builtins.str
-        """
-        Amazon Polly assigned voice ID.
-        """
         language_code: _builtins.str
-        """
-        Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-        """
         language_name: _builtins.str
-        """
-        Human readable name of the language in English.
-        """
         name: _builtins.str
-        """
-        Name of the voice.
-        """
         supported_engines: Sequence[_builtins.str]
-        """
-        Specifies which engines are supported by a given voice.
-        """
 elif False:
     GetVoicesVoiceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -64,15 +43,6 @@ class GetVoicesVoiceArgs:
                  language_name: _builtins.str,
                  name: _builtins.str,
                  supported_engines: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] additional_language_codes: Additional codes for languages available for the specified voice in addition to its default language.
-        :param _builtins.str gender: Gender of the voice.
-        :param _builtins.str id: Amazon Polly assigned voice ID.
-        :param _builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-        :param _builtins.str language_name: Human readable name of the language in English.
-        :param _builtins.str name: Name of the voice.
-        :param Sequence[_builtins.str] supported_engines: Specifies which engines are supported by a given voice.
-        """
         pulumi.set(__self__, "additional_language_codes", additional_language_codes)
         pulumi.set(__self__, "gender", gender)
         pulumi.set(__self__, "id", id)
@@ -84,9 +54,6 @@ class GetVoicesVoiceArgs:
     @_builtins.property
     @pulumi.getter(name="additionalLanguageCodes")
     def additional_language_codes(self) -> Sequence[_builtins.str]:
-        """
-        Additional codes for languages available for the specified voice in addition to its default language.
-        """
         return pulumi.get(self, "additional_language_codes")
 
     @additional_language_codes.setter
@@ -96,9 +63,6 @@ class GetVoicesVoiceArgs:
     @_builtins.property
     @pulumi.getter
     def gender(self) -> _builtins.str:
-        """
-        Gender of the voice.
-        """
         return pulumi.get(self, "gender")
 
     @gender.setter
@@ -108,9 +72,6 @@ class GetVoicesVoiceArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Amazon Polly assigned voice ID.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -120,9 +81,6 @@ class GetVoicesVoiceArgs:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> _builtins.str:
-        """
-        Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -132,9 +90,6 @@ class GetVoicesVoiceArgs:
     @_builtins.property
     @pulumi.getter(name="languageName")
     def language_name(self) -> _builtins.str:
-        """
-        Human readable name of the language in English.
-        """
         return pulumi.get(self, "language_name")
 
     @language_name.setter
@@ -144,9 +99,6 @@ class GetVoicesVoiceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the voice.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -156,9 +108,6 @@ class GetVoicesVoiceArgs:
     @_builtins.property
     @pulumi.getter(name="supportedEngines")
     def supported_engines(self) -> Sequence[_builtins.str]:
-        """
-        Specifies which engines are supported by a given voice.
-        """
         return pulumi.get(self, "supported_engines")
 
     @supported_engines.setter

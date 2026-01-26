@@ -11,159 +11,12 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetResolverEndpoint
     {
-        /// <summary>
-        /// `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
-        /// 
-        /// This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
-        ///     {
-        ///         ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.GetResolverEndpointFilterInputArgs
-        ///             {
-        ///                 Name = "NAME",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "MyResolverExampleName",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResolverEndpointResult> InvokeAsync(GetResolverEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverEndpointResult>("aws:route53/getResolverEndpoint:getResolverEndpoint", args ?? new GetResolverEndpointArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
-        /// 
-        /// This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
-        ///     {
-        ///         ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.GetResolverEndpointFilterInputArgs
-        ///             {
-        ///                 Name = "NAME",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "MyResolverExampleName",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverEndpointResult> Invoke(GetResolverEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverEndpointResult>("aws:route53/getResolverEndpoint:getResolverEndpoint", args ?? new GetResolverEndpointInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
-        /// 
-        /// This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
-        ///     {
-        ///         ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.GetResolverEndpointFilterInputArgs
-        ///             {
-        ///                 Name = "NAME",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "MyResolverExampleName",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverEndpointResult> Invoke(GetResolverEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverEndpointResult>("aws:route53/getResolverEndpoint:getResolverEndpoint", args ?? new GetResolverEndpointInvokeArgs(), options.WithDefaults());
     }
@@ -173,27 +26,15 @@ namespace Pulumi.Aws.Route53
     {
         [Input("filters")]
         private List<Inputs.GetResolverEndpointFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [Route53resolver Filter value in the AWS API reference][1].
-        /// </summary>
         public List<Inputs.GetResolverEndpointFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetResolverEndpointFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the Route53 Resolver Endpoint.
-        /// </summary>
         [Input("resolverEndpointId")]
         public string? ResolverEndpointId { get; set; }
 
@@ -207,27 +48,15 @@ namespace Pulumi.Aws.Route53
     {
         [Input("filters")]
         private InputList<Inputs.GetResolverEndpointFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [Route53resolver Filter value in the AWS API reference][1].
-        /// </summary>
         public InputList<Inputs.GetResolverEndpointFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetResolverEndpointFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the Route53 Resolver Endpoint.
-        /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
@@ -241,49 +70,22 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverEndpointResult
     {
-        /// <summary>
-        /// Computed ARN of the Route53 Resolver Endpoint.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Direction of the queries to or from the Resolver Endpoint .
-        /// </summary>
         public readonly string Direction;
         public readonly ImmutableArray<Outputs.GetResolverEndpointFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of IPaddresses that have been associated with the Resolver Endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         public readonly string Name;
-        /// <summary>
-        /// The protocols used by the Resolver endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> Protocols;
         public readonly string Region;
         public readonly string? ResolverEndpointId;
-        /// <summary>
-        /// The Resolver endpoint IP address type.
-        /// </summary>
         public readonly string ResolverEndpointType;
-        /// <summary>
-        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
-        /// </summary>
         public readonly bool RniEnhancedMetricsEnabled;
-        /// <summary>
-        /// Current status of the Resolver Endpoint.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
-        /// </summary>
         public readonly bool TargetNameServerMetricsEnabled;
-        /// <summary>
-        /// ID of the Host VPC that the Resolver Endpoint resides in.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

@@ -14,17 +14,9 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
 
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs();
 
-    /**
-     * S3 URI for intermediate storage.
-     * 
-     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
-    /**
-     * @return S3 URI for intermediate storage.
-     * 
-     */
     public Output<String> uri() {
         return this.uri;
     }
@@ -53,23 +45,11 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
             $ = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param uri S3 URI for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri S3 URI for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

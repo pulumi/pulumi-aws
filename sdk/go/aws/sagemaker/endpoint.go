@@ -12,64 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI Endpoint resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpoint(ctx, "e", &sagemaker.EndpointArgs{
-//				Name:               pulumi.String("my-endpoint"),
-//				EndpointConfigName: pulumi.Any(ec.Name),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import endpoints using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
-// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-	DeploymentConfig EndpointDeploymentConfigPtrOutput `pulumi:"deploymentConfig"`
-	// The name of the endpoint configuration to use.
-	EndpointConfigName pulumi.StringOutput `pulumi:"endpointConfigName"`
-	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                pulumi.StringOutput               `pulumi:"arn"`
+	DeploymentConfig   EndpointDeploymentConfigPtrOutput `pulumi:"deploymentConfig"`
+	EndpointConfigName pulumi.StringOutput               `pulumi:"endpointConfigName"`
+	Name               pulumi.StringOutput               `pulumi:"name"`
+	Region             pulumi.StringOutput               `pulumi:"region"`
+	Tags               pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput            `pulumi:"tagsAll"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -105,37 +57,23 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-	Arn *string `pulumi:"arn"`
-	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-	DeploymentConfig *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
-	// The name of the endpoint configuration to use.
-	EndpointConfigName *string `pulumi:"endpointConfigName"`
-	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                *string                   `pulumi:"arn"`
+	DeploymentConfig   *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
+	EndpointConfigName *string                   `pulumi:"endpointConfigName"`
+	Name               *string                   `pulumi:"name"`
+	Region             *string                   `pulumi:"region"`
+	Tags               map[string]string         `pulumi:"tags"`
+	TagsAll            map[string]string         `pulumi:"tagsAll"`
 }
 
 type EndpointState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-	Arn pulumi.StringPtrInput
-	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-	DeploymentConfig EndpointDeploymentConfigPtrInput
-	// The name of the endpoint configuration to use.
+	Arn                pulumi.StringPtrInput
+	DeploymentConfig   EndpointDeploymentConfigPtrInput
 	EndpointConfigName pulumi.StringPtrInput
-	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name               pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (EndpointState) ElementType() reflect.Type {
@@ -143,30 +81,20 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-	DeploymentConfig *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
-	// The name of the endpoint configuration to use.
-	EndpointConfigName string `pulumi:"endpointConfigName"`
-	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DeploymentConfig   *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
+	EndpointConfigName string                    `pulumi:"endpointConfigName"`
+	Name               *string                   `pulumi:"name"`
+	Region             *string                   `pulumi:"region"`
+	Tags               map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-	DeploymentConfig EndpointDeploymentConfigPtrInput
-	// The name of the endpoint configuration to use.
+	DeploymentConfig   EndpointDeploymentConfigPtrInput
 	EndpointConfigName pulumi.StringInput
-	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name               pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -256,37 +184,30 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
 func (o EndpointOutput) DeploymentConfig() EndpointDeploymentConfigPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointDeploymentConfigPtrOutput { return v.DeploymentConfig }).(EndpointDeploymentConfigPtrOutput)
 }
 
-// The name of the endpoint configuration to use.
 func (o EndpointOutput) EndpointConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointConfigName }).(pulumi.StringOutput)
 }
 
-// The name of the endpoint. If omitted, the provider will assign a random, unique name.
 func (o EndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

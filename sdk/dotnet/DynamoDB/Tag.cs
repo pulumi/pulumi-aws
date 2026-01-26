@@ -9,92 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
-    /// <summary>
-    /// Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
-    /// 
-    /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.dynamodb.Table` and `aws.dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `AwsDynamodbCluster` resource will try to remove the tag being added by the `aws.dynamodb.Tag` resource.
-    /// 
-    /// &gt; **NOTE:** This tagging resource does not use the provider `IgnoreTags` configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var replica = Aws.GetRegion.Invoke();
-    /// 
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var example = new Aws.DynamoDB.Table("example", new()
-    ///     {
-    ///         Replicas = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
-    ///             {
-    ///                 RegionName = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var test = new Aws.DynamoDB.Tag("test", new()
-    ///     {
-    ///         ResourceArn = Output.Tuple(example.Arn, current, replica).Apply(values =&gt;
-    ///         {
-    ///             var arn = values.Item1;
-    ///             var current = values.Item2;
-    ///             var replica = values.Item3;
-    ///             return Std.Replace.Invoke(new()
-    ///             {
-    ///                 Text = arn,
-    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///                 Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             });
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Key = "testkey",
-    ///         Value = "testvalue",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dynamodb/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -144,27 +70,15 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -176,27 +90,15 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

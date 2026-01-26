@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionTenantCustomizationsCertificateGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the distribution tenant.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

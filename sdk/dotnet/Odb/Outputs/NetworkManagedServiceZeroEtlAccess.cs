@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class NetworkManagedServiceZeroEtlAccess
     {
         public readonly string Cidr;
-        /// <summary>
-        /// The status of the network resource.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

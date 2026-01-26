@@ -20,109 +20,51 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
 
     public static final BucketV2ReplicationConfigurationRuleDestinationArgs Empty = new BucketV2ReplicationConfigurationRuleDestinationArgs();
 
-    /**
-     * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
-     * 
-     */
     @Import(name="accessControlTranslations")
     private @Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslations;
 
-    /**
-     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
-     * 
-     */
     public Optional<Output<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>>> accessControlTranslations() {
         return Optional.ofNullable(this.accessControlTranslations);
     }
 
-    /**
-     * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Enables replication metrics (required for S3 RTC) (documented below).
-     * 
-     */
     @Import(name="metrics")
     private @Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationMetricArgs>> metrics;
 
-    /**
-     * @return Enables replication metrics (required for S3 RTC) (documented below).
-     * 
-     */
     public Optional<Output<List<BucketV2ReplicationConfigurationRuleDestinationMetricArgs>>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
 
-    /**
-     * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-     * `sseKmsEncryptedObjects` source selection criteria.
-     * 
-     */
     @Import(name="replicaKmsKeyId")
     private @Nullable Output<String> replicaKmsKeyId;
 
-    /**
-     * @return Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-     * `sseKmsEncryptedObjects` source selection criteria.
-     * 
-     */
     public Optional<Output<String>> replicaKmsKeyId() {
         return Optional.ofNullable(this.replicaKmsKeyId);
     }
 
-    /**
-     * Enables S3 Replication Time Control (S3 RTC) (documented below).
-     * 
-     */
     @Import(name="replicationTimes")
     private @Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs>> replicationTimes;
 
-    /**
-     * @return Enables S3 Replication Time Control (S3 RTC) (documented below).
-     * 
-     */
     public Optional<Output<List<BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs>>> replicationTimes() {
         return Optional.ofNullable(this.replicationTimes);
     }
 
-    /**
-     * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
-     * 
-     */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
-    /**
-     * @return The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
-     * 
-     */
     public Optional<Output<String>> storageClass() {
         return Optional.ofNullable(this.storageClass);
     }
@@ -157,181 +99,77 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
             $ = new BucketV2ReplicationConfigurationRuleDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlTranslations(@Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslations) {
             $.accessControlTranslations = accessControlTranslations;
             return this;
         }
 
-        /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlTranslations(List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs> accessControlTranslations) {
             return accessControlTranslations(Output.of(accessControlTranslations));
         }
 
-        /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlTranslations(BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs... accessControlTranslations) {
             return accessControlTranslations(List.of(accessControlTranslations));
         }
 
-        /**
-         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param bucket ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param metrics Enables replication metrics (required for S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(@Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationMetricArgs>> metrics) {
             $.metrics = metrics;
             return this;
         }
 
-        /**
-         * @param metrics Enables replication metrics (required for S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(List<BucketV2ReplicationConfigurationRuleDestinationMetricArgs> metrics) {
             return metrics(Output.of(metrics));
         }
 
-        /**
-         * @param metrics Enables replication metrics (required for S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(BucketV2ReplicationConfigurationRuleDestinationMetricArgs... metrics) {
             return metrics(List.of(metrics));
         }
 
-        /**
-         * @param replicaKmsKeyId Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-         * `sseKmsEncryptedObjects` source selection criteria.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicaKmsKeyId(@Nullable Output<String> replicaKmsKeyId) {
             $.replicaKmsKeyId = replicaKmsKeyId;
             return this;
         }
 
-        /**
-         * @param replicaKmsKeyId Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-         * `sseKmsEncryptedObjects` source selection criteria.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicaKmsKeyId(String replicaKmsKeyId) {
             return replicaKmsKeyId(Output.of(replicaKmsKeyId));
         }
 
-        /**
-         * @param replicationTimes Enables S3 Replication Time Control (S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationTimes(@Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs>> replicationTimes) {
             $.replicationTimes = replicationTimes;
             return this;
         }
 
-        /**
-         * @param replicationTimes Enables S3 Replication Time Control (S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationTimes(List<BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs> replicationTimes) {
             return replicationTimes(Output.of(replicationTimes));
         }
 
-        /**
-         * @param replicationTimes Enables S3 Replication Time Control (S3 RTC) (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationTimes(BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs... replicationTimes) {
             return replicationTimes(List.of(replicationTimes));
         }
 
-        /**
-         * @param storageClass The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(@Nullable Output<String> storageClass) {
             $.storageClass = storageClass;
             return this;
         }
 
-        /**
-         * @param storageClass The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(String storageClass) {
             return storageClass(Output.of(storageClass));
         }

@@ -15,66 +15,30 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
 
     public static final TransitGatewayConnectPeerAssociationState Empty = new TransitGatewayConnectPeerAssociationState();
 
-    /**
-     * ID of the device.
-     * 
-     */
     @Import(name="deviceId")
     private @Nullable Output<String> deviceId;
 
-    /**
-     * @return ID of the device.
-     * 
-     */
     public Optional<Output<String>> deviceId() {
         return Optional.ofNullable(this.deviceId);
     }
 
-    /**
-     * ID of the global network.
-     * 
-     */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     */
     public Optional<Output<String>> globalNetworkId() {
         return Optional.ofNullable(this.globalNetworkId);
     }
 
-    /**
-     * ID of the link.
-     * 
-     */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
-    /**
-     * @return ID of the link.
-     * 
-     */
     public Optional<Output<String>> linkId() {
         return Optional.ofNullable(this.linkId);
     }
 
-    /**
-     * ARN of the Connect peer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="transitGatewayConnectPeerArn")
     private @Nullable Output<String> transitGatewayConnectPeerArn;
 
-    /**
-     * @return ARN of the Connect peer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> transitGatewayConnectPeerArn() {
         return Optional.ofNullable(this.transitGatewayConnectPeerArn);
     }
@@ -106,90 +70,38 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
             $ = new TransitGatewayConnectPeerAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deviceId ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(@Nullable Output<String> deviceId) {
             $.deviceId = deviceId;
             return this;
         }
 
-        /**
-         * @param deviceId ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(String deviceId) {
             return deviceId(Output.of(deviceId));
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(@Nullable Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param linkId ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(@Nullable Output<String> linkId) {
             $.linkId = linkId;
             return this;
         }
 
-        /**
-         * @param linkId ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
         }
 
-        /**
-         * @param transitGatewayConnectPeerArn ARN of the Connect peer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayConnectPeerArn(@Nullable Output<String> transitGatewayConnectPeerArn) {
             $.transitGatewayConnectPeerArn = transitGatewayConnectPeerArn;
             return this;
         }
 
-        /**
-         * @param transitGatewayConnectPeerArn ARN of the Connect peer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayConnectPeerArn(String transitGatewayConnectPeerArn) {
             return transitGatewayConnectPeerArn(Output.of(transitGatewayConnectPeerArn));
         }

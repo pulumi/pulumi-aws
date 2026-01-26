@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentConfiguration {
-    /**
-     * @return Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-     * 
-     */
     private @Nullable List<GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier> customDataIdentifiers;
 
     private GetLogDataProtectionPolicyDocumentConfiguration() {}
-    /**
-     * @return Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-     * 
-     */
     public List<GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier> customDataIdentifiers() {
         return this.customDataIdentifiers == null ? List.of() : this.customDataIdentifiers;
     }

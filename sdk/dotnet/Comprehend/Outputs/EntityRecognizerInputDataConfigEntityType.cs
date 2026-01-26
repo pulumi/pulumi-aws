@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class EntityRecognizerInputDataConfigEntityType
     {
-        /// <summary>
-        /// An entity type to be matched by the Entity Recognizer.
-        /// Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

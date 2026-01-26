@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetEcsParametersPlacementStrategy
     {
-        /// <summary>
-        /// The field to apply the placement strategy against.
-        /// </summary>
         public readonly string? Field;
-        /// <summary>
-        /// The type of placement strategy. One of: `Random`, `Spread`, `Binpack`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

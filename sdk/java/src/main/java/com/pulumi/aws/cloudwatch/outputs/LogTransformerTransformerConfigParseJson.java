@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigParseJson {
-    /**
-     * @return Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-     * 
-     */
     private @Nullable String destination;
-    /**
-     * @return Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     private @Nullable String source;
 
     private LogTransformerTransformerConfigParseJson() {}
-    /**
-     * @return Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-     * 
-     */
     public Optional<String> destination() {
         return Optional.ofNullable(this.destination);
     }
-    /**
-     * @return Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }

@@ -15,32 +15,16 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUsersArgs Empty = new GetUsersArgs();
 
-    /**
-     * Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-     * 
-     */
     @Import(name="nameRegex")
     private @Nullable Output<String> nameRegex;
 
-    /**
-     * @return Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-     * 
-     */
     public Optional<Output<String>> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
 
-    /**
-     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-     * 
-     */
     @Import(name="pathPrefix")
     private @Nullable Output<String> pathPrefix;
 
-    /**
-     * @return Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-     * 
-     */
     public Optional<Output<String>> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
@@ -70,44 +54,20 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUsersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(@Nullable Output<String> nameRegex) {
             $.nameRegex = nameRegex;
             return this;
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(String nameRegex) {
             return nameRegex(Output.of(nameRegex));
         }
 
-        /**
-         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathPrefix(@Nullable Output<String> pathPrefix) {
             $.pathPrefix = pathPrefix;
             return this;
         }
 
-        /**
-         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathPrefix(String pathPrefix) {
             return pathPrefix(Output.of(pathPrefix));
         }

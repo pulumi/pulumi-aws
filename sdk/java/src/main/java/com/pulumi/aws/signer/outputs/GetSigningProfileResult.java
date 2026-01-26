@@ -15,10 +15,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningProfileResult {
-    /**
-     * @return ARN for the signing profile.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,63 +22,19 @@ public final class GetSigningProfileResult {
      */
     private String id;
     private String name;
-    /**
-     * @return A human-readable name for the signing platform associated with the signing profile.
-     * 
-     */
     private String platformDisplayName;
-    /**
-     * @return ID of the platform that is used by the target signing profile.
-     * 
-     */
     private String platformId;
     private String region;
-    /**
-     * @return Revocation information for a signing profile.
-     * 
-     */
     private List<GetSigningProfileRevocationRecord> revocationRecords;
-    /**
-     * @return The validity period for a signing job.
-     * 
-     */
     private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
-    /**
-     * @return AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
-     * 
-     */
     private List<GetSigningProfileSigningMaterial> signingMaterials;
-    /**
-     * @return Map of key-value pairs for signing.
-     * 
-     */
     private Map<String,String> signingParameters;
-    /**
-     * @return Status of the target signing profile.
-     * 
-     */
     private String status;
-    /**
-     * @return List of tags associated with the signing profile.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Current version of the signing profile.
-     * 
-     */
     private String version;
-    /**
-     * @return Signing profile ARN, including the profile version.
-     * 
-     */
     private String versionArn;
 
     private GetSigningProfileResult() {}
-    /**
-     * @return ARN for the signing profile.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -96,76 +48,36 @@ public final class GetSigningProfileResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return A human-readable name for the signing platform associated with the signing profile.
-     * 
-     */
     public String platformDisplayName() {
         return this.platformDisplayName;
     }
-    /**
-     * @return ID of the platform that is used by the target signing profile.
-     * 
-     */
     public String platformId() {
         return this.platformId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Revocation information for a signing profile.
-     * 
-     */
     public List<GetSigningProfileRevocationRecord> revocationRecords() {
         return this.revocationRecords;
     }
-    /**
-     * @return The validity period for a signing job.
-     * 
-     */
     public List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods() {
         return this.signatureValidityPeriods;
     }
-    /**
-     * @return AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
-     * 
-     */
     public List<GetSigningProfileSigningMaterial> signingMaterials() {
         return this.signingMaterials;
     }
-    /**
-     * @return Map of key-value pairs for signing.
-     * 
-     */
     public Map<String,String> signingParameters() {
         return this.signingParameters;
     }
-    /**
-     * @return Status of the target signing profile.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return List of tags associated with the signing profile.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Current version of the signing profile.
-     * 
-     */
     public String version() {
         return this.version;
     }
-    /**
-     * @return Signing profile ARN, including the profile version.
-     * 
-     */
     public String versionArn() {
         return this.versionArn;
     }

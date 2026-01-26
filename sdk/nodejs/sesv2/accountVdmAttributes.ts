@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.AccountVdmAttributes("example", {
- *     vdmEnabled: "ENABLED",
- *     dashboardAttributes: {
- *         engagementMetrics: "ENABLED",
- *     },
- *     guardianAttributes: {
- *         optimizedSharedDelivery: "ENABLED",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
- *
- * ```sh
- * $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
- * ```
- */
 export class AccountVdmAttributes extends pulumi.CustomResource {
     /**
      * Get an existing AccountVdmAttributes resource's state with the given name, ID, and optional extra
@@ -65,23 +35,9 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountVdmAttributes.__pulumiType;
     }
 
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-     */
     declare public readonly dashboardAttributes: pulumi.Output<outputs.sesv2.AccountVdmAttributesDashboardAttributes>;
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
-     */
     declare public readonly guardianAttributes: pulumi.Output<outputs.sesv2.AccountVdmAttributesGuardianAttributes>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly vdmEnabled: pulumi.Output<string>;
 
     /**
@@ -120,23 +76,9 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountVdmAttributes resources.
  */
 export interface AccountVdmAttributesState {
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-     */
     dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes>;
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
-     */
     guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-     *
-     * The following arguments are optional:
-     */
     vdmEnabled?: pulumi.Input<string>;
 }
 
@@ -144,22 +86,8 @@ export interface AccountVdmAttributesState {
  * The set of arguments for constructing a AccountVdmAttributes resource.
  */
 export interface AccountVdmAttributesArgs {
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-     */
     dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes>;
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
-     */
     guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-     *
-     * The following arguments are optional:
-     */
     vdmEnabled: pulumi.Input<string>;
 }

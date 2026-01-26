@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sfn.Outputs
     [OutputType]
     public sealed class AliasRoutingConfiguration
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the state machine version.
-        /// </summary>
         public readonly string StateMachineVersionArn;
-        /// <summary>
-        /// Percentage of traffic routed to the state machine version.
-        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

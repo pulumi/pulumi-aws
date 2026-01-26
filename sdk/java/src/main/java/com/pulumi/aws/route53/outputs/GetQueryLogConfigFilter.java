@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQueryLogConfigFilter {
-    /**
-     * @return The name of the query logging configuration.
-     * 
-     */
     private String name;
     private List<String> values;
 
     private GetQueryLogConfigFilter() {}
-    /**
-     * @return The name of the query logging configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }

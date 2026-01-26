@@ -14,10 +14,6 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
     {
         [Input("sources", required: true)]
         private InputList<string>? _sources;
-
-        /// <summary>
-        /// The identity source to use when mapping a specified attribute to AWS SSO.
-        /// </summary>
         public InputList<string> Sources
         {
             get => _sources ?? (_sources = new InputList<string>());

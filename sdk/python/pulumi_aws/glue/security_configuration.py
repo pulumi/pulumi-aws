@@ -26,9 +26,6 @@ class SecurityConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
-        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
@@ -39,9 +36,6 @@ class SecurityConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']:
-        """
-        Configuration block containing encryption configuration. Detailed below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -51,9 +45,6 @@ class SecurityConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the security configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,9 +54,6 @@ class SecurityConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +69,6 @@ class _SecurityConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityConfiguration resources.
-        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
@@ -95,9 +80,6 @@ class _SecurityConfigurationState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']]:
-        """
-        Configuration block containing encryption configuration. Detailed below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -107,9 +89,6 @@ class _SecurityConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the security configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,9 +98,6 @@ class _SecurityConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -140,43 +116,9 @@ class SecurityConfiguration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Glue Security Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.SecurityConfiguration("example",
-            name="example",
-            encryption_configuration={
-                "cloudwatch_encryption": {
-                    "cloudwatch_encryption_mode": "DISABLED",
-                },
-                "job_bookmarks_encryption": {
-                    "job_bookmarks_encryption_mode": "DISABLED",
-                },
-                "s3_encryption": {
-                    "kms_key_arn": example_aws_kms_key["arn"],
-                    "s3_encryption_mode": "SSE-KMS",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Security Configurations using `name`. For example:
-
-        ```sh
-        $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-        ```
-
+        Create a SecurityConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -185,38 +127,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  args: SecurityConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Glue Security Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.SecurityConfiguration("example",
-            name="example",
-            encryption_configuration={
-                "cloudwatch_encryption": {
-                    "cloudwatch_encryption_mode": "DISABLED",
-                },
-                "job_bookmarks_encryption": {
-                    "job_bookmarks_encryption_mode": "DISABLED",
-                },
-                "s3_encryption": {
-                    "kms_key_arn": example_aws_kms_key["arn"],
-                    "s3_encryption_mode": "SSE-KMS",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Security Configurations using `name`. For example:
-
-        ```sh
-        $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-        ```
-
+        Create a SecurityConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,9 +180,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -285,24 +193,15 @@ class SecurityConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output['outputs.SecurityConfigurationEncryptionConfiguration']:
-        """
-        Configuration block containing encryption configuration. Detailed below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the security configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

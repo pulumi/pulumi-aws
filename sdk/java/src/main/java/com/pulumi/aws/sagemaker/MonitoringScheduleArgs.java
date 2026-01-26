@@ -18,62 +18,30 @@ public final class MonitoringScheduleArgs extends com.pulumi.resources.ResourceA
 
     public static final MonitoringScheduleArgs Empty = new MonitoringScheduleArgs();
 
-    /**
-     * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="monitoringScheduleConfig", required=true)
     private Output<MonitoringScheduleMonitoringScheduleConfigArgs> monitoringScheduleConfig;
 
-    /**
-     * @return The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
-     * 
-     */
     public Output<MonitoringScheduleMonitoringScheduleConfigArgs> monitoringScheduleConfig() {
         return this.monitoringScheduleConfig;
     }
 
-    /**
-     * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -105,86 +73,38 @@ public final class MonitoringScheduleArgs extends com.pulumi.resources.ResourceA
             $ = new MonitoringScheduleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param monitoringScheduleConfig The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringScheduleConfig(Output<MonitoringScheduleMonitoringScheduleConfigArgs> monitoringScheduleConfig) {
             $.monitoringScheduleConfig = monitoringScheduleConfig;
             return this;
         }
 
-        /**
-         * @param monitoringScheduleConfig The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringScheduleConfig(MonitoringScheduleMonitoringScheduleConfigArgs monitoringScheduleConfig) {
             return monitoringScheduleConfig(Output.of(monitoringScheduleConfig));
         }
 
-        /**
-         * @param name The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

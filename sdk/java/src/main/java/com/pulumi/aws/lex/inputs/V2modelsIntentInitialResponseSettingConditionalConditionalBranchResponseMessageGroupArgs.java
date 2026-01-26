@@ -18,32 +18,16 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
 
     public static final V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupArgs Empty = new V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupArgs();
 
-    /**
-     * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     @Import(name="message", required=true)
     private Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgs> message;
 
-    /**
-     * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     public Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgs> message() {
         return this.message;
     }
 
-    /**
-     * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     @Import(name="variations")
     private @Nullable Output<List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs>> variations;
 
-    /**
-     * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs>>> variations() {
         return Optional.ofNullable(this.variations);
     }
@@ -73,54 +57,24 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
             $ = new V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param message Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgs message) {
             return message(Output.of(message));
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(@Nullable Output<List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs>> variations) {
             $.variations = variations;
             return this;
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs> variations) {
             return variations(Output.of(variations));
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs... variations) {
             return variations(List.of(variations));
         }

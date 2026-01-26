@@ -26,11 +26,6 @@ class InputSecurityGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InputSecurityGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "whitelist_rules", whitelist_rules)
         if region is not None:
@@ -41,11 +36,6 @@ class InputSecurityGroupArgs:
     @_builtins.property
     @pulumi.getter(name="whitelistRules")
     def whitelist_rules(self) -> pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]]:
-        """
-        Whitelist rules. See Whitelist Rules for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "whitelist_rules")
 
     @whitelist_rules.setter
@@ -55,9 +45,6 @@ class InputSecurityGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -67,9 +54,6 @@ class InputSecurityGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -88,13 +72,6 @@ class _InputSecurityGroupState:
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering InputSecurityGroup resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the InputSecurityGroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inputs: The list of inputs currently using this InputSecurityGroup.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -112,9 +89,6 @@ class _InputSecurityGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the InputSecurityGroup.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -124,9 +98,6 @@ class _InputSecurityGroupState:
     @_builtins.property
     @pulumi.getter
     def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of inputs currently using this InputSecurityGroup.
-        """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
@@ -136,9 +107,6 @@ class _InputSecurityGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -148,9 +116,6 @@ class _InputSecurityGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -169,11 +134,6 @@ class _InputSecurityGroupState:
     @_builtins.property
     @pulumi.getter(name="whitelistRules")
     def whitelist_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]]]:
-        """
-        Whitelist rules. See Whitelist Rules for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "whitelist_rules")
 
     @whitelist_rules.setter
@@ -192,40 +152,9 @@ class InputSecurityGroup(pulumi.CustomResource):
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS MediaLive InputSecurityGroup.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.medialive.InputSecurityGroup("example",
-            whitelist_rules=[{
-                "cidr": "10.0.0.8/32",
-            }],
-            tags={
-                "ENVIRONMENT": "prod",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
-        ```
-
+        Create a InputSecurityGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -234,33 +163,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                  args: InputSecurityGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS MediaLive InputSecurityGroup.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.medialive.InputSecurityGroup("example",
-            whitelist_rules=[{
-                "cidr": "10.0.0.8/32",
-            }],
-            tags={
-                "ENVIRONMENT": "prod",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
-        ```
-
+        Create a InputSecurityGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InputSecurityGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,13 +222,6 @@ class InputSecurityGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the InputSecurityGroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inputs: The list of inputs currently using this InputSecurityGroup.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -342,33 +238,21 @@ class InputSecurityGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the InputSecurityGroup.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def inputs(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The list of inputs currently using this InputSecurityGroup.
-        """
         return pulumi.get(self, "inputs")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -379,10 +263,5 @@ class InputSecurityGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="whitelistRules")
     def whitelist_rules(self) -> pulumi.Output[Sequence['outputs.InputSecurityGroupWhitelistRule']]:
-        """
-        Whitelist rules. See Whitelist Rules for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "whitelist_rules")
 

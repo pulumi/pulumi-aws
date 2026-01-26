@@ -12,44 +12,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcLinkResult {
-    /**
-     * @return ARN of the VPC Link.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return VPC Link Name.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return List of security groups associated with the VPC Link.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return List of subnets attached to the VPC Link.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return VPC Link Tags.
-     * 
-     */
     private Map<String,String> tags;
     private String vpcLinkId;
 
     private GetVpcLinkResult() {}
-    /**
-     * @return ARN of the VPC Link.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -60,34 +36,18 @@ public final class GetVpcLinkResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return VPC Link Name.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of security groups associated with the VPC Link.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return List of subnets attached to the VPC Link.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return VPC Link Tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

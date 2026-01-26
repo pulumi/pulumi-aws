@@ -19,81 +19,37 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
 
     public static final RouteServerPeerArgs Empty = new RouteServerPeerArgs();
 
-    /**
-     * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-     * 
-     */
     @Import(name="bgpOptions")
     private @Nullable Output<RouteServerPeerBgpOptionsArgs> bgpOptions;
 
-    /**
-     * @return The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-     * 
-     */
     public Optional<Output<RouteServerPeerBgpOptionsArgs>> bgpOptions() {
         return Optional.ofNullable(this.bgpOptions);
     }
 
-    /**
-     * The IPv4 address of the peer device.
-     * 
-     */
     @Import(name="peerAddress", required=true)
     private Output<String> peerAddress;
 
-    /**
-     * @return The IPv4 address of the peer device.
-     * 
-     */
     public Output<String> peerAddress() {
         return this.peerAddress;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the route server endpoint for which to create a peer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="routeServerEndpointId", required=true)
     private Output<String> routeServerEndpointId;
 
-    /**
-     * @return The ID of the route server endpoint for which to create a peer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> routeServerEndpointId() {
         return this.routeServerEndpointId;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -134,111 +90,47 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
             $ = new RouteServerPeerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpOptions(@Nullable Output<RouteServerPeerBgpOptionsArgs> bgpOptions) {
             $.bgpOptions = bgpOptions;
             return this;
         }
 
-        /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpOptions(RouteServerPeerBgpOptionsArgs bgpOptions) {
             return bgpOptions(Output.of(bgpOptions));
         }
 
-        /**
-         * @param peerAddress The IPv4 address of the peer device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(Output<String> peerAddress) {
             $.peerAddress = peerAddress;
             return this;
         }
 
-        /**
-         * @param peerAddress The IPv4 address of the peer device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(String peerAddress) {
             return peerAddress(Output.of(peerAddress));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerEndpointId(Output<String> routeServerEndpointId) {
             $.routeServerEndpointId = routeServerEndpointId;
             return this;
         }
 
-        /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerEndpointId(String routeServerEndpointId) {
             return routeServerEndpointId(Output.of(routeServerEndpointId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -19,10 +19,6 @@ public final class GetRouteTableAssociationsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of Transit Gateway Route Table Association identifiers.
-     * 
-     */
     private List<String> ids;
     private String region;
     private String transitGatewayRouteTableId;
@@ -38,10 +34,6 @@ public final class GetRouteTableAssociationsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of Transit Gateway Route Table Association identifiers.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetImagePipelines(ctx, &imagebuilder.GetImagePipelinesArgs{
-//				Filters: []imagebuilder.GetImagePipelinesFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"example",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImagePipelines(ctx *pulumi.Context, args *GetImagePipelinesArgs, opts ...pulumi.InvokeOption) (*GetImagePipelinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagePipelinesResult
@@ -57,20 +23,16 @@ func GetImagePipelines(ctx *pulumi.Context, args *GetImagePipelinesArgs, opts ..
 
 // A collection of arguments for invoking getImagePipelines.
 type GetImagePipelinesArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetImagePipelinesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                   `pulumi:"region"`
 }
 
 // A collection of values returned by getImagePipelines.
 type GetImagePipelinesResult struct {
-	// Set of ARNs of the matched Image Builder Image Pipelines.
 	Arns    []string                  `pulumi:"arns"`
 	Filters []GetImagePipelinesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of names of the matched Image Builder Image Pipelines.
+	Id     string   `pulumi:"id"`
 	Names  []string `pulumi:"names"`
 	Region string   `pulumi:"region"`
 }
@@ -86,10 +48,8 @@ func GetImagePipelinesOutput(ctx *pulumi.Context, args GetImagePipelinesOutputAr
 
 // A collection of arguments for invoking getImagePipelines.
 type GetImagePipelinesOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters GetImagePipelinesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput             `pulumi:"region"`
 }
 
 func (GetImagePipelinesOutputArgs) ElementType() reflect.Type {
@@ -111,7 +71,6 @@ func (o GetImagePipelinesResultOutput) ToGetImagePipelinesResultOutputWithContex
 	return o
 }
 
-// Set of ARNs of the matched Image Builder Image Pipelines.
 func (o GetImagePipelinesResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImagePipelinesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -125,7 +84,6 @@ func (o GetImagePipelinesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagePipelinesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of names of the matched Image Builder Image Pipelines.
 func (o GetImagePipelinesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImagePipelinesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

@@ -12,70 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Cognito Risk Configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewRiskConfiguration(ctx, "example", &cognito.RiskConfigurationArgs{
-//				UserPoolId: pulumi.Any(exampleAwsCognitoUserPool.Id),
-//				RiskExceptionConfiguration: &cognito.RiskConfigurationRiskExceptionConfigurationArgs{
-//					BlockedIpRangeLists: pulumi.StringArray{
-//						pulumi.String("10.10.10.10/32"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Import using the user pool ID and Client ID separated by a `:`:
-//
-// __Using `pulumi import` to import__ Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:
-//
-// Import using the user pool ID:
-//
-// ```sh
-// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
-// ```
-// Import using the user pool ID and Client ID separated by a `:`:
-//
-// ```sh
-// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
-// ```
 type RiskConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The account takeover risk configuration. See details below.
-	AccountTakeoverRiskConfiguration RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput `pulumi:"accountTakeoverRiskConfiguration"`
-	// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
-	// The compromised credentials risk configuration. See details below.
+	AccountTakeoverRiskConfiguration        RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput        `pulumi:"accountTakeoverRiskConfiguration"`
+	ClientId                                pulumi.StringPtrOutput                                            `pulumi:"clientId"`
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput `pulumi:"compromisedCredentialsRiskConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The configuration to override the risk decision. See details below.
-	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrOutput `pulumi:"riskExceptionConfiguration"`
-	// The user pool ID.
-	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
+	Region                                  pulumi.StringOutput                                               `pulumi:"region"`
+	RiskExceptionConfiguration              RiskConfigurationRiskExceptionConfigurationPtrOutput              `pulumi:"riskExceptionConfiguration"`
+	UserPoolId                              pulumi.StringOutput                                               `pulumi:"userPoolId"`
 }
 
 // NewRiskConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -111,33 +56,21 @@ func GetRiskConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RiskConfiguration resources.
 type riskConfigurationState struct {
-	// The account takeover risk configuration. See details below.
-	AccountTakeoverRiskConfiguration *RiskConfigurationAccountTakeoverRiskConfiguration `pulumi:"accountTakeoverRiskConfiguration"`
-	// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-	ClientId *string `pulumi:"clientId"`
-	// The compromised credentials risk configuration. See details below.
+	AccountTakeoverRiskConfiguration        *RiskConfigurationAccountTakeoverRiskConfiguration        `pulumi:"accountTakeoverRiskConfiguration"`
+	ClientId                                *string                                                   `pulumi:"clientId"`
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The configuration to override the risk decision. See details below.
-	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
-	// The user pool ID.
-	UserPoolId *string `pulumi:"userPoolId"`
+	Region                                  *string                                                   `pulumi:"region"`
+	RiskExceptionConfiguration              *RiskConfigurationRiskExceptionConfiguration              `pulumi:"riskExceptionConfiguration"`
+	UserPoolId                              *string                                                   `pulumi:"userPoolId"`
 }
 
 type RiskConfigurationState struct {
-	// The account takeover risk configuration. See details below.
-	AccountTakeoverRiskConfiguration RiskConfigurationAccountTakeoverRiskConfigurationPtrInput
-	// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-	ClientId pulumi.StringPtrInput
-	// The compromised credentials risk configuration. See details below.
+	AccountTakeoverRiskConfiguration        RiskConfigurationAccountTakeoverRiskConfigurationPtrInput
+	ClientId                                pulumi.StringPtrInput
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The configuration to override the risk decision. See details below.
-	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
-	// The user pool ID.
-	UserPoolId pulumi.StringPtrInput
+	Region                                  pulumi.StringPtrInput
+	RiskExceptionConfiguration              RiskConfigurationRiskExceptionConfigurationPtrInput
+	UserPoolId                              pulumi.StringPtrInput
 }
 
 func (RiskConfigurationState) ElementType() reflect.Type {
@@ -145,34 +78,22 @@ func (RiskConfigurationState) ElementType() reflect.Type {
 }
 
 type riskConfigurationArgs struct {
-	// The account takeover risk configuration. See details below.
-	AccountTakeoverRiskConfiguration *RiskConfigurationAccountTakeoverRiskConfiguration `pulumi:"accountTakeoverRiskConfiguration"`
-	// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-	ClientId *string `pulumi:"clientId"`
-	// The compromised credentials risk configuration. See details below.
+	AccountTakeoverRiskConfiguration        *RiskConfigurationAccountTakeoverRiskConfiguration        `pulumi:"accountTakeoverRiskConfiguration"`
+	ClientId                                *string                                                   `pulumi:"clientId"`
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The configuration to override the risk decision. See details below.
-	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
-	// The user pool ID.
-	UserPoolId string `pulumi:"userPoolId"`
+	Region                                  *string                                                   `pulumi:"region"`
+	RiskExceptionConfiguration              *RiskConfigurationRiskExceptionConfiguration              `pulumi:"riskExceptionConfiguration"`
+	UserPoolId                              string                                                    `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a RiskConfiguration resource.
 type RiskConfigurationArgs struct {
-	// The account takeover risk configuration. See details below.
-	AccountTakeoverRiskConfiguration RiskConfigurationAccountTakeoverRiskConfigurationPtrInput
-	// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-	ClientId pulumi.StringPtrInput
-	// The compromised credentials risk configuration. See details below.
+	AccountTakeoverRiskConfiguration        RiskConfigurationAccountTakeoverRiskConfigurationPtrInput
+	ClientId                                pulumi.StringPtrInput
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The configuration to override the risk decision. See details below.
-	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
-	// The user pool ID.
-	UserPoolId pulumi.StringInput
+	Region                                  pulumi.StringPtrInput
+	RiskExceptionConfiguration              RiskConfigurationRiskExceptionConfigurationPtrInput
+	UserPoolId                              pulumi.StringInput
 }
 
 func (RiskConfigurationArgs) ElementType() reflect.Type {
@@ -262,38 +183,32 @@ func (o RiskConfigurationOutput) ToRiskConfigurationOutputWithContext(ctx contex
 	return o
 }
 
-// The account takeover risk configuration. See details below.
 func (o RiskConfigurationOutput) AccountTakeoverRiskConfiguration() RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
 	return o.ApplyT(func(v *RiskConfiguration) RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
 		return v.AccountTakeoverRiskConfiguration
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput)
 }
 
-// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
 func (o RiskConfigurationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfiguration) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The compromised credentials risk configuration. See details below.
 func (o RiskConfigurationOutput) CompromisedCredentialsRiskConfiguration() RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
 	return o.ApplyT(func(v *RiskConfiguration) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
 		return v.CompromisedCredentialsRiskConfiguration
 	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RiskConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RiskConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The configuration to override the risk decision. See details below.
 func (o RiskConfigurationOutput) RiskExceptionConfiguration() RiskConfigurationRiskExceptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *RiskConfiguration) RiskConfigurationRiskExceptionConfigurationPtrOutput {
 		return v.RiskExceptionConfiguration
 	}).(RiskConfigurationRiskExceptionConfigurationPtrOutput)
 }
 
-// The user pool ID.
 func (o RiskConfigurationOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RiskConfiguration) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

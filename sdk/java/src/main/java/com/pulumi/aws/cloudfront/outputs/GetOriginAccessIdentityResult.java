@@ -10,107 +10,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOriginAccessIdentityResult {
-    /**
-     * @return The origin access identity ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return Internal value used by CloudFront to allow future
-     * updates to the origin access identity.
-     * 
-     */
     private String callerReference;
-    /**
-     * @return A shortcut to the full path for the
-     * origin access identity to use in CloudFront, see below.
-     * 
-     */
     private String cloudfrontAccessIdentityPath;
-    /**
-     * @return An optional comment for the origin access identity.
-     * 
-     */
     private String comment;
-    /**
-     * @return Current version of the origin access identity&#39;s information.
-     * For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     private String etag;
-    /**
-     * @return Pre-generated ARN for use in S3 bucket policies (see below).
-     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
-     * E2QWRUHAPOMQZL`.
-     * 
-     */
     private String iamArn;
     private String id;
-    /**
-     * @return The Amazon S3 canonical user ID for the origin
-     * access identity, which you use when giving the origin access identity read
-     * permission to an object in Amazon S3.
-     * 
-     */
     private String s3CanonicalUserId;
 
     private GetOriginAccessIdentityResult() {}
-    /**
-     * @return The origin access identity ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Internal value used by CloudFront to allow future
-     * updates to the origin access identity.
-     * 
-     */
     public String callerReference() {
         return this.callerReference;
     }
-    /**
-     * @return A shortcut to the full path for the
-     * origin access identity to use in CloudFront, see below.
-     * 
-     */
     public String cloudfrontAccessIdentityPath() {
         return this.cloudfrontAccessIdentityPath;
     }
-    /**
-     * @return An optional comment for the origin access identity.
-     * 
-     */
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return Current version of the origin access identity&#39;s information.
-     * For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     public String etag() {
         return this.etag;
     }
-    /**
-     * @return Pre-generated ARN for use in S3 bucket policies (see below).
-     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
-     * E2QWRUHAPOMQZL`.
-     * 
-     */
     public String iamArn() {
         return this.iamArn;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The Amazon S3 canonical user ID for the origin
-     * access identity, which you use when giving the origin access identity read
-     * permission to an object in Amazon S3.
-     * 
-     */
     public String s3CanonicalUserId() {
         return this.s3CanonicalUserId;
     }

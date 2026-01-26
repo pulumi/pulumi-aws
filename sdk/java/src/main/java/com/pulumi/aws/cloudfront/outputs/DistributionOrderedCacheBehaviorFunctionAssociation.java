@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionOrderedCacheBehaviorFunctionAssociation {
-    /**
-     * @return Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
-     * 
-     */
     private String eventType;
-    /**
-     * @return ARN of the CloudFront function.
-     * 
-     */
     private String functionArn;
 
     private DistributionOrderedCacheBehaviorFunctionAssociation() {}
-    /**
-     * @return Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
-     * 
-     */
     public String eventType() {
         return this.eventType;
     }
-    /**
-     * @return ARN of the CloudFront function.
-     * 
-     */
     public String functionArn() {
         return this.functionArn;
     }

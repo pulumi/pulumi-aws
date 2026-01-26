@@ -14,171 +14,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Audit Manager Assessment Delegation.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.auditmanager.AssessmentDelegation;
- * import com.pulumi.aws.auditmanager.AssessmentDelegationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AssessmentDelegation("example", AssessmentDelegationArgs.builder()
- *             .assessmentId(exampleAwsAuditmanagerAssessment.id())
- *             .roleArn(exampleAwsIamRole.arn())
- *             .roleType("RESOURCE_OWNER")
- *             .controlSetId("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::123456789012:role/example,example
- * ```
- * 
- */
 @ResourceType(type="aws:auditmanager/assessmentDelegation:AssessmentDelegation")
 public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier for the assessment.
-     * 
-     */
     @Export(name="assessmentId", refs={String.class}, tree="[0]")
     private Output<String> assessmentId;
 
-    /**
-     * @return Identifier for the assessment.
-     * 
-     */
     public Output<String> assessmentId() {
         return this.assessmentId;
     }
-    /**
-     * Comment describing the delegation request.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return Comment describing the delegation request.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-     * 
-     */
     @Export(name="controlSetId", refs={String.class}, tree="[0]")
     private Output<String> controlSetId;
 
-    /**
-     * @return Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-     * 
-     */
     public Output<String> controlSetId() {
         return this.controlSetId;
     }
-    /**
-     * Unique identifier for the delegation.
-     * 
-     */
     @Export(name="delegationId", refs={String.class}, tree="[0]")
     private Output<String> delegationId;
 
-    /**
-     * @return Unique identifier for the delegation.
-     * 
-     */
     public Output<String> delegationId() {
         return this.delegationId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) of the IAM role.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM role.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
-    /**
-     * @return Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> roleType() {
         return this.roleType;
     }
-    /**
-     * Status of the delegation.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the delegation.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

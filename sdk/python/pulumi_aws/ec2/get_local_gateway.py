@@ -64,17 +64,11 @@ class GetLocalGatewayResult:
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> _builtins.str:
-        """
-        ARN of Outpost
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        AWS account identifier that owns the Local Gateway.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -85,9 +79,6 @@ class GetLocalGatewayResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        State of the local gateway.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
@@ -118,33 +109,7 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayResult:
     """
-    Provides details about an EC2 Local Gateway.
-
-    ## Example Usage
-
-    The following example shows how one might accept a local gateway id as a variable.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    local_gateway_id = config.require_object("localGatewayId")
-    selected = aws.ec2.get_local_gateway(id=local_gateway_id)
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: Id of the specific Local Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Current state of the desired Local Gateway.
-           Can be either `"pending"` or `"available"`.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired Local Gateway.
-           
-           The arguments of this data source act as filters for querying the available
-           Local Gateways in the current region. The given filters must match exactly one
-           Local Gateway whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -170,33 +135,7 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayResult]:
     """
-    Provides details about an EC2 Local Gateway.
-
-    ## Example Usage
-
-    The following example shows how one might accept a local gateway id as a variable.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    local_gateway_id = config.require_object("localGatewayId")
-    selected = aws.ec2.get_local_gateway(id=local_gateway_id)
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: Id of the specific Local Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Current state of the desired Local Gateway.
-           Can be either `"pending"` or `"available"`.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired Local Gateway.
-           
-           The arguments of this data source act as filters for querying the available
-           Local Gateways in the current region. The given filters must match exactly one
-           Local Gateway whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

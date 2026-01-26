@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec
     {
-        /// <summary>
-        /// A description for the flow.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The input schema of the tool. See Tool Input Schema for more information.
-        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema? InputSchema;
-        /// <summary>
-        /// A name for the flow.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -12,186 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI Flow Definition resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
-//				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
-//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
-//					TaskCount:                         pulumi.Int(1),
-//					TaskDescription:                   pulumi.String("example"),
-//					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Any(exampleAwsSagemakerWorkteam.Arn),
-//				},
-//				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Public Workteam Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
-//				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
-//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
-//					TaskCount:                         pulumi.Int(1),
-//					TaskDescription:                   pulumi.String("example"),
-//					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Region),
-//					PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
-//						AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
-//							Cents:                 pulumi.Int(1),
-//							TenthFractionsOfACent: pulumi.Int(2),
-//						},
-//					},
-//				},
-//				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Human Loop Activation Config Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
-//				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
-//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
-//					TaskCount:                         pulumi.Int(1),
-//					TaskDescription:                   pulumi.String("example"),
-//					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Any(exampleAwsSagemakerWorkteam.Arn),
-//				},
-//				HumanLoopRequestSource: &sagemaker.FlowDefinitionHumanLoopRequestSourceArgs{
-//					AwsManagedHumanLoopRequestSource: pulumi.String("AWS/Textract/AnalyzeDocument/Forms/V1"),
-//				},
-//				HumanLoopActivationConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigArgs{
-//					HumanLoopActivationConditionsConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{
-//						HumanLoopActivationConditions: pulumi.String(`        {
-//
-// \t\t\t\"Conditions\": [
-// \t\t\t  {
-// \t\t\t\t\"ConditionType\": \"Sampling\",
-// \t\t\t\t\"ConditionParameters\": {
-// \t\t\t\t  \"RandomSamplingPercentage\": 5
-// \t\t\t\t}
-// \t\t\t  }
-// \t\t\t]
-// \t\t}
-// `),
-//
-//					},
-//				},
-//				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker AI Flow Definitions using the `flow_definition_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
-// ```
 type FlowDefinition struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of your flow definition.
-	FlowDefinitionName pulumi.StringOutput `pulumi:"flowDefinitionName"`
-	// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+	Arn                       pulumi.StringOutput                              `pulumi:"arn"`
+	FlowDefinitionName        pulumi.StringOutput                              `pulumi:"flowDefinitionName"`
 	HumanLoopActivationConfig FlowDefinitionHumanLoopActivationConfigPtrOutput `pulumi:"humanLoopActivationConfig"`
-	// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-	HumanLoopConfig FlowDefinitionHumanLoopConfigOutput `pulumi:"humanLoopConfig"`
-	// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrOutput `pulumi:"humanLoopRequestSource"`
-	// An object containing information about where the human review results will be uploaded. See Output Config details below.
-	OutputConfig FlowDefinitionOutputConfigOutput `pulumi:"outputConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	HumanLoopConfig           FlowDefinitionHumanLoopConfigOutput              `pulumi:"humanLoopConfig"`
+	HumanLoopRequestSource    FlowDefinitionHumanLoopRequestSourcePtrOutput    `pulumi:"humanLoopRequestSource"`
+	OutputConfig              FlowDefinitionOutputConfigOutput                 `pulumi:"outputConfig"`
+	Region                    pulumi.StringOutput                              `pulumi:"region"`
+	RoleArn                   pulumi.StringOutput                              `pulumi:"roleArn"`
+	Tags                      pulumi.StringMapOutput                           `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                           `pulumi:"tagsAll"`
 }
 
 // NewFlowDefinition registers a new resource with the given unique name, arguments, and options.
@@ -236,49 +69,29 @@ func GetFlowDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlowDefinition resources.
 type flowDefinitionState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-	Arn *string `pulumi:"arn"`
-	// The name of your flow definition.
-	FlowDefinitionName *string `pulumi:"flowDefinitionName"`
-	// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+	Arn                       *string                                  `pulumi:"arn"`
+	FlowDefinitionName        *string                                  `pulumi:"flowDefinitionName"`
 	HumanLoopActivationConfig *FlowDefinitionHumanLoopActivationConfig `pulumi:"humanLoopActivationConfig"`
-	// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-	HumanLoopConfig *FlowDefinitionHumanLoopConfig `pulumi:"humanLoopConfig"`
-	// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-	HumanLoopRequestSource *FlowDefinitionHumanLoopRequestSource `pulumi:"humanLoopRequestSource"`
-	// An object containing information about where the human review results will be uploaded. See Output Config details below.
-	OutputConfig *FlowDefinitionOutputConfig `pulumi:"outputConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-	RoleArn *string `pulumi:"roleArn"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	HumanLoopConfig           *FlowDefinitionHumanLoopConfig           `pulumi:"humanLoopConfig"`
+	HumanLoopRequestSource    *FlowDefinitionHumanLoopRequestSource    `pulumi:"humanLoopRequestSource"`
+	OutputConfig              *FlowDefinitionOutputConfig              `pulumi:"outputConfig"`
+	Region                    *string                                  `pulumi:"region"`
+	RoleArn                   *string                                  `pulumi:"roleArn"`
+	Tags                      map[string]string                        `pulumi:"tags"`
+	TagsAll                   map[string]string                        `pulumi:"tagsAll"`
 }
 
 type FlowDefinitionState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-	Arn pulumi.StringPtrInput
-	// The name of your flow definition.
-	FlowDefinitionName pulumi.StringPtrInput
-	// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+	Arn                       pulumi.StringPtrInput
+	FlowDefinitionName        pulumi.StringPtrInput
 	HumanLoopActivationConfig FlowDefinitionHumanLoopActivationConfigPtrInput
-	// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-	HumanLoopConfig FlowDefinitionHumanLoopConfigPtrInput
-	// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrInput
-	// An object containing information about where the human review results will be uploaded. See Output Config details below.
-	OutputConfig FlowDefinitionOutputConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-	RoleArn pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	HumanLoopConfig           FlowDefinitionHumanLoopConfigPtrInput
+	HumanLoopRequestSource    FlowDefinitionHumanLoopRequestSourcePtrInput
+	OutputConfig              FlowDefinitionOutputConfigPtrInput
+	Region                    pulumi.StringPtrInput
+	RoleArn                   pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
 }
 
 func (FlowDefinitionState) ElementType() reflect.Type {
@@ -286,42 +99,26 @@ func (FlowDefinitionState) ElementType() reflect.Type {
 }
 
 type flowDefinitionArgs struct {
-	// The name of your flow definition.
-	FlowDefinitionName string `pulumi:"flowDefinitionName"`
-	// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+	FlowDefinitionName        string                                   `pulumi:"flowDefinitionName"`
 	HumanLoopActivationConfig *FlowDefinitionHumanLoopActivationConfig `pulumi:"humanLoopActivationConfig"`
-	// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-	HumanLoopConfig FlowDefinitionHumanLoopConfig `pulumi:"humanLoopConfig"`
-	// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-	HumanLoopRequestSource *FlowDefinitionHumanLoopRequestSource `pulumi:"humanLoopRequestSource"`
-	// An object containing information about where the human review results will be uploaded. See Output Config details below.
-	OutputConfig FlowDefinitionOutputConfig `pulumi:"outputConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-	RoleArn string `pulumi:"roleArn"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	HumanLoopConfig           FlowDefinitionHumanLoopConfig            `pulumi:"humanLoopConfig"`
+	HumanLoopRequestSource    *FlowDefinitionHumanLoopRequestSource    `pulumi:"humanLoopRequestSource"`
+	OutputConfig              FlowDefinitionOutputConfig               `pulumi:"outputConfig"`
+	Region                    *string                                  `pulumi:"region"`
+	RoleArn                   string                                   `pulumi:"roleArn"`
+	Tags                      map[string]string                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FlowDefinition resource.
 type FlowDefinitionArgs struct {
-	// The name of your flow definition.
-	FlowDefinitionName pulumi.StringInput
-	// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+	FlowDefinitionName        pulumi.StringInput
 	HumanLoopActivationConfig FlowDefinitionHumanLoopActivationConfigPtrInput
-	// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-	HumanLoopConfig FlowDefinitionHumanLoopConfigInput
-	// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrInput
-	// An object containing information about where the human review results will be uploaded. See Output Config details below.
-	OutputConfig FlowDefinitionOutputConfigInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-	RoleArn pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	HumanLoopConfig           FlowDefinitionHumanLoopConfigInput
+	HumanLoopRequestSource    FlowDefinitionHumanLoopRequestSourcePtrInput
+	OutputConfig              FlowDefinitionOutputConfigInput
+	Region                    pulumi.StringPtrInput
+	RoleArn                   pulumi.StringInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (FlowDefinitionArgs) ElementType() reflect.Type {
@@ -411,54 +208,44 @@ func (o FlowDefinitionOutput) ToFlowDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
 func (o FlowDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of your flow definition.
 func (o FlowDefinitionOutput) FlowDefinitionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.FlowDefinitionName }).(pulumi.StringOutput)
 }
 
-// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
 func (o FlowDefinitionOutput) HumanLoopActivationConfig() FlowDefinitionHumanLoopActivationConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDefinition) FlowDefinitionHumanLoopActivationConfigPtrOutput {
 		return v.HumanLoopActivationConfig
 	}).(FlowDefinitionHumanLoopActivationConfigPtrOutput)
 }
 
-// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
 func (o FlowDefinitionOutput) HumanLoopConfig() FlowDefinitionHumanLoopConfigOutput {
 	return o.ApplyT(func(v *FlowDefinition) FlowDefinitionHumanLoopConfigOutput { return v.HumanLoopConfig }).(FlowDefinitionHumanLoopConfigOutput)
 }
 
-// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
 func (o FlowDefinitionOutput) HumanLoopRequestSource() FlowDefinitionHumanLoopRequestSourcePtrOutput {
 	return o.ApplyT(func(v *FlowDefinition) FlowDefinitionHumanLoopRequestSourcePtrOutput { return v.HumanLoopRequestSource }).(FlowDefinitionHumanLoopRequestSourcePtrOutput)
 }
 
-// An object containing information about where the human review results will be uploaded. See Output Config details below.
 func (o FlowDefinitionOutput) OutputConfig() FlowDefinitionOutputConfigOutput {
 	return o.ApplyT(func(v *FlowDefinition) FlowDefinitionOutputConfigOutput { return v.OutputConfig }).(FlowDefinitionOutputConfigOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FlowDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 func (o FlowDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FlowDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FlowDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

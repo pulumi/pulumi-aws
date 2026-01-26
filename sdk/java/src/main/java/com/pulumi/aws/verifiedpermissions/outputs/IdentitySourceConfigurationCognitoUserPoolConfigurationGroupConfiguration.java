@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
-    /**
-     * @return The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-     * 
-     */
     private String groupEntityType;
 
     private IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration() {}
-    /**
-     * @return The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-     * 
-     */
     public String groupEntityType() {
         return this.groupEntityType;
     }

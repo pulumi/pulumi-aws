@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkteamWorkerAccessConfiguration
     {
-        /// <summary>
-        /// Defines any Amazon S3 resource constraints. see S3 Presign details below.
-        /// </summary>
         public readonly Outputs.WorkteamWorkerAccessConfigurationS3Presign? S3Presign;
 
         [OutputConstructor]

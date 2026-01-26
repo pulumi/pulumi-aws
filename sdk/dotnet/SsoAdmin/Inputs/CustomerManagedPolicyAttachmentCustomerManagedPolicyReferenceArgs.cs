@@ -12,15 +12,9 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
 
     public sealed class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the customer managed IAM Policy to be attached.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

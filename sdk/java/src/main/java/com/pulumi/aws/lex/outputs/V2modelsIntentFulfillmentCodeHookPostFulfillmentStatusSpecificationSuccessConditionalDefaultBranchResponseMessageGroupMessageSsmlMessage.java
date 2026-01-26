@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
-    /**
-     * @return SSML text that defines the prompt.
-     * 
-     */
     private String value;
 
     private V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage() {}
-    /**
-     * @return SSML text that defines the prompt.
-     * 
-     */
     public String value() {
         return this.value;
     }

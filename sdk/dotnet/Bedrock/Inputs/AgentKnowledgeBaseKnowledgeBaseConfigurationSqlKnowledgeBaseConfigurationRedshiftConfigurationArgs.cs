@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configurations for an Amazon Redshift query engine. See `QueryEngineConfiguration` block for details.
-        /// </summary>
         [Input("queryEngineConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs>? QueryEngineConfiguration { get; set; }
 
-        /// <summary>
-        /// Configurations for generating queries. See `QueryGenerationConfiguration` block for details.
-        /// </summary>
         [Input("queryGenerationConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs>? QueryGenerationConfiguration { get; set; }
 
-        /// <summary>
-        /// Configurations for Amazon Redshift database storage. See `StorageConfiguration` block for details.
-        /// </summary>
         [Input("storageConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs>? StorageConfiguration { get; set; }
 

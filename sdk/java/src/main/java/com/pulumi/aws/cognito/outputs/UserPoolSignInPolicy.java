@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolSignInPolicy {
-    /**
-     * @return The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-     * 
-     */
     private @Nullable List<String> allowedFirstAuthFactors;
 
     private UserPoolSignInPolicy() {}
-    /**
-     * @return The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-     * 
-     */
     public List<String> allowedFirstAuthFactors() {
         return this.allowedFirstAuthFactors == null ? List.of() : this.allowedFirstAuthFactors;
     }

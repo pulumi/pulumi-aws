@@ -12,72 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CodeCatalyst Dev Environment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewDevEnvironment(ctx, "test", &codecatalyst.DevEnvironmentArgs{
-//				Alias:        pulumi.String("devenv"),
-//				SpaceName:    pulumi.String("myspace"),
-//				ProjectName:  pulumi.String("myproject"),
-//				InstanceType: pulumi.String("dev.standard1.small"),
-//				PersistentStorage: &codecatalyst.DevEnvironmentPersistentStorageArgs{
-//					Size: pulumi.Int(16),
-//				},
-//				Ides: &codecatalyst.DevEnvironmentIdesArgs{
-//					Name:    pulumi.String("PyCharm"),
-//					Runtime: pulumi.String("public.ecr.aws/jetbrains/py"),
-//				},
-//				InactivityTimeoutMinutes: pulumi.Int(40),
-//				Repositories: codecatalyst.DevEnvironmentRepositoryArray{
-//					&codecatalyst.DevEnvironmentRepositoryArgs{
-//						RepositoryName: pulumi.String("pulumi-provider-aws"),
-//						BranchName:     pulumi.String("main"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DevEnvironment struct {
 	pulumi.CustomResourceState
 
-	Alias pulumi.StringPtrOutput `pulumi:"alias"`
-	// Information about the integrated development environment (IDE) configured for a Dev Environment.
-	Ides DevEnvironmentIdesOutput `pulumi:"ides"`
-	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-	InactivityTimeoutMinutes pulumi.IntPtrOutput `pulumi:"inactivityTimeoutMinutes"`
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-	//
-	// The following arguments are optional:
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// Information about the amount of storage allocated to the Dev Environment.
-	PersistentStorage DevEnvironmentPersistentStorageOutput `pulumi:"persistentStorage"`
-	// The name of the project in the space.
-	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The source repository that contains the branch to clone into the Dev Environment.
-	Repositories DevEnvironmentRepositoryArrayOutput `pulumi:"repositories"`
-	// The name of the space.
-	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
+	Alias                    pulumi.StringPtrOutput                `pulumi:"alias"`
+	Ides                     DevEnvironmentIdesOutput              `pulumi:"ides"`
+	InactivityTimeoutMinutes pulumi.IntPtrOutput                   `pulumi:"inactivityTimeoutMinutes"`
+	InstanceType             pulumi.StringOutput                   `pulumi:"instanceType"`
+	PersistentStorage        DevEnvironmentPersistentStorageOutput `pulumi:"persistentStorage"`
+	ProjectName              pulumi.StringOutput                   `pulumi:"projectName"`
+	Region                   pulumi.StringOutput                   `pulumi:"region"`
+	Repositories             DevEnvironmentRepositoryArrayOutput   `pulumi:"repositories"`
+	SpaceName                pulumi.StringOutput                   `pulumi:"spaceName"`
 }
 
 // NewDevEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -125,47 +71,27 @@ func GetDevEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DevEnvironment resources.
 type devEnvironmentState struct {
-	Alias *string `pulumi:"alias"`
-	// Information about the integrated development environment (IDE) configured for a Dev Environment.
-	Ides *DevEnvironmentIdes `pulumi:"ides"`
-	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-	InactivityTimeoutMinutes *int `pulumi:"inactivityTimeoutMinutes"`
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-	//
-	// The following arguments are optional:
-	InstanceType *string `pulumi:"instanceType"`
-	// Information about the amount of storage allocated to the Dev Environment.
-	PersistentStorage *DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
-	// The name of the project in the space.
-	ProjectName *string `pulumi:"projectName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The source repository that contains the branch to clone into the Dev Environment.
-	Repositories []DevEnvironmentRepository `pulumi:"repositories"`
-	// The name of the space.
-	SpaceName *string `pulumi:"spaceName"`
+	Alias                    *string                          `pulumi:"alias"`
+	Ides                     *DevEnvironmentIdes              `pulumi:"ides"`
+	InactivityTimeoutMinutes *int                             `pulumi:"inactivityTimeoutMinutes"`
+	InstanceType             *string                          `pulumi:"instanceType"`
+	PersistentStorage        *DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
+	ProjectName              *string                          `pulumi:"projectName"`
+	Region                   *string                          `pulumi:"region"`
+	Repositories             []DevEnvironmentRepository       `pulumi:"repositories"`
+	SpaceName                *string                          `pulumi:"spaceName"`
 }
 
 type DevEnvironmentState struct {
-	Alias pulumi.StringPtrInput
-	// Information about the integrated development environment (IDE) configured for a Dev Environment.
-	Ides DevEnvironmentIdesPtrInput
-	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
+	Alias                    pulumi.StringPtrInput
+	Ides                     DevEnvironmentIdesPtrInput
 	InactivityTimeoutMinutes pulumi.IntPtrInput
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-	//
-	// The following arguments are optional:
-	InstanceType pulumi.StringPtrInput
-	// Information about the amount of storage allocated to the Dev Environment.
-	PersistentStorage DevEnvironmentPersistentStoragePtrInput
-	// The name of the project in the space.
-	ProjectName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The source repository that contains the branch to clone into the Dev Environment.
-	Repositories DevEnvironmentRepositoryArrayInput
-	// The name of the space.
-	SpaceName pulumi.StringPtrInput
+	InstanceType             pulumi.StringPtrInput
+	PersistentStorage        DevEnvironmentPersistentStoragePtrInput
+	ProjectName              pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Repositories             DevEnvironmentRepositoryArrayInput
+	SpaceName                pulumi.StringPtrInput
 }
 
 func (DevEnvironmentState) ElementType() reflect.Type {
@@ -173,48 +99,28 @@ func (DevEnvironmentState) ElementType() reflect.Type {
 }
 
 type devEnvironmentArgs struct {
-	Alias *string `pulumi:"alias"`
-	// Information about the integrated development environment (IDE) configured for a Dev Environment.
-	Ides DevEnvironmentIdes `pulumi:"ides"`
-	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-	InactivityTimeoutMinutes *int `pulumi:"inactivityTimeoutMinutes"`
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-	//
-	// The following arguments are optional:
-	InstanceType string `pulumi:"instanceType"`
-	// Information about the amount of storage allocated to the Dev Environment.
-	PersistentStorage DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
-	// The name of the project in the space.
-	ProjectName string `pulumi:"projectName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The source repository that contains the branch to clone into the Dev Environment.
-	Repositories []DevEnvironmentRepository `pulumi:"repositories"`
-	// The name of the space.
-	SpaceName string `pulumi:"spaceName"`
+	Alias                    *string                         `pulumi:"alias"`
+	Ides                     DevEnvironmentIdes              `pulumi:"ides"`
+	InactivityTimeoutMinutes *int                            `pulumi:"inactivityTimeoutMinutes"`
+	InstanceType             string                          `pulumi:"instanceType"`
+	PersistentStorage        DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
+	ProjectName              string                          `pulumi:"projectName"`
+	Region                   *string                         `pulumi:"region"`
+	Repositories             []DevEnvironmentRepository      `pulumi:"repositories"`
+	SpaceName                string                          `pulumi:"spaceName"`
 }
 
 // The set of arguments for constructing a DevEnvironment resource.
 type DevEnvironmentArgs struct {
-	Alias pulumi.StringPtrInput
-	// Information about the integrated development environment (IDE) configured for a Dev Environment.
-	Ides DevEnvironmentIdesInput
-	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
+	Alias                    pulumi.StringPtrInput
+	Ides                     DevEnvironmentIdesInput
 	InactivityTimeoutMinutes pulumi.IntPtrInput
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-	//
-	// The following arguments are optional:
-	InstanceType pulumi.StringInput
-	// Information about the amount of storage allocated to the Dev Environment.
-	PersistentStorage DevEnvironmentPersistentStorageInput
-	// The name of the project in the space.
-	ProjectName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The source repository that contains the branch to clone into the Dev Environment.
-	Repositories DevEnvironmentRepositoryArrayInput
-	// The name of the space.
-	SpaceName pulumi.StringInput
+	InstanceType             pulumi.StringInput
+	PersistentStorage        DevEnvironmentPersistentStorageInput
+	ProjectName              pulumi.StringInput
+	Region                   pulumi.StringPtrInput
+	Repositories             DevEnvironmentRepositoryArrayInput
+	SpaceName                pulumi.StringInput
 }
 
 func (DevEnvironmentArgs) ElementType() reflect.Type {
@@ -308,44 +214,34 @@ func (o DevEnvironmentOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
-// Information about the integrated development environment (IDE) configured for a Dev Environment.
 func (o DevEnvironmentOutput) Ides() DevEnvironmentIdesOutput {
 	return o.ApplyT(func(v *DevEnvironment) DevEnvironmentIdesOutput { return v.Ides }).(DevEnvironmentIdesOutput)
 }
 
-// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
 func (o DevEnvironmentOutput) InactivityTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.IntPtrOutput { return v.InactivityTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-//
-// The following arguments are optional:
 func (o DevEnvironmentOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Information about the amount of storage allocated to the Dev Environment.
 func (o DevEnvironmentOutput) PersistentStorage() DevEnvironmentPersistentStorageOutput {
 	return o.ApplyT(func(v *DevEnvironment) DevEnvironmentPersistentStorageOutput { return v.PersistentStorage }).(DevEnvironmentPersistentStorageOutput)
 }
 
-// The name of the project in the space.
 func (o DevEnvironmentOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DevEnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The source repository that contains the branch to clone into the Dev Environment.
 func (o DevEnvironmentOutput) Repositories() DevEnvironmentRepositoryArrayOutput {
 	return o.ApplyT(func(v *DevEnvironment) DevEnvironmentRepositoryArrayOutput { return v.Repositories }).(DevEnvironmentRepositoryArrayOutput)
 }
 
-// The name of the space.
 func (o DevEnvironmentOutput) SpaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.SpaceName }).(pulumi.StringOutput)
 }

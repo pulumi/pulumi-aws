@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsMotionGraphicsConfiguration {
-    /**
-     * @return Motion Graphics Insertion.
-     * 
-     */
     private @Nullable String motionGraphicsInsertion;
-    /**
-     * @return Motion Graphics Settings. See Motion Graphics Settings for more details.
-     * 
-     */
     private ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings motionGraphicsSettings;
 
     private ChannelEncoderSettingsMotionGraphicsConfiguration() {}
-    /**
-     * @return Motion Graphics Insertion.
-     * 
-     */
     public Optional<String> motionGraphicsInsertion() {
         return Optional.ofNullable(this.motionGraphicsInsertion);
     }
-    /**
-     * @return Motion Graphics Settings. See Motion Graphics Settings for more details.
-     * 
-     */
     public ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings motionGraphicsSettings() {
         return this.motionGraphicsSettings;
     }

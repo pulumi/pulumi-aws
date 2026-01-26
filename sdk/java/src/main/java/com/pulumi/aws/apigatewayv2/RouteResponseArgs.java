@@ -17,92 +17,44 @@ public final class RouteResponseArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RouteResponseArgs Empty = new RouteResponseArgs();
 
-    /**
-     * API identifier.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-     * 
-     */
     @Import(name="modelSelectionExpression")
     private @Nullable Output<String> modelSelectionExpression;
 
-    /**
-     * @return The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-     * 
-     */
     public Optional<Output<String>> modelSelectionExpression() {
         return Optional.ofNullable(this.modelSelectionExpression);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Response models for the route response.
-     * 
-     */
     @Import(name="responseModels")
     private @Nullable Output<Map<String,String>> responseModels;
 
-    /**
-     * @return Response models for the route response.
-     * 
-     */
     public Optional<Output<Map<String,String>>> responseModels() {
         return Optional.ofNullable(this.responseModels);
     }
 
-    /**
-     * Identifier of the `aws.apigatewayv2.Route`.
-     * 
-     */
     @Import(name="routeId", required=true)
     private Output<String> routeId;
 
-    /**
-     * @return Identifier of the `aws.apigatewayv2.Route`.
-     * 
-     */
     public Output<String> routeId() {
         return this.routeId;
     }
 
-    /**
-     * Route response key.
-     * 
-     */
     @Import(name="routeResponseKey", required=true)
     private Output<String> routeResponseKey;
 
-    /**
-     * @return Route response key.
-     * 
-     */
     public Output<String> routeResponseKey() {
         return this.routeResponseKey;
     }
@@ -136,128 +88,56 @@ public final class RouteResponseArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RouteResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param modelSelectionExpression The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelSelectionExpression(@Nullable Output<String> modelSelectionExpression) {
             $.modelSelectionExpression = modelSelectionExpression;
             return this;
         }
 
-        /**
-         * @param modelSelectionExpression The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelSelectionExpression(String modelSelectionExpression) {
             return modelSelectionExpression(Output.of(modelSelectionExpression));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param responseModels Response models for the route response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseModels(@Nullable Output<Map<String,String>> responseModels) {
             $.responseModels = responseModels;
             return this;
         }
 
-        /**
-         * @param responseModels Response models for the route response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseModels(Map<String,String> responseModels) {
             return responseModels(Output.of(responseModels));
         }
 
-        /**
-         * @param routeId Identifier of the `aws.apigatewayv2.Route`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeId(Output<String> routeId) {
             $.routeId = routeId;
             return this;
         }
 
-        /**
-         * @param routeId Identifier of the `aws.apigatewayv2.Route`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeId(String routeId) {
             return routeId(Output.of(routeId));
         }
 
-        /**
-         * @param routeResponseKey Route response key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeResponseKey(Output<String> routeResponseKey) {
             $.routeResponseKey = routeResponseKey;
             return this;
         }
 
-        /**
-         * @param routeResponseKey Route response key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeResponseKey(String routeResponseKey) {
             return routeResponseKey(Output.of(routeResponseKey));
         }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity
     {
-        /// <summary>
-        /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-        /// </summary>
         public readonly int AccessControlMaxAgeSec;
-        /// <summary>
-        /// Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-        /// </summary>
         public readonly bool? IncludeSubdomains;
-        /// <summary>
-        /// Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-        /// </summary>
         public readonly bool Override;
-        /// <summary>
-        /// Whether CloudFront includes the `Preload` directive in the `Strict-Transport-Security` HTTP response header.
-        /// </summary>
         public readonly bool? Preload;
 
         [OutputConstructor]

@@ -17,32 +17,16 @@ public final class ScopeTargetTargetIdentifierArgs extends com.pulumi.resources.
 
     public static final ScopeTargetTargetIdentifierArgs Empty = new ScopeTargetTargetIdentifierArgs();
 
-    /**
-     * The identifier for a target, which is currently always an account ID.
-     * 
-     */
     @Import(name="targetId")
     private @Nullable Output<ScopeTargetTargetIdentifierTargetIdArgs> targetId;
 
-    /**
-     * @return The identifier for a target, which is currently always an account ID.
-     * 
-     */
     public Optional<Output<ScopeTargetTargetIdentifierTargetIdArgs>> targetId() {
         return Optional.ofNullable(this.targetId);
     }
 
-    /**
-     * The type of a target. A target type is currently always `ACCOUNT`.
-     * 
-     */
     @Import(name="targetType", required=true)
     private Output<String> targetType;
 
-    /**
-     * @return The type of a target. A target type is currently always `ACCOUNT`.
-     * 
-     */
     public Output<String> targetType() {
         return this.targetType;
     }
@@ -72,44 +56,20 @@ public final class ScopeTargetTargetIdentifierArgs extends com.pulumi.resources.
             $ = new ScopeTargetTargetIdentifierArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetId The identifier for a target, which is currently always an account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetId(@Nullable Output<ScopeTargetTargetIdentifierTargetIdArgs> targetId) {
             $.targetId = targetId;
             return this;
         }
 
-        /**
-         * @param targetId The identifier for a target, which is currently always an account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetId(ScopeTargetTargetIdentifierTargetIdArgs targetId) {
             return targetId(Output.of(targetId));
         }
 
-        /**
-         * @param targetType The type of a target. A target type is currently always `ACCOUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetType(Output<String> targetType) {
             $.targetType = targetType;
             return this;
         }
 
-        /**
-         * @param targetType The type of a target. A target type is currently always `ACCOUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetType(String targetType) {
             return targetType(Output.of(targetType));
         }

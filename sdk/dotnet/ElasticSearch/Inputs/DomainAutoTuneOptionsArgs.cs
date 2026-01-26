@@ -12,27 +12,17 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainAutoTuneOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-        /// </summary>
         [Input("desiredState", required: true)]
         public Input<string> DesiredState { get; set; } = null!;
 
         [Input("maintenanceSchedules")]
         private InputList<Inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs>? _maintenanceSchedules;
-
-        /// <summary>
-        /// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-        /// </summary>
         public InputList<Inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs> MaintenanceSchedules
         {
             get => _maintenanceSchedules ?? (_maintenanceSchedules = new InputList<Inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs>());
             set => _maintenanceSchedules = value;
         }
 
-        /// <summary>
-        /// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-        /// </summary>
         [Input("rollbackOnDisable")]
         public Input<string>? RollbackOnDisable { get; set; }
 

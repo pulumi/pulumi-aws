@@ -16,32 +16,16 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
 
     public static final LinkLinkConfigurationArgs Empty = new LinkLinkConfigurationArgs();
 
-    /**
-     * Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
-     * 
-     */
     @Import(name="logGroupConfiguration")
     private @Nullable Output<LinkLinkConfigurationLogGroupConfigurationArgs> logGroupConfiguration;
 
-    /**
-     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<LinkLinkConfigurationLogGroupConfigurationArgs>> logGroupConfiguration() {
         return Optional.ofNullable(this.logGroupConfiguration);
     }
 
-    /**
-     * Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-     * 
-     */
     @Import(name="metricConfiguration")
     private @Nullable Output<LinkLinkConfigurationMetricConfigurationArgs> metricConfiguration;
 
-    /**
-     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<LinkLinkConfigurationMetricConfigurationArgs>> metricConfiguration() {
         return Optional.ofNullable(this.metricConfiguration);
     }
@@ -71,44 +55,20 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
             $ = new LinkLinkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupConfiguration Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupConfiguration(@Nullable Output<LinkLinkConfigurationLogGroupConfigurationArgs> logGroupConfiguration) {
             $.logGroupConfiguration = logGroupConfiguration;
             return this;
         }
 
-        /**
-         * @param logGroupConfiguration Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupConfiguration(LinkLinkConfigurationLogGroupConfigurationArgs logGroupConfiguration) {
             return logGroupConfiguration(Output.of(logGroupConfiguration));
         }
 
-        /**
-         * @param metricConfiguration Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricConfiguration(@Nullable Output<LinkLinkConfigurationMetricConfigurationArgs> metricConfiguration) {
             $.metricConfiguration = metricConfiguration;
             return this;
         }
 
-        /**
-         * @param metricConfiguration Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricConfiguration(LinkLinkConfigurationMetricConfigurationArgs metricConfiguration) {
             return metricConfiguration(Output.of(metricConfiguration));
         }

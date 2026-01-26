@@ -20,356 +20,125 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create a new launch configuration, used for autoscaling groups.
- * 
- * !&gt; **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
- * 
- * &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.LaunchConfiguration;
- * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name("name")
- *                     .values("ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*")
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name("virtualization-type")
- *                     .values("hvm")
- *                     .build())
- *             .owners("099720109477")
- *             .build());
- * 
- *         var asConf = new LaunchConfiguration("asConf", LaunchConfigurationArgs.builder()
- *             .name("web_config")
- *             .imageId(ubuntu.id())
- *             .instanceType("t2.micro")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import launch configurations using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/launchConfiguration:LaunchConfiguration")
 public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name of the launch configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name of the launch configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Associate a public ip address with an instance in a VPC.
-     * 
-     */
     @Export(name="associatePublicIpAddress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> associatePublicIpAddress;
 
-    /**
-     * @return Associate a public ip address with an instance in a VPC.
-     * 
-     */
     public Output<Optional<Boolean>> associatePublicIpAddress() {
         return Codegen.optional(this.associatePublicIpAddress);
     }
-    /**
-     * Additional EBS block devices to attach to the instance. See Block Devices below for details.
-     * 
-     */
     @Export(name="ebsBlockDevices", refs={List.class,LaunchConfigurationEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices;
 
-    /**
-     * @return Additional EBS block devices to attach to the instance. See Block Devices below for details.
-     * 
-     */
     public Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices() {
         return this.ebsBlockDevices;
     }
-    /**
-     * If true, the launched EC2 instance will be EBS-optimized.
-     * 
-     */
     @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> ebsOptimized;
 
-    /**
-     * @return If true, the launched EC2 instance will be EBS-optimized.
-     * 
-     */
     public Output<Boolean> ebsOptimized() {
         return this.ebsOptimized;
     }
-    /**
-     * Enables/disables detailed monitoring. This is enabled by default.
-     * 
-     */
     @Export(name="enableMonitoring", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMonitoring;
 
-    /**
-     * @return Enables/disables detailed monitoring. This is enabled by default.
-     * 
-     */
     public Output<Optional<Boolean>> enableMonitoring() {
         return Codegen.optional(this.enableMonitoring);
     }
-    /**
-     * Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
-     * 
-     */
     @Export(name="ephemeralBlockDevices", refs={List.class,LaunchConfigurationEphemeralBlockDevice.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchConfigurationEphemeralBlockDevice>> ephemeralBlockDevices;
 
-    /**
-     * @return Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
-     * 
-     */
     public Output<Optional<List<LaunchConfigurationEphemeralBlockDevice>>> ephemeralBlockDevices() {
         return Codegen.optional(this.ephemeralBlockDevices);
     }
-    /**
-     * The name attribute of the IAM instance profile to associate with launched instances.
-     * 
-     */
     @Export(name="iamInstanceProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamInstanceProfile;
 
-    /**
-     * @return The name attribute of the IAM instance profile to associate with launched instances.
-     * 
-     */
     public Output<Optional<String>> iamInstanceProfile() {
         return Codegen.optional(this.iamInstanceProfile);
     }
-    /**
-     * The EC2 image ID to launch.
-     * 
-     */
     @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output<String> imageId;
 
-    /**
-     * @return The EC2 image ID to launch.
-     * 
-     */
     public Output<String> imageId() {
         return this.imageId;
     }
-    /**
-     * The size of instance to launch.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
-    /**
-     * @return The size of instance to launch.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
-    /**
-     * The key name that should be used for the instance.
-     * 
-     */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
-    /**
-     * @return The key name that should be used for the instance.
-     * 
-     */
     public Output<String> keyName() {
         return this.keyName;
     }
-    /**
-     * The metadata options for the instance.
-     * 
-     */
     @Export(name="metadataOptions", refs={LaunchConfigurationMetadataOptions.class}, tree="[0]")
     private Output<LaunchConfigurationMetadataOptions> metadataOptions;
 
-    /**
-     * @return The metadata options for the instance.
-     * 
-     */
     public Output<LaunchConfigurationMetadataOptions> metadataOptions() {
         return this.metadataOptions;
     }
-    /**
-     * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-     * 
-     */
     @Export(name="placementTenancy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> placementTenancy;
 
-    /**
-     * @return The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-     * 
-     */
     public Output<Optional<String>> placementTenancy() {
         return Codegen.optional(this.placementTenancy);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Customize details about the root block device of the instance. See Block Devices below for details.
-     * 
-     */
     @Export(name="rootBlockDevice", refs={LaunchConfigurationRootBlockDevice.class}, tree="[0]")
     private Output<LaunchConfigurationRootBlockDevice> rootBlockDevice;
 
-    /**
-     * @return Customize details about the root block device of the instance. See Block Devices below for details.
-     * 
-     */
     public Output<LaunchConfigurationRootBlockDevice> rootBlockDevice() {
         return this.rootBlockDevice;
     }
-    /**
-     * A list of associated security group IDS.
-     * 
-     */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroups;
 
-    /**
-     * @return A list of associated security group IDS.
-     * 
-     */
     public Output<Optional<List<String>>> securityGroups() {
         return Codegen.optional(this.securityGroups);
     }
-    /**
-     * The maximum price to use for reserving spot instances.
-     * 
-     */
     @Export(name="spotPrice", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spotPrice;
 
-    /**
-     * @return The maximum price to use for reserving spot instances.
-     * 
-     */
     public Output<Optional<String>> spotPrice() {
         return Codegen.optional(this.spotPrice);
     }
-    /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-     * 
-     */
     @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
-    /**
-     * @return The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-     * 
-     */
     public Output<Optional<String>> userData() {
         return Codegen.optional(this.userData);
     }
-    /**
-     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-     * 
-     */
     @Export(name="userDataBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDataBase64;
 
-    /**
-     * @return Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-     * 
-     */
     public Output<Optional<String>> userDataBase64() {
         return Codegen.optional(this.userDataBase64);
     }

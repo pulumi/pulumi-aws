@@ -12,210 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					exampleAwsSsmcontactsContact.Arn,
-//				},
-//				Name: pulumi.String("rotation"),
-//				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
-//					DailySettings: ssm.ContactsRotationRecurrenceDailySettingArray{
-//						&ssm.ContactsRotationRecurrenceDailySettingArgs{
-//							HourOfDay:    pulumi.Int(9),
-//							MinuteOfHour: pulumi.Int(0),
-//						},
-//					},
-//				},
-//				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsmincidentsReplicationSet,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with Weekly Settings and Shift Coverages Fields
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					exampleAwsSsmcontactsContact.Arn,
-//				},
-//				Name: pulumi.String("rotation"),
-//				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
-//					WeeklySettings: ssm.ContactsRotationRecurrenceWeeklySettingArray{
-//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
-//							DayOfWeek: pulumi.String("WED"),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(4),
-//								MinuteOfHour: pulumi.Int(25),
-//							},
-//						},
-//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
-//							DayOfWeek: pulumi.String("FRI"),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(15),
-//								MinuteOfHour: pulumi.Int(57),
-//							},
-//						},
-//					},
-//					ShiftCoverages: ssm.ContactsRotationRecurrenceShiftCoverageArray{
-//						&ssm.ContactsRotationRecurrenceShiftCoverageArgs{
-//							MapBlockKey: pulumi.String("MON"),
-//							CoverageTimes: ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeArray{
-//								&ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs{
-//									Start: &ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs{
-//										HourOfDay:    pulumi.Int(1),
-//										MinuteOfHour: pulumi.Int(0),
-//									},
-//									End: &ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs{
-//										HourOfDay:    pulumi.Int(23),
-//										MinuteOfHour: pulumi.Int(0),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//				StartTime:  pulumi.String("2023-07-20T02:21:49+00:00"),
-//				TimeZoneId: pulumi.String("Australia/Sydney"),
-//				Tags: pulumi.StringMap{
-//					"key1": pulumi.String("tag1"),
-//					"key2": pulumi.String("tag2"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsmincidentsReplicationSet,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with Monthly Settings Fields
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					exampleAwsSsmcontactsContact.Arn,
-//				},
-//				Name: pulumi.String("rotation"),
-//				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
-//					MonthlySettings: ssm.ContactsRotationRecurrenceMonthlySettingArray{
-//						&ssm.ContactsRotationRecurrenceMonthlySettingArgs{
-//							DayOfMonth: pulumi.Int(20),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(8),
-//								MinuteOfHour: pulumi.Int(0),
-//							},
-//						},
-//						&ssm.ContactsRotationRecurrenceMonthlySettingArgs{
-//							DayOfMonth: pulumi.Int(13),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(12),
-//								MinuteOfHour: pulumi.Int(34),
-//							},
-//						},
-//					},
-//				},
-//				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsmincidentsReplicationSet,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
-//
-// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
-//
-// % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
 type ContactsRotation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the rotation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-	ContactIds pulumi.StringArrayOutput `pulumi:"contactIds"`
-	// The name for the rotation.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-	//
-	// The following arguments are optional:
+	Arn        pulumi.StringOutput                 `pulumi:"arn"`
+	ContactIds pulumi.StringArrayOutput            `pulumi:"contactIds"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Recurrence ContactsRotationRecurrencePtrOutput `pulumi:"recurrence"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The date and time, in RFC 3339 format, that the rotation goes into effect.
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-	TimeZoneId pulumi.StringOutput `pulumi:"timeZoneId"`
+	Region     pulumi.StringOutput                 `pulumi:"region"`
+	StartTime  pulumi.StringPtrOutput              `pulumi:"startTime"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	TagsAll    pulumi.StringMapOutput              `pulumi:"tagsAll"`
+	TimeZoneId pulumi.StringOutput                 `pulumi:"timeZoneId"`
 }
 
 // NewContactsRotation registers a new resource with the given unique name, arguments, and options.
@@ -254,48 +62,26 @@ func GetContactsRotation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactsRotation resources.
 type contactsRotationState struct {
-	// The Amazon Resource Name (ARN) of the rotation.
-	Arn *string `pulumi:"arn"`
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-	ContactIds []string `pulumi:"contactIds"`
-	// The name for the rotation.
-	Name *string `pulumi:"name"`
-	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-	//
-	// The following arguments are optional:
+	Arn        *string                     `pulumi:"arn"`
+	ContactIds []string                    `pulumi:"contactIds"`
+	Name       *string                     `pulumi:"name"`
 	Recurrence *ContactsRotationRecurrence `pulumi:"recurrence"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The date and time, in RFC 3339 format, that the rotation goes into effect.
-	StartTime *string `pulumi:"startTime"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-	TimeZoneId *string `pulumi:"timeZoneId"`
+	Region     *string                     `pulumi:"region"`
+	StartTime  *string                     `pulumi:"startTime"`
+	Tags       map[string]string           `pulumi:"tags"`
+	TagsAll    map[string]string           `pulumi:"tagsAll"`
+	TimeZoneId *string                     `pulumi:"timeZoneId"`
 }
 
 type ContactsRotationState struct {
-	// The Amazon Resource Name (ARN) of the rotation.
-	Arn pulumi.StringPtrInput
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+	Arn        pulumi.StringPtrInput
 	ContactIds pulumi.StringArrayInput
-	// The name for the rotation.
-	Name pulumi.StringPtrInput
-	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-	//
-	// The following arguments are optional:
+	Name       pulumi.StringPtrInput
 	Recurrence ContactsRotationRecurrencePtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The date and time, in RFC 3339 format, that the rotation goes into effect.
-	StartTime pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
+	Region     pulumi.StringPtrInput
+	StartTime  pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 	TimeZoneId pulumi.StringPtrInput
 }
 
@@ -304,41 +90,23 @@ func (ContactsRotationState) ElementType() reflect.Type {
 }
 
 type contactsRotationArgs struct {
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-	ContactIds []string `pulumi:"contactIds"`
-	// The name for the rotation.
-	Name *string `pulumi:"name"`
-	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-	//
-	// The following arguments are optional:
+	ContactIds []string                    `pulumi:"contactIds"`
+	Name       *string                     `pulumi:"name"`
 	Recurrence *ContactsRotationRecurrence `pulumi:"recurrence"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The date and time, in RFC 3339 format, that the rotation goes into effect.
-	StartTime *string `pulumi:"startTime"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-	TimeZoneId string `pulumi:"timeZoneId"`
+	Region     *string                     `pulumi:"region"`
+	StartTime  *string                     `pulumi:"startTime"`
+	Tags       map[string]string           `pulumi:"tags"`
+	TimeZoneId string                      `pulumi:"timeZoneId"`
 }
 
 // The set of arguments for constructing a ContactsRotation resource.
 type ContactsRotationArgs struct {
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds pulumi.StringArrayInput
-	// The name for the rotation.
-	Name pulumi.StringPtrInput
-	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-	//
-	// The following arguments are optional:
+	Name       pulumi.StringPtrInput
 	Recurrence ContactsRotationRecurrencePtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The date and time, in RFC 3339 format, that the rotation goes into effect.
-	StartTime pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
+	Region     pulumi.StringPtrInput
+	StartTime  pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 	TimeZoneId pulumi.StringInput
 }
 
@@ -429,49 +197,38 @@ func (o ContactsRotationOutput) ToContactsRotationOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the rotation.
 func (o ContactsRotationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 func (o ContactsRotationOutput) ContactIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringArrayOutput { return v.ContactIds }).(pulumi.StringArrayOutput)
 }
 
-// The name for the rotation.
 func (o ContactsRotationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-//
-// The following arguments are optional:
 func (o ContactsRotationOutput) Recurrence() ContactsRotationRecurrencePtrOutput {
 	return o.ApplyT(func(v *ContactsRotation) ContactsRotationRecurrencePtrOutput { return v.Recurrence }).(ContactsRotationRecurrencePtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContactsRotationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The date and time, in RFC 3339 format, that the rotation goes into effect.
 func (o ContactsRotationOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContactsRotationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContactsRotationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
 func (o ContactsRotationOutput) TimeZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringOutput { return v.TimeZoneId }).(pulumi.StringOutput)
 }

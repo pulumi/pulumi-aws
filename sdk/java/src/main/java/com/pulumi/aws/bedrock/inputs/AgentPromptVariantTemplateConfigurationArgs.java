@@ -16,32 +16,16 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
 
     public static final AgentPromptVariantTemplateConfigurationArgs Empty = new AgentPromptVariantTemplateConfigurationArgs();
 
-    /**
-     * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     @Import(name="chat")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatArgs> chat;
 
-    /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatArgs>> chat() {
         return Optional.ofNullable(this.chat);
     }
 
-    /**
-     * Contains configurations for the text in a message for a prompt. See Text Template Configuration
-     * 
-     */
     @Import(name="text")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationTextArgs> text;
 
-    /**
-     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationTextArgs>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -71,44 +55,20 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
             $ = new AgentPromptVariantTemplateConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chat(@Nullable Output<AgentPromptVariantTemplateConfigurationChatArgs> chat) {
             $.chat = chat;
             return this;
         }
 
-        /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chat(AgentPromptVariantTemplateConfigurationChatArgs chat) {
             return chat(Output.of(chat));
         }
 
-        /**
-         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(@Nullable Output<AgentPromptVariantTemplateConfigurationTextArgs> text) {
             $.text = text;
             return this;
         }
 
-        /**
-         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(AgentPromptVariantTemplateConfigurationTextArgs text) {
             return text(Output.of(text));
         }

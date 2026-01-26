@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Payment Cryptography Control Plane Key.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.paymentcryptography.Key("test", {
- *     exportable: true,
- *     keyAttributes: [{
- *         keyAlgorithm: "TDES_3KEY",
- *         keyClass: "SYMMETRIC_KEY",
- *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
- *         keyModesOfUses: [{
- *             decrypt: true,
- *             encrypt: true,
- *             wrap: true,
- *             unwrap: true,
- *         }],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
- *
- * Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
- *
- * % pulumi import aws_paymentcryptography_key.example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
- */
 export class Key extends pulumi.CustomResource {
     /**
      * Get an existing Key resource's state with the given name, ID, and optional extra
@@ -74,52 +35,17 @@ export class Key extends pulumi.CustomResource {
         return obj['__pulumiType'] === Key.__pulumiType;
     }
 
-    /**
-     * ARN of the key.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly deletionWindowInDays: pulumi.Output<number>;
-    /**
-     * Whether to enable the key.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
-    /**
-     * Whether the key is exportable from the service.
-     */
     declare public readonly exportable: pulumi.Output<boolean>;
-    /**
-     * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly keyAttributes: pulumi.Output<outputs.paymentcryptography.KeyKeyAttribute[] | undefined>;
-    /**
-     * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-     */
     declare public /*out*/ readonly keyCheckValue: pulumi.Output<string>;
-    /**
-     * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-     */
     declare public readonly keyCheckValueAlgorithm: pulumi.Output<string>;
-    /**
-     * Source of the key material.
-     */
     declare public /*out*/ readonly keyOrigin: pulumi.Output<string>;
-    /**
-     * State of key that is being created or deleted.
-     */
     declare public /*out*/ readonly keyState: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.paymentcryptography.KeyTimeouts | undefined>;
 
@@ -177,52 +103,17 @@ export class Key extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Key resources.
  */
 export interface KeyState {
-    /**
-     * ARN of the key.
-     */
     arn?: pulumi.Input<string>;
     deletionWindowInDays?: pulumi.Input<number>;
-    /**
-     * Whether to enable the key.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Whether the key is exportable from the service.
-     */
     exportable?: pulumi.Input<boolean>;
-    /**
-     * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-     *
-     * The following arguments are optional:
-     */
     keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[]>;
-    /**
-     * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-     */
     keyCheckValue?: pulumi.Input<string>;
-    /**
-     * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-     */
     keyCheckValueAlgorithm?: pulumi.Input<string>;
-    /**
-     * Source of the key material.
-     */
     keyOrigin?: pulumi.Input<string>;
-    /**
-     * State of key that is being created or deleted.
-     */
     keyState?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts>;
 }
@@ -232,31 +123,11 @@ export interface KeyState {
  */
 export interface KeyArgs {
     deletionWindowInDays?: pulumi.Input<number>;
-    /**
-     * Whether to enable the key.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Whether the key is exportable from the service.
-     */
     exportable: pulumi.Input<boolean>;
-    /**
-     * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-     *
-     * The following arguments are optional:
-     */
     keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[]>;
-    /**
-     * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-     */
     keyCheckValueAlgorithm?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts>;
 }

@@ -12,160 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Region),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
-//				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Region),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "example", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "example", &ec2.VpcIpamPoolCidrAllocationArgs{
-//				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/24"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpcIpamPoolCidr,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// With the `disallowedCidrs` attribute:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Region),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
-//				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Region),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "example", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "example", &ec2.VpcIpamPoolCidrAllocationArgs{
-//				IpamPoolId:    exampleVpcIpamPool.ID(),
-//				NetmaskLength: pulumi.Int(28),
-//				DisallowedCidrs: pulumi.StringArray{
-//					pulumi.String("172.20.0.0/28"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpcIpamPoolCidr,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
-// ```
 type VpcIpamPoolCidrAllocation struct {
 	pulumi.CustomResourceState
 
-	// The CIDR you want to assign to the pool.
-	Cidr pulumi.StringOutput `pulumi:"cidr"`
-	// The description for the allocation.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Exclude a particular CIDR range from being returned by the pool.
+	Cidr                 pulumi.StringOutput      `pulumi:"cidr"`
+	Description          pulumi.StringPtrOutput   `pulumi:"description"`
 	DisallowedCidrs      pulumi.StringArrayOutput `pulumi:"disallowedCidrs"`
 	IpamPoolAllocationId pulumi.StringOutput      `pulumi:"ipamPoolAllocationId"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-	NetmaskLength pulumi.IntOutput `pulumi:"netmaskLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the resource.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// The owner of the resource.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// The type of the resource.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	IpamPoolId           pulumi.StringOutput      `pulumi:"ipamPoolId"`
+	NetmaskLength        pulumi.IntOutput         `pulumi:"netmaskLength"`
+	Region               pulumi.StringOutput      `pulumi:"region"`
+	ResourceId           pulumi.StringOutput      `pulumi:"resourceId"`
+	ResourceOwner        pulumi.StringOutput      `pulumi:"resourceOwner"`
+	ResourceType         pulumi.StringOutput      `pulumi:"resourceType"`
 }
 
 // NewVpcIpamPoolCidrAllocation registers a new resource with the given unique name, arguments, and options.
@@ -201,47 +60,29 @@ func GetVpcIpamPoolCidrAllocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
 type vpcIpamPoolCidrAllocationState struct {
-	// The CIDR you want to assign to the pool.
-	Cidr *string `pulumi:"cidr"`
-	// The description for the allocation.
-	Description *string `pulumi:"description"`
-	// Exclude a particular CIDR range from being returned by the pool.
+	Cidr                 *string  `pulumi:"cidr"`
+	Description          *string  `pulumi:"description"`
 	DisallowedCidrs      []string `pulumi:"disallowedCidrs"`
 	IpamPoolAllocationId *string  `pulumi:"ipamPoolAllocationId"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId *string `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-	NetmaskLength *int `pulumi:"netmaskLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the resource.
-	ResourceId *string `pulumi:"resourceId"`
-	// The owner of the resource.
-	ResourceOwner *string `pulumi:"resourceOwner"`
-	// The type of the resource.
-	ResourceType *string `pulumi:"resourceType"`
+	IpamPoolId           *string  `pulumi:"ipamPoolId"`
+	NetmaskLength        *int     `pulumi:"netmaskLength"`
+	Region               *string  `pulumi:"region"`
+	ResourceId           *string  `pulumi:"resourceId"`
+	ResourceOwner        *string  `pulumi:"resourceOwner"`
+	ResourceType         *string  `pulumi:"resourceType"`
 }
 
 type VpcIpamPoolCidrAllocationState struct {
-	// The CIDR you want to assign to the pool.
-	Cidr pulumi.StringPtrInput
-	// The description for the allocation.
-	Description pulumi.StringPtrInput
-	// Exclude a particular CIDR range from being returned by the pool.
+	Cidr                 pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
 	DisallowedCidrs      pulumi.StringArrayInput
 	IpamPoolAllocationId pulumi.StringPtrInput
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringPtrInput
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-	NetmaskLength pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the resource.
-	ResourceId pulumi.StringPtrInput
-	// The owner of the resource.
-	ResourceOwner pulumi.StringPtrInput
-	// The type of the resource.
-	ResourceType pulumi.StringPtrInput
+	IpamPoolId           pulumi.StringPtrInput
+	NetmaskLength        pulumi.IntPtrInput
+	Region               pulumi.StringPtrInput
+	ResourceId           pulumi.StringPtrInput
+	ResourceOwner        pulumi.StringPtrInput
+	ResourceType         pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrAllocationState) ElementType() reflect.Type {
@@ -249,34 +90,22 @@ func (VpcIpamPoolCidrAllocationState) ElementType() reflect.Type {
 }
 
 type vpcIpamPoolCidrAllocationArgs struct {
-	// The CIDR you want to assign to the pool.
-	Cidr *string `pulumi:"cidr"`
-	// The description for the allocation.
-	Description *string `pulumi:"description"`
-	// Exclude a particular CIDR range from being returned by the pool.
+	Cidr            *string  `pulumi:"cidr"`
+	Description     *string  `pulumi:"description"`
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId string `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-	NetmaskLength *int `pulumi:"netmaskLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IpamPoolId      string   `pulumi:"ipamPoolId"`
+	NetmaskLength   *int     `pulumi:"netmaskLength"`
+	Region          *string  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
 type VpcIpamPoolCidrAllocationArgs struct {
-	// The CIDR you want to assign to the pool.
-	Cidr pulumi.StringPtrInput
-	// The description for the allocation.
-	Description pulumi.StringPtrInput
-	// Exclude a particular CIDR range from being returned by the pool.
+	Cidr            pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
 	DisallowedCidrs pulumi.StringArrayInput
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringInput
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-	NetmaskLength pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IpamPoolId      pulumi.StringInput
+	NetmaskLength   pulumi.IntPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrAllocationArgs) ElementType() reflect.Type {
@@ -366,17 +195,14 @@ func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationOutputWithCo
 	return o
 }
 
-// The CIDR you want to assign to the pool.
 func (o VpcIpamPoolCidrAllocationOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// The description for the allocation.
 func (o VpcIpamPoolCidrAllocationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Exclude a particular CIDR range from being returned by the pool.
 func (o VpcIpamPoolCidrAllocationOutput) DisallowedCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringArrayOutput { return v.DisallowedCidrs }).(pulumi.StringArrayOutput)
 }
@@ -385,32 +211,26 @@ func (o VpcIpamPoolCidrAllocationOutput) IpamPoolAllocationId() pulumi.StringOut
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.IpamPoolAllocationId }).(pulumi.StringOutput)
 }
 
-// The ID of the pool to which you want to assign a CIDR.
 func (o VpcIpamPoolCidrAllocationOutput) IpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
 }
 
-// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 func (o VpcIpamPoolCidrAllocationOutput) NetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.IntOutput { return v.NetmaskLength }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcIpamPoolCidrAllocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the resource.
 func (o VpcIpamPoolCidrAllocationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The owner of the resource.
 func (o VpcIpamPoolCidrAllocationOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// The type of the resource.
 func (o VpcIpamPoolCidrAllocationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }

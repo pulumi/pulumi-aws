@@ -15,62 +15,30 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
 
     public static final JobQueueJobStateTimeLimitActionArgs Empty = new JobQueueJobStateTimeLimitActionArgs();
 
-    /**
-     * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
-     * 
-     */
     @Import(name="action", required=true)
     private Output<String> action;
 
-    /**
-     * @return The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
 
-    /**
-     * The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
-     * 
-     */
     @Import(name="maxTimeSeconds", required=true)
     private Output<Integer> maxTimeSeconds;
 
-    /**
-     * @return The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
-     * 
-     */
     public Output<Integer> maxTimeSeconds() {
         return this.maxTimeSeconds;
     }
 
-    /**
-     * The reason to log for the action being taken.
-     * 
-     */
     @Import(name="reason", required=true)
     private Output<String> reason;
 
-    /**
-     * @return The reason to log for the action being taken.
-     * 
-     */
     public Output<String> reason() {
         return this.reason;
     }
 
-    /**
-     * The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
-     * 
-     */
     @Import(name="state", required=true)
     private Output<String> state;
 
-    /**
-     * @return The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
@@ -102,86 +70,38 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
             $ = new JobQueueJobStateTimeLimitActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param maxTimeSeconds The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTimeSeconds(Output<Integer> maxTimeSeconds) {
             $.maxTimeSeconds = maxTimeSeconds;
             return this;
         }
 
-        /**
-         * @param maxTimeSeconds The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTimeSeconds(Integer maxTimeSeconds) {
             return maxTimeSeconds(Output.of(maxTimeSeconds));
         }
 
-        /**
-         * @param reason The reason to log for the action being taken.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reason(Output<String> reason) {
             $.reason = reason;
             return this;
         }
 
-        /**
-         * @param reason The reason to log for the action being taken.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reason(String reason) {
             return reason(Output.of(reason));
         }
 
-        /**
-         * @param state The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

@@ -16,32 +16,16 @@ public final class DomainConfigurationAuthorizerConfigArgs extends com.pulumi.re
 
     public static final DomainConfigurationAuthorizerConfigArgs Empty = new DomainConfigurationAuthorizerConfigArgs();
 
-    /**
-     * A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
-     * 
-     */
     @Import(name="allowAuthorizerOverride")
     private @Nullable Output<Boolean> allowAuthorizerOverride;
 
-    /**
-     * @return A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
-     * 
-     */
     public Optional<Output<Boolean>> allowAuthorizerOverride() {
         return Optional.ofNullable(this.allowAuthorizerOverride);
     }
 
-    /**
-     * The name of the authorization service for a domain configuration.
-     * 
-     */
     @Import(name="defaultAuthorizerName")
     private @Nullable Output<String> defaultAuthorizerName;
 
-    /**
-     * @return The name of the authorization service for a domain configuration.
-     * 
-     */
     public Optional<Output<String>> defaultAuthorizerName() {
         return Optional.ofNullable(this.defaultAuthorizerName);
     }
@@ -71,44 +55,20 @@ public final class DomainConfigurationAuthorizerConfigArgs extends com.pulumi.re
             $ = new DomainConfigurationAuthorizerConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowAuthorizerOverride A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAuthorizerOverride(@Nullable Output<Boolean> allowAuthorizerOverride) {
             $.allowAuthorizerOverride = allowAuthorizerOverride;
             return this;
         }
 
-        /**
-         * @param allowAuthorizerOverride A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAuthorizerOverride(Boolean allowAuthorizerOverride) {
             return allowAuthorizerOverride(Output.of(allowAuthorizerOverride));
         }
 
-        /**
-         * @param defaultAuthorizerName The name of the authorization service for a domain configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAuthorizerName(@Nullable Output<String> defaultAuthorizerName) {
             $.defaultAuthorizerName = defaultAuthorizerName;
             return this;
         }
 
-        /**
-         * @param defaultAuthorizerName The name of the authorization service for a domain configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAuthorizerName(String defaultAuthorizerName) {
             return defaultAuthorizerName(Output.of(defaultAuthorizerName));
         }

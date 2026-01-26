@@ -12,444 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dlm"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"dlm.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			dlmLifecycleRole, err := iam.NewRole(ctx, "dlm_lifecycle_role", &iam.RoleArgs{
-//				Name:             pulumi.String("dlm-lifecycle-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			dlmLifecycle, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"ec2:CreateSnapshot",
-//							"ec2:CreateSnapshots",
-//							"ec2:DeleteSnapshot",
-//							"ec2:DescribeInstances",
-//							"ec2:DescribeVolumes",
-//							"ec2:DescribeSnapshots",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"ec2:CreateTags",
-//						},
-//						Resources: []string{
-//							"arn:aws:ec2:*::snapshot/*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "dlm_lifecycle", &iam.RolePolicyArgs{
-//				Name:   pulumi.String("dlm-lifecycle-policy"),
-//				Role:   dlmLifecycleRole.ID(),
-//				Policy: pulumi.String(dlmLifecycle.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("example DLM lifecycle policy"),
-//				ExecutionRoleArn: dlmLifecycleRole.Arn,
-//				State:            pulumi.String("ENABLED"),
-//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray{
-//						pulumi.String("VOLUME"),
-//					},
-//					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
-//						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
-//							Name: pulumi.String("2 weeks of daily snapshots"),
-//							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
-//								Interval:     pulumi.Int(24),
-//								IntervalUnit: pulumi.String("HOURS"),
-//								Times:        pulumi.String("23:45"),
-//							},
-//							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
-//								Count: pulumi.Int(14),
-//							},
-//							TagsToAdd: pulumi.StringMap{
-//								"SnapshotCreator": pulumi.String("DLM"),
-//							},
-//							CopyTags: pulumi.Bool(false),
-//						},
-//					},
-//					TargetTags: pulumi.StringMap{
-//						"Snapshot": pulumi.String("true"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example Default Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dlm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("tf-acc-basic"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				DefaultPolicy:    pulumi.String("VOLUME"),
-//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					CreateInterval: pulumi.Int(5),
-//					ResourceType:   pulumi.String("VOLUME"),
-//					PolicyLanguage: pulumi.String("SIMPLIFIED"),
-//					Exclusions: &dlm.LifecyclePolicyPolicyDetailsExclusionsArgs{
-//						ExcludeBootVolumes: pulumi.Bool(false),
-//						ExcludeTags: pulumi.StringMap{
-//							"test": pulumi.String("exclude"),
-//						},
-//						ExcludeVolumeTypes: pulumi.StringArray{
-//							pulumi.String("gp2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example Cross-Region Snapshot Copy Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dlm"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ...other configuration...
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			key, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			dlmCrossRegionCopyCmk, err := kms.NewKey(ctx, "dlm_cross_region_copy_cmk", &kms.KeyArgs{
-//				Description: pulumi.String("Example Alternate Region KMS Key"),
-//				Policy:      pulumi.String(key.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("example DLM lifecycle policy"),
-//				ExecutionRoleArn: pulumi.Any(dlmLifecycleRole.Arn),
-//				State:            pulumi.String("ENABLED"),
-//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray{
-//						pulumi.String("VOLUME"),
-//					},
-//					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
-//						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
-//							Name: pulumi.String("2 weeks of daily snapshots"),
-//							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
-//								Interval:     pulumi.Int(24),
-//								IntervalUnit: pulumi.String("HOURS"),
-//								Times:        pulumi.String("23:45"),
-//							},
-//							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
-//								Count: pulumi.Int(14),
-//							},
-//							TagsToAdd: pulumi.StringMap{
-//								"SnapshotCreator": pulumi.String("DLM"),
-//							},
-//							CopyTags: pulumi.Bool(false),
-//							CrossRegionCopyRules: dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray{
-//								&dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs{
-//									Target:    pulumi.String("us-west-2"),
-//									Encrypted: pulumi.Bool(true),
-//									CmkArn:    dlmCrossRegionCopyCmk.Arn,
-//									CopyTags:  pulumi.Bool(true),
-//									RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{
-//										Interval:     pulumi.Int(30),
-//										IntervalUnit: pulumi.String("DAYS"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//					TargetTags: pulumi.StringMap{
-//						"Snapshot": pulumi.String("true"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example Event Based Policy Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dlm"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("tf-acc-basic"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					PolicyType: pulumi.String("EVENT_BASED_POLICY"),
-//					Action: &dlm.LifecyclePolicyPolicyDetailsActionArgs{
-//						Name: pulumi.String("tf-acc-basic"),
-//						CrossRegionCopies: dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray{
-//							&dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{
-//								EncryptionConfiguration: &dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs{},
-//								RetainRule: &dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{
-//									Interval:     pulumi.Int(15),
-//									IntervalUnit: pulumi.String("MONTHS"),
-//								},
-//								Target: pulumi.String("us-east-1"),
-//							},
-//						},
-//					},
-//					EventSource: &dlm.LifecyclePolicyPolicyDetailsEventSourceArgs{
-//						Type: pulumi.String("MANAGED_CWE"),
-//						Parameters: &dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs{
-//							DescriptionRegex: pulumi.String("^.*Created for policy: policy-1234567890abcdef0.*$"),
-//							EventType:        pulumi.String("shareSnapshot"),
-//							SnapshotOwners: pulumi.StringArray{
-//								pulumi.String(current.AccountId),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
-//				Name: pulumi.StringRef("AWSDataLifecycleManagerServiceRole"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      pulumi.Any(exampleAwsIamRole.Id),
-//				PolicyArn: pulumi.String(example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example Post/Pre Scripts
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dlm"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
-//				Name: pulumi.StringRef("AWSDataLifecycleManagerSSMFullAccess"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      pulumi.Any(testAwsIamRole.Id),
-//				PolicyArn: pulumi.Any(exampleAwsIamPolicy.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("tf-acc-basic"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray{
-//						pulumi.String("INSTANCE"),
-//					},
-//					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
-//						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
-//							Name: pulumi.String("Windows VSS"),
-//							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
-//								Interval: pulumi.Int(12),
-//								Scripts: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs{
-//									ExecuteOperationOnScriptFailure: pulumi.Bool(false),
-//									ExecutionHandler:                pulumi.String("AWS_VSS_BACKUP"),
-//									MaximumRetryCount:               pulumi.Int(2),
-//								},
-//							},
-//							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
-//								Count: pulumi.Int(10),
-//							},
-//						},
-//					},
-//					TargetTags: pulumi.StringMap{
-//						"tag1": pulumi.String("Windows"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
-//
-// ```sh
-// $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-// ```
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-	DefaultPolicy pulumi.StringPtrOutput `pulumi:"defaultPolicy"`
-	// A description for the DLM lifecycle policy.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// The ARN of an IAM role that is able to be assumed by the DLM service.
-	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
-	// See the `policyDetails` configuration block. Max of 1.
-	PolicyDetails LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput                `pulumi:"arn"`
+	DefaultPolicy    pulumi.StringPtrOutput             `pulumi:"defaultPolicy"`
+	Description      pulumi.StringOutput                `pulumi:"description"`
+	ExecutionRoleArn pulumi.StringOutput                `pulumi:"executionRoleArn"`
+	PolicyDetails    LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
+	Region           pulumi.StringOutput                `pulumi:"region"`
+	State            pulumi.StringPtrOutput             `pulumi:"state"`
+	Tags             pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput             `pulumi:"tagsAll"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
@@ -491,45 +65,27 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type lifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-	Arn *string `pulumi:"arn"`
-	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-	DefaultPolicy *string `pulumi:"defaultPolicy"`
-	// A description for the DLM lifecycle policy.
-	Description *string `pulumi:"description"`
-	// The ARN of an IAM role that is able to be assumed by the DLM service.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// See the `policyDetails` configuration block. Max of 1.
-	PolicyDetails *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-	State *string `pulumi:"state"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string                       `pulumi:"arn"`
+	DefaultPolicy    *string                       `pulumi:"defaultPolicy"`
+	Description      *string                       `pulumi:"description"`
+	ExecutionRoleArn *string                       `pulumi:"executionRoleArn"`
+	PolicyDetails    *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
+	Region           *string                       `pulumi:"region"`
+	State            *string                       `pulumi:"state"`
+	Tags             map[string]string             `pulumi:"tags"`
+	TagsAll          map[string]string             `pulumi:"tagsAll"`
 }
 
 type LifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-	Arn pulumi.StringPtrInput
-	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-	DefaultPolicy pulumi.StringPtrInput
-	// A description for the DLM lifecycle policy.
-	Description pulumi.StringPtrInput
-	// The ARN of an IAM role that is able to be assumed by the DLM service.
+	Arn              pulumi.StringPtrInput
+	DefaultPolicy    pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
 	ExecutionRoleArn pulumi.StringPtrInput
-	// See the `policyDetails` configuration block. Max of 1.
-	PolicyDetails LifecyclePolicyPolicyDetailsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-	State pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	PolicyDetails    LifecyclePolicyPolicyDetailsPtrInput
+	Region           pulumi.StringPtrInput
+	State            pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (LifecyclePolicyState) ElementType() reflect.Type {
@@ -537,38 +93,24 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 }
 
 type lifecyclePolicyArgs struct {
-	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-	DefaultPolicy *string `pulumi:"defaultPolicy"`
-	// A description for the DLM lifecycle policy.
-	Description string `pulumi:"description"`
-	// The ARN of an IAM role that is able to be assumed by the DLM service.
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// See the `policyDetails` configuration block. Max of 1.
-	PolicyDetails LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-	State *string `pulumi:"state"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DefaultPolicy    *string                      `pulumi:"defaultPolicy"`
+	Description      string                       `pulumi:"description"`
+	ExecutionRoleArn string                       `pulumi:"executionRoleArn"`
+	PolicyDetails    LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
+	Region           *string                      `pulumi:"region"`
+	State            *string                      `pulumi:"state"`
+	Tags             map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
-	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-	DefaultPolicy pulumi.StringPtrInput
-	// A description for the DLM lifecycle policy.
-	Description pulumi.StringInput
-	// The ARN of an IAM role that is able to be assumed by the DLM service.
+	DefaultPolicy    pulumi.StringPtrInput
+	Description      pulumi.StringInput
 	ExecutionRoleArn pulumi.StringInput
-	// See the `policyDetails` configuration block. Max of 1.
-	PolicyDetails LifecyclePolicyPolicyDetailsInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-	State pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	PolicyDetails    LifecyclePolicyPolicyDetailsInput
+	Region           pulumi.StringPtrInput
+	State            pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
 }
 
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
@@ -658,47 +200,38 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
 func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
 func (o LifecyclePolicyOutput) DefaultPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.DefaultPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A description for the DLM lifecycle policy.
 func (o LifecyclePolicyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The ARN of an IAM role that is able to be assumed by the DLM service.
 func (o LifecyclePolicyOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// See the `policyDetails` configuration block. Max of 1.
 func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailsOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailsOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailsOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 func (o LifecyclePolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LifecyclePolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LifecyclePolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

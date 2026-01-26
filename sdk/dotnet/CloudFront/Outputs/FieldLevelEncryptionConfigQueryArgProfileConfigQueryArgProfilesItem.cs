@@ -14,9 +14,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem
     {
         public readonly string ProfileId;
-        /// <summary>
-        /// Query argument for field-level encryption query argument-profile mapping.
-        /// </summary>
         public readonly string QueryArg;
 
         [OutputConstructor]

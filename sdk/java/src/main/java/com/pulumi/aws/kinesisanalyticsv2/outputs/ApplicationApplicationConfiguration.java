@@ -19,101 +19,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfiguration {
-    /**
-     * @return The code location and type parameters for the application.
-     * 
-     */
     private ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration;
-    /**
-     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationApplicationEncryptionConfiguration applicationEncryptionConfiguration;
-    /**
-     * @return Describes whether snapshots are enabled for a Flink-based application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration;
-    /**
-     * @return Describes execution properties for a Flink-based application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties;
-    /**
-     * @return The configuration of a Flink-based application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration;
-    /**
-     * @return Describes the starting properties for a Flink-based application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration;
-    /**
-     * @return The configuration of a SQL-based application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration;
-    /**
-     * @return The VPC configuration of a Flink-based application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration;
 
     private ApplicationApplicationConfiguration() {}
-    /**
-     * @return The code location and type parameters for the application.
-     * 
-     */
     public ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration() {
         return this.applicationCodeConfiguration;
     }
-    /**
-     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationApplicationEncryptionConfiguration> applicationEncryptionConfiguration() {
         return Optional.ofNullable(this.applicationEncryptionConfiguration);
     }
-    /**
-     * @return Describes whether snapshots are enabled for a Flink-based application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationApplicationSnapshotConfiguration> applicationSnapshotConfiguration() {
         return Optional.ofNullable(this.applicationSnapshotConfiguration);
     }
-    /**
-     * @return Describes execution properties for a Flink-based application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationEnvironmentProperties> environmentProperties() {
         return Optional.ofNullable(this.environmentProperties);
     }
-    /**
-     * @return The configuration of a Flink-based application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationFlinkApplicationConfiguration> flinkApplicationConfiguration() {
         return Optional.ofNullable(this.flinkApplicationConfiguration);
     }
-    /**
-     * @return Describes the starting properties for a Flink-based application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationRunConfiguration> runConfiguration() {
         return Optional.ofNullable(this.runConfiguration);
     }
-    /**
-     * @return The configuration of a SQL-based application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfiguration> sqlApplicationConfiguration() {
         return Optional.ofNullable(this.sqlApplicationConfiguration);
     }
-    /**
-     * @return The VPC configuration of a Flink-based application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationVpcConfiguration> vpcConfiguration() {
         return Optional.ofNullable(this.vpcConfiguration);
     }

@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an Amazon MSK Connect custom plugin.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.LookupCustomPlugin(ctx, &mskconnect.LookupCustomPluginArgs{
-//				Name: "example-debezium-1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomPlugin(ctx *pulumi.Context, args *LookupCustomPluginArgs, opts ...pulumi.InvokeOption) (*LookupCustomPluginResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomPluginResult
@@ -50,30 +23,22 @@ func LookupCustomPlugin(ctx *pulumi.Context, args *LookupCustomPluginArgs, opts 
 
 // A collection of arguments for invoking getCustomPlugin.
 type LookupCustomPluginArgs struct {
-	// Name of the custom plugin.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCustomPlugin.
 type LookupCustomPluginResult struct {
-	// the ARN of the custom plugin.
-	Arn string `pulumi:"arn"`
-	// a summary description of the custom plugin.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// an ID of the latest successfully created revision of the custom plugin.
-	LatestRevision int    `pulumi:"latestRevision"`
-	Name           string `pulumi:"name"`
-	Region         string `pulumi:"region"`
-	// the state of the custom plugin.
-	State string `pulumi:"state"`
-	// A map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id             string            `pulumi:"id"`
+	LatestRevision int               `pulumi:"latestRevision"`
+	Name           string            `pulumi:"name"`
+	Region         string            `pulumi:"region"`
+	State          string            `pulumi:"state"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPluginResultOutput {
@@ -87,12 +52,9 @@ func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutput
 
 // A collection of arguments for invoking getCustomPlugin.
 type LookupCustomPluginOutputArgs struct {
-	// Name of the custom plugin.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupCustomPluginOutputArgs) ElementType() reflect.Type {
@@ -114,12 +76,10 @@ func (o LookupCustomPluginResultOutput) ToLookupCustomPluginResultOutputWithCont
 	return o
 }
 
-// the ARN of the custom plugin.
 func (o LookupCustomPluginResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// a summary description of the custom plugin.
 func (o LookupCustomPluginResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -129,7 +89,6 @@ func (o LookupCustomPluginResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// an ID of the latest successfully created revision of the custom plugin.
 func (o LookupCustomPluginResultOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) int { return v.LatestRevision }).(pulumi.IntOutput)
 }
@@ -142,12 +101,10 @@ func (o LookupCustomPluginResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// the state of the custom plugin.
 func (o LookupCustomPluginResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource.
 func (o LookupCustomPluginResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

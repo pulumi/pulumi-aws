@@ -17,81 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleCondition {
-    /**
-     * @return Host header patterns to match. Host Header block fields documented below.
-     * 
-     */
     private @Nullable ListenerRuleConditionHostHeader hostHeader;
-    /**
-     * @return HTTP headers to match. HTTP Header block fields documented below.
-     * 
-     */
     private @Nullable ListenerRuleConditionHttpHeader httpHeader;
-    /**
-     * @return Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-     * 
-     */
     private @Nullable ListenerRuleConditionHttpRequestMethod httpRequestMethod;
-    /**
-     * @return Path patterns to match against the request URL. Path Pattern block fields documented below.
-     * 
-     */
     private @Nullable ListenerRuleConditionPathPattern pathPattern;
-    /**
-     * @return Query strings to match. Query String block fields documented below.
-     * 
-     */
     private @Nullable List<ListenerRuleConditionQueryString> queryStrings;
-    /**
-     * @return Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
-     * 
-     * &gt; **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
-     * 
-     */
     private @Nullable ListenerRuleConditionSourceIp sourceIp;
 
     private ListenerRuleCondition() {}
-    /**
-     * @return Host header patterns to match. Host Header block fields documented below.
-     * 
-     */
     public Optional<ListenerRuleConditionHostHeader> hostHeader() {
         return Optional.ofNullable(this.hostHeader);
     }
-    /**
-     * @return HTTP headers to match. HTTP Header block fields documented below.
-     * 
-     */
     public Optional<ListenerRuleConditionHttpHeader> httpHeader() {
         return Optional.ofNullable(this.httpHeader);
     }
-    /**
-     * @return Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-     * 
-     */
     public Optional<ListenerRuleConditionHttpRequestMethod> httpRequestMethod() {
         return Optional.ofNullable(this.httpRequestMethod);
     }
-    /**
-     * @return Path patterns to match against the request URL. Path Pattern block fields documented below.
-     * 
-     */
     public Optional<ListenerRuleConditionPathPattern> pathPattern() {
         return Optional.ofNullable(this.pathPattern);
     }
-    /**
-     * @return Query strings to match. Query String block fields documented below.
-     * 
-     */
     public List<ListenerRuleConditionQueryString> queryStrings() {
         return this.queryStrings == null ? List.of() : this.queryStrings;
     }
-    /**
-     * @return Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
-     * 
-     * &gt; **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
-     * 
-     */
     public Optional<ListenerRuleConditionSourceIp> sourceIp() {
         return Optional.ofNullable(this.sourceIp);
     }

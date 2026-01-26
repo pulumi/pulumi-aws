@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceParametersS3ManifestFileLocation
     {
-        /// <summary>
-        /// The name of the bucket that contains the manifest file.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// The key of the manifest file within the bucket.
-        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

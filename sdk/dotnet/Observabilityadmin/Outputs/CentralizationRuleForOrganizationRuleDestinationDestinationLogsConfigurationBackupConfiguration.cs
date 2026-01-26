@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     [OutputType]
     public sealed class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration
     {
-        /// <summary>
-        /// ARN of the KMS key to use for backup encryption.
-        /// </summary>
         public readonly string? KmsKeyArn;
-        /// <summary>
-        /// AWS region for backup storage.
-        /// </summary>
         public readonly string? Region;
 
         [OutputConstructor]

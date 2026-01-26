@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfigurationSheetTile {
-    /**
-     * @return The border around a tile. See border.
-     * 
-     */
     private List<GetThemeConfigurationSheetTileBorder> borders;
 
     private GetThemeConfigurationSheetTile() {}
-    /**
-     * @return The border around a tile. See border.
-     * 
-     */
     public List<GetThemeConfigurationSheetTileBorder> borders() {
         return this.borders;
     }

@@ -12,59 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewEmailIdentityFeedbackAttributes(ctx, "example", &sesv2.EmailIdentityFeedbackAttributesArgs{
-//				EmailIdentity:          example.EmailIdentity,
-//				EmailForwardingEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
-// ```
 type EmailIdentityFeedbackAttributes struct {
 	pulumi.CustomResourceState
 
-	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrOutput `pulumi:"emailForwardingEnabled"`
-	// The email identity.
-	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	EmailIdentity          pulumi.StringOutput  `pulumi:"emailIdentity"`
+	Region                 pulumi.StringOutput  `pulumi:"region"`
 }
 
 // NewEmailIdentityFeedbackAttributes registers a new resource with the given unique name, arguments, and options.
@@ -100,21 +53,15 @@ func GetEmailIdentityFeedbackAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentityFeedbackAttributes resources.
 type emailIdentityFeedbackAttributesState struct {
-	// Sets the feedback forwarding configuration for the identity.
-	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`
-	// The email identity.
-	EmailIdentity *string `pulumi:"emailIdentity"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	EmailForwardingEnabled *bool   `pulumi:"emailForwardingEnabled"`
+	EmailIdentity          *string `pulumi:"emailIdentity"`
+	Region                 *string `pulumi:"region"`
 }
 
 type EmailIdentityFeedbackAttributesState struct {
-	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrInput
-	// The email identity.
-	EmailIdentity pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	EmailIdentity          pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
 }
 
 func (EmailIdentityFeedbackAttributesState) ElementType() reflect.Type {
@@ -122,22 +69,16 @@ func (EmailIdentityFeedbackAttributesState) ElementType() reflect.Type {
 }
 
 type emailIdentityFeedbackAttributesArgs struct {
-	// Sets the feedback forwarding configuration for the identity.
-	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`
-	// The email identity.
-	EmailIdentity string `pulumi:"emailIdentity"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	EmailForwardingEnabled *bool   `pulumi:"emailForwardingEnabled"`
+	EmailIdentity          string  `pulumi:"emailIdentity"`
+	Region                 *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EmailIdentityFeedbackAttributes resource.
 type EmailIdentityFeedbackAttributesArgs struct {
-	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrInput
-	// The email identity.
-	EmailIdentity pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	EmailIdentity          pulumi.StringInput
+	Region                 pulumi.StringPtrInput
 }
 
 func (EmailIdentityFeedbackAttributesArgs) ElementType() reflect.Type {
@@ -227,17 +168,14 @@ func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributes
 	return o
 }
 
-// Sets the feedback forwarding configuration for the identity.
 func (o EmailIdentityFeedbackAttributesOutput) EmailForwardingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) pulumi.BoolPtrOutput { return v.EmailForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The email identity.
 func (o EmailIdentityFeedbackAttributesOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityFeedbackAttributesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

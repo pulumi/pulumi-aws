@@ -7,83 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
- *
- * !> AWS will hang indefinitely when creating or updating an `aws.sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const q = new aws.sqs.Queue("q", {name: "examplequeue"});
- * const test = q.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: "First",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["sqs:SendMessage"],
- *         resources: [arn],
- *         conditions: [{
- *             test: "ArnEquals",
- *             variable: "aws:SourceArn",
- *             values: [example.arn],
- *         }],
- *     }],
- * }));
- * const testQueuePolicy = new aws.sqs.QueuePolicy("test", {
- *     queueUrl: q.id,
- *     policy: test.apply(test => test.json),
- * });
- * ```
- *
- * ### Timeout Problems Creating/Updating
- *
- * If `Version = "2012-10-17"` is not explicitly set in the policy, AWS may hang, causing the AWS provider to time out. To avoid this, make sure to include `Version` as shown in the example below.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "brodobaggins"});
- * const exampleQueue = new aws.sqs.Queue("example", {name: "be-giant"});
- * const exampleQueuePolicy = new aws.sqs.QueuePolicy("example", {
- *     queueUrl: exampleQueue.id,
- *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "Cejuwdam",
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "s3.amazonaws.com",
- *             },
- *             Action: "SQS:SendMessage",
- *             Resource: exampleQueue.arn,
- *             Condition: {
- *                 ArnLike: {
- *                     "aws:SourceArn": example.arn,
- *                 },
- *             },
- *         }],
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
- *
- * ```sh
- * $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/123456789012/myqueue
- * ```
- */
 export class QueuePolicy extends pulumi.CustomResource {
     /**
      * Get an existing QueuePolicy resource's state with the given name, ID, and optional extra
@@ -113,13 +36,7 @@ export class QueuePolicy extends pulumi.CustomResource {
     }
 
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * URL of the SQS Queue to which to attach the policy.
-     */
     declare public readonly queueUrl: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -160,13 +77,7 @@ export class QueuePolicy extends pulumi.CustomResource {
  */
 export interface QueuePolicyState {
     policy?: pulumi.Input<string | inputs.sqs.PolicyDocument>;
-    /**
-     * URL of the SQS Queue to which to attach the policy.
-     */
     queueUrl?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -175,12 +86,6 @@ export interface QueuePolicyState {
  */
 export interface QueuePolicyArgs {
     policy: pulumi.Input<string | inputs.sqs.PolicyDocument>;
-    /**
-     * URL of the SQS Queue to which to attach the policy.
-     */
     queueUrl: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

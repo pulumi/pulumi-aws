@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction {
-    /**
-     * @return Set of routing policy names to associate when the conditions match.
-     * 
-     */
     private List<String> associateRoutingPolicies;
 
     private GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction() {}
-    /**
-     * @return Set of routing policy names to associate when the conditions match.
-     * 
-     */
     public List<String> associateRoutingPolicies() {
         return this.associateRoutingPolicies;
     }

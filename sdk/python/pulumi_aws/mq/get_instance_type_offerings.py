@@ -50,25 +50,16 @@ class GetInstanceTypeOfferingsResult:
     @_builtins.property
     @pulumi.getter(name="brokerInstanceOptions")
     def broker_instance_options(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult']:
-        """
-        List of broker instance options. See Broker Instance Options below.
-        """
         return pulumi.get(self, "broker_instance_options")
 
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> Optional[_builtins.str]:
-        """
-        Broker's engine type.
-        """
         return pulumi.get(self, "engine_type")
 
     @_builtins.property
     @pulumi.getter(name="hostInstanceType")
     def host_instance_type(self) -> Optional[_builtins.str]:
-        """
-        Broker's instance type.
-        """
         return pulumi.get(self, "host_instance_type")
 
     @_builtins.property
@@ -87,9 +78,6 @@ class GetInstanceTypeOfferingsResult:
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[_builtins.str]:
-        """
-        Broker's storage type.
-        """
         return pulumi.get(self, "storage_type")
 
 
@@ -113,33 +101,7 @@ def get_instance_type_offerings(engine_type: Optional[_builtins.str] = None,
                                 storage_type: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingsResult:
     """
-    Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Get all instance type offerings
-    all = aws.mq.get_instance_type_offerings()
-    # Filter by engine type
-    activemq = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
-    # Filter by storage type
-    ebs = aws.mq.get_instance_type_offerings(storage_type="EBS")
-    # Filter by instance type
-    m5 = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
-    # Filter by multiple criteria
-    filtered = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ",
-        storage_type="EBS",
-        host_instance_type="mq.m5.large")
-    ```
-
-
-    :param _builtins.str engine_type: Filter response by engine type.
-    :param _builtins.str host_instance_type: Filter response by host instance type.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str storage_type: Filter response by storage type.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engineType'] = engine_type
@@ -162,33 +124,7 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
                                        storage_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
     """
-    Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Get all instance type offerings
-    all = aws.mq.get_instance_type_offerings()
-    # Filter by engine type
-    activemq = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
-    # Filter by storage type
-    ebs = aws.mq.get_instance_type_offerings(storage_type="EBS")
-    # Filter by instance type
-    m5 = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
-    # Filter by multiple criteria
-    filtered = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ",
-        storage_type="EBS",
-        host_instance_type="mq.m5.large")
-    ```
-
-
-    :param _builtins.str engine_type: Filter response by engine type.
-    :param _builtins.str host_instance_type: Filter response by host instance type.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str storage_type: Filter response by storage type.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engineType'] = engine_type

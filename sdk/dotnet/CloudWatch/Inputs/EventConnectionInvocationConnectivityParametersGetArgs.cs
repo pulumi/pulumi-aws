@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventConnectionInvocationConnectivityParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-        /// </summary>
         [Input("resourceParameters", required: true)]
         public Input<Inputs.EventConnectionInvocationConnectivityParametersResourceParametersGetArgs> ResourceParameters { get; set; } = null!;
 

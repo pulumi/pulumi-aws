@@ -13,41 +13,14 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings
     {
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         public readonly double? Bitrate;
-        /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
-        /// </summary>
         public readonly string? CodingMode;
-        /// <summary>
-        /// Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
-        /// </summary>
         public readonly string? InputType;
-        /// <summary>
-        /// AAC profile.
-        /// </summary>
         public readonly string? Profile;
-        /// <summary>
-        /// The rate control mode.
-        /// </summary>
         public readonly string? RateControlMode;
-        /// <summary>
-        /// Sets LATM/LOAS AAC output for raw containers.
-        /// </summary>
         public readonly string? RawFormat;
-        /// <summary>
-        /// Sample rate in Hz.
-        /// </summary>
         public readonly double? SampleRate;
-        /// <summary>
-        /// Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-        /// </summary>
         public readonly string? Spec;
-        /// <summary>
-        /// VBR Quality Level - Only used if rateControlMode is VBR.
-        /// </summary>
         public readonly string? VbrQuality;
 
         [OutputConstructor]

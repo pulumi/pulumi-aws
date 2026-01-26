@@ -14,32 +14,16 @@ public final class GetGroupAlternateIdentifierExternalIdArgs extends com.pulumi.
 
     public static final GetGroupAlternateIdentifierExternalIdArgs Empty = new GetGroupAlternateIdentifierExternalIdArgs();
 
-    /**
-     * The identifier issued to this resource by an external identity provider.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The identifier issued to this resource by an external identity provider.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * The issuer for an external identifier.
-     * 
-     */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
-    /**
-     * @return The issuer for an external identifier.
-     * 
-     */
     public Output<String> issuer() {
         return this.issuer;
     }
@@ -69,44 +53,20 @@ public final class GetGroupAlternateIdentifierExternalIdArgs extends com.pulumi.
             $ = new GetGroupAlternateIdentifierExternalIdArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The identifier issued to this resource by an external identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The identifier issued to this resource by an external identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param issuer The issuer for an external identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer The issuer for an external identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }

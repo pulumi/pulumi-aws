@@ -19,266 +19,77 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Config Remediation Configuration.
- * 
- * &gt; **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
- * 
- * ## Example Usage
- * 
- * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cfg.Rule;
- * import com.pulumi.aws.cfg.RuleArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
- * import com.pulumi.aws.cfg.RemediationConfiguration;
- * import com.pulumi.aws.cfg.RemediationConfigurationArgs;
- * import com.pulumi.aws.cfg.inputs.RemediationConfigurationParameterArgs;
- * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsArgs;
- * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsSsmControlsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var this_ = new Rule("this", RuleArgs.builder()
- *             .name("example")
- *             .source(RuleSourceArgs.builder()
- *                 .owner("AWS")
- *                 .sourceIdentifier("S3_BUCKET_VERSIONING_ENABLED")
- *                 .build())
- *             .build());
- * 
- *         var thisRemediationConfiguration = new RemediationConfiguration("thisRemediationConfiguration", RemediationConfigurationArgs.builder()
- *             .configRuleName(this_.name())
- *             .resourceType("AWS::S3::Bucket")
- *             .targetType("SSM_DOCUMENT")
- *             .targetId("AWS-EnableS3BucketEncryption")
- *             .targetVersion("1")
- *             .parameters(            
- *                 RemediationConfigurationParameterArgs.builder()
- *                     .name("AutomationAssumeRole")
- *                     .staticValue("arn:aws:iam::875924563244:role/security_config")
- *                     .build(),
- *                 RemediationConfigurationParameterArgs.builder()
- *                     .name("BucketName")
- *                     .resourceValue("RESOURCE_ID")
- *                     .build(),
- *                 RemediationConfigurationParameterArgs.builder()
- *                     .name("SSEAlgorithm")
- *                     .staticValue("AES256")
- *                     .build())
- *             .automatic(true)
- *             .maximumAutomaticAttempts(10)
- *             .retryAttemptSeconds(600)
- *             .executionControls(RemediationConfigurationExecutionControlsArgs.builder()
- *                 .ssmControls(RemediationConfigurationExecutionControlsSsmControlsArgs.builder()
- *                     .concurrentExecutionRatePercentage(25)
- *                     .errorPercentage(20)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
- * 
- * ```sh
- * $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/remediationConfiguration:RemediationConfiguration")
 public class RemediationConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Config Remediation Configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Config Remediation Configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Remediation is triggered automatically if `true`.
-     * 
-     */
     @Export(name="automatic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automatic;
 
-    /**
-     * @return Remediation is triggered automatically if `true`.
-     * 
-     */
     public Output<Optional<Boolean>> automatic() {
         return Codegen.optional(this.automatic);
     }
-    /**
-     * Name of the AWS Config rule.
-     * 
-     */
     @Export(name="configRuleName", refs={String.class}, tree="[0]")
     private Output<String> configRuleName;
 
-    /**
-     * @return Name of the AWS Config rule.
-     * 
-     */
     public Output<String> configRuleName() {
         return this.configRuleName;
     }
-    /**
-     * Configuration block for execution controls. See below.
-     * 
-     */
     @Export(name="executionControls", refs={RemediationConfigurationExecutionControls.class}, tree="[0]")
     private Output</* @Nullable */ RemediationConfigurationExecutionControls> executionControls;
 
-    /**
-     * @return Configuration block for execution controls. See below.
-     * 
-     */
     public Output<Optional<RemediationConfigurationExecutionControls>> executionControls() {
         return Codegen.optional(this.executionControls);
     }
-    /**
-     * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-     * 
-     */
     @Export(name="maximumAutomaticAttempts", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maximumAutomaticAttempts;
 
-    /**
-     * @return Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-     * 
-     */
     public Output<Optional<Integer>> maximumAutomaticAttempts() {
         return Codegen.optional(this.maximumAutomaticAttempts);
     }
-    /**
-     * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-     * 
-     */
     @Export(name="parameters", refs={List.class,RemediationConfigurationParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RemediationConfigurationParameter>> parameters;
 
-    /**
-     * @return Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-     * 
-     */
     public Output<Optional<List<RemediationConfigurationParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Type of resource.
-     * 
-     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceType;
 
-    /**
-     * @return Type of resource.
-     * 
-     */
     public Output<Optional<String>> resourceType() {
         return Codegen.optional(this.resourceType);
     }
-    /**
-     * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-     * 
-     */
     @Export(name="retryAttemptSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retryAttemptSeconds;
 
-    /**
-     * @return Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-     * 
-     */
     public Output<Optional<Integer>> retryAttemptSeconds() {
         return Codegen.optional(this.retryAttemptSeconds);
     }
-    /**
-     * Target ID is the name of the public document.
-     * 
-     */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
-    /**
-     * @return Target ID is the name of the public document.
-     * 
-     */
     public Output<String> targetId() {
         return this.targetId;
     }
-    /**
-     * Type of the target. Target executes remediation. For example, SSM document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output<String> targetType;
 
-    /**
-     * @return Type of the target. Target executes remediation. For example, SSM document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetType() {
         return this.targetType;
     }
-    /**
-     * Version of the target. For example, version of the SSM document
-     * 
-     */
     @Export(name="targetVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetVersion;
 
-    /**
-     * @return Version of the target. For example, version of the SSM document
-     * 
-     */
     public Output<Optional<String>> targetVersion() {
         return Codegen.optional(this.targetVersion);
     }

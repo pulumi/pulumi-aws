@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.detective.Graph("example", {tags: {
- *     Name: "example-detective-graph",
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_detective_graph` using the ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
- * ```
- */
 export class Graph extends pulumi.CustomResource {
     /**
      * Get an existing Graph resource's state with the given name, ID, and optional extra
@@ -54,21 +32,9 @@ export class Graph extends pulumi.CustomResource {
         return obj['__pulumiType'] === Graph.__pulumiType;
     }
 
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * ARN of the Detective Graph.
-     */
     declare public /*out*/ readonly graphArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -107,21 +73,9 @@ export class Graph extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Graph resources.
  */
 export interface GraphState {
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * ARN of the Detective Graph.
-     */
     graphArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -130,12 +84,6 @@ export interface GraphState {
  * The set of arguments for constructing a Graph resource.
  */
 export interface GraphArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

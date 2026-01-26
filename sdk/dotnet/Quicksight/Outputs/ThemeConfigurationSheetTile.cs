@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class ThemeConfigurationSheetTile
     {
-        /// <summary>
-        /// The border around a tile. See border.
-        /// </summary>
         public readonly Outputs.ThemeConfigurationSheetTileBorder? Border;
 
         [OutputConstructor]

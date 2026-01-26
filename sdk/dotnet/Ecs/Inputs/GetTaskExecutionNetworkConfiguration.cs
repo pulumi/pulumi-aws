@@ -12,20 +12,11 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class GetTaskExecutionNetworkConfigurationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `True` or `False`. Default `False`.
-        /// 
-        /// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
-        /// </summary>
         [Input("assignPublicIp")]
         public bool? AssignPublicIp { get; set; }
 
         [Input("securityGroups")]
         private List<string>? _securityGroups;
-
-        /// <summary>
-        /// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        /// </summary>
         public List<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new List<string>());
@@ -34,10 +25,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         [Input("subnets", required: true)]
         private List<string>? _subnets;
-
-        /// <summary>
-        /// Subnets associated with the task or service.
-        /// </summary>
         public List<string> Subnets
         {
             get => _subnets ?? (_subnets = new List<string>());

@@ -17,32 +17,16 @@ public final class ProjectEnvironmentDockerServerArgs extends com.pulumi.resourc
 
     public static final ProjectEnvironmentDockerServerArgs Empty = new ProjectEnvironmentDockerServerArgs();
 
-    /**
-     * Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-     * 
-     */
     @Import(name="computeType", required=true)
     private Output<String> computeType;
 
-    /**
-     * @return Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-     * 
-     */
     public Output<String> computeType() {
         return this.computeType;
     }
 
-    /**
-     * List of security group IDs to assign to the Docker server.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return List of security group IDs to assign to the Docker server.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
@@ -72,54 +56,24 @@ public final class ProjectEnvironmentDockerServerArgs extends com.pulumi.resourc
             $ = new ProjectEnvironmentDockerServerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param computeType Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeType(Output<String> computeType) {
             $.computeType = computeType;
             return this;
         }
 
-        /**
-         * @param computeType Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeType(String computeType) {
             return computeType(Output.of(computeType));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs to assign to the Docker server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs to assign to the Docker server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs to assign to the Docker server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }

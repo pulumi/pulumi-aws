@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FieldLevelEncryptionConfigContentTypeProfileConfig {
-    /**
-     * @return Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-     * 
-     */
     private FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles contentTypeProfiles;
-    /**
-     * @return specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-     * 
-     */
     private Boolean forwardWhenContentTypeIsUnknown;
 
     private FieldLevelEncryptionConfigContentTypeProfileConfig() {}
-    /**
-     * @return Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-     * 
-     */
     public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles contentTypeProfiles() {
         return this.contentTypeProfiles;
     }
-    /**
-     * @return specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-     * 
-     */
     public Boolean forwardWhenContentTypeIsUnknown() {
         return this.forwardWhenContentTypeIsUnknown;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigGrok {
-    /**
-     * @return Specifies the grok pattern to match against the log event.
-     * 
-     */
     private String match;
-    /**
-     * @return Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     private @Nullable String source;
 
     private LogTransformerTransformerConfigGrok() {}
-    /**
-     * @return Specifies the grok pattern to match against the log event.
-     * 
-     */
     public String match() {
         return this.match;
     }
-    /**
-     * @return Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }

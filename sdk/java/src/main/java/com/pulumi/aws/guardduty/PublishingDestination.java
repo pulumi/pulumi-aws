@@ -14,221 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.s3.BucketAcl;
- * import com.pulumi.aws.s3.BucketAclArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.guardduty.PublishingDestination;
- * import com.pulumi.aws.guardduty.PublishingDestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         var gdBucket = new Bucket("gdBucket", BucketArgs.builder()
- *             .bucket("example")
- *             .forceDestroy(true)
- *             .build());
- * 
- *         final var bucketPol = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("Allow PutObject")
- *                     .actions("s3:PutObject")
- *                     .resources(gdBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("guardduty.amazonaws.com")
- *                         .build())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("Allow GetBucketLocation")
- *                     .actions("s3:GetBucketLocation")
- *                     .resources(gdBucket.arn())
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("guardduty.amazonaws.com")
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *         final var kmsPol = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("Allow GuardDuty to encrypt findings")
- *                     .actions("kms:GenerateDataKey")
- *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.region(),current.accountId()))
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("guardduty.amazonaws.com")
- *                         .build())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("Allow all users to modify/delete key (test only)")
- *                     .actions("kms:*")
- *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.region(),current.accountId()))
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers(String.format("arn:aws:iam::%s:root", current.accountId()))
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *         var testGd = new Detector("testGd", DetectorArgs.builder()
- *             .enable(true)
- *             .build());
- * 
- *         var gdBucketAcl = new BucketAcl("gdBucketAcl", BucketAclArgs.builder()
- *             .bucket(gdBucket.id())
- *             .acl("private")
- *             .build());
- * 
- *         var gdBucketPolicy = new BucketPolicy("gdBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(gdBucket.id())
- *             .policy(bucketPol.applyValue(_bucketPol -> _bucketPol.json()))
- *             .build());
- * 
- *         var gdKey = new Key("gdKey", KeyArgs.builder()
- *             .description("Temporary key for AccTest of TF")
- *             .deletionWindowInDays(7)
- *             .policy(kmsPol.json())
- *             .build());
- * 
- *         var test = new PublishingDestination("test", PublishingDestinationArgs.builder()
- *             .detectorId(testGd.id())
- *             .destinationArn(gdBucket.arn())
- *             .kmsKeyArn(gdKey.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(gdBucketPolicy)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * &gt; **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
- * 
- * ## Import
- * 
- * Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
- * 
- * ```sh
- * $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
- * ```
- * 
- */
 @ResourceType(type="aws:guardduty/publishingDestination:PublishingDestination")
 public class PublishingDestination extends com.pulumi.resources.CustomResource {
-    /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-     * 
-     */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
-    /**
-     * @return The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
-    /**
-     * Currently there is only &#34;S3&#34; available as destination type which is also the default value
-     * 
-     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-     * 
-     */
     @Export(name="destinationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationType;
 
-    /**
-     * @return Currently there is only &#34;S3&#34; available as destination type which is also the default value
-     * 
-     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-     * 
-     */
     public Output<Optional<String>> destinationType() {
         return Codegen.optional(this.destinationType);
     }
-    /**
-     * The detector ID of the GuardDuty.
-     * 
-     */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
-    /**
-     * @return The detector ID of the GuardDuty.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
-    /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-     * 
-     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceRegionVpcSettings {
-    /**
-     * @return The identifiers of the subnets for the directory servers.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The identifier of the VPC in which to create the directory.
-     * 
-     */
     private String vpcId;
 
     private ServiceRegionVpcSettings() {}
-    /**
-     * @return The identifiers of the subnets for the directory servers.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The identifier of the VPC in which to create the directory.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

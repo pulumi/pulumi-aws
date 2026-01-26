@@ -15,77 +15,37 @@ public final class WorkspaceServiceAccountState extends com.pulumi.resources.Res
 
     public static final WorkspaceServiceAccountState Empty = new WorkspaceServiceAccountState();
 
-    /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-     * 
-     */
     @Import(name="grafanaRole")
     private @Nullable Output<String> grafanaRole;
 
-    /**
-     * @return The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-     * 
-     */
     public Optional<Output<String>> grafanaRole() {
         return Optional.ofNullable(this.grafanaRole);
     }
 
-    /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the service account in the given Grafana workspace
-     * 
-     */
     @Import(name="serviceAccountId")
     private @Nullable Output<String> serviceAccountId;
 
-    /**
-     * @return Identifier of the service account in the given Grafana workspace
-     * 
-     */
     public Optional<Output<String>> serviceAccountId() {
         return Optional.ofNullable(this.serviceAccountId);
     }
 
-    /**
-     * The Grafana workspace with which the service account is associated.
-     * 
-     */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
-    /**
-     * @return The Grafana workspace with which the service account is associated.
-     * 
-     */
     public Optional<Output<String>> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
@@ -118,107 +78,47 @@ public final class WorkspaceServiceAccountState extends com.pulumi.resources.Res
             $ = new WorkspaceServiceAccountState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grafanaRole The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grafanaRole(@Nullable Output<String> grafanaRole) {
             $.grafanaRole = grafanaRole;
             return this;
         }
 
-        /**
-         * @param grafanaRole The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grafanaRole(String grafanaRole) {
             return grafanaRole(Output.of(grafanaRole));
         }
 
-        /**
-         * @param name A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceAccountId Identifier of the service account in the given Grafana workspace
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountId(@Nullable Output<String> serviceAccountId) {
             $.serviceAccountId = serviceAccountId;
             return this;
         }
 
-        /**
-         * @param serviceAccountId Identifier of the service account in the given Grafana workspace
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountId(String serviceAccountId) {
             return serviceAccountId(Output.of(serviceAccountId));
         }
 
-        /**
-         * @param workspaceId The Grafana workspace with which the service account is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId The Grafana workspace with which the service account is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

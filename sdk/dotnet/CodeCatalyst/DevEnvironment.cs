@@ -9,101 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeCatalyst
 {
-    /// <summary>
-    /// Resource for managing an AWS CodeCatalyst Dev Environment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CodeCatalyst.DevEnvironment("test", new()
-    ///     {
-    ///         Alias = "devenv",
-    ///         SpaceName = "myspace",
-    ///         ProjectName = "myproject",
-    ///         InstanceType = "dev.standard1.small",
-    ///         PersistentStorage = new Aws.CodeCatalyst.Inputs.DevEnvironmentPersistentStorageArgs
-    ///         {
-    ///             Size = 16,
-    ///         },
-    ///         Ides = new Aws.CodeCatalyst.Inputs.DevEnvironmentIdesArgs
-    ///         {
-    ///             Name = "PyCharm",
-    ///             Runtime = "public.ecr.aws/jetbrains/py",
-    ///         },
-    ///         InactivityTimeoutMinutes = 40,
-    ///         Repositories = new[]
-    ///         {
-    ///             new Aws.CodeCatalyst.Inputs.DevEnvironmentRepositoryArgs
-    ///             {
-    ///                 RepositoryName = "pulumi-provider-aws",
-    ///                 BranchName = "main",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
     public partial class DevEnvironment : global::Pulumi.CustomResource
     {
         [Output("alias")]
         public Output<string?> Alias { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the integrated development environment (IDE) configured for a Dev Environment.
-        /// </summary>
         [Output("ides")]
         public Output<Outputs.DevEnvironmentIdes> Ides { get; private set; } = null!;
 
-        /// <summary>
-        /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        /// </summary>
         [Output("inactivityTimeoutMinutes")]
         public Output<int?> InactivityTimeoutMinutes { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the amount of storage allocated to the Dev Environment.
-        /// </summary>
         [Output("persistentStorage")]
         public Output<Outputs.DevEnvironmentPersistentStorage> PersistentStorage { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the project in the space.
-        /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The source repository that contains the branch to clone into the Dev Environment.
-        /// </summary>
         [Output("repositories")]
         public Output<ImmutableArray<Outputs.DevEnvironmentRepository>> Repositories { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Output("spaceName")]
         public Output<string> SpaceName { get; private set; } = null!;
 
@@ -156,59 +88,32 @@ namespace Pulumi.Aws.CodeCatalyst
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
-        /// <summary>
-        /// Information about the integrated development environment (IDE) configured for a Dev Environment.
-        /// </summary>
         [Input("ides", required: true)]
         public Input<Inputs.DevEnvironmentIdesArgs> Ides { get; set; } = null!;
 
-        /// <summary>
-        /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        /// </summary>
         [Input("inactivityTimeoutMinutes")]
         public Input<int>? InactivityTimeoutMinutes { get; set; }
 
-        /// <summary>
-        /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
-        /// <summary>
-        /// Information about the amount of storage allocated to the Dev Environment.
-        /// </summary>
         [Input("persistentStorage", required: true)]
         public Input<Inputs.DevEnvironmentPersistentStorageArgs> PersistentStorage { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the project in the space.
-        /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("repositories")]
         private InputList<Inputs.DevEnvironmentRepositoryArgs>? _repositories;
-
-        /// <summary>
-        /// The source repository that contains the branch to clone into the Dev Environment.
-        /// </summary>
         public InputList<Inputs.DevEnvironmentRepositoryArgs> Repositories
         {
             get => _repositories ?? (_repositories = new InputList<Inputs.DevEnvironmentRepositoryArgs>());
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName", required: true)]
         public Input<string> SpaceName { get; set; } = null!;
 
@@ -223,59 +128,32 @@ namespace Pulumi.Aws.CodeCatalyst
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
-        /// <summary>
-        /// Information about the integrated development environment (IDE) configured for a Dev Environment.
-        /// </summary>
         [Input("ides")]
         public Input<Inputs.DevEnvironmentIdesGetArgs>? Ides { get; set; }
 
-        /// <summary>
-        /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        /// </summary>
         [Input("inactivityTimeoutMinutes")]
         public Input<int>? InactivityTimeoutMinutes { get; set; }
 
-        /// <summary>
-        /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        /// <summary>
-        /// Information about the amount of storage allocated to the Dev Environment.
-        /// </summary>
         [Input("persistentStorage")]
         public Input<Inputs.DevEnvironmentPersistentStorageGetArgs>? PersistentStorage { get; set; }
 
-        /// <summary>
-        /// The name of the project in the space.
-        /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("repositories")]
         private InputList<Inputs.DevEnvironmentRepositoryGetArgs>? _repositories;
-
-        /// <summary>
-        /// The source repository that contains the branch to clone into the Dev Environment.
-        /// </summary>
         public InputList<Inputs.DevEnvironmentRepositoryGetArgs> Repositories
         {
             get => _repositories ?? (_repositories = new InputList<Inputs.DevEnvironmentRepositoryGetArgs>());
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
 

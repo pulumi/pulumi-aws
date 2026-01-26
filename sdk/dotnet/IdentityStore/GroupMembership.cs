@@ -9,88 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.IdentityStore
 {
-    /// <summary>
-    /// Resource for managing an AWS IdentityStore Group Membership.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleUser = new Aws.IdentityStore.User("example", new()
-    ///     {
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-    ///         DisplayName = "John Doe",
-    ///         UserName = "john.doe@example.com",
-    ///         Name = new Aws.IdentityStore.Inputs.UserNameArgs
-    ///         {
-    ///             FamilyName = "Doe",
-    ///             GivenName = "John",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()
-    ///     {
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-    ///         DisplayName = "MyGroup",
-    ///         Description = "Some group name",
-    ///     });
-    /// 
-    ///     var exampleGroupMembership = new Aws.IdentityStore.GroupMembership("example", new()
-    ///     {
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-    ///         GroupId = exampleGroup.GroupId,
-    ///         MemberId = exampleUser.UserId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:identitystore/groupMembership:GroupMembership")]
     public partial class GroupMembership : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Output("identityStoreId")]
         public Output<string> IdentityStoreId { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier for a user in the Identity Store.
-        /// </summary>
         [Output("memberId")]
         public Output<string> MemberId { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the newly created group membership in the Identity Store.
-        /// </summary>
         [Output("membershipId")]
         public Output<string> MembershipId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -140,27 +73,15 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GroupMembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// The identifier for a user in the Identity Store.
-        /// </summary>
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -172,33 +93,18 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GroupMembershipState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId")]
         public Input<string>? IdentityStoreId { get; set; }
 
-        /// <summary>
-        /// The identifier for a user in the Identity Store.
-        /// </summary>
         [Input("memberId")]
         public Input<string>? MemberId { get; set; }
 
-        /// <summary>
-        /// The identifier of the newly created group membership in the Identity Store.
-        /// </summary>
         [Input("membershipId")]
         public Input<string>? MembershipId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

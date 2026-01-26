@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecr.Inputs
 
     public sealed class RepositoryCreationTemplateImageTagMutabilityExclusionFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
-        /// <summary>
-        /// The type of filter to use. Must be `WILDCARD`.
-        /// </summary>
         [Input("filterType", required: true)]
         public Input<string> FilterType { get; set; } = null!;
 

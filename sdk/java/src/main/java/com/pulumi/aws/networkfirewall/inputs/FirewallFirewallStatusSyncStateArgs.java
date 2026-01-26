@@ -17,32 +17,16 @@ public final class FirewallFirewallStatusSyncStateArgs extends com.pulumi.resour
 
     public static final FirewallFirewallStatusSyncStateArgs Empty = new FirewallFirewallStatusSyncStateArgs();
 
-    /**
-     * Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
-     * 
-     */
     @Import(name="attachments")
     private @Nullable Output<List<FirewallFirewallStatusSyncStateAttachmentArgs>> attachments;
 
-    /**
-     * @return Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
-     * 
-     */
     public Optional<Output<List<FirewallFirewallStatusSyncStateAttachmentArgs>>> attachments() {
         return Optional.ofNullable(this.attachments);
     }
 
-    /**
-     * The Availability Zone where the subnet is configured.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return The Availability Zone where the subnet is configured.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
@@ -72,54 +56,24 @@ public final class FirewallFirewallStatusSyncStateArgs extends com.pulumi.resour
             $ = new FirewallFirewallStatusSyncStateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attachments Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachments(@Nullable Output<List<FirewallFirewallStatusSyncStateAttachmentArgs>> attachments) {
             $.attachments = attachments;
             return this;
         }
 
-        /**
-         * @param attachments Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachments(List<FirewallFirewallStatusSyncStateAttachmentArgs> attachments) {
             return attachments(Output.of(attachments));
         }
 
-        /**
-         * @param attachments Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachments(FirewallFirewallStatusSyncStateAttachmentArgs... attachments) {
             return attachments(List.of(attachments));
         }
 
-        /**
-         * @param availabilityZone The Availability Zone where the subnet is configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone The Availability Zone where the subnet is configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }

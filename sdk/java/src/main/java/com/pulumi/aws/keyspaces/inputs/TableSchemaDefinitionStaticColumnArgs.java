@@ -14,17 +14,9 @@ public final class TableSchemaDefinitionStaticColumnArgs extends com.pulumi.reso
 
     public static final TableSchemaDefinitionStaticColumnArgs Empty = new TableSchemaDefinitionStaticColumnArgs();
 
-    /**
-     * The name of the static column.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the static column.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,23 +45,11 @@ public final class TableSchemaDefinitionStaticColumnArgs extends com.pulumi.reso
             $ = new TableSchemaDefinitionStaticColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the static column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the static column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

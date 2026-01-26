@@ -14,9 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BaselineParameters struct {
-	// The key of the parameter.
-	Key string `pulumi:"key"`
-	// The value of the parameter.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -32,9 +30,7 @@ type BaselineParametersInput interface {
 }
 
 type BaselineParametersArgs struct {
-	// The key of the parameter.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the parameter.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -115,12 +111,10 @@ func (o BaselineParametersOutput) ToBaselineParametersPtrOutputWithContext(ctx c
 	}).(BaselineParametersPtrOutput)
 }
 
-// The key of the parameter.
 func (o BaselineParametersOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BaselineParameters) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the parameter.
 func (o BaselineParametersOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BaselineParameters) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -149,7 +143,6 @@ func (o BaselineParametersPtrOutput) Elem() BaselineParametersOutput {
 	}).(BaselineParametersOutput)
 }
 
-// The key of the parameter.
 func (o BaselineParametersPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaselineParameters) *string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o BaselineParametersPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the parameter.
 func (o BaselineParametersPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaselineParameters) *string {
 		if v == nil {
@@ -345,9 +337,7 @@ func (o BaselineTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ControlTowerControlParameter struct {
-	// The name of the parameter.
-	Key string `pulumi:"key"`
-	// The value of the parameter.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -363,9 +353,7 @@ type ControlTowerControlParameterInput interface {
 }
 
 type ControlTowerControlParameterArgs struct {
-	// The name of the parameter.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the parameter.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -420,12 +408,10 @@ func (o ControlTowerControlParameterOutput) ToControlTowerControlParameterOutput
 	return o
 }
 
-// The name of the parameter.
 func (o ControlTowerControlParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlTowerControlParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the parameter.
 func (o ControlTowerControlParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlTowerControlParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -451,7 +437,6 @@ func (o ControlTowerControlParameterArrayOutput) Index(i pulumi.IntInput) Contro
 }
 
 type LandingZoneDriftStatus struct {
-	// The drift status of the landing zone.
 	Status *string `pulumi:"status"`
 }
 
@@ -467,7 +452,6 @@ type LandingZoneDriftStatusInput interface {
 }
 
 type LandingZoneDriftStatusArgs struct {
-	// The drift status of the landing zone.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -522,7 +506,6 @@ func (o LandingZoneDriftStatusOutput) ToLandingZoneDriftStatusOutputWithContext(
 	return o
 }
 
-// The drift status of the landing zone.
 func (o LandingZoneDriftStatusOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LandingZoneDriftStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

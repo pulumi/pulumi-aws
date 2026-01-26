@@ -12,90 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a License Manager license configuration resource.
-//
-// > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
-//				Name:                  pulumi.String("Example"),
-//				Description:           pulumi.String("Example"),
-//				LicenseCount:          pulumi.Int(10),
-//				LicenseCountHardLimit: pulumi.Bool(true),
-//				LicenseCountingType:   pulumi.String("Socket"),
-//				LicenseRules: pulumi.StringArray{
-//					pulumi.String("#minimumSockets=2"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("barr"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Rules
-//
-// License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
-//
-// * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
-// * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
-// * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
-// * `maximumCores` - Resource must have maximum core count in order to use the license. Default: unbounded, limit: 10000
-// * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
-// * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
-// * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
-//
-// ## Import
-//
-// Using `pulumi import`, import license configurations using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-// ```
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The license configuration ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the license configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Number of licenses managed by the license configuration.
-	LicenseCount pulumi.IntPtrOutput `pulumi:"licenseCount"`
-	// Sets the number of available licenses as a hard limit.
-	LicenseCountHardLimit pulumi.BoolPtrOutput `pulumi:"licenseCountHardLimit"`
-	// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-	LicenseCountingType pulumi.StringOutput `pulumi:"licenseCountingType"`
-	// Array of configured License Manager rules.
-	LicenseRules pulumi.StringArrayOutput `pulumi:"licenseRules"`
-	// Name of the license configuration.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Account ID of the owner of the license configuration.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                   pulumi.StringOutput      `pulumi:"arn"`
+	Description           pulumi.StringPtrOutput   `pulumi:"description"`
+	LicenseCount          pulumi.IntPtrOutput      `pulumi:"licenseCount"`
+	LicenseCountHardLimit pulumi.BoolPtrOutput     `pulumi:"licenseCountHardLimit"`
+	LicenseCountingType   pulumi.StringOutput      `pulumi:"licenseCountingType"`
+	LicenseRules          pulumi.StringArrayOutput `pulumi:"licenseRules"`
+	Name                  pulumi.StringOutput      `pulumi:"name"`
+	OwnerAccountId        pulumi.StringOutput      `pulumi:"ownerAccountId"`
+	Region                pulumi.StringOutput      `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewLicenseConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -131,53 +61,31 @@ func GetLicenseConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LicenseConfiguration resources.
 type licenseConfigurationState struct {
-	// The license configuration ARN.
-	Arn *string `pulumi:"arn"`
-	// Description of the license configuration.
-	Description *string `pulumi:"description"`
-	// Number of licenses managed by the license configuration.
-	LicenseCount *int `pulumi:"licenseCount"`
-	// Sets the number of available licenses as a hard limit.
-	LicenseCountHardLimit *bool `pulumi:"licenseCountHardLimit"`
-	// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-	LicenseCountingType *string `pulumi:"licenseCountingType"`
-	// Array of configured License Manager rules.
-	LicenseRules []string `pulumi:"licenseRules"`
-	// Name of the license configuration.
-	Name *string `pulumi:"name"`
-	// Account ID of the owner of the license configuration.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                   *string           `pulumi:"arn"`
+	Description           *string           `pulumi:"description"`
+	LicenseCount          *int              `pulumi:"licenseCount"`
+	LicenseCountHardLimit *bool             `pulumi:"licenseCountHardLimit"`
+	LicenseCountingType   *string           `pulumi:"licenseCountingType"`
+	LicenseRules          []string          `pulumi:"licenseRules"`
+	Name                  *string           `pulumi:"name"`
+	OwnerAccountId        *string           `pulumi:"ownerAccountId"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type LicenseConfigurationState struct {
-	// The license configuration ARN.
-	Arn pulumi.StringPtrInput
-	// Description of the license configuration.
-	Description pulumi.StringPtrInput
-	// Number of licenses managed by the license configuration.
-	LicenseCount pulumi.IntPtrInput
-	// Sets the number of available licenses as a hard limit.
+	Arn                   pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	LicenseCount          pulumi.IntPtrInput
 	LicenseCountHardLimit pulumi.BoolPtrInput
-	// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-	LicenseCountingType pulumi.StringPtrInput
-	// Array of configured License Manager rules.
-	LicenseRules pulumi.StringArrayInput
-	// Name of the license configuration.
-	Name pulumi.StringPtrInput
-	// Account ID of the owner of the license configuration.
-	OwnerAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	LicenseCountingType   pulumi.StringPtrInput
+	LicenseRules          pulumi.StringArrayInput
+	Name                  pulumi.StringPtrInput
+	OwnerAccountId        pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (LicenseConfigurationState) ElementType() reflect.Type {
@@ -185,42 +93,26 @@ func (LicenseConfigurationState) ElementType() reflect.Type {
 }
 
 type licenseConfigurationArgs struct {
-	// Description of the license configuration.
-	Description *string `pulumi:"description"`
-	// Number of licenses managed by the license configuration.
-	LicenseCount *int `pulumi:"licenseCount"`
-	// Sets the number of available licenses as a hard limit.
-	LicenseCountHardLimit *bool `pulumi:"licenseCountHardLimit"`
-	// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-	LicenseCountingType string `pulumi:"licenseCountingType"`
-	// Array of configured License Manager rules.
-	LicenseRules []string `pulumi:"licenseRules"`
-	// Name of the license configuration.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description           *string           `pulumi:"description"`
+	LicenseCount          *int              `pulumi:"licenseCount"`
+	LicenseCountHardLimit *bool             `pulumi:"licenseCountHardLimit"`
+	LicenseCountingType   string            `pulumi:"licenseCountingType"`
+	LicenseRules          []string          `pulumi:"licenseRules"`
+	Name                  *string           `pulumi:"name"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LicenseConfiguration resource.
 type LicenseConfigurationArgs struct {
-	// Description of the license configuration.
-	Description pulumi.StringPtrInput
-	// Number of licenses managed by the license configuration.
-	LicenseCount pulumi.IntPtrInput
-	// Sets the number of available licenses as a hard limit.
+	Description           pulumi.StringPtrInput
+	LicenseCount          pulumi.IntPtrInput
 	LicenseCountHardLimit pulumi.BoolPtrInput
-	// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-	LicenseCountingType pulumi.StringInput
-	// Array of configured License Manager rules.
-	LicenseRules pulumi.StringArrayInput
-	// Name of the license configuration.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	LicenseCountingType   pulumi.StringInput
+	LicenseRules          pulumi.StringArrayInput
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (LicenseConfigurationArgs) ElementType() reflect.Type {
@@ -310,57 +202,46 @@ func (o LicenseConfigurationOutput) ToLicenseConfigurationOutputWithContext(ctx 
 	return o
 }
 
-// The license configuration ARN.
 func (o LicenseConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the license configuration.
 func (o LicenseConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Number of licenses managed by the license configuration.
 func (o LicenseConfigurationOutput) LicenseCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.IntPtrOutput { return v.LicenseCount }).(pulumi.IntPtrOutput)
 }
 
-// Sets the number of available licenses as a hard limit.
 func (o LicenseConfigurationOutput) LicenseCountHardLimit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.BoolPtrOutput { return v.LicenseCountHardLimit }).(pulumi.BoolPtrOutput)
 }
 
-// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
 func (o LicenseConfigurationOutput) LicenseCountingType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.LicenseCountingType }).(pulumi.StringOutput)
 }
 
-// Array of configured License Manager rules.
 func (o LicenseConfigurationOutput) LicenseRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringArrayOutput { return v.LicenseRules }).(pulumi.StringArrayOutput)
 }
 
-// Name of the license configuration.
 func (o LicenseConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Account ID of the owner of the license configuration.
 func (o LicenseConfigurationOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LicenseConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LicenseConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LicenseConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

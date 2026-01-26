@@ -28,11 +28,6 @@ class SigningJobArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SigningJob resource.
-        :param pulumi.Input['SigningJobDestinationArgs'] destination: The S3 bucket in which to save your signed object. See Destination below for details.
-        :param pulumi.Input[_builtins.str] profile_name: The name of the profile to initiate the signing operation.
-        :param pulumi.Input['SigningJobSourceArgs'] source: The S3 bucket that contains the object to sign. See Source below for details.
-        :param pulumi.Input[_builtins.bool] ignore_signing_job_failure: Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "profile_name", profile_name)
@@ -45,9 +40,6 @@ class SigningJobArgs:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input['SigningJobDestinationArgs']:
-        """
-        The S3 bucket in which to save your signed object. See Destination below for details.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -57,9 +49,6 @@ class SigningJobArgs:
     @_builtins.property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the profile to initiate the signing operation.
-        """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
@@ -69,9 +58,6 @@ class SigningJobArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input['SigningJobSourceArgs']:
-        """
-        The S3 bucket that contains the object to sign. See Source below for details.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -81,9 +67,6 @@ class SigningJobArgs:
     @_builtins.property
     @pulumi.getter(name="ignoreSigningJobFailure")
     def ignore_signing_job_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-        """
         return pulumi.get(self, "ignore_signing_job_failure")
 
     @ignore_signing_job_failure.setter
@@ -93,9 +76,6 @@ class SigningJobArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -127,25 +107,6 @@ class _SigningJobState:
                  status_reason: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SigningJob resources.
-        :param pulumi.Input[_builtins.str] completed_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
-        :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
-        :param pulumi.Input['SigningJobDestinationArgs'] destination: The S3 bucket in which to save your signed object. See Destination below for details.
-        :param pulumi.Input[_builtins.bool] ignore_signing_job_failure: Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-        :param pulumi.Input[_builtins.str] job_id: The ID of the signing job on output.
-        :param pulumi.Input[_builtins.str] job_invoker: The IAM entity that initiated the signing job.
-        :param pulumi.Input[_builtins.str] job_owner: The AWS account ID of the job owner.
-        :param pulumi.Input[_builtins.str] platform_display_name: A human-readable name for the signing platform associated with the signing job.
-        :param pulumi.Input[_builtins.str] platform_id: The platform to which your signed code image will be distributed.
-        :param pulumi.Input[_builtins.str] profile_name: The name of the profile to initiate the signing operation.
-        :param pulumi.Input[_builtins.str] profile_version: The version of the signing profile used to initiate the signing job.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] requested_by: The IAM principal that requested the signing job.
-        :param pulumi.Input[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]] revocation_records: A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
-        :param pulumi.Input[_builtins.str] signature_expires_at: The time when the signature of a signing job expires.
-        :param pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]] signed_objects: Name of the S3 bucket where the signed code image is saved by code signing.
-        :param pulumi.Input['SigningJobSourceArgs'] source: The S3 bucket that contains the object to sign. See Source below for details.
-        :param pulumi.Input[_builtins.str] status: Status of the signing job.
-        :param pulumi.Input[_builtins.str] status_reason: String value that contains the status reason.
         """
         if completed_at is not None:
             pulumi.set(__self__, "completed_at", completed_at)
@@ -189,9 +150,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="completedAt")
     def completed_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
-        """
         return pulumi.get(self, "completed_at")
 
     @completed_at.setter
@@ -201,9 +159,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -213,9 +168,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input['SigningJobDestinationArgs']]:
-        """
-        The S3 bucket in which to save your signed object. See Destination below for details.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -225,9 +177,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="ignoreSigningJobFailure")
     def ignore_signing_job_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-        """
         return pulumi.get(self, "ignore_signing_job_failure")
 
     @ignore_signing_job_failure.setter
@@ -237,9 +186,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="jobId")
     def job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the signing job on output.
-        """
         return pulumi.get(self, "job_id")
 
     @job_id.setter
@@ -249,9 +195,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="jobInvoker")
     def job_invoker(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM entity that initiated the signing job.
-        """
         return pulumi.get(self, "job_invoker")
 
     @job_invoker.setter
@@ -261,9 +204,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="jobOwner")
     def job_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID of the job owner.
-        """
         return pulumi.get(self, "job_owner")
 
     @job_owner.setter
@@ -273,9 +213,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="platformDisplayName")
     def platform_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A human-readable name for the signing platform associated with the signing job.
-        """
         return pulumi.get(self, "platform_display_name")
 
     @platform_display_name.setter
@@ -285,9 +222,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="platformId")
     def platform_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The platform to which your signed code image will be distributed.
-        """
         return pulumi.get(self, "platform_id")
 
     @platform_id.setter
@@ -297,9 +231,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the profile to initiate the signing operation.
-        """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
@@ -309,9 +240,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="profileVersion")
     def profile_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the signing profile used to initiate the signing job.
-        """
         return pulumi.get(self, "profile_version")
 
     @profile_version.setter
@@ -321,9 +249,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -333,9 +258,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="requestedBy")
     def requested_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM principal that requested the signing job.
-        """
         return pulumi.get(self, "requested_by")
 
     @requested_by.setter
@@ -345,9 +267,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="revocationRecords")
     def revocation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]]:
-        """
-        A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
-        """
         return pulumi.get(self, "revocation_records")
 
     @revocation_records.setter
@@ -357,9 +276,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="signatureExpiresAt")
     def signature_expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time when the signature of a signing job expires.
-        """
         return pulumi.get(self, "signature_expires_at")
 
     @signature_expires_at.setter
@@ -369,9 +285,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="signedObjects")
     def signed_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]]:
-        """
-        Name of the S3 bucket where the signed code image is saved by code signing.
-        """
         return pulumi.get(self, "signed_objects")
 
     @signed_objects.setter
@@ -381,9 +294,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['SigningJobSourceArgs']]:
-        """
-        The S3 bucket that contains the object to sign. See Source below for details.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -393,9 +303,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the signing job.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -405,9 +312,6 @@ class _SigningJobState:
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String value that contains the status reason.
-        """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
@@ -428,48 +332,9 @@ class SigningJob(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']]] = None,
                  __props__=None):
         """
-        Creates a Signer Signing Job.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("build_signing_job",
-            profile_name=test_sp.name,
-            source={
-                "s3": {
-                    "bucket": "s3-bucket-name",
-                    "key": "object-to-be-signed.zip",
-                    "version": "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
-                },
-            },
-            destination={
-                "s3": {
-                    "bucket": "s3-bucket-name",
-                    "prefix": "signed/",
-                },
-            },
-            ignore_signing_job_failure=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
-
-        ```sh
-        $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
-        ```
-
+        Create a SigningJob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']] destination: The S3 bucket in which to save your signed object. See Destination below for details.
-        :param pulumi.Input[_builtins.bool] ignore_signing_job_failure: Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-        :param pulumi.Input[_builtins.str] profile_name: The name of the profile to initiate the signing operation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']] source: The S3 bucket that contains the object to sign. See Source below for details.
         """
         ...
     @overload
@@ -478,41 +343,7 @@ class SigningJob(pulumi.CustomResource):
                  args: SigningJobArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Signer Signing Job.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("build_signing_job",
-            profile_name=test_sp.name,
-            source={
-                "s3": {
-                    "bucket": "s3-bucket-name",
-                    "key": "object-to-be-signed.zip",
-                    "version": "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
-                },
-            },
-            destination={
-                "s3": {
-                    "bucket": "s3-bucket-name",
-                    "prefix": "signed/",
-                },
-            },
-            ignore_signing_job_failure=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
-
-        ```sh
-        $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
-        ```
-
+        Create a SigningJob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SigningJobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -603,25 +434,6 @@ class SigningJob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] completed_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
-        :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
-        :param pulumi.Input[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']] destination: The S3 bucket in which to save your signed object. See Destination below for details.
-        :param pulumi.Input[_builtins.bool] ignore_signing_job_failure: Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-        :param pulumi.Input[_builtins.str] job_id: The ID of the signing job on output.
-        :param pulumi.Input[_builtins.str] job_invoker: The IAM entity that initiated the signing job.
-        :param pulumi.Input[_builtins.str] job_owner: The AWS account ID of the job owner.
-        :param pulumi.Input[_builtins.str] platform_display_name: A human-readable name for the signing platform associated with the signing job.
-        :param pulumi.Input[_builtins.str] platform_id: The platform to which your signed code image will be distributed.
-        :param pulumi.Input[_builtins.str] profile_name: The name of the profile to initiate the signing operation.
-        :param pulumi.Input[_builtins.str] profile_version: The version of the signing profile used to initiate the signing job.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] requested_by: The IAM principal that requested the signing job.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningJobRevocationRecordArgs', 'SigningJobRevocationRecordArgsDict']]]] revocation_records: A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
-        :param pulumi.Input[_builtins.str] signature_expires_at: The time when the signature of a signing job expires.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningJobSignedObjectArgs', 'SigningJobSignedObjectArgsDict']]]] signed_objects: Name of the S3 bucket where the signed code image is saved by code signing.
-        :param pulumi.Input[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']] source: The S3 bucket that contains the object to sign. See Source below for details.
-        :param pulumi.Input[_builtins.str] status: Status of the signing job.
-        :param pulumi.Input[_builtins.str] status_reason: String value that contains the status reason.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -651,152 +463,95 @@ class SigningJob(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="completedAt")
     def completed_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
-        """
         return pulumi.get(self, "completed_at")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Output['outputs.SigningJobDestination']:
-        """
-        The S3 bucket in which to save your signed object. See Destination below for details.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="ignoreSigningJobFailure")
     def ignore_signing_job_failure(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-        """
         return pulumi.get(self, "ignore_signing_job_failure")
 
     @_builtins.property
     @pulumi.getter(name="jobId")
     def job_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the signing job on output.
-        """
         return pulumi.get(self, "job_id")
 
     @_builtins.property
     @pulumi.getter(name="jobInvoker")
     def job_invoker(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IAM entity that initiated the signing job.
-        """
         return pulumi.get(self, "job_invoker")
 
     @_builtins.property
     @pulumi.getter(name="jobOwner")
     def job_owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID of the job owner.
-        """
         return pulumi.get(self, "job_owner")
 
     @_builtins.property
     @pulumi.getter(name="platformDisplayName")
     def platform_display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A human-readable name for the signing platform associated with the signing job.
-        """
         return pulumi.get(self, "platform_display_name")
 
     @_builtins.property
     @pulumi.getter(name="platformId")
     def platform_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The platform to which your signed code image will be distributed.
-        """
         return pulumi.get(self, "platform_id")
 
     @_builtins.property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the profile to initiate the signing operation.
-        """
         return pulumi.get(self, "profile_name")
 
     @_builtins.property
     @pulumi.getter(name="profileVersion")
     def profile_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the signing profile used to initiate the signing job.
-        """
         return pulumi.get(self, "profile_version")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="requestedBy")
     def requested_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IAM principal that requested the signing job.
-        """
         return pulumi.get(self, "requested_by")
 
     @_builtins.property
     @pulumi.getter(name="revocationRecords")
     def revocation_records(self) -> pulumi.Output[Sequence['outputs.SigningJobRevocationRecord']]:
-        """
-        A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
-        """
         return pulumi.get(self, "revocation_records")
 
     @_builtins.property
     @pulumi.getter(name="signatureExpiresAt")
     def signature_expires_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time when the signature of a signing job expires.
-        """
         return pulumi.get(self, "signature_expires_at")
 
     @_builtins.property
     @pulumi.getter(name="signedObjects")
     def signed_objects(self) -> pulumi.Output[Sequence['outputs.SigningJobSignedObject']]:
-        """
-        Name of the S3 bucket where the signed code image is saved by code signing.
-        """
         return pulumi.get(self, "signed_objects")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.SigningJobSource']:
-        """
-        The S3 bucket that contains the object to sign. See Source below for details.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the signing job.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[_builtins.str]:
-        """
-        String value that contains the status reason.
-        """
         return pulumi.get(self, "status_reason")
 

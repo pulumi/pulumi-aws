@@ -12,71 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `directconnect.GatewayAssociation` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewGatewayAssociationProposal(ctx, "example", &directconnect.GatewayAssociationProposalArgs{
-//				DxGatewayId:             pulumi.Any(exampleAwsDxGateway.Id),
-//				DxGatewayOwnerAccountId: pulumi.Any(exampleAwsDxGateway.OwnerAccountId),
-//				AssociatedGatewayId:     pulumi.Any(exampleAwsVpnGateway.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
-//
-// __With `pulumi import`__, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:
-//
-// Using a proposal ID:
-//
-// ```sh
-// $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
-// ```
-// Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
-//
-// ```sh
-// $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
-// ```
-// The latter case is useful when a previous proposal has been accepted and deleted by AWS.
-// The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 type GatewayAssociationProposal struct {
 	pulumi.CustomResourceState
 
-	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-	AllowedPrefixes pulumi.StringArrayOutput `pulumi:"allowedPrefixes"`
-	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayId pulumi.StringOutput `pulumi:"associatedGatewayId"`
-	// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayOwnerAccountId pulumi.StringOutput `pulumi:"associatedGatewayOwnerAccountId"`
-	// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-	AssociatedGatewayType pulumi.StringOutput `pulumi:"associatedGatewayType"`
-	// Direct Connect Gateway identifier.
-	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
-	// AWS Account identifier of the Direct Connect Gateway's owner.
-	DxGatewayOwnerAccountId pulumi.StringOutput `pulumi:"dxGatewayOwnerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AllowedPrefixes                 pulumi.StringArrayOutput `pulumi:"allowedPrefixes"`
+	AssociatedGatewayId             pulumi.StringOutput      `pulumi:"associatedGatewayId"`
+	AssociatedGatewayOwnerAccountId pulumi.StringOutput      `pulumi:"associatedGatewayOwnerAccountId"`
+	AssociatedGatewayType           pulumi.StringOutput      `pulumi:"associatedGatewayType"`
+	DxGatewayId                     pulumi.StringOutput      `pulumi:"dxGatewayId"`
+	DxGatewayOwnerAccountId         pulumi.StringOutput      `pulumi:"dxGatewayOwnerAccountId"`
+	Region                          pulumi.StringOutput      `pulumi:"region"`
 }
 
 // NewGatewayAssociationProposal registers a new resource with the given unique name, arguments, and options.
@@ -118,37 +63,23 @@ func GetGatewayAssociationProposal(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GatewayAssociationProposal resources.
 type gatewayAssociationProposalState struct {
-	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-	AllowedPrefixes []string `pulumi:"allowedPrefixes"`
-	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayId *string `pulumi:"associatedGatewayId"`
-	// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayOwnerAccountId *string `pulumi:"associatedGatewayOwnerAccountId"`
-	// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-	AssociatedGatewayType *string `pulumi:"associatedGatewayType"`
-	// Direct Connect Gateway identifier.
-	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// AWS Account identifier of the Direct Connect Gateway's owner.
-	DxGatewayOwnerAccountId *string `pulumi:"dxGatewayOwnerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AllowedPrefixes                 []string `pulumi:"allowedPrefixes"`
+	AssociatedGatewayId             *string  `pulumi:"associatedGatewayId"`
+	AssociatedGatewayOwnerAccountId *string  `pulumi:"associatedGatewayOwnerAccountId"`
+	AssociatedGatewayType           *string  `pulumi:"associatedGatewayType"`
+	DxGatewayId                     *string  `pulumi:"dxGatewayId"`
+	DxGatewayOwnerAccountId         *string  `pulumi:"dxGatewayOwnerAccountId"`
+	Region                          *string  `pulumi:"region"`
 }
 
 type GatewayAssociationProposalState struct {
-	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-	AllowedPrefixes pulumi.StringArrayInput
-	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayId pulumi.StringPtrInput
-	// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+	AllowedPrefixes                 pulumi.StringArrayInput
+	AssociatedGatewayId             pulumi.StringPtrInput
 	AssociatedGatewayOwnerAccountId pulumi.StringPtrInput
-	// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-	AssociatedGatewayType pulumi.StringPtrInput
-	// Direct Connect Gateway identifier.
-	DxGatewayId pulumi.StringPtrInput
-	// AWS Account identifier of the Direct Connect Gateway's owner.
-	DxGatewayOwnerAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	AssociatedGatewayType           pulumi.StringPtrInput
+	DxGatewayId                     pulumi.StringPtrInput
+	DxGatewayOwnerAccountId         pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
 }
 
 func (GatewayAssociationProposalState) ElementType() reflect.Type {
@@ -156,30 +87,20 @@ func (GatewayAssociationProposalState) ElementType() reflect.Type {
 }
 
 type gatewayAssociationProposalArgs struct {
-	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-	AllowedPrefixes []string `pulumi:"allowedPrefixes"`
-	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayId string `pulumi:"associatedGatewayId"`
-	// Direct Connect Gateway identifier.
-	DxGatewayId string `pulumi:"dxGatewayId"`
-	// AWS Account identifier of the Direct Connect Gateway's owner.
-	DxGatewayOwnerAccountId string `pulumi:"dxGatewayOwnerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AllowedPrefixes         []string `pulumi:"allowedPrefixes"`
+	AssociatedGatewayId     string   `pulumi:"associatedGatewayId"`
+	DxGatewayId             string   `pulumi:"dxGatewayId"`
+	DxGatewayOwnerAccountId string   `pulumi:"dxGatewayOwnerAccountId"`
+	Region                  *string  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GatewayAssociationProposal resource.
 type GatewayAssociationProposalArgs struct {
-	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-	AllowedPrefixes pulumi.StringArrayInput
-	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-	AssociatedGatewayId pulumi.StringInput
-	// Direct Connect Gateway identifier.
-	DxGatewayId pulumi.StringInput
-	// AWS Account identifier of the Direct Connect Gateway's owner.
+	AllowedPrefixes         pulumi.StringArrayInput
+	AssociatedGatewayId     pulumi.StringInput
+	DxGatewayId             pulumi.StringInput
 	DxGatewayOwnerAccountId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 }
 
 func (GatewayAssociationProposalArgs) ElementType() reflect.Type {
@@ -269,37 +190,30 @@ func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutputWith
 	return o
 }
 
-// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
 func (o GatewayAssociationProposalOutput) AllowedPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringArrayOutput { return v.AllowedPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 func (o GatewayAssociationProposalOutput) AssociatedGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.AssociatedGatewayId }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
 func (o GatewayAssociationProposalOutput) AssociatedGatewayOwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.AssociatedGatewayOwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
 func (o GatewayAssociationProposalOutput) AssociatedGatewayType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.AssociatedGatewayType }).(pulumi.StringOutput)
 }
 
-// Direct Connect Gateway identifier.
 func (o GatewayAssociationProposalOutput) DxGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.DxGatewayId }).(pulumi.StringOutput)
 }
 
-// AWS Account identifier of the Direct Connect Gateway's owner.
 func (o GatewayAssociationProposalOutput) DxGatewayOwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.DxGatewayOwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GatewayAssociationProposalOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigSubstituteString
     {
-        /// <summary>
-        /// Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `SubstituteString` `Entry` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigSubstituteStringEntry> Entries;
 
         [OutputConstructor]

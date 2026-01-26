@@ -14,9 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DevEnvironmentIdes struct {
-	// The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-	Name *string `pulumi:"name"`
-	// A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
+	Name    *string `pulumi:"name"`
 	Runtime *string `pulumi:"runtime"`
 }
 
@@ -32,9 +30,7 @@ type DevEnvironmentIdesInput interface {
 }
 
 type DevEnvironmentIdesArgs struct {
-	// The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 	Runtime pulumi.StringPtrInput `pulumi:"runtime"`
 }
 
@@ -115,12 +111,10 @@ func (o DevEnvironmentIdesOutput) ToDevEnvironmentIdesPtrOutputWithContext(ctx c
 	}).(DevEnvironmentIdesPtrOutput)
 }
 
-// The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
 func (o DevEnvironmentIdesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevEnvironmentIdes) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
 func (o DevEnvironmentIdesOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevEnvironmentIdes) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +143,6 @@ func (o DevEnvironmentIdesPtrOutput) Elem() DevEnvironmentIdesOutput {
 	}).(DevEnvironmentIdesOutput)
 }
 
-// The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
 func (o DevEnvironmentIdesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEnvironmentIdes) *string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o DevEnvironmentIdesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
 func (o DevEnvironmentIdesPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEnvironmentIdes) *string {
 		if v == nil {
@@ -170,7 +162,6 @@ func (o DevEnvironmentIdesPtrOutput) Runtime() pulumi.StringPtrOutput {
 }
 
 type DevEnvironmentPersistentStorage struct {
-	// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 	Size int `pulumi:"size"`
 }
 
@@ -186,7 +177,6 @@ type DevEnvironmentPersistentStorageInput interface {
 }
 
 type DevEnvironmentPersistentStorageArgs struct {
-	// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 	Size pulumi.IntInput `pulumi:"size"`
 }
 
@@ -267,7 +257,6 @@ func (o DevEnvironmentPersistentStorageOutput) ToDevEnvironmentPersistentStorage
 	}).(DevEnvironmentPersistentStoragePtrOutput)
 }
 
-// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 func (o DevEnvironmentPersistentStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v DevEnvironmentPersistentStorage) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -296,7 +285,6 @@ func (o DevEnvironmentPersistentStoragePtrOutput) Elem() DevEnvironmentPersisten
 	}).(DevEnvironmentPersistentStorageOutput)
 }
 
-// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 func (o DevEnvironmentPersistentStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevEnvironmentPersistentStorage) *int {
 		if v == nil {
@@ -307,12 +295,8 @@ func (o DevEnvironmentPersistentStoragePtrOutput) Size() pulumi.IntPtrOutput {
 }
 
 type DevEnvironmentRepository struct {
-	// The name of the branch in a source repository.
-	//
-	// persistent storage (`  persistentStorage `) supports the following:
-	BranchName *string `pulumi:"branchName"`
-	// The name of the source repository.
-	RepositoryName string `pulumi:"repositoryName"`
+	BranchName     *string `pulumi:"branchName"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 // DevEnvironmentRepositoryInput is an input type that accepts DevEnvironmentRepositoryArgs and DevEnvironmentRepositoryOutput values.
@@ -327,12 +311,8 @@ type DevEnvironmentRepositoryInput interface {
 }
 
 type DevEnvironmentRepositoryArgs struct {
-	// The name of the branch in a source repository.
-	//
-	// persistent storage (`  persistentStorage `) supports the following:
-	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
-	// The name of the source repository.
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	BranchName     pulumi.StringPtrInput `pulumi:"branchName"`
+	RepositoryName pulumi.StringInput    `pulumi:"repositoryName"`
 }
 
 func (DevEnvironmentRepositoryArgs) ElementType() reflect.Type {
@@ -386,14 +366,10 @@ func (o DevEnvironmentRepositoryOutput) ToDevEnvironmentRepositoryOutputWithCont
 	return o
 }
 
-// The name of the branch in a source repository.
-//
-// persistent storage (`  persistentStorage `) supports the following:
 func (o DevEnvironmentRepositoryOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevEnvironmentRepository) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the source repository.
 func (o DevEnvironmentRepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v DevEnvironmentRepository) string { return v.RepositoryName }).(pulumi.StringOutput)
 }

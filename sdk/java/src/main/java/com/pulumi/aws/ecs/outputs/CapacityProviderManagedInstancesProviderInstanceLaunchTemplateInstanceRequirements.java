@@ -24,293 +24,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
-    /**
-     * @return The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount acceleratorCount;
-    /**
-     * @return The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
-     * 
-     */
     private @Nullable List<String> acceleratorManufacturers;
-    /**
-     * @return The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
-     * 
-     */
     private @Nullable List<String> acceleratorNames;
-    /**
-     * @return The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
-    /**
-     * @return The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
-     * 
-     */
     private @Nullable List<String> acceleratorTypes;
-    /**
-     * @return The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
-     * 
-     */
     private @Nullable List<String> allowedInstanceTypes;
-    /**
-     * @return Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
-     * 
-     */
     private @Nullable String bareMetal;
-    /**
-     * @return The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps;
-    /**
-     * @return Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
-     * 
-     */
     private @Nullable String burstablePerformance;
-    /**
-     * @return The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
-     * 
-     */
     private @Nullable List<String> cpuManufacturers;
-    /**
-     * @return The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
-     * 
-     */
     private @Nullable List<String> excludedInstanceTypes;
-    /**
-     * @return The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
-     * 
-     */
     private @Nullable List<String> instanceGenerations;
-    /**
-     * @return Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
-     * 
-     */
     private @Nullable String localStorage;
-    /**
-     * @return The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
-     * 
-     */
     private @Nullable List<String> localStorageTypes;
-    /**
-     * @return The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
-     * 
-     */
     private @Nullable Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
-    /**
-     * @return The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
-    /**
-     * @return The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
-     * 
-     */
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib memoryMib;
-    /**
-     * @return The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps;
-    /**
-     * @return The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount networkInterfaceCount;
-    /**
-     * @return The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
-     * 
-     */
     private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
-    /**
-     * @return Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
-     * 
-     */
     private @Nullable Boolean requireHibernateSupport;
-    /**
-     * @return The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
-     * 
-     */
     private @Nullable Integer spotMaxPricePercentageOverLowestPrice;
-    /**
-     * @return The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb;
-    /**
-     * @return The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
-     * 
-     */
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount vcpuCount;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements() {}
-    /**
-     * @return The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount> acceleratorCount() {
         return Optional.ofNullable(this.acceleratorCount);
     }
-    /**
-     * @return The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
-     * 
-     */
     public List<String> acceleratorManufacturers() {
         return this.acceleratorManufacturers == null ? List.of() : this.acceleratorManufacturers;
     }
-    /**
-     * @return The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
-     * 
-     */
     public List<String> acceleratorNames() {
         return this.acceleratorNames == null ? List.of() : this.acceleratorNames;
     }
-    /**
-     * @return The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib> acceleratorTotalMemoryMib() {
         return Optional.ofNullable(this.acceleratorTotalMemoryMib);
     }
-    /**
-     * @return The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
-     * 
-     */
     public List<String> acceleratorTypes() {
         return this.acceleratorTypes == null ? List.of() : this.acceleratorTypes;
     }
-    /**
-     * @return The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
-     * 
-     */
     public List<String> allowedInstanceTypes() {
         return this.allowedInstanceTypes == null ? List.of() : this.allowedInstanceTypes;
     }
-    /**
-     * @return Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
-     * 
-     */
     public Optional<String> bareMetal() {
         return Optional.ofNullable(this.bareMetal);
     }
-    /**
-     * @return The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps> baselineEbsBandwidthMbps() {
         return Optional.ofNullable(this.baselineEbsBandwidthMbps);
     }
-    /**
-     * @return Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
-     * 
-     */
     public Optional<String> burstablePerformance() {
         return Optional.ofNullable(this.burstablePerformance);
     }
-    /**
-     * @return The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
-     * 
-     */
     public List<String> cpuManufacturers() {
         return this.cpuManufacturers == null ? List.of() : this.cpuManufacturers;
     }
-    /**
-     * @return The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
-     * 
-     */
     public List<String> excludedInstanceTypes() {
         return this.excludedInstanceTypes == null ? List.of() : this.excludedInstanceTypes;
     }
-    /**
-     * @return The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
-     * 
-     */
     public List<String> instanceGenerations() {
         return this.instanceGenerations == null ? List.of() : this.instanceGenerations;
     }
-    /**
-     * @return Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
-     * 
-     */
     public Optional<String> localStorage() {
         return Optional.ofNullable(this.localStorage);
     }
-    /**
-     * @return The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
-     * 
-     */
     public List<String> localStorageTypes() {
         return this.localStorageTypes == null ? List.of() : this.localStorageTypes;
     }
-    /**
-     * @return The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
-     * 
-     */
     public Optional<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
         return Optional.ofNullable(this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice);
     }
-    /**
-     * @return The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu> memoryGibPerVcpu() {
         return Optional.ofNullable(this.memoryGibPerVcpu);
     }
-    /**
-     * @return The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
-     * 
-     */
     public CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib memoryMib() {
         return this.memoryMib;
     }
-    /**
-     * @return The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps> networkBandwidthGbps() {
         return Optional.ofNullable(this.networkBandwidthGbps);
     }
-    /**
-     * @return The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount> networkInterfaceCount() {
         return Optional.ofNullable(this.networkInterfaceCount);
     }
-    /**
-     * @return The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
-     * 
-     */
     public Optional<Integer> onDemandMaxPricePercentageOverLowestPrice() {
         return Optional.ofNullable(this.onDemandMaxPricePercentageOverLowestPrice);
     }
-    /**
-     * @return Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
-     * 
-     */
     public Optional<Boolean> requireHibernateSupport() {
         return Optional.ofNullable(this.requireHibernateSupport);
     }
-    /**
-     * @return The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
-     * 
-     */
     public Optional<Integer> spotMaxPricePercentageOverLowestPrice() {
         return Optional.ofNullable(this.spotMaxPricePercentageOverLowestPrice);
     }
-    /**
-     * @return The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb> totalLocalStorageGb() {
         return Optional.ofNullable(this.totalLocalStorageGb);
     }
-    /**
-     * @return The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
-     * 
-     */
     public CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount vcpuCount() {
         return this.vcpuCount;
     }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApiEventConfigAuthProviderLambdaAuthorizerConfig {
-    /**
-     * @return TTL in seconds for the authorization result cache.
-     * 
-     */
     private @Nullable Integer authorizerResultTtlInSeconds;
-    /**
-     * @return URI of the Lambda function for authorization.
-     * 
-     */
     private String authorizerUri;
-    /**
-     * @return Regular expression for identity validation.
-     * 
-     */
     private @Nullable String identityValidationExpression;
 
     private ApiEventConfigAuthProviderLambdaAuthorizerConfig() {}
-    /**
-     * @return TTL in seconds for the authorization result cache.
-     * 
-     */
     public Optional<Integer> authorizerResultTtlInSeconds() {
         return Optional.ofNullable(this.authorizerResultTtlInSeconds);
     }
-    /**
-     * @return URI of the Lambda function for authorization.
-     * 
-     */
     public String authorizerUri() {
         return this.authorizerUri;
     }
-    /**
-     * @return Regular expression for identity validation.
-     * 
-     */
     public Optional<String> identityValidationExpression() {
         return Optional.ofNullable(this.identityValidationExpression);
     }

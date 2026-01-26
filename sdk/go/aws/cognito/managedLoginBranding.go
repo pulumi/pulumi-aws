@@ -12,116 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages branding settings for a user pool style and associates it with an app client.
-//
-// ## Example Usage
-//
-// ### Default Branding Style
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewManagedLoginBranding(ctx, "client", &cognito.ManagedLoginBrandingArgs{
-//				ClientId:                 pulumi.Any(example.Id),
-//				UserPoolId:               pulumi.Any(exampleAwsCognitoUserPool.Id),
-//				UseCognitoProvidedValues: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom Branding Style
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "login_branding_asset.svg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cognito.NewManagedLoginBranding(ctx, "client", &cognito.ManagedLoginBrandingArgs{
-//				ClientId:   pulumi.Any(example.Id),
-//				UserPoolId: pulumi.Any(exampleAwsCognitoUserPool.Id),
-//				Assets: cognito.ManagedLoginBrandingAssetArray{
-//					&cognito.ManagedLoginBrandingAssetArgs{
-//						Bytes:     pulumi.String(invokeFilebase64.Result),
-//						Category:  pulumi.String("PAGE_HEADER_BACKGROUND"),
-//						ColorMode: pulumi.String("DARK"),
-//						Extension: pulumi.String("SVG"),
-//					},
-//				},
-//				Settings: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cognito branding settings using `user_pool_id` and `managed_login_branding_id` separated by `,`. For example:
-//
-// ```sh
-// $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
-// ```
 type ManagedLoginBranding struct {
 	pulumi.CustomResourceState
 
-	// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-	Assets ManagedLoginBrandingAssetArrayOutput `pulumi:"assets"`
-	// App client that the branding style is for.
-	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// ID of the managed login branding style.
-	ManagedLoginBrandingId pulumi.StringOutput `pulumi:"managedLoginBrandingId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// JSON document with the the settings to apply to the style.
-	Settings pulumi.StringPtrOutput `pulumi:"settings"`
-	// Settings including Amazon Cognito defaults.
-	SettingsAll pulumi.StringOutput `pulumi:"settingsAll"`
-	// When `true`, applies the default branding style options.
-	UseCognitoProvidedValues pulumi.BoolOutput `pulumi:"useCognitoProvidedValues"`
-	// User pool the client belongs to.
-	//
-	// The following arguments are optional:
-	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
+	Assets                   ManagedLoginBrandingAssetArrayOutput `pulumi:"assets"`
+	ClientId                 pulumi.StringOutput                  `pulumi:"clientId"`
+	ManagedLoginBrandingId   pulumi.StringOutput                  `pulumi:"managedLoginBrandingId"`
+	Region                   pulumi.StringOutput                  `pulumi:"region"`
+	Settings                 pulumi.StringPtrOutput               `pulumi:"settings"`
+	SettingsAll              pulumi.StringOutput                  `pulumi:"settingsAll"`
+	UseCognitoProvidedValues pulumi.BoolOutput                    `pulumi:"useCognitoProvidedValues"`
+	UserPoolId               pulumi.StringOutput                  `pulumi:"userPoolId"`
 }
 
 // NewManagedLoginBranding registers a new resource with the given unique name, arguments, and options.
@@ -160,45 +61,25 @@ func GetManagedLoginBranding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedLoginBranding resources.
 type managedLoginBrandingState struct {
-	// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-	Assets []ManagedLoginBrandingAsset `pulumi:"assets"`
-	// App client that the branding style is for.
-	ClientId *string `pulumi:"clientId"`
-	// ID of the managed login branding style.
-	ManagedLoginBrandingId *string `pulumi:"managedLoginBrandingId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// JSON document with the the settings to apply to the style.
-	Settings *string `pulumi:"settings"`
-	// Settings including Amazon Cognito defaults.
-	SettingsAll *string `pulumi:"settingsAll"`
-	// When `true`, applies the default branding style options.
-	UseCognitoProvidedValues *bool `pulumi:"useCognitoProvidedValues"`
-	// User pool the client belongs to.
-	//
-	// The following arguments are optional:
-	UserPoolId *string `pulumi:"userPoolId"`
+	Assets                   []ManagedLoginBrandingAsset `pulumi:"assets"`
+	ClientId                 *string                     `pulumi:"clientId"`
+	ManagedLoginBrandingId   *string                     `pulumi:"managedLoginBrandingId"`
+	Region                   *string                     `pulumi:"region"`
+	Settings                 *string                     `pulumi:"settings"`
+	SettingsAll              *string                     `pulumi:"settingsAll"`
+	UseCognitoProvidedValues *bool                       `pulumi:"useCognitoProvidedValues"`
+	UserPoolId               *string                     `pulumi:"userPoolId"`
 }
 
 type ManagedLoginBrandingState struct {
-	// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-	Assets ManagedLoginBrandingAssetArrayInput
-	// App client that the branding style is for.
-	ClientId pulumi.StringPtrInput
-	// ID of the managed login branding style.
-	ManagedLoginBrandingId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// JSON document with the the settings to apply to the style.
-	Settings pulumi.StringPtrInput
-	// Settings including Amazon Cognito defaults.
-	SettingsAll pulumi.StringPtrInput
-	// When `true`, applies the default branding style options.
+	Assets                   ManagedLoginBrandingAssetArrayInput
+	ClientId                 pulumi.StringPtrInput
+	ManagedLoginBrandingId   pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Settings                 pulumi.StringPtrInput
+	SettingsAll              pulumi.StringPtrInput
 	UseCognitoProvidedValues pulumi.BoolPtrInput
-	// User pool the client belongs to.
-	//
-	// The following arguments are optional:
-	UserPoolId pulumi.StringPtrInput
+	UserPoolId               pulumi.StringPtrInput
 }
 
 func (ManagedLoginBrandingState) ElementType() reflect.Type {
@@ -206,38 +87,22 @@ func (ManagedLoginBrandingState) ElementType() reflect.Type {
 }
 
 type managedLoginBrandingArgs struct {
-	// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-	Assets []ManagedLoginBrandingAsset `pulumi:"assets"`
-	// App client that the branding style is for.
-	ClientId string `pulumi:"clientId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// JSON document with the the settings to apply to the style.
-	Settings *string `pulumi:"settings"`
-	// When `true`, applies the default branding style options.
-	UseCognitoProvidedValues *bool `pulumi:"useCognitoProvidedValues"`
-	// User pool the client belongs to.
-	//
-	// The following arguments are optional:
-	UserPoolId string `pulumi:"userPoolId"`
+	Assets                   []ManagedLoginBrandingAsset `pulumi:"assets"`
+	ClientId                 string                      `pulumi:"clientId"`
+	Region                   *string                     `pulumi:"region"`
+	Settings                 *string                     `pulumi:"settings"`
+	UseCognitoProvidedValues *bool                       `pulumi:"useCognitoProvidedValues"`
+	UserPoolId               string                      `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a ManagedLoginBranding resource.
 type ManagedLoginBrandingArgs struct {
-	// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-	Assets ManagedLoginBrandingAssetArrayInput
-	// App client that the branding style is for.
-	ClientId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// JSON document with the the settings to apply to the style.
-	Settings pulumi.StringPtrInput
-	// When `true`, applies the default branding style options.
+	Assets                   ManagedLoginBrandingAssetArrayInput
+	ClientId                 pulumi.StringInput
+	Region                   pulumi.StringPtrInput
+	Settings                 pulumi.StringPtrInput
 	UseCognitoProvidedValues pulumi.BoolPtrInput
-	// User pool the client belongs to.
-	//
-	// The following arguments are optional:
-	UserPoolId pulumi.StringInput
+	UserPoolId               pulumi.StringInput
 }
 
 func (ManagedLoginBrandingArgs) ElementType() reflect.Type {
@@ -327,44 +192,34 @@ func (o ManagedLoginBrandingOutput) ToManagedLoginBrandingOutputWithContext(ctx 
 	return o
 }
 
-// Image files to apply to roles like backgrounds, logos, and icons. See details below.
 func (o ManagedLoginBrandingOutput) Assets() ManagedLoginBrandingAssetArrayOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) ManagedLoginBrandingAssetArrayOutput { return v.Assets }).(ManagedLoginBrandingAssetArrayOutput)
 }
 
-// App client that the branding style is for.
 func (o ManagedLoginBrandingOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// ID of the managed login branding style.
 func (o ManagedLoginBrandingOutput) ManagedLoginBrandingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringOutput { return v.ManagedLoginBrandingId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ManagedLoginBrandingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON document with the the settings to apply to the style.
 func (o ManagedLoginBrandingOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringPtrOutput { return v.Settings }).(pulumi.StringPtrOutput)
 }
 
-// Settings including Amazon Cognito defaults.
 func (o ManagedLoginBrandingOutput) SettingsAll() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringOutput { return v.SettingsAll }).(pulumi.StringOutput)
 }
 
-// When `true`, applies the default branding style options.
 func (o ManagedLoginBrandingOutput) UseCognitoProvidedValues() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.BoolOutput { return v.UseCognitoProvidedValues }).(pulumi.BoolOutput)
 }
 
-// User pool the client belongs to.
-//
-// The following arguments are optional:
 func (o ManagedLoginBrandingOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

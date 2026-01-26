@@ -15,32 +15,16 @@ public final class RepositoryAssociationKmsKeyDetailsArgs extends com.pulumi.res
 
     public static final RepositoryAssociationKmsKeyDetailsArgs Empty = new RepositoryAssociationKmsKeyDetailsArgs();
 
-    /**
-     * The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-     * 
-     */
     @Import(name="encryptionOption")
     private @Nullable Output<String> encryptionOption;
 
-    /**
-     * @return The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-     * 
-     */
     public Optional<Output<String>> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
 
-    /**
-     * The ID of the AWS KMS key that is associated with a repository association.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The ID of the AWS KMS key that is associated with a repository association.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -70,44 +54,20 @@ public final class RepositoryAssociationKmsKeyDetailsArgs extends com.pulumi.res
             $ = new RepositoryAssociationKmsKeyDetailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionOption The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(@Nullable Output<String> encryptionOption) {
             $.encryptionOption = encryptionOption;
             return this;
         }
 
-        /**
-         * @param encryptionOption The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(String encryptionOption) {
             return encryptionOption(Output.of(encryptionOption));
         }
 
-        /**
-         * @param kmsKeyId The ID of the AWS KMS key that is associated with a repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The ID of the AWS KMS key that is associated with a repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

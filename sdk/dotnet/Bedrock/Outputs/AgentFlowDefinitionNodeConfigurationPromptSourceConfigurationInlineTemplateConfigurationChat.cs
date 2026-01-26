@@ -14,17 +14,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat
     {
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable> InputVariables;
-        /// <summary>
-        /// A list of messages in the chat for the prompt. See Message for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> Messages;
-        /// <summary>
-        /// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem> Systems;
-        /// <summary>
-        /// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration? ToolConfiguration;
 
         [OutputConstructor]

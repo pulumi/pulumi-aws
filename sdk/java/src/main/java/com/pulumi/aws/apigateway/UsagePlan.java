@@ -19,157 +19,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an API Gateway Usage Plan.
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/usagePlan:UsagePlan")
 public class UsagePlan extends com.pulumi.resources.CustomResource {
-    /**
-     * Associated API stages of the usage plan.
-     * 
-     */
     @Export(name="apiStages", refs={List.class,UsagePlanApiStage.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UsagePlanApiStage>> apiStages;
 
-    /**
-     * @return Associated API stages of the usage plan.
-     * 
-     */
     public Output<Optional<List<UsagePlanApiStage>>> apiStages() {
         return Codegen.optional(this.apiStages);
     }
-    /**
-     * ARN
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of a usage plan.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of a usage plan.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the usage plan.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the usage plan.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-     * 
-     */
     @Export(name="productCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> productCode;
 
-    /**
-     * @return AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-     * 
-     */
     public Output<Optional<String>> productCode() {
         return Codegen.optional(this.productCode);
     }
-    /**
-     * The quota settings of the usage plan.
-     * 
-     */
     @Export(name="quotaSettings", refs={UsagePlanQuotaSettings.class}, tree="[0]")
     private Output</* @Nullable */ UsagePlanQuotaSettings> quotaSettings;
 
-    /**
-     * @return The quota settings of the usage plan.
-     * 
-     */
     public Output<Optional<UsagePlanQuotaSettings>> quotaSettings() {
         return Codegen.optional(this.quotaSettings);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The throttling limits of the usage plan.
-     * 
-     */
     @Export(name="throttleSettings", refs={UsagePlanThrottleSettings.class}, tree="[0]")
     private Output</* @Nullable */ UsagePlanThrottleSettings> throttleSettings;
 
-    /**
-     * @return The throttling limits of the usage plan.
-     * 
-     */
     public Output<Optional<UsagePlanThrottleSettings>> throttleSettings() {
         return Codegen.optional(this.throttleSettings);
     }

@@ -12,39 +12,23 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class CapabilityConfigurationArgoCdArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS IAM Identity Center configuration. See `AwsIdc` below.
-        /// </summary>
         [Input("awsIdc")]
         public Input<Inputs.CapabilityConfigurationArgoCdAwsIdcArgs>? AwsIdc { get; set; }
 
-        /// <summary>
-        /// Kubernetes namespace for ArgoCD.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Network access configuration. See `NetworkAccess` below.
-        /// </summary>
         [Input("networkAccess")]
         public Input<Inputs.CapabilityConfigurationArgoCdNetworkAccessArgs>? NetworkAccess { get; set; }
 
         [Input("rbacRoleMappings")]
         private InputList<Inputs.CapabilityConfigurationArgoCdRbacRoleMappingArgs>? _rbacRoleMappings;
-
-        /// <summary>
-        /// RBAC role mappings. See `RbacRoleMapping` below.
-        /// </summary>
         public InputList<Inputs.CapabilityConfigurationArgoCdRbacRoleMappingArgs> RbacRoleMappings
         {
             get => _rbacRoleMappings ?? (_rbacRoleMappings = new InputList<Inputs.CapabilityConfigurationArgoCdRbacRoleMappingArgs>());
             set => _rbacRoleMappings = value;
         }
 
-        /// <summary>
-        /// URL of the Argo CD server.
-        /// </summary>
         [Input("serverUrl")]
         public Input<string>? ServerUrl { get; set; }
 

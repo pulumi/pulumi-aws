@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupEcsService
     {
-        /// <summary>
-        /// The name of the ECS cluster.
-        /// </summary>
         public readonly string ClusterName;
-        /// <summary>
-        /// The name of the ECS service.
-        /// </summary>
         public readonly string ServiceName;
 
         [OutputConstructor]

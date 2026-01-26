@@ -15,32 +15,16 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocati
 
     public static final ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs Empty = new ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs();
 
-    /**
-     * S3 bucket name.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return S3 bucket name.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * S3 key.
-     * 
-     */
     @Import(name="objectKey")
     private @Nullable Output<String> objectKey;
 
-    /**
-     * @return S3 key.
-     * 
-     */
     public Optional<Output<String>> objectKey() {
         return Optional.ofNullable(this.objectKey);
     }
@@ -70,44 +54,20 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocati
             $ = new ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param objectKey S3 key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKey(@Nullable Output<String> objectKey) {
             $.objectKey = objectKey;
             return this;
         }
 
-        /**
-         * @param objectKey S3 key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKey(String objectKey) {
             return objectKey(Output.of(objectKey));
         }

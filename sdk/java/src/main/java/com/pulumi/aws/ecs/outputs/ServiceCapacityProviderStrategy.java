@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceCapacityProviderStrategy {
-    /**
-     * @return Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-     * 
-     */
     private @Nullable Integer base;
-    /**
-     * @return Short name of the capacity provider.
-     * 
-     */
     private String capacityProvider;
-    /**
-     * @return Relative percentage of the total number of launched tasks that should use the specified capacity provider.
-     * 
-     */
     private @Nullable Integer weight;
 
     private ServiceCapacityProviderStrategy() {}
-    /**
-     * @return Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-     * 
-     */
     public Optional<Integer> base() {
         return Optional.ofNullable(this.base);
     }
-    /**
-     * @return Short name of the capacity provider.
-     * 
-     */
     public String capacityProvider() {
         return this.capacityProvider;
     }
-    /**
-     * @return Relative percentage of the total number of launched tasks that should use the specified capacity provider.
-     * 
-     */
     public Optional<Integer> weight() {
         return Optional.ofNullable(this.weight);
     }

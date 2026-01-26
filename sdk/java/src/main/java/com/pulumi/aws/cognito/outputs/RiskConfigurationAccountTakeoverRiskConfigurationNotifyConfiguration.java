@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration {
-    /**
-     * @return Email template used when a detected risk event is blocked. See notify email type below.
-     * 
-     */
     private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail blockEmail;
-    /**
-     * @return The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-     * 
-     */
     private @Nullable String from;
-    /**
-     * @return The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-     * 
-     */
     private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail mfaEmail;
-    /**
-     * @return The email template used when a detected risk event is allowed. See notify email type below.
-     * 
-     */
     private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail noActionEmail;
-    /**
-     * @return The destination to which the receiver of an email should reply to.
-     * 
-     */
     private @Nullable String replyTo;
-    /**
-     * @return The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-     * 
-     */
     private String sourceArn;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration() {}
-    /**
-     * @return Email template used when a detected risk event is blocked. See notify email type below.
-     * 
-     */
     public Optional<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail> blockEmail() {
         return Optional.ofNullable(this.blockEmail);
     }
-    /**
-     * @return The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-     * 
-     */
     public Optional<String> from() {
         return Optional.ofNullable(this.from);
     }
-    /**
-     * @return The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-     * 
-     */
     public Optional<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail> mfaEmail() {
         return Optional.ofNullable(this.mfaEmail);
     }
-    /**
-     * @return The email template used when a detected risk event is allowed. See notify email type below.
-     * 
-     */
     public Optional<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail> noActionEmail() {
         return Optional.ofNullable(this.noActionEmail);
     }
-    /**
-     * @return The destination to which the receiver of an email should reply to.
-     * 
-     */
     public Optional<String> replyTo() {
         return Optional.ofNullable(this.replyTo);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-     * 
-     */
     public String sourceArn() {
         return this.sourceArn;
     }

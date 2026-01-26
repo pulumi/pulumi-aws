@@ -16,77 +16,37 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
 
     public static final AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs Empty = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs();
 
-    /**
-     * Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
-     * 
-     */
     @Import(name="customMetadataField")
     private @Nullable Output<String> customMetadataField;
 
-    /**
-     * @return Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
-     * 
-     */
     public Optional<Output<String>> customMetadataField() {
         return Optional.ofNullable(this.customMetadataField);
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     @Import(name="metadataField", required=true)
     private Output<String> metadataField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     public Output<String> metadataField() {
         return this.metadataField;
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores the ID for each entry.
-     * 
-     */
     @Import(name="primaryKeyField", required=true)
     private Output<String> primaryKeyField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the ID for each entry.
-     * 
-     */
     public Output<String> primaryKeyField() {
         return this.primaryKeyField;
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     @Import(name="textField", required=true)
     private Output<String> textField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     public Output<String> textField() {
         return this.textField;
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     @Import(name="vectorField", required=true)
     private Output<String> vectorField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     public Output<String> vectorField() {
         return this.vectorField;
     }
@@ -119,107 +79,47 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
             $ = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customMetadataField Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customMetadataField(@Nullable Output<String> customMetadataField) {
             $.customMetadataField = customMetadataField;
             return this;
         }
 
-        /**
-         * @param customMetadataField Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customMetadataField(String customMetadataField) {
             return customMetadataField(Output.of(customMetadataField));
         }
 
-        /**
-         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataField(Output<String> metadataField) {
             $.metadataField = metadataField;
             return this;
         }
 
-        /**
-         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataField(String metadataField) {
             return metadataField(Output.of(metadataField));
         }
 
-        /**
-         * @param primaryKeyField Name of the field in which Amazon Bedrock stores the ID for each entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryKeyField(Output<String> primaryKeyField) {
             $.primaryKeyField = primaryKeyField;
             return this;
         }
 
-        /**
-         * @param primaryKeyField Name of the field in which Amazon Bedrock stores the ID for each entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryKeyField(String primaryKeyField) {
             return primaryKeyField(Output.of(primaryKeyField));
         }
 
-        /**
-         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textField(Output<String> textField) {
             $.textField = textField;
             return this;
         }
 
-        /**
-         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textField(String textField) {
             return textField(Output.of(textField));
         }
 
-        /**
-         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorField(Output<String> vectorField) {
             $.vectorField = vectorField;
             return this;
         }
 
-        /**
-         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorField(String vectorField) {
             return vectorField(Output.of(vectorField));
         }

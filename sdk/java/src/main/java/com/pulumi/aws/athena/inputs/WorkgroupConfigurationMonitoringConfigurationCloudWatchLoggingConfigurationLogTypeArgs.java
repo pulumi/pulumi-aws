@@ -15,32 +15,16 @@ public final class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggin
 
     public static final WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs Empty = new WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs();
 
-    /**
-     * Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggin
             $ = new WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

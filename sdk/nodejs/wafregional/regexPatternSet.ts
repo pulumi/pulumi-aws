@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Regional Regex Pattern Set Resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafregional.RegexPatternSet("example", {
- *     name: "example",
- *     regexPatternStrings: [
- *         "one",
- *         "two",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF Regional Regex Pattern Set using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:wafregional/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- */
 export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * Get an existing RegexPatternSet resource's state with the given name, ID, and optional extra
@@ -58,17 +32,8 @@ export class RegexPatternSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegexPatternSet.__pulumiType;
     }
 
-    /**
-     * The name or description of the Regex Pattern Set.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
-     */
     declare public readonly regexPatternStrings: pulumi.Output<string[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -102,17 +67,8 @@ export class RegexPatternSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegexPatternSet resources.
  */
 export interface RegexPatternSetState {
-    /**
-     * The name or description of the Regex Pattern Set.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
-     */
     regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -120,16 +76,7 @@ export interface RegexPatternSetState {
  * The set of arguments for constructing a RegexPatternSet resource.
  */
 export interface RegexPatternSetArgs {
-    /**
-     * The name or description of the Regex Pattern Set.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
-     */
     regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

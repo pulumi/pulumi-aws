@@ -9,137 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI Workforce resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Cognito Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         GenerateSecret = true,
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     });
-    /// 
-    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("example", new()
-    ///     {
-    ///         Domain = "example",
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     });
-    /// 
-    ///     var example = new Aws.Sagemaker.Workforce("example", new()
-    ///     {
-    ///         WorkforceName = "example",
-    ///         CognitoConfig = new Aws.Sagemaker.Inputs.WorkforceCognitoConfigArgs
-    ///         {
-    ///             ClientId = exampleUserPoolClient.Id,
-    ///             UserPool = exampleUserPoolDomain.UserPoolId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Oidc Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Workforce("example", new()
-    ///     {
-    ///         WorkforceName = "example",
-    ///         OidcConfig = new Aws.Sagemaker.Inputs.WorkforceOidcConfigArgs
-    ///         {
-    ///             AuthorizationEndpoint = "https://example.com",
-    ///             ClientId = "example",
-    ///             ClientSecret = "example",
-    ///             Issuer = "https://example.com",
-    ///             JwksUri = "https://example.com",
-    ///             LogoutEndpoint = "https://example.com",
-    ///             TokenEndpoint = "https://example.com",
-    ///             UserInfoEndpoint = "https://example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SageMaker AI Workforces using the `workforce_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/workforce:Workforce example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/workforce:Workforce")]
     public partial class Workforce : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `OidcConfig`. see Cognito Config details below.
-        /// </summary>
         [Output("cognitoConfig")]
         public Output<Outputs.WorkforceCognitoConfig?> CognitoConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `CognitoConfig`. see OIDC Config details below.
-        /// </summary>
         [Output("oidcConfig")]
         public Output<Outputs.WorkforceOidcConfig?> OidcConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        /// </summary>
         [Output("sourceIpConfig")]
         public Output<Outputs.WorkforceSourceIpConfig> SourceIpConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The subdomain for your OIDC Identity Provider.
-        /// </summary>
         [Output("subdomain")]
         public Output<string> Subdomain { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Workforce (must be unique).
-        /// </summary>
         [Output("workforceName")]
         public Output<string> WorkforceName { get; private set; } = null!;
 
-        /// <summary>
-        /// configure a workforce using VPC. see Workforce VPC Config details below.
-        /// </summary>
         [Output("workforceVpcConfig")]
         public Output<Outputs.WorkforceWorkforceVpcConfig?> WorkforceVpcConfig { get; private set; } = null!;
 
@@ -189,39 +82,21 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class WorkforceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `OidcConfig`. see Cognito Config details below.
-        /// </summary>
         [Input("cognitoConfig")]
         public Input<Inputs.WorkforceCognitoConfigArgs>? CognitoConfig { get; set; }
 
-        /// <summary>
-        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `CognitoConfig`. see OIDC Config details below.
-        /// </summary>
         [Input("oidcConfig")]
         public Input<Inputs.WorkforceOidcConfigArgs>? OidcConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        /// </summary>
         [Input("sourceIpConfig")]
         public Input<Inputs.WorkforceSourceIpConfigArgs>? SourceIpConfig { get; set; }
 
-        /// <summary>
-        /// The name of the Workforce (must be unique).
-        /// </summary>
         [Input("workforceName", required: true)]
         public Input<string> WorkforceName { get; set; } = null!;
 
-        /// <summary>
-        /// configure a workforce using VPC. see Workforce VPC Config details below.
-        /// </summary>
         [Input("workforceVpcConfig")]
         public Input<Inputs.WorkforceWorkforceVpcConfigArgs>? WorkforceVpcConfig { get; set; }
 
@@ -233,51 +108,27 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class WorkforceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `OidcConfig`. see Cognito Config details below.
-        /// </summary>
         [Input("cognitoConfig")]
         public Input<Inputs.WorkforceCognitoConfigGetArgs>? CognitoConfig { get; set; }
 
-        /// <summary>
-        /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `CognitoConfig`. see OIDC Config details below.
-        /// </summary>
         [Input("oidcConfig")]
         public Input<Inputs.WorkforceOidcConfigGetArgs>? OidcConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
-        /// </summary>
         [Input("sourceIpConfig")]
         public Input<Inputs.WorkforceSourceIpConfigGetArgs>? SourceIpConfig { get; set; }
 
-        /// <summary>
-        /// The subdomain for your OIDC Identity Provider.
-        /// </summary>
         [Input("subdomain")]
         public Input<string>? Subdomain { get; set; }
 
-        /// <summary>
-        /// The name of the Workforce (must be unique).
-        /// </summary>
         [Input("workforceName")]
         public Input<string>? WorkforceName { get; set; }
 
-        /// <summary>
-        /// configure a workforce using VPC. see Workforce VPC Config details below.
-        /// </summary>
         [Input("workforceVpcConfig")]
         public Input<Inputs.WorkforceWorkforceVpcConfigGetArgs>? WorkforceVpcConfig { get; set; }
 

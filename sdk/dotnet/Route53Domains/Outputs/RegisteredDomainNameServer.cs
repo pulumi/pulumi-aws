@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Route53Domains.Outputs
     [OutputType]
     public sealed class RegisteredDomainNameServer
     {
-        /// <summary>
-        /// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        /// </summary>
         public readonly ImmutableArray<string> GlueIps;
-        /// <summary>
-        /// The fully qualified host name of the name server.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

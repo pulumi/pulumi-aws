@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh
     {
-        /// <summary>
-        /// The lookback window setup for an incremental refresh configuration. See lookback_window.
-        /// </summary>
         public readonly Outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow LookbackWindow;
 
         [OutputConstructor]

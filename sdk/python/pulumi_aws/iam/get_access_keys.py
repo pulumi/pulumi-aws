@@ -41,9 +41,6 @@ class GetAccessKeysResult:
     @_builtins.property
     @pulumi.getter(name="accessKeys")
     def access_keys(self) -> Sequence['outputs.GetAccessKeysAccessKeyResult']:
-        """
-        List of the IAM access keys associated with the specified user. See below.
-        """
         return pulumi.get(self, "access_keys")
 
     @_builtins.property
@@ -74,20 +71,7 @@ class AwaitableGetAccessKeysResult(GetAccessKeysResult):
 def get_access_keys(user: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessKeysResult:
     """
-    This data source can be used to fetch information about IAM access keys of a
-    specific IAM user.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_access_keys(user="an_example_user_name")
-    ```
-
-
-    :param _builtins.str user: Name of the IAM user associated with the access keys.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['user'] = user
@@ -101,20 +85,7 @@ def get_access_keys(user: Optional[_builtins.str] = None,
 def get_access_keys_output(user: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessKeysResult]:
     """
-    This data source can be used to fetch information about IAM access keys of a
-    specific IAM user.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_access_keys(user="an_example_user_name")
-    ```
-
-
-    :param _builtins.str user: Name of the IAM user associated with the access keys.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['user'] = user

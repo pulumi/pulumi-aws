@@ -14,17 +14,9 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustF
 
     public static final VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs Empty = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs();
 
-    /**
-     * Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="certificateChain", required=true)
     private Output<String> certificateChain;
 
-    /**
-     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> certificateChain() {
         return this.certificateChain;
     }
@@ -53,23 +45,11 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustF
             $ = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(Output<String> certificateChain) {
             $.certificateChain = certificateChain;
             return this;
         }
 
-        /**
-         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(String certificateChain) {
             return certificateChain(Output.of(certificateChain));
         }

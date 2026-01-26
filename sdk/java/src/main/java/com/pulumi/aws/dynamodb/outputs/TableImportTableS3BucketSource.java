@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableImportTableS3BucketSource {
-    /**
-     * @return The S3 bucket that is being imported from.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The account number of the S3 bucket that is being imported from.
-     * 
-     */
     private @Nullable String bucketOwner;
-    /**
-     * @return The key prefix shared by all S3 Objects that are being imported.
-     * 
-     */
     private @Nullable String keyPrefix;
 
     private TableImportTableS3BucketSource() {}
-    /**
-     * @return The S3 bucket that is being imported from.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The account number of the S3 bucket that is being imported from.
-     * 
-     */
     public Optional<String> bucketOwner() {
         return Optional.ofNullable(this.bucketOwner);
     }
-    /**
-     * @return The key prefix shared by all S3 Objects that are being imported.
-     * 
-     */
     public Optional<String> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }

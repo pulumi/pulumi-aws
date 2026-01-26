@@ -139,7 +139,7 @@ if not MYPY:
     class StreamProcessorDataSharingPreferenceArgsDict(TypedDict):
         opt_in: pulumi.Input[_builtins.bool]
         """
-        Whether you are sharing data with Rekognition to improve model performance.
+        Do you want to share data with Rekognition to improve model performance.
         """
 elif False:
     StreamProcessorDataSharingPreferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -149,7 +149,7 @@ class StreamProcessorDataSharingPreferenceArgs:
     def __init__(__self__, *,
                  opt_in: pulumi.Input[_builtins.bool]):
         """
-        :param pulumi.Input[_builtins.bool] opt_in: Whether you are sharing data with Rekognition to improve model performance.
+        :param pulumi.Input[_builtins.bool] opt_in: Do you want to share data with Rekognition to improve model performance.
         """
         pulumi.set(__self__, "opt_in", opt_in)
 
@@ -157,7 +157,7 @@ class StreamProcessorDataSharingPreferenceArgs:
     @pulumi.getter(name="optIn")
     def opt_in(self) -> pulumi.Input[_builtins.bool]:
         """
-        Whether you are sharing data with Rekognition to improve model performance.
+        Do you want to share data with Rekognition to improve model performance.
         """
         return pulumi.get(self, "opt_in")
 
@@ -170,7 +170,7 @@ if not MYPY:
     class StreamProcessorInputArgsDict(TypedDict):
         kinesis_video_stream: NotRequired[pulumi.Input['StreamProcessorInputKinesisVideoStreamArgsDict']]
         """
-        Kinesis input stream. See `kinesis_video_stream`.
+        Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
         """
 elif False:
     StreamProcessorInputArgsDict: TypeAlias = Mapping[str, Any]
@@ -180,7 +180,7 @@ class StreamProcessorInputArgs:
     def __init__(__self__, *,
                  kinesis_video_stream: Optional[pulumi.Input['StreamProcessorInputKinesisVideoStreamArgs']] = None):
         """
-        :param pulumi.Input['StreamProcessorInputKinesisVideoStreamArgs'] kinesis_video_stream: Kinesis input stream. See `kinesis_video_stream`.
+        :param pulumi.Input['StreamProcessorInputKinesisVideoStreamArgs'] kinesis_video_stream: Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
         """
         if kinesis_video_stream is not None:
             pulumi.set(__self__, "kinesis_video_stream", kinesis_video_stream)
@@ -189,7 +189,7 @@ class StreamProcessorInputArgs:
     @pulumi.getter(name="kinesisVideoStream")
     def kinesis_video_stream(self) -> Optional[pulumi.Input['StreamProcessorInputKinesisVideoStreamArgs']]:
         """
-        Kinesis input stream. See `kinesis_video_stream`.
+        Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
         """
         return pulumi.get(self, "kinesis_video_stream")
 
@@ -265,11 +265,11 @@ if not MYPY:
     class StreamProcessorOutputArgsDict(TypedDict):
         kinesis_data_stream: NotRequired[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgsDict']]
         """
-        The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
+        The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
         """
         s3_destination: NotRequired[pulumi.Input['StreamProcessorOutputS3DestinationArgsDict']]
         """
-        The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+        The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
         """
 elif False:
     StreamProcessorOutputArgsDict: TypeAlias = Mapping[str, Any]
@@ -280,8 +280,8 @@ class StreamProcessorOutputArgs:
                  kinesis_data_stream: Optional[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs']] = None,
                  s3_destination: Optional[pulumi.Input['StreamProcessorOutputS3DestinationArgs']] = None):
         """
-        :param pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs'] kinesis_data_stream: The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
-        :param pulumi.Input['StreamProcessorOutputS3DestinationArgs'] s3_destination: The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+        :param pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs'] kinesis_data_stream: The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
+        :param pulumi.Input['StreamProcessorOutputS3DestinationArgs'] s3_destination: The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
         """
         if kinesis_data_stream is not None:
             pulumi.set(__self__, "kinesis_data_stream", kinesis_data_stream)
@@ -292,7 +292,7 @@ class StreamProcessorOutputArgs:
     @pulumi.getter(name="kinesisDataStream")
     def kinesis_data_stream(self) -> Optional[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs']]:
         """
-        The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
+        The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
         """
         return pulumi.get(self, "kinesis_data_stream")
 
@@ -304,7 +304,7 @@ class StreamProcessorOutputArgs:
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional[pulumi.Input['StreamProcessorOutputS3DestinationArgs']]:
         """
-        The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+        The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
         """
         return pulumi.get(self, "s3_destination")
 
@@ -349,7 +349,7 @@ if not MYPY:
     class StreamProcessorOutputS3DestinationArgsDict(TypedDict):
         bucket: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Name of the Amazon S3 bucket you want to associate with the streaming video project.
+        The name of the Amazon S3 bucket you want to associate with the streaming video project.
         """
         key_prefix: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -364,7 +364,7 @@ class StreamProcessorOutputS3DestinationArgs:
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] bucket: Name of the Amazon S3 bucket you want to associate with the streaming video project.
+        :param pulumi.Input[_builtins.str] bucket: The name of the Amazon S3 bucket you want to associate with the streaming video project.
         :param pulumi.Input[_builtins.str] key_prefix: The prefix value of the location within the bucket that you want the information to be published to.
         """
         if bucket is not None:
@@ -376,7 +376,7 @@ class StreamProcessorOutputS3DestinationArgs:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the Amazon S3 bucket you want to associate with the streaming video project.
+        The name of the Amazon S3 bucket you want to associate with the streaming video project.
         """
         return pulumi.get(self, "bucket")
 
@@ -401,11 +401,11 @@ if not MYPY:
     class StreamProcessorRegionsOfInterestArgsDict(TypedDict):
         bounding_box: pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgsDict']
         """
-        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        The box representing a region of interest on screen.
         """
         polygons: pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgsDict']]]
         """
-        Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+        Specifies a shape made of 3 to 10 Point objects that define a region of interest.
         """
 elif False:
     StreamProcessorRegionsOfInterestArgsDict: TypeAlias = Mapping[str, Any]
@@ -416,8 +416,8 @@ class StreamProcessorRegionsOfInterestArgs:
                  bounding_box: pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs'],
                  polygons: pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]):
         """
-        :param pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs'] bounding_box: Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]] polygons: Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+        :param pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs'] bounding_box: The box representing a region of interest on screen.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]] polygons: Specifies a shape made of 3 to 10 Point objects that define a region of interest.
         """
         pulumi.set(__self__, "bounding_box", bounding_box)
         pulumi.set(__self__, "polygons", polygons)
@@ -426,7 +426,7 @@ class StreamProcessorRegionsOfInterestArgs:
     @pulumi.getter(name="boundingBox")
     def bounding_box(self) -> pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']:
         """
-        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        The box representing a region of interest on screen.
         """
         return pulumi.get(self, "bounding_box")
 
@@ -438,7 +438,7 @@ class StreamProcessorRegionsOfInterestArgs:
     @pulumi.getter
     def polygons(self) -> pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]:
         """
-        Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+        Specifies a shape made of 3 to 10 Point objects that define a region of interest.
         """
         return pulumi.get(self, "polygons")
 
@@ -595,11 +595,11 @@ if not MYPY:
     class StreamProcessorSettingsArgsDict(TypedDict):
         connected_home: NotRequired[pulumi.Input['StreamProcessorSettingsConnectedHomeArgsDict']]
         """
-        Label detection settings to use on a streaming video. See `connected_home`.
+        Label detection settings to use on a streaming video.
         """
         face_search: NotRequired[pulumi.Input['StreamProcessorSettingsFaceSearchArgsDict']]
         """
-        Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
+        Face search settings to use on a streaming video.
         """
 elif False:
     StreamProcessorSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -610,8 +610,8 @@ class StreamProcessorSettingsArgs:
                  connected_home: Optional[pulumi.Input['StreamProcessorSettingsConnectedHomeArgs']] = None,
                  face_search: Optional[pulumi.Input['StreamProcessorSettingsFaceSearchArgs']] = None):
         """
-        :param pulumi.Input['StreamProcessorSettingsConnectedHomeArgs'] connected_home: Label detection settings to use on a streaming video. See `connected_home`.
-        :param pulumi.Input['StreamProcessorSettingsFaceSearchArgs'] face_search: Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
+        :param pulumi.Input['StreamProcessorSettingsConnectedHomeArgs'] connected_home: Label detection settings to use on a streaming video.
+        :param pulumi.Input['StreamProcessorSettingsFaceSearchArgs'] face_search: Face search settings to use on a streaming video.
         """
         if connected_home is not None:
             pulumi.set(__self__, "connected_home", connected_home)
@@ -622,7 +622,7 @@ class StreamProcessorSettingsArgs:
     @pulumi.getter(name="connectedHome")
     def connected_home(self) -> Optional[pulumi.Input['StreamProcessorSettingsConnectedHomeArgs']]:
         """
-        Label detection settings to use on a streaming video. See `connected_home`.
+        Label detection settings to use on a streaming video.
         """
         return pulumi.get(self, "connected_home")
 
@@ -634,7 +634,7 @@ class StreamProcessorSettingsArgs:
     @pulumi.getter(name="faceSearch")
     def face_search(self) -> Optional[pulumi.Input['StreamProcessorSettingsFaceSearchArgs']]:
         """
-        Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
+        Face search settings to use on a streaming video.
         """
         return pulumi.get(self, "face_search")
 
@@ -647,11 +647,11 @@ if not MYPY:
     class StreamProcessorSettingsConnectedHomeArgsDict(TypedDict):
         labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+        Specifies what you want to detect in the video, such as people, packages, or pets.
         """
         min_confidence: NotRequired[pulumi.Input[_builtins.float]]
         """
-        Minimum confidence required to label an object in the video.
+        The minimum confidence required to label an object in the video.
         """
 elif False:
     StreamProcessorSettingsConnectedHomeArgsDict: TypeAlias = Mapping[str, Any]
@@ -662,8 +662,8 @@ class StreamProcessorSettingsConnectedHomeArgs:
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  min_confidence: Optional[pulumi.Input[_builtins.float]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
-        :param pulumi.Input[_builtins.float] min_confidence: Minimum confidence required to label an object in the video.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: Specifies what you want to detect in the video, such as people, packages, or pets.
+        :param pulumi.Input[_builtins.float] min_confidence: The minimum confidence required to label an object in the video.
         """
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -674,7 +674,7 @@ class StreamProcessorSettingsConnectedHomeArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+        Specifies what you want to detect in the video, such as people, packages, or pets.
         """
         return pulumi.get(self, "labels")
 
@@ -686,7 +686,7 @@ class StreamProcessorSettingsConnectedHomeArgs:
     @pulumi.getter(name="minConfidence")
     def min_confidence(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        Minimum confidence required to label an object in the video.
+        The minimum confidence required to label an object in the video.
         """
         return pulumi.get(self, "min_confidence")
 
@@ -699,7 +699,7 @@ if not MYPY:
     class StreamProcessorSettingsFaceSearchArgsDict(TypedDict):
         collection_id: pulumi.Input[_builtins.str]
         """
-        ID of a collection that contains faces that you want to search for.
+        The ID of a collection that contains faces that you want to search for.
         """
         face_match_threshold: NotRequired[pulumi.Input[_builtins.float]]
         """
@@ -714,7 +714,7 @@ class StreamProcessorSettingsFaceSearchArgs:
                  collection_id: pulumi.Input[_builtins.str],
                  face_match_threshold: Optional[pulumi.Input[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.str] collection_id: ID of a collection that contains faces that you want to search for.
+        :param pulumi.Input[_builtins.str] collection_id: The ID of a collection that contains faces that you want to search for.
         :param pulumi.Input[_builtins.float] face_match_threshold: Minimum face match confidence score that must be met to return a result for a recognized face.
         """
         pulumi.set(__self__, "collection_id", collection_id)
@@ -725,7 +725,7 @@ class StreamProcessorSettingsFaceSearchArgs:
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ID of a collection that contains faces that you want to search for.
+        The ID of a collection that contains faces that you want to search for.
         """
         return pulumi.get(self, "collection_id")
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.SesV2.Inputs
 
     public sealed class ConfigurationSetTrackingOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The domain to use for tracking open and click events.
-        /// </summary>
         [Input("customRedirectDomain", required: true)]
         public Input<string> CustomRedirectDomain { get; set; } = null!;
 
-        /// <summary>
-        /// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-        /// </summary>
         [Input("httpsPolicy")]
         public Input<string>? HttpsPolicy { get; set; }
 

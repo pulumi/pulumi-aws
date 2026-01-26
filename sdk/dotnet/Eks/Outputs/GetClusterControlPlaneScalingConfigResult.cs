@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterControlPlaneScalingConfigResult
     {
-        /// <summary>
-        /// The control plane scaling tier. Valid values are `Standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
-        /// </summary>
         public readonly string Tier;
 
         [OutputConstructor]

@@ -17,62 +17,30 @@ public final class InstanceFleetLaunchSpecificationsSpotSpecificationArgs extend
 
     public static final InstanceFleetLaunchSpecificationsSpotSpecificationArgs Empty = new InstanceFleetLaunchSpecificationsSpotSpecificationArgs();
 
-    /**
-     * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-     * 
-     */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
-    /**
-     * @return Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-     * 
-     */
     public Output<String> allocationStrategy() {
         return this.allocationStrategy;
     }
 
-    /**
-     * The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * 
-     */
     @Import(name="blockDurationMinutes")
     private @Nullable Output<Integer> blockDurationMinutes;
 
-    /**
-     * @return The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * 
-     */
     public Optional<Output<Integer>> blockDurationMinutes() {
         return Optional.ofNullable(this.blockDurationMinutes);
     }
 
-    /**
-     * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-     * 
-     */
     @Import(name="timeoutAction", required=true)
     private Output<String> timeoutAction;
 
-    /**
-     * @return The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-     * 
-     */
     public Output<String> timeoutAction() {
         return this.timeoutAction;
     }
 
-    /**
-     * The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-     * 
-     */
     @Import(name="timeoutDurationMinutes", required=true)
     private Output<Integer> timeoutDurationMinutes;
 
-    /**
-     * @return The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-     * 
-     */
     public Output<Integer> timeoutDurationMinutes() {
         return this.timeoutDurationMinutes;
     }
@@ -104,86 +72,38 @@ public final class InstanceFleetLaunchSpecificationsSpotSpecificationArgs extend
             $ = new InstanceFleetLaunchSpecificationsSpotSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationStrategy Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
-        /**
-         * @param allocationStrategy Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }
 
-        /**
-         * @param blockDurationMinutes The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockDurationMinutes(@Nullable Output<Integer> blockDurationMinutes) {
             $.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
 
-        /**
-         * @param blockDurationMinutes The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockDurationMinutes(Integer blockDurationMinutes) {
             return blockDurationMinutes(Output.of(blockDurationMinutes));
         }
 
-        /**
-         * @param timeoutAction The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutAction(Output<String> timeoutAction) {
             $.timeoutAction = timeoutAction;
             return this;
         }
 
-        /**
-         * @param timeoutAction The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutAction(String timeoutAction) {
             return timeoutAction(Output.of(timeoutAction));
         }
 
-        /**
-         * @param timeoutDurationMinutes The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutDurationMinutes(Output<Integer> timeoutDurationMinutes) {
             $.timeoutDurationMinutes = timeoutDurationMinutes;
             return this;
         }
 
-        /**
-         * @param timeoutDurationMinutes The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutDurationMinutes(Integer timeoutDurationMinutes) {
             return timeoutDurationMinutes(Output.of(timeoutDurationMinutes));
         }

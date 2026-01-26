@@ -15,17 +15,9 @@ public final class ServiceIntegrationOpsCenterArgs extends com.pulumi.resources.
 
     public static final ServiceIntegrationOpsCenterArgs Empty = new ServiceIntegrationOpsCenterArgs();
 
-    /**
-     * Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     @Import(name="optInStatus")
     private @Nullable Output<String> optInStatus;
 
-    /**
-     * @return Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     public Optional<Output<String>> optInStatus() {
         return Optional.ofNullable(this.optInStatus);
     }
@@ -54,23 +46,11 @@ public final class ServiceIntegrationOpsCenterArgs extends com.pulumi.resources.
             $ = new ServiceIntegrationOpsCenterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param optInStatus Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(@Nullable Output<String> optInStatus) {
             $.optInStatus = optInStatus;
             return this;
         }
 
-        /**
-         * @param optInStatus Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(String optInStatus) {
             return optInStatus(Output.of(optInStatus));
         }

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Backup.Inputs
 
     public sealed class RestoreTestingPlanRecoveryPointSelectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
-        /// </summary>
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
 
         [Input("excludeVaults")]
         private InputList<string>? _excludeVaults;
-
-        /// <summary>
-        /// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
-        /// </summary>
         public InputList<string> ExcludeVaults
         {
             get => _excludeVaults ?? (_excludeVaults = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("includeVaults", required: true)]
         private InputList<string>? _includeVaults;
-
-        /// <summary>
-        /// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
-        /// </summary>
         public InputList<string> IncludeVaults
         {
             get => _includeVaults ?? (_includeVaults = new InputList<string>());
@@ -44,19 +33,12 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("recoveryPointTypes", required: true)]
         private InputList<string>? _recoveryPointTypes;
-
-        /// <summary>
-        /// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
-        /// </summary>
         public InputList<string> RecoveryPointTypes
         {
             get => _recoveryPointTypes ?? (_recoveryPointTypes = new InputList<string>());
             set => _recoveryPointTypes = value;
         }
 
-        /// <summary>
-        /// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-        /// </summary>
         [Input("selectionWindowDays")]
         public Input<int>? SelectionWindowDays { get; set; }
 

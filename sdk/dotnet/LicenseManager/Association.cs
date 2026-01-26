@@ -9,88 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LicenseManager
 {
-    /// <summary>
-    /// Provides a License Manager association.
-    /// 
-    /// &gt; **Note:** License configurations can also be associated with launch templates by specifying the `LicenseSpecifications` block for an `aws.ec2.LaunchTemplate`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "amzn-ami-vpc-nat*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
-    ///     {
-    ///         Ami = example.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
-    ///     });
-    /// 
-    ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         LicenseCountingType = "Instance",
-    ///     });
-    /// 
-    ///     var exampleAssociation = new Aws.LicenseManager.Association("example", new()
-    ///     {
-    ///         LicenseConfigurationArn = exampleLicenseConfiguration.Arn,
-    ///         ResourceArn = exampleInstance.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:licensemanager/association:Association")]
     public partial class Association : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the license configuration.
-        /// </summary>
         [Output("licenseConfigurationArn")]
         public Output<string> LicenseConfigurationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the resource associated with the license configuration.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -140,21 +67,12 @@ namespace Pulumi.Aws.LicenseManager
 
     public sealed class AssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the license configuration.
-        /// </summary>
         [Input("licenseConfigurationArn", required: true)]
         public Input<string> LicenseConfigurationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the resource associated with the license configuration.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -166,21 +84,12 @@ namespace Pulumi.Aws.LicenseManager
 
     public sealed class AssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the license configuration.
-        /// </summary>
         [Input("licenseConfigurationArn")]
         public Input<string>? LicenseConfigurationArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the resource associated with the license configuration.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

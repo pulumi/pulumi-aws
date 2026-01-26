@@ -11,77 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryRecentlyFailedRunExecutionStat {
-    /**
-     * @return Bytes metered for a single scheduled query run.
-     * 
-     */
     private @Nullable Integer bytesMetered;
-    /**
-     * @return Bytes scanned for a single scheduled query run.
-     * 
-     */
     private @Nullable Integer cumulativeBytesScanned;
-    /**
-     * @return Data writes metered for records ingested in a single scheduled query run.
-     * 
-     */
     private @Nullable Integer dataWrites;
-    /**
-     * @return Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-     * 
-     */
     private @Nullable Integer executionTimeInMillis;
-    /**
-     * @return Number of rows present in the output from running a query before ingestion to destination data source.
-     * 
-     */
     private @Nullable Integer queryResultRows;
-    /**
-     * @return Number of records ingested for a single scheduled query run.
-     * 
-     */
     private @Nullable Integer recordsIngested;
 
     private ScheduledQueryRecentlyFailedRunExecutionStat() {}
-    /**
-     * @return Bytes metered for a single scheduled query run.
-     * 
-     */
     public Optional<Integer> bytesMetered() {
         return Optional.ofNullable(this.bytesMetered);
     }
-    /**
-     * @return Bytes scanned for a single scheduled query run.
-     * 
-     */
     public Optional<Integer> cumulativeBytesScanned() {
         return Optional.ofNullable(this.cumulativeBytesScanned);
     }
-    /**
-     * @return Data writes metered for records ingested in a single scheduled query run.
-     * 
-     */
     public Optional<Integer> dataWrites() {
         return Optional.ofNullable(this.dataWrites);
     }
-    /**
-     * @return Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-     * 
-     */
     public Optional<Integer> executionTimeInMillis() {
         return Optional.ofNullable(this.executionTimeInMillis);
     }
-    /**
-     * @return Number of rows present in the output from running a query before ingestion to destination data source.
-     * 
-     */
     public Optional<Integer> queryResultRows() {
         return Optional.ofNullable(this.queryResultRows);
     }
-    /**
-     * @return Number of records ingested for a single scheduled query run.
-     * 
-     */
     public Optional<Integer> recordsIngested() {
         return Optional.ofNullable(this.recordsIngested);
     }

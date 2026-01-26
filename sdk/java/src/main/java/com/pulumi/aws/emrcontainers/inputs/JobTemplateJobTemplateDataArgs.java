@@ -19,77 +19,37 @@ public final class JobTemplateJobTemplateDataArgs extends com.pulumi.resources.R
 
     public static final JobTemplateJobTemplateDataArgs Empty = new JobTemplateJobTemplateDataArgs();
 
-    /**
-     * The configuration settings that are used to override defaults configuration.
-     * 
-     */
     @Import(name="configurationOverrides")
     private @Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesArgs> configurationOverrides;
 
-    /**
-     * @return The configuration settings that are used to override defaults configuration.
-     * 
-     */
     public Optional<Output<JobTemplateJobTemplateDataConfigurationOverridesArgs>> configurationOverrides() {
         return Optional.ofNullable(this.configurationOverrides);
     }
 
-    /**
-     * The execution role ARN of the job run.
-     * 
-     */
     @Import(name="executionRoleArn", required=true)
     private Output<String> executionRoleArn;
 
-    /**
-     * @return The execution role ARN of the job run.
-     * 
-     */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
 
-    /**
-     * Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-     * 
-     */
     @Import(name="jobDriver", required=true)
     private Output<JobTemplateJobTemplateDataJobDriverArgs> jobDriver;
 
-    /**
-     * @return Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-     * 
-     */
     public Output<JobTemplateJobTemplateDataJobDriverArgs> jobDriver() {
         return this.jobDriver;
     }
 
-    /**
-     * The tags assigned to jobs started using the job template.
-     * 
-     */
     @Import(name="jobTags")
     private @Nullable Output<Map<String,String>> jobTags;
 
-    /**
-     * @return The tags assigned to jobs started using the job template.
-     * 
-     */
     public Optional<Output<Map<String,String>>> jobTags() {
         return Optional.ofNullable(this.jobTags);
     }
 
-    /**
-     * The release version of Amazon EMR.
-     * 
-     */
     @Import(name="releaseLabel", required=true)
     private Output<String> releaseLabel;
 
-    /**
-     * @return The release version of Amazon EMR.
-     * 
-     */
     public Output<String> releaseLabel() {
         return this.releaseLabel;
     }
@@ -122,107 +82,47 @@ public final class JobTemplateJobTemplateDataArgs extends com.pulumi.resources.R
             $ = new JobTemplateJobTemplateDataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationOverrides The configuration settings that are used to override defaults configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationOverrides(@Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesArgs> configurationOverrides) {
             $.configurationOverrides = configurationOverrides;
             return this;
         }
 
-        /**
-         * @param configurationOverrides The configuration settings that are used to override defaults configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationOverrides(JobTemplateJobTemplateDataConfigurationOverridesArgs configurationOverrides) {
             return configurationOverrides(Output.of(configurationOverrides));
         }
 
-        /**
-         * @param executionRoleArn The execution role ARN of the job run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(Output<String> executionRoleArn) {
             $.executionRoleArn = executionRoleArn;
             return this;
         }
 
-        /**
-         * @param executionRoleArn The execution role ARN of the job run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(String executionRoleArn) {
             return executionRoleArn(Output.of(executionRoleArn));
         }
 
-        /**
-         * @param jobDriver Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobDriver(Output<JobTemplateJobTemplateDataJobDriverArgs> jobDriver) {
             $.jobDriver = jobDriver;
             return this;
         }
 
-        /**
-         * @param jobDriver Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobDriver(JobTemplateJobTemplateDataJobDriverArgs jobDriver) {
             return jobDriver(Output.of(jobDriver));
         }
 
-        /**
-         * @param jobTags The tags assigned to jobs started using the job template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobTags(@Nullable Output<Map<String,String>> jobTags) {
             $.jobTags = jobTags;
             return this;
         }
 
-        /**
-         * @param jobTags The tags assigned to jobs started using the job template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobTags(Map<String,String> jobTags) {
             return jobTags(Output.of(jobTags));
         }
 
-        /**
-         * @param releaseLabel The release version of Amazon EMR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder releaseLabel(Output<String> releaseLabel) {
             $.releaseLabel = releaseLabel;
             return this;
         }
 
-        /**
-         * @param releaseLabel The release version of Amazon EMR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder releaseLabel(String releaseLabel) {
             return releaseLabel(Output.of(releaseLabel));
         }

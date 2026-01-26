@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPhoneNumbers {
-    /**
-     * @return When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     private @Nullable Boolean primary;
-    /**
-     * @return The type of phone number.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return The user&#39;s phone number.
-     * 
-     */
     private @Nullable String value;
 
     private UserPhoneNumbers() {}
-    /**
-     * @return When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
-    /**
-     * @return The type of phone number.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return The user&#39;s phone number.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

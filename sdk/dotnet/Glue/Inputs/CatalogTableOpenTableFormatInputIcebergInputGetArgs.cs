@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableOpenTableFormatInputIcebergInputGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A required metadata operation. Can only be set to CREATE.
-        /// </summary>
         [Input("metadataOperation", required: true)]
         public Input<string> MetadataOperation { get; set; } = null!;
 
-        /// <summary>
-        /// The table version for the Iceberg table. Defaults to 2.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

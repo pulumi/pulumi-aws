@@ -16,36 +16,16 @@ public final class SpotInstanceRequestCapacityReservationSpecificationArgs exten
 
     public static final SpotInstanceRequestCapacityReservationSpecificationArgs Empty = new SpotInstanceRequestCapacityReservationSpecificationArgs();
 
-    /**
-     * Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
-     * 
-     */
     @Import(name="capacityReservationPreference")
     private @Nullable Output<String> capacityReservationPreference;
 
-    /**
-     * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
-     * 
-     */
     public Optional<Output<String>> capacityReservationPreference() {
         return Optional.ofNullable(this.capacityReservationPreference);
     }
 
-    /**
-     * Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
-     * 
-     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
-     * 
-     */
     @Import(name="capacityReservationTarget")
     private @Nullable Output<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs> capacityReservationTarget;
 
-    /**
-     * @return Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
-     * 
-     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
-     * 
-     */
     public Optional<Output<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs>> capacityReservationTarget() {
         return Optional.ofNullable(this.capacityReservationTarget);
     }
@@ -75,48 +55,20 @@ public final class SpotInstanceRequestCapacityReservationSpecificationArgs exten
             $ = new SpotInstanceRequestCapacityReservationSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityReservationPreference Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationPreference(@Nullable Output<String> capacityReservationPreference) {
             $.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
 
-        /**
-         * @param capacityReservationPreference Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationPreference(String capacityReservationPreference) {
             return capacityReservationPreference(Output.of(capacityReservationPreference));
         }
 
-        /**
-         * @param capacityReservationTarget Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
-         * 
-         * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationTarget(@Nullable Output<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs> capacityReservationTarget) {
             $.capacityReservationTarget = capacityReservationTarget;
             return this;
         }
 
-        /**
-         * @param capacityReservationTarget Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
-         * 
-         * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationTarget(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs capacityReservationTarget) {
             return capacityReservationTarget(Output.of(capacityReservationTarget));
         }

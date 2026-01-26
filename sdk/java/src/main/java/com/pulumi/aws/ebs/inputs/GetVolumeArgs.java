@@ -19,68 +19,30 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVolumeArgs Empty = new GetVolumeArgs();
 
-    /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetVolumeFilterArgs>> filters;
 
-    /**
-     * @return One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
-     * 
-     */
     public Optional<Output<List<GetVolumeFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * If more than one result is returned, use the most
-     * recent volume.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
-    /**
-     * @return If more than one result is returned, use the most
-     * recent volume.
-     * 
-     */
     public Optional<Output<Boolean>> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -112,104 +74,42 @@ public final class GetVolumeArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVolumeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetVolumeFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetVolumeFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVolumeFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Output<Boolean> mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

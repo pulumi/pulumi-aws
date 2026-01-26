@@ -19,62 +19,30 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
 
     public static final MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs Empty = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs();
 
-    /**
-     * Configuration for an issue detection rule.
-     * 
-     */
     @Import(name="issueDetectionConfiguration")
     private @Nullable Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs> issueDetectionConfiguration;
 
-    /**
-     * @return Configuration for an issue detection rule.
-     * 
-     */
     public Optional<Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs>> issueDetectionConfiguration() {
         return Optional.ofNullable(this.issueDetectionConfiguration);
     }
 
-    /**
-     * Configuration for a keyword match rule.
-     * 
-     */
     @Import(name="keywordMatchConfiguration")
     private @Nullable Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs> keywordMatchConfiguration;
 
-    /**
-     * @return Configuration for a keyword match rule.
-     * 
-     */
     public Optional<Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs>> keywordMatchConfiguration() {
         return Optional.ofNullable(this.keywordMatchConfiguration);
     }
 
-    /**
-     * Configuration for a sentiment rule.
-     * 
-     */
     @Import(name="sentimentConfiguration")
     private @Nullable Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs> sentimentConfiguration;
 
-    /**
-     * @return Configuration for a sentiment rule.
-     * 
-     */
     public Optional<Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs>> sentimentConfiguration() {
         return Optional.ofNullable(this.sentimentConfiguration);
     }
 
-    /**
-     * Rule type.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Rule type.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -106,86 +74,38 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             $ = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param issueDetectionConfiguration Configuration for an issue detection rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issueDetectionConfiguration(@Nullable Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs> issueDetectionConfiguration) {
             $.issueDetectionConfiguration = issueDetectionConfiguration;
             return this;
         }
 
-        /**
-         * @param issueDetectionConfiguration Configuration for an issue detection rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issueDetectionConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs issueDetectionConfiguration) {
             return issueDetectionConfiguration(Output.of(issueDetectionConfiguration));
         }
 
-        /**
-         * @param keywordMatchConfiguration Configuration for a keyword match rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordMatchConfiguration(@Nullable Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs> keywordMatchConfiguration) {
             $.keywordMatchConfiguration = keywordMatchConfiguration;
             return this;
         }
 
-        /**
-         * @param keywordMatchConfiguration Configuration for a keyword match rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordMatchConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs keywordMatchConfiguration) {
             return keywordMatchConfiguration(Output.of(keywordMatchConfiguration));
         }
 
-        /**
-         * @param sentimentConfiguration Configuration for a sentiment rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sentimentConfiguration(@Nullable Output<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs> sentimentConfiguration) {
             $.sentimentConfiguration = sentimentConfiguration;
             return this;
         }
 
-        /**
-         * @param sentimentConfiguration Configuration for a sentiment rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sentimentConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs sentimentConfiguration) {
             return sentimentConfiguration(Output.of(sentimentConfiguration));
         }
 
-        /**
-         * @param type Rule type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Rule type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

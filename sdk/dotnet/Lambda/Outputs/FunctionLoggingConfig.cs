@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionLoggingConfig
     {
-        /// <summary>
-        /// Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-        /// </summary>
         public readonly string? ApplicationLogLevel;
-        /// <summary>
-        /// Log format. Valid values: `Text`, `JSON`.
-        /// </summary>
         public readonly string LogFormat;
-        /// <summary>
-        /// CloudWatch log group where logs are sent.
-        /// </summary>
         public readonly string? LogGroup;
-        /// <summary>
-        /// Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-        /// </summary>
         public readonly string? SystemLogLevel;
 
         [OutputConstructor]

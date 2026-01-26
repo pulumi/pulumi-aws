@@ -25,17 +25,9 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.agentDescriptor);
     }
 
-    /**
-     * ID if the agent to associate the collaborator.
-     * 
-     */
     @Import(name="agentId")
     private @Nullable Output<String> agentId;
 
-    /**
-     * @return ID if the agent to associate the collaborator.
-     * 
-     */
     public Optional<Output<String>> agentId() {
         return Optional.ofNullable(this.agentId);
     }
@@ -47,96 +39,44 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.agentVersion);
     }
 
-    /**
-     * Instruction to give the collaborator.
-     * 
-     */
     @Import(name="collaborationInstruction")
     private @Nullable Output<String> collaborationInstruction;
 
-    /**
-     * @return Instruction to give the collaborator.
-     * 
-     */
     public Optional<Output<String>> collaborationInstruction() {
         return Optional.ofNullable(this.collaborationInstruction);
     }
 
-    /**
-     * ID of the Agent Collaborator.
-     * 
-     */
     @Import(name="collaboratorId")
     private @Nullable Output<String> collaboratorId;
 
-    /**
-     * @return ID of the Agent Collaborator.
-     * 
-     */
     public Optional<Output<String>> collaboratorId() {
         return Optional.ofNullable(this.collaboratorId);
     }
 
-    /**
-     * Name of this collaborator.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="collaboratorName")
     private @Nullable Output<String> collaboratorName;
 
-    /**
-     * @return Name of this collaborator.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> collaboratorName() {
         return Optional.ofNullable(this.collaboratorName);
     }
 
-    /**
-     * Whether to prepare the agent after creation or modification. Defaults to `true`.
-     * 
-     */
     @Import(name="prepareAgent")
     private @Nullable Output<Boolean> prepareAgent;
 
-    /**
-     * @return Whether to prepare the agent after creation or modification. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> prepareAgent() {
         return Optional.ofNullable(this.prepareAgent);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configure relaying the history to the collaborator.
-     * 
-     */
     @Import(name="relayConversationHistory")
     private @Nullable Output<String> relayConversationHistory;
 
-    /**
-     * @return Configure relaying the history to the collaborator.
-     * 
-     */
     public Optional<Output<String>> relayConversationHistory() {
         return Optional.ofNullable(this.relayConversationHistory);
     }
@@ -190,23 +130,11 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
             return agentDescriptor(Output.of(agentDescriptor));
         }
 
-        /**
-         * @param agentId ID if the agent to associate the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentId(@Nullable Output<String> agentId) {
             $.agentId = agentId;
             return this;
         }
 
-        /**
-         * @param agentId ID if the agent to associate the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentId(String agentId) {
             return agentId(Output.of(agentId));
         }
@@ -220,132 +148,56 @@ public final class AgentAgentCollaboratorState extends com.pulumi.resources.Reso
             return agentVersion(Output.of(agentVersion));
         }
 
-        /**
-         * @param collaborationInstruction Instruction to give the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaborationInstruction(@Nullable Output<String> collaborationInstruction) {
             $.collaborationInstruction = collaborationInstruction;
             return this;
         }
 
-        /**
-         * @param collaborationInstruction Instruction to give the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaborationInstruction(String collaborationInstruction) {
             return collaborationInstruction(Output.of(collaborationInstruction));
         }
 
-        /**
-         * @param collaboratorId ID of the Agent Collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaboratorId(@Nullable Output<String> collaboratorId) {
             $.collaboratorId = collaboratorId;
             return this;
         }
 
-        /**
-         * @param collaboratorId ID of the Agent Collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaboratorId(String collaboratorId) {
             return collaboratorId(Output.of(collaboratorId));
         }
 
-        /**
-         * @param collaboratorName Name of this collaborator.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaboratorName(@Nullable Output<String> collaboratorName) {
             $.collaboratorName = collaboratorName;
             return this;
         }
 
-        /**
-         * @param collaboratorName Name of this collaborator.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaboratorName(String collaboratorName) {
             return collaboratorName(Output.of(collaboratorName));
         }
 
-        /**
-         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prepareAgent(@Nullable Output<Boolean> prepareAgent) {
             $.prepareAgent = prepareAgent;
             return this;
         }
 
-        /**
-         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prepareAgent(Boolean prepareAgent) {
             return prepareAgent(Output.of(prepareAgent));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param relayConversationHistory Configure relaying the history to the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relayConversationHistory(@Nullable Output<String> relayConversationHistory) {
             $.relayConversationHistory = relayConversationHistory;
             return this;
         }
 
-        /**
-         * @param relayConversationHistory Configure relaying the history to the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relayConversationHistory(String relayConversationHistory) {
             return relayConversationHistory(Output.of(relayConversationHistory));
         }

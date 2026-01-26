@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryErrorReportConfigurationS3Configuration {
-    /**
-     * @return Name of the S3 bucket under which error reports will be created.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
-     * 
-     */
     private @Nullable String encryptionOption;
-    /**
-     * @return Prefix for the error report key.
-     * 
-     */
     private @Nullable String objectKeyPrefix;
 
     private ScheduledQueryErrorReportConfigurationS3Configuration() {}
-    /**
-     * @return Name of the S3 bucket under which error reports will be created.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
-     * 
-     */
     public Optional<String> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
-    /**
-     * @return Prefix for the error report key.
-     * 
-     */
     public Optional<String> objectKeyPrefix() {
         return Optional.ofNullable(this.objectKeyPrefix);
     }

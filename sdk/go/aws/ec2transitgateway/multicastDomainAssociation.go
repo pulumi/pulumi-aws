@@ -12,67 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
-//				MulticastSupport: pulumi.String("enable"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				TransitGatewayId: example.ID(),
-//				VpcId:            pulumi.Any(exampleAwsVpc.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMulticastDomain, err := ec2transitgateway.NewMulticastDomain(ctx, "example", &ec2transitgateway.MulticastDomainArgs{
-//				TransitGatewayId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "example", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        pulumi.Any(exampleAwsSubnet.Id),
-//				TransitGatewayAttachmentId:      exampleVpcAttachment.ID(),
-//				TransitGatewayMulticastDomainId: exampleMulticastDomain.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type MulticastDomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway multicast domain.
+	Region                          pulumi.StringOutput `pulumi:"region"`
+	SubnetId                        pulumi.StringOutput `pulumi:"subnetId"`
+	TransitGatewayAttachmentId      pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayMulticastDomainId pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainId"`
 }
 
@@ -115,24 +60,16 @@ func GetMulticastDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MulticastDomainAssociation resources.
 type multicastDomainAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway multicast domain.
+	Region                          *string `pulumi:"region"`
+	SubnetId                        *string `pulumi:"subnetId"`
+	TransitGatewayAttachmentId      *string `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayMulticastDomainId *string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 type MulticastDomainAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId pulumi.StringPtrInput
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// The ID of the transit gateway multicast domain.
+	Region                          pulumi.StringPtrInput
+	SubnetId                        pulumi.StringPtrInput
+	TransitGatewayAttachmentId      pulumi.StringPtrInput
 	TransitGatewayMulticastDomainId pulumi.StringPtrInput
 }
 
@@ -141,25 +78,17 @@ func (MulticastDomainAssociationState) ElementType() reflect.Type {
 }
 
 type multicastDomainAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId string `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId string `pulumi:"transitGatewayMulticastDomainId"`
+	Region                          *string `pulumi:"region"`
+	SubnetId                        string  `pulumi:"subnetId"`
+	TransitGatewayAttachmentId      string  `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayMulticastDomainId string  `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 // The set of arguments for constructing a MulticastDomainAssociation resource.
 type MulticastDomainAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId pulumi.StringInput
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId pulumi.StringInput
-	// The ID of the transit gateway multicast domain.
+	Region                          pulumi.StringPtrInput
+	SubnetId                        pulumi.StringInput
+	TransitGatewayAttachmentId      pulumi.StringInput
 	TransitGatewayMulticastDomainId pulumi.StringInput
 }
 
@@ -250,22 +179,18 @@ func (o MulticastDomainAssociationOutput) ToMulticastDomainAssociationOutputWith
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MulticastDomainAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet to associate with the transit gateway multicast domain.
 func (o MulticastDomainAssociationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway attachment.
 func (o MulticastDomainAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway multicast domain.
 func (o MulticastDomainAssociationOutput) TransitGatewayMulticastDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.TransitGatewayMulticastDomainId }).(pulumi.StringOutput)
 }

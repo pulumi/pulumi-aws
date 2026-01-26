@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class SourceApiAssociationSourceApiAssociationConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-        /// </summary>
         [Input("mergeType", required: true)]
         public Input<string> MergeType { get; set; } = null!;
 

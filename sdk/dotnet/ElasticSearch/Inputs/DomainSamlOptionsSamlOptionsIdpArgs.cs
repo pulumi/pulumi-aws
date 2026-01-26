@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainSamlOptionsSamlOptionsIdpArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique Entity ID of the application in SAML Identity Provider.
-        /// </summary>
         [Input("entityId", required: true)]
         public Input<string> EntityId { get; set; } = null!;
 
-        /// <summary>
-        /// The Metadata of the SAML application in xml format.
-        /// </summary>
         [Input("metadataContent", required: true)]
         public Input<string> MetadataContent { get; set; } = null!;
 

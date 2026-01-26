@@ -12,113 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplatePlacement {
-    /**
-     * @return The affinity setting for an instance on a Dedicated Host.
-     * 
-     */
     private @Nullable String affinity;
-    /**
-     * @return The Availability Zone for the instance.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return The ID of the placement group for the instance. Conflicts with `groupName`.
-     * 
-     */
     private @Nullable String groupId;
-    /**
-     * @return The name of the placement group for the instance. Conflicts with `groupId`.
-     * 
-     */
     private @Nullable String groupName;
-    /**
-     * @return The ID of the Dedicated Host for the instance.
-     * 
-     */
     private @Nullable String hostId;
-    /**
-     * @return The ARN of the Host Resource Group in which to launch instances.
-     * 
-     */
     private @Nullable String hostResourceGroupArn;
-    /**
-     * @return The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
-     * 
-     */
     private @Nullable Integer partitionNumber;
-    /**
-     * @return Reserved for future use.
-     * 
-     */
     private @Nullable String spreadDomain;
-    /**
-     * @return The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
-     * 
-     */
     private @Nullable String tenancy;
 
     private LaunchTemplatePlacement() {}
-    /**
-     * @return The affinity setting for an instance on a Dedicated Host.
-     * 
-     */
     public Optional<String> affinity() {
         return Optional.ofNullable(this.affinity);
     }
-    /**
-     * @return The Availability Zone for the instance.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return The ID of the placement group for the instance. Conflicts with `groupName`.
-     * 
-     */
     public Optional<String> groupId() {
         return Optional.ofNullable(this.groupId);
     }
-    /**
-     * @return The name of the placement group for the instance. Conflicts with `groupId`.
-     * 
-     */
     public Optional<String> groupName() {
         return Optional.ofNullable(this.groupName);
     }
-    /**
-     * @return The ID of the Dedicated Host for the instance.
-     * 
-     */
     public Optional<String> hostId() {
         return Optional.ofNullable(this.hostId);
     }
-    /**
-     * @return The ARN of the Host Resource Group in which to launch instances.
-     * 
-     */
     public Optional<String> hostResourceGroupArn() {
         return Optional.ofNullable(this.hostResourceGroupArn);
     }
-    /**
-     * @return The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
-     * 
-     */
     public Optional<Integer> partitionNumber() {
         return Optional.ofNullable(this.partitionNumber);
     }
-    /**
-     * @return Reserved for future use.
-     * 
-     */
     public Optional<String> spreadDomain() {
         return Optional.ofNullable(this.spreadDomain);
     }
-    /**
-     * @return The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
-     * 
-     */
     public Optional<String> tenancy() {
         return Optional.ofNullable(this.tenancy);
     }

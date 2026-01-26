@@ -9,201 +9,57 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Provides an Amazon Connect instance resource. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-    /// 
-    /// !&gt; **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits). For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance. Use care when creating or deleting instances.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
-    ///     {
-    ///         IdentityManagementType = "CONNECT_MANAGED",
-    ///         InboundCallsEnabled = true,
-    ///         InstanceAlias = "friendly-name-connect",
-    ///         OutboundCallsEnabled = true,
-    ///         Tags = 
-    ///         {
-    ///             { "hello", "world" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Existing Active Directory
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
-    ///     {
-    ///         DirectoryId = testAwsDirectoryServiceDirectory.Id,
-    ///         IdentityManagementType = "EXISTING_DIRECTORY",
-    ///         InboundCallsEnabled = true,
-    ///         InstanceAlias = "friendly-name-connect",
-    ///         OutboundCallsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With SAML
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
-    ///     {
-    ///         IdentityManagementType = "SAML",
-    ///         InboundCallsEnabled = true,
-    ///         InstanceAlias = "friendly-name-connect",
-    ///         OutboundCallsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `id` - (String) ID of the connect instance.
-    /// 
-    /// #### Optional
-    /// 
-    /// - `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// - `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import Connect instances using the `id`. For example:
-    /// 
-    /// % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
-    /// </summary>
     [AwsResourceType("aws:connect/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the instance.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether auto resolve best voices is enabled. Defaults to `True`.
-        /// </summary>
         [Output("autoResolveBestVoicesEnabled")]
         public Output<bool?> AutoResolveBestVoicesEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether contact flow logs are enabled. Defaults to `False`.
-        /// </summary>
         [Output("contactFlowLogsEnabled")]
         public Output<bool?> ContactFlowLogsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether contact lens is enabled. Defaults to `True`.
-        /// </summary>
         [Output("contactLensEnabled")]
         public Output<bool?> ContactLensEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// When the instance was created.
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier for the directory if IdentityManagementType is `EXISTING_DIRECTORY`.
-        /// </summary>
         [Output("directoryId")]
         public Output<string?> DirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether early media for outbound calls is enabled . Defaults to `True` if outbound calls is enabled.
-        /// </summary>
         [Output("earlyMediaEnabled")]
         public Output<bool?> EarlyMediaEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
-        /// </summary>
         [Output("identityManagementType")]
         public Output<string> IdentityManagementType { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether inbound calls are enabled.
-        /// </summary>
         [Output("inboundCallsEnabled")]
         public Output<bool> InboundCallsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the instance. Required if `DirectoryId` not specified.
-        /// </summary>
         [Output("instanceAlias")]
         public Output<string?> InstanceAlias { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether multi-party calls/conference is enabled. Defaults to `False`.
-        /// </summary>
         [Output("multiPartyConferenceEnabled")]
         public Output<bool?> MultiPartyConferenceEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether outbound calls are enabled.
-        /// </summary>
         [Output("outboundCallsEnabled")]
         public Output<bool> OutboundCallsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The service role of the instance.
-        /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
 
-        /// <summary>
-        /// The state of the instance.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `UseCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `False` --&gt;
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -253,79 +109,41 @@ namespace Pulumi.Aws.Connect
 
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether auto resolve best voices is enabled. Defaults to `True`.
-        /// </summary>
         [Input("autoResolveBestVoicesEnabled")]
         public Input<bool>? AutoResolveBestVoicesEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies whether contact flow logs are enabled. Defaults to `False`.
-        /// </summary>
         [Input("contactFlowLogsEnabled")]
         public Input<bool>? ContactFlowLogsEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies whether contact lens is enabled. Defaults to `True`.
-        /// </summary>
         [Input("contactLensEnabled")]
         public Input<bool>? ContactLensEnabled { get; set; }
 
-        /// <summary>
-        /// The identifier for the directory if IdentityManagementType is `EXISTING_DIRECTORY`.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// Specifies whether early media for outbound calls is enabled . Defaults to `True` if outbound calls is enabled.
-        /// </summary>
         [Input("earlyMediaEnabled")]
         public Input<bool>? EarlyMediaEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
-        /// </summary>
         [Input("identityManagementType", required: true)]
         public Input<string> IdentityManagementType { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether inbound calls are enabled.
-        /// </summary>
         [Input("inboundCallsEnabled", required: true)]
         public Input<bool> InboundCallsEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the instance. Required if `DirectoryId` not specified.
-        /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
 
-        /// <summary>
-        /// Specifies whether multi-party calls/conference is enabled. Defaults to `False`.
-        /// </summary>
         [Input("multiPartyConferenceEnabled")]
         public Input<bool>? MultiPartyConferenceEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies whether outbound calls are enabled.
-        /// </summary>
         [Input("outboundCallsEnabled", required: true)]
         public Input<bool> OutboundCallsEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `UseCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `False` --&gt;
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -340,103 +158,53 @@ namespace Pulumi.Aws.Connect
 
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the instance.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Specifies whether auto resolve best voices is enabled. Defaults to `True`.
-        /// </summary>
         [Input("autoResolveBestVoicesEnabled")]
         public Input<bool>? AutoResolveBestVoicesEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies whether contact flow logs are enabled. Defaults to `False`.
-        /// </summary>
         [Input("contactFlowLogsEnabled")]
         public Input<bool>? ContactFlowLogsEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies whether contact lens is enabled. Defaults to `True`.
-        /// </summary>
         [Input("contactLensEnabled")]
         public Input<bool>? ContactLensEnabled { get; set; }
 
-        /// <summary>
-        /// When the instance was created.
-        /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
-        /// <summary>
-        /// The identifier for the directory if IdentityManagementType is `EXISTING_DIRECTORY`.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// Specifies whether early media for outbound calls is enabled . Defaults to `True` if outbound calls is enabled.
-        /// </summary>
         [Input("earlyMediaEnabled")]
         public Input<bool>? EarlyMediaEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
-        /// </summary>
         [Input("identityManagementType")]
         public Input<string>? IdentityManagementType { get; set; }
 
-        /// <summary>
-        /// Specifies whether inbound calls are enabled.
-        /// </summary>
         [Input("inboundCallsEnabled")]
         public Input<bool>? InboundCallsEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the instance. Required if `DirectoryId` not specified.
-        /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
 
-        /// <summary>
-        /// Specifies whether multi-party calls/conference is enabled. Defaults to `False`.
-        /// </summary>
         [Input("multiPartyConferenceEnabled")]
         public Input<bool>? MultiPartyConferenceEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies whether outbound calls are enabled.
-        /// </summary>
         [Input("outboundCallsEnabled")]
         public Input<bool>? OutboundCallsEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The service role of the instance.
-        /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
-        /// <summary>
-        /// The state of the instance.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// &lt;!-- * `UseCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `False` --&gt;
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -445,10 +213,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

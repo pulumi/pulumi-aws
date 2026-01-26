@@ -30,15 +30,6 @@ class CostCategoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
-        :param pulumi.Input[_builtins.str] rule_version: Rule schema version in this particular Cost Category.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[_builtins.str] default_value: Default value for the cost category.
-        :param pulumi.Input[_builtins.str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        :param pulumi.Input[_builtins.str] name: Unique name for the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "rule_version", rule_version)
         pulumi.set(__self__, "rules", rules)
@@ -56,11 +47,6 @@ class CostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Rule schema version in this particular Cost Category.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule_version")
 
     @rule_version.setter
@@ -70,9 +56,6 @@ class CostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]:
-        """
-        Configuration block for the Cost Category rules used to categorize costs. See below.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -82,9 +65,6 @@ class CostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Default value for the cost category.
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -94,9 +74,6 @@ class CostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="effectiveStart")
     def effective_start(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        """
         return pulumi.get(self, "effective_start")
 
     @effective_start.setter
@@ -106,9 +83,6 @@ class CostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the Cost Category.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -118,9 +92,6 @@ class CostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="splitChargeRules")
     def split_charge_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]:
-        """
-        Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        """
         return pulumi.get(self, "split_charge_rules")
 
     @split_charge_rules.setter
@@ -130,9 +101,6 @@ class CostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -155,18 +123,6 @@ class _CostCategoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CostCategory resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the cost category.
-        :param pulumi.Input[_builtins.str] default_value: Default value for the cost category.
-        :param pulumi.Input[_builtins.str] effective_end: Effective end data of your Cost Category.
-        :param pulumi.Input[_builtins.str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        :param pulumi.Input[_builtins.str] name: Unique name for the Cost Category.
-        :param pulumi.Input[_builtins.str] rule_version: Rule schema version in this particular Cost Category.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -192,9 +148,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the cost category.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -204,9 +157,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Default value for the cost category.
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -216,9 +166,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter(name="effectiveEnd")
     def effective_end(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Effective end data of your Cost Category.
-        """
         return pulumi.get(self, "effective_end")
 
     @effective_end.setter
@@ -228,9 +175,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter(name="effectiveStart")
     def effective_start(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        """
         return pulumi.get(self, "effective_start")
 
     @effective_start.setter
@@ -240,9 +184,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the Cost Category.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -252,11 +193,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Rule schema version in this particular Cost Category.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule_version")
 
     @rule_version.setter
@@ -266,9 +202,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]]:
-        """
-        Configuration block for the Cost Category rules used to categorize costs. See below.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -278,9 +211,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter(name="splitChargeRules")
     def split_charge_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]:
-        """
-        Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        """
         return pulumi.get(self, "split_charge_rules")
 
     @split_charge_rules.setter
@@ -290,9 +220,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -302,9 +229,6 @@ class _CostCategoryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -327,74 +251,9 @@ class CostCategory(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a CE Cost Category.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.costexplorer.CostCategory("test",
-            name="NAME",
-            rule_version="CostCategoryExpression.v1",
-            rules=[
-                {
-                    "value": "production",
-                    "rule": {
-                        "dimension": {
-                            "key": "LINKED_ACCOUNT_NAME",
-                            "values": ["-prod"],
-                            "match_options": ["ENDS_WITH"],
-                        },
-                    },
-                },
-                {
-                    "value": "staging",
-                    "rule": {
-                        "dimension": {
-                            "key": "LINKED_ACCOUNT_NAME",
-                            "values": ["-stg"],
-                            "match_options": ["ENDS_WITH"],
-                        },
-                    },
-                },
-                {
-                    "value": "testing",
-                    "rule": {
-                        "dimension": {
-                            "key": "LINKED_ACCOUNT_NAME",
-                            "values": ["-dev"],
-                            "match_options": ["ENDS_WITH"],
-                        },
-                    },
-                },
-            ])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
-
-        Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
-
-        % pulumi import aws_ce_cost_category.example costCategoryARN
-
+        Create a CostCategory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] default_value: Default value for the cost category.
-        :param pulumi.Input[_builtins.str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        :param pulumi.Input[_builtins.str] name: Unique name for the Cost Category.
-        :param pulumi.Input[_builtins.str] rule_version: Rule schema version in this particular Cost Category.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -403,63 +262,7 @@ class CostCategory(pulumi.CustomResource):
                  args: CostCategoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CE Cost Category.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.costexplorer.CostCategory("test",
-            name="NAME",
-            rule_version="CostCategoryExpression.v1",
-            rules=[
-                {
-                    "value": "production",
-                    "rule": {
-                        "dimension": {
-                            "key": "LINKED_ACCOUNT_NAME",
-                            "values": ["-prod"],
-                            "match_options": ["ENDS_WITH"],
-                        },
-                    },
-                },
-                {
-                    "value": "staging",
-                    "rule": {
-                        "dimension": {
-                            "key": "LINKED_ACCOUNT_NAME",
-                            "values": ["-stg"],
-                            "match_options": ["ENDS_WITH"],
-                        },
-                    },
-                },
-                {
-                    "value": "testing",
-                    "rule": {
-                        "dimension": {
-                            "key": "LINKED_ACCOUNT_NAME",
-                            "values": ["-dev"],
-                            "match_options": ["ENDS_WITH"],
-                        },
-                    },
-                },
-            ])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
-
-        Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
-
-        % pulumi import aws_ce_cost_category.example costCategoryARN
-
+        Create a CostCategory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CostCategoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -532,18 +335,6 @@ class CostCategory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the cost category.
-        :param pulumi.Input[_builtins.str] default_value: Default value for the cost category.
-        :param pulumi.Input[_builtins.str] effective_end: Effective end data of your Cost Category.
-        :param pulumi.Input[_builtins.str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        :param pulumi.Input[_builtins.str] name: Unique name for the Cost Category.
-        :param pulumi.Input[_builtins.str] rule_version: Rule schema version in this particular Cost Category.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -564,82 +355,50 @@ class CostCategory(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the cost category.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Default value for the cost category.
-        """
         return pulumi.get(self, "default_value")
 
     @_builtins.property
     @pulumi.getter(name="effectiveEnd")
     def effective_end(self) -> pulumi.Output[_builtins.str]:
-        """
-        Effective end data of your Cost Category.
-        """
         return pulumi.get(self, "effective_end")
 
     @_builtins.property
     @pulumi.getter(name="effectiveStart")
     def effective_start(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        """
         return pulumi.get(self, "effective_start")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name for the Cost Category.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Rule schema version in this particular Cost Category.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule_version")
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.CostCategoryRule']]:
-        """
-        Configuration block for the Cost Category rules used to categorize costs. See below.
-        """
         return pulumi.get(self, "rules")
 
     @_builtins.property
     @pulumi.getter(name="splitChargeRules")
     def split_charge_rules(self) -> pulumi.Output[Optional[Sequence['outputs.CostCategorySplitChargeRule']]]:
-        """
-        Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        """
         return pulumi.get(self, "split_charge_rules")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

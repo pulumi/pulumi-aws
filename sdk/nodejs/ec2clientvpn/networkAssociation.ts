@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
- * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
- *     clientVpnEndpointId: exampleAwsEc2ClientVpnEndpoint.id,
- *     subnetId: exampleAwsSubnet.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
- * ```
- */
 export class NetworkAssociation extends pulumi.CustomResource {
     /**
      * Get an existing NetworkAssociation resource's state with the given name, ID, and optional extra
@@ -56,25 +32,10 @@ export class NetworkAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkAssociation.__pulumiType;
     }
 
-    /**
-     * The unique ID of the target network association.
-     */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
-    /**
-     * The ID of the Client VPN endpoint.
-     */
     declare public readonly clientVpnEndpointId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the subnet to associate with the Client VPN endpoint.
-     */
     declare public readonly subnetId: pulumi.Output<string>;
-    /**
-     * The ID of the VPC in which the target subnet is located.
-     */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -118,25 +79,10 @@ export class NetworkAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkAssociation resources.
  */
 export interface NetworkAssociationState {
-    /**
-     * The unique ID of the target network association.
-     */
     associationId?: pulumi.Input<string>;
-    /**
-     * The ID of the Client VPN endpoint.
-     */
     clientVpnEndpointId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the subnet to associate with the Client VPN endpoint.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC in which the target subnet is located.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -144,16 +90,7 @@ export interface NetworkAssociationState {
  * The set of arguments for constructing a NetworkAssociation resource.
  */
 export interface NetworkAssociationArgs {
-    /**
-     * The ID of the Client VPN endpoint.
-     */
     clientVpnEndpointId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the subnet to associate with the Client VPN endpoint.
-     */
     subnetId: pulumi.Input<string>;
 }

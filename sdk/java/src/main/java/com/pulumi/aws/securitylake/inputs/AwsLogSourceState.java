@@ -16,32 +16,16 @@ public final class AwsLogSourceState extends com.pulumi.resources.ResourceArgs {
 
     public static final AwsLogSourceState Empty = new AwsLogSourceState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specify the natively-supported AWS service to add as a source in Security Lake.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<AwsLogSourceSourceArgs> source;
 
-    /**
-     * @return Specify the natively-supported AWS service to add as a source in Security Lake.
-     * 
-     */
     public Optional<Output<AwsLogSourceSourceArgs>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -71,44 +55,20 @@ public final class AwsLogSourceState extends com.pulumi.resources.ResourceArgs {
             $ = new AwsLogSourceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param source Specify the natively-supported AWS service to add as a source in Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<AwsLogSourceSourceArgs> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specify the natively-supported AWS service to add as a source in Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(AwsLogSourceSourceArgs source) {
             return source(Output.of(source));
         }

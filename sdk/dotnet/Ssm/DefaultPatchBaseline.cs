@@ -9,98 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    /// <summary>
-    /// Resource for registering an AWS Systems Manager Default Patch Baseline.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ApprovedPatches = new[]
-    ///         {
-    ///             "KB123456",
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Ssm.DefaultPatchBaseline("example", new()
-    ///     {
-    ///         BaselineId = examplePatchBaseline.Id,
-    ///         OperatingSystem = examplePatchBaseline.OperatingSystem,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using the patch baseline ARN:
-    /// 
-    /// Using the operating system value:
-    /// 
-    /// __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
-    /// 
-    /// Using the patch baseline ID:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
-    /// ```
-    /// Using the patch baseline ARN:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
-    /// ```
-    /// Using the operating system value:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")]
     public partial class DefaultPatchBaseline : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the patch baseline.
-        /// Can be an ID or an ARN.
-        /// When specifying an AWS-provided patch baseline, must be the ARN.
-        /// </summary>
         [Output("baselineId")]
         public Output<string> BaselineId { get; private set; } = null!;
 
-        /// <summary>
-        /// The operating system the patch baseline applies to.
-        /// Valid values are
-        /// `AMAZON_LINUX`,
-        /// `AMAZON_LINUX_2`,
-        /// `AMAZON_LINUX_2022`,
-        /// `AMAZON_LINUX_2023`,
-        /// `CENTOS`,
-        /// `DEBIAN`,
-        /// `MACOS`,
-        /// `ORACLE_LINUX`,
-        /// `RASPBIAN`,
-        /// `REDHAT_ENTERPRISE_LINUX`,
-        /// `ROCKY_LINUX`,
-        /// `SUSE`,
-        /// `UBUNTU`, and
-        /// `WINDOWS`.
-        /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -150,38 +67,12 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class DefaultPatchBaselineArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the patch baseline.
-        /// Can be an ID or an ARN.
-        /// When specifying an AWS-provided patch baseline, must be the ARN.
-        /// </summary>
         [Input("baselineId", required: true)]
         public Input<string> BaselineId { get; set; } = null!;
 
-        /// <summary>
-        /// The operating system the patch baseline applies to.
-        /// Valid values are
-        /// `AMAZON_LINUX`,
-        /// `AMAZON_LINUX_2`,
-        /// `AMAZON_LINUX_2022`,
-        /// `AMAZON_LINUX_2023`,
-        /// `CENTOS`,
-        /// `DEBIAN`,
-        /// `MACOS`,
-        /// `ORACLE_LINUX`,
-        /// `RASPBIAN`,
-        /// `REDHAT_ENTERPRISE_LINUX`,
-        /// `ROCKY_LINUX`,
-        /// `SUSE`,
-        /// `UBUNTU`, and
-        /// `WINDOWS`.
-        /// </summary>
         [Input("operatingSystem", required: true)]
         public Input<string> OperatingSystem { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -193,38 +84,12 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class DefaultPatchBaselineState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the patch baseline.
-        /// Can be an ID or an ARN.
-        /// When specifying an AWS-provided patch baseline, must be the ARN.
-        /// </summary>
         [Input("baselineId")]
         public Input<string>? BaselineId { get; set; }
 
-        /// <summary>
-        /// The operating system the patch baseline applies to.
-        /// Valid values are
-        /// `AMAZON_LINUX`,
-        /// `AMAZON_LINUX_2`,
-        /// `AMAZON_LINUX_2022`,
-        /// `AMAZON_LINUX_2023`,
-        /// `CENTOS`,
-        /// `DEBIAN`,
-        /// `MACOS`,
-        /// `ORACLE_LINUX`,
-        /// `RASPBIAN`,
-        /// `REDHAT_ENTERPRISE_LINUX`,
-        /// `ROCKY_LINUX`,
-        /// `SUSE`,
-        /// `UBUNTU`, and
-        /// `WINDOWS`.
-        /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -16,165 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Scanning Configuration. Can&#39;t be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
- * 
- * ## Example Usage
- * 
- * ### Basic example
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecr.RegistryScanningConfiguration;
- * import com.pulumi.aws.ecr.RegistryScanningConfigurationArgs;
- * import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var configuration = new RegistryScanningConfiguration("configuration", RegistryScanningConfigurationArgs.builder()
- *             .scanType("ENHANCED")
- *             .rules(RegistryScanningConfigurationRuleArgs.builder()
- *                 .scanFrequency("CONTINUOUS_SCAN")
- *                 .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                     .filter("example")
- *                     .filterType("WILDCARD")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Multiple rules
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecr.RegistryScanningConfiguration;
- * import com.pulumi.aws.ecr.RegistryScanningConfigurationArgs;
- * import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new RegistryScanningConfiguration("test", RegistryScanningConfigurationArgs.builder()
- *             .scanType("ENHANCED")
- *             .rules(            
- *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .scanFrequency("SCAN_ON_PUSH")
- *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter("*")
- *                         .filterType("WILDCARD")
- *                         .build())
- *                     .build(),
- *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .scanFrequency("CONTINUOUS_SCAN")
- *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter("example")
- *                         .filterType("WILDCARD")
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")
 public class RegistryScanningConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The registry ID the scanning configuration applies to.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID the scanning configuration applies to.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
-    /**
-     * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
-     * 
-     */
     @Export(name="rules", refs={List.class,RegistryScanningConfigurationRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegistryScanningConfigurationRule>> rules;
 
-    /**
-     * @return One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
-     * 
-     */
     public Output<Optional<List<RegistryScanningConfigurationRule>>> rules() {
         return Codegen.optional(this.rules);
     }
-    /**
-     * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
-     * 
-     */
     @Export(name="scanType", refs={String.class}, tree="[0]")
     private Output<String> scanType;
 
-    /**
-     * @return the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
-     * 
-     */
     public Output<String> scanType() {
         return this.scanType;
     }

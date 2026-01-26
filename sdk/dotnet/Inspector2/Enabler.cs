@@ -9,95 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector2
 {
-    /// <summary>
-    /// Resource for enabling Amazon Inspector resource scans.
-    /// 
-    /// This resource must be created in the Organization's Administrator Account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector2.Enabler("example", new()
-    ///     {
-    ///         AccountIds = new[]
-    ///         {
-    ///             "123456789012",
-    ///         },
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "EC2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### For the Calling Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var test = new Aws.Inspector2.Enabler("test", new()
-    ///     {
-    ///         AccountIds = new[]
-    ///         {
-    ///             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         },
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "ECR",
-    ///             "EC2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Inspector Enabler using using `account_ids` and `region_types` formatted as `[account_id1]:[account_id2]:...-[resource_type1]:[resource_type2]:...`, where `account_ids` are sorted in ascending order and `resource_types` are sorted in alphabetical order. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:inspector2/enabler:Enabler example 123456789012:234567890123-EC2:ECR
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:inspector2/enabler:Enabler")]
     public partial class Enabler : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Set of account IDs.
-        /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-        /// </summary>
         [Output("accountIds")]
         public Output<ImmutableArray<string>> AccountIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of resources to scan.
-        /// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-        /// At least one item is required.
-        /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<string>> ResourceTypes { get; private set; } = null!;
 
@@ -149,31 +69,17 @@ namespace Pulumi.Aws.Inspector2
     {
         [Input("accountIds", required: true)]
         private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// Set of account IDs.
-        /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
             set => _accountIds = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// Type of resources to scan.
-        /// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-        /// At least one item is required.
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
@@ -190,31 +96,17 @@ namespace Pulumi.Aws.Inspector2
     {
         [Input("accountIds")]
         private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// Set of account IDs.
-        /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
             set => _accountIds = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// Type of resources to scan.
-        /// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-        /// At least one item is required.
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());

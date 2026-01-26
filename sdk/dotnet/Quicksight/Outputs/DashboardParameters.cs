@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DashboardParameters
     {
-        /// <summary>
-        /// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardParametersDateTimeParameter> DateTimeParameters;
-        /// <summary>
-        /// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardParametersDecimalParameter> DecimalParameters;
-        /// <summary>
-        /// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardParametersIntegerParameter> IntegerParameters;
-        /// <summary>
-        /// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardParametersStringParameter> StringParameters;
 
         [OutputConstructor]

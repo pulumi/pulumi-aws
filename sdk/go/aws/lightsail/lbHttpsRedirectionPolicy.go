@@ -12,81 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages HTTPS redirection for a Lightsail Load Balancer.
-//
-// Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lightsail.NewLb(ctx, "example", &lightsail.LbArgs{
-//				Name:            pulumi.String("example-load-balancer"),
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLbCertificate, err := lightsail.NewLbCertificate(ctx, "example", &lightsail.LbCertificateArgs{
-//				Name:       pulumi.String("example-load-balancer-certificate"),
-//				LbName:     example.ID(),
-//				DomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbCertificateAttachment(ctx, "example", &lightsail.LbCertificateAttachmentArgs{
-//				LbName:          example.Name,
-//				CertificateName: exampleLbCertificate.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbHttpsRedirectionPolicy(ctx, "example", &lightsail.LbHttpsRedirectionPolicyArgs{
-//				LbName:  example.Name,
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
-// ```
 type LbHttpsRedirectionPolicy struct {
 	pulumi.CustomResourceState
 
-	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-	//
-	// The following arguments are optional:
-	LbName pulumi.StringOutput `pulumi:"lbName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Enabled pulumi.BoolOutput   `pulumi:"enabled"`
+	LbName  pulumi.StringOutput `pulumi:"lbName"`
+	Region  pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbHttpsRedirectionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -125,25 +56,15 @@ func GetLbHttpsRedirectionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbHttpsRedirectionPolicy resources.
 type lbHttpsRedirectionPolicyState struct {
-	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
-	Enabled *bool `pulumi:"enabled"`
-	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-	//
-	// The following arguments are optional:
-	LbName *string `pulumi:"lbName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Enabled *bool   `pulumi:"enabled"`
+	LbName  *string `pulumi:"lbName"`
+	Region  *string `pulumi:"region"`
 }
 
 type LbHttpsRedirectionPolicyState struct {
-	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled pulumi.BoolPtrInput
-	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-	//
-	// The following arguments are optional:
-	LbName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	LbName  pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
 }
 
 func (LbHttpsRedirectionPolicyState) ElementType() reflect.Type {
@@ -151,26 +72,16 @@ func (LbHttpsRedirectionPolicyState) ElementType() reflect.Type {
 }
 
 type lbHttpsRedirectionPolicyArgs struct {
-	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
-	Enabled bool `pulumi:"enabled"`
-	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-	//
-	// The following arguments are optional:
-	LbName string `pulumi:"lbName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Enabled bool    `pulumi:"enabled"`
+	LbName  string  `pulumi:"lbName"`
+	Region  *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbHttpsRedirectionPolicy resource.
 type LbHttpsRedirectionPolicyArgs struct {
-	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled pulumi.BoolInput
-	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-	//
-	// The following arguments are optional:
-	LbName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	LbName  pulumi.StringInput
+	Region  pulumi.StringPtrInput
 }
 
 func (LbHttpsRedirectionPolicyArgs) ElementType() reflect.Type {
@@ -260,19 +171,14 @@ func (o LbHttpsRedirectionPolicyOutput) ToLbHttpsRedirectionPolicyOutputWithCont
 	return o
 }
 
-// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 func (o LbHttpsRedirectionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LbHttpsRedirectionPolicy) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-//
-// The following arguments are optional:
 func (o LbHttpsRedirectionPolicyOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbHttpsRedirectionPolicy) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LbHttpsRedirectionPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbHttpsRedirectionPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

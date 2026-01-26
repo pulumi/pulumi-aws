@@ -18,62 +18,30 @@ public final class GetNotificationChannelPlainArgs extends com.pulumi.resources.
 
     public static final GetNotificationChannelPlainArgs Empty = new GetNotificationChannelPlainArgs();
 
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetNotificationChannelFilter> filters;
 
-    /**
-     * @return Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-     * 
-     */
     public Optional<List<GetNotificationChannelFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Unique identifier for the notification channel.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return Unique identifier for the notification channel.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * SNS noficiation channel configurations. See the `sns` attribute reference below.
-     * 
-     */
     @Import(name="sns")
     private @Nullable List<GetNotificationChannelSn> sns;
 
-    /**
-     * @return SNS noficiation channel configurations. See the `sns` attribute reference below.
-     * 
-     */
     public Optional<List<GetNotificationChannelSn>> sns() {
         return Optional.ofNullable(this.sns);
     }
@@ -105,66 +73,30 @@ public final class GetNotificationChannelPlainArgs extends com.pulumi.resources.
             $ = new GetNotificationChannelPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetNotificationChannelFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetNotificationChannelFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Unique identifier for the notification channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param sns SNS noficiation channel configurations. See the `sns` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sns(@Nullable List<GetNotificationChannelSn> sns) {
             $.sns = sns;
             return this;
         }
 
-        /**
-         * @param sns SNS noficiation channel configurations. See the `sns` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sns(GetNotificationChannelSn... sns) {
             return sns(List.of(sns));
         }

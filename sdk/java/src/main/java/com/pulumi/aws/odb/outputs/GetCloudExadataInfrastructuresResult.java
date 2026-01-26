@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCloudExadataInfrastructuresResult {
-    /**
-     * @return List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
-     * 
-     */
     private List<GetCloudExadataInfrastructuresCloudExadataInfrastructure> cloudExadataInfrastructures;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,10 +21,6 @@ public final class GetCloudExadataInfrastructuresResult {
     private String region;
 
     private GetCloudExadataInfrastructuresResult() {}
-    /**
-     * @return List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
-     * 
-     */
     public List<GetCloudExadataInfrastructuresCloudExadataInfrastructure> cloudExadataInfrastructures() {
         return this.cloudExadataInfrastructures;
     }

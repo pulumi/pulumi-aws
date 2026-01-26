@@ -26,11 +26,6 @@ class WebAppCustomizationArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppCustomization resource.
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
         """
         pulumi.set(__self__, "web_app_id", web_app_id)
         if favicon_file is not None:
@@ -45,11 +40,6 @@ class WebAppCustomizationArgs:
     @_builtins.property
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the web app to be customized.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "web_app_id")
 
     @web_app_id.setter
@@ -77,9 +67,6 @@ class WebAppCustomizationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -89,9 +76,6 @@ class WebAppCustomizationArgs:
     @_builtins.property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -109,11 +93,6 @@ class _WebAppCustomizationState:
                  web_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAppCustomization resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
-               
-               The following arguments are optional:
         """
         if favicon_file is not None:
             pulumi.set(__self__, "favicon_file", favicon_file)
@@ -147,9 +126,6 @@ class _WebAppCustomizationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -159,9 +135,6 @@ class _WebAppCustomizationState:
     @_builtins.property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -171,11 +144,6 @@ class _WebAppCustomizationState:
     @_builtins.property
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the web app to be customized.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "web_app_id")
 
     @web_app_id.setter
@@ -196,25 +164,9 @@ class WebAppCustomization(pulumi.CustomResource):
                  web_app_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Transfer Family Web App Customization.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
-
-        ```sh
-        $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
-        ```
-
+        Create a WebAppCustomization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -223,18 +175,7 @@ class WebAppCustomization(pulumi.CustomResource):
                  args: WebAppCustomizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Transfer Family Web App Customization.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
-
-        ```sh
-        $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
-        ```
-
+        Create a WebAppCustomization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WebAppCustomizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,11 +234,6 @@ class WebAppCustomization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -323,26 +259,15 @@ class WebAppCustomization(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def title(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        """
         return pulumi.get(self, "title")
 
     @_builtins.property
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the web app to be customized.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "web_app_id")
 

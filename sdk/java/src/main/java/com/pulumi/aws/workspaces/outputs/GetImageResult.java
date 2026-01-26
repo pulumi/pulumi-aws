@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageResult {
-    /**
-     * @return The description of the image.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -21,29 +17,13 @@ public final class GetImageResult {
      */
     private String id;
     private String imageId;
-    /**
-     * @return The name of the image.
-     * 
-     */
     private String name;
     private String operatingSystemType;
     private String region;
-    /**
-     * @return Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
-     * 
-     */
     private String requiredTenancy;
-    /**
-     * @return The status of the image.
-     * 
-     */
     private String state;
 
     private GetImageResult() {}
-    /**
-     * @return The description of the image.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -57,10 +37,6 @@ public final class GetImageResult {
     public String imageId() {
         return this.imageId;
     }
-    /**
-     * @return The name of the image.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -70,17 +46,9 @@ public final class GetImageResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
-     * 
-     */
     public String requiredTenancy() {
         return this.requiredTenancy;
     }
-    /**
-     * @return The status of the image.
-     * 
-     */
     public String state() {
         return this.state;
     }

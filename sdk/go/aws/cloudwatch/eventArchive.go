@@ -12,224 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EventBridge event archive resource.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			order, err := cloudwatch.NewEventBus(ctx, "order", &cloudwatch.EventBusArgs{
-//				Name: pulumi.String("orders"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventArchive(ctx, "order", &cloudwatch.EventArchiveArgs{
-//				Name:           pulumi.String("order-archive"),
-//				EventSourceArn: order.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Optional Arguments
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			order, err := cloudwatch.NewEventBus(ctx, "order", &cloudwatch.EventBusArgs{
-//				Name: pulumi.String("orders"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"source": []string{
-//					"company.team.order",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewEventArchive(ctx, "order", &cloudwatch.EventArchiveArgs{
-//				Name:           pulumi.String("order-archive"),
-//				Description:    pulumi.String("Archived events from order service"),
-//				EventSourceArn: order.Arn,
-//				RetentionDays:  pulumi.Int(7),
-//				EventPattern:   pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### CMK Encryption
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudwatch.NewEventBus(ctx, "example", &cloudwatch.EventBusArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Policy: example.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Id":      "key-policy-example",
-//						"Statement": []interface{}{
-//							map[string]interface{}{
-//								"Sid":    "Enable IAM User Permissions",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
-//								},
-//								"Action":   "kms:*",
-//								"Resource": "*",
-//							},
-//							map[string]interface{}{
-//								"Sid":    "Allow describing of the key",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"Service": "events.amazonaws.com",
-//								},
-//								"Action": []string{
-//									"kms:DescribeKey",
-//								},
-//								"Resource": "*",
-//							},
-//							map[string]interface{}{
-//								"Sid":    "Allow use of the key",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"Service": "events.amazonaws.com",
-//								},
-//								"Action": []string{
-//									"kms:GenerateDataKey",
-//									"kms:Decrypt",
-//									"kms:ReEncrypt*",
-//								},
-//								"Resource": "*",
-//								"Condition": map[string]interface{}{
-//									"StringEquals": map[string]interface{}{
-//										"kms:EncryptionContext:aws:events:event-bus:arn": arn,
-//									},
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//				Tags: pulumi.StringMap{
-//					"EventBridgeApiDestinations": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventArchive(ctx, "example", &cloudwatch.EventArchiveArgs{
-//				Name:             pulumi.String("example"),
-//				EventSourceArn:   example.Arn,
-//				KmsKeyIdentifier: exampleKey.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an EventBridge archive using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
-// ```
 type EventArchive struct {
 	pulumi.CustomResourceState
 
-	// ARN of the archive.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description for the archive.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
-	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
-	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-	EventSourceArn pulumi.StringOutput `pulumi:"eventSourceArn"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	EventPattern     pulumi.StringPtrOutput `pulumi:"eventPattern"`
+	EventSourceArn   pulumi.StringOutput    `pulumi:"eventSourceArn"`
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
-	// Name of the archive. The archive name cannot exceed 48 characters.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Region           pulumi.StringOutput    `pulumi:"region"`
+	RetentionDays    pulumi.IntPtrOutput    `pulumi:"retentionDays"`
 }
 
 // NewEventArchive registers a new resource with the given unique name, arguments, and options.
@@ -265,41 +58,25 @@ func GetEventArchive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventArchive resources.
 type eventArchiveState struct {
-	// ARN of the archive.
-	Arn *string `pulumi:"arn"`
-	// Description for the archive.
-	Description *string `pulumi:"description"`
-	// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
-	EventPattern *string `pulumi:"eventPattern"`
-	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-	EventSourceArn *string `pulumi:"eventSourceArn"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	Arn              *string `pulumi:"arn"`
+	Description      *string `pulumi:"description"`
+	EventPattern     *string `pulumi:"eventPattern"`
+	EventSourceArn   *string `pulumi:"eventSourceArn"`
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// Name of the archive. The archive name cannot exceed 48 characters.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-	RetentionDays *int `pulumi:"retentionDays"`
+	Name             *string `pulumi:"name"`
+	Region           *string `pulumi:"region"`
+	RetentionDays    *int    `pulumi:"retentionDays"`
 }
 
 type EventArchiveState struct {
-	// ARN of the archive.
-	Arn pulumi.StringPtrInput
-	// Description for the archive.
-	Description pulumi.StringPtrInput
-	// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
-	EventPattern pulumi.StringPtrInput
-	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-	EventSourceArn pulumi.StringPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	Arn              pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
+	EventPattern     pulumi.StringPtrInput
+	EventSourceArn   pulumi.StringPtrInput
 	KmsKeyIdentifier pulumi.StringPtrInput
-	// Name of the archive. The archive name cannot exceed 48 characters.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-	RetentionDays pulumi.IntPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	RetentionDays    pulumi.IntPtrInput
 }
 
 func (EventArchiveState) ElementType() reflect.Type {
@@ -307,38 +84,24 @@ func (EventArchiveState) ElementType() reflect.Type {
 }
 
 type eventArchiveArgs struct {
-	// Description for the archive.
-	Description *string `pulumi:"description"`
-	// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
-	EventPattern *string `pulumi:"eventPattern"`
-	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-	EventSourceArn string `pulumi:"eventSourceArn"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	Description      *string `pulumi:"description"`
+	EventPattern     *string `pulumi:"eventPattern"`
+	EventSourceArn   string  `pulumi:"eventSourceArn"`
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// Name of the archive. The archive name cannot exceed 48 characters.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-	RetentionDays *int `pulumi:"retentionDays"`
+	Name             *string `pulumi:"name"`
+	Region           *string `pulumi:"region"`
+	RetentionDays    *int    `pulumi:"retentionDays"`
 }
 
 // The set of arguments for constructing a EventArchive resource.
 type EventArchiveArgs struct {
-	// Description for the archive.
-	Description pulumi.StringPtrInput
-	// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
-	EventPattern pulumi.StringPtrInput
-	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-	EventSourceArn pulumi.StringInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	Description      pulumi.StringPtrInput
+	EventPattern     pulumi.StringPtrInput
+	EventSourceArn   pulumi.StringInput
 	KmsKeyIdentifier pulumi.StringPtrInput
-	// Name of the archive. The archive name cannot exceed 48 characters.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-	RetentionDays pulumi.IntPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	RetentionDays    pulumi.IntPtrInput
 }
 
 func (EventArchiveArgs) ElementType() reflect.Type {
@@ -428,42 +191,34 @@ func (o EventArchiveOutput) ToEventArchiveOutputWithContext(ctx context.Context)
 	return o
 }
 
-// ARN of the archive.
 func (o EventArchiveOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description for the archive.
 func (o EventArchiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
 func (o EventArchiveOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringPtrOutput { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
 func (o EventArchiveOutput) EventSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.EventSourceArn }).(pulumi.StringOutput)
 }
 
-// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 func (o EventArchiveOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Name of the archive. The archive name cannot exceed 48 characters.
 func (o EventArchiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventArchiveOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
 func (o EventArchiveOutput) RetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }

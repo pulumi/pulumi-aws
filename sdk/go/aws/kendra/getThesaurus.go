@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Kendra Thesaurus.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.LookupThesaurus(ctx, &kendra.LookupThesaurusArgs{
-//				IndexId:     "12345678-1234-1234-1234-123456789123",
-//				ThesaurusId: "87654321-1234-4321-4321-321987654321",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupThesaurus(ctx *pulumi.Context, args *LookupThesaurusArgs, opts ...pulumi.InvokeOption) (*LookupThesaurusResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThesaurusResult
@@ -51,49 +23,32 @@ func LookupThesaurus(ctx *pulumi.Context, args *LookupThesaurusArgs, opts ...pul
 
 // A collection of arguments for invoking getThesaurus.
 type LookupThesaurusArgs struct {
-	// Identifier of the index that contains the Thesaurus.
-	IndexId string `pulumi:"indexId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Metadata that helps organize the Thesaurus you create.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the Thesaurus.
-	ThesaurusId string `pulumi:"thesaurusId"`
+	IndexId     string            `pulumi:"indexId"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	ThesaurusId string            `pulumi:"thesaurusId"`
 }
 
 // A collection of values returned by getThesaurus.
 type LookupThesaurusResult struct {
-	// ARN of the Thesaurus.
-	Arn string `pulumi:"arn"`
-	// Unix datetime that the Thesaurus was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Description of the Thesaurus.
-	Description string `pulumi:"description"`
-	// When the `status` field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage string `pulumi:"errorMessage"`
-	// Size of the Thesaurus file in bytes.
-	FileSizeBytes int `pulumi:"fileSizeBytes"`
+	Arn           string `pulumi:"arn"`
+	CreatedAt     string `pulumi:"createdAt"`
+	Description   string `pulumi:"description"`
+	ErrorMessage  string `pulumi:"errorMessage"`
+	FileSizeBytes int    `pulumi:"fileSizeBytes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string `pulumi:"id"`
-	IndexId string `pulumi:"indexId"`
-	// Name of the Thesaurus.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn string `pulumi:"roleArn"`
-	// S3 location of the Thesaurus input data. Detailed below.
-	SourceS3Paths []GetThesaurusSourceS3Path `pulumi:"sourceS3Paths"`
-	// Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
-	Status string `pulumi:"status"`
-	// Number of synonym rules in the Thesaurus file.
-	SynonymRuleCount int `pulumi:"synonymRuleCount"`
-	// Metadata that helps organize the Thesaurus you create.
-	Tags map[string]string `pulumi:"tags"`
-	// Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
-	TermCount   int    `pulumi:"termCount"`
-	ThesaurusId string `pulumi:"thesaurusId"`
-	// Date and time that the Thesaurus was last updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	Id               string                     `pulumi:"id"`
+	IndexId          string                     `pulumi:"indexId"`
+	Name             string                     `pulumi:"name"`
+	Region           string                     `pulumi:"region"`
+	RoleArn          string                     `pulumi:"roleArn"`
+	SourceS3Paths    []GetThesaurusSourceS3Path `pulumi:"sourceS3Paths"`
+	Status           string                     `pulumi:"status"`
+	SynonymRuleCount int                        `pulumi:"synonymRuleCount"`
+	Tags             map[string]string          `pulumi:"tags"`
+	TermCount        int                        `pulumi:"termCount"`
+	ThesaurusId      string                     `pulumi:"thesaurusId"`
+	UpdatedAt        string                     `pulumi:"updatedAt"`
 }
 
 func LookupThesaurusOutput(ctx *pulumi.Context, args LookupThesaurusOutputArgs, opts ...pulumi.InvokeOption) LookupThesaurusResultOutput {
@@ -107,14 +62,10 @@ func LookupThesaurusOutput(ctx *pulumi.Context, args LookupThesaurusOutputArgs, 
 
 // A collection of arguments for invoking getThesaurus.
 type LookupThesaurusOutputArgs struct {
-	// Identifier of the index that contains the Thesaurus.
-	IndexId pulumi.StringInput `pulumi:"indexId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Metadata that helps organize the Thesaurus you create.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the Thesaurus.
-	ThesaurusId pulumi.StringInput `pulumi:"thesaurusId"`
+	IndexId     pulumi.StringInput    `pulumi:"indexId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
+	ThesaurusId pulumi.StringInput    `pulumi:"thesaurusId"`
 }
 
 func (LookupThesaurusOutputArgs) ElementType() reflect.Type {
@@ -136,27 +87,22 @@ func (o LookupThesaurusResultOutput) ToLookupThesaurusResultOutputWithContext(ct
 	return o
 }
 
-// ARN of the Thesaurus.
 func (o LookupThesaurusResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Unix datetime that the Thesaurus was created.
 func (o LookupThesaurusResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Description of the Thesaurus.
 func (o LookupThesaurusResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// When the `status` field value is `FAILED`, this contains a message that explains why.
 func (o LookupThesaurusResultOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// Size of the Thesaurus file in bytes.
 func (o LookupThesaurusResultOutput) FileSizeBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) int { return v.FileSizeBytes }).(pulumi.IntOutput)
 }
@@ -170,7 +116,6 @@ func (o LookupThesaurusResultOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// Name of the Thesaurus.
 func (o LookupThesaurusResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -179,32 +124,26 @@ func (o LookupThesaurusResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o LookupThesaurusResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// S3 location of the Thesaurus input data. Detailed below.
 func (o LookupThesaurusResultOutput) SourceS3Paths() GetThesaurusSourceS3PathArrayOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) []GetThesaurusSourceS3Path { return v.SourceS3Paths }).(GetThesaurusSourceS3PathArrayOutput)
 }
 
-// Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
 func (o LookupThesaurusResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Number of synonym rules in the Thesaurus file.
 func (o LookupThesaurusResultOutput) SynonymRuleCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) int { return v.SynonymRuleCount }).(pulumi.IntOutput)
 }
 
-// Metadata that helps organize the Thesaurus you create.
 func (o LookupThesaurusResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
 func (o LookupThesaurusResultOutput) TermCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) int { return v.TermCount }).(pulumi.IntOutput)
 }
@@ -213,7 +152,6 @@ func (o LookupThesaurusResultOutput) ThesaurusId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.ThesaurusId }).(pulumi.StringOutput)
 }
 
-// Date and time that the Thesaurus was last updated.
 func (o LookupThesaurusResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

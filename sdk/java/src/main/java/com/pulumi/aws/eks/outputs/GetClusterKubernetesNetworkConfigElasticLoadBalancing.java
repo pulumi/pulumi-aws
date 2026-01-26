@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterKubernetesNetworkConfigElasticLoadBalancing {
-    /**
-     * @return Whether zonal shift is enabled.
-     * 
-     */
     private Boolean enabled;
 
     private GetClusterKubernetesNetworkConfigElasticLoadBalancing() {}
-    /**
-     * @return Whether zonal shift is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

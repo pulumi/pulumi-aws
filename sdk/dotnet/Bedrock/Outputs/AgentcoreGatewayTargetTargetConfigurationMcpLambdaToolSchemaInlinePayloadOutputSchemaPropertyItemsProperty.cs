@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty
     {
-        /// <summary>
-        /// Description of the property.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `PropertiesJson`.
-        /// </summary>
         public readonly string? ItemsJson;
-        /// <summary>
-        /// Name of the property.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `ItemsJson`.
-        /// </summary>
         public readonly string? PropertiesJson;
-        /// <summary>
-        /// Whether this property is required. Defaults to `False`.
-        /// </summary>
         public readonly bool? Required;
-        /// <summary>
-        /// Data type of the property.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about existing Network Manager connections.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.GetConnections(ctx, &networkmanager.GetConnectionsArgs{
-//				GlobalNetworkId: globalNetworkId,
-//				Tags: map[string]interface{}{
-//					"Env": "test",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetConnections(ctx *pulumi.Context, args *GetConnectionsArgs, opts ...pulumi.InvokeOption) (*GetConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConnectionsResult
@@ -53,12 +23,9 @@ func GetConnections(ctx *pulumi.Context, args *GetConnectionsArgs, opts ...pulum
 
 // A collection of arguments for invoking getConnections.
 type GetConnectionsArgs struct {
-	// ID of the device of the connections to retrieve.
-	DeviceId *string `pulumi:"deviceId"`
-	// ID of the Global Network of the connections to retrieve.
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// Restricts the list to the connections with these tags.
-	Tags map[string]string `pulumi:"tags"`
+	DeviceId        *string           `pulumi:"deviceId"`
+	GlobalNetworkId string            `pulumi:"globalNetworkId"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConnections.
@@ -66,8 +33,7 @@ type GetConnectionsResult struct {
 	DeviceId        *string `pulumi:"deviceId"`
 	GlobalNetworkId string  `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IDs of the connections.
+	Id   string            `pulumi:"id"`
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -83,12 +49,9 @@ func GetConnectionsOutput(ctx *pulumi.Context, args GetConnectionsOutputArgs, op
 
 // A collection of arguments for invoking getConnections.
 type GetConnectionsOutputArgs struct {
-	// ID of the device of the connections to retrieve.
-	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
-	// ID of the Global Network of the connections to retrieve.
-	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
-	// Restricts the list to the connections with these tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	DeviceId        pulumi.StringPtrInput `pulumi:"deviceId"`
+	GlobalNetworkId pulumi.StringInput    `pulumi:"globalNetworkId"`
+	Tags            pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetConnectionsOutputArgs) ElementType() reflect.Type {
@@ -123,7 +86,6 @@ func (o GetConnectionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IDs of the connections.
 func (o GetConnectionsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConnectionsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

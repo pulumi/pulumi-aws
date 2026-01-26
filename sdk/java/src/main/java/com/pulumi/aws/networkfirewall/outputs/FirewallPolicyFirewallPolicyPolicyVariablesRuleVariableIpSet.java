@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet {
-    /**
-     * @return Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-     * 
-     */
     private List<String> definitions;
 
     private FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet() {}
-    /**
-     * @return Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-     * 
-     */
     public List<String> definitions() {
         return this.definitions;
     }

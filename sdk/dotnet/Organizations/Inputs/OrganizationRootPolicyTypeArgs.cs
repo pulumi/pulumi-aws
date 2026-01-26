@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Organizations.Inputs
 
     public sealed class OrganizationRootPolicyTypeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Status of the policy type as it relates to the associated root.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

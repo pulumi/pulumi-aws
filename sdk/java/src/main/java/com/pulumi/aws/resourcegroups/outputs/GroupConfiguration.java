@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupConfiguration {
-    /**
-     * @return A collection of parameters for this group configuration item. See below for details.
-     * 
-     */
     private @Nullable List<GroupConfigurationParameter> parameters;
-    /**
-     * @return Specifies the type of group configuration item.
-     * 
-     */
     private String type;
 
     private GroupConfiguration() {}
-    /**
-     * @return A collection of parameters for this group configuration item. See below for details.
-     * 
-     */
     public List<GroupConfigurationParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
-    /**
-     * @return Specifies the type of group configuration item.
-     * 
-     */
     public String type() {
         return this.type;
     }

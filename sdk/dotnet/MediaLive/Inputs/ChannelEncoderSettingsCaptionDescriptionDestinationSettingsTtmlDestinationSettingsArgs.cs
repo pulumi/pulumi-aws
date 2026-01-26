@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// This field is not currently supported and will not affect the output styling. Leave the default value.
-        /// </summary>
         [Input("styleControl", required: true)]
         public Input<string> StyleControl { get; set; } = null!;
 

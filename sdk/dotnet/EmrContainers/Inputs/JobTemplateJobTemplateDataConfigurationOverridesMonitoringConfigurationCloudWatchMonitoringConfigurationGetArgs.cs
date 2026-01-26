@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the log group for log publishing.
-        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The specified name prefix for log streams.
-        /// </summary>
         [Input("logStreamNamePrefix")]
         public Input<string>? LogStreamNamePrefix { get; set; }
 

@@ -15,47 +15,23 @@ public final class InviteAccepterState extends com.pulumi.resources.ResourceArgs
 
     public static final InviteAccepterState Empty = new InviteAccepterState();
 
-    /**
-     * The ID of the invitation.
-     * 
-     */
     @Import(name="invitationId")
     private @Nullable Output<String> invitationId;
 
-    /**
-     * @return The ID of the invitation.
-     * 
-     */
     public Optional<Output<String>> invitationId() {
         return Optional.ofNullable(this.invitationId);
     }
 
-    /**
-     * The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-     * 
-     */
     @Import(name="masterId")
     private @Nullable Output<String> masterId;
 
-    /**
-     * @return The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-     * 
-     */
     public Optional<Output<String>> masterId() {
         return Optional.ofNullable(this.masterId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class InviteAccepterState extends com.pulumi.resources.ResourceArgs
             $ = new InviteAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param invitationId The ID of the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationId(@Nullable Output<String> invitationId) {
             $.invitationId = invitationId;
             return this;
         }
 
-        /**
-         * @param invitationId The ID of the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationId(String invitationId) {
             return invitationId(Output.of(invitationId));
         }
 
-        /**
-         * @param masterId The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterId(@Nullable Output<String> masterId) {
             $.masterId = masterId;
             return this;
         }
 
-        /**
-         * @param masterId The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterId(String masterId) {
             return masterId(Output.of(masterId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

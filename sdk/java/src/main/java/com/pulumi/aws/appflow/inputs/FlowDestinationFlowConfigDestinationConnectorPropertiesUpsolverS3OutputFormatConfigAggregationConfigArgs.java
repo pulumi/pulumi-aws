@@ -15,17 +15,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs();
 
-    /**
-     * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-     * 
-     */
     @Import(name="aggregationType")
     private @Nullable Output<String> aggregationType;
 
-    /**
-     * @return Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-     * 
-     */
     public Optional<Output<String>> aggregationType() {
         return Optional.ofNullable(this.aggregationType);
     }
@@ -54,23 +46,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationType(@Nullable Output<String> aggregationType) {
             $.aggregationType = aggregationType;
             return this;
         }
 
-        /**
-         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationType(String aggregationType) {
             return aggregationType(Output.of(aggregationType));
         }

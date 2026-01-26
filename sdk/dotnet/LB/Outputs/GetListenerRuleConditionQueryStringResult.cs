@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleConditionQueryStringResult
     {
-        /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionQueryStringValueResult> Values;
 
         [OutputConstructor]

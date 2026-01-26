@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
- *
- * > This resource cannot be used with S3 directory buckets.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "example"});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: example.id,
- *     rule: {
- *         objectOwnership: "BucketOwnerPreferred",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
- *
- * ```sh
- * $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
- * ```
- */
 export class BucketOwnershipControls extends pulumi.CustomResource {
     /**
      * Get an existing BucketOwnershipControls resource's state with the given name, ID, and optional extra
@@ -63,17 +35,8 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketOwnershipControls.__pulumiType;
     }
 
-    /**
-     * Name of the bucket that you want to associate this access point with.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     */
     declare public readonly rule: pulumi.Output<outputs.s3.BucketOwnershipControlsRule>;
 
     /**
@@ -113,17 +76,8 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketOwnershipControls resources.
  */
 export interface BucketOwnershipControlsState {
-    /**
-     * Name of the bucket that you want to associate this access point with.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     */
     rule?: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
 }
 
@@ -131,16 +85,7 @@ export interface BucketOwnershipControlsState {
  * The set of arguments for constructing a BucketOwnershipControls resource.
  */
 export interface BucketOwnershipControlsArgs {
-    /**
-     * Name of the bucket that you want to associate this access point with.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     */
     rule: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
 }

@@ -19,191 +19,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup plan resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.Plan;
- * import com.pulumi.aws.backup.PlanArgs;
- * import com.pulumi.aws.backup.inputs.PlanRuleArgs;
- * import com.pulumi.aws.backup.inputs.PlanRuleLifecycleArgs;
- * import com.pulumi.aws.backup.inputs.PlanAdvancedBackupSettingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Plan("example", PlanArgs.builder()
- *             .name("my_example_backup_plan")
- *             .rules(PlanRuleArgs.builder()
- *                 .ruleName("my_example_backup_rule")
- *                 .targetVaultName(test.name())
- *                 .schedule("cron(0 12 * * ? *)")
- *                 .lifecycle(PlanRuleLifecycleArgs.builder()
- *                     .deleteAfter(14)
- *                     .build())
- *                 .build())
- *             .advancedBackupSettings(PlanAdvancedBackupSettingArgs.builder()
- *                 .backupOptions(Map.of("WindowsVSS", "enabled"))
- *                 .resourceType("EC2")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup Plan using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
- * ```
- * 
- */
 @ResourceType(type="aws:backup/plan:Plan")
 public class Plan extends com.pulumi.resources.CustomResource {
-    /**
-     * An object that specifies backup options for each resource type.
-     * 
-     */
     @Export(name="advancedBackupSettings", refs={List.class,PlanAdvancedBackupSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanAdvancedBackupSetting>> advancedBackupSettings;
 
-    /**
-     * @return An object that specifies backup options for each resource type.
-     * 
-     */
     public Output<Optional<List<PlanAdvancedBackupSetting>>> advancedBackupSettings() {
         return Codegen.optional(this.advancedBackupSettings);
     }
-    /**
-     * The ARN of the backup plan.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the backup plan.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The display name of a backup plan.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The display name of a backup plan.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     * 
-     */
     @Export(name="rules", refs={List.class,PlanRule.class}, tree="[0,1]")
     private Output<List<PlanRule>> rules;
 
-    /**
-     * @return A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     * 
-     */
     public Output<List<PlanRule>> rules() {
         return this.rules;
     }
-    /**
-     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-     * 
-     */
     @Export(name="scanSettings", refs={List.class,PlanScanSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanScanSetting>> scanSettings;
 
-    /**
-     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-     * 
-     */
     public Output<Optional<List<PlanScanSetting>>> scanSettings() {
         return Codegen.optional(this.scanSettings);
     }
-    /**
-     * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

@@ -17,77 +17,37 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
 
     public static final AgentFlowDefinitionConnectionArgs Empty = new AgentFlowDefinitionConnectionArgs();
 
-    /**
-     * Configuration of the connection. See Connection Configuration for more information.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<AgentFlowDefinitionConnectionConfigurationArgs> configuration;
 
-    /**
-     * @return Configuration of the connection. See Connection Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionConnectionConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * A name for the connection that you can reference.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A name for the connection that you can reference.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The node that the connection starts at.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return The node that the connection starts at.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * The node that the connection ends at.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return The node that the connection ends at.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
 
-    /**
-     * Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -120,107 +80,47 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
             $ = new AgentFlowDefinitionConnectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configuration Configuration of the connection. See Connection Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<AgentFlowDefinitionConnectionConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration Configuration of the connection. See Connection Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(AgentFlowDefinitionConnectionConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param name A name for the connection that you can reference.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the connection that you can reference.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param source The node that the connection starts at.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source The node that the connection starts at.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param target The node that the connection ends at.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The node that the connection ends at.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }
 
-        /**
-         * @param type Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

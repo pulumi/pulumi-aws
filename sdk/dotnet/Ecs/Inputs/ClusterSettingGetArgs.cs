@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ClusterSettingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the setting to manage. Valid values: `containerInsights`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Value to assign to the setting. Valid values: `Enhanced`, `Enabled`, `Disabled`.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

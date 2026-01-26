@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCloudAutonomousVmClustersResult {
-    /**
-     * @return List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
-     * 
-     */
     private List<GetCloudAutonomousVmClustersCloudAutonomousVmCluster> cloudAutonomousVmClusters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,10 +21,6 @@ public final class GetCloudAutonomousVmClustersResult {
     private String region;
 
     private GetCloudAutonomousVmClustersResult() {}
-    /**
-     * @return List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
-     * 
-     */
     public List<GetCloudAutonomousVmClustersCloudAutonomousVmCluster> cloudAutonomousVmClusters() {
         return this.cloudAutonomousVmClusters;
     }

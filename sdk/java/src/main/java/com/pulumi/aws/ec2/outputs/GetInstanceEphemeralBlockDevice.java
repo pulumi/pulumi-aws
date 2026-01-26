@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceEphemeralBlockDevice {
-    /**
-     * @return Physical name of the device.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Whether the specified device included in the device mapping was suppressed or not (Boolean).
-     * 
-     */
     private @Nullable Boolean noDevice;
-    /**
-     * @return Virtual device name.
-     * 
-     */
     private @Nullable String virtualName;
 
     private GetInstanceEphemeralBlockDevice() {}
-    /**
-     * @return Physical name of the device.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Whether the specified device included in the device mapping was suppressed or not (Boolean).
-     * 
-     */
     public Optional<Boolean> noDevice() {
         return Optional.ofNullable(this.noDevice);
     }
-    /**
-     * @return Virtual device name.
-     * 
-     */
     public Optional<String> virtualName() {
         return Optional.ofNullable(this.virtualName);
     }

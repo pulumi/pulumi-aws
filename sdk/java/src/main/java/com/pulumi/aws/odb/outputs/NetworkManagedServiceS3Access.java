@@ -13,15 +13,7 @@ import java.util.Objects;
 public final class NetworkManagedServiceS3Access {
     private String domainName;
     private List<String> ipv4Addresses;
-    /**
-     * @return Specifies the endpoint policy for Amazon S3 access from the ODB network.
-     * 
-     */
     private String s3PolicyDocument;
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     private String status;
 
     private NetworkManagedServiceS3Access() {}
@@ -31,17 +23,9 @@ public final class NetworkManagedServiceS3Access {
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses;
     }
-    /**
-     * @return Specifies the endpoint policy for Amazon S3 access from the ODB network.
-     * 
-     */
     public String s3PolicyDocument() {
         return this.s3PolicyDocument;
     }
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public String status() {
         return this.status;
     }

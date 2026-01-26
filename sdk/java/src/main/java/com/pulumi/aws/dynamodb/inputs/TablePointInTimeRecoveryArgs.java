@@ -17,32 +17,16 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
 
     public static final TablePointInTimeRecoveryArgs Empty = new TablePointInTimeRecoveryArgs();
 
-    /**
-     * Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-     * 
-     */
     @Import(name="recoveryPeriodInDays")
     private @Nullable Output<Integer> recoveryPeriodInDays;
 
-    /**
-     * @return Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-     * 
-     */
     public Optional<Output<Integer>> recoveryPeriodInDays() {
         return Optional.ofNullable(this.recoveryPeriodInDays);
     }
@@ -72,44 +56,20 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
             $ = new TablePointInTimeRecoveryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param recoveryPeriodInDays Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPeriodInDays(@Nullable Output<Integer> recoveryPeriodInDays) {
             $.recoveryPeriodInDays = recoveryPeriodInDays;
             return this;
         }
 
-        /**
-         * @param recoveryPeriodInDays Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPeriodInDays(Integer recoveryPeriodInDays) {
             return recoveryPeriodInDays(Output.of(recoveryPeriodInDays));
         }

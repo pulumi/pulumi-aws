@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNatGatewayAvailabilityZoneAddressResult
     {
-        /// <summary>
-        /// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-        /// </summary>
         public readonly ImmutableArray<string> AllocationIds;
-        /// <summary>
-        /// Availability Zone where this specific NAT gateway configuration is active.
-        /// </summary>
         public readonly string AvailabilityZone;
-        /// <summary>
-        /// Availability Zone ID where this specific NAT gateway configuration is active
-        /// </summary>
         public readonly string AvailabilityZoneId;
 
         [OutputConstructor]

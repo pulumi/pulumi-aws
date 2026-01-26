@@ -16,36 +16,16 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
 
     public static final EventActionActionExportRevisionToS3Args Empty = new EventActionActionExportRevisionToS3Args();
 
-    /**
-     * Configures server-side encryption of the exported revision.
-     * Described in `encryption` Configuration Block below.
-     * 
-     */
     @Import(name="encryption")
     private @Nullable Output<EventActionActionExportRevisionToS3EncryptionArgs> encryption;
 
-    /**
-     * @return Configures server-side encryption of the exported revision.
-     * Described in `encryption` Configuration Block below.
-     * 
-     */
     public Optional<Output<EventActionActionExportRevisionToS3EncryptionArgs>> encryption() {
         return Optional.ofNullable(this.encryption);
     }
 
-    /**
-     * Configures the S3 destination of the exported revision.
-     * Described in `revisionDestination` Configuration Block below.
-     * 
-     */
     @Import(name="revisionDestination")
     private @Nullable Output<EventActionActionExportRevisionToS3RevisionDestinationArgs> revisionDestination;
 
-    /**
-     * @return Configures the S3 destination of the exported revision.
-     * Described in `revisionDestination` Configuration Block below.
-     * 
-     */
     public Optional<Output<EventActionActionExportRevisionToS3RevisionDestinationArgs>> revisionDestination() {
         return Optional.ofNullable(this.revisionDestination);
     }
@@ -75,48 +55,20 @@ public final class EventActionActionExportRevisionToS3Args extends com.pulumi.re
             $ = new EventActionActionExportRevisionToS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryption Configures server-side encryption of the exported revision.
-         * Described in `encryption` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryption(@Nullable Output<EventActionActionExportRevisionToS3EncryptionArgs> encryption) {
             $.encryption = encryption;
             return this;
         }
 
-        /**
-         * @param encryption Configures server-side encryption of the exported revision.
-         * Described in `encryption` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryption(EventActionActionExportRevisionToS3EncryptionArgs encryption) {
             return encryption(Output.of(encryption));
         }
 
-        /**
-         * @param revisionDestination Configures the S3 destination of the exported revision.
-         * Described in `revisionDestination` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionDestination(@Nullable Output<EventActionActionExportRevisionToS3RevisionDestinationArgs> revisionDestination) {
             $.revisionDestination = revisionDestination;
             return this;
         }
 
-        /**
-         * @param revisionDestination Configures the S3 destination of the exported revision.
-         * Described in `revisionDestination` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionDestination(EventActionActionExportRevisionToS3RevisionDestinationArgs revisionDestination) {
             return revisionDestination(Output.of(revisionDestination));
         }

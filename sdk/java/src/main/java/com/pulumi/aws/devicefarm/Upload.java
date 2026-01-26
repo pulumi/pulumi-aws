@@ -14,190 +14,59 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage AWS Device Farm Uploads.
- * 
- * &gt; **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devicefarm.Project;
- * import com.pulumi.aws.devicefarm.ProjectArgs;
- * import com.pulumi.aws.devicefarm.Upload;
- * import com.pulumi.aws.devicefarm.UploadArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleUpload = new Upload("exampleUpload", UploadArgs.builder()
- *             .name("example")
- *             .projectArn(example.arn())
- *             .type("APPIUM_JAVA_TESTNG_TEST_SPEC")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
- * 
- * Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
- * 
- * % pulumi import aws_devicefarm_upload.example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
- * 
- */
 @ResourceType(type="aws:devicefarm/upload:Upload")
 public class Upload extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name of this upload.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name of this upload.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The upload&#39;s category.
-     * 
-     */
     @Export(name="category", refs={String.class}, tree="[0]")
     private Output<String> category;
 
-    /**
-     * @return The upload&#39;s category.
-     * 
-     */
     public Output<String> category() {
         return this.category;
     }
-    /**
-     * The upload&#39;s content type (for example, application/octet-stream).
-     * 
-     */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentType;
 
-    /**
-     * @return The upload&#39;s content type (for example, application/octet-stream).
-     * 
-     */
     public Output<Optional<String>> contentType() {
         return Codegen.optional(this.contentType);
     }
-    /**
-     * The upload&#39;s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
-     * 
-     */
     @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output<String> metadata;
 
-    /**
-     * @return The upload&#39;s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
-     * 
-     */
     public Output<String> metadata() {
         return this.metadata;
     }
-    /**
-     * The upload&#39;s file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The upload&#39;s file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ARN of the project for the upload.
-     * 
-     */
     @Export(name="projectArn", refs={String.class}, tree="[0]")
     private Output<String> projectArn;
 
-    /**
-     * @return The ARN of the project for the upload.
-     * 
-     */
     public Output<String> projectArn() {
         return this.projectArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The upload&#39;s upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The upload&#39;s upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * The presigned Amazon S3 URL that was used to store a file using a PUT request.
-     * 
-     */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
-    /**
-     * @return The presigned Amazon S3 URL that was used to store a file using a PUT request.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }

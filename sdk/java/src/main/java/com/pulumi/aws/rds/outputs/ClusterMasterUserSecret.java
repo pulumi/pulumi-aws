@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterMasterUserSecret {
-    /**
-     * @return ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     private @Nullable String secretArn;
-    /**
-     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     private @Nullable String secretStatus;
 
     private ClusterMasterUserSecret() {}
-    /**
-     * @return ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     public Optional<String> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
-    /**
-     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     public Optional<String> secretStatus() {
         return Optional.ofNullable(this.secretStatus);
     }

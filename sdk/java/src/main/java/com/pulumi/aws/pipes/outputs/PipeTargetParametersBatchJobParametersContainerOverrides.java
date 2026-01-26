@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersBatchJobParametersContainerOverrides {
-    /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-     * 
-     */
     private @Nullable List<String> commands;
-    /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-     * 
-     */
     private @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> environments;
-    /**
-     * @return The instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-     * 
-     */
     private @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> resourceRequirements;
 
     private PipeTargetParametersBatchJobParametersContainerOverrides() {}
-    /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-     * 
-     */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
-    /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-     * 
-     */
     public List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> environments() {
         return this.environments == null ? List.of() : this.environments;
     }
-    /**
-     * @return The instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-     * 
-     */
     public List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> resourceRequirements() {
         return this.resourceRequirements == null ? List.of() : this.resourceRequirements;
     }

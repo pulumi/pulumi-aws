@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an EC2 Transit Gateway Connect.
- *
- * ## Example Usage
- *
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnect({
- *     filters: [{
- *         name: "transport-transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- *
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnect({
- *     transitGatewayConnectId: "tgw-attach-12345678",
- * });
- * ```
- */
 export function getConnect(args?: GetConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,21 +22,9 @@ export function getConnect(args?: GetConnectArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getConnect.
  */
 export interface GetConnectArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: inputs.ec2transitgateway.GetConnectFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect
-     */
     tags?: {[key: string]: string};
-    /**
-     * Identifier of the EC2 Transit Gateway Connect.
-     */
     transitGatewayConnectId?: string;
 }
 
@@ -79,55 +37,13 @@ export interface GetConnectResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Tunnel protocol
-     */
     readonly protocol: string;
     readonly region: string;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect
-     */
     readonly tags: {[key: string]: string};
     readonly transitGatewayConnectId: string;
-    /**
-     * EC2 Transit Gateway identifier
-     */
     readonly transitGatewayId: string;
-    /**
-     * The underlaying VPC attachment
-     */
     readonly transportAttachmentId: string;
 }
-/**
- * Get information on an EC2 Transit Gateway Connect.
- *
- * ## Example Usage
- *
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnect({
- *     filters: [{
- *         name: "transport-transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- *
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnect({
- *     transitGatewayConnectId: "tgw-attach-12345678",
- * });
- * ```
- */
 export function getConnectOutput(args?: GetConnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -143,20 +59,8 @@ export function getConnectOutput(args?: GetConnectOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getConnect.
  */
 export interface GetConnectOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetConnectFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Identifier of the EC2 Transit Gateway Connect.
-     */
     transitGatewayConnectId?: pulumi.Input<string>;
 }

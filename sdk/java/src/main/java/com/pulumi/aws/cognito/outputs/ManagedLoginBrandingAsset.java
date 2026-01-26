@@ -12,57 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ManagedLoginBrandingAsset {
-    /**
-     * @return Image file, in Base64-encoded binary.
-     * 
-     */
     private @Nullable String bytes;
-    /**
-     * @return Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-     * 
-     */
     private String category;
-    /**
-     * @return Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-     * 
-     */
     private String colorMode;
     private String extension;
-    /**
-     * @return Asset ID.
-     * 
-     */
     private @Nullable String resourceId;
 
     private ManagedLoginBrandingAsset() {}
-    /**
-     * @return Image file, in Base64-encoded binary.
-     * 
-     */
     public Optional<String> bytes() {
         return Optional.ofNullable(this.bytes);
     }
-    /**
-     * @return Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-     * 
-     */
     public String category() {
         return this.category;
     }
-    /**
-     * @return Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-     * 
-     */
     public String colorMode() {
         return this.colorMode;
     }
     public String extension() {
         return this.extension;
     }
-    /**
-     * @return Asset ID.
-     * 
-     */
     public Optional<String> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }

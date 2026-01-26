@@ -18,47 +18,23 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
 
     public static final UserAuthenticationModeArgs Empty = new UserAuthenticationModeArgs();
 
-    /**
-     * Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     @Import(name="passwordCount")
     private @Nullable Output<Integer> passwordCount;
 
-    /**
-     * @return Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     public Optional<Output<Integer>> passwordCount() {
         return Optional.ofNullable(this.passwordCount);
     }
 
-    /**
-     * Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-     * 
-     */
     @Import(name="passwords")
     private @Nullable Output<List<String>> passwords;
 
-    /**
-     * @return Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-     * 
-     */
     public Optional<Output<List<String>>> passwords() {
         return Optional.ofNullable(this.passwords);
     }
 
-    /**
-     * Specifies the authentication type. Valid values are: `password` or `iam`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Specifies the authentication type. Valid values are: `password` or `iam`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -89,75 +65,33 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
             $ = new UserAuthenticationModeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passwordCount Number of passwords belonging to the user if `type` is set to `password`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordCount(@Nullable Output<Integer> passwordCount) {
             $.passwordCount = passwordCount;
             return this;
         }
 
-        /**
-         * @param passwordCount Number of passwords belonging to the user if `type` is set to `password`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordCount(Integer passwordCount) {
             return passwordCount(Output.of(passwordCount));
         }
 
-        /**
-         * @param passwords Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(@Nullable Output<List<String>> passwords) {
             $.passwords = passwords;
             return this;
         }
 
-        /**
-         * @param passwords Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(List<String> passwords) {
             return passwords(Output.of(passwords));
         }
 
-        /**
-         * @param passwords Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
         }
 
-        /**
-         * @param type Specifies the authentication type. Valid values are: `password` or `iam`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies the authentication type. Valid values are: `password` or `iam`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

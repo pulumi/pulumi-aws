@@ -12,51 +12,27 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// The regex description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        /// </summary>
         [Input("inputAction")]
         public Input<string>? InputAction { get; set; }
 
-        /// <summary>
-        /// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        /// </summary>
         [Input("inputEnabled")]
         public Input<bool>? InputEnabled { get; set; }
 
-        /// <summary>
-        /// The regex name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        /// </summary>
         [Input("outputAction")]
         public Input<string>? OutputAction { get; set; }
 
-        /// <summary>
-        /// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        /// </summary>
         [Input("outputEnabled")]
         public Input<bool>? OutputEnabled { get; set; }
 
-        /// <summary>
-        /// The regex pattern.
-        /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 

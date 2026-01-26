@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Lake Formation Identity Center Configuration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const identityCenterInstanceArn = example.then(example => example.arns?.[0]);
- * const exampleIdentityCenterConfiguration = new aws.lakeformation.IdentityCenterConfiguration("example", {instanceArn: identityCenterInstanceArn});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
- * ```
- */
 export class IdentityCenterConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing IdentityCenterConfiguration resource's state with the given name, ID, and optional extra
@@ -56,28 +32,16 @@ export class IdentityCenterConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityCenterConfiguration.__pulumiType;
     }
 
-    /**
-     * ARN of the Lake Formation applicated integrated with IAM Identity Center.
-     */
     declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
-     * Identifier for the Data Catalog.
-     * By default, the account ID.
+     * The ID of the Data Catalog.
      */
     declare public readonly catalogId: pulumi.Output<string>;
     /**
-     * ARN of the IAM Identity Center Instance to associate.
-     *
-     * The following arguments are optional:
+     * The ARN of the Identity Center instance.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the Resource Access Manager (RAM) resource share.
-     */
     declare public /*out*/ readonly resourceShare: pulumi.Output<string>;
 
     /**
@@ -118,28 +82,16 @@ export class IdentityCenterConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdentityCenterConfiguration resources.
  */
 export interface IdentityCenterConfigurationState {
-    /**
-     * ARN of the Lake Formation applicated integrated with IAM Identity Center.
-     */
     applicationArn?: pulumi.Input<string>;
     /**
-     * Identifier for the Data Catalog.
-     * By default, the account ID.
+     * The ID of the Data Catalog.
      */
     catalogId?: pulumi.Input<string>;
     /**
-     * ARN of the IAM Identity Center Instance to associate.
-     *
-     * The following arguments are optional:
+     * The ARN of the Identity Center instance.
      */
     instanceArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the Resource Access Manager (RAM) resource share.
-     */
     resourceShare?: pulumi.Input<string>;
 }
 
@@ -148,18 +100,12 @@ export interface IdentityCenterConfigurationState {
  */
 export interface IdentityCenterConfigurationArgs {
     /**
-     * Identifier for the Data Catalog.
-     * By default, the account ID.
+     * The ID of the Data Catalog.
      */
     catalogId?: pulumi.Input<string>;
     /**
-     * ARN of the IAM Identity Center Instance to associate.
-     *
-     * The following arguments are optional:
+     * The ARN of the Identity Center instance.
      */
     instanceArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

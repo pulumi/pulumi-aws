@@ -17,62 +17,30 @@ public final class DomainCognitoOptionsArgs extends com.pulumi.resources.Resourc
 
     public static final DomainCognitoOptionsArgs Empty = new DomainCognitoOptionsArgs();
 
-    /**
-     * Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * ID of the Cognito Identity Pool to use.
-     * 
-     */
     @Import(name="identityPoolId", required=true)
     private Output<String> identityPoolId;
 
-    /**
-     * @return ID of the Cognito Identity Pool to use.
-     * 
-     */
     public Output<String> identityPoolId() {
         return this.identityPoolId;
     }
 
-    /**
-     * ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * ID of the Cognito User Pool to use.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return ID of the Cognito User Pool to use.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -104,86 +72,38 @@ public final class DomainCognitoOptionsArgs extends com.pulumi.resources.Resourc
             $ = new DomainCognitoOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param identityPoolId ID of the Cognito Identity Pool to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(Output<String> identityPoolId) {
             $.identityPoolId = identityPoolId;
             return this;
         }
 
-        /**
-         * @param identityPoolId ID of the Cognito Identity Pool to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(String identityPoolId) {
             return identityPoolId(Output.of(identityPoolId));
         }
 
-        /**
-         * @param roleArn ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param userPoolId ID of the Cognito User Pool to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId ID of the Cognito User Pool to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

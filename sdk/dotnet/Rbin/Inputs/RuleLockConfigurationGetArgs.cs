@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Rbin.Inputs
 
     public sealed class RuleLockConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Information about the retention rule unlock delay. See `UnlockDelay` below.
-        /// </summary>
         [Input("unlockDelay", required: true)]
         public Input<Inputs.RuleLockConfigurationUnlockDelayGetArgs> UnlockDelay { get; set; } = null!;
 

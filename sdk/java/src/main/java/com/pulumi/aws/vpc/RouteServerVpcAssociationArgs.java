@@ -17,32 +17,16 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
 
     public static final RouteServerVpcAssociationArgs Empty = new RouteServerVpcAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique identifier for the route server to be associated.
-     * 
-     */
     @Import(name="routeServerId", required=true)
     private Output<String> routeServerId;
 
-    /**
-     * @return The unique identifier for the route server to be associated.
-     * 
-     */
     public Output<String> routeServerId() {
         return this.routeServerId;
     }
@@ -54,21 +38,9 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The ID of the VPC to associate with the route server.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to associate with the route server.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -100,44 +72,20 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
             $ = new RouteServerVpcAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeServerId The unique identifier for the route server to be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(Output<String> routeServerId) {
             $.routeServerId = routeServerId;
             return this;
         }
 
-        /**
-         * @param routeServerId The unique identifier for the route server to be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(String routeServerId) {
             return routeServerId(Output.of(routeServerId));
         }
@@ -151,27 +99,11 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcId The ID of the VPC to associate with the route server.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC to associate with the route server.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

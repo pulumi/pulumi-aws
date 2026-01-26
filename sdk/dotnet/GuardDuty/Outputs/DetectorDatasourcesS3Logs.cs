@@ -13,10 +13,6 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorDatasourcesS3Logs
     {
-        /// <summary>
-        /// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-        /// Defaults to `True`.
-        /// </summary>
         public readonly bool Enable;
 
         [OutputConstructor]

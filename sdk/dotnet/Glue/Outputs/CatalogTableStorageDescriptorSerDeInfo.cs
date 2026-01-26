@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTableStorageDescriptorSerDeInfo
     {
-        /// <summary>
-        /// Name of the SerDe.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
-        /// <summary>
-        /// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-        /// </summary>
         public readonly string? SerializationLibrary;
 
         [OutputConstructor]

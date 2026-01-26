@@ -18,62 +18,30 @@ public final class UserPhoneConfigArgs extends com.pulumi.resources.ResourceArgs
 
     public static final UserPhoneConfigArgs Empty = new UserPhoneConfigArgs();
 
-    /**
-     * The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-     * 
-     */
     @Import(name="afterContactWorkTimeLimit")
     private @Nullable Output<Integer> afterContactWorkTimeLimit;
 
-    /**
-     * @return The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-     * 
-     */
     public Optional<Output<Integer>> afterContactWorkTimeLimit() {
         return Optional.ofNullable(this.afterContactWorkTimeLimit);
     }
 
-    /**
-     * When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-     * 
-     */
     @Import(name="autoAccept")
     private @Nullable Output<Boolean> autoAccept;
 
-    /**
-     * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-     * 
-     */
     public Optional<Output<Boolean>> autoAccept() {
         return Optional.ofNullable(this.autoAccept);
     }
 
-    /**
-     * The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
-     * 
-     */
     @Import(name="deskPhoneNumber")
     private @Nullable Output<String> deskPhoneNumber;
 
-    /**
-     * @return The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
-     * 
-     */
     public Optional<Output<String>> deskPhoneNumber() {
         return Optional.ofNullable(this.deskPhoneNumber);
     }
 
-    /**
-     * The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-     * 
-     */
     @Import(name="phoneType", required=true)
     private Output<String> phoneType;
 
-    /**
-     * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-     * 
-     */
     public Output<String> phoneType() {
         return this.phoneType;
     }
@@ -105,86 +73,38 @@ public final class UserPhoneConfigArgs extends com.pulumi.resources.ResourceArgs
             $ = new UserPhoneConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param afterContactWorkTimeLimit The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder afterContactWorkTimeLimit(@Nullable Output<Integer> afterContactWorkTimeLimit) {
             $.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
             return this;
         }
 
-        /**
-         * @param afterContactWorkTimeLimit The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder afterContactWorkTimeLimit(Integer afterContactWorkTimeLimit) {
             return afterContactWorkTimeLimit(Output.of(afterContactWorkTimeLimit));
         }
 
-        /**
-         * @param autoAccept When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoAccept(@Nullable Output<Boolean> autoAccept) {
             $.autoAccept = autoAccept;
             return this;
         }
 
-        /**
-         * @param autoAccept When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoAccept(Boolean autoAccept) {
             return autoAccept(Output.of(autoAccept));
         }
 
-        /**
-         * @param deskPhoneNumber The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deskPhoneNumber(@Nullable Output<String> deskPhoneNumber) {
             $.deskPhoneNumber = deskPhoneNumber;
             return this;
         }
 
-        /**
-         * @param deskPhoneNumber The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deskPhoneNumber(String deskPhoneNumber) {
             return deskPhoneNumber(Output.of(deskPhoneNumber));
         }
 
-        /**
-         * @param phoneType The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneType(Output<String> phoneType) {
             $.phoneType = phoneType;
             return this;
         }
 
-        /**
-         * @param phoneType The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneType(String phoneType) {
             return phoneType(Output.of(phoneType));
         }

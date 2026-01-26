@@ -24,15 +24,6 @@ class ContactsEmailContactArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContactsEmailContact resource.
-        :param pulumi.Input[_builtins.str] email_address: Email address for the contact. Must be between 6 and 254 characters and match an email
-               pattern.
-        :param pulumi.Input[_builtins.str] name: Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-               characters, underscores, tildes, periods, and hyphens.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "email_address", email_address)
         if name is not None:
@@ -43,10 +34,6 @@ class ContactsEmailContactArgs:
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> pulumi.Input[_builtins.str]:
-        """
-        Email address for the contact. Must be between 6 and 254 characters and match an email
-        pattern.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -56,12 +43,6 @@ class ContactsEmailContactArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-        characters, underscores, tildes, periods, and hyphens.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -71,11 +52,6 @@ class ContactsEmailContactArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider 
-        `default_tags` configuration block
-        present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,18 +69,6 @@ class _ContactsEmailContactState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ContactsEmailContact resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Email Contact.
-        :param pulumi.Input[_builtins.str] email_address: Email address for the contact. Must be between 6 and 254 characters and match an email
-               pattern.
-        :param pulumi.Input[_builtins.str] name: Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-               characters, underscores, tildes, periods, and hyphens.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider 
-               `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -120,9 +84,6 @@ class _ContactsEmailContactState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Email Contact.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -132,10 +93,6 @@ class _ContactsEmailContactState:
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address for the contact. Must be between 6 and 254 characters and match an email
-        pattern.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -145,12 +102,6 @@ class _ContactsEmailContactState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-        characters, underscores, tildes, periods, and hyphens.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -160,11 +111,6 @@ class _ContactsEmailContactState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider 
-        `default_tags` configuration block
-        present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -174,10 +120,6 @@ class _ContactsEmailContactState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider 
-        `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -196,43 +138,9 @@ class ContactsEmailContact(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing AWS User Notifications Contacts Email Contact.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.ContactsEmailContact("example",
-            name="example-contact",
-            email_address="example@example.com",
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Contacts Email Contact using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
-        ```
-
+        Create a ContactsEmailContact resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] email_address: Email address for the contact. Must be between 6 and 254 characters and match an email
-               pattern.
-        :param pulumi.Input[_builtins.str] name: Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-               characters, underscores, tildes, periods, and hyphens.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -241,32 +149,7 @@ class ContactsEmailContact(pulumi.CustomResource):
                  args: ContactsEmailContactArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing AWS User Notifications Contacts Email Contact.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.ContactsEmailContact("example",
-            name="example-contact",
-            email_address="example@example.com",
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Contacts Email Contact using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
-        ```
-
+        Create a ContactsEmailContact resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ContactsEmailContactArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,18 +206,6 @@ class ContactsEmailContact(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Email Contact.
-        :param pulumi.Input[_builtins.str] email_address: Email address for the contact. Must be between 6 and 254 characters and match an email
-               pattern.
-        :param pulumi.Input[_builtins.str] name: Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-               characters, underscores, tildes, periods, and hyphens.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider 
-               `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,47 +221,25 @@ class ContactsEmailContact(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Email Contact.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> pulumi.Output[_builtins.str]:
-        """
-        Email address for the contact. Must be between 6 and 254 characters and match an email
-        pattern.
-        """
         return pulumi.get(self, "email_address")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-        characters, underscores, tildes, periods, and hyphens.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider 
-        `default_tags` configuration block
-        present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider 
-        `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

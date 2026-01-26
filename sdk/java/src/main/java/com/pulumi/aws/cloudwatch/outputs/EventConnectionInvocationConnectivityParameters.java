@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EventConnectionInvocationConnectivityParameters {
-    /**
-     * @return The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-     * 
-     */
     private EventConnectionInvocationConnectivityParametersResourceParameters resourceParameters;
 
     private EventConnectionInvocationConnectivityParameters() {}
-    /**
-     * @return The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-     * 
-     */
     public EventConnectionInvocationConnectivityParametersResourceParameters resourceParameters() {
         return this.resourceParameters;
     }

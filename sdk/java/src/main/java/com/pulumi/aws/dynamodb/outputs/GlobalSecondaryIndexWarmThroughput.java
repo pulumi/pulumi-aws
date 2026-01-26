@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GlobalSecondaryIndexWarmThroughput {
-    /**
-     * @return Number of read operations this index can instantaneously support.
-     * 
-     */
     private Integer readUnitsPerSecond;
-    /**
-     * @return Number of write operations this index can instantaneously support.
-     * 
-     */
     private Integer writeUnitsPerSecond;
 
     private GlobalSecondaryIndexWarmThroughput() {}
-    /**
-     * @return Number of read operations this index can instantaneously support.
-     * 
-     */
     public Integer readUnitsPerSecond() {
         return this.readUnitsPerSecond;
     }
-    /**
-     * @return Number of write operations this index can instantaneously support.
-     * 
-     */
     public Integer writeUnitsPerSecond() {
         return this.writeUnitsPerSecond;
     }

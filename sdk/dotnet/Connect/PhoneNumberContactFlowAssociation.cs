@@ -9,61 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Associates a flow with a phone number claimed to an Amazon Connect instance.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.PhoneNumberContactFlowAssociation("example", new()
-    ///     {
-    ///         PhoneNumberId = exampleAwsConnectPhoneNumber.Id,
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         ContactFlowId = exampleAwsConnectContactFlow.ContactFlowId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_connect_phone_number_contact_flow_association` using the `phone_number_id`, `instance_id` and `contact_flow_id` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation")]
     public partial class PhoneNumberContactFlowAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Contact flow ID.
-        /// </summary>
         [Output("contactFlowId")]
         public Output<string> ContactFlowId { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Connect instance ID.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Phone number ID.
-        /// </summary>
         [Output("phoneNumberId")]
         public Output<string> PhoneNumberId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -113,27 +70,15 @@ namespace Pulumi.Aws.Connect
 
     public sealed class PhoneNumberContactFlowAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contact flow ID.
-        /// </summary>
         [Input("contactFlowId", required: true)]
         public Input<string> ContactFlowId { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon Connect instance ID.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Phone number ID.
-        /// </summary>
         [Input("phoneNumberId", required: true)]
         public Input<string> PhoneNumberId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -145,27 +90,15 @@ namespace Pulumi.Aws.Connect
 
     public sealed class PhoneNumberContactFlowAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contact flow ID.
-        /// </summary>
         [Input("contactFlowId")]
         public Input<string>? ContactFlowId { get; set; }
 
-        /// <summary>
-        /// Amazon Connect instance ID.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Phone number ID.
-        /// </summary>
         [Input("phoneNumberId")]
         public Input<string>? PhoneNumberId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

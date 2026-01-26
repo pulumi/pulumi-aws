@@ -12,21 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing odb Network resource in AWS for Oracle Database@AWS.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import Odb Network using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:odb/network:Network example example
-// ```
 type Network struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the odb network resource.
 	Arn                pulumi.StringOutput `pulumi:"arn"`
 	AvailabilityZone   pulumi.StringOutput `pulumi:"availabilityZone"`
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
@@ -40,9 +28,9 @@ type Network struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolOutput   `pulumi:"deleteAssociatedResources"`
 	DisplayName               pulumi.StringOutput `pulumi:"displayName"`
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// The managed services configuration for the ODB network.
 	ManagedServices NetworkManagedServiceArrayOutput `pulumi:"managedServices"`
-	// The number of storage servers requested for the Exadata infrastructure.
+	// The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
 	OciDnsForwardingConfigs NetworkOciDnsForwardingConfigArrayOutput `pulumi:"ociDnsForwardingConfigs"`
 	// The unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId pulumi.StringOutput `pulumi:"ociNetworkAnchorId"`
@@ -58,8 +46,7 @@ type Network struct {
 	PeeredCidrs pulumi.StringArrayOutput `pulumi:"peeredCidrs"`
 	// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
 	PercentProgress pulumi.Float64Output `pulumi:"percentProgress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region          pulumi.StringOutput  `pulumi:"region"`
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access pulumi.StringOutput `pulumi:"s3Access"`
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
@@ -67,14 +54,11 @@ type Network struct {
 	// The status of the network resource.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Additional information about the current status of the ODB network.
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	Timeouts NetworkTimeoutsPtrOutput `pulumi:"timeouts"`
+	StatusReason pulumi.StringOutput      `pulumi:"statusReason"`
+	Tags         pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	Timeouts     NetworkTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Specifies the configuration for Zero-ETL access from the ODB network.
-	//
-	// The following arguments are optional:
 	ZeroEtlAccess pulumi.StringOutput `pulumi:"zeroEtlAccess"`
 }
 
@@ -126,7 +110,6 @@ func GetNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
-	// Amazon Resource Name (ARN) of the odb network resource.
 	Arn                *string `pulumi:"arn"`
 	AvailabilityZone   *string `pulumi:"availabilityZone"`
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
@@ -140,9 +123,9 @@ type networkState struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources *bool   `pulumi:"deleteAssociatedResources"`
 	DisplayName               *string `pulumi:"displayName"`
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// The managed services configuration for the ODB network.
 	ManagedServices []NetworkManagedService `pulumi:"managedServices"`
-	// The number of storage servers requested for the Exadata infrastructure.
+	// The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
 	OciDnsForwardingConfigs []NetworkOciDnsForwardingConfig `pulumi:"ociDnsForwardingConfigs"`
 	// The unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId *string `pulumi:"ociNetworkAnchorId"`
@@ -158,8 +141,7 @@ type networkState struct {
 	PeeredCidrs []string `pulumi:"peeredCidrs"`
 	// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
 	PercentProgress *float64 `pulumi:"percentProgress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region          *string  `pulumi:"region"`
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access *string `pulumi:"s3Access"`
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
@@ -167,19 +149,15 @@ type networkState struct {
 	// The status of the network resource.
 	Status *string `pulumi:"status"`
 	// Additional information about the current status of the ODB network.
-	StatusReason *string `pulumi:"statusReason"`
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *NetworkTimeouts  `pulumi:"timeouts"`
+	StatusReason *string           `pulumi:"statusReason"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
+	Timeouts     *NetworkTimeouts  `pulumi:"timeouts"`
 	// Specifies the configuration for Zero-ETL access from the ODB network.
-	//
-	// The following arguments are optional:
 	ZeroEtlAccess *string `pulumi:"zeroEtlAccess"`
 }
 
 type NetworkState struct {
-	// Amazon Resource Name (ARN) of the odb network resource.
 	Arn                pulumi.StringPtrInput
 	AvailabilityZone   pulumi.StringPtrInput
 	AvailabilityZoneId pulumi.StringPtrInput
@@ -193,9 +171,9 @@ type NetworkState struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolPtrInput
 	DisplayName               pulumi.StringPtrInput
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// The managed services configuration for the ODB network.
 	ManagedServices NetworkManagedServiceArrayInput
-	// The number of storage servers requested for the Exadata infrastructure.
+	// The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
 	OciDnsForwardingConfigs NetworkOciDnsForwardingConfigArrayInput
 	// The unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId pulumi.StringPtrInput
@@ -211,8 +189,7 @@ type NetworkState struct {
 	PeeredCidrs pulumi.StringArrayInput
 	// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
 	PercentProgress pulumi.Float64PtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access pulumi.StringPtrInput
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
@@ -221,13 +198,10 @@ type NetworkState struct {
 	Status pulumi.StringPtrInput
 	// Additional information about the current status of the ODB network.
 	StatusReason pulumi.StringPtrInput
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
-	Timeouts NetworkTimeoutsPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	Timeouts     NetworkTimeoutsPtrInput
 	// Specifies the configuration for Zero-ETL access from the ODB network.
-	//
-	// The following arguments are optional:
 	ZeroEtlAccess pulumi.StringPtrInput
 }
 
@@ -244,20 +218,16 @@ type networkArgs struct {
 	CustomDomainName *string `pulumi:"customDomainName"`
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
 	// If set to true deletes associated OCI resources. Default false.
-	DeleteAssociatedResources *bool  `pulumi:"deleteAssociatedResources"`
-	DisplayName               string `pulumi:"displayName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DeleteAssociatedResources *bool   `pulumi:"deleteAssociatedResources"`
+	DisplayName               string  `pulumi:"displayName"`
+	Region                    *string `pulumi:"region"`
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access string `pulumi:"s3Access"`
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
-	S3PolicyDocument *string `pulumi:"s3PolicyDocument"`
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string `pulumi:"tags"`
-	Timeouts *NetworkTimeouts  `pulumi:"timeouts"`
+	S3PolicyDocument *string           `pulumi:"s3PolicyDocument"`
+	Tags             map[string]string `pulumi:"tags"`
+	Timeouts         *NetworkTimeouts  `pulumi:"timeouts"`
 	// Specifies the configuration for Zero-ETL access from the ODB network.
-	//
-	// The following arguments are optional:
 	ZeroEtlAccess string `pulumi:"zeroEtlAccess"`
 }
 
@@ -273,18 +243,14 @@ type NetworkArgs struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolPtrInput
 	DisplayName               pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access pulumi.StringInput
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument pulumi.StringPtrInput
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts NetworkTimeoutsPtrInput
+	Tags             pulumi.StringMapInput
+	Timeouts         NetworkTimeoutsPtrInput
 	// Specifies the configuration for Zero-ETL access from the ODB network.
-	//
-	// The following arguments are optional:
 	ZeroEtlAccess pulumi.StringInput
 }
 
@@ -375,7 +341,6 @@ func (o NetworkOutput) ToNetworkOutputWithContext(ctx context.Context) NetworkOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the odb network resource.
 func (o NetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -419,12 +384,12 @@ func (o NetworkOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The name of the OCI resource anchor for the Exadata infrastructure.
+// The managed services configuration for the ODB network.
 func (o NetworkOutput) ManagedServices() NetworkManagedServiceArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkManagedServiceArrayOutput { return v.ManagedServices }).(NetworkManagedServiceArrayOutput)
 }
 
-// The number of storage servers requested for the Exadata infrastructure.
+// The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
 func (o NetworkOutput) OciDnsForwardingConfigs() NetworkOciDnsForwardingConfigArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkOciDnsForwardingConfigArrayOutput { return v.OciDnsForwardingConfigs }).(NetworkOciDnsForwardingConfigArrayOutput)
 }
@@ -464,7 +429,6 @@ func (o NetworkOutput) PercentProgress() pulumi.Float64Output {
 	return o.ApplyT(func(v *Network) pulumi.Float64Output { return v.PercentProgress }).(pulumi.Float64Output)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -489,7 +453,6 @@ func (o NetworkOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -503,8 +466,6 @@ func (o NetworkOutput) Timeouts() NetworkTimeoutsPtrOutput {
 }
 
 // Specifies the configuration for Zero-ETL access from the ODB network.
-//
-// The following arguments are optional:
 func (o NetworkOutput) ZeroEtlAccess() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.ZeroEtlAccess }).(pulumi.StringOutput)
 }

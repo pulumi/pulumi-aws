@@ -11,15 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectorResult {
-    /**
-     * @return ARN of the connector.
-     * 
-     */
     private String arn;
-    /**
-     * @return Summary description of the connector.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,29 +20,13 @@ public final class GetConnectorResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return A map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Current version of the connector.
-     * 
-     */
     private String version;
 
     private GetConnectorResult() {}
-    /**
-     * @return ARN of the connector.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Summary description of the connector.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -67,17 +43,9 @@ public final class GetConnectorResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return A map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Current version of the connector.
-     * 
-     */
     public String version() {
         return this.version;
     }

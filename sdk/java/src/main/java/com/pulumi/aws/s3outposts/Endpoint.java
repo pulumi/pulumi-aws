@@ -16,192 +16,65 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Outposts Endpoint.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3outposts.Endpoint;
- * import com.pulumi.aws.s3outposts.EndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Endpoint("example", EndpointArgs.builder()
- *             .outpostId(exampleAwsOutpostsOutpost.id())
- *             .securityGroupId(exampleAwsSecurityGroup.id())
- *             .subnetId(exampleAwsSubnet.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:s3outposts/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-     * 
-     */
     @Export(name="accessType", refs={String.class}, tree="[0]")
     private Output<String> accessType;
 
-    /**
-     * @return Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-     * 
-     */
     public Output<String> accessType() {
         return this.accessType;
     }
-    /**
-     * Amazon Resource Name (ARN) of the endpoint.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the endpoint.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * VPC CIDR block of the endpoint.
-     * 
-     */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
-    /**
-     * @return VPC CIDR block of the endpoint.
-     * 
-     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
-    /**
-     * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
-    /**
-     * @return UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Output<String> creationTime() {
         return this.creationTime;
     }
-    /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-     * 
-     */
     @Export(name="customerOwnedIpv4Pool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerOwnedIpv4Pool;
 
-    /**
-     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-     * 
-     */
     public Output<Optional<String>> customerOwnedIpv4Pool() {
         return Codegen.optional(this.customerOwnedIpv4Pool);
     }
-    /**
-     * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     * 
-     */
     @Export(name="networkInterfaces", refs={List.class,EndpointNetworkInterface.class}, tree="[0,1]")
     private Output<List<EndpointNetworkInterface>> networkInterfaces;
 
-    /**
-     * @return Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     * 
-     */
     public Output<List<EndpointNetworkInterface>> networkInterfaces() {
         return this.networkInterfaces;
     }
-    /**
-     * Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     @Export(name="outpostId", refs={String.class}, tree="[0]")
     private Output<String> outpostId;
 
-    /**
-     * @return Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     public Output<String> outpostId() {
         return this.outpostId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Identifier of the EC2 Security Group.
-     * 
-     */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
-    /**
-     * @return Identifier of the EC2 Security Group.
-     * 
-     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
-    /**
-     * Identifier of the EC2 Subnet.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return Identifier of the EC2 Subnet.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }

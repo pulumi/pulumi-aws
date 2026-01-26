@@ -11,126 +11,12 @@ namespace Pulumi.Aws.BedrockFoundation
 {
     public static class GetModels
     {
-        /// <summary>
-        /// Data source for managing AWS Bedrock Foundation Models.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by Inference Type
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke(new()
-        ///     {
-        ///         ByInferenceType = "ON_DEMAND",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetModelsResult> InvokeAsync(GetModelsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Bedrock Foundation Models.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by Inference Type
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke(new()
-        ///     {
-        ///         ByInferenceType = "ON_DEMAND",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetModelsResult> Invoke(GetModelsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Bedrock Foundation Models.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by Inference Type
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke(new()
-        ///     {
-        ///         ByInferenceType = "ON_DEMAND",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetModelsResult> Invoke(GetModelsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsInvokeArgs(), options.WithDefaults());
     }
@@ -138,33 +24,18 @@ namespace Pulumi.Aws.BedrockFoundation
 
     public sealed class GetModelsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Customization type to filter on. Valid values are `FINE_TUNING`.
-        /// </summary>
         [Input("byCustomizationType")]
         public string? ByCustomizationType { get; set; }
 
-        /// <summary>
-        /// Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-        /// </summary>
         [Input("byInferenceType")]
         public string? ByInferenceType { get; set; }
 
-        /// <summary>
-        /// Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-        /// </summary>
         [Input("byOutputModality")]
         public string? ByOutputModality { get; set; }
 
-        /// <summary>
-        /// Model provider to filter on.
-        /// </summary>
         [Input("byProvider")]
         public string? ByProvider { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -176,33 +47,18 @@ namespace Pulumi.Aws.BedrockFoundation
 
     public sealed class GetModelsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Customization type to filter on. Valid values are `FINE_TUNING`.
-        /// </summary>
         [Input("byCustomizationType")]
         public Input<string>? ByCustomizationType { get; set; }
 
-        /// <summary>
-        /// Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-        /// </summary>
         [Input("byInferenceType")]
         public Input<string>? ByInferenceType { get; set; }
 
-        /// <summary>
-        /// Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-        /// </summary>
         [Input("byOutputModality")]
         public Input<string>? ByOutputModality { get; set; }
 
-        /// <summary>
-        /// Model provider to filter on.
-        /// </summary>
         [Input("byProvider")]
         public Input<string>? ByProvider { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -220,13 +76,7 @@ namespace Pulumi.Aws.BedrockFoundation
         public readonly string? ByInferenceType;
         public readonly string? ByOutputModality;
         public readonly string? ByProvider;
-        /// <summary>
-        /// AWS region.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of model summary objects. See `ModelSummaries`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetModelsModelSummaryResult> ModelSummaries;
         public readonly string Region;
 

@@ -14,17 +14,9 @@ public final class DataLakeConfigurationEncryptionConfigurationArgs extends com.
 
     public static final DataLakeConfigurationEncryptionConfigurationArgs Empty = new DataLakeConfigurationEncryptionConfigurationArgs();
 
-    /**
-     * The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-     * 
-     */
     @Import(name="kmsKeyId", required=true)
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
@@ -53,23 +45,11 @@ public final class DataLakeConfigurationEncryptionConfigurationArgs extends com.
             $ = new DataLakeConfigurationEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

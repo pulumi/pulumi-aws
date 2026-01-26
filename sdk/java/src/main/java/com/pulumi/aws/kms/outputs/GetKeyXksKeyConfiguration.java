@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyXksKeyConfiguration {
-    /**
-     * @return The globally unique identifier for the key
-     * 
-     */
     private String id;
 
     private GetKeyXksKeyConfiguration() {}
-    /**
-     * @return The globally unique identifier for the key
-     * 
-     */
     public String id() {
         return this.id;
     }

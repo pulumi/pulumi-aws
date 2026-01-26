@@ -11,37 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
-    /**
-     * @return Specifies where in a web request to look for snippets of malicious SQL code.
-     * 
-     */
     private SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch;
-    /**
-     * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     private String textTransformation;
 
     private SqlInjectionMatchSetSqlInjectionMatchTuple() {}
-    /**
-     * @return Specifies where in a web request to look for snippets of malicious SQL code.
-     * 
-     */
     public SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch() {
         return this.fieldToMatch;
     }
-    /**
-     * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     public String textTransformation() {
         return this.textTransformation;
     }

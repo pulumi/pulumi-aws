@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideGetArgs>? _ruleActionOverrides;
 
         /// <summary>
-        /// Override actions for specific rules within the rule group. See below.
+        /// Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
         /// </summary>
         public InputList<Inputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideGetArgs> RuleActionOverrides
         {
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+        /// Name of the managed rule group vendor.
         /// </summary>
         [Input("vendorName", required: true)]
         public Input<string> VendorName { get; set; } = null!;
 
         /// <summary>
-        /// Version of the managed rule group. If not specified, the default version is used.
+        /// Version of the managed rule group. Omit this to use the default version.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

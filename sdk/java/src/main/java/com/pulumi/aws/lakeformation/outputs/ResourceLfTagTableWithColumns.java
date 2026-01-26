@@ -14,69 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceLfTagTableWithColumns {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return Set of column names for the table.
-     * 
-     */
     private @Nullable List<String> columnNames;
-    /**
-     * @return Option to add column wildcard. See Column Wildcard for more details.
-     * 
-     */
     private @Nullable ResourceLfTagTableWithColumnsColumnWildcard columnWildcard;
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Name of the table resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
 
     private ResourceLfTagTableWithColumns() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return Set of column names for the table.
-     * 
-     */
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
-    /**
-     * @return Option to add column wildcard. See Column Wildcard for more details.
-     * 
-     */
     public Optional<ResourceLfTagTableWithColumnsColumnWildcard> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Name of the table resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

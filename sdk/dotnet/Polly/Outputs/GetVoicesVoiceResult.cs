@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Polly.Outputs
     [OutputType]
     public sealed class GetVoicesVoiceResult
     {
-        /// <summary>
-        /// Additional codes for languages available for the specified voice in addition to its default language.
-        /// </summary>
         public readonly ImmutableArray<string> AdditionalLanguageCodes;
-        /// <summary>
-        /// Gender of the voice.
-        /// </summary>
         public readonly string Gender;
-        /// <summary>
-        /// Amazon Polly assigned voice ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-        /// </summary>
         public readonly string LanguageCode;
-        /// <summary>
-        /// Human readable name of the language in English.
-        /// </summary>
         public readonly string LanguageName;
-        /// <summary>
-        /// Name of the voice.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Specifies which engines are supported by a given voice.
-        /// </summary>
         public readonly ImmutableArray<string> SupportedEngines;
 
         [OutputConstructor]

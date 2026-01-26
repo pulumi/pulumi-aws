@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class OpenZfsFileSystemReadCacheConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Size of the file system's SSD read cache, in gibibytes (GiB). Required when `SizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `SizingMode` is used.
-        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
-        /// <summary>
-        /// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
-        /// </summary>
         [Input("sizingMode")]
         public Input<string>? SizingMode { get; set; }
 

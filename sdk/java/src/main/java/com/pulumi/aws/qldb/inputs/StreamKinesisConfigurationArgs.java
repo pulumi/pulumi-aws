@@ -17,32 +17,16 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
 
     public static final StreamKinesisConfigurationArgs Empty = new StreamKinesisConfigurationArgs();
 
-    /**
-     * Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
-     * 
-     */
     @Import(name="aggregationEnabled")
     private @Nullable Output<Boolean> aggregationEnabled;
 
-    /**
-     * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
-     * 
-     */
     public Optional<Output<Boolean>> aggregationEnabled() {
         return Optional.ofNullable(this.aggregationEnabled);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-     * 
-     */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-     * 
-     */
     public Output<String> streamArn() {
         return this.streamArn;
     }
@@ -72,44 +56,20 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
             $ = new StreamKinesisConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregationEnabled Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationEnabled(@Nullable Output<Boolean> aggregationEnabled) {
             $.aggregationEnabled = aggregationEnabled;
             return this;
         }
 
-        /**
-         * @param aggregationEnabled Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationEnabled(Boolean aggregationEnabled) {
             return aggregationEnabled(Output.of(aggregationEnabled));
         }
 
-        /**
-         * @param streamArn The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(Output<String> streamArn) {
             $.streamArn = streamArn;
             return this;
         }
 
-        /**
-         * @param streamArn The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
         }

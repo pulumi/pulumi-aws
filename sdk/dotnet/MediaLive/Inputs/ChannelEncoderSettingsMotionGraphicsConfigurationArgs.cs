@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsMotionGraphicsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Motion Graphics Insertion.
-        /// </summary>
         [Input("motionGraphicsInsertion")]
         public Input<string>? MotionGraphicsInsertion { get; set; }
 
-        /// <summary>
-        /// Motion Graphics Settings. See Motion Graphics Settings for more details.
-        /// </summary>
         [Input("motionGraphicsSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs> MotionGraphicsSettings { get; set; } = null!;
 

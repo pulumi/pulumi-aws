@@ -14,43 +14,17 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser
- * ```
- * 
- */
 @ResourceType(type="aws:iam/userPoliciesExclusive:UserPoliciesExclusive")
 public class UserPoliciesExclusive extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     @Export(name="policyNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> policyNames;
 
-    /**
-     * @return A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     public Output<List<String>> policyNames() {
         return this.policyNames;
     }
-    /**
-     * IAM user name.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return IAM user name.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

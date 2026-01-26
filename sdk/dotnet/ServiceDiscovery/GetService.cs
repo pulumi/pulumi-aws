@@ -11,78 +11,12 @@ namespace Pulumi.Aws.ServiceDiscovery
 {
     public static class GetService
     {
-        /// <summary>
-        /// Retrieves information about a Service Discovery Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.ServiceDiscovery.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         NamespaceId = "NAMESPACE_ID_VALUE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:servicediscovery/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves information about a Service Discovery Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.ServiceDiscovery.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         NamespaceId = "NAMESPACE_ID_VALUE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:servicediscovery/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves information about a Service Discovery Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.ServiceDiscovery.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         NamespaceId = "NAMESPACE_ID_VALUE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:servicediscovery/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
@@ -90,30 +24,17 @@ namespace Pulumi.Aws.ServiceDiscovery
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the namespace that the service belongs to.
-        /// </summary>
         [Input("namespaceId", required: true)]
         public string NamespaceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the service. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -128,30 +49,17 @@ namespace Pulumi.Aws.ServiceDiscovery
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the namespace that the service belongs to.
-        /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the service. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -168,39 +76,18 @@ namespace Pulumi.Aws.ServiceDiscovery
     [OutputType]
     public sealed class GetServiceResult
     {
-        /// <summary>
-        /// ARN of the service.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the service.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `DnsConfig` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDnsConfigResult> DnsConfigs;
-        /// <summary>
-        /// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `HealthCheckConfig` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHealthCheckConfigResult> HealthCheckConfigs;
-        /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `HealthCheckCustomConfig` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHealthCheckCustomConfigResult> HealthCheckCustomConfigs;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// ID of the namespace to use for DNS configuration.
-        /// </summary>
         public readonly string NamespaceId;
         public readonly string Region;
-        /// <summary>
-        /// Map of tags to assign to the service. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

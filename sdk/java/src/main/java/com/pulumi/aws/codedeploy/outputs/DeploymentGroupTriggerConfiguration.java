@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DeploymentGroupTriggerConfiguration {
-    /**
-     * @return The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
-     * 
-     */
     private List<String> triggerEvents;
-    /**
-     * @return The name of the notification trigger.
-     * 
-     */
     private String triggerName;
-    /**
-     * @return The ARN of the SNS topic through which notifications are sent.
-     * 
-     */
     private String triggerTargetArn;
 
     private DeploymentGroupTriggerConfiguration() {}
-    /**
-     * @return The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
-     * 
-     */
     public List<String> triggerEvents() {
         return this.triggerEvents;
     }
-    /**
-     * @return The name of the notification trigger.
-     * 
-     */
     public String triggerName() {
         return this.triggerName;
     }
-    /**
-     * @return The ARN of the SNS topic through which notifications are sent.
-     * 
-     */
     public String triggerTargetArn() {
         return this.triggerTargetArn;
     }

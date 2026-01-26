@@ -39,23 +39,6 @@ class AgentAgentArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgent resource.
-        :param pulumi.Input[_builtins.str] agent_name: Name of the agent.
-        :param pulumi.Input[_builtins.str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
-        :param pulumi.Input[_builtins.str] foundation_model: Foundation model used for orchestration by the agent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the AWS KMS key that encrypts the agent.
-        :param pulumi.Input[_builtins.str] description: Description of the agent.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_name", agent_name)
         pulumi.set(__self__, "agent_resource_role_arn", agent_resource_role_arn)
@@ -90,9 +73,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="agentName")
     def agent_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the agent.
-        """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
@@ -102,9 +82,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="agentResourceRoleArn")
     def agent_resource_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role with permissions to invoke API operations on the agent.
-        """
         return pulumi.get(self, "agent_resource_role_arn")
 
     @agent_resource_role_arn.setter
@@ -114,11 +91,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> pulumi.Input[_builtins.str]:
-        """
-        Foundation model used for orchestration by the agent.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "foundation_model")
 
     @foundation_model.setter
@@ -128,9 +100,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="agentCollaboration")
     def agent_collaboration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-        """
         return pulumi.get(self, "agent_collaboration")
 
     @agent_collaboration.setter
@@ -140,9 +109,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the AWS KMS key that encrypts the agent.
-        """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
@@ -152,9 +118,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the agent.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -164,9 +127,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="guardrailConfigurations")
     def guardrail_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]:
-        """
-        Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
-        """
         return pulumi.get(self, "guardrail_configurations")
 
     @guardrail_configurations.setter
@@ -176,9 +136,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
@@ -188,9 +145,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        """
         return pulumi.get(self, "instruction")
 
     @instruction.setter
@@ -200,9 +154,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="memoryConfigurations")
     def memory_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]:
-        """
-        Configurations for the agent's ability to retain the conversational context.
-        """
         return pulumi.get(self, "memory_configurations")
 
     @memory_configurations.setter
@@ -212,9 +163,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to prepare the agent after creation or modification. Defaults to `true`.
-        """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
@@ -224,9 +172,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]:
-        """
-        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        """
         return pulumi.get(self, "prompt_override_configurations")
 
     @prompt_override_configurations.setter
@@ -236,9 +181,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -248,9 +190,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the in-use check is skipped when deleting the agent.
-        """
         return pulumi.get(self, "skip_resource_in_use_check")
 
     @skip_resource_in_use_check.setter
@@ -260,9 +199,6 @@ class AgentAgentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -305,28 +241,6 @@ class _AgentAgentState:
                  timeouts: Optional[pulumi.Input['AgentAgentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgent resources.
-        :param pulumi.Input[_builtins.str] agent_arn: ARN of the agent.
-        :param pulumi.Input[_builtins.str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent.
-        :param pulumi.Input[_builtins.str] agent_name: Name of the agent.
-        :param pulumi.Input[_builtins.str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the AWS KMS key that encrypts the agent.
-        :param pulumi.Input[_builtins.str] description: Description of the agent.
-        :param pulumi.Input[_builtins.str] foundation_model: Foundation model used for orchestration by the agent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] prepared_at: Timestamp of when the agent was last prepared.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if agent_arn is not None:
             pulumi.set(__self__, "agent_arn", agent_arn)
@@ -374,9 +288,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="agentArn")
     def agent_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the agent.
-        """
         return pulumi.get(self, "agent_arn")
 
     @agent_arn.setter
@@ -386,9 +297,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="agentCollaboration")
     def agent_collaboration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-        """
         return pulumi.get(self, "agent_collaboration")
 
     @agent_collaboration.setter
@@ -398,9 +306,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the agent.
-        """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
@@ -410,9 +315,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="agentName")
     def agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the agent.
-        """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
@@ -422,9 +324,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="agentResourceRoleArn")
     def agent_resource_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role with permissions to invoke API operations on the agent.
-        """
         return pulumi.get(self, "agent_resource_role_arn")
 
     @agent_resource_role_arn.setter
@@ -434,9 +333,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the agent.
-        """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
@@ -446,9 +342,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the AWS KMS key that encrypts the agent.
-        """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
@@ -458,9 +351,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the agent.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -470,11 +360,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Foundation model used for orchestration by the agent.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "foundation_model")
 
     @foundation_model.setter
@@ -484,9 +369,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="guardrailConfigurations")
     def guardrail_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]:
-        """
-        Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
-        """
         return pulumi.get(self, "guardrail_configurations")
 
     @guardrail_configurations.setter
@@ -496,9 +378,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
@@ -508,9 +387,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        """
         return pulumi.get(self, "instruction")
 
     @instruction.setter
@@ -520,9 +396,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="memoryConfigurations")
     def memory_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]:
-        """
-        Configurations for the agent's ability to retain the conversational context.
-        """
         return pulumi.get(self, "memory_configurations")
 
     @memory_configurations.setter
@@ -532,9 +405,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to prepare the agent after creation or modification. Defaults to `true`.
-        """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
@@ -544,9 +414,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="preparedAt")
     def prepared_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp of when the agent was last prepared.
-        """
         return pulumi.get(self, "prepared_at")
 
     @prepared_at.setter
@@ -556,9 +423,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]:
-        """
-        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        """
         return pulumi.get(self, "prompt_override_configurations")
 
     @prompt_override_configurations.setter
@@ -568,9 +432,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -580,9 +441,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the in-use check is skipped when deleting the agent.
-        """
         return pulumi.get(self, "skip_resource_in_use_check")
 
     @skip_resource_in_use_check.setter
@@ -592,9 +450,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -604,9 +459,6 @@ class _AgentAgentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -647,83 +499,9 @@ class AgentAgent(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "conditions": [
-                {
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "aws:SourceAccount",
-                },
-                {
-                    "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
-                    "variable": "AWS:SourceArn",
-                },
-            ],
-        }])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[{
-            "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
-        }])
-        example = aws.iam.Role("example",
-            assume_role_policy=example_agent_trust.json,
-            name_prefix="AmazonBedrockExecutionRoleForAgents_")
-        example_role_policy = aws.iam.RolePolicy("example",
-            policy=example_agent_permissions.json,
-            role=example.id)
-        example_agent_agent = aws.bedrock.AgentAgent("example",
-            agent_name="my-agent-name",
-            agent_resource_role_arn=example.arn,
-            idle_session_ttl_in_seconds=500,
-            instruction="You are a friendly assistant who helps answer questions.",
-            foundation_model="anthropic.claude-v2")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent using the agent ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
-        ```
-
+        Create a AgentAgent resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] agent_name: Name of the agent.
-        :param pulumi.Input[_builtins.str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the AWS KMS key that encrypts the agent.
-        :param pulumi.Input[_builtins.str] description: Description of the agent.
-        :param pulumi.Input[_builtins.str] foundation_model: Foundation model used for orchestration by the agent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -732,64 +510,7 @@ class AgentAgent(pulumi.CustomResource):
                  args: AgentAgentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "conditions": [
-                {
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "aws:SourceAccount",
-                },
-                {
-                    "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
-                    "variable": "AWS:SourceArn",
-                },
-            ],
-        }])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[{
-            "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
-        }])
-        example = aws.iam.Role("example",
-            assume_role_policy=example_agent_trust.json,
-            name_prefix="AmazonBedrockExecutionRoleForAgents_")
-        example_role_policy = aws.iam.RolePolicy("example",
-            policy=example_agent_permissions.json,
-            role=example.id)
-        example_agent_agent = aws.bedrock.AgentAgent("example",
-            agent_name="my-agent-name",
-            agent_resource_role_arn=example.arn,
-            idle_session_ttl_in_seconds=500,
-            instruction="You are a friendly assistant who helps answer questions.",
-            foundation_model="anthropic.claude-v2")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent using the agent ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
-        ```
-
+        Create a AgentAgent resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentAgentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -895,28 +616,6 @@ class AgentAgent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_arn: ARN of the agent.
-        :param pulumi.Input[_builtins.str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent.
-        :param pulumi.Input[_builtins.str] agent_name: Name of the agent.
-        :param pulumi.Input[_builtins.str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the AWS KMS key that encrypts the agent.
-        :param pulumi.Input[_builtins.str] description: Description of the agent.
-        :param pulumi.Input[_builtins.str] foundation_model: Foundation model used for orchestration by the agent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] prepared_at: Timestamp of when the agent was last prepared.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -948,163 +647,101 @@ class AgentAgent(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentArn")
     def agent_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the agent.
-        """
         return pulumi.get(self, "agent_arn")
 
     @_builtins.property
     @pulumi.getter(name="agentCollaboration")
     def agent_collaboration(self) -> pulumi.Output[_builtins.str]:
-        """
-        Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-        """
         return pulumi.get(self, "agent_collaboration")
 
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the agent.
-        """
         return pulumi.get(self, "agent_id")
 
     @_builtins.property
     @pulumi.getter(name="agentName")
     def agent_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the agent.
-        """
         return pulumi.get(self, "agent_name")
 
     @_builtins.property
     @pulumi.getter(name="agentResourceRoleArn")
     def agent_resource_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role with permissions to invoke API operations on the agent.
-        """
         return pulumi.get(self, "agent_resource_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the agent.
-        """
         return pulumi.get(self, "agent_version")
 
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the AWS KMS key that encrypts the agent.
-        """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the agent.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="foundationModel")
     def foundation_model(self) -> pulumi.Output[_builtins.str]:
-        """
-        Foundation model used for orchestration by the agent.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "foundation_model")
 
     @_builtins.property
     @pulumi.getter(name="guardrailConfigurations")
     def guardrail_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.AgentAgentGuardrailConfiguration']]]:
-        """
-        Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
-        """
         return pulumi.get(self, "guardrail_configurations")
 
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @_builtins.property
     @pulumi.getter
     def instruction(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        """
         return pulumi.get(self, "instruction")
 
     @_builtins.property
     @pulumi.getter(name="memoryConfigurations")
     def memory_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentMemoryConfiguration']]:
-        """
-        Configurations for the agent's ability to retain the conversational context.
-        """
         return pulumi.get(self, "memory_configurations")
 
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to prepare the agent after creation or modification. Defaults to `true`.
-        """
         return pulumi.get(self, "prepare_agent")
 
     @_builtins.property
     @pulumi.getter(name="preparedAt")
     def prepared_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp of when the agent was last prepared.
-        """
         return pulumi.get(self, "prepared_at")
 
     @_builtins.property
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentPromptOverrideConfiguration']]:
-        """
-        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        """
         return pulumi.get(self, "prompt_override_configurations")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the in-use check is skipped when deleting the agent.
-        """
         return pulumi.get(self, "skip_resource_in_use_check")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

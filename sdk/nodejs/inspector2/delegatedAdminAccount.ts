@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon Inspector Delegated Admin Account.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.inspector2.DelegatedAdminAccount("example", {accountId: current.then(current => current.accountId)});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
- * ```
- */
 export class DelegatedAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing DelegatedAdminAccount resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === DelegatedAdminAccount.__pulumiType;
     }
 
-    /**
-     * Account to enable as delegated admin account.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of this delegated admin account.
-     */
     declare public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
 
     /**
@@ -102,17 +70,8 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DelegatedAdminAccount resources.
  */
 export interface DelegatedAdminAccountState {
-    /**
-     * Account to enable as delegated admin account.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of this delegated admin account.
-     */
     relationshipStatus?: pulumi.Input<string>;
 }
 
@@ -120,12 +79,6 @@ export interface DelegatedAdminAccountState {
  * The set of arguments for constructing a DelegatedAdminAccount resource.
  */
 export interface DelegatedAdminAccountArgs {
-    /**
-     * Account to enable as delegated admin account.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

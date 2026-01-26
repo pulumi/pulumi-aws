@@ -15,32 +15,16 @@ public final class GroupConfigurationParameterArgs extends com.pulumi.resources.
 
     public static final GroupConfigurationParameterArgs Empty = new GroupConfigurationParameterArgs();
 
-    /**
-     * The name of the group configuration parameter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the group configuration parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value or values to be used for the specified parameter.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return The value or values to be used for the specified parameter.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class GroupConfigurationParameterArgs extends com.pulumi.resources.
             $ = new GroupConfigurationParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the group configuration parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the group configuration parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values The value or values to be used for the specified parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values The value or values to be used for the specified parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values The value or values to be used for the specified parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

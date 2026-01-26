@@ -11,54 +11,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIpSetResult {
-    /**
-     * @return An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
-     * 
-     */
     private List<String> addresses;
-    /**
-     * @return ARN of the entity.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the set that helps with identification.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return IP address version of the set.
-     * 
-     */
     private String ipAddressVersion;
     private String name;
     private String region;
     private String scope;
 
     private GetIpSetResult() {}
-    /**
-     * @return An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
-     * 
-     */
     public List<String> addresses() {
         return this.addresses;
     }
-    /**
-     * @return ARN of the entity.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the set that helps with identification.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -69,10 +41,6 @@ public final class GetIpSetResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IP address version of the set.
-     * 
-     */
     public String ipAddressVersion() {
         return this.ipAddressVersion;
     }

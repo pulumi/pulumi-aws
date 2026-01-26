@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the Exadata infrastructure.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
-        /// </summary>
         public readonly string CloudExadataInfrastructureId;
-        /// <summary>
-        /// The display name of the Autonomous VM cluster.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// The unique identifier of the cloud autonomous vm cluster.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the OCI resource anchor associated with this Autonomous VM cluster.
-        /// </summary>
         public readonly string OciResourceAnchorName;
-        /// <summary>
-        /// The URL for accessing the OCI console page for this Autonomous VM cluster.
-        /// </summary>
         public readonly string OciUrl;
-        /// <summary>
-        /// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
-        /// </summary>
         public readonly string Ocid;
-        /// <summary>
-        /// The unique identifier of the ODB network associated with this Autonomous VM cluster.
-        /// </summary>
         public readonly string OdbNetworkId;
 
         [OutputConstructor]

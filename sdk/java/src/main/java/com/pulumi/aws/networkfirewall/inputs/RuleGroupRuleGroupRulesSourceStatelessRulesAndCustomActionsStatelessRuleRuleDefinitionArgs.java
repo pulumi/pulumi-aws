@@ -16,32 +16,16 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
 
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs();
 
-    /**
-     * Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
-     * 
-     */
     @Import(name="actions", required=true)
     private Output<List<String>> actions;
 
-    /**
-     * @return Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
-     * 
-     */
     public Output<List<String>> actions() {
         return this.actions;
     }
 
-    /**
-     * A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
-     * 
-     */
     @Import(name="matchAttributes", required=true)
     private Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs> matchAttributes;
 
-    /**
-     * @return A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
-     * 
-     */
     public Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs> matchAttributes() {
         return this.matchAttributes;
     }
@@ -71,54 +55,24 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             $ = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(Output<List<String>> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(List<String> actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param matchAttributes A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchAttributes(Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs> matchAttributes) {
             $.matchAttributes = matchAttributes;
             return this;
         }
 
-        /**
-         * @param matchAttributes A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchAttributes(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs matchAttributes) {
             return matchAttributes(Output.of(matchAttributes));
         }

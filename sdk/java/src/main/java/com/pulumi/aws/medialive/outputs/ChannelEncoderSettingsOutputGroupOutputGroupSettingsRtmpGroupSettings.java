@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings {
-    /**
-     * @return The ad marker type for this output group.
-     * 
-     */
     private @Nullable List<String> adMarkers;
-    /**
-     * @return Authentication scheme to use when connecting with CDN.
-     * 
-     */
     private @Nullable String authenticationScheme;
-    /**
-     * @return Controls behavior when content cache fills up.
-     * 
-     */
     private @Nullable String cacheFullBehavior;
-    /**
-     * @return Cache length in seconds, is used to calculate buffer size.
-     * 
-     */
     private @Nullable Integer cacheLength;
-    /**
-     * @return Controls the types of data that passes to onCaptionInfo outputs.
-     * 
-     */
     private @Nullable String captionData;
-    /**
-     * @return Controls the behavior of the RTMP group if input becomes unavailable.
-     * 
-     */
     private @Nullable String inputLossAction;
-    /**
-     * @return Number of seconds to wait until a restart is initiated.
-     * 
-     */
     private @Nullable Integer restartDelay;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings() {}
-    /**
-     * @return The ad marker type for this output group.
-     * 
-     */
     public List<String> adMarkers() {
         return this.adMarkers == null ? List.of() : this.adMarkers;
     }
-    /**
-     * @return Authentication scheme to use when connecting with CDN.
-     * 
-     */
     public Optional<String> authenticationScheme() {
         return Optional.ofNullable(this.authenticationScheme);
     }
-    /**
-     * @return Controls behavior when content cache fills up.
-     * 
-     */
     public Optional<String> cacheFullBehavior() {
         return Optional.ofNullable(this.cacheFullBehavior);
     }
-    /**
-     * @return Cache length in seconds, is used to calculate buffer size.
-     * 
-     */
     public Optional<Integer> cacheLength() {
         return Optional.ofNullable(this.cacheLength);
     }
-    /**
-     * @return Controls the types of data that passes to onCaptionInfo outputs.
-     * 
-     */
     public Optional<String> captionData() {
         return Optional.ofNullable(this.captionData);
     }
-    /**
-     * @return Controls the behavior of the RTMP group if input becomes unavailable.
-     * 
-     */
     public Optional<String> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
-    /**
-     * @return Number of seconds to wait until a restart is initiated.
-     * 
-     */
     public Optional<Integer> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }

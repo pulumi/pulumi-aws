@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration {
-    /**
-     * @return Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration encryptionConfiguration;
-    /**
-     * @return Journal table record expiration settings. See `recordExpiration` Block for details.
-     * 
-     */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration recordExpiration;
-    /**
-     * @return Journal table ARN.
-     * 
-     */
     private @Nullable String tableArn;
-    /**
-     * @return Journal table name.
-     * 
-     */
     private @Nullable String tableName;
 
     private BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration() {}
-    /**
-     * @return Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     public Optional<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
-    /**
-     * @return Journal table record expiration settings. See `recordExpiration` Block for details.
-     * 
-     */
     public Optional<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration> recordExpiration() {
         return Optional.ofNullable(this.recordExpiration);
     }
-    /**
-     * @return Journal table ARN.
-     * 
-     */
     public Optional<String> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
-    /**
-     * @return Journal table name.
-     * 
-     */
     public Optional<String> tableName() {
         return Optional.ofNullable(this.tableName);
     }

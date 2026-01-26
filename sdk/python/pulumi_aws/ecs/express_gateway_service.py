@@ -38,19 +38,6 @@ class ExpressGatewayServiceArgs:
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ExpressGatewayService resource.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-        :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
@@ -84,9 +71,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -96,11 +80,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="infrastructureRoleArn")
     def infrastructure_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "infrastructure_role_arn")
 
     @infrastructure_role_arn.setter
@@ -110,9 +89,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name or ARN of the ECS cluster. Defaults to `default`.
-        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -122,9 +98,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
@@ -134,9 +107,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path for health check requests. Defaults to `/ping`.
-        """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
@@ -146,9 +116,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-        """
         return pulumi.get(self, "memory")
 
     @memory.setter
@@ -176,9 +143,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -197,9 +161,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -209,9 +170,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -221,9 +179,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        """
         return pulumi.get(self, "task_role_arn")
 
     @task_role_arn.setter
@@ -242,9 +197,6 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-        """
         return pulumi.get(self, "wait_for_steady_state")
 
     @wait_for_steady_state.setter
@@ -277,24 +229,6 @@ class _ExpressGatewayServiceState:
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ExpressGatewayService resources.
-        :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        :param pulumi.Input[_builtins.str] current_deployment: ARN of the current deployment.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
-        :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceIngressPathArgs']]] ingress_paths: List of ingress paths with access type and endpoint information.
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-        :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        :param pulumi.Input[_builtins.str] service_arn: ARN of the Express Gateway Service.
-        :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] service_revision_arn: ARN of the service revision.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
         """
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)
@@ -340,9 +274,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name or ARN of the ECS cluster. Defaults to `default`.
-        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -352,9 +283,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
@@ -364,9 +292,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="currentDeployment")
     def current_deployment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the current deployment.
-        """
         return pulumi.get(self, "current_deployment")
 
     @current_deployment.setter
@@ -376,9 +301,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -388,9 +310,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path for health check requests. Defaults to `/ping`.
-        """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
@@ -400,11 +319,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="infrastructureRoleArn")
     def infrastructure_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "infrastructure_role_arn")
 
     @infrastructure_role_arn.setter
@@ -414,9 +328,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="ingressPaths")
     def ingress_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceIngressPathArgs']]]]:
-        """
-        List of ingress paths with access type and endpoint information.
-        """
         return pulumi.get(self, "ingress_paths")
 
     @ingress_paths.setter
@@ -426,9 +337,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-        """
         return pulumi.get(self, "memory")
 
     @memory.setter
@@ -456,9 +364,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -477,9 +382,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Express Gateway Service.
-        """
         return pulumi.get(self, "service_arn")
 
     @service_arn.setter
@@ -489,9 +391,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -501,9 +400,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="serviceRevisionArn")
     def service_revision_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the service revision.
-        """
         return pulumi.get(self, "service_revision_arn")
 
     @service_revision_arn.setter
@@ -513,9 +409,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -525,9 +418,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -537,9 +427,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        """
         return pulumi.get(self, "task_role_arn")
 
     @task_role_arn.setter
@@ -558,9 +445,6 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-        """
         return pulumi.get(self, "wait_for_steady_state")
 
     @wait_for_steady_state.setter
@@ -591,59 +475,9 @@ class ExpressGatewayService(pulumi.CustomResource):
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
-
-        Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.ExpressGatewayService("example",
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            primary_container={
-                "image": "nginx:latest",
-            })
-        ```
-
-        ## Service Updates and Deletion
-
-        ### Updates
-
-        When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
-
-        ### Deletion
-
-        When an Express service is deleted, it enters a `DRAINING` state where existing tasks are allowed to complete gracefully before termination. The deletion process is irreversible - once initiated, the service and all its associated AWS infrastructure (load balancers, target groups, etc.) will be permanently removed. During the draining process, no new tasks are started, and the service becomes unavailable once all tasks have completed.
-
-        ## Import
-
-        Using `pulumi import`, import ECS Express Gateway Services using the service ARN. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/expressGatewayService:ExpressGatewayService example arn:aws:ecs:us-west-2:123456789012:service/my-cluster/my-express-gateway-service
-        ```
-
+        Create a ExpressGatewayService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
-        :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-        :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
         """
         ...
     @overload
@@ -652,44 +486,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                  args: ExpressGatewayServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
-
-        Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.ExpressGatewayService("example",
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            primary_container={
-                "image": "nginx:latest",
-            })
-        ```
-
-        ## Service Updates and Deletion
-
-        ### Updates
-
-        When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
-
-        ### Deletion
-
-        When an Express service is deleted, it enters a `DRAINING` state where existing tasks are allowed to complete gracefully before termination. The deletion process is irreversible - once initiated, the service and all its associated AWS infrastructure (load balancers, target groups, etc.) will be permanently removed. During the draining process, no new tasks are started, and the service becomes unavailable once all tasks have completed.
-
-        ## Import
-
-        Using `pulumi import`, import ECS Express Gateway Services using the service ARN. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/expressGatewayService:ExpressGatewayService example arn:aws:ecs:us-west-2:123456789012:service/my-cluster/my-express-gateway-service
-        ```
-
+        Create a ExpressGatewayService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ExpressGatewayServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -790,24 +587,6 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        :param pulumi.Input[_builtins.str] current_deployment: ARN of the current deployment.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
-        :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict']]]] ingress_paths: List of ingress paths with access type and endpoint information.
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-        :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        :param pulumi.Input[_builtins.str] service_arn: ARN of the Express Gateway Service.
-        :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] service_revision_arn: ARN of the service revision.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -838,67 +617,41 @@ class ExpressGatewayService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name or ARN of the ECS cluster. Defaults to `default`.
-        """
         return pulumi.get(self, "cluster")
 
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> pulumi.Output[_builtins.str]:
-        """
-        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        """
         return pulumi.get(self, "cpu")
 
     @_builtins.property
     @pulumi.getter(name="currentDeployment")
     def current_deployment(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the current deployment.
-        """
         return pulumi.get(self, "current_deployment")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> pulumi.Output[_builtins.str]:
-        """
-        Path for health check requests. Defaults to `/ping`.
-        """
         return pulumi.get(self, "health_check_path")
 
     @_builtins.property
     @pulumi.getter(name="infrastructureRoleArn")
     def infrastructure_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "infrastructure_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="ingressPaths")
     def ingress_paths(self) -> pulumi.Output[Sequence['outputs.ExpressGatewayServiceIngressPath']]:
-        """
-        List of ingress paths with access type and endpoint information.
-        """
         return pulumi.get(self, "ingress_paths")
 
     @_builtins.property
     @pulumi.getter
     def memory(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-        """
         return pulumi.get(self, "memory")
 
     @_builtins.property
@@ -914,9 +667,6 @@ class ExpressGatewayService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -927,49 +677,31 @@ class ExpressGatewayService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Express Gateway Service.
-        """
         return pulumi.get(self, "service_arn")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "service_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceRevisionArn")
     def service_revision_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the service revision.
-        """
         return pulumi.get(self, "service_revision_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        """
         return pulumi.get(self, "task_role_arn")
 
     @_builtins.property
@@ -980,8 +712,5 @@ class ExpressGatewayService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-        """
         return pulumi.get(self, "wait_for_steady_state")
 

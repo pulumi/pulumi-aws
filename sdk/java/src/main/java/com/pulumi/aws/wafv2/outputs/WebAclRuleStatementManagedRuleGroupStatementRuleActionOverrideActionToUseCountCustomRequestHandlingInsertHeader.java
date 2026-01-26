@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader {
-    /**
-     * @return Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the custom header.
-     * 
-     */
     private String value;
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader() {}
-    /**
-     * @return Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the custom header.
-     * 
-     */
     public String value() {
         return this.value;
     }

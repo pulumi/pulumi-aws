@@ -10,33 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisForwardPathComponentVpc {
-    /**
-     * @return ARN of the selected Network Insights Analysis.
-     * 
-     */
     private String arn;
     private String id;
-    /**
-     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-     * 
-     */
     private String name;
 
     private GetNetworkInsightsAnalysisForwardPathComponentVpc() {}
-    /**
-     * @return ARN of the selected Network Insights Analysis.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-     * 
-     */
     public String name() {
         return this.name;
     }

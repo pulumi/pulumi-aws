@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for cloud vm cluster in AWS for Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.LookupCloudVmCluster(ctx, &odb.LookupCloudVmClusterArgs{
-//				Id: "example-id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCloudVmCluster(ctx *pulumi.Context, args *LookupCloudVmClusterArgs, opts ...pulumi.InvokeOption) (*LookupCloudVmClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudVmClusterResult
@@ -54,99 +23,56 @@ func LookupCloudVmCluster(ctx *pulumi.Context, args *LookupCloudVmClusterArgs, o
 
 // A collection of arguments for invoking getCloudVmCluster.
 type LookupCloudVmClusterArgs struct {
-	// The unique identifier of the cloud vm cluster.
-	//
-	// The following arguments are optional:
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCloudVmCluster.
 type LookupCloudVmClusterResult struct {
-	// The Amazon Resource Name (ARN) for the cloud vm cluster.
-	Arn                           string `pulumi:"arn"`
-	CloudExadataInfrastructureArn string `pulumi:"cloudExadataInfrastructureArn"`
-	// The ID of the Cloud Exadata Infrastructure.
-	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
-	// The name of the Grid Infrastructure (GI) cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
-	ComputeModel string `pulumi:"computeModel"`
-	// The number of CPU cores enabled on the VM cluster.
-	CpuCoreCount int `pulumi:"cpuCoreCount"`
-	// The time when the VM cluster was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// The set of diagnostic collection options enabled for the VM cluster.
-	DataCollectionOptions []GetCloudVmClusterDataCollectionOption `pulumi:"dataCollectionOptions"`
-	// The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
-	DataStorageSizeInTbs float64 `pulumi:"dataStorageSizeInTbs"`
-	// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
-	DbNodeStorageSizeInGbs int `pulumi:"dbNodeStorageSizeInGbs"`
-	// The list of database servers for the VM cluster.
-	DbServers []string `pulumi:"dbServers"`
-	// The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
-	DiskRedundancy string `pulumi:"diskRedundancy"`
-	// The display name of the VM cluster.
-	DisplayName string `pulumi:"displayName"`
-	// The domain name of the VM cluster.
-	Domain string `pulumi:"domain"`
-	// The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
-	GiVersion string `pulumi:"giVersion"`
-	// The computed hostname prefix for the VM cluster.
-	HostnamePrefixComputed string `pulumi:"hostnamePrefixComputed"`
-	Id                     string `pulumi:"id"`
-	// The ExadataIormConfig cache details for the VM cluster.
-	IormConfigCaches []GetCloudVmClusterIormConfigCache `pulumi:"iormConfigCaches"`
-	// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
-	IsLocalBackupEnabled bool `pulumi:"isLocalBackupEnabled"`
-	// Indicates whether the VM cluster is configured with a sparse disk group.
-	IsSparseDiskGroupEnabled bool `pulumi:"isSparseDiskGroupEnabled"`
-	// The Oracle Cloud ID (OCID) of the last maintenance update history entry.
-	LastUpdateHistoryEntryId string `pulumi:"lastUpdateHistoryEntryId"`
-	// The Oracle license model applied to the VM cluster.
-	LicenseModel string `pulumi:"licenseModel"`
-	// The port number configured for the listener on the VM cluster.
-	ListenerPort int `pulumi:"listenerPort"`
-	// The amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
-	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
-	// The number of nodes in the VM cluster.
-	NodeCount int `pulumi:"nodeCount"`
-	// The name of the OCI Resource Anchor.
-	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The HTTPS link to the VM cluster in OCI.
-	OciUrl string `pulumi:"ociUrl"`
-	// The OCID of the VM cluster.
-	Ocid          string `pulumi:"ocid"`
-	OdbNetworkArn string `pulumi:"odbNetworkArn"`
-	// The ID of the ODB network.
-	OdbNetworkId string `pulumi:"odbNetworkId"`
-	// The amount of progress made on the current operation on the VM cluster, expressed as a percentage.
-	PercentProgress float64 `pulumi:"percentProgress"`
-	Region          string  `pulumi:"region"`
-	// The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
-	ScanDnsName string `pulumi:"scanDnsName"`
-	// The OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
-	ScanDnsRecordId string `pulumi:"scanDnsRecordId"`
-	// The OCID of the SCAN IP addresses that are associated with the VM cluster.
-	ScanIpIds []string `pulumi:"scanIpIds"`
-	// The hardware model name of the Exadata infrastructure that's running the VM cluster.
-	Shape string `pulumi:"shape"`
-	// The public key portion of one or more key pairs used for SSH access to the VM cluster.
-	SshPublicKeys []string `pulumi:"sshPublicKeys"`
-	// The status of the VM cluster.
-	Status string `pulumi:"status"`
-	// Additional information about the status of the VM cluster.
-	StatusReason string `pulumi:"statusReason"`
-	// The amount of local node storage, in gigabytes (GB), that's allocated to the VM cluster.
-	StorageSizeInGbs int `pulumi:"storageSizeInGbs"`
-	// The operating system version of the image chosen for the VM cluster.
-	SystemVersion string            `pulumi:"systemVersion"`
-	Tags          map[string]string `pulumi:"tags"`
-	// The time zone of the VM cluster.
-	Timezone string `pulumi:"timezone"`
-	// The virtual IP (VIP) addresses that are associated with the VM cluster. Oracle's Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
-	VipIds []string `pulumi:"vipIds"`
+	Arn                           string                                  `pulumi:"arn"`
+	CloudExadataInfrastructureArn string                                  `pulumi:"cloudExadataInfrastructureArn"`
+	CloudExadataInfrastructureId  string                                  `pulumi:"cloudExadataInfrastructureId"`
+	ClusterName                   string                                  `pulumi:"clusterName"`
+	ComputeModel                  string                                  `pulumi:"computeModel"`
+	CpuCoreCount                  int                                     `pulumi:"cpuCoreCount"`
+	CreatedAt                     string                                  `pulumi:"createdAt"`
+	DataCollectionOptions         []GetCloudVmClusterDataCollectionOption `pulumi:"dataCollectionOptions"`
+	DataStorageSizeInTbs          float64                                 `pulumi:"dataStorageSizeInTbs"`
+	DbNodeStorageSizeInGbs        int                                     `pulumi:"dbNodeStorageSizeInGbs"`
+	DbServers                     []string                                `pulumi:"dbServers"`
+	DiskRedundancy                string                                  `pulumi:"diskRedundancy"`
+	DisplayName                   string                                  `pulumi:"displayName"`
+	Domain                        string                                  `pulumi:"domain"`
+	GiVersion                     string                                  `pulumi:"giVersion"`
+	HostnamePrefixComputed        string                                  `pulumi:"hostnamePrefixComputed"`
+	Id                            string                                  `pulumi:"id"`
+	IormConfigCaches              []GetCloudVmClusterIormConfigCache      `pulumi:"iormConfigCaches"`
+	IsLocalBackupEnabled          bool                                    `pulumi:"isLocalBackupEnabled"`
+	IsSparseDiskGroupEnabled      bool                                    `pulumi:"isSparseDiskGroupEnabled"`
+	LastUpdateHistoryEntryId      string                                  `pulumi:"lastUpdateHistoryEntryId"`
+	LicenseModel                  string                                  `pulumi:"licenseModel"`
+	ListenerPort                  int                                     `pulumi:"listenerPort"`
+	MemorySizeInGbs               int                                     `pulumi:"memorySizeInGbs"`
+	NodeCount                     int                                     `pulumi:"nodeCount"`
+	OciResourceAnchorName         string                                  `pulumi:"ociResourceAnchorName"`
+	OciUrl                        string                                  `pulumi:"ociUrl"`
+	Ocid                          string                                  `pulumi:"ocid"`
+	OdbNetworkArn                 string                                  `pulumi:"odbNetworkArn"`
+	OdbNetworkId                  string                                  `pulumi:"odbNetworkId"`
+	PercentProgress               float64                                 `pulumi:"percentProgress"`
+	Region                        string                                  `pulumi:"region"`
+	ScanDnsName                   string                                  `pulumi:"scanDnsName"`
+	ScanDnsRecordId               string                                  `pulumi:"scanDnsRecordId"`
+	ScanIpIds                     []string                                `pulumi:"scanIpIds"`
+	Shape                         string                                  `pulumi:"shape"`
+	SshPublicKeys                 []string                                `pulumi:"sshPublicKeys"`
+	Status                        string                                  `pulumi:"status"`
+	StatusReason                  string                                  `pulumi:"statusReason"`
+	StorageSizeInGbs              int                                     `pulumi:"storageSizeInGbs"`
+	SystemVersion                 string                                  `pulumi:"systemVersion"`
+	Tags                          map[string]string                       `pulumi:"tags"`
+	Timezone                      string                                  `pulumi:"timezone"`
+	VipIds                        []string                                `pulumi:"vipIds"`
 }
 
 func LookupCloudVmClusterOutput(ctx *pulumi.Context, args LookupCloudVmClusterOutputArgs, opts ...pulumi.InvokeOption) LookupCloudVmClusterResultOutput {
@@ -160,11 +86,7 @@ func LookupCloudVmClusterOutput(ctx *pulumi.Context, args LookupCloudVmClusterOu
 
 // A collection of arguments for invoking getCloudVmCluster.
 type LookupCloudVmClusterOutputArgs struct {
-	// The unique identifier of the cloud vm cluster.
-	//
-	// The following arguments are optional:
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringInput    `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -187,7 +109,6 @@ func (o LookupCloudVmClusterResultOutput) ToLookupCloudVmClusterResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the cloud vm cluster.
 func (o LookupCloudVmClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -196,74 +117,60 @@ func (o LookupCloudVmClusterResultOutput) CloudExadataInfrastructureArn() pulumi
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.CloudExadataInfrastructureArn }).(pulumi.StringOutput)
 }
 
-// The ID of the Cloud Exadata Infrastructure.
 func (o LookupCloudVmClusterResultOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }
 
-// The name of the Grid Infrastructure (GI) cluster.
 func (o LookupCloudVmClusterResultOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
 func (o LookupCloudVmClusterResultOutput) ComputeModel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.ComputeModel }).(pulumi.StringOutput)
 }
 
-// The number of CPU cores enabled on the VM cluster.
 func (o LookupCloudVmClusterResultOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) int { return v.CpuCoreCount }).(pulumi.IntOutput)
 }
 
-// The time when the VM cluster was created.
 func (o LookupCloudVmClusterResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The set of diagnostic collection options enabled for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) DataCollectionOptions() GetCloudVmClusterDataCollectionOptionArrayOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) []GetCloudVmClusterDataCollectionOption {
 		return v.DataCollectionOptions
 	}).(GetCloudVmClusterDataCollectionOptionArrayOutput)
 }
 
-// The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) DataStorageSizeInTbs() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) float64 { return v.DataStorageSizeInTbs }).(pulumi.Float64Output)
 }
 
-// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) DbNodeStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) int { return v.DbNodeStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The list of database servers for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) DbServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) []string { return v.DbServers }).(pulumi.StringArrayOutput)
 }
 
-// The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
 func (o LookupCloudVmClusterResultOutput) DiskRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.DiskRedundancy }).(pulumi.StringOutput)
 }
 
-// The display name of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The domain name of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) GiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.GiVersion }).(pulumi.StringOutput)
 }
 
-// The computed hostname prefix for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) HostnamePrefixComputed() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.HostnamePrefixComputed }).(pulumi.StringOutput)
 }
@@ -272,57 +179,46 @@ func (o LookupCloudVmClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ExadataIormConfig cache details for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) IormConfigCaches() GetCloudVmClusterIormConfigCacheArrayOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) []GetCloudVmClusterIormConfigCache { return v.IormConfigCaches }).(GetCloudVmClusterIormConfigCacheArrayOutput)
 }
 
-// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) IsLocalBackupEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) bool { return v.IsLocalBackupEnabled }).(pulumi.BoolOutput)
 }
 
-// Indicates whether the VM cluster is configured with a sparse disk group.
 func (o LookupCloudVmClusterResultOutput) IsSparseDiskGroupEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) bool { return v.IsSparseDiskGroupEnabled }).(pulumi.BoolOutput)
 }
 
-// The Oracle Cloud ID (OCID) of the last maintenance update history entry.
 func (o LookupCloudVmClusterResultOutput) LastUpdateHistoryEntryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.LastUpdateHistoryEntryId }).(pulumi.StringOutput)
 }
 
-// The Oracle license model applied to the VM cluster.
 func (o LookupCloudVmClusterResultOutput) LicenseModel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.LicenseModel }).(pulumi.StringOutput)
 }
 
-// The port number configured for the listener on the VM cluster.
 func (o LookupCloudVmClusterResultOutput) ListenerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) int { return v.ListenerPort }).(pulumi.IntOutput)
 }
 
-// The amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) MemorySizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) int { return v.MemorySizeInGbs }).(pulumi.IntOutput)
 }
 
-// The number of nodes in the VM cluster.
 func (o LookupCloudVmClusterResultOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) int { return v.NodeCount }).(pulumi.IntOutput)
 }
 
-// The name of the OCI Resource Anchor.
 func (o LookupCloudVmClusterResultOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The HTTPS link to the VM cluster in OCI.
 func (o LookupCloudVmClusterResultOutput) OciUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.OciUrl }).(pulumi.StringOutput)
 }
 
-// The OCID of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Ocid }).(pulumi.StringOutput)
 }
@@ -331,12 +227,10 @@ func (o LookupCloudVmClusterResultOutput) OdbNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.OdbNetworkArn }).(pulumi.StringOutput)
 }
 
-// The ID of the ODB network.
 func (o LookupCloudVmClusterResultOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.OdbNetworkId }).(pulumi.StringOutput)
 }
 
-// The amount of progress made on the current operation on the VM cluster, expressed as a percentage.
 func (o LookupCloudVmClusterResultOutput) PercentProgress() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) float64 { return v.PercentProgress }).(pulumi.Float64Output)
 }
@@ -345,47 +239,38 @@ func (o LookupCloudVmClusterResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
 func (o LookupCloudVmClusterResultOutput) ScanDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.ScanDnsName }).(pulumi.StringOutput)
 }
 
-// The OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
 func (o LookupCloudVmClusterResultOutput) ScanDnsRecordId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.ScanDnsRecordId }).(pulumi.StringOutput)
 }
 
-// The OCID of the SCAN IP addresses that are associated with the VM cluster.
 func (o LookupCloudVmClusterResultOutput) ScanIpIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) []string { return v.ScanIpIds }).(pulumi.StringArrayOutput)
 }
 
-// The hardware model name of the Exadata infrastructure that's running the VM cluster.
 func (o LookupCloudVmClusterResultOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Shape }).(pulumi.StringOutput)
 }
 
-// The public key portion of one or more key pairs used for SSH access to the VM cluster.
 func (o LookupCloudVmClusterResultOutput) SshPublicKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) []string { return v.SshPublicKeys }).(pulumi.StringArrayOutput)
 }
 
-// The status of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Additional information about the status of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The amount of local node storage, in gigabytes (GB), that's allocated to the VM cluster.
 func (o LookupCloudVmClusterResultOutput) StorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) int { return v.StorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The operating system version of the image chosen for the VM cluster.
 func (o LookupCloudVmClusterResultOutput) SystemVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.SystemVersion }).(pulumi.StringOutput)
 }
@@ -394,12 +279,10 @@ func (o LookupCloudVmClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The time zone of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Timezone }).(pulumi.StringOutput)
 }
 
-// The virtual IP (VIP) addresses that are associated with the VM cluster. Oracle's Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
 func (o LookupCloudVmClusterResultOutput) VipIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) []string { return v.VipIds }).(pulumi.StringArrayOutput)
 }

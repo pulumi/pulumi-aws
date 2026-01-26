@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class WorkgroupConfigurationIdentityCenterConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether the workgroup is IAM Identity Center supported.
-        /// </summary>
         [Input("enableIdentityCenter")]
         public Input<bool>? EnableIdentityCenter { get; set; }
 
-        /// <summary>
-        /// The IAM Identity Center instance ARN that the workgroup associates to.
-        /// </summary>
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
 

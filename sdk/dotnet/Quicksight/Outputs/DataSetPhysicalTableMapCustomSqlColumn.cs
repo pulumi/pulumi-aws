@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetPhysicalTableMapCustomSqlColumn
     {
-        /// <summary>
-        /// Name of this column in the underlying data source.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Data type of the column.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

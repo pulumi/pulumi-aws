@@ -16,17 +16,9 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
 
     public static final AgentFlowDefinitionNodeInputArgs Empty = new AgentFlowDefinitionNodeInputArgs();
 
-    /**
-     * How input data flows between iterations in a DoWhile loop.
-     * 
-     */
     @Import(name="category")
     private @Nullable Output<String> category;
 
-    /**
-     * @return How input data flows between iterations in a DoWhile loop.
-     * 
-     */
     public Optional<Output<String>> category() {
         return Optional.ofNullable(this.category);
     }
@@ -38,17 +30,9 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         return this.expression;
     }
 
-    /**
-     * A name for the flow.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -87,23 +71,11 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
             $ = new AgentFlowDefinitionNodeInputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param category How input data flows between iterations in a DoWhile loop.
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(@Nullable Output<String> category) {
             $.category = category;
             return this;
         }
 
-        /**
-         * @param category How input data flows between iterations in a DoWhile loop.
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(String category) {
             return category(Output.of(category));
         }
@@ -117,23 +89,11 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

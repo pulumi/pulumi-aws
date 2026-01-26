@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpnConnectionRoute {
-    /**
-     * @return The CIDR block associated with the local subnet of the customer data center.
-     * 
-     */
     private @Nullable String destinationCidrBlock;
-    /**
-     * @return Indicates how the routes were provided.
-     * 
-     */
     private @Nullable String source;
-    /**
-     * @return The current state of the static route.
-     * 
-     */
     private @Nullable String state;
 
     private VpnConnectionRoute() {}
-    /**
-     * @return The CIDR block associated with the local subnet of the customer data center.
-     * 
-     */
     public Optional<String> destinationCidrBlock() {
         return Optional.ofNullable(this.destinationCidrBlock);
     }
-    /**
-     * @return Indicates how the routes were provided.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }
-    /**
-     * @return The current state of the static route.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }

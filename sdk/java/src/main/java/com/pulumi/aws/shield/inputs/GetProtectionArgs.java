@@ -15,36 +15,16 @@ public final class GetProtectionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetProtectionArgs Empty = new GetProtectionArgs();
 
-    /**
-     * Unique identifier for the protection.
-     * 
-     */
     @Import(name="protectionId")
     private @Nullable Output<String> protectionId;
 
-    /**
-     * @return Unique identifier for the protection.
-     * 
-     */
     public Optional<Output<String>> protectionId() {
         return Optional.ofNullable(this.protectionId);
     }
 
-    /**
-     * ARN (Amazon Resource Name) of the resource being protected.
-     * 
-     * &gt; Exactly one of `protectionId` or `resourceArn` is required.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return ARN (Amazon Resource Name) of the resource being protected.
-     * 
-     * &gt; Exactly one of `protectionId` or `resourceArn` is required.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
@@ -74,48 +54,20 @@ public final class GetProtectionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetProtectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param protectionId Unique identifier for the protection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectionId(@Nullable Output<String> protectionId) {
             $.protectionId = protectionId;
             return this;
         }
 
-        /**
-         * @param protectionId Unique identifier for the protection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectionId(String protectionId) {
             return protectionId(Output.of(protectionId));
         }
 
-        /**
-         * @param resourceArn ARN (Amazon Resource Name) of the resource being protected.
-         * 
-         * &gt; Exactly one of `protectionId` or `resourceArn` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN (Amazon Resource Name) of the resource being protected.
-         * 
-         * &gt; Exactly one of `protectionId` or `resourceArn` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

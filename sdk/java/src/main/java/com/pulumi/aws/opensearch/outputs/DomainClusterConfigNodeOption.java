@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainClusterConfigNodeOption {
-    /**
-     * @return Container to specify sizing of a node type.
-     * 
-     */
     private @Nullable DomainClusterConfigNodeOptionNodeConfig nodeConfig;
-    /**
-     * @return Type of node this configuration describes. Valid values: `coordinator`.
-     * 
-     */
     private @Nullable String nodeType;
 
     private DomainClusterConfigNodeOption() {}
-    /**
-     * @return Container to specify sizing of a node type.
-     * 
-     */
     public Optional<DomainClusterConfigNodeOptionNodeConfig> nodeConfig() {
         return Optional.ofNullable(this.nodeConfig);
     }
-    /**
-     * @return Type of node this configuration describes. Valid values: `coordinator`.
-     * 
-     */
     public Optional<String> nodeType() {
         return Optional.ofNullable(this.nodeType);
     }

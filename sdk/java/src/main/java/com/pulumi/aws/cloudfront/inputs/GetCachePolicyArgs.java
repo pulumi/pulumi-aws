@@ -15,32 +15,16 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCachePolicyArgs Empty = new GetCachePolicyArgs();
 
-    /**
-     * Identifier for the cache policy.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier for the cache policy.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Unique name to identify the cache policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name to identify the cache policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -70,44 +54,20 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetCachePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the cache policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the cache policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Unique name to identify the cache policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name to identify the cache policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

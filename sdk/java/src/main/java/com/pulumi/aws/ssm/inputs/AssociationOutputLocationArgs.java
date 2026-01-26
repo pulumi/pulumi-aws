@@ -16,51 +16,23 @@ public final class AssociationOutputLocationArgs extends com.pulumi.resources.Re
 
     public static final AssociationOutputLocationArgs Empty = new AssociationOutputLocationArgs();
 
-    /**
-     * The S3 bucket name.
-     * 
-     */
     @Import(name="s3BucketName", required=true)
     private Output<String> s3BucketName;
 
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
 
-    /**
-     * The S3 bucket prefix. Results stored in the root if not configured.
-     * 
-     */
     @Import(name="s3KeyPrefix")
     private @Nullable Output<String> s3KeyPrefix;
 
-    /**
-     * @return The S3 bucket prefix. Results stored in the root if not configured.
-     * 
-     */
     public Optional<Output<String>> s3KeyPrefix() {
         return Optional.ofNullable(this.s3KeyPrefix);
     }
 
-    /**
-     * The S3 bucket region.
-     * 
-     * Targets specify what instance IDs or tags to apply the document to and has these keys:
-     * 
-     */
     @Import(name="s3Region")
     private @Nullable Output<String> s3Region;
 
-    /**
-     * @return The S3 bucket region.
-     * 
-     * Targets specify what instance IDs or tags to apply the document to and has these keys:
-     * 
-     */
     public Optional<Output<String>> s3Region() {
         return Optional.ofNullable(this.s3Region);
     }
@@ -91,69 +63,29 @@ public final class AssociationOutputLocationArgs extends com.pulumi.resources.Re
             $ = new AssociationOutputLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3BucketName The S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(Output<String> s3BucketName) {
             $.s3BucketName = s3BucketName;
             return this;
         }
 
-        /**
-         * @param s3BucketName The S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(String s3BucketName) {
             return s3BucketName(Output.of(s3BucketName));
         }
 
-        /**
-         * @param s3KeyPrefix The S3 bucket prefix. Results stored in the root if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KeyPrefix(@Nullable Output<String> s3KeyPrefix) {
             $.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
 
-        /**
-         * @param s3KeyPrefix The S3 bucket prefix. Results stored in the root if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KeyPrefix(String s3KeyPrefix) {
             return s3KeyPrefix(Output.of(s3KeyPrefix));
         }
 
-        /**
-         * @param s3Region The S3 bucket region.
-         * 
-         * Targets specify what instance IDs or tags to apply the document to and has these keys:
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Region(@Nullable Output<String> s3Region) {
             $.s3Region = s3Region;
             return this;
         }
 
-        /**
-         * @param s3Region The S3 bucket region.
-         * 
-         * Targets specify what instance IDs or tags to apply the document to and has these keys:
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Region(String s3Region) {
             return s3Region(Output.of(s3Region));
         }

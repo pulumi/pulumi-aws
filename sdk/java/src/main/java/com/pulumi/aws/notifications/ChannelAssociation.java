@@ -13,95 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS User Notifications Channel Association. This resource associates a channel (such as an email contact) with a notification configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.notifications.NotificationConfiguration;
- * import com.pulumi.aws.notifications.NotificationConfigurationArgs;
- * import com.pulumi.aws.notifications.ContactsEmailContact;
- * import com.pulumi.aws.notifications.ContactsEmailContactArgs;
- * import com.pulumi.aws.notifications.ChannelAssociation;
- * import com.pulumi.aws.notifications.ChannelAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new NotificationConfiguration("example", NotificationConfigurationArgs.builder()
- *             .name("example-notification-config")
- *             .description("Example notification configuration")
- *             .build());
- * 
- *         var exampleContactsEmailContact = new ContactsEmailContact("exampleContactsEmailContact", ContactsEmailContactArgs.builder()
- *             .name("example-contact")
- *             .emailAddress("example}{@literal @}{@code example.com")
- *             .build());
- * 
- *         var exampleChannelAssociation = new ChannelAssociation("exampleChannelAssociation", ChannelAssociationArgs.builder()
- *             .arn(exampleContactsEmailContact.arn())
- *             .notificationConfigurationArn(example.arn())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import User Notifications Channel Association using the `notification_configuration_arn,channel_arn` format. For example:
- * 
- * ```sh
- * $ pulumi import aws:notifications/channelAssociation:ChannelAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
- * ```
- * 
- */
 @ResourceType(type="aws:notifications/channelAssociation:ChannelAssociation")
 public class ChannelAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ARN of the notification configuration to associate the channel with.
-     * 
-     */
     @Export(name="notificationConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> notificationConfigurationArn;
 
-    /**
-     * @return ARN of the notification configuration to associate the channel with.
-     * 
-     */
     public Output<String> notificationConfigurationArn() {
         return this.notificationConfigurationArn;
     }

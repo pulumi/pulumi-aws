@@ -14,17 +14,9 @@ public final class VpcIpamResourceDiscoveryOperatingRegionArgs extends com.pulum
 
     public static final VpcIpamResourceDiscoveryOperatingRegionArgs Empty = new VpcIpamResourceDiscoveryOperatingRegionArgs();
 
-    /**
-     * The name of the Region you want to add to the IPAM.
-     * 
-     */
     @Import(name="regionName", required=true)
     private Output<String> regionName;
 
-    /**
-     * @return The name of the Region you want to add to the IPAM.
-     * 
-     */
     public Output<String> regionName() {
         return this.regionName;
     }
@@ -53,23 +45,11 @@ public final class VpcIpamResourceDiscoveryOperatingRegionArgs extends com.pulum
             $ = new VpcIpamResourceDiscoveryOperatingRegionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regionName The name of the Region you want to add to the IPAM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionName(Output<String> regionName) {
             $.regionName = regionName;
             return this;
         }
 
-        /**
-         * @param regionName The name of the Region you want to add to the IPAM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionName(String regionName) {
             return regionName(Output.of(regionName));
         }

@@ -52,25 +52,16 @@ class GetAppregistryApplicationResult:
     @_builtins.property
     @pulumi.getter(name="applicationTag")
     def application_tag(self) -> Mapping[str, _builtins.str]:
-        """
-        A map with a single tag key-value pair used to associate resources with the application.
-        """
         return pulumi.get(self, "application_tag")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) of the application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -81,9 +72,6 @@ class GetAppregistryApplicationResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the application.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -94,9 +82,6 @@ class GetAppregistryApplicationResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -119,22 +104,7 @@ def get_appregistry_application(id: Optional[_builtins.str] = None,
                                 region: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppregistryApplicationResult:
     """
-    Data source for managing an AWS Service Catalog AppRegistry Application.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_appregistry_application(id="application-1234")
-    ```
-
-
-    :param _builtins.str id: Application identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -154,22 +124,7 @@ def get_appregistry_application_output(id: Optional[pulumi.Input[_builtins.str]]
                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppregistryApplicationResult]:
     """
-    Data source for managing an AWS Service Catalog AppRegistry Application.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_appregistry_application(id="application-1234")
-    ```
-
-
-    :param _builtins.str id: Application identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

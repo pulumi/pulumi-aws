@@ -14,32 +14,16 @@ public final class CoreNetworkPolicyAttachmentArgs extends com.pulumi.resources.
 
     public static final CoreNetworkPolicyAttachmentArgs Empty = new CoreNetworkPolicyAttachmentArgs();
 
-    /**
-     * ID of the core network that a policy will be attached to and made `LIVE`.
-     * 
-     */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of the core network that a policy will be attached to and made `LIVE`.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
 
-    /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-     * 
-     */
     @Import(name="policyDocument", required=true)
     private Output<String> policyDocument;
 
-    /**
-     * @return Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
@@ -69,44 +53,20 @@ public final class CoreNetworkPolicyAttachmentArgs extends com.pulumi.resources.
             $ = new CoreNetworkPolicyAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param coreNetworkId ID of the core network that a policy will be attached to and made `LIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
-        /**
-         * @param coreNetworkId ID of the core network that a policy will be attached to and made `LIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
-        /**
-         * @param policyDocument Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }

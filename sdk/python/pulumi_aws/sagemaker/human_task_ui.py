@@ -27,10 +27,6 @@ class HumanTaskUIArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HumanTaskUI resource.
-        :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
-        :param pulumi.Input['HumanTaskUIUiTemplateArgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "human_task_ui_name", human_task_ui_name)
         pulumi.set(__self__, "ui_template", ui_template)
@@ -42,9 +38,6 @@ class HumanTaskUIArgs:
     @_builtins.property
     @pulumi.getter(name="humanTaskUiName")
     def human_task_ui_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Human Task UI.
-        """
         return pulumi.get(self, "human_task_ui_name")
 
     @human_task_ui_name.setter
@@ -54,9 +47,6 @@ class HumanTaskUIArgs:
     @_builtins.property
     @pulumi.getter(name="uiTemplate")
     def ui_template(self) -> pulumi.Input['HumanTaskUIUiTemplateArgs']:
-        """
-        The Liquid template for the worker user interface. See UI Template below.
-        """
         return pulumi.get(self, "ui_template")
 
     @ui_template.setter
@@ -66,9 +56,6 @@ class HumanTaskUIArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +65,6 @@ class HumanTaskUIArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -99,12 +83,6 @@ class _HumanTaskUIState:
                  ui_template: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']] = None):
         """
         Input properties used for looking up and filtering HumanTaskUI resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-        :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['HumanTaskUIUiTemplateArgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -122,9 +100,6 @@ class _HumanTaskUIState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -134,9 +109,6 @@ class _HumanTaskUIState:
     @_builtins.property
     @pulumi.getter(name="humanTaskUiName")
     def human_task_ui_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Human Task UI.
-        """
         return pulumi.get(self, "human_task_ui_name")
 
     @human_task_ui_name.setter
@@ -146,9 +118,6 @@ class _HumanTaskUIState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -158,9 +127,6 @@ class _HumanTaskUIState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -170,9 +136,6 @@ class _HumanTaskUIState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -182,9 +145,6 @@ class _HumanTaskUIState:
     @_builtins.property
     @pulumi.getter(name="uiTemplate")
     def ui_template(self) -> Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']]:
-        """
-        The Liquid template for the worker user interface. See UI Template below.
-        """
         return pulumi.get(self, "ui_template")
 
     @ui_template.setter
@@ -204,36 +164,9 @@ class HumanTaskUI(pulumi.CustomResource):
                  ui_template: Optional[pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Human Task UI resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
-            ui_template={
-                "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Human Task UIs using the `human_task_ui_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
-        ```
-
+        Create a HumanTaskUI resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         ...
     @overload
@@ -242,30 +175,7 @@ class HumanTaskUI(pulumi.CustomResource):
                  args: HumanTaskUIArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Human Task UI resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
-            ui_template={
-                "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Human Task UIs using the `human_task_ui_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
-        ```
-
+        Create a HumanTaskUI resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HumanTaskUIArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,12 +237,6 @@ class HumanTaskUI(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-        :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -349,48 +253,30 @@ class HumanTaskUI(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="humanTaskUiName")
     def human_task_ui_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Human Task UI.
-        """
         return pulumi.get(self, "human_task_ui_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="uiTemplate")
     def ui_template(self) -> pulumi.Output['outputs.HumanTaskUIUiTemplate']:
-        """
-        The Liquid template for the worker user interface. See UI Template below.
-        """
         return pulumi.get(self, "ui_template")
 

@@ -62,33 +62,21 @@ class GetSessionContextResult:
     @_builtins.property
     @pulumi.getter(name="issuerArn")
     def issuer_arn(self) -> _builtins.str:
-        """
-        IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
-        """
         return pulumi.get(self, "issuer_arn")
 
     @_builtins.property
     @pulumi.getter(name="issuerId")
     def issuer_id(self) -> _builtins.str:
-        """
-        Unique identifier of the IAM role that issues the STS assumed role.
-        """
         return pulumi.get(self, "issuer_id")
 
     @_builtins.property
     @pulumi.getter(name="issuerName")
     def issuer_name(self) -> _builtins.str:
-        """
-        Name of the source role. Only available if `arn` corresponds to an STS assumed role.
-        """
         return pulumi.get(self, "issuer_name")
 
     @_builtins.property
     @pulumi.getter(name="sessionName")
     def session_name(self) -> _builtins.str:
-        """
-        Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
-        """
         return pulumi.get(self, "session_name")
 
 
@@ -109,37 +97,7 @@ class AwaitableGetSessionContextResult(GetSessionContextResult):
 def get_session_context(arn: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSessionContextResult:
     """
-    This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
-
-    For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
-
-    ## Example Usage
-
-    ### Basic Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
-    ```
-
-    ### Find the Runner's Source Role
-
-    Combined with `get_caller_identity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    example = aws.iam.get_session_context(arn=current.arn)
-    ```
-
-
-    :param _builtins.str arn: ARN for an assumed role.
-           
-           > If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -156,37 +114,7 @@ def get_session_context(arn: Optional[_builtins.str] = None,
 def get_session_context_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionContextResult]:
     """
-    This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
-
-    For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
-
-    ## Example Usage
-
-    ### Basic Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
-    ```
-
-    ### Find the Runner's Source Role
-
-    Combined with `get_caller_identity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    example = aws.iam.get_session_context(arn=current.arn)
-    ```
-
-
-    :param _builtins.str arn: ARN for an assumed role.
-           
-           > If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

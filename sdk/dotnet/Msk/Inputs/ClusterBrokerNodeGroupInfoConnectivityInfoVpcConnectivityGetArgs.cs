@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for specifying a client authentication. See ClientAuthentication Argument Reference below.
-        /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationGetArgs>? ClientAuthentication { get; set; }
 

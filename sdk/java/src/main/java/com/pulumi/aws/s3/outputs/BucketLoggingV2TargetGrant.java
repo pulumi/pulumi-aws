@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketLoggingV2TargetGrant {
-    /**
-     * @return Configuration block for the person being granted permissions. See below.
-     * 
-     */
     private BucketLoggingV2TargetGrantGrantee grantee;
-    /**
-     * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-     * 
-     */
     private String permission;
 
     private BucketLoggingV2TargetGrant() {}
-    /**
-     * @return Configuration block for the person being granted permissions. See below.
-     * 
-     */
     public BucketLoggingV2TargetGrantGrantee grantee() {
         return this.grantee;
     }
-    /**
-     * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-     * 
-     */
     public String permission() {
         return this.permission;
     }

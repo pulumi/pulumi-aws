@@ -9,65 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides a CloudWatch Log Stream resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var yada = new Aws.CloudWatch.LogGroup("yada", new()
-    ///     {
-    ///         Name = "Yada",
-    ///     });
-    /// 
-    ///     var foo = new Aws.CloudWatch.LogStream("foo", new()
-    ///     {
-    ///         Name = "SampleLogStream1234",
-    ///         LogGroupName = yada.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logStream:LogStream")]
     public partial class LogStream : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log stream.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the log group under which the log stream is to be created.
-        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -117,21 +70,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogStreamArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the log group under which the log stream is to be created.
-        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -143,27 +87,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogStreamState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log stream.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the log group under which the log stream is to be created.
-        /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
-        /// <summary>
-        /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -20,107 +20,51 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ViewArgs Empty = new ViewArgs();
 
-    /**
-     * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-     * 
-     */
     @Import(name="defaultView")
     private @Nullable Output<Boolean> defaultView;
 
-    /**
-     * @return Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> defaultView() {
         return Optional.ofNullable(this.defaultView);
     }
 
-    /**
-     * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<ViewFiltersArgs> filters;
 
-    /**
-     * @return Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-     * 
-     */
     public Optional<Output<ViewFiltersArgs>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Optional fields to be included in search results from this view. See Included Properties below for more details.
-     * 
-     */
     @Import(name="includedProperties")
     private @Nullable Output<List<ViewIncludedPropertyArgs>> includedProperties;
 
-    /**
-     * @return Optional fields to be included in search results from this view. See Included Properties below for more details.
-     * 
-     */
     public Optional<Output<List<ViewIncludedPropertyArgs>>> includedProperties() {
         return Optional.ofNullable(this.includedProperties);
     }
 
-    /**
-     * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-     * 
-     */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
-    /**
-     * @return The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-     * 
-     */
     public Optional<Output<String>> scope() {
         return Optional.ofNullable(this.scope);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -155,159 +99,69 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ViewArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultView Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultView(@Nullable Output<Boolean> defaultView) {
             $.defaultView = defaultView;
             return this;
         }
 
-        /**
-         * @param defaultView Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultView(Boolean defaultView) {
             return defaultView(Output.of(defaultView));
         }
 
-        /**
-         * @param filters Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<ViewFiltersArgs> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(ViewFiltersArgs filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param includedProperties Optional fields to be included in search results from this view. See Included Properties below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includedProperties(@Nullable Output<List<ViewIncludedPropertyArgs>> includedProperties) {
             $.includedProperties = includedProperties;
             return this;
         }
 
-        /**
-         * @param includedProperties Optional fields to be included in search results from this view. See Included Properties below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includedProperties(List<ViewIncludedPropertyArgs> includedProperties) {
             return includedProperties(Output.of(includedProperties));
         }
 
-        /**
-         * @param includedProperties Optional fields to be included in search results from this view. See Included Properties below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includedProperties(ViewIncludedPropertyArgs... includedProperties) {
             return includedProperties(List.of(includedProperties));
         }
 
-        /**
-         * @param name The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scope The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(@Nullable Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

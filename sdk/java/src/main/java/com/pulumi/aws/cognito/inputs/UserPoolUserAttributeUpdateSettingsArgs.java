@@ -15,17 +15,9 @@ public final class UserPoolUserAttributeUpdateSettingsArgs extends com.pulumi.re
 
     public static final UserPoolUserAttributeUpdateSettingsArgs Empty = new UserPoolUserAttributeUpdateSettingsArgs();
 
-    /**
-     * A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
-     * 
-     */
     @Import(name="attributesRequireVerificationBeforeUpdates", required=true)
     private Output<List<String>> attributesRequireVerificationBeforeUpdates;
 
-    /**
-     * @return A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
-     * 
-     */
     public Output<List<String>> attributesRequireVerificationBeforeUpdates() {
         return this.attributesRequireVerificationBeforeUpdates;
     }
@@ -54,33 +46,15 @@ public final class UserPoolUserAttributeUpdateSettingsArgs extends com.pulumi.re
             $ = new UserPoolUserAttributeUpdateSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributesRequireVerificationBeforeUpdates(Output<List<String>> attributesRequireVerificationBeforeUpdates) {
             $.attributesRequireVerificationBeforeUpdates = attributesRequireVerificationBeforeUpdates;
             return this;
         }
 
-        /**
-         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributesRequireVerificationBeforeUpdates(List<String> attributesRequireVerificationBeforeUpdates) {
             return attributesRequireVerificationBeforeUpdates(Output.of(attributesRequireVerificationBeforeUpdates));
         }
 
-        /**
-         * @param attributesRequireVerificationBeforeUpdates A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributesRequireVerificationBeforeUpdates(String... attributesRequireVerificationBeforeUpdates) {
             return attributesRequireVerificationBeforeUpdates(List.of(attributesRequireVerificationBeforeUpdates));
         }

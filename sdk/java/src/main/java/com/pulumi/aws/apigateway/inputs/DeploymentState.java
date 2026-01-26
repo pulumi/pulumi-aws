@@ -16,92 +16,44 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentState Empty = new DeploymentState();
 
-    /**
-     * Creation date of the deployment
-     * 
-     */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
-    /**
-     * @return Creation date of the deployment
-     * 
-     */
     public Optional<Output<String>> createdDate() {
         return Optional.ofNullable(this.createdDate);
     }
 
-    /**
-     * Description of the deployment.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the deployment.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * REST API identifier.
-     * 
-     */
     @Import(name="restApi")
     private @Nullable Output<String> restApi;
 
-    /**
-     * @return REST API identifier.
-     * 
-     */
     public Optional<Output<String>> restApi() {
         return Optional.ofNullable(this.restApi);
     }
 
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     */
     public Optional<Output<Map<String,String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
 
-    /**
-     * Map to set on the related stage.
-     * 
-     */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
-    /**
-     * @return Map to set on the related stage.
-     * 
-     */
     public Optional<Output<Map<String,String>>> variables() {
         return Optional.ofNullable(this.variables);
     }
@@ -135,128 +87,56 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
             $ = new DeploymentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdDate Creation date of the deployment
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdDate(@Nullable Output<String> createdDate) {
             $.createdDate = createdDate;
             return this;
         }
 
-        /**
-         * @param createdDate Creation date of the deployment
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdDate(String createdDate) {
             return createdDate(Output.of(createdDate));
         }
 
-        /**
-         * @param description Description of the deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restApi REST API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(@Nullable Output<String> restApi) {
             $.restApi = restApi;
             return this;
         }
 
-        /**
-         * @param restApi REST API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(String restApi) {
             return restApi(Output.of(restApi));
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
         }
 
-        /**
-         * @param variables Map to set on the related stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variables(@Nullable Output<Map<String,String>> variables) {
             $.variables = variables;
             return this;
         }
 
-        /**
-         * @param variables Map to set on the related stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variables(Map<String,String> variables) {
             return variables(Output.of(variables));
         }

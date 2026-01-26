@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping {
-    /**
-     * @return Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-     * 
-     */
     private String measureValueType;
-    /**
-     * @return Source column from where the attribute value is to be read.
-     * 
-     */
     private String sourceColumn;
-    /**
-     * @return Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
-     * 
-     */
     private @Nullable String targetMultiMeasureAttributeName;
 
     private ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping() {}
-    /**
-     * @return Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-     * 
-     */
     public String measureValueType() {
         return this.measureValueType;
     }
-    /**
-     * @return Source column from where the attribute value is to be read.
-     * 
-     */
     public String sourceColumn() {
         return this.sourceColumn;
     }
-    /**
-     * @return Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
-     * 
-     */
     public Optional<String> targetMultiMeasureAttributeName() {
         return Optional.ofNullable(this.targetMultiMeasureAttributeName);
     }

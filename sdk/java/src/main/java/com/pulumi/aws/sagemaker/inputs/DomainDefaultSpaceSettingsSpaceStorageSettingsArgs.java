@@ -15,17 +15,9 @@ public final class DomainDefaultSpaceSettingsSpaceStorageSettingsArgs extends co
 
     public static final DomainDefaultSpaceSettingsSpaceStorageSettingsArgs Empty = new DomainDefaultSpaceSettingsSpaceStorageSettingsArgs();
 
-    /**
-     * The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
-     * 
-     */
     @Import(name="defaultEbsStorageSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs> defaultEbsStorageSettings;
 
-    /**
-     * @return The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs>> defaultEbsStorageSettings() {
         return Optional.ofNullable(this.defaultEbsStorageSettings);
     }
@@ -54,23 +46,11 @@ public final class DomainDefaultSpaceSettingsSpaceStorageSettingsArgs extends co
             $ = new DomainDefaultSpaceSettingsSpaceStorageSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultEbsStorageSettings(@Nullable Output<DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs> defaultEbsStorageSettings) {
             $.defaultEbsStorageSettings = defaultEbsStorageSettings;
             return this;
         }
 
-        /**
-         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultEbsStorageSettings(DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs defaultEbsStorageSettings) {
             return defaultEbsStorageSettings(Output.of(defaultEbsStorageSettings));
         }

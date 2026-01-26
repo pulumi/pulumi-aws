@@ -18,62 +18,30 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
 
     public static final OrganizationConfigurationArgs Empty = new OrganizationConfigurationArgs();
 
-    /**
-     * Whether to automatically enable Security Hub for new accounts in the organization.
-     * 
-     */
     @Import(name="autoEnable", required=true)
     private Output<Boolean> autoEnable;
 
-    /**
-     * @return Whether to automatically enable Security Hub for new accounts in the organization.
-     * 
-     */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
     }
 
-    /**
-     * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-     * 
-     */
     @Import(name="autoEnableStandards")
     private @Nullable Output<String> autoEnableStandards;
 
-    /**
-     * @return Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-     * 
-     */
     public Optional<Output<String>> autoEnableStandards() {
         return Optional.ofNullable(this.autoEnableStandards);
     }
 
-    /**
-     * Provides information about the way an organization is configured in Security Hub.
-     * 
-     */
     @Import(name="organizationConfiguration")
     private @Nullable Output<OrganizationConfigurationOrganizationConfigurationArgs> organizationConfiguration;
 
-    /**
-     * @return Provides information about the way an organization is configured in Security Hub.
-     * 
-     */
     public Optional<Output<OrganizationConfigurationOrganizationConfigurationArgs>> organizationConfiguration() {
         return Optional.ofNullable(this.organizationConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -105,86 +73,38 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
             $ = new OrganizationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnable Whether to automatically enable Security Hub for new accounts in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Output<Boolean> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
-        /**
-         * @param autoEnable Whether to automatically enable Security Hub for new accounts in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Boolean autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }
 
-        /**
-         * @param autoEnableStandards Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnableStandards(@Nullable Output<String> autoEnableStandards) {
             $.autoEnableStandards = autoEnableStandards;
             return this;
         }
 
-        /**
-         * @param autoEnableStandards Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnableStandards(String autoEnableStandards) {
             return autoEnableStandards(Output.of(autoEnableStandards));
         }
 
-        /**
-         * @param organizationConfiguration Provides information about the way an organization is configured in Security Hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationConfiguration(@Nullable Output<OrganizationConfigurationOrganizationConfigurationArgs> organizationConfiguration) {
             $.organizationConfiguration = organizationConfiguration;
             return this;
         }
 
-        /**
-         * @param organizationConfiguration Provides information about the way an organization is configured in Security Hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs organizationConfiguration) {
             return organizationConfiguration(Output.of(organizationConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

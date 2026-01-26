@@ -12,96 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
-//
-// ## Example Usage
-//
-// ### Account Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "DevAccountAccess", &cloudwatch.EventPermissionArgs{
-//				Principal:   pulumi.String("123456789012"),
-//				StatementId: pulumi.String("DevAccountAccess"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "OrganizationAccess", &cloudwatch.EventPermissionArgs{
-//				Principal:   pulumi.String("*"),
-//				StatementId: pulumi.String("OrganizationAccess"),
-//				Condition: &cloudwatch.EventPermissionConditionArgs{
-//					Key:   pulumi.String("aws:PrincipalOrgID"),
-//					Type:  pulumi.String("StringEquals"),
-//					Value: pulumi.Any(example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
-// ```
 type EventPermission struct {
 	pulumi.CustomResourceState
 
-	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-	Action pulumi.StringPtrOutput `pulumi:"action"`
-	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-	Condition EventPermissionConditionPtrOutput `pulumi:"condition"`
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
-	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
-	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// An identifier string for the external account that you are granting permissions to.
-	StatementId pulumi.StringOutput `pulumi:"statementId"`
+	Action       pulumi.StringPtrOutput            `pulumi:"action"`
+	Condition    EventPermissionConditionPtrOutput `pulumi:"condition"`
+	EventBusName pulumi.StringPtrOutput            `pulumi:"eventBusName"`
+	Principal    pulumi.StringOutput               `pulumi:"principal"`
+	Region       pulumi.StringOutput               `pulumi:"region"`
+	StatementId  pulumi.StringOutput               `pulumi:"statementId"`
 }
 
 // NewEventPermission registers a new resource with the given unique name, arguments, and options.
@@ -140,35 +59,21 @@ func GetEventPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventPermission resources.
 type eventPermissionState struct {
-	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-	Action *string `pulumi:"action"`
-	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-	Condition *EventPermissionCondition `pulumi:"condition"`
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
-	EventBusName *string `pulumi:"eventBusName"`
-	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-	Principal *string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An identifier string for the external account that you are granting permissions to.
-	StatementId *string `pulumi:"statementId"`
+	Action       *string                   `pulumi:"action"`
+	Condition    *EventPermissionCondition `pulumi:"condition"`
+	EventBusName *string                   `pulumi:"eventBusName"`
+	Principal    *string                   `pulumi:"principal"`
+	Region       *string                   `pulumi:"region"`
+	StatementId  *string                   `pulumi:"statementId"`
 }
 
 type EventPermissionState struct {
-	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-	Action pulumi.StringPtrInput
-	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-	Condition EventPermissionConditionPtrInput
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
+	Action       pulumi.StringPtrInput
+	Condition    EventPermissionConditionPtrInput
 	EventBusName pulumi.StringPtrInput
-	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-	Principal pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An identifier string for the external account that you are granting permissions to.
-	StatementId pulumi.StringPtrInput
+	Principal    pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	StatementId  pulumi.StringPtrInput
 }
 
 func (EventPermissionState) ElementType() reflect.Type {
@@ -176,36 +81,22 @@ func (EventPermissionState) ElementType() reflect.Type {
 }
 
 type eventPermissionArgs struct {
-	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-	Action *string `pulumi:"action"`
-	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-	Condition *EventPermissionCondition `pulumi:"condition"`
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
-	EventBusName *string `pulumi:"eventBusName"`
-	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-	Principal string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An identifier string for the external account that you are granting permissions to.
-	StatementId string `pulumi:"statementId"`
+	Action       *string                   `pulumi:"action"`
+	Condition    *EventPermissionCondition `pulumi:"condition"`
+	EventBusName *string                   `pulumi:"eventBusName"`
+	Principal    string                    `pulumi:"principal"`
+	Region       *string                   `pulumi:"region"`
+	StatementId  string                    `pulumi:"statementId"`
 }
 
 // The set of arguments for constructing a EventPermission resource.
 type EventPermissionArgs struct {
-	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-	Action pulumi.StringPtrInput
-	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-	Condition EventPermissionConditionPtrInput
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
+	Action       pulumi.StringPtrInput
+	Condition    EventPermissionConditionPtrInput
 	EventBusName pulumi.StringPtrInput
-	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-	Principal pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An identifier string for the external account that you are granting permissions to.
-	StatementId pulumi.StringInput
+	Principal    pulumi.StringInput
+	Region       pulumi.StringPtrInput
+	StatementId  pulumi.StringInput
 }
 
 func (EventPermissionArgs) ElementType() reflect.Type {
@@ -295,33 +186,26 @@ func (o EventPermissionOutput) ToEventPermissionOutputWithContext(ctx context.Co
 	return o
 }
 
-// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
 func (o EventPermissionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventPermission) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
 func (o EventPermissionOutput) Condition() EventPermissionConditionPtrOutput {
 	return o.ApplyT(func(v *EventPermission) EventPermissionConditionPtrOutput { return v.Condition }).(EventPermissionConditionPtrOutput)
 }
 
-// The name of the event bus to set the permissions on.
-// If you omit this, the permissions are set on the `default` event bus.
 func (o EventPermissionOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventPermission) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }
 
-// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 func (o EventPermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventPermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventPermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An identifier string for the external account that you are granting permissions to.
 func (o EventPermissionOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventPermission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }

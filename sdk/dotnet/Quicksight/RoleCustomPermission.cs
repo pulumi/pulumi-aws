@@ -9,65 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Manages the custom permissions that are associated with a role.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.RoleCustomPermission("example", new()
-    ///     {
-    ///         Role = "READER",
-    ///         CustomPermissionsName = exampleAwsQuicksightCustomPermissions.CustomPermissionsName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight role custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `role`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/roleCustomPermission:RoleCustomPermission example 012345678901,default,READER
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/roleCustomPermission:RoleCustomPermission")]
     public partial class RoleCustomPermission : global::Pulumi.CustomResource
     {
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom permissions profile name.
-        /// </summary>
         [Output("customPermissionsName")]
         public Output<string> CustomPermissionsName { get; private set; } = null!;
 
-        /// <summary>
-        /// Namespace containing the role. Defaults to `Default`.
-        /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
@@ -120,29 +76,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Custom permissions profile name.
-        /// </summary>
         [Input("customPermissionsName", required: true)]
         public Input<string> CustomPermissionsName { get; set; } = null!;
 
-        /// <summary>
-        /// Namespace containing the role. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 
@@ -157,29 +99,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Custom permissions profile name.
-        /// </summary>
         [Input("customPermissionsName")]
         public Input<string>? CustomPermissionsName { get; set; }
 
-        /// <summary>
-        /// Namespace containing the role. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 

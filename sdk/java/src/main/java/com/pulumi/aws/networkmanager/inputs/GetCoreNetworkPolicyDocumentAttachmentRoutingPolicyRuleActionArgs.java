@@ -15,17 +15,9 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction
 
     public static final GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs Empty = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs();
 
-    /**
-     * Set of routing policy names to associate when the conditions match.
-     * 
-     */
     @Import(name="associateRoutingPolicies", required=true)
     private Output<List<String>> associateRoutingPolicies;
 
-    /**
-     * @return Set of routing policy names to associate when the conditions match.
-     * 
-     */
     public Output<List<String>> associateRoutingPolicies() {
         return this.associateRoutingPolicies;
     }
@@ -54,33 +46,15 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction
             $ = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param associateRoutingPolicies Set of routing policy names to associate when the conditions match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associateRoutingPolicies(Output<List<String>> associateRoutingPolicies) {
             $.associateRoutingPolicies = associateRoutingPolicies;
             return this;
         }
 
-        /**
-         * @param associateRoutingPolicies Set of routing policy names to associate when the conditions match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associateRoutingPolicies(List<String> associateRoutingPolicies) {
             return associateRoutingPolicies(Output.of(associateRoutingPolicies));
         }
 
-        /**
-         * @param associateRoutingPolicies Set of routing policy names to associate when the conditions match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associateRoutingPolicies(String... associateRoutingPolicies) {
             return associateRoutingPolicies(List.of(associateRoutingPolicies));
         }

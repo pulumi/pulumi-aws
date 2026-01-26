@@ -10,31 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RealtimeLogConfigEndpointKinesisStreamConfig {
-    /**
-     * @return The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
-     * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The ARN of the Kinesis data stream.
-     * 
-     */
     private String streamArn;
 
     private RealtimeLogConfigEndpointKinesisStreamConfig() {}
-    /**
-     * @return The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
-     * See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The ARN of the Kinesis data stream.
-     * 
-     */
     public String streamArn() {
         return this.streamArn;
     }

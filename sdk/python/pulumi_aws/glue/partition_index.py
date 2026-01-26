@@ -28,11 +28,6 @@ class PartitionIndexArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PartitionIndex resource.
-        :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "partition_index", partition_index)
@@ -45,9 +40,6 @@ class PartitionIndexArgs:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -57,9 +49,6 @@ class PartitionIndexArgs:
     @_builtins.property
     @pulumi.getter(name="partitionIndex")
     def partition_index(self) -> pulumi.Input['PartitionIndexPartitionIndexArgs']:
-        """
-        Configuration block for a partition index. See `partition_index` below.
-        """
         return pulumi.get(self, "partition_index")
 
     @partition_index.setter
@@ -69,9 +58,6 @@ class PartitionIndexArgs:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the table. For Hive compatibility, this must be entirely lowercase.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -81,9 +67,6 @@ class PartitionIndexArgs:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The catalog ID where the table resides.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -93,9 +76,6 @@ class PartitionIndexArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,11 +93,6 @@ class _PartitionIndexState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PartitionIndex resources.
-        :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
-        :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -133,9 +108,6 @@ class _PartitionIndexState:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The catalog ID where the table resides.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -145,9 +117,6 @@ class _PartitionIndexState:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -157,9 +126,6 @@ class _PartitionIndexState:
     @_builtins.property
     @pulumi.getter(name="partitionIndex")
     def partition_index(self) -> Optional[pulumi.Input['PartitionIndexPartitionIndexArgs']]:
-        """
-        Configuration block for a partition index. See `partition_index` below.
-        """
         return pulumi.get(self, "partition_index")
 
     @partition_index.setter
@@ -169,9 +135,6 @@ class _PartitionIndexState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -181,9 +144,6 @@ class _PartitionIndexState:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the table. For Hive compatibility, this must be entirely lowercase.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -204,105 +164,9 @@ class PartitionIndex(pulumi.CustomResource):
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example", name="example")
-        example_catalog_table = aws.glue.CatalogTable("example",
-            name="example",
-            database_name=example.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor={
-                "bucket_columns": ["bucket_column_1"],
-                "compressed": False,
-                "input_format": "SequenceFileInputFormat",
-                "location": "my_location",
-                "number_of_buckets": 1,
-                "output_format": "SequenceFileInputFormat",
-                "stored_as_sub_directories": False,
-                "parameters": {
-                    "param1": "param1_val",
-                },
-                "columns": [
-                    {
-                        "name": "my_column_1",
-                        "type": "int",
-                        "comment": "my_column1_comment",
-                    },
-                    {
-                        "name": "my_column_2",
-                        "type": "string",
-                        "comment": "my_column2_comment",
-                    },
-                ],
-                "ser_de_info": {
-                    "name": "ser_de_name",
-                    "parameters": {
-                        "param1": "param_val_1",
-                    },
-                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                },
-                "sort_columns": [{
-                    "column": "my_column_1",
-                    "sort_order": 1,
-                }],
-                "skewed_info": {
-                    "skewed_column_names": ["my_column_1"],
-                    "skewed_column_value_location_maps": {
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    "skewed_column_values": ["skewed_val_1"],
-                },
-            },
-            partition_keys=[
-                {
-                    "name": "my_column_1",
-                    "type": "int",
-                    "comment": "my_column_1_comment",
-                },
-                {
-                    "name": "my_column_2",
-                    "type": "string",
-                    "comment": "my_column_2_comment",
-                },
-            ],
-            parameters={
-                "param1": "param1_val",
-            })
-        example_partition_index = aws.glue.PartitionIndex("example",
-            database_name=example.name,
-            table_name=example_catalog_table.name,
-            partition_index={
-                "index_name": "example",
-                "keys": [
-                    "my_column_1",
-                    "my_column_2",
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
-
-        ```sh
-        $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
-        ```
-
+        Create a PartitionIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
-        :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         ...
     @overload
@@ -311,98 +175,7 @@ class PartitionIndex(pulumi.CustomResource):
                  args: PartitionIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example", name="example")
-        example_catalog_table = aws.glue.CatalogTable("example",
-            name="example",
-            database_name=example.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor={
-                "bucket_columns": ["bucket_column_1"],
-                "compressed": False,
-                "input_format": "SequenceFileInputFormat",
-                "location": "my_location",
-                "number_of_buckets": 1,
-                "output_format": "SequenceFileInputFormat",
-                "stored_as_sub_directories": False,
-                "parameters": {
-                    "param1": "param1_val",
-                },
-                "columns": [
-                    {
-                        "name": "my_column_1",
-                        "type": "int",
-                        "comment": "my_column1_comment",
-                    },
-                    {
-                        "name": "my_column_2",
-                        "type": "string",
-                        "comment": "my_column2_comment",
-                    },
-                ],
-                "ser_de_info": {
-                    "name": "ser_de_name",
-                    "parameters": {
-                        "param1": "param_val_1",
-                    },
-                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                },
-                "sort_columns": [{
-                    "column": "my_column_1",
-                    "sort_order": 1,
-                }],
-                "skewed_info": {
-                    "skewed_column_names": ["my_column_1"],
-                    "skewed_column_value_location_maps": {
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    "skewed_column_values": ["skewed_val_1"],
-                },
-            },
-            partition_keys=[
-                {
-                    "name": "my_column_1",
-                    "type": "int",
-                    "comment": "my_column_1_comment",
-                },
-                {
-                    "name": "my_column_2",
-                    "type": "string",
-                    "comment": "my_column_2_comment",
-                },
-            ],
-            parameters={
-                "param1": "param1_val",
-            })
-        example_partition_index = aws.glue.PartitionIndex("example",
-            database_name=example.name,
-            table_name=example_catalog_table.name,
-            partition_index={
-                "index_name": "example",
-                "keys": [
-                    "my_column_1",
-                    "my_column_2",
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
-
-        ```sh
-        $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
-        ```
-
+        Create a PartitionIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PartitionIndexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -465,11 +238,6 @@ class PartitionIndex(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
-        :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -485,40 +253,25 @@ class PartitionIndex(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The catalog ID where the table resides.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter(name="partitionIndex")
     def partition_index(self) -> pulumi.Output['outputs.PartitionIndexPartitionIndex']:
-        """
-        Configuration block for a partition index. See `partition_index` below.
-        """
         return pulumi.get(self, "partition_index")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the table. For Hive compatibility, this must be entirely lowercase.
-        """
         return pulumi.get(self, "table_name")
 

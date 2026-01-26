@@ -7,44 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.IndexingConfiguration("example", {thingIndexingConfiguration: {
- *     thingIndexingMode: "REGISTRY_AND_SHADOW",
- *     thingConnectivityIndexingMode: "STATUS",
- *     deviceDefenderIndexingMode: "VIOLATIONS",
- *     namedShadowIndexingMode: "ON",
- *     filter: {
- *         namedShadowNames: ["thing1shadow"],
- *     },
- *     customFields: [
- *         {
- *             name: "shadow.desired.power",
- *             type: "Boolean",
- *         },
- *         {
- *             name: "attributes.version",
- *             type: "Number",
- *         },
- *         {
- *             name: "shadow.name.thing1shadow.desired.DefaultDesired",
- *             type: "String",
- *         },
- *         {
- *             name: "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
- *             type: "Number",
- *         },
- *     ],
- * }});
- * ```
- */
 export class IndexingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing IndexingConfiguration resource's state with the given name, ID, and optional extra
@@ -73,17 +35,8 @@ export class IndexingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === IndexingConfiguration.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Thing group indexing configuration. See below.
-     */
     declare public readonly thingGroupIndexingConfiguration: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
-    /**
-     * Thing indexing configuration. See below.
-     */
     declare public readonly thingIndexingConfiguration: pulumi.Output<outputs.iot.IndexingConfigurationThingIndexingConfiguration>;
 
     /**
@@ -117,17 +70,8 @@ export class IndexingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IndexingConfiguration resources.
  */
 export interface IndexingConfigurationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Thing group indexing configuration. See below.
-     */
     thingGroupIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
-    /**
-     * Thing indexing configuration. See below.
-     */
     thingIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfiguration>;
 }
 
@@ -135,16 +79,7 @@ export interface IndexingConfigurationState {
  * The set of arguments for constructing a IndexingConfiguration resource.
  */
 export interface IndexingConfigurationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Thing group indexing configuration. See below.
-     */
     thingGroupIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
-    /**
-     * Thing indexing configuration. See below.
-     */
     thingIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfiguration>;
 }

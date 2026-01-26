@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("entries", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigRenameKeyEntryGetArgs>? _entries;
-
-        /// <summary>
-        /// Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `RenameKeys` `Entry` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigRenameKeyEntryGetArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.LogTransformerTransformerConfigRenameKeyEntryGetArgs>());

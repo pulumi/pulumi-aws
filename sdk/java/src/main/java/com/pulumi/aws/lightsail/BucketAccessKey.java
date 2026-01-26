@@ -13,141 +13,41 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Bucket;
- * import com.pulumi.aws.lightsail.BucketArgs;
- * import com.pulumi.aws.lightsail.BucketAccessKey;
- * import com.pulumi.aws.lightsail.BucketAccessKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .name("example-bucket")
- *             .bundleId("small_1_0")
- *             .build());
- * 
- *         var exampleBucketAccessKey = new BucketAccessKey("exampleBucketAccessKey", BucketAccessKeyArgs.builder()
- *             .bucketName(example.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/bucketAccessKey:BucketAccessKey")
 public class BucketAccessKey extends com.pulumi.resources.CustomResource {
-    /**
-     * Access key ID.
-     * 
-     */
     @Export(name="accessKeyId", refs={String.class}, tree="[0]")
     private Output<String> accessKeyId;
 
-    /**
-     * @return Access key ID.
-     * 
-     */
     public Output<String> accessKeyId() {
         return this.accessKeyId;
     }
-    /**
-     * Name of the bucket that the access key will belong to and grant access to.
-     * 
-     */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
-    /**
-     * @return Name of the bucket that the access key will belong to and grant access to.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
-    /**
-     * Date and time when the access key was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Date and time when the access key was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-     * 
-     */
     @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secretAccessKey;
 
-    /**
-     * @return Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-     * 
-     */
     public Output<String> secretAccessKey() {
         return this.secretAccessKey;
     }
-    /**
-     * Status of the access key.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the access key.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

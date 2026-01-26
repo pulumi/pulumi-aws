@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketServerSideEncryptionConfigurationRule {
-    /**
-     * @return Single object for setting server-side encryption by default. See below.
-     * 
-     */
     private @Nullable BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault;
-    /**
-     * @return List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
-     * 
-     */
     private @Nullable List<String> blockedEncryptionTypes;
-    /**
-     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-     * 
-     */
     private @Nullable Boolean bucketKeyEnabled;
 
     private BucketServerSideEncryptionConfigurationRule() {}
-    /**
-     * @return Single object for setting server-side encryption by default. See below.
-     * 
-     */
     public Optional<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefault() {
         return Optional.ofNullable(this.applyServerSideEncryptionByDefault);
     }
-    /**
-     * @return List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
-     * 
-     */
     public List<String> blockedEncryptionTypes() {
         return this.blockedEncryptionTypes == null ? List.of() : this.blockedEncryptionTypes;
     }
-    /**
-     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-     * 
-     */
     public Optional<Boolean> bucketKeyEnabled() {
         return Optional.ofNullable(this.bucketKeyEnabled);
     }

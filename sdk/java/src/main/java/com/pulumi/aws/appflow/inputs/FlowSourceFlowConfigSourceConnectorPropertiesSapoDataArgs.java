@@ -25,32 +25,16 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
         return this.objectPath;
     }
 
-    /**
-     * Sets the page size for each concurrent process that transfers OData records from your SAP instance.
-     * 
-     */
     @Import(name="paginationConfig")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs> paginationConfig;
 
-    /**
-     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs>> paginationConfig() {
         return Optional.ofNullable(this.paginationConfig);
     }
 
-    /**
-     * Sets the number of concurrent processes that transfers OData records from your SAP instance.
-     * 
-     */
     @Import(name="parallelismConfig")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs> parallelismConfig;
 
-    /**
-     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs>> parallelismConfig() {
         return Optional.ofNullable(this.parallelismConfig);
     }
@@ -90,44 +74,20 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
             return objectPath(Output.of(objectPath));
         }
 
-        /**
-         * @param paginationConfig Sets the page size for each concurrent process that transfers OData records from your SAP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder paginationConfig(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs> paginationConfig) {
             $.paginationConfig = paginationConfig;
             return this;
         }
 
-        /**
-         * @param paginationConfig Sets the page size for each concurrent process that transfers OData records from your SAP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder paginationConfig(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs paginationConfig) {
             return paginationConfig(Output.of(paginationConfig));
         }
 
-        /**
-         * @param parallelismConfig Sets the number of concurrent processes that transfers OData records from your SAP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelismConfig(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs> parallelismConfig) {
             $.parallelismConfig = parallelismConfig;
             return this;
         }
 
-        /**
-         * @param parallelismConfig Sets the number of concurrent processes that transfers OData records from your SAP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelismConfig(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs parallelismConfig) {
             return parallelismConfig(Output.of(parallelismConfig));
         }

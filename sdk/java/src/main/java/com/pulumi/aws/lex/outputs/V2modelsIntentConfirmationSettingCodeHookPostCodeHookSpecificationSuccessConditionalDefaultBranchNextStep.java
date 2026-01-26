@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStep {
-    /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogAction dialogAction;
-    /**
-     * @return Configuration block for override settings to configure the intent state. See `intent`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntent intent;
-    /**
-     * @return Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-     * 
-     */
     private @Nullable Map<String,String> sessionAttributes;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStep() {}
-    /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogAction> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
-    /**
-     * @return Configuration block for override settings to configure the intent state. See `intent`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntent> intent() {
         return Optional.ofNullable(this.intent);
     }
-    /**
-     * @return Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-     * 
-     */
     public Map<String,String> sessionAttributes() {
         return this.sessionAttributes == null ? Map.of() : this.sessionAttributes;
     }

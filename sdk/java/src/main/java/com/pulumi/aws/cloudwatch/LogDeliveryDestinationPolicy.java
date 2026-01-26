@@ -13,95 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationPolicy;
- * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogDeliveryDestinationPolicy("example", LogDeliveryDestinationPolicyArgs.builder()
- *             .deliveryDestinationName(exampleAwsCloudwatchLogDeliveryDestination.name())
- *             .deliveryDestinationPolicy(exampleAwsIamPolicyDocument.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy")
 public class LogDeliveryDestinationPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the delivery destination to assign this policy to.
-     * 
-     */
     @Export(name="deliveryDestinationName", refs={String.class}, tree="[0]")
     private Output<String> deliveryDestinationName;
 
-    /**
-     * @return The name of the delivery destination to assign this policy to.
-     * 
-     */
     public Output<String> deliveryDestinationName() {
         return this.deliveryDestinationName;
     }
-    /**
-     * The contents of the policy.
-     * 
-     */
     @Export(name="deliveryDestinationPolicy", refs={String.class}, tree="[0]")
     private Output<String> deliveryDestinationPolicy;
 
-    /**
-     * @return The contents of the policy.
-     * 
-     */
     public Output<String> deliveryDestinationPolicy() {
         return this.deliveryDestinationPolicy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

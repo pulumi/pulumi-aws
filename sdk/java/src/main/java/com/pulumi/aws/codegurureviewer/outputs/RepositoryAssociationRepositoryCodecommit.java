@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryAssociationRepositoryCodecommit {
-    /**
-     * @return The name of the AWS CodeCommit repository.
-     * 
-     */
     private String name;
 
     private RepositoryAssociationRepositoryCodecommit() {}
-    /**
-     * @return The name of the AWS CodeCommit repository.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -16,36 +16,16 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableTtlArgs Empty = new TableTtlArgs();
 
-    /**
-     * Name of the table attribute to store the TTL timestamp in.
-     * Required if `enabled` is `true`, must not be set otherwise.
-     * 
-     */
     @Import(name="attributeName")
     private @Nullable Output<String> attributeName;
 
-    /**
-     * @return Name of the table attribute to store the TTL timestamp in.
-     * Required if `enabled` is `true`, must not be set otherwise.
-     * 
-     */
     public Optional<Output<String>> attributeName() {
         return Optional.ofNullable(this.attributeName);
     }
 
-    /**
-     * Whether TTL is enabled.
-     * Default value is `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether TTL is enabled.
-     * Default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -75,48 +55,20 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableTtlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributeName Name of the table attribute to store the TTL timestamp in.
-         * Required if `enabled` is `true`, must not be set otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeName(@Nullable Output<String> attributeName) {
             $.attributeName = attributeName;
             return this;
         }
 
-        /**
-         * @param attributeName Name of the table attribute to store the TTL timestamp in.
-         * Required if `enabled` is `true`, must not be set otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeName(String attributeName) {
             return attributeName(Output.of(attributeName));
         }
 
-        /**
-         * @param enabled Whether TTL is enabled.
-         * Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether TTL is enabled.
-         * Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

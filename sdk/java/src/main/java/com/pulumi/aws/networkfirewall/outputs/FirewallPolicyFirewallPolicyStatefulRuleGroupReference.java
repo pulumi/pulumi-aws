@@ -14,57 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
-    /**
-     * @return Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-     * 
-     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-     * 
-     */
     private @Nullable String deepThreatInspection;
-    /**
-     * @return Configuration block for override values
-     * 
-     */
     private @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override;
-    /**
-     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-     * 
-     */
     private @Nullable Integer priority;
-    /**
-     * @return The Amazon Resource Name (ARN) of the stateful rule group.
-     * 
-     */
     private String resourceArn;
 
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
-    /**
-     * @return Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-     * 
-     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-     * 
-     */
     public Optional<String> deepThreatInspection() {
         return Optional.ofNullable(this.deepThreatInspection);
     }
-    /**
-     * @return Configuration block for override values
-     * 
-     */
     public Optional<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> override() {
         return Optional.ofNullable(this.override);
     }
-    /**
-     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-     * 
-     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the stateful rule group.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }

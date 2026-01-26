@@ -14,17 +14,9 @@ public final class ConnectorKafkaClusterArgs extends com.pulumi.resources.Resour
 
     public static final ConnectorKafkaClusterArgs Empty = new ConnectorKafkaClusterArgs();
 
-    /**
-     * The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
-     * 
-     */
     @Import(name="apacheKafkaCluster", required=true)
     private Output<ConnectorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster;
 
-    /**
-     * @return The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
-     * 
-     */
     public Output<ConnectorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster() {
         return this.apacheKafkaCluster;
     }
@@ -53,23 +45,11 @@ public final class ConnectorKafkaClusterArgs extends com.pulumi.resources.Resour
             $ = new ConnectorKafkaClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apacheKafkaCluster The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apacheKafkaCluster(Output<ConnectorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster) {
             $.apacheKafkaCluster = apacheKafkaCluster;
             return this;
         }
 
-        /**
-         * @param apacheKafkaCluster The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs apacheKafkaCluster) {
             return apacheKafkaCluster(Output.of(apacheKafkaCluster));
         }

@@ -23,8 +23,7 @@ class LicenseGrantAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LicenseGrantAccepter resource.
-        :param pulumi.Input[_builtins.str] grant_arn: The ARN of the grant to accept.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] grant_arn: Amazon Resource Name (ARN) of the grant.
         """
         pulumi.set(__self__, "grant_arn", grant_arn)
         if region is not None:
@@ -34,7 +33,7 @@ class LicenseGrantAccepterArgs:
     @pulumi.getter(name="grantArn")
     def grant_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the grant to accept.
+        Amazon Resource Name (ARN) of the grant.
         """
         return pulumi.get(self, "grant_arn")
 
@@ -45,9 +44,6 @@ class LicenseGrantAccepterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -70,16 +66,15 @@ class _LicenseGrantAccepterState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LicenseGrantAccepter resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: A list of the allowed operations for the grant.
-        :param pulumi.Input[_builtins.str] grant_arn: The ARN of the grant to accept.
-        :param pulumi.Input[_builtins.str] home_region: The home region for the license.
-        :param pulumi.Input[_builtins.str] license_arn: The ARN of the license for the grant.
-        :param pulumi.Input[_builtins.str] name: The Name of the grant.
-        :param pulumi.Input[_builtins.str] parent_arn: The parent ARN.
-        :param pulumi.Input[_builtins.str] principal: The target account for the grant.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The grant status.
-        :param pulumi.Input[_builtins.str] version: The grant version.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: Allowed operations for the grant.
+        :param pulumi.Input[_builtins.str] grant_arn: Amazon Resource Name (ARN) of the grant.
+        :param pulumi.Input[_builtins.str] home_region: Home Region of the grant.
+        :param pulumi.Input[_builtins.str] license_arn: License ARN.
+        :param pulumi.Input[_builtins.str] name: Name of the grant.
+        :param pulumi.Input[_builtins.str] parent_arn: Parent ARN.
+        :param pulumi.Input[_builtins.str] principal: The grantee principal ARN.
+        :param pulumi.Input[_builtins.str] status: GrantAccepter status.
+        :param pulumi.Input[_builtins.str] version: GrantAccepter version.
         """
         if allowed_operations is not None:
             pulumi.set(__self__, "allowed_operations", allowed_operations)
@@ -106,7 +101,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of the allowed operations for the grant.
+        Allowed operations for the grant.
         """
         return pulumi.get(self, "allowed_operations")
 
@@ -118,7 +113,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter(name="grantArn")
     def grant_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the grant to accept.
+        Amazon Resource Name (ARN) of the grant.
         """
         return pulumi.get(self, "grant_arn")
 
@@ -130,7 +125,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The home region for the license.
+        Home Region of the grant.
         """
         return pulumi.get(self, "home_region")
 
@@ -142,7 +137,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter(name="licenseArn")
     def license_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the license for the grant.
+        License ARN.
         """
         return pulumi.get(self, "license_arn")
 
@@ -154,7 +149,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Name of the grant.
+        Name of the grant.
         """
         return pulumi.get(self, "name")
 
@@ -166,7 +161,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter(name="parentArn")
     def parent_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The parent ARN.
+        Parent ARN.
         """
         return pulumi.get(self, "parent_arn")
 
@@ -178,7 +173,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The target account for the grant.
+        The grantee principal ARN.
         """
         return pulumi.get(self, "principal")
 
@@ -189,9 +184,6 @@ class _LicenseGrantAccepterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -202,7 +194,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The grant status.
+        GrantAccepter status.
         """
         return pulumi.get(self, "status")
 
@@ -214,7 +206,7 @@ class _LicenseGrantAccepterState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The grant version.
+        GrantAccepter version.
         """
         return pulumi.get(self, "version")
 
@@ -233,29 +225,10 @@ class LicenseGrantAccepter(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.licensemanager.LicenseGrantAccepter("test", grant_arn="arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
-
-        ```sh
-        $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
-        ```
-
+        Create a LicenseGrantAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] grant_arn: The ARN of the grant to accept.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] grant_arn: Amazon Resource Name (ARN) of the grant.
         """
         ...
     @overload
@@ -264,25 +237,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
                  args: LicenseGrantAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.licensemanager.LicenseGrantAccepter("test", grant_arn="arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
-
-        ```sh
-        $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
-        ```
-
+        Create a LicenseGrantAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LicenseGrantAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -348,16 +303,15 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: A list of the allowed operations for the grant.
-        :param pulumi.Input[_builtins.str] grant_arn: The ARN of the grant to accept.
-        :param pulumi.Input[_builtins.str] home_region: The home region for the license.
-        :param pulumi.Input[_builtins.str] license_arn: The ARN of the license for the grant.
-        :param pulumi.Input[_builtins.str] name: The Name of the grant.
-        :param pulumi.Input[_builtins.str] parent_arn: The parent ARN.
-        :param pulumi.Input[_builtins.str] principal: The target account for the grant.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The grant status.
-        :param pulumi.Input[_builtins.str] version: The grant version.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: Allowed operations for the grant.
+        :param pulumi.Input[_builtins.str] grant_arn: Amazon Resource Name (ARN) of the grant.
+        :param pulumi.Input[_builtins.str] home_region: Home Region of the grant.
+        :param pulumi.Input[_builtins.str] license_arn: License ARN.
+        :param pulumi.Input[_builtins.str] name: Name of the grant.
+        :param pulumi.Input[_builtins.str] parent_arn: Parent ARN.
+        :param pulumi.Input[_builtins.str] principal: The grantee principal ARN.
+        :param pulumi.Input[_builtins.str] status: GrantAccepter status.
+        :param pulumi.Input[_builtins.str] version: GrantAccepter version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -379,7 +333,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of the allowed operations for the grant.
+        Allowed operations for the grant.
         """
         return pulumi.get(self, "allowed_operations")
 
@@ -387,7 +341,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter(name="grantArn")
     def grant_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the grant to accept.
+        Amazon Resource Name (ARN) of the grant.
         """
         return pulumi.get(self, "grant_arn")
 
@@ -395,7 +349,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The home region for the license.
+        Home Region of the grant.
         """
         return pulumi.get(self, "home_region")
 
@@ -403,7 +357,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter(name="licenseArn")
     def license_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the license for the grant.
+        License ARN.
         """
         return pulumi.get(self, "license_arn")
 
@@ -411,7 +365,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The Name of the grant.
+        Name of the grant.
         """
         return pulumi.get(self, "name")
 
@@ -419,7 +373,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter(name="parentArn")
     def parent_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The parent ARN.
+        Parent ARN.
         """
         return pulumi.get(self, "parent_arn")
 
@@ -427,23 +381,20 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter
     def principal(self) -> pulumi.Output[_builtins.str]:
         """
-        The target account for the grant.
+        The grantee principal ARN.
         """
         return pulumi.get(self, "principal")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The grant status.
+        GrantAccepter status.
         """
         return pulumi.get(self, "status")
 
@@ -451,7 +402,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
         """
-        The grant version.
+        GrantAccepter version.
         """
         return pulumi.get(self, "version")
 

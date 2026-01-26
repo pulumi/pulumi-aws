@@ -18,32 +18,16 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
 
     public static final V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupArgs Empty = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupArgs();
 
-    /**
-     * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     @Import(name="message", required=true)
     private Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgs> message;
 
-    /**
-     * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     public Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgs> message() {
         return this.message;
     }
 
-    /**
-     * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     @Import(name="variations")
     private @Nullable Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgs>> variations;
 
-    /**
-     * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgs>>> variations() {
         return Optional.ofNullable(this.variations);
     }
@@ -73,54 +57,24 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
             $ = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param message Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgs message) {
             return message(Output.of(message));
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(@Nullable Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgs>> variations) {
             $.variations = variations;
             return this;
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgs> variations) {
             return variations(Output.of(variations));
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgs... variations) {
             return variations(List.of(variations));
         }

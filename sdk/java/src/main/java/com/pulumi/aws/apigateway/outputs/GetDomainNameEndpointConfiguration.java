@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainNameEndpointConfiguration {
-    /**
-     * @return The IP address types that can invoke an API (RestApi).
-     * 
-     */
     private String ipAddressType;
-    /**
-     * @return List of endpoint types.
-     * 
-     */
     private List<String> types;
 
     private GetDomainNameEndpointConfiguration() {}
-    /**
-     * @return The IP address types that can invoke an API (RestApi).
-     * 
-     */
     public String ipAddressType() {
         return this.ipAddressType;
     }
-    /**
-     * @return List of endpoint types.
-     * 
-     */
     public List<String> types() {
         return this.types;
     }

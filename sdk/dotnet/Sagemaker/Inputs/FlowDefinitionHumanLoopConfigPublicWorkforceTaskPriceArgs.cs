@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
-        /// </summary>
         [Input("amountInUsd")]
         public Input<Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs>? AmountInUsd { get; set; }
 

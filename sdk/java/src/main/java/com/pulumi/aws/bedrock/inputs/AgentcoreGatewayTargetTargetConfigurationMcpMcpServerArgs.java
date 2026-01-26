@@ -14,17 +14,9 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs();
 
-    /**
-     * Endpoint for the MCP server target configuration.
-     * 
-     */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
-    /**
-     * @return Endpoint for the MCP server target configuration.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
@@ -53,23 +45,11 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint Endpoint for the MCP server target configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint Endpoint for the MCP server target configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }

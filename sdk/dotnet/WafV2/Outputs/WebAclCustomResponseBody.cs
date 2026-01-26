@@ -13,17 +13,8 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclCustomResponseBody
     {
-        /// <summary>
-        /// Payload of the custom response.
-        /// </summary>
         public readonly string Content;
-        /// <summary>
-        /// Type of content in the payload that you are defining in the `Content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
-        /// </summary>
         public readonly string ContentType;
-        /// <summary>
-        /// Unique key identifying the custom response body. This is referenced by the `CustomResponseBodyKey` argument in the `CustomResponse` block.
-        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

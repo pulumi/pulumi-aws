@@ -9,70 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Logs Transformer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var example = new Aws.CloudWatch.LogTransformer("example", new()
-    ///     {
-    ///         TransformerConfigs = new[]
-    ///         {
-    ///             new Aws.CloudWatch.Inputs.LogTransformerTransformerConfigArgs
-    ///             {
-    ///                 ParseJsons = new[]
-    ///                 {
-    ///                     null,
-    ///                 },
-    ///             },
-    ///         },
-    ///         LogGroupArn = exampleLogGroup.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Logs Transformer using the `log_group_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logTransformer:LogTransformer example arn:aws:logs:us-west-2:123456789012:log-group:example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logTransformer:LogTransformer")]
     public partial class LogTransformer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Log group ARN to set the transformer for.
-        /// </summary>
         [Output("logGroupArn")]
         public Output<string> LogGroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `TransformerConfig` below for details.
-        /// </summary>
         [Output("transformerConfigs")]
         public Output<ImmutableArray<Outputs.LogTransformerTransformerConfig>> TransformerConfigs { get; private set; } = null!;
 
@@ -122,24 +67,14 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogTransformerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Log group ARN to set the transformer for.
-        /// </summary>
         [Input("logGroupArn", required: true)]
         public Input<string> LogGroupArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("transformerConfigs", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigArgs>? _transformerConfigs;
-
-        /// <summary>
-        /// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `TransformerConfig` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigArgs> TransformerConfigs
         {
             get => _transformerConfigs ?? (_transformerConfigs = new InputList<Inputs.LogTransformerTransformerConfigArgs>());
@@ -154,24 +89,14 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogTransformerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Log group ARN to set the transformer for.
-        /// </summary>
         [Input("logGroupArn")]
         public Input<string>? LogGroupArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("transformerConfigs")]
         private InputList<Inputs.LogTransformerTransformerConfigGetArgs>? _transformerConfigs;
-
-        /// <summary>
-        /// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `TransformerConfig` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigGetArgs> TransformerConfigs
         {
             get => _transformerConfigs ?? (_transformerConfigs = new InputList<Inputs.LogTransformerTransformerConfigGetArgs>());

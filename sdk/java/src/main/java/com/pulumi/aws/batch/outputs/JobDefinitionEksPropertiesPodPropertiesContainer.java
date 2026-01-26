@@ -17,113 +17,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesContainer {
-    /**
-     * @return Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     private @Nullable List<String> args;
-    /**
-     * @return Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     private @Nullable List<String> commands;
-    /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
-     * 
-     */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesContainerEnv> envs;
-    /**
-     * @return Docker image used to start the container.
-     * 
-     */
     private String image;
-    /**
-     * @return Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-     * 
-     */
     private @Nullable String imagePullPolicy;
-    /**
-     * @return Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-     * 
-     */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesContainerResources resources;
-    /**
-     * @return Security context for a job.
-     * 
-     */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext securityContext;
-    /**
-     * @return Volume mounts for the container.
-     * 
-     */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount> volumeMounts;
 
     private JobDefinitionEksPropertiesPodPropertiesContainer() {}
-    /**
-     * @return Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     public List<String> args() {
         return this.args == null ? List.of() : this.args;
     }
-    /**
-     * @return Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
-    /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
-     * 
-     */
     public List<JobDefinitionEksPropertiesPodPropertiesContainerEnv> envs() {
         return this.envs == null ? List.of() : this.envs;
     }
-    /**
-     * @return Docker image used to start the container.
-     * 
-     */
     public String image() {
         return this.image;
     }
-    /**
-     * @return Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-     * 
-     */
     public Optional<String> imagePullPolicy() {
         return Optional.ofNullable(this.imagePullPolicy);
     }
-    /**
-     * @return Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-     * 
-     */
     public Optional<JobDefinitionEksPropertiesPodPropertiesContainerResources> resources() {
         return Optional.ofNullable(this.resources);
     }
-    /**
-     * @return Security context for a job.
-     * 
-     */
     public Optional<JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext> securityContext() {
         return Optional.ofNullable(this.securityContext);
     }
-    /**
-     * @return Volume mounts for the container.
-     * 
-     */
     public List<JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount> volumeMounts() {
         return this.volumeMounts == null ? List.of() : this.volumeMounts;
     }

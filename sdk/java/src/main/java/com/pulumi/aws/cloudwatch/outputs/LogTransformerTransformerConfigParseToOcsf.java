@@ -13,32 +13,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogTransformerTransformerConfigParseToOcsf {
     private String eventSource;
-    /**
-     * @return Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-     * 
-     */
     private String ocsfVersion;
-    /**
-     * @return Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     private @Nullable String source;
 
     private LogTransformerTransformerConfigParseToOcsf() {}
     public String eventSource() {
         return this.eventSource;
     }
-    /**
-     * @return Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-     * 
-     */
     public String ocsfVersion() {
         return this.ocsfVersion;
     }
-    /**
-     * @return Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }

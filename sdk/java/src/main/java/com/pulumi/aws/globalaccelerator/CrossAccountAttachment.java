@@ -17,211 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Global Accelerator Cross Account Attachment.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.globalaccelerator.CrossAccountAttachment;
- * import com.pulumi.aws.globalaccelerator.CrossAccountAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()
- *             .name("example-cross-account-attachment")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with Optional Arguments
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.globalaccelerator.CrossAccountAttachment;
- * import com.pulumi.aws.globalaccelerator.CrossAccountAttachmentArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.CrossAccountAttachmentResourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()
- *             .name("example-cross-account-attachment")
- *             .principals("123456789012")
- *             .resources(CrossAccountAttachmentResourceArgs.builder()
- *                 .endpointId("arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188")
- *                 .region("us-west-2")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
- * 
- * Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
- * 
- * % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
- * 
- */
 @ResourceType(type="aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment")
 public class CrossAccountAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Cross Account Attachment.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Cross Account Attachment.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Creation Time when the Cross Account Attachment.
-     * 
-     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
-    /**
-     * @return Creation Time when the Cross Account Attachment.
-     * 
-     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
-    /**
-     * Last modified time of the Cross Account Attachment.
-     * 
-     */
     @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedTime;
 
-    /**
-     * @return Last modified time of the Cross Account Attachment.
-     * 
-     */
     public Output<String> lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * Name of the Cross Account Attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Cross Account Attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * List of AWS account IDs that are allowed to associate resources with the accelerator.
-     * 
-     */
     @Export(name="principals", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> principals;
 
-    /**
-     * @return List of AWS account IDs that are allowed to associate resources with the accelerator.
-     * 
-     */
     public Output<Optional<List<String>>> principals() {
         return Codegen.optional(this.principals);
     }
-    /**
-     * List of resources to be associated with the accelerator.
-     * 
-     */
     @Export(name="resources", refs={List.class,CrossAccountAttachmentResource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrossAccountAttachmentResource>> resources;
 
-    /**
-     * @return List of resources to be associated with the accelerator.
-     * 
-     */
     public Output<Optional<List<CrossAccountAttachmentResource>>> resources() {
         return Codegen.optional(this.resources);
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

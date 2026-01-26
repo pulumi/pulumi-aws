@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamServerSideEncryption {
-    /**
-     * @return Whether to enable encryption at rest. Default is `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
-     * 
-     */
     private @Nullable String keyArn;
-    /**
-     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
-     * 
-     */
     private @Nullable String keyType;
 
     private FirehoseDeliveryStreamServerSideEncryption() {}
-    /**
-     * @return Whether to enable encryption at rest. Default is `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
-     * 
-     */
     public Optional<String> keyArn() {
         return Optional.ofNullable(this.keyArn);
     }
-    /**
-     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
-     * 
-     */
     public Optional<String> keyType() {
         return Optional.ofNullable(this.keyType);
     }

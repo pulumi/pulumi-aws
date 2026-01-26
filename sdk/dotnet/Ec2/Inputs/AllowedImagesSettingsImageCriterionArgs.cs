@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class AllowedImagesSettingsImageCriterionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Condition based on AMI creation date. See `CreationDateCondition` below.
-        /// </summary>
         [Input("creationDateCondition")]
         public Input<Inputs.AllowedImagesSettingsImageCriterionCreationDateConditionArgs>? CreationDateCondition { get; set; }
 
-        /// <summary>
-        /// Condition based on AMI deprecation time. See `DeprecationTimeCondition` below.
-        /// </summary>
         [Input("deprecationTimeCondition")]
         public Input<Inputs.AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs>? DeprecationTimeCondition { get; set; }
 
         [Input("imageNames")]
         private InputList<string>? _imageNames;
-
-        /// <summary>
-        /// Set of AMI name patterns to allow. Maximum of 50 names.
-        /// </summary>
         public InputList<string> ImageNames
         {
             get => _imageNames ?? (_imageNames = new InputList<string>());
@@ -38,10 +28,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         [Input("imageProviders")]
         private InputList<string>? _imageProviders;
-
-        /// <summary>
-        /// Set of image providers to allow. Maximum of 200 providers. Valid values include `Amazon`, `aws-marketplace`, `aws-backup-vault`, `None`, or a 12-digit AWS account ID.
-        /// </summary>
         public InputList<string> ImageProviders
         {
             get => _imageProviders ?? (_imageProviders = new InputList<string>());
@@ -50,10 +36,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         [Input("marketplaceProductCodes")]
         private InputList<string>? _marketplaceProductCodes;
-
-        /// <summary>
-        /// Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
-        /// </summary>
         public InputList<string> MarketplaceProductCodes
         {
             get => _marketplaceProductCodes ?? (_marketplaceProductCodes = new InputList<string>());

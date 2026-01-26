@@ -9,49 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector
 {
-    /// <summary>
-    /// Provides an Amazon Inspector Classic Resource Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector.ResourceGroup("example", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo" },
-    ///             { "Env", "bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:inspector/resourceGroup:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The resource group ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
@@ -101,18 +67,11 @@ namespace Pulumi.Aws.Inspector
 
     public sealed class ResourceGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags", required: true)]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -127,24 +86,14 @@ namespace Pulumi.Aws.Inspector
 
     public sealed class ResourceGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The resource group ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

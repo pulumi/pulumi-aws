@@ -11,74 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Data Exchange Event Action.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dataexchange"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dataexchange.NewEventAction(ctx, "example", &dataexchange.EventActionArgs{
-//				Event: &dataexchange.EventActionEventArgs{
-//					RevisionPublished: &dataexchange.EventActionEventRevisionPublishedArgs{
-//						DataSetId: pulumi.Any(exampleAwsDataexchangeDataSet.Id),
-//					},
-//				},
-//				Action: &dataexchange.EventActionActionArgs{
-//					ExportRevisionToS3: &dataexchange.EventActionActionExportRevisionToS3Args{
-//						RevisionDestination: &dataexchange.EventActionActionExportRevisionToS3RevisionDestinationArgs{
-//							Bucket:     pulumi.Any(exampleAwsS3Bucket.Bucket),
-//							KeyPattern: pulumi.String("${Revision.CreatedAt}/${Asset.Name}"),
-//						},
-//						Encryption: &dataexchange.EventActionActionExportRevisionToS3EncryptionArgs{
-//							Type:      pulumi.String("aws:kms"),
-//							KmsKeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Data Exchange Event Action using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:dataexchange/eventAction:EventAction example example-event-action-id
-// ```
 type EventAction struct {
 	pulumi.CustomResourceState
 
-	// Describes the action to take.
-	// Described in `action` Configuration Block below.
-	Action EventActionActionPtrOutput `pulumi:"action"`
-	// Amazon Resource Name (ARN) of the event action.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Date and time when the resource was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Describes the event that triggers the `action`.
-	// Described in `event` Configuration Block below.
-	Event EventActionEventPtrOutput `pulumi:"event"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Data and time when the resource was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	Action    EventActionActionPtrOutput `pulumi:"action"`
+	Arn       pulumi.StringOutput        `pulumi:"arn"`
+	CreatedAt pulumi.StringOutput        `pulumi:"createdAt"`
+	Event     EventActionEventPtrOutput  `pulumi:"event"`
+	Region    pulumi.StringOutput        `pulumi:"region"`
+	UpdatedAt pulumi.StringOutput        `pulumi:"updatedAt"`
 }
 
 // NewEventAction registers a new resource with the given unique name, arguments, and options.
@@ -111,36 +52,20 @@ func GetEventAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventAction resources.
 type eventActionState struct {
-	// Describes the action to take.
-	// Described in `action` Configuration Block below.
-	Action *EventActionAction `pulumi:"action"`
-	// Amazon Resource Name (ARN) of the event action.
-	Arn *string `pulumi:"arn"`
-	// Date and time when the resource was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Describes the event that triggers the `action`.
-	// Described in `event` Configuration Block below.
-	Event *EventActionEvent `pulumi:"event"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Data and time when the resource was last updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	Action    *EventActionAction `pulumi:"action"`
+	Arn       *string            `pulumi:"arn"`
+	CreatedAt *string            `pulumi:"createdAt"`
+	Event     *EventActionEvent  `pulumi:"event"`
+	Region    *string            `pulumi:"region"`
+	UpdatedAt *string            `pulumi:"updatedAt"`
 }
 
 type EventActionState struct {
-	// Describes the action to take.
-	// Described in `action` Configuration Block below.
-	Action EventActionActionPtrInput
-	// Amazon Resource Name (ARN) of the event action.
-	Arn pulumi.StringPtrInput
-	// Date and time when the resource was created.
+	Action    EventActionActionPtrInput
+	Arn       pulumi.StringPtrInput
 	CreatedAt pulumi.StringPtrInput
-	// Describes the event that triggers the `action`.
-	// Described in `event` Configuration Block below.
-	Event EventActionEventPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Data and time when the resource was last updated.
+	Event     EventActionEventPtrInput
+	Region    pulumi.StringPtrInput
 	UpdatedAt pulumi.StringPtrInput
 }
 
@@ -149,25 +74,15 @@ func (EventActionState) ElementType() reflect.Type {
 }
 
 type eventActionArgs struct {
-	// Describes the action to take.
-	// Described in `action` Configuration Block below.
 	Action *EventActionAction `pulumi:"action"`
-	// Describes the event that triggers the `action`.
-	// Described in `event` Configuration Block below.
-	Event *EventActionEvent `pulumi:"event"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Event  *EventActionEvent  `pulumi:"event"`
+	Region *string            `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventAction resource.
 type EventActionArgs struct {
-	// Describes the action to take.
-	// Described in `action` Configuration Block below.
 	Action EventActionActionPtrInput
-	// Describes the event that triggers the `action`.
-	// Described in `event` Configuration Block below.
-	Event EventActionEventPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Event  EventActionEventPtrInput
 	Region pulumi.StringPtrInput
 }
 
@@ -258,34 +173,26 @@ func (o EventActionOutput) ToEventActionOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// Describes the action to take.
-// Described in `action` Configuration Block below.
 func (o EventActionOutput) Action() EventActionActionPtrOutput {
 	return o.ApplyT(func(v *EventAction) EventActionActionPtrOutput { return v.Action }).(EventActionActionPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the event action.
 func (o EventActionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventAction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date and time when the resource was created.
 func (o EventActionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventAction) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Describes the event that triggers the `action`.
-// Described in `event` Configuration Block below.
 func (o EventActionOutput) Event() EventActionEventPtrOutput {
 	return o.ApplyT(func(v *EventAction) EventActionEventPtrOutput { return v.Event }).(EventActionEventPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventActionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventAction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Data and time when the resource was last updated.
 func (o EventActionOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventAction) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

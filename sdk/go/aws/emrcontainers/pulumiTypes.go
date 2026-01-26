@@ -14,16 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type JobTemplateJobTemplateData struct {
-	// The configuration settings that are used to override defaults configuration.
 	ConfigurationOverrides *JobTemplateJobTemplateDataConfigurationOverrides `pulumi:"configurationOverrides"`
-	// The execution role ARN of the job run.
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-	JobDriver JobTemplateJobTemplateDataJobDriver `pulumi:"jobDriver"`
-	// The tags assigned to jobs started using the job template.
-	JobTags map[string]string `pulumi:"jobTags"`
-	// The release version of Amazon EMR.
-	ReleaseLabel string `pulumi:"releaseLabel"`
+	ExecutionRoleArn       string                                            `pulumi:"executionRoleArn"`
+	JobDriver              JobTemplateJobTemplateDataJobDriver               `pulumi:"jobDriver"`
+	JobTags                map[string]string                                 `pulumi:"jobTags"`
+	ReleaseLabel           string                                            `pulumi:"releaseLabel"`
 }
 
 // JobTemplateJobTemplateDataInput is an input type that accepts JobTemplateJobTemplateDataArgs and JobTemplateJobTemplateDataOutput values.
@@ -38,16 +33,11 @@ type JobTemplateJobTemplateDataInput interface {
 }
 
 type JobTemplateJobTemplateDataArgs struct {
-	// The configuration settings that are used to override defaults configuration.
 	ConfigurationOverrides JobTemplateJobTemplateDataConfigurationOverridesPtrInput `pulumi:"configurationOverrides"`
-	// The execution role ARN of the job run.
-	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
-	// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-	JobDriver JobTemplateJobTemplateDataJobDriverInput `pulumi:"jobDriver"`
-	// The tags assigned to jobs started using the job template.
-	JobTags pulumi.StringMapInput `pulumi:"jobTags"`
-	// The release version of Amazon EMR.
-	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`
+	ExecutionRoleArn       pulumi.StringInput                                       `pulumi:"executionRoleArn"`
+	JobDriver              JobTemplateJobTemplateDataJobDriverInput                 `pulumi:"jobDriver"`
+	JobTags                pulumi.StringMapInput                                    `pulumi:"jobTags"`
+	ReleaseLabel           pulumi.StringInput                                       `pulumi:"releaseLabel"`
 }
 
 func (JobTemplateJobTemplateDataArgs) ElementType() reflect.Type {
@@ -127,29 +117,24 @@ func (o JobTemplateJobTemplateDataOutput) ToJobTemplateJobTemplateDataPtrOutputW
 	}).(JobTemplateJobTemplateDataPtrOutput)
 }
 
-// The configuration settings that are used to override defaults configuration.
 func (o JobTemplateJobTemplateDataOutput) ConfigurationOverrides() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateData) *JobTemplateJobTemplateDataConfigurationOverrides {
 		return v.ConfigurationOverrides
 	}).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
 }
 
-// The execution role ARN of the job run.
 func (o JobTemplateJobTemplateDataOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateData) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
 func (o JobTemplateJobTemplateDataOutput) JobDriver() JobTemplateJobTemplateDataJobDriverOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateData) JobTemplateJobTemplateDataJobDriver { return v.JobDriver }).(JobTemplateJobTemplateDataJobDriverOutput)
 }
 
-// The tags assigned to jobs started using the job template.
 func (o JobTemplateJobTemplateDataOutput) JobTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateData) map[string]string { return v.JobTags }).(pulumi.StringMapOutput)
 }
 
-// The release version of Amazon EMR.
 func (o JobTemplateJobTemplateDataOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateData) string { return v.ReleaseLabel }).(pulumi.StringOutput)
 }
@@ -178,7 +163,6 @@ func (o JobTemplateJobTemplateDataPtrOutput) Elem() JobTemplateJobTemplateDataOu
 	}).(JobTemplateJobTemplateDataOutput)
 }
 
-// The configuration settings that are used to override defaults configuration.
 func (o JobTemplateJobTemplateDataPtrOutput) ConfigurationOverrides() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateData) *JobTemplateJobTemplateDataConfigurationOverrides {
 		if v == nil {
@@ -188,7 +172,6 @@ func (o JobTemplateJobTemplateDataPtrOutput) ConfigurationOverrides() JobTemplat
 	}).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
 }
 
-// The execution role ARN of the job run.
 func (o JobTemplateJobTemplateDataPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateData) *string {
 		if v == nil {
@@ -198,7 +181,6 @@ func (o JobTemplateJobTemplateDataPtrOutput) ExecutionRoleArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
 func (o JobTemplateJobTemplateDataPtrOutput) JobDriver() JobTemplateJobTemplateDataJobDriverPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateData) *JobTemplateJobTemplateDataJobDriver {
 		if v == nil {
@@ -208,7 +190,6 @@ func (o JobTemplateJobTemplateDataPtrOutput) JobDriver() JobTemplateJobTemplateD
 	}).(JobTemplateJobTemplateDataJobDriverPtrOutput)
 }
 
-// The tags assigned to jobs started using the job template.
 func (o JobTemplateJobTemplateDataPtrOutput) JobTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateData) map[string]string {
 		if v == nil {
@@ -218,7 +199,6 @@ func (o JobTemplateJobTemplateDataPtrOutput) JobTags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The release version of Amazon EMR.
 func (o JobTemplateJobTemplateDataPtrOutput) ReleaseLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateData) *string {
 		if v == nil {
@@ -229,10 +209,8 @@ func (o JobTemplateJobTemplateDataPtrOutput) ReleaseLabel() pulumi.StringPtrOutp
 }
 
 type JobTemplateJobTemplateDataConfigurationOverrides struct {
-	// The configurations for the application running by the job run.
 	ApplicationConfigurations []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration `pulumi:"applicationConfigurations"`
-	// The configurations for monitoring.
-	MonitoringConfiguration *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration `pulumi:"monitoringConfiguration"`
+	MonitoringConfiguration   *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration   `pulumi:"monitoringConfiguration"`
 }
 
 // JobTemplateJobTemplateDataConfigurationOverridesInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesArgs and JobTemplateJobTemplateDataConfigurationOverridesOutput values.
@@ -247,10 +225,8 @@ type JobTemplateJobTemplateDataConfigurationOverridesInput interface {
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesArgs struct {
-	// The configurations for the application running by the job run.
 	ApplicationConfigurations JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput `pulumi:"applicationConfigurations"`
-	// The configurations for monitoring.
-	MonitoringConfiguration JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
+	MonitoringConfiguration   JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput    `pulumi:"monitoringConfiguration"`
 }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesArgs) ElementType() reflect.Type {
@@ -330,14 +306,12 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ToJobTemplateJob
 	}).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
 }
 
-// The configurations for the application running by the job run.
 func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ApplicationConfigurations() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverrides) []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration {
 		return v.ApplicationConfigurations
 	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput)
 }
 
-// The configurations for monitoring.
 func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverrides) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
 		return v.MonitoringConfiguration
@@ -368,7 +342,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) Elem() JobTem
 	}).(JobTemplateJobTemplateDataConfigurationOverridesOutput)
 }
 
-// The configurations for the application running by the job run.
 func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ApplicationConfigurations() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverrides) []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration {
 		if v == nil {
@@ -378,7 +351,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ApplicationCo
 	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput)
 }
 
-// The configurations for monitoring.
 func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverrides) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
 		if v == nil {
@@ -389,12 +361,9 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) MonitoringCon
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration struct {
-	// The classification within a configuration.
-	Classification string `pulumi:"classification"`
-	// A list of additional configurations to apply within a configuration object.
+	Classification string                                                                                  `pulumi:"classification"`
 	Configurations []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration `pulumi:"configurations"`
-	// A set of properties specified within a configuration classification.
-	Properties map[string]string `pulumi:"properties"`
+	Properties     map[string]string                                                                       `pulumi:"properties"`
 }
 
 // JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput values.
@@ -409,12 +378,9 @@ type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationInp
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs struct {
-	// The classification within a configuration.
-	Classification pulumi.StringInput `pulumi:"classification"`
-	// A list of additional configurations to apply within a configuration object.
+	Classification pulumi.StringInput                                                                              `pulumi:"classification"`
 	Configurations JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput `pulumi:"configurations"`
-	// A set of properties specified within a configuration classification.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties     pulumi.StringMapInput                                                                           `pulumi:"properties"`
 }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs) ElementType() reflect.Type {
@@ -468,21 +434,18 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return o
 }
 
-// The classification within a configuration.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) Classification() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration) string {
 		return v.Classification
 	}).(pulumi.StringOutput)
 }
 
-// A list of additional configurations to apply within a configuration object.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) Configurations() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration) []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration {
 		return v.Configurations
 	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput)
 }
 
-// A set of properties specified within a configuration classification.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration) map[string]string {
 		return v.Properties
@@ -510,10 +473,8 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration struct {
-	// The classification within a configuration.
-	Classification *string `pulumi:"classification"`
-	// A set of properties specified within a configuration classification.
-	Properties map[string]string `pulumi:"properties"`
+	Classification *string           `pulumi:"classification"`
+	Properties     map[string]string `pulumi:"properties"`
 }
 
 // JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput values.
@@ -528,10 +489,8 @@ type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCon
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs struct {
-	// The classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	// A set of properties specified within a configuration classification.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties     pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs) ElementType() reflect.Type {
@@ -585,14 +544,12 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return o
 }
 
-// The classification within a configuration.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) *string {
 		return v.Classification
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of properties specified within a configuration classification.
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) map[string]string {
 		return v.Properties
@@ -620,12 +577,9 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration struct {
-	// Monitoring configurations for CloudWatch.
 	CloudWatchMonitoringConfiguration *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration `pulumi:"cloudWatchMonitoringConfiguration"`
-	// Monitoring configurations for the persistent application UI.
-	PersistentAppUi *string `pulumi:"persistentAppUi"`
-	// Amazon S3 configuration for monitoring log publishing.
-	S3MonitoringConfiguration *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration `pulumi:"s3MonitoringConfiguration"`
+	PersistentAppUi                   *string                                                                                                   `pulumi:"persistentAppUi"`
+	S3MonitoringConfiguration         *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration         `pulumi:"s3MonitoringConfiguration"`
 }
 
 // JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput values.
@@ -640,12 +594,9 @@ type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationInpu
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs struct {
-	// Monitoring configurations for CloudWatch.
 	CloudWatchMonitoringConfiguration JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrInput `pulumi:"cloudWatchMonitoringConfiguration"`
-	// Monitoring configurations for the persistent application UI.
-	PersistentAppUi pulumi.StringPtrInput `pulumi:"persistentAppUi"`
-	// Amazon S3 configuration for monitoring log publishing.
-	S3MonitoringConfiguration JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput `pulumi:"s3MonitoringConfiguration"`
+	PersistentAppUi                   pulumi.StringPtrInput                                                                                            `pulumi:"persistentAppUi"`
+	S3MonitoringConfiguration         JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput         `pulumi:"s3MonitoringConfiguration"`
 }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ElementType() reflect.Type {
@@ -725,21 +676,18 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationO
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput)
 }
 
-// Monitoring configurations for CloudWatch.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) CloudWatchMonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
 		return v.CloudWatchMonitoringConfiguration
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
 }
 
-// Monitoring configurations for the persistent application UI.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) PersistentAppUi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *string {
 		return v.PersistentAppUi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 configuration for monitoring log publishing.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) S3MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration {
 		return v.S3MonitoringConfiguration
@@ -770,7 +718,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationP
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput)
 }
 
-// Monitoring configurations for CloudWatch.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) CloudWatchMonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
 		if v == nil {
@@ -780,7 +727,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationP
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
 }
 
-// Monitoring configurations for the persistent application UI.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) PersistentAppUi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *string {
 		if v == nil {
@@ -790,7 +736,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 configuration for monitoring log publishing.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) S3MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration {
 		if v == nil {
@@ -801,9 +746,7 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationP
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration struct {
-	// The name of the log group for log publishing.
-	LogGroupName string `pulumi:"logGroupName"`
-	// The specified name prefix for log streams.
+	LogGroupName        string  `pulumi:"logGroupName"`
 	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
 }
 
@@ -819,9 +762,7 @@ type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationClou
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs struct {
-	// The name of the log group for log publishing.
-	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	// The specified name prefix for log streams.
+	LogGroupName        pulumi.StringInput    `pulumi:"logGroupName"`
 	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
 }
 
@@ -902,14 +843,12 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationC
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
 }
 
-// The name of the log group for log publishing.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) string {
 		return v.LogGroupName
 	}).(pulumi.StringOutput)
 }
 
-// The specified name prefix for log streams.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *string {
 		return v.LogStreamNamePrefix
@@ -940,7 +879,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationC
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput)
 }
 
-// The name of the log group for log publishing.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *string {
 		if v == nil {
@@ -950,7 +888,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationC
 	}).(pulumi.StringPtrOutput)
 }
 
-// The specified name prefix for log streams.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *string {
 		if v == nil {
@@ -961,7 +898,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationC
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration struct {
-	// Amazon S3 destination URI for log publishing.
 	LogUri string `pulumi:"logUri"`
 }
 
@@ -977,7 +913,6 @@ type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3Mo
 }
 
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs struct {
-	// Amazon S3 destination URI for log publishing.
 	LogUri pulumi.StringInput `pulumi:"logUri"`
 }
 
@@ -1058,7 +993,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
 }
 
-// Amazon S3 destination URI for log publishing.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) LogUri() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration) string {
 		return v.LogUri
@@ -1089,7 +1023,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput)
 }
 
-// Amazon S3 destination URI for log publishing.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) LogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration) *string {
 		if v == nil {
@@ -1100,9 +1033,7 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS
 }
 
 type JobTemplateJobTemplateDataJobDriver struct {
-	// The job driver for job type.
-	SparkSqlJobDriver *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver `pulumi:"sparkSqlJobDriver"`
-	// The job driver parameters specified for spark submit.
+	SparkSqlJobDriver    *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver    `pulumi:"sparkSqlJobDriver"`
 	SparkSubmitJobDriver *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver `pulumi:"sparkSubmitJobDriver"`
 }
 
@@ -1118,9 +1049,7 @@ type JobTemplateJobTemplateDataJobDriverInput interface {
 }
 
 type JobTemplateJobTemplateDataJobDriverArgs struct {
-	// The job driver for job type.
-	SparkSqlJobDriver JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput `pulumi:"sparkSqlJobDriver"`
-	// The job driver parameters specified for spark submit.
+	SparkSqlJobDriver    JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput    `pulumi:"sparkSqlJobDriver"`
 	SparkSubmitJobDriver JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrInput `pulumi:"sparkSubmitJobDriver"`
 }
 
@@ -1201,14 +1130,12 @@ func (o JobTemplateJobTemplateDataJobDriverOutput) ToJobTemplateJobTemplateDataJ
 	}).(JobTemplateJobTemplateDataJobDriverPtrOutput)
 }
 
-// The job driver for job type.
 func (o JobTemplateJobTemplateDataJobDriverOutput) SparkSqlJobDriver() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
 		return v.SparkSqlJobDriver
 	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
 }
 
-// The job driver parameters specified for spark submit.
 func (o JobTemplateJobTemplateDataJobDriverOutput) SparkSubmitJobDriver() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
 		return v.SparkSubmitJobDriver
@@ -1239,7 +1166,6 @@ func (o JobTemplateJobTemplateDataJobDriverPtrOutput) Elem() JobTemplateJobTempl
 	}).(JobTemplateJobTemplateDataJobDriverOutput)
 }
 
-// The job driver for job type.
 func (o JobTemplateJobTemplateDataJobDriverPtrOutput) SparkSqlJobDriver() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
 		if v == nil {
@@ -1249,7 +1175,6 @@ func (o JobTemplateJobTemplateDataJobDriverPtrOutput) SparkSqlJobDriver() JobTem
 	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
 }
 
-// The job driver parameters specified for spark submit.
 func (o JobTemplateJobTemplateDataJobDriverPtrOutput) SparkSubmitJobDriver() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
 		if v == nil {
@@ -1260,9 +1185,7 @@ func (o JobTemplateJobTemplateDataJobDriverPtrOutput) SparkSubmitJobDriver() Job
 }
 
 type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver struct {
-	// The SQL file to be executed.
-	EntryPoint *string `pulumi:"entryPoint"`
-	// The Spark parameters to be included in the Spark SQL command.
+	EntryPoint         *string `pulumi:"entryPoint"`
 	SparkSqlParameters *string `pulumi:"sparkSqlParameters"`
 }
 
@@ -1278,9 +1201,7 @@ type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverInput interface {
 }
 
 type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs struct {
-	// The SQL file to be executed.
-	EntryPoint pulumi.StringPtrInput `pulumi:"entryPoint"`
-	// The Spark parameters to be included in the Spark SQL command.
+	EntryPoint         pulumi.StringPtrInput `pulumi:"entryPoint"`
 	SparkSqlParameters pulumi.StringPtrInput `pulumi:"sparkSqlParameters"`
 }
 
@@ -1361,12 +1282,10 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ToJobTemplat
 	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
 }
 
-// The SQL file to be executed.
 func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) EntryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string { return v.EntryPoint }).(pulumi.StringPtrOutput)
 }
 
-// The Spark parameters to be included in the Spark SQL command.
 func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) SparkSqlParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string { return v.SparkSqlParameters }).(pulumi.StringPtrOutput)
 }
@@ -1395,7 +1314,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) Elem() Jo
 	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput)
 }
 
-// The SQL file to be executed.
 func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) EntryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string {
 		if v == nil {
@@ -1405,7 +1323,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) EntryPoin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Spark parameters to be included in the Spark SQL command.
 func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) SparkSqlParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string {
 		if v == nil {
@@ -1416,12 +1333,9 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) SparkSqlP
 }
 
 type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver struct {
-	// The entry point of job application.
-	EntryPoint string `pulumi:"entryPoint"`
-	// The arguments for job application.
-	EntryPointArguments []string `pulumi:"entryPointArguments"`
-	// The Spark submit parameters that are used for job runs.
-	SparkSubmitParameters *string `pulumi:"sparkSubmitParameters"`
+	EntryPoint            string   `pulumi:"entryPoint"`
+	EntryPointArguments   []string `pulumi:"entryPointArguments"`
+	SparkSubmitParameters *string  `pulumi:"sparkSubmitParameters"`
 }
 
 // JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverInput is an input type that accepts JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs and JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput values.
@@ -1436,12 +1350,9 @@ type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverInput interface {
 }
 
 type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs struct {
-	// The entry point of job application.
-	EntryPoint pulumi.StringInput `pulumi:"entryPoint"`
-	// The arguments for job application.
-	EntryPointArguments pulumi.StringArrayInput `pulumi:"entryPointArguments"`
-	// The Spark submit parameters that are used for job runs.
-	SparkSubmitParameters pulumi.StringPtrInput `pulumi:"sparkSubmitParameters"`
+	EntryPoint            pulumi.StringInput      `pulumi:"entryPoint"`
+	EntryPointArguments   pulumi.StringArrayInput `pulumi:"entryPointArguments"`
+	SparkSubmitParameters pulumi.StringPtrInput   `pulumi:"sparkSubmitParameters"`
 }
 
 func (JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ElementType() reflect.Type {
@@ -1521,17 +1432,14 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ToJobTemp
 	}).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput)
 }
 
-// The entry point of job application.
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) EntryPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) string { return v.EntryPoint }).(pulumi.StringOutput)
 }
 
-// The arguments for job application.
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) EntryPointArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) []string { return v.EntryPointArguments }).(pulumi.StringArrayOutput)
 }
 
-// The Spark submit parameters that are used for job runs.
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) SparkSubmitParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *string {
 		return v.SparkSubmitParameters
@@ -1562,7 +1470,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) Elem()
 	}).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput)
 }
 
-// The entry point of job application.
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) EntryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *string {
 		if v == nil {
@@ -1572,7 +1479,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) EntryP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The arguments for job application.
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) EntryPointArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) []string {
 		if v == nil {
@@ -1582,7 +1488,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) EntryP
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Spark submit parameters that are used for job runs.
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) SparkSubmitParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *string {
 		if v == nil {
@@ -1593,12 +1498,9 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) SparkS
 }
 
 type VirtualClusterContainerProvider struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id string `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id   string                              `pulumi:"id"`
 	Info VirtualClusterContainerProviderInfo `pulumi:"info"`
-	// The type of the container provider
-	Type string `pulumi:"type"`
+	Type string                              `pulumi:"type"`
 }
 
 // VirtualClusterContainerProviderInput is an input type that accepts VirtualClusterContainerProviderArgs and VirtualClusterContainerProviderOutput values.
@@ -1613,12 +1515,9 @@ type VirtualClusterContainerProviderInput interface {
 }
 
 type VirtualClusterContainerProviderArgs struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id pulumi.StringInput `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id   pulumi.StringInput                       `pulumi:"id"`
 	Info VirtualClusterContainerProviderInfoInput `pulumi:"info"`
-	// The type of the container provider
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringInput                       `pulumi:"type"`
 }
 
 func (VirtualClusterContainerProviderArgs) ElementType() reflect.Type {
@@ -1698,17 +1597,14 @@ func (o VirtualClusterContainerProviderOutput) ToVirtualClusterContainerProvider
 	}).(VirtualClusterContainerProviderPtrOutput)
 }
 
-// The name of the container provider that is running your EMR Containers cluster
 func (o VirtualClusterContainerProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Nested list containing information about the configuration of the container provider
 func (o VirtualClusterContainerProviderOutput) Info() VirtualClusterContainerProviderInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) VirtualClusterContainerProviderInfo { return v.Info }).(VirtualClusterContainerProviderInfoOutput)
 }
 
-// The type of the container provider
 func (o VirtualClusterContainerProviderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1737,7 +1633,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Elem() VirtualClusterContainer
 	}).(VirtualClusterContainerProviderOutput)
 }
 
-// The name of the container provider that is running your EMR Containers cluster
 func (o VirtualClusterContainerProviderPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProvider) *string {
 		if v == nil {
@@ -1747,7 +1642,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested list containing information about the configuration of the container provider
 func (o VirtualClusterContainerProviderPtrOutput) Info() VirtualClusterContainerProviderInfoPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProvider) *VirtualClusterContainerProviderInfo {
 		if v == nil {
@@ -1757,7 +1651,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Info() VirtualClusterContainer
 	}).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
-// The type of the container provider
 func (o VirtualClusterContainerProviderPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProvider) *string {
 		if v == nil {
@@ -1768,7 +1661,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type VirtualClusterContainerProviderInfo struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfo VirtualClusterContainerProviderInfoEksInfo `pulumi:"eksInfo"`
 }
 
@@ -1784,7 +1676,6 @@ type VirtualClusterContainerProviderInfoInput interface {
 }
 
 type VirtualClusterContainerProviderInfoArgs struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfo VirtualClusterContainerProviderInfoEksInfoInput `pulumi:"eksInfo"`
 }
 
@@ -1865,7 +1756,6 @@ func (o VirtualClusterContainerProviderInfoOutput) ToVirtualClusterContainerProv
 	}).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
-// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoOutput) EksInfo() VirtualClusterContainerProviderInfoEksInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfo) VirtualClusterContainerProviderInfoEksInfo {
 		return v.EksInfo
@@ -1896,7 +1786,6 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) Elem() VirtualClusterConta
 	}).(VirtualClusterContainerProviderInfoOutput)
 }
 
-// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoPtrOutput) EksInfo() VirtualClusterContainerProviderInfoEksInfoPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProviderInfo) *VirtualClusterContainerProviderInfoEksInfo {
 		if v == nil {
@@ -1907,7 +1796,6 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) EksInfo() VirtualClusterCo
 }
 
 type VirtualClusterContainerProviderInfoEksInfo struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -1923,7 +1811,6 @@ type VirtualClusterContainerProviderInfoEksInfoInput interface {
 }
 
 type VirtualClusterContainerProviderInfoEksInfoArgs struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
@@ -2004,7 +1891,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToVirtualClusterContai
 	}).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfoEksInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -2033,7 +1919,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Elem() VirtualClust
 	}).(VirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProviderInfoEksInfo) *string {
 		if v == nil {
@@ -2044,12 +1929,9 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Namespace() pulumi.
 }
 
 type GetVirtualClusterContainerProvider struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id string `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id    string                                   `pulumi:"id"`
 	Infos []GetVirtualClusterContainerProviderInfo `pulumi:"infos"`
-	// The type of the container provider
-	Type string `pulumi:"type"`
+	Type  string                                   `pulumi:"type"`
 }
 
 // GetVirtualClusterContainerProviderInput is an input type that accepts GetVirtualClusterContainerProviderArgs and GetVirtualClusterContainerProviderOutput values.
@@ -2064,12 +1946,9 @@ type GetVirtualClusterContainerProviderInput interface {
 }
 
 type GetVirtualClusterContainerProviderArgs struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id pulumi.StringInput `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id    pulumi.StringInput                               `pulumi:"id"`
 	Infos GetVirtualClusterContainerProviderInfoArrayInput `pulumi:"infos"`
-	// The type of the container provider
-	Type pulumi.StringInput `pulumi:"type"`
+	Type  pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (GetVirtualClusterContainerProviderArgs) ElementType() reflect.Type {
@@ -2123,17 +2002,14 @@ func (o GetVirtualClusterContainerProviderOutput) ToGetVirtualClusterContainerPr
 	return o
 }
 
-// The name of the container provider that is running your EMR Containers cluster
 func (o GetVirtualClusterContainerProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Nested list containing information about the configuration of the container provider
 func (o GetVirtualClusterContainerProviderOutput) Infos() GetVirtualClusterContainerProviderInfoArrayOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProvider) []GetVirtualClusterContainerProviderInfo { return v.Infos }).(GetVirtualClusterContainerProviderInfoArrayOutput)
 }
 
-// The type of the container provider
 func (o GetVirtualClusterContainerProviderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProvider) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2159,7 +2035,6 @@ func (o GetVirtualClusterContainerProviderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetVirtualClusterContainerProviderInfo struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfos []GetVirtualClusterContainerProviderInfoEksInfo `pulumi:"eksInfos"`
 }
 
@@ -2175,7 +2050,6 @@ type GetVirtualClusterContainerProviderInfoInput interface {
 }
 
 type GetVirtualClusterContainerProviderInfoArgs struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfos GetVirtualClusterContainerProviderInfoEksInfoArrayInput `pulumi:"eksInfos"`
 }
 
@@ -2230,7 +2104,6 @@ func (o GetVirtualClusterContainerProviderInfoOutput) ToGetVirtualClusterContain
 	return o
 }
 
-// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o GetVirtualClusterContainerProviderInfoOutput) EksInfos() GetVirtualClusterContainerProviderInfoEksInfoArrayOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProviderInfo) []GetVirtualClusterContainerProviderInfoEksInfo {
 		return v.EksInfos
@@ -2258,7 +2131,6 @@ func (o GetVirtualClusterContainerProviderInfoArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetVirtualClusterContainerProviderInfoEksInfo struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -2274,7 +2146,6 @@ type GetVirtualClusterContainerProviderInfoEksInfoInput interface {
 }
 
 type GetVirtualClusterContainerProviderInfoEksInfoArgs struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -2329,7 +2200,6 @@ func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToGetVirtualCluster
 	return o
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProviderInfoEksInfo) string { return v.Namespace }).(pulumi.StringOutput)
 }

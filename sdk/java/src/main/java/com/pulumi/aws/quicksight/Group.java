@@ -14,64 +14,11 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing QuickSight Group
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.Group;
- * import com.pulumi.aws.quicksight.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()
- *             .groupName("tf-example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of group
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of group
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -81,59 +28,27 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * A description for the group.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description for the group.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * A name for the group.
-     * 
-     */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
-    /**
-     * @return A name for the group.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
-    /**
-     * The namespace. Currently, you should set this to `default`.
-     * 
-     */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namespace;
 
-    /**
-     * @return The namespace. Currently, you should set this to `default`.
-     * 
-     */
     public Output<Optional<String>> namespace() {
         return Codegen.optional(this.namespace);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

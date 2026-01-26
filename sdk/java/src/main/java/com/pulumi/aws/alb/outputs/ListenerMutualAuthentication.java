@@ -13,55 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerMutualAuthentication {
-    /**
-     * @return Valid values are `off` and `on`.
-     * 
-     */
     private @Nullable String advertiseTrustStoreCaNames;
-    /**
-     * @return Whether client certificate expiry is ignored.
-     * Default is `false`.
-     * 
-     */
     private @Nullable Boolean ignoreClientCertificateExpiry;
-    /**
-     * @return Valid values are `off`, `passthrough`, and `verify`.
-     * 
-     */
     private String mode;
-    /**
-     * @return ARN of the elbv2 Trust Store.
-     * 
-     */
     private @Nullable String trustStoreArn;
 
     private ListenerMutualAuthentication() {}
-    /**
-     * @return Valid values are `off` and `on`.
-     * 
-     */
     public Optional<String> advertiseTrustStoreCaNames() {
         return Optional.ofNullable(this.advertiseTrustStoreCaNames);
     }
-    /**
-     * @return Whether client certificate expiry is ignored.
-     * Default is `false`.
-     * 
-     */
     public Optional<Boolean> ignoreClientCertificateExpiry() {
         return Optional.ofNullable(this.ignoreClientCertificateExpiry);
     }
-    /**
-     * @return Valid values are `off`, `passthrough`, and `verify`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }
-    /**
-     * @return ARN of the elbv2 Trust Store.
-     * 
-     */
     public Optional<String> trustStoreArn() {
         return Optional.ofNullable(this.trustStoreArn);
     }

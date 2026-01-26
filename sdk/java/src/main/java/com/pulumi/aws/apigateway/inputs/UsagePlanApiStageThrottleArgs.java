@@ -18,47 +18,23 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
 
     public static final UsagePlanApiStageThrottleArgs Empty = new UsagePlanApiStageThrottleArgs();
 
-    /**
-     * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-     * 
-     */
     @Import(name="burstLimit")
     private @Nullable Output<Integer> burstLimit;
 
-    /**
-     * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-     * 
-     */
     public Optional<Output<Integer>> burstLimit() {
         return Optional.ofNullable(this.burstLimit);
     }
 
-    /**
-     * Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
 
-    /**
-     * The API request steady-state rate limit.
-     * 
-     */
     @Import(name="rateLimit")
     private @Nullable Output<Double> rateLimit;
 
-    /**
-     * @return The API request steady-state rate limit.
-     * 
-     */
     public Optional<Output<Double>> rateLimit() {
         return Optional.ofNullable(this.rateLimit);
     }
@@ -89,65 +65,29 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
             $ = new UsagePlanApiStageThrottleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param burstLimit The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder burstLimit(@Nullable Output<Integer> burstLimit) {
             $.burstLimit = burstLimit;
             return this;
         }
 
-        /**
-         * @param burstLimit The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder burstLimit(Integer burstLimit) {
             return burstLimit(Output.of(burstLimit));
         }
 
-        /**
-         * @param path Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param rateLimit The API request steady-state rate limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateLimit(@Nullable Output<Double> rateLimit) {
             $.rateLimit = rateLimit;
             return this;
         }
 
-        /**
-         * @param rateLimit The API request steady-state rate limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateLimit(Double rateLimit) {
             return rateLimit(Output.of(rateLimit));
         }

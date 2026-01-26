@@ -17,32 +17,16 @@ public final class DataSourceParametersS3Args extends com.pulumi.resources.Resou
 
     public static final DataSourceParametersS3Args Empty = new DataSourceParametersS3Args();
 
-    /**
-     * An object containing the S3 location of the S3 manifest file.
-     * 
-     */
     @Import(name="manifestFileLocation", required=true)
     private Output<DataSourceParametersS3ManifestFileLocationArgs> manifestFileLocation;
 
-    /**
-     * @return An object containing the S3 location of the S3 manifest file.
-     * 
-     */
     public Output<DataSourceParametersS3ManifestFileLocationArgs> manifestFileLocation() {
         return this.manifestFileLocation;
     }
 
-    /**
-     * Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -72,44 +56,20 @@ public final class DataSourceParametersS3Args extends com.pulumi.resources.Resou
             $ = new DataSourceParametersS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param manifestFileLocation An object containing the S3 location of the S3 manifest file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manifestFileLocation(Output<DataSourceParametersS3ManifestFileLocationArgs> manifestFileLocation) {
             $.manifestFileLocation = manifestFileLocation;
             return this;
         }
 
-        /**
-         * @param manifestFileLocation An object containing the S3 location of the S3 manifest file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs manifestFileLocation) {
             return manifestFileLocation(Output.of(manifestFileLocation));
         }
 
-        /**
-         * @param roleArn Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

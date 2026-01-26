@@ -16,36 +16,16 @@ public final class InfrastructureConfigurationLoggingS3LogsArgs extends com.pulu
 
     public static final InfrastructureConfigurationLoggingS3LogsArgs Empty = new InfrastructureConfigurationLoggingS3LogsArgs();
 
-    /**
-     * Name of the S3 Bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="s3BucketName", required=true)
     private Output<String> s3BucketName;
 
-    /**
-     * @return Name of the S3 Bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
 
-    /**
-     * Prefix to use for S3 logs. Defaults to `/`.
-     * 
-     */
     @Import(name="s3KeyPrefix")
     private @Nullable Output<String> s3KeyPrefix;
 
-    /**
-     * @return Prefix to use for S3 logs. Defaults to `/`.
-     * 
-     */
     public Optional<Output<String>> s3KeyPrefix() {
         return Optional.ofNullable(this.s3KeyPrefix);
     }
@@ -75,48 +55,20 @@ public final class InfrastructureConfigurationLoggingS3LogsArgs extends com.pulu
             $ = new InfrastructureConfigurationLoggingS3LogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3BucketName Name of the S3 Bucket.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(Output<String> s3BucketName) {
             $.s3BucketName = s3BucketName;
             return this;
         }
 
-        /**
-         * @param s3BucketName Name of the S3 Bucket.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(String s3BucketName) {
             return s3BucketName(Output.of(s3BucketName));
         }
 
-        /**
-         * @param s3KeyPrefix Prefix to use for S3 logs. Defaults to `/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KeyPrefix(@Nullable Output<String> s3KeyPrefix) {
             $.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
 
-        /**
-         * @param s3KeyPrefix Prefix to use for S3 logs. Defaults to `/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KeyPrefix(String s3KeyPrefix) {
             return s3KeyPrefix(Output.of(s3KeyPrefix));
         }

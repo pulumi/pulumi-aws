@@ -14,20 +14,8 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateAuthorityResult {
     private String arn;
-    /**
-     * @return Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     private String certificate;
-    /**
-     * @return Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     private String certificateChain;
-    /**
-     * @return The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-     * 
-     */
     private String certificateSigningRequest;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -35,70 +23,26 @@ public final class GetCertificateAuthorityResult {
      */
     private String id;
     private String keyStorageSecurityStandard;
-    /**
-     * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     private String notAfter;
-    /**
-     * @return Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     private String notBefore;
     private String region;
-    /**
-     * @return Nested attribute containing revocation configuration.
-     * 
-     */
     private List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
-    /**
-     * @return Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     private String serial;
-    /**
-     * @return Status of the certificate authority.
-     * 
-     */
     private String status;
-    /**
-     * @return Key-value map of user-defined tags that are attached to the certificate authority.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of the certificate authority.
-     * 
-     */
     private String type;
-    /**
-     * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-     * 
-     */
     private String usageMode;
 
     private GetCertificateAuthorityResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public String certificate() {
         return this.certificate;
     }
-    /**
-     * @return Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public String certificateChain() {
         return this.certificateChain;
     }
-    /**
-     * @return The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-     * 
-     */
     public String certificateSigningRequest() {
         return this.certificateSigningRequest;
     }
@@ -112,62 +56,30 @@ public final class GetCertificateAuthorityResult {
     public String keyStorageSecurityStandard() {
         return this.keyStorageSecurityStandard;
     }
-    /**
-     * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public String notAfter() {
         return this.notAfter;
     }
-    /**
-     * @return Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public String notBefore() {
         return this.notBefore;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Nested attribute containing revocation configuration.
-     * 
-     */
     public List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations() {
         return this.revocationConfigurations;
     }
-    /**
-     * @return Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public String serial() {
         return this.serial;
     }
-    /**
-     * @return Status of the certificate authority.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Key-value map of user-defined tags that are attached to the certificate authority.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of the certificate authority.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-     * 
-     */
     public String usageMode() {
         return this.usageMode;
     }

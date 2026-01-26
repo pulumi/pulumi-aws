@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleFlexibleTimeWindow
     {
-        /// <summary>
-        /// Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-        /// </summary>
         public readonly int? MaximumWindowInMinutes;
-        /// <summary>
-        /// Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

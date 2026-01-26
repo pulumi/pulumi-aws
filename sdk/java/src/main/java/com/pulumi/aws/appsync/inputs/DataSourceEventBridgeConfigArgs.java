@@ -14,17 +14,9 @@ public final class DataSourceEventBridgeConfigArgs extends com.pulumi.resources.
 
     public static final DataSourceEventBridgeConfigArgs Empty = new DataSourceEventBridgeConfigArgs();
 
-    /**
-     * ARN for the EventBridge bus.
-     * 
-     */
     @Import(name="eventBusArn", required=true)
     private Output<String> eventBusArn;
 
-    /**
-     * @return ARN for the EventBridge bus.
-     * 
-     */
     public Output<String> eventBusArn() {
         return this.eventBusArn;
     }
@@ -53,23 +45,11 @@ public final class DataSourceEventBridgeConfigArgs extends com.pulumi.resources.
             $ = new DataSourceEventBridgeConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventBusArn ARN for the EventBridge bus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventBusArn(Output<String> eventBusArn) {
             $.eventBusArn = eventBusArn;
             return this;
         }
 
-        /**
-         * @param eventBusArn ARN for the EventBridge bus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventBusArn(String eventBusArn) {
             return eventBusArn(Output.of(eventBusArn));
         }

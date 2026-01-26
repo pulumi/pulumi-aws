@@ -15,17 +15,9 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement
 
     public static final SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs Empty = new SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs();
 
-    /**
-     * Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
-     * 
-     */
     @Import(name="idleSettings")
     private @Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings;
 
-    /**
-     * @return Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs>> idleSettings() {
         return Optional.ofNullable(this.idleSettings);
     }
@@ -54,23 +46,11 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement
             $ = new SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(@Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings) {
             $.idleSettings = idleSettings;
             return this;
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs idleSettings) {
             return idleSettings(Output.of(idleSettings));
         }

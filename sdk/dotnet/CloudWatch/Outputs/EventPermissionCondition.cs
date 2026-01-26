@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventPermissionCondition
     {
-        /// <summary>
-        /// Key for the condition. Valid values: `aws:PrincipalOrgID`.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Type of condition. Value values: `StringEquals`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Value for the key.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

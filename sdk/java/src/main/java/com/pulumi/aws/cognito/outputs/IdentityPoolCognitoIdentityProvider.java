@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdentityPoolCognitoIdentityProvider {
-    /**
-     * @return The client ID for the Amazon Cognito Identity User Pool.
-     * 
-     */
     private @Nullable String clientId;
-    /**
-     * @return The provider name for an Amazon Cognito Identity User Pool.
-     * 
-     */
     private @Nullable String providerName;
-    /**
-     * @return Whether server-side token validation is enabled for the identity provider’s token or not.
-     * 
-     */
     private @Nullable Boolean serverSideTokenCheck;
 
     private IdentityPoolCognitoIdentityProvider() {}
-    /**
-     * @return The client ID for the Amazon Cognito Identity User Pool.
-     * 
-     */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
-    /**
-     * @return The provider name for an Amazon Cognito Identity User Pool.
-     * 
-     */
     public Optional<String> providerName() {
         return Optional.ofNullable(this.providerName);
     }
-    /**
-     * @return Whether server-side token validation is enabled for the identity provider’s token or not.
-     * 
-     */
     public Optional<Boolean> serverSideTokenCheck() {
         return Optional.ofNullable(this.serverSideTokenCheck);
     }

@@ -7,69 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
- *
- * > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `aws.dynamodb.Table` resource `replica` configuration block.
- *
- * > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const us_east_1 = new aws.dynamodb.Table("us-east-1", {
- *     hashKey: "myAttribute",
- *     name: "myTable",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- * });
- * const us_west_2 = new aws.dynamodb.Table("us-west-2", {
- *     hashKey: "myAttribute",
- *     name: "myTable",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- * });
- * const myTable = new aws.dynamodb.GlobalTable("myTable", {
- *     name: "myTable",
- *     replicas: [
- *         {
- *             regionName: "us-east-1",
- *         },
- *         {
- *             regionName: "us-west-2",
- *         },
- *     ],
- * }, {
- *     dependsOn: [
- *         us_east_1,
- *         us_west_2,
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
- *
- * ```sh
- * $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
- * ```
- */
 export class GlobalTable extends pulumi.CustomResource {
     /**
      * Get an existing GlobalTable resource's state with the given name, ID, and optional extra
@@ -98,21 +35,9 @@ export class GlobalTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === GlobalTable.__pulumiType;
     }
 
-    /**
-     * The ARN of the DynamoDB Global Table
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     */
     declare public readonly replicas: pulumi.Output<outputs.dynamodb.GlobalTableReplica[]>;
 
     /**
@@ -151,21 +76,9 @@ export class GlobalTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GlobalTable resources.
  */
 export interface GlobalTableState {
-    /**
-     * The ARN of the DynamoDB Global Table
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplica>[]>;
 }
 
@@ -173,16 +86,7 @@ export interface GlobalTableState {
  * The set of arguments for constructing a GlobalTable resource.
  */
 export interface GlobalTableArgs {
-    /**
-     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     */
     replicas: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplica>[]>;
 }

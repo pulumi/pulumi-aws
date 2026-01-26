@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult
     {
-        /// <summary>
-        /// A list of a list of strings. The list of edges associated with the network function group.
-        /// </summary>
         public readonly ImmutableArray<ImmutableArray<string>> EdgeSets;
-        /// <summary>
-        /// The preferred edge to use.
-        /// </summary>
         public readonly string? UseEdge;
-        /// <summary>
-        /// The preferred edge to use.
-        /// </summary>
         public readonly string? UseEdgeLocation;
 
         [OutputConstructor]

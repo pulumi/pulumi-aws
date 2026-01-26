@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Route 53 Recovery Control Config Control Panel.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.ControlPanel("example", {
- *     name: "balmorhea",
- *     clusterArn: "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For example:
- *
- * ```sh
- * $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
- * ```
- */
 export class ControlPanel extends pulumi.CustomResource {
     /**
      * Get an existing ControlPanel resource's state with the given name, ID, and optional extra
@@ -55,39 +32,13 @@ export class ControlPanel extends pulumi.CustomResource {
         return obj['__pulumiType'] === ControlPanel.__pulumiType;
     }
 
-    /**
-     * ARN of the control panel.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ARN of the cluster in which this control panel will reside.
-     */
     declare public readonly clusterArn: pulumi.Output<string>;
-    /**
-     * Whether a control panel is default.
-     */
     declare public /*out*/ readonly defaultControlPanel: pulumi.Output<boolean>;
-    /**
-     * Name describing the control panel.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Number routing controls in a control panel.
-     */
     declare public /*out*/ readonly routingControlCount: pulumi.Output<number>;
-    /**
-     * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -134,39 +85,13 @@ export class ControlPanel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ControlPanel resources.
  */
 export interface ControlPanelState {
-    /**
-     * ARN of the control panel.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of the cluster in which this control panel will reside.
-     */
     clusterArn?: pulumi.Input<string>;
-    /**
-     * Whether a control panel is default.
-     */
     defaultControlPanel?: pulumi.Input<boolean>;
-    /**
-     * Name describing the control panel.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Number routing controls in a control panel.
-     */
     routingControlCount?: pulumi.Input<number>;
-    /**
-     * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -174,18 +99,7 @@ export interface ControlPanelState {
  * The set of arguments for constructing a ControlPanel resource.
  */
 export interface ControlPanelArgs {
-    /**
-     * ARN of the cluster in which this control panel will reside.
-     */
     clusterArn: pulumi.Input<string>;
-    /**
-     * Name describing the control panel.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

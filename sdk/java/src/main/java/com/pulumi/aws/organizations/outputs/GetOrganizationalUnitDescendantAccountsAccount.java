@@ -10,44 +10,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationalUnitDescendantAccountsAccount {
-    /**
-     * @return The Amazon Resource Name (ARN) of the account.
-     * 
-     */
     private String arn;
-    /**
-     * @return The email address associated with the AWS account.
-     * 
-     */
     private String email;
-    /**
-     * @return Parent identifier of the organizational units.
-     * 
-     */
     private String id;
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     private String joinedMethod;
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     private String joinedTimestamp;
-    /**
-     * @return Friendly name of the account.
-     * 
-     */
     private String name;
-    /**
-     * @return State of the account in the organization.
-     * 
-     */
     private String state;
     /**
-     * @return (**Deprecated** use `state` instead) Status of the account in the organization.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 
@@ -56,58 +26,28 @@ public final class GetOrganizationalUnitDescendantAccountsAccount {
     private String status;
 
     private GetOrganizationalUnitDescendantAccountsAccount() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the account.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The email address associated with the AWS account.
-     * 
-     */
     public String email() {
         return this.email;
     }
-    /**
-     * @return Parent identifier of the organizational units.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     public String joinedMethod() {
         return this.joinedMethod;
     }
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     public String joinedTimestamp() {
         return this.joinedTimestamp;
     }
-    /**
-     * @return Friendly name of the account.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return State of the account in the organization.
-     * 
-     */
     public String state() {
         return this.state;
     }
     /**
-     * @return (**Deprecated** use `state` instead) Status of the account in the organization.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 

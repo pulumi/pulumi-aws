@@ -14,17 +14,9 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
 
     public static final MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs();
 
-    /**
-     * Kinesis Data Stream to deliver results.
-     * 
-     */
     @Import(name="insightsTarget", required=true)
     private Output<String> insightsTarget;
 
-    /**
-     * @return Kinesis Data Stream to deliver results.
-     * 
-     */
     public Output<String> insightsTarget() {
         return this.insightsTarget;
     }
@@ -53,23 +45,11 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
             $ = new MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insightsTarget Kinesis Data Stream to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(Output<String> insightsTarget) {
             $.insightsTarget = insightsTarget;
             return this;
         }
 
-        /**
-         * @param insightsTarget Kinesis Data Stream to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(String insightsTarget) {
             return insightsTarget(Output.of(insightsTarget));
         }

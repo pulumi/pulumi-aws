@@ -12,63 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new certificate
-//			_, err := dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
-//				CertificateId:  pulumi.String("test-dms-certificate-tf"),
-//				CertificatePem: pulumi.String("..."),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import certificates using the `certificate_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
-// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
-	// The certificate identifier.
-	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
-	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
-	CertificatePem pulumi.StringPtrOutput `pulumi:"certificatePem"`
-	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
+	CertificateArn    pulumi.StringOutput    `pulumi:"certificateArn"`
+	CertificateId     pulumi.StringOutput    `pulumi:"certificateId"`
+	CertificatePem    pulumi.StringPtrOutput `pulumi:"certificatePem"`
 	CertificateWallet pulumi.StringPtrOutput `pulumi:"certificateWallet"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -115,37 +68,23 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// The certificate identifier.
-	CertificateId *string `pulumi:"certificateId"`
-	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
-	CertificatePem *string `pulumi:"certificatePem"`
-	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
-	CertificateWallet *string `pulumi:"certificateWallet"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	CertificateArn    *string           `pulumi:"certificateArn"`
+	CertificateId     *string           `pulumi:"certificateId"`
+	CertificatePem    *string           `pulumi:"certificatePem"`
+	CertificateWallet *string           `pulumi:"certificateWallet"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 type CertificateState struct {
-	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn pulumi.StringPtrInput
-	// The certificate identifier.
-	CertificateId pulumi.StringPtrInput
-	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
-	CertificatePem pulumi.StringPtrInput
-	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
+	CertificateArn    pulumi.StringPtrInput
+	CertificateId     pulumi.StringPtrInput
+	CertificatePem    pulumi.StringPtrInput
 	CertificateWallet pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -153,30 +92,20 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// The certificate identifier.
-	CertificateId string `pulumi:"certificateId"`
-	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
-	CertificatePem *string `pulumi:"certificatePem"`
-	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
-	CertificateWallet *string `pulumi:"certificateWallet"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	CertificateId     string            `pulumi:"certificateId"`
+	CertificatePem    *string           `pulumi:"certificatePem"`
+	CertificateWallet *string           `pulumi:"certificateWallet"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// The certificate identifier.
-	CertificateId pulumi.StringInput
-	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
-	CertificatePem pulumi.StringPtrInput
-	// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
+	CertificateId     pulumi.StringInput
+	CertificatePem    pulumi.StringPtrInput
 	CertificateWallet pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -266,37 +195,30 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the certificate.
 func (o CertificateOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// The certificate identifier.
 func (o CertificateOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
 }
 
-// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 func (o CertificateOutput) CertificatePem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificatePem }).(pulumi.StringPtrOutput)
 }
 
-// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
 func (o CertificateOutput) CertificateWallet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateWallet }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

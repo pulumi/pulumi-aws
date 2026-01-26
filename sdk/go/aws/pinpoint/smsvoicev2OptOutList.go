@@ -11,53 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS End User Messaging SMS opt-out list.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pinpoint.NewSmsvoicev2OptOutList(ctx, "example", &pinpoint.Smsvoicev2OptOutListArgs{
-//				Name: pulumi.String("example-opt-out-list"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import opt-out lists using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList example example-opt-out-list
-// ```
 type Smsvoicev2OptOutList struct {
 	pulumi.CustomResourceState
 
-	// ARN of the opt-out list.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the opt-out list.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     pulumi.StringOutput    `pulumi:"arn"`
+	Name    pulumi.StringOutput    `pulumi:"name"`
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -91,28 +51,18 @@ func GetSmsvoicev2OptOutList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Smsvoicev2OptOutList resources.
 type smsvoicev2OptOutListState struct {
-	// ARN of the opt-out list.
-	Arn *string `pulumi:"arn"`
-	// The name of the opt-out list.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     *string           `pulumi:"arn"`
+	Name    *string           `pulumi:"name"`
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type Smsvoicev2OptOutListState struct {
-	// ARN of the opt-out list.
-	Arn pulumi.StringPtrInput
-	// The name of the opt-out list.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     pulumi.StringPtrInput
+	Name    pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -121,22 +71,16 @@ func (Smsvoicev2OptOutListState) ElementType() reflect.Type {
 }
 
 type smsvoicev2OptOutListArgs struct {
-	// The name of the opt-out list.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name   *string           `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Smsvoicev2OptOutList resource.
 type Smsvoicev2OptOutListArgs struct {
-	// The name of the opt-out list.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (Smsvoicev2OptOutListArgs) ElementType() reflect.Type {
@@ -226,27 +170,22 @@ func (o Smsvoicev2OptOutListOutput) ToSmsvoicev2OptOutListOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the opt-out list.
 func (o Smsvoicev2OptOutListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2OptOutList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the opt-out list.
 func (o Smsvoicev2OptOutListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2OptOutList) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o Smsvoicev2OptOutListOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2OptOutList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o Smsvoicev2OptOutListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2OptOutList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o Smsvoicev2OptOutListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2OptOutList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

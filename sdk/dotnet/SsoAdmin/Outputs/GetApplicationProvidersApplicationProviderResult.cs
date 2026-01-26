@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class GetApplicationProvidersApplicationProviderResult
     {
-        /// <summary>
-        /// ARN of the application provider.
-        /// </summary>
         public readonly string ApplicationProviderArn;
-        /// <summary>
-        /// An object describing how IAM Identity Center represents the application provider in the portal. See `DisplayData` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationProvidersApplicationProviderDisplayDataResult> DisplayDatas;
-        /// <summary>
-        /// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
-        /// </summary>
         public readonly string FederationProtocol;
 
         [OutputConstructor]

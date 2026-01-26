@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettingsJupyterServerAppSettingsCodeRepository
     {
-        /// <summary>
-        /// The URL of the Git repository.
-        /// </summary>
         public readonly string RepositoryUrl;
 
         [OutputConstructor]

@@ -17,77 +17,37 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
 
     public static final InventoryDestinationBucketArgs Empty = new InventoryDestinationBucketArgs();
 
-    /**
-     * ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Amazon S3 bucket ARN of the destination.
-     * 
-     */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
-    /**
-     * @return Amazon S3 bucket ARN of the destination.
-     * 
-     */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
 
-    /**
-     * Contains the type of server-side encryption to use to encrypt the inventory (documented below).
-     * 
-     */
     @Import(name="encryption")
     private @Nullable Output<InventoryDestinationBucketEncryptionArgs> encryption;
 
-    /**
-     * @return Contains the type of server-side encryption to use to encrypt the inventory (documented below).
-     * 
-     */
     public Optional<Output<InventoryDestinationBucketEncryptionArgs>> encryption() {
         return Optional.ofNullable(this.encryption);
     }
 
-    /**
-     * Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
-     * 
-     */
     @Import(name="format", required=true)
     private Output<String> format;
 
-    /**
-     * @return Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
 
-    /**
-     * Prefix that is prepended to all inventory results.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Prefix that is prepended to all inventory results.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -120,107 +80,47 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
             $ = new InventoryDestinationBucketArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param bucketArn Amazon S3 bucket ARN of the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
-        /**
-         * @param bucketArn Amazon S3 bucket ARN of the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }
 
-        /**
-         * @param encryption Contains the type of server-side encryption to use to encrypt the inventory (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryption(@Nullable Output<InventoryDestinationBucketEncryptionArgs> encryption) {
             $.encryption = encryption;
             return this;
         }
 
-        /**
-         * @param encryption Contains the type of server-side encryption to use to encrypt the inventory (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryption(InventoryDestinationBucketEncryptionArgs encryption) {
             return encryption(Output.of(encryption));
         }
 
-        /**
-         * @param format Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param prefix Prefix that is prepended to all inventory results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Prefix that is prepended to all inventory results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAppIdentityProviderDetails {
-    /**
-     * @return Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
-     * 
-     */
     private @Nullable WebAppIdentityProviderDetailsIdentityCenterConfig identityCenterConfig;
 
     private WebAppIdentityProviderDetails() {}
-    /**
-     * @return Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
-     * 
-     */
     public Optional<WebAppIdentityProviderDetailsIdentityCenterConfig> identityCenterConfig() {
         return Optional.ofNullable(this.identityCenterConfig);
     }

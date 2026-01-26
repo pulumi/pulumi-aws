@@ -14,17 +14,9 @@ public final class QuickConnectQuickConnectConfigPhoneConfigArgs extends com.pul
 
     public static final QuickConnectQuickConnectConfigPhoneConfigArgs Empty = new QuickConnectQuickConnectConfigPhoneConfigArgs();
 
-    /**
-     * Specifies the phone number in in E.164 format.
-     * 
-     */
     @Import(name="phoneNumber", required=true)
     private Output<String> phoneNumber;
 
-    /**
-     * @return Specifies the phone number in in E.164 format.
-     * 
-     */
     public Output<String> phoneNumber() {
         return this.phoneNumber;
     }
@@ -53,23 +45,11 @@ public final class QuickConnectQuickConnectConfigPhoneConfigArgs extends com.pul
             $ = new QuickConnectQuickConnectConfigPhoneConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param phoneNumber Specifies the phone number in in E.164 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(Output<String> phoneNumber) {
             $.phoneNumber = phoneNumber;
             return this;
         }
 
-        /**
-         * @param phoneNumber Specifies the phone number in in E.164 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(String phoneNumber) {
             return phoneNumber(Output.of(phoneNumber));
         }

@@ -30,13 +30,6 @@ class EventEndpointArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventEndpoint resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        :param pulumi.Input['EventEndpointRoutingConfigArgs'] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
-        :param pulumi.Input[_builtins.str] description: A description of the global endpoint.
-        :param pulumi.Input[_builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['EventEndpointReplicationConfigArgs'] replication_config: Parameters used for replication. Documented below.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
         """
         pulumi.set(__self__, "event_buses", event_buses)
         pulumi.set(__self__, "routing_config", routing_config)
@@ -54,9 +47,6 @@ class EventEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="eventBuses")
     def event_buses(self) -> pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]]:
-        """
-        The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        """
         return pulumi.get(self, "event_buses")
 
     @event_buses.setter
@@ -66,9 +56,6 @@ class EventEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> pulumi.Input['EventEndpointRoutingConfigArgs']:
-        """
-        Parameters used for routing, including the health check and secondary Region. Documented below.
-        """
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
@@ -78,9 +65,6 @@ class EventEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the global endpoint.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -90,9 +74,6 @@ class EventEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the global endpoint.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,9 +83,6 @@ class EventEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -114,9 +92,6 @@ class EventEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> Optional[pulumi.Input['EventEndpointReplicationConfigArgs']]:
-        """
-        Parameters used for replication. Documented below.
-        """
         return pulumi.get(self, "replication_config")
 
     @replication_config.setter
@@ -126,9 +101,6 @@ class EventEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role used for replication between event buses.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -150,15 +122,6 @@ class _EventEndpointState:
                  routing_config: Optional[pulumi.Input['EventEndpointRoutingConfigArgs']] = None):
         """
         Input properties used for looking up and filtering EventEndpoint resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the endpoint that was created.
-        :param pulumi.Input[_builtins.str] description: A description of the global endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_url: The URL of the endpoint that was created.
-        :param pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        :param pulumi.Input[_builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['EventEndpointReplicationConfigArgs'] replication_config: Parameters used for replication. Documented below.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
-        :param pulumi.Input['EventEndpointRoutingConfigArgs'] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -182,9 +145,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the endpoint that was created.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -194,9 +154,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the global endpoint.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -206,9 +163,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the endpoint that was created.
-        """
         return pulumi.get(self, "endpoint_url")
 
     @endpoint_url.setter
@@ -218,9 +172,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter(name="eventBuses")
     def event_buses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]]]:
-        """
-        The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        """
         return pulumi.get(self, "event_buses")
 
     @event_buses.setter
@@ -230,9 +181,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the global endpoint.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -242,9 +190,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -254,9 +199,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> Optional[pulumi.Input['EventEndpointReplicationConfigArgs']]:
-        """
-        Parameters used for replication. Documented below.
-        """
         return pulumi.get(self, "replication_config")
 
     @replication_config.setter
@@ -266,9 +208,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role used for replication between event buses.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -278,9 +217,6 @@ class _EventEndpointState:
     @_builtins.property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> Optional[pulumi.Input['EventEndpointRoutingConfigArgs']]:
-        """
-        Parameters used for routing, including the health check and secondary Region. Documented below.
-        """
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
@@ -303,59 +239,9 @@ class EventEndpoint(pulumi.CustomResource):
                  routing_config: Optional[pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource to create an EventBridge Global Endpoint.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this = aws.cloudwatch.EventEndpoint("this",
-            name="global-endpoint",
-            role_arn=replication["arn"],
-            event_buses=[
-                {
-                    "event_bus_arn": primary["arn"],
-                },
-                {
-                    "event_bus_arn": secondary["arn"],
-                },
-            ],
-            replication_config={
-                "state": "DISABLED",
-            },
-            routing_config={
-                "failover_config": {
-                    "primary": {
-                        "health_check": primary_aws_route53_health_check["arn"],
-                    },
-                    "secondary": {
-                        "route": "us-east-2",
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-        ```
-
+        Create a EventEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description of the global endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        :param pulumi.Input[_builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']] replication_config: Parameters used for replication. Documented below.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
-        :param pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         """
         ...
     @overload
@@ -364,50 +250,7 @@ class EventEndpoint(pulumi.CustomResource):
                  args: EventEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an EventBridge Global Endpoint.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this = aws.cloudwatch.EventEndpoint("this",
-            name="global-endpoint",
-            role_arn=replication["arn"],
-            event_buses=[
-                {
-                    "event_bus_arn": primary["arn"],
-                },
-                {
-                    "event_bus_arn": secondary["arn"],
-                },
-            ],
-            replication_config={
-                "state": "DISABLED",
-            },
-            routing_config={
-                "failover_config": {
-                    "primary": {
-                        "health_check": primary_aws_route53_health_check["arn"],
-                    },
-                    "secondary": {
-                        "route": "us-east-2",
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-        ```
-
+        Create a EventEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -478,15 +321,6 @@ class EventEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the endpoint that was created.
-        :param pulumi.Input[_builtins.str] description: A description of the global endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_url: The URL of the endpoint that was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        :param pulumi.Input[_builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']] replication_config: Parameters used for replication. Documented below.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
-        :param pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,72 +340,45 @@ class EventEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the endpoint that was created.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the global endpoint.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URL of the endpoint that was created.
-        """
         return pulumi.get(self, "endpoint_url")
 
     @_builtins.property
     @pulumi.getter(name="eventBuses")
     def event_buses(self) -> pulumi.Output[Sequence['outputs.EventEndpointEventBus']]:
-        """
-        The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-        """
         return pulumi.get(self, "event_buses")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the global endpoint.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> pulumi.Output[Optional['outputs.EventEndpointReplicationConfig']]:
-        """
-        Parameters used for replication. Documented below.
-        """
         return pulumi.get(self, "replication_config")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the IAM role used for replication between event buses.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> pulumi.Output['outputs.EventEndpointRoutingConfig']:
-        """
-        Parameters used for routing, including the health check and secondary Region. Documented below.
-        """
         return pulumi.get(self, "routing_config")
 

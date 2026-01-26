@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventConnectionAuthParametersApiKey {
-    /**
-     * @return Header Name.
-     * 
-     */
     private String key;
-    /**
-     * @return Header Value. Created and stored in AWS Secrets Manager.
-     * 
-     */
     private String value;
 
     private EventConnectionAuthParametersApiKey() {}
-    /**
-     * @return Header Name.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Header Value. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public String value() {
         return this.value;
     }

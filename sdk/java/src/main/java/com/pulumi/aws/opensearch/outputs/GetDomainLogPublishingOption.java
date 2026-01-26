@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainLogPublishingOption {
-    /**
-     * @return CloudWatch Log Group where the logs are published.
-     * 
-     */
     private String cloudwatchLogGroupArn;
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Type of OpenSearch log being published.
-     * 
-     */
     private String logType;
 
     private GetDomainLogPublishingOption() {}
-    /**
-     * @return CloudWatch Log Group where the logs are published.
-     * 
-     */
     public String cloudwatchLogGroupArn() {
         return this.cloudwatchLogGroupArn;
     }
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Type of OpenSearch log being published.
-     * 
-     */
     public String logType() {
         return this.logType;
     }

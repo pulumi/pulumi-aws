@@ -11,42 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The VPN Gateway data source provides details about
-// a specific VPN gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			selected, err := ec2.LookupVpnGateway(ctx, &ec2.LookupVpnGatewayArgs{
-//				Filters: []ec2.GetVpnGatewayFilter{
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"vpn-gw",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("vpnGatewayId", selected.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpnGatewayResult
@@ -59,26 +23,14 @@ func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...p
 
 // A collection of arguments for invoking getVpnGateway.
 type LookupVpnGatewayArgs struct {
-	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-	//
-	// The arguments of this data source act as filters for querying the available VPN gateways.
-	// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
-	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// ID of a VPC attached to the specific VPN Gateway to retrieve.
-	AttachedVpcId *string `pulumi:"attachedVpcId"`
-	// Availability Zone of the specific VPN Gateway to retrieve.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Custom filter block as described below.
-	Filters []GetVpnGatewayFilter `pulumi:"filters"`
-	// ID of the specific VPN Gateway to retrieve.
-	Id *string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the specific VPN Gateway to retrieve.
-	State *string `pulumi:"state"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPN Gateway.
-	Tags map[string]string `pulumi:"tags"`
+	AmazonSideAsn    *string               `pulumi:"amazonSideAsn"`
+	AttachedVpcId    *string               `pulumi:"attachedVpcId"`
+	AvailabilityZone *string               `pulumi:"availabilityZone"`
+	Filters          []GetVpnGatewayFilter `pulumi:"filters"`
+	Id               *string               `pulumi:"id"`
+	Region           *string               `pulumi:"region"`
+	State            *string               `pulumi:"state"`
+	Tags             map[string]string     `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpnGateway.
@@ -105,26 +57,14 @@ func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs
 
 // A collection of arguments for invoking getVpnGateway.
 type LookupVpnGatewayOutputArgs struct {
-	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-	//
-	// The arguments of this data source act as filters for querying the available VPN gateways.
-	// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
-	AmazonSideAsn pulumi.StringPtrInput `pulumi:"amazonSideAsn"`
-	// ID of a VPC attached to the specific VPN Gateway to retrieve.
-	AttachedVpcId pulumi.StringPtrInput `pulumi:"attachedVpcId"`
-	// Availability Zone of the specific VPN Gateway to retrieve.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// Custom filter block as described below.
-	Filters GetVpnGatewayFilterArrayInput `pulumi:"filters"`
-	// ID of the specific VPN Gateway to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// State of the specific VPN Gateway to retrieve.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPN Gateway.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	AmazonSideAsn    pulumi.StringPtrInput         `pulumi:"amazonSideAsn"`
+	AttachedVpcId    pulumi.StringPtrInput         `pulumi:"attachedVpcId"`
+	AvailabilityZone pulumi.StringPtrInput         `pulumi:"availabilityZone"`
+	Filters          GetVpnGatewayFilterArrayInput `pulumi:"filters"`
+	Id               pulumi.StringPtrInput         `pulumi:"id"`
+	Region           pulumi.StringPtrInput         `pulumi:"region"`
+	State            pulumi.StringPtrInput         `pulumi:"state"`
+	Tags             pulumi.StringMapInput         `pulumi:"tags"`
 }
 
 func (LookupVpnGatewayOutputArgs) ElementType() reflect.Type {

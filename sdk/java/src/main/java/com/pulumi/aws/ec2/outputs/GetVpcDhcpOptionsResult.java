@@ -14,25 +14,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcDhcpOptionsResult {
-    /**
-     * @return ARN of the DHCP Options Set.
-     * 
-     */
     private String arn;
-    /**
-     * @return EC2 DHCP Options ID
-     * 
-     */
     private String dhcpOptionsId;
-    /**
-     * @return Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
-     * 
-     */
     private String domainName;
-    /**
-     * @return List of name servers.
-     * 
-     */
     private List<String> domainNameServers;
     private @Nullable List<GetVpcDhcpOptionsFilter> filters;
     /**
@@ -40,64 +24,24 @@ public final class GetVpcDhcpOptionsResult {
      * 
      */
     private String id;
-    /**
-     * @return How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
-     * 
-     */
     private String ipv6AddressPreferredLeaseTime;
-    /**
-     * @return List of NETBIOS name servers.
-     * 
-     */
     private List<String> netbiosNameServers;
-    /**
-     * @return NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-     * 
-     */
     private String netbiosNodeType;
-    /**
-     * @return List of NTP servers.
-     * 
-     */
     private List<String> ntpServers;
-    /**
-     * @return ID of the AWS account that owns the DHCP options set.
-     * 
-     */
     private String ownerId;
     private String region;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetVpcDhcpOptionsResult() {}
-    /**
-     * @return ARN of the DHCP Options Set.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return EC2 DHCP Options ID
-     * 
-     */
     public String dhcpOptionsId() {
         return this.dhcpOptionsId;
     }
-    /**
-     * @return Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return List of name servers.
-     * 
-     */
     public List<String> domainNameServers() {
         return this.domainNameServers;
     }
@@ -111,48 +55,24 @@ public final class GetVpcDhcpOptionsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
-     * 
-     */
     public String ipv6AddressPreferredLeaseTime() {
         return this.ipv6AddressPreferredLeaseTime;
     }
-    /**
-     * @return List of NETBIOS name servers.
-     * 
-     */
     public List<String> netbiosNameServers() {
         return this.netbiosNameServers;
     }
-    /**
-     * @return NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-     * 
-     */
     public String netbiosNodeType() {
         return this.netbiosNodeType;
     }
-    /**
-     * @return List of NTP servers.
-     * 
-     */
     public List<String> ntpServers() {
         return this.ntpServers;
     }
-    /**
-     * @return ID of the AWS account that owns the DHCP options set.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

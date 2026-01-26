@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceQuotaUsageMetric {
-    /**
-     * @return The metric dimensions.
-     * 
-     */
     private @Nullable List<ServiceQuotaUsageMetricMetricDimension> metricDimensions;
-    /**
-     * @return The name of the metric.
-     * 
-     */
     private @Nullable String metricName;
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     private @Nullable String metricNamespace;
-    /**
-     * @return The metric statistic that AWS recommend you use when determining quota usage.
-     * 
-     */
     private @Nullable String metricStatisticRecommendation;
 
     private ServiceQuotaUsageMetric() {}
-    /**
-     * @return The metric dimensions.
-     * 
-     */
     public List<ServiceQuotaUsageMetricMetricDimension> metricDimensions() {
         return this.metricDimensions == null ? List.of() : this.metricDimensions;
     }
-    /**
-     * @return The name of the metric.
-     * 
-     */
     public Optional<String> metricName() {
         return Optional.ofNullable(this.metricName);
     }
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     public Optional<String> metricNamespace() {
         return Optional.ofNullable(this.metricNamespace);
     }
-    /**
-     * @return The metric statistic that AWS recommend you use when determining quota usage.
-     * 
-     */
     public Optional<String> metricStatisticRecommendation() {
         return Optional.ofNullable(this.metricStatisticRecommendation);
     }

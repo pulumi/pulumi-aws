@@ -15,32 +15,16 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
 
     public static final PartitionStorageDescriptorSortColumnArgs Empty = new PartitionStorageDescriptorSortColumnArgs();
 
-    /**
-     * The name of the column.
-     * 
-     */
     @Import(name="column", required=true)
     private Output<String> column;
 
-    /**
-     * @return The name of the column.
-     * 
-     */
     public Output<String> column() {
         return this.column;
     }
 
-    /**
-     * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
-     * 
-     */
     @Import(name="sortOrder", required=true)
     private Output<Integer> sortOrder;
 
-    /**
-     * @return Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
-     * 
-     */
     public Output<Integer> sortOrder() {
         return this.sortOrder;
     }
@@ -70,44 +54,20 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
             $ = new PartitionStorageDescriptorSortColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param column The name of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder column(Output<String> column) {
             $.column = column;
             return this;
         }
 
-        /**
-         * @param column The name of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder column(String column) {
             return column(Output.of(column));
         }
 
-        /**
-         * @param sortOrder Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortOrder(Output<Integer> sortOrder) {
             $.sortOrder = sortOrder;
             return this;
         }
 
-        /**
-         * @param sortOrder Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortOrder(Integer sortOrder) {
             return sortOrder(Output.of(sortOrder));
         }

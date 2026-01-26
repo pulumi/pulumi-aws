@@ -61,49 +61,31 @@ class GetBotAliasResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the bot alias.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> _builtins.str:
-        """
-        Name of the bot.
-        """
         return pulumi.get(self, "bot_name")
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> _builtins.str:
-        """
-        Version of the bot that the alias points to.
-        """
         return pulumi.get(self, "bot_version")
 
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> _builtins.str:
-        """
-        Checksum of the bot alias.
-        """
         return pulumi.get(self, "checksum")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Date that the bot alias was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the alias.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -117,17 +99,11 @@ class GetBotAliasResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the alias. The name is not case sensitive.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -159,22 +135,7 @@ def get_bot_alias(bot_name: Optional[_builtins.str] = None,
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotAliasResult:
     """
-    Provides details about a specific Amazon Lex Bot Alias.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_prod = aws.lex.get_bot_alias(bot_name="OrderFlowers",
-        name="OrderFlowersProd")
-    ```
-
-
-    :param _builtins.str bot_name: Name of the bot.
-    :param _builtins.str name: Name of the bot alias. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['botName'] = bot_name
@@ -199,22 +160,7 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[_builtins.str]] = None,
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotAliasResult]:
     """
-    Provides details about a specific Amazon Lex Bot Alias.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_prod = aws.lex.get_bot_alias(bot_name="OrderFlowers",
-        name="OrderFlowersProd")
-    ```
-
-
-    :param _builtins.str bot_name: Name of the bot.
-    :param _builtins.str name: Name of the bot alias. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['botName'] = bot_name

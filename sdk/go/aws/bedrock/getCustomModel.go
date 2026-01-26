@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Returns properties of a specific Amazon Bedrock custom model.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.LookupCustomModel(ctx, &bedrock.LookupCustomModelArgs{
-//				ModelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomModel(ctx *pulumi.Context, args *LookupCustomModelArgs, opts ...pulumi.InvokeOption) (*LookupCustomModelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomModelResult
@@ -50,47 +23,30 @@ func LookupCustomModel(ctx *pulumi.Context, args *LookupCustomModelArgs, opts ..
 
 // A collection of arguments for invoking getCustomModel.
 type LookupCustomModelArgs struct {
-	// Name or ARN of the custom model.
-	ModelId string `pulumi:"modelId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ModelId string  `pulumi:"modelId"`
+	Region  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCustomModel.
 type LookupCustomModelResult struct {
-	// ARN of the base model.
-	BaseModelArn string `pulumi:"baseModelArn"`
-	// Creation time of the model.
-	CreationTime string `pulumi:"creationTime"`
-	// Hyperparameter values associated with this model.
-	Hyperparameters map[string]string `pulumi:"hyperparameters"`
-	Id              string            `pulumi:"id"`
-	// Job ARN associated with this model.
-	JobArn string `pulumi:"jobArn"`
-	// Job name associated with this model.
-	JobName string `pulumi:"jobName"`
-	// Key-value mapping of tags for the fine-tuning job.
-	JobTags map[string]string `pulumi:"jobTags"`
-	// ARN associated with this model.
-	ModelArn string `pulumi:"modelArn"`
-	ModelId  string `pulumi:"modelId"`
-	// The custom model is encrypted at rest using this key.
-	ModelKmsKeyArn string `pulumi:"modelKmsKeyArn"`
-	// Model name associated with this model.
-	ModelName string `pulumi:"modelName"`
-	// Key-value mapping of tags for the model.
-	ModelTags map[string]string `pulumi:"modelTags"`
-	// Output data configuration associated with this custom model.
-	OutputDataConfigs []GetCustomModelOutputDataConfig `pulumi:"outputDataConfigs"`
-	Region            string                           `pulumi:"region"`
-	// Information about the training dataset.
-	TrainingDataConfigs []GetCustomModelTrainingDataConfig `pulumi:"trainingDataConfigs"`
-	// Metrics associated with the customization job.
-	TrainingMetrics []GetCustomModelTrainingMetric `pulumi:"trainingMetrics"`
-	// Information about the validation dataset.
+	BaseModelArn          string                               `pulumi:"baseModelArn"`
+	CreationTime          string                               `pulumi:"creationTime"`
+	Hyperparameters       map[string]string                    `pulumi:"hyperparameters"`
+	Id                    string                               `pulumi:"id"`
+	JobArn                string                               `pulumi:"jobArn"`
+	JobName               string                               `pulumi:"jobName"`
+	JobTags               map[string]string                    `pulumi:"jobTags"`
+	ModelArn              string                               `pulumi:"modelArn"`
+	ModelId               string                               `pulumi:"modelId"`
+	ModelKmsKeyArn        string                               `pulumi:"modelKmsKeyArn"`
+	ModelName             string                               `pulumi:"modelName"`
+	ModelTags             map[string]string                    `pulumi:"modelTags"`
+	OutputDataConfigs     []GetCustomModelOutputDataConfig     `pulumi:"outputDataConfigs"`
+	Region                string                               `pulumi:"region"`
+	TrainingDataConfigs   []GetCustomModelTrainingDataConfig   `pulumi:"trainingDataConfigs"`
+	TrainingMetrics       []GetCustomModelTrainingMetric       `pulumi:"trainingMetrics"`
 	ValidationDataConfigs []GetCustomModelValidationDataConfig `pulumi:"validationDataConfigs"`
-	// The loss metric for each validator that you provided.
-	ValidationMetrics []GetCustomModelValidationMetric `pulumi:"validationMetrics"`
+	ValidationMetrics     []GetCustomModelValidationMetric     `pulumi:"validationMetrics"`
 }
 
 func LookupCustomModelOutput(ctx *pulumi.Context, args LookupCustomModelOutputArgs, opts ...pulumi.InvokeOption) LookupCustomModelResultOutput {
@@ -104,10 +60,8 @@ func LookupCustomModelOutput(ctx *pulumi.Context, args LookupCustomModelOutputAr
 
 // A collection of arguments for invoking getCustomModel.
 type LookupCustomModelOutputArgs struct {
-	// Name or ARN of the custom model.
-	ModelId pulumi.StringInput `pulumi:"modelId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ModelId pulumi.StringInput    `pulumi:"modelId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCustomModelOutputArgs) ElementType() reflect.Type {
@@ -129,17 +83,14 @@ func (o LookupCustomModelResultOutput) ToLookupCustomModelResultOutputWithContex
 	return o
 }
 
-// ARN of the base model.
 func (o LookupCustomModelResultOutput) BaseModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.BaseModelArn }).(pulumi.StringOutput)
 }
 
-// Creation time of the model.
 func (o LookupCustomModelResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Hyperparameter values associated with this model.
 func (o LookupCustomModelResultOutput) Hyperparameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) map[string]string { return v.Hyperparameters }).(pulumi.StringMapOutput)
 }
@@ -148,22 +99,18 @@ func (o LookupCustomModelResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Job ARN associated with this model.
 func (o LookupCustomModelResultOutput) JobArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.JobArn }).(pulumi.StringOutput)
 }
 
-// Job name associated with this model.
 func (o LookupCustomModelResultOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.JobName }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of tags for the fine-tuning job.
 func (o LookupCustomModelResultOutput) JobTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) map[string]string { return v.JobTags }).(pulumi.StringMapOutput)
 }
 
-// ARN associated with this model.
 func (o LookupCustomModelResultOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.ModelArn }).(pulumi.StringOutput)
 }
@@ -172,22 +119,18 @@ func (o LookupCustomModelResultOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.ModelId }).(pulumi.StringOutput)
 }
 
-// The custom model is encrypted at rest using this key.
 func (o LookupCustomModelResultOutput) ModelKmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.ModelKmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Model name associated with this model.
 func (o LookupCustomModelResultOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.ModelName }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of tags for the model.
 func (o LookupCustomModelResultOutput) ModelTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) map[string]string { return v.ModelTags }).(pulumi.StringMapOutput)
 }
 
-// Output data configuration associated with this custom model.
 func (o LookupCustomModelResultOutput) OutputDataConfigs() GetCustomModelOutputDataConfigArrayOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelOutputDataConfig { return v.OutputDataConfigs }).(GetCustomModelOutputDataConfigArrayOutput)
 }
@@ -196,22 +139,18 @@ func (o LookupCustomModelResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Information about the training dataset.
 func (o LookupCustomModelResultOutput) TrainingDataConfigs() GetCustomModelTrainingDataConfigArrayOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelTrainingDataConfig { return v.TrainingDataConfigs }).(GetCustomModelTrainingDataConfigArrayOutput)
 }
 
-// Metrics associated with the customization job.
 func (o LookupCustomModelResultOutput) TrainingMetrics() GetCustomModelTrainingMetricArrayOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelTrainingMetric { return v.TrainingMetrics }).(GetCustomModelTrainingMetricArrayOutput)
 }
 
-// Information about the validation dataset.
 func (o LookupCustomModelResultOutput) ValidationDataConfigs() GetCustomModelValidationDataConfigArrayOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelValidationDataConfig { return v.ValidationDataConfigs }).(GetCustomModelValidationDataConfigArrayOutput)
 }
 
-// The loss metric for each validator that you provided.
 func (o LookupCustomModelResultOutput) ValidationMetrics() GetCustomModelValidationMetricArrayOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelValidationMetric { return v.ValidationMetrics }).(GetCustomModelValidationMetricArrayOutput)
 }

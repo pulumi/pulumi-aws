@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web User Access Logging Settings Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
- * const exampleStream = new aws.kinesis.Stream("example", {
- *     name: "amazon-workspaces-web-example",
- *     shardCount: 1,
- * });
- * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {kinesisStreamArn: exampleStream.arn});
- * const exampleUserAccessLoggingSettingsAssociation = new aws.workspacesweb.UserAccessLoggingSettingsAssociation("example", {
- *     userAccessLoggingSettingsArn: exampleUserAccessLoggingSettings.userAccessLoggingSettingsArn,
- *     portalArn: example.portalArn,
- * });
- * ```
- */
 export class UserAccessLoggingSettingsAssociation extends pulumi.CustomResource {
     /**
      * Get an existing UserAccessLoggingSettingsAssociation resource's state with the given name, ID, and optional extra
@@ -55,19 +32,8 @@ export class UserAccessLoggingSettingsAssociation extends pulumi.CustomResource 
         return obj['__pulumiType'] === UserAccessLoggingSettingsAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly portalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-     */
     declare public readonly userAccessLoggingSettingsArn: pulumi.Output<string>;
 
     /**
@@ -107,19 +73,8 @@ export class UserAccessLoggingSettingsAssociation extends pulumi.CustomResource 
  * Input properties used for looking up and filtering UserAccessLoggingSettingsAssociation resources.
  */
 export interface UserAccessLoggingSettingsAssociationState {
-    /**
-     * ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-     */
     userAccessLoggingSettingsArn?: pulumi.Input<string>;
 }
 
@@ -127,18 +82,7 @@ export interface UserAccessLoggingSettingsAssociationState {
  * The set of arguments for constructing a UserAccessLoggingSettingsAssociation resource.
  */
 export interface UserAccessLoggingSettingsAssociationArgs {
-    /**
-     * ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-     */
     userAccessLoggingSettingsArn: pulumi.Input<string>;
 }

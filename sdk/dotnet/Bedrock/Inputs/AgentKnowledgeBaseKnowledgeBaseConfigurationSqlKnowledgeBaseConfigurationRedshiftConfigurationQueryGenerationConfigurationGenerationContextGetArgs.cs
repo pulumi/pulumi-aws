@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("curatedQueries")]
         private InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryGetArgs>? _curatedQueries;
-
-        /// <summary>
-        /// Information about example queries to help the query engine generate appropriate SQL queries. See `CuratedQuery` block for details.
-        /// </summary>
         public InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryGetArgs> CuratedQueries
         {
             get => _curatedQueries ?? (_curatedQueries = new InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("tables")]
         private InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableGetArgs>? _tables;
-
-        /// <summary>
-        /// Information about a table in the database. See `Table` block for details.
-        /// </summary>
         public InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableGetArgs> Tables
         {
             get => _tables ?? (_tables = new InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableGetArgs>());

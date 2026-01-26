@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ControlTowerControlParameter {
-    /**
-     * @return The name of the parameter.
-     * 
-     */
     private String key;
-    /**
-     * @return The value of the parameter.
-     * 
-     */
     private String value;
 
     private ControlTowerControlParameter() {}
-    /**
-     * @return The name of the parameter.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value of the parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

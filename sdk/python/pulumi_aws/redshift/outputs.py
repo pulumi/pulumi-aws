@@ -65,11 +65,6 @@ class ClusterClusterNode(dict):
                  node_role: Optional[_builtins.str] = None,
                  private_ip_address: Optional[_builtins.str] = None,
                  public_ip_address: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str node_role: Whether the node is a leader node or a compute node
-        :param _builtins.str private_ip_address: The private IP address of a node within a cluster
-        :param _builtins.str public_ip_address: The public IP address of a node within a cluster
-        """
         if node_role is not None:
             pulumi.set(__self__, "node_role", node_role)
         if private_ip_address is not None:
@@ -80,25 +75,16 @@ class ClusterClusterNode(dict):
     @_builtins.property
     @pulumi.getter(name="nodeRole")
     def node_role(self) -> Optional[_builtins.str]:
-        """
-        Whether the node is a leader node or a compute node
-        """
         return pulumi.get(self, "node_role")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[_builtins.str]:
-        """
-        The private IP address of a node within a cluster
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> Optional[_builtins.str]:
-        """
-        The public IP address of a node within a cluster
-        """
         return pulumi.get(self, "public_ip_address")
 
 
@@ -129,11 +115,6 @@ class EndpointAccessVpcEndpoint(dict):
                  network_interfaces: Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']] = None,
                  vpc_endpoint_id: Optional[_builtins.str] = None,
                  vpc_id: Optional[_builtins.str] = None):
-        """
-        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArgs'] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        :param _builtins.str vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        :param _builtins.str vpc_id: The VPC identifier that the endpoint is associated.
-        """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
@@ -144,25 +125,16 @@ class EndpointAccessVpcEndpoint(dict):
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']]:
-        """
-        One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[_builtins.str]:
-        """
-        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
-        """
-        The VPC identifier that the endpoint is associated.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -196,12 +168,6 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
                  network_interface_id: Optional[_builtins.str] = None,
                  private_ip_address: Optional[_builtins.str] = None,
                  subnet_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str availability_zone: The Availability Zone.
-        :param _builtins.str network_interface_id: The network interface identifier.
-        :param _builtins.str private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param _builtins.str subnet_id: The subnet identifier.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -214,33 +180,21 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
-        """
-        The Availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[_builtins.str]:
-        """
-        The network interface identifier.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[_builtins.str]:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[_builtins.str]:
-        """
-        The subnet identifier.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -268,10 +222,6 @@ class IdcApplicationAuthorizedTokenIssuer(dict):
     def __init__(__self__, *,
                  authorized_audiences_lists: Optional[Sequence[_builtins.str]] = None,
                  trusted_token_issuer_arn: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] authorized_audiences_lists: List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        :param _builtins.str trusted_token_issuer_arn: ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
         if authorized_audiences_lists is not None:
             pulumi.set(__self__, "authorized_audiences_lists", authorized_audiences_lists)
         if trusted_token_issuer_arn is not None:
@@ -280,17 +230,11 @@ class IdcApplicationAuthorizedTokenIssuer(dict):
     @_builtins.property
     @pulumi.getter(name="authorizedAudiencesLists")
     def authorized_audiences_lists(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
         return pulumi.get(self, "authorized_audiences_lists")
 
     @_builtins.property
     @pulumi.getter(name="trustedTokenIssuerArn")
     def trusted_token_issuer_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
         return pulumi.get(self, "trusted_token_issuer_arn")
 
 
@@ -319,11 +263,6 @@ class IdcApplicationServiceIntegration(dict):
                  lake_formation: Optional['outputs.IdcApplicationServiceIntegrationLakeFormation'] = None,
                  redshift: Optional['outputs.IdcApplicationServiceIntegrationRedshift'] = None,
                  s3_access_grants: Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrants'] = None):
-        """
-        :param 'IdcApplicationServiceIntegrationLakeFormationArgs' lake_formation: List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
-        :param 'IdcApplicationServiceIntegrationRedshiftArgs' redshift: List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        :param 'IdcApplicationServiceIntegrationS3AccessGrantsArgs' s3_access_grants: List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
-        """
         if lake_formation is not None:
             pulumi.set(__self__, "lake_formation", lake_formation)
         if redshift is not None:
@@ -334,25 +273,16 @@ class IdcApplicationServiceIntegration(dict):
     @_builtins.property
     @pulumi.getter(name="lakeFormation")
     def lake_formation(self) -> Optional['outputs.IdcApplicationServiceIntegrationLakeFormation']:
-        """
-        List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
-        """
         return pulumi.get(self, "lake_formation")
 
     @_builtins.property
     @pulumi.getter
     def redshift(self) -> Optional['outputs.IdcApplicationServiceIntegrationRedshift']:
-        """
-        List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        """
         return pulumi.get(self, "redshift")
 
     @_builtins.property
     @pulumi.getter(name="s3AccessGrants")
     def s3_access_grants(self) -> Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrants']:
-        """
-        List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
-        """
         return pulumi.get(self, "s3_access_grants")
 
 
@@ -377,18 +307,12 @@ class IdcApplicationServiceIntegrationLakeFormation(dict):
 
     def __init__(__self__, *,
                  lake_formation_query: Optional['outputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery'] = None):
-        """
-        :param 'IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs' lake_formation_query: Lake formation scope.
-        """
         if lake_formation_query is not None:
             pulumi.set(__self__, "lake_formation_query", lake_formation_query)
 
     @_builtins.property
     @pulumi.getter(name="lakeFormationQuery")
     def lake_formation_query(self) -> Optional['outputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery']:
-        """
-        Lake formation scope.
-        """
         return pulumi.get(self, "lake_formation_query")
 
 
@@ -396,17 +320,11 @@ class IdcApplicationServiceIntegrationLakeFormation(dict):
 class IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery(dict):
     def __init__(__self__, *,
                  authorization: _builtins.str):
-        """
-        :param _builtins.str authorization: Determines whether the query scope is enabled or disabled.
-        """
         pulumi.set(__self__, "authorization", authorization)
 
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> _builtins.str:
-        """
-        Determines whether the query scope is enabled or disabled.
-        """
         return pulumi.get(self, "authorization")
 
 
@@ -414,18 +332,12 @@ class IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery(dict):
 class IdcApplicationServiceIntegrationRedshift(dict):
     def __init__(__self__, *,
                  connect: Optional['outputs.IdcApplicationServiceIntegrationRedshiftConnect'] = None):
-        """
-        :param 'IdcApplicationServiceIntegrationRedshiftConnectArgs' connect: Amazon Redshift connect service integration scope.
-        """
         if connect is not None:
             pulumi.set(__self__, "connect", connect)
 
     @_builtins.property
     @pulumi.getter
     def connect(self) -> Optional['outputs.IdcApplicationServiceIntegrationRedshiftConnect']:
-        """
-        Amazon Redshift connect service integration scope.
-        """
         return pulumi.get(self, "connect")
 
 
@@ -433,17 +345,11 @@ class IdcApplicationServiceIntegrationRedshift(dict):
 class IdcApplicationServiceIntegrationRedshiftConnect(dict):
     def __init__(__self__, *,
                  authorization: _builtins.str):
-        """
-        :param _builtins.str authorization: Determines whether the connect integration is enabled or disabled.
-        """
         pulumi.set(__self__, "authorization", authorization)
 
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> _builtins.str:
-        """
-        Determines whether the connect integration is enabled or disabled.
-        """
         return pulumi.get(self, "authorization")
 
 
@@ -468,18 +374,12 @@ class IdcApplicationServiceIntegrationS3AccessGrants(dict):
 
     def __init__(__self__, *,
                  read_write_access: Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess'] = None):
-        """
-        :param 'IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs' read_write_access: S3 Access grants integration scope.
-        """
         if read_write_access is not None:
             pulumi.set(__self__, "read_write_access", read_write_access)
 
     @_builtins.property
     @pulumi.getter(name="readWriteAccess")
     def read_write_access(self) -> Optional['outputs.IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess']:
-        """
-        S3 Access grants integration scope.
-        """
         return pulumi.get(self, "read_write_access")
 
 
@@ -487,17 +387,11 @@ class IdcApplicationServiceIntegrationS3AccessGrants(dict):
 class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess(dict):
     def __init__(__self__, *,
                  authorization: _builtins.str):
-        """
-        :param _builtins.str authorization: Determines whether read/write scope is enabled or disabled.
-        """
         pulumi.set(__self__, "authorization", authorization)
 
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> _builtins.str:
-        """
-        Determines whether read/write scope is enabled or disabled.
-        """
         return pulumi.get(self, "authorization")
 
 
@@ -549,27 +443,17 @@ class ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: The name of the Redshift parameter.
-        :param _builtins.str value: The value of the Redshift parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the Redshift parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value of the Redshift parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -600,11 +484,6 @@ class ScheduledActionTargetAction(dict):
                  pause_cluster: Optional['outputs.ScheduledActionTargetActionPauseCluster'] = None,
                  resize_cluster: Optional['outputs.ScheduledActionTargetActionResizeCluster'] = None,
                  resume_cluster: Optional['outputs.ScheduledActionTargetActionResumeCluster'] = None):
-        """
-        :param 'ScheduledActionTargetActionPauseClusterArgs' pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
-        :param 'ScheduledActionTargetActionResizeClusterArgs' resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
-        :param 'ScheduledActionTargetActionResumeClusterArgs' resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
-        """
         if pause_cluster is not None:
             pulumi.set(__self__, "pause_cluster", pause_cluster)
         if resize_cluster is not None:
@@ -615,25 +494,16 @@ class ScheduledActionTargetAction(dict):
     @_builtins.property
     @pulumi.getter(name="pauseCluster")
     def pause_cluster(self) -> Optional['outputs.ScheduledActionTargetActionPauseCluster']:
-        """
-        An action that runs a `PauseCluster` API operation. Documented below.
-        """
         return pulumi.get(self, "pause_cluster")
 
     @_builtins.property
     @pulumi.getter(name="resizeCluster")
     def resize_cluster(self) -> Optional['outputs.ScheduledActionTargetActionResizeCluster']:
-        """
-        An action that runs a `ResizeCluster` API operation. Documented below.
-        """
         return pulumi.get(self, "resize_cluster")
 
     @_builtins.property
     @pulumi.getter(name="resumeCluster")
     def resume_cluster(self) -> Optional['outputs.ScheduledActionTargetActionResumeCluster']:
-        """
-        An action that runs a `ResumeCluster` API operation. Documented below.
-        """
         return pulumi.get(self, "resume_cluster")
 
 
@@ -658,17 +528,11 @@ class ScheduledActionTargetActionPauseCluster(dict):
 
     def __init__(__self__, *,
                  cluster_identifier: _builtins.str):
-        """
-        :param _builtins.str cluster_identifier: The identifier of the cluster to be paused.
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> _builtins.str:
-        """
-        The identifier of the cluster to be paused.
-        """
         return pulumi.get(self, "cluster_identifier")
 
 
@@ -703,13 +567,6 @@ class ScheduledActionTargetActionResizeCluster(dict):
                  cluster_type: Optional[_builtins.str] = None,
                  node_type: Optional[_builtins.str] = None,
                  number_of_nodes: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str cluster_identifier: The unique identifier for the cluster to resize.
-        :param _builtins.bool classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-        :param _builtins.str cluster_type: The new cluster type for the specified cluster.
-        :param _builtins.str node_type: The new node type for the nodes you are adding.
-        :param _builtins.int number_of_nodes: The new number of nodes for the cluster.
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if classic is not None:
             pulumi.set(__self__, "classic", classic)
@@ -723,41 +580,26 @@ class ScheduledActionTargetActionResizeCluster(dict):
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> _builtins.str:
-        """
-        The unique identifier for the cluster to resize.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter
     def classic(self) -> Optional[_builtins.bool]:
-        """
-        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-        """
         return pulumi.get(self, "classic")
 
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> Optional[_builtins.str]:
-        """
-        The new cluster type for the specified cluster.
-        """
         return pulumi.get(self, "cluster_type")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[_builtins.str]:
-        """
-        The new node type for the nodes you are adding.
-        """
         return pulumi.get(self, "node_type")
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[_builtins.int]:
-        """
-        The new number of nodes for the cluster.
-        """
         return pulumi.get(self, "number_of_nodes")
 
 
@@ -782,17 +624,11 @@ class ScheduledActionTargetActionResumeCluster(dict):
 
     def __init__(__self__, *,
                  cluster_identifier: _builtins.str):
-        """
-        :param _builtins.str cluster_identifier: The identifier of the cluster to be resumed.
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> _builtins.str:
-        """
-        The identifier of the cluster to be resumed.
-        """
         return pulumi.get(self, "cluster_identifier")
 
 
@@ -802,11 +638,6 @@ class GetClusterClusterNodeResult(dict):
                  node_role: _builtins.str,
                  private_ip_address: _builtins.str,
                  public_ip_address: _builtins.str):
-        """
-        :param _builtins.str node_role: Whether the node is a leader node or a compute node
-        :param _builtins.str private_ip_address: Private IP address of a node within a cluster
-        :param _builtins.str public_ip_address: Public IP address of a node within a cluster
-        """
         pulumi.set(__self__, "node_role", node_role)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "public_ip_address", public_ip_address)
@@ -814,25 +645,16 @@ class GetClusterClusterNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="nodeRole")
     def node_role(self) -> _builtins.str:
-        """
-        Whether the node is a leader node or a compute node
-        """
         return pulumi.get(self, "node_role")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> _builtins.str:
-        """
-        Private IP address of a node within a cluster
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> _builtins.str:
-        """
-        Public IP address of a node within a cluster
-        """
         return pulumi.get(self, "public_ip_address")
 
 
@@ -842,11 +664,6 @@ class GetDataSharesDataShareResult(dict):
                  data_share_arn: _builtins.str,
                  managed_by: _builtins.str,
                  producer_arn: _builtins.str):
-        """
-        :param _builtins.str data_share_arn: ARN (Amazon Resource Name) of the data share.
-        :param _builtins.str managed_by: Identifier of a datashare to show its managing entity.
-        :param _builtins.str producer_arn: ARN (Amazon Resource Name) of the producer.
-        """
         pulumi.set(__self__, "data_share_arn", data_share_arn)
         pulumi.set(__self__, "managed_by", managed_by)
         pulumi.set(__self__, "producer_arn", producer_arn)
@@ -854,25 +671,16 @@ class GetDataSharesDataShareResult(dict):
     @_builtins.property
     @pulumi.getter(name="dataShareArn")
     def data_share_arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) of the data share.
-        """
         return pulumi.get(self, "data_share_arn")
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> _builtins.str:
-        """
-        Identifier of a datashare to show its managing entity.
-        """
         return pulumi.get(self, "managed_by")
 
     @_builtins.property
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) of the producer.
-        """
         return pulumi.get(self, "producer_arn")
 
 
@@ -882,13 +690,6 @@ class GetProducerDataSharesDataShareResult(dict):
                  data_share_arn: _builtins.str,
                  managed_by: _builtins.str,
                  producer_arn: _builtins.str):
-        """
-        :param _builtins.str data_share_arn: ARN (Amazon Resource Name) of the data share.
-        :param _builtins.str managed_by: Identifier of a datashare to show its managing entity.
-        :param _builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "data_share_arn", data_share_arn)
         pulumi.set(__self__, "managed_by", managed_by)
         pulumi.set(__self__, "producer_arn", producer_arn)
@@ -896,27 +697,16 @@ class GetProducerDataSharesDataShareResult(dict):
     @_builtins.property
     @pulumi.getter(name="dataShareArn")
     def data_share_arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) of the data share.
-        """
         return pulumi.get(self, "data_share_arn")
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> _builtins.str:
-        """
-        Identifier of a datashare to show its managing entity.
-        """
         return pulumi.get(self, "managed_by")
 
     @_builtins.property
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "producer_arn")
 
 

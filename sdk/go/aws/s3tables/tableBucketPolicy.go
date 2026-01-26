@@ -12,67 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon S3 Tables Table Bucket Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleTableBucket, err := s3tables.NewTableBucket(ctx, "example", &s3tables.TableBucketArgs{
-//				Name: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3tables.NewTableBucketPolicy(ctx, "example", &s3tables.TableBucketPolicyArgs{
-//				ResourcePolicy: pulumi.String(example.Json),
-//				TableBucketArn: exampleTableBucket.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Tables Table Bucket Policy using the `table_bucket_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3tables/tableBucketPolicy:TableBucketPolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
-// ```
 type TableBucketPolicy struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Web Services resource-based policy document in JSON format.
+	Region         pulumi.StringOutput `pulumi:"region"`
 	ResourcePolicy pulumi.StringOutput `pulumi:"resourcePolicy"`
-	// ARN referencing the Table Bucket that owns this policy.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 }
 
@@ -112,20 +56,14 @@ func GetTableBucketPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableBucketPolicy resources.
 type tableBucketPolicyState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Web Services resource-based policy document in JSON format.
+	Region         *string `pulumi:"region"`
 	ResourcePolicy *string `pulumi:"resourcePolicy"`
-	// ARN referencing the Table Bucket that owns this policy.
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 }
 
 type TableBucketPolicyState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Web Services resource-based policy document in JSON format.
+	Region         pulumi.StringPtrInput
 	ResourcePolicy pulumi.StringPtrInput
-	// ARN referencing the Table Bucket that owns this policy.
 	TableBucketArn pulumi.StringPtrInput
 }
 
@@ -134,21 +72,15 @@ func (TableBucketPolicyState) ElementType() reflect.Type {
 }
 
 type tableBucketPolicyArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Web Services resource-based policy document in JSON format.
-	ResourcePolicy string `pulumi:"resourcePolicy"`
-	// ARN referencing the Table Bucket that owns this policy.
-	TableBucketArn string `pulumi:"tableBucketArn"`
+	Region         *string `pulumi:"region"`
+	ResourcePolicy string  `pulumi:"resourcePolicy"`
+	TableBucketArn string  `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a TableBucketPolicy resource.
 type TableBucketPolicyArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Web Services resource-based policy document in JSON format.
+	Region         pulumi.StringPtrInput
 	ResourcePolicy pulumi.StringInput
-	// ARN referencing the Table Bucket that owns this policy.
 	TableBucketArn pulumi.StringInput
 }
 
@@ -239,17 +171,14 @@ func (o TableBucketPolicyOutput) ToTableBucketPolicyOutputWithContext(ctx contex
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableBucketPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Web Services resource-based policy document in JSON format.
 func (o TableBucketPolicyOutput) ResourcePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketPolicy) pulumi.StringOutput { return v.ResourcePolicy }).(pulumi.StringOutput)
 }
 
-// ARN referencing the Table Bucket that owns this policy.
 func (o TableBucketPolicyOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketPolicy) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }

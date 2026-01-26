@@ -14,9 +14,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude
     {
         public readonly string ApiKey;
-        /// <summary>
-        /// The Secret Access Key portion of the credentials.
-        /// </summary>
         public readonly string SecretKey;
 
         [OutputConstructor]

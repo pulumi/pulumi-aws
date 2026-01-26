@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides the ability to register a target with an AWS VPC Lattice Target Group.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.TargetGroupAttachment("example", {
- *     targetGroupIdentifier: exampleAwsVpclatticeTargetGroup.id,
- *     target: {
- *         id: exampleAwsLb.arn,
- *         port: 80,
- *     },
- * });
- * ```
- */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * Get an existing TargetGroupAttachment resource's state with the given name, ID, and optional extra
@@ -55,17 +35,8 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TargetGroupAttachment.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The target.
-     */
     declare public readonly target: pulumi.Output<outputs.vpclattice.TargetGroupAttachmentTarget>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
-     */
     declare public readonly targetGroupIdentifier: pulumi.Output<string>;
 
     /**
@@ -105,17 +76,8 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TargetGroupAttachment resources.
  */
 export interface TargetGroupAttachmentState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The target.
-     */
     target?: pulumi.Input<inputs.vpclattice.TargetGroupAttachmentTarget>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
-     */
     targetGroupIdentifier?: pulumi.Input<string>;
 }
 
@@ -123,16 +85,7 @@ export interface TargetGroupAttachmentState {
  * The set of arguments for constructing a TargetGroupAttachment resource.
  */
 export interface TargetGroupAttachmentArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The target.
-     */
     target: pulumi.Input<inputs.vpclattice.TargetGroupAttachmentTarget>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
-     */
     targetGroupIdentifier: pulumi.Input<string>;
 }

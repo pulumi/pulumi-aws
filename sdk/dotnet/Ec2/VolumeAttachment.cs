@@ -9,108 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides an AWS EBS Volume Attachment as a top level resource, to attach and
-    /// detach volumes from AWS Instances.
-    /// 
-    /// &gt; **NOTE on EBS block devices:** If you use `EbsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `EbsBlockDevice` cannot be mixed with external `aws.ebs.Volume` + `aws.ec2.VolumeAttachment` resources for a given instance.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var web = new Aws.Ec2.Instance("web", new()
-    ///     {
-    ///         Ami = "ami-21f78e11",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 1,
-    ///     });
-    /// 
-    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebs_att", new()
-    ///     {
-    ///         DeviceName = "/dev/sdh",
-    ///         VolumeId = example.Id,
-    ///         InstanceId = web.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/volumeAttachment:VolumeAttachment")]
     public partial class VolumeAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `Xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        /// </summary>
         [Output("deviceName")]
         public Output<string> DeviceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Set to `True` if you want to force the
-        /// volume to detach. Useful if previous attempts failed, but use this option only
-        /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        /// </summary>
         [Output("forceDetach")]
         public Output<bool?> ForceDetach { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Instance to attach to
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Set this to true if you do not wish
-        /// to detach the volume from the instance to which it is attached at destroy
-        /// time, and instead just remove the attachment from this provider state. This is
-        /// useful when destroying an instance which has volumes created by some other
-        /// means attached.
-        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// Set this to true to ensure that the target instance is stopped
-        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
-        /// </summary>
         [Output("stopInstanceBeforeDetaching")]
         public Output<bool?> StopInstanceBeforeDetaching { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Volume to be attached
-        /// </summary>
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
 
@@ -160,54 +79,24 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `Xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
-        /// <summary>
-        /// Set to `True` if you want to force the
-        /// volume to detach. Useful if previous attempts failed, but use this option only
-        /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }
 
-        /// <summary>
-        /// ID of the Instance to attach to
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Set this to true if you do not wish
-        /// to detach the volume from the instance to which it is attached at destroy
-        /// time, and instead just remove the attachment from this provider state. This is
-        /// useful when destroying an instance which has volumes created by some other
-        /// means attached.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
-        /// <summary>
-        /// Set this to true to ensure that the target instance is stopped
-        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
-        /// </summary>
         [Input("stopInstanceBeforeDetaching")]
         public Input<bool>? StopInstanceBeforeDetaching { get; set; }
 
-        /// <summary>
-        /// ID of the Volume to be attached
-        /// </summary>
         [Input("volumeId", required: true)]
         public Input<string> VolumeId { get; set; } = null!;
 
@@ -219,54 +108,24 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VolumeAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `Xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
-        /// <summary>
-        /// Set to `True` if you want to force the
-        /// volume to detach. Useful if previous attempts failed, but use this option only
-        /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }
 
-        /// <summary>
-        /// ID of the Instance to attach to
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Set this to true if you do not wish
-        /// to detach the volume from the instance to which it is attached at destroy
-        /// time, and instead just remove the attachment from this provider state. This is
-        /// useful when destroying an instance which has volumes created by some other
-        /// means attached.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
-        /// <summary>
-        /// Set this to true to ensure that the target instance is stopped
-        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
-        /// </summary>
         [Input("stopInstanceBeforeDetaching")]
         public Input<bool>? StopInstanceBeforeDetaching { get; set; }
 
-        /// <summary>
-        /// ID of the Volume to be attached
-        /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }
 

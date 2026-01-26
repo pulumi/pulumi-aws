@@ -13,26 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecification
     {
-        /// <summary>
-        /// Specifies whether the bot will wait for a user to respond.
-        /// When this field is `False`, wait and continue responses for a slot aren't used.
-        /// If the active field isn't specified, the default is `True`.
-        /// </summary>
         public readonly bool? Active;
-        /// <summary>
-        /// Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-        /// See the `ContinueResponse` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse> ContinueResponses;
-        /// <summary>
-        /// Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-        /// See the `StillWaitingResponse` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse> StillWaitingResponses;
-        /// <summary>
-        /// Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-        /// See the `WaitingResponse` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse> WaitingResponses;
 
         [OutputConstructor]

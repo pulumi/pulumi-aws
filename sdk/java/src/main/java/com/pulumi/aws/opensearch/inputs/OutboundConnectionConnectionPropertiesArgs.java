@@ -16,32 +16,16 @@ public final class OutboundConnectionConnectionPropertiesArgs extends com.pulumi
 
     public static final OutboundConnectionConnectionPropertiesArgs Empty = new OutboundConnectionConnectionPropertiesArgs();
 
-    /**
-     * Configuration block for cross cluster search.
-     * 
-     */
     @Import(name="crossClusterSearch")
     private @Nullable Output<OutboundConnectionConnectionPropertiesCrossClusterSearchArgs> crossClusterSearch;
 
-    /**
-     * @return Configuration block for cross cluster search.
-     * 
-     */
     public Optional<Output<OutboundConnectionConnectionPropertiesCrossClusterSearchArgs>> crossClusterSearch() {
         return Optional.ofNullable(this.crossClusterSearch);
     }
 
-    /**
-     * The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
-     * 
-     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
-    /**
-     * @return The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
-     * 
-     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
@@ -71,44 +55,20 @@ public final class OutboundConnectionConnectionPropertiesArgs extends com.pulumi
             $ = new OutboundConnectionConnectionPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param crossClusterSearch Configuration block for cross cluster search.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crossClusterSearch(@Nullable Output<OutboundConnectionConnectionPropertiesCrossClusterSearchArgs> crossClusterSearch) {
             $.crossClusterSearch = crossClusterSearch;
             return this;
         }
 
-        /**
-         * @param crossClusterSearch Configuration block for cross cluster search.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crossClusterSearch(OutboundConnectionConnectionPropertiesCrossClusterSearchArgs crossClusterSearch) {
             return crossClusterSearch(Output.of(crossClusterSearch));
         }
 
-        /**
-         * @param endpoint The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }

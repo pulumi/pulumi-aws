@@ -12,27 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The bitrate is specified in bits per second, as in an HLS manifest.
-        /// </summary>
         [Input("bandwidth")]
         public Input<int>? Bandwidth { get; set; }
 
-        /// <summary>
-        /// Buffer segments.
-        /// </summary>
         [Input("bufferSegments")]
         public Input<int>? BufferSegments { get; set; }
 
-        /// <summary>
-        /// The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-        /// </summary>
         [Input("retries")]
         public Input<int>? Retries { get; set; }
 
-        /// <summary>
-        /// The number of seconds between retries when an attempt to read a manifest or segment fails.
-        /// </summary>
         [Input("retryInterval")]
         public Input<int>? RetryInterval { get; set; }
 

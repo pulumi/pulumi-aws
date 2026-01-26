@@ -16,32 +16,16 @@ public final class DataQualityJobDefinitionDataQualityJobInputArgs extends com.p
 
     public static final DataQualityJobDefinitionDataQualityJobInputArgs Empty = new DataQualityJobDefinitionDataQualityJobInputArgs();
 
-    /**
-     * Input object for the batch transform job. Fields are documented below.
-     * 
-     */
     @Import(name="batchTransformInput")
     private @Nullable Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs> batchTransformInput;
 
-    /**
-     * @return Input object for the batch transform job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs>> batchTransformInput() {
         return Optional.ofNullable(this.batchTransformInput);
     }
 
-    /**
-     * Input object for the endpoint. Fields are documented below.
-     * 
-     */
     @Import(name="endpointInput")
     private @Nullable Output<DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs> endpointInput;
 
-    /**
-     * @return Input object for the endpoint. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs>> endpointInput() {
         return Optional.ofNullable(this.endpointInput);
     }
@@ -71,44 +55,20 @@ public final class DataQualityJobDefinitionDataQualityJobInputArgs extends com.p
             $ = new DataQualityJobDefinitionDataQualityJobInputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param batchTransformInput Input object for the batch transform job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchTransformInput(@Nullable Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs> batchTransformInput) {
             $.batchTransformInput = batchTransformInput;
             return this;
         }
 
-        /**
-         * @param batchTransformInput Input object for the batch transform job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchTransformInput(DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs batchTransformInput) {
             return batchTransformInput(Output.of(batchTransformInput));
         }
 
-        /**
-         * @param endpointInput Input object for the endpoint. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointInput(@Nullable Output<DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs> endpointInput) {
             $.endpointInput = endpointInput;
             return this;
         }
 
-        /**
-         * @param endpointInput Input object for the endpoint. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointInput(DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs endpointInput) {
             return endpointInput(Output.of(endpointInput));
         }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NotificationChannelFilters {
-    /**
-     * @return Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-     * 
-     */
     private @Nullable List<String> messageTypes;
-    /**
-     * @return Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-     * 
-     */
     private @Nullable List<String> severities;
 
     private NotificationChannelFilters() {}
-    /**
-     * @return Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-     * 
-     */
     public List<String> messageTypes() {
         return this.messageTypes == null ? List.of() : this.messageTypes;
     }
-    /**
-     * @return Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-     * 
-     */
     public List<String> severities() {
         return this.severities == null ? List.of() : this.severities;
     }

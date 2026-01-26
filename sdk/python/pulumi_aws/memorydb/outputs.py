@@ -38,10 +38,6 @@ class ClusterClusterEndpoint(dict):
     def __init__(__self__, *,
                  address: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str address: DNS hostname of the node.
-        :param _builtins.int port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
@@ -50,17 +46,11 @@ class ClusterClusterEndpoint(dict):
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[_builtins.str]:
-        """
-        DNS hostname of the node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         return pulumi.get(self, "port")
 
 
@@ -88,12 +78,6 @@ class ClusterShard(dict):
                  nodes: Optional[Sequence['outputs.ClusterShardNode']] = None,
                  num_nodes: Optional[_builtins.int] = None,
                  slots: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param Sequence['ClusterShardNodeArgs'] nodes: Set of nodes in this shard.
-        :param _builtins.int num_nodes: Number of individual nodes in this shard.
-        :param _builtins.str slots: Keyspace for this shard. Example: `0-16383`.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nodes is not None:
@@ -106,33 +90,21 @@ class ClusterShard(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def nodes(self) -> Optional[Sequence['outputs.ClusterShardNode']]:
-        """
-        Set of nodes in this shard.
-        """
         return pulumi.get(self, "nodes")
 
     @_builtins.property
     @pulumi.getter(name="numNodes")
     def num_nodes(self) -> Optional[_builtins.int]:
-        """
-        Number of individual nodes in this shard.
-        """
         return pulumi.get(self, "num_nodes")
 
     @_builtins.property
     @pulumi.getter
     def slots(self) -> Optional[_builtins.str]:
-        """
-        Keyspace for this shard. Example: `0-16383`.
-        """
         return pulumi.get(self, "slots")
 
 
@@ -162,11 +134,6 @@ class ClusterShardNode(dict):
                  create_time: Optional[_builtins.str] = None,
                  endpoints: Optional[Sequence['outputs.ClusterShardNodeEndpoint']] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str availability_zone: The Availability Zone in which the node resides.
-        :param _builtins.str create_time: The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        :param _builtins.str name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if create_time is not None:
@@ -179,17 +146,11 @@ class ClusterShardNode(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
-        """
-        The Availability Zone in which the node resides.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[_builtins.str]:
-        """
-        The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
@@ -200,9 +161,6 @@ class ClusterShardNode(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
 
@@ -211,10 +169,6 @@ class ClusterShardNodeEndpoint(dict):
     def __init__(__self__, *,
                  address: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str address: DNS hostname of the node.
-        :param _builtins.int port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
@@ -223,17 +177,11 @@ class ClusterShardNodeEndpoint(dict):
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[_builtins.str]:
-        """
-        DNS hostname of the node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         return pulumi.get(self, "port")
 
 
@@ -285,27 +233,17 @@ class ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: The name of the parameter.
-        :param _builtins.str value: The value of the parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value of the parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -361,22 +299,6 @@ class SnapshotClusterConfiguration(dict):
                  subnet_group_name: Optional[_builtins.str] = None,
                  topic_arn: Optional[_builtins.str] = None,
                  vpc_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str description: Description for the cluster.
-        :param _builtins.str engine: The engine that will run on cluster nodes.
-        :param _builtins.str engine_version: Version number of the engine used by the cluster.
-        :param _builtins.str maintenance_window: The weekly time range during which maintenance on the cluster is performed.
-        :param _builtins.str name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param _builtins.str node_type: Compute and memory capacity of the nodes in the cluster.
-        :param _builtins.int num_shards: Number of shards in the cluster.
-        :param _builtins.str parameter_group_name: Name of the parameter group associated with the cluster.
-        :param _builtins.int port: Port number on which the cluster accepts connections.
-        :param _builtins.int snapshot_retention_limit: Number of days for which MemoryDB retains automatic snapshots before deleting them.
-        :param _builtins.str snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-        :param _builtins.str subnet_group_name: Name of the subnet group used by the cluster.
-        :param _builtins.str topic_arn: ARN of the SNS topic to which cluster notifications are sent.
-        :param _builtins.str vpc_id: The VPC in which the cluster exists.
-        """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if engine is not None:
@@ -409,113 +331,71 @@ class SnapshotClusterConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description for the cluster.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[_builtins.str]:
-        """
-        The engine that will run on cluster nodes.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[_builtins.str]:
-        """
-        Version number of the engine used by the cluster.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[_builtins.str]:
-        """
-        The weekly time range during which maintenance on the cluster is performed.
-        """
         return pulumi.get(self, "maintenance_window")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[_builtins.str]:
-        """
-        Compute and memory capacity of the nodes in the cluster.
-        """
         return pulumi.get(self, "node_type")
 
     @_builtins.property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> Optional[_builtins.int]:
-        """
-        Number of shards in the cluster.
-        """
         return pulumi.get(self, "num_shards")
 
     @_builtins.property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the parameter group associated with the cluster.
-        """
         return pulumi.get(self, "parameter_group_name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        Port number on which the cluster accepts connections.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[_builtins.int]:
-        """
-        Number of days for which MemoryDB retains automatic snapshots before deleting them.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @_builtins.property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> Optional[_builtins.str]:
-        """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-        """
         return pulumi.get(self, "snapshot_window")
 
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the subnet group used by the cluster.
-        """
         return pulumi.get(self, "subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the SNS topic to which cluster notifications are sent.
-        """
         return pulumi.get(self, "topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
-        """
-        The VPC in which the cluster exists.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -542,11 +422,6 @@ class UserAuthenticationMode(dict):
                  type: _builtins.str,
                  password_count: Optional[_builtins.int] = None,
                  passwords: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str type: Specifies the authentication type. Valid values are: `password` or `iam`.
-        :param _builtins.int password_count: Number of passwords belonging to the user if `type` is set to `password`.
-        :param Sequence[_builtins.str] passwords: Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-        """
         pulumi.set(__self__, "type", type)
         if password_count is not None:
             pulumi.set(__self__, "password_count", password_count)
@@ -556,25 +431,16 @@ class UserAuthenticationMode(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Specifies the authentication type. Valid values are: `password` or `iam`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="passwordCount")
     def password_count(self) -> Optional[_builtins.int]:
-        """
-        Number of passwords belonging to the user if `type` is set to `password`.
-        """
         return pulumi.get(self, "password_count")
 
     @_builtins.property
     @pulumi.getter
     def passwords(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
 
@@ -583,27 +449,17 @@ class GetClusterClusterEndpointResult(dict):
     def __init__(__self__, *,
                  address: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str address: DNS hostname of the node.
-        :param _builtins.int port: Port number that this node is listening on.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        DNS hostname of the node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        Port number that this node is listening on.
-        """
         return pulumi.get(self, "port")
 
 
@@ -614,12 +470,6 @@ class GetClusterShardResult(dict):
                  nodes: Sequence['outputs.GetClusterShardNodeResult'],
                  num_nodes: _builtins.int,
                  slots: _builtins.str):
-        """
-        :param _builtins.str name: Name of the cluster.
-        :param Sequence['GetClusterShardNodeArgs'] nodes: Set of nodes in this shard.
-        :param _builtins.int num_nodes: Number of individual nodes in this shard.
-        :param _builtins.str slots: Keyspace for this shard. Example: `0-16383`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "nodes", nodes)
         pulumi.set(__self__, "num_nodes", num_nodes)
@@ -628,33 +478,21 @@ class GetClusterShardResult(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the cluster.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def nodes(self) -> Sequence['outputs.GetClusterShardNodeResult']:
-        """
-        Set of nodes in this shard.
-        """
         return pulumi.get(self, "nodes")
 
     @_builtins.property
     @pulumi.getter(name="numNodes")
     def num_nodes(self) -> _builtins.int:
-        """
-        Number of individual nodes in this shard.
-        """
         return pulumi.get(self, "num_nodes")
 
     @_builtins.property
     @pulumi.getter
     def slots(self) -> _builtins.str:
-        """
-        Keyspace for this shard. Example: `0-16383`.
-        """
         return pulumi.get(self, "slots")
 
 
@@ -665,11 +503,6 @@ class GetClusterShardNodeResult(dict):
                  create_time: _builtins.str,
                  endpoints: Sequence['outputs.GetClusterShardNodeEndpointResult'],
                  name: _builtins.str):
-        """
-        :param _builtins.str availability_zone: The Availability Zone in which the node resides.
-        :param _builtins.str create_time: The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        :param _builtins.str name: Name of the cluster.
-        """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "create_time", create_time)
         pulumi.set(__self__, "endpoints", endpoints)
@@ -678,17 +511,11 @@ class GetClusterShardNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The Availability Zone in which the node resides.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> _builtins.str:
-        """
-        The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
@@ -699,9 +526,6 @@ class GetClusterShardNodeResult(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the cluster.
-        """
         return pulumi.get(self, "name")
 
 
@@ -710,27 +534,17 @@ class GetClusterShardNodeEndpointResult(dict):
     def __init__(__self__, *,
                  address: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str address: DNS hostname of the node.
-        :param _builtins.int port: Port number that this node is listening on.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        DNS hostname of the node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        Port number that this node is listening on.
-        """
         return pulumi.get(self, "port")
 
 
@@ -739,27 +553,17 @@ class GetParameterGroupParameterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: Name of the parameter group.
-        :param _builtins.str value: Value of the parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the parameter group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value of the parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -780,22 +584,6 @@ class GetSnapshotClusterConfigurationResult(dict):
                  subnet_group_name: _builtins.str,
                  topic_arn: _builtins.str,
                  vpc_id: _builtins.str):
-        """
-        :param _builtins.str description: Description for the cluster.
-        :param _builtins.str engine: The engine that will run on cluster nodes.
-        :param _builtins.str engine_version: Version number of the engine used by the cluster.
-        :param _builtins.str maintenance_window: The weekly time range during which maintenance on the cluster is performed.
-        :param _builtins.str name: Name of the snapshot.
-        :param _builtins.str node_type: Compute and memory capacity of the nodes in the cluster.
-        :param _builtins.int num_shards: Number of shards in the cluster.
-        :param _builtins.str parameter_group_name: Name of the parameter group associated with the cluster.
-        :param _builtins.int port: Port number on which the cluster accepts connections.
-        :param _builtins.int snapshot_retention_limit: Number of days for which MemoryDB retains automatic snapshots before deleting them.
-        :param _builtins.str snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-        :param _builtins.str subnet_group_name: Name of the subnet group used by the cluster.
-        :param _builtins.str topic_arn: ARN of the SNS topic to which cluster notifications are sent.
-        :param _builtins.str vpc_id: The VPC in which the cluster exists.
-        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "engine_version", engine_version)
@@ -814,113 +602,71 @@ class GetSnapshotClusterConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description for the cluster.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> _builtins.str:
-        """
-        The engine that will run on cluster nodes.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> _builtins.str:
-        """
-        Version number of the engine used by the cluster.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> _builtins.str:
-        """
-        The weekly time range during which maintenance on the cluster is performed.
-        """
         return pulumi.get(self, "maintenance_window")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the snapshot.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> _builtins.str:
-        """
-        Compute and memory capacity of the nodes in the cluster.
-        """
         return pulumi.get(self, "node_type")
 
     @_builtins.property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> _builtins.int:
-        """
-        Number of shards in the cluster.
-        """
         return pulumi.get(self, "num_shards")
 
     @_builtins.property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> _builtins.str:
-        """
-        Name of the parameter group associated with the cluster.
-        """
         return pulumi.get(self, "parameter_group_name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        Port number on which the cluster accepts connections.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> _builtins.int:
-        """
-        Number of days for which MemoryDB retains automatic snapshots before deleting them.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @_builtins.property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> _builtins.str:
-        """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-        """
         return pulumi.get(self, "snapshot_window")
 
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> _builtins.str:
-        """
-        Name of the subnet group used by the cluster.
-        """
         return pulumi.get(self, "subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> _builtins.str:
-        """
-        ARN of the SNS topic to which cluster notifications are sent.
-        """
         return pulumi.get(self, "topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The VPC in which the cluster exists.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -929,27 +675,17 @@ class GetUserAuthenticationModeResult(dict):
     def __init__(__self__, *,
                  password_count: _builtins.int,
                  type: _builtins.str):
-        """
-        :param _builtins.int password_count: Number of passwords belonging to the user if `type` is set to `password`.
-        :param _builtins.str type: Type of authentication configured.
-        """
         pulumi.set(__self__, "password_count", password_count)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="passwordCount")
     def password_count(self) -> _builtins.int:
-        """
-        Number of passwords belonging to the user if `type` is set to `password`.
-        """
         return pulumi.get(self, "password_count")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of authentication configured.
-        """
         return pulumi.get(self, "type")
 
 

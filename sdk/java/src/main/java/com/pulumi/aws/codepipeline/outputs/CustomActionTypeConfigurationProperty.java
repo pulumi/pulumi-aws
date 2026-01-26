@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomActionTypeConfigurationProperty {
-    /**
-     * @return The description of the action configuration property.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Whether the configuration property is a key.
-     * 
-     */
     private Boolean key;
-    /**
-     * @return The name of the action configuration property.
-     * 
-     */
     private String name;
-    /**
-     * @return Indicates that the property will be used in conjunction with PollForJobs.
-     * 
-     */
     private @Nullable Boolean queryable;
-    /**
-     * @return Whether the configuration property is a required value.
-     * 
-     */
     private Boolean required;
-    /**
-     * @return Whether the configuration property is secret.
-     * 
-     */
     private Boolean secret;
-    /**
-     * @return The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-     * 
-     */
     private @Nullable String type;
 
     private CustomActionTypeConfigurationProperty() {}
-    /**
-     * @return The description of the action configuration property.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Whether the configuration property is a key.
-     * 
-     */
     public Boolean key() {
         return this.key;
     }
-    /**
-     * @return The name of the action configuration property.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Indicates that the property will be used in conjunction with PollForJobs.
-     * 
-     */
     public Optional<Boolean> queryable() {
         return Optional.ofNullable(this.queryable);
     }
-    /**
-     * @return Whether the configuration property is a required value.
-     * 
-     */
     public Boolean required() {
         return this.required;
     }
-    /**
-     * @return Whether the configuration property is secret.
-     * 
-     */
     public Boolean secret() {
         return this.secret;
     }
-    /**
-     * @return The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

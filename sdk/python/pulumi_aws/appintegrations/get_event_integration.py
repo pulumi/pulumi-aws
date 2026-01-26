@@ -56,33 +56,21 @@ class GetEventIntegrationResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the AppIntegrations Event Integration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the Event Integration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="eventFilters")
     def event_filters(self) -> Sequence['outputs.GetEventIntegrationEventFilterResult']:
-        """
-        A block that defines the configuration information for the event filter. The Event Filter block is documented below.
-        """
         return pulumi.get(self, "event_filters")
 
     @_builtins.property
     @pulumi.getter(name="eventbridgeBus")
     def eventbridge_bus(self) -> _builtins.str:
-        """
-        The EventBridge bus.
-        """
         return pulumi.get(self, "eventbridge_bus")
 
     @_builtins.property
@@ -106,9 +94,6 @@ class GetEventIntegrationResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Metadata that you can assign to help organize the report plans you create.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -133,21 +118,7 @@ def get_event_integration(name: Optional[_builtins.str] = None,
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventIntegrationResult:
     """
-    Use this data source to get information on an existing AppIntegrations Event Integration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appintegrations.get_event_integration(name="example")
-    ```
-
-
-    :param _builtins.str name: The AppIntegrations Event Integration name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -170,21 +141,7 @@ def get_event_integration_output(name: Optional[pulumi.Input[_builtins.str]] = N
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventIntegrationResult]:
     """
-    Use this data source to get information on an existing AppIntegrations Event Integration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appintegrations.get_event_integration(name="example")
-    ```
-
-
-    :param _builtins.str name: The AppIntegrations Event Integration name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

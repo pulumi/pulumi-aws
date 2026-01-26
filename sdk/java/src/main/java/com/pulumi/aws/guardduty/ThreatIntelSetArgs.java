@@ -18,107 +18,51 @@ public final class ThreatIntelSetArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ThreatIntelSetArgs Empty = new ThreatIntelSetArgs();
 
-    /**
-     * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-     * 
-     */
     @Import(name="activate", required=true)
     private Output<Boolean> activate;
 
-    /**
-     * @return Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-     * 
-     */
     public Output<Boolean> activate() {
         return this.activate;
     }
 
-    /**
-     * The detector ID of the GuardDuty.
-     * 
-     */
     @Import(name="detectorId", required=true)
     private Output<String> detectorId;
 
-    /**
-     * @return The detector ID of the GuardDuty.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
 
-    /**
-     * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-     * 
-     */
     @Import(name="format", required=true)
     private Output<String> format;
 
-    /**
-     * @return The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
 
-    /**
-     * The URI of the file that contains the ThreatIntelSet.
-     * 
-     */
     @Import(name="location", required=true)
     private Output<String> location;
 
-    /**
-     * @return The URI of the file that contains the ThreatIntelSet.
-     * 
-     */
     public Output<String> location() {
         return this.location;
     }
 
-    /**
-     * The friendly name to identify the ThreatIntelSet.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The friendly name to identify the ThreatIntelSet.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -153,149 +97,65 @@ public final class ThreatIntelSetArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ThreatIntelSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param activate Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder activate(Output<Boolean> activate) {
             $.activate = activate;
             return this;
         }
 
-        /**
-         * @param activate Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder activate(Boolean activate) {
             return activate(Output.of(activate));
         }
 
-        /**
-         * @param detectorId The detector ID of the GuardDuty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(Output<String> detectorId) {
             $.detectorId = detectorId;
             return this;
         }
 
-        /**
-         * @param detectorId The detector ID of the GuardDuty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
         }
 
-        /**
-         * @param format The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param location The URI of the file that contains the ThreatIntelSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location The URI of the file that contains the ThreatIntelSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param name The friendly name to identify the ThreatIntelSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The friendly name to identify the ThreatIntelSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

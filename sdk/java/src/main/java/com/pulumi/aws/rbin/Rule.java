@@ -20,110 +20,6 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS RBin Rule.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rbin.Rule;
- * import com.pulumi.aws.rbin.RuleArgs;
- * import com.pulumi.aws.rbin.inputs.RuleResourceTagArgs;
- * import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Rule("example", RuleArgs.builder()
- *             .description("Example tag-level retention rule")
- *             .resourceType("EBS_SNAPSHOT")
- *             .resourceTags(RuleResourceTagArgs.builder()
- *                 .resourceTagKey("tag_key")
- *                 .resourceTagValue("tag_value")
- *                 .build())
- *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
- *                 .retentionPeriodValue(10)
- *                 .retentionPeriodUnit("DAYS")
- *                 .build())
- *             .tags(Map.of("test_tag_key", "test_tag_value"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Region-Level Retention Rule
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rbin.Rule;
- * import com.pulumi.aws.rbin.RuleArgs;
- * import com.pulumi.aws.rbin.inputs.RuleExcludeResourceTagArgs;
- * import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Rule("example", RuleArgs.builder()
- *             .description("Example region-level retention rule with exclusion tags")
- *             .resourceType("EC2_IMAGE")
- *             .excludeResourceTags(RuleExcludeResourceTagArgs.builder()
- *                 .resourceTagKey("tag_key")
- *                 .resourceTagValue("tag_value")
- *                 .build())
- *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
- *                 .retentionPeriodValue(10)
- *                 .retentionPeriodUnit("DAYS")
- *                 .build())
- *             .tags(Map.of("test_tag_key", "test_tag_value"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import RBin Rule using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rbin/rule:Rule example examplerule
- * ```
- * 
- */
 @ResourceType(type="aws:rbin/rule:Rule")
 public class Rule extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -132,147 +28,63 @@ public class Rule extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Retention rule description.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Retention rule description.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-     * 
-     */
     @Export(name="excludeResourceTags", refs={List.class,RuleExcludeResourceTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleExcludeResourceTag>> excludeResourceTags;
 
-    /**
-     * @return Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-     * 
-     */
     public Output<Optional<List<RuleExcludeResourceTag>>> excludeResourceTags() {
         return Codegen.optional(this.excludeResourceTags);
     }
-    /**
-     * Information about the retention rule lock configuration. See `lockConfiguration` below.
-     * 
-     */
     @Export(name="lockConfiguration", refs={RuleLockConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RuleLockConfiguration> lockConfiguration;
 
-    /**
-     * @return Information about the retention rule lock configuration. See `lockConfiguration` below.
-     * 
-     */
     public Output<Optional<RuleLockConfiguration>> lockConfiguration() {
         return Codegen.optional(this.lockConfiguration);
     }
-    /**
-     * (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-     * 
-     */
     @Export(name="lockEndTime", refs={String.class}, tree="[0]")
     private Output<String> lockEndTime;
 
-    /**
-     * @return (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-     * 
-     */
     public Output<String> lockEndTime() {
         return this.lockEndTime;
     }
-    /**
-     * (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
-     * 
-     */
     @Export(name="lockState", refs={String.class}, tree="[0]")
     private Output<String> lockState;
 
-    /**
-     * @return (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
-     * 
-     */
     public Output<String> lockState() {
         return this.lockState;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-     * 
-     */
     @Export(name="resourceTags", refs={List.class,RuleResourceTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleResourceTag>> resourceTags;
 
-    /**
-     * @return Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-     * 
-     */
     public Output<Optional<List<RuleResourceTag>>> resourceTags() {
         return Codegen.optional(this.resourceTags);
     }
-    /**
-     * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-     * 
-     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
-    /**
-     * @return Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
-    /**
-     * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="retentionPeriod", refs={RuleRetentionPeriod.class}, tree="[0]")
     private Output<RuleRetentionPeriod> retentionPeriod;
 
-    /**
-     * @return Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<RuleRetentionPeriod> retentionPeriod() {
         return this.retentionPeriod;
     }
-    /**
-     * (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

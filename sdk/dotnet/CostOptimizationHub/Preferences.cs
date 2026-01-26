@@ -9,65 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CostOptimizationHub
 {
-    /// <summary>
-    /// Resource for managing AWS Cost Optimization Hub Preferences.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CostOptimizationHub.Preferences("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with all the arguments
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CostOptimizationHub.Preferences("example", new()
-    ///     {
-    ///         MemberAccountDiscountVisibility = "None",
-    ///         SavingsEstimationMode = "AfterDiscounts",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cost Optimization Hub Preferences using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:costoptimizationhub/preferences:Preferences")]
     public partial class Preferences : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        /// </summary>
         [Output("memberAccountDiscountVisibility")]
         public Output<string> MemberAccountDiscountVisibility { get; private set; } = null!;
 
-        /// <summary>
-        /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-        /// </summary>
         [Output("savingsEstimationMode")]
         public Output<string> SavingsEstimationMode { get; private set; } = null!;
 
@@ -117,15 +64,9 @@ namespace Pulumi.Aws.CostOptimizationHub
 
     public sealed class PreferencesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        /// </summary>
         [Input("memberAccountDiscountVisibility")]
         public Input<string>? MemberAccountDiscountVisibility { get; set; }
 
-        /// <summary>
-        /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-        /// </summary>
         [Input("savingsEstimationMode")]
         public Input<string>? SavingsEstimationMode { get; set; }
 
@@ -137,15 +78,9 @@ namespace Pulumi.Aws.CostOptimizationHub
 
     public sealed class PreferencesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        /// </summary>
         [Input("memberAccountDiscountVisibility")]
         public Input<string>? MemberAccountDiscountVisibility { get; set; }
 
-        /// <summary>
-        /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-        /// </summary>
         [Input("savingsEstimationMode")]
         public Input<string>? SavingsEstimationMode { get; set; }
 

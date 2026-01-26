@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionEphemeralStorageResult
     {
-        /// <summary>
-        /// Size of the Lambda function ephemeral storage (`/tmp`) in MB.
-        /// </summary>
         public readonly int Size;
 
         [OutputConstructor]

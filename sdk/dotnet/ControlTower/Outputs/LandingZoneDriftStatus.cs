@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ControlTower.Outputs
     [OutputType]
     public sealed class LandingZoneDriftStatus
     {
-        /// <summary>
-        /// The drift status of the landing zone.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

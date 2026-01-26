@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Outputs
     [OutputType]
     public sealed class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification
     {
-        /// <summary>
-        /// Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-        /// </summary>
         public readonly string PredefinedLoadMetricType;
-        /// <summary>
-        /// Identifies the resource associated with the metric type.
-        /// </summary>
         public readonly string? ResourceLabel;
 
         [OutputConstructor]

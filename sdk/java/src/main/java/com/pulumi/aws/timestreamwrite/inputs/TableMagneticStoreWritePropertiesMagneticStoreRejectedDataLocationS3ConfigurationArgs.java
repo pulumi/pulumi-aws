@@ -15,62 +15,30 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
 
     public static final TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs Empty = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs();
 
-    /**
-     * Bucket name of the customer S3 bucket.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return Bucket name of the customer S3 bucket.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-     * 
-     */
     @Import(name="encryptionOption")
     private @Nullable Output<String> encryptionOption;
 
-    /**
-     * @return Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-     * 
-     */
     public Optional<Output<String>> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
 
-    /**
-     * KMS key arn for the customer s3 location when encrypting with a KMS managed key.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return KMS key arn for the customer s3 location when encrypting with a KMS managed key.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Object key prefix for the customer S3 location.
-     * 
-     */
     @Import(name="objectKeyPrefix")
     private @Nullable Output<String> objectKeyPrefix;
 
-    /**
-     * @return Object key prefix for the customer S3 location.
-     * 
-     */
     public Optional<Output<String>> objectKeyPrefix() {
         return Optional.ofNullable(this.objectKeyPrefix);
     }
@@ -102,86 +70,38 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
             $ = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Bucket name of the customer S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Bucket name of the customer S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param encryptionOption Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(@Nullable Output<String> encryptionOption) {
             $.encryptionOption = encryptionOption;
             return this;
         }
 
-        /**
-         * @param encryptionOption Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(String encryptionOption) {
             return encryptionOption(Output.of(encryptionOption));
         }
 
-        /**
-         * @param kmsKeyId KMS key arn for the customer s3 location when encrypting with a KMS managed key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId KMS key arn for the customer s3 location when encrypting with a KMS managed key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param objectKeyPrefix Object key prefix for the customer S3 location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKeyPrefix(@Nullable Output<String> objectKeyPrefix) {
             $.objectKeyPrefix = objectKeyPrefix;
             return this;
         }
 
-        /**
-         * @param objectKeyPrefix Object key prefix for the customer S3 location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKeyPrefix(String objectKeyPrefix) {
             return objectKeyPrefix(Output.of(objectKeyPrefix));
         }

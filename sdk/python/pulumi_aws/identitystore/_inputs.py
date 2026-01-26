@@ -46,13 +46,7 @@ MYPY = False
 if not MYPY:
     class GroupExternalIdArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The issuer for an external identifier.
-        """
 elif False:
     GroupExternalIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -61,10 +55,6 @@ class GroupExternalIdArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  issuer: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: The identifier issued to this resource by an external identity provider.
-        :param pulumi.Input[_builtins.str] issuer: The issuer for an external identifier.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if issuer is not None:
@@ -73,9 +63,6 @@ class GroupExternalIdArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -85,9 +72,6 @@ class GroupExternalIdArgs:
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -98,37 +82,13 @@ class GroupExternalIdArgs:
 if not MYPY:
     class UserAddressesArgsDict(TypedDict):
         country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country that this address is in.
-        """
         formatted: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name that is typically displayed when the address is shown for display.
-        """
         locality: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address locality.
-        """
         postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of the address.
-        """
         primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true`, this is the primary address associated with the user.
-        """
         region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The region of the address.
-        """
         street_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The street of the address.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of address.
-        """
 elif False:
     UserAddressesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -143,16 +103,6 @@ class UserAddressesArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  street_address: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] country: The country that this address is in.
-        :param pulumi.Input[_builtins.str] formatted: The name that is typically displayed when the address is shown for display.
-        :param pulumi.Input[_builtins.str] locality: The address locality.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of the address.
-        :param pulumi.Input[_builtins.bool] primary: When `true`, this is the primary address associated with the user.
-        :param pulumi.Input[_builtins.str] region: The region of the address.
-        :param pulumi.Input[_builtins.str] street_address: The street of the address.
-        :param pulumi.Input[_builtins.str] type: The type of address.
-        """
         if country is not None:
             pulumi.set(__self__, "country", country)
         if formatted is not None:
@@ -173,9 +123,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The country that this address is in.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -185,9 +132,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name that is typically displayed when the address is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @formatted.setter
@@ -197,9 +141,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The address locality.
-        """
         return pulumi.get(self, "locality")
 
     @locality.setter
@@ -209,9 +150,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The postal code of the address.
-        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -221,9 +159,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When `true`, this is the primary address associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -233,9 +168,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region of the address.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -245,9 +177,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The street of the address.
-        """
         return pulumi.get(self, "street_address")
 
     @street_address.setter
@@ -257,9 +186,6 @@ class UserAddressesArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of address.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -270,17 +196,8 @@ class UserAddressesArgs:
 if not MYPY:
     class UserEmailsArgsDict(TypedDict):
         primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true`, this is the primary email associated with the user.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of email.
-        """
         value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address. This value must be unique across the identity store.
-        """
 elif False:
     UserEmailsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -290,11 +207,6 @@ class UserEmailsArgs:
                  primary: Optional[pulumi.Input[_builtins.bool]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] primary: When `true`, this is the primary email associated with the user.
-        :param pulumi.Input[_builtins.str] type: The type of email.
-        :param pulumi.Input[_builtins.str] value: The email address. This value must be unique across the identity store.
-        """
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
         if type is not None:
@@ -305,9 +217,6 @@ class UserEmailsArgs:
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When `true`, this is the primary email associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -317,9 +226,6 @@ class UserEmailsArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of email.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -329,9 +235,6 @@ class UserEmailsArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email address. This value must be unique across the identity store.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -342,13 +245,7 @@ class UserEmailsArgs:
 if not MYPY:
     class UserExternalIdArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The issuer for an external identifier.
-        """
 elif False:
     UserExternalIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -357,10 +254,6 @@ class UserExternalIdArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  issuer: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: The identifier issued to this resource by an external identity provider.
-        :param pulumi.Input[_builtins.str] issuer: The issuer for an external identifier.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if issuer is not None:
@@ -369,9 +262,6 @@ class UserExternalIdArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -381,9 +271,6 @@ class UserExternalIdArgs:
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -394,31 +281,11 @@ class UserExternalIdArgs:
 if not MYPY:
     class UserNameArgsDict(TypedDict):
         family_name: pulumi.Input[_builtins.str]
-        """
-        The family name of the user.
-        """
         given_name: pulumi.Input[_builtins.str]
-        """
-        The given name of the user.
-
-        The following arguments are optional:
-        """
         formatted: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name that is typically displayed when the name is shown for display.
-        """
         honorific_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The honorific prefix of the user.
-        """
         honorific_suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The honorific suffix of the user.
-        """
         middle_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The middle name of the user.
-        """
 elif False:
     UserNameArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -431,16 +298,6 @@ class UserNameArgs:
                  honorific_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  honorific_suffix: Optional[pulumi.Input[_builtins.str]] = None,
                  middle_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] family_name: The family name of the user.
-        :param pulumi.Input[_builtins.str] given_name: The given name of the user.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] formatted: The name that is typically displayed when the name is shown for display.
-        :param pulumi.Input[_builtins.str] honorific_prefix: The honorific prefix of the user.
-        :param pulumi.Input[_builtins.str] honorific_suffix: The honorific suffix of the user.
-        :param pulumi.Input[_builtins.str] middle_name: The middle name of the user.
-        """
         pulumi.set(__self__, "family_name", family_name)
         pulumi.set(__self__, "given_name", given_name)
         if formatted is not None:
@@ -455,9 +312,6 @@ class UserNameArgs:
     @_builtins.property
     @pulumi.getter(name="familyName")
     def family_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The family name of the user.
-        """
         return pulumi.get(self, "family_name")
 
     @family_name.setter
@@ -467,11 +321,6 @@ class UserNameArgs:
     @_builtins.property
     @pulumi.getter(name="givenName")
     def given_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The given name of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
@@ -481,9 +330,6 @@ class UserNameArgs:
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name that is typically displayed when the name is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @formatted.setter
@@ -493,9 +339,6 @@ class UserNameArgs:
     @_builtins.property
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The honorific prefix of the user.
-        """
         return pulumi.get(self, "honorific_prefix")
 
     @honorific_prefix.setter
@@ -505,9 +348,6 @@ class UserNameArgs:
     @_builtins.property
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The honorific suffix of the user.
-        """
         return pulumi.get(self, "honorific_suffix")
 
     @honorific_suffix.setter
@@ -517,9 +357,6 @@ class UserNameArgs:
     @_builtins.property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The middle name of the user.
-        """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
@@ -530,17 +367,8 @@ class UserNameArgs:
 if not MYPY:
     class UserPhoneNumbersArgsDict(TypedDict):
         primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of phone number.
-        """
         value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user's phone number.
-        """
 elif False:
     UserPhoneNumbersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -550,11 +378,6 @@ class UserPhoneNumbersArgs:
                  primary: Optional[pulumi.Input[_builtins.bool]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] primary: When `true`, this is the primary phone number associated with the user.
-        :param pulumi.Input[_builtins.str] type: The type of phone number.
-        :param pulumi.Input[_builtins.str] value: The user's phone number.
-        """
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
         if type is not None:
@@ -565,9 +388,6 @@ class UserPhoneNumbersArgs:
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -577,9 +397,6 @@ class UserPhoneNumbersArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of phone number.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -589,9 +406,6 @@ class UserPhoneNumbersArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user's phone number.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -602,15 +416,7 @@ class UserPhoneNumbersArgs:
 if not MYPY:
     class GetGroupAlternateIdentifierArgsDict(TypedDict):
         external_id: NotRequired['GetGroupAlternateIdentifierExternalIdArgsDict']
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
         unique_attribute: NotRequired['GetGroupAlternateIdentifierUniqueAttributeArgsDict']
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
-
-        > Exactly one of the above arguments must be provided.
-        """
 elif False:
     GetGroupAlternateIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -619,12 +425,6 @@ class GetGroupAlternateIdentifierArgs:
     def __init__(__self__, *,
                  external_id: Optional['GetGroupAlternateIdentifierExternalIdArgs'] = None,
                  unique_attribute: Optional['GetGroupAlternateIdentifierUniqueAttributeArgs'] = None):
-        """
-        :param 'GetGroupAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetGroupAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
-               
-               > Exactly one of the above arguments must be provided.
-        """
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if unique_attribute is not None:
@@ -633,9 +433,6 @@ class GetGroupAlternateIdentifierArgs:
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional['GetGroupAlternateIdentifierExternalIdArgs']:
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -645,11 +442,6 @@ class GetGroupAlternateIdentifierArgs:
     @_builtins.property
     @pulumi.getter(name="uniqueAttribute")
     def unique_attribute(self) -> Optional['GetGroupAlternateIdentifierUniqueAttributeArgs']:
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
-
-        > Exactly one of the above arguments must be provided.
-        """
         return pulumi.get(self, "unique_attribute")
 
     @unique_attribute.setter
@@ -660,13 +452,7 @@ class GetGroupAlternateIdentifierArgs:
 if not MYPY:
     class GetGroupAlternateIdentifierExternalIdArgsDict(TypedDict):
         id: _builtins.str
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         issuer: _builtins.str
-        """
-        The issuer for an external identifier.
-        """
 elif False:
     GetGroupAlternateIdentifierExternalIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -675,19 +461,12 @@ class GetGroupAlternateIdentifierExternalIdArgs:
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -697,9 +476,6 @@ class GetGroupAlternateIdentifierExternalIdArgs:
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -710,13 +486,7 @@ class GetGroupAlternateIdentifierExternalIdArgs:
 if not MYPY:
     class GetGroupAlternateIdentifierUniqueAttributeArgsDict(TypedDict):
         attribute_path: _builtins.str
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        """
         attribute_value: _builtins.str
-        """
-        Value for an attribute.
-        """
 elif False:
     GetGroupAlternateIdentifierUniqueAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -725,19 +495,12 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
     def __init__(__self__, *,
                  attribute_path: _builtins.str,
                  attribute_value: _builtins.str):
-        """
-        :param _builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        :param _builtins.str attribute_value: Value for an attribute.
-        """
         pulumi.set(__self__, "attribute_path", attribute_path)
         pulumi.set(__self__, "attribute_value", attribute_value)
 
     @_builtins.property
     @pulumi.getter(name="attributePath")
     def attribute_path(self) -> _builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        """
         return pulumi.get(self, "attribute_path")
 
     @attribute_path.setter
@@ -747,9 +510,6 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
     @_builtins.property
     @pulumi.getter(name="attributeValue")
     def attribute_value(self) -> _builtins.str:
-        """
-        Value for an attribute.
-        """
         return pulumi.get(self, "attribute_value")
 
     @attribute_value.setter
@@ -760,15 +520,7 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
 if not MYPY:
     class GetUserAlternateIdentifierArgsDict(TypedDict):
         external_id: NotRequired['GetUserAlternateIdentifierExternalIdArgsDict']
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
         unique_attribute: NotRequired['GetUserAlternateIdentifierUniqueAttributeArgsDict']
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
-
-        > Exactly one of the above arguments must be provided.
-        """
 elif False:
     GetUserAlternateIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -777,12 +529,6 @@ class GetUserAlternateIdentifierArgs:
     def __init__(__self__, *,
                  external_id: Optional['GetUserAlternateIdentifierExternalIdArgs'] = None,
                  unique_attribute: Optional['GetUserAlternateIdentifierUniqueAttributeArgs'] = None):
-        """
-        :param 'GetUserAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetUserAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
-               
-               > Exactly one of the above arguments must be provided.
-        """
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if unique_attribute is not None:
@@ -791,9 +537,6 @@ class GetUserAlternateIdentifierArgs:
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional['GetUserAlternateIdentifierExternalIdArgs']:
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -803,11 +546,6 @@ class GetUserAlternateIdentifierArgs:
     @_builtins.property
     @pulumi.getter(name="uniqueAttribute")
     def unique_attribute(self) -> Optional['GetUserAlternateIdentifierUniqueAttributeArgs']:
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
-
-        > Exactly one of the above arguments must be provided.
-        """
         return pulumi.get(self, "unique_attribute")
 
     @unique_attribute.setter
@@ -818,13 +556,7 @@ class GetUserAlternateIdentifierArgs:
 if not MYPY:
     class GetUserAlternateIdentifierExternalIdArgsDict(TypedDict):
         id: _builtins.str
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         issuer: _builtins.str
-        """
-        The issuer for an external identifier.
-        """
 elif False:
     GetUserAlternateIdentifierExternalIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -833,19 +565,12 @@ class GetUserAlternateIdentifierExternalIdArgs:
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -855,9 +580,6 @@ class GetUserAlternateIdentifierExternalIdArgs:
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -868,13 +590,7 @@ class GetUserAlternateIdentifierExternalIdArgs:
 if not MYPY:
     class GetUserAlternateIdentifierUniqueAttributeArgsDict(TypedDict):
         attribute_path: _builtins.str
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        """
         attribute_value: _builtins.str
-        """
-        Value for an attribute.
-        """
 elif False:
     GetUserAlternateIdentifierUniqueAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -883,19 +599,12 @@ class GetUserAlternateIdentifierUniqueAttributeArgs:
     def __init__(__self__, *,
                  attribute_path: _builtins.str,
                  attribute_value: _builtins.str):
-        """
-        :param _builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        :param _builtins.str attribute_value: Value for an attribute.
-        """
         pulumi.set(__self__, "attribute_path", attribute_path)
         pulumi.set(__self__, "attribute_value", attribute_value)
 
     @_builtins.property
     @pulumi.getter(name="attributePath")
     def attribute_path(self) -> _builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        """
         return pulumi.get(self, "attribute_path")
 
     @attribute_path.setter
@@ -905,9 +614,6 @@ class GetUserAlternateIdentifierUniqueAttributeArgs:
     @_builtins.property
     @pulumi.getter(name="attributeValue")
     def attribute_value(self) -> _builtins.str:
-        """
-        Value for an attribute.
-        """
         return pulumi.get(self, "attribute_value")
 
     @attribute_value.setter

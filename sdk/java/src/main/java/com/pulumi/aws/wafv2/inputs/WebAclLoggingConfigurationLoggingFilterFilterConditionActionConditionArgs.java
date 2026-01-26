@@ -14,17 +14,9 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
 
     public static final WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs();
 
-    /**
-     * Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<String> action;
 
-    /**
-     * @return Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
@@ -53,23 +45,11 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
             $ = new WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }

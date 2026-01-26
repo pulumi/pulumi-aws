@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolUsernameConfiguration
     {
-        /// <summary>
-        /// Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-        /// </summary>
         public readonly bool? CaseSensitive;
 
         [OutputConstructor]

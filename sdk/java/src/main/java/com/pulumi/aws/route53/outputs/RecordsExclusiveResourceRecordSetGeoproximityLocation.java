@@ -13,63 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecordsExclusiveResourceRecordSetGeoproximityLocation {
-    /**
-     * @return AWS region of the resource where DNS traffic is directed to.
-     * 
-     */
     private @Nullable String awsRegion;
-    /**
-     * @return Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-     * To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
-     * To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
-     * See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
-     * 
-     */
     private @Nullable Integer bias;
-    /**
-     * @return Coordinates for a geoproximity resource record.
-     * See `coordinates` below.
-     * 
-     */
     private @Nullable RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates coordinates;
-    /**
-     * @return AWS local zone group.
-     * Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
-     * 
-     */
     private @Nullable String localZoneGroup;
 
     private RecordsExclusiveResourceRecordSetGeoproximityLocation() {}
-    /**
-     * @return AWS region of the resource where DNS traffic is directed to.
-     * 
-     */
     public Optional<String> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
-    /**
-     * @return Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-     * To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
-     * To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
-     * See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
-     * 
-     */
     public Optional<Integer> bias() {
         return Optional.ofNullable(this.bias);
     }
-    /**
-     * @return Coordinates for a geoproximity resource record.
-     * See `coordinates` below.
-     * 
-     */
     public Optional<RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates> coordinates() {
         return Optional.ofNullable(this.coordinates);
     }
-    /**
-     * @return AWS local zone group.
-     * Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
-     * 
-     */
     public Optional<String> localZoneGroup() {
         return Optional.ofNullable(this.localZoneGroup);
     }

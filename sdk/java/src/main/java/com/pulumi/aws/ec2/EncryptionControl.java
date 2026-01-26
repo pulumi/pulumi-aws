@@ -18,58 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a VPC Encryption Control.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcEncryptionControl;
- * import com.pulumi.aws.ec2.VpcEncryptionControlArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
- *             .cidrBlock("10.1.0.0/16")
- *             .build());
- * 
- *         var example = new VpcEncryptionControl("example", VpcEncryptionControlArgs.builder()
- *             .vpcId(exampleVpc.id())
- *             .mode("monitor")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Encryption Control using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/encryptionControl:EncryptionControl example vpcec-12345678901234567
- * ```
- * 
  * @deprecated
  * aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl
  * 
@@ -77,207 +25,75 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.ec2/encryptioncontrol.EncryptionControl has been deprecated in favor of aws.ec2/vpcencryptioncontrol.VpcEncryptionControl */
 @ResourceType(type="aws:ec2/encryptionControl:EncryptionControl")
 public class EncryptionControl extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="egressOnlyInternetGatewayExclusion", refs={String.class}, tree="[0]")
     private Output<String> egressOnlyInternetGatewayExclusion;
 
-    /**
-     * @return Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> egressOnlyInternetGatewayExclusion() {
         return this.egressOnlyInternetGatewayExclusion;
     }
-    /**
-     * Whether to exclude Elastic File System (EFS) from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="elasticFileSystemExclusion", refs={String.class}, tree="[0]")
     private Output<String> elasticFileSystemExclusion;
 
-    /**
-     * @return Whether to exclude Elastic File System (EFS) from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> elasticFileSystemExclusion() {
         return this.elasticFileSystemExclusion;
     }
-    /**
-     * Whether to exclude Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="internetGatewayExclusion", refs={String.class}, tree="[0]")
     private Output<String> internetGatewayExclusion;
 
-    /**
-     * @return Whether to exclude Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> internetGatewayExclusion() {
         return this.internetGatewayExclusion;
     }
-    /**
-     * Whether to exclude Lambda Functions from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="lambdaExclusion", refs={String.class}, tree="[0]")
     private Output<String> lambdaExclusion;
 
-    /**
-     * @return Whether to exclude Lambda Functions from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> lambdaExclusion() {
         return this.lambdaExclusion;
     }
-    /**
-     * Mode to enable for VPC Encryption Control.
-     * Valid values are `monitor` or `enforce`.
-     * 
-     */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
-    /**
-     * @return Mode to enable for VPC Encryption Control.
-     * Valid values are `monitor` or `enforce`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
-    /**
-     * Whether to exclude NAT Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="natGatewayExclusion", refs={String.class}, tree="[0]")
     private Output<String> natGatewayExclusion;
 
-    /**
-     * @return Whether to exclude NAT Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> natGatewayExclusion() {
         return this.natGatewayExclusion;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of exclusions from encryption enforcement.
-     * Will be `nil` if `mode` is `monitor`.
-     * See `resourceExclusions` below
-     * 
-     */
     @Export(name="resourceExclusions", refs={EncryptionControlResourceExclusions.class}, tree="[0]")
     private Output<EncryptionControlResourceExclusions> resourceExclusions;
 
-    /**
-     * @return State of exclusions from encryption enforcement.
-     * Will be `nil` if `mode` is `monitor`.
-     * See `resourceExclusions` below
-     * 
-     */
     public Output<EncryptionControlResourceExclusions> resourceExclusions() {
         return this.resourceExclusions;
     }
-    /**
-     * The current state of the VPC Encryption Control.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return The current state of the VPC Encryption Control.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * A message providing additional information about the state of the VPC Encryption Control.
-     * 
-     */
     @Export(name="stateMessage", refs={String.class}, tree="[0]")
     private Output<String> stateMessage;
 
-    /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
-     * 
-     */
     public Output<String> stateMessage() {
         return this.stateMessage;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -287,81 +103,27 @@ public class EncryptionControl extends com.pulumi.resources.CustomResource {
     public Output<Optional<EncryptionControlTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Whether to exclude Virtual Private Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="virtualPrivateGatewayExclusion", refs={String.class}, tree="[0]")
     private Output<String> virtualPrivateGatewayExclusion;
 
-    /**
-     * @return Whether to exclude Virtual Private Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> virtualPrivateGatewayExclusion() {
         return this.virtualPrivateGatewayExclusion;
     }
-    /**
-     * The ID of the VPC the VPC Encryption Control is linked to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC the VPC Encryption Control is linked to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
-    /**
-     * Whether to exclude VPC Lattice from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="vpcLatticeExclusion", refs={String.class}, tree="[0]")
     private Output<String> vpcLatticeExclusion;
 
-    /**
-     * @return Whether to exclude VPC Lattice from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> vpcLatticeExclusion() {
         return this.vpcLatticeExclusion;
     }
-    /**
-     * Whether to exclude peered VPCs from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     @Export(name="vpcPeeringExclusion", refs={String.class}, tree="[0]")
     private Output<String> vpcPeeringExclusion;
 
-    /**
-     * @return Whether to exclude peered VPCs from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
-     * 
-     */
     public Output<String> vpcPeeringExclusion() {
         return this.vpcPeeringExclusion;
     }

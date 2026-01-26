@@ -16,174 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.redshift.SubnetGroup;
- * import com.pulumi.aws.redshift.SubnetGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Vpc("foo", VpcArgs.builder()
- *             .cidrBlock("10.1.0.0/16")
- *             .build());
- * 
- *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()
- *             .cidrBlock("10.1.1.0/24")
- *             .availabilityZone("us-west-2a")
- *             .vpcId(foo.id())
- *             .tags(Map.of("Name", "tf-dbsubnet-test-1"))
- *             .build());
- * 
- *         var bar = new Subnet("bar", SubnetArgs.builder()
- *             .cidrBlock("10.1.2.0/24")
- *             .availabilityZone("us-west-2b")
- *             .vpcId(foo.id())
- *             .tags(Map.of("Name", "tf-dbsubnet-test-2"))
- *             .build());
- * 
- *         var fooSubnetGroup = new SubnetGroup("fooSubnetGroup", SubnetGroupArgs.builder()
- *             .name("foo")
- *             .subnetIds(            
- *                 fooSubnet.id(),
- *                 bar.id())
- *             .tags(Map.of("environment", "Production"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift subnet groups using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/subnetGroup:SubnetGroup")
 public class SubnetGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Subnet group name
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Subnet group name
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The description of the Redshift Subnet group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The description of the Redshift Subnet group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The name of the Redshift Subnet group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Redshift Subnet group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * An array of VPC subnet IDs.
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return An array of VPC subnet IDs.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

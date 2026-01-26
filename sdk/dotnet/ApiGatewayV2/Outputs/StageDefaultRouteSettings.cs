@@ -13,27 +13,10 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
     [OutputType]
     public sealed class StageDefaultRouteSettings
     {
-        /// <summary>
-        /// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        /// Defaults to `False`. Supported only for WebSocket APIs.
-        /// </summary>
         public readonly bool? DataTraceEnabled;
-        /// <summary>
-        /// Whether detailed metrics are enabled for the default route. Defaults to `False`.
-        /// </summary>
         public readonly bool? DetailedMetricsEnabled;
-        /// <summary>
-        /// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        /// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-        /// </summary>
         public readonly string? LoggingLevel;
-        /// <summary>
-        /// Throttling burst limit for the default route.
-        /// </summary>
         public readonly int? ThrottlingBurstLimit;
-        /// <summary>
-        /// Throttling rate limit for the default route.
-        /// </summary>
         public readonly double? ThrottlingRateLimit;
 
         [OutputConstructor]

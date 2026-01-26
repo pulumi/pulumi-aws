@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
-    /**
-     * @return Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location s3Location;
-    /**
-     * @return Storage service used for this location. `S3` is the only valid value.
-     * 
-     */
     private String type;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation() {}
-    /**
-     * @return Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }
-    /**
-     * @return Storage service used for this location. `S3` is the only valid value.
-     * 
-     */
     public String type() {
         return this.type;
     }

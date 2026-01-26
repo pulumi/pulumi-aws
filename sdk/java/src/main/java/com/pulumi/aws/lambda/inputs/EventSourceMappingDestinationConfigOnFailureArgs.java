@@ -14,17 +14,9 @@ public final class EventSourceMappingDestinationConfigOnFailureArgs extends com.
 
     public static final EventSourceMappingDestinationConfigOnFailureArgs Empty = new EventSourceMappingDestinationConfigOnFailureArgs();
 
-    /**
-     * ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-     * 
-     */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
-    /**
-     * @return ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
@@ -53,23 +45,11 @@ public final class EventSourceMappingDestinationConfigOnFailureArgs extends com.
             $ = new EventSourceMappingDestinationConfigOnFailureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationArn ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }

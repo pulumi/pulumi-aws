@@ -57,9 +57,6 @@ class GetRecordsResult:
     @_builtins.property
     @pulumi.getter(name="resourceRecordSets")
     def resource_record_sets(self) -> Sequence['outputs.GetRecordsResourceRecordSetResult']:
-        """
-        The resource records sets.
-        """
         return pulumi.get(self, "resource_record_sets")
 
     @_builtins.property
@@ -84,40 +81,7 @@ def get_records(name_regex: Optional[_builtins.str] = None,
                 zone_id: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordsResult:
     """
-    Use this data source to get the details of resource records in a Route 53 hosted zone.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    Return all records in the zone.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    example = aws.route53.get_records(zone_id=selected.zone_id)
-    ```
-
-    ### Basic Usage with filter
-
-    Return the records that starts with `www`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    example = aws.route53.get_records(zone_id=selected.zone_id,
-        name_regex="^www")
-    ```
-
-
-    :param _builtins.str name_regex: Regex string to apply to the resource record names returned by AWS.
-    :param _builtins.str zone_id: The ID of the hosted zone that contains the resource record sets that you want to list.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex
@@ -134,40 +98,7 @@ def get_records_output(name_regex: Optional[pulumi.Input[Optional[_builtins.str]
                        zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordsResult]:
     """
-    Use this data source to get the details of resource records in a Route 53 hosted zone.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    Return all records in the zone.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    example = aws.route53.get_records(zone_id=selected.zone_id)
-    ```
-
-    ### Basic Usage with filter
-
-    Return the records that starts with `www`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    example = aws.route53.get_records(zone_id=selected.zone_id,
-        name_regex="^www")
-    ```
-
-
-    :param _builtins.str name_regex: Regex string to apply to the resource record names returned by AWS.
-    :param _builtins.str zone_id: The ID of the hosted zone that contains the resource record sets that you want to list.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex

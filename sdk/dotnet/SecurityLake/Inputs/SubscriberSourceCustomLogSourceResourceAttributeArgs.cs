@@ -12,21 +12,12 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
     public sealed class SubscriberSourceCustomLogSourceResourceAttributeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the AWS Glue crawler.
-        /// </summary>
         [Input("crawlerArn", required: true)]
         public Input<string> CrawlerArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the AWS Glue database where results are written.
-        /// </summary>
         [Input("databaseArn", required: true)]
         public Input<string> DatabaseArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the AWS Glue table.
-        /// </summary>
         [Input("tableArn", required: true)]
         public Input<string> TableArn { get; set; } = null!;
 

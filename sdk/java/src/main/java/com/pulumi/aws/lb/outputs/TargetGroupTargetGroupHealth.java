@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetGroupTargetGroupHealth {
-    /**
-     * @return Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
-     * 
-     */
     private @Nullable TargetGroupTargetGroupHealthDnsFailover dnsFailover;
-    /**
-     * @return Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
-     * 
-     */
     private @Nullable TargetGroupTargetGroupHealthUnhealthyStateRouting unhealthyStateRouting;
 
     private TargetGroupTargetGroupHealth() {}
-    /**
-     * @return Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
-     * 
-     */
     public Optional<TargetGroupTargetGroupHealthDnsFailover> dnsFailover() {
         return Optional.ofNullable(this.dnsFailover);
     }
-    /**
-     * @return Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
-     * 
-     */
     public Optional<TargetGroupTargetGroupHealthUnhealthyStateRouting> unhealthyStateRouting() {
         return Optional.ofNullable(this.unhealthyStateRouting);
     }

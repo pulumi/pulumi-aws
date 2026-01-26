@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationPolicyConfigurationPolicy {
-    /**
-     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
-     * 
-     */
     private @Nullable List<String> enabledStandardArns;
-    /**
-     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration securityControlsConfiguration;
-    /**
-     * @return Indicates whether Security Hub is enabled in the policy.
-     * 
-     */
     private Boolean serviceEnabled;
 
     private ConfigurationPolicyConfigurationPolicy() {}
-    /**
-     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
-     * 
-     */
     public List<String> enabledStandardArns() {
         return this.enabledStandardArns == null ? List.of() : this.enabledStandardArns;
     }
-    /**
-     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration> securityControlsConfiguration() {
         return Optional.ofNullable(this.securityControlsConfiguration);
     }
-    /**
-     * @return Indicates whether Security Hub is enabled in the policy.
-     * 
-     */
     public Boolean serviceEnabled() {
         return this.serviceEnabled;
     }

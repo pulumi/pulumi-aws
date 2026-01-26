@@ -14,17 +14,9 @@ public final class LoadBalancerIpamPoolsArgs extends com.pulumi.resources.Resour
 
     public static final LoadBalancerIpamPoolsArgs Empty = new LoadBalancerIpamPoolsArgs();
 
-    /**
-     * The ID of the IPv4 IPAM pool.
-     * 
-     */
     @Import(name="ipv4IpamPoolId", required=true)
     private Output<String> ipv4IpamPoolId;
 
-    /**
-     * @return The ID of the IPv4 IPAM pool.
-     * 
-     */
     public Output<String> ipv4IpamPoolId() {
         return this.ipv4IpamPoolId;
     }
@@ -53,23 +45,11 @@ public final class LoadBalancerIpamPoolsArgs extends com.pulumi.resources.Resour
             $ = new LoadBalancerIpamPoolsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipv4IpamPoolId The ID of the IPv4 IPAM pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4IpamPoolId(Output<String> ipv4IpamPoolId) {
             $.ipv4IpamPoolId = ipv4IpamPoolId;
             return this;
         }
 
-        /**
-         * @param ipv4IpamPoolId The ID of the IPv4 IPAM pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4IpamPoolId(String ipv4IpamPoolId) {
             return ipv4IpamPoolId(Output.of(ipv4IpamPoolId));
         }

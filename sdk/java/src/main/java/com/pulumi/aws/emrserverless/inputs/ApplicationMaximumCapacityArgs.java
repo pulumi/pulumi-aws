@@ -16,47 +16,23 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
 
     public static final ApplicationMaximumCapacityArgs Empty = new ApplicationMaximumCapacityArgs();
 
-    /**
-     * The maximum allowed CPU for an application.
-     * 
-     */
     @Import(name="cpu", required=true)
     private Output<String> cpu;
 
-    /**
-     * @return The maximum allowed CPU for an application.
-     * 
-     */
     public Output<String> cpu() {
         return this.cpu;
     }
 
-    /**
-     * The maximum allowed disk for an application.
-     * 
-     */
     @Import(name="disk")
     private @Nullable Output<String> disk;
 
-    /**
-     * @return The maximum allowed disk for an application.
-     * 
-     */
     public Optional<Output<String>> disk() {
         return Optional.ofNullable(this.disk);
     }
 
-    /**
-     * The maximum allowed resources for an application.
-     * 
-     */
     @Import(name="memory", required=true)
     private Output<String> memory;
 
-    /**
-     * @return The maximum allowed resources for an application.
-     * 
-     */
     public Output<String> memory() {
         return this.memory;
     }
@@ -87,65 +63,29 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
             $ = new ApplicationMaximumCapacityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cpu The maximum allowed CPU for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(Output<String> cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param cpu The maximum allowed CPU for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(String cpu) {
             return cpu(Output.of(cpu));
         }
 
-        /**
-         * @param disk The maximum allowed disk for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disk(@Nullable Output<String> disk) {
             $.disk = disk;
             return this;
         }
 
-        /**
-         * @param disk The maximum allowed disk for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disk(String disk) {
             return disk(Output.of(disk));
         }
 
-        /**
-         * @param memory The maximum allowed resources for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(Output<String> memory) {
             $.memory = memory;
             return this;
         }
 
-        /**
-         * @param memory The maximum allowed resources for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(String memory) {
             return memory(Output.of(memory));
         }

@@ -278,10 +278,6 @@ class EnvironmentProfileUserParameter(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the environment profile parameter.
-        :param _builtins.str value: Value of the environment profile parameter.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -290,17 +286,11 @@ class EnvironmentProfileUserParameter(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the environment profile parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        Value of the environment profile parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -311,10 +301,6 @@ class EnvironmentProvisionedResource(dict):
                  provider: _builtins.str,
                  type: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: The name of the environment.
-        :param _builtins.str value: The value of an environment profile parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "type", type)
@@ -323,9 +309,6 @@ class EnvironmentProvisionedResource(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -341,9 +324,6 @@ class EnvironmentProvisionedResource(dict):
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value of an environment profile parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -395,10 +375,6 @@ class EnvironmentUserParameter(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of an environment profile parameter.
-        :param _builtins.str value: The value of an environment profile parameter.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -407,17 +383,11 @@ class EnvironmentUserParameter(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of an environment profile parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value of an environment profile parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -426,27 +396,17 @@ class FormTypeImport(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  revision: _builtins.str):
-        """
-        :param _builtins.str name: Name of the form type. Must be the name of the structure in smithy document.
-        :param _builtins.str revision: Revision of the Form Type.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "revision", revision)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the form type. Must be the name of the structure in smithy document.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def revision(self) -> _builtins.str:
-        """
-        Revision of the Form Type.
-        """
         return pulumi.get(self, "revision")
 
 
@@ -454,21 +414,11 @@ class FormTypeImport(dict):
 class FormTypeModel(dict):
     def __init__(__self__, *,
                  smithy: _builtins.str):
-        """
-        :param _builtins.str smithy: Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "smithy", smithy)
 
     @_builtins.property
     @pulumi.getter
     def smithy(self) -> _builtins.str:
-        """
-        Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "smithy")
 
 
@@ -513,9 +463,6 @@ class GlossaryTermTermRelations(dict):
     def __init__(__self__, *,
                  classifies: Optional[Sequence[_builtins.str]] = None,
                  is_as: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] classifies: String array that calssifies the term relations.
-        """
         if classifies is not None:
             pulumi.set(__self__, "classifies", classifies)
         if is_as is not None:
@@ -524,9 +471,6 @@ class GlossaryTermTermRelations(dict):
     @_builtins.property
     @pulumi.getter
     def classifies(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        String array that calssifies the term relations.
-        """
         return pulumi.get(self, "classifies")
 
     @_builtins.property

@@ -19,99 +19,43 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionTenantResult {
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     private String arn;
-    /**
-     * @return The CloudFront connection group the tenant is associated with.
-     * 
-     */
     private String connectionGroupId;
     private List<GetDistributionTenantCustomization> customizations;
-    /**
-     * @return The ID of the CloudFront distribution the tenant is associated with.
-     * 
-     */
     private String distributionId;
     private @Nullable String domain;
-    /**
-     * @return List of domains for the distribution tenant.
-     * 
-     */
     private List<GetDistributionTenantDomain> domains;
-    /**
-     * @return Whether the distribution tenant is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Current version of the distribution tenant&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
-     * 
-     */
     private String etag;
     private String id;
     private List<GetDistributionTenantManagedCertificateRequest> managedCertificateRequests;
     private String name;
     private List<GetDistributionTenantParameter> parameters;
-    /**
-     * @return Current status of the distribution tenant. `Deployed` if the
-     * distribution tenant&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     private String status;
     private Map<String,String> tags;
 
     private GetDistributionTenantResult() {}
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The CloudFront connection group the tenant is associated with.
-     * 
-     */
     public String connectionGroupId() {
         return this.connectionGroupId;
     }
     public List<GetDistributionTenantCustomization> customizations() {
         return this.customizations;
     }
-    /**
-     * @return The ID of the CloudFront distribution the tenant is associated with.
-     * 
-     */
     public String distributionId() {
         return this.distributionId;
     }
     public Optional<String> domain() {
         return Optional.ofNullable(this.domain);
     }
-    /**
-     * @return List of domains for the distribution tenant.
-     * 
-     */
     public List<GetDistributionTenantDomain> domains() {
         return this.domains;
     }
-    /**
-     * @return Whether the distribution tenant is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Current version of the distribution tenant&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
-     * 
-     */
     public String etag() {
         return this.etag;
     }
@@ -127,12 +71,6 @@ public final class GetDistributionTenantResult {
     public List<GetDistributionTenantParameter> parameters() {
         return this.parameters;
     }
-    /**
-     * @return Current status of the distribution tenant. `Deployed` if the
-     * distribution tenant&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     public String status() {
         return this.status;
     }

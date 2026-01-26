@@ -15,47 +15,23 @@ public final class DelegatedAdminAccountState extends com.pulumi.resources.Resou
 
     public static final DelegatedAdminAccountState Empty = new DelegatedAdminAccountState();
 
-    /**
-     * Account to enable as delegated admin account.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return Account to enable as delegated admin account.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Status of this delegated admin account.
-     * 
-     */
     @Import(name="relationshipStatus")
     private @Nullable Output<String> relationshipStatus;
 
-    /**
-     * @return Status of this delegated admin account.
-     * 
-     */
     public Optional<Output<String>> relationshipStatus() {
         return Optional.ofNullable(this.relationshipStatus);
     }
@@ -86,65 +62,29 @@ public final class DelegatedAdminAccountState extends com.pulumi.resources.Resou
             $ = new DelegatedAdminAccountState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Account to enable as delegated admin account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Account to enable as delegated admin account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param relationshipStatus Status of this delegated admin account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relationshipStatus(@Nullable Output<String> relationshipStatus) {
             $.relationshipStatus = relationshipStatus;
             return this;
         }
 
-        /**
-         * @param relationshipStatus Status of this delegated admin account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relationshipStatus(String relationshipStatus) {
             return relationshipStatus(Output.of(relationshipStatus));
         }

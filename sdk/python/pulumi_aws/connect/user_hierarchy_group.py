@@ -28,12 +28,6 @@ class UserHierarchyGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserHierarchyGroup resource.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
-        :param pulumi.Input[_builtins.str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         if name is not None:
@@ -48,9 +42,6 @@ class UserHierarchyGroupArgs:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -60,9 +51,6 @@ class UserHierarchyGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -72,9 +60,6 @@ class UserHierarchyGroupArgs:
     @_builtins.property
     @pulumi.getter(name="parentGroupId")
     def parent_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-        """
         return pulumi.get(self, "parent_group_id")
 
     @parent_group_id.setter
@@ -84,9 +69,6 @@ class UserHierarchyGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,10 +78,6 @@ class UserHierarchyGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the hierarchy group. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,17 +100,6 @@ class _UserHierarchyGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering UserHierarchyGroup resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
-        :param pulumi.Input[_builtins.str] hierarchy_group_id: The identifier for the hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[_builtins.str] level_id: The identifier of the level in the hierarchy group.
-        :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
-        :param pulumi.Input[_builtins.str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -158,9 +125,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -170,9 +134,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter(name="hierarchyGroupId")
     def hierarchy_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the hierarchy group.
-        """
         return pulumi.get(self, "hierarchy_group_id")
 
     @hierarchy_group_id.setter
@@ -182,9 +143,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter(name="hierarchyPaths")
     def hierarchy_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]]:
-        """
-        A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
-        """
         return pulumi.get(self, "hierarchy_paths")
 
     @hierarchy_paths.setter
@@ -194,9 +152,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -206,9 +161,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter(name="levelId")
     def level_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the level in the hierarchy group.
-        """
         return pulumi.get(self, "level_id")
 
     @level_id.setter
@@ -218,9 +170,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -230,9 +179,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter(name="parentGroupId")
     def parent_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-        """
         return pulumi.get(self, "parent_group_id")
 
     @parent_group_id.setter
@@ -242,9 +188,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -254,10 +197,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the hierarchy group. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -267,9 +206,6 @@ class _UserHierarchyGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -290,64 +226,9 @@ class UserHierarchyGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Amazon Connect User Hierarchy Group resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        > **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.UserHierarchyGroup("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="example",
-            tags={
-                "Name": "Example User Hierarchy Group",
-            })
-        ```
-
-        ### With a parent group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.connect.UserHierarchyGroup("parent",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="parent",
-            tags={
-                "Name": "Example User Hierarchy Group Parent",
-            })
-        child = aws.connect.UserHierarchyGroup("child",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="child",
-            parent_group_id=parent.hierarchy_group_id,
-            tags={
-                "Name": "Example User Hierarchy Group Child",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a UserHierarchyGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
-        :param pulumi.Input[_builtins.str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -356,56 +237,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
                  args: UserHierarchyGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Connect User Hierarchy Group resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        > **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.UserHierarchyGroup("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="example",
-            tags={
-                "Name": "Example User Hierarchy Group",
-            })
-        ```
-
-        ### With a parent group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.connect.UserHierarchyGroup("parent",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="parent",
-            tags={
-                "Name": "Example User Hierarchy Group Parent",
-            })
-        child = aws.connect.UserHierarchyGroup("child",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="child",
-            parent_group_id=parent.hierarchy_group_id,
-            tags={
-                "Name": "Example User Hierarchy Group Child",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a UserHierarchyGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserHierarchyGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -474,17 +306,6 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
-        :param pulumi.Input[_builtins.str] hierarchy_group_id: The identifier for the hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict']]]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[_builtins.str] level_id: The identifier of the level in the hierarchy group.
-        :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
-        :param pulumi.Input[_builtins.str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -505,81 +326,50 @@ class UserHierarchyGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="hierarchyGroupId")
     def hierarchy_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for the hierarchy group.
-        """
         return pulumi.get(self, "hierarchy_group_id")
 
     @_builtins.property
     @pulumi.getter(name="hierarchyPaths")
     def hierarchy_paths(self) -> pulumi.Output[Sequence['outputs.UserHierarchyGroupHierarchyPath']]:
-        """
-        A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
-        """
         return pulumi.get(self, "hierarchy_paths")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="levelId")
     def level_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the level in the hierarchy group.
-        """
         return pulumi.get(self, "level_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="parentGroupId")
     def parent_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-        """
         return pulumi.get(self, "parent_group_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the hierarchy group. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

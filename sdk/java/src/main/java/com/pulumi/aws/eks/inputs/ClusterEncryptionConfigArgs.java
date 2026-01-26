@@ -16,32 +16,16 @@ public final class ClusterEncryptionConfigArgs extends com.pulumi.resources.Reso
 
     public static final ClusterEncryptionConfigArgs Empty = new ClusterEncryptionConfigArgs();
 
-    /**
-     * Configuration block with provider for encryption. Detailed below.
-     * 
-     */
     @Import(name="provider", required=true)
     private Output<ClusterEncryptionConfigProviderArgs> provider;
 
-    /**
-     * @return Configuration block with provider for encryption. Detailed below.
-     * 
-     */
     public Output<ClusterEncryptionConfigProviderArgs> provider() {
         return this.provider;
     }
 
-    /**
-     * List of strings with resources to be encrypted. Valid values: `secrets`.
-     * 
-     */
     @Import(name="resources", required=true)
     private Output<List<String>> resources;
 
-    /**
-     * @return List of strings with resources to be encrypted. Valid values: `secrets`.
-     * 
-     */
     public Output<List<String>> resources() {
         return this.resources;
     }
@@ -71,54 +55,24 @@ public final class ClusterEncryptionConfigArgs extends com.pulumi.resources.Reso
             $ = new ClusterEncryptionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param provider Configuration block with provider for encryption. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provider(Output<ClusterEncryptionConfigProviderArgs> provider) {
             $.provider = provider;
             return this;
         }
 
-        /**
-         * @param provider Configuration block with provider for encryption. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provider(ClusterEncryptionConfigProviderArgs provider) {
             return provider(Output.of(provider));
         }
 
-        /**
-         * @param resources List of strings with resources to be encrypted. Valid values: `secrets`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(Output<List<String>> resources) {
             $.resources = resources;
             return this;
         }
 
-        /**
-         * @param resources List of strings with resources to be encrypted. Valid values: `secrets`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(List<String> resources) {
             return resources(Output.of(resources));
         }
 
-        /**
-         * @param resources List of strings with resources to be encrypted. Valid values: `secrets`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(String... resources) {
             return resources(List.of(resources));
         }

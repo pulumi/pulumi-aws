@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformRenameColumnOperation {
-    /**
-     * @return Column to be renamed.
-     * 
-     */
     private String columnName;
-    /**
-     * @return New name for the column.
-     * 
-     */
     private String newColumnName;
 
     private DataSetLogicalTableMapDataTransformRenameColumnOperation() {}
-    /**
-     * @return Column to be renamed.
-     * 
-     */
     public String columnName() {
         return this.columnName;
     }
-    /**
-     * @return New name for the column.
-     * 
-     */
     public String newColumnName() {
         return this.newColumnName;
     }

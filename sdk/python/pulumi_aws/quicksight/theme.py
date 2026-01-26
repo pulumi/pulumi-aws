@@ -32,16 +32,6 @@ class ThemeArgs:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Theme resource.
-        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
-               
-               The following arguments are optional:
-        :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
-        :param pulumi.Input[_builtins.str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current theme version being created/updated.
         """
         pulumi.set(__self__, "base_theme_id", base_theme_id)
         pulumi.set(__self__, "theme_id", theme_id)
@@ -63,9 +53,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        """
         return pulumi.get(self, "base_theme_id")
 
     @base_theme_id.setter
@@ -75,11 +62,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter(name="themeId")
     def theme_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the theme.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "theme_id")
 
     @theme_id.setter
@@ -98,9 +80,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
-        """
-        The theme configuration, which contains the theme display properties. See configuration.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -110,9 +89,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name of the theme.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -122,9 +98,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]]:
-        """
-        A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -134,9 +107,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,9 +116,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -158,9 +125,6 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the current theme version being created/updated.
-        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -188,22 +152,6 @@ class _ThemeState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Theme resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the theme.
-        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
-        :param pulumi.Input[_builtins.str] created_time: The time that the theme was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the theme was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The theme creation status.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] version_description: A description of the current theme version being created/updated.
-        :param pulumi.Input[_builtins.int] version_number: The version number of the theme version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -239,9 +187,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the theme.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -260,9 +205,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        """
         return pulumi.get(self, "base_theme_id")
 
     @base_theme_id.setter
@@ -272,9 +214,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
-        """
-        The theme configuration, which contains the theme display properties. See configuration.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -284,9 +223,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time that the theme was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -296,9 +232,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time that the theme was last updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
@@ -308,9 +241,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name of the theme.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -320,9 +250,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]]:
-        """
-        A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -332,9 +259,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -344,9 +268,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The theme creation status.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -356,9 +277,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -368,9 +286,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -380,11 +295,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="themeId")
     def theme_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the theme.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "theme_id")
 
     @theme_id.setter
@@ -394,9 +304,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the current theme version being created/updated.
-        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -406,9 +313,6 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The version number of the theme version.
-        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -433,63 +337,9 @@ class Theme(pulumi.CustomResource):
                  version_description: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing a QuickSight Theme.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Theme("example",
-            theme_id="example",
-            name="example",
-            base_theme_id="MIDNIGHT",
-            configuration={
-                "data_color_palette": {
-                    "colors": [
-                        "#FFFFFF",
-                        "#111111",
-                        "#222222",
-                        "#333333",
-                        "#444444",
-                        "#555555",
-                        "#666666",
-                        "#777777",
-                        "#888888",
-                        "#999999",
-                    ],
-                    "empty_fill_color": "#FFFFFF",
-                    "min_max_gradients": [
-                        "#FFFFFF",
-                        "#111111",
-                    ],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
-        ```
-
+        Create a Theme resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
-        :param pulumi.Input[_builtins.str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] version_description: A description of the current theme version being created/updated.
         """
         ...
     @overload
@@ -498,51 +348,7 @@ class Theme(pulumi.CustomResource):
                  args: ThemeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing a QuickSight Theme.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Theme("example",
-            theme_id="example",
-            name="example",
-            base_theme_id="MIDNIGHT",
-            configuration={
-                "data_color_palette": {
-                    "colors": [
-                        "#FFFFFF",
-                        "#111111",
-                        "#222222",
-                        "#333333",
-                        "#444444",
-                        "#555555",
-                        "#666666",
-                        "#777777",
-                        "#888888",
-                        "#999999",
-                    ],
-                    "empty_fill_color": "#FFFFFF",
-                    "min_max_gradients": [
-                        "#FFFFFF",
-                        "#111111",
-                    ],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
-        ```
-
+        Create a Theme resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ThemeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -627,22 +433,6 @@ class Theme(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the theme.
-        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
-        :param pulumi.Input[_builtins.str] created_time: The time that the theme was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the theme was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The theme creation status.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] version_description: A description of the current theme version being created/updated.
-        :param pulumi.Input[_builtins.int] version_number: The version number of the theme version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -668,9 +458,6 @@ class Theme(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the theme.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -681,106 +468,65 @@ class Theme(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        """
         return pulumi.get(self, "base_theme_id")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.ThemeConfiguration']]:
-        """
-        The theme configuration, which contains the theme display properties. See configuration.
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time that the theme was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time that the theme was last updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Display name of the theme.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.ThemePermission']]]:
-        """
-        A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The theme creation status.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="themeId")
     def theme_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the theme.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "theme_id")
 
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the current theme version being created/updated.
-        """
         return pulumi.get(self, "version_description")
 
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        The version number of the theme version.
-        """
         return pulumi.get(self, "version_number")
 

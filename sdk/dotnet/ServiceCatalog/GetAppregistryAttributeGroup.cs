@@ -11,81 +11,12 @@ namespace Pulumi.Aws.ServiceCatalog
 {
     public static class GetAppregistryAttributeGroup
     {
-        /// <summary>
-        /// Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetAppregistryAttributeGroup.Invoke(new()
-        ///     {
-        ///         Name = "example_attribute_group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAppregistryAttributeGroupResult> InvokeAsync(GetAppregistryAttributeGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppregistryAttributeGroupResult>("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", args ?? new GetAppregistryAttributeGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetAppregistryAttributeGroup.Invoke(new()
-        ///     {
-        ///         Name = "example_attribute_group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAppregistryAttributeGroupResult> Invoke(GetAppregistryAttributeGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppregistryAttributeGroupResult>("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", args ?? new GetAppregistryAttributeGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetAppregistryAttributeGroup.Invoke(new()
-        ///     {
-        ///         Name = "example_attribute_group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAppregistryAttributeGroupResult> Invoke(GetAppregistryAttributeGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppregistryAttributeGroupResult>("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", args ?? new GetAppregistryAttributeGroupInvokeArgs(), options.WithDefaults());
     }
@@ -93,28 +24,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetAppregistryAttributeGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the Attribute Group to find.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the Attribute Group to find.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Name of the Attribute Group to find.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; Exactly one of `Arn`, `Id`, or `Name` must be set.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -126,28 +44,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetAppregistryAttributeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the Attribute Group to find.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the Attribute Group to find.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the Attribute Group to find.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; Exactly one of `Arn`, `Id`, or `Name` must be set.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,20 +67,11 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetAppregistryAttributeGroupResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// A JSON string of nested key-value pairs that represents the attributes of the group.
-        /// </summary>
         public readonly string Attributes;
-        /// <summary>
-        /// Description of the Attribute Group.
-        /// </summary>
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// A map of tags assigned to the Attribute Group. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

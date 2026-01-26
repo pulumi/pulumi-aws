@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion {
-    /**
-     * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-     * 
-     */
     private @Nullable String comparator;
-    /**
-     * @return The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-     * 
-     */
     private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue> tagValues;
 
     private ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion() {}
-    /**
-     * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-     * 
-     */
     public Optional<String> comparator() {
         return Optional.ofNullable(this.comparator);
     }
-    /**
-     * @return The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-     * 
-     */
     public List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue> tagValues() {
         return this.tagValues == null ? List.of() : this.tagValues;
     }

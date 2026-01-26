@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class WorkforceCognitoConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The client ID for your Amazon Cognito user pool.
-        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
-        /// <summary>
-        /// ID for your Amazon Cognito user pool.
-        /// </summary>
         [Input("userPool", required: true)]
         public Input<string> UserPool { get; set; } = null!;
 

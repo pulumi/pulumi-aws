@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAdvancedSecurityOptions {
-    /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
-     * 
-     */
     private @Nullable Boolean anonymousAuthEnabled;
-    /**
-     * @return Whether advanced security is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Whether the internal user database is enabled. Default is `false`.
-     * 
-     */
     private @Nullable Boolean internalUserDatabaseEnabled;
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
 
     private DomainAdvancedSecurityOptions() {}
-    /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
-     * 
-     */
     public Optional<Boolean> anonymousAuthEnabled() {
         return Optional.ofNullable(this.anonymousAuthEnabled);
     }
-    /**
-     * @return Whether advanced security is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Whether the internal user database is enabled. Default is `false`.
-     * 
-     */
     public Optional<Boolean> internalUserDatabaseEnabled() {
         return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     public Optional<DomainAdvancedSecurityOptionsMasterUserOptions> masterUserOptions() {
         return Optional.ofNullable(this.masterUserOptions);
     }

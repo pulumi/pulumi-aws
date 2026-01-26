@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Security Hub Standards Control Associations.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testAccount = new aws.securityhub.Account("test", {});
- * const test = aws.securityhub.getStandardsControlAssociations({
- *     securityControlId: "IAM.1",
- * });
- * ```
- */
 export function getStandardsControlAssociations(args: GetStandardsControlAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardsControlAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", {
@@ -36,13 +19,7 @@ export function getStandardsControlAssociations(args: GetStandardsControlAssocia
  * A collection of arguments for invoking getStandardsControlAssociations.
  */
 export interface GetStandardsControlAssociationsArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-     */
     securityControlId: string;
 }
 
@@ -52,33 +29,9 @@ export interface GetStandardsControlAssociationsArgs {
 export interface GetStandardsControlAssociationsResult {
     readonly id: string;
     readonly region: string;
-    /**
-     * ID of the security control.
-     */
     readonly securityControlId: string;
-    /**
-     * A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standardsControlAssociations` below.
-     */
     readonly standardsControlAssociations: outputs.securityhub.GetStandardsControlAssociationsStandardsControlAssociation[];
 }
-/**
- * Data source for managing an AWS Security Hub Standards Control Associations.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testAccount = new aws.securityhub.Account("test", {});
- * const test = aws.securityhub.getStandardsControlAssociations({
- *     securityControlId: "IAM.1",
- * });
- * ```
- */
 export function getStandardsControlAssociationsOutput(args: GetStandardsControlAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardsControlAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", {
@@ -91,12 +44,6 @@ export function getStandardsControlAssociationsOutput(args: GetStandardsControlA
  * A collection of arguments for invoking getStandardsControlAssociations.
  */
 export interface GetStandardsControlAssociationsOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-     */
     securityControlId: pulumi.Input<string>;
 }

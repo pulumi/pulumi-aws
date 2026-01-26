@@ -14,10 +14,6 @@ public final class GetNetworkManagedServiceS3Access {
     private String domainName;
     private List<String> ipv4Addresses;
     private String s3PolicyDocument;
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     private String status;
 
     private GetNetworkManagedServiceS3Access() {}
@@ -30,10 +26,6 @@ public final class GetNetworkManagedServiceS3Access {
     public String s3PolicyDocument() {
         return this.s3PolicyDocument;
     }
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public String status() {
         return this.status;
     }

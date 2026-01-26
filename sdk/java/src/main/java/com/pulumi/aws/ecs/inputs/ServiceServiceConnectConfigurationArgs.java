@@ -20,62 +20,30 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
 
     public static final ServiceServiceConnectConfigurationArgs Empty = new ServiceServiceConnectConfigurationArgs();
 
-    /**
-     * Whether to use Service Connect with this service.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to use Service Connect with this service.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * Log configuration for the container. See below.
-     * 
-     */
     @Import(name="logConfiguration")
     private @Nullable Output<ServiceServiceConnectConfigurationLogConfigurationArgs> logConfiguration;
 
-    /**
-     * @return Log configuration for the container. See below.
-     * 
-     */
     public Optional<Output<ServiceServiceConnectConfigurationLogConfigurationArgs>> logConfiguration() {
         return Optional.ofNullable(this.logConfiguration);
     }
 
-    /**
-     * Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * List of Service Connect service objects. See below.
-     * 
-     */
     @Import(name="services")
     private @Nullable Output<List<ServiceServiceConnectConfigurationServiceArgs>> services;
 
-    /**
-     * @return List of Service Connect service objects. See below.
-     * 
-     */
     public Optional<Output<List<ServiceServiceConnectConfigurationServiceArgs>>> services() {
         return Optional.ofNullable(this.services);
     }
@@ -107,96 +75,42 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
             $ = new ServiceServiceConnectConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether to use Service Connect with this service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to use Service Connect with this service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param logConfiguration Log configuration for the container. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logConfiguration(@Nullable Output<ServiceServiceConnectConfigurationLogConfigurationArgs> logConfiguration) {
             $.logConfiguration = logConfiguration;
             return this;
         }
 
-        /**
-         * @param logConfiguration Log configuration for the container. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logConfiguration(ServiceServiceConnectConfigurationLogConfigurationArgs logConfiguration) {
             return logConfiguration(Output.of(logConfiguration));
         }
 
-        /**
-         * @param namespace Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param services List of Service Connect service objects. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(@Nullable Output<List<ServiceServiceConnectConfigurationServiceArgs>> services) {
             $.services = services;
             return this;
         }
 
-        /**
-         * @param services List of Service Connect service objects. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(List<ServiceServiceConnectConfigurationServiceArgs> services) {
             return services(Output.of(services));
         }
 
-        /**
-         * @param services List of Service Connect service objects. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(ServiceServiceConnectConfigurationServiceArgs... services) {
             return services(List.of(services));
         }

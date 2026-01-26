@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GetGroupMixedInstancesPolicyLaunchTemplateResult
     {
-        /// <summary>
-        /// List of overriding launch template specification objects.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult> LaunchTemplateSpecifications;
-        /// <summary>
-        /// List of properties overriding the same properties in the launch template.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult> Overrides;
 
         [OutputConstructor]

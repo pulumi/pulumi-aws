@@ -15,32 +15,16 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigArgs extend
 
     public static final FieldLevelEncryptionConfigContentTypeProfileConfigArgs Empty = new FieldLevelEncryptionConfigContentTypeProfileConfigArgs();
 
-    /**
-     * Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-     * 
-     */
     @Import(name="contentTypeProfiles", required=true)
     private Output<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs> contentTypeProfiles;
 
-    /**
-     * @return Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-     * 
-     */
     public Output<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs> contentTypeProfiles() {
         return this.contentTypeProfiles;
     }
 
-    /**
-     * specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-     * 
-     */
     @Import(name="forwardWhenContentTypeIsUnknown", required=true)
     private Output<Boolean> forwardWhenContentTypeIsUnknown;
 
-    /**
-     * @return specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-     * 
-     */
     public Output<Boolean> forwardWhenContentTypeIsUnknown() {
         return this.forwardWhenContentTypeIsUnknown;
     }
@@ -70,44 +54,20 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigArgs extend
             $ = new FieldLevelEncryptionConfigContentTypeProfileConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentTypeProfiles Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentTypeProfiles(Output<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs> contentTypeProfiles) {
             $.contentTypeProfiles = contentTypeProfiles;
             return this;
         }
 
-        /**
-         * @param contentTypeProfiles Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentTypeProfiles(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs contentTypeProfiles) {
             return contentTypeProfiles(Output.of(contentTypeProfiles));
         }
 
-        /**
-         * @param forwardWhenContentTypeIsUnknown specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardWhenContentTypeIsUnknown(Output<Boolean> forwardWhenContentTypeIsUnknown) {
             $.forwardWhenContentTypeIsUnknown = forwardWhenContentTypeIsUnknown;
             return this;
         }
 
-        /**
-         * @param forwardWhenContentTypeIsUnknown specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardWhenContentTypeIsUnknown(Boolean forwardWhenContentTypeIsUnknown) {
             return forwardWhenContentTypeIsUnknown(Output.of(forwardWhenContentTypeIsUnknown));
         }

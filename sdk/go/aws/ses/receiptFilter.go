@@ -12,55 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SES receipt filter resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewReceiptFilter(ctx, "filter", &ses.ReceiptFilterArgs{
-//				Name:   pulumi.String("block-spammer"),
-//				Cidr:   pulumi.String("10.10.10.10"),
-//				Policy: pulumi.String("Block"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
-// ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 
-	// The SES receipt filter ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The IP address or address range to filter, in CIDR notation
-	Cidr pulumi.StringOutput `pulumi:"cidr"`
-	// The name of the filter
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Block or Allow
+	Arn    pulumi.StringOutput `pulumi:"arn"`
+	Cidr   pulumi.StringOutput `pulumi:"cidr"`
+	Name   pulumi.StringOutput `pulumi:"name"`
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -100,28 +58,18 @@ func GetReceiptFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReceiptFilter resources.
 type receiptFilterState struct {
-	// The SES receipt filter ARN.
-	Arn *string `pulumi:"arn"`
-	// The IP address or address range to filter, in CIDR notation
-	Cidr *string `pulumi:"cidr"`
-	// The name of the filter
-	Name *string `pulumi:"name"`
-	// Block or Allow
+	Arn    *string `pulumi:"arn"`
+	Cidr   *string `pulumi:"cidr"`
+	Name   *string `pulumi:"name"`
 	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type ReceiptFilterState struct {
-	// The SES receipt filter ARN.
-	Arn pulumi.StringPtrInput
-	// The IP address or address range to filter, in CIDR notation
-	Cidr pulumi.StringPtrInput
-	// The name of the filter
-	Name pulumi.StringPtrInput
-	// Block or Allow
+	Arn    pulumi.StringPtrInput
+	Cidr   pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -130,25 +78,17 @@ func (ReceiptFilterState) ElementType() reflect.Type {
 }
 
 type receiptFilterArgs struct {
-	// The IP address or address range to filter, in CIDR notation
-	Cidr string `pulumi:"cidr"`
-	// The name of the filter
-	Name *string `pulumi:"name"`
-	// Block or Allow
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Cidr   string  `pulumi:"cidr"`
+	Name   *string `pulumi:"name"`
+	Policy string  `pulumi:"policy"`
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ReceiptFilter resource.
 type ReceiptFilterArgs struct {
-	// The IP address or address range to filter, in CIDR notation
-	Cidr pulumi.StringInput
-	// The name of the filter
-	Name pulumi.StringPtrInput
-	// Block or Allow
+	Cidr   pulumi.StringInput
+	Name   pulumi.StringPtrInput
 	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -239,27 +179,22 @@ func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The SES receipt filter ARN.
 func (o ReceiptFilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The IP address or address range to filter, in CIDR notation
 func (o ReceiptFilterOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// The name of the filter
 func (o ReceiptFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Block or Allow
 func (o ReceiptFilterOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReceiptFilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

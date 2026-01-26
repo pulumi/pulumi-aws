@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class VpcEndpointSubnetConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
-        /// </summary>
         [Input("ipv4")]
         public Input<string>? Ipv4 { get; set; }
 
-        /// <summary>
-        /// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
-        /// </summary>
         [Input("ipv6")]
         public Input<string>? Ipv6 { get; set; }
 
-        /// <summary>
-        /// The ID of the subnet. Must have a corresponding subnet in the `SubnetIds` argument.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

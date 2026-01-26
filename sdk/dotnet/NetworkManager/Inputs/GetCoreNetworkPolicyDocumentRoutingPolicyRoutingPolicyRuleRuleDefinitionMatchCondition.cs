@@ -12,15 +12,9 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
-        /// <summary>
-        /// Value to match against, depending on the condition type.
-        /// </summary>
         [Input("value", required: true)]
         public string Value { get; set; } = null!;
 

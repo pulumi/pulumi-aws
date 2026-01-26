@@ -12,73 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Beanstalk Configuration Template, which are associated with
-// a specific application and are used to deploy different versions of the
-// application with the same configuration settings.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := elasticbeanstalk.NewApplication(ctx, "example", &elasticbeanstalk.ApplicationArgs{
-//				Name:        pulumi.String("tf-test-name"),
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "example", &elasticbeanstalk.ConfigurationTemplateArgs{
-//				Name:              pulumi.String("tf-test-template-config"),
-//				Application:       exampleApplication.Name,
-//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Option Settings
-//
-// The `setting` field supports the following format:
-//
-// * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-// * `name` - (Required) Name of the configuration option
-// * `value` - (Required) Value for the configuration option
-// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 type ConfigurationTemplate struct {
 	pulumi.CustomResourceState
 
-	// name of the application to associate with this configuration template
-	Application pulumi.StringOutput `pulumi:"application"`
-	// Short description of the Template
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the environment used with this configuration template
-	EnvironmentId pulumi.StringPtrOutput `pulumi:"environmentId"`
-	// A unique name for this Template.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings ConfigurationTemplateSettingArrayOutput `pulumi:"settings"`
-	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
-	SolutionStackName pulumi.StringPtrOutput `pulumi:"solutionStackName"`
+	Application       pulumi.StringOutput                     `pulumi:"application"`
+	Description       pulumi.StringPtrOutput                  `pulumi:"description"`
+	EnvironmentId     pulumi.StringPtrOutput                  `pulumi:"environmentId"`
+	Name              pulumi.StringOutput                     `pulumi:"name"`
+	Region            pulumi.StringOutput                     `pulumi:"region"`
+	Settings          ConfigurationTemplateSettingArrayOutput `pulumi:"settings"`
+	SolutionStackName pulumi.StringPtrOutput                  `pulumi:"solutionStackName"`
 }
 
 // NewConfigurationTemplate registers a new resource with the given unique name, arguments, and options.
@@ -114,42 +57,22 @@ func GetConfigurationTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationTemplate resources.
 type configurationTemplateState struct {
-	// name of the application to associate with this configuration template
-	Application *string `pulumi:"application"`
-	// Short description of the Template
-	Description *string `pulumi:"description"`
-	// The ID of the environment used with this configuration template
-	EnvironmentId *string `pulumi:"environmentId"`
-	// A unique name for this Template.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings []ConfigurationTemplateSetting `pulumi:"settings"`
-	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
-	SolutionStackName *string `pulumi:"solutionStackName"`
+	Application       *string                        `pulumi:"application"`
+	Description       *string                        `pulumi:"description"`
+	EnvironmentId     *string                        `pulumi:"environmentId"`
+	Name              *string                        `pulumi:"name"`
+	Region            *string                        `pulumi:"region"`
+	Settings          []ConfigurationTemplateSetting `pulumi:"settings"`
+	SolutionStackName *string                        `pulumi:"solutionStackName"`
 }
 
 type ConfigurationTemplateState struct {
-	// name of the application to associate with this configuration template
-	Application pulumi.StringPtrInput
-	// Short description of the Template
-	Description pulumi.StringPtrInput
-	// The ID of the environment used with this configuration template
-	EnvironmentId pulumi.StringPtrInput
-	// A unique name for this Template.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings ConfigurationTemplateSettingArrayInput
-	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	Application       pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	EnvironmentId     pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Settings          ConfigurationTemplateSettingArrayInput
 	SolutionStackName pulumi.StringPtrInput
 }
 
@@ -158,43 +81,23 @@ func (ConfigurationTemplateState) ElementType() reflect.Type {
 }
 
 type configurationTemplateArgs struct {
-	// name of the application to associate with this configuration template
-	Application string `pulumi:"application"`
-	// Short description of the Template
-	Description *string `pulumi:"description"`
-	// The ID of the environment used with this configuration template
-	EnvironmentId *string `pulumi:"environmentId"`
-	// A unique name for this Template.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings []ConfigurationTemplateSetting `pulumi:"settings"`
-	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
-	SolutionStackName *string `pulumi:"solutionStackName"`
+	Application       string                         `pulumi:"application"`
+	Description       *string                        `pulumi:"description"`
+	EnvironmentId     *string                        `pulumi:"environmentId"`
+	Name              *string                        `pulumi:"name"`
+	Region            *string                        `pulumi:"region"`
+	Settings          []ConfigurationTemplateSetting `pulumi:"settings"`
+	SolutionStackName *string                        `pulumi:"solutionStackName"`
 }
 
 // The set of arguments for constructing a ConfigurationTemplate resource.
 type ConfigurationTemplateArgs struct {
-	// name of the application to associate with this configuration template
-	Application pulumi.StringInput
-	// Short description of the Template
-	Description pulumi.StringPtrInput
-	// The ID of the environment used with this configuration template
-	EnvironmentId pulumi.StringPtrInput
-	// A unique name for this Template.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings ConfigurationTemplateSettingArrayInput
-	// A solution stack to base your Template
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	Application       pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	EnvironmentId     pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Settings          ConfigurationTemplateSettingArrayInput
 	SolutionStackName pulumi.StringPtrInput
 }
 
@@ -285,40 +188,30 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ct
 	return o
 }
 
-// name of the application to associate with this configuration template
 func (o ConfigurationTemplateOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
 
-// Short description of the Template
 func (o ConfigurationTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the environment used with this configuration template
 func (o ConfigurationTemplateOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
-// A unique name for this Template.
 func (o ConfigurationTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Option settings to configure the new Environment. These
-// override specific values that are set as defaults. The format is detailed
-// below in Option Settings
 func (o ConfigurationTemplateOutput) Settings() ConfigurationTemplateSettingArrayOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) ConfigurationTemplateSettingArrayOutput { return v.Settings }).(ConfigurationTemplateSettingArrayOutput)
 }
 
-// A solution stack to base your Template
-// off of. Example stacks can be found in the [Amazon API documentation][1]
 func (o ConfigurationTemplateOutput) SolutionStackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.SolutionStackName }).(pulumi.StringPtrOutput)
 }

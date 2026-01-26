@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategorySplitChargeRuleParameter {
-    /**
-     * @return Parameter type.
-     * 
-     */
     private String type;
-    /**
-     * @return Parameter values.
-     * 
-     */
     private List<String> values;
 
     private GetCostCategorySplitChargeRuleParameter() {}
-    /**
-     * @return Parameter type.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Parameter values.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

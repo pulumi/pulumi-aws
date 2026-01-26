@@ -12,39 +12,21 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details about the configuration of the Confluence data source. See `ConfluenceDataSourceConfiguration` block for details.
-        /// </summary>
         [Input("confluenceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationGetArgs>? ConfluenceConfiguration { get; set; }
 
-        /// <summary>
-        /// Details about the configuration of the S3 object containing the data source. See `S3DataSourceConfiguration` block for details.
-        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationGetArgs>? S3Configuration { get; set; }
 
-        /// <summary>
-        /// Details about the configuration of the Salesforce data source. See `SalesforceDataSourceConfiguration` block for details.
-        /// </summary>
         [Input("salesforceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationGetArgs>? SalesforceConfiguration { get; set; }
 
-        /// <summary>
-        /// Details about the configuration of the SharePoint data source. See `SharePointDataSourceConfiguration` block for details.
-        /// </summary>
         [Input("sharePointConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationGetArgs>? SharePointConfiguration { get; set; }
 
-        /// <summary>
-        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Details about the configuration of the web data source. See `WebDataSourceConfiguration` block for details.
-        /// </summary>
         [Input("webConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationGetArgs>? WebConfiguration { get; set; }
 

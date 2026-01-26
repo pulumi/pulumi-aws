@@ -11,84 +11,12 @@ namespace Pulumi.Aws.OpenSearch
 {
     public static class GetServerlessLifecyclePolicy
     {
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessLifecyclePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-lifecycle-policy",
-        ///         Type = "retention",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServerlessLifecyclePolicyResult> InvokeAsync(GetServerlessLifecyclePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessLifecyclePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-lifecycle-policy",
-        ///         Type = "retention",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessLifecyclePolicyResult> Invoke(GetServerlessLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessLifecyclePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-lifecycle-policy",
-        ///         Type = "retention",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessLifecyclePolicyResult> Invoke(GetServerlessLifecyclePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyInvokeArgs(), options.WithDefaults());
     }
@@ -96,21 +24,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessLifecyclePolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the policy
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Type of lifecycle policy. Must be `Retention`.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
@@ -122,21 +41,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessLifecyclePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the policy
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Type of lifecycle policy. Must be `Retention`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -150,27 +60,12 @@ namespace Pulumi.Aws.OpenSearch
     [OutputType]
     public sealed class GetServerlessLifecyclePolicyResult
     {
-        /// <summary>
-        /// The date the lifecycle policy was created.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Description of the policy. Typically used to store information about the permissions defined in the policy.
-        /// </summary>
         public readonly string Description;
         public readonly string Id;
-        /// <summary>
-        /// The date the lifecycle policy was last modified.
-        /// </summary>
         public readonly string LastModifiedDate;
         public readonly string Name;
-        /// <summary>
-        /// JSON policy document to use as the content for the new policy.
-        /// </summary>
         public readonly string Policy;
-        /// <summary>
-        /// Version of the policy.
-        /// </summary>
         public readonly string PolicyVersion;
         public readonly string Region;
         public readonly string Type;

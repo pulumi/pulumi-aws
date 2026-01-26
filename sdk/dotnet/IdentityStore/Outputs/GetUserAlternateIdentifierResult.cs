@@ -13,15 +13,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetUserAlternateIdentifierResult
     {
-        /// <summary>
-        /// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        /// </summary>
         public readonly Outputs.GetUserAlternateIdentifierExternalIdResult? ExternalId;
-        /// <summary>
-        /// An entity attribute that's unique to a specific entity. Detailed below.
-        /// 
-        /// &gt; Exactly one of the above arguments must be provided.
-        /// </summary>
         public readonly Outputs.GetUserAlternateIdentifierUniqueAttributeResult? UniqueAttribute;
 
         [OutputConstructor]

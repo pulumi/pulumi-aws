@@ -19,111 +19,51 @@ public final class CustomLogSourceState extends com.pulumi.resources.ResourceArg
 
     public static final CustomLogSourceState Empty = new CustomLogSourceState();
 
-    /**
-     * The attributes of a third-party custom source.
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<List<CustomLogSourceAttributeArgs>> attributes;
 
-    /**
-     * @return The attributes of a third-party custom source.
-     * 
-     */
     public Optional<Output<List<CustomLogSourceAttributeArgs>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * The configuration for the third-party custom source.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<CustomLogSourceConfigurationArgs> configuration;
 
-    /**
-     * @return The configuration for the third-party custom source.
-     * 
-     */
     public Optional<Output<CustomLogSourceConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-     * 
-     */
     @Import(name="eventClasses")
     private @Nullable Output<List<String>> eventClasses;
 
-    /**
-     * @return The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-     * 
-     */
     public Optional<Output<List<String>>> eventClasses() {
         return Optional.ofNullable(this.eventClasses);
     }
 
-    /**
-     * The details of the log provider for a third-party custom source.
-     * 
-     */
     @Import(name="providerDetails")
     private @Nullable Output<List<CustomLogSourceProviderDetailArgs>> providerDetails;
 
-    /**
-     * @return The details of the log provider for a third-party custom source.
-     * 
-     */
     public Optional<Output<List<CustomLogSourceProviderDetailArgs>>> providerDetails() {
         return Optional.ofNullable(this.providerDetails);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specify the name for a third-party custom source.
-     * This must be a Regionally unique value.
-     * Has a maximum length of 20.
-     * 
-     */
     @Import(name="sourceName")
     private @Nullable Output<String> sourceName;
 
-    /**
-     * @return Specify the name for a third-party custom source.
-     * This must be a Regionally unique value.
-     * Has a maximum length of 20.
-     * 
-     */
     public Optional<Output<String>> sourceName() {
         return Optional.ofNullable(this.sourceName);
     }
 
-    /**
-     * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-     * 
-     */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
-    /**
-     * @return Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-     * 
-     */
     public Optional<Output<String>> sourceVersion() {
         return Optional.ofNullable(this.sourceVersion);
     }
@@ -158,183 +98,77 @@ public final class CustomLogSourceState extends com.pulumi.resources.ResourceArg
             $ = new CustomLogSourceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes The attributes of a third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<List<CustomLogSourceAttributeArgs>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes The attributes of a third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(List<CustomLogSourceAttributeArgs> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param attributes The attributes of a third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(CustomLogSourceAttributeArgs... attributes) {
             return attributes(List.of(attributes));
         }
 
-        /**
-         * @param configuration The configuration for the third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<CustomLogSourceConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration The configuration for the third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(CustomLogSourceConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param eventClasses The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventClasses(@Nullable Output<List<String>> eventClasses) {
             $.eventClasses = eventClasses;
             return this;
         }
 
-        /**
-         * @param eventClasses The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventClasses(List<String> eventClasses) {
             return eventClasses(Output.of(eventClasses));
         }
 
-        /**
-         * @param eventClasses The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventClasses(String... eventClasses) {
             return eventClasses(List.of(eventClasses));
         }
 
-        /**
-         * @param providerDetails The details of the log provider for a third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerDetails(@Nullable Output<List<CustomLogSourceProviderDetailArgs>> providerDetails) {
             $.providerDetails = providerDetails;
             return this;
         }
 
-        /**
-         * @param providerDetails The details of the log provider for a third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerDetails(List<CustomLogSourceProviderDetailArgs> providerDetails) {
             return providerDetails(Output.of(providerDetails));
         }
 
-        /**
-         * @param providerDetails The details of the log provider for a third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerDetails(CustomLogSourceProviderDetailArgs... providerDetails) {
             return providerDetails(List.of(providerDetails));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceName Specify the name for a third-party custom source.
-         * This must be a Regionally unique value.
-         * Has a maximum length of 20.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(@Nullable Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
-        /**
-         * @param sourceName Specify the name for a third-party custom source.
-         * This must be a Regionally unique value.
-         * Has a maximum length of 20.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }
 
-        /**
-         * @param sourceVersion Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(@Nullable Output<String> sourceVersion) {
             $.sourceVersion = sourceVersion;
             return this;
         }
 
-        /**
-         * @param sourceVersion Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(String sourceVersion) {
             return sourceVersion(Output.of(sourceVersion));
         }

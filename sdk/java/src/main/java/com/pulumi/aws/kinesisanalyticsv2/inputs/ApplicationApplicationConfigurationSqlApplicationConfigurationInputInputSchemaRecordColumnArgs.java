@@ -16,47 +16,23 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs();
 
-    /**
-     * A reference to the data element in the streaming input or the reference data source.
-     * 
-     */
     @Import(name="mapping")
     private @Nullable Output<String> mapping;
 
-    /**
-     * @return A reference to the data element in the streaming input or the reference data source.
-     * 
-     */
     public Optional<Output<String>> mapping() {
         return Optional.ofNullable(this.mapping);
     }
 
-    /**
-     * The name of the column that is created in the in-application input stream or reference table.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the column that is created in the in-application input stream or reference table.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The type of column created in the in-application input stream or reference table.
-     * 
-     */
     @Import(name="sqlType", required=true)
     private Output<String> sqlType;
 
-    /**
-     * @return The type of column created in the in-application input stream or reference table.
-     * 
-     */
     public Output<String> sqlType() {
         return this.sqlType;
     }
@@ -87,65 +63,29 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mapping A reference to the data element in the streaming input or the reference data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapping(@Nullable Output<String> mapping) {
             $.mapping = mapping;
             return this;
         }
 
-        /**
-         * @param mapping A reference to the data element in the streaming input or the reference data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapping(String mapping) {
             return mapping(Output.of(mapping));
         }
 
-        /**
-         * @param name The name of the column that is created in the in-application input stream or reference table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the column that is created in the in-application input stream or reference table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param sqlType The type of column created in the in-application input stream or reference table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlType(Output<String> sqlType) {
             $.sqlType = sqlType;
             return this;
         }
 
-        /**
-         * @param sqlType The type of column created in the in-application input stream or reference table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlType(String sqlType) {
             return sqlType(Output.of(sqlType));
         }

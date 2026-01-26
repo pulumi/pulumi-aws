@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdcApplicationServiceIntegrationS3AccessGrants {
-    /**
-     * @return S3 Access grants integration scope.
-     * 
-     */
     private @Nullable IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess readWriteAccess;
 
     private IdcApplicationServiceIntegrationS3AccessGrants() {}
-    /**
-     * @return S3 Access grants integration scope.
-     * 
-     */
     public Optional<IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess> readWriteAccess() {
         return Optional.ofNullable(this.readWriteAccess);
     }

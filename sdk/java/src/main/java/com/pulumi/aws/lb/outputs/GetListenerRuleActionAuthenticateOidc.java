@@ -12,127 +12,45 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleActionAuthenticateOidc {
-    /**
-     * @return Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     private Map<String,String> authenticationRequestExtraParams;
-    /**
-     * @return The authorization endpoint of the IdP.
-     * 
-     */
     private String authorizationEndpoint;
-    /**
-     * @return OAuth 2.0 client identifier.
-     * 
-     */
     private String clientId;
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     private String issuer;
-    /**
-     * @return Behavior when the client is not authenticated.
-     * 
-     */
     private String onUnauthenticatedRequest;
-    /**
-     * @return Set of user claims requested.
-     * 
-     */
     private String scope;
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     private String sessionCookieName;
-    /**
-     * @return Maximum duration of the authentication session in seconds.
-     * 
-     */
     private Integer sessionTimeout;
-    /**
-     * @return The token endpoint of the IdP.
-     * 
-     */
     private String tokenEndpoint;
-    /**
-     * @return The user info endpoint of the IdP.
-     * 
-     */
     private String userInfoEndpoint;
 
     private GetListenerRuleActionAuthenticateOidc() {}
-    /**
-     * @return Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams;
     }
-    /**
-     * @return The authorization endpoint of the IdP.
-     * 
-     */
     public String authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
-    /**
-     * @return OAuth 2.0 client identifier.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
-    /**
-     * @return Behavior when the client is not authenticated.
-     * 
-     */
     public String onUnauthenticatedRequest() {
         return this.onUnauthenticatedRequest;
     }
-    /**
-     * @return Set of user claims requested.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     public String sessionCookieName() {
         return this.sessionCookieName;
     }
-    /**
-     * @return Maximum duration of the authentication session in seconds.
-     * 
-     */
     public Integer sessionTimeout() {
         return this.sessionTimeout;
     }
-    /**
-     * @return The token endpoint of the IdP.
-     * 
-     */
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }
-    /**
-     * @return The user info endpoint of the IdP.
-     * 
-     */
     public String userInfoEndpoint() {
         return this.userInfoEndpoint;
     }

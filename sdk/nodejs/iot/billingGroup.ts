@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS IoT Billing Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.BillingGroup("example", {
- *     name: "example",
- *     properties: {
- *         description: "This is my billing group",
- *     },
- *     tags: {
- *         terraform: "true",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IoT Billing Groups using the name. For example:
- *
- * ```sh
- * $ pulumi import aws:iot/billingGroup:BillingGroup example example
- * ```
- */
 export class BillingGroup extends pulumi.CustomResource {
     /**
      * Get an existing BillingGroup resource's state with the given name, ID, and optional extra
@@ -63,31 +35,13 @@ export class BillingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === BillingGroup.__pulumiType;
     }
 
-    /**
-     * The ARN of the Billing Group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly metadatas: pulumi.Output<outputs.iot.BillingGroupMetadata[]>;
-    /**
-     * The name of the Billing Group.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The Billing Group properties. Defined below.
-     */
     declare public readonly properties: pulumi.Output<outputs.iot.BillingGroupProperties | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The current version of the Billing Group record in the registry.
-     */
     declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
@@ -131,31 +85,13 @@ export class BillingGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BillingGroup resources.
  */
 export interface BillingGroupState {
-    /**
-     * The ARN of the Billing Group.
-     */
     arn?: pulumi.Input<string>;
     metadatas?: pulumi.Input<pulumi.Input<inputs.iot.BillingGroupMetadata>[]>;
-    /**
-     * The name of the Billing Group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Billing Group properties. Defined below.
-     */
     properties?: pulumi.Input<inputs.iot.BillingGroupProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The current version of the Billing Group record in the registry.
-     */
     version?: pulumi.Input<number>;
 }
 
@@ -163,20 +99,8 @@ export interface BillingGroupState {
  * The set of arguments for constructing a BillingGroup resource.
  */
 export interface BillingGroupArgs {
-    /**
-     * The name of the Billing Group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Billing Group properties. Defined below.
-     */
     properties?: pulumi.Input<inputs.iot.BillingGroupProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceVolumeConfiguration {
-    /**
-     * @return Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-     * 
-     */
     private ServiceVolumeConfigurationManagedEbsVolume managedEbsVolume;
-    /**
-     * @return Name of the volume.
-     * 
-     */
     private String name;
 
     private ServiceVolumeConfiguration() {}
-    /**
-     * @return Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-     * 
-     */
     public ServiceVolumeConfigurationManagedEbsVolume managedEbsVolume() {
         return this.managedEbsVolume;
     }
-    /**
-     * @return Name of the volume.
-     * 
-     */
     public String name() {
         return this.name;
     }

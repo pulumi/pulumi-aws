@@ -9,78 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Use the `AwsPrefixListEntry` resource to manage a managed prefix list entry.
-    /// 
-    /// &gt; **NOTE:** Pulumi currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten.
-    /// 
-    /// &gt; **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `Entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
-    ///     {
-    ///         Name = "All VPC CIDR-s",
-    ///         AddressFamily = "IPv4",
-    ///         MaxEntries = 5,
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "live" },
-    ///         },
-    ///     });
-    /// 
-    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry_1", new()
-    ///     {
-    ///         Cidr = exampleAwsVpc.CidrBlock,
-    ///         Description = "Primary",
-    ///         PrefixListId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")]
     public partial class ManagedPrefixListEntry : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the prefix list.
-        /// </summary>
         [Output("prefixListId")]
         public Output<string> PrefixListId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -130,27 +70,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class ManagedPrefixListEntryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
-        /// <summary>
-        /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the prefix list.
-        /// </summary>
         [Input("prefixListId", required: true)]
         public Input<string> PrefixListId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,27 +90,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class ManagedPrefixListEntryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 
-        /// <summary>
-        /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the prefix list.
-        /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

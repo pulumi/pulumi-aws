@@ -15,137 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an EC2 instance state resource. This allows managing an instance power state.
- * 
- * &gt; **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2transitgateway.InstanceState;
- * import com.pulumi.aws.ec2transitgateway.InstanceStateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name("name")
- *                     .values("ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*")
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name("virtualization-type")
- *                     .values("hvm")
- *                     .build())
- *             .owners("099720109477")
- *             .build());
- * 
- *         var test = new Instance("test", InstanceArgs.builder()
- *             .ami(ubuntu.id())
- *             .instanceType("t3.micro")
- *             .tags(Map.of("Name", "HelloWorld"))
- *             .build());
- * 
- *         var testInstanceState = new InstanceState("testInstanceState", InstanceStateArgs.builder()
- *             .instanceId(test.id())
- *             .state("stopped")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
- * ```
- * 
- */
 @ResourceType(type="aws:ec2transitgateway/instanceState:InstanceState")
 public class InstanceState extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-     * 
-     */
     @Export(name="force", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> force;
 
-    /**
-     * @return Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> force() {
         return Codegen.optional(this.force);
     }
-    /**
-     * ID of the instance.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return ID of the instance.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of the instance. Valid values are `stopped`, `running`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the instance. Valid values are `stopped`, `running`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }

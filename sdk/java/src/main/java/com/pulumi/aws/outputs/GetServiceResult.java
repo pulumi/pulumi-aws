@@ -18,10 +18,6 @@ public final class GetServiceResult {
     private String reverseDnsName;
     private String reverseDnsPrefix;
     private String serviceId;
-    /**
-     * @return Whether the service is supported in the region&#39;s partition. New services may not be listed immediately as supported.
-     * 
-     */
     private Boolean supported;
 
     private GetServiceResult() {}
@@ -46,10 +42,6 @@ public final class GetServiceResult {
     public String serviceId() {
         return this.serviceId;
     }
-    /**
-     * @return Whether the service is supported in the region&#39;s partition. New services may not be listed immediately as supported.
-     * 
-     */
     public Boolean supported() {
         return this.supported;
     }

@@ -9,145 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing QuickSight User
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Create User With IAM Identity Type Using an IAM Role
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.User("example", new()
-    ///     {
-    ///         Email = "author1@example.com",
-    ///         IdentityType = "IAM",
-    ///         UserRole = "AUTHOR",
-    ///         IamArn = "arn:aws:iam::123456789012:role/AuthorRole",
-    ///         SessionName = "author1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Create User With IAM Identity Type Using an IAM User
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.User("example", new()
-    ///     {
-    ///         Email = "authorpro1@example.com",
-    ///         IdentityType = "IAM",
-    ///         UserRole = "AUTHOR_PRO",
-    ///         IamArn = "arn:aws:iam::123456789012:user/authorpro1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Create User With QuickSight Identity Type in Non-Default Namespace
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.User("example", new()
-    ///     {
-    ///         Email = "reader1@example.com",
-    ///         IdentityType = "QUICKSIGHT",
-    ///         UserRole = "READER",
-    ///         Namespace = "example",
-    ///         UserName = "reader1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import this resource.
-    /// </summary>
     [AwsResourceType("aws:quicksight/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) for the user.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Email address of the user that you want to register.
-        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
-        /// </summary>
         [Output("iamArn")]
         public Output<string?> IamArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
-        /// </summary>
         [Output("identityType")]
         public Output<string> IdentityType { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Quicksight namespace to create the user in. Defaults to `Default`.
-        /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-        /// </summary>
         [Output("sessionName")]
         public Output<string?> SessionName { get; private set; } = null!;
 
-        /// <summary>
-        /// URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
-        /// </summary>
         [Output("userInvitationUrl")]
         public Output<string> UserInvitationUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("userRole")]
         public Output<string> UserRole { get; private set; } = null!;
 
@@ -200,53 +94,27 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Email address of the user that you want to register.
-        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
-        /// </summary>
         [Input("iamArn")]
         public Input<string>? IamArn { get; set; }
 
-        /// <summary>
-        /// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
-        /// </summary>
         [Input("identityType", required: true)]
         public Input<string> IdentityType { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Quicksight namespace to create the user in. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-        /// </summary>
         [Input("sessionName")]
         public Input<string>? SessionName { get; set; }
 
-        /// <summary>
-        /// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
-        /// <summary>
-        /// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userRole", required: true)]
         public Input<string> UserRole { get; set; } = null!;
 
@@ -258,68 +126,36 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) for the user.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Email address of the user that you want to register.
-        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
-        /// </summary>
         [Input("iamArn")]
         public Input<string>? IamArn { get; set; }
 
-        /// <summary>
-        /// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
-        /// </summary>
         [Input("identityType")]
         public Input<string>? IdentityType { get; set; }
 
-        /// <summary>
-        /// The Amazon Quicksight namespace to create the user in. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-        /// </summary>
         [Input("sessionName")]
         public Input<string>? SessionName { get; set; }
 
-        /// <summary>
-        /// URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
-        /// </summary>
         [Input("userInvitationUrl")]
         public Input<string>? UserInvitationUrl { get; set; }
 
-        /// <summary>
-        /// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
-        /// <summary>
-        /// Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userRole")]
         public Input<string>? UserRole { get; set; }
 

@@ -11,101 +11,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeployment {
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Desired number of tasks
-     * 
-     */
     private Integer desiredCount;
-    /**
-     * @return Task set ID
-     * 
-     */
     private String id;
-    /**
-     * @return Number of pending tasks
-     * 
-     */
     private Integer pendingCount;
-    /**
-     * @return Number of running tasks
-     * 
-     */
     private Integer runningCount;
-    /**
-     * @return Task set status
-     * 
-     */
     private String status;
-    /**
-     * @return Task definition ARN
-     * 
-     */
     private String taskDefinition;
-    /**
-     * @return Time when task set was last updated (RFC3339 format)
-     * 
-     */
     private String updatedAt;
 
     private GetServiceDeployment() {}
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Desired number of tasks
-     * 
-     */
     public Integer desiredCount() {
         return this.desiredCount;
     }
-    /**
-     * @return Task set ID
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Number of pending tasks
-     * 
-     */
     public Integer pendingCount() {
         return this.pendingCount;
     }
-    /**
-     * @return Number of running tasks
-     * 
-     */
     public Integer runningCount() {
         return this.runningCount;
     }
-    /**
-     * @return Task set status
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Task definition ARN
-     * 
-     */
     public String taskDefinition() {
         return this.taskDefinition;
     }
-    /**
-     * @return Time when task set was last updated (RFC3339 format)
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

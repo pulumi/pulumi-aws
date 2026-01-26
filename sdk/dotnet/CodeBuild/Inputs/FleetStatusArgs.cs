@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class FleetStatusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Additional information about a compute fleet.
-        /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
 
-        /// <summary>
-        /// Message associated with the status of a compute fleet.
-        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        /// <summary>
-        /// Status code of the compute fleet.
-        /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
 

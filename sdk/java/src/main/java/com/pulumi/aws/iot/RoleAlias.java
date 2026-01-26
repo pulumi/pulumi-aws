@@ -16,117 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IoT role alias.
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IOT Role Alias using the alias. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
- * ```
- * 
- */
 @ResourceType(type="aws:iot/roleAlias:RoleAlias")
 public class RoleAlias extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the role alias.
-     * 
-     */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
-    /**
-     * @return The name of the role alias.
-     * 
-     */
     public Output<String> alias() {
         return this.alias;
     }
-    /**
-     * The ARN assigned by AWS to this role alias.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN assigned by AWS to this role alias.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     * 
-     */
     @Export(name="credentialDuration", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> credentialDuration;
 
-    /**
-     * @return The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     * 
-     */
     public Output<Optional<Integer>> credentialDuration() {
         return Codegen.optional(this.credentialDuration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The identity of the role to which the alias refers.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The identity of the role to which the alias refers.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

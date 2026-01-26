@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Waf.Outputs
     [OutputType]
     public sealed class WebAclRuleAction
     {
-        /// <summary>
-        /// valid values are: `BLOCK`, `ALLOW`, or `COUNT`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

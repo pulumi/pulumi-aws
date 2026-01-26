@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class InstanceStorageConfigStorageConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        /// </summary>
         [Input("kinesisFirehoseConfig")]
         public Input<Inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigGetArgs>? KinesisFirehoseConfig { get; set; }
 
-        /// <summary>
-        /// A block that specifies the configuration of the Kinesis data stream. Documented below.
-        /// </summary>
         [Input("kinesisStreamConfig")]
         public Input<Inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigGetArgs>? KinesisStreamConfig { get; set; }
 
-        /// <summary>
-        /// A block that specifies the configuration of the Kinesis video stream. Documented below.
-        /// </summary>
         [Input("kinesisVideoStreamConfig")]
         public Input<Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigGetArgs>? KinesisVideoStreamConfig { get; set; }
 
-        /// <summary>
-        /// A block that specifies the configuration of S3 Bucket. Documented below.
-        /// </summary>
         [Input("s3Config")]
         public Input<Inputs.InstanceStorageConfigStorageConfigS3ConfigGetArgs>? S3Config { get; set; }
 
-        /// <summary>
-        /// A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        /// </summary>
         [Input("storageType", required: true)]
         public Input<string> StorageType { get; set; } = null!;
 

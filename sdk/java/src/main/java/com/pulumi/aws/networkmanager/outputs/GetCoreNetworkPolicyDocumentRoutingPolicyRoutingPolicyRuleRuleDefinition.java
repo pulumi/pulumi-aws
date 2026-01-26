@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition {
-    /**
-     * @return Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     private GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction action;
-    /**
-     * @return Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
-     * 
-     */
     private @Nullable String conditionLogic;
-    /**
-     * @return List of conditions to match against routes. Detailed below.
-     * 
-     */
     private @Nullable List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition> matchConditions;
 
     private GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition() {}
-    /**
-     * @return Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     public GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction action() {
         return this.action;
     }
-    /**
-     * @return Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
-     * 
-     */
     public Optional<String> conditionLogic() {
         return Optional.ofNullable(this.conditionLogic);
     }
-    /**
-     * @return List of conditions to match against routes. Detailed below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition> matchConditions() {
         return this.matchConditions == null ? List.of() : this.matchConditions;
     }

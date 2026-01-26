@@ -15,77 +15,37 @@ public final class ServiceSettingState extends com.pulumi.resources.ResourceArgs
 
     public static final ServiceSettingState Empty = new ServiceSettingState();
 
-    /**
-     * ARN of the service setting.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the service setting.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-     * 
-     */
     @Import(name="settingId")
     private @Nullable Output<String> settingId;
 
-    /**
-     * @return ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-     * 
-     */
     public Optional<Output<String>> settingId() {
         return Optional.ofNullable(this.settingId);
     }
 
-    /**
-     * Value of the service setting.
-     * 
-     */
     @Import(name="settingValue")
     private @Nullable Output<String> settingValue;
 
-    /**
-     * @return Value of the service setting.
-     * 
-     */
     public Optional<Output<String>> settingValue() {
         return Optional.ofNullable(this.settingValue);
     }
 
-    /**
-     * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -118,107 +78,47 @@ public final class ServiceSettingState extends com.pulumi.resources.ResourceArgs
             $ = new ServiceSettingState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param settingId ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(@Nullable Output<String> settingId) {
             $.settingId = settingId;
             return this;
         }
 
-        /**
-         * @param settingId ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(String settingId) {
             return settingId(Output.of(settingId));
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(@Nullable Output<String> settingValue) {
             $.settingValue = settingValue;
             return this;
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(String settingValue) {
             return settingValue(Output.of(settingValue));
         }
 
-        /**
-         * @param status Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

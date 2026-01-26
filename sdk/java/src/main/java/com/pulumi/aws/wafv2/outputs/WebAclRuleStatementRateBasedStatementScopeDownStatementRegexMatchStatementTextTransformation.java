@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
-    /**
-     * @return Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
-     * 
-     */
     private String type;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation() {}
-    /**
-     * @return Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class FrameworkControlSetControlGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique identifier of the control.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

@@ -15,62 +15,30 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetMountTargetArgs Empty = new GetMountTargetArgs();
 
-    /**
-     * ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
-     * 
-     */
     @Import(name="accessPointId")
     private @Nullable Output<String> accessPointId;
 
-    /**
-     * @return ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
-     * 
-     */
     public Optional<Output<String>> accessPointId() {
         return Optional.ofNullable(this.accessPointId);
     }
 
-    /**
-     * ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
-     * 
-     */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
-    /**
-     * @return ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
-     * 
-     */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
-    /**
-     * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
-     * 
-     */
     @Import(name="mountTargetId")
     private @Nullable Output<String> mountTargetId;
 
-    /**
-     * @return ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
-     * 
-     */
     public Optional<Output<String>> mountTargetId() {
         return Optional.ofNullable(this.mountTargetId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,86 +70,38 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetMountTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPointId ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(@Nullable Output<String> accessPointId) {
             $.accessPointId = accessPointId;
             return this;
         }
 
-        /**
-         * @param accessPointId ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(String accessPointId) {
             return accessPointId(Output.of(accessPointId));
         }
 
-        /**
-         * @param fileSystemId ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param mountTargetId ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountTargetId(@Nullable Output<String> mountTargetId) {
             $.mountTargetId = mountTargetId;
             return this;
         }
 
-        /**
-         * @param mountTargetId ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountTargetId(String mountTargetId) {
             return mountTargetId(Output.of(mountTargetId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

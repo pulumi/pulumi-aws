@@ -17,47 +17,23 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Res
 
     public static final ReplicationConfigurationArgs Empty = new ReplicationConfigurationArgs();
 
-    /**
-     * A destination configuration block (documented below).
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<ReplicationConfigurationDestinationArgs> destination;
 
-    /**
-     * @return A destination configuration block (documented below).
-     * 
-     */
     public Output<ReplicationConfigurationDestinationArgs> destination() {
         return this.destination;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the file system that is to be replicated.
-     * 
-     */
     @Import(name="sourceFileSystemId", required=true)
     private Output<String> sourceFileSystemId;
 
-    /**
-     * @return The ID of the file system that is to be replicated.
-     * 
-     */
     public Output<String> sourceFileSystemId() {
         return this.sourceFileSystemId;
     }
@@ -88,65 +64,29 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Res
             $ = new ReplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination A destination configuration block (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<ReplicationConfigurationDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination A destination configuration block (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ReplicationConfigurationDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceFileSystemId The ID of the file system that is to be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFileSystemId(Output<String> sourceFileSystemId) {
             $.sourceFileSystemId = sourceFileSystemId;
             return this;
         }
 
-        /**
-         * @param sourceFileSystemId The ID of the file system that is to be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFileSystemId(String sourceFileSystemId) {
             return sourceFileSystemId(Output.of(sourceFileSystemId));
         }

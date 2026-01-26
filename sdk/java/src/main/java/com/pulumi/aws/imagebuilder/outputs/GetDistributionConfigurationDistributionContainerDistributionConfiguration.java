@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionContainerDistributionConfiguration {
-    /**
-     * @return Set of tags that are attached to the container distribution configuration.
-     * 
-     */
     private List<String> containerTags;
-    /**
-     * @return Description of the container distribution configuration.
-     * 
-     */
     private String description;
-    /**
-     * @return Set of destination repositories for the container distribution configuration.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories;
 
     private GetDistributionConfigurationDistributionContainerDistributionConfiguration() {}
-    /**
-     * @return Set of tags that are attached to the container distribution configuration.
-     * 
-     */
     public List<String> containerTags() {
         return this.containerTags;
     }
-    /**
-     * @return Description of the container distribution configuration.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Set of destination repositories for the container distribution configuration.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories() {
         return this.targetRepositories;
     }

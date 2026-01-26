@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Pass client-specific information to the Lambda function that you are invoking.
-        /// </summary>
         [Input("clientContext")]
         public Input<string>? ClientContext { get; set; }
 
         [Input("payload")]
         private Input<string>? _payload;
-
-        /// <summary>
-        /// JSON to provide to your Lambda function as input.
-        /// </summary>
         public Input<string>? Payload
         {
             get => _payload;
@@ -34,9 +27,6 @@ namespace Pulumi.Aws.Ssm.Inputs
             }
         }
 
-        /// <summary>
-        /// Specify a Lambda function version or alias name.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 

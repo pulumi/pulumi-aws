@@ -15,32 +15,16 @@ public final class UserGroupMembershipArgs extends com.pulumi.resources.Resource
 
     public static final UserGroupMembershipArgs Empty = new UserGroupMembershipArgs();
 
-    /**
-     * A list of IAM Groups to add the user to
-     * 
-     */
     @Import(name="groups", required=true)
     private Output<List<String>> groups;
 
-    /**
-     * @return A list of IAM Groups to add the user to
-     * 
-     */
     public Output<List<String>> groups() {
         return this.groups;
     }
 
-    /**
-     * The name of the IAM User to add to groups
-     * 
-     */
     @Import(name="user", required=true)
     private Output<String> user;
 
-    /**
-     * @return The name of the IAM User to add to groups
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }
@@ -70,54 +54,24 @@ public final class UserGroupMembershipArgs extends com.pulumi.resources.Resource
             $ = new UserGroupMembershipArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groups A list of IAM Groups to add the user to
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(Output<List<String>> groups) {
             $.groups = groups;
             return this;
         }
 
-        /**
-         * @param groups A list of IAM Groups to add the user to
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(List<String> groups) {
             return groups(Output.of(groups));
         }
 
-        /**
-         * @param groups A list of IAM Groups to add the user to
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
 
-        /**
-         * @param user The name of the IAM User to add to groups
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(Output<String> user) {
             $.user = user;
             return this;
         }
 
-        /**
-         * @param user The name of the IAM User to add to groups
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(String user) {
             return user(Output.of(user));
         }

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBudgetPlannedLimit {
-    /**
-     * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     private String amount;
-    /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     private String startTime;
-    /**
-     * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     private String unit;
 
     private GetBudgetPlannedLimit() {}
-    /**
-     * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     public String amount() {
         return this.amount;
     }
-    /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     public String startTime() {
         return this.startTime;
     }
-    /**
-     * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }

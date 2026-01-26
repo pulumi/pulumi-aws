@@ -26,9 +26,6 @@ MYPY = False
 if not MYPY:
     class RepositoryExternalConnectionsArgsDict(TypedDict):
         external_connection_name: pulumi.Input[_builtins.str]
-        """
-        The name of the external connection associated with a repository.
-        """
         package_format: NotRequired[pulumi.Input[_builtins.str]]
         status: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
@@ -40,9 +37,6 @@ class RepositoryExternalConnectionsArgs:
                  external_connection_name: pulumi.Input[_builtins.str],
                  package_format: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] external_connection_name: The name of the external connection associated with a repository.
-        """
         pulumi.set(__self__, "external_connection_name", external_connection_name)
         if package_format is not None:
             pulumi.set(__self__, "package_format", package_format)
@@ -52,9 +46,6 @@ class RepositoryExternalConnectionsArgs:
     @_builtins.property
     @pulumi.getter(name="externalConnectionName")
     def external_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the external connection associated with a repository.
-        """
         return pulumi.get(self, "external_connection_name")
 
     @external_connection_name.setter
@@ -83,9 +74,6 @@ class RepositoryExternalConnectionsArgs:
 if not MYPY:
     class RepositoryUpstreamArgsDict(TypedDict):
         repository_name: pulumi.Input[_builtins.str]
-        """
-        The name of an upstream repository.
-        """
 elif False:
     RepositoryUpstreamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -93,17 +81,11 @@ elif False:
 class RepositoryUpstreamArgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] repository_name: The name of an upstream repository.
-        """
         pulumi.set(__self__, "repository_name", repository_name)
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of an upstream repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     {
         [Input("disabledControlIdentifiers")]
         private InputList<string>? _disabledControlIdentifiers;
-
-        /// <summary>
-        /// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `EnabledControlIdentifiers`.
-        /// </summary>
         public InputList<string> DisabledControlIdentifiers
         {
             get => _disabledControlIdentifiers ?? (_disabledControlIdentifiers = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("enabledControlIdentifiers")]
         private InputList<string>? _enabledControlIdentifiers;
-
-        /// <summary>
-        /// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `DisabledControlIdentifiers`.
-        /// </summary>
         public InputList<string> EnabledControlIdentifiers
         {
             get => _enabledControlIdentifiers ?? (_enabledControlIdentifiers = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("securityControlCustomParameters")]
         private InputList<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterGetArgs>? _securityControlCustomParameters;
-
-        /// <summary>
-        /// A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-        /// </summary>
         public InputList<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterGetArgs> SecurityControlCustomParameters
         {
             get => _securityControlCustomParameters ?? (_securityControlCustomParameters = new InputList<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterGetArgs>());

@@ -20,77 +20,37 @@ public final class InstanceStorageConfigStorageConfigArgs extends com.pulumi.res
 
     public static final InstanceStorageConfigStorageConfigArgs Empty = new InstanceStorageConfigStorageConfigArgs();
 
-    /**
-     * A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-     * 
-     */
     @Import(name="kinesisFirehoseConfig")
     private @Nullable Output<InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs> kinesisFirehoseConfig;
 
-    /**
-     * @return A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-     * 
-     */
     public Optional<Output<InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs>> kinesisFirehoseConfig() {
         return Optional.ofNullable(this.kinesisFirehoseConfig);
     }
 
-    /**
-     * A block that specifies the configuration of the Kinesis data stream. Documented below.
-     * 
-     */
     @Import(name="kinesisStreamConfig")
     private @Nullable Output<InstanceStorageConfigStorageConfigKinesisStreamConfigArgs> kinesisStreamConfig;
 
-    /**
-     * @return A block that specifies the configuration of the Kinesis data stream. Documented below.
-     * 
-     */
     public Optional<Output<InstanceStorageConfigStorageConfigKinesisStreamConfigArgs>> kinesisStreamConfig() {
         return Optional.ofNullable(this.kinesisStreamConfig);
     }
 
-    /**
-     * A block that specifies the configuration of the Kinesis video stream. Documented below.
-     * 
-     */
     @Import(name="kinesisVideoStreamConfig")
     private @Nullable Output<InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs> kinesisVideoStreamConfig;
 
-    /**
-     * @return A block that specifies the configuration of the Kinesis video stream. Documented below.
-     * 
-     */
     public Optional<Output<InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs>> kinesisVideoStreamConfig() {
         return Optional.ofNullable(this.kinesisVideoStreamConfig);
     }
 
-    /**
-     * A block that specifies the configuration of S3 Bucket. Documented below.
-     * 
-     */
     @Import(name="s3Config")
     private @Nullable Output<InstanceStorageConfigStorageConfigS3ConfigArgs> s3Config;
 
-    /**
-     * @return A block that specifies the configuration of S3 Bucket. Documented below.
-     * 
-     */
     public Optional<Output<InstanceStorageConfigStorageConfigS3ConfigArgs>> s3Config() {
         return Optional.ofNullable(this.s3Config);
     }
 
-    /**
-     * A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-     * 
-     */
     @Import(name="storageType", required=true)
     private Output<String> storageType;
 
-    /**
-     * @return A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-     * 
-     */
     public Output<String> storageType() {
         return this.storageType;
     }
@@ -123,107 +83,47 @@ public final class InstanceStorageConfigStorageConfigArgs extends com.pulumi.res
             $ = new InstanceStorageConfigStorageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kinesisFirehoseConfig A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisFirehoseConfig(@Nullable Output<InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs> kinesisFirehoseConfig) {
             $.kinesisFirehoseConfig = kinesisFirehoseConfig;
             return this;
         }
 
-        /**
-         * @param kinesisFirehoseConfig A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisFirehoseConfig(InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs kinesisFirehoseConfig) {
             return kinesisFirehoseConfig(Output.of(kinesisFirehoseConfig));
         }
 
-        /**
-         * @param kinesisStreamConfig A block that specifies the configuration of the Kinesis data stream. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisStreamConfig(@Nullable Output<InstanceStorageConfigStorageConfigKinesisStreamConfigArgs> kinesisStreamConfig) {
             $.kinesisStreamConfig = kinesisStreamConfig;
             return this;
         }
 
-        /**
-         * @param kinesisStreamConfig A block that specifies the configuration of the Kinesis data stream. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisStreamConfig(InstanceStorageConfigStorageConfigKinesisStreamConfigArgs kinesisStreamConfig) {
             return kinesisStreamConfig(Output.of(kinesisStreamConfig));
         }
 
-        /**
-         * @param kinesisVideoStreamConfig A block that specifies the configuration of the Kinesis video stream. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisVideoStreamConfig(@Nullable Output<InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs> kinesisVideoStreamConfig) {
             $.kinesisVideoStreamConfig = kinesisVideoStreamConfig;
             return this;
         }
 
-        /**
-         * @param kinesisVideoStreamConfig A block that specifies the configuration of the Kinesis video stream. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisVideoStreamConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs kinesisVideoStreamConfig) {
             return kinesisVideoStreamConfig(Output.of(kinesisVideoStreamConfig));
         }
 
-        /**
-         * @param s3Config A block that specifies the configuration of S3 Bucket. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Config(@Nullable Output<InstanceStorageConfigStorageConfigS3ConfigArgs> s3Config) {
             $.s3Config = s3Config;
             return this;
         }
 
-        /**
-         * @param s3Config A block that specifies the configuration of S3 Bucket. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs s3Config) {
             return s3Config(Output.of(s3Config));
         }
 
-        /**
-         * @param storageType A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageType(Output<String> storageType) {
             $.storageType = storageType;
             return this;
         }
 
-        /**
-         * @param storageType A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageType(String storageType) {
             return storageType(Output.of(storageType));
         }

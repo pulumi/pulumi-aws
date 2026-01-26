@@ -15,47 +15,23 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIntentPlainArgs Empty = new GetIntentPlainArgs();
 
-    /**
-     * Name of the intent. The name is case sensitive.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the intent. The name is case sensitive.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Version of the intent.
-     * 
-     */
     @Import(name="version")
     private @Nullable String version;
 
-    /**
-     * @return Version of the intent.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
@@ -86,34 +62,16 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetIntentPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the intent. The name is case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param version Version of the intent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable String version) {
             $.version = version;
             return this;

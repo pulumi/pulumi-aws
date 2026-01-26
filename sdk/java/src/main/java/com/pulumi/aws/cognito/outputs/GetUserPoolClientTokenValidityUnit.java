@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolClientTokenValidityUnit {
-    /**
-     * @return (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
-     * 
-     */
     private String accessToken;
-    /**
-     * @return (Optional) Time unit in for the value in `idTokenValidity`, defaults to `hours`.
-     * 
-     */
     private String idToken;
-    /**
-     * @return (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
-     * 
-     */
     private String refreshToken;
 
     private GetUserPoolClientTokenValidityUnit() {}
-    /**
-     * @return (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
-     * 
-     */
     public String accessToken() {
         return this.accessToken;
     }
-    /**
-     * @return (Optional) Time unit in for the value in `idTokenValidity`, defaults to `hours`.
-     * 
-     */
     public String idToken() {
         return this.idToken;
     }
-    /**
-     * @return (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
-     * 
-     */
     public String refreshToken() {
         return this.refreshToken;
     }

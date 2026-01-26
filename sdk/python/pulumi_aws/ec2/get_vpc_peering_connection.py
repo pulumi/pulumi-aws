@@ -90,26 +90,16 @@ class GetVpcPeeringConnectionResult:
     @_builtins.property
     @pulumi.getter
     def accepter(self) -> Mapping[str, _builtins.bool]:
-        """
-        Configuration block that describes [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
-        """
         return pulumi.get(self, "accepter")
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> _builtins.str:
-        """
-        CIDR block associated to the VPC of the specific VPC Peering Connection.
-        """
         return pulumi.get(self, "cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="cidrBlockSets")
     def cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionCidrBlockSetResult']:
-        """
-        List of objects with IPv4 CIDR blocks of the requester VPC.
-        """
         return pulumi.get(self, "cidr_block_sets")
 
     @_builtins.property
@@ -125,9 +115,6 @@ class GetVpcPeeringConnectionResult:
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlockSets")
     def ipv6_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult']:
-        """
-        List of objects with IPv6 CIDR blocks of the requester VPC.
-        """
         return pulumi.get(self, "ipv6_cidr_block_sets")
 
     @_builtins.property
@@ -143,17 +130,11 @@ class GetVpcPeeringConnectionResult:
     @_builtins.property
     @pulumi.getter(name="peerCidrBlockSets")
     def peer_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult']:
-        """
-        List of objects with IPv4 CIDR blocks of the accepter VPC.
-        """
         return pulumi.get(self, "peer_cidr_block_sets")
 
     @_builtins.property
     @pulumi.getter(name="peerIpv6CidrBlockSets")
     def peer_ipv6_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult']:
-        """
-        List of objects with IPv6 CIDR blocks of the accepter VPC.
-        """
         return pulumi.get(self, "peer_ipv6_cidr_block_sets")
 
     @_builtins.property
@@ -164,9 +145,6 @@ class GetVpcPeeringConnectionResult:
     @_builtins.property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> _builtins.str:
-        """
-        Region of the accepter VPC.
-        """
         return pulumi.get(self, "peer_region")
 
     @_builtins.property
@@ -178,26 +156,16 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use requester_region instead.""")
     def region(self) -> _builtins.str:
-        """
-        (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def requester(self) -> Mapping[str, _builtins.bool]:
-        """
-        Configuration block that describes [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
-        """
         return pulumi.get(self, "requester")
 
     @_builtins.property
     @pulumi.getter(name="requesterRegion")
     def requester_region(self) -> _builtins.str:
-        """
-        Region of the requester VPC.
-        """
         return pulumi.get(self, "requester_region")
 
     @_builtins.property
@@ -255,42 +223,7 @@ def get_vpc_peering_connection(cidr_block: Optional[_builtins.str] = None,
                                vpc_id: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcPeeringConnectionResult:
     """
-    The VPC Peering Connection data source provides details about
-    a specific VPC peering connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    pc = aws.ec2.get_vpc_peering_connection(vpc_id=foo["id"],
-        peer_cidr_block="10.0.1.0/22")
-    # Create a route table
-    rt = aws.ec2.RouteTable("rt", vpc_id=foo["id"])
-    # Create a route
-    r = aws.ec2.Route("r",
-        route_table_id=rt.id,
-        destination_cidr_block=pc.peer_cidr_block,
-        vpc_peering_connection_id=pc.id)
-    ```
-
-
-    :param _builtins.str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param Sequence[Union['GetVpcPeeringConnectionFilterArgs', 'GetVpcPeeringConnectionFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str peer_owner_id: AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str peer_vpc_id: ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str status: Status of the specific VPC Peering Connection to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPC Peering Connection.
-           
-           The arguments of this data source act as filters for querying the available VPC peering connection.
-           The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
-    :param _builtins.str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block
@@ -338,42 +271,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
                                       vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
     """
-    The VPC Peering Connection data source provides details about
-    a specific VPC peering connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    pc = aws.ec2.get_vpc_peering_connection(vpc_id=foo["id"],
-        peer_cidr_block="10.0.1.0/22")
-    # Create a route table
-    rt = aws.ec2.RouteTable("rt", vpc_id=foo["id"])
-    # Create a route
-    r = aws.ec2.Route("r",
-        route_table_id=rt.id,
-        destination_cidr_block=pc.peer_cidr_block,
-        vpc_peering_connection_id=pc.id)
-    ```
-
-
-    :param _builtins.str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param Sequence[Union['GetVpcPeeringConnectionFilterArgs', 'GetVpcPeeringConnectionFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str peer_owner_id: AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str peer_vpc_id: ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param _builtins.str status: Status of the specific VPC Peering Connection to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPC Peering Connection.
-           
-           The arguments of this data source act as filters for querying the available VPC peering connection.
-           The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
-    :param _builtins.str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block

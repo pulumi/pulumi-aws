@@ -13,49 +13,16 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionOrigin
     {
-        /// <summary>
-        /// Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
-        /// </summary>
         public readonly int? ConnectionAttempts;
-        /// <summary>
-        /// Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
-        /// </summary>
         public readonly int? ConnectionTimeout;
-        /// <summary>
-        /// One or more sub-resources with `Name` and `Value` parameters that specify header data that will be sent to the origin. See Custom Header below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionOriginCustomHeader> CustomHeaders;
-        /// <summary>
-        /// CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionOriginCustomOriginConfig> CustomOriginConfigs;
-        /// <summary>
-        /// DNS domain name of either the S3 bucket, or web site of your custom origin.
-        /// </summary>
         public readonly string DomainName;
-        /// <summary>
-        /// Identifier for the distribution.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// CloudFront origin access control identifier to associate with the origin.
-        /// </summary>
         public readonly string? OriginAccessControlId;
-        /// <summary>
-        /// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        /// </summary>
         public readonly string? OriginPath;
-        /// <summary>
-        /// CloudFront Origin Shield configuration information. See Origin Shield below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionOriginOriginShield> OriginShields;
-        /// <summary>
-        /// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
-        /// </summary>
         public readonly int? ResponseCompletionTimeout;
-        /// <summary>
-        /// CloudFront VPC origin configuration. See VPC Origin Config below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionOriginVpcOriginConfig> VpcOriginConfigs;
 
         [OutputConstructor]

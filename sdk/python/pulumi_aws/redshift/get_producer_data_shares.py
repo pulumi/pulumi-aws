@@ -47,25 +47,16 @@ class GetProducerDataSharesResult:
     @_builtins.property
     @pulumi.getter(name="dataShares")
     def data_shares(self) -> Sequence['outputs.GetProducerDataSharesDataShareResult']:
-        """
-        An array of all data shares in the producer. See `data_shares` below.
-        """
         return pulumi.get(self, "data_shares")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Producer ARN.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) of the producer.
-        """
         return pulumi.get(self, "producer_arn")
 
     @_builtins.property
@@ -97,25 +88,7 @@ def get_producer_data_shares(producer_arn: Optional[_builtins.str] = None,
                              status: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProducerDataSharesResult:
     """
-    Data source for managing AWS Redshift Producer Data Shares.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_producer_data_shares(producer_arn="")
-    ```
-
-
-    :param _builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str status: Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['producerArn'] = producer_arn
@@ -135,25 +108,7 @@ def get_producer_data_shares_output(producer_arn: Optional[pulumi.Input[_builtin
                                     status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProducerDataSharesResult]:
     """
-    Data source for managing AWS Redshift Producer Data Shares.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_producer_data_shares(producer_arn="")
-    ```
-
-
-    :param _builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str status: Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['producerArn'] = producer_arn

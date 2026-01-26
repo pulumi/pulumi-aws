@@ -17,77 +17,37 @@ public final class IdentityNotificationTopicArgs extends com.pulumi.resources.Re
 
     public static final IdentityNotificationTopicArgs Empty = new IdentityNotificationTopicArgs();
 
-    /**
-     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-     * 
-     */
     @Import(name="identity", required=true)
     private Output<String> identity;
 
-    /**
-     * @return The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> identity() {
         return this.identity;
     }
 
-    /**
-     * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
-     * 
-     */
     @Import(name="includeOriginalHeaders")
     private @Nullable Output<Boolean> includeOriginalHeaders;
 
-    /**
-     * @return Whether SES should include original email headers in SNS notifications of this type. `false` by default.
-     * 
-     */
     public Optional<Output<Boolean>> includeOriginalHeaders() {
         return Optional.ofNullable(this.includeOriginalHeaders);
     }
 
-    /**
-     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
-     * 
-     */
     @Import(name="notificationType", required=true)
     private Output<String> notificationType;
 
-    /**
-     * @return The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
-     * 
-     */
     public Output<String> notificationType() {
         return this.notificationType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
-     * 
-     */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
-     * 
-     */
     public Optional<Output<String>> topicArn() {
         return Optional.ofNullable(this.topicArn);
     }
@@ -120,107 +80,47 @@ public final class IdentityNotificationTopicArgs extends com.pulumi.resources.Re
             $ = new IdentityNotificationTopicArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identity The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(Output<String> identity) {
             $.identity = identity;
             return this;
         }
 
-        /**
-         * @param identity The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(String identity) {
             return identity(Output.of(identity));
         }
 
-        /**
-         * @param includeOriginalHeaders Whether SES should include original email headers in SNS notifications of this type. `false` by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeOriginalHeaders(@Nullable Output<Boolean> includeOriginalHeaders) {
             $.includeOriginalHeaders = includeOriginalHeaders;
             return this;
         }
 
-        /**
-         * @param includeOriginalHeaders Whether SES should include original email headers in SNS notifications of this type. `false` by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeOriginalHeaders(Boolean includeOriginalHeaders) {
             return includeOriginalHeaders(Output.of(includeOriginalHeaders));
         }
 
-        /**
-         * @param notificationType The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationType(Output<String> notificationType) {
             $.notificationType = notificationType;
             return this;
         }
 
-        /**
-         * @param notificationType The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationType(String notificationType) {
             return notificationType(Output.of(notificationType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param topicArn The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(@Nullable Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

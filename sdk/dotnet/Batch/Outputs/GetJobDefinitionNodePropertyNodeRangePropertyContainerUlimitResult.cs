@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult
     {
-        /// <summary>
-        /// The hard limit for the ulimit type.
-        /// </summary>
         public readonly int HardLimit;
-        /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The soft limit for the ulimit type.
-        /// </summary>
         public readonly int SoftLimit;
 
         [OutputConstructor]

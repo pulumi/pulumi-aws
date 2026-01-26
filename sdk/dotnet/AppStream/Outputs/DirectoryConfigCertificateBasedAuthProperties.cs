@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppStream.Outputs
     [OutputType]
     public sealed class DirectoryConfigCertificateBasedAuthProperties
     {
-        /// <summary>
-        /// The ARN of the AWS Certificate Manager Private CA resource.
-        /// </summary>
         public readonly string? CertificateAuthorityArn;
-        /// <summary>
-        /// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

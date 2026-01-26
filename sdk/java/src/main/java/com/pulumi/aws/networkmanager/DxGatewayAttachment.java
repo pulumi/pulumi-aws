@@ -18,242 +18,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager Direct Connect Gateway Attachment.
- * 
- * Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.DxGatewayAttachment;
- * import com.pulumi.aws.networkmanager.DxGatewayAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new DxGatewayAttachment("test", DxGatewayAttachmentArgs.builder()
- *             .coreNetworkId(testAwsNetworkmanagerCoreNetworkPolicyAttachment.coreNetworkId())
- *             .directConnectGatewayArn(String.format("arn:aws:directconnect::%s:dx-gateway/%s", current.accountId(),testAwsDxGateway.id()))
- *             .edgeLocations(currentAwsRegion.region())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Manager DX Gateway Attachment using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")
 public class DxGatewayAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the attachment.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Policy rule number associated with the attachment.
-     * 
-     */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
-    /**
-     * @return Policy rule number associated with the attachment.
-     * 
-     */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
-    /**
-     * Type of attachment.
-     * 
-     */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
-    /**
-     * @return Type of attachment.
-     * 
-     */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
-    /**
-     * ARN of the core network for the attachment.
-     * 
-     */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
-    /**
-     * @return ARN of the core network for the attachment.
-     * 
-     */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
-    /**
-     * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     * 
-     */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
-    /**
-     * ARN of the Direct Connect gateway attachment.
-     * 
-     */
     @Export(name="directConnectGatewayArn", refs={String.class}, tree="[0]")
     private Output<String> directConnectGatewayArn;
 
-    /**
-     * @return ARN of the Direct Connect gateway attachment.
-     * 
-     */
     public Output<String> directConnectGatewayArn() {
         return this.directConnectGatewayArn;
     }
-    /**
-     * One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="edgeLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> edgeLocations;
 
-    /**
-     * @return One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<String>> edgeLocations() {
         return this.edgeLocations;
     }
-    /**
-     * ID of the attachment account owner.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return ID of the attachment account owner.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Export(name="routingPolicyLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Output<Optional<String>> routingPolicyLabel() {
         return Codegen.optional(this.routingPolicyLabel);
     }
-    /**
-     * Name of the segment attachment.
-     * 
-     */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
-    /**
-     * @return Name of the segment attachment.
-     * 
-     */
     public Output<String> segmentName() {
         return this.segmentName;
     }
-    /**
-     * State of the attachment.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the attachment.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

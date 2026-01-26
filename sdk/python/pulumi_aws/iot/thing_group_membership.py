@@ -25,10 +25,6 @@ class ThingGroupMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThingGroupMembership resource.
-        :param pulumi.Input[_builtins.str] thing_group_name: The name of the group to which you are adding a thing.
-        :param pulumi.Input[_builtins.str] thing_name: The name of the thing to add to a group.
-        :param pulumi.Input[_builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "thing_group_name", thing_group_name)
         pulumi.set(__self__, "thing_name", thing_name)
@@ -40,9 +36,6 @@ class ThingGroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="thingGroupName")
     def thing_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the group to which you are adding a thing.
-        """
         return pulumi.get(self, "thing_group_name")
 
     @thing_group_name.setter
@@ -52,9 +45,6 @@ class ThingGroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="thingName")
     def thing_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the thing to add to a group.
-        """
         return pulumi.get(self, "thing_name")
 
     @thing_name.setter
@@ -64,9 +54,6 @@ class ThingGroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="overrideDynamicGroup")
     def override_dynamic_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        """
         return pulumi.get(self, "override_dynamic_group")
 
     @override_dynamic_group.setter
@@ -76,9 +63,6 @@ class ThingGroupMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,10 +79,6 @@ class _ThingGroupMembershipState:
                  thing_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThingGroupMembership resources.
-        :param pulumi.Input[_builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] thing_group_name: The name of the group to which you are adding a thing.
-        :param pulumi.Input[_builtins.str] thing_name: The name of the thing to add to a group.
         """
         if override_dynamic_group is not None:
             pulumi.set(__self__, "override_dynamic_group", override_dynamic_group)
@@ -112,9 +92,6 @@ class _ThingGroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="overrideDynamicGroup")
     def override_dynamic_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        """
         return pulumi.get(self, "override_dynamic_group")
 
     @override_dynamic_group.setter
@@ -124,9 +101,6 @@ class _ThingGroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +110,6 @@ class _ThingGroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="thingGroupName")
     def thing_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the group to which you are adding a thing.
-        """
         return pulumi.get(self, "thing_group_name")
 
     @thing_group_name.setter
@@ -148,9 +119,6 @@ class _ThingGroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="thingName")
     def thing_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the thing to add to a group.
-        """
         return pulumi.get(self, "thing_name")
 
     @thing_name.setter
@@ -170,34 +138,9 @@ class ThingGroupMembership(pulumi.CustomResource):
                  thing_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Adds an IoT Thing to an IoT Thing Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.ThingGroupMembership("example",
-            thing_name="example-thing",
-            thing_group_name="example-group",
-            override_dynamic_group=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
-        ```
-
+        Create a ThingGroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] thing_group_name: The name of the group to which you are adding a thing.
-        :param pulumi.Input[_builtins.str] thing_name: The name of the thing to add to a group.
         """
         ...
     @overload
@@ -206,28 +149,7 @@ class ThingGroupMembership(pulumi.CustomResource):
                  args: ThingGroupMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Adds an IoT Thing to an IoT Thing Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.ThingGroupMembership("example",
-            thing_name="example-thing",
-            thing_group_name="example-group",
-            override_dynamic_group=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
-        ```
-
+        Create a ThingGroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ThingGroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,10 +207,6 @@ class ThingGroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] thing_group_name: The name of the group to which you are adding a thing.
-        :param pulumi.Input[_builtins.str] thing_name: The name of the thing to add to a group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,32 +221,20 @@ class ThingGroupMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="overrideDynamicGroup")
     def override_dynamic_group(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        """
         return pulumi.get(self, "override_dynamic_group")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="thingGroupName")
     def thing_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the group to which you are adding a thing.
-        """
         return pulumi.get(self, "thing_group_name")
 
     @_builtins.property
     @pulumi.getter(name="thingName")
     def thing_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the thing to add to a group.
-        """
         return pulumi.get(self, "thing_name")
 

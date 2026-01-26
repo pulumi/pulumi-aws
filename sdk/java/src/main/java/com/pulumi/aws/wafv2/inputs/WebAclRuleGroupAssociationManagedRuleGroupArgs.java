@@ -34,14 +34,14 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
     }
 
     /**
-     * Override actions for specific rules within the rule group. See below.
+     * Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     @Import(name="ruleActionOverrides")
     private @Nullable Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs>> ruleActionOverrides;
 
     /**
-     * @return Override actions for specific rules within the rule group. See below.
+     * @return Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     public Optional<Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs>>> ruleActionOverrides() {
@@ -49,14 +49,14 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
     }
 
     /**
-     * Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+     * Name of the managed rule group vendor.
      * 
      */
     @Import(name="vendorName", required=true)
     private Output<String> vendorName;
 
     /**
-     * @return Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+     * @return Name of the managed rule group vendor.
      * 
      */
     public Output<String> vendorName() {
@@ -64,14 +64,14 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
     }
 
     /**
-     * Version of the managed rule group. If not specified, the default version is used.
+     * Version of the managed rule group. Omit this to use the default version.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return Version of the managed rule group. If not specified, the default version is used.
+     * @return Version of the managed rule group. Omit this to use the default version.
      * 
      */
     public Optional<Output<String>> version() {
@@ -127,7 +127,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
         }
 
         /**
-         * @param ruleActionOverrides Override actions for specific rules within the rule group. See below.
+         * @param ruleActionOverrides Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
         }
 
         /**
-         * @param ruleActionOverrides Override actions for specific rules within the rule group. See below.
+         * @param ruleActionOverrides Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
         }
 
         /**
-         * @param ruleActionOverrides Override actions for specific rules within the rule group. See below.
+         * @param ruleActionOverrides Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
         }
 
         /**
-         * @param vendorName Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+         * @param vendorName Name of the managed rule group vendor.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
         }
 
         /**
-         * @param vendorName Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+         * @param vendorName Name of the managed rule group vendor.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
         }
 
         /**
-         * @param version Version of the managed rule group. If not specified, the default version is used.
+         * @param version Version of the managed rule group. Omit this to use the default version.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
         }
 
         /**
-         * @param version Version of the managed rule group. If not specified, the default version is used.
+         * @param version Version of the managed rule group. Omit this to use the default version.
          * 
          * @return builder
          * 

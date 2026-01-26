@@ -32,16 +32,6 @@ class DevEnvironmentArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None):
         """
         The set of arguments for constructing a DevEnvironment resource.
-        :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-               
-               The following arguments are optional:
-        :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the space.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
-        :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         """
         pulumi.set(__self__, "ides", ides)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -60,9 +50,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def ides(self) -> pulumi.Input['DevEnvironmentIdesArgs']:
-        """
-        Information about the integrated development environment (IDE) configured for a Dev Environment.
-        """
         return pulumi.get(self, "ides")
 
     @ides.setter
@@ -72,11 +59,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -86,9 +68,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="persistentStorage")
     def persistent_storage(self) -> pulumi.Input['DevEnvironmentPersistentStorageArgs']:
-        """
-        Information about the amount of storage allocated to the Dev Environment.
-        """
         return pulumi.get(self, "persistent_storage")
 
     @persistent_storage.setter
@@ -98,9 +77,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the project in the space.
-        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -110,9 +86,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the space.
-        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -131,9 +104,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="inactivityTimeoutMinutes")
     def inactivity_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        """
         return pulumi.get(self, "inactivity_timeout_minutes")
 
     @inactivity_timeout_minutes.setter
@@ -143,9 +113,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -155,9 +122,6 @@ class DevEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
-        """
-        The source repository that contains the branch to clone into the Dev Environment.
-        """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
@@ -179,16 +143,6 @@ class _DevEnvironmentState:
                  space_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DevEnvironment resources.
-        :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
-        :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-               
-               The following arguments are optional:
-        :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the space.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -221,9 +175,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter
     def ides(self) -> Optional[pulumi.Input['DevEnvironmentIdesArgs']]:
-        """
-        Information about the integrated development environment (IDE) configured for a Dev Environment.
-        """
         return pulumi.get(self, "ides")
 
     @ides.setter
@@ -233,9 +184,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="inactivityTimeoutMinutes")
     def inactivity_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        """
         return pulumi.get(self, "inactivity_timeout_minutes")
 
     @inactivity_timeout_minutes.setter
@@ -245,11 +193,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -259,9 +202,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="persistentStorage")
     def persistent_storage(self) -> Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']]:
-        """
-        Information about the amount of storage allocated to the Dev Environment.
-        """
         return pulumi.get(self, "persistent_storage")
 
     @persistent_storage.setter
@@ -271,9 +211,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the project in the space.
-        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -283,9 +220,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -295,9 +229,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter
     def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
-        """
-        The source repository that contains the branch to clone into the Dev Environment.
-        """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
@@ -307,9 +238,6 @@ class _DevEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the space.
-        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -334,45 +262,9 @@ class DevEnvironment(pulumi.CustomResource):
                  space_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CodeCatalyst Dev Environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecatalyst.DevEnvironment("test",
-            alias="devenv",
-            space_name="myspace",
-            project_name="myproject",
-            instance_type="dev.standard1.small",
-            persistent_storage={
-                "size": 16,
-            },
-            ides={
-                "name": "PyCharm",
-                "runtime": "public.ecr.aws/jetbrains/py",
-            },
-            inactivity_timeout_minutes=40,
-            repositories=[{
-                "repository_name": "pulumi-provider-aws",
-                "branch_name": "main",
-            }])
-        ```
-
+        Create a DevEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
-        :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the space.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
         """
         ...
     @overload
@@ -381,33 +273,7 @@ class DevEnvironment(pulumi.CustomResource):
                  args: DevEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CodeCatalyst Dev Environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecatalyst.DevEnvironment("test",
-            alias="devenv",
-            space_name="myspace",
-            project_name="myproject",
-            instance_type="dev.standard1.small",
-            persistent_storage={
-                "size": 16,
-            },
-            ides={
-                "name": "PyCharm",
-                "runtime": "public.ecr.aws/jetbrains/py",
-            },
-            inactivity_timeout_minutes=40,
-            repositories=[{
-                "repository_name": "pulumi-provider-aws",
-                "branch_name": "main",
-            }])
-        ```
-
+        Create a DevEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DevEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -486,16 +352,6 @@ class DevEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
-        :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the space.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -520,66 +376,40 @@ class DevEnvironment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def ides(self) -> pulumi.Output['outputs.DevEnvironmentIdes']:
-        """
-        Information about the integrated development environment (IDE) configured for a Dev Environment.
-        """
         return pulumi.get(self, "ides")
 
     @_builtins.property
     @pulumi.getter(name="inactivityTimeoutMinutes")
     def inactivity_timeout_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        """
         return pulumi.get(self, "inactivity_timeout_minutes")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="persistentStorage")
     def persistent_storage(self) -> pulumi.Output['outputs.DevEnvironmentPersistentStorage']:
-        """
-        Information about the amount of storage allocated to the Dev Environment.
-        """
         return pulumi.get(self, "persistent_storage")
 
     @_builtins.property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the project in the space.
-        """
         return pulumi.get(self, "project_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def repositories(self) -> pulumi.Output[Optional[Sequence['outputs.DevEnvironmentRepository']]]:
-        """
-        The source repository that contains the branch to clone into the Dev Environment.
-        """
         return pulumi.get(self, "repositories")
 
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the space.
-        """
         return pulumi.get(self, "space_name")
 

@@ -22,17 +22,9 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
 
     public static final NetworkState Empty = new NetworkState();
 
-    /**
-     * Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -125,14 +117,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      * 
      */
     @Import(name="managedServices")
     private @Nullable Output<List<NetworkManagedServiceArgs>> managedServices;
 
     /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
+     * @return The managed services configuration for the ODB network.
      * 
      */
     public Optional<Output<List<NetworkManagedServiceArgs>>> managedServices() {
@@ -140,14 +132,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
      * 
      */
     @Import(name="ociDnsForwardingConfigs")
     private @Nullable Output<List<NetworkOciDnsForwardingConfigArgs>> ociDnsForwardingConfigs;
 
     /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
+     * @return The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
      * 
      */
     public Optional<Output<List<NetworkOciDnsForwardingConfigArgs>>> ociDnsForwardingConfigs() {
@@ -259,17 +251,9 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.percentProgress);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -334,17 +318,9 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.statusReason);
     }
 
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -366,16 +342,12 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="zeroEtlAccess")
     private @Nullable Output<String> zeroEtlAccess;
 
     /**
      * @return Specifies the configuration for Zero-ETL access from the ODB network.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> zeroEtlAccess() {
@@ -433,23 +405,11 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
             $ = new NetworkState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the odb network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the odb network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -572,7 +532,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices The name of the OCI resource anchor for the Exadata infrastructure.
+         * @param managedServices The managed services configuration for the ODB network.
          * 
          * @return builder
          * 
@@ -583,7 +543,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices The name of the OCI resource anchor for the Exadata infrastructure.
+         * @param managedServices The managed services configuration for the ODB network.
          * 
          * @return builder
          * 
@@ -593,7 +553,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices The name of the OCI resource anchor for the Exadata infrastructure.
+         * @param managedServices The managed services configuration for the ODB network.
          * 
          * @return builder
          * 
@@ -603,7 +563,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociDnsForwardingConfigs The number of storage servers requested for the Exadata infrastructure.
+         * @param ociDnsForwardingConfigs The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
          * 
          * @return builder
          * 
@@ -614,7 +574,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociDnsForwardingConfigs The number of storage servers requested for the Exadata infrastructure.
+         * @param ociDnsForwardingConfigs The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
          * 
          * @return builder
          * 
@@ -624,7 +584,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociDnsForwardingConfigs The number of storage servers requested for the Exadata infrastructure.
+         * @param ociDnsForwardingConfigs The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
          * 
          * @return builder
          * 
@@ -790,23 +750,11 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
             return percentProgress(Output.of(percentProgress));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -895,23 +843,11 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
             return statusReason(Output.of(statusReason));
         }
 
-        /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -937,8 +873,6 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zeroEtlAccess Specifies the configuration for Zero-ETL access from the ODB network.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -949,8 +883,6 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zeroEtlAccess Specifies the configuration for Zero-ETL access from the ODB network.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

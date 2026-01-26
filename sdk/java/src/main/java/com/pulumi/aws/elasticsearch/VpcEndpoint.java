@@ -14,117 +14,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticsearch.VpcEndpoint;
- * import com.pulumi.aws.elasticsearch.VpcEndpointArgs;
- * import com.pulumi.aws.elasticsearch.inputs.VpcEndpointVpcOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new VpcEndpoint("foo", VpcEndpointArgs.builder()
- *             .domainArn(domain1.arn())
- *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
- *                 .securityGroupIds(                
- *                     test.id(),
- *                     test2.id())
- *                 .subnetIds(                
- *                     testAwsSubnet.id(),
- *                     test2AwsSubnet.id())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import elasticsearch VPC endpoint connections using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
- * ```
- * 
- */
 @ResourceType(type="aws:elasticsearch/vpcEndpoint:VpcEndpoint")
 public class VpcEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-     * 
-     */
     @Export(name="domainArn", refs={String.class}, tree="[0]")
     private Output<String> domainArn;
 
-    /**
-     * @return Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-     * 
-     */
     public Output<String> domainArn() {
         return this.domainArn;
     }
-    /**
-     * The connection endpoint ID for connecting to the domain.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return The connection endpoint ID for connecting to the domain.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Options to specify the subnets and security groups for the endpoint.
-     * 
-     */
     @Export(name="vpcOptions", refs={VpcEndpointVpcOptions.class}, tree="[0]")
     private Output<VpcEndpointVpcOptions> vpcOptions;
 
-    /**
-     * @return Options to specify the subnets and security groups for the endpoint.
-     * 
-     */
     public Output<VpcEndpointVpcOptions> vpcOptions() {
         return this.vpcOptions;
     }

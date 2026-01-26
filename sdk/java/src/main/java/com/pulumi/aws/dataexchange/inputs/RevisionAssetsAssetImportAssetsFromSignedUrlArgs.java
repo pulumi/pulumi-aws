@@ -14,17 +14,9 @@ public final class RevisionAssetsAssetImportAssetsFromSignedUrlArgs extends com.
 
     public static final RevisionAssetsAssetImportAssetsFromSignedUrlArgs Empty = new RevisionAssetsAssetImportAssetsFromSignedUrlArgs();
 
-    /**
-     * The name of the file to import.
-     * 
-     */
     @Import(name="filename", required=true)
     private Output<String> filename;
 
-    /**
-     * @return The name of the file to import.
-     * 
-     */
     public Output<String> filename() {
         return this.filename;
     }
@@ -53,23 +45,11 @@ public final class RevisionAssetsAssetImportAssetsFromSignedUrlArgs extends com.
             $ = new RevisionAssetsAssetImportAssetsFromSignedUrlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filename The name of the file to import.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filename(Output<String> filename) {
             $.filename = filename;
             return this;
         }
 
-        /**
-         * @param filename The name of the file to import.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filename(String filename) {
             return filename(Output.of(filename));
         }

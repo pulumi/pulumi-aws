@@ -12,80 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a scope for AWS IPAM.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Region),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamScope(ctx, "example", &ec2.VpcIpamScopeArgs{
-//				IpamId:      example.ID(),
-//				Description: pulumi.String("Another Scope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IPAMs using the `scope_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
-// ```
 type VpcIpamScope struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the scope.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description for the scope you're creating.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ARN of the IPAM for which you're creating this scope.
-	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
-	// The ID of the IPAM for which you're creating this scope.
-	IpamId        pulumi.StringOutput `pulumi:"ipamId"`
-	IpamScopeType pulumi.StringOutput `pulumi:"ipamScopeType"`
-	// Defines if the scope is the default scope or not.
-	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// The number of pools in the scope.
-	PoolCount pulumi.IntOutput `pulumi:"poolCount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn           pulumi.StringOutput    `pulumi:"arn"`
+	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	IpamArn       pulumi.StringOutput    `pulumi:"ipamArn"`
+	IpamId        pulumi.StringOutput    `pulumi:"ipamId"`
+	IpamScopeType pulumi.StringOutput    `pulumi:"ipamScopeType"`
+	IsDefault     pulumi.BoolOutput      `pulumi:"isDefault"`
+	PoolCount     pulumi.IntOutput       `pulumi:"poolCount"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewVpcIpamScope registers a new resource with the given unique name, arguments, and options.
@@ -121,45 +60,29 @@ func GetVpcIpamScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamScope resources.
 type vpcIpamScopeState struct {
-	// The Amazon Resource Name (ARN) of the scope.
-	Arn *string `pulumi:"arn"`
-	// A description for the scope you're creating.
-	Description *string `pulumi:"description"`
-	// The ARN of the IPAM for which you're creating this scope.
-	IpamArn *string `pulumi:"ipamArn"`
-	// The ID of the IPAM for which you're creating this scope.
-	IpamId        *string `pulumi:"ipamId"`
-	IpamScopeType *string `pulumi:"ipamScopeType"`
-	// Defines if the scope is the default scope or not.
-	IsDefault *bool `pulumi:"isDefault"`
-	// The number of pools in the scope.
-	PoolCount *int `pulumi:"poolCount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn           *string           `pulumi:"arn"`
+	Description   *string           `pulumi:"description"`
+	IpamArn       *string           `pulumi:"ipamArn"`
+	IpamId        *string           `pulumi:"ipamId"`
+	IpamScopeType *string           `pulumi:"ipamScopeType"`
+	IsDefault     *bool             `pulumi:"isDefault"`
+	PoolCount     *int              `pulumi:"poolCount"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
+	TagsAll       map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcIpamScopeState struct {
-	// The Amazon Resource Name (ARN) of the scope.
-	Arn pulumi.StringPtrInput
-	// A description for the scope you're creating.
-	Description pulumi.StringPtrInput
-	// The ARN of the IPAM for which you're creating this scope.
-	IpamArn pulumi.StringPtrInput
-	// The ID of the IPAM for which you're creating this scope.
+	Arn           pulumi.StringPtrInput
+	Description   pulumi.StringPtrInput
+	IpamArn       pulumi.StringPtrInput
 	IpamId        pulumi.StringPtrInput
 	IpamScopeType pulumi.StringPtrInput
-	// Defines if the scope is the default scope or not.
-	IsDefault pulumi.BoolPtrInput
-	// The number of pools in the scope.
-	PoolCount pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	IsDefault     pulumi.BoolPtrInput
+	PoolCount     pulumi.IntPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
 }
 
 func (VpcIpamScopeState) ElementType() reflect.Type {
@@ -167,26 +90,18 @@ func (VpcIpamScopeState) ElementType() reflect.Type {
 }
 
 type vpcIpamScopeArgs struct {
-	// A description for the scope you're creating.
-	Description *string `pulumi:"description"`
-	// The ID of the IPAM for which you're creating this scope.
-	IpamId string `pulumi:"ipamId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	IpamId      string            `pulumi:"ipamId"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcIpamScope resource.
 type VpcIpamScopeArgs struct {
-	// A description for the scope you're creating.
 	Description pulumi.StringPtrInput
-	// The ID of the IPAM for which you're creating this scope.
-	IpamId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	IpamId      pulumi.StringInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (VpcIpamScopeArgs) ElementType() reflect.Type {
@@ -276,22 +191,18 @@ func (o VpcIpamScopeOutput) ToVpcIpamScopeOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the scope.
 func (o VpcIpamScopeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description for the scope you're creating.
 func (o VpcIpamScopeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IPAM for which you're creating this scope.
 func (o VpcIpamScopeOutput) IpamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamArn }).(pulumi.StringOutput)
 }
 
-// The ID of the IPAM for which you're creating this scope.
 func (o VpcIpamScopeOutput) IpamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
 }
@@ -300,22 +211,18 @@ func (o VpcIpamScopeOutput) IpamScopeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamScopeType }).(pulumi.StringOutput)
 }
 
-// Defines if the scope is the default scope or not.
 func (o VpcIpamScopeOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The number of pools in the scope.
 func (o VpcIpamScopeOutput) PoolCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.IntOutput { return v.PoolCount }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcIpamScopeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcIpamScopeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

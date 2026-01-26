@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Chatbot Slack Workspace.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chatbot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chatbot.GetSlackWorkspace(ctx, &chatbot.GetSlackWorkspaceArgs{
-//				SlackTeamName: "abc",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSlackWorkspace(ctx *pulumi.Context, args *GetSlackWorkspaceArgs, opts ...pulumi.InvokeOption) (*GetSlackWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSlackWorkspaceResult
@@ -52,18 +23,15 @@ func GetSlackWorkspace(ctx *pulumi.Context, args *GetSlackWorkspaceArgs, opts ..
 
 // A collection of arguments for invoking getSlackWorkspace.
 type GetSlackWorkspaceArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Slack workspace name configured with AWS Chatbot.
-	SlackTeamName string `pulumi:"slackTeamName"`
+	Region        *string `pulumi:"region"`
+	SlackTeamName string  `pulumi:"slackTeamName"`
 }
 
 // A collection of values returned by getSlackWorkspace.
 type GetSlackWorkspaceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// ID of the Slack Workspace assigned by AWS Chatbot.
+	Id            string `pulumi:"id"`
+	Region        string `pulumi:"region"`
 	SlackTeamId   string `pulumi:"slackTeamId"`
 	SlackTeamName string `pulumi:"slackTeamName"`
 }
@@ -79,10 +47,8 @@ func GetSlackWorkspaceOutput(ctx *pulumi.Context, args GetSlackWorkspaceOutputAr
 
 // A collection of arguments for invoking getSlackWorkspace.
 type GetSlackWorkspaceOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Slack workspace name configured with AWS Chatbot.
-	SlackTeamName pulumi.StringInput `pulumi:"slackTeamName"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
+	SlackTeamName pulumi.StringInput    `pulumi:"slackTeamName"`
 }
 
 func (GetSlackWorkspaceOutputArgs) ElementType() reflect.Type {
@@ -113,7 +79,6 @@ func (o GetSlackWorkspaceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSlackWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the Slack Workspace assigned by AWS Chatbot.
 func (o GetSlackWorkspaceResultOutput) SlackTeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSlackWorkspaceResult) string { return v.SlackTeamId }).(pulumi.StringOutput)
 }

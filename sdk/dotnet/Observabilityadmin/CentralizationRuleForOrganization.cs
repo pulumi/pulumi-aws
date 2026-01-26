@@ -9,219 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Observabilityadmin
 {
-    /// <summary>
-    /// Manages an AWS CloudWatch Observability Admin Centralization Rule For Organization.
-    /// 
-    /// Centralization rules enable you to centralize log data from multiple AWS accounts and regions within your organization to a single destination account and region. This helps with log management, compliance, and cost optimization by consolidating logs in a central location.
-    /// 
-    /// This requires an AWS account within an organization with at least [delegated administrator permissions](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Centralization Rule
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetOrganization = Aws.Organizations.GetOrganization.Invoke();
-    /// 
-    ///     var example = new Aws.Observabilityadmin.CentralizationRuleForOrganization("example", new()
-    ///     {
-    ///         RuleName = "example-centralization-rule",
-    ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
-    ///         {
-    ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
-    ///             {
-    ///                 Region = "eu-west-1",
-    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             },
-    ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
-    ///             {
-    ///                 Regions = new[]
-    ///                 {
-    ///                     "ap-southeast-1",
-    ///                 },
-    ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
-    ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
-    ///                 {
-    ///                     EncryptedLogGroupStrategy = "SKIP",
-    ///                     LogGroupSelectionCriteria = "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-centralization-rule" },
-    ///             { "Environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Advanced Configuration with Encryption and Backup
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetOrganization = Aws.Organizations.GetOrganization.Invoke();
-    /// 
-    ///     var advanced = new Aws.Observabilityadmin.CentralizationRuleForOrganization("advanced", new()
-    ///     {
-    ///         RuleName = "advanced-centralization-rule",
-    ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
-    ///         {
-    ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
-    ///             {
-    ///                 Region = "eu-west-1",
-    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                 DestinationLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs
-    ///                 {
-    ///                     LogsEncryptionConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs
-    ///                     {
-    ///                         EncryptionStrategy = "AWS_OWNED",
-    ///                     },
-    ///                     BackupConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs
-    ///                     {
-    ///                         Region = "us-west-1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
-    ///             {
-    ///                 Regions = new[]
-    ///                 {
-    ///                     "ap-southeast-1",
-    ///                     "us-east-1",
-    ///                 },
-    ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
-    ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
-    ///                 {
-    ///                     EncryptedLogGroupStrategy = "ALLOW",
-    ///                     LogGroupSelectionCriteria = "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "advanced-centralization-rule" },
-    ///             { "Environment", "production" },
-    ///             { "Team", "observability" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Selective Log Group Filtering
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetOrganization = Aws.Organizations.GetOrganization.Invoke();
-    /// 
-    ///     var filtered = new Aws.Observabilityadmin.CentralizationRuleForOrganization("filtered", new()
-    ///     {
-    ///         RuleName = "filtered-centralization-rule",
-    ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
-    ///         {
-    ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
-    ///             {
-    ///                 Region = "eu-west-1",
-    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             },
-    ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
-    ///             {
-    ///                 Regions = new[]
-    ///                 {
-    ///                     "ap-southeast-1",
-    ///                     "us-east-1",
-    ///                 },
-    ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
-    ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
-    ///                 {
-    ///                     EncryptedLogGroupStrategy = "ALLOW",
-    ///                     LogGroupSelectionCriteria = "LogGroupName LIKE '/aws/lambda%'",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "filtered-centralization-rule" },
-    ///             { "Filter", "lambda-logs" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization")]
     public partial class CentralizationRuleForOrganization : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the centralization rule. See `Rule` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("rule")]
         public Output<Outputs.CentralizationRuleForOrganizationRule?> Rule { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the centralization rule.
-        /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the centralization rule. Must be unique within the organization.
-        /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -274,32 +79,17 @@ namespace Pulumi.Aws.Observabilityadmin
 
     public sealed class CentralizationRuleForOrganizationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for the centralization rule. See `Rule` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.CentralizationRuleForOrganizationRuleArgs>? Rule { get; set; }
 
-        /// <summary>
-        /// Name of the centralization rule. Must be unique within the organization.
-        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -317,38 +107,20 @@ namespace Pulumi.Aws.Observabilityadmin
 
     public sealed class CentralizationRuleForOrganizationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for the centralization rule. See `Rule` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.CentralizationRuleForOrganizationRuleGetArgs>? Rule { get; set; }
 
-        /// <summary>
-        /// ARN of the centralization rule.
-        /// </summary>
         [Input("ruleArn")]
         public Input<string>? RuleArn { get; set; }
 
-        /// <summary>
-        /// Name of the centralization rule. Must be unique within the organization.
-        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -357,10 +129,6 @@ namespace Pulumi.Aws.Observabilityadmin
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

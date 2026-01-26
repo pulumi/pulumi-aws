@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 {
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-     * 
-     */
     private String prefix;
-    /**
-     * @return Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-     * 
-     */
     private @Nullable String versionId;
 
     private AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3() {}
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }
-    /**
-     * @return Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-     * 
-     */
     public Optional<String> versionId() {
         return Optional.ofNullable(this.versionId);
     }

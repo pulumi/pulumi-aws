@@ -13,9 +13,6 @@ namespace Pulumi.Aws.M2.Outputs
     [OutputType]
     public sealed class EnvironmentHighAvailabilityConfig
     {
-        /// <summary>
-        /// Desired number of instances for the Environment.
-        /// </summary>
         public readonly int DesiredCapacity;
 
         [OutputConstructor]

@@ -16,32 +16,16 @@ public final class ImageImageScanningConfigurationArgs extends com.pulumi.resour
 
     public static final ImageImageScanningConfigurationArgs Empty = new ImageImageScanningConfigurationArgs();
 
-    /**
-     * Configuration block with ECR configuration. Detailed below.
-     * 
-     */
     @Import(name="ecrConfiguration")
     private @Nullable Output<ImageImageScanningConfigurationEcrConfigurationArgs> ecrConfiguration;
 
-    /**
-     * @return Configuration block with ECR configuration. Detailed below.
-     * 
-     */
     public Optional<Output<ImageImageScanningConfigurationEcrConfigurationArgs>> ecrConfiguration() {
         return Optional.ofNullable(this.ecrConfiguration);
     }
 
-    /**
-     * Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-     * 
-     */
     @Import(name="imageScanningEnabled")
     private @Nullable Output<Boolean> imageScanningEnabled;
 
-    /**
-     * @return Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> imageScanningEnabled() {
         return Optional.ofNullable(this.imageScanningEnabled);
     }
@@ -71,44 +55,20 @@ public final class ImageImageScanningConfigurationArgs extends com.pulumi.resour
             $ = new ImageImageScanningConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ecrConfiguration Configuration block with ECR configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrConfiguration(@Nullable Output<ImageImageScanningConfigurationEcrConfigurationArgs> ecrConfiguration) {
             $.ecrConfiguration = ecrConfiguration;
             return this;
         }
 
-        /**
-         * @param ecrConfiguration Configuration block with ECR configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrConfiguration(ImageImageScanningConfigurationEcrConfigurationArgs ecrConfiguration) {
             return ecrConfiguration(Output.of(ecrConfiguration));
         }
 
-        /**
-         * @param imageScanningEnabled Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageScanningEnabled(@Nullable Output<Boolean> imageScanningEnabled) {
             $.imageScanningEnabled = imageScanningEnabled;
             return this;
         }
 
-        /**
-         * @param imageScanningEnabled Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageScanningEnabled(Boolean imageScanningEnabled) {
             return imageScanningEnabled(Output.of(imageScanningEnabled));
         }

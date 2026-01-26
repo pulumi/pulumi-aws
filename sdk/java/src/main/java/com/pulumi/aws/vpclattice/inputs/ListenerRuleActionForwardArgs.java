@@ -15,21 +15,9 @@ public final class ListenerRuleActionForwardArgs extends com.pulumi.resources.Re
 
     public static final ListenerRuleActionForwardArgs Empty = new ListenerRuleActionForwardArgs();
 
-    /**
-     * The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-     * 
-     * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
-     * 
-     */
     @Import(name="targetGroups", required=true)
     private Output<List<ListenerRuleActionForwardTargetGroupArgs>> targetGroups;
 
-    /**
-     * @return The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-     * 
-     * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
-     * 
-     */
     public Output<List<ListenerRuleActionForwardTargetGroupArgs>> targetGroups() {
         return this.targetGroups;
     }
@@ -58,39 +46,15 @@ public final class ListenerRuleActionForwardArgs extends com.pulumi.resources.Re
             $ = new ListenerRuleActionForwardArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetGroups The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-         * 
-         * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroups(Output<List<ListenerRuleActionForwardTargetGroupArgs>> targetGroups) {
             $.targetGroups = targetGroups;
             return this;
         }
 
-        /**
-         * @param targetGroups The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-         * 
-         * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroups(List<ListenerRuleActionForwardTargetGroupArgs> targetGroups) {
             return targetGroups(Output.of(targetGroups));
         }
 
-        /**
-         * @param targetGroups The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-         * 
-         * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroups(ListenerRuleActionForwardTargetGroupArgs... targetGroups) {
             return targetGroups(List.of(targetGroups));
         }

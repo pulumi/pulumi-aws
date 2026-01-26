@@ -14,25 +14,15 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
     {
         [Input("accesses")]
         private InputList<string>? _accesses;
-
-        /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-        /// </summary>
         public InputList<string> Accesses
         {
             get => _accesses ?? (_accesses = new InputList<string>());
             set => _accesses = value;
         }
 
-        /// <summary>
-        /// The AWS user or group that you want to have access to transcoded files and playlists.
-        /// </summary>
         [Input("grantee")]
         public Input<string>? Grantee { get; set; }
 
-        /// <summary>
-        /// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
-        /// </summary>
         [Input("granteeType")]
         public Input<string>? GranteeType { get; set; }
 

@@ -17,81 +17,37 @@ public final class RouteCalculationArgs extends com.pulumi.resources.ResourceArg
 
     public static final RouteCalculationArgs Empty = new RouteCalculationArgs();
 
-    /**
-     * The name of the route calculator resource.
-     * 
-     */
     @Import(name="calculatorName", required=true)
     private Output<String> calculatorName;
 
-    /**
-     * @return The name of the route calculator resource.
-     * 
-     */
     public Output<String> calculatorName() {
         return this.calculatorName;
     }
 
-    /**
-     * Specifies the data provider of traffic and road network data.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
-    /**
-     * @return Specifies the data provider of traffic and road network data.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> dataSource() {
         return this.dataSource;
     }
 
-    /**
-     * The optional description for the route calculator resource.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The optional description for the route calculator resource.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -124,111 +80,47 @@ public final class RouteCalculationArgs extends com.pulumi.resources.ResourceArg
             $ = new RouteCalculationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param calculatorName The name of the route calculator resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder calculatorName(Output<String> calculatorName) {
             $.calculatorName = calculatorName;
             return this;
         }
 
-        /**
-         * @param calculatorName The name of the route calculator resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder calculatorName(String calculatorName) {
             return calculatorName(Output.of(calculatorName));
         }
 
-        /**
-         * @param dataSource Specifies the data provider of traffic and road network data.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSource(Output<String> dataSource) {
             $.dataSource = dataSource;
             return this;
         }
 
-        /**
-         * @param dataSource Specifies the data provider of traffic and road network data.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSource(String dataSource) {
             return dataSource(Output.of(dataSource));
         }
 
-        /**
-         * @param description The optional description for the route calculator resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The optional description for the route calculator resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

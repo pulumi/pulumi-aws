@@ -16,47 +16,23 @@ public final class LaunchConfigurationMetadataOptionsArgs extends com.pulumi.res
 
     public static final LaunchConfigurationMetadataOptionsArgs Empty = new LaunchConfigurationMetadataOptionsArgs();
 
-    /**
-     * The state of the metadata service: `enabled`, `disabled`.
-     * 
-     */
     @Import(name="httpEndpoint")
     private @Nullable Output<String> httpEndpoint;
 
-    /**
-     * @return The state of the metadata service: `enabled`, `disabled`.
-     * 
-     */
     public Optional<Output<String>> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
 
-    /**
-     * The desired HTTP PUT response hop limit for instance metadata requests.
-     * 
-     */
     @Import(name="httpPutResponseHopLimit")
     private @Nullable Output<Integer> httpPutResponseHopLimit;
 
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests.
-     * 
-     */
     public Optional<Output<Integer>> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
 
-    /**
-     * If session tokens are required: `optional`, `required`.
-     * 
-     */
     @Import(name="httpTokens")
     private @Nullable Output<String> httpTokens;
 
-    /**
-     * @return If session tokens are required: `optional`, `required`.
-     * 
-     */
     public Optional<Output<String>> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }
@@ -87,65 +63,29 @@ public final class LaunchConfigurationMetadataOptionsArgs extends com.pulumi.res
             $ = new LaunchConfigurationMetadataOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpEndpoint The state of the metadata service: `enabled`, `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpEndpoint(@Nullable Output<String> httpEndpoint) {
             $.httpEndpoint = httpEndpoint;
             return this;
         }
 
-        /**
-         * @param httpEndpoint The state of the metadata service: `enabled`, `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpEndpoint(String httpEndpoint) {
             return httpEndpoint(Output.of(httpEndpoint));
         }
 
-        /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPutResponseHopLimit(@Nullable Output<Integer> httpPutResponseHopLimit) {
             $.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
 
-        /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             return httpPutResponseHopLimit(Output.of(httpPutResponseHopLimit));
         }
 
-        /**
-         * @param httpTokens If session tokens are required: `optional`, `required`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpTokens(@Nullable Output<String> httpTokens) {
             $.httpTokens = httpTokens;
             return this;
         }
 
-        /**
-         * @param httpTokens If session tokens are required: `optional`, `required`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpTokens(String httpTokens) {
             return httpTokens(Output.of(httpTokens));
         }

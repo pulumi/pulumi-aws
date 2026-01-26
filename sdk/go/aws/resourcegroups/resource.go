@@ -12,70 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Resource Groups Resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resourcegroups"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewDedicatedHost(ctx, "example", &ec2.DedicatedHostArgs{
-//				InstanceFamily:   pulumi.String("t3"),
-//				AvailabilityZone: pulumi.String("us-east-1a"),
-//				HostRecovery:     pulumi.String("off"),
-//				AutoPlacement:    pulumi.String("on"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "example", &resourcegroups.GroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = resourcegroups.NewResource(ctx, "example", &resourcegroups.ResourceArgs{
-//				GroupArn:    exampleGroup.Arn,
-//				ResourceArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
-// ```
 type Resource struct {
 	pulumi.CustomResourceState
 
-	// Name or ARN of the resource group to add resources to.
-	GroupArn pulumi.StringOutput `pulumi:"groupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the resource to be added to the group.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The resource type of a resource, such as `AWS::EC2::Instance`.
+	GroupArn     pulumi.StringOutput `pulumi:"groupArn"`
+	Region       pulumi.StringOutput `pulumi:"region"`
+	ResourceArn  pulumi.StringOutput `pulumi:"resourceArn"`
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 }
 
@@ -115,24 +57,16 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
-	// Name or ARN of the resource group to add resources to.
-	GroupArn *string `pulumi:"groupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the resource to be added to the group.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// The resource type of a resource, such as `AWS::EC2::Instance`.
+	GroupArn     *string `pulumi:"groupArn"`
+	Region       *string `pulumi:"region"`
+	ResourceArn  *string `pulumi:"resourceArn"`
 	ResourceType *string `pulumi:"resourceType"`
 }
 
 type ResourceState struct {
-	// Name or ARN of the resource group to add resources to.
-	GroupArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the resource to be added to the group.
-	ResourceArn pulumi.StringPtrInput
-	// The resource type of a resource, such as `AWS::EC2::Instance`.
+	GroupArn     pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	ResourceArn  pulumi.StringPtrInput
 	ResourceType pulumi.StringPtrInput
 }
 
@@ -141,21 +75,15 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
-	// Name or ARN of the resource group to add resources to.
-	GroupArn string `pulumi:"groupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the resource to be added to the group.
-	ResourceArn string `pulumi:"resourceArn"`
+	GroupArn    string  `pulumi:"groupArn"`
+	Region      *string `pulumi:"region"`
+	ResourceArn string  `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
-	// Name or ARN of the resource group to add resources to.
-	GroupArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the resource to be added to the group.
+	GroupArn    pulumi.StringInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringInput
 }
 
@@ -246,22 +174,18 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
-// Name or ARN of the resource group to add resources to.
 func (o ResourceOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the resource to be added to the group.
 func (o ResourceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The resource type of a resource, such as `AWS::EC2::Instance`.
 func (o ResourceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }

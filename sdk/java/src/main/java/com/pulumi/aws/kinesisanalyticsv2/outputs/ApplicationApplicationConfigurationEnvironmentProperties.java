@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationEnvironmentProperties {
-    /**
-     * @return Describes the execution property groups.
-     * 
-     */
     private List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups;
 
     private ApplicationApplicationConfigurationEnvironmentProperties() {}
-    /**
-     * @return Describes the execution property groups.
-     * 
-     */
     public List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups() {
         return this.propertyGroups;
     }

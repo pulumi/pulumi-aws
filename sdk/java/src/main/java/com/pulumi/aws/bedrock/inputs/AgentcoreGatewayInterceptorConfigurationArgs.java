@@ -19,47 +19,23 @@ public final class AgentcoreGatewayInterceptorConfigurationArgs extends com.pulu
 
     public static final AgentcoreGatewayInterceptorConfigurationArgs Empty = new AgentcoreGatewayInterceptorConfigurationArgs();
 
-    /**
-     * Input configuration for the interceptor. See `inputConfiguration` below.
-     * 
-     */
     @Import(name="inputConfiguration")
     private @Nullable Output<AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs> inputConfiguration;
 
-    /**
-     * @return Input configuration for the interceptor. See `inputConfiguration` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs>> inputConfiguration() {
         return Optional.ofNullable(this.inputConfiguration);
     }
 
-    /**
-     * Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-     * 
-     */
     @Import(name="interceptionPoints", required=true)
     private Output<List<String>> interceptionPoints;
 
-    /**
-     * @return Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-     * 
-     */
     public Output<List<String>> interceptionPoints() {
         return this.interceptionPoints;
     }
 
-    /**
-     * Interceptor infrastructure configuration. See `interceptor` below.
-     * 
-     */
     @Import(name="interceptor")
     private @Nullable Output<AgentcoreGatewayInterceptorConfigurationInterceptorArgs> interceptor;
 
-    /**
-     * @return Interceptor infrastructure configuration. See `interceptor` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayInterceptorConfigurationInterceptorArgs>> interceptor() {
         return Optional.ofNullable(this.interceptor);
     }
@@ -90,75 +66,33 @@ public final class AgentcoreGatewayInterceptorConfigurationArgs extends com.pulu
             $ = new AgentcoreGatewayInterceptorConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inputConfiguration Input configuration for the interceptor. See `inputConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputConfiguration(@Nullable Output<AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs> inputConfiguration) {
             $.inputConfiguration = inputConfiguration;
             return this;
         }
 
-        /**
-         * @param inputConfiguration Input configuration for the interceptor. See `inputConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputConfiguration(AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs inputConfiguration) {
             return inputConfiguration(Output.of(inputConfiguration));
         }
 
-        /**
-         * @param interceptionPoints Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interceptionPoints(Output<List<String>> interceptionPoints) {
             $.interceptionPoints = interceptionPoints;
             return this;
         }
 
-        /**
-         * @param interceptionPoints Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interceptionPoints(List<String> interceptionPoints) {
             return interceptionPoints(Output.of(interceptionPoints));
         }
 
-        /**
-         * @param interceptionPoints Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interceptionPoints(String... interceptionPoints) {
             return interceptionPoints(List.of(interceptionPoints));
         }
 
-        /**
-         * @param interceptor Interceptor infrastructure configuration. See `interceptor` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interceptor(@Nullable Output<AgentcoreGatewayInterceptorConfigurationInterceptorArgs> interceptor) {
             $.interceptor = interceptor;
             return this;
         }
 
-        /**
-         * @param interceptor Interceptor infrastructure configuration. See `interceptor` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interceptor(AgentcoreGatewayInterceptorConfigurationInterceptorArgs interceptor) {
             return interceptor(Output.of(interceptor));
         }

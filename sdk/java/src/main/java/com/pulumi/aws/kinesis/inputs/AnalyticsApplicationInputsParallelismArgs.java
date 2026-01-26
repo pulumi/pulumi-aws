@@ -15,17 +15,9 @@ public final class AnalyticsApplicationInputsParallelismArgs extends com.pulumi.
 
     public static final AnalyticsApplicationInputsParallelismArgs Empty = new AnalyticsApplicationInputsParallelismArgs();
 
-    /**
-     * The Count of streams.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
-    /**
-     * @return The Count of streams.
-     * 
-     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
@@ -54,23 +46,11 @@ public final class AnalyticsApplicationInputsParallelismArgs extends com.pulumi.
             $ = new AnalyticsApplicationInputsParallelismArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param count The Count of streams.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count The Count of streams.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }

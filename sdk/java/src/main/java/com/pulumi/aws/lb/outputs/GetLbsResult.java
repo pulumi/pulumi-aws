@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLbsResult {
-    /**
-     * @return Set of Load Balancer ARNs.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,10 +23,6 @@ public final class GetLbsResult {
     private @Nullable Map<String,String> tags;
 
     private GetLbsResult() {}
-    /**
-     * @return Set of Load Balancer ARNs.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }

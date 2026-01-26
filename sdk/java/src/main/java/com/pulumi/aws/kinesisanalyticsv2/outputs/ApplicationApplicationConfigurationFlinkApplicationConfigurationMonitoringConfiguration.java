@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
-    /**
-     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
-     * 
-     */
     private String configurationType;
-    /**
-     * @return Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
-     * 
-     */
     private @Nullable String logLevel;
-    /**
-     * @return Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
-     * 
-     */
     private @Nullable String metricsLevel;
 
     private ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration() {}
-    /**
-     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
-     * 
-     */
     public String configurationType() {
         return this.configurationType;
     }
-    /**
-     * @return Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
-     * 
-     */
     public Optional<String> logLevel() {
         return Optional.ofNullable(this.logLevel);
     }
-    /**
-     * @return Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
-     * 
-     */
     public Optional<String> metricsLevel() {
         return Optional.ofNullable(this.metricsLevel);
     }

@@ -9,65 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodePipeline
 {
-    /// <summary>
-    /// Provides a CodeDeploy CustomActionType
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodePipeline.CustomActionType("example", new()
-    ///     {
-    ///         Category = "Build",
-    ///         InputArtifactDetails = new Aws.CodePipeline.Inputs.CustomActionTypeInputArtifactDetailsArgs
-    ///         {
-    ///             MaximumCount = 1,
-    ///             MinimumCount = 0,
-    ///         },
-    ///         OutputArtifactDetails = new Aws.CodePipeline.Inputs.CustomActionTypeOutputArtifactDetailsArgs
-    ///         {
-    ///             MaximumCount = 1,
-    ///             MinimumCount = 0,
-    ///         },
-    ///         ProviderName = "example",
-    ///         Version = "1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codepipeline/customActionType:CustomActionType")]
     public partial class CustomActionType : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The action ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration properties for the custom action. Max 10 items.
-        /// </summary>
         [Output("configurationProperties")]
         public Output<ImmutableArray<Outputs.CustomActionTypeConfigurationProperty>> ConfigurationProperties { get; private set; } = null!;
 
@@ -77,18 +27,12 @@ namespace Pulumi.Aws.CodePipeline
         [Output("outputArtifactDetails")]
         public Output<Outputs.CustomActionTypeOutputArtifactDetails> OutputArtifactDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The creator of the action being called.
-        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -98,9 +42,6 @@ namespace Pulumi.Aws.CodePipeline
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -153,18 +94,11 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class CustomActionTypeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
         [Input("configurationProperties")]
         private InputList<Inputs.CustomActionTypeConfigurationPropertyArgs>? _configurationProperties;
-
-        /// <summary>
-        /// The configuration properties for the custom action. Max 10 items.
-        /// </summary>
         public InputList<Inputs.CustomActionTypeConfigurationPropertyArgs> ConfigurationProperties
         {
             get => _configurationProperties ?? (_configurationProperties = new InputList<Inputs.CustomActionTypeConfigurationPropertyArgs>());
@@ -180,9 +114,6 @@ namespace Pulumi.Aws.CodePipeline
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -208,24 +139,14 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class CustomActionTypeState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
 
         [Input("configurationProperties")]
         private InputList<Inputs.CustomActionTypeConfigurationPropertyGetArgs>? _configurationProperties;
-
-        /// <summary>
-        /// The configuration properties for the custom action. Max 10 items.
-        /// </summary>
         public InputList<Inputs.CustomActionTypeConfigurationPropertyGetArgs> ConfigurationProperties
         {
             get => _configurationProperties ?? (_configurationProperties = new InputList<Inputs.CustomActionTypeConfigurationPropertyGetArgs>());
@@ -238,18 +159,12 @@ namespace Pulumi.Aws.CodePipeline
         [Input("outputArtifactDetails")]
         public Input<Inputs.CustomActionTypeOutputArtifactDetailsGetArgs>? OutputArtifactDetails { get; set; }
 
-        /// <summary>
-        /// The creator of the action being called.
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -266,10 +181,6 @@ namespace Pulumi.Aws.CodePipeline
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityAppSpecification {
-    /**
-     * @return Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
-     * 
-     */
     private @Nullable Map<String,String> environment;
-    /**
-     * @return The container image that the data quality monitoring job runs.
-     * 
-     */
     private String imageUri;
-    /**
-     * @return An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-     * 
-     */
     private @Nullable String postAnalyticsProcessorSourceUri;
-    /**
-     * @return An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-     * 
-     */
     private @Nullable String recordPreprocessorSourceUri;
 
     private DataQualityJobDefinitionDataQualityAppSpecification() {}
-    /**
-     * @return Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
-     * 
-     */
     public Map<String,String> environment() {
         return this.environment == null ? Map.of() : this.environment;
     }
-    /**
-     * @return The container image that the data quality monitoring job runs.
-     * 
-     */
     public String imageUri() {
         return this.imageUri;
     }
-    /**
-     * @return An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-     * 
-     */
     public Optional<String> postAnalyticsProcessorSourceUri() {
         return Optional.ofNullable(this.postAnalyticsProcessorSourceUri);
     }
-    /**
-     * @return An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-     * 
-     */
     public Optional<String> recordPreprocessorSourceUri() {
         return Optional.ofNullable(this.recordPreprocessorSourceUri);
     }

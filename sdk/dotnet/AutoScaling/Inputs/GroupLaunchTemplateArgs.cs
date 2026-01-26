@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the launch template. Conflicts with `Name`.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the launch template. Conflicts with `Id`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

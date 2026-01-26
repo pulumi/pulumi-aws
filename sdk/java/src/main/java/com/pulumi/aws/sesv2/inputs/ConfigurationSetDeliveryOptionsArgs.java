@@ -16,47 +16,23 @@ public final class ConfigurationSetDeliveryOptionsArgs extends com.pulumi.resour
 
     public static final ConfigurationSetDeliveryOptionsArgs Empty = new ConfigurationSetDeliveryOptionsArgs();
 
-    /**
-     * The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
-     * 
-     */
     @Import(name="maxDeliverySeconds")
     private @Nullable Output<Integer> maxDeliverySeconds;
 
-    /**
-     * @return The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
-     * 
-     */
     public Optional<Output<Integer>> maxDeliverySeconds() {
         return Optional.ofNullable(this.maxDeliverySeconds);
     }
 
-    /**
-     * The name of the dedicated IP pool to associate with the configuration set.
-     * 
-     */
     @Import(name="sendingPoolName")
     private @Nullable Output<String> sendingPoolName;
 
-    /**
-     * @return The name of the dedicated IP pool to associate with the configuration set.
-     * 
-     */
     public Optional<Output<String>> sendingPoolName() {
         return Optional.ofNullable(this.sendingPoolName);
     }
 
-    /**
-     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-     * 
-     */
     @Import(name="tlsPolicy")
     private @Nullable Output<String> tlsPolicy;
 
-    /**
-     * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-     * 
-     */
     public Optional<Output<String>> tlsPolicy() {
         return Optional.ofNullable(this.tlsPolicy);
     }
@@ -87,65 +63,29 @@ public final class ConfigurationSetDeliveryOptionsArgs extends com.pulumi.resour
             $ = new ConfigurationSetDeliveryOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxDeliverySeconds The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxDeliverySeconds(@Nullable Output<Integer> maxDeliverySeconds) {
             $.maxDeliverySeconds = maxDeliverySeconds;
             return this;
         }
 
-        /**
-         * @param maxDeliverySeconds The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxDeliverySeconds(Integer maxDeliverySeconds) {
             return maxDeliverySeconds(Output.of(maxDeliverySeconds));
         }
 
-        /**
-         * @param sendingPoolName The name of the dedicated IP pool to associate with the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingPoolName(@Nullable Output<String> sendingPoolName) {
             $.sendingPoolName = sendingPoolName;
             return this;
         }
 
-        /**
-         * @param sendingPoolName The name of the dedicated IP pool to associate with the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingPoolName(String sendingPoolName) {
             return sendingPoolName(Output.of(sendingPoolName));
         }
 
-        /**
-         * @param tlsPolicy Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsPolicy(@Nullable Output<String> tlsPolicy) {
             $.tlsPolicy = tlsPolicy;
             return this;
         }
 
-        /**
-         * @param tlsPolicy Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsPolicy(String tlsPolicy) {
             return tlsPolicy(Output.of(tlsPolicy));
         }

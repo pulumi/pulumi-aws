@@ -16,8 +16,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
         private InputList<Inputs.TableMetadataIcebergSchemaFieldGetArgs>? _fields;
 
         /// <summary>
-        /// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-        /// See `Field` below.
+        /// List of schema fields for the Iceberg table.
         /// </summary>
         public InputList<Inputs.TableMetadataIcebergSchemaFieldGetArgs> Fields
         {

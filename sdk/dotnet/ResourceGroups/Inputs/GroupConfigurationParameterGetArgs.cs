@@ -12,18 +12,11 @@ namespace Pulumi.Aws.ResourceGroups.Inputs
 
     public sealed class GroupConfigurationParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the group configuration parameter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The value or values to be used for the specified parameter.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreGatewayInterceptorConfigurationInputConfiguration {
-    /**
-     * @return Whether to pass request headers to the interceptor.
-     * 
-     */
     private Boolean passRequestHeaders;
 
     private AgentcoreGatewayInterceptorConfigurationInputConfiguration() {}
-    /**
-     * @return Whether to pass request headers to the interceptor.
-     * 
-     */
     public Boolean passRequestHeaders() {
         return this.passRequestHeaders;
     }

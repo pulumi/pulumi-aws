@@ -9,58 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
-    /// 
-    /// &gt; **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
-    /// and a network ACL resource with a `SubnetIds` attribute. Do not use the same subnet ID in both a network ACL
-    /// resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ec2.NetworkAclAssociation("main", new()
-    ///     {
-    ///         NetworkAclId = mainAwsNetworkAcl.Id,
-    ///         SubnetId = mainAwsSubnet.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Network ACL associations using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/networkAclAssociation:NetworkAclAssociation")]
     public partial class NetworkAclAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the network ACL.
-        /// </summary>
         [Output("networkAclId")]
         public Output<string> NetworkAclId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the associated Subnet.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -110,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkAclAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the network ACL.
-        /// </summary>
         [Input("networkAclId", required: true)]
         public Input<string> NetworkAclId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the associated Subnet.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -136,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkAclAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the network ACL.
-        /// </summary>
         [Input("networkAclId")]
         public Input<string>? NetworkAclId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the associated Subnet.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

@@ -15,110 +15,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directoryservice.ConditionalForwarder;
- * import com.pulumi.aws.directoryservice.ConditionalForwarderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ConditionalForwarder("example", ConditionalForwarderArgs.builder()
- *             .directoryId(ad.id())
- *             .remoteDomainName("example.com")
- *             .dnsIps(            
- *                 "8.8.8.8",
- *                 "8.8.4.4")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
- * 
- * ```sh
- * $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com
- * ```
- * 
- */
 @ResourceType(type="aws:directoryservice/conditionalForwarder:ConditionalForwarder")
 public class ConditionalForwarder extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of directory.
-     * 
-     */
     @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output<String> directoryId;
 
-    /**
-     * @return ID of directory.
-     * 
-     */
     public Output<String> directoryId() {
         return this.directoryId;
     }
-    /**
-     * A list of forwarder IP addresses.
-     * 
-     */
     @Export(name="dnsIps", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dnsIps;
 
-    /**
-     * @return A list of forwarder IP addresses.
-     * 
-     */
     public Output<List<String>> dnsIps() {
         return this.dnsIps;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The fully qualified domain name of the remote domain for which forwarders will be used.
-     * 
-     */
     @Export(name="remoteDomainName", refs={String.class}, tree="[0]")
     private Output<String> remoteDomainName;
 
-    /**
-     * @return The fully qualified domain name of the remote domain for which forwarders will be used.
-     * 
-     */
     public Output<String> remoteDomainName() {
         return this.remoteDomainName;
     }

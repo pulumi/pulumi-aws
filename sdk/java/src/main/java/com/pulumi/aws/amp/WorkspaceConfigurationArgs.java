@@ -20,47 +20,23 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
 
     public static final WorkspaceConfigurationArgs Empty = new WorkspaceConfigurationArgs();
 
-    /**
-     * Configuration block for setting limits on metrics with specific label sets. Detailed below.
-     * 
-     */
     @Import(name="limitsPerLabelSets")
     private @Nullable Output<List<WorkspaceConfigurationLimitsPerLabelSetArgs>> limitsPerLabelSets;
 
-    /**
-     * @return Configuration block for setting limits on metrics with specific label sets. Detailed below.
-     * 
-     */
     public Optional<Output<List<WorkspaceConfigurationLimitsPerLabelSetArgs>>> limitsPerLabelSets() {
         return Optional.ofNullable(this.limitsPerLabelSets);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Number of days to retain metric data in the workspace.
-     * 
-     */
     @Import(name="retentionPeriodInDays")
     private @Nullable Output<Integer> retentionPeriodInDays;
 
-    /**
-     * @return Number of days to retain metric data in the workspace.
-     * 
-     */
     public Optional<Output<Integer>> retentionPeriodInDays() {
         return Optional.ofNullable(this.retentionPeriodInDays);
     }
@@ -72,21 +48,9 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * ID of the workspace to configure.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
-    /**
-     * @return ID of the workspace to configure.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }
@@ -119,75 +83,33 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
             $ = new WorkspaceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param limitsPerLabelSets Configuration block for setting limits on metrics with specific label sets. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limitsPerLabelSets(@Nullable Output<List<WorkspaceConfigurationLimitsPerLabelSetArgs>> limitsPerLabelSets) {
             $.limitsPerLabelSets = limitsPerLabelSets;
             return this;
         }
 
-        /**
-         * @param limitsPerLabelSets Configuration block for setting limits on metrics with specific label sets. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limitsPerLabelSets(List<WorkspaceConfigurationLimitsPerLabelSetArgs> limitsPerLabelSets) {
             return limitsPerLabelSets(Output.of(limitsPerLabelSets));
         }
 
-        /**
-         * @param limitsPerLabelSets Configuration block for setting limits on metrics with specific label sets. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limitsPerLabelSets(WorkspaceConfigurationLimitsPerLabelSetArgs... limitsPerLabelSets) {
             return limitsPerLabelSets(List.of(limitsPerLabelSets));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param retentionPeriodInDays Number of days to retain metric data in the workspace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodInDays(@Nullable Output<Integer> retentionPeriodInDays) {
             $.retentionPeriodInDays = retentionPeriodInDays;
             return this;
         }
 
-        /**
-         * @param retentionPeriodInDays Number of days to retain metric data in the workspace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodInDays(Integer retentionPeriodInDays) {
             return retentionPeriodInDays(Output.of(retentionPeriodInDays));
         }
@@ -201,27 +123,11 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param workspaceId ID of the workspace to configure.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId ID of the workspace to configure.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

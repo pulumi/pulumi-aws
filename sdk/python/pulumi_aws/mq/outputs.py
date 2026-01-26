@@ -41,10 +41,6 @@ class BrokerConfiguration(dict):
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None,
                  revision: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str id: Configuration ID.
-        :param _builtins.int revision: Revision of the Configuration.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if revision is not None:
@@ -53,17 +49,11 @@ class BrokerConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        Configuration ID.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def revision(self) -> Optional[_builtins.int]:
-        """
-        Revision of the Configuration.
-        """
         return pulumi.get(self, "revision")
 
 
@@ -91,10 +81,6 @@ class BrokerEncryptionOptions(dict):
     def __init__(__self__, *,
                  kms_key_id: Optional[_builtins.str] = None,
                  use_aws_owned_key: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str kms_key_id: ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-        :param _builtins.bool use_aws_owned_key: Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if use_aws_owned_key is not None:
@@ -103,17 +89,11 @@ class BrokerEncryptionOptions(dict):
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
-        """
-        ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="useAwsOwnedKey")
     def use_aws_owned_key(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-        """
         return pulumi.get(self, "use_aws_owned_key")
 
 
@@ -142,19 +122,6 @@ class BrokerInstance(dict):
                  console_url: Optional[_builtins.str] = None,
                  endpoints: Optional[Sequence[_builtins.str]] = None,
                  ip_address: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str console_url: URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-        :param Sequence[_builtins.str] endpoints: Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-               * For `ActiveMQ`:
-               * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-               * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-               * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-               * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-               * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-               * For `RabbitMQ`:
-               * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-        :param _builtins.str ip_address: IP Address of the broker.
-        """
         if console_url is not None:
             pulumi.set(__self__, "console_url", console_url)
         if endpoints is not None:
@@ -165,33 +132,16 @@ class BrokerInstance(dict):
     @_builtins.property
     @pulumi.getter(name="consoleUrl")
     def console_url(self) -> Optional[_builtins.str]:
-        """
-        URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-        """
         return pulumi.get(self, "console_url")
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-        * For `ActiveMQ`:
-        * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-        * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-        * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-        * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-        * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-        * For `RabbitMQ`:
-        * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-        """
         return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[_builtins.str]:
-        """
-        IP Address of the broker.
-        """
         return pulumi.get(self, "ip_address")
 
 
@@ -244,19 +194,6 @@ class BrokerLdapServerMetadata(dict):
                  user_role_name: Optional[_builtins.str] = None,
                  user_search_matching: Optional[_builtins.str] = None,
                  user_search_subtree: Optional[_builtins.bool] = None):
-        """
-        :param Sequence[_builtins.str] hosts: List of fully qualified domain names of the LDAP server and optional failover server.
-        :param _builtins.str role_base: Fully qualified name of the directory to search for a user's groups.
-        :param _builtins.str role_name: LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-        :param _builtins.str role_search_matching: Search criteria for groups.
-        :param _builtins.bool role_search_subtree: Whether the directory search scope is the entire sub-tree.
-        :param _builtins.str service_account_password: Service account password.
-        :param _builtins.str service_account_username: Service account username.
-        :param _builtins.str user_base: Fully qualified name of the directory where you want to search for users.
-        :param _builtins.str user_role_name: Name of the LDAP attribute for the user group membership.
-        :param _builtins.str user_search_matching: Search criteria for users.
-        :param _builtins.bool user_search_subtree: Whether the directory search scope is the entire sub-tree.
-        """
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
         if role_base is not None:
@@ -283,89 +220,56 @@ class BrokerLdapServerMetadata(dict):
     @_builtins.property
     @pulumi.getter
     def hosts(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of fully qualified domain names of the LDAP server and optional failover server.
-        """
         return pulumi.get(self, "hosts")
 
     @_builtins.property
     @pulumi.getter(name="roleBase")
     def role_base(self) -> Optional[_builtins.str]:
-        """
-        Fully qualified name of the directory to search for a user's groups.
-        """
         return pulumi.get(self, "role_base")
 
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[_builtins.str]:
-        """
-        LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-        """
         return pulumi.get(self, "role_name")
 
     @_builtins.property
     @pulumi.getter(name="roleSearchMatching")
     def role_search_matching(self) -> Optional[_builtins.str]:
-        """
-        Search criteria for groups.
-        """
         return pulumi.get(self, "role_search_matching")
 
     @_builtins.property
     @pulumi.getter(name="roleSearchSubtree")
     def role_search_subtree(self) -> Optional[_builtins.bool]:
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
         return pulumi.get(self, "role_search_subtree")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountPassword")
     def service_account_password(self) -> Optional[_builtins.str]:
-        """
-        Service account password.
-        """
         return pulumi.get(self, "service_account_password")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountUsername")
     def service_account_username(self) -> Optional[_builtins.str]:
-        """
-        Service account username.
-        """
         return pulumi.get(self, "service_account_username")
 
     @_builtins.property
     @pulumi.getter(name="userBase")
     def user_base(self) -> Optional[_builtins.str]:
-        """
-        Fully qualified name of the directory where you want to search for users.
-        """
         return pulumi.get(self, "user_base")
 
     @_builtins.property
     @pulumi.getter(name="userRoleName")
     def user_role_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the LDAP attribute for the user group membership.
-        """
         return pulumi.get(self, "user_role_name")
 
     @_builtins.property
     @pulumi.getter(name="userSearchMatching")
     def user_search_matching(self) -> Optional[_builtins.str]:
-        """
-        Search criteria for users.
-        """
         return pulumi.get(self, "user_search_matching")
 
     @_builtins.property
     @pulumi.getter(name="userSearchSubtree")
     def user_search_subtree(self) -> Optional[_builtins.bool]:
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
         return pulumi.get(self, "user_search_subtree")
 
 
@@ -374,10 +278,6 @@ class BrokerLogs(dict):
     def __init__(__self__, *,
                  audit: Optional[_builtins.bool] = None,
                  general: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool audit: Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
-        :param _builtins.bool general: Whether to enable general logging via CloudWatch. Defaults to `false`.
-        """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
         if general is not None:
@@ -386,17 +286,11 @@ class BrokerLogs(dict):
     @_builtins.property
     @pulumi.getter
     def audit(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
-        """
         return pulumi.get(self, "audit")
 
     @_builtins.property
     @pulumi.getter
     def general(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable general logging via CloudWatch. Defaults to `false`.
-        """
         return pulumi.get(self, "general")
 
 
@@ -427,11 +321,6 @@ class BrokerMaintenanceWindowStartTime(dict):
                  day_of_week: _builtins.str,
                  time_of_day: _builtins.str,
                  time_zone: _builtins.str):
-        """
-        :param _builtins.str day_of_week: Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
-        :param _builtins.str time_of_day: Time, in 24-hour format, e.g., `02:00`.
-        :param _builtins.str time_zone: Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
-        """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "time_of_day", time_of_day)
         pulumi.set(__self__, "time_zone", time_zone)
@@ -439,25 +328,16 @@ class BrokerMaintenanceWindowStartTime(dict):
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> _builtins.str:
-        """
-        Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
-        """
         return pulumi.get(self, "day_of_week")
 
     @_builtins.property
     @pulumi.getter(name="timeOfDay")
     def time_of_day(self) -> _builtins.str:
-        """
-        Time, in 24-hour format, e.g., `02:00`.
-        """
         return pulumi.get(self, "time_of_day")
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> _builtins.str:
-        """
-        Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
-        """
         return pulumi.get(self, "time_zone")
 
 
@@ -488,17 +368,6 @@ class BrokerUser(dict):
                  console_access: Optional[_builtins.bool] = None,
                  groups: Optional[Sequence[_builtins.str]] = None,
                  replication_user: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str password: Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-        :param _builtins.str username: Username of the user.
-               
-               The following arguments are optional:
-        :param _builtins.bool console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
-        :param Sequence[_builtins.str] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-        :param _builtins.bool replication_user: Whether to set replication user. Defaults to `false`.
-               
-               > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if console_access is not None:
@@ -511,45 +380,26 @@ class BrokerUser(dict):
     @_builtins.property
     @pulumi.getter
     def password(self) -> _builtins.str:
-        """
-        Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> _builtins.str:
-        """
-        Username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "username")
 
     @_builtins.property
     @pulumi.getter(name="consoleAccess")
     def console_access(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
-        """
         return pulumi.get(self, "console_access")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter(name="replicationUser")
     def replication_user(self) -> Optional[_builtins.bool]:
-        """
-        Whether to set replication user. Defaults to `false`.
-
-        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-        """
         return pulumi.get(self, "replication_user")
 
 
@@ -558,27 +408,17 @@ class GetBrokerConfigurationResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  revision: _builtins.int):
-        """
-        :param _builtins.str id: Configuration ID.
-        :param _builtins.int revision: Revision of the Configuration.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "revision", revision)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Configuration ID.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def revision(self) -> _builtins.int:
-        """
-        Revision of the Configuration.
-        """
         return pulumi.get(self, "revision")
 
 
@@ -587,27 +427,17 @@ class GetBrokerEncryptionOptionResult(dict):
     def __init__(__self__, *,
                  kms_key_id: _builtins.str,
                  use_aws_owned_key: _builtins.bool):
-        """
-        :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
-        :param _builtins.bool use_aws_owned_key: Whether to enable an AWS-owned KMS CMK that is not in your account.
-        """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
         pulumi.set(__self__, "use_aws_owned_key", use_aws_owned_key)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="useAwsOwnedKey")
     def use_aws_owned_key(self) -> _builtins.bool:
-        """
-        Whether to enable an AWS-owned KMS CMK that is not in your account.
-        """
         return pulumi.get(self, "use_aws_owned_key")
 
 
@@ -616,27 +446,17 @@ class GetBrokerEngineTypesBrokerEngineTypeResult(dict):
     def __init__(__self__, *,
                  engine_type: _builtins.str,
                  engine_versions: Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult']):
-        """
-        :param _builtins.str engine_type: MQ engine type to return version details for.
-        :param Sequence['GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs'] engine_versions: List of engine versions. See Engine Versions.
-        """
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "engine_versions", engine_versions)
 
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> _builtins.str:
-        """
-        MQ engine type to return version details for.
-        """
         return pulumi.get(self, "engine_type")
 
     @_builtins.property
     @pulumi.getter(name="engineVersions")
     def engine_versions(self) -> Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult']:
-        """
-        List of engine versions. See Engine Versions.
-        """
         return pulumi.get(self, "engine_versions")
 
 
@@ -644,17 +464,11 @@ class GetBrokerEngineTypesBrokerEngineTypeResult(dict):
 class GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: Name of the engine version.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the engine version.
-        """
         return pulumi.get(self, "name")
 
 
@@ -664,11 +478,6 @@ class GetBrokerInstanceResult(dict):
                  console_url: _builtins.str,
                  endpoints: Sequence[_builtins.str],
                  ip_address: _builtins.str):
-        """
-        :param _builtins.str console_url: URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engine_type`.
-        :param Sequence[_builtins.str] endpoints: Broker's wire-level protocol endpoints.
-        :param _builtins.str ip_address: IP Address of the broker.
-        """
         pulumi.set(__self__, "console_url", console_url)
         pulumi.set(__self__, "endpoints", endpoints)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -676,25 +485,16 @@ class GetBrokerInstanceResult(dict):
     @_builtins.property
     @pulumi.getter(name="consoleUrl")
     def console_url(self) -> _builtins.str:
-        """
-        URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engine_type`.
-        """
         return pulumi.get(self, "console_url")
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Sequence[_builtins.str]:
-        """
-        Broker's wire-level protocol endpoints.
-        """
         return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
-        """
-        IP Address of the broker.
-        """
         return pulumi.get(self, "ip_address")
 
 
@@ -712,19 +512,6 @@ class GetBrokerLdapServerMetadataResult(dict):
                  user_role_name: _builtins.str,
                  user_search_matching: _builtins.str,
                  user_search_subtree: _builtins.bool):
-        """
-        :param Sequence[_builtins.str] hosts: List of a fully qualified domain name of the LDAP server and an optional failover server.
-        :param _builtins.str role_base: Fully qualified name of the directory to search for a user's groups.
-        :param _builtins.str role_name: LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-        :param _builtins.str role_search_matching: Search criteria for groups.
-        :param _builtins.bool role_search_subtree: Whether the directory search scope is the entire sub-tree.
-        :param _builtins.str service_account_password: Service account password.
-        :param _builtins.str service_account_username: Service account username.
-        :param _builtins.str user_base: Fully qualified name of the directory where you want to search for users.
-        :param _builtins.str user_role_name: Name of the LDAP attribute for the user group membership.
-        :param _builtins.str user_search_matching: Search criteria for users.
-        :param _builtins.bool user_search_subtree: Whether the directory search scope is the entire sub-tree.
-        """
         pulumi.set(__self__, "hosts", hosts)
         pulumi.set(__self__, "role_base", role_base)
         pulumi.set(__self__, "role_name", role_name)
@@ -740,89 +527,56 @@ class GetBrokerLdapServerMetadataResult(dict):
     @_builtins.property
     @pulumi.getter
     def hosts(self) -> Sequence[_builtins.str]:
-        """
-        List of a fully qualified domain name of the LDAP server and an optional failover server.
-        """
         return pulumi.get(self, "hosts")
 
     @_builtins.property
     @pulumi.getter(name="roleBase")
     def role_base(self) -> _builtins.str:
-        """
-        Fully qualified name of the directory to search for a user's groups.
-        """
         return pulumi.get(self, "role_base")
 
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> _builtins.str:
-        """
-        LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-        """
         return pulumi.get(self, "role_name")
 
     @_builtins.property
     @pulumi.getter(name="roleSearchMatching")
     def role_search_matching(self) -> _builtins.str:
-        """
-        Search criteria for groups.
-        """
         return pulumi.get(self, "role_search_matching")
 
     @_builtins.property
     @pulumi.getter(name="roleSearchSubtree")
     def role_search_subtree(self) -> _builtins.bool:
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
         return pulumi.get(self, "role_search_subtree")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountPassword")
     def service_account_password(self) -> _builtins.str:
-        """
-        Service account password.
-        """
         return pulumi.get(self, "service_account_password")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountUsername")
     def service_account_username(self) -> _builtins.str:
-        """
-        Service account username.
-        """
         return pulumi.get(self, "service_account_username")
 
     @_builtins.property
     @pulumi.getter(name="userBase")
     def user_base(self) -> _builtins.str:
-        """
-        Fully qualified name of the directory where you want to search for users.
-        """
         return pulumi.get(self, "user_base")
 
     @_builtins.property
     @pulumi.getter(name="userRoleName")
     def user_role_name(self) -> _builtins.str:
-        """
-        Name of the LDAP attribute for the user group membership.
-        """
         return pulumi.get(self, "user_role_name")
 
     @_builtins.property
     @pulumi.getter(name="userSearchMatching")
     def user_search_matching(self) -> _builtins.str:
-        """
-        Search criteria for users.
-        """
         return pulumi.get(self, "user_search_matching")
 
     @_builtins.property
     @pulumi.getter(name="userSearchSubtree")
     def user_search_subtree(self) -> _builtins.bool:
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
         return pulumi.get(self, "user_search_subtree")
 
 
@@ -831,27 +585,17 @@ class GetBrokerLogsResult(dict):
     def __init__(__self__, *,
                  audit: _builtins.bool,
                  general: _builtins.bool):
-        """
-        :param _builtins.bool audit: Whether audit logging is enabled.
-        :param _builtins.bool general: Whether general logging is enabled.
-        """
         pulumi.set(__self__, "audit", audit)
         pulumi.set(__self__, "general", general)
 
     @_builtins.property
     @pulumi.getter
     def audit(self) -> _builtins.bool:
-        """
-        Whether audit logging is enabled.
-        """
         return pulumi.get(self, "audit")
 
     @_builtins.property
     @pulumi.getter
     def general(self) -> _builtins.bool:
-        """
-        Whether general logging is enabled.
-        """
         return pulumi.get(self, "general")
 
 
@@ -861,11 +605,6 @@ class GetBrokerMaintenanceWindowStartTimeResult(dict):
                  day_of_week: _builtins.str,
                  time_of_day: _builtins.str,
                  time_zone: _builtins.str):
-        """
-        :param _builtins.str day_of_week: Day of the week.
-        :param _builtins.str time_of_day: Time, in 24-hour format.
-        :param _builtins.str time_zone: Time zone in either the Country/City format or the UTC offset format.
-        """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "time_of_day", time_of_day)
         pulumi.set(__self__, "time_zone", time_zone)
@@ -873,25 +612,16 @@ class GetBrokerMaintenanceWindowStartTimeResult(dict):
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> _builtins.str:
-        """
-        Day of the week.
-        """
         return pulumi.get(self, "day_of_week")
 
     @_builtins.property
     @pulumi.getter(name="timeOfDay")
     def time_of_day(self) -> _builtins.str:
-        """
-        Time, in 24-hour format.
-        """
         return pulumi.get(self, "time_of_day")
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> _builtins.str:
-        """
-        Time zone in either the Country/City format or the UTC offset format.
-        """
         return pulumi.get(self, "time_zone")
 
 
@@ -902,12 +632,6 @@ class GetBrokerUserResult(dict):
                  groups: Sequence[_builtins.str],
                  replication_user: _builtins.bool,
                  username: _builtins.str):
-        """
-        :param _builtins.bool console_access: Whether to enable access to the ActiveMQ Web Console for the user.
-        :param Sequence[_builtins.str] groups: List of groups to which the ActiveMQ user belongs.
-        :param _builtins.bool replication_user: Whether to set replication user.
-        :param _builtins.str username: Username of the user.
-        """
         pulumi.set(__self__, "console_access", console_access)
         pulumi.set(__self__, "groups", groups)
         pulumi.set(__self__, "replication_user", replication_user)
@@ -916,33 +640,21 @@ class GetBrokerUserResult(dict):
     @_builtins.property
     @pulumi.getter(name="consoleAccess")
     def console_access(self) -> _builtins.bool:
-        """
-        Whether to enable access to the ActiveMQ Web Console for the user.
-        """
         return pulumi.get(self, "console_access")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Sequence[_builtins.str]:
-        """
-        List of groups to which the ActiveMQ user belongs.
-        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter(name="replicationUser")
     def replication_user(self) -> _builtins.bool:
-        """
-        Whether to set replication user.
-        """
         return pulumi.get(self, "replication_user")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> _builtins.str:
-        """
-        Username of the user.
-        """
         return pulumi.get(self, "username")
 
 
@@ -955,14 +667,6 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
                  storage_type: _builtins.str,
                  supported_deployment_modes: Sequence[_builtins.str],
                  supported_engine_versions: Sequence[_builtins.str]):
-        """
-        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: List of available Availability Zones. See Availability Zones below.
-        :param _builtins.str engine_type: Filter response by engine type.
-        :param _builtins.str host_instance_type: Filter response by host instance type.
-        :param _builtins.str storage_type: Filter response by storage type.
-        :param Sequence[_builtins.str] supported_deployment_modes: List of supported deployment modes.
-        :param Sequence[_builtins.str] supported_engine_versions: List of supported engine versions.
-        """
         pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "host_instance_type", host_instance_type)
@@ -973,49 +677,31 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']:
-        """
-        List of available Availability Zones. See Availability Zones below.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> _builtins.str:
-        """
-        Filter response by engine type.
-        """
         return pulumi.get(self, "engine_type")
 
     @_builtins.property
     @pulumi.getter(name="hostInstanceType")
     def host_instance_type(self) -> _builtins.str:
-        """
-        Filter response by host instance type.
-        """
         return pulumi.get(self, "host_instance_type")
 
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> _builtins.str:
-        """
-        Filter response by storage type.
-        """
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
     @pulumi.getter(name="supportedDeploymentModes")
     def supported_deployment_modes(self) -> Sequence[_builtins.str]:
-        """
-        List of supported deployment modes.
-        """
         return pulumi.get(self, "supported_deployment_modes")
 
     @_builtins.property
     @pulumi.getter(name="supportedEngineVersions")
     def supported_engine_versions(self) -> Sequence[_builtins.str]:
-        """
-        List of supported engine versions.
-        """
         return pulumi.get(self, "supported_engine_versions")
 
 
@@ -1023,17 +709,11 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: Name of the Availability Zone.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Availability Zone.
-        """
         return pulumi.get(self, "name")
 
 

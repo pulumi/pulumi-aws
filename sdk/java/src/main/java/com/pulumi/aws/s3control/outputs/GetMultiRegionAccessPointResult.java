@@ -14,25 +14,9 @@ import java.util.Objects;
 @CustomType
 public final class GetMultiRegionAccessPointResult {
     private String accountId;
-    /**
-     * @return The alias for the Multi-Region Access Point.
-     * 
-     */
     private String alias;
-    /**
-     * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
-     * 
-     */
     private String arn;
-    /**
-     * @return Timestamp when the resource has been created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-     * 
-     */
     private String domainName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -40,56 +24,24 @@ public final class GetMultiRegionAccessPointResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Public Access Block of the Multi-Region Access Point. Detailed below.
-     * 
-     */
     private List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks;
-    /**
-     * @return The name of the region.
-     * 
-     */
     private String region;
-    /**
-     * @return A collection of the regions and buckets associated with the Multi-Region Access Point.
-     * 
-     */
     private List<GetMultiRegionAccessPointRegion> regions;
-    /**
-     * @return The current status of the Multi-Region Access Point.
-     * 
-     */
     private String status;
 
     private GetMultiRegionAccessPointResult() {}
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return The alias for the Multi-Region Access Point.
-     * 
-     */
     public String alias() {
         return this.alias;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Timestamp when the resource has been created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
@@ -103,31 +55,15 @@ public final class GetMultiRegionAccessPointResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Public Access Block of the Multi-Region Access Point. Detailed below.
-     * 
-     */
     public List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks() {
         return this.publicAccessBlocks;
     }
-    /**
-     * @return The name of the region.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return A collection of the regions and buckets associated with the Multi-Region Access Point.
-     * 
-     */
     public List<GetMultiRegionAccessPointRegion> regions() {
         return this.regions;
     }
-    /**
-     * @return The current status of the Multi-Region Access Point.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetImageOutputResourceContainerResult
     {
-        /// <summary>
-        /// Set of URIs for created containers.
-        /// </summary>
         public readonly ImmutableArray<string> ImageUris;
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

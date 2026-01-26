@@ -15,203 +15,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Redshift Data Share Consumer Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.DataShareConsumerAssociation;
- * import com.pulumi.aws.redshift.DataShareConsumerAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataShareConsumerAssociation("example", DataShareConsumerAssociationArgs.builder()
- *             .dataShareArn("arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
- *             .associateEntireAccount(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Consumer Region
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.DataShareConsumerAssociation;
- * import com.pulumi.aws.redshift.DataShareConsumerAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataShareConsumerAssociation("example", DataShareConsumerAssociationArgs.builder()
- *             .dataShareArn("arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
- *             .consumerRegion("us-west-2")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")
 public class DataShareConsumerAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to allow write operations for a datashare.
-     * 
-     */
     @Export(name="allowWrites", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowWrites;
 
-    /**
-     * @return Whether to allow write operations for a datashare.
-     * 
-     */
     public Output<Optional<Boolean>> allowWrites() {
         return Codegen.optional(this.allowWrites);
     }
-    /**
-     * Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
-     * 
-     */
     @Export(name="associateEntireAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> associateEntireAccount;
 
-    /**
-     * @return Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
-     * 
-     */
     public Output<Optional<Boolean>> associateEntireAccount() {
         return Codegen.optional(this.associateEntireAccount);
     }
-    /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
-     * 
-     */
     @Export(name="consumerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consumerArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
-     * 
-     */
     public Output<Optional<String>> consumerArn() {
         return Codegen.optional(this.consumerArn);
     }
-    /**
-     * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
-     * 
-     */
     @Export(name="consumerRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consumerRegion;
 
-    /**
-     * @return From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
-     * 
-     */
     public Output<Optional<String>> consumerRegion() {
         return Codegen.optional(this.consumerRegion);
     }
-    /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="dataShareArn", refs={String.class}, tree="[0]")
     private Output<String> dataShareArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> dataShareArn() {
         return this.dataShareArn;
     }
-    /**
-     * Identifier of a datashare to show its managing entity.
-     * 
-     */
     @Export(name="managedBy", refs={String.class}, tree="[0]")
     private Output<String> managedBy;
 
-    /**
-     * @return Identifier of a datashare to show its managing entity.
-     * 
-     */
     public Output<String> managedBy() {
         return this.managedBy;
     }
-    /**
-     * Amazon Resource Name (ARN) of the producer.
-     * 
-     */
     @Export(name="producerArn", refs={String.class}, tree="[0]")
     private Output<String> producerArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the producer.
-     * 
-     */
     public Output<String> producerArn() {
         return this.producerArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

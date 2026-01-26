@@ -18,62 +18,30 @@ public final class KeyKeyAttributeArgs extends com.pulumi.resources.ResourceArgs
 
     public static final KeyKeyAttributeArgs Empty = new KeyKeyAttributeArgs();
 
-    /**
-     * Key algorithm to be use during creation of an AWS Payment Cryptography key.
-     * 
-     */
     @Import(name="keyAlgorithm", required=true)
     private Output<String> keyAlgorithm;
 
-    /**
-     * @return Key algorithm to be use during creation of an AWS Payment Cryptography key.
-     * 
-     */
     public Output<String> keyAlgorithm() {
         return this.keyAlgorithm;
     }
 
-    /**
-     * Type of AWS Payment Cryptography key to create.
-     * 
-     */
     @Import(name="keyClass", required=true)
     private Output<String> keyClass;
 
-    /**
-     * @return Type of AWS Payment Cryptography key to create.
-     * 
-     */
     public Output<String> keyClass() {
         return this.keyClass;
     }
 
-    /**
-     * List of cryptographic operations that you can perform using the key.
-     * 
-     */
     @Import(name="keyModesOfUses")
     private @Nullable Output<List<KeyKeyAttributeKeyModesOfUseArgs>> keyModesOfUses;
 
-    /**
-     * @return List of cryptographic operations that you can perform using the key.
-     * 
-     */
     public Optional<Output<List<KeyKeyAttributeKeyModesOfUseArgs>>> keyModesOfUses() {
         return Optional.ofNullable(this.keyModesOfUses);
     }
 
-    /**
-     * Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-     * 
-     */
     @Import(name="keyUsage", required=true)
     private Output<String> keyUsage;
 
-    /**
-     * @return Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-     * 
-     */
     public Output<String> keyUsage() {
         return this.keyUsage;
     }
@@ -105,96 +73,42 @@ public final class KeyKeyAttributeArgs extends com.pulumi.resources.ResourceArgs
             $ = new KeyKeyAttributeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyAlgorithm Key algorithm to be use during creation of an AWS Payment Cryptography key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyAlgorithm(Output<String> keyAlgorithm) {
             $.keyAlgorithm = keyAlgorithm;
             return this;
         }
 
-        /**
-         * @param keyAlgorithm Key algorithm to be use during creation of an AWS Payment Cryptography key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyAlgorithm(String keyAlgorithm) {
             return keyAlgorithm(Output.of(keyAlgorithm));
         }
 
-        /**
-         * @param keyClass Type of AWS Payment Cryptography key to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyClass(Output<String> keyClass) {
             $.keyClass = keyClass;
             return this;
         }
 
-        /**
-         * @param keyClass Type of AWS Payment Cryptography key to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyClass(String keyClass) {
             return keyClass(Output.of(keyClass));
         }
 
-        /**
-         * @param keyModesOfUses List of cryptographic operations that you can perform using the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyModesOfUses(@Nullable Output<List<KeyKeyAttributeKeyModesOfUseArgs>> keyModesOfUses) {
             $.keyModesOfUses = keyModesOfUses;
             return this;
         }
 
-        /**
-         * @param keyModesOfUses List of cryptographic operations that you can perform using the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyModesOfUses(List<KeyKeyAttributeKeyModesOfUseArgs> keyModesOfUses) {
             return keyModesOfUses(Output.of(keyModesOfUses));
         }
 
-        /**
-         * @param keyModesOfUses List of cryptographic operations that you can perform using the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyModesOfUses(KeyKeyAttributeKeyModesOfUseArgs... keyModesOfUses) {
             return keyModesOfUses(List.of(keyModesOfUses));
         }
 
-        /**
-         * @param keyUsage Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyUsage(Output<String> keyUsage) {
             $.keyUsage = keyUsage;
             return this;
         }
 
-        /**
-         * @param keyUsage Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyUsage(String keyUsage) {
             return keyUsage(Output.of(keyUsage));
         }

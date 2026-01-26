@@ -9,64 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var test = new Aws.OpenSearch.AuthorizeVpcEndpointAccess("test", new()
-    ///     {
-    ///         DomainName = testAwsOpensearchDomain.DomainName,
-    ///         Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")]
     public partial class AuthorizeVpcEndpointAccess : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS account ID to grant access to.
-        /// </summary>
         [Output("account")]
         public Output<string> Account { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-        /// </summary>
         [Output("authorizedPrincipals")]
         public Output<ImmutableArray<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>> AuthorizedPrincipals { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of OpenSearch Service domain to provide access to.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -116,21 +70,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class AuthorizeVpcEndpointAccessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID to grant access to.
-        /// </summary>
         [Input("account", required: true)]
         public Input<string> Account { get; set; } = null!;
 
-        /// <summary>
-        /// Name of OpenSearch Service domain to provide access to.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -142,33 +87,20 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class AuthorizeVpcEndpointAccessState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID to grant access to.
-        /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
 
         [Input("authorizedPrincipals")]
         private InputList<Inputs.AuthorizeVpcEndpointAccessAuthorizedPrincipalGetArgs>? _authorizedPrincipals;
-
-        /// <summary>
-        /// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-        /// </summary>
         public InputList<Inputs.AuthorizeVpcEndpointAccessAuthorizedPrincipalGetArgs> AuthorizedPrincipals
         {
             get => _authorizedPrincipals ?? (_authorizedPrincipals = new InputList<Inputs.AuthorizeVpcEndpointAccessAuthorizedPrincipalGetArgs>());
             set => _authorizedPrincipals = value;
         }
 
-        /// <summary>
-        /// Name of OpenSearch Service domain to provide access to.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

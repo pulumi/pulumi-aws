@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation
     {
-        /// <summary>
-        /// The ID of the file system, assigned by Amazon EFS.
-        /// </summary>
         public readonly string? FileSystemId;
-        /// <summary>
-        /// The pathname for the folder being used by a workflow.
-        /// </summary>
         public readonly string? Path;
 
         [OutputConstructor]

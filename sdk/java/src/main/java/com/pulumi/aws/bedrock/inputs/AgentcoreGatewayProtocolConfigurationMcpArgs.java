@@ -16,47 +16,23 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
 
     public static final AgentcoreGatewayProtocolConfigurationMcpArgs Empty = new AgentcoreGatewayProtocolConfigurationMcpArgs();
 
-    /**
-     * Instructions for the MCP protocol configuration.
-     * 
-     */
     @Import(name="instructions")
     private @Nullable Output<String> instructions;
 
-    /**
-     * @return Instructions for the MCP protocol configuration.
-     * 
-     */
     public Optional<Output<String>> instructions() {
         return Optional.ofNullable(this.instructions);
     }
 
-    /**
-     * Search type for MCP. Valid values: `SEMANTIC`.
-     * 
-     */
     @Import(name="searchType")
     private @Nullable Output<String> searchType;
 
-    /**
-     * @return Search type for MCP. Valid values: `SEMANTIC`.
-     * 
-     */
     public Optional<Output<String>> searchType() {
         return Optional.ofNullable(this.searchType);
     }
 
-    /**
-     * Set of supported MCP protocol versions.
-     * 
-     */
     @Import(name="supportedVersions")
     private @Nullable Output<List<String>> supportedVersions;
 
-    /**
-     * @return Set of supported MCP protocol versions.
-     * 
-     */
     public Optional<Output<List<String>>> supportedVersions() {
         return Optional.ofNullable(this.supportedVersions);
     }
@@ -87,75 +63,33 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
             $ = new AgentcoreGatewayProtocolConfigurationMcpArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instructions Instructions for the MCP protocol configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instructions(@Nullable Output<String> instructions) {
             $.instructions = instructions;
             return this;
         }
 
-        /**
-         * @param instructions Instructions for the MCP protocol configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instructions(String instructions) {
             return instructions(Output.of(instructions));
         }
 
-        /**
-         * @param searchType Search type for MCP. Valid values: `SEMANTIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder searchType(@Nullable Output<String> searchType) {
             $.searchType = searchType;
             return this;
         }
 
-        /**
-         * @param searchType Search type for MCP. Valid values: `SEMANTIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder searchType(String searchType) {
             return searchType(Output.of(searchType));
         }
 
-        /**
-         * @param supportedVersions Set of supported MCP protocol versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportedVersions(@Nullable Output<List<String>> supportedVersions) {
             $.supportedVersions = supportedVersions;
             return this;
         }
 
-        /**
-         * @param supportedVersions Set of supported MCP protocol versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportedVersions(List<String> supportedVersions) {
             return supportedVersions(Output.of(supportedVersions));
         }
 
-        /**
-         * @param supportedVersions Set of supported MCP protocol versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportedVersions(String... supportedVersions) {
             return supportedVersions(List.of(supportedVersions));
         }

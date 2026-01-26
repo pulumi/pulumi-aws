@@ -56,9 +56,6 @@ class GetSlackWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="slackTeamId")
     def slack_team_id(self) -> _builtins.str:
-        """
-        ID of the Slack Workspace assigned by AWS Chatbot.
-        """
         return pulumi.get(self, "slack_team_id")
 
     @_builtins.property
@@ -83,22 +80,7 @@ def get_slack_workspace(region: Optional[_builtins.str] = None,
                         slack_team_name: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSlackWorkspaceResult:
     """
-    Data source for managing an AWS Chatbot Slack Workspace.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.chatbot.get_slack_workspace(slack_team_name="abc")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str slack_team_name: Slack workspace name configured with AWS Chatbot.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -115,22 +97,7 @@ def get_slack_workspace_output(region: Optional[pulumi.Input[Optional[_builtins.
                                slack_team_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlackWorkspaceResult]:
     """
-    Data source for managing an AWS Chatbot Slack Workspace.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.chatbot.get_slack_workspace(slack_team_name="abc")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str slack_team_name: Slack workspace name configured with AWS Chatbot.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

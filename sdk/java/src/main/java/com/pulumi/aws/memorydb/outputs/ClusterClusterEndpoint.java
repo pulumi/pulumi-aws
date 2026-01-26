@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterClusterEndpoint {
-    /**
-     * @return DNS hostname of the node.
-     * 
-     */
     private @Nullable String address;
-    /**
-     * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
-     * 
-     */
     private @Nullable Integer port;
 
     private ClusterClusterEndpoint() {}
-    /**
-     * @return DNS hostname of the node.
-     * 
-     */
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
-    /**
-     * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }

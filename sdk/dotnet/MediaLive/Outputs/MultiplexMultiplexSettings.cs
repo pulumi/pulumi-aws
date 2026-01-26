@@ -13,21 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class MultiplexMultiplexSettings
     {
-        /// <summary>
-        /// Maximum video buffer delay.
-        /// </summary>
         public readonly int? MaximumVideoBufferDelayMilliseconds;
-        /// <summary>
-        /// Transport stream bit rate.
-        /// </summary>
         public readonly int TransportStreamBitrate;
-        /// <summary>
-        /// Unique ID for each multiplex.
-        /// </summary>
         public readonly int TransportStreamId;
-        /// <summary>
-        /// Transport stream reserved bit rate.
-        /// </summary>
         public readonly int? TransportStreamReservedBitrate;
 
         [OutputConstructor]

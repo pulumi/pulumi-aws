@@ -13,112 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.secretsmanager.Secret;
- * import com.pulumi.aws.secretsmanager.SecretArgs;
- * import com.pulumi.aws.secretsmanager.Tag;
- * import com.pulumi.aws.secretsmanager.TagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Secret("test", SecretArgs.builder()
- *             .name("example-secret")
- *             .build());
- * 
- *         var testTag = new Tag("testTag", TagArgs.builder()
- *             .secretId(test.id())
- *             .key("ExampleKey")
- *             .value("ExampleValue")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_secretsmanager_tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey
- * ```
- * 
- */
 @ResourceType(type="aws:secretsmanager/tag:Tag")
 public class Tag extends com.pulumi.resources.CustomResource {
-    /**
-     * Tag name.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return Tag name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the AWS Secrets Manager secret to tag.
-     * 
-     */
     @Export(name="secretId", refs={String.class}, tree="[0]")
     private Output<String> secretId;
 
-    /**
-     * @return ID of the AWS Secrets Manager secret to tag.
-     * 
-     */
     public Output<String> secretId() {
         return this.secretId;
     }
-    /**
-     * Tag value.
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Tag value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

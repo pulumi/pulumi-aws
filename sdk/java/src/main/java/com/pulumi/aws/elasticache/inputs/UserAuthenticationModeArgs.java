@@ -25,32 +25,16 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.passwordCount);
     }
 
-    /**
-     * Specifies the passwords to use for authentication if `type` is set to `password`.
-     * 
-     */
     @Import(name="passwords")
     private @Nullable Output<List<String>> passwords;
 
-    /**
-     * @return Specifies the passwords to use for authentication if `type` is set to `password`.
-     * 
-     */
     public Optional<Output<List<String>>> passwords() {
         return Optional.ofNullable(this.passwords);
     }
 
-    /**
-     * Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -90,54 +74,24 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
             return passwordCount(Output.of(passwordCount));
         }
 
-        /**
-         * @param passwords Specifies the passwords to use for authentication if `type` is set to `password`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(@Nullable Output<List<String>> passwords) {
             $.passwords = passwords;
             return this;
         }
 
-        /**
-         * @param passwords Specifies the passwords to use for authentication if `type` is set to `password`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(List<String> passwords) {
             return passwords(Output.of(passwords));
         }
 
-        /**
-         * @param passwords Specifies the passwords to use for authentication if `type` is set to `password`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
         }
 
-        /**
-         * @param type Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

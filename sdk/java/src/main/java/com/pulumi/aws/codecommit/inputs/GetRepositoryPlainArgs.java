@@ -15,32 +15,16 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetRepositoryPlainArgs Empty = new GetRepositoryPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private String repositoryName;
 
-    /**
-     * @return Name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }
@@ -70,23 +54,11 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetRepositoryPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param repositoryName Name for the repository. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             $.repositoryName = repositoryName;
             return this;

@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-     * 
-     */
     private String credentialsSecretArn;
-    /**
-     * @return Name of your Amazon RDS database.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping;
-    /**
-     * @return ARN of the vector store.
-     * 
-     */
     private String resourceArn;
-    /**
-     * @return Name of the table in the database.
-     * 
-     */
     private String tableName;
 
     private AgentKnowledgeBaseStorageConfigurationRdsConfiguration() {}
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-     * 
-     */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
-    /**
-     * @return Name of your Amazon RDS database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
-    /**
-     * @return ARN of the vector store.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * @return Name of the table in the database.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }

@@ -48,10 +48,6 @@ class LinkLinkConfiguration(dict):
     def __init__(__self__, *,
                  log_group_configuration: Optional['outputs.LinkLinkConfigurationLogGroupConfiguration'] = None,
                  metric_configuration: Optional['outputs.LinkLinkConfigurationMetricConfiguration'] = None):
-        """
-        :param 'LinkLinkConfigurationLogGroupConfigurationArgs' log_group_configuration: Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
-        :param 'LinkLinkConfigurationMetricConfigurationArgs' metric_configuration: Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
-        """
         if log_group_configuration is not None:
             pulumi.set(__self__, "log_group_configuration", log_group_configuration)
         if metric_configuration is not None:
@@ -60,17 +56,11 @@ class LinkLinkConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="logGroupConfiguration")
     def log_group_configuration(self) -> Optional['outputs.LinkLinkConfigurationLogGroupConfiguration']:
-        """
-        Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
-        """
         return pulumi.get(self, "log_group_configuration")
 
     @_builtins.property
     @pulumi.getter(name="metricConfiguration")
     def metric_configuration(self) -> Optional['outputs.LinkLinkConfigurationMetricConfiguration']:
-        """
-        Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
-        """
         return pulumi.get(self, "metric_configuration")
 
 
@@ -78,17 +68,11 @@ class LinkLinkConfiguration(dict):
 class LinkLinkConfigurationLogGroupConfiguration(dict):
     def __init__(__self__, *,
                  filter: _builtins.str):
-        """
-        :param _builtins.str filter: Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-        """
         pulumi.set(__self__, "filter", filter)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> _builtins.str:
-        """
-        Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-        """
         return pulumi.get(self, "filter")
 
 
@@ -96,17 +80,11 @@ class LinkLinkConfigurationLogGroupConfiguration(dict):
 class LinkLinkConfigurationMetricConfiguration(dict):
     def __init__(__self__, *,
                  filter: _builtins.str):
-        """
-        :param _builtins.str filter: Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         pulumi.set(__self__, "filter", filter)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> _builtins.str:
-        """
-        Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         return pulumi.get(self, "filter")
 
 
@@ -115,27 +93,17 @@ class GetLinkLinkConfigurationResult(dict):
     def __init__(__self__, *,
                  log_group_configurations: Sequence['outputs.GetLinkLinkConfigurationLogGroupConfigurationResult'],
                  metric_configurations: Sequence['outputs.GetLinkLinkConfigurationMetricConfigurationResult']):
-        """
-        :param Sequence['GetLinkLinkConfigurationLogGroupConfigurationArgs'] log_group_configurations: Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
-        :param Sequence['GetLinkLinkConfigurationMetricConfigurationArgs'] metric_configurations: Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
-        """
         pulumi.set(__self__, "log_group_configurations", log_group_configurations)
         pulumi.set(__self__, "metric_configurations", metric_configurations)
 
     @_builtins.property
     @pulumi.getter(name="logGroupConfigurations")
     def log_group_configurations(self) -> Sequence['outputs.GetLinkLinkConfigurationLogGroupConfigurationResult']:
-        """
-        Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
-        """
         return pulumi.get(self, "log_group_configurations")
 
     @_builtins.property
     @pulumi.getter(name="metricConfigurations")
     def metric_configurations(self) -> Sequence['outputs.GetLinkLinkConfigurationMetricConfigurationResult']:
-        """
-        Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
-        """
         return pulumi.get(self, "metric_configurations")
 
 
@@ -143,17 +111,11 @@ class GetLinkLinkConfigurationResult(dict):
 class GetLinkLinkConfigurationLogGroupConfigurationResult(dict):
     def __init__(__self__, *,
                  filter: _builtins.str):
-        """
-        :param _builtins.str filter: Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         pulumi.set(__self__, "filter", filter)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> _builtins.str:
-        """
-        Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         return pulumi.get(self, "filter")
 
 
@@ -161,17 +123,11 @@ class GetLinkLinkConfigurationLogGroupConfigurationResult(dict):
 class GetLinkLinkConfigurationMetricConfigurationResult(dict):
     def __init__(__self__, *,
                  filter: _builtins.str):
-        """
-        :param _builtins.str filter: Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         pulumi.set(__self__, "filter", filter)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> _builtins.str:
-        """
-        Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        """
         return pulumi.get(self, "filter")
 
 

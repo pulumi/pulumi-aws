@@ -58,25 +58,16 @@ class GetRuntimeVersionResult:
     @_builtins.property
     @pulumi.getter(name="deprecationDate")
     def deprecation_date(self) -> _builtins.str:
-        """
-        Date of deprecation if the runtme version is deprecated.
-        """
         return pulumi.get(self, "deprecation_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the runtime version, created by Amazon.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -97,9 +88,6 @@ class GetRuntimeVersionResult:
     @_builtins.property
     @pulumi.getter(name="releaseDate")
     def release_date(self) -> _builtins.str:
-        """
-        Date that the runtime version was released.
-        """
         return pulumi.get(self, "release_date")
 
     @_builtins.property
@@ -110,9 +98,6 @@ class GetRuntimeVersionResult:
     @_builtins.property
     @pulumi.getter(name="versionName")
     def version_name(self) -> _builtins.str:
-        """
-        Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-        """
         return pulumi.get(self, "version_name")
 
 
@@ -139,37 +124,7 @@ def get_runtime_version(latest: Optional[_builtins.bool] = None,
                         version: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuntimeVersionResult:
     """
-    Data source for managing an AWS CloudWatch Synthetics Runtime Version.
-
-    ## Example Usage
-
-    ### Latest Runtime Version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.synthetics.get_runtime_version(prefix="syn-nodejs-puppeteer",
-        latest=True)
-    ```
-
-    ### Specific Runtime Version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.synthetics.get_runtime_version(prefix="syn-nodejs-puppeteer",
-        version="9.0")
-    ```
-
-
-    :param _builtins.bool latest: Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-    :param _builtins.str prefix: Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['latest'] = latest
@@ -195,37 +150,7 @@ def get_runtime_version_output(latest: Optional[pulumi.Input[Optional[_builtins.
                                version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeVersionResult]:
     """
-    Data source for managing an AWS CloudWatch Synthetics Runtime Version.
-
-    ## Example Usage
-
-    ### Latest Runtime Version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.synthetics.get_runtime_version(prefix="syn-nodejs-puppeteer",
-        latest=True)
-    ```
-
-    ### Specific Runtime Version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.synthetics.get_runtime_version(prefix="syn-nodejs-puppeteer",
-        version="9.0")
-    ```
-
-
-    :param _builtins.bool latest: Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-    :param _builtins.str prefix: Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['latest'] = latest

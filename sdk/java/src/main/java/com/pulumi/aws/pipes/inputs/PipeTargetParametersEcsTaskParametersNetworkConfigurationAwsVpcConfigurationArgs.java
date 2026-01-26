@@ -16,17 +16,9 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
 
     public static final PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs Empty = new PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs();
 
-    /**
-     * Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
-     * 
-     */
     @Import(name="assignPublicIp")
     private @Nullable Output<String> assignPublicIp;
 
-    /**
-     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
-     * 
-     */
     public Optional<Output<String>> assignPublicIp() {
         return Optional.ofNullable(this.assignPublicIp);
     }
@@ -71,23 +63,11 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
             $ = new PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignPublicIp(@Nullable Output<String> assignPublicIp) {
             $.assignPublicIp = assignPublicIp;
             return this;
         }
 
-        /**
-         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignPublicIp(String assignPublicIp) {
             return assignPublicIp(Output.of(assignPublicIp));
         }

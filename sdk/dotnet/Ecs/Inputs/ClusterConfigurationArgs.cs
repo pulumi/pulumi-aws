@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ClusterConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details of the execute command configuration. See `ExecuteCommandConfiguration` Block for details.
-        /// </summary>
         [Input("executeCommandConfiguration")]
         public Input<Inputs.ClusterConfigurationExecuteCommandConfigurationArgs>? ExecuteCommandConfiguration { get; set; }
 
-        /// <summary>
-        /// Details of the managed storage configuration. See `ManagedStorageConfiguration` Block for details.
-        /// </summary>
         [Input("managedStorageConfiguration")]
         public Input<Inputs.ClusterConfigurationManagedStorageConfigurationArgs>? ManagedStorageConfiguration { get; set; }
 

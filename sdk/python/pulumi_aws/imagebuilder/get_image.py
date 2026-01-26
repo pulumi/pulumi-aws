@@ -91,41 +91,26 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter(name="buildVersionArn")
     def build_version_arn(self) -> _builtins.str:
-        """
-        Build version ARN of the image. This will always have the `#.#.#/#` suffix.
-        """
         return pulumi.get(self, "build_version_arn")
 
     @_builtins.property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> _builtins.str:
-        """
-        ARN of the container recipe.
-        """
         return pulumi.get(self, "container_recipe_arn")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> _builtins.str:
-        """
-        Date the image was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> _builtins.str:
-        """
-        ARN of the Image Builder Distribution Configuration.
-        """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @_builtins.property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> _builtins.bool:
-        """
-        Whether additional information about the image being created is collected.
-        """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @_builtins.property
@@ -139,89 +124,56 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> _builtins.str:
-        """
-        ARN of the image recipe.
-        """
         return pulumi.get(self, "image_recipe_arn")
 
     @_builtins.property
     @pulumi.getter(name="imageScanningConfigurations")
     def image_scanning_configurations(self) -> Sequence['outputs.GetImageImageScanningConfigurationResult']:
-        """
-        List of an object with image scanning configuration fields.
-        """
         return pulumi.get(self, "image_scanning_configurations")
 
     @_builtins.property
     @pulumi.getter(name="imageTestsConfigurations")
     def image_tests_configurations(self) -> Sequence['outputs.GetImageImageTestsConfigurationResult']:
-        """
-        List of an object with image tests configuration.
-        """
         return pulumi.get(self, "image_tests_configurations")
 
     @_builtins.property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> _builtins.str:
-        """
-        ARN of the Image Builder Infrastructure Configuration.
-        """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the AMI.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="osVersion")
     def os_version(self) -> _builtins.str:
-        """
-        Operating System version of the image.
-        """
         return pulumi.get(self, "os_version")
 
     @_builtins.property
     @pulumi.getter(name="outputResources")
     def output_resources(self) -> Sequence['outputs.GetImageOutputResourceResult']:
-        """
-        List of objects with resources created by the image.
-        """
         return pulumi.get(self, "output_resources")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> _builtins.str:
-        """
-        Platform of the image.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        Region of the container image.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the image.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Version of the image.
-        """
         return pulumi.get(self, "version")
 
 
@@ -256,23 +208,7 @@ def get_image(arn: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    Provides details about an Image Builder Image.
-
-    ## Example Usage
-
-    ### Latest
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image(arn="arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
-    ```
-
-
-    :param _builtins.str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the image.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -305,23 +241,7 @@ def get_image_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
-    Provides details about an Image Builder Image.
-
-    ## Example Usage
-
-    ### Latest
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image(arn="arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
-    ```
-
-
-    :param _builtins.str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the image.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

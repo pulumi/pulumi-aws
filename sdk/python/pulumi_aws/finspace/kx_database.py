@@ -26,13 +26,6 @@ class KxDatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxDatabase resource.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] description: Description of the KX database.
-        :param pulumi.Input[_builtins.str] name: Name of the KX database.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "environment_id", environment_id)
         if description is not None:
@@ -47,9 +40,6 @@ class KxDatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier for the KX environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -59,9 +49,6 @@ class KxDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the KX database.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -71,11 +58,6 @@ class KxDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the KX database.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,9 +67,6 @@ class KxDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,9 +76,6 @@ class KxDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -121,17 +97,6 @@ class _KxDatabaseState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KxDatabase resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX database.
-        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[_builtins.str] description: Description of the KX database.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] last_modified_timestamp: Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[_builtins.str] name: Name of the KX database.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -155,9 +120,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) identifier of the KX database.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -167,9 +129,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "created_timestamp")
 
     @created_timestamp.setter
@@ -179,9 +138,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the KX database.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -191,9 +147,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the KX environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -203,9 +156,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedTimestamp")
     def last_modified_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "last_modified_timestamp")
 
     @last_modified_timestamp.setter
@@ -215,11 +165,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the KX database.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -229,9 +174,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -241,9 +183,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -253,9 +192,6 @@ class _KxDatabaseState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -276,45 +212,9 @@ class KxDatabase(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS FinSpace Kx Database.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="Example KMS Key",
-            deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("example",
-            name="my-tf-kx-environment",
-            kms_key_id=example.arn)
-        example_kx_database = aws.finspace.KxDatabase("example",
-            environment_id=example_kx_environment.id,
-            name="my-tf-kx-database",
-            description="Example database description")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
-
-        ```sh
-        $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
-        ```
-
+        Create a KxDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the KX database.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] name: Name of the KX database.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -323,36 +223,7 @@ class KxDatabase(pulumi.CustomResource):
                  args: KxDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS FinSpace Kx Database.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="Example KMS Key",
-            deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("example",
-            name="my-tf-kx-environment",
-            kms_key_id=example.arn)
-        example_kx_database = aws.finspace.KxDatabase("example",
-            environment_id=example_kx_environment.id,
-            name="my-tf-kx-database",
-            description="Example database description")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
-
-        ```sh
-        $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
-        ```
-
+        Create a KxDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KxDatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -419,17 +290,6 @@ class KxDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX database.
-        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[_builtins.str] description: Description of the KX database.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] last_modified_timestamp: Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[_builtins.str] name: Name of the KX database.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -449,74 +309,45 @@ class KxDatabase(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) identifier of the KX database.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "created_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the KX database.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the KX environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTimestamp")
     def last_modified_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "last_modified_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the KX database.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

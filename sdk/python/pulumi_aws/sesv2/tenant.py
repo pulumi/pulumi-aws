@@ -24,11 +24,6 @@ class TenantArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Tenant resource.
-        :param pulumi.Input[_builtins.str] tenant_name: Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the tenant.
         """
         pulumi.set(__self__, "tenant_name", tenant_name)
         if region is not None:
@@ -39,11 +34,6 @@ class TenantArgs:
     @_builtins.property
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -53,9 +43,6 @@ class TenantArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -65,9 +52,6 @@ class TenantArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the tenant.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -87,15 +71,6 @@ class _TenantState:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tenant resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sending_status: Current sending status of the tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the tenant, including provider default tags.
-        :param pulumi.Input[_builtins.str] tenant_arn: ARN of the Tenant.
-        :param pulumi.Input[_builtins.str] tenant_id: ID of the Tenant.
-        :param pulumi.Input[_builtins.str] tenant_name: Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-               
-               The following arguments are optional:
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -115,9 +90,6 @@ class _TenantState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -127,9 +99,6 @@ class _TenantState:
     @_builtins.property
     @pulumi.getter(name="sendingStatus")
     def sending_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current sending status of the tenant.
-        """
         return pulumi.get(self, "sending_status")
 
     @sending_status.setter
@@ -139,9 +108,6 @@ class _TenantState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the tenant.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -151,9 +117,6 @@ class _TenantState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the tenant, including provider default tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -163,9 +126,6 @@ class _TenantState:
     @_builtins.property
     @pulumi.getter(name="tenantArn")
     def tenant_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Tenant.
-        """
         return pulumi.get(self, "tenant_arn")
 
     @tenant_arn.setter
@@ -175,9 +135,6 @@ class _TenantState:
     @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Tenant.
-        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -187,11 +144,6 @@ class _TenantState:
     @_builtins.property
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -210,38 +162,9 @@ class Tenant(pulumi.CustomResource):
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS SESv2 (Simple Email V2) Tenant.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.Tenant("example",
-            tenant_name="example-tenant",
-            tags={
-                "Environment": "test",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an SESv2 Tenant using the `tenant_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sesv2/tenant:Tenant example example-tenant
-        ```
-
+        Create a Tenant resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the tenant.
-        :param pulumi.Input[_builtins.str] tenant_name: Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -250,31 +173,7 @@ class Tenant(pulumi.CustomResource):
                  args: TenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS SESv2 (Simple Email V2) Tenant.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.Tenant("example",
-            tenant_name="example-tenant",
-            tags={
-                "Environment": "test",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an SESv2 Tenant using the `tenant_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sesv2/tenant:Tenant example example-tenant
-        ```
-
+        Create a Tenant resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TenantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,15 +234,6 @@ class Tenant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sending_status: Current sending status of the tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the tenant, including provider default tags.
-        :param pulumi.Input[_builtins.str] tenant_arn: ARN of the Tenant.
-        :param pulumi.Input[_builtins.str] tenant_id: ID of the Tenant.
-        :param pulumi.Input[_builtins.str] tenant_name: Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -361,58 +251,35 @@ class Tenant(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sendingStatus")
     def sending_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current sending status of the tenant.
-        """
         return pulumi.get(self, "sending_status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the tenant.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the tenant, including provider default tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="tenantArn")
     def tenant_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Tenant.
-        """
         return pulumi.get(self, "tenant_arn")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Tenant.
-        """
         return pulumi.get(self, "tenant_id")
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tenant_name")
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudTrail.Outputs
     [OutputType]
     public sealed class TrailAdvancedEventSelector
     {
-        /// <summary>
-        /// Specifies the selector statements in an advanced event selector. Fields documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TrailAdvancedEventSelectorFieldSelector> FieldSelectors;
-        /// <summary>
-        /// Name of the trail.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

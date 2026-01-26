@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
-    /**
-     * @return Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-     * 
-     */
     private @Nullable String applicationRestoreType;
-    /**
-     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
-     * 
-     */
     private @Nullable String snapshotName;
 
     private ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration() {}
-    /**
-     * @return Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-     * 
-     */
     public Optional<String> applicationRestoreType() {
         return Optional.ofNullable(this.applicationRestoreType);
     }
-    /**
-     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
-     * 
-     */
     public Optional<String> snapshotName() {
         return Optional.ofNullable(this.snapshotName);
     }

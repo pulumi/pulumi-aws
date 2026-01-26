@@ -30,13 +30,6 @@ class InstanceFleetArgs:
                  target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a InstanceFleet resource.
-        :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
-        :param pulumi.Input[_builtins.str] name: Friendly name given to the instance fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        :param pulumi.Input[_builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         if instance_type_configs is not None:
@@ -55,9 +48,6 @@ class InstanceFleetArgs:
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -67,9 +57,6 @@ class InstanceFleetArgs:
     @_builtins.property
     @pulumi.getter(name="instanceTypeConfigs")
     def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
-        """
-        Configuration block for instance fleet
-        """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
@@ -79,9 +66,6 @@ class InstanceFleetArgs:
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]:
-        """
-        Configuration block for launch specification
-        """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
@@ -91,9 +75,6 @@ class InstanceFleetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name given to the instance fleet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -103,9 +84,6 @@ class InstanceFleetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -115,9 +93,6 @@ class InstanceFleetArgs:
     @_builtins.property
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        """
         return pulumi.get(self, "target_on_demand_capacity")
 
     @target_on_demand_capacity.setter
@@ -127,9 +102,6 @@ class InstanceFleetArgs:
     @_builtins.property
     @pulumi.getter(name="targetSpotCapacity")
     def target_spot_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        """
         return pulumi.get(self, "target_spot_capacity")
 
     @target_spot_capacity.setter
@@ -151,17 +123,6 @@ class _InstanceFleetState:
                  target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering InstanceFleet resources.
-        :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
-        :param pulumi.Input[_builtins.str] name: Friendly name given to the instance fleet.
-        :param pulumi.Input[_builtins.int] provisioned_on_demand_capacity: The number of On-Demand units that have been provisioned for the instance
-               fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-        :param pulumi.Input[_builtins.int] provisioned_spot_capacity: The number of Spot units that have been provisioned for this instance fleet
-               to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        :param pulumi.Input[_builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -185,9 +146,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -197,9 +155,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter(name="instanceTypeConfigs")
     def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
-        """
-        Configuration block for instance fleet
-        """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
@@ -209,9 +164,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]:
-        """
-        Configuration block for launch specification
-        """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
@@ -221,9 +173,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name given to the instance fleet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -233,10 +182,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter(name="provisionedOnDemandCapacity")
     def provisioned_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of On-Demand units that have been provisioned for the instance
-        fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-        """
         return pulumi.get(self, "provisioned_on_demand_capacity")
 
     @provisioned_on_demand_capacity.setter
@@ -246,10 +191,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter(name="provisionedSpotCapacity")
     def provisioned_spot_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of Spot units that have been provisioned for this instance fleet
-        to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-        """
         return pulumi.get(self, "provisioned_spot_capacity")
 
     @provisioned_spot_capacity.setter
@@ -259,9 +200,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -271,9 +209,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        """
         return pulumi.get(self, "target_on_demand_capacity")
 
     @target_on_demand_capacity.setter
@@ -283,9 +218,6 @@ class _InstanceFleetState:
     @_builtins.property
     @pulumi.getter(name="targetSpotCapacity")
     def target_spot_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        """
         return pulumi.get(self, "target_spot_capacity")
 
     @target_spot_capacity.setter
@@ -308,73 +240,9 @@ class InstanceFleet(pulumi.CustomResource):
                  target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Provides an Elastic MapReduce Cluster Instance Fleet configuration.
-        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-
-        > **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
-        web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
-        the provider will resize any Instance Fleet to zero when destroying the resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceFleet("task",
-            cluster_id=cluster["id"],
-            instance_type_configs=[
-                {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
-            launch_specifications={
-                "spot_specifications": [{
-                    "allocation_strategy": "capacity-optimized",
-                    "block_duration_minutes": 0,
-                    "timeout_action": "TERMINATE_CLUSTER",
-                    "timeout_duration_minutes": 10,
-                }],
-            },
-            name="task fleet",
-            target_on_demand_capacity=1,
-            target_spot_capacity=1)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
-        ```
-
+        Create a InstanceFleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']] launch_specifications: Configuration block for launch specification
-        :param pulumi.Input[_builtins.str] name: Friendly name given to the instance fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        :param pulumi.Input[_builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         ...
     @overload
@@ -383,64 +251,7 @@ class InstanceFleet(pulumi.CustomResource):
                  args: InstanceFleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic MapReduce Cluster Instance Fleet configuration.
-        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-
-        > **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
-        web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
-        the provider will resize any Instance Fleet to zero when destroying the resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceFleet("task",
-            cluster_id=cluster["id"],
-            instance_type_configs=[
-                {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
-            launch_specifications={
-                "spot_specifications": [{
-                    "allocation_strategy": "capacity-optimized",
-                    "block_duration_minutes": 0,
-                    "timeout_action": "TERMINATE_CLUSTER",
-                    "timeout_duration_minutes": 10,
-                }],
-            },
-            name="task fleet",
-            target_on_demand_capacity=1,
-            target_spot_capacity=1)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
-        ```
-
+        Create a InstanceFleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InstanceFleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -509,17 +320,6 @@ class InstanceFleet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']] launch_specifications: Configuration block for launch specification
-        :param pulumi.Input[_builtins.str] name: Friendly name given to the instance fleet.
-        :param pulumi.Input[_builtins.int] provisioned_on_demand_capacity: The number of On-Demand units that have been provisioned for the instance
-               fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-        :param pulumi.Input[_builtins.int] provisioned_spot_capacity: The number of Spot units that have been provisioned for this instance fleet
-               to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        :param pulumi.Input[_builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,74 +339,45 @@ class InstanceFleet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceTypeConfigs")
     def instance_type_configs(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceFleetInstanceTypeConfig']]]:
-        """
-        Configuration block for instance fleet
-        """
         return pulumi.get(self, "instance_type_configs")
 
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> pulumi.Output[Optional['outputs.InstanceFleetLaunchSpecifications']]:
-        """
-        Configuration block for launch specification
-        """
         return pulumi.get(self, "launch_specifications")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Friendly name given to the instance fleet.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="provisionedOnDemandCapacity")
     def provisioned_on_demand_capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of On-Demand units that have been provisioned for the instance
-        fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-        """
         return pulumi.get(self, "provisioned_on_demand_capacity")
 
     @_builtins.property
     @pulumi.getter(name="provisionedSpotCapacity")
     def provisioned_spot_capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of Spot units that have been provisioned for this instance fleet
-        to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-        """
         return pulumi.get(self, "provisioned_spot_capacity")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        """
         return pulumi.get(self, "target_on_demand_capacity")
 
     @_builtins.property
     @pulumi.getter(name="targetSpotCapacity")
     def target_spot_capacity(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        """
         return pulumi.get(self, "target_spot_capacity")
 

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentKendraConfiguration {
-    /**
-     * @return ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-     * 
-     */
     private String kendraIndex;
-    /**
-     * @return Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
-     * 
-     */
     private @Nullable String queryFilterString;
-    /**
-     * @return Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-     * 
-     */
     private @Nullable Boolean queryFilterStringEnabled;
 
     private V2modelsIntentKendraConfiguration() {}
-    /**
-     * @return ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-     * 
-     */
     public String kendraIndex() {
         return this.kendraIndex;
     }
-    /**
-     * @return Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
-     * 
-     */
     public Optional<String> queryFilterString() {
         return Optional.ofNullable(this.queryFilterString);
     }
-    /**
-     * @return Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-     * 
-     */
     public Optional<Boolean> queryFilterStringEnabled() {
         return Optional.ofNullable(this.queryFilterStringEnabled);
     }

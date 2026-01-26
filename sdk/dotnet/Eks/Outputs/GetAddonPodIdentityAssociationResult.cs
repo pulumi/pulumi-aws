@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetAddonPodIdentityAssociationResult
     {
-        /// <summary>
-        /// ARN of the IAM role associated with the EKS add-on.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// Service account associated with the EKS add-on.
-        /// </summary>
         public readonly string ServiceAccount;
 
         [OutputConstructor]

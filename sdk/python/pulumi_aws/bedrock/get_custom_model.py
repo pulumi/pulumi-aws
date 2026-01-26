@@ -86,25 +86,16 @@ class GetCustomModelResult:
     @_builtins.property
     @pulumi.getter(name="baseModelArn")
     def base_model_arn(self) -> _builtins.str:
-        """
-        ARN of the base model.
-        """
         return pulumi.get(self, "base_model_arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        Creation time of the model.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter
     def hyperparameters(self) -> Mapping[str, _builtins.str]:
-        """
-        Hyperparameter values associated with this model.
-        """
         return pulumi.get(self, "hyperparameters")
 
     @_builtins.property
@@ -115,33 +106,21 @@ class GetCustomModelResult:
     @_builtins.property
     @pulumi.getter(name="jobArn")
     def job_arn(self) -> _builtins.str:
-        """
-        Job ARN associated with this model.
-        """
         return pulumi.get(self, "job_arn")
 
     @_builtins.property
     @pulumi.getter(name="jobName")
     def job_name(self) -> _builtins.str:
-        """
-        Job name associated with this model.
-        """
         return pulumi.get(self, "job_name")
 
     @_builtins.property
     @pulumi.getter(name="jobTags")
     def job_tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value mapping of tags for the fine-tuning job.
-        """
         return pulumi.get(self, "job_tags")
 
     @_builtins.property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
-        """
-        ARN associated with this model.
-        """
         return pulumi.get(self, "model_arn")
 
     @_builtins.property
@@ -152,33 +131,21 @@ class GetCustomModelResult:
     @_builtins.property
     @pulumi.getter(name="modelKmsKeyArn")
     def model_kms_key_arn(self) -> _builtins.str:
-        """
-        The custom model is encrypted at rest using this key.
-        """
         return pulumi.get(self, "model_kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="modelName")
     def model_name(self) -> _builtins.str:
-        """
-        Model name associated with this model.
-        """
         return pulumi.get(self, "model_name")
 
     @_builtins.property
     @pulumi.getter(name="modelTags")
     def model_tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value mapping of tags for the model.
-        """
         return pulumi.get(self, "model_tags")
 
     @_builtins.property
     @pulumi.getter(name="outputDataConfigs")
     def output_data_configs(self) -> Sequence['outputs.GetCustomModelOutputDataConfigResult']:
-        """
-        Output data configuration associated with this custom model.
-        """
         return pulumi.get(self, "output_data_configs")
 
     @_builtins.property
@@ -189,33 +156,21 @@ class GetCustomModelResult:
     @_builtins.property
     @pulumi.getter(name="trainingDataConfigs")
     def training_data_configs(self) -> Sequence['outputs.GetCustomModelTrainingDataConfigResult']:
-        """
-        Information about the training dataset.
-        """
         return pulumi.get(self, "training_data_configs")
 
     @_builtins.property
     @pulumi.getter(name="trainingMetrics")
     def training_metrics(self) -> Sequence['outputs.GetCustomModelTrainingMetricResult']:
-        """
-        Metrics associated with the customization job.
-        """
         return pulumi.get(self, "training_metrics")
 
     @_builtins.property
     @pulumi.getter(name="validationDataConfigs")
     def validation_data_configs(self) -> Sequence['outputs.GetCustomModelValidationDataConfigResult']:
-        """
-        Information about the validation dataset.
-        """
         return pulumi.get(self, "validation_data_configs")
 
     @_builtins.property
     @pulumi.getter(name="validationMetrics")
     def validation_metrics(self) -> Sequence['outputs.GetCustomModelValidationMetricResult']:
-        """
-        The loss metric for each validator that you provided.
-        """
         return pulumi.get(self, "validation_metrics")
 
 
@@ -249,20 +204,7 @@ def get_custom_model(model_id: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomModelResult:
     """
-    Returns properties of a specific Amazon Bedrock custom model.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_custom_model(model_id="arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
-    ```
-
-
-    :param _builtins.str model_id: Name or ARN of the custom model.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['modelId'] = model_id
@@ -293,20 +235,7 @@ def get_custom_model_output(model_id: Optional[pulumi.Input[_builtins.str]] = No
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomModelResult]:
     """
-    Returns properties of a specific Amazon Bedrock custom model.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_custom_model(model_id="arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
-    ```
-
-
-    :param _builtins.str model_id: Name or ARN of the custom model.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['modelId'] = model_id

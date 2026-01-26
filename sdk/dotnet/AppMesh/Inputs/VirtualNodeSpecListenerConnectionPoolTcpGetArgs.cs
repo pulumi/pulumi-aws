@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecListenerConnectionPoolTcpGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-        /// </summary>
         [Input("maxConnections", required: true)]
         public Input<int> MaxConnections { get; set; } = null!;
 

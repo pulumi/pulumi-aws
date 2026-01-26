@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclDataProtectionConfigDataProtectionField
     {
-        /// <summary>
-        /// Array of strings to specify the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.
-        /// </summary>
         public readonly ImmutableArray<string> FieldKeys;
-        /// <summary>
-        /// Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
-        /// </summary>
         public readonly string FieldType;
 
         [OutputConstructor]

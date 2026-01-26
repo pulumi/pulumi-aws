@@ -13,57 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ByteMatchSetByteMatchTuple {
-    /**
-     * @return Settings for the ByteMatchTuple. FieldToMatch documented below.
-     * 
-     */
     private ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch;
-    /**
-     * @return Within the portion of a web request that you want to search.
-     * 
-     */
     private String positionalConstraint;
-    /**
-     * @return The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
-     * 
-     */
     private @Nullable String targetString;
-    /**
-     * @return The formatting way for web request.
-     * 
-     * FieldToMatch(field_to_match) support following:
-     * 
-     */
     private String textTransformation;
 
     private ByteMatchSetByteMatchTuple() {}
-    /**
-     * @return Settings for the ByteMatchTuple. FieldToMatch documented below.
-     * 
-     */
     public ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch() {
         return this.fieldToMatch;
     }
-    /**
-     * @return Within the portion of a web request that you want to search.
-     * 
-     */
     public String positionalConstraint() {
         return this.positionalConstraint;
     }
-    /**
-     * @return The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
-     * 
-     */
     public Optional<String> targetString() {
         return Optional.ofNullable(this.targetString);
     }
-    /**
-     * @return The formatting way for web request.
-     * 
-     * FieldToMatch(field_to_match) support following:
-     * 
-     */
     public String textTransformation() {
         return this.textTransformation;
     }

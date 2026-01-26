@@ -19,62 +19,30 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
 
     public static final ApiEventConfigAuthProviderArgs Empty = new ApiEventConfigAuthProviderArgs();
 
-    /**
-     * Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
-    /**
-     * @return Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
 
-    /**
-     * Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-     * 
-     */
     @Import(name="cognitoConfig")
     private @Nullable Output<ApiEventConfigAuthProviderCognitoConfigArgs> cognitoConfig;
 
-    /**
-     * @return Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-     * 
-     */
     public Optional<Output<ApiEventConfigAuthProviderCognitoConfigArgs>> cognitoConfig() {
         return Optional.ofNullable(this.cognitoConfig);
     }
 
-    /**
-     * Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-     * 
-     */
     @Import(name="lambdaAuthorizerConfig")
     private @Nullable Output<ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig;
 
-    /**
-     * @return Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-     * 
-     */
     public Optional<Output<ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs>> lambdaAuthorizerConfig() {
         return Optional.ofNullable(this.lambdaAuthorizerConfig);
     }
 
-    /**
-     * Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-     * 
-     */
     @Import(name="openidConnectConfig")
     private @Nullable Output<ApiEventConfigAuthProviderOpenidConnectConfigArgs> openidConnectConfig;
 
-    /**
-     * @return Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-     * 
-     */
     public Optional<Output<ApiEventConfigAuthProviderOpenidConnectConfigArgs>> openidConnectConfig() {
         return Optional.ofNullable(this.openidConnectConfig);
     }
@@ -106,86 +74,38 @@ public final class ApiEventConfigAuthProviderArgs extends com.pulumi.resources.R
             $ = new ApiEventConfigAuthProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authType Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(Output<String> authType) {
             $.authType = authType;
             return this;
         }
 
-        /**
-         * @param authType Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
         }
 
-        /**
-         * @param cognitoConfig Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cognitoConfig(@Nullable Output<ApiEventConfigAuthProviderCognitoConfigArgs> cognitoConfig) {
             $.cognitoConfig = cognitoConfig;
             return this;
         }
 
-        /**
-         * @param cognitoConfig Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cognitoConfig(ApiEventConfigAuthProviderCognitoConfigArgs cognitoConfig) {
             return cognitoConfig(Output.of(cognitoConfig));
         }
 
-        /**
-         * @param lambdaAuthorizerConfig Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaAuthorizerConfig(@Nullable Output<ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig) {
             $.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
             return this;
         }
 
-        /**
-         * @param lambdaAuthorizerConfig Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaAuthorizerConfig(ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs lambdaAuthorizerConfig) {
             return lambdaAuthorizerConfig(Output.of(lambdaAuthorizerConfig));
         }
 
-        /**
-         * @param openidConnectConfig Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openidConnectConfig(@Nullable Output<ApiEventConfigAuthProviderOpenidConnectConfigArgs> openidConnectConfig) {
             $.openidConnectConfig = openidConnectConfig;
             return this;
         }
 
-        /**
-         * @param openidConnectConfig Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openidConnectConfig(ApiEventConfigAuthProviderOpenidConnectConfigArgs openidConnectConfig) {
             return openidConnectConfig(Output.of(openidConnectConfig));
         }

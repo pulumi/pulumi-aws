@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS WAFv2 API Key resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.ApiKey("example", {
- *     scope: "REGIONAL",
- *     tokenDomains: ["example.com"],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAFv2 API Key using `api_key,scope`. For example:
- *
- * ```sh
- * $ pulumi import aws:wafv2/apiKey:ApiKey example a1b2c3d4-5678-90ab-cdef-EXAMPLE11111,REGIONAL
- * ```
- */
 export class ApiKey extends pulumi.CustomResource {
     /**
      * Get an existing ApiKey resource's state with the given name, ID, and optional extra
@@ -56,19 +33,16 @@ export class ApiKey extends pulumi.CustomResource {
     }
 
     /**
-     * The generated API key. This value is sensitive.
+     * The API key value. This is sensitive and not included in responses.
      */
     declare public /*out*/ readonly apiKey: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
      */
     declare public readonly scope: pulumi.Output<string>;
     /**
-     * The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+     * The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
      */
     declare public readonly tokenDomains: pulumi.Output<string[]>;
 
@@ -114,19 +88,16 @@ export class ApiKey extends pulumi.CustomResource {
  */
 export interface ApiKeyState {
     /**
-     * The generated API key. This value is sensitive.
+     * The API key value. This is sensitive and not included in responses.
      */
     apiKey?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
      */
     scope?: pulumi.Input<string>;
     /**
-     * The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+     * The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
      */
     tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -135,16 +106,13 @@ export interface ApiKeyState {
  * The set of arguments for constructing a ApiKey resource.
  */
 export interface ApiKeyArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
      */
     scope: pulumi.Input<string>;
     /**
-     * The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+     * The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
      */
     tokenDomains: pulumi.Input<pulumi.Input<string>[]>;
 }

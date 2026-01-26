@@ -89,97 +89,61 @@ class GetVpcIpamResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the IPAM.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
     def default_resource_discovery_association_id(self) -> _builtins.str:
-        """
-        The default resource discovery association ID.
-        """
         return pulumi.get(self, "default_resource_discovery_association_id")
 
     @_builtins.property
     @pulumi.getter(name="defaultResourceDiscoveryId")
     def default_resource_discovery_id(self) -> _builtins.str:
-        """
-        The default resource discovery ID.
-        """
         return pulumi.get(self, "default_resource_discovery_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description for the IPAM.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="enablePrivateGua")
     def enable_private_gua(self) -> _builtins.bool:
-        """
-        If private GUA is enabled.
-        """
         return pulumi.get(self, "enable_private_gua")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of the IPAM resource.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="ipamRegion")
     def ipam_region(self) -> _builtins.str:
-        """
-        Region that the IPAM exists in.
-        """
         return pulumi.get(self, "ipam_region")
 
     @_builtins.property
     @pulumi.getter(name="meteredAccount")
     def metered_account(self) -> _builtins.str:
-        """
-        AWS account that is charged for active IP addresses managed in IPAM.
-        """
         return pulumi.get(self, "metered_account")
 
     @_builtins.property
     @pulumi.getter(name="operatingRegions")
     def operating_regions(self) -> Sequence['outputs.GetVpcIpamOperatingRegionResult']:
-        """
-        Regions that the IPAM is configured to operate in.
-        """
         return pulumi.get(self, "operating_regions")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        ID of the account that owns this IPAM.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter(name="privateDefaultScopeId")
     def private_default_scope_id(self) -> _builtins.str:
-        """
-        ID of the default private scope.
-        """
         return pulumi.get(self, "private_default_scope_id")
 
     @_builtins.property
     @pulumi.getter(name="publicDefaultScopeId")
     def public_default_scope_id(self) -> _builtins.str:
-        """
-        ID of the default public scope.
-        """
         return pulumi.get(self, "public_default_scope_id")
 
     @_builtins.property
@@ -190,49 +154,31 @@ class GetVpcIpamResult:
     @_builtins.property
     @pulumi.getter(name="resourceDiscoveryAssociationCount")
     def resource_discovery_association_count(self) -> _builtins.int:
-        """
-        Number of resource discovery associations.
-        """
         return pulumi.get(self, "resource_discovery_association_count")
 
     @_builtins.property
     @pulumi.getter(name="scopeCount")
     def scope_count(self) -> _builtins.int:
-        """
-        Number of scopes on this IPAM.
-        """
         return pulumi.get(self, "scope_count")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        Current state of the IPAM.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> _builtins.str:
-        """
-        State message of the IPAM.
-        """
         return pulumi.get(self, "state_message")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags of the IPAM resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def tier(self) -> _builtins.str:
-        """
-        IPAM Tier.
-        """
         return pulumi.get(self, "tier")
 
 
@@ -267,22 +213,7 @@ def get_vpc_ipam(id: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamResult:
     """
-    Data source for managing a VPC IPAM.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipam(id="ipam-abcd1234")
-    ```
-
-
-    :param _builtins.str id: ID of the IPAM.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -314,22 +245,7 @@ def get_vpc_ipam_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamResult]:
     """
-    Data source for managing a VPC IPAM.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_ipam(id="ipam-abcd1234")
-    ```
-
-
-    :param _builtins.str id: ID of the IPAM.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AllowedImagesSettingsImageCriterionCreationDateCondition {
-    /**
-     * @return Maximum number of days since the AMI was created.
-     * 
-     */
     private @Nullable Integer maximumDaysSinceCreated;
 
     private AllowedImagesSettingsImageCriterionCreationDateCondition() {}
-    /**
-     * @return Maximum number of days since the AMI was created.
-     * 
-     */
     public Optional<Integer> maximumDaysSinceCreated() {
         return Optional.ofNullable(this.maximumDaysSinceCreated);
     }

@@ -16,32 +16,16 @@ public final class GroupPolicyAttachmentsExclusiveState extends com.pulumi.resou
 
     public static final GroupPolicyAttachmentsExclusiveState Empty = new GroupPolicyAttachmentsExclusiveState();
 
-    /**
-     * IAM group name.
-     * 
-     */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
-    /**
-     * @return IAM group name.
-     * 
-     */
     public Optional<Output<String>> groupName() {
         return Optional.ofNullable(this.groupName);
     }
 
-    /**
-     * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyArns")
     private @Nullable Output<List<String>> policyArns;
 
-    /**
-     * @return A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     public Optional<Output<List<String>>> policyArns() {
         return Optional.ofNullable(this.policyArns);
     }
@@ -71,54 +55,24 @@ public final class GroupPolicyAttachmentsExclusiveState extends com.pulumi.resou
             $ = new GroupPolicyAttachmentsExclusiveState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName IAM group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName IAM group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(@Nullable Output<List<String>> policyArns) {
             $.policyArns = policyArns;
             return this;
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(List<String> policyArns) {
             return policyArns(Output.of(policyArns));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(String... policyArns) {
             return policyArns(List.of(policyArns));
         }

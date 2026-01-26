@@ -14,117 +14,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.paymentcryptography.Key;
- * import com.pulumi.aws.paymentcryptography.KeyArgs;
- * import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeArgs;
- * import com.pulumi.aws.paymentcryptography.KeyAlias;
- * import com.pulumi.aws.paymentcryptography.KeyAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Key("test", KeyArgs.builder()
- *             .exportable(true)
- *             .keyAttributes(KeyKeyAttributeArgs.builder()
- *                 .keyAlgorithm("TDES_3KEY")
- *                 .keyClass("SYMMETRIC_KEY")
- *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
- *                 .keyModesOfUses(KeyKeyAttributeKeyModesOfUseArgs.builder()
- *                     .decrypt(true)
- *                     .encrypt(true)
- *                     .wrap(true)
- *                     .unwrap(true)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var testKeyAlias = new KeyAlias("testKeyAlias", KeyAliasArgs.builder()
- *             .aliasName("alias/test-alias")
- *             .keyArn(test.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
- * 
- * ```sh
- * $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
- * ```
- * 
- */
 @ResourceType(type="aws:paymentcryptography/keyAlias:KeyAlias")
 public class KeyAlias extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Key Alias.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="aliasName", refs={String.class}, tree="[0]")
     private Output<String> aliasName;
 
-    /**
-     * @return Name of the Key Alias.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> aliasName() {
         return this.aliasName;
     }
-    /**
-     * ARN of the key.
-     * 
-     */
     @Export(name="keyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyArn;
 
-    /**
-     * @return ARN of the key.
-     * 
-     */
     public Output<Optional<String>> keyArn() {
         return Codegen.optional(this.keyArn);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

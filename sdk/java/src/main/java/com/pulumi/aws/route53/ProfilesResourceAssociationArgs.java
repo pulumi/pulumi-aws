@@ -17,77 +17,37 @@ public final class ProfilesResourceAssociationArgs extends com.pulumi.resources.
 
     public static final ProfilesResourceAssociationArgs Empty = new ProfilesResourceAssociationArgs();
 
-    /**
-     * Name of the Profile Resource Association.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the Profile Resource Association.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * ID of the profile associated with the VPC.
-     * 
-     */
     @Import(name="profileId", required=true)
     private Output<String> profileId;
 
-    /**
-     * @return ID of the profile associated with the VPC.
-     * 
-     */
     public Output<String> profileId() {
         return this.profileId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Resource ID of the resource to be associated with the profile.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return Resource ID of the resource to be associated with the profile.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
 
-    /**
-     * Resource properties for the resource to be associated with the profile.
-     * 
-     */
     @Import(name="resourceProperties")
     private @Nullable Output<String> resourceProperties;
 
-    /**
-     * @return Resource properties for the resource to be associated with the profile.
-     * 
-     */
     public Optional<Output<String>> resourceProperties() {
         return Optional.ofNullable(this.resourceProperties);
     }
@@ -128,107 +88,47 @@ public final class ProfilesResourceAssociationArgs extends com.pulumi.resources.
             $ = new ProfilesResourceAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the Profile Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Profile Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param profileId ID of the profile associated with the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(Output<String> profileId) {
             $.profileId = profileId;
             return this;
         }
 
-        /**
-         * @param profileId ID of the profile associated with the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(String profileId) {
             return profileId(Output.of(profileId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn Resource ID of the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn Resource ID of the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param resourceProperties Resource properties for the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceProperties(@Nullable Output<String> resourceProperties) {
             $.resourceProperties = resourceProperties;
             return this;
         }
 
-        /**
-         * @param resourceProperties Resource properties for the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceProperties(String resourceProperties) {
             return resourceProperties(Output.of(resourceProperties));
         }

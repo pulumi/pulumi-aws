@@ -14,20 +14,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRoutingProfileResult {
-    /**
-     * @return ARN of the Routing Profile.
-     * 
-     */
     private String arn;
-    /**
-     * @return Specifies the default outbound queue for the Routing Profile.
-     * 
-     */
     private String defaultOutboundQueueId;
-    /**
-     * @return Description of the Routing Profile.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -35,44 +23,20 @@ public final class GetRoutingProfileResult {
      */
     private String id;
     private String instanceId;
-    /**
-     * @return One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
-     * 
-     */
     private List<GetRoutingProfileMediaConcurrency> mediaConcurrencies;
     private String name;
-    /**
-     * @return One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-     * 
-     */
     private List<GetRoutingProfileQueueConfig> queueConfigs;
     private String region;
     private String routingProfileId;
-    /**
-     * @return Map of tags to assign to the Routing Profile.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetRoutingProfileResult() {}
-    /**
-     * @return ARN of the Routing Profile.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Specifies the default outbound queue for the Routing Profile.
-     * 
-     */
     public String defaultOutboundQueueId() {
         return this.defaultOutboundQueueId;
     }
-    /**
-     * @return Description of the Routing Profile.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -86,20 +50,12 @@ public final class GetRoutingProfileResult {
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
-     * 
-     */
     public List<GetRoutingProfileMediaConcurrency> mediaConcurrencies() {
         return this.mediaConcurrencies;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-     * 
-     */
     public List<GetRoutingProfileQueueConfig> queueConfigs() {
         return this.queueConfigs;
     }
@@ -109,10 +65,6 @@ public final class GetRoutingProfileResult {
     public String routingProfileId() {
         return this.routingProfileId;
     }
-    /**
-     * @return Map of tags to assign to the Routing Profile.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

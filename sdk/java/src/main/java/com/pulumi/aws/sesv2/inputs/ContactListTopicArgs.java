@@ -16,66 +16,30 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
 
     public static final ContactListTopicArgs Empty = new ContactListTopicArgs();
 
-    /**
-     * Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-     * 
-     */
     @Import(name="defaultSubscriptionStatus", required=true)
     private Output<String> defaultSubscriptionStatus;
 
-    /**
-     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-     * 
-     */
     public Output<String> defaultSubscriptionStatus() {
         return this.defaultSubscriptionStatus;
     }
 
-    /**
-     * Description of what the topic is about, which the contact will see.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of what the topic is about, which the contact will see.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the topic the contact will see.
-     * 
-     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
-    /**
-     * @return Name of the topic the contact will see.
-     * 
-     */
     public Output<String> displayName() {
         return this.displayName;
     }
 
-    /**
-     * Name of the topic.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="topicName", required=true)
     private Output<String> topicName;
 
-    /**
-     * @return Name of the topic.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> topicName() {
         return this.topicName;
     }
@@ -107,90 +71,38 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
             $ = new ContactListTopicArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultSubscriptionStatus Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSubscriptionStatus(Output<String> defaultSubscriptionStatus) {
             $.defaultSubscriptionStatus = defaultSubscriptionStatus;
             return this;
         }
 
-        /**
-         * @param defaultSubscriptionStatus Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSubscriptionStatus(String defaultSubscriptionStatus) {
             return defaultSubscriptionStatus(Output.of(defaultSubscriptionStatus));
         }
 
-        /**
-         * @param description Description of what the topic is about, which the contact will see.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of what the topic is about, which the contact will see.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param displayName Name of the topic the contact will see.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName Name of the topic the contact will see.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param topicName Name of the topic.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicName(Output<String> topicName) {
             $.topicName = topicName;
             return this;
         }
 
-        /**
-         * @param topicName Name of the topic.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicName(String topicName) {
             return topicName(Output.of(topicName));
         }

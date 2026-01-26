@@ -12,83 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/macie2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := macie2.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie2.NewMember(ctx, "example", &macie2.MemberArgs{
-//				AccountId:                          pulumi.String("AWS ACCOUNT ID"),
-//				Email:                              pulumi.String("EMAIL"),
-//				Invite:                             pulumi.Bool(true),
-//				InvitationMessage:                  pulumi.String("Message of the invitation"),
-//				InvitationDisableEmailNotification: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
-//
-// ```sh
-// $ pulumi import aws:macie2/member:Member example 123456789012
-// ```
 type Member struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the account.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The AWS account ID for the administrator account.
-	AdministratorAccountId pulumi.StringOutput `pulumi:"administratorAccountId"`
-	// The Amazon Resource Name (ARN) of the account.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The email address for the account.
-	Email pulumi.StringOutput `pulumi:"email"`
-	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification pulumi.BoolPtrOutput `pulumi:"invitationDisableEmailNotification"`
-	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-	InvitationMessage pulumi.StringPtrOutput `pulumi:"invitationMessage"`
-	// Send an invitation to a member
-	Invite pulumi.BoolOutput `pulumi:"invite"`
-	// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
-	InvitedAt       pulumi.StringOutput `pulumi:"invitedAt"`
-	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The current status of the relationship between the account and the administrator account.
-	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	AccountId                          pulumi.StringOutput    `pulumi:"accountId"`
+	AdministratorAccountId             pulumi.StringOutput    `pulumi:"administratorAccountId"`
+	Arn                                pulumi.StringOutput    `pulumi:"arn"`
+	Email                              pulumi.StringOutput    `pulumi:"email"`
+	InvitationDisableEmailNotification pulumi.BoolPtrOutput   `pulumi:"invitationDisableEmailNotification"`
+	InvitationMessage                  pulumi.StringPtrOutput `pulumi:"invitationMessage"`
+	Invite                             pulumi.BoolOutput      `pulumi:"invite"`
+	InvitedAt                          pulumi.StringOutput    `pulumi:"invitedAt"`
+	MasterAccountId                    pulumi.StringOutput    `pulumi:"masterAccountId"`
+	Region                             pulumi.StringOutput    `pulumi:"region"`
+	RelationshipStatus                 pulumi.StringOutput    `pulumi:"relationshipStatus"`
+	Status                             pulumi.StringOutput    `pulumi:"status"`
+	Tags                               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	UpdatedAt                          pulumi.StringOutput    `pulumi:"updatedAt"`
 }
 
 // NewMember registers a new resource with the given unique name, arguments, and options.
@@ -127,67 +68,39 @@ func GetMember(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Member resources.
 type memberState struct {
-	// The AWS account ID for the account.
-	AccountId *string `pulumi:"accountId"`
-	// The AWS account ID for the administrator account.
-	AdministratorAccountId *string `pulumi:"administratorAccountId"`
-	// The Amazon Resource Name (ARN) of the account.
-	Arn *string `pulumi:"arn"`
-	// The email address for the account.
-	Email *string `pulumi:"email"`
-	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification *bool `pulumi:"invitationDisableEmailNotification"`
-	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-	InvitationMessage *string `pulumi:"invitationMessage"`
-	// Send an invitation to a member
-	Invite *bool `pulumi:"invite"`
-	// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
-	InvitedAt       *string `pulumi:"invitedAt"`
-	MasterAccountId *string `pulumi:"masterAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The current status of the relationship between the account and the administrator account.
-	RelationshipStatus *string `pulumi:"relationshipStatus"`
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	AccountId                          *string           `pulumi:"accountId"`
+	AdministratorAccountId             *string           `pulumi:"administratorAccountId"`
+	Arn                                *string           `pulumi:"arn"`
+	Email                              *string           `pulumi:"email"`
+	InvitationDisableEmailNotification *bool             `pulumi:"invitationDisableEmailNotification"`
+	InvitationMessage                  *string           `pulumi:"invitationMessage"`
+	Invite                             *bool             `pulumi:"invite"`
+	InvitedAt                          *string           `pulumi:"invitedAt"`
+	MasterAccountId                    *string           `pulumi:"masterAccountId"`
+	Region                             *string           `pulumi:"region"`
+	RelationshipStatus                 *string           `pulumi:"relationshipStatus"`
+	Status                             *string           `pulumi:"status"`
+	Tags                               map[string]string `pulumi:"tags"`
+	TagsAll                            map[string]string `pulumi:"tagsAll"`
+	UpdatedAt                          *string           `pulumi:"updatedAt"`
 }
 
 type MemberState struct {
-	// The AWS account ID for the account.
-	AccountId pulumi.StringPtrInput
-	// The AWS account ID for the administrator account.
-	AdministratorAccountId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the account.
-	Arn pulumi.StringPtrInput
-	// The email address for the account.
-	Email pulumi.StringPtrInput
-	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+	AccountId                          pulumi.StringPtrInput
+	AdministratorAccountId             pulumi.StringPtrInput
+	Arn                                pulumi.StringPtrInput
+	Email                              pulumi.StringPtrInput
 	InvitationDisableEmailNotification pulumi.BoolPtrInput
-	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-	InvitationMessage pulumi.StringPtrInput
-	// Send an invitation to a member
-	Invite pulumi.BoolPtrInput
-	// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
-	InvitedAt       pulumi.StringPtrInput
-	MasterAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The current status of the relationship between the account and the administrator account.
-	RelationshipStatus pulumi.StringPtrInput
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
-	UpdatedAt pulumi.StringPtrInput
+	InvitationMessage                  pulumi.StringPtrInput
+	Invite                             pulumi.BoolPtrInput
+	InvitedAt                          pulumi.StringPtrInput
+	MasterAccountId                    pulumi.StringPtrInput
+	Region                             pulumi.StringPtrInput
+	RelationshipStatus                 pulumi.StringPtrInput
+	Status                             pulumi.StringPtrInput
+	Tags                               pulumi.StringMapInput
+	TagsAll                            pulumi.StringMapInput
+	UpdatedAt                          pulumi.StringPtrInput
 }
 
 func (MemberState) ElementType() reflect.Type {
@@ -195,42 +108,26 @@ func (MemberState) ElementType() reflect.Type {
 }
 
 type memberArgs struct {
-	// The AWS account ID for the account.
-	AccountId string `pulumi:"accountId"`
-	// The email address for the account.
-	Email string `pulumi:"email"`
-	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification *bool `pulumi:"invitationDisableEmailNotification"`
-	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-	InvitationMessage *string `pulumi:"invitationMessage"`
-	// Send an invitation to a member
-	Invite *bool `pulumi:"invite"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AccountId                          string            `pulumi:"accountId"`
+	Email                              string            `pulumi:"email"`
+	InvitationDisableEmailNotification *bool             `pulumi:"invitationDisableEmailNotification"`
+	InvitationMessage                  *string           `pulumi:"invitationMessage"`
+	Invite                             *bool             `pulumi:"invite"`
+	Region                             *string           `pulumi:"region"`
+	Status                             *string           `pulumi:"status"`
+	Tags                               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Member resource.
 type MemberArgs struct {
-	// The AWS account ID for the account.
-	AccountId pulumi.StringInput
-	// The email address for the account.
-	Email pulumi.StringInput
-	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+	AccountId                          pulumi.StringInput
+	Email                              pulumi.StringInput
 	InvitationDisableEmailNotification pulumi.BoolPtrInput
-	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-	InvitationMessage pulumi.StringPtrInput
-	// Send an invitation to a member
-	Invite pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	InvitationMessage                  pulumi.StringPtrInput
+	Invite                             pulumi.BoolPtrInput
+	Region                             pulumi.StringPtrInput
+	Status                             pulumi.StringPtrInput
+	Tags                               pulumi.StringMapInput
 }
 
 func (MemberArgs) ElementType() reflect.Type {
@@ -320,42 +217,34 @@ func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutpu
 	return o
 }
 
-// The AWS account ID for the account.
 func (o MemberOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The AWS account ID for the administrator account.
 func (o MemberOutput) AdministratorAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.AdministratorAccountId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the account.
 func (o MemberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The email address for the account.
 func (o MemberOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
 func (o MemberOutput) InvitationDisableEmailNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Member) pulumi.BoolPtrOutput { return v.InvitationDisableEmailNotification }).(pulumi.BoolPtrOutput)
 }
 
-// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
 func (o MemberOutput) InvitationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.InvitationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Send an invitation to a member
 func (o MemberOutput) Invite() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Member) pulumi.BoolOutput { return v.Invite }).(pulumi.BoolOutput)
 }
 
-// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
 func (o MemberOutput) InvitedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.InvitedAt }).(pulumi.StringOutput)
 }
@@ -364,32 +253,26 @@ func (o MemberOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MemberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The current status of the relationship between the account and the administrator account.
 func (o MemberOutput) RelationshipStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
 }
 
-// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 func (o MemberOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MemberOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MemberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
 func (o MemberOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

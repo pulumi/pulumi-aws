@@ -11,72 +11,12 @@ namespace Pulumi.Aws.Synthetics
 {
     public static class GetRuntimeVersions
     {
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Synthetics.GetRuntimeVersions.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRuntimeVersionsResult> InvokeAsync(GetRuntimeVersionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuntimeVersionsResult>("aws:synthetics/getRuntimeVersions:getRuntimeVersions", args ?? new GetRuntimeVersionsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Synthetics.GetRuntimeVersions.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRuntimeVersionsResult> Invoke(GetRuntimeVersionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeVersionsResult>("aws:synthetics/getRuntimeVersions:getRuntimeVersions", args ?? new GetRuntimeVersionsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Synthetics.GetRuntimeVersions.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRuntimeVersionsResult> Invoke(GetRuntimeVersionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeVersionsResult>("aws:synthetics/getRuntimeVersions:getRuntimeVersions", args ?? new GetRuntimeVersionsInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.Synthetics
 
     public sealed class GetRuntimeVersionsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.Synthetics
 
     public sealed class GetRuntimeVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,14 +48,8 @@ namespace Pulumi.Aws.Synthetics
     [OutputType]
     public sealed class GetRuntimeVersionsResult
     {
-        /// <summary>
-        /// Name of the AWS region from which runtime versions are fetched.
-        /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// List of runtime versions. See `RuntimeVersions` attribute reference.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRuntimeVersionsRuntimeVersionResult> RuntimeVersions;
 
         [OutputConstructor]

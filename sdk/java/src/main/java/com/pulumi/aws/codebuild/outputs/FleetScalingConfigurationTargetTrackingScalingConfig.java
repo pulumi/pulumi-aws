@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetScalingConfigurationTargetTrackingScalingConfig {
-    /**
-     * @return Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-     * 
-     */
     private @Nullable String metricType;
-    /**
-     * @return Value of metricType when to start scaling.
-     * 
-     */
     private @Nullable Double targetValue;
 
     private FleetScalingConfigurationTargetTrackingScalingConfig() {}
-    /**
-     * @return Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-     * 
-     */
     public Optional<String> metricType() {
         return Optional.ofNullable(this.metricType);
     }
-    /**
-     * @return Value of metricType when to start scaling.
-     * 
-     */
     public Optional<Double> targetValue() {
         return Optional.ofNullable(this.targetValue);
     }

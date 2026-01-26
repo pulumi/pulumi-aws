@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
-    /**
-     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration redshiftConfiguration;
-    /**
-     * @return Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-     * 
-     */
     private String type;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration() {}
-    /**
-     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration> redshiftConfiguration() {
         return Optional.ofNullable(this.redshiftConfiguration);
     }
-    /**
-     * @return Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-     * 
-     */
     public String type() {
         return this.type;
     }

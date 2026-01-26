@@ -11,47 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific EC2 Key Pair.
-//
-// ## Example Usage
-//
-// The following example shows how to get a EC2 Key Pair including the public key material from its name.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.LookupKeyPair(ctx, &ec2.LookupKeyPairArgs{
-//				KeyName:          pulumi.StringRef("test"),
-//				IncludePublicKey: pulumi.BoolRef(true),
-//				Filters: []ec2.GetKeyPairFilter{
-//					{
-//						Name: "tag:Component",
-//						Values: []string{
-//							"web",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("fingerprint", example.Fingerprint)
-//			ctx.Export("name", example.KeyName)
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.InvokeOption) (*LookupKeyPairResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyPairResult
@@ -64,45 +23,29 @@ func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getKeyPair.
 type LookupKeyPairArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Key Pairs. The given filters must match exactly one Key Pair
-	// whose data will be exported as attributes.
-	Filters []GetKeyPairFilter `pulumi:"filters"`
-	// Whether to include the public key material in the response.
-	IncludePublicKey *bool `pulumi:"includePublicKey"`
-	// Key Pair name.
-	KeyName *string `pulumi:"keyName"`
-	// Key Pair ID.
-	KeyPairId *string `pulumi:"keyPairId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Any tags assigned to the Key Pair.
-	Tags map[string]string `pulumi:"tags"`
+	Filters          []GetKeyPairFilter `pulumi:"filters"`
+	IncludePublicKey *bool              `pulumi:"includePublicKey"`
+	KeyName          *string            `pulumi:"keyName"`
+	KeyPairId        *string            `pulumi:"keyPairId"`
+	Region           *string            `pulumi:"region"`
+	Tags             map[string]string  `pulumi:"tags"`
 }
 
 // A collection of values returned by getKeyPair.
 type LookupKeyPairResult struct {
-	// ARN of the Key Pair.
-	Arn string `pulumi:"arn"`
-	// Timestamp for when the key pair was created in ISO 8601 format.
-	CreateTime string             `pulumi:"createTime"`
-	Filters    []GetKeyPairFilter `pulumi:"filters"`
-	// SHA-1 digest of the DER encoded private key.
-	Fingerprint string `pulumi:"fingerprint"`
+	Arn         string             `pulumi:"arn"`
+	CreateTime  string             `pulumi:"createTime"`
+	Filters     []GetKeyPairFilter `pulumi:"filters"`
+	Fingerprint string             `pulumi:"fingerprint"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string  `pulumi:"id"`
-	IncludePublicKey *bool   `pulumi:"includePublicKey"`
-	KeyName          *string `pulumi:"keyName"`
-	KeyPairId        *string `pulumi:"keyPairId"`
-	// Type of key pair.
-	KeyType string `pulumi:"keyType"`
-	// Public key material.
-	PublicKey string `pulumi:"publicKey"`
-	Region    string `pulumi:"region"`
-	// Any tags assigned to the Key Pair.
-	Tags map[string]string `pulumi:"tags"`
+	Id               string            `pulumi:"id"`
+	IncludePublicKey *bool             `pulumi:"includePublicKey"`
+	KeyName          *string           `pulumi:"keyName"`
+	KeyPairId        *string           `pulumi:"keyPairId"`
+	KeyType          string            `pulumi:"keyType"`
+	PublicKey        string            `pulumi:"publicKey"`
+	Region           string            `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupKeyPairResultOutput {
@@ -116,22 +59,12 @@ func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts
 
 // A collection of arguments for invoking getKeyPair.
 type LookupKeyPairOutputArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Key Pairs. The given filters must match exactly one Key Pair
-	// whose data will be exported as attributes.
-	Filters GetKeyPairFilterArrayInput `pulumi:"filters"`
-	// Whether to include the public key material in the response.
-	IncludePublicKey pulumi.BoolPtrInput `pulumi:"includePublicKey"`
-	// Key Pair name.
-	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// Key Pair ID.
-	KeyPairId pulumi.StringPtrInput `pulumi:"keyPairId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Any tags assigned to the Key Pair.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Filters          GetKeyPairFilterArrayInput `pulumi:"filters"`
+	IncludePublicKey pulumi.BoolPtrInput        `pulumi:"includePublicKey"`
+	KeyName          pulumi.StringPtrInput      `pulumi:"keyName"`
+	KeyPairId        pulumi.StringPtrInput      `pulumi:"keyPairId"`
+	Region           pulumi.StringPtrInput      `pulumi:"region"`
+	Tags             pulumi.StringMapInput      `pulumi:"tags"`
 }
 
 func (LookupKeyPairOutputArgs) ElementType() reflect.Type {
@@ -153,12 +86,10 @@ func (o LookupKeyPairResultOutput) ToLookupKeyPairResultOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the Key Pair.
 func (o LookupKeyPairResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Timestamp for when the key pair was created in ISO 8601 format.
 func (o LookupKeyPairResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
@@ -167,7 +98,6 @@ func (o LookupKeyPairResultOutput) Filters() GetKeyPairFilterArrayOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) []GetKeyPairFilter { return v.Filters }).(GetKeyPairFilterArrayOutput)
 }
 
-// SHA-1 digest of the DER encoded private key.
 func (o LookupKeyPairResultOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.Fingerprint }).(pulumi.StringOutput)
 }
@@ -189,12 +119,10 @@ func (o LookupKeyPairResultOutput) KeyPairId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) *string { return v.KeyPairId }).(pulumi.StringPtrOutput)
 }
 
-// Type of key pair.
 func (o LookupKeyPairResultOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
-// Public key material.
 func (o LookupKeyPairResultOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.PublicKey }).(pulumi.StringOutput)
 }
@@ -203,7 +131,6 @@ func (o LookupKeyPairResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Any tags assigned to the Key Pair.
 func (o LookupKeyPairResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

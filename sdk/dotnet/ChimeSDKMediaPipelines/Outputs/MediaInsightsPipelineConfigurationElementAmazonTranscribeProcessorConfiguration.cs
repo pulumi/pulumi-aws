@@ -13,53 +13,17 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration
     {
-        /// <summary>
-        /// Labels all personally identifiable information (PII) identified in Transcript events.
-        /// </summary>
         public readonly string? ContentIdentificationType;
-        /// <summary>
-        /// Redacts all personally identifiable information (PII) identified in Transcript events.
-        /// </summary>
         public readonly string? ContentRedactionType;
-        /// <summary>
-        /// Enables partial result stabilization in Transcript events.
-        /// </summary>
         public readonly bool? EnablePartialResultsStabilization;
-        /// <summary>
-        /// Filters partial Utterance events from delivery to the insights target.
-        /// </summary>
         public readonly bool? FilterPartialResults;
-        /// <summary>
-        /// Language code for the transcription model.
-        /// </summary>
         public readonly string LanguageCode;
-        /// <summary>
-        /// Name of custom language model for transcription.
-        /// </summary>
         public readonly string? LanguageModelName;
-        /// <summary>
-        /// Level of stability to use when partial results stabilization is enabled.
-        /// </summary>
         public readonly string? PartialResultsStability;
-        /// <summary>
-        /// Types of personally identifiable information (PII) to redact from a Transcript event.
-        /// </summary>
         public readonly string? PiiEntityTypes;
-        /// <summary>
-        /// Enables speaker partitioning (diarization) in your Transcript events.
-        /// </summary>
         public readonly bool? ShowSpeakerLabel;
-        /// <summary>
-        /// Method for applying a vocabulary filter to Transcript events.
-        /// </summary>
         public readonly string? VocabularyFilterMethod;
-        /// <summary>
-        /// Name of the custom vocabulary filter to use when processing Transcript events.
-        /// </summary>
         public readonly string? VocabularyFilterName;
-        /// <summary>
-        /// Name of the custom vocabulary to use when processing Transcript events.
-        /// </summary>
         public readonly string? VocabularyName;
 
         [OutputConstructor]

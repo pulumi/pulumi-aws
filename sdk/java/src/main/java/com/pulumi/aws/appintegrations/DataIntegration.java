@@ -16,186 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon AppIntegrations Data Integration resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appintegrations.DataIntegration;
- * import com.pulumi.aws.appintegrations.DataIntegrationArgs;
- * import com.pulumi.aws.appintegrations.inputs.DataIntegrationScheduleConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataIntegration("example", DataIntegrationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .kmsKey(test.arn())
- *             .sourceUri("Salesforce://AppFlow/example")
- *             .scheduleConfig(DataIntegrationScheduleConfigArgs.builder()
- *                 .firstExecutionFrom("1439788442681")
- *                 .object("Account")
- *                 .scheduleExpression("rate(1 hour)")
- *                 .build())
- *             .tags(Map.of("Key1", "Value1"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
- * ```
- * 
- */
 @ResourceType(type="aws:appintegrations/dataIntegration:DataIntegration")
 public class DataIntegration extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the Data Integration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Data Integration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Specifies the description of the Data Integration.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Specifies the description of the Data Integration.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-     * 
-     */
     @Export(name="kmsKey", refs={String.class}, tree="[0]")
     private Output<String> kmsKey;
 
-    /**
-     * @return Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-     * 
-     */
     public Output<String> kmsKey() {
         return this.kmsKey;
     }
-    /**
-     * Specifies the name of the Data Integration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Specifies the name of the Data Integration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-     * 
-     */
     @Export(name="scheduleConfig", refs={DataIntegrationScheduleConfig.class}, tree="[0]")
     private Output<DataIntegrationScheduleConfig> scheduleConfig;
 
-    /**
-     * @return A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-     * 
-     */
     public Output<DataIntegrationScheduleConfig> scheduleConfig() {
         return this.scheduleConfig;
     }
-    /**
-     * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
-     * 
-     */
     @Export(name="sourceUri", refs={String.class}, tree="[0]")
     private Output<String> sourceUri;
 
-    /**
-     * @return Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
-     * 
-     */
     public Output<String> sourceUri() {
         return this.sourceUri;
     }
-    /**
-     * Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

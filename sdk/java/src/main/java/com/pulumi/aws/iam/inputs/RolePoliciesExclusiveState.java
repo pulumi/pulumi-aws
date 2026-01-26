@@ -16,32 +16,16 @@ public final class RolePoliciesExclusiveState extends com.pulumi.resources.Resou
 
     public static final RolePoliciesExclusiveState Empty = new RolePoliciesExclusiveState();
 
-    /**
-     * A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyNames")
     private @Nullable Output<List<String>> policyNames;
 
-    /**
-     * @return A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-     * 
-     */
     public Optional<Output<List<String>>> policyNames() {
         return Optional.ofNullable(this.policyNames);
     }
 
-    /**
-     * IAM role name.
-     * 
-     */
     @Import(name="roleName")
     private @Nullable Output<String> roleName;
 
-    /**
-     * @return IAM role name.
-     * 
-     */
     public Optional<Output<String>> roleName() {
         return Optional.ofNullable(this.roleName);
     }
@@ -71,54 +55,24 @@ public final class RolePoliciesExclusiveState extends com.pulumi.resources.Resou
             $ = new RolePoliciesExclusiveState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(@Nullable Output<List<String>> policyNames) {
             $.policyNames = policyNames;
             return this;
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(List<String> policyNames) {
             return policyNames(Output.of(policyNames));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(String... policyNames) {
             return policyNames(List.of(policyNames));
         }
 
-        /**
-         * @param roleName IAM role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(@Nullable Output<String> roleName) {
             $.roleName = roleName;
             return this;
         }
 
-        /**
-         * @param roleName IAM role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(String roleName) {
             return roleName(Output.of(roleName));
         }

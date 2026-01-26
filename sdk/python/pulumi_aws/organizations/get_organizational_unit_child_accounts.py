@@ -41,9 +41,6 @@ class GetOrganizationalUnitChildAccountsResult:
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> Sequence['outputs.GetOrganizationalUnitChildAccountsAccountResult']:
-        """
-        List of child accounts, which have the following attributes:
-        """
         return pulumi.get(self, "accounts")
 
     @_builtins.property
@@ -74,20 +71,7 @@ class AwaitableGetOrganizationalUnitChildAccountsResult(GetOrganizationalUnitChi
 def get_organizational_unit_child_accounts(parent_id: Optional[_builtins.str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationalUnitChildAccountsResult:
     """
-    Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    accounts = aws.organizations.get_organizational_unit_child_accounts(parent_id=org.roots[0].id)
-    ```
-
-
-    :param _builtins.str parent_id: The parent ID of the accounts.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parentId'] = parent_id
@@ -101,20 +85,7 @@ def get_organizational_unit_child_accounts(parent_id: Optional[_builtins.str] = 
 def get_organizational_unit_child_accounts_output(parent_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitChildAccountsResult]:
     """
-    Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    accounts = aws.organizations.get_organizational_unit_child_accounts(parent_id=org.roots[0].id)
-    ```
-
-
-    :param _builtins.str parent_id: The parent ID of the accounts.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parentId'] = parent_id

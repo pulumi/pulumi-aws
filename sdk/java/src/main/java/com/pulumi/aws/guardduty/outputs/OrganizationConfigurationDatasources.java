@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationConfigurationDatasources {
-    /**
-     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-     * 
-     */
     private @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
-    /**
-     * @return Enable Malware Protection automatically for new member accounts.
-     * 
-     */
     private @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection;
-    /**
-     * @return Enable S3 Protection automatically for new member accounts.
-     * 
-     */
     private @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs;
 
     private OrganizationConfigurationDatasources() {}
-    /**
-     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-     * 
-     */
     public Optional<OrganizationConfigurationDatasourcesKubernetes> kubernetes() {
         return Optional.ofNullable(this.kubernetes);
     }
-    /**
-     * @return Enable Malware Protection automatically for new member accounts.
-     * 
-     */
     public Optional<OrganizationConfigurationDatasourcesMalwareProtection> malwareProtection() {
         return Optional.ofNullable(this.malwareProtection);
     }
-    /**
-     * @return Enable S3 Protection automatically for new member accounts.
-     * 
-     */
     public Optional<OrganizationConfigurationDatasourcesS3Logs> s3Logs() {
         return Optional.ofNullable(this.s3Logs);
     }

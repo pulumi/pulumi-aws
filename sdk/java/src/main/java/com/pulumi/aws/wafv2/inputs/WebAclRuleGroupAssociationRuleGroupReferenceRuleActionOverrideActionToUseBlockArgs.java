@@ -15,17 +15,9 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
 
     public static final WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs Empty = new WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs();
 
-    /**
-     * Custom response for blocked requests. See below.
-     * 
-     */
     @Import(name="customResponse")
     private @Nullable Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs> customResponse;
 
-    /**
-     * @return Custom response for blocked requests. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs>> customResponse() {
         return Optional.ofNullable(this.customResponse);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
             $ = new WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customResponse Custom response for blocked requests. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponse(@Nullable Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs> customResponse) {
             $.customResponse = customResponse;
             return this;
         }
 
-        /**
-         * @param customResponse Custom response for blocked requests. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponse(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseArgs customResponse) {
             return customResponse(Output.of(customResponse));
         }

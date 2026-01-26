@@ -17,47 +17,23 @@ public final class FleetRuntimeConfigurationServerProcessArgs extends com.pulumi
 
     public static final FleetRuntimeConfigurationServerProcessArgs Empty = new FleetRuntimeConfigurationServerProcessArgs();
 
-    /**
-     * Number of server processes using this configuration to run concurrently on an instance.
-     * 
-     */
     @Import(name="concurrentExecutions", required=true)
     private Output<Integer> concurrentExecutions;
 
-    /**
-     * @return Number of server processes using this configuration to run concurrently on an instance.
-     * 
-     */
     public Output<Integer> concurrentExecutions() {
         return this.concurrentExecutions;
     }
 
-    /**
-     * Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-     * 
-     */
     @Import(name="launchPath", required=true)
     private Output<String> launchPath;
 
-    /**
-     * @return Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-     * 
-     */
     public Output<String> launchPath() {
         return this.launchPath;
     }
 
-    /**
-     * Optional list of parameters to pass to the server executable on launch.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<String> parameters;
 
-    /**
-     * @return Optional list of parameters to pass to the server executable on launch.
-     * 
-     */
     public Optional<Output<String>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
@@ -88,65 +64,29 @@ public final class FleetRuntimeConfigurationServerProcessArgs extends com.pulumi
             $ = new FleetRuntimeConfigurationServerProcessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param concurrentExecutions Number of server processes using this configuration to run concurrently on an instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrentExecutions(Output<Integer> concurrentExecutions) {
             $.concurrentExecutions = concurrentExecutions;
             return this;
         }
 
-        /**
-         * @param concurrentExecutions Number of server processes using this configuration to run concurrently on an instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrentExecutions(Integer concurrentExecutions) {
             return concurrentExecutions(Output.of(concurrentExecutions));
         }
 
-        /**
-         * @param launchPath Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchPath(Output<String> launchPath) {
             $.launchPath = launchPath;
             return this;
         }
 
-        /**
-         * @param launchPath Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchPath(String launchPath) {
             return launchPath(Output.of(launchPath));
         }
 
-        /**
-         * @param parameters Optional list of parameters to pass to the server executable on launch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<String> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Optional list of parameters to pass to the server executable on launch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(String parameters) {
             return parameters(Output.of(parameters));
         }

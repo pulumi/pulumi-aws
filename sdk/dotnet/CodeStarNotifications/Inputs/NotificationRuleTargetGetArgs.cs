@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodeStarNotifications.Inputs
 
     public sealed class NotificationRuleTargetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
-        /// <summary>
-        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

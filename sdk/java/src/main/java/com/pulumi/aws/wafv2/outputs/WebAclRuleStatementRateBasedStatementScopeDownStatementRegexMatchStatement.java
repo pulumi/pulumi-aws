@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch fieldToMatch;
-    /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-     * 
-     */
     private String regexString;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     private List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement() {}
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-     * 
-     */
     public String regexString() {
         return this.regexString;
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

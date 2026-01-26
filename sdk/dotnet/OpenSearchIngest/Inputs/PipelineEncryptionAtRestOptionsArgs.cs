@@ -12,9 +12,6 @@ namespace Pulumi.Aws.OpenSearchIngest.Inputs
 
     public sealed class PipelineEncryptionAtRestOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-        /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 

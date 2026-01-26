@@ -14,17 +14,9 @@ public final class AppCacheConfigArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final AppCacheConfigArgs Empty = new AppCacheConfigArgs();
 
-    /**
-     * Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -53,23 +45,11 @@ public final class AppCacheConfigArgs extends com.pulumi.resources.ResourceArgs 
             $ = new AppCacheConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

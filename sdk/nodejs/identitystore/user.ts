@@ -7,44 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource manages a User resource within an Identity Store.
- *
- * > **Note:** If you use an external identity provider or Active Directory as your identity source,
- * use this resource with caution. IAM Identity Center does not support outbound synchronization,
- * so your identity source does not automatically update with the changes that you make to
- * users using this resource.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.identitystore.User("example", {
- *     identityStoreId: exampleAwsSsoadminInstances.identityStoreIds[0],
- *     displayName: "John Doe",
- *     userName: "johndoe",
- *     name: {
- *         givenName: "John",
- *         familyName: "Doe",
- *     },
- *     emails: {
- *         value: "john@example.com",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
- * ```
- */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -73,77 +35,22 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
-    /**
-     * Details about the user's address. At most 1 address is allowed. Detailed below.
-     */
     declare public readonly addresses: pulumi.Output<outputs.identitystore.UserAddresses | undefined>;
-    /**
-     * The name that is typically displayed when the user is referenced.
-     */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * Details about the user's email. At most 1 email is allowed. Detailed below.
-     */
     declare public readonly emails: pulumi.Output<outputs.identitystore.UserEmails | undefined>;
-    /**
-     * A list of identifiers issued to this resource by an external identity provider.
-     */
     declare public /*out*/ readonly externalIds: pulumi.Output<outputs.identitystore.UserExternalId[]>;
-    /**
-     * The globally unique identifier for the identity store that this user is in.
-     */
     declare public readonly identityStoreId: pulumi.Output<string>;
-    /**
-     * The user's geographical region or location.
-     */
     declare public readonly locale: pulumi.Output<string | undefined>;
-    /**
-     * Details about the user's full name. Detailed below.
-     */
     declare public readonly name: pulumi.Output<outputs.identitystore.UserName>;
-    /**
-     * An alternate name for the user.
-     */
     declare public readonly nickname: pulumi.Output<string | undefined>;
-    /**
-     * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-     */
     declare public readonly phoneNumbers: pulumi.Output<outputs.identitystore.UserPhoneNumbers | undefined>;
-    /**
-     * The preferred language of the user.
-     */
     declare public readonly preferredLanguage: pulumi.Output<string | undefined>;
-    /**
-     * An URL that may be associated with the user.
-     */
     declare public readonly profileUrl: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The user's time zone.
-     */
     declare public readonly timezone: pulumi.Output<string | undefined>;
-    /**
-     * The user's title.
-     */
     declare public readonly title: pulumi.Output<string | undefined>;
-    /**
-     * The identifier for this user in the identity store.
-     */
     declare public /*out*/ readonly userId: pulumi.Output<string>;
-    /**
-     * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly userName: pulumi.Output<string>;
-    /**
-     * The user type.
-     *
-     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-     */
     declare public readonly userType: pulumi.Output<string | undefined>;
 
     /**
@@ -214,77 +121,22 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
-    /**
-     * Details about the user's address. At most 1 address is allowed. Detailed below.
-     */
     addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
-    /**
-     * The name that is typically displayed when the user is referenced.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Details about the user's email. At most 1 email is allowed. Detailed below.
-     */
     emails?: pulumi.Input<inputs.identitystore.UserEmails>;
-    /**
-     * A list of identifiers issued to this resource by an external identity provider.
-     */
     externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.UserExternalId>[]>;
-    /**
-     * The globally unique identifier for the identity store that this user is in.
-     */
     identityStoreId?: pulumi.Input<string>;
-    /**
-     * The user's geographical region or location.
-     */
     locale?: pulumi.Input<string>;
-    /**
-     * Details about the user's full name. Detailed below.
-     */
     name?: pulumi.Input<inputs.identitystore.UserName>;
-    /**
-     * An alternate name for the user.
-     */
     nickname?: pulumi.Input<string>;
-    /**
-     * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-     */
     phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
-    /**
-     * The preferred language of the user.
-     */
     preferredLanguage?: pulumi.Input<string>;
-    /**
-     * An URL that may be associated with the user.
-     */
     profileUrl?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user's time zone.
-     */
     timezone?: pulumi.Input<string>;
-    /**
-     * The user's title.
-     */
     title?: pulumi.Input<string>;
-    /**
-     * The identifier for this user in the identity store.
-     */
     userId?: pulumi.Input<string>;
-    /**
-     * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-     *
-     * The following arguments are optional:
-     */
     userName?: pulumi.Input<string>;
-    /**
-     * The user type.
-     *
-     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-     */
     userType?: pulumi.Input<string>;
 }
 
@@ -292,68 +144,19 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * Details about the user's address. At most 1 address is allowed. Detailed below.
-     */
     addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
-    /**
-     * The name that is typically displayed when the user is referenced.
-     */
     displayName: pulumi.Input<string>;
-    /**
-     * Details about the user's email. At most 1 email is allowed. Detailed below.
-     */
     emails?: pulumi.Input<inputs.identitystore.UserEmails>;
-    /**
-     * The globally unique identifier for the identity store that this user is in.
-     */
     identityStoreId: pulumi.Input<string>;
-    /**
-     * The user's geographical region or location.
-     */
     locale?: pulumi.Input<string>;
-    /**
-     * Details about the user's full name. Detailed below.
-     */
     name?: pulumi.Input<inputs.identitystore.UserName>;
-    /**
-     * An alternate name for the user.
-     */
     nickname?: pulumi.Input<string>;
-    /**
-     * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-     */
     phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
-    /**
-     * The preferred language of the user.
-     */
     preferredLanguage?: pulumi.Input<string>;
-    /**
-     * An URL that may be associated with the user.
-     */
     profileUrl?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user's time zone.
-     */
     timezone?: pulumi.Input<string>;
-    /**
-     * The user's title.
-     */
     title?: pulumi.Input<string>;
-    /**
-     * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-     *
-     * The following arguments are optional:
-     */
     userName: pulumi.Input<string>;
-    /**
-     * The user type.
-     *
-     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-     */
     userType?: pulumi.Input<string>;
 }

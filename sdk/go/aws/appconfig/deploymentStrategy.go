@@ -12,75 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppConfig Deployment Strategy resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewDeploymentStrategy(ctx, "example", &appconfig.DeploymentStrategyArgs{
-//				Name:                        pulumi.String("example-deployment-strategy-tf"),
-//				Description:                 pulumi.String("Example Deployment Strategy"),
-//				DeploymentDurationInMinutes: pulumi.Int(3),
-//				FinalBakeTimeInMinutes:      pulumi.Int(4),
-//				GrowthFactor:                pulumi.Float64(10),
-//				GrowthType:                  pulumi.String("LINEAR"),
-//				ReplicateTo:                 pulumi.String("NONE"),
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Deployment Strategy"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
-//
-// ```sh
-// $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
-// ```
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState
 
-	// ARN of the AppConfig Deployment Strategy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-	DeploymentDurationInMinutes pulumi.IntOutput `pulumi:"deploymentDurationInMinutes"`
-	// Description of the deployment strategy. Can be at most 1024 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-	FinalBakeTimeInMinutes pulumi.IntPtrOutput `pulumi:"finalBakeTimeInMinutes"`
-	// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-	GrowthFactor pulumi.Float64Output `pulumi:"growthFactor"`
-	// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-	GrowthType pulumi.StringPtrOutput `pulumi:"growthType"`
-	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-	ReplicateTo pulumi.StringOutput `pulumi:"replicateTo"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                         pulumi.StringOutput    `pulumi:"arn"`
+	DeploymentDurationInMinutes pulumi.IntOutput       `pulumi:"deploymentDurationInMinutes"`
+	Description                 pulumi.StringPtrOutput `pulumi:"description"`
+	FinalBakeTimeInMinutes      pulumi.IntPtrOutput    `pulumi:"finalBakeTimeInMinutes"`
+	GrowthFactor                pulumi.Float64Output   `pulumi:"growthFactor"`
+	GrowthType                  pulumi.StringPtrOutput `pulumi:"growthType"`
+	Name                        pulumi.StringOutput    `pulumi:"name"`
+	Region                      pulumi.StringOutput    `pulumi:"region"`
+	ReplicateTo                 pulumi.StringOutput    `pulumi:"replicateTo"`
+	Tags                        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDeploymentStrategy registers a new resource with the given unique name, arguments, and options.
@@ -122,53 +67,31 @@ func GetDeploymentStrategy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeploymentStrategy resources.
 type deploymentStrategyState struct {
-	// ARN of the AppConfig Deployment Strategy.
-	Arn *string `pulumi:"arn"`
-	// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-	DeploymentDurationInMinutes *int `pulumi:"deploymentDurationInMinutes"`
-	// Description of the deployment strategy. Can be at most 1024 characters.
-	Description *string `pulumi:"description"`
-	// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-	FinalBakeTimeInMinutes *int `pulumi:"finalBakeTimeInMinutes"`
-	// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-	GrowthFactor *float64 `pulumi:"growthFactor"`
-	// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-	GrowthType *string `pulumi:"growthType"`
-	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-	ReplicateTo *string `pulumi:"replicateTo"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                         *string           `pulumi:"arn"`
+	DeploymentDurationInMinutes *int              `pulumi:"deploymentDurationInMinutes"`
+	Description                 *string           `pulumi:"description"`
+	FinalBakeTimeInMinutes      *int              `pulumi:"finalBakeTimeInMinutes"`
+	GrowthFactor                *float64          `pulumi:"growthFactor"`
+	GrowthType                  *string           `pulumi:"growthType"`
+	Name                        *string           `pulumi:"name"`
+	Region                      *string           `pulumi:"region"`
+	ReplicateTo                 *string           `pulumi:"replicateTo"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TagsAll                     map[string]string `pulumi:"tagsAll"`
 }
 
 type DeploymentStrategyState struct {
-	// ARN of the AppConfig Deployment Strategy.
-	Arn pulumi.StringPtrInput
-	// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
+	Arn                         pulumi.StringPtrInput
 	DeploymentDurationInMinutes pulumi.IntPtrInput
-	// Description of the deployment strategy. Can be at most 1024 characters.
-	Description pulumi.StringPtrInput
-	// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-	FinalBakeTimeInMinutes pulumi.IntPtrInput
-	// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-	GrowthFactor pulumi.Float64PtrInput
-	// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-	GrowthType pulumi.StringPtrInput
-	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-	ReplicateTo pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Description                 pulumi.StringPtrInput
+	FinalBakeTimeInMinutes      pulumi.IntPtrInput
+	GrowthFactor                pulumi.Float64PtrInput
+	GrowthType                  pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	ReplicateTo                 pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (DeploymentStrategyState) ElementType() reflect.Type {
@@ -176,46 +99,28 @@ func (DeploymentStrategyState) ElementType() reflect.Type {
 }
 
 type deploymentStrategyArgs struct {
-	// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-	DeploymentDurationInMinutes int `pulumi:"deploymentDurationInMinutes"`
-	// Description of the deployment strategy. Can be at most 1024 characters.
-	Description *string `pulumi:"description"`
-	// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-	FinalBakeTimeInMinutes *int `pulumi:"finalBakeTimeInMinutes"`
-	// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-	GrowthFactor float64 `pulumi:"growthFactor"`
-	// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-	GrowthType *string `pulumi:"growthType"`
-	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-	ReplicateTo string `pulumi:"replicateTo"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DeploymentDurationInMinutes int               `pulumi:"deploymentDurationInMinutes"`
+	Description                 *string           `pulumi:"description"`
+	FinalBakeTimeInMinutes      *int              `pulumi:"finalBakeTimeInMinutes"`
+	GrowthFactor                float64           `pulumi:"growthFactor"`
+	GrowthType                  *string           `pulumi:"growthType"`
+	Name                        *string           `pulumi:"name"`
+	Region                      *string           `pulumi:"region"`
+	ReplicateTo                 string            `pulumi:"replicateTo"`
+	Tags                        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeploymentStrategy resource.
 type DeploymentStrategyArgs struct {
-	// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
 	DeploymentDurationInMinutes pulumi.IntInput
-	// Description of the deployment strategy. Can be at most 1024 characters.
-	Description pulumi.StringPtrInput
-	// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-	FinalBakeTimeInMinutes pulumi.IntPtrInput
-	// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-	GrowthFactor pulumi.Float64Input
-	// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-	GrowthType pulumi.StringPtrInput
-	// Name for the deployment strategy. Must be between 1 and 64 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-	ReplicateTo pulumi.StringInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description                 pulumi.StringPtrInput
+	FinalBakeTimeInMinutes      pulumi.IntPtrInput
+	GrowthFactor                pulumi.Float64Input
+	GrowthType                  pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	ReplicateTo                 pulumi.StringInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (DeploymentStrategyArgs) ElementType() reflect.Type {
@@ -305,57 +210,46 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the AppConfig Deployment Strategy.
 func (o DeploymentStrategyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
 func (o DeploymentStrategyOutput) DeploymentDurationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.IntOutput { return v.DeploymentDurationInMinutes }).(pulumi.IntOutput)
 }
 
-// Description of the deployment strategy. Can be at most 1024 characters.
 func (o DeploymentStrategyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
 func (o DeploymentStrategyOutput) FinalBakeTimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.IntPtrOutput { return v.FinalBakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
 func (o DeploymentStrategyOutput) GrowthFactor() pulumi.Float64Output {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.Float64Output { return v.GrowthFactor }).(pulumi.Float64Output)
 }
 
-// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
 func (o DeploymentStrategyOutput) GrowthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringPtrOutput { return v.GrowthType }).(pulumi.StringPtrOutput)
 }
 
-// Name for the deployment strategy. Must be between 1 and 64 characters in length.
 func (o DeploymentStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentStrategyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
 func (o DeploymentStrategyOutput) ReplicateTo() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.ReplicateTo }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DeploymentStrategyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DeploymentStrategyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

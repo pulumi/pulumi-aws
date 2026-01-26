@@ -15,101 +15,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MetricAlarmMetricQuery {
-    /**
-     * @return The ID of the account where the metrics are located, if this is a cross-account alarm.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-     * For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-     * For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-     * 
-     */
     private String id;
-    /**
-     * @return A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-     * 
-     */
     private @Nullable String label;
-    /**
-     * @return The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-     * 
-     */
     private @Nullable MetricAlarmMetricQueryMetric metric;
-    /**
-     * @return Granularity in seconds of returned data points.
-     * For metrics with regular resolution, valid values are any multiple of `60`.
-     * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-     * 
-     */
     private @Nullable Integer period;
-    /**
-     * @return Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
-     * 
-     * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
-     * 
-     */
     private @Nullable Boolean returnData;
 
     private MetricAlarmMetricQuery() {}
-    /**
-     * @return The ID of the account where the metrics are located, if this is a cross-account alarm.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-     * For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-     * For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-     * 
-     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
-    /**
-     * @return The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-     * 
-     */
     public Optional<MetricAlarmMetricQueryMetric> metric() {
         return Optional.ofNullable(this.metric);
     }
-    /**
-     * @return Granularity in seconds of returned data points.
-     * For metrics with regular resolution, valid values are any multiple of `60`.
-     * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-     * 
-     */
     public Optional<Integer> period() {
         return Optional.ofNullable(this.period);
     }
-    /**
-     * @return Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
-     * 
-     * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
-     * 
-     */
     public Optional<Boolean> returnData() {
         return Optional.ofNullable(this.returnData);
     }

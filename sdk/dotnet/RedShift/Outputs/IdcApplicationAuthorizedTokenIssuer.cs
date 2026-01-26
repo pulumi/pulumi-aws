@@ -13,13 +13,7 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationAuthorizedTokenIssuer
     {
-        /// <summary>
-        /// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        /// </summary>
         public readonly ImmutableArray<string> AuthorizedAudiencesLists;
-        /// <summary>
-        /// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        /// </summary>
         public readonly string? TrustedTokenIssuerArn;
 
         [OutputConstructor]

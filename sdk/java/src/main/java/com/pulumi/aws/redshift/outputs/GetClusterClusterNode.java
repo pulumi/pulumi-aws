@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterClusterNode {
-    /**
-     * @return Whether the node is a leader node or a compute node
-     * 
-     */
     private String nodeRole;
-    /**
-     * @return Private IP address of a node within a cluster
-     * 
-     */
     private String privateIpAddress;
-    /**
-     * @return Public IP address of a node within a cluster
-     * 
-     */
     private String publicIpAddress;
 
     private GetClusterClusterNode() {}
-    /**
-     * @return Whether the node is a leader node or a compute node
-     * 
-     */
     public String nodeRole() {
         return this.nodeRole;
     }
-    /**
-     * @return Private IP address of a node within a cluster
-     * 
-     */
     public String privateIpAddress() {
         return this.privateIpAddress;
     }
-    /**
-     * @return Public IP address of a node within a cluster
-     * 
-     */
     public String publicIpAddress() {
         return this.publicIpAddress;
     }

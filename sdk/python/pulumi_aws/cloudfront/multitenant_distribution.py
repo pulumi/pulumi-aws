@@ -39,21 +39,6 @@ class MultitenantDistributionArgs:
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MultitenantDistribution resource.
-        :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionActiveTrustedKeyGroupArgs']]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCacheBehaviorArgs']]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
-        :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
-        :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return when an end user requests the root URL.
-        :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
-        :param pulumi.Input['MultitenantDistributionRestrictionsArgs'] restrictions: Restriction configuration for this distribution. See Restrictions below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['MultitenantDistributionTenantConfigArgs'] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        :param pulumi.Input['MultitenantDistributionViewerCertificateArgs'] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
-        :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
         """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "enabled", enabled)
@@ -89,9 +74,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Input[_builtins.str]:
-        """
-        Any comments you want to include about the distribution.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -101,9 +83,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -113,9 +92,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="activeTrustedKeyGroups")
     def active_trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionActiveTrustedKeyGroupArgs']]]]:
-        """
-        List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        """
         return pulumi.get(self, "active_trusted_key_groups")
 
     @active_trusted_key_groups.setter
@@ -125,9 +101,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCacheBehaviorArgs']]]]:
-        """
-        Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-        """
         return pulumi.get(self, "cache_behaviors")
 
     @cache_behaviors.setter
@@ -137,9 +110,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="customErrorResponses")
     def custom_error_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCustomErrorResponseArgs']]]]:
-        """
-        One or more custom error response elements. See Custom Error Response below.
-        """
         return pulumi.get(self, "custom_error_responses")
 
     @custom_error_responses.setter
@@ -149,9 +119,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs']]:
-        """
-        Default cache behavior for this distribution. See Default Cache Behavior below.
-        """
         return pulumi.get(self, "default_cache_behavior")
 
     @default_cache_behavior.setter
@@ -161,9 +128,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Object that you want CloudFront to return when an end user requests the root URL.
-        """
         return pulumi.get(self, "default_root_object")
 
     @default_root_object.setter
@@ -173,9 +137,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        """
         return pulumi.get(self, "http_version")
 
     @http_version.setter
@@ -185,9 +146,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="originGroups")
     def origin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupArgs']]]]:
-        """
-        One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        """
         return pulumi.get(self, "origin_groups")
 
     @origin_groups.setter
@@ -197,9 +155,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter
     def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginArgs']]]]:
-        """
-        One or more origins for this distribution (multiples allowed). See Origin below.
-        """
         return pulumi.get(self, "origins")
 
     @origins.setter
@@ -209,9 +164,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input['MultitenantDistributionRestrictionsArgs']]:
-        """
-        Restriction configuration for this distribution. See Restrictions below.
-        """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
@@ -221,9 +173,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -233,9 +182,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="tenantConfig")
     def tenant_config(self) -> Optional[pulumi.Input['MultitenantDistributionTenantConfigArgs']]:
-        """
-        Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        """
         return pulumi.get(self, "tenant_config")
 
     @tenant_config.setter
@@ -254,9 +200,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> Optional[pulumi.Input['MultitenantDistributionViewerCertificateArgs']]:
-        """
-        SSL configuration for this distribution. See Viewer Certificate below.
-        """
         return pulumi.get(self, "viewer_certificate")
 
     @viewer_certificate.setter
@@ -266,9 +209,6 @@ class MultitenantDistributionArgs:
     @_builtins.property
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-        """
         return pulumi.get(self, "web_acl_id")
 
     @web_acl_id.setter
@@ -306,30 +246,6 @@ class _MultitenantDistributionState:
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MultitenantDistribution resources.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionActiveTrustedKeyGroupArgs']]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        :param pulumi.Input[_builtins.str] arn: ARN for the distribution.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCacheBehaviorArgs']]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-        :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
-        :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
-        :param pulumi.Input[_builtins.str] connection_mode: Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
-        :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
-        :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return when an end user requests the root URL.
-        :param pulumi.Input[_builtins.str] domain_name: Domain name corresponding to the distribution.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param pulumi.Input[_builtins.str] etag: Current version of the distribution's information.
-        :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        :param pulumi.Input[_builtins.int] in_progress_invalidation_batches: Number of invalidation batches currently in progress.
-        :param pulumi.Input[_builtins.str] last_modified_time: Date and time the distribution was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
-        :param pulumi.Input['MultitenantDistributionRestrictionsArgs'] restrictions: Restriction configuration for this distribution. See Restrictions below.
-        :param pulumi.Input[_builtins.str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['MultitenantDistributionTenantConfigArgs'] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        :param pulumi.Input['MultitenantDistributionViewerCertificateArgs'] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
-        :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
         """
         if active_trusted_key_groups is not None:
             pulumi.set(__self__, "active_trusted_key_groups", active_trusted_key_groups)
@@ -385,9 +301,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="activeTrustedKeyGroups")
     def active_trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionActiveTrustedKeyGroupArgs']]]]:
-        """
-        List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        """
         return pulumi.get(self, "active_trusted_key_groups")
 
     @active_trusted_key_groups.setter
@@ -397,9 +310,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the distribution.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -409,9 +319,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCacheBehaviorArgs']]]]:
-        """
-        Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-        """
         return pulumi.get(self, "cache_behaviors")
 
     @cache_behaviors.setter
@@ -421,9 +328,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Internal value used by CloudFront to allow future updates to the distribution configuration.
-        """
         return pulumi.get(self, "caller_reference")
 
     @caller_reference.setter
@@ -433,9 +337,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Any comments you want to include about the distribution.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -445,9 +346,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-        """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
@@ -457,9 +355,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="customErrorResponses")
     def custom_error_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCustomErrorResponseArgs']]]]:
-        """
-        One or more custom error response elements. See Custom Error Response below.
-        """
         return pulumi.get(self, "custom_error_responses")
 
     @custom_error_responses.setter
@@ -469,9 +364,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs']]:
-        """
-        Default cache behavior for this distribution. See Default Cache Behavior below.
-        """
         return pulumi.get(self, "default_cache_behavior")
 
     @default_cache_behavior.setter
@@ -481,9 +373,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Object that you want CloudFront to return when an end user requests the root URL.
-        """
         return pulumi.get(self, "default_root_object")
 
     @default_root_object.setter
@@ -493,9 +382,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Domain name corresponding to the distribution.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -505,9 +391,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -517,9 +400,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current version of the distribution's information.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -529,9 +409,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        """
         return pulumi.get(self, "http_version")
 
     @http_version.setter
@@ -541,9 +418,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="inProgressInvalidationBatches")
     def in_progress_invalidation_batches(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of invalidation batches currently in progress.
-        """
         return pulumi.get(self, "in_progress_invalidation_batches")
 
     @in_progress_invalidation_batches.setter
@@ -553,9 +427,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time the distribution was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
@@ -565,9 +436,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="originGroups")
     def origin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupArgs']]]]:
-        """
-        One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        """
         return pulumi.get(self, "origin_groups")
 
     @origin_groups.setter
@@ -577,9 +445,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginArgs']]]]:
-        """
-        One or more origins for this distribution (multiples allowed). See Origin below.
-        """
         return pulumi.get(self, "origins")
 
     @origins.setter
@@ -589,9 +454,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input['MultitenantDistributionRestrictionsArgs']]:
-        """
-        Restriction configuration for this distribution. See Restrictions below.
-        """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
@@ -601,9 +463,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -613,9 +472,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -625,9 +481,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -637,9 +490,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="tenantConfig")
     def tenant_config(self) -> Optional[pulumi.Input['MultitenantDistributionTenantConfigArgs']]:
-        """
-        Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        """
         return pulumi.get(self, "tenant_config")
 
     @tenant_config.setter
@@ -658,9 +508,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> Optional[pulumi.Input['MultitenantDistributionViewerCertificateArgs']]:
-        """
-        SSL configuration for this distribution. See Viewer Certificate below.
-        """
         return pulumi.get(self, "viewer_certificate")
 
     @viewer_certificate.setter
@@ -670,9 +517,6 @@ class _MultitenantDistributionState:
     @_builtins.property
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-        """
         return pulumi.get(self, "web_acl_id")
 
     @web_acl_id.setter
@@ -704,66 +548,9 @@ class MultitenantDistribution(pulumi.CustomResource):
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates an Amazon CloudFront multi-tenant distribution.
-
-        Multi-tenant distributions are a specialized type of CloudFront distribution designed for multi-tenant applications. They have specific limitations and requirements compared to standard CloudFront distributions.
-
-        For information about CloudFront multi-tenant distributions, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/).
-
-        > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
-
-        ## Multi-tenant Distribution Limitations
-
-        Multi-tenant distributions have the following limitations compared to standard CloudFront distributions:
-
-        - **Connection Mode**: Automatically set to `tenant-only` and cannot be modified
-        - **Cache Policies**: Must use cache policies instead of legacy TTL settings
-        - **Trusted Key Groups**: Must use trusted key groups instead of trusted signers
-        - **WAF Integration**: Only supports WAF v2 web ACLs
-        - **Certificate Management**: Must use ACM certificates (IAM certificates not supported)
-
-        ### Unsupported Attributes
-
-        The following attributes that are available in standard CloudFront distributions are **not supported** for multi-tenant distributions:
-
-        - `active_trusted_signers` - Use `active_trusted_key_groups` instead
-        - `alias_icp_recordals` - Managed by connection groups
-        - `aliases` - Managed by connection groups
-        - `anycast_ip_list_id` - Use connection groups instead
-        - `continuous_deployment_policy_id`
-        - `forwarded_values` in cache behaviors - Deprecated, use cache policies instead
-        - `is_ipv6_enabled` - Managed by connection groups
-        - `price_class` - Managed by connection groups
-        - `smooth_streaming` in cache behaviors
-        - `staging` mode
-        - `trusted_signers` in cache behaviors - Use `trusted_key_groups` instead
-        - Cache behavior TTL settings (`default_ttl`, `max_ttl`, `min_ttl`) - Use cache policies instead
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/multitenantDistribution:MultitenantDistribution distribution E74FTE3AEXAMPLE
-        ```
-
+        Create a MultitenantDistribution resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict']]]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-        :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
-        :param pulumi.Input[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
-        :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return when an end user requests the root URL.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict']]]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict']]]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
-        :param pulumi.Input[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict']] restrictions: Restriction configuration for this distribution. See Restrictions below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict']] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        :param pulumi.Input[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict']] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
-        :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
         """
         ...
     @overload
@@ -772,49 +559,7 @@ class MultitenantDistribution(pulumi.CustomResource):
                  args: MultitenantDistributionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Amazon CloudFront multi-tenant distribution.
-
-        Multi-tenant distributions are a specialized type of CloudFront distribution designed for multi-tenant applications. They have specific limitations and requirements compared to standard CloudFront distributions.
-
-        For information about CloudFront multi-tenant distributions, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/).
-
-        > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
-
-        ## Multi-tenant Distribution Limitations
-
-        Multi-tenant distributions have the following limitations compared to standard CloudFront distributions:
-
-        - **Connection Mode**: Automatically set to `tenant-only` and cannot be modified
-        - **Cache Policies**: Must use cache policies instead of legacy TTL settings
-        - **Trusted Key Groups**: Must use trusted key groups instead of trusted signers
-        - **WAF Integration**: Only supports WAF v2 web ACLs
-        - **Certificate Management**: Must use ACM certificates (IAM certificates not supported)
-
-        ### Unsupported Attributes
-
-        The following attributes that are available in standard CloudFront distributions are **not supported** for multi-tenant distributions:
-
-        - `active_trusted_signers` - Use `active_trusted_key_groups` instead
-        - `alias_icp_recordals` - Managed by connection groups
-        - `aliases` - Managed by connection groups
-        - `anycast_ip_list_id` - Use connection groups instead
-        - `continuous_deployment_policy_id`
-        - `forwarded_values` in cache behaviors - Deprecated, use cache policies instead
-        - `is_ipv6_enabled` - Managed by connection groups
-        - `price_class` - Managed by connection groups
-        - `smooth_streaming` in cache behaviors
-        - `staging` mode
-        - `trusted_signers` in cache behaviors - Use `trusted_key_groups` instead
-        - Cache behavior TTL settings (`default_ttl`, `max_ttl`, `min_ttl`) - Use cache policies instead
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/multitenantDistribution:MultitenantDistribution distribution E74FTE3AEXAMPLE
-        ```
-
+        Create a MultitenantDistribution resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MultitenantDistributionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -926,30 +671,6 @@ class MultitenantDistribution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        :param pulumi.Input[_builtins.str] arn: ARN for the distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict']]]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-        :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
-        :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
-        :param pulumi.Input[_builtins.str] connection_mode: Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
-        :param pulumi.Input[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
-        :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return when an end user requests the root URL.
-        :param pulumi.Input[_builtins.str] domain_name: Domain name corresponding to the distribution.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param pulumi.Input[_builtins.str] etag: Current version of the distribution's information.
-        :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        :param pulumi.Input[_builtins.int] in_progress_invalidation_batches: Number of invalidation batches currently in progress.
-        :param pulumi.Input[_builtins.str] last_modified_time: Date and time the distribution was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict']]]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict']]]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
-        :param pulumi.Input[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict']] restrictions: Restriction configuration for this distribution. See Restrictions below.
-        :param pulumi.Input[_builtins.str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict']] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        :param pulumi.Input[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict']] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
-        :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -985,177 +706,111 @@ class MultitenantDistribution(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="activeTrustedKeyGroups")
     def active_trusted_key_groups(self) -> pulumi.Output[Optional[Sequence['outputs.MultitenantDistributionActiveTrustedKeyGroup']]]:
-        """
-        List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        """
         return pulumi.get(self, "active_trusted_key_groups")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the distribution.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> pulumi.Output[Optional[Sequence['outputs.MultitenantDistributionCacheBehavior']]]:
-        """
-        Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-        """
         return pulumi.get(self, "cache_behaviors")
 
     @_builtins.property
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> pulumi.Output[_builtins.str]:
-        """
-        Internal value used by CloudFront to allow future updates to the distribution configuration.
-        """
         return pulumi.get(self, "caller_reference")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[_builtins.str]:
-        """
-        Any comments you want to include about the distribution.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-        """
         return pulumi.get(self, "connection_mode")
 
     @_builtins.property
     @pulumi.getter(name="customErrorResponses")
     def custom_error_responses(self) -> pulumi.Output[Optional[Sequence['outputs.MultitenantDistributionCustomErrorResponse']]]:
-        """
-        One or more custom error response elements. See Custom Error Response below.
-        """
         return pulumi.get(self, "custom_error_responses")
 
     @_builtins.property
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> pulumi.Output[Optional['outputs.MultitenantDistributionDefaultCacheBehavior']]:
-        """
-        Default cache behavior for this distribution. See Default Cache Behavior below.
-        """
         return pulumi.get(self, "default_cache_behavior")
 
     @_builtins.property
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Object that you want CloudFront to return when an end user requests the root URL.
-        """
         return pulumi.get(self, "default_root_object")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Domain name corresponding to the distribution.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current version of the distribution's information.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        """
         return pulumi.get(self, "http_version")
 
     @_builtins.property
     @pulumi.getter(name="inProgressInvalidationBatches")
     def in_progress_invalidation_batches(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of invalidation batches currently in progress.
-        """
         return pulumi.get(self, "in_progress_invalidation_batches")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time the distribution was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter(name="originGroups")
     def origin_groups(self) -> pulumi.Output[Optional[Sequence['outputs.MultitenantDistributionOriginGroup']]]:
-        """
-        One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        """
         return pulumi.get(self, "origin_groups")
 
     @_builtins.property
     @pulumi.getter
     def origins(self) -> pulumi.Output[Optional[Sequence['outputs.MultitenantDistributionOrigin']]]:
-        """
-        One or more origins for this distribution (multiples allowed). See Origin below.
-        """
         return pulumi.get(self, "origins")
 
     @_builtins.property
     @pulumi.getter
     def restrictions(self) -> pulumi.Output[Optional['outputs.MultitenantDistributionRestrictions']]:
-        """
-        Restriction configuration for this distribution. See Restrictions below.
-        """
         return pulumi.get(self, "restrictions")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="tenantConfig")
     def tenant_config(self) -> pulumi.Output[Optional['outputs.MultitenantDistributionTenantConfig']]:
-        """
-        Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        """
         return pulumi.get(self, "tenant_config")
 
     @_builtins.property
@@ -1166,16 +821,10 @@ class MultitenantDistribution(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> pulumi.Output[Optional['outputs.MultitenantDistributionViewerCertificate']]:
-        """
-        SSL configuration for this distribution. See Viewer Certificate below.
-        """
         return pulumi.get(self, "viewer_certificate")
 
     @_builtins.property
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-        """
         return pulumi.get(self, "web_acl_id")
 

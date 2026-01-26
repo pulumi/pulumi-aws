@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for associating accounts to existing Inspector instances.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.inspector2.MemberAssociation("example", {accountId: "123456789012"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
- * ```
- */
 export class MemberAssociation extends pulumi.CustomResource {
     /**
      * Get an existing MemberAssociation resource's state with the given name, ID, and optional extra
@@ -54,25 +32,10 @@ export class MemberAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === MemberAssociation.__pulumiType;
     }
 
-    /**
-     * ID of the account to associate
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * Account ID of the delegated administrator account
-     */
     declare public /*out*/ readonly delegatedAdminAccountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of the member relationship
-     */
     declare public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
-    /**
-     * Date and time of the last update of the relationship
-     */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
@@ -113,25 +76,10 @@ export class MemberAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MemberAssociation resources.
  */
 export interface MemberAssociationState {
-    /**
-     * ID of the account to associate
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Account ID of the delegated administrator account
-     */
     delegatedAdminAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of the member relationship
-     */
     relationshipStatus?: pulumi.Input<string>;
-    /**
-     * Date and time of the last update of the relationship
-     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -139,12 +87,6 @@ export interface MemberAssociationState {
  * The set of arguments for constructing a MemberAssociation resource.
  */
 export interface MemberAssociationArgs {
-    /**
-     * ID of the account to associate
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

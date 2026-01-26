@@ -11,55 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the AWS KMS customer master key (CMK) for a token vault.
-//
-// > Deletion of this resource will not modify the CMK, only remove the resource from state.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreTokenVaultCmk(ctx, "example", &bedrock.AgentcoreTokenVaultCmkArgs{
-//				KmsConfiguration: &bedrock.AgentcoreTokenVaultCmkKmsConfigurationArgs{
-//					KeyType:   pulumi.String("CustomerManagedKey"),
-//					KmsKeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import token vault CMKs using the token vault ID. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk example "default"
-// ```
 type AgentcoreTokenVaultCmk struct {
 	pulumi.CustomResourceState
 
-	// KMS configuration for the token vault. See `kmsConfiguration` below.
 	KmsConfiguration AgentcoreTokenVaultCmkKmsConfigurationPtrOutput `pulumi:"kmsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Token vault ID. Defaults to `default`.
-	TokenVaultId pulumi.StringOutput `pulumi:"tokenVaultId"`
+	Region           pulumi.StringOutput                             `pulumi:"region"`
+	TokenVaultId     pulumi.StringOutput                             `pulumi:"tokenVaultId"`
 }
 
 // NewAgentcoreTokenVaultCmk registers a new resource with the given unique name, arguments, and options.
@@ -92,21 +49,15 @@ func GetAgentcoreTokenVaultCmk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreTokenVaultCmk resources.
 type agentcoreTokenVaultCmkState struct {
-	// KMS configuration for the token vault. See `kmsConfiguration` below.
 	KmsConfiguration *AgentcoreTokenVaultCmkKmsConfiguration `pulumi:"kmsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Token vault ID. Defaults to `default`.
-	TokenVaultId *string `pulumi:"tokenVaultId"`
+	Region           *string                                 `pulumi:"region"`
+	TokenVaultId     *string                                 `pulumi:"tokenVaultId"`
 }
 
 type AgentcoreTokenVaultCmkState struct {
-	// KMS configuration for the token vault. See `kmsConfiguration` below.
 	KmsConfiguration AgentcoreTokenVaultCmkKmsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Token vault ID. Defaults to `default`.
-	TokenVaultId pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	TokenVaultId     pulumi.StringPtrInput
 }
 
 func (AgentcoreTokenVaultCmkState) ElementType() reflect.Type {
@@ -114,22 +65,16 @@ func (AgentcoreTokenVaultCmkState) ElementType() reflect.Type {
 }
 
 type agentcoreTokenVaultCmkArgs struct {
-	// KMS configuration for the token vault. See `kmsConfiguration` below.
 	KmsConfiguration *AgentcoreTokenVaultCmkKmsConfiguration `pulumi:"kmsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Token vault ID. Defaults to `default`.
-	TokenVaultId *string `pulumi:"tokenVaultId"`
+	Region           *string                                 `pulumi:"region"`
+	TokenVaultId     *string                                 `pulumi:"tokenVaultId"`
 }
 
 // The set of arguments for constructing a AgentcoreTokenVaultCmk resource.
 type AgentcoreTokenVaultCmkArgs struct {
-	// KMS configuration for the token vault. See `kmsConfiguration` below.
 	KmsConfiguration AgentcoreTokenVaultCmkKmsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Token vault ID. Defaults to `default`.
-	TokenVaultId pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	TokenVaultId     pulumi.StringPtrInput
 }
 
 func (AgentcoreTokenVaultCmkArgs) ElementType() reflect.Type {
@@ -219,19 +164,16 @@ func (o AgentcoreTokenVaultCmkOutput) ToAgentcoreTokenVaultCmkOutputWithContext(
 	return o
 }
 
-// KMS configuration for the token vault. See `kmsConfiguration` below.
 func (o AgentcoreTokenVaultCmkOutput) KmsConfiguration() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreTokenVaultCmk) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
 		return v.KmsConfiguration
 	}).(AgentcoreTokenVaultCmkKmsConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreTokenVaultCmkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreTokenVaultCmk) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Token vault ID. Defaults to `default`.
 func (o AgentcoreTokenVaultCmkOutput) TokenVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreTokenVaultCmk) pulumi.StringOutput { return v.TokenVaultId }).(pulumi.StringOutput)
 }

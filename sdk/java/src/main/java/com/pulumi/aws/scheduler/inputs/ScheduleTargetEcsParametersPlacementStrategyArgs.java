@@ -16,32 +16,16 @@ public final class ScheduleTargetEcsParametersPlacementStrategyArgs extends com.
 
     public static final ScheduleTargetEcsParametersPlacementStrategyArgs Empty = new ScheduleTargetEcsParametersPlacementStrategyArgs();
 
-    /**
-     * The field to apply the placement strategy against.
-     * 
-     */
     @Import(name="field")
     private @Nullable Output<String> field;
 
-    /**
-     * @return The field to apply the placement strategy against.
-     * 
-     */
     public Optional<Output<String>> field() {
         return Optional.ofNullable(this.field);
     }
 
-    /**
-     * The type of placement strategy. One of: `random`, `spread`, `binpack`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of placement strategy. One of: `random`, `spread`, `binpack`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,44 +55,20 @@ public final class ScheduleTargetEcsParametersPlacementStrategyArgs extends com.
             $ = new ScheduleTargetEcsParametersPlacementStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param field The field to apply the placement strategy against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(@Nullable Output<String> field) {
             $.field = field;
             return this;
         }
 
-        /**
-         * @param field The field to apply the placement strategy against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(String field) {
             return field(Output.of(field));
         }
 
-        /**
-         * @param type The type of placement strategy. One of: `random`, `spread`, `binpack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of placement strategy. One of: `random`, `spread`, `binpack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

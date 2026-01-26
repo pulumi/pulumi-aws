@@ -13,189 +13,51 @@ namespace Pulumi.Aws.Inspector2.Outputs
     [OutputType]
     public sealed class FilterFilterCriteria
     {
-        /// <summary>
-        /// (Optional) The AWS account ID in which the finding was generated. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaAwsAccountId> AwsAccountIds;
-        /// <summary>
-        /// (Optional) The project name in a code repository. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeRepositoryProjectName> CodeRepositoryProjectNames;
-        /// <summary>
-        /// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeRepositoryProviderType> CodeRepositoryProviderTypes;
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeVulnerabilityDetectorName> CodeVulnerabilityDetectorNames;
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeVulnerabilityDetectorTag> CodeVulnerabilityDetectorTags;
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaCodeVulnerabilityFilePath> CodeVulnerabilityFilePaths;
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaComponentId> ComponentIds;
-        /// <summary>
-        /// (Optional) The type of the component. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaComponentType> ComponentTypes;
-        /// <summary>
-        /// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEc2InstanceImageId> Ec2InstanceImageIds;
-        /// <summary>
-        /// (Optional) The ID of the subnet. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEc2InstanceSubnetId> Ec2InstanceSubnetIds;
-        /// <summary>
-        /// (Optional) The ID of the VPC. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEc2InstanceVpcId> Ec2InstanceVpcIds;
-        /// <summary>
-        /// (Optional) The architecture of the ECR image. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageArchitecture> EcrImageArchitectures;
-        /// <summary>
-        /// (Optional) The SHA256 hash of the ECR image. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageHash> EcrImageHashes;
-        /// <summary>
-        /// (Optional)  The number of the ECR images in use. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageInUseCount> EcrImageInUseCounts;
-        /// <summary>
-        /// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageLastInUseAt> EcrImageLastInUseAts;
-        /// <summary>
-        /// (Optional) The date range when the image was pushed. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImagePushedAt> EcrImagePushedAts;
-        /// <summary>
-        /// (Optional) The registry of the ECR image. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageRegistry> EcrImageRegistries;
-        /// <summary>
-        /// (Optional) The name of the ECR repository. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageRepositoryName> EcrImageRepositoryNames;
-        /// <summary>
-        /// (Optional) The tags associated with the ECR image. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEcrImageTag> EcrImageTags;
-        /// <summary>
-        /// (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEpssScore> EpssScores;
-        /// <summary>
-        /// (Optional) Availability of exploits. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaExploitAvailable> ExploitAvailables;
-        /// <summary>
-        /// (Optional) The ARN of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaFindingArn> FindingArns;
-        /// <summary>
-        /// (Optional) The status of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaFindingStatus> FindingStatuses;
-        /// <summary>
-        /// (Optional) The type of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaFindingType> FindingTypes;
-        /// <summary>
-        /// (Optional) When the finding was first observed. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaFirstObservedAt> FirstObservedAts;
-        /// <summary>
-        /// (Optional) Availability of the fix. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaFixAvailable> FixAvailables;
-        /// <summary>
-        /// (Optional) The Inspector score given to the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaInspectorScore> InspectorScores;
-        /// <summary>
-        /// (Optional) Lambda execution role ARN. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaLambdaFunctionExecutionRoleArn> LambdaFunctionExecutionRoleArns;
-        /// <summary>
-        /// (Optional) Last modified timestamp of the lambda function. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaLambdaFunctionLastModifiedAt> LambdaFunctionLastModifiedAts;
-        /// <summary>
-        /// (Optional) Lambda function layers. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaLambdaFunctionLayer> LambdaFunctionLayers;
-        /// <summary>
-        /// (Optional) Lambda function name. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaLambdaFunctionName> LambdaFunctionNames;
-        /// <summary>
-        /// (Optional) Lambda function runtime. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaLambdaFunctionRuntime> LambdaFunctionRuntimes;
-        /// <summary>
-        /// (Optional) When the finding was last observed. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaLastObservedAt> LastObservedAts;
-        /// <summary>
-        /// (Optional) The network protocol of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaNetworkProtocol> NetworkProtocols;
-        /// <summary>
-        /// (Optional) The port range of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaPortRange> PortRanges;
-        /// <summary>
-        /// (Optional) Related vulnerabilities. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaRelatedVulnerability> RelatedVulnerabilities;
-        /// <summary>
-        /// (Optional) The ID of the resource. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaResourceId> ResourceIds;
-        /// <summary>
-        /// (Optional) The tags of the resource. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaResourceTag> ResourceTags;
-        /// <summary>
-        /// (Optional) The type of the resource. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaResourceType> ResourceTypes;
-        /// <summary>
-        /// (Optional) The severity of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaSeverity> Severities;
-        /// <summary>
-        /// (Optional) The title of the finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaTitle> Titles;
-        /// <summary>
-        /// (Optional) When the finding was last updated. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaUpdatedAt> UpdatedAts;
-        /// <summary>
-        /// (Optional) The severity as reported by the vendor. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaVendorSeverity> VendorSeverities;
-        /// <summary>
-        /// (Optional) The ID of the vulnerability. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaVulnerabilityId> VulnerabilityIds;
-        /// <summary>
-        /// (Optional) The source of the vulnerability. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaVulnerabilitySource> VulnerabilitySources;
-        /// <summary>
-        /// (Optional) Details about vulnerable packages. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaVulnerablePackage> VulnerablePackages;
 
         [OutputConstructor]

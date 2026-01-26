@@ -19,107 +19,51 @@ public final class DeviceFleetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DeviceFleetArgs Empty = new DeviceFleetArgs();
 
-    /**
-     * A description of the fleet.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the fleet.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the Device Fleet (must be unique).
-     * 
-     */
     @Import(name="deviceFleetName", required=true)
     private Output<String> deviceFleetName;
 
-    /**
-     * @return The name of the Device Fleet (must be unique).
-     * 
-     */
     public Output<String> deviceFleetName() {
         return this.deviceFleetName;
     }
 
-    /**
-     * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: &#34;SageMakerEdge-{DeviceFleetName}&#34;.
-     * 
-     */
     @Import(name="enableIotRoleAlias")
     private @Nullable Output<Boolean> enableIotRoleAlias;
 
-    /**
-     * @return Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: &#34;SageMakerEdge-{DeviceFleetName}&#34;.
-     * 
-     */
     public Optional<Output<Boolean>> enableIotRoleAlias() {
         return Optional.ofNullable(this.enableIotRoleAlias);
     }
 
-    /**
-     * Specifies details about the repository. see Output Config details below.
-     * 
-     */
     @Import(name="outputConfig", required=true)
     private Output<DeviceFleetOutputConfigArgs> outputConfig;
 
-    /**
-     * @return Specifies details about the repository. see Output Config details below.
-     * 
-     */
     public Output<DeviceFleetOutputConfigArgs> outputConfig() {
         return this.outputConfig;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -154,149 +98,65 @@ public final class DeviceFleetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DeviceFleetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param deviceFleetName The name of the Device Fleet (must be unique).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceFleetName(Output<String> deviceFleetName) {
             $.deviceFleetName = deviceFleetName;
             return this;
         }
 
-        /**
-         * @param deviceFleetName The name of the Device Fleet (must be unique).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceFleetName(String deviceFleetName) {
             return deviceFleetName(Output.of(deviceFleetName));
         }
 
-        /**
-         * @param enableIotRoleAlias Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: &#34;SageMakerEdge-{DeviceFleetName}&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableIotRoleAlias(@Nullable Output<Boolean> enableIotRoleAlias) {
             $.enableIotRoleAlias = enableIotRoleAlias;
             return this;
         }
 
-        /**
-         * @param enableIotRoleAlias Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: &#34;SageMakerEdge-{DeviceFleetName}&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableIotRoleAlias(Boolean enableIotRoleAlias) {
             return enableIotRoleAlias(Output.of(enableIotRoleAlias));
         }
 
-        /**
-         * @param outputConfig Specifies details about the repository. see Output Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputConfig(Output<DeviceFleetOutputConfigArgs> outputConfig) {
             $.outputConfig = outputConfig;
             return this;
         }
 
-        /**
-         * @param outputConfig Specifies details about the repository. see Output Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputConfig(DeviceFleetOutputConfigArgs outputConfig) {
             return outputConfig(Output.of(outputConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

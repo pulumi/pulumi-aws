@@ -16,24 +16,14 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
 
     public static final SubscriberNotificationState Empty = new SubscriberNotificationState();
 
-    /**
-     * Specify the configuration using which you want to create the subscriber notification..
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<SubscriberNotificationConfigurationArgs> configuration;
 
-    /**
-     * @return Specify the configuration using which you want to create the subscriber notification..
-     * 
-     */
     public Optional<Output<SubscriberNotificationConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
     /**
-     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-     * 
      * @deprecated
      * Use subscriberEndpoint instead
      * 
@@ -43,8 +33,6 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
     private @Nullable Output<String> endpointId;
 
     /**
-     * @return (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-     * 
      * @deprecated
      * Use subscriberEndpoint instead
      * 
@@ -54,47 +42,23 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.endpointId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The subscriber endpoint to which exception messages are posted.
-     * 
-     */
     @Import(name="subscriberEndpoint")
     private @Nullable Output<String> subscriberEndpoint;
 
-    /**
-     * @return The subscriber endpoint to which exception messages are posted.
-     * 
-     */
     public Optional<Output<String>> subscriberEndpoint() {
         return Optional.ofNullable(this.subscriberEndpoint);
     }
 
-    /**
-     * The subscriber ID for the notification subscription.
-     * 
-     */
     @Import(name="subscriberId")
     private @Nullable Output<String> subscriberId;
 
-    /**
-     * @return The subscriber ID for the notification subscription.
-     * 
-     */
     public Optional<Output<String>> subscriberId() {
         return Optional.ofNullable(this.subscriberId);
     }
@@ -127,30 +91,16 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
             $ = new SubscriberNotificationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configuration Specify the configuration using which you want to create the subscriber notification..
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<SubscriberNotificationConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration Specify the configuration using which you want to create the subscriber notification..
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(SubscriberNotificationConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
         /**
-         * @param endpointId (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -164,8 +114,6 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param endpointId (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -177,65 +125,29 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
             return endpointId(Output.of(endpointId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subscriberEndpoint The subscriber endpoint to which exception messages are posted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberEndpoint(@Nullable Output<String> subscriberEndpoint) {
             $.subscriberEndpoint = subscriberEndpoint;
             return this;
         }
 
-        /**
-         * @param subscriberEndpoint The subscriber endpoint to which exception messages are posted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberEndpoint(String subscriberEndpoint) {
             return subscriberEndpoint(Output.of(subscriberEndpoint));
         }
 
-        /**
-         * @param subscriberId The subscriber ID for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberId(@Nullable Output<String> subscriberId) {
             $.subscriberId = subscriberId;
             return this;
         }
 
-        /**
-         * @param subscriberId The subscriber ID for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberId(String subscriberId) {
             return subscriberId(Output.of(subscriberId));
         }

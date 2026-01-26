@@ -14,32 +14,16 @@ public final class AnomalySubscriptionSubscriberArgs extends com.pulumi.resource
 
     public static final AnomalySubscriptionSubscriberArgs Empty = new AnomalySubscriptionSubscriberArgs();
 
-    /**
-     * The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-     * 
-     */
     @Import(name="address", required=true)
     private Output<String> address;
 
-    /**
-     * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-     * 
-     */
     public Output<String> address() {
         return this.address;
     }
 
-    /**
-     * The type of subscription. Valid Values: `SNS` | `EMAIL`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of subscription. Valid Values: `SNS` | `EMAIL`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class AnomalySubscriptionSubscriberArgs extends com.pulumi.resource
             $ = new AnomalySubscriptionSubscriberArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(Output<String> address) {
             $.address = address;
             return this;
         }
 
-        /**
-         * @param address The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
 
-        /**
-         * @param type The type of subscription. Valid Values: `SNS` | `EMAIL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of subscription. Valid Values: `SNS` | `EMAIL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplatePlacement
     {
-        /// <summary>
-        /// The affinity setting for an instance on a Dedicated Host.
-        /// </summary>
         public readonly string? Affinity;
-        /// <summary>
-        /// The Availability Zone for the instance.
-        /// </summary>
         public readonly string? AvailabilityZone;
-        /// <summary>
-        /// The ID of the placement group for the instance. Conflicts with `GroupName`.
-        /// </summary>
         public readonly string? GroupId;
-        /// <summary>
-        /// The name of the placement group for the instance. Conflicts with `GroupId`.
-        /// </summary>
         public readonly string? GroupName;
-        /// <summary>
-        /// The ID of the Dedicated Host for the instance.
-        /// </summary>
         public readonly string? HostId;
-        /// <summary>
-        /// The ARN of the Host Resource Group in which to launch instances.
-        /// </summary>
         public readonly string? HostResourceGroupArn;
-        /// <summary>
-        /// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
-        /// </summary>
         public readonly int? PartitionNumber;
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         public readonly string? SpreadDomain;
-        /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). Can be `Default`, `Dedicated`, or `Host`.
-        /// </summary>
         public readonly string? Tenancy;
 
         [OutputConstructor]

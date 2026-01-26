@@ -17,92 +17,44 @@ public final class BotAliasArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BotAliasArgs Empty = new BotAliasArgs();
 
-    /**
-     * The name of the bot.
-     * 
-     */
     @Import(name="botName", required=true)
     private Output<String> botName;
 
-    /**
-     * @return The name of the bot.
-     * 
-     */
     public Output<String> botName() {
         return this.botName;
     }
 
-    /**
-     * The version of the bot.
-     * 
-     */
     @Import(name="botVersion", required=true)
     private Output<String> botVersion;
 
-    /**
-     * @return The version of the bot.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
 
-    /**
-     * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-     * 
-     */
     @Import(name="conversationLogs")
     private @Nullable Output<BotAliasConversationLogsArgs> conversationLogs;
 
-    /**
-     * @return The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-     * 
-     */
     public Optional<Output<BotAliasConversationLogsArgs>> conversationLogs() {
         return Optional.ofNullable(this.conversationLogs);
     }
 
-    /**
-     * A description of the alias. Must be less than or equal to 200 characters in length.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the alias. Must be less than or equal to 200 characters in length.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -136,128 +88,56 @@ public final class BotAliasArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BotAliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botName The name of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botName(Output<String> botName) {
             $.botName = botName;
             return this;
         }
 
-        /**
-         * @param botName The name of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botName(String botName) {
             return botName(Output.of(botName));
         }
 
-        /**
-         * @param botVersion The version of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(Output<String> botVersion) {
             $.botVersion = botVersion;
             return this;
         }
 
-        /**
-         * @param botVersion The version of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(String botVersion) {
             return botVersion(Output.of(botVersion));
         }
 
-        /**
-         * @param conversationLogs The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conversationLogs(@Nullable Output<BotAliasConversationLogsArgs> conversationLogs) {
             $.conversationLogs = conversationLogs;
             return this;
         }
 
-        /**
-         * @param conversationLogs The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conversationLogs(BotAliasConversationLogsArgs conversationLogs) {
             return conversationLogs(Output.of(conversationLogs));
         }
 
-        /**
-         * @param description A description of the alias. Must be less than or equal to 200 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the alias. Must be less than or equal to 200 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

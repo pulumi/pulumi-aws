@@ -28,13 +28,6 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        :param pulumi.Input[_builtins.str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "ca_certificates_bundle_s3_bucket", ca_certificates_bundle_s3_bucket)
         pulumi.set(__self__, "ca_certificates_bundle_s3_key", ca_certificates_bundle_s3_key)
@@ -52,9 +45,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Bucket")
     def ca_certificates_bundle_s3_bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 Bucket name holding the client certificate CA bundle.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_bucket")
 
     @ca_certificates_bundle_s3_bucket.setter
@@ -64,9 +54,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Key")
     def ca_certificates_bundle_s3_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 object key holding the client certificate CA bundle.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_key")
 
     @ca_certificates_bundle_s3_key.setter
@@ -76,9 +63,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3ObjectVersion")
     def ca_certificates_bundle_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_object_version")
 
     @ca_certificates_bundle_s3_object_version.setter
@@ -88,9 +72,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -100,9 +81,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -112,9 +90,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -124,9 +99,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -149,16 +121,6 @@ class _TrustStoreState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TrustStore resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Trust Store (matches `id`).
-        :param pulumi.Input[_builtins.str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        :param pulumi.Input[_builtins.str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,9 +146,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Trust Store (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -196,9 +155,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN suffix for use with CloudWatch Metrics.
-        """
         return pulumi.get(self, "arn_suffix")
 
     @arn_suffix.setter
@@ -208,9 +164,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Bucket")
     def ca_certificates_bundle_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 Bucket name holding the client certificate CA bundle.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_bucket")
 
     @ca_certificates_bundle_s3_bucket.setter
@@ -220,9 +173,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Key")
     def ca_certificates_bundle_s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 object key holding the client certificate CA bundle.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_key")
 
     @ca_certificates_bundle_s3_key.setter
@@ -232,9 +182,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3ObjectVersion")
     def ca_certificates_bundle_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_object_version")
 
     @ca_certificates_bundle_s3_object_version.setter
@@ -244,9 +191,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -256,9 +200,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -268,9 +209,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -280,9 +218,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -292,9 +227,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -317,53 +249,9 @@ class TrustStore(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
-
-        ## Example Usage
-
-        ### Trust Store Load Balancer Listener
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lb.TrustStore("test",
-            name="tf-example-lb-ts",
-            ca_certificates_bundle_s3_bucket="...",
-            ca_certificates_bundle_s3_key="...")
-        example = aws.lb.Listener("example",
-            load_balancer_arn=example_aws_lb["id"],
-            default_actions=[{
-                "target_group_arn": example_aws_lb_target_group["id"],
-                "type": "forward",
-            }],
-            mutual_authentication={
-                "mode": "verify",
-                "trust_store_arn": test.arn,
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the trust store.
-
-        Using `pulumi import`, import Target Groups using their ARN. For example:
-
-        % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
-
+        Create a TrustStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        :param pulumi.Input[_builtins.str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -372,44 +260,7 @@ class TrustStore(pulumi.CustomResource):
                  args: TrustStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
-
-        ## Example Usage
-
-        ### Trust Store Load Balancer Listener
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lb.TrustStore("test",
-            name="tf-example-lb-ts",
-            ca_certificates_bundle_s3_bucket="...",
-            ca_certificates_bundle_s3_key="...")
-        example = aws.lb.Listener("example",
-            load_balancer_arn=example_aws_lb["id"],
-            default_actions=[{
-                "target_group_arn": example_aws_lb_target_group["id"],
-                "type": "forward",
-            }],
-            mutual_authentication={
-                "mode": "verify",
-                "trust_store_arn": test.arn,
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the trust store.
-
-        Using `pulumi import`, import Target Groups using their ARN. For example:
-
-        % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
-
+        Create a TrustStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -482,16 +333,6 @@ class TrustStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Trust Store (matches `id`).
-        :param pulumi.Input[_builtins.str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        :param pulumi.Input[_builtins.str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -512,80 +353,50 @@ class TrustStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Trust Store (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN suffix for use with CloudWatch Metrics.
-        """
         return pulumi.get(self, "arn_suffix")
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Bucket")
     def ca_certificates_bundle_s3_bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        S3 Bucket name holding the client certificate CA bundle.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_bucket")
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Key")
     def ca_certificates_bundle_s3_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        S3 object key holding the client certificate CA bundle.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_key")
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3ObjectVersion")
     def ca_certificates_bundle_s3_object_version(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_object_version")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

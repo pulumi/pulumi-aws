@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ApiGateway.Inputs
 
     public sealed class UsagePlanApiStageThrottleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        /// </summary>
         [Input("burstLimit")]
         public Input<int>? BurstLimit { get; set; }
 
-        /// <summary>
-        /// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
-        /// <summary>
-        /// The API request steady-state rate limit.
-        /// </summary>
         [Input("rateLimit")]
         public Input<double>? RateLimit { get; set; }
 

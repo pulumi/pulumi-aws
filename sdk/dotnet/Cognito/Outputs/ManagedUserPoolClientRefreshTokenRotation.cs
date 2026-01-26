@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class ManagedUserPoolClientRefreshTokenRotation
     {
-        /// <summary>
-        /// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-        /// </summary>
         public readonly string Feature;
-        /// <summary>
-        /// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-        /// </summary>
         public readonly int? RetryGracePeriodSeconds;
 
         [OutputConstructor]

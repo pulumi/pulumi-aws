@@ -14,17 +14,9 @@ public final class ScheduledActionTargetActionPauseClusterArgs extends com.pulum
 
     public static final ScheduledActionTargetActionPauseClusterArgs Empty = new ScheduledActionTargetActionPauseClusterArgs();
 
-    /**
-     * The identifier of the cluster to be paused.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The identifier of the cluster to be paused.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
@@ -53,23 +45,11 @@ public final class ScheduledActionTargetActionPauseClusterArgs extends com.pulum
             $ = new ScheduledActionTargetActionPauseClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterIdentifier The identifier of the cluster to be paused.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The identifier of the cluster to be paused.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }

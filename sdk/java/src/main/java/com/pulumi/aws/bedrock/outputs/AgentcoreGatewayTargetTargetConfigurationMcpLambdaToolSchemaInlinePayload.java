@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload {
-    /**
-     * @return Description of what the tool does.
-     * 
-     */
     private String description;
-    /**
-     * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema;
-    /**
-     * @return Name of the tool.
-     * 
-     */
     private String name;
-    /**
-     * @return Schema for the tool&#39;s output. See `schemaDefinition` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema outputSchema;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload() {}
-    /**
-     * @return Description of what the tool does.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema> inputSchema() {
         return Optional.ofNullable(this.inputSchema);
     }
-    /**
-     * @return Name of the tool.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Schema for the tool&#39;s output. See `schemaDefinition` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema> outputSchema() {
         return Optional.ofNullable(this.outputSchema);
     }

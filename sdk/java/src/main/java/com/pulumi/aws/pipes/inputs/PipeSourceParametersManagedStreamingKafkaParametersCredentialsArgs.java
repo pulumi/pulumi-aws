@@ -15,32 +15,16 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
 
     public static final PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs Empty = new PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs();
 
-    /**
-     * The ARN of the Secrets Manager secret containing the credentials.
-     * 
-     */
     @Import(name="clientCertificateTlsAuth")
     private @Nullable Output<String> clientCertificateTlsAuth;
 
-    /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
-     * 
-     */
     public Optional<Output<String>> clientCertificateTlsAuth() {
         return Optional.ofNullable(this.clientCertificateTlsAuth);
     }
 
-    /**
-     * The ARN of the Secrets Manager secret containing the credentials.
-     * 
-     */
     @Import(name="saslScram512Auth")
     private @Nullable Output<String> saslScram512Auth;
 
-    /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
-     * 
-     */
     public Optional<Output<String>> saslScram512Auth() {
         return Optional.ofNullable(this.saslScram512Auth);
     }
@@ -70,44 +54,20 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
             $ = new PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientCertificateTlsAuth The ARN of the Secrets Manager secret containing the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientCertificateTlsAuth(@Nullable Output<String> clientCertificateTlsAuth) {
             $.clientCertificateTlsAuth = clientCertificateTlsAuth;
             return this;
         }
 
-        /**
-         * @param clientCertificateTlsAuth The ARN of the Secrets Manager secret containing the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientCertificateTlsAuth(String clientCertificateTlsAuth) {
             return clientCertificateTlsAuth(Output.of(clientCertificateTlsAuth));
         }
 
-        /**
-         * @param saslScram512Auth The ARN of the Secrets Manager secret containing the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder saslScram512Auth(@Nullable Output<String> saslScram512Auth) {
             $.saslScram512Auth = saslScram512Auth;
             return this;
         }
 
-        /**
-         * @param saslScram512Auth The ARN of the Secrets Manager secret containing the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder saslScram512Auth(String saslScram512Auth) {
             return saslScram512Auth(Output.of(saslScram512Auth));
         }

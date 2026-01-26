@@ -23,46 +23,6 @@ class ProductSubscriptionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProductSubscription resource.
-        :param pulumi.Input[_builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
-               
-               Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
-               
-               Available products can also be listed by running the AWS CLI command `aws securityhub describe-products`.
-               
-               A subset of currently available products (remember to replace `${var.region}` as appropriate) includes:
-               
-               * `arn:aws:securityhub:${var.region}::product/aws/guardduty`
-               * `arn:aws:securityhub:${var.region}::product/aws/inspector`
-               * `arn:aws:securityhub:${var.region}::product/aws/macie`
-               * `arn:aws:securityhub:${var.region}::product/alertlogic/althreatmanagement`
-               * `arn:aws:securityhub:${var.region}::product/armordefense/armoranywhere`
-               * `arn:aws:securityhub:${var.region}::product/barracuda/cloudsecurityguardian`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/cloudguard-iaas`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/dome9-arc`
-               * `arn:aws:securityhub:${var.region}::product/crowdstrike/crowdstrike-falcon`
-               * `arn:aws:securityhub:${var.region}::product/cyberark/cyberark-pta`
-               * `arn:aws:securityhub:${var.region}::product/f5networks/f5-advanced-waf`
-               * `arn:aws:securityhub:${var.region}::product/fortinet/fortigate`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/aws-infection-monkey`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/guardicore`
-               * `arn:aws:securityhub:${var.region}::product/ibm/qradar-siem`
-               * `arn:aws:securityhub:${var.region}::product/imperva/imperva-attack-analytics`
-               * `arn:aws:securityhub:${var.region}::product/mcafee-skyhigh/mcafee-mvision-cloud-aws`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/redlock`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/vm-series`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-pc`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-vm`
-               * `arn:aws:securityhub:${var.region}::product/rapid7/insightvm`
-               * `arn:aws:securityhub:${var.region}::product/sophos/sophos-server-protection`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-enterprise`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-phantom`
-               * `arn:aws:securityhub:${var.region}::product/sumologicinc/sumologic-mda`
-               * `arn:aws:securityhub:${var.region}::product/symantec-corp/symantec-cwp`
-               * `arn:aws:securityhub:${var.region}::product/tenable/tenable-io`
-               * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
-               * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
-               * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "product_arn", product_arn)
         if region is not None:
@@ -71,47 +31,6 @@ class ProductSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the product that generates findings that you want to import into Security Hub - see below.
-
-        Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
-
-        Available products can also be listed by running the AWS CLI command `aws securityhub describe-products`.
-
-        A subset of currently available products (remember to replace `${var.region}` as appropriate) includes:
-
-        * `arn:aws:securityhub:${var.region}::product/aws/guardduty`
-        * `arn:aws:securityhub:${var.region}::product/aws/inspector`
-        * `arn:aws:securityhub:${var.region}::product/aws/macie`
-        * `arn:aws:securityhub:${var.region}::product/alertlogic/althreatmanagement`
-        * `arn:aws:securityhub:${var.region}::product/armordefense/armoranywhere`
-        * `arn:aws:securityhub:${var.region}::product/barracuda/cloudsecurityguardian`
-        * `arn:aws:securityhub:${var.region}::product/checkpoint/cloudguard-iaas`
-        * `arn:aws:securityhub:${var.region}::product/checkpoint/dome9-arc`
-        * `arn:aws:securityhub:${var.region}::product/crowdstrike/crowdstrike-falcon`
-        * `arn:aws:securityhub:${var.region}::product/cyberark/cyberark-pta`
-        * `arn:aws:securityhub:${var.region}::product/f5networks/f5-advanced-waf`
-        * `arn:aws:securityhub:${var.region}::product/fortinet/fortigate`
-        * `arn:aws:securityhub:${var.region}::product/guardicore/aws-infection-monkey`
-        * `arn:aws:securityhub:${var.region}::product/guardicore/guardicore`
-        * `arn:aws:securityhub:${var.region}::product/ibm/qradar-siem`
-        * `arn:aws:securityhub:${var.region}::product/imperva/imperva-attack-analytics`
-        * `arn:aws:securityhub:${var.region}::product/mcafee-skyhigh/mcafee-mvision-cloud-aws`
-        * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/redlock`
-        * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/vm-series`
-        * `arn:aws:securityhub:${var.region}::product/qualys/qualys-pc`
-        * `arn:aws:securityhub:${var.region}::product/qualys/qualys-vm`
-        * `arn:aws:securityhub:${var.region}::product/rapid7/insightvm`
-        * `arn:aws:securityhub:${var.region}::product/sophos/sophos-server-protection`
-        * `arn:aws:securityhub:${var.region}::product/splunk/splunk-enterprise`
-        * `arn:aws:securityhub:${var.region}::product/splunk/splunk-phantom`
-        * `arn:aws:securityhub:${var.region}::product/sumologicinc/sumologic-mda`
-        * `arn:aws:securityhub:${var.region}::product/symantec-corp/symantec-cwp`
-        * `arn:aws:securityhub:${var.region}::product/tenable/tenable-io`
-        * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
-        * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
-        * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        """
         return pulumi.get(self, "product_arn")
 
     @product_arn.setter
@@ -121,9 +40,6 @@ class ProductSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -139,47 +55,6 @@ class _ProductSubscriptionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductSubscription resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-        :param pulumi.Input[_builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
-               
-               Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
-               
-               Available products can also be listed by running the AWS CLI command `aws securityhub describe-products`.
-               
-               A subset of currently available products (remember to replace `${var.region}` as appropriate) includes:
-               
-               * `arn:aws:securityhub:${var.region}::product/aws/guardduty`
-               * `arn:aws:securityhub:${var.region}::product/aws/inspector`
-               * `arn:aws:securityhub:${var.region}::product/aws/macie`
-               * `arn:aws:securityhub:${var.region}::product/alertlogic/althreatmanagement`
-               * `arn:aws:securityhub:${var.region}::product/armordefense/armoranywhere`
-               * `arn:aws:securityhub:${var.region}::product/barracuda/cloudsecurityguardian`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/cloudguard-iaas`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/dome9-arc`
-               * `arn:aws:securityhub:${var.region}::product/crowdstrike/crowdstrike-falcon`
-               * `arn:aws:securityhub:${var.region}::product/cyberark/cyberark-pta`
-               * `arn:aws:securityhub:${var.region}::product/f5networks/f5-advanced-waf`
-               * `arn:aws:securityhub:${var.region}::product/fortinet/fortigate`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/aws-infection-monkey`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/guardicore`
-               * `arn:aws:securityhub:${var.region}::product/ibm/qradar-siem`
-               * `arn:aws:securityhub:${var.region}::product/imperva/imperva-attack-analytics`
-               * `arn:aws:securityhub:${var.region}::product/mcafee-skyhigh/mcafee-mvision-cloud-aws`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/redlock`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/vm-series`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-pc`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-vm`
-               * `arn:aws:securityhub:${var.region}::product/rapid7/insightvm`
-               * `arn:aws:securityhub:${var.region}::product/sophos/sophos-server-protection`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-enterprise`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-phantom`
-               * `arn:aws:securityhub:${var.region}::product/sumologicinc/sumologic-mda`
-               * `arn:aws:securityhub:${var.region}::product/symantec-corp/symantec-cwp`
-               * `arn:aws:securityhub:${var.region}::product/tenable/tenable-io`
-               * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
-               * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
-               * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -191,9 +66,6 @@ class _ProductSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -203,47 +75,6 @@ class _ProductSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the product that generates findings that you want to import into Security Hub - see below.
-
-        Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
-
-        Available products can also be listed by running the AWS CLI command `aws securityhub describe-products`.
-
-        A subset of currently available products (remember to replace `${var.region}` as appropriate) includes:
-
-        * `arn:aws:securityhub:${var.region}::product/aws/guardduty`
-        * `arn:aws:securityhub:${var.region}::product/aws/inspector`
-        * `arn:aws:securityhub:${var.region}::product/aws/macie`
-        * `arn:aws:securityhub:${var.region}::product/alertlogic/althreatmanagement`
-        * `arn:aws:securityhub:${var.region}::product/armordefense/armoranywhere`
-        * `arn:aws:securityhub:${var.region}::product/barracuda/cloudsecurityguardian`
-        * `arn:aws:securityhub:${var.region}::product/checkpoint/cloudguard-iaas`
-        * `arn:aws:securityhub:${var.region}::product/checkpoint/dome9-arc`
-        * `arn:aws:securityhub:${var.region}::product/crowdstrike/crowdstrike-falcon`
-        * `arn:aws:securityhub:${var.region}::product/cyberark/cyberark-pta`
-        * `arn:aws:securityhub:${var.region}::product/f5networks/f5-advanced-waf`
-        * `arn:aws:securityhub:${var.region}::product/fortinet/fortigate`
-        * `arn:aws:securityhub:${var.region}::product/guardicore/aws-infection-monkey`
-        * `arn:aws:securityhub:${var.region}::product/guardicore/guardicore`
-        * `arn:aws:securityhub:${var.region}::product/ibm/qradar-siem`
-        * `arn:aws:securityhub:${var.region}::product/imperva/imperva-attack-analytics`
-        * `arn:aws:securityhub:${var.region}::product/mcafee-skyhigh/mcafee-mvision-cloud-aws`
-        * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/redlock`
-        * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/vm-series`
-        * `arn:aws:securityhub:${var.region}::product/qualys/qualys-pc`
-        * `arn:aws:securityhub:${var.region}::product/qualys/qualys-vm`
-        * `arn:aws:securityhub:${var.region}::product/rapid7/insightvm`
-        * `arn:aws:securityhub:${var.region}::product/sophos/sophos-server-protection`
-        * `arn:aws:securityhub:${var.region}::product/splunk/splunk-enterprise`
-        * `arn:aws:securityhub:${var.region}::product/splunk/splunk-phantom`
-        * `arn:aws:securityhub:${var.region}::product/sumologicinc/sumologic-mda`
-        * `arn:aws:securityhub:${var.region}::product/symantec-corp/symantec-cwp`
-        * `arn:aws:securityhub:${var.region}::product/tenable/tenable-io`
-        * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
-        * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
-        * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        """
         return pulumi.get(self, "product_arn")
 
     @product_arn.setter
@@ -253,9 +84,6 @@ class _ProductSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -273,70 +101,9 @@ class ProductSubscription(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Subscribes to a Security Hub product.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.region}:733251395267:product/alertlogic/althreatmanagement",
-        opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
-        ```
-
+        Create a ProductSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
-               
-               Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
-               
-               Available products can also be listed by running the AWS CLI command `aws securityhub describe-products`.
-               
-               A subset of currently available products (remember to replace `${var.region}` as appropriate) includes:
-               
-               * `arn:aws:securityhub:${var.region}::product/aws/guardduty`
-               * `arn:aws:securityhub:${var.region}::product/aws/inspector`
-               * `arn:aws:securityhub:${var.region}::product/aws/macie`
-               * `arn:aws:securityhub:${var.region}::product/alertlogic/althreatmanagement`
-               * `arn:aws:securityhub:${var.region}::product/armordefense/armoranywhere`
-               * `arn:aws:securityhub:${var.region}::product/barracuda/cloudsecurityguardian`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/cloudguard-iaas`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/dome9-arc`
-               * `arn:aws:securityhub:${var.region}::product/crowdstrike/crowdstrike-falcon`
-               * `arn:aws:securityhub:${var.region}::product/cyberark/cyberark-pta`
-               * `arn:aws:securityhub:${var.region}::product/f5networks/f5-advanced-waf`
-               * `arn:aws:securityhub:${var.region}::product/fortinet/fortigate`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/aws-infection-monkey`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/guardicore`
-               * `arn:aws:securityhub:${var.region}::product/ibm/qradar-siem`
-               * `arn:aws:securityhub:${var.region}::product/imperva/imperva-attack-analytics`
-               * `arn:aws:securityhub:${var.region}::product/mcafee-skyhigh/mcafee-mvision-cloud-aws`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/redlock`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/vm-series`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-pc`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-vm`
-               * `arn:aws:securityhub:${var.region}::product/rapid7/insightvm`
-               * `arn:aws:securityhub:${var.region}::product/sophos/sophos-server-protection`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-enterprise`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-phantom`
-               * `arn:aws:securityhub:${var.region}::product/sumologicinc/sumologic-mda`
-               * `arn:aws:securityhub:${var.region}::product/symantec-corp/symantec-cwp`
-               * `arn:aws:securityhub:${var.region}::product/tenable/tenable-io`
-               * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
-               * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
-               * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -345,28 +112,7 @@ class ProductSubscription(pulumi.CustomResource):
                  args: ProductSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Subscribes to a Security Hub product.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.region}:733251395267:product/alertlogic/althreatmanagement",
-        opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
-        ```
-
+        Create a ProductSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProductSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -418,47 +164,6 @@ class ProductSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-        :param pulumi.Input[_builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
-               
-               Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
-               
-               Available products can also be listed by running the AWS CLI command `aws securityhub describe-products`.
-               
-               A subset of currently available products (remember to replace `${var.region}` as appropriate) includes:
-               
-               * `arn:aws:securityhub:${var.region}::product/aws/guardduty`
-               * `arn:aws:securityhub:${var.region}::product/aws/inspector`
-               * `arn:aws:securityhub:${var.region}::product/aws/macie`
-               * `arn:aws:securityhub:${var.region}::product/alertlogic/althreatmanagement`
-               * `arn:aws:securityhub:${var.region}::product/armordefense/armoranywhere`
-               * `arn:aws:securityhub:${var.region}::product/barracuda/cloudsecurityguardian`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/cloudguard-iaas`
-               * `arn:aws:securityhub:${var.region}::product/checkpoint/dome9-arc`
-               * `arn:aws:securityhub:${var.region}::product/crowdstrike/crowdstrike-falcon`
-               * `arn:aws:securityhub:${var.region}::product/cyberark/cyberark-pta`
-               * `arn:aws:securityhub:${var.region}::product/f5networks/f5-advanced-waf`
-               * `arn:aws:securityhub:${var.region}::product/fortinet/fortigate`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/aws-infection-monkey`
-               * `arn:aws:securityhub:${var.region}::product/guardicore/guardicore`
-               * `arn:aws:securityhub:${var.region}::product/ibm/qradar-siem`
-               * `arn:aws:securityhub:${var.region}::product/imperva/imperva-attack-analytics`
-               * `arn:aws:securityhub:${var.region}::product/mcafee-skyhigh/mcafee-mvision-cloud-aws`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/redlock`
-               * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/vm-series`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-pc`
-               * `arn:aws:securityhub:${var.region}::product/qualys/qualys-vm`
-               * `arn:aws:securityhub:${var.region}::product/rapid7/insightvm`
-               * `arn:aws:securityhub:${var.region}::product/sophos/sophos-server-protection`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-enterprise`
-               * `arn:aws:securityhub:${var.region}::product/splunk/splunk-phantom`
-               * `arn:aws:securityhub:${var.region}::product/sumologicinc/sumologic-mda`
-               * `arn:aws:securityhub:${var.region}::product/symantec-corp/symantec-cwp`
-               * `arn:aws:securityhub:${var.region}::product/tenable/tenable-io`
-               * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
-               * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
-               * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -472,62 +177,15 @@ class ProductSubscription(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the product that generates findings that you want to import into Security Hub - see below.
-
-        Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
-
-        Available products can also be listed by running the AWS CLI command `aws securityhub describe-products`.
-
-        A subset of currently available products (remember to replace `${var.region}` as appropriate) includes:
-
-        * `arn:aws:securityhub:${var.region}::product/aws/guardduty`
-        * `arn:aws:securityhub:${var.region}::product/aws/inspector`
-        * `arn:aws:securityhub:${var.region}::product/aws/macie`
-        * `arn:aws:securityhub:${var.region}::product/alertlogic/althreatmanagement`
-        * `arn:aws:securityhub:${var.region}::product/armordefense/armoranywhere`
-        * `arn:aws:securityhub:${var.region}::product/barracuda/cloudsecurityguardian`
-        * `arn:aws:securityhub:${var.region}::product/checkpoint/cloudguard-iaas`
-        * `arn:aws:securityhub:${var.region}::product/checkpoint/dome9-arc`
-        * `arn:aws:securityhub:${var.region}::product/crowdstrike/crowdstrike-falcon`
-        * `arn:aws:securityhub:${var.region}::product/cyberark/cyberark-pta`
-        * `arn:aws:securityhub:${var.region}::product/f5networks/f5-advanced-waf`
-        * `arn:aws:securityhub:${var.region}::product/fortinet/fortigate`
-        * `arn:aws:securityhub:${var.region}::product/guardicore/aws-infection-monkey`
-        * `arn:aws:securityhub:${var.region}::product/guardicore/guardicore`
-        * `arn:aws:securityhub:${var.region}::product/ibm/qradar-siem`
-        * `arn:aws:securityhub:${var.region}::product/imperva/imperva-attack-analytics`
-        * `arn:aws:securityhub:${var.region}::product/mcafee-skyhigh/mcafee-mvision-cloud-aws`
-        * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/redlock`
-        * `arn:aws:securityhub:${var.region}::product/paloaltonetworks/vm-series`
-        * `arn:aws:securityhub:${var.region}::product/qualys/qualys-pc`
-        * `arn:aws:securityhub:${var.region}::product/qualys/qualys-vm`
-        * `arn:aws:securityhub:${var.region}::product/rapid7/insightvm`
-        * `arn:aws:securityhub:${var.region}::product/sophos/sophos-server-protection`
-        * `arn:aws:securityhub:${var.region}::product/splunk/splunk-enterprise`
-        * `arn:aws:securityhub:${var.region}::product/splunk/splunk-phantom`
-        * `arn:aws:securityhub:${var.region}::product/sumologicinc/sumologic-mda`
-        * `arn:aws:securityhub:${var.region}::product/symantec-corp/symantec-cwp`
-        * `arn:aws:securityhub:${var.region}::product/tenable/tenable-io`
-        * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
-        * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
-        * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
-        """
         return pulumi.get(self, "product_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -14,17 +14,9 @@ public final class EventEndpointEventBusArgs extends com.pulumi.resources.Resour
 
     public static final EventEndpointEventBusArgs Empty = new EventEndpointEventBusArgs();
 
-    /**
-     * The ARN of the event bus the endpoint is associated with.
-     * 
-     */
     @Import(name="eventBusArn", required=true)
     private Output<String> eventBusArn;
 
-    /**
-     * @return The ARN of the event bus the endpoint is associated with.
-     * 
-     */
     public Output<String> eventBusArn() {
         return this.eventBusArn;
     }
@@ -53,23 +45,11 @@ public final class EventEndpointEventBusArgs extends com.pulumi.resources.Resour
             $ = new EventEndpointEventBusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventBusArn The ARN of the event bus the endpoint is associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventBusArn(Output<String> eventBusArn) {
             $.eventBusArn = eventBusArn;
             return this;
         }
 
-        /**
-         * @param eventBusArn The ARN of the event bus the endpoint is associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventBusArn(String eventBusArn) {
             return eventBusArn(Output.of(eventBusArn));
         }

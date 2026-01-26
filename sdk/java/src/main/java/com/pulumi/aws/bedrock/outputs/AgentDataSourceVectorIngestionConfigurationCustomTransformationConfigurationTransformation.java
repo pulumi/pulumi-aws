@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
-    /**
-     * @return When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-     * 
-     */
     private String stepToApply;
-    /**
-     * @return The lambda function that processes documents.
-     * 
-     */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction transformationFunction;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation() {}
-    /**
-     * @return When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-     * 
-     */
     public String stepToApply() {
         return this.stepToApply;
     }
-    /**
-     * @return The lambda function that processes documents.
-     * 
-     */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction> transformationFunction() {
         return Optional.ofNullable(this.transformationFunction);
     }

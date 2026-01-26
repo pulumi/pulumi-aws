@@ -31,12 +31,6 @@ class SourceApiAssociationArgs:
                  timeouts: Optional[pulumi.Input['SourceApiAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a SourceApiAssociation resource.
-        :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
-        :param pulumi.Input[_builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -58,9 +52,6 @@ class SourceApiAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the source API being merged.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -70,9 +61,6 @@ class SourceApiAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="mergedApiArn")
     def merged_api_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        """
         return pulumi.get(self, "merged_api_arn")
 
     @merged_api_arn.setter
@@ -82,9 +70,6 @@ class SourceApiAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="mergedApiId")
     def merged_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        """
         return pulumi.get(self, "merged_api_id")
 
     @merged_api_id.setter
@@ -94,9 +79,6 @@ class SourceApiAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -106,9 +88,6 @@ class SourceApiAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="sourceApiArn")
     def source_api_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        """
         return pulumi.get(self, "source_api_arn")
 
     @source_api_arn.setter
@@ -127,9 +106,6 @@ class SourceApiAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="sourceApiId")
     def source_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        """
         return pulumi.get(self, "source_api_id")
 
     @source_api_id.setter
@@ -161,14 +137,6 @@ class _SourceApiAssociationState:
                  timeouts: Optional[pulumi.Input['SourceApiAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering SourceApiAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Source API Association.
-        :param pulumi.Input[_builtins.str] association_id: ID of the Source API Association.
-        :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
-        :param pulumi.Input[_builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -194,9 +162,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Source API Association.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -206,9 +171,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Source API Association.
-        """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
@@ -218,9 +180,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the source API being merged.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -230,9 +189,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter(name="mergedApiArn")
     def merged_api_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        """
         return pulumi.get(self, "merged_api_arn")
 
     @merged_api_arn.setter
@@ -242,9 +198,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter(name="mergedApiId")
     def merged_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        """
         return pulumi.get(self, "merged_api_id")
 
     @merged_api_id.setter
@@ -254,9 +207,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -266,9 +216,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter(name="sourceApiArn")
     def source_api_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        """
         return pulumi.get(self, "source_api_arn")
 
     @source_api_arn.setter
@@ -287,9 +234,6 @@ class _SourceApiAssociationState:
     @_builtins.property
     @pulumi.getter(name="sourceApiId")
     def source_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        """
         return pulumi.get(self, "source_api_id")
 
     @source_api_id.setter
@@ -322,38 +266,9 @@ class SourceApiAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['SourceApiAssociationTimeoutsArgs', 'SourceApiAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS AppSync Source API Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.appsync.SourceApiAssociation("test",
-            description="My source API Merged",
-            merged_api_id="gzos6bteufdunffzzifiowisoe",
-            source_api_id="fzzifiowisoegzos6bteufdunf")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
-        ```
-
+        Create a SourceApiAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
-        :param pulumi.Input[_builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
         ...
     @overload
@@ -362,30 +277,7 @@ class SourceApiAssociation(pulumi.CustomResource):
                  args: Optional[SourceApiAssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS AppSync Source API Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.appsync.SourceApiAssociation("test",
-            description="My source API Merged",
-            merged_api_id="gzos6bteufdunffzzifiowisoe",
-            source_api_id="fzzifiowisoegzos6bteufdunf")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
-        ```
-
+        Create a SourceApiAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SourceApiAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -455,14 +347,6 @@ class SourceApiAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Source API Association.
-        :param pulumi.Input[_builtins.str] association_id: ID of the Source API Association.
-        :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
-        :param pulumi.Input[_builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        :param pulumi.Input[_builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -483,57 +367,36 @@ class SourceApiAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Source API Association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Source API Association.
-        """
         return pulumi.get(self, "association_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the source API being merged.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="mergedApiArn")
     def merged_api_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        """
         return pulumi.get(self, "merged_api_arn")
 
     @_builtins.property
     @pulumi.getter(name="mergedApiId")
     def merged_api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        """
         return pulumi.get(self, "merged_api_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceApiArn")
     def source_api_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        """
         return pulumi.get(self, "source_api_arn")
 
     @_builtins.property
@@ -544,9 +407,6 @@ class SourceApiAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="sourceApiId")
     def source_api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
-        """
         return pulumi.get(self, "source_api_id")
 
     @_builtins.property

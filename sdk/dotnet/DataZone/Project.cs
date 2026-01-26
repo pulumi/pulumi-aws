@@ -9,129 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataZone
 {
-    /// <summary>
-    /// Resource for managing an AWS DataZone Project.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.DataZone.Project("test", new()
-    ///     {
-    ///         DomainId = testAwsDatazoneDomain.Id,
-    ///         GlossaryTerms = new[]
-    ///         {
-    ///             "2N8w6XJCwZf",
-    ///         },
-    ///         Name = "name",
-    ///         Description = "desc",
-    ///         SkipDeletionCheck = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.DataZone.Project("test", new()
-    ///     {
-    ///         DomainIdentifier = testAwsDatazoneDomain.Id,
-    ///         Name = "name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:datazone/project:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Timestamp of when the project was made.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Creator of the project.
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of project.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// List of error messages if operation cannot be completed.
-        /// </summary>
         [Output("failureReasons")]
         public Output<ImmutableArray<Outputs.ProjectFailureReason>> FailureReasons { get; private set; } = null!;
 
-        /// <summary>
-        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        /// </summary>
         [Output("glossaryTerms")]
         public Output<ImmutableArray<string>> GlossaryTerms { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp of when the project was last updated.
-        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        /// </summary>
         [Output("projectStatus")]
         public Output<string> ProjectStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Optional flag to delete all child entities within the project.
-        /// </summary>
         [Output("skipDeletionCheck")]
         public Output<bool?> SkipDeletionCheck { get; private set; } = null!;
 
@@ -184,47 +94,26 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of project.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
         [Input("glossaryTerms")]
         private InputList<string>? _glossaryTerms;
-
-        /// <summary>
-        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        /// </summary>
         public InputList<string> GlossaryTerms
         {
             get => _glossaryTerms ?? (_glossaryTerms = new InputList<string>());
             set => _glossaryTerms = value;
         }
 
-        /// <summary>
-        /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Optional flag to delete all child entities within the project.
-        /// </summary>
         [Input("skipDeletionCheck")]
         public Input<bool>? SkipDeletionCheck { get; set; }
 
@@ -239,36 +128,20 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Timestamp of when the project was made.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Creator of the project.
-        /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
-        /// <summary>
-        /// Description of project.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
 
         [Input("failureReasons")]
         private InputList<Inputs.ProjectFailureReasonGetArgs>? _failureReasons;
-
-        /// <summary>
-        /// List of error messages if operation cannot be completed.
-        /// </summary>
         public InputList<Inputs.ProjectFailureReasonGetArgs> FailureReasons
         {
             get => _failureReasons ?? (_failureReasons = new InputList<Inputs.ProjectFailureReasonGetArgs>());
@@ -277,45 +150,24 @@ namespace Pulumi.Aws.DataZone
 
         [Input("glossaryTerms")]
         private InputList<string>? _glossaryTerms;
-
-        /// <summary>
-        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        /// </summary>
         public InputList<string> GlossaryTerms
         {
             get => _glossaryTerms ?? (_glossaryTerms = new InputList<string>());
             set => _glossaryTerms = value;
         }
 
-        /// <summary>
-        /// Timestamp of when the project was last updated.
-        /// </summary>
         [Input("lastUpdatedAt")]
         public Input<string>? LastUpdatedAt { get; set; }
 
-        /// <summary>
-        /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        /// </summary>
         [Input("projectStatus")]
         public Input<string>? ProjectStatus { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Optional flag to delete all child entities within the project.
-        /// </summary>
         [Input("skipDeletionCheck")]
         public Input<bool>? SkipDeletionCheck { get; set; }
 

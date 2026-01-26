@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission.
- * Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {certificateAuthorityConfiguration: {
- *     keyAlgorithm: "RSA_4096",
- *     signingAlgorithm: "SHA512WITHRSA",
- *     subject: {
- *         commonName: "example.com",
- *     },
- * }});
- * const example = new aws.acmpca.Permission("example", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     actions: [
- *         "IssueCertificate",
- *         "GetCertificate",
- *         "ListPermissions",
- *     ],
- *     principal: "acm.amazonaws.com",
- * });
- * ```
- */
 export class Permission extends pulumi.CustomResource {
     /**
      * Get an existing Permission resource's state with the given name, ID, and optional extra
@@ -60,29 +32,11 @@ export class Permission extends pulumi.CustomResource {
         return obj['__pulumiType'] === Permission.__pulumiType;
     }
 
-    /**
-     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     */
     declare public readonly actions: pulumi.Output<string[]>;
-    /**
-     * ARN of the CA that grants the permissions.
-     */
     declare public readonly certificateAuthorityArn: pulumi.Output<string>;
-    /**
-     * IAM policy that is associated with the permission.
-     */
     declare public /*out*/ readonly policy: pulumi.Output<string>;
-    /**
-     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     */
     declare public readonly principal: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the calling account
-     */
     declare public readonly sourceAccount: pulumi.Output<string>;
 
     /**
@@ -131,29 +85,11 @@ export class Permission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Permission resources.
  */
 export interface PermissionState {
-    /**
-     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     */
     actions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ARN of the CA that grants the permissions.
-     */
     certificateAuthorityArn?: pulumi.Input<string>;
-    /**
-     * IAM policy that is associated with the permission.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     */
     principal?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the calling account
-     */
     sourceAccount?: pulumi.Input<string>;
 }
 
@@ -161,24 +97,9 @@ export interface PermissionState {
  * The set of arguments for constructing a Permission resource.
  */
 export interface PermissionArgs {
-    /**
-     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     */
     actions: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ARN of the CA that grants the permissions.
-     */
     certificateAuthorityArn: pulumi.Input<string>;
-    /**
-     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     */
     principal: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the calling account
-     */
     sourceAccount?: pulumi.Input<string>;
 }

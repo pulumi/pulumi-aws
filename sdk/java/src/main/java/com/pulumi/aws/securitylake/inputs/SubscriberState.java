@@ -20,227 +20,107 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
 
     public static final SubscriberState Empty = new SubscriberState();
 
-    /**
-     * The Amazon S3 or Lake Formation access type.
-     * 
-     */
     @Import(name="accessType")
     private @Nullable Output<String> accessType;
 
-    /**
-     * @return The Amazon S3 or Lake Formation access type.
-     * 
-     */
     public Optional<Output<String>> accessType() {
         return Optional.ofNullable(this.accessType);
     }
 
-    /**
-     * ARN of the Data Lake.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Data Lake.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-     * 
-     */
     @Import(name="resourceShareArn")
     private @Nullable Output<String> resourceShareArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-     * 
-     */
     public Optional<Output<String>> resourceShareArn() {
         return Optional.ofNullable(this.resourceShareArn);
     }
 
-    /**
-     * The name of the resource share.
-     * 
-     */
     @Import(name="resourceShareName")
     private @Nullable Output<String> resourceShareName;
 
-    /**
-     * @return The name of the resource share.
-     * 
-     */
     public Optional<Output<String>> resourceShareName() {
         return Optional.ofNullable(this.resourceShareName);
     }
 
-    /**
-     * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * The ARN for the Amazon Security Lake Amazon S3 bucket.
-     * 
-     */
     @Import(name="s3BucketArn")
     private @Nullable Output<String> s3BucketArn;
 
-    /**
-     * @return The ARN for the Amazon Security Lake Amazon S3 bucket.
-     * 
-     */
     public Optional<Output<String>> s3BucketArn() {
         return Optional.ofNullable(this.s3BucketArn);
     }
 
-    /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-     * 
-     */
     @Import(name="sources")
     private @Nullable Output<List<SubscriberSourceArgs>> sources;
 
-    /**
-     * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-     * 
-     */
     public Optional<Output<List<SubscriberSourceArgs>>> sources() {
         return Optional.ofNullable(this.sources);
     }
 
-    /**
-     * The description for your subscriber account in Security Lake.
-     * 
-     */
     @Import(name="subscriberDescription")
     private @Nullable Output<String> subscriberDescription;
 
-    /**
-     * @return The description for your subscriber account in Security Lake.
-     * 
-     */
     public Optional<Output<String>> subscriberDescription() {
         return Optional.ofNullable(this.subscriberDescription);
     }
 
-    /**
-     * The subscriber endpoint to which exception messages are posted.
-     * 
-     */
     @Import(name="subscriberEndpoint")
     private @Nullable Output<String> subscriberEndpoint;
 
-    /**
-     * @return The subscriber endpoint to which exception messages are posted.
-     * 
-     */
     public Optional<Output<String>> subscriberEndpoint() {
         return Optional.ofNullable(this.subscriberEndpoint);
     }
 
-    /**
-     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
-     * 
-     */
     @Import(name="subscriberIdentity")
     private @Nullable Output<SubscriberSubscriberIdentityArgs> subscriberIdentity;
 
-    /**
-     * @return The AWS identity used to access your data. See `subscriberIdentity` Block below.
-     * 
-     */
     public Optional<Output<SubscriberSubscriberIdentityArgs>> subscriberIdentity() {
         return Optional.ofNullable(this.subscriberIdentity);
     }
 
-    /**
-     * The name of your Security Lake subscriber account.
-     * 
-     */
     @Import(name="subscriberName")
     private @Nullable Output<String> subscriberName;
 
-    /**
-     * @return The name of your Security Lake subscriber account.
-     * 
-     */
     public Optional<Output<String>> subscriberName() {
         return Optional.ofNullable(this.subscriberName);
     }
 
-    /**
-     * The subscriber status of the Amazon Security Lake subscriber account.
-     * 
-     */
     @Import(name="subscriberStatus")
     private @Nullable Output<String> subscriberStatus;
 
-    /**
-     * @return The subscriber status of the Amazon Security Lake subscriber account.
-     * 
-     */
     public Optional<Output<String>> subscriberStatus() {
         return Optional.ofNullable(this.subscriberStatus);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -291,327 +171,141 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
             $ = new SubscriberState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessType The Amazon S3 or Lake Formation access type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessType(@Nullable Output<String> accessType) {
             $.accessType = accessType;
             return this;
         }
 
-        /**
-         * @param accessType The Amazon S3 or Lake Formation access type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessType(String accessType) {
             return accessType(Output.of(accessType));
         }
 
-        /**
-         * @param arn ARN of the Data Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Data Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareArn(@Nullable Output<String> resourceShareArn) {
             $.resourceShareArn = resourceShareArn;
             return this;
         }
 
-        /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareArn(String resourceShareArn) {
             return resourceShareArn(Output.of(resourceShareArn));
         }
 
-        /**
-         * @param resourceShareName The name of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareName(@Nullable Output<String> resourceShareName) {
             $.resourceShareName = resourceShareName;
             return this;
         }
 
-        /**
-         * @param resourceShareName The name of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareName(String resourceShareName) {
             return resourceShareName(Output.of(resourceShareName));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param s3BucketArn The ARN for the Amazon Security Lake Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketArn(@Nullable Output<String> s3BucketArn) {
             $.s3BucketArn = s3BucketArn;
             return this;
         }
 
-        /**
-         * @param s3BucketArn The ARN for the Amazon Security Lake Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketArn(String s3BucketArn) {
             return s3BucketArn(Output.of(s3BucketArn));
         }
 
-        /**
-         * @param sources The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(@Nullable Output<List<SubscriberSourceArgs>> sources) {
             $.sources = sources;
             return this;
         }
 
-        /**
-         * @param sources The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(List<SubscriberSourceArgs> sources) {
             return sources(Output.of(sources));
         }
 
-        /**
-         * @param sources The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(SubscriberSourceArgs... sources) {
             return sources(List.of(sources));
         }
 
-        /**
-         * @param subscriberDescription The description for your subscriber account in Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberDescription(@Nullable Output<String> subscriberDescription) {
             $.subscriberDescription = subscriberDescription;
             return this;
         }
 
-        /**
-         * @param subscriberDescription The description for your subscriber account in Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberDescription(String subscriberDescription) {
             return subscriberDescription(Output.of(subscriberDescription));
         }
 
-        /**
-         * @param subscriberEndpoint The subscriber endpoint to which exception messages are posted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberEndpoint(@Nullable Output<String> subscriberEndpoint) {
             $.subscriberEndpoint = subscriberEndpoint;
             return this;
         }
 
-        /**
-         * @param subscriberEndpoint The subscriber endpoint to which exception messages are posted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberEndpoint(String subscriberEndpoint) {
             return subscriberEndpoint(Output.of(subscriberEndpoint));
         }
 
-        /**
-         * @param subscriberIdentity The AWS identity used to access your data. See `subscriberIdentity` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberIdentity(@Nullable Output<SubscriberSubscriberIdentityArgs> subscriberIdentity) {
             $.subscriberIdentity = subscriberIdentity;
             return this;
         }
 
-        /**
-         * @param subscriberIdentity The AWS identity used to access your data. See `subscriberIdentity` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberIdentity(SubscriberSubscriberIdentityArgs subscriberIdentity) {
             return subscriberIdentity(Output.of(subscriberIdentity));
         }
 
-        /**
-         * @param subscriberName The name of your Security Lake subscriber account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberName(@Nullable Output<String> subscriberName) {
             $.subscriberName = subscriberName;
             return this;
         }
 
-        /**
-         * @param subscriberName The name of your Security Lake subscriber account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberName(String subscriberName) {
             return subscriberName(Output.of(subscriberName));
         }
 
-        /**
-         * @param subscriberStatus The subscriber status of the Amazon Security Lake subscriber account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberStatus(@Nullable Output<String> subscriberStatus) {
             $.subscriberStatus = subscriberStatus;
             return this;
         }
 
-        /**
-         * @param subscriberStatus The subscriber status of the Amazon Security Lake subscriber account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberStatus(String subscriberStatus) {
             return subscriberStatus(Output.of(subscriberStatus));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

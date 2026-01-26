@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Fms.Outputs
     [OutputType]
     public sealed class PolicySecurityServicePolicyData
     {
-        /// <summary>
-        /// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `Type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-        /// </summary>
         public readonly string? ManagedServiceData;
-        /// <summary>
-        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `PolicyOption` block.
-        /// </summary>
         public readonly Outputs.PolicySecurityServicePolicyDataPolicyOption? PolicyOption;
-        /// <summary>
-        /// An integer value containing ICMP type.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

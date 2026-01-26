@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an GameLift Build resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.gamelift.Build("test", {
- *     name: "example-build",
- *     operatingSystem: "WINDOWS_2012",
- *     storageLocation: {
- *         bucket: testAwsS3Bucket.id,
- *         key: testAwsS3Object.key,
- *         roleArn: testAwsIamRole.arn,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import GameLift Builds using the ID. For example:
- *
- * ```sh
- * $ pulumi import aws:gamelift/build:Build example <build-id>
- * ```
- */
 export class Build extends pulumi.CustomResource {
     /**
      * Get an existing Build resource's state with the given name, ID, and optional extra
@@ -63,37 +35,13 @@ export class Build extends pulumi.CustomResource {
         return obj['__pulumiType'] === Build.__pulumiType;
     }
 
-    /**
-     * GameLift Build ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the build
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
-     */
     declare public readonly operatingSystem: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Information indicating where your game build files are stored. See below.
-     */
     declare public readonly storageLocation: pulumi.Output<outputs.gamelift.BuildStorageLocation>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Version that is associated with this build.
-     */
     declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
@@ -143,37 +91,13 @@ export class Build extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Build resources.
  */
 export interface BuildState {
-    /**
-     * GameLift Build ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the build
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
-     */
     operatingSystem?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Information indicating where your game build files are stored. See below.
-     */
     storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Version that is associated with this build.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -181,28 +105,10 @@ export interface BuildState {
  * The set of arguments for constructing a Build resource.
  */
 export interface BuildArgs {
-    /**
-     * Name of the build
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
-     */
     operatingSystem: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Information indicating where your game build files are stored. See below.
-     */
     storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Version that is associated with this build.
-     */
     version?: pulumi.Input<string>;
 }

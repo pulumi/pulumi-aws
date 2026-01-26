@@ -68,9 +68,6 @@ class GetSchedulingPolicyResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the scheduling policy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -81,9 +78,6 @@ class GetSchedulingPolicyResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags
-        """
         return pulumi.get(self, "tags")
 
 
@@ -106,21 +100,7 @@ def get_scheduling_policy(arn: Optional[_builtins.str] = None,
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchedulingPolicyResult:
     """
-    The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the scheduling policy.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -141,21 +121,7 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = No
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
-    The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the scheduling policy.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

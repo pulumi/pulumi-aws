@@ -15,17 +15,9 @@ public final class AgentPromptVariantGenAiResourceArgs extends com.pulumi.resour
 
     public static final AgentPromptVariantGenAiResourceArgs Empty = new AgentPromptVariantGenAiResourceArgs();
 
-    /**
-     * Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-     * 
-     */
     @Import(name="agent")
     private @Nullable Output<AgentPromptVariantGenAiResourceAgentArgs> agent;
 
-    /**
-     * @return Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantGenAiResourceAgentArgs>> agent() {
         return Optional.ofNullable(this.agent);
     }
@@ -54,23 +46,11 @@ public final class AgentPromptVariantGenAiResourceArgs extends com.pulumi.resour
             $ = new AgentPromptVariantGenAiResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agent Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agent(@Nullable Output<AgentPromptVariantGenAiResourceAgentArgs> agent) {
             $.agent = agent;
             return this;
         }
 
-        /**
-         * @param agent Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agent(AgentPromptVariantGenAiResourceAgentArgs agent) {
             return agent(Output.of(agent));
         }

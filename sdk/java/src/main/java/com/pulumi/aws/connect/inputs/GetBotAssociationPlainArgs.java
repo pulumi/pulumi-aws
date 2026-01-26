@@ -16,47 +16,23 @@ public final class GetBotAssociationPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetBotAssociationPlainArgs Empty = new GetBotAssociationPlainArgs();
 
-    /**
-     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-     * 
-     */
     @Import(name="instanceId", required=true)
     private String instanceId;
 
-    /**
-     * @return Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Configuration information of an Amazon Lex (V1) bot. Detailed below.
-     * 
-     */
     @Import(name="lexBot", required=true)
     private GetBotAssociationLexBot lexBot;
 
-    /**
-     * @return Configuration information of an Amazon Lex (V1) bot. Detailed below.
-     * 
-     */
     public GetBotAssociationLexBot lexBot() {
         return this.lexBot;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,34 +63,16 @@ public final class GetBotAssociationPlainArgs extends com.pulumi.resources.Invok
             $ = new GetBotAssociationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param lexBot Configuration information of an Amazon Lex (V1) bot. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lexBot(GetBotAssociationLexBot lexBot) {
             $.lexBot = lexBot;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

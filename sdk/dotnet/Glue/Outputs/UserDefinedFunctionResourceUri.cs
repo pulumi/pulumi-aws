@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class UserDefinedFunctionResourceUri
     {
-        /// <summary>
-        /// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
-        /// </summary>
         public readonly string ResourceType;
-        /// <summary>
-        /// The URI for accessing the resource.
-        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

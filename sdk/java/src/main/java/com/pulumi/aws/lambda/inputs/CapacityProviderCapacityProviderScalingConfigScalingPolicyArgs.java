@@ -15,32 +15,16 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
 
     public static final CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs Empty = new CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs();
 
-    /**
-     * The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-     * 
-     */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
-    /**
-     * @return The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-     * 
-     */
     public Output<String> predefinedMetricType() {
         return this.predefinedMetricType;
     }
 
-    /**
-     * The target value for the scaling policy.
-     * 
-     */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
-    /**
-     * @return The target value for the scaling policy.
-     * 
-     */
     public Output<Double> targetValue() {
         return this.targetValue;
     }
@@ -70,44 +54,20 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
             $ = new CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param predefinedMetricType The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(Output<String> predefinedMetricType) {
             $.predefinedMetricType = predefinedMetricType;
             return this;
         }
 
-        /**
-         * @param predefinedMetricType The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(String predefinedMetricType) {
             return predefinedMetricType(Output.of(predefinedMetricType));
         }
 
-        /**
-         * @param targetValue The target value for the scaling policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Output<Double> targetValue) {
             $.targetValue = targetValue;
             return this;
         }
 
-        /**
-         * @param targetValue The target value for the scaling policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Double targetValue) {
             return targetValue(Output.of(targetValue));
         }

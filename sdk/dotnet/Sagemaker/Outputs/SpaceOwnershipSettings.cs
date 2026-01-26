@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class SpaceOwnershipSettings
     {
-        /// <summary>
-        /// The user profile who is the owner of the private space.
-        /// </summary>
         public readonly string OwnerUserProfileName;
 
         [OutputConstructor]

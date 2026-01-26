@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Synthetics Group Association resource.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.synthetics.GroupAssociation("example", {
- *     groupName: exampleAwsSyntheticsGroup.name,
- *     canaryArn: exampleAwsSyntheticsCanary.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
- * ```
- */
 export class GroupAssociation extends pulumi.CustomResource {
     /**
      * Get an existing GroupAssociation resource's state with the given name, ID, and optional extra
@@ -57,22 +32,10 @@ export class GroupAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the canary.
-     */
     declare public readonly canaryArn: pulumi.Output<string>;
     declare public /*out*/ readonly groupArn: pulumi.Output<string>;
-    /**
-     * ID of the Group.
-     */
     declare public /*out*/ readonly groupId: pulumi.Output<string>;
-    /**
-     * Name of the group that the canary will be associated with.
-     */
     declare public readonly groupName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -116,22 +79,10 @@ export class GroupAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupAssociation resources.
  */
 export interface GroupAssociationState {
-    /**
-     * ARN of the canary.
-     */
     canaryArn?: pulumi.Input<string>;
     groupArn?: pulumi.Input<string>;
-    /**
-     * ID of the Group.
-     */
     groupId?: pulumi.Input<string>;
-    /**
-     * Name of the group that the canary will be associated with.
-     */
     groupName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -139,16 +90,7 @@ export interface GroupAssociationState {
  * The set of arguments for constructing a GroupAssociation resource.
  */
 export interface GroupAssociationArgs {
-    /**
-     * ARN of the canary.
-     */
     canaryArn: pulumi.Input<string>;
-    /**
-     * Name of the group that the canary will be associated with.
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

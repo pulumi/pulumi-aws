@@ -17,32 +17,16 @@ public final class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity
 
     public static final S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs Empty = new S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs();
 
-    /**
-     * UID and GIDs of the file system POSIX user. See `posixUser` Block for details.
-     * 
-     */
     @Import(name="posixUser")
     private @Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs> posixUser;
 
-    /**
-     * @return UID and GIDs of the file system POSIX user. See `posixUser` Block for details.
-     * 
-     */
     public Optional<Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs>> posixUser() {
         return Optional.ofNullable(this.posixUser);
     }
 
-    /**
-     * FSx for OpenZFS user identity type. Valid values: `POSIX`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return FSx for OpenZFS user identity type. Valid values: `POSIX`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,44 +56,20 @@ public final class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity
             $ = new S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param posixUser UID and GIDs of the file system POSIX user. See `posixUser` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder posixUser(@Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs> posixUser) {
             $.posixUser = posixUser;
             return this;
         }
 
-        /**
-         * @param posixUser UID and GIDs of the file system POSIX user. See `posixUser` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder posixUser(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs posixUser) {
             return posixUser(Output.of(posixUser));
         }
 
-        /**
-         * @param type FSx for OpenZFS user identity type. Valid values: `POSIX`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type FSx for OpenZFS user identity type. Valid values: `POSIX`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

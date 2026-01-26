@@ -16,32 +16,16 @@ public final class GetGatewayPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGatewayPlainArgs Empty = new GetGatewayPlainArgs();
 
-    /**
-     * Name of the gateway to retrieve.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the gateway to retrieve.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * A map of tags assigned to the gateway.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return A map of tags assigned to the gateway.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,23 +55,11 @@ public final class GetGatewayPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGatewayPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the gateway to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param tags A map of tags assigned to the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

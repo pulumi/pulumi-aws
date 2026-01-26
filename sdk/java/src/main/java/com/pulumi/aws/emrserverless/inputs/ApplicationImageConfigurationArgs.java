@@ -14,17 +14,9 @@ public final class ApplicationImageConfigurationArgs extends com.pulumi.resource
 
     public static final ApplicationImageConfigurationArgs Empty = new ApplicationImageConfigurationArgs();
 
-    /**
-     * The image URI.
-     * 
-     */
     @Import(name="imageUri", required=true)
     private Output<String> imageUri;
 
-    /**
-     * @return The image URI.
-     * 
-     */
     public Output<String> imageUri() {
         return this.imageUri;
     }
@@ -53,23 +45,11 @@ public final class ApplicationImageConfigurationArgs extends com.pulumi.resource
             $ = new ApplicationImageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageUri The image URI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUri(Output<String> imageUri) {
             $.imageUri = imageUri;
             return this;
         }
 
-        /**
-         * @param imageUri The image URI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUri(String imageUri) {
             return imageUri(Output.of(imageUri));
         }

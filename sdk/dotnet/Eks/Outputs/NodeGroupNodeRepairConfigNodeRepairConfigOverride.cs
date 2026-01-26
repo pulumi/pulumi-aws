@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class NodeGroupNodeRepairConfigNodeRepairConfigOverride
     {
-        /// <summary>
-        /// Minimum time in minutes to wait before attempting to repair a node with the specified `NodeMonitoringCondition` and `NodeUnhealthyReason`.
-        /// </summary>
         public readonly int MinRepairWaitTimeMins;
-        /// <summary>
-        /// Unhealthy condition reported by the node monitoring agent that this override applies to.
-        /// </summary>
         public readonly string NodeMonitoringCondition;
-        /// <summary>
-        /// Reason reported by the node monitoring agent that this override applies to.
-        /// </summary>
         public readonly string NodeUnhealthyReason;
-        /// <summary>
-        /// Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-        /// </summary>
         public readonly string RepairAction;
 
         [OutputConstructor]

@@ -59,33 +59,21 @@ class GetCachePolicyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The cache policy ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> _builtins.str:
-        """
-        Comment to describe the cache policy.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> _builtins.int:
-        """
-        Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        """
         return pulumi.get(self, "default_ttl")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> _builtins.str:
-        """
-        Current version of the cache policy.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
@@ -96,17 +84,11 @@ class GetCachePolicyResult:
     @_builtins.property
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> _builtins.int:
-        """
-        Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        """
         return pulumi.get(self, "max_ttl")
 
     @_builtins.property
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> _builtins.int:
-        """
-        Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        """
         return pulumi.get(self, "min_ttl")
 
     @_builtins.property
@@ -117,9 +99,6 @@ class GetCachePolicyResult:
     @_builtins.property
     @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigins")
     def parameters_in_cache_key_and_forwarded_to_origins(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult']:
-        """
-        The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
-        """
         return pulumi.get(self, "parameters_in_cache_key_and_forwarded_to_origins")
 
 
@@ -144,34 +123,7 @@ def get_cache_policy(id: Optional[_builtins.str] = None,
                      name: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCachePolicyResult:
     """
-    Use this data source to retrieve information about a CloudFront cache policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="example-policy")
-    ```
-
-    ### AWS-Managed Policies
-
-    AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example1 = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
-    example2 = aws.cloudfront.get_cache_policy(name="UseOriginCacheControlHeaders")
-    ```
-
-
-    :param _builtins.str id: Identifier for the cache policy.
-    :param _builtins.str name: Unique name to identify the cache policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -193,34 +145,7 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] 
                             name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
-    Use this data source to retrieve information about a CloudFront cache policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="example-policy")
-    ```
-
-    ### AWS-Managed Policies
-
-    AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example1 = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
-    example2 = aws.cloudfront.get_cache_policy(name="UseOriginCacheControlHeaders")
-    ```
-
-
-    :param _builtins.str id: Identifier for the cache policy.
-    :param _builtins.str name: Unique name to identify the cache policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -29,96 +29,44 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.deletionWindowInDays);
     }
 
-    /**
-     * Whether to enable the key.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable the key.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Whether the key is exportable from the service.
-     * 
-     */
     @Import(name="exportable", required=true)
     private Output<Boolean> exportable;
 
-    /**
-     * @return Whether the key is exportable from the service.
-     * 
-     */
     public Output<Boolean> exportable() {
         return this.exportable;
     }
 
-    /**
-     * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="keyAttributes")
     private @Nullable Output<List<KeyKeyAttributeArgs>> keyAttributes;
 
-    /**
-     * @return Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<KeyKeyAttributeArgs>>> keyAttributes() {
         return Optional.ofNullable(this.keyAttributes);
     }
 
-    /**
-     * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-     * 
-     */
     @Import(name="keyCheckValueAlgorithm")
     private @Nullable Output<String> keyCheckValueAlgorithm;
 
-    /**
-     * @return Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-     * 
-     */
     public Optional<Output<String>> keyCheckValueAlgorithm() {
         return Optional.ofNullable(this.keyCheckValueAlgorithm);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -170,144 +118,60 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
             return deletionWindowInDays(Output.of(deletionWindowInDays));
         }
 
-        /**
-         * @param enabled Whether to enable the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param exportable Whether the key is exportable from the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportable(Output<Boolean> exportable) {
             $.exportable = exportable;
             return this;
         }
 
-        /**
-         * @param exportable Whether the key is exportable from the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportable(Boolean exportable) {
             return exportable(Output.of(exportable));
         }
 
-        /**
-         * @param keyAttributes Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyAttributes(@Nullable Output<List<KeyKeyAttributeArgs>> keyAttributes) {
             $.keyAttributes = keyAttributes;
             return this;
         }
 
-        /**
-         * @param keyAttributes Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyAttributes(List<KeyKeyAttributeArgs> keyAttributes) {
             return keyAttributes(Output.of(keyAttributes));
         }
 
-        /**
-         * @param keyAttributes Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyAttributes(KeyKeyAttributeArgs... keyAttributes) {
             return keyAttributes(List.of(keyAttributes));
         }
 
-        /**
-         * @param keyCheckValueAlgorithm Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyCheckValueAlgorithm(@Nullable Output<String> keyCheckValueAlgorithm) {
             $.keyCheckValueAlgorithm = keyCheckValueAlgorithm;
             return this;
         }
 
-        /**
-         * @param keyCheckValueAlgorithm Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyCheckValueAlgorithm(String keyCheckValueAlgorithm) {
             return keyCheckValueAlgorithm(Output.of(keyCheckValueAlgorithm));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

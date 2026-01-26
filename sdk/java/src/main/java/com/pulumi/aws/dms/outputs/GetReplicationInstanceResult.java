@@ -14,116 +14,40 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationInstanceResult {
-    /**
-     * @return The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-     * 
-     */
     private Integer allocatedStorage;
-    /**
-     * @return Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
-     * 
-     */
     private Boolean autoMinorVersionUpgrade;
-    /**
-     * @return The EC2 Availability Zone that the replication instance will be created in.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return The engine version number of the replication instance.
-     * 
-     */
     private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return Specifies if the replication instance is a multi-az deployment.
-     * 
-     */
     private Boolean multiAz;
-    /**
-     * @return The type of IP address protocol used by the replication instance.
-     * 
-     */
     private String networkType;
-    /**
-     * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
-     */
     private String preferredMaintenanceWindow;
-    /**
-     * @return Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-     * 
-     */
     private Boolean publiclyAccessible;
     private String region;
-    /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
-     * 
-     */
     private String replicationInstanceArn;
-    /**
-     * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
-     * 
-     */
     private String replicationInstanceClass;
     private String replicationInstanceId;
-    /**
-     * @return A list of the private IP addresses of the replication instance.
-     * 
-     */
     private List<String> replicationInstancePrivateIps;
-    /**
-     * @return A list of the public IP addresses of the replication instance.
-     * 
-     */
     private List<String> replicationInstancePublicIps;
-    /**
-     * @return A subnet group to associate with the replication instance.
-     * 
-     */
     private String replicationSubnetGroupId;
     private Map<String,String> tags;
-    /**
-     * @return A set of VPC security group IDs that are used with the replication instance.
-     * 
-     */
     private List<String> vpcSecurityGroupIds;
 
     private GetReplicationInstanceResult() {}
-    /**
-     * @return The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-     * 
-     */
     public Integer allocatedStorage() {
         return this.allocatedStorage;
     }
-    /**
-     * @return Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
-     * 
-     */
     public Boolean autoMinorVersionUpgrade() {
         return this.autoMinorVersionUpgrade;
     }
-    /**
-     * @return The EC2 Availability Zone that the replication instance will be created in.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return The engine version number of the replication instance.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
@@ -134,89 +58,45 @@ public final class GetReplicationInstanceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return Specifies if the replication instance is a multi-az deployment.
-     * 
-     */
     public Boolean multiAz() {
         return this.multiAz;
     }
-    /**
-     * @return The type of IP address protocol used by the replication instance.
-     * 
-     */
     public String networkType() {
         return this.networkType;
     }
-    /**
-     * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
-     */
     public String preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
     }
-    /**
-     * @return Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-     * 
-     */
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
-     * 
-     */
     public String replicationInstanceArn() {
         return this.replicationInstanceArn;
     }
-    /**
-     * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
-     * 
-     */
     public String replicationInstanceClass() {
         return this.replicationInstanceClass;
     }
     public String replicationInstanceId() {
         return this.replicationInstanceId;
     }
-    /**
-     * @return A list of the private IP addresses of the replication instance.
-     * 
-     */
     public List<String> replicationInstancePrivateIps() {
         return this.replicationInstancePrivateIps;
     }
-    /**
-     * @return A list of the public IP addresses of the replication instance.
-     * 
-     */
     public List<String> replicationInstancePublicIps() {
         return this.replicationInstancePublicIps;
     }
-    /**
-     * @return A subnet group to associate with the replication instance.
-     * 
-     */
     public String replicationSubnetGroupId() {
         return this.replicationSubnetGroupId;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return A set of VPC security group IDs that are used with the replication instance.
-     * 
-     */
     public List<String> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }

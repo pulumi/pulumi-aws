@@ -19,62 +19,30 @@ public final class DashboardParametersArgs extends com.pulumi.resources.Resource
 
     public static final DashboardParametersArgs Empty = new DashboardParametersArgs();
 
-    /**
-     * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-     * 
-     */
     @Import(name="dateTimeParameters")
     private @Nullable Output<List<DashboardParametersDateTimeParameterArgs>> dateTimeParameters;
 
-    /**
-     * @return A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-     * 
-     */
     public Optional<Output<List<DashboardParametersDateTimeParameterArgs>>> dateTimeParameters() {
         return Optional.ofNullable(this.dateTimeParameters);
     }
 
-    /**
-     * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-     * 
-     */
     @Import(name="decimalParameters")
     private @Nullable Output<List<DashboardParametersDecimalParameterArgs>> decimalParameters;
 
-    /**
-     * @return A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-     * 
-     */
     public Optional<Output<List<DashboardParametersDecimalParameterArgs>>> decimalParameters() {
         return Optional.ofNullable(this.decimalParameters);
     }
 
-    /**
-     * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-     * 
-     */
     @Import(name="integerParameters")
     private @Nullable Output<List<DashboardParametersIntegerParameterArgs>> integerParameters;
 
-    /**
-     * @return A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-     * 
-     */
     public Optional<Output<List<DashboardParametersIntegerParameterArgs>>> integerParameters() {
         return Optional.ofNullable(this.integerParameters);
     }
 
-    /**
-     * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-     * 
-     */
     @Import(name="stringParameters")
     private @Nullable Output<List<DashboardParametersStringParameterArgs>> stringParameters;
 
-    /**
-     * @return A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-     * 
-     */
     public Optional<Output<List<DashboardParametersStringParameterArgs>>> stringParameters() {
         return Optional.ofNullable(this.stringParameters);
     }
@@ -106,126 +74,54 @@ public final class DashboardParametersArgs extends com.pulumi.resources.Resource
             $ = new DashboardParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dateTimeParameters A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dateTimeParameters(@Nullable Output<List<DashboardParametersDateTimeParameterArgs>> dateTimeParameters) {
             $.dateTimeParameters = dateTimeParameters;
             return this;
         }
 
-        /**
-         * @param dateTimeParameters A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dateTimeParameters(List<DashboardParametersDateTimeParameterArgs> dateTimeParameters) {
             return dateTimeParameters(Output.of(dateTimeParameters));
         }
 
-        /**
-         * @param dateTimeParameters A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dateTimeParameters(DashboardParametersDateTimeParameterArgs... dateTimeParameters) {
             return dateTimeParameters(List.of(dateTimeParameters));
         }
 
-        /**
-         * @param decimalParameters A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder decimalParameters(@Nullable Output<List<DashboardParametersDecimalParameterArgs>> decimalParameters) {
             $.decimalParameters = decimalParameters;
             return this;
         }
 
-        /**
-         * @param decimalParameters A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder decimalParameters(List<DashboardParametersDecimalParameterArgs> decimalParameters) {
             return decimalParameters(Output.of(decimalParameters));
         }
 
-        /**
-         * @param decimalParameters A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder decimalParameters(DashboardParametersDecimalParameterArgs... decimalParameters) {
             return decimalParameters(List.of(decimalParameters));
         }
 
-        /**
-         * @param integerParameters A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder integerParameters(@Nullable Output<List<DashboardParametersIntegerParameterArgs>> integerParameters) {
             $.integerParameters = integerParameters;
             return this;
         }
 
-        /**
-         * @param integerParameters A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder integerParameters(List<DashboardParametersIntegerParameterArgs> integerParameters) {
             return integerParameters(Output.of(integerParameters));
         }
 
-        /**
-         * @param integerParameters A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder integerParameters(DashboardParametersIntegerParameterArgs... integerParameters) {
             return integerParameters(List.of(integerParameters));
         }
 
-        /**
-         * @param stringParameters A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringParameters(@Nullable Output<List<DashboardParametersStringParameterArgs>> stringParameters) {
             $.stringParameters = stringParameters;
             return this;
         }
 
-        /**
-         * @param stringParameters A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringParameters(List<DashboardParametersStringParameterArgs> stringParameters) {
             return stringParameters(Output.of(stringParameters));
         }
 
-        /**
-         * @param stringParameters A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringParameters(DashboardParametersStringParameterArgs... stringParameters) {
             return stringParameters(List.of(stringParameters));
         }

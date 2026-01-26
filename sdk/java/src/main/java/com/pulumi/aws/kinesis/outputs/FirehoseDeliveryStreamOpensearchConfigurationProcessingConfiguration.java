@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
-    /**
-     * @return Enables or disables data processing.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
-     * 
-     */
     private @Nullable List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor> processors;
 
     private FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration() {}
-    /**
-     * @return Enables or disables data processing.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
-     * 
-     */
     public List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor> processors() {
         return this.processors == null ? List.of() : this.processors;
     }

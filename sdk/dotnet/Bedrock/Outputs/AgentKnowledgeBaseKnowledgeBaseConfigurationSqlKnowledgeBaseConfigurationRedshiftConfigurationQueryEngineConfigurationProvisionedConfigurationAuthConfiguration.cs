@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration
     {
-        /// <summary>
-        /// Database username for authentication to an Amazon Redshift provisioned data warehouse.
-        /// </summary>
         public readonly string? DatabaseUser;
-        /// <summary>
-        /// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// ARN of a Secrets Manager secret for authentication.
-        /// </summary>
         public readonly string? UsernamePasswordSecretArn;
 
         [OutputConstructor]

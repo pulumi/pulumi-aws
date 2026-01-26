@@ -19,77 +19,37 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
 
     public static final WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs Empty = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs();
 
-    /**
-     * Allow the request. See below.
-     * 
-     */
     @Import(name="allow")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs> allow;
 
-    /**
-     * @return Allow the request. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs>> allow() {
         return Optional.ofNullable(this.allow);
     }
 
-    /**
-     * Block the request. See below.
-     * 
-     */
     @Import(name="block")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs> block;
 
-    /**
-     * @return Block the request. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs>> block() {
         return Optional.ofNullable(this.block);
     }
 
-    /**
-     * Require CAPTCHA verification. See below.
-     * 
-     */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs> captcha;
 
-    /**
-     * @return Require CAPTCHA verification. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
 
-    /**
-     * Require challenge verification. See below.
-     * 
-     */
     @Import(name="challenge")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs> challenge;
 
-    /**
-     * @return Require challenge verification. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs>> challenge() {
         return Optional.ofNullable(this.challenge);
     }
 
-    /**
-     * Count the request without taking action. See below.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs> count;
 
-    /**
-     * @return Count the request without taking action. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs>> count() {
         return Optional.ofNullable(this.count);
     }
@@ -122,107 +82,47 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
             $ = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allow Allow the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(@Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs> allow) {
             $.allow = allow;
             return this;
         }
 
-        /**
-         * @param allow Allow the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowArgs allow) {
             return allow(Output.of(allow));
         }
 
-        /**
-         * @param block Block the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(@Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs> block) {
             $.block = block;
             return this;
         }
 
-        /**
-         * @param block Block the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockArgs block) {
             return block(Output.of(block));
         }
 
-        /**
-         * @param captcha Require CAPTCHA verification. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(@Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs> captcha) {
             $.captcha = captcha;
             return this;
         }
 
-        /**
-         * @param captcha Require CAPTCHA verification. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
         }
 
-        /**
-         * @param challenge Require challenge verification. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(@Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs> challenge) {
             $.challenge = challenge;
             return this;
         }
 
-        /**
-         * @param challenge Require challenge verification. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeArgs challenge) {
             return challenge(Output.of(challenge));
         }
 
-        /**
-         * @param count Count the request without taking action. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count Count the request without taking action. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs count) {
             return count(Output.of(count));
         }

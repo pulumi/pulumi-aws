@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class GetClustersFilterResult
     {
-        /// <summary>
-        /// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

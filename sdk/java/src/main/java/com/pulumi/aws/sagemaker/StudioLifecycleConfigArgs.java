@@ -17,77 +17,37 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
 
     public static final StudioLifecycleConfigArgs Empty = new StudioLifecycleConfigArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
-     * 
-     */
     @Import(name="studioLifecycleConfigAppType", required=true)
     private Output<String> studioLifecycleConfigAppType;
 
-    /**
-     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
-     * 
-     */
     public Output<String> studioLifecycleConfigAppType() {
         return this.studioLifecycleConfigAppType;
     }
 
-    /**
-     * The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-     * 
-     */
     @Import(name="studioLifecycleConfigContent", required=true)
     private Output<String> studioLifecycleConfigContent;
 
-    /**
-     * @return The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-     * 
-     */
     public Output<String> studioLifecycleConfigContent() {
         return this.studioLifecycleConfigContent;
     }
 
-    /**
-     * The name of the Studio Lifecycle Configuration to create.
-     * 
-     */
     @Import(name="studioLifecycleConfigName", required=true)
     private Output<String> studioLifecycleConfigName;
 
-    /**
-     * @return The name of the Studio Lifecycle Configuration to create.
-     * 
-     */
     public Output<String> studioLifecycleConfigName() {
         return this.studioLifecycleConfigName;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,107 +80,47 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
             $ = new StudioLifecycleConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioLifecycleConfigAppType(Output<String> studioLifecycleConfigAppType) {
             $.studioLifecycleConfigAppType = studioLifecycleConfigAppType;
             return this;
         }
 
-        /**
-         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioLifecycleConfigAppType(String studioLifecycleConfigAppType) {
             return studioLifecycleConfigAppType(Output.of(studioLifecycleConfigAppType));
         }
 
-        /**
-         * @param studioLifecycleConfigContent The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioLifecycleConfigContent(Output<String> studioLifecycleConfigContent) {
             $.studioLifecycleConfigContent = studioLifecycleConfigContent;
             return this;
         }
 
-        /**
-         * @param studioLifecycleConfigContent The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioLifecycleConfigContent(String studioLifecycleConfigContent) {
             return studioLifecycleConfigContent(Output.of(studioLifecycleConfigContent));
         }
 
-        /**
-         * @param studioLifecycleConfigName The name of the Studio Lifecycle Configuration to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioLifecycleConfigName(Output<String> studioLifecycleConfigName) {
             $.studioLifecycleConfigName = studioLifecycleConfigName;
             return this;
         }
 
-        /**
-         * @param studioLifecycleConfigName The name of the Studio Lifecycle Configuration to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioLifecycleConfigName(String studioLifecycleConfigName) {
             return studioLifecycleConfigName(Output.of(studioLifecycleConfigName));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

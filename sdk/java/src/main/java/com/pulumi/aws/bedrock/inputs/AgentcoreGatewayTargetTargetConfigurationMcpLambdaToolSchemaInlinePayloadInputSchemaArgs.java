@@ -19,17 +19,9 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs();
 
-    /**
-     * Description of the gateway target.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the gateway target.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -82,23 +74,11 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the gateway target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the gateway target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EndpointConfigurationShadowProductionVariantCoreDumpConfig {
-    /**
-     * @return S3 bucket to send the core dump to.
-     * 
-     */
     private String destinationS3Uri;
-    /**
-     * @return KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
-     * 
-     */
     private String kmsKeyId;
 
     private EndpointConfigurationShadowProductionVariantCoreDumpConfig() {}
-    /**
-     * @return S3 bucket to send the core dump to.
-     * 
-     */
     public String destinationS3Uri() {
         return this.destinationS3Uri;
     }
-    /**
-     * @return KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }

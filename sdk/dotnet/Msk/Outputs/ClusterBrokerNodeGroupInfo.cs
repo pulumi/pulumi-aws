@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterBrokerNodeGroupInfo
     {
-        /// <summary>
-        /// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
-        /// </summary>
         public readonly string? AzDistribution;
-        /// <summary>
-        /// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
-        /// <summary>
-        /// Information about the cluster access configuration. See BrokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfo? ConnectivityInfo;
-        /// <summary>
-        /// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// A block that contains information about storage volumes attached to MSK broker nodes. See BrokerNodeGroupInfo storage_info Argument Reference below.
-        /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoStorageInfo? StorageInfo;
 
         [OutputConstructor]

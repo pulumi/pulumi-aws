@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolSignInPolicy
     {
-        /// <summary>
-        /// The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-        /// </summary>
         public readonly ImmutableArray<string> AllowedFirstAuthFactors;
 
         [OutputConstructor]

@@ -28,15 +28,6 @@ class UserArgs:
                  send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[_builtins.str] user_name: Email address of the user.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[_builtins.str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[_builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] send_email_notification: Send an email notification.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "user_name", user_name)
@@ -54,9 +45,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -66,11 +54,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Email address of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -80,9 +63,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the user in the user pool is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -92,9 +72,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name, or given name, of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -104,9 +81,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name, or surname, of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -116,9 +90,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -128,9 +99,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Send an email notification.
-        """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
@@ -152,17 +120,6 @@ class _UserState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream user.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[_builtins.str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[_builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] send_email_notification: Send an email notification.
-        :param pulumi.Input[_builtins.str] user_name: Email address of the user.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -186,9 +143,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the appstream user.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -198,9 +152,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -210,9 +161,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -222,9 +170,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the user in the user pool is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -234,9 +179,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name, or given name, of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -246,9 +188,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name, or surname, of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -258,9 +197,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -270,9 +206,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Send an email notification.
-        """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
@@ -282,11 +215,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -309,40 +237,9 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AppStream user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appstream.User("example",
-            authentication_type="USERPOOL",
-            user_name="EMAIL",
-            first_name="FIRST NAME",
-            last_name="LAST NAME")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[_builtins.bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[_builtins.str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[_builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] send_email_notification: Send an email notification.
-        :param pulumi.Input[_builtins.str] user_name: Email address of the user.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -351,29 +248,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppStream user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appstream.User("example",
-            authentication_type="USERPOOL",
-            user_name="EMAIL",
-            first_name="FIRST NAME",
-            last_name="LAST NAME")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -444,17 +319,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream user.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[_builtins.str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[_builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] send_email_notification: Send an email notification.
-        :param pulumi.Input[_builtins.str] user_name: Email address of the user.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -474,74 +338,45 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the appstream user.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        """
         return pulumi.get(self, "authentication_type")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the user in the user pool is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        First name, or given name, of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Last name, or surname, of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Send an email notification.
-        """
         return pulumi.get(self, "send_email_notification")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Email address of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 

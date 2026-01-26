@@ -24,9 +24,6 @@ class ClusterSnapshotArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
@@ -36,9 +33,6 @@ class ClusterSnapshotArgs:
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The DocumentDB Cluster Identifier from which to take the snapshot.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
@@ -48,9 +42,6 @@ class ClusterSnapshotArgs:
     @_builtins.property
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
     def db_cluster_snapshot_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Identifier for the snapshot.
-        """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 
     @db_cluster_snapshot_identifier.setter
@@ -60,9 +51,6 @@ class ClusterSnapshotArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -89,18 +77,6 @@ class _ClusterSnapshotState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterSnapshot resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
-        :param pulumi.Input[_builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-        :param pulumi.Input[_builtins.int] port: Port that the DocumentDB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of this DocumentDB Cluster Snapshot.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DocumentDB cluster snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID associated with the DocumentDB cluster snapshot.
         """
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
@@ -134,9 +110,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -146,9 +119,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DocumentDB Cluster Identifier from which to take the snapshot.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
@@ -158,9 +128,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-        """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
     @db_cluster_snapshot_arn.setter
@@ -170,9 +137,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
     def db_cluster_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Identifier for the snapshot.
-        """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 
     @db_cluster_snapshot_identifier.setter
@@ -182,9 +146,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the name of the database engine.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -194,9 +155,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the database engine for this DocumentDB cluster snapshot.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -206,9 +164,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -218,9 +173,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Port that the DocumentDB cluster was listening on at the time of the snapshot.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -230,9 +182,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -260,9 +209,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of this DocumentDB Cluster Snapshot.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -272,9 +218,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the DocumentDB cluster snapshot is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -284,9 +227,6 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The VPC ID associated with the DocumentDB cluster snapshot.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -305,32 +245,9 @@ class ClusterSnapshot(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.docdb.ClusterSnapshot("example",
-            db_cluster_identifier=example_aws_docdb_cluster["id"],
-            db_cluster_snapshot_identifier="resourcetestsnapshot1234")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
-
-        ```sh
-        $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-        ```
-
+        Create a ClusterSnapshot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -339,27 +256,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  args: ClusterSnapshotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.docdb.ClusterSnapshot("example",
-            db_cluster_identifier=example_aws_docdb_cluster["id"],
-            db_cluster_snapshot_identifier="resourcetestsnapshot1234")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
-
-        ```sh
-        $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-        ```
-
+        Create a ClusterSnapshot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterSnapshotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -436,18 +333,6 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
-        :param pulumi.Input[_builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-        :param pulumi.Input[_builtins.int] port: Port that the DocumentDB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of this DocumentDB Cluster Snapshot.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DocumentDB cluster snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID associated with the DocumentDB cluster snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -472,73 +357,46 @@ class ClusterSnapshot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DocumentDB Cluster Identifier from which to take the snapshot.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-        """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
     @_builtins.property
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
     def db_cluster_snapshot_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Identifier for the snapshot.
-        """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the name of the database engine.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the database engine for this DocumentDB cluster snapshot.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
-        """
-        Port that the DocumentDB cluster was listening on at the time of the snapshot.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -554,24 +412,15 @@ class ClusterSnapshot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of this DocumentDB Cluster Snapshot.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies whether the DocumentDB cluster snapshot is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The VPC ID associated with the DocumentDB cluster snapshot.
-        """
         return pulumi.get(self, "vpc_id")
 

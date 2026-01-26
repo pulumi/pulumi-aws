@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages session stickiness for a Lightsail Load Balancer.
- *
- * Use this resource to configure session stickiness to ensure that user sessions are consistently routed to the same backend instance. This helps maintain session state for applications that store session data locally on the server.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lightsail.Lb("example", {
- *     name: "example-load-balancer",
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const exampleLbStickinessPolicy = new aws.lightsail.LbStickinessPolicy("example", {
- *     lbName: example.name,
- *     cookieDuration: 900,
- *     enabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
- *
- * ```sh
- * $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy example example-load-balancer
- * ```
- */
 export class LbStickinessPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LbStickinessPolicy resource's state with the given name, ID, and optional extra
@@ -66,23 +32,9 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbStickinessPolicy.__pulumiType;
     }
 
-    /**
-     * Cookie duration in seconds. This determines the length of the session stickiness.
-     */
     declare public readonly cookieDuration: pulumi.Output<number>;
-    /**
-     * Whether to enable session stickiness for the load balancer.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
-    /**
-     * Name of the load balancer to which you want to enable session stickiness.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly lbName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -127,23 +79,9 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbStickinessPolicy resources.
  */
 export interface LbStickinessPolicyState {
-    /**
-     * Cookie duration in seconds. This determines the length of the session stickiness.
-     */
     cookieDuration?: pulumi.Input<number>;
-    /**
-     * Whether to enable session stickiness for the load balancer.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Name of the load balancer to which you want to enable session stickiness.
-     *
-     * The following arguments are optional:
-     */
     lbName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -151,22 +89,8 @@ export interface LbStickinessPolicyState {
  * The set of arguments for constructing a LbStickinessPolicy resource.
  */
 export interface LbStickinessPolicyArgs {
-    /**
-     * Cookie duration in seconds. This determines the length of the session stickiness.
-     */
     cookieDuration: pulumi.Input<number>;
-    /**
-     * Whether to enable session stickiness for the load balancer.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Name of the load balancer to which you want to enable session stickiness.
-     *
-     * The following arguments are optional:
-     */
     lbName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

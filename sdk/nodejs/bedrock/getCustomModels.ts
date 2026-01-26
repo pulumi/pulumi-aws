@@ -7,18 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Returns a list of Amazon Bedrock custom models.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getCustomModels({});
- * ```
- */
 export function getCustomModels(args?: GetCustomModelsArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomModelsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,9 +19,6 @@ export function getCustomModels(args?: GetCustomModelsArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getCustomModels.
  */
 export interface GetCustomModelsArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -42,24 +27,9 @@ export interface GetCustomModelsArgs {
  */
 export interface GetCustomModelsResult {
     readonly id: string;
-    /**
-     * Model summaries.
-     */
     readonly modelSummaries: outputs.bedrock.GetCustomModelsModelSummary[];
     readonly region: string;
 }
-/**
- * Returns a list of Amazon Bedrock custom models.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getCustomModels({});
- * ```
- */
 export function getCustomModelsOutput(args?: GetCustomModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomModelsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,8 +42,5 @@ export function getCustomModelsOutput(args?: GetCustomModelsOutputArgs, opts?: p
  * A collection of arguments for invoking getCustomModels.
  */
 export interface GetCustomModelsOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

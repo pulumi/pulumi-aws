@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification {
-    /**
-     * @return DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-     * 
-     */
     private String deletionCharacter;
-    /**
-     * @return DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-     * 
-     */
     private String endCharacter;
-    /**
-     * @return How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-     * 
-     */
     private Integer endTimeoutMs;
-    /**
-     * @return Maximum number of DTMF digits allowed in an utterance.
-     * 
-     */
     private Integer maxLength;
 
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification() {}
-    /**
-     * @return DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-     * 
-     */
     public String deletionCharacter() {
         return this.deletionCharacter;
     }
-    /**
-     * @return DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-     * 
-     */
     public String endCharacter() {
         return this.endCharacter;
     }
-    /**
-     * @return How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-     * 
-     */
     public Integer endTimeoutMs() {
         return this.endTimeoutMs;
     }
-    /**
-     * @return Maximum number of DTMF digits allowed in an utterance.
-     * 
-     */
     public Integer maxLength() {
         return this.maxLength;
     }

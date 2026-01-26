@@ -12,93 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amplify Domain Association resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				Name: pulumi.String("app"),
-//				CustomRules: amplify.AppCustomRuleArray{
-//					&amplify.AppCustomRuleArgs{
-//						Source: pulumi.String("https://example.com"),
-//						Status: pulumi.String("302"),
-//						Target: pulumi.String("https://www.example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      example.ID(),
-//				BranchName: pulumi.String("master"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewDomainAssociation(ctx, "example", &amplify.DomainAssociationArgs{
-//				AppId:      example.ID(),
-//				DomainName: pulumi.String("example.com"),
-//				SubDomains: amplify.DomainAssociationSubDomainArray{
-//					&amplify.DomainAssociationSubDomainArgs{
-//						BranchName: master.BranchName,
-//						Prefix:     pulumi.String(""),
-//					},
-//					&amplify.DomainAssociationSubDomainArgs{
-//						BranchName: master.BranchName,
-//						Prefix:     pulumi.String("www"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
-// ```
 type DomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// Unique ID for an Amplify app.
-	AppId pulumi.StringOutput `pulumi:"appId"`
-	// ARN for the domain association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-	CertificateSettings DomainAssociationCertificateSettingsOutput `pulumi:"certificateSettings"`
-	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-	CertificateVerificationDnsRecord pulumi.StringOutput `pulumi:"certificateVerificationDnsRecord"`
-	// Domain name for the domain association.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Enables the automated creation of subdomains for branches.
-	EnableAutoSubDomain pulumi.BoolPtrOutput `pulumi:"enableAutoSubDomain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Setting for the subdomain. Documented below.
-	SubDomains DomainAssociationSubDomainArrayOutput `pulumi:"subDomains"`
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification pulumi.BoolPtrOutput `pulumi:"waitForVerification"`
+	AppId                            pulumi.StringOutput                        `pulumi:"appId"`
+	Arn                              pulumi.StringOutput                        `pulumi:"arn"`
+	CertificateSettings              DomainAssociationCertificateSettingsOutput `pulumi:"certificateSettings"`
+	CertificateVerificationDnsRecord pulumi.StringOutput                        `pulumi:"certificateVerificationDnsRecord"`
+	DomainName                       pulumi.StringOutput                        `pulumi:"domainName"`
+	EnableAutoSubDomain              pulumi.BoolPtrOutput                       `pulumi:"enableAutoSubDomain"`
+	Region                           pulumi.StringOutput                        `pulumi:"region"`
+	SubDomains                       DomainAssociationSubDomainArrayOutput      `pulumi:"subDomains"`
+	WaitForVerification              pulumi.BoolPtrOutput                       `pulumi:"waitForVerification"`
 }
 
 // NewDomainAssociation registers a new resource with the given unique name, arguments, and options.
@@ -140,45 +65,27 @@ func GetDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainAssociation resources.
 type domainAssociationState struct {
-	// Unique ID for an Amplify app.
-	AppId *string `pulumi:"appId"`
-	// ARN for the domain association.
-	Arn *string `pulumi:"arn"`
-	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-	CertificateSettings *DomainAssociationCertificateSettings `pulumi:"certificateSettings"`
-	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
-	// Domain name for the domain association.
-	DomainName *string `pulumi:"domainName"`
-	// Enables the automated creation of subdomains for branches.
-	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Setting for the subdomain. Documented below.
-	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification *bool `pulumi:"waitForVerification"`
+	AppId                            *string                               `pulumi:"appId"`
+	Arn                              *string                               `pulumi:"arn"`
+	CertificateSettings              *DomainAssociationCertificateSettings `pulumi:"certificateSettings"`
+	CertificateVerificationDnsRecord *string                               `pulumi:"certificateVerificationDnsRecord"`
+	DomainName                       *string                               `pulumi:"domainName"`
+	EnableAutoSubDomain              *bool                                 `pulumi:"enableAutoSubDomain"`
+	Region                           *string                               `pulumi:"region"`
+	SubDomains                       []DomainAssociationSubDomain          `pulumi:"subDomains"`
+	WaitForVerification              *bool                                 `pulumi:"waitForVerification"`
 }
 
 type DomainAssociationState struct {
-	// Unique ID for an Amplify app.
-	AppId pulumi.StringPtrInput
-	// ARN for the domain association.
-	Arn pulumi.StringPtrInput
-	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-	CertificateSettings DomainAssociationCertificateSettingsPtrInput
-	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+	AppId                            pulumi.StringPtrInput
+	Arn                              pulumi.StringPtrInput
+	CertificateSettings              DomainAssociationCertificateSettingsPtrInput
 	CertificateVerificationDnsRecord pulumi.StringPtrInput
-	// Domain name for the domain association.
-	DomainName pulumi.StringPtrInput
-	// Enables the automated creation of subdomains for branches.
-	EnableAutoSubDomain pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Setting for the subdomain. Documented below.
-	SubDomains DomainAssociationSubDomainArrayInput
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification pulumi.BoolPtrInput
+	DomainName                       pulumi.StringPtrInput
+	EnableAutoSubDomain              pulumi.BoolPtrInput
+	Region                           pulumi.StringPtrInput
+	SubDomains                       DomainAssociationSubDomainArrayInput
+	WaitForVerification              pulumi.BoolPtrInput
 }
 
 func (DomainAssociationState) ElementType() reflect.Type {
@@ -186,37 +93,23 @@ func (DomainAssociationState) ElementType() reflect.Type {
 }
 
 type domainAssociationArgs struct {
-	// Unique ID for an Amplify app.
-	AppId string `pulumi:"appId"`
-	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+	AppId               string                                `pulumi:"appId"`
 	CertificateSettings *DomainAssociationCertificateSettings `pulumi:"certificateSettings"`
-	// Domain name for the domain association.
-	DomainName string `pulumi:"domainName"`
-	// Enables the automated creation of subdomains for branches.
-	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Setting for the subdomain. Documented below.
-	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification *bool `pulumi:"waitForVerification"`
+	DomainName          string                                `pulumi:"domainName"`
+	EnableAutoSubDomain *bool                                 `pulumi:"enableAutoSubDomain"`
+	Region              *string                               `pulumi:"region"`
+	SubDomains          []DomainAssociationSubDomain          `pulumi:"subDomains"`
+	WaitForVerification *bool                                 `pulumi:"waitForVerification"`
 }
 
 // The set of arguments for constructing a DomainAssociation resource.
 type DomainAssociationArgs struct {
-	// Unique ID for an Amplify app.
-	AppId pulumi.StringInput
-	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+	AppId               pulumi.StringInput
 	CertificateSettings DomainAssociationCertificateSettingsPtrInput
-	// Domain name for the domain association.
-	DomainName pulumi.StringInput
-	// Enables the automated creation of subdomains for branches.
+	DomainName          pulumi.StringInput
 	EnableAutoSubDomain pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Setting for the subdomain. Documented below.
-	SubDomains DomainAssociationSubDomainArrayInput
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+	Region              pulumi.StringPtrInput
+	SubDomains          DomainAssociationSubDomainArrayInput
 	WaitForVerification pulumi.BoolPtrInput
 }
 
@@ -307,47 +200,38 @@ func (o DomainAssociationOutput) ToDomainAssociationOutputWithContext(ctx contex
 	return o
 }
 
-// Unique ID for an Amplify app.
 func (o DomainAssociationOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// ARN for the domain association.
 func (o DomainAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
 func (o DomainAssociationOutput) CertificateSettings() DomainAssociationCertificateSettingsOutput {
 	return o.ApplyT(func(v *DomainAssociation) DomainAssociationCertificateSettingsOutput { return v.CertificateSettings }).(DomainAssociationCertificateSettingsOutput)
 }
 
-// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 func (o DomainAssociationOutput) CertificateVerificationDnsRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.CertificateVerificationDnsRecord }).(pulumi.StringOutput)
 }
 
-// Domain name for the domain association.
 func (o DomainAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Enables the automated creation of subdomains for branches.
 func (o DomainAssociationOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.BoolPtrOutput { return v.EnableAutoSubDomain }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Setting for the subdomain. Documented below.
 func (o DomainAssociationOutput) SubDomains() DomainAssociationSubDomainArrayOutput {
 	return o.ApplyT(func(v *DomainAssociation) DomainAssociationSubDomainArrayOutput { return v.SubDomains }).(DomainAssociationSubDomainArrayOutput)
 }
 
-// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
 func (o DomainAssociationOutput) WaitForVerification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.BoolPtrOutput { return v.WaitForVerification }).(pulumi.BoolPtrOutput)
 }

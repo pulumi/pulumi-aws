@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApiEventConfigAuthProviderCognitoConfig {
-    /**
-     * @return Regular expression for matching the client ID.
-     * 
-     */
     private @Nullable String appIdClientRegex;
-    /**
-     * @return AWS region where the user pool is located.
-     * 
-     */
     private String awsRegion;
-    /**
-     * @return ID of the Cognito user pool.
-     * 
-     */
     private String userPoolId;
 
     private ApiEventConfigAuthProviderCognitoConfig() {}
-    /**
-     * @return Regular expression for matching the client ID.
-     * 
-     */
     public Optional<String> appIdClientRegex() {
         return Optional.ofNullable(this.appIdClientRegex);
     }
-    /**
-     * @return AWS region where the user pool is located.
-     * 
-     */
     public String awsRegion() {
         return this.awsRegion;
     }
-    /**
-     * @return ID of the Cognito user pool.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }

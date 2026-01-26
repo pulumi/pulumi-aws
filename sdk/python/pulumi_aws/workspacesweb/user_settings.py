@@ -37,22 +37,6 @@ class UserSettingsArgs:
                  toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None):
         """
         The set of arguments for constructing a UserSettings resource.
-        :param pulumi.Input[_builtins.str] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] download_allowed: Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] print_allowed: Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the user settings.
-        :param pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs'] cookie_synchronization_configuration: Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.int] disconnect_timeout_in_minutes: Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-        :param pulumi.Input[_builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['UserSettingsToolbarConfigurationArgs'] toolbar_configuration: Configuration of the toolbar. Detailed below.
         """
         pulumi.set(__self__, "copy_allowed", copy_allowed)
         pulumi.set(__self__, "download_allowed", download_allowed)
@@ -81,9 +65,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="copyAllowed")
     def copy_allowed(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "copy_allowed")
 
     @copy_allowed.setter
@@ -93,9 +74,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="downloadAllowed")
     def download_allowed(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "download_allowed")
 
     @download_allowed.setter
@@ -105,9 +83,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="pasteAllowed")
     def paste_allowed(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "paste_allowed")
 
     @paste_allowed.setter
@@ -117,9 +92,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="printAllowed")
     def print_allowed(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "print_allowed")
 
     @print_allowed.setter
@@ -129,11 +101,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="uploadAllowed")
     def upload_allowed(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "upload_allowed")
 
     @upload_allowed.setter
@@ -143,9 +110,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the user settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -155,9 +119,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
     def cookie_synchronization_configuration(self) -> Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']]:
-        """
-        Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-        """
         return pulumi.get(self, "cookie_synchronization_configuration")
 
     @cookie_synchronization_configuration.setter
@@ -167,9 +128,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -179,9 +137,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="deepLinkAllowed")
     def deep_link_allowed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "deep_link_allowed")
 
     @deep_link_allowed.setter
@@ -191,9 +146,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-        """
         return pulumi.get(self, "disconnect_timeout_in_minutes")
 
     @disconnect_timeout_in_minutes.setter
@@ -203,9 +155,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="idleDisconnectTimeoutInMinutes")
     def idle_disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-        """
         return pulumi.get(self, "idle_disconnect_timeout_in_minutes")
 
     @idle_disconnect_timeout_in_minutes.setter
@@ -215,9 +164,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -227,9 +173,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -239,9 +182,6 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="toolbarConfiguration")
     def toolbar_configuration(self) -> Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]:
-        """
-        Configuration of the toolbar. Detailed below.
-        """
         return pulumi.get(self, "toolbar_configuration")
 
     @toolbar_configuration.setter
@@ -271,25 +211,6 @@ class _UserSettingsState:
                  user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserSettings resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the user settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs to associate with the user settings.
-        :param pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs'] cookie_synchronization_configuration: Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-        :param pulumi.Input[_builtins.str] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.int] disconnect_timeout_in_minutes: Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-        :param pulumi.Input[_builtins.str] download_allowed: Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-        :param pulumi.Input[_builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] print_allowed: Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['UserSettingsToolbarConfigurationArgs'] toolbar_configuration: Configuration of the toolbar. Detailed below.
-        :param pulumi.Input[_builtins.str] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_settings_arn: ARN of the user settings resource.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -329,9 +250,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the user settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -341,9 +259,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of web portal ARNs to associate with the user settings.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @associated_portal_arns.setter
@@ -353,9 +268,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
     def cookie_synchronization_configuration(self) -> Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']]:
-        """
-        Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-        """
         return pulumi.get(self, "cookie_synchronization_configuration")
 
     @cookie_synchronization_configuration.setter
@@ -365,9 +277,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="copyAllowed")
     def copy_allowed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "copy_allowed")
 
     @copy_allowed.setter
@@ -377,9 +286,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -389,9 +295,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="deepLinkAllowed")
     def deep_link_allowed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "deep_link_allowed")
 
     @deep_link_allowed.setter
@@ -401,9 +304,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-        """
         return pulumi.get(self, "disconnect_timeout_in_minutes")
 
     @disconnect_timeout_in_minutes.setter
@@ -413,9 +313,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="downloadAllowed")
     def download_allowed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "download_allowed")
 
     @download_allowed.setter
@@ -425,9 +322,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="idleDisconnectTimeoutInMinutes")
     def idle_disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-        """
         return pulumi.get(self, "idle_disconnect_timeout_in_minutes")
 
     @idle_disconnect_timeout_in_minutes.setter
@@ -437,9 +331,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="pasteAllowed")
     def paste_allowed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "paste_allowed")
 
     @paste_allowed.setter
@@ -449,9 +340,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="printAllowed")
     def print_allowed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "print_allowed")
 
     @print_allowed.setter
@@ -461,9 +349,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -473,9 +358,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -485,9 +367,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -497,9 +376,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="toolbarConfiguration")
     def toolbar_configuration(self) -> Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]:
-        """
-        Configuration of the toolbar. Detailed below.
-        """
         return pulumi.get(self, "toolbar_configuration")
 
     @toolbar_configuration.setter
@@ -509,11 +385,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="uploadAllowed")
     def upload_allowed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "upload_allowed")
 
     @upload_allowed.setter
@@ -523,9 +394,6 @@ class _UserSettingsState:
     @_builtins.property
     @pulumi.getter(name="userSettingsArn")
     def user_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the user settings resource.
-        """
         return pulumi.get(self, "user_settings_arn")
 
     @user_settings_arn.setter
@@ -555,117 +423,9 @@ class UserSettings(pulumi.CustomResource):
                  upload_allowed: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web User Settings resource. Once associated with a web portal, user settings control how users can transfer data between a streaming session and their local devices.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled")
-        ```
-
-        ### With Toolbar Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
-            toolbar_configuration={
-                "toolbar_type": "Docked",
-                "visual_mode": "Dark",
-                "hidden_toolbar_items": [
-                    "Webcam",
-                    "Microphone",
-                ],
-            })
-        ```
-
-        ### Complete Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web User Settings",
-            deletion_window_in_days=7)
-        example_user_settings = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
-            deep_link_allowed="Enabled",
-            disconnect_timeout_in_minutes=30,
-            idle_disconnect_timeout_in_minutes=15,
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            toolbar_configuration={
-                "toolbar_type": "Docked",
-                "visual_mode": "Dark",
-                "hidden_toolbar_items": [
-                    "Webcam",
-                    "Microphone",
-                ],
-                "max_display_resolution": "size1920X1080",
-            },
-            cookie_synchronization_configuration={
-                "allowlists": [{
-                    "domain": "example.com",
-                    "path": "/path",
-                }],
-                "blocklists": [{
-                    "domain": "blocked.com",
-                }],
-            },
-            tags={
-                "Name": "example-user-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web User Settings using the `user_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/userSettings:UserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
-        ```
-
+        Create a UserSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the user settings.
-        :param pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']] cookie_synchronization_configuration: Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-        :param pulumi.Input[_builtins.str] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.int] disconnect_timeout_in_minutes: Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-        :param pulumi.Input[_builtins.str] download_allowed: Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-        :param pulumi.Input[_builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] print_allowed: Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']] toolbar_configuration: Configuration of the toolbar. Detailed below.
-        :param pulumi.Input[_builtins.str] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -674,99 +434,7 @@ class UserSettings(pulumi.CustomResource):
                  args: UserSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web User Settings resource. Once associated with a web portal, user settings control how users can transfer data between a streaming session and their local devices.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled")
-        ```
-
-        ### With Toolbar Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
-            toolbar_configuration={
-                "toolbar_type": "Docked",
-                "visual_mode": "Dark",
-                "hidden_toolbar_items": [
-                    "Webcam",
-                    "Microphone",
-                ],
-            })
-        ```
-
-        ### Complete Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web User Settings",
-            deletion_window_in_days=7)
-        example_user_settings = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
-            deep_link_allowed="Enabled",
-            disconnect_timeout_in_minutes=30,
-            idle_disconnect_timeout_in_minutes=15,
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            toolbar_configuration={
-                "toolbar_type": "Docked",
-                "visual_mode": "Dark",
-                "hidden_toolbar_items": [
-                    "Webcam",
-                    "Microphone",
-                ],
-                "max_display_resolution": "size1920X1080",
-            },
-            cookie_synchronization_configuration={
-                "allowlists": [{
-                    "domain": "example.com",
-                    "path": "/path",
-                }],
-                "blocklists": [{
-                    "domain": "blocked.com",
-                }],
-            },
-            tags={
-                "Name": "example-user-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web User Settings using the `user_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/userSettings:UserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
-        ```
-
+        Create a UserSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -868,25 +536,6 @@ class UserSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the user settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs to associate with the user settings.
-        :param pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']] cookie_synchronization_configuration: Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-        :param pulumi.Input[_builtins.str] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.int] disconnect_timeout_in_minutes: Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-        :param pulumi.Input[_builtins.str] download_allowed: Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-        :param pulumi.Input[_builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] print_allowed: Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']] toolbar_configuration: Configuration of the toolbar. Detailed below.
-        :param pulumi.Input[_builtins.str] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_settings_arn: ARN of the user settings resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -914,138 +563,85 @@ class UserSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Additional encryption context for the user settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of web portal ARNs to associate with the user settings.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @_builtins.property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
     def cookie_synchronization_configuration(self) -> pulumi.Output[Optional['outputs.UserSettingsCookieSynchronizationConfiguration']]:
-        """
-        Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-        """
         return pulumi.get(self, "cookie_synchronization_configuration")
 
     @_builtins.property
     @pulumi.getter(name="copyAllowed")
     def copy_allowed(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "copy_allowed")
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @_builtins.property
     @pulumi.getter(name="deepLinkAllowed")
     def deep_link_allowed(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "deep_link_allowed")
 
     @_builtins.property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-        """
         return pulumi.get(self, "disconnect_timeout_in_minutes")
 
     @_builtins.property
     @pulumi.getter(name="downloadAllowed")
     def download_allowed(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "download_allowed")
 
     @_builtins.property
     @pulumi.getter(name="idleDisconnectTimeoutInMinutes")
     def idle_disconnect_timeout_in_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-        """
         return pulumi.get(self, "idle_disconnect_timeout_in_minutes")
 
     @_builtins.property
     @pulumi.getter(name="pasteAllowed")
     def paste_allowed(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "paste_allowed")
 
     @_builtins.property
     @pulumi.getter(name="printAllowed")
     def print_allowed(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-        """
         return pulumi.get(self, "print_allowed")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="toolbarConfiguration")
     def toolbar_configuration(self) -> pulumi.Output[Optional['outputs.UserSettingsToolbarConfiguration']]:
-        """
-        Configuration of the toolbar. Detailed below.
-        """
         return pulumi.get(self, "toolbar_configuration")
 
     @_builtins.property
     @pulumi.getter(name="uploadAllowed")
     def upload_allowed(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "upload_allowed")
 
     @_builtins.property
     @pulumi.getter(name="userSettingsArn")
     def user_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the user settings resource.
-        """
         return pulumi.get(self, "user_settings_arn")
 

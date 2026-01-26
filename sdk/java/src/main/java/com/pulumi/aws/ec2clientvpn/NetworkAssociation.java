@@ -13,122 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
- * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2clientvpn.NetworkAssociation;
- * import com.pulumi.aws.ec2clientvpn.NetworkAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NetworkAssociation("example", NetworkAssociationArgs.builder()
- *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.id())
- *             .subnetId(exampleAwsSubnet.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
- * ```
- * 
- */
 @ResourceType(type="aws:ec2clientvpn/networkAssociation:NetworkAssociation")
 public class NetworkAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The unique ID of the target network association.
-     * 
-     */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
-    /**
-     * @return The unique ID of the target network association.
-     * 
-     */
     public Output<String> associationId() {
         return this.associationId;
     }
-    /**
-     * The ID of the Client VPN endpoint.
-     * 
-     */
     @Export(name="clientVpnEndpointId", refs={String.class}, tree="[0]")
     private Output<String> clientVpnEndpointId;
 
-    /**
-     * @return The ID of the Client VPN endpoint.
-     * 
-     */
     public Output<String> clientVpnEndpointId() {
         return this.clientVpnEndpointId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the subnet to associate with the Client VPN endpoint.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to associate with the Client VPN endpoint.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
-    /**
-     * The ID of the VPC in which the target subnet is located.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC in which the target subnet is located.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

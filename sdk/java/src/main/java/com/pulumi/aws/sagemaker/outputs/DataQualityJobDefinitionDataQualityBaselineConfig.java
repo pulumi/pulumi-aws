@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityBaselineConfig {
-    /**
-     * @return The constraints resource for a monitoring job. Fields are documented below.
-     * 
-     */
     private @Nullable DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource constraintsResource;
-    /**
-     * @return The statistics resource for a monitoring job. Fields are documented below.
-     * 
-     */
     private @Nullable DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource statisticsResource;
 
     private DataQualityJobDefinitionDataQualityBaselineConfig() {}
-    /**
-     * @return The constraints resource for a monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource> constraintsResource() {
         return Optional.ofNullable(this.constraintsResource);
     }
-    /**
-     * @return The statistics resource for a monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource> statisticsResource() {
         return Optional.ofNullable(this.statisticsResource);
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetOpenZfsSnapshotFilterResult
     {
-        /// <summary>
-        /// Name of the snapshot.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> Values;
 

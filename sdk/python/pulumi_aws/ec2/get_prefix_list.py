@@ -51,9 +51,6 @@ class GetPrefixListResult:
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Sequence[_builtins.str]:
-        """
-        List of CIDR blocks for the AWS service associated with the prefix list.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetPrefixListResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the selected prefix list.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -108,59 +102,7 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
     """
-    `ec2_get_prefix_list` provides details about a specific AWS prefix list (PL)
-    in the current region.
-
-    This can be used both to validate a prefix list given in a variable
-    and to obtain the CIDR blocks (IP address ranges) for the associated
-    AWS service. The latter may be useful e.g., for adding network ACL
-    rules.
-
-    The ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    private_s3_vpc_endpoint = aws.ec2.VpcEndpoint("private_s3",
-        vpc_id=foo["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3 = aws.ec2.get_prefix_list_output(prefix_list_id=private_s3_vpc_endpoint.prefix_list_id)
-    bar = aws.ec2.NetworkAcl("bar", vpc_id=foo["id"])
-    private_s3_network_acl_rule = aws.ec2.NetworkAclRule("private_s3",
-        network_acl_id=bar.id,
-        rule_number=200,
-        egress=False,
-        protocol="tcp",
-        rule_action="allow",
-        cidr_block=private_s3.cidr_blocks[0],
-        from_port=443,
-        to_port=443)
-    ```
-
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_prefix_list(filters=[{
-        "name": "prefix-list-id",
-        "values": ["pl-68a54001"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           prefix lists. The given filters must match exactly one prefix list
-           whose data will be exported as attributes.
-    :param _builtins.str name: Name of the prefix list to select.
-    :param _builtins.str prefix_list_id: ID of the prefix list to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -183,59 +125,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListResult]:
     """
-    `ec2_get_prefix_list` provides details about a specific AWS prefix list (PL)
-    in the current region.
-
-    This can be used both to validate a prefix list given in a variable
-    and to obtain the CIDR blocks (IP address ranges) for the associated
-    AWS service. The latter may be useful e.g., for adding network ACL
-    rules.
-
-    The ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    private_s3_vpc_endpoint = aws.ec2.VpcEndpoint("private_s3",
-        vpc_id=foo["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3 = aws.ec2.get_prefix_list_output(prefix_list_id=private_s3_vpc_endpoint.prefix_list_id)
-    bar = aws.ec2.NetworkAcl("bar", vpc_id=foo["id"])
-    private_s3_network_acl_rule = aws.ec2.NetworkAclRule("private_s3",
-        network_acl_id=bar.id,
-        rule_number=200,
-        egress=False,
-        protocol="tcp",
-        rule_action="allow",
-        cidr_block=private_s3.cidr_blocks[0],
-        from_port=443,
-        to_port=443)
-    ```
-
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_prefix_list(filters=[{
-        "name": "prefix-list-id",
-        "values": ["pl-68a54001"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           prefix lists. The given filters must match exactly one prefix list
-           whose data will be exported as attributes.
-    :param _builtins.str name: Name of the prefix list to select.
-    :param _builtins.str prefix_list_id: ID of the prefix list to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationConditionCondition
     {
         public readonly string? Expression;
-        /// <summary>
-        /// A name for the flow.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

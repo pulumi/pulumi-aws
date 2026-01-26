@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class VectorsIndexMetadataConfiguration
     {
-        /// <summary>
-        /// List of non-filterable metadata keys.
-        /// </summary>
         public readonly ImmutableArray<string> NonFilterableMetadataKeys;
 
         [OutputConstructor]

@@ -14,17 +14,9 @@ public final class GuardrailContentPolicyConfigTierConfigArgs extends com.pulumi
 
     public static final GuardrailContentPolicyConfigTierConfigArgs Empty = new GuardrailContentPolicyConfigTierConfigArgs();
 
-    /**
-     * The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-     * 
-     */
     @Import(name="tierName", required=true)
     private Output<String> tierName;
 
-    /**
-     * @return The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-     * 
-     */
     public Output<String> tierName() {
         return this.tierName;
     }
@@ -53,23 +45,11 @@ public final class GuardrailContentPolicyConfigTierConfigArgs extends com.pulumi
             $ = new GuardrailContentPolicyConfigTierConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tierName The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierName(Output<String> tierName) {
             $.tierName = tierName;
             return this;
         }
 
-        /**
-         * @param tierName The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierName(String tierName) {
             return tierName(Output.of(tierName));
         }

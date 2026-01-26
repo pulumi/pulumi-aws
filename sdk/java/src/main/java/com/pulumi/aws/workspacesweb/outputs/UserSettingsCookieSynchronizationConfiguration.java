@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserSettingsCookieSynchronizationConfiguration {
-    /**
-     * @return List of cookie specifications that are allowed to be synchronized to the remote browser.
-     * 
-     */
     private @Nullable List<UserSettingsCookieSynchronizationConfigurationAllowlist> allowlists;
-    /**
-     * @return List of cookie specifications that are blocked from being synchronized to the remote browser.
-     * 
-     */
     private @Nullable List<UserSettingsCookieSynchronizationConfigurationBlocklist> blocklists;
 
     private UserSettingsCookieSynchronizationConfiguration() {}
-    /**
-     * @return List of cookie specifications that are allowed to be synchronized to the remote browser.
-     * 
-     */
     public List<UserSettingsCookieSynchronizationConfigurationAllowlist> allowlists() {
         return this.allowlists == null ? List.of() : this.allowlists;
     }
-    /**
-     * @return List of cookie specifications that are blocked from being synchronized to the remote browser.
-     * 
-     */
     public List<UserSettingsCookieSynchronizationConfigurationBlocklist> blocklists() {
         return this.blocklists == null ? List.of() : this.blocklists;
     }

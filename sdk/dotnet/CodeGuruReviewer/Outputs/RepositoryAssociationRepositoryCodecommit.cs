@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeGuruReviewer.Outputs
     [OutputType]
     public sealed class RepositoryAssociationRepositoryCodecommit
     {
-        /// <summary>
-        /// The name of the AWS CodeCommit repository.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

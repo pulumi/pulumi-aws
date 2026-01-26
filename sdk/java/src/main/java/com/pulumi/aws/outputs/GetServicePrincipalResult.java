@@ -10,36 +10,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServicePrincipalResult {
-    /**
-     * @return Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
-     * 
-     */
     private String id;
-    /**
-     * @return Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
-     * 
-     */
     private String name;
     private String region;
     private String serviceName;
-    /**
-     * @return Suffix of the SPN (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-     * 
-     */
     private String suffix;
 
     private GetServicePrincipalResult() {}
-    /**
-     * @return Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -49,10 +29,6 @@ public final class GetServicePrincipalResult {
     public String serviceName() {
         return this.serviceName;
     }
-    /**
-     * @return Suffix of the SPN (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-     * 
-     */
     public String suffix() {
         return this.suffix;
     }

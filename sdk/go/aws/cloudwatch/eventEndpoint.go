@@ -12,86 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create an EventBridge Global Endpoint.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventEndpoint(ctx, "this", &cloudwatch.EventEndpointArgs{
-//				Name:    pulumi.String("global-endpoint"),
-//				RoleArn: pulumi.Any(replication.Arn),
-//				EventBuses: cloudwatch.EventEndpointEventBusArray{
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(primary.Arn),
-//					},
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(secondary.Arn),
-//					},
-//				},
-//				ReplicationConfig: &cloudwatch.EventEndpointReplicationConfigArgs{
-//					State: pulumi.String("DISABLED"),
-//				},
-//				RoutingConfig: &cloudwatch.EventEndpointRoutingConfigArgs{
-//					FailoverConfig: &cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs{
-//						Primary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs{
-//							HealthCheck: pulumi.Any(primaryAwsRoute53HealthCheck.Arn),
-//						},
-//						Secondary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs{
-//							Route: pulumi.String("us-east-2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-// ```
 type EventEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the endpoint that was created.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the global endpoint.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The URL of the endpoint that was created.
-	EndpointUrl pulumi.StringOutput `pulumi:"endpointUrl"`
-	// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-	EventBuses EventEndpointEventBusArrayOutput `pulumi:"eventBuses"`
-	// The name of the global endpoint.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Parameters used for replication. Documented below.
+	Arn               pulumi.StringOutput                     `pulumi:"arn"`
+	Description       pulumi.StringPtrOutput                  `pulumi:"description"`
+	EndpointUrl       pulumi.StringOutput                     `pulumi:"endpointUrl"`
+	EventBuses        EventEndpointEventBusArrayOutput        `pulumi:"eventBuses"`
+	Name              pulumi.StringOutput                     `pulumi:"name"`
+	Region            pulumi.StringOutput                     `pulumi:"region"`
 	ReplicationConfig EventEndpointReplicationConfigPtrOutput `pulumi:"replicationConfig"`
-	// The ARN of the IAM role used for replication between event buses.
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// Parameters used for routing, including the health check and secondary Region. Documented below.
-	RoutingConfig EventEndpointRoutingConfigOutput `pulumi:"routingConfig"`
+	RoleArn           pulumi.StringPtrOutput                  `pulumi:"roleArn"`
+	RoutingConfig     EventEndpointRoutingConfigOutput        `pulumi:"routingConfig"`
 }
 
 // NewEventEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -130,45 +62,27 @@ func GetEventEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventEndpoint resources.
 type eventEndpointState struct {
-	// The ARN of the endpoint that was created.
-	Arn *string `pulumi:"arn"`
-	// A description of the global endpoint.
-	Description *string `pulumi:"description"`
-	// The URL of the endpoint that was created.
-	EndpointUrl *string `pulumi:"endpointUrl"`
-	// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-	EventBuses []EventEndpointEventBus `pulumi:"eventBuses"`
-	// The name of the global endpoint.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Parameters used for replication. Documented below.
+	Arn               *string                         `pulumi:"arn"`
+	Description       *string                         `pulumi:"description"`
+	EndpointUrl       *string                         `pulumi:"endpointUrl"`
+	EventBuses        []EventEndpointEventBus         `pulumi:"eventBuses"`
+	Name              *string                         `pulumi:"name"`
+	Region            *string                         `pulumi:"region"`
 	ReplicationConfig *EventEndpointReplicationConfig `pulumi:"replicationConfig"`
-	// The ARN of the IAM role used for replication between event buses.
-	RoleArn *string `pulumi:"roleArn"`
-	// Parameters used for routing, including the health check and secondary Region. Documented below.
-	RoutingConfig *EventEndpointRoutingConfig `pulumi:"routingConfig"`
+	RoleArn           *string                         `pulumi:"roleArn"`
+	RoutingConfig     *EventEndpointRoutingConfig     `pulumi:"routingConfig"`
 }
 
 type EventEndpointState struct {
-	// The ARN of the endpoint that was created.
-	Arn pulumi.StringPtrInput
-	// A description of the global endpoint.
-	Description pulumi.StringPtrInput
-	// The URL of the endpoint that was created.
-	EndpointUrl pulumi.StringPtrInput
-	// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-	EventBuses EventEndpointEventBusArrayInput
-	// The name of the global endpoint.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Parameters used for replication. Documented below.
+	Arn               pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	EndpointUrl       pulumi.StringPtrInput
+	EventBuses        EventEndpointEventBusArrayInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	ReplicationConfig EventEndpointReplicationConfigPtrInput
-	// The ARN of the IAM role used for replication between event buses.
-	RoleArn pulumi.StringPtrInput
-	// Parameters used for routing, including the health check and secondary Region. Documented below.
-	RoutingConfig EventEndpointRoutingConfigPtrInput
+	RoleArn           pulumi.StringPtrInput
+	RoutingConfig     EventEndpointRoutingConfigPtrInput
 }
 
 func (EventEndpointState) ElementType() reflect.Type {
@@ -176,38 +90,24 @@ func (EventEndpointState) ElementType() reflect.Type {
 }
 
 type eventEndpointArgs struct {
-	// A description of the global endpoint.
-	Description *string `pulumi:"description"`
-	// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-	EventBuses []EventEndpointEventBus `pulumi:"eventBuses"`
-	// The name of the global endpoint.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Parameters used for replication. Documented below.
+	Description       *string                         `pulumi:"description"`
+	EventBuses        []EventEndpointEventBus         `pulumi:"eventBuses"`
+	Name              *string                         `pulumi:"name"`
+	Region            *string                         `pulumi:"region"`
 	ReplicationConfig *EventEndpointReplicationConfig `pulumi:"replicationConfig"`
-	// The ARN of the IAM role used for replication between event buses.
-	RoleArn *string `pulumi:"roleArn"`
-	// Parameters used for routing, including the health check and secondary Region. Documented below.
-	RoutingConfig EventEndpointRoutingConfig `pulumi:"routingConfig"`
+	RoleArn           *string                         `pulumi:"roleArn"`
+	RoutingConfig     EventEndpointRoutingConfig      `pulumi:"routingConfig"`
 }
 
 // The set of arguments for constructing a EventEndpoint resource.
 type EventEndpointArgs struct {
-	// A description of the global endpoint.
-	Description pulumi.StringPtrInput
-	// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-	EventBuses EventEndpointEventBusArrayInput
-	// The name of the global endpoint.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Parameters used for replication. Documented below.
+	Description       pulumi.StringPtrInput
+	EventBuses        EventEndpointEventBusArrayInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	ReplicationConfig EventEndpointReplicationConfigPtrInput
-	// The ARN of the IAM role used for replication between event buses.
-	RoleArn pulumi.StringPtrInput
-	// Parameters used for routing, including the health check and secondary Region. Documented below.
-	RoutingConfig EventEndpointRoutingConfigInput
+	RoleArn           pulumi.StringPtrInput
+	RoutingConfig     EventEndpointRoutingConfigInput
 }
 
 func (EventEndpointArgs) ElementType() reflect.Type {
@@ -297,47 +197,38 @@ func (o EventEndpointOutput) ToEventEndpointOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the endpoint that was created.
 func (o EventEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the global endpoint.
 func (o EventEndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the endpoint that was created.
 func (o EventEndpointOutput) EndpointUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
 }
 
-// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
 func (o EventEndpointOutput) EventBuses() EventEndpointEventBusArrayOutput {
 	return o.ApplyT(func(v *EventEndpoint) EventEndpointEventBusArrayOutput { return v.EventBuses }).(EventEndpointEventBusArrayOutput)
 }
 
-// The name of the global endpoint.
 func (o EventEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Parameters used for replication. Documented below.
 func (o EventEndpointOutput) ReplicationConfig() EventEndpointReplicationConfigPtrOutput {
 	return o.ApplyT(func(v *EventEndpoint) EventEndpointReplicationConfigPtrOutput { return v.ReplicationConfig }).(EventEndpointReplicationConfigPtrOutput)
 }
 
-// The ARN of the IAM role used for replication between event buses.
 func (o EventEndpointOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventEndpoint) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Parameters used for routing, including the health check and secondary Region. Documented below.
 func (o EventEndpointOutput) RoutingConfig() EventEndpointRoutingConfigOutput {
 	return o.ApplyT(func(v *EventEndpoint) EventEndpointRoutingConfigOutput { return v.RoutingConfig }).(EventEndpointRoutingConfigOutput)
 }

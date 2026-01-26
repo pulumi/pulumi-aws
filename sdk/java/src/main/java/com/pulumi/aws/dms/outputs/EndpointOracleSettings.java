@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointOracleSettings {
-    /**
-     * @return Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-     * 
-     */
     private @Nullable String authenticationMethod;
 
     private EndpointOracleSettings() {}
-    /**
-     * @return Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-     * 
-     */
     public Optional<String> authenticationMethod() {
         return Optional.ofNullable(this.authenticationMethod);
     }

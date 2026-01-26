@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.AccessLogSubscription("example", {
- *     resourceIdentifier: exampleAwsVpclatticeServiceNetwork.id,
- *     destinationArn: bucket.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
- *
- * ```sh
- * $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
- * ```
- */
 export class AccessLogSubscription extends pulumi.CustomResource {
     /**
      * Get an existing AccessLogSubscription resource's state with the given name, ID, and optional extra
@@ -57,31 +32,11 @@ export class AccessLogSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessLogSubscription.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the access log subscription.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the log destination.
-     */
     declare public readonly destinationArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the service network or service.
-     */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly resourceIdentifier: pulumi.Output<string>;
-    /**
-     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     */
     declare public readonly serviceNetworkLogType: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -133,31 +88,11 @@ export class AccessLogSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessLogSubscription resources.
  */
 export interface AccessLogSubscriptionState {
-    /**
-     * Amazon Resource Name (ARN) of the access log subscription.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the log destination.
-     */
     destinationArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the service network or service.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     *
-     * The following arguments are optional:
-     */
     resourceIdentifier?: pulumi.Input<string>;
-    /**
-     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     */
     serviceNetworkLogType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -167,23 +102,9 @@ export interface AccessLogSubscriptionState {
  * The set of arguments for constructing a AccessLogSubscription resource.
  */
 export interface AccessLogSubscriptionArgs {
-    /**
-     * Amazon Resource Name (ARN) of the log destination.
-     */
     destinationArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     *
-     * The following arguments are optional:
-     */
     resourceIdentifier: pulumi.Input<string>;
-    /**
-     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     */
     serviceNetworkLogType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

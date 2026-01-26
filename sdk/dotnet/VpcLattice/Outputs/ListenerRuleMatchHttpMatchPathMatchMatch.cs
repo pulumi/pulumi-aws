@@ -13,14 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ListenerRuleMatchHttpMatchPathMatchMatch
     {
-        /// <summary>
-        /// Specifies an exact type match.
-        /// </summary>
         public readonly string? Exact;
-        /// <summary>
-        /// Specifies a prefix type match.
-        /// Matches the value with the prefix.
-        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

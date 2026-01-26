@@ -15,47 +15,23 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs();
 
-    /**
-     * Description of the column that helps the query engine understand the contents of the column.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the column that helps the query engine understand the contents of the column.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-     * 
-     */
     @Import(name="inclusion")
     private @Nullable Output<String> inclusion;
 
-    /**
-     * @return Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-     * 
-     */
     public Optional<Output<String>> inclusion() {
         return Optional.ofNullable(this.inclusion);
     }
 
-    /**
-     * Name of the column for which the other fields in this object apply.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the column for which the other fields in this object apply.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -86,65 +62,29 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the column that helps the query engine understand the contents of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the column that helps the query engine understand the contents of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param inclusion Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusion(@Nullable Output<String> inclusion) {
             $.inclusion = inclusion;
             return this;
         }
 
-        /**
-         * @param inclusion Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusion(String inclusion) {
             return inclusion(Output.of(inclusion));
         }
 
-        /**
-         * @param name Name of the column for which the other fields in this object apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the column for which the other fields in this object apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

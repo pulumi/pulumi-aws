@@ -36,20 +36,6 @@ class V2modelsSlotArgs:
                  value_elicitation_setting: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']] = None):
         """
         The set of arguments for constructing a V2modelsSlot resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] intent_id: Identifier of the intent that contains the slot.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[_builtins.str] description: Description of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]] multiple_values_settings: Whether the slot returns multiple values in one response.
-               See the `multiple_values_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
-               See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-               See the `sub_slot_setting` argument reference below.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "bot_version", bot_version)
@@ -77,9 +63,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the bot associated with the slot.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -89,9 +72,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the bot associated with the slot.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -101,9 +81,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="intentId")
     def intent_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the intent that contains the slot.
-        """
         return pulumi.get(self, "intent_id")
 
     @intent_id.setter
@@ -113,9 +90,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the language and locale that the slot will be used in.
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -125,9 +99,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the slot.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -137,10 +108,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="multipleValuesSettings")
     def multiple_values_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]]]:
-        """
-        Whether the slot returns multiple values in one response.
-        See the `multiple_values_setting` argument reference below.
-        """
         return pulumi.get(self, "multiple_values_settings")
 
     @multiple_values_settings.setter
@@ -150,9 +117,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the slot.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -162,10 +126,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="obfuscationSettings")
     def obfuscation_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]]:
-        """
-        Determines how slot values are used in Amazon CloudWatch logs.
-        See the `obfuscation_setting` argument reference below.
-        """
         return pulumi.get(self, "obfuscation_settings")
 
     @obfuscation_settings.setter
@@ -175,9 +135,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -187,9 +144,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the slot type associated with this slot.
-        """
         return pulumi.get(self, "slot_type_id")
 
     @slot_type_id.setter
@@ -199,10 +153,6 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="subSlotSettings")
     def sub_slot_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]:
-        """
-        Specifications for the constituent sub slots and the expression for the composite slot.
-        See the `sub_slot_setting` argument reference below.
-        """
         return pulumi.get(self, "sub_slot_settings")
 
     @sub_slot_settings.setter
@@ -247,21 +197,6 @@ class _V2modelsSlotState:
                  value_elicitation_setting: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsSlot resources.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] description: Description of the slot.
-        :param pulumi.Input[_builtins.str] intent_id: Identifier of the intent that contains the slot.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]] multiple_values_settings: Whether the slot returns multiple values in one response.
-               See the `multiple_values_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
-               See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slot_id: Unique identifier associated with the slot.
-        :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-               See the `sub_slot_setting` argument reference below.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -295,9 +230,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the bot associated with the slot.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -307,9 +239,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the bot associated with the slot.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -319,9 +248,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the slot.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -331,9 +257,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="intentId")
     def intent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the intent that contains the slot.
-        """
         return pulumi.get(self, "intent_id")
 
     @intent_id.setter
@@ -343,9 +266,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the language and locale that the slot will be used in.
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -355,10 +275,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="multipleValuesSettings")
     def multiple_values_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]]]:
-        """
-        Whether the slot returns multiple values in one response.
-        See the `multiple_values_setting` argument reference below.
-        """
         return pulumi.get(self, "multiple_values_settings")
 
     @multiple_values_settings.setter
@@ -368,9 +284,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the slot.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -380,10 +293,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="obfuscationSettings")
     def obfuscation_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]]:
-        """
-        Determines how slot values are used in Amazon CloudWatch logs.
-        See the `obfuscation_setting` argument reference below.
-        """
         return pulumi.get(self, "obfuscation_settings")
 
     @obfuscation_settings.setter
@@ -393,9 +302,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -405,9 +311,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="slotId")
     def slot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier associated with the slot.
-        """
         return pulumi.get(self, "slot_id")
 
     @slot_id.setter
@@ -417,9 +320,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the slot type associated with this slot.
-        """
         return pulumi.get(self, "slot_type_id")
 
     @slot_type_id.setter
@@ -429,10 +329,6 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="subSlotSettings")
     def sub_slot_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]:
-        """
-        Specifications for the constituent sub slots and the expression for the composite slot.
-        See the `sub_slot_setting` argument reference below.
-        """
         return pulumi.get(self, "sub_slot_settings")
 
     @sub_slot_settings.setter
@@ -479,30 +375,9 @@ class V2modelsSlot(pulumi.CustomResource):
                  value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None,
                  __props__=None):
         """
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
-        ```
-
+        Create a V2modelsSlot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] description: Description of the slot.
-        :param pulumi.Input[_builtins.str] intent_id: Identifier of the intent that contains the slot.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response.
-               See the `multiple_values_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
-               See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-               See the `sub_slot_setting` argument reference below.
         """
         ...
     @overload
@@ -511,14 +386,7 @@ class V2modelsSlot(pulumi.CustomResource):
                  args: V2modelsSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
-        ```
-
+        Create a V2modelsSlot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param V2modelsSlotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -609,21 +477,6 @@ class V2modelsSlot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with the slot.
-        :param pulumi.Input[_builtins.str] description: Description of the slot.
-        :param pulumi.Input[_builtins.str] intent_id: Identifier of the intent that contains the slot.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response.
-               See the `multiple_values_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
-               See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slot_id: Unique identifier associated with the slot.
-        :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-               See the `sub_slot_setting` argument reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -648,100 +501,61 @@ class V2modelsSlot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the bot associated with the slot.
-        """
         return pulumi.get(self, "bot_id")
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the bot associated with the slot.
-        """
         return pulumi.get(self, "bot_version")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the slot.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="intentId")
     def intent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the intent that contains the slot.
-        """
         return pulumi.get(self, "intent_id")
 
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the language and locale that the slot will be used in.
-        """
         return pulumi.get(self, "locale_id")
 
     @_builtins.property
     @pulumi.getter(name="multipleValuesSettings")
     def multiple_values_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotMultipleValuesSetting']]]:
-        """
-        Whether the slot returns multiple values in one response.
-        See the `multiple_values_setting` argument reference below.
-        """
         return pulumi.get(self, "multiple_values_settings")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the slot.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="obfuscationSettings")
     def obfuscation_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotObfuscationSetting']]]:
-        """
-        Determines how slot values are used in Amazon CloudWatch logs.
-        See the `obfuscation_setting` argument reference below.
-        """
         return pulumi.get(self, "obfuscation_settings")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="slotId")
     def slot_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier associated with the slot.
-        """
         return pulumi.get(self, "slot_id")
 
     @_builtins.property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the slot type associated with this slot.
-        """
         return pulumi.get(self, "slot_type_id")
 
     @_builtins.property
     @pulumi.getter(name="subSlotSettings")
     def sub_slot_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotSubSlotSetting']]]:
-        """
-        Specifications for the constituent sub slots and the expression for the composite slot.
-        See the `sub_slot_setting` argument reference below.
-        """
         return pulumi.get(self, "sub_slot_settings")
 
     @_builtins.property

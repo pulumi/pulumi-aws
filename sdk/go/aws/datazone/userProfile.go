@@ -12,65 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone User Profile.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datazone.NewUserProfile(ctx, "example", &datazone.UserProfileArgs{
-//				UserIdentifier:   pulumi.Any(exampleAwsIamUser.Arn),
-//				DomainIdentifier: pulumi.Any(exampleAwsDatazoneDomain.Id),
-//				UserType:         pulumi.String("IAM_USER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
-// ```
 type UserProfile struct {
 	pulumi.CustomResourceState
 
-	// Details about the user profile.
-	Details UserProfileDetailArrayOutput `pulumi:"details"`
-	// The domain identifier.
-	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The user profile status.
-	Status   pulumi.StringOutput          `pulumi:"status"`
-	Timeouts UserProfileTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The user profile type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The user identifier.
-	//
-	// The following arguments are optional:
-	UserIdentifier pulumi.StringOutput `pulumi:"userIdentifier"`
-	// The user type.
-	UserType pulumi.StringOutput `pulumi:"userType"`
+	Details          UserProfileDetailArrayOutput `pulumi:"details"`
+	DomainIdentifier pulumi.StringOutput          `pulumi:"domainIdentifier"`
+	Region           pulumi.StringOutput          `pulumi:"region"`
+	Status           pulumi.StringOutput          `pulumi:"status"`
+	Timeouts         UserProfileTimeoutsPtrOutput `pulumi:"timeouts"`
+	Type             pulumi.StringOutput          `pulumi:"type"`
+	UserIdentifier   pulumi.StringOutput          `pulumi:"userIdentifier"`
+	UserType         pulumi.StringOutput          `pulumi:"userType"`
 }
 
 // NewUserProfile registers a new resource with the given unique name, arguments, and options.
@@ -109,43 +61,25 @@ func GetUserProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserProfile resources.
 type userProfileState struct {
-	// Details about the user profile.
-	Details []UserProfileDetail `pulumi:"details"`
-	// The domain identifier.
-	DomainIdentifier *string `pulumi:"domainIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user profile status.
-	Status   *string              `pulumi:"status"`
-	Timeouts *UserProfileTimeouts `pulumi:"timeouts"`
-	// The user profile type.
-	Type *string `pulumi:"type"`
-	// The user identifier.
-	//
-	// The following arguments are optional:
-	UserIdentifier *string `pulumi:"userIdentifier"`
-	// The user type.
-	UserType *string `pulumi:"userType"`
+	Details          []UserProfileDetail  `pulumi:"details"`
+	DomainIdentifier *string              `pulumi:"domainIdentifier"`
+	Region           *string              `pulumi:"region"`
+	Status           *string              `pulumi:"status"`
+	Timeouts         *UserProfileTimeouts `pulumi:"timeouts"`
+	Type             *string              `pulumi:"type"`
+	UserIdentifier   *string              `pulumi:"userIdentifier"`
+	UserType         *string              `pulumi:"userType"`
 }
 
 type UserProfileState struct {
-	// Details about the user profile.
-	Details UserProfileDetailArrayInput
-	// The domain identifier.
+	Details          UserProfileDetailArrayInput
 	DomainIdentifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user profile status.
-	Status   pulumi.StringPtrInput
-	Timeouts UserProfileTimeoutsPtrInput
-	// The user profile type.
-	Type pulumi.StringPtrInput
-	// The user identifier.
-	//
-	// The following arguments are optional:
-	UserIdentifier pulumi.StringPtrInput
-	// The user type.
-	UserType pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Status           pulumi.StringPtrInput
+	Timeouts         UserProfileTimeoutsPtrInput
+	Type             pulumi.StringPtrInput
+	UserIdentifier   pulumi.StringPtrInput
+	UserType         pulumi.StringPtrInput
 }
 
 func (UserProfileState) ElementType() reflect.Type {
@@ -153,36 +87,22 @@ func (UserProfileState) ElementType() reflect.Type {
 }
 
 type userProfileArgs struct {
-	// The domain identifier.
-	DomainIdentifier string `pulumi:"domainIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user profile status.
-	Status   *string              `pulumi:"status"`
-	Timeouts *UserProfileTimeouts `pulumi:"timeouts"`
-	// The user identifier.
-	//
-	// The following arguments are optional:
-	UserIdentifier string `pulumi:"userIdentifier"`
-	// The user type.
-	UserType *string `pulumi:"userType"`
+	DomainIdentifier string               `pulumi:"domainIdentifier"`
+	Region           *string              `pulumi:"region"`
+	Status           *string              `pulumi:"status"`
+	Timeouts         *UserProfileTimeouts `pulumi:"timeouts"`
+	UserIdentifier   string               `pulumi:"userIdentifier"`
+	UserType         *string              `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a UserProfile resource.
 type UserProfileArgs struct {
-	// The domain identifier.
 	DomainIdentifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user profile status.
-	Status   pulumi.StringPtrInput
-	Timeouts UserProfileTimeoutsPtrInput
-	// The user identifier.
-	//
-	// The following arguments are optional:
-	UserIdentifier pulumi.StringInput
-	// The user type.
-	UserType pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Status           pulumi.StringPtrInput
+	Timeouts         UserProfileTimeoutsPtrInput
+	UserIdentifier   pulumi.StringInput
+	UserType         pulumi.StringPtrInput
 }
 
 func (UserProfileArgs) ElementType() reflect.Type {
@@ -272,22 +192,18 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
-// Details about the user profile.
 func (o UserProfileOutput) Details() UserProfileDetailArrayOutput {
 	return o.ApplyT(func(v *UserProfile) UserProfileDetailArrayOutput { return v.Details }).(UserProfileDetailArrayOutput)
 }
 
-// The domain identifier.
 func (o UserProfileOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The user profile status.
 func (o UserProfileOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -296,19 +212,14 @@ func (o UserProfileOutput) Timeouts() UserProfileTimeoutsPtrOutput {
 	return o.ApplyT(func(v *UserProfile) UserProfileTimeoutsPtrOutput { return v.Timeouts }).(UserProfileTimeoutsPtrOutput)
 }
 
-// The user profile type.
 func (o UserProfileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The user identifier.
-//
-// The following arguments are optional:
 func (o UserProfileOutput) UserIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.UserIdentifier }).(pulumi.StringOutput)
 }
 
-// The user type.
 func (o UserProfileOutput) UserType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.UserType }).(pulumi.StringOutput)
 }

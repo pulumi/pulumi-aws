@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCustomModelOutputDataConfig {
-    /**
-     * @return The S3 URI where the validation data is stored..
-     * 
-     */
     private String s3Uri;
 
     private GetCustomModelOutputDataConfig() {}
-    /**
-     * @return The S3 URI where the validation data is stored..
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

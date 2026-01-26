@@ -12,80 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IoT policy attachment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pubsub, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"iot:*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			pubsubPolicy, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
-//				Name:   pulumi.String("PubSubToAnyTopic"),
-//				Policy: pulumi.String(pubsub.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "csr.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				Csr:    pulumi.String(invokeFile.Result),
-//				Active: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewPolicyAttachment(ctx, "att", &iot.PolicyAttachmentArgs{
-//				Policy: pubsubPolicy.Name,
-//				Target: cert.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the policy to attach.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The identity to which the policy is attached.
 	Target pulumi.StringOutput `pulumi:"target"`
 }
 
@@ -125,20 +56,14 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
-	// The name of the policy to attach.
 	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The identity to which the policy is attached.
-	Target *string `pulumi:"target"`
+	Region *string     `pulumi:"region"`
+	Target *string     `pulumi:"target"`
 }
 
 type PolicyAttachmentState struct {
-	// The name of the policy to attach.
 	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The identity to which the policy is attached.
 	Target pulumi.StringPtrInput
 }
 
@@ -147,21 +72,15 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type policyAttachmentArgs struct {
-	// The name of the policy to attach.
 	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The identity to which the policy is attached.
-	Target string `pulumi:"target"`
+	Region *string     `pulumi:"region"`
+	Target string      `pulumi:"target"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
-	// The name of the policy to attach.
 	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The identity to which the policy is attached.
 	Target pulumi.StringInput
 }
 
@@ -252,17 +171,14 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.
 	return o
 }
 
-// The name of the policy to attach.
 func (o PolicyAttachmentOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The identity to which the policy is attached.
 func (o PolicyAttachmentOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }

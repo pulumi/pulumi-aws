@@ -16,17 +16,9 @@ public final class WebAclAssociationConfigArgs extends com.pulumi.resources.Reso
 
     public static final WebAclAssociationConfigArgs Empty = new WebAclAssociationConfigArgs();
 
-    /**
-     * Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
-     * 
-     */
     @Import(name="requestBodies")
     private @Nullable Output<List<WebAclAssociationConfigRequestBodyArgs>> requestBodies;
 
-    /**
-     * @return Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
-     * 
-     */
     public Optional<Output<List<WebAclAssociationConfigRequestBodyArgs>>> requestBodies() {
         return Optional.ofNullable(this.requestBodies);
     }
@@ -55,33 +47,15 @@ public final class WebAclAssociationConfigArgs extends com.pulumi.resources.Reso
             $ = new WebAclAssociationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requestBodies(@Nullable Output<List<WebAclAssociationConfigRequestBodyArgs>> requestBodies) {
             $.requestBodies = requestBodies;
             return this;
         }
 
-        /**
-         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requestBodies(List<WebAclAssociationConfigRequestBodyArgs> requestBodies) {
             return requestBodies(Output.of(requestBodies));
         }
 
-        /**
-         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requestBodies(WebAclAssociationConfigRequestBodyArgs... requestBodies) {
             return requestBodies(List.of(requestBodies));
         }

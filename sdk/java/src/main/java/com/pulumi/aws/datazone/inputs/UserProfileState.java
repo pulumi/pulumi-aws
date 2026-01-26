@@ -18,62 +18,30 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserProfileState Empty = new UserProfileState();
 
-    /**
-     * Details about the user profile.
-     * 
-     */
     @Import(name="details")
     private @Nullable Output<List<UserProfileDetailArgs>> details;
 
-    /**
-     * @return Details about the user profile.
-     * 
-     */
     public Optional<Output<List<UserProfileDetailArgs>>> details() {
         return Optional.ofNullable(this.details);
     }
 
-    /**
-     * The domain identifier.
-     * 
-     */
     @Import(name="domainIdentifier")
     private @Nullable Output<String> domainIdentifier;
 
-    /**
-     * @return The domain identifier.
-     * 
-     */
     public Optional<Output<String>> domainIdentifier() {
         return Optional.ofNullable(this.domainIdentifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The user profile status.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The user profile status.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -85,51 +53,23 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The user profile type.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The user profile type.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * The user identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userIdentifier")
     private @Nullable Output<String> userIdentifier;
 
-    /**
-     * @return The user identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> userIdentifier() {
         return Optional.ofNullable(this.userIdentifier);
     }
 
-    /**
-     * The user type.
-     * 
-     */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
-    /**
-     * @return The user type.
-     * 
-     */
     public Optional<Output<String>> userType() {
         return Optional.ofNullable(this.userType);
     }
@@ -165,96 +105,42 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
             $ = new UserProfileState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param details Details about the user profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder details(@Nullable Output<List<UserProfileDetailArgs>> details) {
             $.details = details;
             return this;
         }
 
-        /**
-         * @param details Details about the user profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder details(List<UserProfileDetailArgs> details) {
             return details(Output.of(details));
         }
 
-        /**
-         * @param details Details about the user profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder details(UserProfileDetailArgs... details) {
             return details(List.of(details));
         }
 
-        /**
-         * @param domainIdentifier The domain identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(@Nullable Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier The domain identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status The user profile status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The user profile status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
@@ -268,69 +154,29 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param type The user profile type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The user profile type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param userIdentifier The user identifier.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIdentifier(@Nullable Output<String> userIdentifier) {
             $.userIdentifier = userIdentifier;
             return this;
         }
 
-        /**
-         * @param userIdentifier The user identifier.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIdentifier(String userIdentifier) {
             return userIdentifier(Output.of(userIdentifier));
         }
 
-        /**
-         * @param userType The user type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userType(@Nullable Output<String> userType) {
             $.userType = userType;
             return this;
         }
 
-        /**
-         * @param userType The user type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userType(String userType) {
             return userType(Output.of(userType));
         }

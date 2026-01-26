@@ -17,47 +17,23 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
 
     public static final TaskSetCapacityProviderStrategyArgs Empty = new TaskSetCapacityProviderStrategyArgs();
 
-    /**
-     * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-     * 
-     */
     @Import(name="base")
     private @Nullable Output<Integer> base;
 
-    /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-     * 
-     */
     public Optional<Output<Integer>> base() {
         return Optional.ofNullable(this.base);
     }
 
-    /**
-     * The short name or full Amazon Resource Name (ARN) of the capacity provider.
-     * 
-     */
     @Import(name="capacityProvider", required=true)
     private Output<String> capacityProvider;
 
-    /**
-     * @return The short name or full Amazon Resource Name (ARN) of the capacity provider.
-     * 
-     */
     public Output<String> capacityProvider() {
         return this.capacityProvider;
     }
 
-    /**
-     * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-     * 
-     */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
-    /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-     * 
-     */
     public Output<Integer> weight() {
         return this.weight;
     }
@@ -88,65 +64,29 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
             $ = new TaskSetCapacityProviderStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param base The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder base(@Nullable Output<Integer> base) {
             $.base = base;
             return this;
         }
 
-        /**
-         * @param base The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder base(Integer base) {
             return base(Output.of(base));
         }
 
-        /**
-         * @param capacityProvider The short name or full Amazon Resource Name (ARN) of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProvider(Output<String> capacityProvider) {
             $.capacityProvider = capacityProvider;
             return this;
         }
 
-        /**
-         * @param capacityProvider The short name or full Amazon Resource Name (ARN) of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProvider(String capacityProvider) {
             return capacityProvider(Output.of(capacityProvider));
         }
 
-        /**
-         * @param weight The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

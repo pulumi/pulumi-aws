@@ -12,47 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Propagation.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewDefaultRouteTablePropagation(ctx, "example", &ec2transitgateway.DefaultRouteTablePropagationArgs{
-//				TransitGatewayId:           pulumi.Any(exampleAwsEc2TransitGateway.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(exampleAwsEc2TransitGatewayRouteTable.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DefaultRouteTablePropagation struct {
 	pulumi.CustomResourceState
 
-	OriginalDefaultRouteTableId pulumi.StringOutput `pulumi:"originalDefaultRouteTableId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput                           `pulumi:"region"`
-	Timeouts DefaultRouteTablePropagationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// ID of the Transit Gateway to change the default association route table on.
-	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
-	// ID of the Transit Gateway Route Table to be made the default association route table.
-	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
+	OriginalDefaultRouteTableId pulumi.StringOutput                           `pulumi:"originalDefaultRouteTableId"`
+	Region                      pulumi.StringOutput                           `pulumi:"region"`
+	Timeouts                    DefaultRouteTablePropagationTimeoutsPtrOutput `pulumi:"timeouts"`
+	TransitGatewayId            pulumi.StringOutput                           `pulumi:"transitGatewayId"`
+	TransitGatewayRouteTableId  pulumi.StringOutput                           `pulumi:"transitGatewayRouteTableId"`
 }
 
 // NewDefaultRouteTablePropagation registers a new resource with the given unique name, arguments, and options.
@@ -91,25 +58,19 @@ func GetDefaultRouteTablePropagation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultRouteTablePropagation resources.
 type defaultRouteTablePropagationState struct {
-	OriginalDefaultRouteTableId *string `pulumi:"originalDefaultRouteTableId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                               `pulumi:"region"`
-	Timeouts *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
-	// ID of the Transit Gateway to change the default association route table on.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// ID of the Transit Gateway Route Table to be made the default association route table.
-	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
+	OriginalDefaultRouteTableId *string                               `pulumi:"originalDefaultRouteTableId"`
+	Region                      *string                               `pulumi:"region"`
+	Timeouts                    *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
+	TransitGatewayId            *string                               `pulumi:"transitGatewayId"`
+	TransitGatewayRouteTableId  *string                               `pulumi:"transitGatewayRouteTableId"`
 }
 
 type DefaultRouteTablePropagationState struct {
 	OriginalDefaultRouteTableId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts DefaultRouteTablePropagationTimeoutsPtrInput
-	// ID of the Transit Gateway to change the default association route table on.
-	TransitGatewayId pulumi.StringPtrInput
-	// ID of the Transit Gateway Route Table to be made the default association route table.
-	TransitGatewayRouteTableId pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	Timeouts                    DefaultRouteTablePropagationTimeoutsPtrInput
+	TransitGatewayId            pulumi.StringPtrInput
+	TransitGatewayRouteTableId  pulumi.StringPtrInput
 }
 
 func (DefaultRouteTablePropagationState) ElementType() reflect.Type {
@@ -117,23 +78,17 @@ func (DefaultRouteTablePropagationState) ElementType() reflect.Type {
 }
 
 type defaultRouteTablePropagationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                               `pulumi:"region"`
-	Timeouts *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
-	// ID of the Transit Gateway to change the default association route table on.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// ID of the Transit Gateway Route Table to be made the default association route table.
-	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
+	Region                     *string                               `pulumi:"region"`
+	Timeouts                   *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
+	TransitGatewayId           string                                `pulumi:"transitGatewayId"`
+	TransitGatewayRouteTableId string                                `pulumi:"transitGatewayRouteTableId"`
 }
 
 // The set of arguments for constructing a DefaultRouteTablePropagation resource.
 type DefaultRouteTablePropagationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts DefaultRouteTablePropagationTimeoutsPtrInput
-	// ID of the Transit Gateway to change the default association route table on.
-	TransitGatewayId pulumi.StringInput
-	// ID of the Transit Gateway Route Table to be made the default association route table.
+	Region                     pulumi.StringPtrInput
+	Timeouts                   DefaultRouteTablePropagationTimeoutsPtrInput
+	TransitGatewayId           pulumi.StringInput
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -228,7 +183,6 @@ func (o DefaultRouteTablePropagationOutput) OriginalDefaultRouteTableId() pulumi
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.OriginalDefaultRouteTableId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultRouteTablePropagationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -237,12 +191,10 @@ func (o DefaultRouteTablePropagationOutput) Timeouts() DefaultRouteTablePropagat
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) DefaultRouteTablePropagationTimeoutsPtrOutput { return v.Timeouts }).(DefaultRouteTablePropagationTimeoutsPtrOutput)
 }
 
-// ID of the Transit Gateway to change the default association route table on.
 func (o DefaultRouteTablePropagationOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// ID of the Transit Gateway Route Table to be made the default association route table.
 func (o DefaultRouteTablePropagationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

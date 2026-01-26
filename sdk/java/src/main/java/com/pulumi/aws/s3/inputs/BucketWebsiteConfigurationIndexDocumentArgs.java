@@ -14,21 +14,9 @@ public final class BucketWebsiteConfigurationIndexDocumentArgs extends com.pulum
 
     public static final BucketWebsiteConfigurationIndexDocumentArgs Empty = new BucketWebsiteConfigurationIndexDocumentArgs();
 
-    /**
-     * Suffix that is appended to a request that is for a directory on the website endpoint.
-     * For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-     * The suffix must not be empty and must not include a slash character.
-     * 
-     */
     @Import(name="suffix", required=true)
     private Output<String> suffix;
 
-    /**
-     * @return Suffix that is appended to a request that is for a directory on the website endpoint.
-     * For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-     * The suffix must not be empty and must not include a slash character.
-     * 
-     */
     public Output<String> suffix() {
         return this.suffix;
     }
@@ -57,27 +45,11 @@ public final class BucketWebsiteConfigurationIndexDocumentArgs extends com.pulum
             $ = new BucketWebsiteConfigurationIndexDocumentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param suffix Suffix that is appended to a request that is for a directory on the website endpoint.
-         * For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-         * The suffix must not be empty and must not include a slash character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffix(Output<String> suffix) {
             $.suffix = suffix;
             return this;
         }
 
-        /**
-         * @param suffix Suffix that is appended to a request that is for a directory on the website endpoint.
-         * For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-         * The suffix must not be empty and must not include a slash character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffix(String suffix) {
             return suffix(Output.of(suffix));
         }

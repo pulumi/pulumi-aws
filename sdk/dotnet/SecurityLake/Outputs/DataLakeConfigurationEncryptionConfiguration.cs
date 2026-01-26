@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class DataLakeConfigurationEncryptionConfiguration
     {
-        /// <summary>
-        /// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-        /// </summary>
         public readonly string KmsKeyId;
 
         [OutputConstructor]

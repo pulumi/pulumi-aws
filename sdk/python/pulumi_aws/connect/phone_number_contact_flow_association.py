@@ -25,10 +25,6 @@ class PhoneNumberContactFlowAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PhoneNumberContactFlowAssociation resource.
-        :param pulumi.Input[_builtins.str] contact_flow_id: Contact flow ID.
-        :param pulumi.Input[_builtins.str] instance_id: Amazon Connect instance ID.
-        :param pulumi.Input[_builtins.str] phone_number_id: Phone number ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "contact_flow_id", contact_flow_id)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -39,9 +35,6 @@ class PhoneNumberContactFlowAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Contact flow ID.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @contact_flow_id.setter
@@ -51,9 +44,6 @@ class PhoneNumberContactFlowAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Connect instance ID.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -63,9 +53,6 @@ class PhoneNumberContactFlowAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumberId")
     def phone_number_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Phone number ID.
-        """
         return pulumi.get(self, "phone_number_id")
 
     @phone_number_id.setter
@@ -75,9 +62,6 @@ class PhoneNumberContactFlowAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _PhoneNumberContactFlowAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PhoneNumberContactFlowAssociation resources.
-        :param pulumi.Input[_builtins.str] contact_flow_id: Contact flow ID.
-        :param pulumi.Input[_builtins.str] instance_id: Amazon Connect instance ID.
-        :param pulumi.Input[_builtins.str] phone_number_id: Phone number ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if contact_flow_id is not None:
             pulumi.set(__self__, "contact_flow_id", contact_flow_id)
@@ -111,9 +91,6 @@ class _PhoneNumberContactFlowAssociationState:
     @_builtins.property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contact flow ID.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @contact_flow_id.setter
@@ -123,9 +100,6 @@ class _PhoneNumberContactFlowAssociationState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Connect instance ID.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -135,9 +109,6 @@ class _PhoneNumberContactFlowAssociationState:
     @_builtins.property
     @pulumi.getter(name="phoneNumberId")
     def phone_number_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Phone number ID.
-        """
         return pulumi.get(self, "phone_number_id")
 
     @phone_number_id.setter
@@ -147,9 +118,6 @@ class _PhoneNumberContactFlowAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -169,34 +137,9 @@ class PhoneNumberContactFlowAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Associates a flow with a phone number claimed to an Amazon Connect instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumberContactFlowAssociation("example",
-            phone_number_id=example_aws_connect_phone_number["id"],
-            instance_id=example_aws_connect_instance["id"],
-            contact_flow_id=example_aws_connect_contact_flow["contactFlowId"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_connect_phone_number_contact_flow_association` using the `phone_number_id`, `instance_id` and `contact_flow_id` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
-        ```
-
+        Create a PhoneNumberContactFlowAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] contact_flow_id: Contact flow ID.
-        :param pulumi.Input[_builtins.str] instance_id: Amazon Connect instance ID.
-        :param pulumi.Input[_builtins.str] phone_number_id: Phone number ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -205,28 +148,7 @@ class PhoneNumberContactFlowAssociation(pulumi.CustomResource):
                  args: PhoneNumberContactFlowAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associates a flow with a phone number claimed to an Amazon Connect instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumberContactFlowAssociation("example",
-            phone_number_id=example_aws_connect_phone_number["id"],
-            instance_id=example_aws_connect_instance["id"],
-            contact_flow_id=example_aws_connect_contact_flow["contactFlowId"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_connect_phone_number_contact_flow_association` using the `phone_number_id`, `instance_id` and `contact_flow_id` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
-        ```
-
+        Create a PhoneNumberContactFlowAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PhoneNumberContactFlowAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,10 +208,6 @@ class PhoneNumberContactFlowAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] contact_flow_id: Contact flow ID.
-        :param pulumi.Input[_builtins.str] instance_id: Amazon Connect instance ID.
-        :param pulumi.Input[_builtins.str] phone_number_id: Phone number ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -304,32 +222,20 @@ class PhoneNumberContactFlowAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Contact flow ID.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Connect instance ID.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="phoneNumberId")
     def phone_number_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Phone number ID.
-        """
         return pulumi.get(self, "phone_number_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

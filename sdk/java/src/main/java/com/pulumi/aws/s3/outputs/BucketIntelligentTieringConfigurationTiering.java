@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketIntelligentTieringConfigurationTiering {
-    /**
-     * @return S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
-     * 
-     */
     private String accessTier;
-    /**
-     * @return Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
-     * 
-     */
     private Integer days;
 
     private BucketIntelligentTieringConfigurationTiering() {}
-    /**
-     * @return S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
-     * 
-     */
     public String accessTier() {
         return this.accessTier;
     }
-    /**
-     * @return Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
-     * 
-     */
     public Integer days() {
         return this.days;
     }

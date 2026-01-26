@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduleTargetKinesisParameters {
-    /**
-     * @return Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-     * 
-     */
     private String partitionKey;
 
     private ScheduleTargetKinesisParameters() {}
-    /**
-     * @return Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-     * 
-     */
     public String partitionKey() {
         return this.partitionKey;
     }

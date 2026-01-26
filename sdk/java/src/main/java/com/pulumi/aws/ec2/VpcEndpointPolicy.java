@@ -13,125 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a VPC Endpoint Policy resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcEndpoint;
- * import com.pulumi.aws.ec2.VpcEndpointArgs;
- * import com.pulumi.aws.ec2.VpcEndpointPolicy;
- * import com.pulumi.aws.ec2.VpcEndpointPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
- *             .service("dynamodb")
- *             .build());
- * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .build());
- * 
- *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
- *             .serviceName(example.serviceName())
- *             .vpcId(exampleVpc.id())
- *             .build());
- * 
- *         var exampleVpcEndpointPolicy = new VpcEndpointPolicy("exampleVpcEndpointPolicy", VpcEndpointPolicyArgs.builder()
- *             .vpcEndpointId(exampleVpcEndpoint.id())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Sid", "AllowAll"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", "*")
- *                         )),
- *                         jsonProperty("Action", jsonArray("dynamodb:*")),
- *                         jsonProperty("Resource", "*")
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")
 public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The VPC Endpoint ID.
-     * 
-     */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return The VPC Endpoint ID.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }

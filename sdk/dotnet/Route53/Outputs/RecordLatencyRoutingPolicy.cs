@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class RecordLatencyRoutingPolicy
     {
-        /// <summary>
-        /// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to lookup information about the current AWS partition in
- * which the provider is working.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getPartition({});
- * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "1",
- *         actions: ["s3:ListBucket"],
- *         resources: [`arn:${current.partition}:s3:::my-bucket`],
- *     }],
- * }));
- * ```
- */
 export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,9 +16,6 @@ export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getPartition.
  */
 export interface GetPartitionArgs {
-    /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     */
     id?: string;
 }
 
@@ -46,43 +23,11 @@ export interface GetPartitionArgs {
  * A collection of values returned by getPartition.
  */
 export interface GetPartitionResult {
-    /**
-     * Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-     */
     readonly dnsSuffix: string;
-    /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     */
     readonly id: string;
-    /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     */
     readonly partition: string;
-    /**
-     * Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-     */
     readonly reverseDnsPrefix: string;
 }
-/**
- * Use this data source to lookup information about the current AWS partition in
- * which the provider is working.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getPartition({});
- * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "1",
- *         actions: ["s3:ListBucket"],
- *         resources: [`arn:${current.partition}:s3:::my-bucket`],
- *     }],
- * }));
- * ```
- */
 export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartitionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,8 +40,5 @@ export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getPartition.
  */
 export interface GetPartitionOutputArgs {
-    /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     */
     id?: pulumi.Input<string>;
 }

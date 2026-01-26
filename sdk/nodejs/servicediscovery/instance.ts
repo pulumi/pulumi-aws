@@ -4,78 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Service Discovery Instance resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.Vpc("example", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("example", {
- *     name: "example.domain.local",
- *     description: "example",
- *     vpc: example.id,
- * });
- * const exampleService = new aws.servicediscovery.Service("example", {
- *     name: "example",
- *     dnsConfig: {
- *         namespaceId: examplePrivateDnsNamespace.id,
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         routingPolicy: "MULTIVALUE",
- *     },
- *     healthCheckCustomConfig: {
- *         failureThreshold: 1,
- *     },
- * });
- * const exampleInstance = new aws.servicediscovery.Instance("example", {
- *     instanceId: "example-instance-id",
- *     serviceId: exampleService.id,
- *     attributes: {
- *         AWS_INSTANCE_IPV4: "172.18.0.1",
- *         custom_attribute: "custom",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicediscovery.HttpNamespace("example", {
- *     name: "example.domain.test",
- *     description: "example",
- * });
- * const exampleService = new aws.servicediscovery.Service("example", {
- *     name: "example",
- *     namespaceId: example.id,
- * });
- * const exampleInstance = new aws.servicediscovery.Instance("example", {
- *     instanceId: "example-instance-id",
- *     serviceId: exampleService.id,
- *     attributes: {
- *         AWS_EC2_INSTANCE_ID: "i-0abdg374kd892cj6dl",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
- *
- * ```sh
- * $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
- * ```
- */
 export class Instance extends pulumi.CustomResource {
     /**
      * Get an existing Instance resource's state with the given name, ID, and optional extra
@@ -104,21 +32,9 @@ export class Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Instance.__pulumiType;
     }
 
-    /**
-     * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-     */
     declare public readonly attributes: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The ID of the service instance.
-     */
     declare public readonly instanceId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the service that you want to use to create the instance.
-     */
     declare public readonly serviceId: pulumi.Output<string>;
 
     /**
@@ -163,21 +79,9 @@ export class Instance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Instance resources.
  */
 export interface InstanceState {
-    /**
-     * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-     */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the service instance.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the service that you want to use to create the instance.
-     */
     serviceId?: pulumi.Input<string>;
 }
 
@@ -185,20 +89,8 @@ export interface InstanceState {
  * The set of arguments for constructing a Instance resource.
  */
 export interface InstanceArgs {
-    /**
-     * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-     */
     attributes: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the service instance.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the service that you want to use to create the instance.
-     */
     serviceId: pulumi.Input<string>;
 }

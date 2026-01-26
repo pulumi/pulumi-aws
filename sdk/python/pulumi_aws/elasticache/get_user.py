@@ -60,9 +60,6 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> Optional[_builtins.str]:
-        """
-        String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-        """
         return pulumi.get(self, "access_string")
 
     @_builtins.property
@@ -101,17 +98,11 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
-        """
-        Identifier for the user.
-        """
         return pulumi.get(self, "user_id")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[_builtins.str]:
-        """
-        User name of the user.
-        """
         return pulumi.get(self, "user_name")
 
 
@@ -142,22 +133,7 @@ def get_user(access_string: Optional[_builtins.str] = None,
              user_name: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to get information about an ElastiCache User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_user(user_id="example")
-    ```
-
-
-    :param _builtins.str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_id: Identifier for the user.
-    :param _builtins.str user_name: User name of the user.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accessString'] = access_string
@@ -191,22 +167,7 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[_builtins.str]
                     user_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to get information about an ElastiCache User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_user(user_id="example")
-    ```
-
-
-    :param _builtins.str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_id: Identifier for the user.
-    :param _builtins.str user_name: User name of the user.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accessString'] = access_string

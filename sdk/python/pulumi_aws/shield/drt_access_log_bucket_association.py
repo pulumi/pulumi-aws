@@ -26,8 +26,7 @@ class DrtAccessLogBucketAssociationArgs:
                  timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DrtAccessLogBucketAssociation resource.
-        :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: Unused
         """
         pulumi.set(__self__, "log_bucket", log_bucket)
         pulumi.set(__self__, "role_arn_association_id", role_arn_association_id)
@@ -37,9 +36,6 @@ class DrtAccessLogBucketAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="logBucket")
     def log_bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon S3 bucket that contains the logs that you want to share.
-        """
         return pulumi.get(self, "log_bucket")
 
     @log_bucket.setter
@@ -50,7 +46,7 @@ class DrtAccessLogBucketAssociationArgs:
     @pulumi.getter(name="roleArnAssociationId")
     def role_arn_association_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Role Arn association used for allowing Shield DRT Access.
+        Unused
         """
         return pulumi.get(self, "role_arn_association_id")
 
@@ -76,8 +72,7 @@ class _DrtAccessLogBucketAssociationState:
                  timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DrtAccessLogBucketAssociation resources.
-        :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: Unused
         """
         if log_bucket is not None:
             pulumi.set(__self__, "log_bucket", log_bucket)
@@ -89,9 +84,6 @@ class _DrtAccessLogBucketAssociationState:
     @_builtins.property
     @pulumi.getter(name="logBucket")
     def log_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon S3 bucket that contains the logs that you want to share.
-        """
         return pulumi.get(self, "log_bucket")
 
     @log_bucket.setter
@@ -102,7 +94,7 @@ class _DrtAccessLogBucketAssociationState:
     @pulumi.getter(name="roleArnAssociationId")
     def role_arn_association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the Role Arn association used for allowing Shield DRT Access.
+        Unused
         """
         return pulumi.get(self, "role_arn_association_id")
 
@@ -131,35 +123,10 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DrtAccessLogBucketAssociationTimeoutsArgs', 'DrtAccessLogBucketAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Shield DRT Access Log Bucket Association.
-        Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=f"arn:aws:iam:{current['region']}:{current_aws_caller_identity['accountId']}:{shield_drt_access_role_name}")
-        test_drt_access_log_bucket_association = aws.shield.DrtAccessLogBucketAssociation("test",
-            log_bucket=shield_drt_access_log_bucket,
-            role_arn_association_id=test.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
-
-        ```sh
-        $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
-        ```
-
+        Create a DrtAccessLogBucketAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: Unused
         """
         ...
     @overload
@@ -168,31 +135,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
                  args: DrtAccessLogBucketAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Shield DRT Access Log Bucket Association.
-        Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=f"arn:aws:iam:{current['region']}:{current_aws_caller_identity['accountId']}:{shield_drt_access_role_name}")
-        test_drt_access_log_bucket_association = aws.shield.DrtAccessLogBucketAssociation("test",
-            log_bucket=shield_drt_access_log_bucket,
-            role_arn_association_id=test.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
-
-        ```sh
-        $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
-        ```
-
+        Create a DrtAccessLogBucketAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DrtAccessLogBucketAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,8 +190,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
-        :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
+        :param pulumi.Input[_builtins.str] role_arn_association_id: Unused
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -262,16 +204,13 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="logBucket")
     def log_bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon S3 bucket that contains the logs that you want to share.
-        """
         return pulumi.get(self, "log_bucket")
 
     @_builtins.property
     @pulumi.getter(name="roleArnAssociationId")
     def role_arn_association_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Role Arn association used for allowing Shield DRT Access.
+        Unused
         """
         return pulumi.get(self, "role_arn_association_id")
 

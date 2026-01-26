@@ -9,102 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Manages an AWS Opensearch Outbound Connection.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var foo = new Aws.OpenSearch.OutboundConnection("foo", new()
-    ///     {
-    ///         ConnectionAlias = "outbound_connection",
-    ///         ConnectionMode = "DIRECT",
-    ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
-    ///         {
-    ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///             DomainName = localDomain.DomainName,
-    ///         },
-    ///         RemoteDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionRemoteDomainInfoArgs
-    ///         {
-    ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///             DomainName = remoteDomain.DomainName,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/outboundConnection:OutboundConnection")]
     public partial class OutboundConnection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Accepts the connection.
-        /// </summary>
         [Output("acceptConnection")]
         public Output<bool?> AcceptConnection { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the connection alias that will be used by the customer for this connection.
-        /// </summary>
         [Output("connectionAlias")]
         public Output<string> ConnectionAlias { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        /// </summary>
         [Output("connectionMode")]
         public Output<string> ConnectionMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the outbound connection.
-        /// </summary>
         [Output("connectionProperties")]
         public Output<Outputs.OutboundConnectionConnectionProperties> ConnectionProperties { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the local Opensearch domain.
-        /// </summary>
         [Output("localDomainInfo")]
         public Output<Outputs.OutboundConnectionLocalDomainInfo> LocalDomainInfo { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the remote Opensearch domain.
-        /// </summary>
         [Output("remoteDomainInfo")]
         public Output<Outputs.OutboundConnectionRemoteDomainInfo> RemoteDomainInfo { get; private set; } = null!;
 
@@ -154,45 +82,24 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class OutboundConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Accepts the connection.
-        /// </summary>
         [Input("acceptConnection")]
         public Input<bool>? AcceptConnection { get; set; }
 
-        /// <summary>
-        /// Specifies the connection alias that will be used by the customer for this connection.
-        /// </summary>
         [Input("connectionAlias", required: true)]
         public Input<string> ConnectionAlias { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        /// </summary>
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
-        /// <summary>
-        /// Configuration block for the outbound connection.
-        /// </summary>
         [Input("connectionProperties")]
         public Input<Inputs.OutboundConnectionConnectionPropertiesArgs>? ConnectionProperties { get; set; }
 
-        /// <summary>
-        /// Configuration block for the local Opensearch domain.
-        /// </summary>
         [Input("localDomainInfo", required: true)]
         public Input<Inputs.OutboundConnectionLocalDomainInfoArgs> LocalDomainInfo { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for the remote Opensearch domain.
-        /// </summary>
         [Input("remoteDomainInfo", required: true)]
         public Input<Inputs.OutboundConnectionRemoteDomainInfoArgs> RemoteDomainInfo { get; set; } = null!;
 
@@ -204,51 +111,27 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class OutboundConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Accepts the connection.
-        /// </summary>
         [Input("acceptConnection")]
         public Input<bool>? AcceptConnection { get; set; }
 
-        /// <summary>
-        /// Specifies the connection alias that will be used by the customer for this connection.
-        /// </summary>
         [Input("connectionAlias")]
         public Input<string>? ConnectionAlias { get; set; }
 
-        /// <summary>
-        /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        /// </summary>
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
-        /// <summary>
-        /// Configuration block for the outbound connection.
-        /// </summary>
         [Input("connectionProperties")]
         public Input<Inputs.OutboundConnectionConnectionPropertiesGetArgs>? ConnectionProperties { get; set; }
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }
 
-        /// <summary>
-        /// Configuration block for the local Opensearch domain.
-        /// </summary>
         [Input("localDomainInfo")]
         public Input<Inputs.OutboundConnectionLocalDomainInfoGetArgs>? LocalDomainInfo { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for the remote Opensearch domain.
-        /// </summary>
         [Input("remoteDomainInfo")]
         public Input<Inputs.OutboundConnectionRemoteDomainInfoGetArgs>? RemoteDomainInfo { get; set; }
 

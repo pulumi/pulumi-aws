@@ -17,197 +17,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCustomModelResult {
-    /**
-     * @return ARN of the base model.
-     * 
-     */
     private String baseModelArn;
-    /**
-     * @return Creation time of the model.
-     * 
-     */
     private String creationTime;
-    /**
-     * @return Hyperparameter values associated with this model.
-     * 
-     */
     private Map<String,String> hyperparameters;
     private String id;
-    /**
-     * @return Job ARN associated with this model.
-     * 
-     */
     private String jobArn;
-    /**
-     * @return Job name associated with this model.
-     * 
-     */
     private String jobName;
-    /**
-     * @return Key-value mapping of tags for the fine-tuning job.
-     * 
-     */
     private Map<String,String> jobTags;
-    /**
-     * @return ARN associated with this model.
-     * 
-     */
     private String modelArn;
     private String modelId;
-    /**
-     * @return The custom model is encrypted at rest using this key.
-     * 
-     */
     private String modelKmsKeyArn;
-    /**
-     * @return Model name associated with this model.
-     * 
-     */
     private String modelName;
-    /**
-     * @return Key-value mapping of tags for the model.
-     * 
-     */
     private Map<String,String> modelTags;
-    /**
-     * @return Output data configuration associated with this custom model.
-     * 
-     */
     private List<GetCustomModelOutputDataConfig> outputDataConfigs;
     private String region;
-    /**
-     * @return Information about the training dataset.
-     * 
-     */
     private List<GetCustomModelTrainingDataConfig> trainingDataConfigs;
-    /**
-     * @return Metrics associated with the customization job.
-     * 
-     */
     private List<GetCustomModelTrainingMetric> trainingMetrics;
-    /**
-     * @return Information about the validation dataset.
-     * 
-     */
     private List<GetCustomModelValidationDataConfig> validationDataConfigs;
-    /**
-     * @return The loss metric for each validator that you provided.
-     * 
-     */
     private List<GetCustomModelValidationMetric> validationMetrics;
 
     private GetCustomModelResult() {}
-    /**
-     * @return ARN of the base model.
-     * 
-     */
     public String baseModelArn() {
         return this.baseModelArn;
     }
-    /**
-     * @return Creation time of the model.
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return Hyperparameter values associated with this model.
-     * 
-     */
     public Map<String,String> hyperparameters() {
         return this.hyperparameters;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Job ARN associated with this model.
-     * 
-     */
     public String jobArn() {
         return this.jobArn;
     }
-    /**
-     * @return Job name associated with this model.
-     * 
-     */
     public String jobName() {
         return this.jobName;
     }
-    /**
-     * @return Key-value mapping of tags for the fine-tuning job.
-     * 
-     */
     public Map<String,String> jobTags() {
         return this.jobTags;
     }
-    /**
-     * @return ARN associated with this model.
-     * 
-     */
     public String modelArn() {
         return this.modelArn;
     }
     public String modelId() {
         return this.modelId;
     }
-    /**
-     * @return The custom model is encrypted at rest using this key.
-     * 
-     */
     public String modelKmsKeyArn() {
         return this.modelKmsKeyArn;
     }
-    /**
-     * @return Model name associated with this model.
-     * 
-     */
     public String modelName() {
         return this.modelName;
     }
-    /**
-     * @return Key-value mapping of tags for the model.
-     * 
-     */
     public Map<String,String> modelTags() {
         return this.modelTags;
     }
-    /**
-     * @return Output data configuration associated with this custom model.
-     * 
-     */
     public List<GetCustomModelOutputDataConfig> outputDataConfigs() {
         return this.outputDataConfigs;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Information about the training dataset.
-     * 
-     */
     public List<GetCustomModelTrainingDataConfig> trainingDataConfigs() {
         return this.trainingDataConfigs;
     }
-    /**
-     * @return Metrics associated with the customization job.
-     * 
-     */
     public List<GetCustomModelTrainingMetric> trainingMetrics() {
         return this.trainingMetrics;
     }
-    /**
-     * @return Information about the validation dataset.
-     * 
-     */
     public List<GetCustomModelValidationDataConfig> validationDataConfigs() {
         return this.validationDataConfigs;
     }
-    /**
-     * @return The loss metric for each validator that you provided.
-     * 
-     */
     public List<GetCustomModelValidationMetric> validationMetrics() {
         return this.validationMetrics;
     }

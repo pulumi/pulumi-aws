@@ -15,47 +15,23 @@ public final class LogDeliveryDestinationPolicyState extends com.pulumi.resource
 
     public static final LogDeliveryDestinationPolicyState Empty = new LogDeliveryDestinationPolicyState();
 
-    /**
-     * The name of the delivery destination to assign this policy to.
-     * 
-     */
     @Import(name="deliveryDestinationName")
     private @Nullable Output<String> deliveryDestinationName;
 
-    /**
-     * @return The name of the delivery destination to assign this policy to.
-     * 
-     */
     public Optional<Output<String>> deliveryDestinationName() {
         return Optional.ofNullable(this.deliveryDestinationName);
     }
 
-    /**
-     * The contents of the policy.
-     * 
-     */
     @Import(name="deliveryDestinationPolicy")
     private @Nullable Output<String> deliveryDestinationPolicy;
 
-    /**
-     * @return The contents of the policy.
-     * 
-     */
     public Optional<Output<String>> deliveryDestinationPolicy() {
         return Optional.ofNullable(this.deliveryDestinationPolicy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class LogDeliveryDestinationPolicyState extends com.pulumi.resource
             $ = new LogDeliveryDestinationPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryDestinationName The name of the delivery destination to assign this policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationName(@Nullable Output<String> deliveryDestinationName) {
             $.deliveryDestinationName = deliveryDestinationName;
             return this;
         }
 
-        /**
-         * @param deliveryDestinationName The name of the delivery destination to assign this policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationName(String deliveryDestinationName) {
             return deliveryDestinationName(Output.of(deliveryDestinationName));
         }
 
-        /**
-         * @param deliveryDestinationPolicy The contents of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationPolicy(@Nullable Output<String> deliveryDestinationPolicy) {
             $.deliveryDestinationPolicy = deliveryDestinationPolicy;
             return this;
         }
 
-        /**
-         * @param deliveryDestinationPolicy The contents of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationPolicy(String deliveryDestinationPolicy) {
             return deliveryDestinationPolicy(Output.of(deliveryDestinationPolicy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -11,113 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceTaskSet {
-    /**
-     * @return ARN of the task set
-     * 
-     */
     private String arn;
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Task set ID
-     * 
-     */
     private String id;
-    /**
-     * @return Number of pending tasks
-     * 
-     */
     private Integer pendingCount;
-    /**
-     * @return Number of running tasks
-     * 
-     */
     private Integer runningCount;
-    /**
-     * @return Stability status of the task set
-     * 
-     */
     private String stabilityStatus;
-    /**
-     * @return Task set status
-     * 
-     */
     private String status;
-    /**
-     * @return Task definition ARN
-     * 
-     */
     private String taskDefinition;
-    /**
-     * @return Time when task set was last updated (RFC3339 format)
-     * 
-     */
     private String updatedAt;
 
     private GetServiceTaskSet() {}
-    /**
-     * @return ARN of the task set
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Task set ID
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Number of pending tasks
-     * 
-     */
     public Integer pendingCount() {
         return this.pendingCount;
     }
-    /**
-     * @return Number of running tasks
-     * 
-     */
     public Integer runningCount() {
         return this.runningCount;
     }
-    /**
-     * @return Stability status of the task set
-     * 
-     */
     public String stabilityStatus() {
         return this.stabilityStatus;
     }
-    /**
-     * @return Task set status
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Task definition ARN
-     * 
-     */
     public String taskDefinition() {
         return this.taskDefinition;
     }
-    /**
-     * @return Time when task set was last updated (RFC3339 format)
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetAmiBlockDeviceMappingResult
     {
-        /// <summary>
-        /// Physical name of the device.
-        /// </summary>
         public readonly string DeviceName;
-        /// <summary>
-        /// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["VolumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Ebs;
-        /// <summary>
-        /// Suppresses the specified device included in the block device mapping of the AMI.
-        /// </summary>
         public readonly string NoDevice;
-        /// <summary>
-        /// Virtual device name (for instance stores).
-        /// </summary>
         public readonly string VirtualName;
 
         [OutputConstructor]

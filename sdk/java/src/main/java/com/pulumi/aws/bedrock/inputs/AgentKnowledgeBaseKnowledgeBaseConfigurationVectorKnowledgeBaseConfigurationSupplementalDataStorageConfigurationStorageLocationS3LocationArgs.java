@@ -14,17 +14,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs();
 
-    /**
-     * URI of the location.
-     * 
-     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
-    /**
-     * @return URI of the location.
-     * 
-     */
     public Output<String> uri() {
         return this.uri;
     }
@@ -53,23 +45,11 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param uri URI of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri URI of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

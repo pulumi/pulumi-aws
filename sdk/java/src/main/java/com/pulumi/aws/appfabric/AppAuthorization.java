@@ -19,127 +19,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS AppFabric App Authorization.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appfabric.AppAuthorization;
- * import com.pulumi.aws.appfabric.AppAuthorizationArgs;
- * import com.pulumi.aws.appfabric.inputs.AppAuthorizationCredentialArgs;
- * import com.pulumi.aws.appfabric.inputs.AppAuthorizationTenantArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AppAuthorization("example", AppAuthorizationArgs.builder()
- *             .app("TERRAFORMCLOUD")
- *             .appBundleArn(arn)
- *             .authType("apiKey")
- *             .credential(AppAuthorizationCredentialArgs.builder()
- *                 .apiKeyCredentials(AppAuthorizationCredentialApiKeyCredentialArgs.builder()
- *                     .apiKey("exampleapikeytoken")
- *                     .build())
- *                 .build())
- *             .tenants(AppAuthorizationTenantArgs.builder()
- *                 .tenantDisplayName("example")
- *                 .tenantIdentifier("example")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:appfabric/appAuthorization:AppAuthorization")
 public class AppAuthorization extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-     * 
-     */
     @Export(name="app", refs={String.class}, tree="[0]")
     private Output<String> app;
 
-    /**
-     * @return The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-     * 
-     */
     public Output<String> app() {
         return this.app;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     public Output<String> appBundleArn() {
         return this.appBundleArn;
     }
-    /**
-     * ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The authorization type for the app authorization valid values are oauth2 and apiKey.
-     * 
-     */
     @Export(name="authType", refs={String.class}, tree="[0]")
     private Output<String> authType;
 
-    /**
-     * @return The authorization type for the app authorization valid values are oauth2 and apiKey.
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
-    /**
-     * The application URL for the OAuth flow.
-     * 
-     */
     @Export(name="authUrl", refs={String.class}, tree="[0]")
     private Output<String> authUrl;
 
-    /**
-     * @return The application URL for the OAuth flow.
-     * 
-     */
     public Output<String> authUrl() {
         return this.authUrl;
     }
@@ -149,47 +57,21 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-     * 
-     */
     @Export(name="credential", refs={AppAuthorizationCredential.class}, tree="[0]")
     private Output</* @Nullable */ AppAuthorizationCredential> credential;
 
-    /**
-     * @return Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-     * 
-     */
     public Output<Optional<AppAuthorizationCredential>> credential() {
         return Codegen.optional(this.credential);
     }
-    /**
-     * The user persona of the app authorization.
-     * 
-     */
     @Export(name="persona", refs={String.class}, tree="[0]")
     private Output<String> persona;
 
-    /**
-     * @return The user persona of the app authorization.
-     * 
-     */
     public Output<String> persona() {
         return this.persona;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -205,17 +87,9 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Contains information about an application tenant, such as the application display name and identifier.
-     * 
-     */
     @Export(name="tenants", refs={List.class,AppAuthorizationTenant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppAuthorizationTenant>> tenants;
 
-    /**
-     * @return Contains information about an application tenant, such as the application display name and identifier.
-     * 
-     */
     public Output<Optional<List<AppAuthorizationTenant>>> tenants() {
         return Codegen.optional(this.tenants);
     }

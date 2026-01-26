@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
-    /**
-     * @return Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-     * 
-     */
     private @Nullable String invokeType;
 
     private ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig() {}
-    /**
-     * @return Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-     * 
-     */
     public Optional<String> invokeType() {
         return Optional.ofNullable(this.invokeType);
     }

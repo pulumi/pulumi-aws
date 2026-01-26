@@ -7,95 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudFront Continuous Deployment Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const staging = new aws.cloudfront.Distribution("staging", {
- *     enabled: true,
- *     staging: true,
- * });
- * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
- *     enabled: true,
- *     stagingDistributionDnsNames: {
- *         items: [staging.domainName],
- *         quantity: 1,
- *     },
- *     trafficConfig: {
- *         type: "SingleWeight",
- *         singleWeightConfig: {
- *             weight: 0.01,
- *         },
- *     },
- * });
- * const production = new aws.cloudfront.Distribution("production", {
- *     enabled: true,
- *     continuousDeploymentPolicyId: example.id,
- * });
- * ```
- *
- * ### Single Weight Config with Session Stickiness
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
- *     enabled: true,
- *     stagingDistributionDnsNames: {
- *         items: [staging.domainName],
- *         quantity: 1,
- *     },
- *     trafficConfig: {
- *         type: "SingleWeight",
- *         singleWeightConfig: {
- *             weight: 0.01,
- *             sessionStickinessConfig: {
- *                 idleTtl: 300,
- *                 maximumTtl: 600,
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### Single Header Config
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
- *     enabled: true,
- *     stagingDistributionDnsNames: {
- *         items: [staging.domainName],
- *         quantity: 1,
- *     },
- *     trafficConfig: {
- *         type: "SingleHeader",
- *         singleHeaderConfig: {
- *             header: "aws-cf-cd-example",
- *             value: "example",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
- * ```
- */
 export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ContinuousDeploymentPolicy resource's state with the given name, ID, and optional extra
@@ -124,29 +35,11 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContinuousDeploymentPolicy.__pulumiType;
     }
 
-    /**
-     * The continuous deployment policy ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether this continuous deployment policy is enabled.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
-    /**
-     * Current version of the continuous distribution policy.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * Date and time the continuous deployment policy was last modified.
-     */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
-    /**
-     * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-     */
     declare public readonly stagingDistributionDnsNames: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames | undefined>;
-    /**
-     * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-     */
     declare public readonly trafficConfig: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig | undefined>;
 
     /**
@@ -189,29 +82,11 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
  */
 export interface ContinuousDeploymentPolicyState {
-    /**
-     * The continuous deployment policy ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether this continuous deployment policy is enabled.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Current version of the continuous distribution policy.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * Date and time the continuous deployment policy was last modified.
-     */
     lastModifiedTime?: pulumi.Input<string>;
-    /**
-     * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-     */
     stagingDistributionDnsNames?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
-    /**
-     * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-     */
     trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig>;
 }
 
@@ -219,16 +94,7 @@ export interface ContinuousDeploymentPolicyState {
  * The set of arguments for constructing a ContinuousDeploymentPolicy resource.
  */
 export interface ContinuousDeploymentPolicyArgs {
-    /**
-     * Whether this continuous deployment policy is enabled.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-     */
     stagingDistributionDnsNames?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
-    /**
-     * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-     */
     trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig>;
 }

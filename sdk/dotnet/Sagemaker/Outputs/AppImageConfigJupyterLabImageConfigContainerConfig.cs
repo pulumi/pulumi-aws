@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class AppImageConfigJupyterLabImageConfigContainerConfig
     {
-        /// <summary>
-        /// The arguments for the container when you're running the application.
-        /// </summary>
         public readonly ImmutableArray<string> ContainerArguments;
-        /// <summary>
-        /// The entrypoint used to run the application in the container.
-        /// </summary>
         public readonly ImmutableArray<string> ContainerEntrypoints;
-        /// <summary>
-        /// The environment variables to set in the container.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? ContainerEnvironmentVariables;
 
         [OutputConstructor]

@@ -12,95 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon Aurora Limitless Database DB shard group
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
-//				ClusterIdentifier:                  pulumi.String("example-limitless-cluster"),
-//				Engine:                             pulumi.String(rds.EngineTypeAuroraPostgresql),
-//				EngineVersion:                      pulumi.String("16.6-limitless"),
-//				EngineMode:                         pulumi.String(""),
-//				StorageType:                        pulumi.String("aurora-iopt1"),
-//				ClusterScalabilityType:             pulumi.String("limitless"),
-//				MasterUsername:                     pulumi.String("foo"),
-//				MasterPassword:                     pulumi.String("must_be_eight_characters"),
-//				PerformanceInsightsEnabled:         pulumi.Bool(true),
-//				PerformanceInsightsRetentionPeriod: pulumi.Int(31),
-//				EnabledCloudwatchLogsExports: pulumi.StringArray{
-//					pulumi.String("postgresql"),
-//				},
-//				MonitoringInterval: pulumi.Int(5),
-//				MonitoringRoleArn:  pulumi.Any(exampleAwsIamRole.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewShardGroup(ctx, "example", &rds.ShardGroupArgs{
-//				DbShardGroupIdentifier: pulumi.String("example-shard-group"),
-//				DbClusterIdentifier:    example.ID(),
-//				MaxAcu:                 pulumi.Float64(1200),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import shard group using the `db_shard_group_identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:rds/shardGroup:ShardGroup example example-shard-group
-// ```
 type ShardGroup struct {
 	pulumi.CustomResourceState
 
-	// ARN of the shard group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-	ComputeRedundancy pulumi.IntOutput `pulumi:"computeRedundancy"`
-	// The name of the primary DB cluster for the DB shard group.
-	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
-	// The name of the DB shard group.
-	DbShardGroupIdentifier pulumi.StringOutput `pulumi:"dbShardGroupIdentifier"`
-	// The AWS Region-unique, immutable identifier for the DB shard group.
-	DbShardGroupResourceId pulumi.StringOutput `pulumi:"dbShardGroupResourceId"`
-	// The connection endpoint for the DB shard group.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MaxAcu pulumi.Float64Output `pulumi:"maxAcu"`
-	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MinAcu pulumi.Float64Output `pulumi:"minAcu"`
-	// Indicates whether the DB shard group is publicly accessible.
-	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
-	Timeouts ShardGroupTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn                    pulumi.StringOutput         `pulumi:"arn"`
+	ComputeRedundancy      pulumi.IntOutput            `pulumi:"computeRedundancy"`
+	DbClusterIdentifier    pulumi.StringOutput         `pulumi:"dbClusterIdentifier"`
+	DbShardGroupIdentifier pulumi.StringOutput         `pulumi:"dbShardGroupIdentifier"`
+	DbShardGroupResourceId pulumi.StringOutput         `pulumi:"dbShardGroupResourceId"`
+	Endpoint               pulumi.StringOutput         `pulumi:"endpoint"`
+	MaxAcu                 pulumi.Float64Output        `pulumi:"maxAcu"`
+	MinAcu                 pulumi.Float64Output        `pulumi:"minAcu"`
+	PubliclyAccessible     pulumi.BoolOutput           `pulumi:"publiclyAccessible"`
+	Region                 pulumi.StringOutput         `pulumi:"region"`
+	Tags                   pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	Timeouts               ShardGroupTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewShardGroup registers a new resource with the given unique name, arguments, and options.
@@ -142,63 +69,35 @@ func GetShardGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ShardGroup resources.
 type shardGroupState struct {
-	// ARN of the shard group.
-	Arn *string `pulumi:"arn"`
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-	ComputeRedundancy *int `pulumi:"computeRedundancy"`
-	// The name of the primary DB cluster for the DB shard group.
-	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// The name of the DB shard group.
-	DbShardGroupIdentifier *string `pulumi:"dbShardGroupIdentifier"`
-	// The AWS Region-unique, immutable identifier for the DB shard group.
-	DbShardGroupResourceId *string `pulumi:"dbShardGroupResourceId"`
-	// The connection endpoint for the DB shard group.
-	Endpoint *string `pulumi:"endpoint"`
-	// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MaxAcu *float64 `pulumi:"maxAcu"`
-	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MinAcu *float64 `pulumi:"minAcu"`
-	// Indicates whether the DB shard group is publicly accessible.
-	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string   `pulumi:"tagsAll"`
-	Timeouts *ShardGroupTimeouts `pulumi:"timeouts"`
+	Arn                    *string             `pulumi:"arn"`
+	ComputeRedundancy      *int                `pulumi:"computeRedundancy"`
+	DbClusterIdentifier    *string             `pulumi:"dbClusterIdentifier"`
+	DbShardGroupIdentifier *string             `pulumi:"dbShardGroupIdentifier"`
+	DbShardGroupResourceId *string             `pulumi:"dbShardGroupResourceId"`
+	Endpoint               *string             `pulumi:"endpoint"`
+	MaxAcu                 *float64            `pulumi:"maxAcu"`
+	MinAcu                 *float64            `pulumi:"minAcu"`
+	PubliclyAccessible     *bool               `pulumi:"publiclyAccessible"`
+	Region                 *string             `pulumi:"region"`
+	Tags                   map[string]string   `pulumi:"tags"`
+	TagsAll                map[string]string   `pulumi:"tagsAll"`
+	Timeouts               *ShardGroupTimeouts `pulumi:"timeouts"`
 }
 
 type ShardGroupState struct {
-	// ARN of the shard group.
-	Arn pulumi.StringPtrInput
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-	ComputeRedundancy pulumi.IntPtrInput
-	// The name of the primary DB cluster for the DB shard group.
-	DbClusterIdentifier pulumi.StringPtrInput
-	// The name of the DB shard group.
+	Arn                    pulumi.StringPtrInput
+	ComputeRedundancy      pulumi.IntPtrInput
+	DbClusterIdentifier    pulumi.StringPtrInput
 	DbShardGroupIdentifier pulumi.StringPtrInput
-	// The AWS Region-unique, immutable identifier for the DB shard group.
 	DbShardGroupResourceId pulumi.StringPtrInput
-	// The connection endpoint for the DB shard group.
-	Endpoint pulumi.StringPtrInput
-	// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MaxAcu pulumi.Float64PtrInput
-	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MinAcu pulumi.Float64PtrInput
-	// Indicates whether the DB shard group is publicly accessible.
-	PubliclyAccessible pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ShardGroupTimeoutsPtrInput
+	Endpoint               pulumi.StringPtrInput
+	MaxAcu                 pulumi.Float64PtrInput
+	MinAcu                 pulumi.Float64PtrInput
+	PubliclyAccessible     pulumi.BoolPtrInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	Timeouts               ShardGroupTimeoutsPtrInput
 }
 
 func (ShardGroupState) ElementType() reflect.Type {
@@ -206,48 +105,28 @@ func (ShardGroupState) ElementType() reflect.Type {
 }
 
 type shardGroupArgs struct {
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-	ComputeRedundancy *int `pulumi:"computeRedundancy"`
-	// The name of the primary DB cluster for the DB shard group.
-	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
-	// The name of the DB shard group.
-	DbShardGroupIdentifier string `pulumi:"dbShardGroupIdentifier"`
-	// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MaxAcu float64 `pulumi:"maxAcu"`
-	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MinAcu *float64 `pulumi:"minAcu"`
-	// Indicates whether the DB shard group is publicly accessible.
-	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-	Tags     map[string]string   `pulumi:"tags"`
-	Timeouts *ShardGroupTimeouts `pulumi:"timeouts"`
+	ComputeRedundancy      *int                `pulumi:"computeRedundancy"`
+	DbClusterIdentifier    string              `pulumi:"dbClusterIdentifier"`
+	DbShardGroupIdentifier string              `pulumi:"dbShardGroupIdentifier"`
+	MaxAcu                 float64             `pulumi:"maxAcu"`
+	MinAcu                 *float64            `pulumi:"minAcu"`
+	PubliclyAccessible     *bool               `pulumi:"publiclyAccessible"`
+	Region                 *string             `pulumi:"region"`
+	Tags                   map[string]string   `pulumi:"tags"`
+	Timeouts               *ShardGroupTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ShardGroup resource.
 type ShardGroupArgs struct {
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-	ComputeRedundancy pulumi.IntPtrInput
-	// The name of the primary DB cluster for the DB shard group.
-	DbClusterIdentifier pulumi.StringInput
-	// The name of the DB shard group.
+	ComputeRedundancy      pulumi.IntPtrInput
+	DbClusterIdentifier    pulumi.StringInput
 	DbShardGroupIdentifier pulumi.StringInput
-	// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MaxAcu pulumi.Float64Input
-	// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-	MinAcu pulumi.Float64PtrInput
-	// Indicates whether the DB shard group is publicly accessible.
-	PubliclyAccessible pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-	Tags     pulumi.StringMapInput
-	Timeouts ShardGroupTimeoutsPtrInput
+	MaxAcu                 pulumi.Float64Input
+	MinAcu                 pulumi.Float64PtrInput
+	PubliclyAccessible     pulumi.BoolPtrInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	Timeouts               ShardGroupTimeoutsPtrInput
 }
 
 func (ShardGroupArgs) ElementType() reflect.Type {
@@ -337,64 +216,50 @@ func (o ShardGroupOutput) ToShardGroupOutputWithContext(ctx context.Context) Sha
 	return o
 }
 
-// ARN of the shard group.
 func (o ShardGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
 func (o ShardGroupOutput) ComputeRedundancy() pulumi.IntOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.IntOutput { return v.ComputeRedundancy }).(pulumi.IntOutput)
 }
 
-// The name of the primary DB cluster for the DB shard group.
 func (o ShardGroupOutput) DbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The name of the DB shard group.
 func (o ShardGroupOutput) DbShardGroupIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringOutput { return v.DbShardGroupIdentifier }).(pulumi.StringOutput)
 }
 
-// The AWS Region-unique, immutable identifier for the DB shard group.
 func (o ShardGroupOutput) DbShardGroupResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringOutput { return v.DbShardGroupResourceId }).(pulumi.StringOutput)
 }
 
-// The connection endpoint for the DB shard group.
 func (o ShardGroupOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
 func (o ShardGroupOutput) MaxAcu() pulumi.Float64Output {
 	return o.ApplyT(func(v *ShardGroup) pulumi.Float64Output { return v.MaxAcu }).(pulumi.Float64Output)
 }
 
-// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
 func (o ShardGroupOutput) MinAcu() pulumi.Float64Output {
 	return o.ApplyT(func(v *ShardGroup) pulumi.Float64Output { return v.MinAcu }).(pulumi.Float64Output)
 }
 
-// Indicates whether the DB shard group is publicly accessible.
 func (o ShardGroupOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ShardGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 func (o ShardGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ShardGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

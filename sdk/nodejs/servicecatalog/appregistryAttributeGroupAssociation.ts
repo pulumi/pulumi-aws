@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Service Catalog AppRegistry Attribute Group Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.AppregistryApplication("example", {name: "example-app"});
- * const exampleAppregistryAttributeGroup = new aws.servicecatalog.AppregistryAttributeGroup("example", {
- *     name: "example",
- *     description: "example description",
- *     attributes: JSON.stringify({
- *         app: "exampleapp",
- *         group: "examplegroup",
- *     }),
- * });
- * const exampleAppregistryAttributeGroupAssociation = new aws.servicecatalog.AppregistryAttributeGroupAssociation("example", {
- *     applicationId: example.id,
- *     attributeGroupId: exampleAppregistryAttributeGroup.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `application_id` and `attribute_group_id` arguments separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
- * ```
- */
 export class AppregistryAttributeGroupAssociation extends pulumi.CustomResource {
     /**
      * Get an existing AppregistryAttributeGroupAssociation resource's state with the given name, ID, and optional extra
@@ -74,9 +40,6 @@ export class AppregistryAttributeGroupAssociation extends pulumi.CustomResource 
      * ID of the attribute group to associate with the application.
      */
     declare public readonly attributeGroupId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -124,9 +87,6 @@ export interface AppregistryAttributeGroupAssociationState {
      * ID of the attribute group to associate with the application.
      */
     attributeGroupId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -142,8 +102,5 @@ export interface AppregistryAttributeGroupAssociationArgs {
      * ID of the attribute group to associate with the application.
      */
     attributeGroupId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

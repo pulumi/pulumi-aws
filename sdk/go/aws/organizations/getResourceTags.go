@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get tags attached to the specified AWS Organizations resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.GetResourceTags(ctx, &organizations.GetResourceTagsArgs{
-//				ResourceId: "123456123846",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetResourceTags(ctx *pulumi.Context, args *GetResourceTagsArgs, opts ...pulumi.InvokeOption) (*GetResourceTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResourceTagsResult
@@ -50,19 +23,16 @@ func GetResourceTags(ctx *pulumi.Context, args *GetResourceTagsArgs, opts ...pul
 
 // A collection of arguments for invoking getResourceTags.
 type GetResourceTagsArgs struct {
-	// ID of the resource with the tags to list. See details below.
-	ResourceId string `pulumi:"resourceId"`
-	// Map of key=value pairs for each tag set on the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ResourceId string            `pulumi:"resourceId"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getResourceTags.
 type GetResourceTagsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	ResourceId string `pulumi:"resourceId"`
-	// Map of key=value pairs for each tag set on the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id         string            `pulumi:"id"`
+	ResourceId string            `pulumi:"resourceId"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 func GetResourceTagsOutput(ctx *pulumi.Context, args GetResourceTagsOutputArgs, opts ...pulumi.InvokeOption) GetResourceTagsResultOutput {
@@ -76,10 +46,8 @@ func GetResourceTagsOutput(ctx *pulumi.Context, args GetResourceTagsOutputArgs, 
 
 // A collection of arguments for invoking getResourceTags.
 type GetResourceTagsOutputArgs struct {
-	// ID of the resource with the tags to list. See details below.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// Map of key=value pairs for each tag set on the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	ResourceId pulumi.StringInput    `pulumi:"resourceId"`
+	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetResourceTagsOutputArgs) ElementType() reflect.Type {
@@ -110,7 +78,6 @@ func (o GetResourceTagsResultOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourceTagsResult) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Map of key=value pairs for each tag set on the resource.
 func (o GetResourceTagsResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetResourceTagsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

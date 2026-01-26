@@ -9,78 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Browser Settings Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleBrowserSettings = new Aws.WorkSpacesWeb.BrowserSettings("example", new()
-    ///     {
-    ///         BrowserPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["chromePolicies"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["DefaultDownloadDirectory"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["value"] = "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleBrowserSettingsAssociation = new Aws.WorkSpacesWeb.BrowserSettingsAssociation("example", new()
-    ///     {
-    ///         BrowserSettingsArn = exampleBrowserSettings.BrowserSettingsArn,
-    ///         PortalArn = example.PortalArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web Browser Settings Association using the `browser_settings_arn,portal_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation example arn:aws:workspaces-web:us-west-2:123456789012:browserSettings/browser_settings-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation")]
     public partial class BrowserSettingsAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the browser settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Output("browserSettingsArn")]
         public Output<string> BrowserSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -130,23 +67,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class BrowserSettingsAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the browser settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("browserSettingsArn", required: true)]
         public Input<string> BrowserSettingsArn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -158,23 +84,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class BrowserSettingsAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the browser settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("browserSettingsArn")]
         public Input<string>? BrowserSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

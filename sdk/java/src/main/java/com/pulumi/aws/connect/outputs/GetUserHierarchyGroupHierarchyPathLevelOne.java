@@ -10,45 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserHierarchyGroupHierarchyPathLevelOne {
-    /**
-     * @return ARN of the hierarchy group.
-     * 
-     */
     private String arn;
-    /**
-     * @return The identifier of the hierarchy group.
-     * 
-     */
     private String id;
-    /**
-     * @return Returns information on a specific hierarchy group by name
-     * 
-     * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
-     * 
-     */
     private String name;
 
     private GetUserHierarchyGroupHierarchyPathLevelOne() {}
-    /**
-     * @return ARN of the hierarchy group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The identifier of the hierarchy group.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Returns information on a specific hierarchy group by name
-     * 
-     * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
-     * 
-     */
     public String name() {
         return this.name;
     }

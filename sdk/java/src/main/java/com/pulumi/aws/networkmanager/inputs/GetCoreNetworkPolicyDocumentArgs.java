@@ -24,122 +24,58 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
 
     public static final GetCoreNetworkPolicyDocumentArgs Empty = new GetCoreNetworkPolicyDocumentArgs();
 
-    /**
-     * In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
-     * 
-     */
     @Import(name="attachmentPolicies")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>> attachmentPolicies;
 
-    /**
-     * @return In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>>> attachmentPolicies() {
         return Optional.ofNullable(this.attachmentPolicies);
     }
 
-    /**
-     * Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
-     * 
-     */
     @Import(name="attachmentRoutingPolicyRules")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>> attachmentRoutingPolicyRules;
 
-    /**
-     * @return Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>>> attachmentRoutingPolicyRules() {
         return Optional.ofNullable(this.attachmentRoutingPolicyRules);
     }
 
-    /**
-     * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
-     * 
-     */
     @Import(name="coreNetworkConfigurations", required=true)
     private Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>> coreNetworkConfigurations;
 
-    /**
-     * @return The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
-     * 
-     */
     public Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>> coreNetworkConfigurations() {
         return this.coreNetworkConfigurations;
     }
 
-    /**
-     * Block argument that defines the service insertion actions you want to include. Detailed below.
-     * 
-     */
     @Import(name="networkFunctionGroups")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>> networkFunctionGroups;
 
-    /**
-     * @return Block argument that defines the service insertion actions you want to include. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>>> networkFunctionGroups() {
         return Optional.ofNullable(this.networkFunctionGroups);
     }
 
-    /**
-     * Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
-     * 
-     */
     @Import(name="routingPolicies")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyArgs>> routingPolicies;
 
-    /**
-     * @return Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyArgs>>> routingPolicies() {
         return Optional.ofNullable(this.routingPolicies);
     }
 
-    /**
-     * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-     * 
-     */
     @Import(name="segmentActions")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentSegmentActionArgs>> segmentActions;
 
-    /**
-     * @return A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentSegmentActionArgs>>> segmentActions() {
         return Optional.ofNullable(this.segmentActions);
     }
 
-    /**
-     * Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-     * 
-     */
     @Import(name="segments", required=true)
     private Output<List<GetCoreNetworkPolicyDocumentSegmentArgs>> segments;
 
-    /**
-     * @return Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-     * 
-     */
     public Output<List<GetCoreNetworkPolicyDocumentSegmentArgs>> segments() {
         return this.segments;
     }
 
-    /**
-     * Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -175,240 +111,102 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
             $ = new GetCoreNetworkPolicyDocumentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attachmentPolicies In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentPolicies(@Nullable Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>> attachmentPolicies) {
             $.attachmentPolicies = attachmentPolicies;
             return this;
         }
 
-        /**
-         * @param attachmentPolicies In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentPolicies(List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs> attachmentPolicies) {
             return attachmentPolicies(Output.of(attachmentPolicies));
         }
 
-        /**
-         * @param attachmentPolicies In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentPolicies(GetCoreNetworkPolicyDocumentAttachmentPolicyArgs... attachmentPolicies) {
             return attachmentPolicies(List.of(attachmentPolicies));
         }
 
-        /**
-         * @param attachmentRoutingPolicyRules Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentRoutingPolicyRules(@Nullable Output<List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>> attachmentRoutingPolicyRules) {
             $.attachmentRoutingPolicyRules = attachmentRoutingPolicyRules;
             return this;
         }
 
-        /**
-         * @param attachmentRoutingPolicyRules Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentRoutingPolicyRules(List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs> attachmentRoutingPolicyRules) {
             return attachmentRoutingPolicyRules(Output.of(attachmentRoutingPolicyRules));
         }
 
-        /**
-         * @param attachmentRoutingPolicyRules Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentRoutingPolicyRules(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs... attachmentRoutingPolicyRules) {
             return attachmentRoutingPolicyRules(List.of(attachmentRoutingPolicyRules));
         }
 
-        /**
-         * @param coreNetworkConfigurations The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkConfigurations(Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>> coreNetworkConfigurations) {
             $.coreNetworkConfigurations = coreNetworkConfigurations;
             return this;
         }
 
-        /**
-         * @param coreNetworkConfigurations The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkConfigurations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs> coreNetworkConfigurations) {
             return coreNetworkConfigurations(Output.of(coreNetworkConfigurations));
         }
 
-        /**
-         * @param coreNetworkConfigurations The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs... coreNetworkConfigurations) {
             return coreNetworkConfigurations(List.of(coreNetworkConfigurations));
         }
 
-        /**
-         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFunctionGroups(@Nullable Output<List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>> networkFunctionGroups) {
             $.networkFunctionGroups = networkFunctionGroups;
             return this;
         }
 
-        /**
-         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFunctionGroups(List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs> networkFunctionGroups) {
             return networkFunctionGroups(Output.of(networkFunctionGroups));
         }
 
-        /**
-         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFunctionGroups(GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs... networkFunctionGroups) {
             return networkFunctionGroups(List.of(networkFunctionGroups));
         }
 
-        /**
-         * @param routingPolicies Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicies(@Nullable Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyArgs>> routingPolicies) {
             $.routingPolicies = routingPolicies;
             return this;
         }
 
-        /**
-         * @param routingPolicies Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicies(List<GetCoreNetworkPolicyDocumentRoutingPolicyArgs> routingPolicies) {
             return routingPolicies(Output.of(routingPolicies));
         }
 
-        /**
-         * @param routingPolicies Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicies(GetCoreNetworkPolicyDocumentRoutingPolicyArgs... routingPolicies) {
             return routingPolicies(List.of(routingPolicies));
         }
 
-        /**
-         * @param segmentActions A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segmentActions(@Nullable Output<List<GetCoreNetworkPolicyDocumentSegmentActionArgs>> segmentActions) {
             $.segmentActions = segmentActions;
             return this;
         }
 
-        /**
-         * @param segmentActions A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segmentActions(List<GetCoreNetworkPolicyDocumentSegmentActionArgs> segmentActions) {
             return segmentActions(Output.of(segmentActions));
         }
 
-        /**
-         * @param segmentActions A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs... segmentActions) {
             return segmentActions(List.of(segmentActions));
         }
 
-        /**
-         * @param segments Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segments(Output<List<GetCoreNetworkPolicyDocumentSegmentArgs>> segments) {
             $.segments = segments;
             return this;
         }
 
-        /**
-         * @param segments Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segments(List<GetCoreNetworkPolicyDocumentSegmentArgs> segments) {
             return segments(Output.of(segments));
         }
 
-        /**
-         * @param segments Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segments(GetCoreNetworkPolicyDocumentSegmentArgs... segments) {
             return segments(List.of(segments));
         }
 
-        /**
-         * @param version Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

@@ -17,47 +17,23 @@ public final class AppImageConfigJupyterLabImageConfigContainerConfigArgs extend
 
     public static final AppImageConfigJupyterLabImageConfigContainerConfigArgs Empty = new AppImageConfigJupyterLabImageConfigContainerConfigArgs();
 
-    /**
-     * The arguments for the container when you&#39;re running the application.
-     * 
-     */
     @Import(name="containerArguments")
     private @Nullable Output<List<String>> containerArguments;
 
-    /**
-     * @return The arguments for the container when you&#39;re running the application.
-     * 
-     */
     public Optional<Output<List<String>>> containerArguments() {
         return Optional.ofNullable(this.containerArguments);
     }
 
-    /**
-     * The entrypoint used to run the application in the container.
-     * 
-     */
     @Import(name="containerEntrypoints")
     private @Nullable Output<List<String>> containerEntrypoints;
 
-    /**
-     * @return The entrypoint used to run the application in the container.
-     * 
-     */
     public Optional<Output<List<String>>> containerEntrypoints() {
         return Optional.ofNullable(this.containerEntrypoints);
     }
 
-    /**
-     * The environment variables to set in the container.
-     * 
-     */
     @Import(name="containerEnvironmentVariables")
     private @Nullable Output<Map<String,String>> containerEnvironmentVariables;
 
-    /**
-     * @return The environment variables to set in the container.
-     * 
-     */
     public Optional<Output<Map<String,String>>> containerEnvironmentVariables() {
         return Optional.ofNullable(this.containerEnvironmentVariables);
     }
@@ -88,85 +64,37 @@ public final class AppImageConfigJupyterLabImageConfigContainerConfigArgs extend
             $ = new AppImageConfigJupyterLabImageConfigContainerConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerArguments The arguments for the container when you&#39;re running the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerArguments(@Nullable Output<List<String>> containerArguments) {
             $.containerArguments = containerArguments;
             return this;
         }
 
-        /**
-         * @param containerArguments The arguments for the container when you&#39;re running the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerArguments(List<String> containerArguments) {
             return containerArguments(Output.of(containerArguments));
         }
 
-        /**
-         * @param containerArguments The arguments for the container when you&#39;re running the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerArguments(String... containerArguments) {
             return containerArguments(List.of(containerArguments));
         }
 
-        /**
-         * @param containerEntrypoints The entrypoint used to run the application in the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerEntrypoints(@Nullable Output<List<String>> containerEntrypoints) {
             $.containerEntrypoints = containerEntrypoints;
             return this;
         }
 
-        /**
-         * @param containerEntrypoints The entrypoint used to run the application in the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerEntrypoints(List<String> containerEntrypoints) {
             return containerEntrypoints(Output.of(containerEntrypoints));
         }
 
-        /**
-         * @param containerEntrypoints The entrypoint used to run the application in the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerEntrypoints(String... containerEntrypoints) {
             return containerEntrypoints(List.of(containerEntrypoints));
         }
 
-        /**
-         * @param containerEnvironmentVariables The environment variables to set in the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerEnvironmentVariables(@Nullable Output<Map<String,String>> containerEnvironmentVariables) {
             $.containerEnvironmentVariables = containerEnvironmentVariables;
             return this;
         }
 
-        /**
-         * @param containerEnvironmentVariables The environment variables to set in the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerEnvironmentVariables(Map<String,String> containerEnvironmentVariables) {
             return containerEnvironmentVariables(Output.of(containerEnvironmentVariables));
         }

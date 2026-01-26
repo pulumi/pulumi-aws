@@ -12,98 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"swagger": "2.0",
-//				"info": map[string]interface{}{
-//					"title":   "Example API",
-//					"version": "v1",
-//				},
-//				"schemes": []string{
-//					"https",
-//				},
-//				"paths": map[string]interface{}{
-//					"/example": map[string]interface{}{
-//						"get": map[string]interface{}{
-//							"responses": map[string]interface{}{
-//								"200": map[string]interface{}{
-//									"description": "OK",
-//								},
-//							},
-//							"x-amazon-apigateway-integration": map[string]interface{}{
-//								"httpMethod": "GET",
-//								"type":       "HTTP",
-//								"responses": map[string]interface{}{
-//									"default": map[string]interface{}{
-//										"statusCode": 200,
-//									},
-//								},
-//								"uri": "https://api.example.com/",
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = apigateway.NewRestApiPut(ctx, "example", &apigateway.RestApiPutArgs{
-//				Body:           pulumi.String(json0),
-//				FailOnWarnings: pulumi.Bool(true),
-//				RestApiId:      pulumi.Any(exampleAwsApiGatewayRestApi.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678
-// ```
 type RestApiPut struct {
 	pulumi.CustomResourceState
 
-	// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-	Body pulumi.StringOutput `pulumi:"body"`
-	// Whether to rollback the API update when a warning is encountered. The default value is `false`.
-	FailOnWarnings pulumi.BoolOutput `pulumi:"failOnWarnings"`
-	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the associated REST API.
-	//
-	// The following arguments are optional:
-	RestApiId pulumi.StringOutput         `pulumi:"restApiId"`
-	Timeouts  RestApiPutTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
+	Body           pulumi.StringOutput         `pulumi:"body"`
+	FailOnWarnings pulumi.BoolOutput           `pulumi:"failOnWarnings"`
+	Parameters     pulumi.StringMapOutput      `pulumi:"parameters"`
+	Region         pulumi.StringOutput         `pulumi:"region"`
+	RestApiId      pulumi.StringOutput         `pulumi:"restApiId"`
+	Timeouts       RestApiPutTimeoutsPtrOutput `pulumi:"timeouts"`
+	Triggers       pulumi.StringMapOutput      `pulumi:"triggers"`
 }
 
 // NewRestApiPut registers a new resource with the given unique name, arguments, and options.
@@ -142,39 +60,23 @@ func GetRestApiPut(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestApiPut resources.
 type restApiPutState struct {
-	// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-	Body *string `pulumi:"body"`
-	// Whether to rollback the API update when a warning is encountered. The default value is `false`.
-	FailOnWarnings *bool `pulumi:"failOnWarnings"`
-	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-	Parameters map[string]string `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the associated REST API.
-	//
-	// The following arguments are optional:
-	RestApiId *string             `pulumi:"restApiId"`
-	Timeouts  *RestApiPutTimeouts `pulumi:"timeouts"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-	Triggers map[string]string `pulumi:"triggers"`
+	Body           *string             `pulumi:"body"`
+	FailOnWarnings *bool               `pulumi:"failOnWarnings"`
+	Parameters     map[string]string   `pulumi:"parameters"`
+	Region         *string             `pulumi:"region"`
+	RestApiId      *string             `pulumi:"restApiId"`
+	Timeouts       *RestApiPutTimeouts `pulumi:"timeouts"`
+	Triggers       map[string]string   `pulumi:"triggers"`
 }
 
 type RestApiPutState struct {
-	// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-	Body pulumi.StringPtrInput
-	// Whether to rollback the API update when a warning is encountered. The default value is `false`.
+	Body           pulumi.StringPtrInput
 	FailOnWarnings pulumi.BoolPtrInput
-	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-	Parameters pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the associated REST API.
-	//
-	// The following arguments are optional:
-	RestApiId pulumi.StringPtrInput
-	Timeouts  RestApiPutTimeoutsPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-	Triggers pulumi.StringMapInput
+	Parameters     pulumi.StringMapInput
+	Region         pulumi.StringPtrInput
+	RestApiId      pulumi.StringPtrInput
+	Timeouts       RestApiPutTimeoutsPtrInput
+	Triggers       pulumi.StringMapInput
 }
 
 func (RestApiPutState) ElementType() reflect.Type {
@@ -182,40 +84,24 @@ func (RestApiPutState) ElementType() reflect.Type {
 }
 
 type restApiPutArgs struct {
-	// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-	Body string `pulumi:"body"`
-	// Whether to rollback the API update when a warning is encountered. The default value is `false`.
-	FailOnWarnings *bool `pulumi:"failOnWarnings"`
-	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-	Parameters map[string]string `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the associated REST API.
-	//
-	// The following arguments are optional:
-	RestApiId string              `pulumi:"restApiId"`
-	Timeouts  *RestApiPutTimeouts `pulumi:"timeouts"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-	Triggers map[string]string `pulumi:"triggers"`
+	Body           string              `pulumi:"body"`
+	FailOnWarnings *bool               `pulumi:"failOnWarnings"`
+	Parameters     map[string]string   `pulumi:"parameters"`
+	Region         *string             `pulumi:"region"`
+	RestApiId      string              `pulumi:"restApiId"`
+	Timeouts       *RestApiPutTimeouts `pulumi:"timeouts"`
+	Triggers       map[string]string   `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a RestApiPut resource.
 type RestApiPutArgs struct {
-	// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-	Body pulumi.StringInput
-	// Whether to rollback the API update when a warning is encountered. The default value is `false`.
+	Body           pulumi.StringInput
 	FailOnWarnings pulumi.BoolPtrInput
-	// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-	Parameters pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the associated REST API.
-	//
-	// The following arguments are optional:
-	RestApiId pulumi.StringInput
-	Timeouts  RestApiPutTimeoutsPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-	Triggers pulumi.StringMapInput
+	Parameters     pulumi.StringMapInput
+	Region         pulumi.StringPtrInput
+	RestApiId      pulumi.StringInput
+	Timeouts       RestApiPutTimeoutsPtrInput
+	Triggers       pulumi.StringMapInput
 }
 
 func (RestApiPutArgs) ElementType() reflect.Type {
@@ -305,29 +191,22 @@ func (o RestApiPutOutput) ToRestApiPutOutputWithContext(ctx context.Context) Res
 	return o
 }
 
-// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
 func (o RestApiPutOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPut) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }
 
-// Whether to rollback the API update when a warning is encountered. The default value is `false`.
 func (o RestApiPutOutput) FailOnWarnings() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RestApiPut) pulumi.BoolOutput { return v.FailOnWarnings }).(pulumi.BoolOutput)
 }
 
-// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 func (o RestApiPutOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestApiPut) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RestApiPutOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPut) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the associated REST API.
-//
-// The following arguments are optional:
 func (o RestApiPutOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPut) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
@@ -336,7 +215,6 @@ func (o RestApiPutOutput) Timeouts() RestApiPutTimeoutsPtrOutput {
 	return o.ApplyT(func(v *RestApiPut) RestApiPutTimeoutsPtrOutput { return v.Timeouts }).(RestApiPutTimeoutsPtrOutput)
 }
 
-// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
 func (o RestApiPutOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestApiPut) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }

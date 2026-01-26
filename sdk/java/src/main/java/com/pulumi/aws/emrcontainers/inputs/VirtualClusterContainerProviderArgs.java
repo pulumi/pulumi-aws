@@ -15,47 +15,23 @@ public final class VirtualClusterContainerProviderArgs extends com.pulumi.resour
 
     public static final VirtualClusterContainerProviderArgs Empty = new VirtualClusterContainerProviderArgs();
 
-    /**
-     * The name of the container provider that is running your EMR Containers cluster
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The name of the container provider that is running your EMR Containers cluster
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Nested list containing information about the configuration of the container provider
-     * 
-     */
     @Import(name="info", required=true)
     private Output<VirtualClusterContainerProviderInfoArgs> info;
 
-    /**
-     * @return Nested list containing information about the configuration of the container provider
-     * 
-     */
     public Output<VirtualClusterContainerProviderInfoArgs> info() {
         return this.info;
     }
 
-    /**
-     * The type of the container provider
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of the container provider
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -86,65 +62,29 @@ public final class VirtualClusterContainerProviderArgs extends com.pulumi.resour
             $ = new VirtualClusterContainerProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The name of the container provider that is running your EMR Containers cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The name of the container provider that is running your EMR Containers cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param info Nested list containing information about the configuration of the container provider
-         * 
-         * @return builder
-         * 
-         */
         public Builder info(Output<VirtualClusterContainerProviderInfoArgs> info) {
             $.info = info;
             return this;
         }
 
-        /**
-         * @param info Nested list containing information about the configuration of the container provider
-         * 
-         * @return builder
-         * 
-         */
         public Builder info(VirtualClusterContainerProviderInfoArgs info) {
             return info(Output.of(info));
         }
 
-        /**
-         * @param type The type of the container provider
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the container provider
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

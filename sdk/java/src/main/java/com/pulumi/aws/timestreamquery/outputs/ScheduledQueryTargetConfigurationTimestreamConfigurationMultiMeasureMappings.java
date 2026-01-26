@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings {
-    /**
-     * @return Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-     * 
-     */
     private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings;
-    /**
-     * @return Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-     * 
-     */
     private @Nullable String targetMultiMeasureName;
 
     private ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings() {}
-    /**
-     * @return Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-     * 
-     */
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings() {
         return this.multiMeasureAttributeMappings == null ? List.of() : this.multiMeasureAttributeMappings;
     }
-    /**
-     * @return Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-     * 
-     */
     public Optional<String> targetMultiMeasureName() {
         return Optional.ofNullable(this.targetMultiMeasureName);
     }

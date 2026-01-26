@@ -32,15 +32,10 @@ class ApplicationArgs:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
-        :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-               
-               The following arguments are optional:
-        :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
-        :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Amazon Q application.
+        :param pulumi.Input[_builtins.str] iam_service_role_arn: The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
+        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
+        :param pulumi.Input[_builtins.str] description: A description of the Amazon Q application.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "iam_service_role_arn", iam_service_role_arn)
@@ -62,7 +57,7 @@ class ApplicationArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the Amazon Q application.
+        The display name of the Amazon Q application.
         """
         return pulumi.get(self, "display_name")
 
@@ -74,7 +69,7 @@ class ApplicationArgs:
     @pulumi.getter(name="iamServiceRoleArn")
     def iam_service_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
         """
         return pulumi.get(self, "iam_service_role_arn")
 
@@ -86,9 +81,7 @@ class ApplicationArgs:
     @pulumi.getter(name="identityCenterInstanceArn")
     def identity_center_instance_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-
-        The following arguments are optional:
+        ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         """
         return pulumi.get(self, "identity_center_instance_arn")
 
@@ -99,9 +92,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="attachmentsConfiguration")
     def attachments_configuration(self) -> Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']]:
-        """
-        Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        """
         return pulumi.get(self, "attachments_configuration")
 
     @attachments_configuration.setter
@@ -112,7 +102,7 @@ class ApplicationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Description of the Amazon Q application.
+        A description of the Amazon Q application.
         """
         return pulumi.get(self, "description")
 
@@ -123,9 +113,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]:
-        """
-        Information about encryption configuration. See `encryption_configuration` below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -135,9 +122,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,18 +164,10 @@ class _ApplicationState:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Q Business application.
-        :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
-        :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
-        :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
-        :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-        :param pulumi.Input[_builtins.str] identity_center_application_arn: ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] description: A description of the Amazon Q application.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Amazon Q application.
+        :param pulumi.Input[_builtins.str] iam_service_role_arn: The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
+        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -221,9 +197,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Q Business application.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -233,9 +206,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="attachmentsConfiguration")
     def attachments_configuration(self) -> Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']]:
-        """
-        Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        """
         return pulumi.get(self, "attachments_configuration")
 
     @attachments_configuration.setter
@@ -246,7 +216,7 @@ class _ApplicationState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Description of the Amazon Q application.
+        A description of the Amazon Q application.
         """
         return pulumi.get(self, "description")
 
@@ -258,7 +228,7 @@ class _ApplicationState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the Amazon Q application.
+        The display name of the Amazon Q application.
         """
         return pulumi.get(self, "display_name")
 
@@ -269,9 +239,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]:
-        """
-        Information about encryption configuration. See `encryption_configuration` below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -282,7 +249,7 @@ class _ApplicationState:
     @pulumi.getter(name="iamServiceRoleArn")
     def iam_service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
         """
         return pulumi.get(self, "iam_service_role_arn")
 
@@ -293,9 +260,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @identity_center_application_arn.setter
@@ -306,9 +270,7 @@ class _ApplicationState:
     @pulumi.getter(name="identityCenterInstanceArn")
     def identity_center_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-
-        The following arguments are optional:
+        ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         """
         return pulumi.get(self, "identity_center_instance_arn")
 
@@ -319,9 +281,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -340,9 +299,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -376,42 +332,13 @@ class Application(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a Q Business Application resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.qbusiness.Application("example",
-            display_name="example-app",
-            iam_service_role_arn=example_aws_iam_role["arn"],
-            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0],
-            attachments_configuration={
-                "attachments_control_mode": "ENABLED",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a Q Business Application using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:qbusiness/application:Application example id-12345678
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
-        :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
-        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
-        :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] description: A description of the Amazon Q application.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Amazon Q application.
+        :param pulumi.Input[_builtins.str] iam_service_role_arn: The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
+        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         """
         ...
     @overload
@@ -420,31 +347,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Q Business Application resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.qbusiness.Application("example",
-            display_name="example-app",
-            iam_service_role_arn=example_aws_iam_role["arn"],
-            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0],
-            attachments_configuration={
-                "attachments_control_mode": "ENABLED",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a Q Business Application using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:qbusiness/application:Application example id-12345678
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -525,18 +428,10 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Q Business application.
-        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
-        :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
-        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
-        :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-        :param pulumi.Input[_builtins.str] identity_center_application_arn: ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] description: A description of the Amazon Q application.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Amazon Q application.
+        :param pulumi.Input[_builtins.str] iam_service_role_arn: The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
+        :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -559,24 +454,18 @@ class Application(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Q Business application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="attachmentsConfiguration")
     def attachments_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationAttachmentsConfiguration']]:
-        """
-        Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
-        """
         return pulumi.get(self, "attachments_configuration")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Description of the Amazon Q application.
+        A description of the Amazon Q application.
         """
         return pulumi.get(self, "description")
 
@@ -584,50 +473,39 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the Amazon Q application.
+        The display name of the Amazon Q application.
         """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationEncryptionConfiguration']]:
-        """
-        Information about encryption configuration. See `encryption_configuration` below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="iamServiceRoleArn")
     def iam_service_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
         """
         return pulumi.get(self, "iam_service_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @_builtins.property
     @pulumi.getter(name="identityCenterInstanceArn")
     def identity_center_instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-
-        The following arguments are optional:
+        ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         """
         return pulumi.get(self, "identity_center_instance_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -638,9 +516,6 @@ class Application(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

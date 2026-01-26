@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
-    /**
-     * @return A name for the flow.
-     * 
-     */
     private String name;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool() {}
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -16,32 +16,16 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
 
     public static final CentralizationRuleForOrganizationRuleArgs Empty = new CentralizationRuleForOrganizationRuleArgs();
 
-    /**
-     * Configuration block for the destination where logs will be centralized. See `destination` below.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination;
 
-    /**
-     * @return Configuration block for the destination where logs will be centralized. See `destination` below.
-     * 
-     */
     public Optional<Output<CentralizationRuleForOrganizationRuleDestinationArgs>> destination() {
         return Optional.ofNullable(this.destination);
     }
 
-    /**
-     * Configuration block for the source of logs to be centralized. See `source` below.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<CentralizationRuleForOrganizationRuleSourceArgs> source;
 
-    /**
-     * @return Configuration block for the source of logs to be centralized. See `source` below.
-     * 
-     */
     public Optional<Output<CentralizationRuleForOrganizationRuleSourceArgs>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -71,44 +55,20 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
             $ = new CentralizationRuleForOrganizationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Configuration block for the destination where logs will be centralized. See `destination` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Configuration block for the destination where logs will be centralized. See `destination` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(CentralizationRuleForOrganizationRuleDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param source Configuration block for the source of logs to be centralized. See `source` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<CentralizationRuleForOrganizationRuleSourceArgs> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Configuration block for the source of logs to be centralized. See `source` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(CentralizationRuleForOrganizationRuleSourceArgs source) {
             return source(Output.of(source));
         }

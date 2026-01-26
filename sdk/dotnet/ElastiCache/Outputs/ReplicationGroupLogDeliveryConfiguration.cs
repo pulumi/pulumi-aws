@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class ReplicationGroupLogDeliveryConfiguration
     {
-        /// <summary>
-        /// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        /// </summary>
         public readonly string Destination;
-        /// <summary>
-        /// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        /// </summary>
         public readonly string DestinationType;
-        /// <summary>
-        /// Valid values are `Json` or `Text`
-        /// </summary>
         public readonly string LogFormat;
-        /// <summary>
-        /// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        /// </summary>
         public readonly string LogType;
 
         [OutputConstructor]

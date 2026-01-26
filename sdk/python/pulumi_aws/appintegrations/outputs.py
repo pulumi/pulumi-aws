@@ -44,11 +44,6 @@ class DataIntegrationScheduleConfig(dict):
                  first_execution_from: _builtins.str,
                  object: _builtins.str,
                  schedule_expression: _builtins.str):
-        """
-        :param _builtins.str first_execution_from: The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
-        :param _builtins.str object: The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-        :param _builtins.str schedule_expression: How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
-        """
         pulumi.set(__self__, "first_execution_from", first_execution_from)
         pulumi.set(__self__, "object", object)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -56,25 +51,16 @@ class DataIntegrationScheduleConfig(dict):
     @_builtins.property
     @pulumi.getter(name="firstExecutionFrom")
     def first_execution_from(self) -> _builtins.str:
-        """
-        The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
-        """
         return pulumi.get(self, "first_execution_from")
 
     @_builtins.property
     @pulumi.getter
     def object(self) -> _builtins.str:
-        """
-        The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-        """
         return pulumi.get(self, "object")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> _builtins.str:
-        """
-        How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
-        """
         return pulumi.get(self, "schedule_expression")
 
 
@@ -82,17 +68,11 @@ class DataIntegrationScheduleConfig(dict):
 class GetEventIntegrationEventFilterResult(dict):
     def __init__(__self__, *,
                  source: _builtins.str):
-        """
-        :param _builtins.str source: The source of the events.
-        """
         pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        The source of the events.
-        """
         return pulumi.get(self, "source")
 
 

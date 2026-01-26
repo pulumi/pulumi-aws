@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch
     {
-        /// <summary>
-        /// Values sent must match the specified values exactly.
-        /// </summary>
         public readonly ImmutableArray<string> Exacts;
 
         [OutputConstructor]

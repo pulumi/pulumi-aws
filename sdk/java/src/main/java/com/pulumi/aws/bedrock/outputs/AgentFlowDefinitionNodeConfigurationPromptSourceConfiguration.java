@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
-    /**
-     * @return Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline inline;
-    /**
-     * @return Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource resource;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration() {}
-    /**
-     * @return Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline> inline() {
         return Optional.ofNullable(this.inline);
     }
-    /**
-     * @return Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource> resource() {
         return Optional.ofNullable(this.resource);
     }

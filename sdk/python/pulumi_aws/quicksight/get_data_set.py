@@ -200,22 +200,7 @@ def get_data_set(aws_account_id: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
-    Data source for managing a QuickSight Data Set.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_data_set(data_set_id="example-id")
-    ```
-
-
-    :param _builtins.str data_set_id: Identifier for the data set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -249,22 +234,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[_builtins
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSetResult]:
     """
-    Data source for managing a QuickSight Data Set.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_data_set(data_set_id="example-id")
-    ```
-
-
-    :param _builtins.str data_set_id: Identifier for the data set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id

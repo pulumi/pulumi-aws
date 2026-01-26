@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			org, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = organizations.GetOrganizationalUnitChildAccounts(ctx, &organizations.GetOrganizationalUnitChildAccountsArgs{
-//				ParentId: org.Roots[0].Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrganizationalUnitChildAccounts(ctx *pulumi.Context, args *GetOrganizationalUnitChildAccountsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitChildAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationalUnitChildAccountsResult
@@ -54,13 +23,11 @@ func GetOrganizationalUnitChildAccounts(ctx *pulumi.Context, args *GetOrganizati
 
 // A collection of arguments for invoking getOrganizationalUnitChildAccounts.
 type GetOrganizationalUnitChildAccountsArgs struct {
-	// The parent ID of the accounts.
 	ParentId string `pulumi:"parentId"`
 }
 
 // A collection of values returned by getOrganizationalUnitChildAccounts.
 type GetOrganizationalUnitChildAccountsResult struct {
-	// List of child accounts, which have the following attributes:
 	Accounts []GetOrganizationalUnitChildAccountsAccount `pulumi:"accounts"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
@@ -78,7 +45,6 @@ func GetOrganizationalUnitChildAccountsOutput(ctx *pulumi.Context, args GetOrgan
 
 // A collection of arguments for invoking getOrganizationalUnitChildAccounts.
 type GetOrganizationalUnitChildAccountsOutputArgs struct {
-	// The parent ID of the accounts.
 	ParentId pulumi.StringInput `pulumi:"parentId"`
 }
 
@@ -101,7 +67,6 @@ func (o GetOrganizationalUnitChildAccountsResultOutput) ToGetOrganizationalUnitC
 	return o
 }
 
-// List of child accounts, which have the following attributes:
 func (o GetOrganizationalUnitChildAccountsResultOutput) Accounts() GetOrganizationalUnitChildAccountsAccountArrayOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsResult) []GetOrganizationalUnitChildAccountsAccount {
 		return v.Accounts

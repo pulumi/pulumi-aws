@@ -11,41 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetContainerRecipes(ctx, &imagebuilder.GetContainerRecipesArgs{
-//				Owner: pulumi.StringRef("Self"),
-//				Filters: []imagebuilder.GetContainerRecipesFilter{
-//					{
-//						Name: "platform",
-//						Values: []string{
-//							"Linux",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetContainerRecipes(ctx *pulumi.Context, args *GetContainerRecipesArgs, opts ...pulumi.InvokeOption) (*GetContainerRecipesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetContainerRecipesResult
@@ -58,22 +23,17 @@ func GetContainerRecipes(ctx *pulumi.Context, args *GetContainerRecipesArgs, opt
 
 // A collection of arguments for invoking getContainerRecipes.
 type GetContainerRecipesArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetContainerRecipesFilter `pulumi:"filters"`
-	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner *string `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Owner   *string                     `pulumi:"owner"`
+	Region  *string                     `pulumi:"region"`
 }
 
 // A collection of values returned by getContainerRecipes.
 type GetContainerRecipesResult struct {
-	// Set of ARNs of the matched Image Builder Container Recipes.
 	Arns    []string                    `pulumi:"arns"`
 	Filters []GetContainerRecipesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of names of the matched Image Builder Container Recipes.
+	Id     string   `pulumi:"id"`
 	Names  []string `pulumi:"names"`
 	Owner  *string  `pulumi:"owner"`
 	Region string   `pulumi:"region"`
@@ -90,12 +50,9 @@ func GetContainerRecipesOutput(ctx *pulumi.Context, args GetContainerRecipesOutp
 
 // A collection of arguments for invoking getContainerRecipes.
 type GetContainerRecipesOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters GetContainerRecipesFilterArrayInput `pulumi:"filters"`
-	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner pulumi.StringPtrInput `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Owner   pulumi.StringPtrInput               `pulumi:"owner"`
+	Region  pulumi.StringPtrInput               `pulumi:"region"`
 }
 
 func (GetContainerRecipesOutputArgs) ElementType() reflect.Type {
@@ -117,7 +74,6 @@ func (o GetContainerRecipesResultOutput) ToGetContainerRecipesResultOutputWithCo
 	return o
 }
 
-// Set of ARNs of the matched Image Builder Container Recipes.
 func (o GetContainerRecipesResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetContainerRecipesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -131,7 +87,6 @@ func (o GetContainerRecipesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of names of the matched Image Builder Container Recipes.
 func (o GetContainerRecipesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetContainerRecipesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

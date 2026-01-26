@@ -12,20 +12,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPublicKeyResult {
-    /**
-     * @return Key ARN of the asymmetric CMK from which the public key was downloaded.
-     * 
-     */
     private String arn;
-    /**
-     * @return Type of the public key that was downloaded.
-     * 
-     */
     private String customerMasterKeySpec;
-    /**
-     * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
-     * 
-     */
     private List<String> encryptionAlgorithms;
     private @Nullable List<String> grantTokens;
     /**
@@ -34,47 +22,19 @@ public final class GetPublicKeyResult {
      */
     private String id;
     private String keyId;
-    /**
-     * @return Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
-     * 
-     */
     private String keyUsage;
-    /**
-     * @return Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
-     * 
-     */
     private String publicKey;
-    /**
-     * @return Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
-     * 
-     */
     private String publicKeyPem;
     private String region;
-    /**
-     * @return Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
-     * 
-     */
     private List<String> signingAlgorithms;
 
     private GetPublicKeyResult() {}
-    /**
-     * @return Key ARN of the asymmetric CMK from which the public key was downloaded.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Type of the public key that was downloaded.
-     * 
-     */
     public String customerMasterKeySpec() {
         return this.customerMasterKeySpec;
     }
-    /**
-     * @return Encryption algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `ENCRYPT_DECRYPT`.
-     * 
-     */
     public List<String> encryptionAlgorithms() {
         return this.encryptionAlgorithms;
     }
@@ -91,34 +51,18 @@ public final class GetPublicKeyResult {
     public String keyId() {
         return this.keyId;
     }
-    /**
-     * @return Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
-     * 
-     */
     public String keyUsage() {
         return this.keyUsage;
     }
-    /**
-     * @return Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
-     * 
-     */
     public String publicKey() {
         return this.publicKey;
     }
-    /**
-     * @return Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
-     * 
-     */
     public String publicKeyPem() {
         return this.publicKeyPem;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
-     * 
-     */
     public List<String> signingAlgorithms() {
         return this.signingAlgorithms;
     }

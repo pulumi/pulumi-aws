@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Ecr
 {
     public static class GetRepositoryCreationTemplate
     {
-        /// <summary>
-        /// The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetRepositoryCreationTemplate.Invoke(new()
-        ///     {
-        ///         Prefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRepositoryCreationTemplateResult> InvokeAsync(GetRepositoryCreationTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryCreationTemplateResult>("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetRepositoryCreationTemplate.Invoke(new()
-        ///     {
-        ///         Prefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetRepositoryCreationTemplate.Invoke(new()
-        ///     {
-        ///         Prefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetRepositoryCreationTemplateArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository name prefix that the template matches against.
-        /// </summary>
         [Input("prefix", required: true)]
         public string Prefix { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("resourceTags")]
         private Dictionary<string, string>? _resourceTags;
-
-        /// <summary>
-        /// A map of tags to assign to any created repositories.
-        /// </summary>
         public Dictionary<string, string> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetRepositoryCreationTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository name prefix that the template matches against.
-        /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
-
-        /// <summary>
-        /// A map of tags to assign to any created repositories.
-        /// </summary>
         public InputMap<string> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputMap<string>());
@@ -153,51 +70,21 @@ namespace Pulumi.Aws.Ecr
     [OutputType]
     public sealed class GetRepositoryCreationTemplateResult
     {
-        /// <summary>
-        /// Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        /// </summary>
         public readonly ImmutableArray<string> AppliedFors;
-        /// <summary>
-        /// The ARN of the custom role used for repository creation.
-        /// </summary>
         public readonly string CustomRoleArn;
-        /// <summary>
-        /// The description for this template.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Encryption configuration for any created repositories. See Encryption Configuration below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryCreationTemplateEncryptionConfigurationResult> EncryptionConfigurations;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The tag mutability setting for any created repositories.
-        /// </summary>
         public readonly string ImageTagMutability;
-        /// <summary>
-        /// Block that defines filters to specify which image tags can override the default tag mutability setting.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterResult> ImageTagMutabilityExclusionFilters;
-        /// <summary>
-        /// The lifecycle policy document to apply to any created repositories.
-        /// </summary>
         public readonly string LifecyclePolicy;
         public readonly string Prefix;
         public readonly string Region;
-        /// <summary>
-        /// The registry ID the repository creation template applies to.
-        /// </summary>
         public readonly string RegistryId;
-        /// <summary>
-        /// The registry policy document to apply to any created repositories.
-        /// </summary>
         public readonly string RepositoryPolicy;
-        /// <summary>
-        /// A map of tags to assign to any created repositories.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> ResourceTags;
 
         [OutputConstructor]

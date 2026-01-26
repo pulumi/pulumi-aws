@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetRowLevelPermissionTagConfiguration
     {
-        /// <summary>
-        /// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-        /// </summary>
         public readonly string? Status;
-        /// <summary>
-        /// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetRowLevelPermissionTagConfigurationTagRule> TagRules;
 
         [OutputConstructor]

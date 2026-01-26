@@ -13,17 +13,8 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class AliasRoutingStrategy
     {
-        /// <summary>
-        /// ID of the GameLift Fleet to point the alias to.
-        /// </summary>
         public readonly string? FleetId;
-        /// <summary>
-        /// Message text to be used with the `TERMINAL` routing strategy.
-        /// </summary>
         public readonly string? Message;
-        /// <summary>
-        /// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

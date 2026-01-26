@@ -16,62 +16,30 @@ public final class ThingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ThingArgs Empty = new ThingArgs();
 
-    /**
-     * Map of attributes of the thing.
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<Map<String,String>> attributes;
 
-    /**
-     * @return Map of attributes of the thing.
-     * 
-     */
     public Optional<Output<Map<String,String>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * The name of the thing.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the thing.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The thing type name.
-     * 
-     */
     @Import(name="thingTypeName")
     private @Nullable Output<String> thingTypeName;
 
-    /**
-     * @return The thing type name.
-     * 
-     */
     public Optional<Output<String>> thingTypeName() {
         return Optional.ofNullable(this.thingTypeName);
     }
@@ -103,86 +71,38 @@ public final class ThingArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ThingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes Map of attributes of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<Map<String,String>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes Map of attributes of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(Map<String,String> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param name The name of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param thingTypeName The thing type name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingTypeName(@Nullable Output<String> thingTypeName) {
             $.thingTypeName = thingTypeName;
             return this;
         }
 
-        /**
-         * @param thingTypeName The thing type name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingTypeName(String thingTypeName) {
             return thingTypeName(Output.of(thingTypeName));
         }

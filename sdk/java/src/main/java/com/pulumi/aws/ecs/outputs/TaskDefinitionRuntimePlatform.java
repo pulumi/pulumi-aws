@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskDefinitionRuntimePlatform {
-    /**
-     * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
-     * 
-     */
     private @Nullable String cpuArchitecture;
-    /**
-     * @return If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
-     * 
-     */
     private @Nullable String operatingSystemFamily;
 
     private TaskDefinitionRuntimePlatform() {}
-    /**
-     * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
-     * 
-     */
     public Optional<String> cpuArchitecture() {
         return Optional.ofNullable(this.cpuArchitecture);
     }
-    /**
-     * @return If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
-     * 
-     */
     public Optional<String> operatingSystemFamily() {
         return Optional.ofNullable(this.operatingSystemFamily);
     }

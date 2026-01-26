@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttpRouteMatchQueryParameter {
-    /**
-     * @return The query parameter to match on.
-     * 
-     */
     private @Nullable RouteSpecHttpRouteMatchQueryParameterMatch match;
-    /**
-     * @return Name for the query parameter that will be matched on.
-     * 
-     */
     private String name;
 
     private RouteSpecHttpRouteMatchQueryParameter() {}
-    /**
-     * @return The query parameter to match on.
-     * 
-     */
     public Optional<RouteSpecHttpRouteMatchQueryParameterMatch> match() {
         return Optional.ofNullable(this.match);
     }
-    /**
-     * @return Name for the query parameter that will be matched on.
-     * 
-     */
     public String name() {
         return this.name;
     }

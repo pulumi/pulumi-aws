@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallFirewallStatusSyncStateAttachment {
-    /**
-     * @return The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-     * 
-     */
     private @Nullable String endpointId;
-    /**
-     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
-     * 
-     */
     private @Nullable String subnetId;
 
     private FirewallFirewallStatusSyncStateAttachment() {}
-    /**
-     * @return The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-     * 
-     */
     public Optional<String> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }
-    /**
-     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }

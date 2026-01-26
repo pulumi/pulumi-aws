@@ -12,20 +12,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSdkResult {
-    /**
-     * @return SDK as a string.
-     * 
-     */
     private String body;
-    /**
-     * @return Content-disposition header value in the HTTP response.
-     * 
-     */
     private String contentDisposition;
-    /**
-     * @return Content-type header value in the HTTP response.
-     * 
-     */
     private String contentType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -39,24 +27,12 @@ public final class GetSdkResult {
     private String stageName;
 
     private GetSdkResult() {}
-    /**
-     * @return SDK as a string.
-     * 
-     */
     public String body() {
         return this.body;
     }
-    /**
-     * @return Content-disposition header value in the HTTP response.
-     * 
-     */
     public String contentDisposition() {
         return this.contentDisposition;
     }
-    /**
-     * @return Content-type header value in the HTTP response.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }

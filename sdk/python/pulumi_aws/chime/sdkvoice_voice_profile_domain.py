@@ -28,10 +28,6 @@ class SdkvoiceVoiceProfileDomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SdkvoiceVoiceProfileDomain resource.
-        :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
-        :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if description is not None:
@@ -46,9 +42,6 @@ class SdkvoiceVoiceProfileDomainArgs:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']:
-        """
-        Configuration for server side encryption.
-        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
@@ -58,9 +51,6 @@ class SdkvoiceVoiceProfileDomainArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of Voice Profile Domain.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -70,9 +60,6 @@ class SdkvoiceVoiceProfileDomainArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of Voice Profile Domain.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -82,9 +69,6 @@ class SdkvoiceVoiceProfileDomainArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,11 +97,6 @@ class _SdkvoiceVoiceProfileDomainState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SdkvoiceVoiceProfileDomain resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -137,9 +116,6 @@ class _SdkvoiceVoiceProfileDomainState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Voice Profile Domain.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -149,9 +125,6 @@ class _SdkvoiceVoiceProfileDomainState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of Voice Profile Domain.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -161,9 +134,6 @@ class _SdkvoiceVoiceProfileDomainState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of Voice Profile Domain.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -173,9 +143,6 @@ class _SdkvoiceVoiceProfileDomainState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -185,9 +152,6 @@ class _SdkvoiceVoiceProfileDomainState:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']]:
-        """
-        Configuration for server side encryption.
-        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
@@ -226,44 +190,9 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Chime SDK Voice Profile Domain.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS Key for Voice Profile Domain",
-            deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
-            name="ExampleVoiceProfileDomain",
-            server_side_encryption_configuration={
-                "kms_key_arn": example.arn,
-            },
-            description="My Voice Profile Domain",
-            tags={
-                "key1": "value1",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-        ```
-
+        Create a SdkvoiceVoiceProfileDomain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         ...
     @overload
@@ -272,38 +201,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  args: SdkvoiceVoiceProfileDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Chime SDK Voice Profile Domain.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS Key for Voice Profile Domain",
-            deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
-            name="ExampleVoiceProfileDomain",
-            server_side_encryption_configuration={
-                "kms_key_arn": example.arn,
-            },
-            description="My Voice Profile Domain",
-            tags={
-                "key1": "value1",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-        ```
-
+        Create a SdkvoiceVoiceProfileDomain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SdkvoiceVoiceProfileDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -366,11 +264,6 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -388,41 +281,26 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Voice Profile Domain.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of Voice Profile Domain.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of Voice Profile Domain.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output['outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration']:
-        """
-        Configuration for server side encryption.
-        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @_builtins.property

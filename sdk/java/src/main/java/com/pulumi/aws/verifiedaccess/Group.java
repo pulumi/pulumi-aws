@@ -16,213 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing a Verified Access Group.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.verifiedaccess.Group;
- * import com.pulumi.aws.verifiedaccess.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()
- *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with KMS Key
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.verifiedaccess.Group;
- * import com.pulumi.aws.verifiedaccess.GroupArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.GroupSseConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testKey = new Key("testKey", KeyArgs.builder()
- *             .description("KMS key for Verified Access Group test")
- *             .build());
- * 
- *         var test = new Group("test", GroupArgs.builder()
- *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
- *             .sseConfiguration(GroupSseConfigurationArgs.builder()
- *                 .kmsKeyArn(testKey.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:verifiedaccess/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
-    /**
-     * Timestamp when the access group was created.
-     * 
-     */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
-    /**
-     * @return Timestamp when the access group was created.
-     * 
-     */
     public Output<String> creationTime() {
         return this.creationTime;
     }
-    /**
-     * Timestamp when the access group was deleted.
-     * 
-     */
     @Export(name="deletionTime", refs={String.class}, tree="[0]")
     private Output<String> deletionTime;
 
-    /**
-     * @return Timestamp when the access group was deleted.
-     * 
-     */
     public Output<String> deletionTime() {
         return this.deletionTime;
     }
-    /**
-     * Description of the verified access group.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description of the verified access group.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Timestamp when the access group was last updated.
-     * 
-     */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
-    /**
-     * @return Timestamp when the access group was last updated.
-     * 
-     */
     public Output<String> lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
-    /**
-     * AWS account number owning this resource.
-     * 
-     */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
-    /**
-     * @return AWS account number owning this resource.
-     * 
-     */
     public Output<String> owner() {
         return this.owner;
     }
-    /**
-     * The policy document that is associated with this resource.
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDocument;
 
-    /**
-     * @return The policy document that is associated with this resource.
-     * 
-     */
     public Output<Optional<String>> policyDocument() {
         return Codegen.optional(this.policyDocument);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block to use KMS keys for server-side encryption.
-     * 
-     */
     @Export(name="sseConfiguration", refs={GroupSseConfiguration.class}, tree="[0]")
     private Output<GroupSseConfiguration> sseConfiguration;
 
-    /**
-     * @return Configuration block to use KMS keys for server-side encryption.
-     * 
-     */
     public Output<GroupSseConfiguration> sseConfiguration() {
         return this.sseConfiguration;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -232,49 +78,21 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of this verified acess group.
-     * 
-     */
     @Export(name="verifiedaccessGroupArn", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessGroupArn;
 
-    /**
-     * @return ARN of this verified acess group.
-     * 
-     */
     public Output<String> verifiedaccessGroupArn() {
         return this.verifiedaccessGroupArn;
     }
-    /**
-     * ID of this verified access group.
-     * 
-     */
     @Export(name="verifiedaccessGroupId", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessGroupId;
 
-    /**
-     * @return ID of this verified access group.
-     * 
-     */
     public Output<String> verifiedaccessGroupId() {
         return this.verifiedaccessGroupId;
     }
-    /**
-     * The id of the verified access instance this group is associated with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="verifiedaccessInstanceId", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessInstanceId;
 
-    /**
-     * @return The id of the verified access instance this group is associated with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> verifiedaccessInstanceId() {
         return this.verifiedaccessInstanceId;
     }

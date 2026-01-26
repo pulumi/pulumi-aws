@@ -17,77 +17,37 @@ public final class ThingGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ThingGroupArgs Empty = new ThingGroupArgs();
 
-    /**
-     * The name of the Thing Group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Thing Group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The name of the parent Thing Group.
-     * 
-     */
     @Import(name="parentGroupName")
     private @Nullable Output<String> parentGroupName;
 
-    /**
-     * @return The name of the parent Thing Group.
-     * 
-     */
     public Optional<Output<String>> parentGroupName() {
         return Optional.ofNullable(this.parentGroupName);
     }
 
-    /**
-     * The Thing Group properties. Defined below.
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<ThingGroupPropertiesArgs> properties;
 
-    /**
-     * @return The Thing Group properties. Defined below.
-     * 
-     */
     public Optional<Output<ThingGroupPropertiesArgs>> properties() {
         return Optional.ofNullable(this.properties);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,107 +80,47 @@ public final class ThingGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ThingGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the Thing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Thing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parentGroupName The name of the parent Thing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentGroupName(@Nullable Output<String> parentGroupName) {
             $.parentGroupName = parentGroupName;
             return this;
         }
 
-        /**
-         * @param parentGroupName The name of the parent Thing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentGroupName(String parentGroupName) {
             return parentGroupName(Output.of(parentGroupName));
         }
 
-        /**
-         * @param properties The Thing Group properties. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<ThingGroupPropertiesArgs> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties The Thing Group properties. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(ThingGroupPropertiesArgs properties) {
             return properties(Output.of(properties));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

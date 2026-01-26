@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems
     {
-        /// <summary>
-        /// Description of the array items.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Nested items definition for arrays of arrays.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems? Items;
-        /// <summary>
-        /// Set of property definitions for arrays of objects. See `Property` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty> Properties;
-        /// <summary>
-        /// Data type of the array items.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

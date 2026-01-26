@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig
     {
-        /// <summary>
-        /// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig? AggregationConfig;
-        /// <summary>
-        /// File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-        /// </summary>
         public readonly string? FileType;
-        /// <summary>
-        /// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig? PrefixConfig;
-        /// <summary>
-        /// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-        /// </summary>
         public readonly bool? PreserveSourceDataTyping;
 
         [OutputConstructor]

@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems {
-    /**
-     * @return Description of the array items.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Nested items definition for arrays of arrays.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems items;
-    /**
-     * @return Set of property definitions for arrays of objects. See `property` below.
-     * 
-     */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty> properties;
-    /**
-     * @return Data type of the array items.
-     * 
-     */
     private String type;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems() {}
-    /**
-     * @return Description of the array items.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Nested items definition for arrays of arrays.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems> items() {
         return Optional.ofNullable(this.items);
     }
-    /**
-     * @return Set of property definitions for arrays of objects. See `property` below.
-     * 
-     */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty> properties() {
         return this.properties == null ? List.of() : this.properties;
     }
-    /**
-     * @return Data type of the array items.
-     * 
-     */
     public String type() {
         return this.type;
     }

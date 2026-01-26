@@ -9,66 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amp
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the Managed Scraper using its identifier.
-    /// For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:amp/scraper:Scraper")]
     public partial class Scraper : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-        /// </summary>
         [Output("alias")]
         public Output<string?> Alias { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the new scraper.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the managed scraper to send metrics to. See `Destination`.
-        /// </summary>
         [Output("destination")]
         public Output<Outputs.ScraperDestination?> Destination { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `RoleConfiguration` below.
-        /// </summary>
         [Output("roleConfiguration")]
         public Output<Outputs.ScraperRoleConfiguration?> RoleConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        /// </summary>
         [Output("scrapeConfiguration")]
         public Output<string> ScrapeConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block to specify where the managed scraper will collect metrics from. See `Source`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("source")]
         public Output<Outputs.ScraperSource?> Source { get; private set; } = null!;
 
@@ -127,41 +91,21 @@ namespace Pulumi.Aws.Amp
 
     public sealed class ScraperArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
-        /// <summary>
-        /// Configuration block for the managed scraper to send metrics to. See `Destination`.
-        /// </summary>
         [Input("destination")]
         public Input<Inputs.ScraperDestinationArgs>? Destination { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `RoleConfiguration` below.
-        /// </summary>
         [Input("roleConfiguration")]
         public Input<Inputs.ScraperRoleConfigurationArgs>? RoleConfiguration { get; set; }
 
-        /// <summary>
-        /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        /// </summary>
         [Input("scrapeConfiguration", required: true)]
         public Input<string> ScrapeConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block to specify where the managed scraper will collect metrics from. See `Source`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("source")]
         public Input<Inputs.ScraperSourceArgs>? Source { get; set; }
 
@@ -184,53 +128,27 @@ namespace Pulumi.Aws.Amp
 
     public sealed class ScraperState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the new scraper.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Configuration block for the managed scraper to send metrics to. See `Destination`.
-        /// </summary>
         [Input("destination")]
         public Input<Inputs.ScraperDestinationGetArgs>? Destination { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `RoleConfiguration` below.
-        /// </summary>
         [Input("roleConfiguration")]
         public Input<Inputs.ScraperRoleConfigurationGetArgs>? RoleConfiguration { get; set; }
 
-        /// <summary>
-        /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        /// </summary>
         [Input("scrapeConfiguration")]
         public Input<string>? ScrapeConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration block to specify where the managed scraper will collect metrics from. See `Source`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("source")]
         public Input<Inputs.ScraperSourceGetArgs>? Source { get; set; }
 

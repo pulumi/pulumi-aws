@@ -11,81 +11,12 @@ namespace Pulumi.Aws.CodeGuruProfiler
 {
     public static class GetProfilingGroup
     {
-        /// <summary>
-        /// Data source for managing an AWS CodeGuru Profiler Profiling Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeGuruProfiler.GetProfilingGroup.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetProfilingGroupResult> InvokeAsync(GetProfilingGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfilingGroupResult>("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args ?? new GetProfilingGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CodeGuru Profiler Profiling Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeGuruProfiler.GetProfilingGroup.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CodeGuru Profiler Profiling Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeGuruProfiler.GetProfilingGroup.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.CodeGuruProfiler
 
     public sealed class GetProfilingGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the profiling group.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.CodeGuruProfiler
 
     public sealed class GetProfilingGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the profiling group.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,36 +54,15 @@ namespace Pulumi.Aws.CodeGuruProfiler
     [OutputType]
     public sealed class GetProfilingGroupResult
     {
-        /// <summary>
-        /// Profiling Group agent orchestration config
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetProfilingGroupAgentOrchestrationConfigResult> AgentOrchestrationConfigs;
-        /// <summary>
-        /// ARN of the Profiling Group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The compute platform of the profiling group.
-        /// </summary>
         public readonly string ComputePlatform;
-        /// <summary>
-        /// Timestamp when Profiling Group was created.
-        /// </summary>
         public readonly string CreatedAt;
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// The status of the Profiling Group.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetProfilingGroupProfilingStatusResult> ProfilingStatuses;
         public readonly string Region;
-        /// <summary>
-        /// Mapping of Key-Value tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Timestamp when Profiling Group was updated.
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

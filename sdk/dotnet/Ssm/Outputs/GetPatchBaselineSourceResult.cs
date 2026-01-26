@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class GetPatchBaselineSourceResult
     {
-        /// <summary>
-        /// Value of the yum repo configuration.
-        /// </summary>
         public readonly string Configuration;
-        /// <summary>
-        /// Name specified to identify the patch source.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Specific operating system versions a patch repository applies to.
-        /// </summary>
         public readonly ImmutableArray<string> Products;
 
         [OutputConstructor]

@@ -12,430 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.
-// Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("example"),
-//				ShardCount: pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mediaPipelinesAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"mediapipelines.chime.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			callAnalyticsRole, err := iam.NewRole(ctx, "call_analytics_role", &iam.RoleArgs{
-//				Name:             pulumi.String("CallAnalyticsRole"),
-//				AssumeRolePolicy: pulumi.String(mediaPipelinesAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("MyBasicConfiguration"),
-//				ResourceAccessRoleArn: callAnalyticsRole.Arn,
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							LanguageCode: pulumi.String("en-US"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: example.Arn,
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("Value1"),
-//					"Key2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// - The required policies on `callAnalyticsRole` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
-//
-// ### Transcribe Call Analytics processor usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			transcribeAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"transcribe.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			postCallRole, err := iam.NewRole(ctx, "post_call_role", &iam.RoleArgs{
-//				Name:             pulumi.String("PostCallAccessRole"),
-//				AssumeRolePolicy: pulumi.String(transcribeAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("MyCallAnalyticsConfiguration"),
-//				ResourceAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							CallAnalyticsStreamCategories: pulumi.StringArray{
-//								pulumi.String("category_1"),
-//								pulumi.String("category_2"),
-//							},
-//							ContentRedactionType:              pulumi.String("PII"),
-//							EnablePartialResultsStabilization: pulumi.Bool(true),
-//							FilterPartialResults:              pulumi.Bool(true),
-//							LanguageCode:                      pulumi.String("en-US"),
-//							LanguageModelName:                 pulumi.String("MyLanguageModel"),
-//							PartialResultsStability:           pulumi.String("high"),
-//							PiiEntityTypes:                    pulumi.String("ADDRESS,BANK_ACCOUNT_NUMBER"),
-//							PostCallAnalyticsSettings: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs{
-//								ContentRedactionOutput:   pulumi.String("redacted"),
-//								DataAccessRoleArn:        postCallRole.Arn,
-//								OutputEncryptionKmsKeyId: pulumi.String("MyKmsKeyId"),
-//								OutputLocation:           pulumi.String("s3://MyBucket"),
-//							},
-//							VocabularyFilterMethod: pulumi.String("mask"),
-//							VocabularyFilterName:   pulumi.String("MyVocabularyFilter"),
-//							VocabularyName:         pulumi.String("MyVocabulary"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(example.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Real time alerts usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("MyRealTimeAlertConfiguration"),
-//				ResourceAccessRoleArn: pulumi.Any(callAnalyticsRole.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							LanguageCode: pulumi.String("en-US"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(example.Arn),
-//						},
-//					},
-//				},
-//				RealTimeAlertConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs{
-//					Disabled: pulumi.Bool(false),
-//					Rules: chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArray{
-//						&chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs{
-//							Type: pulumi.String("IssueDetection"),
-//							IssueDetectionConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs{
-//								RuleName: pulumi.String("MyIssueDetectionRule"),
-//							},
-//						},
-//						&chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs{
-//							Type: pulumi.String("KeywordMatch"),
-//							KeywordMatchConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs{
-//								Keywords: pulumi.StringArray{
-//									pulumi.String("keyword1"),
-//									pulumi.String("keyword2"),
-//								},
-//								Negate:   pulumi.Bool(false),
-//								RuleName: pulumi.String("MyKeywordMatchRule"),
-//							},
-//						},
-//						&chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs{
-//							Type: pulumi.String("Sentiment"),
-//							SentimentConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs{
-//								RuleName:      pulumi.String("MySentimentRule"),
-//								SentimentType: pulumi.String("NEGATIVE"),
-//								TimePeriod:    pulumi.Int(60),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Transcribe processor usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("MyTranscribeConfiguration"),
-//				ResourceAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeProcessor"),
-//						AmazonTranscribeProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs{
-//							ContentIdentificationType:         pulumi.String("PII"),
-//							EnablePartialResultsStabilization: pulumi.Bool(true),
-//							FilterPartialResults:              pulumi.Bool(true),
-//							LanguageCode:                      pulumi.String("en-US"),
-//							LanguageModelName:                 pulumi.String("MyLanguageModel"),
-//							PartialResultsStability:           pulumi.String("high"),
-//							PiiEntityTypes:                    pulumi.String("ADDRESS,BANK_ACCOUNT_NUMBER"),
-//							ShowSpeakerLabel:                  pulumi.Bool(true),
-//							VocabularyFilterMethod:            pulumi.String("mask"),
-//							VocabularyFilterName:              pulumi.String("MyVocabularyFilter"),
-//							VocabularyName:                    pulumi.String("MyVocabulary"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(example.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Voice analytics processor usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("MyVoiceAnalyticsConfiguration"),
-//				ResourceAccessRoleArn: pulumi.Any(example.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("VoiceAnalyticsProcessor"),
-//						VoiceAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs{
-//							SpeakerSearchStatus:     pulumi.String("Enabled"),
-//							VoiceToneAnalysisStatus: pulumi.String("Enabled"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("LambdaFunctionSink"),
-//						LambdaFunctionSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs{
-//							InsightsTarget: pulumi.String("arn:aws:lambda:us-west-2:1111111111:function:MyFunction"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("SnsTopicSink"),
-//						SnsTopicSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs{
-//							InsightsTarget: pulumi.String("arn:aws:sns:us-west-2:1111111111:topic/MyTopic"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("SqsQueueSink"),
-//						SqsQueueSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs{
-//							InsightsTarget: pulumi.String("arn:aws:sqs:us-west-2:1111111111:queue/MyQueue"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(test.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### S3 Recording sink usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "my_configuration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("MyS3RecordingConfiguration"),
-//				ResourceAccessRoleArn: pulumi.Any(example.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("S3RecordingSink"),
-//						S3RecordingSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs{
-//							Destination: pulumi.String("arn:aws:s3:::MyBucket"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Chime SDK media insights pipeline configuration.
-//
-// Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
-//
-// % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
 type MediaInsightsPipelineConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Media Insights Pipeline Configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Collection of processors and sinks to transform media and deliver data.
-	Elements MediaInsightsPipelineConfigurationElementArrayOutput `pulumi:"elements"`
-	// Configuration name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+	Arn                        pulumi.StringOutput                                                   `pulumi:"arn"`
+	Elements                   MediaInsightsPipelineConfigurationElementArrayOutput                  `pulumi:"elements"`
+	Name                       pulumi.StringOutput                                                   `pulumi:"name"`
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput `pulumi:"realTimeAlertConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-	ResourceAccessRoleArn pulumi.StringOutput `pulumi:"resourceAccessRoleArn"`
-	// Key-value map of tags for the resource.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region                     pulumi.StringOutput                                                   `pulumi:"region"`
+	ResourceAccessRoleArn      pulumi.StringOutput                                                   `pulumi:"resourceAccessRoleArn"`
+	Tags                       pulumi.StringMapOutput                                                `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput                                                `pulumi:"tagsAll"`
 }
 
 // NewMediaInsightsPipelineConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -474,39 +61,25 @@ func GetMediaInsightsPipelineConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MediaInsightsPipelineConfiguration resources.
 type mediaInsightsPipelineConfigurationState struct {
-	// ARN of the Media Insights Pipeline Configuration.
-	Arn *string `pulumi:"arn"`
-	// Collection of processors and sinks to transform media and deliver data.
-	Elements []MediaInsightsPipelineConfigurationElement `pulumi:"elements"`
-	// Configuration name.
-	Name *string `pulumi:"name"`
-	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+	Arn                        *string                                                       `pulumi:"arn"`
+	Elements                   []MediaInsightsPipelineConfigurationElement                   `pulumi:"elements"`
+	Name                       *string                                                       `pulumi:"name"`
 	RealTimeAlertConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration `pulumi:"realTimeAlertConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-	ResourceAccessRoleArn *string `pulumi:"resourceAccessRoleArn"`
-	// Key-value map of tags for the resource.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Region                     *string                                                       `pulumi:"region"`
+	ResourceAccessRoleArn      *string                                                       `pulumi:"resourceAccessRoleArn"`
+	Tags                       map[string]string                                             `pulumi:"tags"`
+	TagsAll                    map[string]string                                             `pulumi:"tagsAll"`
 }
 
 type MediaInsightsPipelineConfigurationState struct {
-	// ARN of the Media Insights Pipeline Configuration.
-	Arn pulumi.StringPtrInput
-	// Collection of processors and sinks to transform media and deliver data.
-	Elements MediaInsightsPipelineConfigurationElementArrayInput
-	// Configuration name.
-	Name pulumi.StringPtrInput
-	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+	Arn                        pulumi.StringPtrInput
+	Elements                   MediaInsightsPipelineConfigurationElementArrayInput
+	Name                       pulumi.StringPtrInput
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-	ResourceAccessRoleArn pulumi.StringPtrInput
-	// Key-value map of tags for the resource.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Region                     pulumi.StringPtrInput
+	ResourceAccessRoleArn      pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
 }
 
 func (MediaInsightsPipelineConfigurationState) ElementType() reflect.Type {
@@ -514,34 +87,22 @@ func (MediaInsightsPipelineConfigurationState) ElementType() reflect.Type {
 }
 
 type mediaInsightsPipelineConfigurationArgs struct {
-	// Collection of processors and sinks to transform media and deliver data.
-	Elements []MediaInsightsPipelineConfigurationElement `pulumi:"elements"`
-	// Configuration name.
-	Name *string `pulumi:"name"`
-	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+	Elements                   []MediaInsightsPipelineConfigurationElement                   `pulumi:"elements"`
+	Name                       *string                                                       `pulumi:"name"`
 	RealTimeAlertConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration `pulumi:"realTimeAlertConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-	ResourceAccessRoleArn string `pulumi:"resourceAccessRoleArn"`
-	// Key-value map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Region                     *string                                                       `pulumi:"region"`
+	ResourceAccessRoleArn      string                                                        `pulumi:"resourceAccessRoleArn"`
+	Tags                       map[string]string                                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MediaInsightsPipelineConfiguration resource.
 type MediaInsightsPipelineConfigurationArgs struct {
-	// Collection of processors and sinks to transform media and deliver data.
-	Elements MediaInsightsPipelineConfigurationElementArrayInput
-	// Configuration name.
-	Name pulumi.StringPtrInput
-	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+	Elements                   MediaInsightsPipelineConfigurationElementArrayInput
+	Name                       pulumi.StringPtrInput
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-	ResourceAccessRoleArn pulumi.StringInput
-	// Key-value map of tags for the resource.
-	Tags pulumi.StringMapInput
+	Region                     pulumi.StringPtrInput
+	ResourceAccessRoleArn      pulumi.StringInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (MediaInsightsPipelineConfigurationArgs) ElementType() reflect.Type {
@@ -631,41 +192,34 @@ func (o MediaInsightsPipelineConfigurationOutput) ToMediaInsightsPipelineConfigu
 	return o
 }
 
-// ARN of the Media Insights Pipeline Configuration.
 func (o MediaInsightsPipelineConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Collection of processors and sinks to transform media and deliver data.
 func (o MediaInsightsPipelineConfigurationOutput) Elements() MediaInsightsPipelineConfigurationElementArrayOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) MediaInsightsPipelineConfigurationElementArrayOutput {
 		return v.Elements
 	}).(MediaInsightsPipelineConfigurationElementArrayOutput)
 }
 
-// Configuration name.
 func (o MediaInsightsPipelineConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 func (o MediaInsightsPipelineConfigurationOutput) RealTimeAlertConfiguration() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
 		return v.RealTimeAlertConfiguration
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MediaInsightsPipelineConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 func (o MediaInsightsPipelineConfigurationOutput) ResourceAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.ResourceAccessRoleArn }).(pulumi.StringOutput)
 }
 
-// Key-value map of tags for the resource.
 func (o MediaInsightsPipelineConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

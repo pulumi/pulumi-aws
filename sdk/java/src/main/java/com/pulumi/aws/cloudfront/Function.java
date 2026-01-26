@@ -16,167 +16,65 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudFront Function resource. With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
- * 
- * See [CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
- * 
- * &gt; **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/function:Function test my_test_function
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/function:Function")
 public class Function extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) identifying your CloudFront Function.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Source code of the function
-     * 
-     */
     @Export(name="code", refs={String.class}, tree="[0]")
     private Output<String> code;
 
-    /**
-     * @return Source code of the function
-     * 
-     */
     public Output<String> code() {
         return this.code;
     }
-    /**
-     * Comment.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return Comment.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-     * 
-     */
     @Export(name="keyValueStoreAssociations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keyValueStoreAssociations;
 
-    /**
-     * @return List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-     * 
-     */
     public Output<Optional<List<String>>> keyValueStoreAssociations() {
         return Codegen.optional(this.keyValueStoreAssociations);
     }
-    /**
-     * ETag hash of any `LIVE` stage of the function.
-     * 
-     */
     @Export(name="liveStageEtag", refs={String.class}, tree="[0]")
     private Output<String> liveStageEtag;
 
-    /**
-     * @return ETag hash of any `LIVE` stage of the function.
-     * 
-     */
     public Output<String> liveStageEtag() {
         return this.liveStageEtag;
     }
-    /**
-     * Unique name for your CloudFront Function.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name for your CloudFront Function.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
-     */
     @Export(name="publish", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publish;
 
-    /**
-     * @return Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> publish() {
         return Codegen.optional(this.publish);
     }
-    /**
-     * Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="runtime", refs={String.class}, tree="[0]")
     private Output<String> runtime;
 
-    /**
-     * @return Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> runtime() {
         return this.runtime;
     }
-    /**
-     * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

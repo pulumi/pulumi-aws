@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default size of the EBS storage volume for a private space.
-        /// </summary>
         [Input("defaultEbsVolumeSizeInGb", required: true)]
         public Input<int> DefaultEbsVolumeSizeInGb { get; set; } = null!;
 
-        /// <summary>
-        /// The maximum size of the EBS storage volume for a private space.
-        /// </summary>
         [Input("maximumEbsVolumeSizeInGb", required: true)]
         public Input<int> MaximumEbsVolumeSizeInGb { get; set; } = null!;
 

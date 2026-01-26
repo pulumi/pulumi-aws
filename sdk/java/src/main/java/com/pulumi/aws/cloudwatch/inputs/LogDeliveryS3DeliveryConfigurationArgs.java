@@ -15,32 +15,16 @@ public final class LogDeliveryS3DeliveryConfigurationArgs extends com.pulumi.res
 
     public static final LogDeliveryS3DeliveryConfigurationArgs Empty = new LogDeliveryS3DeliveryConfigurationArgs();
 
-    /**
-     * This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-     * 
-     */
     @Import(name="enableHiveCompatiblePath", required=true)
     private Output<Boolean> enableHiveCompatiblePath;
 
-    /**
-     * @return This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-     * 
-     */
     public Output<Boolean> enableHiveCompatiblePath() {
         return this.enableHiveCompatiblePath;
     }
 
-    /**
-     * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-     * 
-     */
     @Import(name="suffixPath", required=true)
     private Output<String> suffixPath;
 
-    /**
-     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-     * 
-     */
     public Output<String> suffixPath() {
         return this.suffixPath;
     }
@@ -70,44 +54,20 @@ public final class LogDeliveryS3DeliveryConfigurationArgs extends com.pulumi.res
             $ = new LogDeliveryS3DeliveryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableHiveCompatiblePath This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableHiveCompatiblePath(Output<Boolean> enableHiveCompatiblePath) {
             $.enableHiveCompatiblePath = enableHiveCompatiblePath;
             return this;
         }
 
-        /**
-         * @param enableHiveCompatiblePath This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableHiveCompatiblePath(Boolean enableHiveCompatiblePath) {
             return enableHiveCompatiblePath(Output.of(enableHiveCompatiblePath));
         }
 
-        /**
-         * @param suffixPath This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffixPath(Output<String> suffixPath) {
             $.suffixPath = suffixPath;
             return this;
         }
 
-        /**
-         * @param suffixPath This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffixPath(String suffixPath) {
             return suffixPath(Output.of(suffixPath));
         }

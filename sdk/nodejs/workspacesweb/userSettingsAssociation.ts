@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web User Settings Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
- * const exampleUserSettings = new aws.workspacesweb.UserSettings("example", {
- *     copyAllowed: "Enabled",
- *     downloadAllowed: "Enabled",
- *     pasteAllowed: "Enabled",
- *     printAllowed: "Enabled",
- *     uploadAllowed: "Enabled",
- * });
- * const exampleUserSettingsAssociation = new aws.workspacesweb.UserSettingsAssociation("example", {
- *     userSettingsArn: exampleUserSettings.userSettingsArn,
- *     portalArn: example.portalArn,
- * });
- * ```
- */
 export class UserSettingsAssociation extends pulumi.CustomResource {
     /**
      * Get an existing UserSettingsAssociation resource's state with the given name, ID, and optional extra
@@ -57,19 +32,8 @@ export class UserSettingsAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserSettingsAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the portal to associate with the user settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly portalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the user settings to associate with the portal. Forces replacement if changed.
-     */
     declare public readonly userSettingsArn: pulumi.Output<string>;
 
     /**
@@ -109,19 +73,8 @@ export class UserSettingsAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserSettingsAssociation resources.
  */
 export interface UserSettingsAssociationState {
-    /**
-     * ARN of the portal to associate with the user settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the user settings to associate with the portal. Forces replacement if changed.
-     */
     userSettingsArn?: pulumi.Input<string>;
 }
 
@@ -129,18 +82,7 @@ export interface UserSettingsAssociationState {
  * The set of arguments for constructing a UserSettingsAssociation resource.
  */
 export interface UserSettingsAssociationArgs {
-    /**
-     * ARN of the portal to associate with the user settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the user settings to associate with the portal. Forces replacement if changed.
-     */
     userSettingsArn: pulumi.Input<string>;
 }

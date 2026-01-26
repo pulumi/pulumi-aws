@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class GetConfigurationSetVdmOptionDashboardOptionResult
     {
-        /// <summary>
-        /// Specifies the status of your VDM engagement metrics collection.
-        /// </summary>
         public readonly string EngagementMetrics;
 
         [OutputConstructor]

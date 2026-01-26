@@ -49,9 +49,6 @@ class GetLocalDiskResult:
     @_builtins.property
     @pulumi.getter(name="diskId")
     def disk_id(self) -> _builtins.str:
-        """
-        Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
-        """
         return pulumi.get(self, "disk_id")
 
     @_builtins.property
@@ -103,23 +100,7 @@ def get_local_disk(disk_node: Optional[_builtins.str] = None,
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalDiskResult:
     """
-    Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.storagegateway.get_local_disk(disk_path=test_aws_volume_attachment["deviceName"],
-        gateway_arn=test_aws_storagegateway_gateway["arn"])
-    ```
-
-
-    :param _builtins.str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
-    :param _builtins.str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-    :param _builtins.str gateway_arn: ARN of the gateway.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['diskNode'] = disk_node
@@ -142,23 +123,7 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[_builtins.st
                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalDiskResult]:
     """
-    Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.storagegateway.get_local_disk(disk_path=test_aws_volume_attachment["deviceName"],
-        gateway_arn=test_aws_storagegateway_gateway["arn"])
-    ```
-
-
-    :param _builtins.str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
-    :param _builtins.str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-    :param _builtins.str gateway_arn: ARN of the gateway.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['diskNode'] = disk_node

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterOutpostConfigControlPlanePlacementResult
     {
-        /// <summary>
-        /// The name of the placement group for the Kubernetes control plane instances.
-        /// </summary>
         public readonly string GroupName;
 
         [OutputConstructor]

@@ -9,63 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Efs
 {
-    /// <summary>
-    /// Provides an Elastic File System (EFS) Backup Policy resource.
-    /// Backup policies turn automatic backups on or off for an existing file system.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fs = new Aws.Efs.FileSystem("fs", new()
-    ///     {
-    ///         CreationToken = "my-product",
-    ///     });
-    /// 
-    ///     var policy = new Aws.Efs.BackupPolicy("policy", new()
-    ///     {
-    ///         FileSystemId = fs.Id,
-    ///         BackupPolicyDetails = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
-    ///         {
-    ///             Status = "ENABLED",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the EFS backup policies using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:efs/backupPolicy:BackupPolicy")]
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A BackupPolicy object (documented below).
-        /// </summary>
         [Output("backupPolicy")]
         public Output<Outputs.BackupPolicyBackupPolicy> BackupPolicyDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the EFS file system.
-        /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -115,21 +67,12 @@ namespace Pulumi.Aws.Efs
 
     public sealed class BackupPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A BackupPolicy object (documented below).
-        /// </summary>
         [Input("backupPolicy", required: true)]
         public Input<Inputs.BackupPolicyBackupPolicyArgs> BackupPolicyDetails { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the EFS file system.
-        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,21 +84,12 @@ namespace Pulumi.Aws.Efs
 
     public sealed class BackupPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A BackupPolicy object (documented below).
-        /// </summary>
         [Input("backupPolicy")]
         public Input<Inputs.BackupPolicyBackupPolicyGetArgs>? BackupPolicyDetails { get; set; }
 
-        /// <summary>
-        /// The ID of the EFS file system.
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

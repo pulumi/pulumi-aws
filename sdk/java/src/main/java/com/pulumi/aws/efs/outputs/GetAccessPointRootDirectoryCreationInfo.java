@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccessPointRootDirectoryCreationInfo {
-    /**
-     * @return POSIX owner group ID
-     * 
-     */
     private Integer ownerGid;
-    /**
-     * @return POSIX owner user ID
-     * 
-     */
     private Integer ownerUid;
-    /**
-     * @return POSIX permissions mode
-     * 
-     */
     private String permissions;
 
     private GetAccessPointRootDirectoryCreationInfo() {}
-    /**
-     * @return POSIX owner group ID
-     * 
-     */
     public Integer ownerGid() {
         return this.ownerGid;
     }
-    /**
-     * @return POSIX owner user ID
-     * 
-     */
     public Integer ownerUid() {
         return this.ownerUid;
     }
-    /**
-     * @return POSIX permissions mode
-     * 
-     */
     public String permissions() {
         return this.permissions;
     }

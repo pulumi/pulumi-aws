@@ -16,32 +16,16 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetProductArgs Empty = new GetProductArgs();
 
-    /**
-     * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-     * 
-     */
     @Import(name="filters", required=true)
     private Output<List<GetProductFilterArgs>> filters;
 
-    /**
-     * @return List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-     * 
-     */
     public Output<List<GetProductFilterArgs>> filters() {
         return this.filters;
     }
 
-    /**
-     * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-     * 
-     */
     @Import(name="serviceCode", required=true)
     private Output<String> serviceCode;
 
-    /**
-     * @return Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-     * 
-     */
     public Output<String> serviceCode() {
         return this.serviceCode;
     }
@@ -71,54 +55,24 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetProductArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(Output<List<GetProductFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetProductFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetProductFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param serviceCode Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(Output<String> serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
 
-        /**
-         * @param serviceCode Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(String serviceCode) {
             return serviceCode(Output.of(serviceCode));
         }

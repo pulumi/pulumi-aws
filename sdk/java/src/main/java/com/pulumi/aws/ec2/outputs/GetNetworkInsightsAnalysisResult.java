@@ -19,31 +19,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsAnalysisResult {
-    /**
-     * @return Potential intermediate components of a feasible path.
-     * 
-     */
     private List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints;
-    /**
-     * @return ARN of the selected Network Insights Analysis.
-     * 
-     */
     private String arn;
-    /**
-     * @return Explanation codes for an unreachable path.
-     * 
-     */
     private List<GetNetworkInsightsAnalysisExplanation> explanations;
-    /**
-     * @return ARNs of the AWS resources that the path must traverse.
-     * 
-     */
     private List<String> filterInArns;
     private @Nullable List<GetNetworkInsightsAnalysisFilter> filters;
-    /**
-     * @return The components in the path from source to destination.
-     * 
-     */
     private List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -51,80 +31,32 @@ public final class GetNetworkInsightsAnalysisResult {
      */
     private String id;
     private String networkInsightsAnalysisId;
-    /**
-     * @return The ID of the path.
-     * 
-     */
     private String networkInsightsPathId;
-    /**
-     * @return Set to `true` if the destination was reachable.
-     * 
-     */
     private Boolean pathFound;
     private String region;
-    /**
-     * @return The components in the path from destination to source.
-     * 
-     */
     private List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
-    /**
-     * @return Date/time the analysis was started.
-     * 
-     */
     private String startDate;
-    /**
-     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-     * 
-     */
     private String status;
-    /**
-     * @return Message to provide more context when the `status` is `failed`.
-     * 
-     */
     private String statusMessage;
     private Map<String,String> tags;
-    /**
-     * @return Warning message.
-     * 
-     */
     private String warningMessage;
 
     private GetNetworkInsightsAnalysisResult() {}
-    /**
-     * @return Potential intermediate components of a feasible path.
-     * 
-     */
     public List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints() {
         return this.alternatePathHints;
     }
-    /**
-     * @return ARN of the selected Network Insights Analysis.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Explanation codes for an unreachable path.
-     * 
-     */
     public List<GetNetworkInsightsAnalysisExplanation> explanations() {
         return this.explanations;
     }
-    /**
-     * @return ARNs of the AWS resources that the path must traverse.
-     * 
-     */
     public List<String> filterInArns() {
         return this.filterInArns;
     }
     public List<GetNetworkInsightsAnalysisFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return The components in the path from source to destination.
-     * 
-     */
     public List<GetNetworkInsightsAnalysisForwardPathComponent> forwardPathComponents() {
         return this.forwardPathComponents;
     }
@@ -138,58 +70,30 @@ public final class GetNetworkInsightsAnalysisResult {
     public String networkInsightsAnalysisId() {
         return this.networkInsightsAnalysisId;
     }
-    /**
-     * @return The ID of the path.
-     * 
-     */
     public String networkInsightsPathId() {
         return this.networkInsightsPathId;
     }
-    /**
-     * @return Set to `true` if the destination was reachable.
-     * 
-     */
     public Boolean pathFound() {
         return this.pathFound;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The components in the path from destination to source.
-     * 
-     */
     public List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents() {
         return this.returnPathComponents;
     }
-    /**
-     * @return Date/time the analysis was started.
-     * 
-     */
     public String startDate() {
         return this.startDate;
     }
-    /**
-     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Message to provide more context when the `status` is `failed`.
-     * 
-     */
     public String statusMessage() {
         return this.statusMessage;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Warning message.
-     * 
-     */
     public String warningMessage() {
         return this.warningMessage;
     }

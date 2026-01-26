@@ -13,141 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Redshift Serverless Custom Domain Association.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.acm.Certificate;
- * import com.pulumi.aws.acm.CertificateArgs;
- * import com.pulumi.aws.redshiftserverless.Namespace;
- * import com.pulumi.aws.redshiftserverless.NamespaceArgs;
- * import com.pulumi.aws.redshiftserverless.Workgroup;
- * import com.pulumi.aws.redshiftserverless.WorkgroupArgs;
- * import com.pulumi.aws.redshiftserverless.CustomDomainAssociation;
- * import com.pulumi.aws.redshiftserverless.CustomDomainAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Certificate("example", CertificateArgs.builder()
- *             .domainName("example.com")
- *             .build());
- * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
- *             .namespaceName("example-namespace")
- *             .build());
- * 
- *         var exampleWorkgroup = new Workgroup("exampleWorkgroup", WorkgroupArgs.builder()
- *             .workgroupName("example-workgroup")
- *             .namespaceName(exampleNamespace.namespaceName())
- *             .build());
- * 
- *         var exampleCustomDomainAssociation = new CustomDomainAssociation("exampleCustomDomainAssociation", CustomDomainAssociationArgs.builder()
- *             .workgroupName(exampleWorkgroup.workgroupName())
- *             .customDomainName("example.com")
- *             .customDomainCertificateArn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Serverless Custom Domain Association using the `workgroup_name` and `custom_domain_name`, separated by the coma. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com
- * ```
- * 
- */
 @ResourceType(type="aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation")
 public class CustomDomainAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the certificate for the custom domain association.
-     * 
-     */
     @Export(name="customDomainCertificateArn", refs={String.class}, tree="[0]")
     private Output<String> customDomainCertificateArn;
 
-    /**
-     * @return ARN of the certificate for the custom domain association.
-     * 
-     */
     public Output<String> customDomainCertificateArn() {
         return this.customDomainCertificateArn;
     }
-    /**
-     * Expiration time for the certificate.
-     * 
-     */
     @Export(name="customDomainCertificateExpiryTime", refs={String.class}, tree="[0]")
     private Output<String> customDomainCertificateExpiryTime;
 
-    /**
-     * @return Expiration time for the certificate.
-     * 
-     */
     public Output<String> customDomainCertificateExpiryTime() {
         return this.customDomainCertificateExpiryTime;
     }
-    /**
-     * Custom domain to associate with the workgroup.
-     * 
-     */
     @Export(name="customDomainName", refs={String.class}, tree="[0]")
     private Output<String> customDomainName;
 
-    /**
-     * @return Custom domain to associate with the workgroup.
-     * 
-     */
     public Output<String> customDomainName() {
         return this.customDomainName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the workgroup.
-     * 
-     */
     @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output<String> workgroupName;
 
-    /**
-     * @return Name of the workgroup.
-     * 
-     */
     public Output<String> workgroupName() {
         return this.workgroupName;
     }

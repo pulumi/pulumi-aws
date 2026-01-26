@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs
     {
-        /// <summary>
-        /// The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output S3Output;
 
         [OutputConstructor]

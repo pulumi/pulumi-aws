@@ -15,17 +15,9 @@ public final class RevisionAssetsAssetImportAssetsFromS3Args extends com.pulumi.
 
     public static final RevisionAssetsAssetImportAssetsFromS3Args Empty = new RevisionAssetsAssetImportAssetsFromS3Args();
 
-    /**
-     * A block specifying the source bucket and key for the asset. This block supports the following:
-     * 
-     */
     @Import(name="assetSource")
     private @Nullable Output<RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs> assetSource;
 
-    /**
-     * @return A block specifying the source bucket and key for the asset. This block supports the following:
-     * 
-     */
     public Optional<Output<RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs>> assetSource() {
         return Optional.ofNullable(this.assetSource);
     }
@@ -54,23 +46,11 @@ public final class RevisionAssetsAssetImportAssetsFromS3Args extends com.pulumi.
             $ = new RevisionAssetsAssetImportAssetsFromS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param assetSource A block specifying the source bucket and key for the asset. This block supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assetSource(@Nullable Output<RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs> assetSource) {
             $.assetSource = assetSource;
             return this;
         }
 
-        /**
-         * @param assetSource A block specifying the source bucket and key for the asset. This block supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assetSource(RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs assetSource) {
             return assetSource(Output.of(assetSource));
         }

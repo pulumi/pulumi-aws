@@ -15,32 +15,16 @@ public final class GetVpcIpamPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcIpamPlainArgs Empty = new GetVpcIpamPlainArgs();
 
-    /**
-     * ID of the IPAM.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return ID of the IPAM.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetVpcIpamPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcIpamPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the IPAM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

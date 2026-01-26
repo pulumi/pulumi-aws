@@ -12,122 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Application AutoScaling ScheduledAction resource.
-//
-// ## Example Usage
-//
-// ### DynamoDB Table Autoscaling
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appautoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dynamodb, err := appautoscaling.NewTarget(ctx, "dynamodb", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(100),
-//				MinCapacity:       pulumi.Int(5),
-//				ResourceId:        pulumi.String("table/tableName"),
-//				ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
-//				ServiceNamespace:  pulumi.String("dynamodb"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appautoscaling.NewScheduledAction(ctx, "dynamodb", &appautoscaling.ScheduledActionArgs{
-//				Name:              pulumi.String("dynamodb"),
-//				ServiceNamespace:  dynamodb.ServiceNamespace,
-//				ResourceId:        dynamodb.ResourceId,
-//				ScalableDimension: dynamodb.ScalableDimension,
-//				Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
-//				ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
-//					MinCapacity: pulumi.Int(1),
-//					MaxCapacity: pulumi.Int(200),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### ECS Service Autoscaling
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appautoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ecs, err := appautoscaling.NewTarget(ctx, "ecs", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(4),
-//				MinCapacity:       pulumi.Int(1),
-//				ResourceId:        pulumi.String("service/clusterName/serviceName"),
-//				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
-//				ServiceNamespace:  pulumi.String("ecs"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appautoscaling.NewScheduledAction(ctx, "ecs", &appautoscaling.ScheduledActionArgs{
-//				Name:              pulumi.String("ecs"),
-//				ServiceNamespace:  ecs.ServiceNamespace,
-//				ResourceId:        ecs.ResourceId,
-//				ScalableDimension: ecs.ScalableDimension,
-//				Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
-//				ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
-//					MinCapacity: pulumi.Int(1),
-//					MaxCapacity: pulumi.Int(10),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ScheduledAction struct {
 	pulumi.CustomResourceState
 
-	// ARN of the scheduled action.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
-	// Name of the scheduled action.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
-	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
-	// New minimum and maximum capacity. You can set both values or just one. See below
+	Arn                  pulumi.StringOutput                       `pulumi:"arn"`
+	EndTime              pulumi.StringPtrOutput                    `pulumi:"endTime"`
+	Name                 pulumi.StringOutput                       `pulumi:"name"`
+	Region               pulumi.StringOutput                       `pulumi:"region"`
+	ResourceId           pulumi.StringOutput                       `pulumi:"resourceId"`
+	ScalableDimension    pulumi.StringOutput                       `pulumi:"scalableDimension"`
 	ScalableTargetAction ScheduledActionScalableTargetActionOutput `pulumi:"scalableTargetAction"`
-	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	Schedule pulumi.StringOutput `pulumi:"schedule"`
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
-	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
-	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
-	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
+	Schedule             pulumi.StringOutput                       `pulumi:"schedule"`
+	ServiceNamespace     pulumi.StringOutput                       `pulumi:"serviceNamespace"`
+	StartTime            pulumi.StringPtrOutput                    `pulumi:"startTime"`
+	Timezone             pulumi.StringPtrOutput                    `pulumi:"timezone"`
 }
 
 // NewScheduledAction registers a new resource with the given unique name, arguments, and options.
@@ -175,53 +73,31 @@ func GetScheduledAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduledAction resources.
 type scheduledActionState struct {
-	// ARN of the scheduled action.
-	Arn *string `pulumi:"arn"`
-	// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	EndTime *string `pulumi:"endTime"`
-	// Name of the scheduled action.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	ResourceId *string `pulumi:"resourceId"`
-	// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
-	ScalableDimension *string `pulumi:"scalableDimension"`
-	// New minimum and maximum capacity. You can set both values or just one. See below
+	Arn                  *string                              `pulumi:"arn"`
+	EndTime              *string                              `pulumi:"endTime"`
+	Name                 *string                              `pulumi:"name"`
+	Region               *string                              `pulumi:"region"`
+	ResourceId           *string                              `pulumi:"resourceId"`
+	ScalableDimension    *string                              `pulumi:"scalableDimension"`
 	ScalableTargetAction *ScheduledActionScalableTargetAction `pulumi:"scalableTargetAction"`
-	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	Schedule *string `pulumi:"schedule"`
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
-	ServiceNamespace *string `pulumi:"serviceNamespace"`
-	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	StartTime *string `pulumi:"startTime"`
-	// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
-	Timezone *string `pulumi:"timezone"`
+	Schedule             *string                              `pulumi:"schedule"`
+	ServiceNamespace     *string                              `pulumi:"serviceNamespace"`
+	StartTime            *string                              `pulumi:"startTime"`
+	Timezone             *string                              `pulumi:"timezone"`
 }
 
 type ScheduledActionState struct {
-	// ARN of the scheduled action.
-	Arn pulumi.StringPtrInput
-	// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	EndTime pulumi.StringPtrInput
-	// Name of the scheduled action.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	ResourceId pulumi.StringPtrInput
-	// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
-	ScalableDimension pulumi.StringPtrInput
-	// New minimum and maximum capacity. You can set both values or just one. See below
+	Arn                  pulumi.StringPtrInput
+	EndTime              pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	ResourceId           pulumi.StringPtrInput
+	ScalableDimension    pulumi.StringPtrInput
 	ScalableTargetAction ScheduledActionScalableTargetActionPtrInput
-	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	Schedule pulumi.StringPtrInput
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
-	ServiceNamespace pulumi.StringPtrInput
-	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	StartTime pulumi.StringPtrInput
-	// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
-	Timezone pulumi.StringPtrInput
+	Schedule             pulumi.StringPtrInput
+	ServiceNamespace     pulumi.StringPtrInput
+	StartTime            pulumi.StringPtrInput
+	Timezone             pulumi.StringPtrInput
 }
 
 func (ScheduledActionState) ElementType() reflect.Type {
@@ -229,50 +105,30 @@ func (ScheduledActionState) ElementType() reflect.Type {
 }
 
 type scheduledActionArgs struct {
-	// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	EndTime *string `pulumi:"endTime"`
-	// Name of the scheduled action.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	ResourceId string `pulumi:"resourceId"`
-	// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
-	ScalableDimension string `pulumi:"scalableDimension"`
-	// New minimum and maximum capacity. You can set both values or just one. See below
+	EndTime              *string                             `pulumi:"endTime"`
+	Name                 *string                             `pulumi:"name"`
+	Region               *string                             `pulumi:"region"`
+	ResourceId           string                              `pulumi:"resourceId"`
+	ScalableDimension    string                              `pulumi:"scalableDimension"`
 	ScalableTargetAction ScheduledActionScalableTargetAction `pulumi:"scalableTargetAction"`
-	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	Schedule string `pulumi:"schedule"`
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
-	ServiceNamespace string `pulumi:"serviceNamespace"`
-	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	StartTime *string `pulumi:"startTime"`
-	// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
-	Timezone *string `pulumi:"timezone"`
+	Schedule             string                              `pulumi:"schedule"`
+	ServiceNamespace     string                              `pulumi:"serviceNamespace"`
+	StartTime            *string                             `pulumi:"startTime"`
+	Timezone             *string                             `pulumi:"timezone"`
 }
 
 // The set of arguments for constructing a ScheduledAction resource.
 type ScheduledActionArgs struct {
-	// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	EndTime pulumi.StringPtrInput
-	// Name of the scheduled action.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	ResourceId pulumi.StringInput
-	// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
-	ScalableDimension pulumi.StringInput
-	// New minimum and maximum capacity. You can set both values or just one. See below
+	EndTime              pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	ResourceId           pulumi.StringInput
+	ScalableDimension    pulumi.StringInput
 	ScalableTargetAction ScheduledActionScalableTargetActionInput
-	// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
-	Schedule pulumi.StringInput
-	// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
-	ServiceNamespace pulumi.StringInput
-	// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
-	StartTime pulumi.StringPtrInput
-	// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
-	Timezone pulumi.StringPtrInput
+	Schedule             pulumi.StringInput
+	ServiceNamespace     pulumi.StringInput
+	StartTime            pulumi.StringPtrInput
+	Timezone             pulumi.StringPtrInput
 }
 
 func (ScheduledActionArgs) ElementType() reflect.Type {
@@ -362,57 +218,46 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the scheduled action.
 func (o ScheduledActionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 func (o ScheduledActionOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Name of the scheduled action.
 func (o ScheduledActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScheduledActionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
 func (o ScheduledActionOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
 func (o ScheduledActionOutput) ScalableDimension() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ScalableDimension }).(pulumi.StringOutput)
 }
 
-// New minimum and maximum capacity. You can set both values or just one. See below
 func (o ScheduledActionOutput) ScalableTargetAction() ScheduledActionScalableTargetActionOutput {
 	return o.ApplyT(func(v *ScheduledAction) ScheduledActionScalableTargetActionOutput { return v.ScalableTargetAction }).(ScheduledActionScalableTargetActionOutput)
 }
 
-// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
 func (o ScheduledActionOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
 func (o ScheduledActionOutput) ServiceNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ServiceNamespace }).(pulumi.StringOutput)
 }
 
-// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
 func (o ScheduledActionOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `startTime` and `endTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
 func (o ScheduledActionOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }

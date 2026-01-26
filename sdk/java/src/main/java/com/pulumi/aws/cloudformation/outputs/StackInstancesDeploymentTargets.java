@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackInstancesDeploymentTargets {
-    /**
-     * @return Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-     * 
-     */
     private @Nullable String accountFilterType;
-    /**
-     * @return List of accounts to deploy stack set updates.
-     * 
-     */
     private @Nullable List<String> accounts;
-    /**
-     * @return S3 URL of the file containing the list of accounts.
-     * 
-     */
     private @Nullable String accountsUrl;
-    /**
-     * @return Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
-     * 
-     */
     private @Nullable List<String> organizationalUnitIds;
 
     private StackInstancesDeploymentTargets() {}
-    /**
-     * @return Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-     * 
-     */
     public Optional<String> accountFilterType() {
         return Optional.ofNullable(this.accountFilterType);
     }
-    /**
-     * @return List of accounts to deploy stack set updates.
-     * 
-     */
     public List<String> accounts() {
         return this.accounts == null ? List.of() : this.accounts;
     }
-    /**
-     * @return S3 URL of the file containing the list of accounts.
-     * 
-     */
     public Optional<String> accountsUrl() {
         return Optional.ofNullable(this.accountsUrl);
     }
-    /**
-     * @return Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
-     * 
-     */
     public List<String> organizationalUnitIds() {
         return this.organizationalUnitIds == null ? List.of() : this.organizationalUnitIds;
     }

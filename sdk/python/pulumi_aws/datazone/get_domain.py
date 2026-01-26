@@ -67,33 +67,21 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Domain.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        The date and time the Domain was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Domain.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="domainVersion")
     def domain_version(self) -> _builtins.str:
-        """
-        Version of the Domain.
-        """
         return pulumi.get(self, "domain_version")
 
     @_builtins.property
@@ -104,17 +92,11 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> _builtins.str:
-        """
-        The date and time the Domain was last updated.
-        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
     @pulumi.getter(name="managedAccountId")
     def managed_account_id(self) -> _builtins.str:
-        """
-        The AWS account ID that owns the Domain.
-        """
         return pulumi.get(self, "managed_account_id")
 
     @_builtins.property
@@ -125,9 +107,6 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="portalUrl")
     def portal_url(self) -> _builtins.str:
-        """
-        URL of the Domain.
-        """
         return pulumi.get(self, "portal_url")
 
     @_builtins.property
@@ -138,17 +117,11 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="rootDomainUnitId")
     def root_domain_unit_id(self) -> _builtins.str:
-        """
-        ID of the root domain unit.
-        """
         return pulumi.get(self, "root_domain_unit_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the Domain.
-        """
         return pulumi.get(self, "status")
 
 
@@ -177,23 +150,7 @@ def get_domain(id: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Data source for managing an AWS DataZone Domain.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datazone.get_domain(name="example_domain")
-    ```
-
-
-    :param _builtins.str id: ID of the Domain. One of `name` or `id` is required
-    :param _builtins.str name: Name of the Domain. One of `name` or `id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -220,23 +177,7 @@ def get_domain_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
-    Data source for managing an AWS DataZone Domain.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datazone.get_domain(name="example_domain")
-    ```
-
-
-    :param _builtins.str id: ID of the Domain. One of `name` or `id` is required
-    :param _builtins.str name: Name of the Domain. One of `name` or `id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

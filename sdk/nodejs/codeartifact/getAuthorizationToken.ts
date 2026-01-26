@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.codeartifact.getAuthorizationToken({
- *     domain: testAwsCodeartifactDomain.domain,
- * });
- * ```
- */
 export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", {
@@ -32,21 +18,9 @@ export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pu
  * A collection of arguments for invoking getAuthorizationToken.
  */
 export interface GetAuthorizationTokenArgs {
-    /**
-     * Name of the domain that is in scope for the generated authorization token.
-     */
     domain: string;
-    /**
-     * Account number of the AWS account that owns the domain.
-     */
     domainOwner?: string;
-    /**
-     * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-     */
     durationSeconds?: number;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -54,16 +28,10 @@ export interface GetAuthorizationTokenArgs {
  * A collection of values returned by getAuthorizationToken.
  */
 export interface GetAuthorizationTokenResult {
-    /**
-     * Temporary authorization token.
-     */
     readonly authorizationToken: string;
     readonly domain: string;
     readonly domainOwner: string;
     readonly durationSeconds?: number;
-    /**
-     * Time in UTC RFC3339 format when the authorization token expires.
-     */
     readonly expiration: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -71,20 +39,6 @@ export interface GetAuthorizationTokenResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.codeartifact.getAuthorizationToken({
- *     domain: testAwsCodeartifactDomain.domain,
- * });
- * ```
- */
 export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", {
@@ -99,20 +53,8 @@ export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArg
  * A collection of arguments for invoking getAuthorizationToken.
  */
 export interface GetAuthorizationTokenOutputArgs {
-    /**
-     * Name of the domain that is in scope for the generated authorization token.
-     */
     domain: pulumi.Input<string>;
-    /**
-     * Account number of the AWS account that owns the domain.
-     */
     domainOwner?: pulumi.Input<string>;
-    /**
-     * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-     */
     durationSeconds?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

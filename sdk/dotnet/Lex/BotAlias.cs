@@ -9,99 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lex
 {
-    /// <summary>
-    /// Provides an Amazon Lex Bot Alias resource. For more information see
-    /// [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var orderFlowersProd = new Aws.Lex.BotAlias("order_flowers_prod", new()
-    ///     {
-    ///         BotName = "OrderFlowers",
-    ///         BotVersion = "1",
-    ///         Description = "Production Version of the OrderFlowers Bot.",
-    ///         Name = "OrderFlowersProd",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lex/botAlias:BotAlias")]
     public partial class BotAlias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the bot alias.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the bot.
-        /// </summary>
         [Output("botName")]
         public Output<string> BotName { get; private set; } = null!;
 
-        /// <summary>
-        /// The version of the bot.
-        /// </summary>
         [Output("botVersion")]
         public Output<string> BotVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Checksum of the bot alias.
-        /// </summary>
         [Output("checksum")]
         public Output<string> Checksum { get; private set; } = null!;
 
-        /// <summary>
-        /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-        /// </summary>
         [Output("conversationLogs")]
         public Output<Outputs.BotAliasConversationLogs?> ConversationLogs { get; private set; } = null!;
 
-        /// <summary>
-        /// The date that the bot alias was created.
-        /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the alias. Must be less than or equal to 200 characters in length.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-        /// </summary>
         [Output("lastUpdatedDate")]
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -151,39 +88,21 @@ namespace Pulumi.Aws.Lex
 
     public sealed class BotAliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bot.
-        /// </summary>
         [Input("botName", required: true)]
         public Input<string> BotName { get; set; } = null!;
 
-        /// <summary>
-        /// The version of the bot.
-        /// </summary>
         [Input("botVersion", required: true)]
         public Input<string> BotVersion { get; set; } = null!;
 
-        /// <summary>
-        /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-        /// </summary>
         [Input("conversationLogs")]
         public Input<Inputs.BotAliasConversationLogsArgs>? ConversationLogs { get; set; }
 
-        /// <summary>
-        /// A description of the alias. Must be less than or equal to 200 characters in length.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -195,63 +114,33 @@ namespace Pulumi.Aws.Lex
 
     public sealed class BotAliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the bot alias.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the bot.
-        /// </summary>
         [Input("botName")]
         public Input<string>? BotName { get; set; }
 
-        /// <summary>
-        /// The version of the bot.
-        /// </summary>
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }
 
-        /// <summary>
-        /// Checksum of the bot alias.
-        /// </summary>
         [Input("checksum")]
         public Input<string>? Checksum { get; set; }
 
-        /// <summary>
-        /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-        /// </summary>
         [Input("conversationLogs")]
         public Input<Inputs.BotAliasConversationLogsGetArgs>? ConversationLogs { get; set; }
 
-        /// <summary>
-        /// The date that the bot alias was created.
-        /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
-        /// <summary>
-        /// A description of the alias. Must be less than or equal to 200 characters in length.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-        /// </summary>
         [Input("lastUpdatedDate")]
         public Input<string>? LastUpdatedDate { get; set; }
 
-        /// <summary>
-        /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

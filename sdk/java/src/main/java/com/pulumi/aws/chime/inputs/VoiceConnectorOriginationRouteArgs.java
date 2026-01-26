@@ -17,77 +17,37 @@ public final class VoiceConnectorOriginationRouteArgs extends com.pulumi.resourc
 
     public static final VoiceConnectorOriginationRouteArgs Empty = new VoiceConnectorOriginationRouteArgs();
 
-    /**
-     * The FQDN or IP address to contact for origination traffic.
-     * 
-     */
     @Import(name="host", required=true)
     private Output<String> host;
 
-    /**
-     * @return The FQDN or IP address to contact for origination traffic.
-     * 
-     */
     public Output<String> host() {
         return this.host;
     }
 
-    /**
-     * The designated origination route port. Defaults to `5060`.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The designated origination route port. Defaults to `5060`.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-     * 
-     */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
-    /**
-     * @return The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
 
-    /**
-     * The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-     * 
-     */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
-    /**
-     * @return The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-     * 
-     */
     public Output<Integer> weight() {
         return this.weight;
     }
@@ -120,107 +80,47 @@ public final class VoiceConnectorOriginationRouteArgs extends com.pulumi.resourc
             $ = new VoiceConnectorOriginationRouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param host The FQDN or IP address to contact for origination traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder host(Output<String> host) {
             $.host = host;
             return this;
         }
 
-        /**
-         * @param host The FQDN or IP address to contact for origination traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder host(String host) {
             return host(Output.of(host));
         }
 
-        /**
-         * @param port The designated origination route port. Defaults to `5060`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The designated origination route port. Defaults to `5060`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param priority The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param protocol The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param weight The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

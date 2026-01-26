@@ -9,74 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Manages an AWS Lake Formation Identity Center Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var identityCenterInstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]);
-    /// 
-    ///     var exampleIdentityCenterConfiguration = new Aws.LakeFormation.IdentityCenterConfiguration("example", new()
-    ///     {
-    ///         InstanceArn = identityCenterInstanceArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration")]
     public partial class IdentityCenterConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Lake Formation applicated integrated with IAM Identity Center.
-        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for the Data Catalog.
-        /// By default, the account ID.
+        /// The ID of the Data Catalog.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM Identity Center Instance to associate.
-        /// 
-        /// The following arguments are optional:
+        /// The ARN of the Identity Center instance.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Resource Access Manager (RAM) resource share.
-        /// </summary>
         [Output("resourceShare")]
         public Output<string> ResourceShare { get; private set; } = null!;
 
@@ -127,23 +80,17 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class IdentityCenterConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier for the Data Catalog.
-        /// By default, the account ID.
+        /// The ID of the Data Catalog.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM Identity Center Instance to associate.
-        /// 
-        /// The following arguments are optional:
+        /// The ARN of the Identity Center instance.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -155,36 +102,24 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class IdentityCenterConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Lake Formation applicated integrated with IAM Identity Center.
-        /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
 
         /// <summary>
-        /// Identifier for the Data Catalog.
-        /// By default, the account ID.
+        /// The ID of the Data Catalog.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM Identity Center Instance to associate.
-        /// 
-        /// The following arguments are optional:
+        /// The ARN of the Identity Center instance.
         /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the Resource Access Manager (RAM) resource share.
-        /// </summary>
         [Input("resourceShare")]
         public Input<string>? ResourceShare { get; set; }
 

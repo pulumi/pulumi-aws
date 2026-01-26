@@ -4,49 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const currentGetPartition = aws.getPartition({});
- * const example = new aws.msk.ClusterPolicy("example", {
- *     clusterArn: exampleAwsMskCluster.arn,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "ExampleMskClusterPolicy",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
- *             },
- *             Action: [
- *                 "kafka:Describe*",
- *                 "kafka:Get*",
- *                 "kafka:CreateVpcConnection",
- *                 "kafka:GetBootstrapBrokers",
- *             ],
- *             Resource: exampleAwsMskCluster.arn,
- *         }],
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- */
 export class ClusterPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ClusterPolicy resource's state with the given name, ID, and optional extra
@@ -75,18 +32,9 @@ export class ClusterPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterPolicy.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-     */
     declare public readonly clusterArn: pulumi.Output<string>;
     declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
-    /**
-     * Resource policy for cluster.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -128,18 +76,9 @@ export class ClusterPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterPolicy resources.
  */
 export interface ClusterPolicyState {
-    /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-     */
     clusterArn?: pulumi.Input<string>;
     currentVersion?: pulumi.Input<string>;
-    /**
-     * Resource policy for cluster.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -147,16 +86,7 @@ export interface ClusterPolicyState {
  * The set of arguments for constructing a ClusterPolicy resource.
  */
 export interface ClusterPolicyArgs {
-    /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-     */
     clusterArn: pulumi.Input<string>;
-    /**
-     * Resource policy for cluster.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

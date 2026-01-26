@@ -25,10 +25,6 @@ class SecurityGroupAssociationArgs:
                  replace_default_association: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityGroupAssociation resource.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
         """
         pulumi.set(__self__, "security_group_id", security_group_id)
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -40,9 +36,6 @@ class SecurityGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the security group to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -52,9 +45,6 @@ class SecurityGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the VPC endpoint with which the security group will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -64,9 +54,6 @@ class SecurityGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -76,9 +63,6 @@ class SecurityGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="replaceDefaultAssociation")
     def replace_default_association(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
-        """
         return pulumi.get(self, "replace_default_association")
 
     @replace_default_association.setter
@@ -95,10 +79,6 @@ class _SecurityGroupAssociationState:
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupAssociation resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -112,9 +92,6 @@ class _SecurityGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -124,9 +101,6 @@ class _SecurityGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="replaceDefaultAssociation")
     def replace_default_association(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
-        """
         return pulumi.get(self, "replace_default_association")
 
     @replace_default_association.setter
@@ -136,9 +110,6 @@ class _SecurityGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the security group to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -148,9 +119,6 @@ class _SecurityGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the VPC endpoint with which the security group will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -170,41 +138,9 @@ class SecurityGroupAssociation(pulumi.CustomResource):
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to create an association between a VPC endpoint and a security group.
-
-        > **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
-        both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
-        and a single `security_group_id`) and a VPC Endpoint resource with a `security_group_ids`
-        attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
-        Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sg_ec2 = aws.ec2.SecurityGroupAssociation("sg_ec2",
-            vpc_endpoint_id=ec2["id"],
-            security_group_id=sg["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Endpoint Security Group Associations using `vpc_endpoint_id` together with `security_group_id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupAssociation:SecurityGroupAssociation example vpce-aaaaaaaa/sg-bbbbbbbbbbbbbbbbb
-        ```
-
+        Create a SecurityGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         """
         ...
     @overload
@@ -213,35 +149,7 @@ class SecurityGroupAssociation(pulumi.CustomResource):
                  args: SecurityGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an association between a VPC endpoint and a security group.
-
-        > **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
-        both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
-        and a single `security_group_id`) and a VPC Endpoint resource with a `security_group_ids`
-        attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
-        Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sg_ec2 = aws.ec2.SecurityGroupAssociation("sg_ec2",
-            vpc_endpoint_id=ec2["id"],
-            security_group_id=sg["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Endpoint Security Group Associations using `vpc_endpoint_id` together with `security_group_id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupAssociation:SecurityGroupAssociation example vpce-aaaaaaaa/sg-bbbbbbbbbbbbbbbbb
-        ```
-
+        Create a SecurityGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -299,10 +207,6 @@ class SecurityGroupAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -317,32 +221,20 @@ class SecurityGroupAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replaceDefaultAssociation")
     def replace_default_association(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
-        """
         return pulumi.get(self, "replace_default_association")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the security group to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the VPC endpoint with which the security group will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 

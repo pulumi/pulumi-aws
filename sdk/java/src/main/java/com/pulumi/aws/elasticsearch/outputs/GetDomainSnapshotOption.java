@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainSnapshotOption {
-    /**
-     * @return Hour during which the service takes an automated daily snapshot of the indices in the domain.
-     * 
-     */
     private Integer automatedSnapshotStartHour;
 
     private GetDomainSnapshotOption() {}
-    /**
-     * @return Hour during which the service takes an automated daily snapshot of the indices in the domain.
-     * 
-     */
     public Integer automatedSnapshotStartHour() {
         return this.automatedSnapshotStartHour;
     }

@@ -11,141 +11,12 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetQuickConnect
     {
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Quick Connect.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// By `Name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `QuickConnectId`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         QuickConnectId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetQuickConnectResult> InvokeAsync(GetQuickConnectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuickConnectResult>("aws:connect/getQuickConnect:getQuickConnect", args ?? new GetQuickConnectArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Quick Connect.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// By `Name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `QuickConnectId`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         QuickConnectId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuickConnectResult> Invoke(GetQuickConnectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuickConnectResult>("aws:connect/getQuickConnect:getQuickConnect", args ?? new GetQuickConnectInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Quick Connect.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// By `Name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `QuickConnectId`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         QuickConnectId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuickConnectResult> Invoke(GetQuickConnectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuickConnectResult>("aws:connect/getQuickConnect:getQuickConnect", args ?? new GetQuickConnectInvokeArgs(), options.WithDefaults());
     }
@@ -153,38 +24,20 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetQuickConnectArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Returns information on a specific Quick Connect by name
-        /// 
-        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QuickConnectId` is required.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Returns information on a specific Quick Connect by Quick Connect id
-        /// </summary>
         [Input("quickConnectId")]
         public string? QuickConnectId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the Quick Connect.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -199,38 +52,20 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetQuickConnectInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Returns information on a specific Quick Connect by name
-        /// 
-        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QuickConnectId` is required.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Returns information on a specific Quick Connect by Quick Connect id
-        /// </summary>
         [Input("quickConnectId")]
         public Input<string>? QuickConnectId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the Quick Connect.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -247,13 +82,7 @@ namespace Pulumi.Aws.Connect
     [OutputType]
     public sealed class GetQuickConnectResult
     {
-        /// <summary>
-        /// ARN of the Quick Connect.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the Quick Connect.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -261,18 +90,9 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         public readonly string Name;
-        /// <summary>
-        /// A block that defines the configuration information for the Quick Connect: `QuickConnectType` and one of `PhoneConfig`, `QueueConfig`, `UserConfig` . The Quick Connect Config block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigResult> QuickConnectConfigs;
-        /// <summary>
-        /// Identifier for the Quick Connect.
-        /// </summary>
         public readonly string QuickConnectId;
         public readonly string Region;
-        /// <summary>
-        /// Map of tags to assign to the Quick Connect.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

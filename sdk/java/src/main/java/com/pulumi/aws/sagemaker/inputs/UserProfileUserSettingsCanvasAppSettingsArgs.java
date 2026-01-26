@@ -23,32 +23,16 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
 
     public static final UserProfileUserSettingsCanvasAppSettingsArgs Empty = new UserProfileUserSettingsCanvasAppSettingsArgs();
 
-    /**
-     * The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
-     * 
-     */
     @Import(name="directDeploySettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings;
 
-    /**
-     * @return The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
     }
 
-    /**
-     * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-     * 
-     */
     @Import(name="emrServerlessSettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings;
 
-    /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>> emrServerlessSettings() {
         return Optional.ofNullable(this.emrServerlessSettings);
     }
@@ -60,77 +44,37 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
         return Optional.ofNullable(this.generativeAiSettings);
     }
 
-    /**
-     * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-     * 
-     */
     @Import(name="identityProviderOauthSettings")
     private @Nullable Output<List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings;
 
-    /**
-     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-     * 
-     */
     public Optional<Output<List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>>> identityProviderOauthSettings() {
         return Optional.ofNullable(this.identityProviderOauthSettings);
     }
 
-    /**
-     * The settings for document querying. See Kendra Settings below.
-     * 
-     */
     @Import(name="kendraSettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings;
 
-    /**
-     * @return The settings for document querying. See Kendra Settings below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs>> kendraSettings() {
         return Optional.ofNullable(this.kendraSettings);
     }
 
-    /**
-     * The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
-     * 
-     */
     @Import(name="modelRegisterSettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings;
 
-    /**
-     * @return The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>> modelRegisterSettings() {
         return Optional.ofNullable(this.modelRegisterSettings);
     }
 
-    /**
-     * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-     * 
-     */
     @Import(name="timeSeriesForecastingSettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings;
 
-    /**
-     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>> timeSeriesForecastingSettings() {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
 
-    /**
-     * The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
-     * 
-     */
     @Import(name="workspaceSettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings;
 
-    /**
-     * @return The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>> workspaceSettings() {
         return Optional.ofNullable(this.workspaceSettings);
     }
@@ -166,44 +110,20 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
             $ = new UserProfileUserSettingsCanvasAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directDeploySettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings) {
             $.directDeploySettings = directDeploySettings;
             return this;
         }
 
-        /**
-         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directDeploySettings(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs directDeploySettings) {
             return directDeploySettings(Output.of(directDeploySettings));
         }
 
-        /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emrServerlessSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings) {
             $.emrServerlessSettings = emrServerlessSettings;
             return this;
         }
 
-        /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emrServerlessSettings(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs emrServerlessSettings) {
             return emrServerlessSettings(Output.of(emrServerlessSettings));
         }
@@ -217,117 +137,51 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
             return generativeAiSettings(Output.of(generativeAiSettings));
         }
 
-        /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderOauthSettings(@Nullable Output<List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings) {
             $.identityProviderOauthSettings = identityProviderOauthSettings;
             return this;
         }
 
-        /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderOauthSettings(List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs> identityProviderOauthSettings) {
             return identityProviderOauthSettings(Output.of(identityProviderOauthSettings));
         }
 
-        /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderOauthSettings(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs... identityProviderOauthSettings) {
             return identityProviderOauthSettings(List.of(identityProviderOauthSettings));
         }
 
-        /**
-         * @param kendraSettings The settings for document querying. See Kendra Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings) {
             $.kendraSettings = kendraSettings;
             return this;
         }
 
-        /**
-         * @param kendraSettings The settings for document querying. See Kendra Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraSettings(UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs kendraSettings) {
             return kendraSettings(Output.of(kendraSettings));
         }
 
-        /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelRegisterSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings) {
             $.modelRegisterSettings = modelRegisterSettings;
             return this;
         }
 
-        /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelRegisterSettings(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs modelRegisterSettings) {
             return modelRegisterSettings(Output.of(modelRegisterSettings));
         }
 
-        /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeSeriesForecastingSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings) {
             $.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             return this;
         }
 
-        /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeSeriesForecastingSettings(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs timeSeriesForecastingSettings) {
             return timeSeriesForecastingSettings(Output.of(timeSeriesForecastingSettings));
         }
 
-        /**
-         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings) {
             $.workspaceSettings = workspaceSettings;
             return this;
         }
 
-        /**
-         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceSettings(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs workspaceSettings) {
             return workspaceSettings(Output.of(workspaceSettings));
         }

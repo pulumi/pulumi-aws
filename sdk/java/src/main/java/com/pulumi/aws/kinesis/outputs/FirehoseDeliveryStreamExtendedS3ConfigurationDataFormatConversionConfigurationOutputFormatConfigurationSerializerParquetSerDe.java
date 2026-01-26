@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
-    /**
-     * @return The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-     * 
-     */
     private @Nullable Integer blockSizeBytes;
-    /**
-     * @return The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-     * 
-     */
     private @Nullable String compression;
-    /**
-     * @return Indicates whether to enable dictionary compression.
-     * 
-     */
     private @Nullable Boolean enableDictionaryCompression;
-    /**
-     * @return The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
-     * 
-     */
     private @Nullable Integer maxPaddingBytes;
-    /**
-     * @return The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-     * 
-     */
     private @Nullable Integer pageSizeBytes;
-    /**
-     * @return Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
-     * 
-     */
     private @Nullable String writerVersion;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe() {}
-    /**
-     * @return The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-     * 
-     */
     public Optional<Integer> blockSizeBytes() {
         return Optional.ofNullable(this.blockSizeBytes);
     }
-    /**
-     * @return The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-     * 
-     */
     public Optional<String> compression() {
         return Optional.ofNullable(this.compression);
     }
-    /**
-     * @return Indicates whether to enable dictionary compression.
-     * 
-     */
     public Optional<Boolean> enableDictionaryCompression() {
         return Optional.ofNullable(this.enableDictionaryCompression);
     }
-    /**
-     * @return The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
-     * 
-     */
     public Optional<Integer> maxPaddingBytes() {
         return Optional.ofNullable(this.maxPaddingBytes);
     }
-    /**
-     * @return The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-     * 
-     */
     public Optional<Integer> pageSizeBytes() {
         return Optional.ofNullable(this.pageSizeBytes);
     }
-    /**
-     * @return Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
-     * 
-     */
     public Optional<String> writerVersion() {
         return Optional.ofNullable(this.writerVersion);
     }

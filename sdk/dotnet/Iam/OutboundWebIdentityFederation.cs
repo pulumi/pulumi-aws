@@ -9,36 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.OutboundWebIdentityFederation("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation")]
     public partial class OutboundWebIdentityFederation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-        /// </summary>
         [Output("issuerIdentifier")]
         public Output<string> IssuerIdentifier { get; private set; } = null!;
 
@@ -96,9 +69,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class OutboundWebIdentityFederationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-        /// </summary>
         [Input("issuerIdentifier")]
         public Input<string>? IssuerIdentifier { get; set; }
 

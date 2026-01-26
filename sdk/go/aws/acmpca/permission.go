@@ -12,67 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission.
-// Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewPermission(ctx, "example", &acmpca.PermissionArgs{
-//				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
-//				Actions: pulumi.StringArray{
-//					pulumi.String("IssueCertificate"),
-//					pulumi.String("GetCertificate"),
-//					pulumi.String("ListPermissions"),
-//				},
-//				Principal: pulumi.String("acm.amazonaws.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Permission struct {
 	pulumi.CustomResourceState
 
-	// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-	Actions pulumi.StringArrayOutput `pulumi:"actions"`
-	// ARN of the CA that grants the permissions.
-	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
-	// IAM policy that is associated with the permission.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the calling account
-	SourceAccount pulumi.StringOutput `pulumi:"sourceAccount"`
+	Actions                 pulumi.StringArrayOutput `pulumi:"actions"`
+	CertificateAuthorityArn pulumi.StringOutput      `pulumi:"certificateAuthorityArn"`
+	Policy                  pulumi.StringOutput      `pulumi:"policy"`
+	Principal               pulumi.StringOutput      `pulumi:"principal"`
+	Region                  pulumi.StringOutput      `pulumi:"region"`
+	SourceAccount           pulumi.StringOutput      `pulumi:"sourceAccount"`
 }
 
 // NewPermission registers a new resource with the given unique name, arguments, and options.
@@ -114,33 +62,21 @@ func GetPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Permission resources.
 type permissionState struct {
-	// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-	Actions []string `pulumi:"actions"`
-	// ARN of the CA that grants the permissions.
-	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	// IAM policy that is associated with the permission.
-	Policy *string `pulumi:"policy"`
-	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-	Principal *string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the calling account
-	SourceAccount *string `pulumi:"sourceAccount"`
+	Actions                 []string `pulumi:"actions"`
+	CertificateAuthorityArn *string  `pulumi:"certificateAuthorityArn"`
+	Policy                  *string  `pulumi:"policy"`
+	Principal               *string  `pulumi:"principal"`
+	Region                  *string  `pulumi:"region"`
+	SourceAccount           *string  `pulumi:"sourceAccount"`
 }
 
 type PermissionState struct {
-	// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-	Actions pulumi.StringArrayInput
-	// ARN of the CA that grants the permissions.
+	Actions                 pulumi.StringArrayInput
 	CertificateAuthorityArn pulumi.StringPtrInput
-	// IAM policy that is associated with the permission.
-	Policy pulumi.StringPtrInput
-	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-	Principal pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the calling account
-	SourceAccount pulumi.StringPtrInput
+	Policy                  pulumi.StringPtrInput
+	Principal               pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	SourceAccount           pulumi.StringPtrInput
 }
 
 func (PermissionState) ElementType() reflect.Type {
@@ -148,30 +84,20 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-	Actions []string `pulumi:"actions"`
-	// ARN of the CA that grants the permissions.
-	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
-	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-	Principal string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the calling account
-	SourceAccount *string `pulumi:"sourceAccount"`
+	Actions                 []string `pulumi:"actions"`
+	CertificateAuthorityArn string   `pulumi:"certificateAuthorityArn"`
+	Principal               string   `pulumi:"principal"`
+	Region                  *string  `pulumi:"region"`
+	SourceAccount           *string  `pulumi:"sourceAccount"`
 }
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-	Actions pulumi.StringArrayInput
-	// ARN of the CA that grants the permissions.
+	Actions                 pulumi.StringArrayInput
 	CertificateAuthorityArn pulumi.StringInput
-	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-	Principal pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the calling account
-	SourceAccount pulumi.StringPtrInput
+	Principal               pulumi.StringInput
+	Region                  pulumi.StringPtrInput
+	SourceAccount           pulumi.StringPtrInput
 }
 
 func (PermissionArgs) ElementType() reflect.Type {
@@ -261,32 +187,26 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
 func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringArrayOutput { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the CA that grants the permissions.
 func (o PermissionOutput) CertificateAuthorityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
 }
 
-// IAM policy that is associated with the permission.
 func (o PermissionOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
 func (o PermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the calling account
 func (o PermissionOutput) SourceAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.SourceAccount }).(pulumi.StringOutput)
 }

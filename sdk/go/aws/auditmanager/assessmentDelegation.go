@@ -12,67 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Audit Manager Assessment Delegation.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessmentDelegation(ctx, "example", &auditmanager.AssessmentDelegationArgs{
-//				AssessmentId: pulumi.Any(exampleAwsAuditmanagerAssessment.Id),
-//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
-//				RoleType:     pulumi.String("RESOURCE_OWNER"),
-//				ControlSetId: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::123456789012:role/example,example
-// ```
 type AssessmentDelegation struct {
 	pulumi.CustomResourceState
 
-	// Identifier for the assessment.
-	AssessmentId pulumi.StringOutput `pulumi:"assessmentId"`
-	// Comment describing the delegation request.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-	ControlSetId pulumi.StringOutput `pulumi:"controlSetId"`
-	// Unique identifier for the delegation.
-	DelegationId pulumi.StringOutput `pulumi:"delegationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-	//
-	// The following arguments are optional:
-	RoleType pulumi.StringOutput `pulumi:"roleType"`
-	// Status of the delegation.
-	Status pulumi.StringOutput `pulumi:"status"`
+	AssessmentId pulumi.StringOutput    `pulumi:"assessmentId"`
+	Comment      pulumi.StringPtrOutput `pulumi:"comment"`
+	ControlSetId pulumi.StringOutput    `pulumi:"controlSetId"`
+	DelegationId pulumi.StringOutput    `pulumi:"delegationId"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	RoleArn      pulumi.StringOutput    `pulumi:"roleArn"`
+	RoleType     pulumi.StringOutput    `pulumi:"roleType"`
+	Status       pulumi.StringOutput    `pulumi:"status"`
 }
 
 // NewAssessmentDelegation registers a new resource with the given unique name, arguments, and options.
@@ -117,45 +67,25 @@ func GetAssessmentDelegation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AssessmentDelegation resources.
 type assessmentDelegationState struct {
-	// Identifier for the assessment.
 	AssessmentId *string `pulumi:"assessmentId"`
-	// Comment describing the delegation request.
-	Comment *string `pulumi:"comment"`
-	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
+	Comment      *string `pulumi:"comment"`
 	ControlSetId *string `pulumi:"controlSetId"`
-	// Unique identifier for the delegation.
 	DelegationId *string `pulumi:"delegationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn *string `pulumi:"roleArn"`
-	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-	//
-	// The following arguments are optional:
-	RoleType *string `pulumi:"roleType"`
-	// Status of the delegation.
-	Status *string `pulumi:"status"`
+	Region       *string `pulumi:"region"`
+	RoleArn      *string `pulumi:"roleArn"`
+	RoleType     *string `pulumi:"roleType"`
+	Status       *string `pulumi:"status"`
 }
 
 type AssessmentDelegationState struct {
-	// Identifier for the assessment.
 	AssessmentId pulumi.StringPtrInput
-	// Comment describing the delegation request.
-	Comment pulumi.StringPtrInput
-	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
+	Comment      pulumi.StringPtrInput
 	ControlSetId pulumi.StringPtrInput
-	// Unique identifier for the delegation.
 	DelegationId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn pulumi.StringPtrInput
-	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-	//
-	// The following arguments are optional:
-	RoleType pulumi.StringPtrInput
-	// Status of the delegation.
-	Status pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	RoleArn      pulumi.StringPtrInput
+	RoleType     pulumi.StringPtrInput
+	Status       pulumi.StringPtrInput
 }
 
 func (AssessmentDelegationState) ElementType() reflect.Type {
@@ -163,38 +93,22 @@ func (AssessmentDelegationState) ElementType() reflect.Type {
 }
 
 type assessmentDelegationArgs struct {
-	// Identifier for the assessment.
-	AssessmentId string `pulumi:"assessmentId"`
-	// Comment describing the delegation request.
-	Comment *string `pulumi:"comment"`
-	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-	ControlSetId string `pulumi:"controlSetId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn string `pulumi:"roleArn"`
-	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-	//
-	// The following arguments are optional:
-	RoleType string `pulumi:"roleType"`
+	AssessmentId string  `pulumi:"assessmentId"`
+	Comment      *string `pulumi:"comment"`
+	ControlSetId string  `pulumi:"controlSetId"`
+	Region       *string `pulumi:"region"`
+	RoleArn      string  `pulumi:"roleArn"`
+	RoleType     string  `pulumi:"roleType"`
 }
 
 // The set of arguments for constructing a AssessmentDelegation resource.
 type AssessmentDelegationArgs struct {
-	// Identifier for the assessment.
 	AssessmentId pulumi.StringInput
-	// Comment describing the delegation request.
-	Comment pulumi.StringPtrInput
-	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
+	Comment      pulumi.StringPtrInput
 	ControlSetId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn pulumi.StringInput
-	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-	//
-	// The following arguments are optional:
-	RoleType pulumi.StringInput
+	Region       pulumi.StringPtrInput
+	RoleArn      pulumi.StringInput
+	RoleType     pulumi.StringInput
 }
 
 func (AssessmentDelegationArgs) ElementType() reflect.Type {
@@ -284,44 +198,34 @@ func (o AssessmentDelegationOutput) ToAssessmentDelegationOutputWithContext(ctx 
 	return o
 }
 
-// Identifier for the assessment.
 func (o AssessmentDelegationOutput) AssessmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.AssessmentId }).(pulumi.StringOutput)
 }
 
-// Comment describing the delegation request.
 func (o AssessmentDelegationOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
 func (o AssessmentDelegationOutput) ControlSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.ControlSetId }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the delegation.
 func (o AssessmentDelegationOutput) DelegationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.DelegationId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssessmentDelegationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM role.
 func (o AssessmentDelegationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-//
-// The following arguments are optional:
 func (o AssessmentDelegationOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }
 
-// Status of the delegation.
 func (o AssessmentDelegationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -12,240 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
-//
-// ## Example Usage
-//
-// ### Filter by AWS account ID
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
-//				Filters: &securityhub.InsightFiltersArgs{
-//					AwsAccountIds: securityhub.InsightFiltersAwsAccountIdArray{
-//						&securityhub.InsightFiltersAwsAccountIdArgs{
-//							Comparison: pulumi.String("EQUALS"),
-//							Value:      pulumi.String("1234567890"),
-//						},
-//						&securityhub.InsightFiltersAwsAccountIdArgs{
-//							Comparison: pulumi.String("EQUALS"),
-//							Value:      pulumi.String("09876543210"),
-//						},
-//					},
-//				},
-//				GroupByAttribute: pulumi.String("AwsAccountId"),
-//				Name:             pulumi.String("example-insight"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by date range
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
-//				Filters: &securityhub.InsightFiltersArgs{
-//					CreatedAts: securityhub.InsightFiltersCreatedAtArray{
-//						&securityhub.InsightFiltersCreatedAtArgs{
-//							DateRange: &securityhub.InsightFiltersCreatedAtDateRangeArgs{
-//								Unit:  pulumi.String("DAYS"),
-//								Value: pulumi.Int(5),
-//							},
-//						},
-//					},
-//				},
-//				GroupByAttribute: pulumi.String("CreatedAt"),
-//				Name:             pulumi.String("example-insight"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by destination IPv4 address
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
-//				Filters: &securityhub.InsightFiltersArgs{
-//					NetworkDestinationIpv4s: securityhub.InsightFiltersNetworkDestinationIpv4Array{
-//						&securityhub.InsightFiltersNetworkDestinationIpv4Args{
-//							Cidr: pulumi.String("10.0.0.0/16"),
-//						},
-//					},
-//				},
-//				GroupByAttribute: pulumi.String("NetworkDestinationIpV4"),
-//				Name:             pulumi.String("example-insight"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by finding's confidence
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
-//				Filters: &securityhub.InsightFiltersArgs{
-//					Confidences: securityhub.InsightFiltersConfidenceArray{
-//						&securityhub.InsightFiltersConfidenceArgs{
-//							Gte: pulumi.String("80"),
-//						},
-//					},
-//				},
-//				GroupByAttribute: pulumi.String("Confidence"),
-//				Name:             pulumi.String("example-insight"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by resource tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewInsight(ctx, "example", &securityhub.InsightArgs{
-//				Filters: &securityhub.InsightFiltersArgs{
-//					ResourceTags: securityhub.InsightFiltersResourceTagArray{
-//						&securityhub.InsightFiltersResourceTagArgs{
-//							Comparison: pulumi.String("EQUALS"),
-//							Key:        pulumi.String("Environment"),
-//							Value:      pulumi.String("Production"),
-//						},
-//					},
-//				},
-//				GroupByAttribute: pulumi.String("ResourceTags"),
-//				Name:             pulumi.String("example-insight"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Security Hub insights using the ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
-// ```
 type Insight struct {
 	pulumi.CustomResourceState
 
-	// ARN of the insight.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-	Filters InsightFiltersOutput `pulumi:"filters"`
-	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-	GroupByAttribute pulumi.StringOutput `pulumi:"groupByAttribute"`
-	// The name of the custom insight.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Arn              pulumi.StringOutput  `pulumi:"arn"`
+	Filters          InsightFiltersOutput `pulumi:"filters"`
+	GroupByAttribute pulumi.StringOutput  `pulumi:"groupByAttribute"`
+	Name             pulumi.StringOutput  `pulumi:"name"`
+	Region           pulumi.StringOutput  `pulumi:"region"`
 }
 
 // NewInsight registers a new resource with the given unique name, arguments, and options.
@@ -284,29 +58,19 @@ func GetInsight(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Insight resources.
 type insightState struct {
-	// ARN of the insight.
-	Arn *string `pulumi:"arn"`
-	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-	Filters *InsightFilters `pulumi:"filters"`
-	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-	GroupByAttribute *string `pulumi:"groupByAttribute"`
-	// The name of the custom insight.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Arn              *string         `pulumi:"arn"`
+	Filters          *InsightFilters `pulumi:"filters"`
+	GroupByAttribute *string         `pulumi:"groupByAttribute"`
+	Name             *string         `pulumi:"name"`
+	Region           *string         `pulumi:"region"`
 }
 
 type InsightState struct {
-	// ARN of the insight.
-	Arn pulumi.StringPtrInput
-	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-	Filters InsightFiltersPtrInput
-	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+	Arn              pulumi.StringPtrInput
+	Filters          InsightFiltersPtrInput
 	GroupByAttribute pulumi.StringPtrInput
-	// The name of the custom insight.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (InsightState) ElementType() reflect.Type {
@@ -314,26 +78,18 @@ func (InsightState) ElementType() reflect.Type {
 }
 
 type insightArgs struct {
-	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-	Filters InsightFilters `pulumi:"filters"`
-	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-	GroupByAttribute string `pulumi:"groupByAttribute"`
-	// The name of the custom insight.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Filters          InsightFilters `pulumi:"filters"`
+	GroupByAttribute string         `pulumi:"groupByAttribute"`
+	Name             *string        `pulumi:"name"`
+	Region           *string        `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Insight resource.
 type InsightArgs struct {
-	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-	Filters InsightFiltersInput
-	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+	Filters          InsightFiltersInput
 	GroupByAttribute pulumi.StringInput
-	// The name of the custom insight.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (InsightArgs) ElementType() reflect.Type {
@@ -423,27 +179,22 @@ func (o InsightOutput) ToInsightOutputWithContext(ctx context.Context) InsightOu
 	return o
 }
 
-// ARN of the insight.
 func (o InsightOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
 func (o InsightOutput) Filters() InsightFiltersOutput {
 	return o.ApplyT(func(v *Insight) InsightFiltersOutput { return v.Filters }).(InsightFiltersOutput)
 }
 
-// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
 func (o InsightOutput) GroupByAttribute() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.GroupByAttribute }).(pulumi.StringOutput)
 }
 
-// The name of the custom insight.
 func (o InsightOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InsightOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

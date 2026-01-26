@@ -46,17 +46,11 @@ class GetServicePrincipalResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -72,9 +66,6 @@ class GetServicePrincipalResult:
     @_builtins.property
     @pulumi.getter
     def suffix(self) -> _builtins.str:
-        """
-        Suffix of the SPN (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-        """
         return pulumi.get(self, "suffix")
 
 
@@ -95,22 +86,7 @@ def get_service_principal(region: Optional[_builtins.str] = None,
                           service_name: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServicePrincipalResult:
     """
-    Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_service_principal(service_name="s3")
-    test = aws.get_service_principal(service_name="s3",
-        region="us-iso-east-1")
-    ```
-
-
-    :param _builtins.str region: Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_name: Name of the service you want to generate a Service Principal Name for.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -128,22 +104,7 @@ def get_service_principal_output(region: Optional[pulumi.Input[Optional[_builtin
                                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServicePrincipalResult]:
     """
-    Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_service_principal(service_name="s3")
-    test = aws.get_service_principal(service_name="s3",
-        region="us-iso-east-1")
-    ```
-
-
-    :param _builtins.str region: Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_name: Name of the service you want to generate a Service Principal Name for.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

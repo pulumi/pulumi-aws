@@ -17,47 +17,23 @@ public final class DistributionTenantCustomizationsArgs extends com.pulumi.resou
 
     public static final DistributionTenantCustomizationsArgs Empty = new DistributionTenantCustomizationsArgs();
 
-    /**
-     * Certificate configuration for the tenant (maximum one).
-     * 
-     */
     @Import(name="certificate")
     private @Nullable Output<DistributionTenantCustomizationsCertificateArgs> certificate;
 
-    /**
-     * @return Certificate configuration for the tenant (maximum one).
-     * 
-     */
     public Optional<Output<DistributionTenantCustomizationsCertificateArgs>> certificate() {
         return Optional.ofNullable(this.certificate);
     }
 
-    /**
-     * Geographic restrictions configuration for the tenant (maximum one).
-     * 
-     */
     @Import(name="geoRestriction")
     private @Nullable Output<DistributionTenantCustomizationsGeoRestrictionArgs> geoRestriction;
 
-    /**
-     * @return Geographic restrictions configuration for the tenant (maximum one).
-     * 
-     */
     public Optional<Output<DistributionTenantCustomizationsGeoRestrictionArgs>> geoRestriction() {
         return Optional.ofNullable(this.geoRestriction);
     }
 
-    /**
-     * Web ACL configuration for the tenant (maximum one).
-     * 
-     */
     @Import(name="webAcl")
     private @Nullable Output<DistributionTenantCustomizationsWebAclArgs> webAcl;
 
-    /**
-     * @return Web ACL configuration for the tenant (maximum one).
-     * 
-     */
     public Optional<Output<DistributionTenantCustomizationsWebAclArgs>> webAcl() {
         return Optional.ofNullable(this.webAcl);
     }
@@ -88,65 +64,29 @@ public final class DistributionTenantCustomizationsArgs extends com.pulumi.resou
             $ = new DistributionTenantCustomizationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificate Certificate configuration for the tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(@Nullable Output<DistributionTenantCustomizationsCertificateArgs> certificate) {
             $.certificate = certificate;
             return this;
         }
 
-        /**
-         * @param certificate Certificate configuration for the tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(DistributionTenantCustomizationsCertificateArgs certificate) {
             return certificate(Output.of(certificate));
         }
 
-        /**
-         * @param geoRestriction Geographic restrictions configuration for the tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoRestriction(@Nullable Output<DistributionTenantCustomizationsGeoRestrictionArgs> geoRestriction) {
             $.geoRestriction = geoRestriction;
             return this;
         }
 
-        /**
-         * @param geoRestriction Geographic restrictions configuration for the tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoRestriction(DistributionTenantCustomizationsGeoRestrictionArgs geoRestriction) {
             return geoRestriction(Output.of(geoRestriction));
         }
 
-        /**
-         * @param webAcl Web ACL configuration for the tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAcl(@Nullable Output<DistributionTenantCustomizationsWebAclArgs> webAcl) {
             $.webAcl = webAcl;
             return this;
         }
 
-        /**
-         * @param webAcl Web ACL configuration for the tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAcl(DistributionTenantCustomizationsWebAclArgs webAcl) {
             return webAcl(Output.of(webAcl));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleActionFindingFieldsUpdateSeverity
     {
-        /// <summary>
-        /// The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
-        /// </summary>
         public readonly string? Label;
-        /// <summary>
-        /// The native severity as defined by the AWS service or integrated partner product that generated the finding.
-        /// </summary>
         public readonly double? Product;
 
         [OutputConstructor]

@@ -47,11 +47,6 @@ class ViewDataFilterExpression(dict):
                  dimensions: Optional['outputs.ViewDataFilterExpressionDimensions'] = None,
                  tags: Optional[Sequence['outputs.ViewDataFilterExpressionTag']] = None,
                  time_range: Optional['outputs.ViewDataFilterExpressionTimeRange'] = None):
-        """
-        :param 'ViewDataFilterExpressionDimensionsArgs' dimensions: Dimension to use for `expression`. Refer to #dimensions for more details.
-        :param Sequence['ViewDataFilterExpressionTagArgs'] tags: List of key value map specifying tags associated to the billing view being created.
-        :param 'ViewDataFilterExpressionTimeRangeArgs' time_range: Time range to use for `expression`. Refer to #time-range for more details.
-        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if tags is not None:
@@ -62,25 +57,16 @@ class ViewDataFilterExpression(dict):
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.ViewDataFilterExpressionDimensions']:
-        """
-        Dimension to use for `expression`. Refer to #dimensions for more details.
-        """
         return pulumi.get(self, "dimensions")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ViewDataFilterExpressionTag']]:
-        """
-        List of key value map specifying tags associated to the billing view being created.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="timeRange")
     def time_range(self) -> Optional['outputs.ViewDataFilterExpressionTimeRange']:
-        """
-        Time range to use for `expression`. Refer to #time-range for more details.
-        """
         return pulumi.get(self, "time_range")
 
 
@@ -89,27 +75,17 @@ class ViewDataFilterExpressionDimensions(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str key: Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        :param Sequence[_builtins.str] values: List of metadata values that you can use to filter and group your results.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of metadata values that you can use to filter and group your results.
-        """
         return pulumi.get(self, "values")
 
 
@@ -118,27 +94,17 @@ class ViewDataFilterExpressionTag(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str key: Key of the tag.
-        :param Sequence[_builtins.str] values: List of values for the tag.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Key of the tag.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of values for the tag.
-        """
         return pulumi.get(self, "values")
 
 
@@ -166,18 +132,12 @@ class ViewDataFilterExpressionTimeRange(dict):
     def __init__(__self__, *,
                  begin_date_inclusive: _builtins.str,
                  end_date_inclusive: _builtins.str):
-        """
-        :param _builtins.str begin_date_inclusive: Inclusive end date of the time range.
-        """
         pulumi.set(__self__, "begin_date_inclusive", begin_date_inclusive)
         pulumi.set(__self__, "end_date_inclusive", end_date_inclusive)
 
     @_builtins.property
     @pulumi.getter(name="beginDateInclusive")
     def begin_date_inclusive(self) -> _builtins.str:
-        """
-        Inclusive end date of the time range.
-        """
         return pulumi.get(self, "begin_date_inclusive")
 
     @_builtins.property
@@ -237,12 +197,6 @@ class GetViewsBillingViewResult(dict):
                  description: _builtins.str,
                  name: _builtins.str,
                  owner_account_id: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the billing view.
-        :param _builtins.str description: Description of the billing view.
-        :param _builtins.str name: Name of the billing view.
-        :param _builtins.str owner_account_id: Account ID of the billing view owner.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "billing_view_type", billing_view_type)
         pulumi.set(__self__, "description", description)
@@ -252,9 +206,6 @@ class GetViewsBillingViewResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the billing view.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -265,25 +216,16 @@ class GetViewsBillingViewResult(dict):
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the billing view.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the billing view.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> _builtins.str:
-        """
-        Account ID of the billing view owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
 

@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Accepts a shared directory in a consumer account.
- *
- * > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directoryservice.SharedDirectory("example", {
- *     directoryId: exampleAwsDirectoryServiceDirectory.id,
- *     notes: "example",
- *     target: {
- *         id: receiver.accountId,
- *     },
- * });
- * const exampleSharedDirectoryAccepter = new aws.directoryservice.SharedDirectoryAccepter("example", {sharedDirectoryId: example.sharedDirectoryId});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
- *
- * ```sh
- * $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
- * ```
- */
 export class SharedDirectoryAccepter extends pulumi.CustomResource {
     /**
      * Get an existing SharedDirectoryAccepter resource's state with the given name, ID, and optional extra
@@ -61,29 +32,11 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === SharedDirectoryAccepter.__pulumiType;
     }
 
-    /**
-     * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-     */
     declare public /*out*/ readonly method: pulumi.Output<string>;
-    /**
-     * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-     */
     declare public /*out*/ readonly notes: pulumi.Output<string>;
-    /**
-     * Account identifier of the directory owner.
-     */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-     */
     declare public /*out*/ readonly ownerDirectoryId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     */
     declare public readonly sharedDirectoryId: pulumi.Output<string>;
 
     /**
@@ -126,29 +79,11 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SharedDirectoryAccepter resources.
  */
 export interface SharedDirectoryAccepterState {
-    /**
-     * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-     */
     method?: pulumi.Input<string>;
-    /**
-     * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-     */
     notes?: pulumi.Input<string>;
-    /**
-     * Account identifier of the directory owner.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-     */
     ownerDirectoryId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     */
     sharedDirectoryId?: pulumi.Input<string>;
 }
 
@@ -156,12 +91,6 @@ export interface SharedDirectoryAccepterState {
  * The set of arguments for constructing a SharedDirectoryAccepter resource.
  */
 export interface SharedDirectoryAccepterArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     */
     sharedDirectoryId: pulumi.Input<string>;
 }

@@ -14,30 +14,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIdentityPoolResult {
-    /**
-     * @return Whether the classic / basic authentication flow is enabled.
-     * 
-     */
     private Boolean allowClassicFlow;
-    /**
-     * @return Whether the identity pool supports unauthenticated logins or not.
-     * 
-     */
     private Boolean allowUnauthenticatedIdentities;
-    /**
-     * @return ARN of the Pool.
-     * 
-     */
     private String arn;
-    /**
-     * @return An array of Amazon Cognito Identity user pools and their client IDs.
-     * 
-     */
     private List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders;
-    /**
-     * @return The &#34;domain&#34; by which Cognito will refer to your users.
-     * 
-     */
     private String developerProviderName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -45,61 +25,25 @@ public final class GetIdentityPoolResult {
      */
     private String id;
     private String identityPoolName;
-    /**
-     * @return Set of OpendID Connect provider ARNs.
-     * 
-     */
     private List<String> openidConnectProviderArns;
     private String region;
-    /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
-     * 
-     */
     private List<String> samlProviderArns;
-    /**
-     * @return Key-Value pairs mapping provider names to provider app IDs.
-     * 
-     */
     private Map<String,String> supportedLoginProviders;
-    /**
-     * @return A map of tags to assigned to the Identity Pool.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetIdentityPoolResult() {}
-    /**
-     * @return Whether the classic / basic authentication flow is enabled.
-     * 
-     */
     public Boolean allowClassicFlow() {
         return this.allowClassicFlow;
     }
-    /**
-     * @return Whether the identity pool supports unauthenticated logins or not.
-     * 
-     */
     public Boolean allowUnauthenticatedIdentities() {
         return this.allowUnauthenticatedIdentities;
     }
-    /**
-     * @return ARN of the Pool.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return An array of Amazon Cognito Identity user pools and their client IDs.
-     * 
-     */
     public List<GetIdentityPoolCognitoIdentityProvider> cognitoIdentityProviders() {
         return this.cognitoIdentityProviders;
     }
-    /**
-     * @return The &#34;domain&#34; by which Cognito will refer to your users.
-     * 
-     */
     public String developerProviderName() {
         return this.developerProviderName;
     }
@@ -113,34 +57,18 @@ public final class GetIdentityPoolResult {
     public String identityPoolName() {
         return this.identityPoolName;
     }
-    /**
-     * @return Set of OpendID Connect provider ARNs.
-     * 
-     */
     public List<String> openidConnectProviderArns() {
         return this.openidConnectProviderArns;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
-     * 
-     */
     public List<String> samlProviderArns() {
         return this.samlProviderArns;
     }
-    /**
-     * @return Key-Value pairs mapping provider names to provider app IDs.
-     * 
-     */
     public Map<String,String> supportedLoginProviders() {
         return this.supportedLoginProviders;
     }
-    /**
-     * @return A map of tags to assigned to the Identity Pool.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

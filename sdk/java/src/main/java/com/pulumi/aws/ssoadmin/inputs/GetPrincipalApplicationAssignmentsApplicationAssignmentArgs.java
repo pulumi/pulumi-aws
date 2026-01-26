@@ -14,47 +14,23 @@ public final class GetPrincipalApplicationAssignmentsApplicationAssignmentArgs e
 
     public static final GetPrincipalApplicationAssignmentsApplicationAssignmentArgs Empty = new GetPrincipalApplicationAssignmentsApplicationAssignmentArgs();
 
-    /**
-     * ARN of the application.
-     * 
-     */
     @Import(name="applicationArn", required=true)
     private Output<String> applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public Output<String> applicationArn() {
         return this.applicationArn;
     }
 
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     @Import(name="principalId", required=true)
     private Output<String> principalId;
 
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public Output<String> principalId() {
         return this.principalId;
     }
 
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     @Import(name="principalType", required=true)
     private Output<String> principalType;
 
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public Output<String> principalType() {
         return this.principalType;
     }
@@ -85,65 +61,29 @@ public final class GetPrincipalApplicationAssignmentsApplicationAssignmentArgs e
             $ = new GetPrincipalApplicationAssignmentsApplicationAssignmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(Output<String> principalType) {
             $.principalType = principalType;
             return this;
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
         }

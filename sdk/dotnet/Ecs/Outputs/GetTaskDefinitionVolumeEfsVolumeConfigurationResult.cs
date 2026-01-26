@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionVolumeEfsVolumeConfigurationResult
     {
-        /// <summary>
-        /// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult> AuthorizationConfigs;
-        /// <summary>
-        /// The Amazon FSx for Windows File Server file system ID to use.
-        /// </summary>
         public readonly string FileSystemId;
-        /// <summary>
-        /// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-        /// </summary>
         public readonly string RootDirectory;
-        /// <summary>
-        /// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
-        /// </summary>
         public readonly string TransitEncryption;
-        /// <summary>
-        /// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
-        /// </summary>
         public readonly int TransitEncryptionPort;
 
         [OutputConstructor]

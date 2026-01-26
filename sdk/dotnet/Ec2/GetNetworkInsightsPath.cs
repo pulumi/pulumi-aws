@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetNetworkInsightsPath
     {
-        /// <summary>
-        /// `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
-        ///     {
-        ///         NetworkInsightsPathId = exampleAwsEc2NetworkInsightsPath.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNetworkInsightsPathResult> InvokeAsync(GetNetworkInsightsPathArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsPathResult>("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
-        ///     {
-        ///         NetworkInsightsPathId = exampleAwsEc2NetworkInsightsPath.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworkInsightsPathResult> Invoke(GetNetworkInsightsPathInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsPathResult>("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
-        ///     {
-        ///         NetworkInsightsPathId = exampleAwsEc2NetworkInsightsPath.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworkInsightsPathResult> Invoke(GetNetworkInsightsPathInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsPathResult>("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathInvokeArgs(), options.WithDefaults());
     }
@@ -89,38 +26,20 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetNetworkInsightsPathFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Network Insights Paths. The given filters must match exactly one Network Insights Path
-        /// whose data will be exported as attributes.
-        /// </summary>
         public List<Inputs.GetNetworkInsightsPathFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetNetworkInsightsPathFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the Network Insights Path to select.
-        /// </summary>
         [Input("networkInsightsPathId")]
         public string? NetworkInsightsPathId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -137,38 +56,20 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetNetworkInsightsPathFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Network Insights Paths. The given filters must match exactly one Network Insights Path
-        /// whose data will be exported as attributes.
-        /// </summary>
         public InputList<Inputs.GetNetworkInsightsPathFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetNetworkInsightsPathFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the Network Insights Path to select.
-        /// </summary>
         [Input("networkInsightsPathId")]
         public Input<string>? NetworkInsightsPathId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -185,33 +86,12 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetNetworkInsightsPathResult
     {
-        /// <summary>
-        /// ARN of the selected Network Insights Path.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// AWS resource that is the destination of the path.
-        /// </summary>
         public readonly string Destination;
-        /// <summary>
-        /// ARN of the destination.
-        /// </summary>
         public readonly string DestinationArn;
-        /// <summary>
-        /// IP address of the AWS resource that is the destination of the path.
-        /// </summary>
         public readonly string DestinationIp;
-        /// <summary>
-        /// Destination port.
-        /// </summary>
         public readonly int DestinationPort;
-        /// <summary>
-        /// Filters of the network paths at the destination.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterAtDestinationResult> FilterAtDestinations;
-        /// <summary>
-        /// Filters of the network paths at the source.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterAtSourceResult> FilterAtSources;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterResult> Filters;
         /// <summary>
@@ -219,26 +99,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly string NetworkInsightsPathId;
-        /// <summary>
-        /// Protocol.
-        /// </summary>
         public readonly string Protocol;
         public readonly string Region;
-        /// <summary>
-        /// AWS resource that is the source of the path.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// ARN of the source.
-        /// </summary>
         public readonly string SourceArn;
-        /// <summary>
-        /// IP address of the AWS resource that is the source of the path.
-        /// </summary>
         public readonly string SourceIp;
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

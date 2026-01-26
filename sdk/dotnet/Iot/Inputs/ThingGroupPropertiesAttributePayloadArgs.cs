@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Iot.Inputs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
-
-        /// <summary>
-        /// Key-value map.
-        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());

@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistributionAmiDistributionConfiguration {
-    /**
-     * @return Key-value map of tags to apply to the distributed AMI.
-     * 
-     */
     private @Nullable Map<String,String> amiTags;
-    /**
-     * @return Description to apply to the distributed AMI.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
-     * 
-     */
     private @Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission;
-    /**
-     * @return Name to apply to the distributed AMI.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Set of AWS Account identifiers to distribute the AMI.
-     * 
-     */
     private @Nullable List<String> targetAccountIds;
 
     private DistributionConfigurationDistributionAmiDistributionConfiguration() {}
-    /**
-     * @return Key-value map of tags to apply to the distributed AMI.
-     * 
-     */
     public Map<String,String> amiTags() {
         return this.amiTags == null ? Map.of() : this.amiTags;
     }
-    /**
-     * @return Description to apply to the distributed AMI.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
-     * 
-     */
     public Optional<DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermission() {
         return Optional.ofNullable(this.launchPermission);
     }
-    /**
-     * @return Name to apply to the distributed AMI.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Set of AWS Account identifiers to distribute the AMI.
-     * 
-     */
     public List<String> targetAccountIds() {
         return this.targetAccountIds == null ? List.of() : this.targetAccountIds;
     }

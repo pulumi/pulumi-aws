@@ -9,117 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
-    /// <summary>
-    /// Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
-    /// 
-    /// &gt; **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `aws.dynamodb.Table` resource `Replica` configuration block.
-    /// 
-    /// &gt; Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var us_east_1 = new Aws.DynamoDB.Table("us-east-1", new()
-    ///     {
-    ///         HashKey = "myAttribute",
-    ///         Name = "myTable",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "myAttribute",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var us_west_2 = new Aws.DynamoDB.Table("us-west-2", new()
-    ///     {
-    ///         HashKey = "myAttribute",
-    ///         Name = "myTable",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "myAttribute",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var myTable = new Aws.DynamoDB.GlobalTable("myTable", new()
-    ///     {
-    ///         Name = "myTable",
-    ///         Replicas = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
-    ///             {
-    ///                 RegionName = "us-east-1",
-    ///             },
-    ///             new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
-    ///             {
-    ///                 RegionName = "us-west-2",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             us_east_1,
-    ///             us_west_2,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dynamodb/globalTable:GlobalTable")]
     public partial class GlobalTable : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the DynamoDB Global Table
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        /// </summary>
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.GlobalTableReplica>> Replicas { get; private set; } = null!;
 
@@ -169,24 +70,14 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class GlobalTableArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("replicas", required: true)]
         private InputList<Inputs.GlobalTableReplicaArgs>? _replicas;
-
-        /// <summary>
-        /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        /// </summary>
         public InputList<Inputs.GlobalTableReplicaArgs> Replicas
         {
             get => _replicas ?? (_replicas = new InputList<Inputs.GlobalTableReplicaArgs>());
@@ -201,30 +92,17 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class GlobalTableState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the DynamoDB Global Table
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("replicas")]
         private InputList<Inputs.GlobalTableReplicaGetArgs>? _replicas;
-
-        /// <summary>
-        /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        /// </summary>
         public InputList<Inputs.GlobalTableReplicaGetArgs> Replicas
         {
             get => _replicas ?? (_replicas = new InputList<Inputs.GlobalTableReplicaGetArgs>());

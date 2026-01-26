@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallAvailabilityZoneMapping {
-    /**
-     * @return The ID of the Availability Zone where the firewall endpoint is located.
-     * 
-     */
     private String availabilityZoneId;
 
     private GetFirewallAvailabilityZoneMapping() {}
-    /**
-     * @return The ID of the Availability Zone where the firewall endpoint is located.
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }

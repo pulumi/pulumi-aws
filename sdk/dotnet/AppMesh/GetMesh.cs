@@ -11,132 +11,12 @@ namespace Pulumi.Aws.AppMesh
 {
     public static class GetMesh
     {
-        /// <summary>
-        /// The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetMeshResult> InvokeAsync(GetMeshArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());
     }
@@ -144,30 +24,17 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetMeshArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID of the service mesh's owner.
-        /// </summary>
         [Input("meshOwner")]
         public string? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name of the service mesh.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -182,30 +49,17 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetMeshInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID of the service mesh's owner.
-        /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name of the service mesh.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -222,36 +76,18 @@ namespace Pulumi.Aws.AppMesh
     [OutputType]
     public sealed class GetMeshResult
     {
-        /// <summary>
-        /// ARN of the service mesh.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Creation date of the service mesh.
-        /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Last update date of the service mesh.
-        /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string MeshOwner;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Resource owner's AWS account ID.
-        /// </summary>
         public readonly string ResourceOwner;
-        /// <summary>
-        /// Service mesh specification. See the `aws.appmesh.Mesh` resource for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetMeshSpecResult> Specs;
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -10,28 +10,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSpotDatafeedSubscriptionResult {
-    /**
-     * @return The name of the Amazon S3 bucket where the spot instance data feed is located.
-     * 
-     */
     private String bucket;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The prefix for the data feed files.
-     * 
-     */
     private String prefix;
     private String region;
 
     private GetSpotDatafeedSubscriptionResult() {}
-    /**
-     * @return The name of the Amazon S3 bucket where the spot instance data feed is located.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
@@ -42,10 +30,6 @@ public final class GetSpotDatafeedSubscriptionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The prefix for the data feed files.
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }

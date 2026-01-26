@@ -14,47 +14,23 @@ public final class QuicksetupConfigurationManagerStatusSummaryArgs extends com.p
 
     public static final QuicksetupConfigurationManagerStatusSummaryArgs Empty = new QuicksetupConfigurationManagerStatusSummaryArgs();
 
-    /**
-     * Current status.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Current status.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
 
-    /**
-     * When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-     * 
-     */
     @Import(name="statusMessage", required=true)
     private Output<String> statusMessage;
 
-    /**
-     * @return When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-     * 
-     */
     public Output<String> statusMessage() {
         return this.statusMessage;
     }
 
-    /**
-     * Type of a status summary.
-     * 
-     */
     @Import(name="statusType", required=true)
     private Output<String> statusType;
 
-    /**
-     * @return Type of a status summary.
-     * 
-     */
     public Output<String> statusType() {
         return this.statusType;
     }
@@ -85,65 +61,29 @@ public final class QuicksetupConfigurationManagerStatusSummaryArgs extends com.p
             $ = new QuicksetupConfigurationManagerStatusSummaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status Current status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Current status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param statusMessage When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(Output<String> statusMessage) {
             $.statusMessage = statusMessage;
             return this;
         }
 
-        /**
-         * @param statusMessage When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(String statusMessage) {
             return statusMessage(Output.of(statusMessage));
         }
 
-        /**
-         * @param statusType Type of a status summary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusType(Output<String> statusType) {
             $.statusType = statusType;
             return this;
         }
 
-        /**
-         * @param statusType Type of a status summary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusType(String statusType) {
             return statusType(Output.of(statusType));
         }

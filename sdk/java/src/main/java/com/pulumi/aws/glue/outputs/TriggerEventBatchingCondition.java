@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TriggerEventBatchingCondition {
-    /**
-     * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
-     * 
-     */
     private Integer batchSize;
-    /**
-     * @return Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
-     * 
-     */
     private @Nullable Integer batchWindow;
 
     private TriggerEventBatchingCondition() {}
-    /**
-     * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
-     * 
-     */
     public Integer batchSize() {
         return this.batchSize;
     }
-    /**
-     * @return Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
-     * 
-     */
     public Optional<Integer> batchWindow() {
         return Optional.ofNullable(this.batchWindow);
     }

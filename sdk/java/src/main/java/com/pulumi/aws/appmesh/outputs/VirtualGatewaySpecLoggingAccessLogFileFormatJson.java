@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualGatewaySpecLoggingAccessLogFileFormatJson {
-    /**
-     * @return The specified key for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     private String key;
-    /**
-     * @return The specified value for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     private String value;
 
     private VirtualGatewaySpecLoggingAccessLogFileFormatJson() {}
-    /**
-     * @return The specified key for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The specified value for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     public String value() {
         return this.value;
     }

@@ -28,10 +28,6 @@ public final class GetCoreNetworkPolicyDocumentResult {
      * 
      */
     private String id;
-    /**
-     * @return Standard JSON policy document rendered based on the arguments above.
-     * 
-     */
     private String json;
     private @Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups;
     private @Nullable List<GetCoreNetworkPolicyDocumentRoutingPolicy> routingPolicies;
@@ -56,10 +52,6 @@ public final class GetCoreNetworkPolicyDocumentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Standard JSON policy document rendered based on the arguments above.
-     * 
-     */
     public String json() {
         return this.json;
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceConfigurationS3ConfigurationAccessControlListConfiguration {
-    /**
-     * @return Path to the AWS S3 bucket that contains the ACL files.
-     * 
-     */
     private @Nullable String keyPath;
 
     private DataSourceConfigurationS3ConfigurationAccessControlListConfiguration() {}
-    /**
-     * @return Path to the AWS S3 bucket that contains the ACL files.
-     * 
-     */
     public Optional<String> keyPath() {
         return Optional.ofNullable(this.keyPath);
     }

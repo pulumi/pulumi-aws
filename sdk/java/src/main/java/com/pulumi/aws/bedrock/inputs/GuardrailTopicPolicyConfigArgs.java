@@ -17,32 +17,16 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
 
     public static final GuardrailTopicPolicyConfigArgs Empty = new GuardrailTopicPolicyConfigArgs();
 
-    /**
-     * Configuration block for the topic policy tier. See Tier Config for more information.
-     * 
-     */
     @Import(name="tierConfigs")
     private @Nullable Output<List<GuardrailTopicPolicyConfigTierConfigArgs>> tierConfigs;
 
-    /**
-     * @return Configuration block for the topic policy tier. See Tier Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailTopicPolicyConfigTierConfigArgs>>> tierConfigs() {
         return Optional.ofNullable(this.tierConfigs);
     }
 
-    /**
-     * List of topic configs in topic policy. See Topics Config for more information.
-     * 
-     */
     @Import(name="topicsConfigs")
     private @Nullable Output<List<GuardrailTopicPolicyConfigTopicsConfigArgs>> topicsConfigs;
 
-    /**
-     * @return List of topic configs in topic policy. See Topics Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailTopicPolicyConfigTopicsConfigArgs>>> topicsConfigs() {
         return Optional.ofNullable(this.topicsConfigs);
     }
@@ -72,64 +56,28 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
             $ = new GuardrailTopicPolicyConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierConfigs(@Nullable Output<List<GuardrailTopicPolicyConfigTierConfigArgs>> tierConfigs) {
             $.tierConfigs = tierConfigs;
             return this;
         }
 
-        /**
-         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierConfigs(List<GuardrailTopicPolicyConfigTierConfigArgs> tierConfigs) {
             return tierConfigs(Output.of(tierConfigs));
         }
 
-        /**
-         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierConfigs(GuardrailTopicPolicyConfigTierConfigArgs... tierConfigs) {
             return tierConfigs(List.of(tierConfigs));
         }
 
-        /**
-         * @param topicsConfigs List of topic configs in topic policy. See Topics Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsConfigs(@Nullable Output<List<GuardrailTopicPolicyConfigTopicsConfigArgs>> topicsConfigs) {
             $.topicsConfigs = topicsConfigs;
             return this;
         }
 
-        /**
-         * @param topicsConfigs List of topic configs in topic policy. See Topics Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsConfigs(List<GuardrailTopicPolicyConfigTopicsConfigArgs> topicsConfigs) {
             return topicsConfigs(Output.of(topicsConfigs));
         }
 
-        /**
-         * @param topicsConfigs List of topic configs in topic policy. See Topics Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsConfigs(GuardrailTopicPolicyConfigTopicsConfigArgs... topicsConfigs) {
             return topicsConfigs(List.of(topicsConfigs));
         }

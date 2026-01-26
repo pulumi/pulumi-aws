@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage
     {
-        /// <summary>
-        /// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent? Content;
-        /// <summary>
-        /// The role that the message belongs to.
-        /// </summary>
         public readonly string Role;
 
         [OutputConstructor]

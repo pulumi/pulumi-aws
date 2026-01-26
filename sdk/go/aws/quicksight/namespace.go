@@ -12,66 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS QuickSight Namespace.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewNamespace(ctx, "example", &quicksight.NamespaceArgs{
-//				Namespace: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
-// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Namespace.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Namespace AWS Region.
-	CapacityRegion pulumi.StringOutput `pulumi:"capacityRegion"`
-	// Creation status of the namespace.
-	CreationStatus pulumi.StringOutput `pulumi:"creationStatus"`
-	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-	IdentityStore pulumi.StringOutput `pulumi:"identityStore"`
-	// Name of the namespace.
-	//
-	// The following arguments are optional:
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput     `pulumi:"tagsAll"`
-	Timeouts NamespaceTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn            pulumi.StringOutput        `pulumi:"arn"`
+	AwsAccountId   pulumi.StringOutput        `pulumi:"awsAccountId"`
+	CapacityRegion pulumi.StringOutput        `pulumi:"capacityRegion"`
+	CreationStatus pulumi.StringOutput        `pulumi:"creationStatus"`
+	IdentityStore  pulumi.StringOutput        `pulumi:"identityStore"`
+	Namespace      pulumi.StringOutput        `pulumi:"namespace"`
+	Region         pulumi.StringOutput        `pulumi:"region"`
+	Tags           pulumi.StringMapOutput     `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput     `pulumi:"tagsAll"`
+	Timeouts       NamespaceTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -107,49 +60,29 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// ARN of the Namespace.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Namespace AWS Region.
-	CapacityRegion *string `pulumi:"capacityRegion"`
-	// Creation status of the namespace.
-	CreationStatus *string `pulumi:"creationStatus"`
-	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-	IdentityStore *string `pulumi:"identityStore"`
-	// Name of the namespace.
-	//
-	// The following arguments are optional:
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string  `pulumi:"tagsAll"`
-	Timeouts *NamespaceTimeouts `pulumi:"timeouts"`
+	Arn            *string            `pulumi:"arn"`
+	AwsAccountId   *string            `pulumi:"awsAccountId"`
+	CapacityRegion *string            `pulumi:"capacityRegion"`
+	CreationStatus *string            `pulumi:"creationStatus"`
+	IdentityStore  *string            `pulumi:"identityStore"`
+	Namespace      *string            `pulumi:"namespace"`
+	Region         *string            `pulumi:"region"`
+	Tags           map[string]string  `pulumi:"tags"`
+	TagsAll        map[string]string  `pulumi:"tagsAll"`
+	Timeouts       *NamespaceTimeouts `pulumi:"timeouts"`
 }
 
 type NamespaceState struct {
-	// ARN of the Namespace.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// Namespace AWS Region.
+	Arn            pulumi.StringPtrInput
+	AwsAccountId   pulumi.StringPtrInput
 	CapacityRegion pulumi.StringPtrInput
-	// Creation status of the namespace.
 	CreationStatus pulumi.StringPtrInput
-	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-	IdentityStore pulumi.StringPtrInput
-	// Name of the namespace.
-	//
-	// The following arguments are optional:
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts NamespaceTimeoutsPtrInput
+	IdentityStore  pulumi.StringPtrInput
+	Namespace      pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
+	Timeouts       NamespaceTimeoutsPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -157,34 +90,22 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-	IdentityStore *string `pulumi:"identityStore"`
-	// Name of the namespace.
-	//
-	// The following arguments are optional:
-	Namespace string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string  `pulumi:"tags"`
-	Timeouts *NamespaceTimeouts `pulumi:"timeouts"`
+	AwsAccountId  *string            `pulumi:"awsAccountId"`
+	IdentityStore *string            `pulumi:"identityStore"`
+	Namespace     string             `pulumi:"namespace"`
+	Region        *string            `pulumi:"region"`
+	Tags          map[string]string  `pulumi:"tags"`
+	Timeouts      *NamespaceTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
+	AwsAccountId  pulumi.StringPtrInput
 	IdentityStore pulumi.StringPtrInput
-	// Name of the namespace.
-	//
-	// The following arguments are optional:
-	Namespace pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts NamespaceTimeoutsPtrInput
+	Namespace     pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	Timeouts      NamespaceTimeoutsPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -274,7 +195,6 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
-// ARN of the Namespace.
 func (o NamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -283,39 +203,30 @@ func (o NamespaceOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Namespace AWS Region.
 func (o NamespaceOutput) CapacityRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CapacityRegion }).(pulumi.StringOutput)
 }
 
-// Creation status of the namespace.
 func (o NamespaceOutput) CreationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CreationStatus }).(pulumi.StringOutput)
 }
 
-// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
 func (o NamespaceOutput) IdentityStore() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.IdentityStore }).(pulumi.StringOutput)
 }
 
-// Name of the namespace.
-//
-// The following arguments are optional:
 func (o NamespaceOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NamespaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

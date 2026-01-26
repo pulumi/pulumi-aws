@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class SpaceSpaceSharingSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-        /// </summary>
         [Input("sharingType", required: true)]
         public Input<string> SharingType { get; set; } = null!;
 

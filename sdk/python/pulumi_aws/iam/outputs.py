@@ -35,10 +35,6 @@ class RoleInlinePolicy(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  policy: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the role policy.
-        :param _builtins.str policy: Policy document as a JSON formatted string.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy is not None:
@@ -47,17 +43,11 @@ class RoleInlinePolicy(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the role policy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[_builtins.str]:
-        """
-        Policy document as a JSON formatted string.
-        """
         return pulumi.get(self, "policy")
 
 
@@ -67,11 +57,6 @@ class GetAccessKeysAccessKeyResult(dict):
                  access_key_id: _builtins.str,
                  create_date: _builtins.str,
                  status: _builtins.str):
-        """
-        :param _builtins.str access_key_id: Access key ID.
-        :param _builtins.str create_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-        :param _builtins.str status: Access key status. Possible values are `Active` and `Inactive`.
-        """
         pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "create_date", create_date)
         pulumi.set(__self__, "status", status)
@@ -79,25 +64,16 @@ class GetAccessKeysAccessKeyResult(dict):
     @_builtins.property
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> _builtins.str:
-        """
-        Access key ID.
-        """
         return pulumi.get(self, "access_key_id")
 
     @_builtins.property
     @pulumi.getter(name="createDate")
     def create_date(self) -> _builtins.str:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-        """
         return pulumi.get(self, "create_date")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Access key status. Possible values are `Active` and `Inactive`.
-        """
         return pulumi.get(self, "status")
 
 
@@ -108,12 +84,6 @@ class GetGroupUserResult(dict):
                  path: _builtins.str,
                  user_id: _builtins.str,
                  user_name: _builtins.str):
-        """
-        :param _builtins.str arn: User ARN.
-        :param _builtins.str path: Path to the IAM user.
-        :param _builtins.str user_id: Stable and unique string identifying the IAM user.
-        :param _builtins.str user_name: Name of the IAM user.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "user_id", user_id)
@@ -122,33 +92,21 @@ class GetGroupUserResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        User ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> _builtins.str:
-        """
-        Path to the IAM user.
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
-        """
-        Stable and unique string identifying the IAM user.
-        """
         return pulumi.get(self, "user_id")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> _builtins.str:
-        """
-        Name of the IAM user.
-        """
         return pulumi.get(self, "user_name")
 
 
@@ -164,17 +122,6 @@ class GetPolicyDocumentStatementResult(dict):
                  principals: Optional[Sequence['outputs.GetPolicyDocumentStatementPrincipalResult']] = None,
                  resources: Optional[Sequence[_builtins.str]] = None,
                  sid: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] actions: List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-        :param Sequence['GetPolicyDocumentStatementConditionArgs'] conditions: Configuration block for a condition. Detailed below.
-        :param _builtins.str effect: Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-        :param Sequence[_builtins.str] not_actions: List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-        :param Sequence['GetPolicyDocumentStatementNotPrincipalArgs'] not_principals: Like `principals` except these are principals that the statement does *not* apply to.
-        :param Sequence[_builtins.str] not_resources: List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-        :param Sequence['GetPolicyDocumentStatementPrincipalArgs'] principals: Configuration block for principals. Detailed below.
-        :param Sequence[_builtins.str] resources: List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
-        :param _builtins.str sid: Sid (statement ID) is an identifier for a policy statement.
-        """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if conditions is not None:
@@ -197,73 +144,46 @@ class GetPolicyDocumentStatementResult(dict):
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.GetPolicyDocumentStatementConditionResult']]:
-        """
-        Configuration block for a condition. Detailed below.
-        """
         return pulumi.get(self, "conditions")
 
     @_builtins.property
     @pulumi.getter
     def effect(self) -> Optional[_builtins.str]:
-        """
-        Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-        """
         return pulumi.get(self, "effect")
 
     @_builtins.property
     @pulumi.getter(name="notActions")
     def not_actions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-        """
         return pulumi.get(self, "not_actions")
 
     @_builtins.property
     @pulumi.getter(name="notPrincipals")
     def not_principals(self) -> Optional[Sequence['outputs.GetPolicyDocumentStatementNotPrincipalResult']]:
-        """
-        Like `principals` except these are principals that the statement does *not* apply to.
-        """
         return pulumi.get(self, "not_principals")
 
     @_builtins.property
     @pulumi.getter(name="notResources")
     def not_resources(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-        """
         return pulumi.get(self, "not_resources")
 
     @_builtins.property
     @pulumi.getter
     def principals(self) -> Optional[Sequence['outputs.GetPolicyDocumentStatementPrincipalResult']]:
-        """
-        Configuration block for principals. Detailed below.
-        """
         return pulumi.get(self, "principals")
 
     @_builtins.property
     @pulumi.getter
     def resources(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
-        """
         return pulumi.get(self, "resources")
 
     @_builtins.property
     @pulumi.getter
     def sid(self) -> Optional[_builtins.str]:
-        """
-        Sid (statement ID) is an identifier for a policy statement.
-        """
         return pulumi.get(self, "sid")
 
 
@@ -273,11 +193,6 @@ class GetPolicyDocumentStatementConditionResult(dict):
                  test: _builtins.str,
                  values: Sequence[_builtins.str],
                  variable: _builtins.str):
-        """
-        :param _builtins.str test: Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-        :param Sequence[_builtins.str] values: Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
-        :param _builtins.str variable: Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-        """
         pulumi.set(__self__, "test", test)
         pulumi.set(__self__, "values", values)
         pulumi.set(__self__, "variable", variable)
@@ -285,25 +200,16 @@ class GetPolicyDocumentStatementConditionResult(dict):
     @_builtins.property
     @pulumi.getter
     def test(self) -> _builtins.str:
-        """
-        Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-        """
         return pulumi.get(self, "test")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
-        """
         return pulumi.get(self, "values")
 
     @_builtins.property
     @pulumi.getter
     def variable(self) -> _builtins.str:
-        """
-        Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-        """
         return pulumi.get(self, "variable")
 
 
@@ -312,27 +218,17 @@ class GetPolicyDocumentStatementNotPrincipalResult(dict):
     def __init__(__self__, *,
                  identifiers: Sequence[_builtins.str],
                  type: _builtins.str):
-        """
-        :param Sequence[_builtins.str] identifiers: List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
-        :param _builtins.str type: Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-        """
         pulumi.set(__self__, "identifiers", identifiers)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def identifiers(self) -> Sequence[_builtins.str]:
-        """
-        List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
-        """
         return pulumi.get(self, "identifiers")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -341,27 +237,17 @@ class GetPolicyDocumentStatementPrincipalResult(dict):
     def __init__(__self__, *,
                  identifiers: Sequence[_builtins.str],
                  type: _builtins.str):
-        """
-        :param Sequence[_builtins.str] identifiers: List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
-        :param _builtins.str type: Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-        """
         pulumi.set(__self__, "identifiers", identifiers)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def identifiers(self) -> Sequence[_builtins.str]:
-        """
-        List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
-        """
         return pulumi.get(self, "identifiers")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -372,13 +258,9 @@ class GetPrincipalPolicySimulationContextResult(dict):
                  type: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str key: The context _condition key_ to set.
-               
-               If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
-        :param _builtins.str type: An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-               
-               For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
-        :param Sequence[_builtins.str] values: A set of one or more values for this context entry.
+        :param _builtins.str key: The key name of the context entry, such as "aws:CurrentTime".
+        :param _builtins.str type: The type that the simulator should use to interpret the strings given in argument "values".
+        :param Sequence[_builtins.str] values: One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
@@ -388,9 +270,7 @@ class GetPrincipalPolicySimulationContextResult(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        The context _condition key_ to set.
-
-        If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+        The key name of the context entry, such as "aws:CurrentTime".
         """
         return pulumi.get(self, "key")
 
@@ -398,9 +278,7 @@ class GetPrincipalPolicySimulationContextResult(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-
-        For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+        The type that the simulator should use to interpret the strings given in argument "values".
         """
         return pulumi.get(self, "type")
 
@@ -408,7 +286,7 @@ class GetPrincipalPolicySimulationContextResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        A set of one or more values for this context entry.
+        One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
         """
         return pulumi.get(self, "values")
 
@@ -424,13 +302,13 @@ class GetPrincipalPolicySimulationResultResult(dict):
                  missing_context_keys: Sequence[_builtins.str],
                  resource_arn: _builtins.str):
         """
-        :param _builtins.str action_name: The name of the single IAM action used for this particular request.
-        :param _builtins.bool allowed: `true` if `decision` is "allowed", and `false` otherwise.
-        :param _builtins.str decision: The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
-        :param Mapping[str, _builtins.str] decision_details: A map of arbitrary metadata entries returned by the policy simulator for this request.
-        :param Sequence['GetPrincipalPolicySimulationResultMatchedStatementArgs'] matched_statements: A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
-        :param Sequence[_builtins.str] missing_context_keys: A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
-        :param _builtins.str resource_arn: ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+        :param _builtins.str action_name: The name of the action whose simulation this result is describing.
+        :param _builtins.bool allowed: A summary of attribute "decision" which is true only if the decision is "allowed".
+        :param _builtins.str decision: The exact decision keyword returned by the policy simulator: "allowed", "explicitDeny", or "implicitDeny".
+        :param Mapping[str, _builtins.str] decision_details: A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
+        :param Sequence['GetPrincipalPolicySimulationResultMatchedStatementArgs'] matched_statements: Detail about which specific policies contributed to this result.
+        :param Sequence[_builtins.str] missing_context_keys: Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
+        :param _builtins.str resource_arn: ARN of the resource that the action was tested against.
         """
         pulumi.set(__self__, "action_name", action_name)
         pulumi.set(__self__, "allowed", allowed)
@@ -444,7 +322,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
     @pulumi.getter(name="actionName")
     def action_name(self) -> _builtins.str:
         """
-        The name of the single IAM action used for this particular request.
+        The name of the action whose simulation this result is describing.
         """
         return pulumi.get(self, "action_name")
 
@@ -452,7 +330,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
     @pulumi.getter
     def allowed(self) -> _builtins.bool:
         """
-        `true` if `decision` is "allowed", and `false` otherwise.
+        A summary of attribute "decision" which is true only if the decision is "allowed".
         """
         return pulumi.get(self, "allowed")
 
@@ -460,7 +338,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
     @pulumi.getter
     def decision(self) -> _builtins.str:
         """
-        The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
+        The exact decision keyword returned by the policy simulator: "allowed", "explicitDeny", or "implicitDeny".
         """
         return pulumi.get(self, "decision")
 
@@ -468,7 +346,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
     @pulumi.getter(name="decisionDetails")
     def decision_details(self) -> Mapping[str, _builtins.str]:
         """
-        A map of arbitrary metadata entries returned by the policy simulator for this request.
+        A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
         """
         return pulumi.get(self, "decision_details")
 
@@ -476,7 +354,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
     @pulumi.getter(name="matchedStatements")
     def matched_statements(self) -> Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult']:
         """
-        A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+        Detail about which specific policies contributed to this result.
         """
         return pulumi.get(self, "matched_statements")
 
@@ -484,7 +362,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
     @pulumi.getter(name="missingContextKeys")
     def missing_context_keys(self) -> Sequence[_builtins.str]:
         """
-        A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+        Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
         """
         return pulumi.get(self, "missing_context_keys")
 
@@ -492,7 +370,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
         """
-        ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+        ARN of the resource that the action was tested against.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -531,27 +409,17 @@ class GetRoleRoleLastUsedResult(dict):
     def __init__(__self__, *,
                  last_used_date: _builtins.str,
                  region: _builtins.str):
-        """
-        :param _builtins.str last_used_date: The date and time, in RFC 3339 format, that the role was last used.
-        :param _builtins.str region: The name of the AWS Region in which the role was last used.
-        """
         pulumi.set(__self__, "last_used_date", last_used_date)
         pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter(name="lastUsedDate")
     def last_used_date(self) -> _builtins.str:
-        """
-        The date and time, in RFC 3339 format, that the role was last used.
-        """
         return pulumi.get(self, "last_used_date")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        The name of the AWS Region in which the role was last used.
-        """
         return pulumi.get(self, "region")
 
 

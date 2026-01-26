@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTableOptimizerConfiguration
     {
-        /// <summary>
-        /// Indicates whether the table optimizer is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
-        /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? OrphanFileDeletionConfiguration;
-        /// <summary>
-        /// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
-        /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration? RetentionConfiguration;
-        /// <summary>
-        /// The ARN of the IAM role to use for the table optimizer.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

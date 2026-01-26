@@ -15,32 +15,16 @@ public final class InternetMonitorHealthEventsConfigArgs extends com.pulumi.reso
 
     public static final InternetMonitorHealthEventsConfigArgs Empty = new InternetMonitorHealthEventsConfigArgs();
 
-    /**
-     * The health event threshold percentage set for availability scores.
-     * 
-     */
     @Import(name="availabilityScoreThreshold")
     private @Nullable Output<Double> availabilityScoreThreshold;
 
-    /**
-     * @return The health event threshold percentage set for availability scores.
-     * 
-     */
     public Optional<Output<Double>> availabilityScoreThreshold() {
         return Optional.ofNullable(this.availabilityScoreThreshold);
     }
 
-    /**
-     * The health event threshold percentage set for performance scores.
-     * 
-     */
     @Import(name="performanceScoreThreshold")
     private @Nullable Output<Double> performanceScoreThreshold;
 
-    /**
-     * @return The health event threshold percentage set for performance scores.
-     * 
-     */
     public Optional<Output<Double>> performanceScoreThreshold() {
         return Optional.ofNullable(this.performanceScoreThreshold);
     }
@@ -70,44 +54,20 @@ public final class InternetMonitorHealthEventsConfigArgs extends com.pulumi.reso
             $ = new InternetMonitorHealthEventsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityScoreThreshold The health event threshold percentage set for availability scores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityScoreThreshold(@Nullable Output<Double> availabilityScoreThreshold) {
             $.availabilityScoreThreshold = availabilityScoreThreshold;
             return this;
         }
 
-        /**
-         * @param availabilityScoreThreshold The health event threshold percentage set for availability scores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityScoreThreshold(Double availabilityScoreThreshold) {
             return availabilityScoreThreshold(Output.of(availabilityScoreThreshold));
         }
 
-        /**
-         * @param performanceScoreThreshold The health event threshold percentage set for performance scores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder performanceScoreThreshold(@Nullable Output<Double> performanceScoreThreshold) {
             $.performanceScoreThreshold = performanceScoreThreshold;
             return this;
         }
 
-        /**
-         * @param performanceScoreThreshold The health event threshold percentage set for performance scores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder performanceScoreThreshold(Double performanceScoreThreshold) {
             return performanceScoreThreshold(Output.of(performanceScoreThreshold));
         }

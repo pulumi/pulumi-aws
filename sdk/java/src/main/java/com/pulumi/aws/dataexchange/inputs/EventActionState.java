@@ -17,96 +17,44 @@ public final class EventActionState extends com.pulumi.resources.ResourceArgs {
 
     public static final EventActionState Empty = new EventActionState();
 
-    /**
-     * Describes the action to take.
-     * Described in `action` Configuration Block below.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<EventActionActionArgs> action;
 
-    /**
-     * @return Describes the action to take.
-     * Described in `action` Configuration Block below.
-     * 
-     */
     public Optional<Output<EventActionActionArgs>> action() {
         return Optional.ofNullable(this.action);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the event action.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the event action.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Date and time when the resource was created.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return Date and time when the resource was created.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     * 
-     */
     @Import(name="event")
     private @Nullable Output<EventActionEventArgs> event;
 
-    /**
-     * @return Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     * 
-     */
     public Optional<Output<EventActionEventArgs>> event() {
         return Optional.ofNullable(this.event);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Data and time when the resource was last updated.
-     * 
-     */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
-    /**
-     * @return Data and time when the resource was last updated.
-     * 
-     */
     public Optional<Output<String>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
@@ -140,132 +88,56 @@ public final class EventActionState extends com.pulumi.resources.ResourceArgs {
             $ = new EventActionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Describes the action to take.
-         * Described in `action` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<EventActionActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Describes the action to take.
-         * Described in `action` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(EventActionActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the event action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the event action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param createdAt Date and time when the resource was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt Date and time when the resource was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param event Describes the event that triggers the `action`.
-         * Described in `event` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder event(@Nullable Output<EventActionEventArgs> event) {
             $.event = event;
             return this;
         }
 
-        /**
-         * @param event Describes the event that triggers the `action`.
-         * Described in `event` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder event(EventActionEventArgs event) {
             return event(Output.of(event));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param updatedAt Data and time when the resource was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(@Nullable Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
-        /**
-         * @param updatedAt Data and time when the resource was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

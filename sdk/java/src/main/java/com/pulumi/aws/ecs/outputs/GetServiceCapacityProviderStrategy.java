@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceCapacityProviderStrategy {
-    /**
-     * @return Number of tasks using the specified capacity provider
-     * 
-     */
     private Integer base;
-    /**
-     * @return Name of the capacity provider
-     * 
-     */
     private String capacityProvider;
-    /**
-     * @return Relative percentage of total tasks to launch
-     * 
-     */
     private Integer weight;
 
     private GetServiceCapacityProviderStrategy() {}
-    /**
-     * @return Number of tasks using the specified capacity provider
-     * 
-     */
     public Integer base() {
         return this.base;
     }
-    /**
-     * @return Name of the capacity provider
-     * 
-     */
     public String capacityProvider() {
         return this.capacityProvider;
     }
-    /**
-     * @return Relative percentage of total tasks to launch
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }

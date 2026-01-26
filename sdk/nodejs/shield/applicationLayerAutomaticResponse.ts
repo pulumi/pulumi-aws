@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const currentGetCallerIdentity = aws.getCallerIdentity({});
- * const currentGetPartition = aws.getPartition({});
- * const config = new pulumi.Config();
- * // The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
- * const distributionId = config.require("distributionId");
- * const example = new aws.shield.ApplicationLayerAutomaticResponse("example", {
- *     resourceArn: Promise.all([currentGetPartition, currentGetCallerIdentity]).then(([currentGetPartition, currentGetCallerIdentity]) => `arn:${currentGetPartition.partition}:cloudfront:${currentGetCallerIdentity.accountId}:distribution/${distributionId}`),
- *     action: "COUNT",
- * });
- * ```
- */
 export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
     /**
      * Get an existing ApplicationLayerAutomaticResponse resource's state with the given name, ID, and optional extra
@@ -58,13 +35,7 @@ export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationLayerAutomaticResponse.__pulumiType;
     }
 
-    /**
-     * One of `COUNT` or `BLOCK`
-     */
     declare public readonly action: pulumi.Output<string>;
-    /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
 
@@ -105,13 +76,7 @@ export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApplicationLayerAutomaticResponse resources.
  */
 export interface ApplicationLayerAutomaticResponseState {
-    /**
-     * One of `COUNT` or `BLOCK`
-     */
     action?: pulumi.Input<string>;
-    /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-     */
     resourceArn?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts>;
 }
@@ -120,13 +85,7 @@ export interface ApplicationLayerAutomaticResponseState {
  * The set of arguments for constructing a ApplicationLayerAutomaticResponse resource.
  */
 export interface ApplicationLayerAutomaticResponseArgs {
-    /**
-     * One of `COUNT` or `BLOCK`
-     */
     action: pulumi.Input<string>;
-    /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-     */
     resourceArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts>;
 }

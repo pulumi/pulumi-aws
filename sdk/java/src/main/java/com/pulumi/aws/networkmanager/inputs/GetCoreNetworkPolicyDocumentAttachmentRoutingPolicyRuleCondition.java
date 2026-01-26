@@ -13,32 +13,16 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondit
 
     public static final GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition Empty = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition();
 
-    /**
-     * Must be `routing-policy-label`.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Must be `routing-policy-label`.
-     * 
-     */
     public String type() {
         return this.type;
     }
 
-    /**
-     * Routing policy label to match.
-     * 
-     */
     @Import(name="value", required=true)
     private String value;
 
-    /**
-     * @return Routing policy label to match.
-     * 
-     */
     public String value() {
         return this.value;
     }
@@ -68,23 +52,11 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondit
             $ = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Must be `routing-policy-label`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param value Routing policy label to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             $.value = value;
             return this;

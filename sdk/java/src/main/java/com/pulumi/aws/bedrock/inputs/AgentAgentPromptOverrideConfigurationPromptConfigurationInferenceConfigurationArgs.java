@@ -17,77 +17,37 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationInfer
 
     public static final AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs Empty = new AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs();
 
-    /**
-     * Maximum number of tokens to allow in the generated response.
-     * 
-     */
     @Import(name="maxLength", required=true)
     private Output<Integer> maxLength;
 
-    /**
-     * @return Maximum number of tokens to allow in the generated response.
-     * 
-     */
     public Output<Integer> maxLength() {
         return this.maxLength;
     }
 
-    /**
-     * List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-     * 
-     */
     @Import(name="stopSequences", required=true)
     private Output<List<String>> stopSequences;
 
-    /**
-     * @return List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-     * 
-     */
     public Output<List<String>> stopSequences() {
         return this.stopSequences;
     }
 
-    /**
-     * Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-     * 
-     */
     @Import(name="temperature", required=true)
     private Output<Double> temperature;
 
-    /**
-     * @return Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-     * 
-     */
     public Output<Double> temperature() {
         return this.temperature;
     }
 
-    /**
-     * Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-     * 
-     */
     @Import(name="topK", required=true)
     private Output<Integer> topK;
 
-    /**
-     * @return Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-     * 
-     */
     public Output<Integer> topK() {
         return this.topK;
     }
 
-    /**
-     * Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-     * 
-     */
     @Import(name="topP", required=true)
     private Output<Double> topP;
 
-    /**
-     * @return Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-     * 
-     */
     public Output<Double> topP() {
         return this.topP;
     }
@@ -120,117 +80,51 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationInfer
             $ = new AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxLength Maximum number of tokens to allow in the generated response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLength(Output<Integer> maxLength) {
             $.maxLength = maxLength;
             return this;
         }
 
-        /**
-         * @param maxLength Maximum number of tokens to allow in the generated response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLength(Integer maxLength) {
             return maxLength(Output.of(maxLength));
         }
 
-        /**
-         * @param stopSequences List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stopSequences(Output<List<String>> stopSequences) {
             $.stopSequences = stopSequences;
             return this;
         }
 
-        /**
-         * @param stopSequences List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stopSequences(List<String> stopSequences) {
             return stopSequences(Output.of(stopSequences));
         }
 
-        /**
-         * @param stopSequences List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stopSequences(String... stopSequences) {
             return stopSequences(List.of(stopSequences));
         }
 
-        /**
-         * @param temperature Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder temperature(Output<Double> temperature) {
             $.temperature = temperature;
             return this;
         }
 
-        /**
-         * @param temperature Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder temperature(Double temperature) {
             return temperature(Output.of(temperature));
         }
 
-        /**
-         * @param topK Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topK(Output<Integer> topK) {
             $.topK = topK;
             return this;
         }
 
-        /**
-         * @param topK Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topK(Integer topK) {
             return topK(Output.of(topK));
         }
 
-        /**
-         * @param topP Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topP(Output<Double> topP) {
             $.topP = topP;
             return this;
         }
 
-        /**
-         * @param topP Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topP(Double topP) {
             return topP(Output.of(topP));
         }

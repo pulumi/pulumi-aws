@@ -17,222 +17,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an Amazon CloudFront Connection Group.
- * 
- * For information about CloudFront Connection Groups, see the [AWS CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.ConnectionGroup;
- * import com.pulumi.aws.cloudfront.ConnectionGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ConnectionGroup("example", ConnectionGroupArgs.builder()
- *             .name("example")
- *             .enabled(true)
- *             .ipv6Enabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudFront Connection Groups using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/connectionGroup:ConnectionGroup")
 public class ConnectionGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     * 
-     */
     @Export(name="anycastIpListId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> anycastIpListId;
 
-    /**
-     * @return ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     * 
-     */
     public Output<Optional<String>> anycastIpListId() {
         return Codegen.optional(this.anycastIpListId);
     }
-    /**
-     * ARN of the connection group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the connection group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether the connection group is enabled. Default is `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether the connection group is enabled. Default is `true`.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * Current version of the connection group.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return Current version of the connection group.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Whether IPv6 is enabled for the connection group. Default is `false`.
-     * 
-     */
     @Export(name="ipv6Enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> ipv6Enabled;
 
-    /**
-     * @return Whether IPv6 is enabled for the connection group. Default is `false`.
-     * 
-     */
     public Output<Boolean> ipv6Enabled() {
         return this.ipv6Enabled;
     }
-    /**
-     * Whether the connection group is the default connection group for the distribution tenants.
-     * 
-     */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
-    /**
-     * @return Whether the connection group is the default connection group for the distribution tenants.
-     * 
-     */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
-    /**
-     * Date and time when the connection group was last modified.
-     * 
-     */
     @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedTime;
 
-    /**
-     * @return Date and time when the connection group was last modified.
-     * 
-     */
     public Output<String> lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * Name of the connection group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the connection group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-     * 
-     */
     @Export(name="routingEndpoint", refs={String.class}, tree="[0]")
     private Output<String> routingEndpoint;
 
-    /**
-     * @return The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-     * 
-     */
     public Output<String> routingEndpoint() {
         return this.routingEndpoint;
     }
-    /**
-     * Current status of the connection group.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Current status of the connection group.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

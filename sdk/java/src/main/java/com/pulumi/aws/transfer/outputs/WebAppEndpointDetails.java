@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAppEndpointDetails {
-    /**
-     * @return Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
-     * 
-     */
     private @Nullable WebAppEndpointDetailsVpc vpc;
 
     private WebAppEndpointDetails() {}
-    /**
-     * @return Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
-     * 
-     */
     public Optional<WebAppEndpointDetailsVpc> vpc() {
         return Optional.ofNullable(this.vpc);
     }

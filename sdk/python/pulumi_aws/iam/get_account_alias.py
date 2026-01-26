@@ -37,9 +37,6 @@ class GetAccountAliasResult:
     @_builtins.property
     @pulumi.getter(name="accountAlias")
     def account_alias(self) -> _builtins.str:
-        """
-        Alias associated with the AWS account.
-        """
         return pulumi.get(self, "account_alias")
 
     @_builtins.property
@@ -63,18 +60,7 @@ class AwaitableGetAccountAliasResult(GetAccountAliasResult):
 
 def get_account_alias(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountAliasResult:
     """
-    The IAM Account Alias data source allows access to the account alias
-    for the effective account in which this provider is working.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.iam.get_account_alias()
-    pulumi.export("accountAlias", current.account_alias)
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -85,18 +71,7 @@ def get_account_alias(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
         id=pulumi.get(__ret__, 'id'))
 def get_account_alias_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountAliasResult]:
     """
-    The IAM Account Alias data source allows access to the account alias
-    for the effective account in which this provider is working.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.iam.get_account_alias()
-    pulumi.export("accountAlias", current.account_alias)
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

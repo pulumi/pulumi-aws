@@ -14,17 +14,9 @@ public final class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigur
 
     public static final MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs();
 
-    /**
-     * SQS queue to deliver results.
-     * 
-     */
     @Import(name="insightsTarget", required=true)
     private Output<String> insightsTarget;
 
-    /**
-     * @return SQS queue to deliver results.
-     * 
-     */
     public Output<String> insightsTarget() {
         return this.insightsTarget;
     }
@@ -53,23 +45,11 @@ public final class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigur
             $ = new MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insightsTarget SQS queue to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(Output<String> insightsTarget) {
             $.insightsTarget = insightsTarget;
             return this;
         }
 
-        /**
-         * @param insightsTarget SQS queue to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(String insightsTarget) {
             return insightsTarget(Output.of(insightsTarget));
         }

@@ -16,32 +16,16 @@ public final class TriggerEventBatchingConditionArgs extends com.pulumi.resource
 
     public static final TriggerEventBatchingConditionArgs Empty = new TriggerEventBatchingConditionArgs();
 
-    /**
-     * Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
-     * 
-     */
     @Import(name="batchSize", required=true)
     private Output<Integer> batchSize;
 
-    /**
-     * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
-     * 
-     */
     public Output<Integer> batchSize() {
         return this.batchSize;
     }
 
-    /**
-     * Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
-     * 
-     */
     @Import(name="batchWindow")
     private @Nullable Output<Integer> batchWindow;
 
-    /**
-     * @return Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
-     * 
-     */
     public Optional<Output<Integer>> batchWindow() {
         return Optional.ofNullable(this.batchWindow);
     }
@@ -71,44 +55,20 @@ public final class TriggerEventBatchingConditionArgs extends com.pulumi.resource
             $ = new TriggerEventBatchingConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param batchSize Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchSize(Output<Integer> batchSize) {
             $.batchSize = batchSize;
             return this;
         }
 
-        /**
-         * @param batchSize Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchSize(Integer batchSize) {
             return batchSize(Output.of(batchSize));
         }
 
-        /**
-         * @param batchWindow Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchWindow(@Nullable Output<Integer> batchWindow) {
             $.batchWindow = batchWindow;
             return this;
         }
 
-        /**
-         * @param batchWindow Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchWindow(Integer batchWindow) {
             return batchWindow(Output.of(batchWindow));
         }

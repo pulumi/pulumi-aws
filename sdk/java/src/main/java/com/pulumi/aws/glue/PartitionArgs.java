@@ -19,92 +19,44 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PartitionArgs Empty = new PartitionArgs();
 
-    /**
-     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Properties associated with this table, as a list of key-value pairs.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
-    /**
-     * @return Properties associated with this table, as a list of key-value pairs.
-     * 
-     */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * The values that define the partition.
-     * 
-     */
     @Import(name="partitionValues", required=true)
     private Output<List<String>> partitionValues;
 
-    /**
-     * @return The values that define the partition.
-     * 
-     */
     public Output<List<String>> partitionValues() {
         return this.partitionValues;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-     * 
-     */
     @Import(name="storageDescriptor")
     private @Nullable Output<PartitionStorageDescriptorArgs> storageDescriptor;
 
-    /**
-     * @return A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-     * 
-     */
     public Optional<Output<PartitionStorageDescriptorArgs>> storageDescriptor() {
         return Optional.ofNullable(this.storageDescriptor);
     }
@@ -146,138 +98,60 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PartitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param parameters Properties associated with this table, as a list of key-value pairs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Properties associated with this table, as a list of key-value pairs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param partitionValues The values that define the partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionValues(Output<List<String>> partitionValues) {
             $.partitionValues = partitionValues;
             return this;
         }
 
-        /**
-         * @param partitionValues The values that define the partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionValues(List<String> partitionValues) {
             return partitionValues(Output.of(partitionValues));
         }
 
-        /**
-         * @param partitionValues The values that define the partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionValues(String... partitionValues) {
             return partitionValues(List.of(partitionValues));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param storageDescriptor A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageDescriptor(@Nullable Output<PartitionStorageDescriptorArgs> storageDescriptor) {
             $.storageDescriptor = storageDescriptor;
             return this;
         }
 
-        /**
-         * @param storageDescriptor A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageDescriptor(PartitionStorageDescriptorArgs storageDescriptor) {
             return storageDescriptor(Output.of(storageDescriptor));
         }

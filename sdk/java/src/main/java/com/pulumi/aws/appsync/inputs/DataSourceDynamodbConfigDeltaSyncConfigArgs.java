@@ -17,47 +17,23 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
 
     public static final DataSourceDynamodbConfigDeltaSyncConfigArgs Empty = new DataSourceDynamodbConfigDeltaSyncConfigArgs();
 
-    /**
-     * The number of minutes that an Item is stored in the data source.
-     * 
-     */
     @Import(name="baseTableTtl")
     private @Nullable Output<Integer> baseTableTtl;
 
-    /**
-     * @return The number of minutes that an Item is stored in the data source.
-     * 
-     */
     public Optional<Output<Integer>> baseTableTtl() {
         return Optional.ofNullable(this.baseTableTtl);
     }
 
-    /**
-     * The table name.
-     * 
-     */
     @Import(name="deltaSyncTableName", required=true)
     private Output<String> deltaSyncTableName;
 
-    /**
-     * @return The table name.
-     * 
-     */
     public Output<String> deltaSyncTableName() {
         return this.deltaSyncTableName;
     }
 
-    /**
-     * The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-     * 
-     */
     @Import(name="deltaSyncTableTtl")
     private @Nullable Output<Integer> deltaSyncTableTtl;
 
-    /**
-     * @return The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-     * 
-     */
     public Optional<Output<Integer>> deltaSyncTableTtl() {
         return Optional.ofNullable(this.deltaSyncTableTtl);
     }
@@ -88,65 +64,29 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
             $ = new DataSourceDynamodbConfigDeltaSyncConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baseTableTtl The number of minutes that an Item is stored in the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseTableTtl(@Nullable Output<Integer> baseTableTtl) {
             $.baseTableTtl = baseTableTtl;
             return this;
         }
 
-        /**
-         * @param baseTableTtl The number of minutes that an Item is stored in the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseTableTtl(Integer baseTableTtl) {
             return baseTableTtl(Output.of(baseTableTtl));
         }
 
-        /**
-         * @param deltaSyncTableName The table name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deltaSyncTableName(Output<String> deltaSyncTableName) {
             $.deltaSyncTableName = deltaSyncTableName;
             return this;
         }
 
-        /**
-         * @param deltaSyncTableName The table name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deltaSyncTableName(String deltaSyncTableName) {
             return deltaSyncTableName(Output.of(deltaSyncTableName));
         }
 
-        /**
-         * @param deltaSyncTableTtl The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deltaSyncTableTtl(@Nullable Output<Integer> deltaSyncTableTtl) {
             $.deltaSyncTableTtl = deltaSyncTableTtl;
             return this;
         }
 
-        /**
-         * @param deltaSyncTableTtl The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deltaSyncTableTtl(Integer deltaSyncTableTtl) {
             return deltaSyncTableTtl(Output.of(deltaSyncTableTtl));
         }

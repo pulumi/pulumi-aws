@@ -17,62 +17,30 @@ public final class BillingGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BillingGroupArgs Empty = new BillingGroupArgs();
 
-    /**
-     * The name of the Billing Group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Billing Group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The Billing Group properties. Defined below.
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<BillingGroupPropertiesArgs> properties;
 
-    /**
-     * @return The Billing Group properties. Defined below.
-     * 
-     */
     public Optional<Output<BillingGroupPropertiesArgs>> properties() {
         return Optional.ofNullable(this.properties);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class BillingGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BillingGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the Billing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Billing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param properties The Billing Group properties. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<BillingGroupPropertiesArgs> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties The Billing Group properties. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(BillingGroupPropertiesArgs properties) {
             return properties(Output.of(properties));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

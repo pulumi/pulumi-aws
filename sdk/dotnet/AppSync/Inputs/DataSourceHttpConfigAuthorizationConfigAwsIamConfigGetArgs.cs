@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceHttpConfigAuthorizationConfigAwsIamConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Signing Amazon Web Services Region for IAM authorization.
-        /// </summary>
         [Input("signingRegion")]
         public Input<string>? SigningRegion { get; set; }
 
-        /// <summary>
-        /// Signing service name for IAM authorization.
-        /// </summary>
         [Input("signingServiceName")]
         public Input<string>? SigningServiceName { get; set; }
 

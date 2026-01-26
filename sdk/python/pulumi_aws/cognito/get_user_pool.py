@@ -120,44 +120,26 @@ class GetUserPoolResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the User Pool.
-        * account_recovery_setting - The available verified method a user can use to recover their password when they call ForgotPassword. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
-        * admin_create_user_config - The configuration for AdminCreateUser requests.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> Sequence[_builtins.str]:
-        """
-        The attributes that are auto-verified in a user pool.
-        """
         return pulumi.get(self, "auto_verified_attributes")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> _builtins.str:
-        """
-        The date and time, in ISO 8601 format, when the item was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter(name="customDomain")
     def custom_domain(self) -> _builtins.str:
-        """
-        A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. An example of a custom domain name might be auth.example.com.
-        """
         return pulumi.get(self, "custom_domain")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> _builtins.str:
-        """
-        When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.
-        * device_configuration - The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
@@ -168,10 +150,6 @@ class GetUserPoolResult:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
-        """
-        The domain prefix, if the user pool has a domain associated with it.
-        * email_configuration - The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
@@ -182,10 +160,6 @@ class GetUserPoolResult:
     @_builtins.property
     @pulumi.getter(name="estimatedNumberOfUsers")
     def estimated_number_of_users(self) -> _builtins.int:
-        """
-        A number estimating the size of the user pool.
-        * lambda_config - The AWS Lambda triggers associated with the user pool.
-        """
         return pulumi.get(self, "estimated_number_of_users")
 
     @_builtins.property
@@ -201,25 +175,16 @@ class GetUserPoolResult:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> _builtins.str:
-        """
-        The date and time, in ISO 8601 format, when the item was modified.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> _builtins.str:
-        """
-        Can be one of the following values: `OFF` | `ON` | `OPTIONAL`
-        """
         return pulumi.get(self, "mfa_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        - Name of the attribute.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -235,34 +200,21 @@ class GetUserPoolResult:
     @_builtins.property
     @pulumi.getter(name="smsAuthenticationMessage")
     def sms_authentication_message(self) -> _builtins.str:
-        """
-        The contents of the SMS authentication message.
-        """
         return pulumi.get(self, "sms_authentication_message")
 
     @_builtins.property
     @pulumi.getter(name="smsConfigurationFailure")
     def sms_configuration_failure(self) -> _builtins.str:
-        """
-        The reason why the SMS configuration can't send the messages to your users.
-        """
         return pulumi.get(self, "sms_configuration_failure")
 
     @_builtins.property
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> _builtins.str:
-        """
-        The contents of the SMS authentication message.
-        """
         return pulumi.get(self, "sms_verification_message")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        * user_pool_add_ons - The user pool add-ons configuration.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -279,17 +231,11 @@ class GetUserPoolResult:
     @pulumi.getter(name="userPoolTags")
     @_utilities.deprecated("""Use the attribute \"tags\" instead""")
     def user_pool_tags(self) -> Mapping[str, _builtins.str]:
-        """
-        (Deprecated) Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "user_pool_tags")
 
     @_builtins.property
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> Sequence[_builtins.str]:
-        """
-        Specifies whether a user can use an email address or phone number as a username when they sign up.
-        """
         return pulumi.get(self, "username_attributes")
 
 
@@ -331,22 +277,7 @@ def get_user_pool(region: Optional[_builtins.str] = None,
                   user_pool_id: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolResult:
     """
-    Data source for managing an AWS Cognito User Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_user_pool(user_pool_id="us-west-2_aaaaaaaaa")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: The cognito pool ID
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -385,22 +316,7 @@ def get_user_pool_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
                          user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResult]:
     """
-    Data source for managing an AWS Cognito User Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_user_pool(user_pool_id="us-west-2_aaaaaaaaa")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: The cognito pool ID
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

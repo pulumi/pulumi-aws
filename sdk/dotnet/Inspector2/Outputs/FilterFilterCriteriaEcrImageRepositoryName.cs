@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Inspector2.Outputs
     [OutputType]
     public sealed class FilterFilterCriteriaEcrImageRepositoryName
     {
-        /// <summary>
-        /// (Required) The comparison operator. Valid values: `EQUALS`.
-        /// </summary>
         public readonly string Comparison;
-        /// <summary>
-        /// (Required) The value to filter on.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

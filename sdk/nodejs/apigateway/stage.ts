@@ -9,37 +9,6 @@ import * as utilities from "../utilities";
 
 import {Deployment, RestApi} from "./index";
 
-/**
- * Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
- *
- * ### Managing the API Logging CloudWatch Log Group
- *
- * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const stageName = config.get("stageName") || "example";
- * const example = new aws.apigateway.RestApi("example", {});
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     name: pulumi.interpolate`API-Gateway-Execution-Logs_${example.id}/${stageName}`,
- *     retentionInDays: 7,
- * });
- * const exampleStage = new aws.apigateway.Stage("example", {stageName: stageName}, {
- *     dependsOn: [exampleLogGroup],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
- * ```
- */
 export class Stage extends pulumi.CustomResource {
     /**
      * Get an existing Stage resource's state with the given name, ID, and optional extra
@@ -68,84 +37,24 @@ export class Stage extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stage.__pulumiType;
     }
 
-    /**
-     * Enables access logs for the API stage. See Access Log Settings below.
-     */
     declare public readonly accessLogSettings: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
-    /**
-     * ARN
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether a cache cluster is enabled for the stage
-     */
     declare public readonly cacheClusterEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-     */
     declare public readonly cacheClusterSize: pulumi.Output<string | undefined>;
-    /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
-     */
     declare public readonly canarySettings: pulumi.Output<outputs.apigateway.StageCanarySettings | undefined>;
-    /**
-     * Identifier of a client certificate for the stage.
-     */
     declare public readonly clientCertificateId: pulumi.Output<string | undefined>;
-    /**
-     * ID of the deployment that the stage points to
-     */
     declare public readonly deployment: pulumi.Output<string>;
-    /**
-     * Description of the stage.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Version of the associated API documentation.
-     */
     declare public readonly documentationVersion: pulumi.Output<string | undefined>;
-    /**
-     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-     */
     declare public /*out*/ readonly executionArn: pulumi.Output<string>;
-    /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-     */
     declare public /*out*/ readonly invokeUrl: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the associated REST API
-     */
     declare public readonly restApi: pulumi.Output<string>;
-    /**
-     * Name of the stage
-     */
     declare public readonly stageName: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Map that defines the stage variables.
-     */
     declare public readonly variables: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * ARN of the WebAcl associated with the Stage.
-     */
     declare public /*out*/ readonly webAclArn: pulumi.Output<string>;
-    /**
-     * Whether active tracing with X-ray is enabled. Defaults to `false`.
-     */
     declare public readonly xrayTracingEnabled: pulumi.Output<boolean | undefined>;
 
     /**
@@ -220,84 +129,24 @@ export class Stage extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Stage resources.
  */
 export interface StageState {
-    /**
-     * Enables access logs for the API stage. See Access Log Settings below.
-     */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
-    /**
-     * ARN
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether a cache cluster is enabled for the stage
-     */
     cacheClusterEnabled?: pulumi.Input<boolean>;
-    /**
-     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-     */
     cacheClusterSize?: pulumi.Input<string>;
-    /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
-     */
     canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
-    /**
-     * Identifier of a client certificate for the stage.
-     */
     clientCertificateId?: pulumi.Input<string>;
-    /**
-     * ID of the deployment that the stage points to
-     */
     deployment?: pulumi.Input<string | Deployment>;
-    /**
-     * Description of the stage.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Version of the associated API documentation.
-     */
     documentationVersion?: pulumi.Input<string>;
-    /**
-     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-     */
     executionArn?: pulumi.Input<string>;
-    /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-     */
     invokeUrl?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the associated REST API
-     */
     restApi?: pulumi.Input<string | RestApi>;
-    /**
-     * Name of the stage
-     */
     stageName?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map that defines the stage variables.
-     */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the WebAcl associated with the Stage.
-     */
     webAclArn?: pulumi.Input<string>;
-    /**
-     * Whether active tracing with X-ray is enabled. Defaults to `false`.
-     */
     xrayTracingEnabled?: pulumi.Input<boolean>;
 }
 
@@ -305,60 +154,18 @@ export interface StageState {
  * The set of arguments for constructing a Stage resource.
  */
 export interface StageArgs {
-    /**
-     * Enables access logs for the API stage. See Access Log Settings below.
-     */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
-    /**
-     * Whether a cache cluster is enabled for the stage
-     */
     cacheClusterEnabled?: pulumi.Input<boolean>;
-    /**
-     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-     */
     cacheClusterSize?: pulumi.Input<string>;
-    /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
-     */
     canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
-    /**
-     * Identifier of a client certificate for the stage.
-     */
     clientCertificateId?: pulumi.Input<string>;
-    /**
-     * ID of the deployment that the stage points to
-     */
     deployment: pulumi.Input<string | Deployment>;
-    /**
-     * Description of the stage.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Version of the associated API documentation.
-     */
     documentationVersion?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the associated REST API
-     */
     restApi: pulumi.Input<string | RestApi>;
-    /**
-     * Name of the stage
-     */
     stageName: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map that defines the stage variables.
-     */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whether active tracing with X-ray is enabled. Defaults to `false`.
-     */
     xrayTracingEnabled?: pulumi.Input<boolean>;
 }

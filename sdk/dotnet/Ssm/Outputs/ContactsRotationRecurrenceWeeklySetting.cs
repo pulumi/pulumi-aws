@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class ContactsRotationRecurrenceWeeklySetting
     {
-        /// <summary>
-        /// (Required) The day of the week when the shift coverage occurs.
-        /// </summary>
         public readonly string DayOfWeek;
-        /// <summary>
-        /// (Required) The hand off time. See Hand Off Time for more details.
-        /// </summary>
         public readonly Outputs.ContactsRotationRecurrenceWeeklySettingHandOffTime? HandOffTime;
 
         [OutputConstructor]

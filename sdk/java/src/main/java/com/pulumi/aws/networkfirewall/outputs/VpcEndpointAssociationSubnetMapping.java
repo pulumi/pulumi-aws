@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcEndpointAssociationSubnetMapping {
-    /**
-     * @return The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
-     * 
-     */
     private @Nullable String ipAddressType;
-    /**
-     * @return The unique identifier for the subnet.
-     * 
-     */
     private String subnetId;
 
     private VpcEndpointAssociationSubnetMapping() {}
-    /**
-     * @return The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
-     * 
-     */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
-    /**
-     * @return The unique identifier for the subnet.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

@@ -14,13 +14,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     public sealed class UserAuthenticationMode
     {
         public readonly int? PasswordCount;
-        /// <summary>
-        /// Specifies the passwords to use for authentication if `Type` is set to `Password`.
-        /// </summary>
         public readonly ImmutableArray<string> Passwords;
-        /// <summary>
-        /// Specifies the authentication type. Possible options are: `Password`, `no-password-required` or `Iam`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

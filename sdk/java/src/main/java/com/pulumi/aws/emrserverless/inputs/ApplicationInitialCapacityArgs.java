@@ -17,32 +17,16 @@ public final class ApplicationInitialCapacityArgs extends com.pulumi.resources.R
 
     public static final ApplicationInitialCapacityArgs Empty = new ApplicationInitialCapacityArgs();
 
-    /**
-     * The initial capacity configuration per worker.
-     * 
-     */
     @Import(name="initialCapacityConfig")
     private @Nullable Output<ApplicationInitialCapacityInitialCapacityConfigArgs> initialCapacityConfig;
 
-    /**
-     * @return The initial capacity configuration per worker.
-     * 
-     */
     public Optional<Output<ApplicationInitialCapacityInitialCapacityConfigArgs>> initialCapacityConfig() {
         return Optional.ofNullable(this.initialCapacityConfig);
     }
 
-    /**
-     * The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-     * 
-     */
     @Import(name="initialCapacityType", required=true)
     private Output<String> initialCapacityType;
 
-    /**
-     * @return The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-     * 
-     */
     public Output<String> initialCapacityType() {
         return this.initialCapacityType;
     }
@@ -72,44 +56,20 @@ public final class ApplicationInitialCapacityArgs extends com.pulumi.resources.R
             $ = new ApplicationInitialCapacityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param initialCapacityConfig The initial capacity configuration per worker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialCapacityConfig(@Nullable Output<ApplicationInitialCapacityInitialCapacityConfigArgs> initialCapacityConfig) {
             $.initialCapacityConfig = initialCapacityConfig;
             return this;
         }
 
-        /**
-         * @param initialCapacityConfig The initial capacity configuration per worker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialCapacityConfig(ApplicationInitialCapacityInitialCapacityConfigArgs initialCapacityConfig) {
             return initialCapacityConfig(Output.of(initialCapacityConfig));
         }
 
-        /**
-         * @param initialCapacityType The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialCapacityType(Output<String> initialCapacityType) {
             $.initialCapacityType = initialCapacityType;
             return this;
         }
 
-        /**
-         * @param initialCapacityType The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialCapacityType(String initialCapacityType) {
             return initialCapacityType(Output.of(initialCapacityType));
         }

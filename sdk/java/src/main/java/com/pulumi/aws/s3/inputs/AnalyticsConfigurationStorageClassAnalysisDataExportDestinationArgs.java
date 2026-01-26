@@ -14,17 +14,9 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
 
     public static final AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs Empty = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs();
 
-    /**
-     * Analytics data export currently only supports an S3 bucket destination (documented below).
-     * 
-     */
     @Import(name="s3BucketDestination", required=true)
     private Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs> s3BucketDestination;
 
-    /**
-     * @return Analytics data export currently only supports an S3 bucket destination (documented below).
-     * 
-     */
     public Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs> s3BucketDestination() {
         return this.s3BucketDestination;
     }
@@ -53,23 +45,11 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
             $ = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3BucketDestination Analytics data export currently only supports an S3 bucket destination (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketDestination(Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs> s3BucketDestination) {
             $.s3BucketDestination = s3BucketDestination;
             return this;
         }
 
-        /**
-         * @param s3BucketDestination Analytics data export currently only supports an S3 bucket destination (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketDestination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs s3BucketDestination) {
             return s3BucketDestination(Output.of(s3BucketDestination));
         }

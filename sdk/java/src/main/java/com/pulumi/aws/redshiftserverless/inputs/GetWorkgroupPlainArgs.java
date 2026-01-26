@@ -15,32 +15,16 @@ public final class GetWorkgroupPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetWorkgroupPlainArgs Empty = new GetWorkgroupPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the workgroup associated with the database.
-     * 
-     */
     @Import(name="workgroupName", required=true)
     private String workgroupName;
 
-    /**
-     * @return The name of the workgroup associated with the database.
-     * 
-     */
     public String workgroupName() {
         return this.workgroupName;
     }
@@ -70,23 +54,11 @@ public final class GetWorkgroupPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetWorkgroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param workgroupName The name of the workgroup associated with the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupName(String workgroupName) {
             $.workgroupName = workgroupName;
             return this;

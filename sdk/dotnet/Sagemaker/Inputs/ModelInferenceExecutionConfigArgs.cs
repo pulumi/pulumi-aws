@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class ModelInferenceExecutionConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-        /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 

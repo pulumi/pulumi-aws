@@ -16,17 +16,9 @@ public final class GetListenerRuleConditionQueryStringArgs extends com.pulumi.re
 
     public static final GetListenerRuleConditionQueryStringArgs Empty = new GetListenerRuleConditionQueryStringArgs();
 
-    /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     @Import(name="values")
     private @Nullable Output<List<GetListenerRuleConditionQueryStringValueArgs>> values;
 
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public Optional<Output<List<GetListenerRuleConditionQueryStringValueArgs>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -55,33 +47,15 @@ public final class GetListenerRuleConditionQueryStringArgs extends com.pulumi.re
             $ = new GetListenerRuleConditionQueryStringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable Output<List<GetListenerRuleConditionQueryStringValueArgs>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<GetListenerRuleConditionQueryStringValueArgs> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(GetListenerRuleConditionQueryStringValueArgs... values) {
             return values(List.of(values));
         }

@@ -16,165 +16,69 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityGroupRuleResult {
-    /**
-     * @return The Amazon Resource Name (ARN) of the security group rule.
-     * 
-     */
     private String arn;
-    /**
-     * @return The destination IPv4 CIDR range.
-     * 
-     */
     private String cidrIpv4;
-    /**
-     * @return The destination IPv6 CIDR range.
-     * 
-     */
     private String cidrIpv6;
-    /**
-     * @return The security group rule description.
-     * 
-     */
     private String description;
     private @Nullable List<GetSecurityGroupRuleFilter> filters;
-    /**
-     * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-     * 
-     */
     private Integer fromPort;
     private String id;
-    /**
-     * @return The IP protocol name or number. Use `-1` to specify all protocols.
-     * 
-     */
     private String ipProtocol;
-    /**
-     * @return Indicates whether the security group rule is an outbound rule.
-     * 
-     */
     private Boolean isEgress;
-    /**
-     * @return The ID of the destination prefix list.
-     * 
-     */
     private String prefixListId;
-    /**
-     * @return The destination security group that is referenced in the rule.
-     * 
-     */
     private String referencedSecurityGroupId;
     private String region;
-    /**
-     * @return The ID of the security group.
-     * 
-     */
     private String securityGroupId;
     private String securityGroupRuleId;
-    /**
-     * @return A map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-     * 
-     */
     private Integer toPort;
 
     private GetSecurityGroupRuleResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the security group rule.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The destination IPv4 CIDR range.
-     * 
-     */
     public String cidrIpv4() {
         return this.cidrIpv4;
     }
-    /**
-     * @return The destination IPv6 CIDR range.
-     * 
-     */
     public String cidrIpv6() {
         return this.cidrIpv6;
     }
-    /**
-     * @return The security group rule description.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public List<GetSecurityGroupRuleFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-     * 
-     */
     public Integer fromPort() {
         return this.fromPort;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The IP protocol name or number. Use `-1` to specify all protocols.
-     * 
-     */
     public String ipProtocol() {
         return this.ipProtocol;
     }
-    /**
-     * @return Indicates whether the security group rule is an outbound rule.
-     * 
-     */
     public Boolean isEgress() {
         return this.isEgress;
     }
-    /**
-     * @return The ID of the destination prefix list.
-     * 
-     */
     public String prefixListId() {
         return this.prefixListId;
     }
-    /**
-     * @return The destination security group that is referenced in the rule.
-     * 
-     */
     public String referencedSecurityGroupId() {
         return this.referencedSecurityGroupId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The ID of the security group.
-     * 
-     */
     public String securityGroupId() {
         return this.securityGroupId;
     }
     public String securityGroupRuleId() {
         return this.securityGroupRuleId;
     }
-    /**
-     * @return A map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-     * 
-     */
     public Integer toPort() {
         return this.toPort;
     }

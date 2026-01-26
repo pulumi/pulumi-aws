@@ -18,113 +18,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AutomationRuleActionFindingFieldsUpdate {
-    /**
-     * @return The rule action updates the `Confidence` field of a finding.
-     * 
-     */
     private @Nullable Integer confidence;
-    /**
-     * @return The rule action updates the `Criticality` field of a finding.
-     * 
-     */
     private @Nullable Integer criticality;
-    /**
-     * @return A resource block that updates the note. Documented below.
-     * 
-     */
     private @Nullable AutomationRuleActionFindingFieldsUpdateNote note;
-    /**
-     * @return A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleActionFindingFieldsUpdateRelatedFinding> relatedFindings;
-    /**
-     * @return A resource block that updates to the severity information for a finding. Documented below.
-     * 
-     */
     private @Nullable AutomationRuleActionFindingFieldsUpdateSeverity severity;
-    /**
-     * @return The rule action updates the `Types` field of a finding.
-     * 
-     */
     private @Nullable List<String> types;
-    /**
-     * @return The rule action updates the `UserDefinedFields` field of a finding.
-     * 
-     */
     private @Nullable Map<String,String> userDefinedFields;
-    /**
-     * @return The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
-     * 
-     */
     private @Nullable String verificationState;
-    /**
-     * @return A resource block that is used to update information about the investigation into the finding. Documented below.
-     * 
-     */
     private @Nullable AutomationRuleActionFindingFieldsUpdateWorkflow workflow;
 
     private AutomationRuleActionFindingFieldsUpdate() {}
-    /**
-     * @return The rule action updates the `Confidence` field of a finding.
-     * 
-     */
     public Optional<Integer> confidence() {
         return Optional.ofNullable(this.confidence);
     }
-    /**
-     * @return The rule action updates the `Criticality` field of a finding.
-     * 
-     */
     public Optional<Integer> criticality() {
         return Optional.ofNullable(this.criticality);
     }
-    /**
-     * @return A resource block that updates the note. Documented below.
-     * 
-     */
     public Optional<AutomationRuleActionFindingFieldsUpdateNote> note() {
         return Optional.ofNullable(this.note);
     }
-    /**
-     * @return A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleActionFindingFieldsUpdateRelatedFinding> relatedFindings() {
         return this.relatedFindings == null ? List.of() : this.relatedFindings;
     }
-    /**
-     * @return A resource block that updates to the severity information for a finding. Documented below.
-     * 
-     */
     public Optional<AutomationRuleActionFindingFieldsUpdateSeverity> severity() {
         return Optional.ofNullable(this.severity);
     }
-    /**
-     * @return The rule action updates the `Types` field of a finding.
-     * 
-     */
     public List<String> types() {
         return this.types == null ? List.of() : this.types;
     }
-    /**
-     * @return The rule action updates the `UserDefinedFields` field of a finding.
-     * 
-     */
     public Map<String,String> userDefinedFields() {
         return this.userDefinedFields == null ? Map.of() : this.userDefinedFields;
     }
-    /**
-     * @return The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
-     * 
-     */
     public Optional<String> verificationState() {
         return Optional.ofNullable(this.verificationState);
     }
-    /**
-     * @return A resource block that is used to update information about the investigation into the finding. Documented below.
-     * 
-     */
     public Optional<AutomationRuleActionFindingFieldsUpdateWorkflow> workflow() {
         return Optional.ofNullable(this.workflow);
     }

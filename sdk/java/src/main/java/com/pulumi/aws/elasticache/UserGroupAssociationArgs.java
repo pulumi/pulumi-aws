@@ -16,47 +16,23 @@ public final class UserGroupAssociationArgs extends com.pulumi.resources.Resourc
 
     public static final UserGroupAssociationArgs Empty = new UserGroupAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the user group.
-     * 
-     */
     @Import(name="userGroupId", required=true)
     private Output<String> userGroupId;
 
-    /**
-     * @return ID of the user group.
-     * 
-     */
     public Output<String> userGroupId() {
         return this.userGroupId;
     }
 
-    /**
-     * ID of the user to associated with the user group.
-     * 
-     */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
-    /**
-     * @return ID of the user to associated with the user group.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }
@@ -87,65 +63,29 @@ public final class UserGroupAssociationArgs extends com.pulumi.resources.Resourc
             $ = new UserGroupAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userGroupId ID of the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroupId(Output<String> userGroupId) {
             $.userGroupId = userGroupId;
             return this;
         }
 
-        /**
-         * @param userGroupId ID of the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroupId(String userGroupId) {
             return userGroupId(Output.of(userGroupId));
         }
 
-        /**
-         * @param userId ID of the user to associated with the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId ID of the user to associated with the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

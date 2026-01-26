@@ -11,450 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates an SSM Document to an instance or EC2 tag.
-//
-// ## Example Usage
-//
-// ### Create an association for a specific instance
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				Name: pulumi.Any(exampleAwsSsmDocument.Name),
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							exampleAwsInstance.Id,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create an association for all managed instances in an AWS account
-//
-// To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create an association for a specific tag
-//
-// This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("tag:Environment"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("Development"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create an association with a specific schedule
-//
-// This example shows how to schedule an association in various ways.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				Name:               pulumi.Any(exampleAwsSsmDocument.Name),
-//				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							exampleAwsInstance.Id,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create an association with multiple instances with their instance ids
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// First EC2 instance
-//			webServer1, err := ec2.NewInstance(ctx, "web_server_1", &ec2.InstanceArgs{
-//				Ami:          pulumi.Any(amazonLinux.Id),
-//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
-//				SubnetId:     pulumi.Any(public.Id),
-//				VpcSecurityGroupIds: pulumi.StringArray{
-//					ec2Sg.Id,
-//				},
-//				IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
-//				UserData: pulumi.String(`#!/bin/bash
-//
-// yum update -y
-// yum install -y amazon-ssm-agent
-// systemctl enable amazon-ssm-agent
-// systemctl start amazon-ssm-agent
-// `),
-//
-//	})
-//	if err != nil {
-//		return err
-//	}
-//	// Second EC2 instance
-//	webServer2, err := ec2.NewInstance(ctx, "web_server_2", &ec2.InstanceArgs{
-//		Ami:          pulumi.Any(amazonLinux.Id),
-//		InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
-//		SubnetId:     pulumi.Any(public.Id),
-//		VpcSecurityGroupIds: pulumi.StringArray{
-//			ec2Sg.Id,
-//		},
-//		IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
-//		UserData: pulumi.String(`#!/bin/bash
-//
-// yum update -y
-// yum install -y amazon-ssm-agent
-// systemctl enable amazon-ssm-agent
-// systemctl start amazon-ssm-agent
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
-//				Separator: "\n",
-//				Input: []string{
-//					"#!/bin/bash",
-//					"echo 'Starting system update on $(hostname)'",
-//					"echo 'Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)'",
-//					"yum update -y",
-//					"echo 'System update completed successfully'",
-//					"systemctl status httpd",
-//					"df -h",
-//					"free -m",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Removed EC2 provisioning dependencies for brevity
-//			_, err = ssm.NewAssociation(ctx, "system_update", &ssm.AssociationArgs{
-//				Name: pulumi.String("AWS-RunShellScript"),
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							webServer1.ID(),
-//							webServer2.ID(),
-//						},
-//					},
-//				},
-//				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
-//				Parameters: pulumi.StringMap{
-//					"commands":         pulumi.String(invokeJoin.Result),
-//					"workingDirectory": pulumi.String("/tmp"),
-//					"executionTimeout": pulumi.String("3600"),
-//				},
-//				AssociationName:    pulumi.String("weekly-system-update"),
-//				ComplianceSeverity: pulumi.String("MEDIUM"),
-//				MaxConcurrency:     pulumi.String("1"),
-//				MaxErrors:          pulumi.String("0"),
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("Weekly System Update"),
-//					"Environment": pulumi.String("demo"),
-//					"Purpose":     pulumi.String("maintenance"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create an association with multiple instances with their values matching their tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// SSM Association for Webbased Servers
-//			_, err := ssm.NewAssociation(ctx, "database_association", &ssm.AssociationArgs{
-//				Name: pulumi.Any(systemUpdate.Name),
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("tag:Role"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("WebServer"),
-//							pulumi.String("Database"),
-//						},
-//					},
-//				},
-//				Parameters: pulumi.StringMap{
-//					"restartServices": pulumi.String("true"),
-//				},
-//				ScheduleExpression: pulumi.String("cron(0 3 ? * SUN *)"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: fmt.Sprintf(`#!/bin/bash
-//
-// yum update -y
-// yum install -y amazon-ssm-agent
-// systemctl enable amazon-ssm-agent
-// systemctl start amazon-ssm-agent
-//
-// # Install Apache web server
-// yum install -y httpd
-// systemctl enable httpd
-// systemctl start httpd
-// echo \"<h1>Web Server - %v</h1>\" > /var/www/html/index.html
-// `, prefix),
-//
-//	}, nil)
-//	if err != nil {
-//		return err
-//	}
-//	// EC2 Instance 1 - Web Server with "ServerType" tag
-//	_, err = ec2.NewInstance(ctx, "web_server", &ec2.InstanceArgs{
-//		Ami:          pulumi.Any(amazonLinux.Id),
-//		InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
-//		SubnetId:     pulumi.Any(_default.Id),
-//		VpcSecurityGroupIds: pulumi.StringArray{
-//			ec2Sg.Id,
-//		},
-//		IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
-//		UserData:           pulumi.String(invokeBase64encode.Result),
-//		Tags: pulumi.StringMap{
-//			"Name":        pulumi.Sprintf("%v-web-server", prefix),
-//			"ServerType":  pulumi.String("WebServer"),
-//			"Role":        pulumi.String("WebServer"),
-//			"Environment": pulumi.Any(environment),
-//			"Owner":       pulumi.Any(owner),
-//		},
-//	})
-//	if err != nil {
-//		return err
-//	}
-//	invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//		Input: `#!/bin/bash
-//
-// yum update -y
-// yum install -y amazon-ssm-agent
-// systemctl enable amazon-ssm-agent
-// systemctl start amazon-ssm-agent
-//
-// # Install MySQL
-// yum install -y mysql-server
-// systemctl enable mysqld
-// systemctl start mysqld
-// `,
-//
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// EC2 Instance 2 - Database Server with "Role" tag
-//			_, err = ec2.NewInstance(ctx, "database_server", &ec2.InstanceArgs{
-//				Ami:          pulumi.Any(amazonLinux.Id),
-//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
-//				SubnetId:     pulumi.Any(_default.Id),
-//				VpcSecurityGroupIds: pulumi.StringArray{
-//					ec2Sg.Id,
-//				},
-//				IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
-//				UserData:           pulumi.String(invokeBase64encode1.Result),
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.Sprintf("%v-database-server", prefix),
-//					"Role":        pulumi.String("Database"),
-//					"Environment": pulumi.Any(environment),
-//					"Owner":       pulumi.Any(owner),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `association_id` - (String) ID of the SSM association.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import SSM associations using the `association_id`. For example:
-//
-// % pulumi import aws_ssm_association.example 10abcdef-0abc-1234-5678-90abcdef123456
 type Association struct {
 	pulumi.CustomResourceState
 
-	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
-	ApplyOnlyAtCronInterval pulumi.BoolPtrOutput `pulumi:"applyOnlyAtCronInterval"`
-	// The ARN of the SSM association
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the SSM association.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// The descriptive name for the association.
-	AssociationName pulumi.StringPtrOutput `pulumi:"associationName"`
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
-	AutomationTargetParameterName pulumi.StringPtrOutput `pulumi:"automationTargetParameterName"`
-	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
-	CalendarNames pulumi.StringArrayOutput `pulumi:"calendarNames"`
-	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-	ComplianceSeverity pulumi.StringPtrOutput `pulumi:"complianceSeverity"`
-	// The document version you want to associate with the target(s). Can be a specific version or the default version.
-	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
-	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxConcurrency pulumi.StringPtrOutput `pulumi:"maxConcurrency"`
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
-	MaxErrors pulumi.StringPtrOutput `pulumi:"maxErrors"`
-	// The name of the SSM document to apply.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An output location block. Output Location is documented below.
-	OutputLocation AssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
-	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
-	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
-	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-	SyncCompliance pulumi.StringPtrOutput `pulumi:"syncCompliance"`
-	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-	Targets AssociationTargetArrayOutput `pulumi:"targets"`
-	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
-	//
-	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
-	WaitForSuccessTimeoutSeconds pulumi.IntPtrOutput `pulumi:"waitForSuccessTimeoutSeconds"`
+	ApplyOnlyAtCronInterval       pulumi.BoolPtrOutput               `pulumi:"applyOnlyAtCronInterval"`
+	Arn                           pulumi.StringOutput                `pulumi:"arn"`
+	AssociationId                 pulumi.StringOutput                `pulumi:"associationId"`
+	AssociationName               pulumi.StringPtrOutput             `pulumi:"associationName"`
+	AutomationTargetParameterName pulumi.StringPtrOutput             `pulumi:"automationTargetParameterName"`
+	CalendarNames                 pulumi.StringArrayOutput           `pulumi:"calendarNames"`
+	ComplianceSeverity            pulumi.StringPtrOutput             `pulumi:"complianceSeverity"`
+	DocumentVersion               pulumi.StringOutput                `pulumi:"documentVersion"`
+	MaxConcurrency                pulumi.StringPtrOutput             `pulumi:"maxConcurrency"`
+	MaxErrors                     pulumi.StringPtrOutput             `pulumi:"maxErrors"`
+	Name                          pulumi.StringOutput                `pulumi:"name"`
+	OutputLocation                AssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
+	Parameters                    pulumi.StringMapOutput             `pulumi:"parameters"`
+	Region                        pulumi.StringOutput                `pulumi:"region"`
+	ScheduleExpression            pulumi.StringPtrOutput             `pulumi:"scheduleExpression"`
+	SyncCompliance                pulumi.StringPtrOutput             `pulumi:"syncCompliance"`
+	Tags                          pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll                       pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	Targets                       AssociationTargetArrayOutput       `pulumi:"targets"`
+	WaitForSuccessTimeoutSeconds  pulumi.IntPtrOutput                `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 // NewAssociation registers a new resource with the given unique name, arguments, and options.
@@ -487,93 +66,49 @@ func GetAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Association resources.
 type associationState struct {
-	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
-	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
-	// The ARN of the SSM association
-	Arn *string `pulumi:"arn"`
-	// The ID of the SSM association.
-	AssociationId *string `pulumi:"associationId"`
-	// The descriptive name for the association.
-	AssociationName *string `pulumi:"associationName"`
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
-	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
-	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
-	CalendarNames []string `pulumi:"calendarNames"`
-	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-	ComplianceSeverity *string `pulumi:"complianceSeverity"`
-	// The document version you want to associate with the target(s). Can be a specific version or the default version.
-	DocumentVersion *string `pulumi:"documentVersion"`
-	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
-	MaxErrors *string `pulumi:"maxErrors"`
-	// The name of the SSM document to apply.
-	Name *string `pulumi:"name"`
-	// An output location block. Output Location is documented below.
-	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
-	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-	SyncCompliance *string `pulumi:"syncCompliance"`
-	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-	Targets []AssociationTarget `pulumi:"targets"`
-	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
-	//
-	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
-	WaitForSuccessTimeoutSeconds *int `pulumi:"waitForSuccessTimeoutSeconds"`
+	ApplyOnlyAtCronInterval       *bool                      `pulumi:"applyOnlyAtCronInterval"`
+	Arn                           *string                    `pulumi:"arn"`
+	AssociationId                 *string                    `pulumi:"associationId"`
+	AssociationName               *string                    `pulumi:"associationName"`
+	AutomationTargetParameterName *string                    `pulumi:"automationTargetParameterName"`
+	CalendarNames                 []string                   `pulumi:"calendarNames"`
+	ComplianceSeverity            *string                    `pulumi:"complianceSeverity"`
+	DocumentVersion               *string                    `pulumi:"documentVersion"`
+	MaxConcurrency                *string                    `pulumi:"maxConcurrency"`
+	MaxErrors                     *string                    `pulumi:"maxErrors"`
+	Name                          *string                    `pulumi:"name"`
+	OutputLocation                *AssociationOutputLocation `pulumi:"outputLocation"`
+	Parameters                    map[string]string          `pulumi:"parameters"`
+	Region                        *string                    `pulumi:"region"`
+	ScheduleExpression            *string                    `pulumi:"scheduleExpression"`
+	SyncCompliance                *string                    `pulumi:"syncCompliance"`
+	Tags                          map[string]string          `pulumi:"tags"`
+	TagsAll                       map[string]string          `pulumi:"tagsAll"`
+	Targets                       []AssociationTarget        `pulumi:"targets"`
+	WaitForSuccessTimeoutSeconds  *int                       `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 type AssociationState struct {
-	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
-	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
-	// The ARN of the SSM association
-	Arn pulumi.StringPtrInput
-	// The ID of the SSM association.
-	AssociationId pulumi.StringPtrInput
-	// The descriptive name for the association.
-	AssociationName pulumi.StringPtrInput
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+	ApplyOnlyAtCronInterval       pulumi.BoolPtrInput
+	Arn                           pulumi.StringPtrInput
+	AssociationId                 pulumi.StringPtrInput
+	AssociationName               pulumi.StringPtrInput
 	AutomationTargetParameterName pulumi.StringPtrInput
-	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
-	CalendarNames pulumi.StringArrayInput
-	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-	ComplianceSeverity pulumi.StringPtrInput
-	// The document version you want to associate with the target(s). Can be a specific version or the default version.
-	DocumentVersion pulumi.StringPtrInput
-	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxConcurrency pulumi.StringPtrInput
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
-	MaxErrors pulumi.StringPtrInput
-	// The name of the SSM document to apply.
-	Name pulumi.StringPtrInput
-	// An output location block. Output Location is documented below.
-	OutputLocation AssociationOutputLocationPtrInput
-	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
-	ScheduleExpression pulumi.StringPtrInput
-	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-	SyncCompliance pulumi.StringPtrInput
-	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-	Targets AssociationTargetArrayInput
-	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
-	//
-	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
-	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput
+	CalendarNames                 pulumi.StringArrayInput
+	ComplianceSeverity            pulumi.StringPtrInput
+	DocumentVersion               pulumi.StringPtrInput
+	MaxConcurrency                pulumi.StringPtrInput
+	MaxErrors                     pulumi.StringPtrInput
+	Name                          pulumi.StringPtrInput
+	OutputLocation                AssociationOutputLocationPtrInput
+	Parameters                    pulumi.StringMapInput
+	Region                        pulumi.StringPtrInput
+	ScheduleExpression            pulumi.StringPtrInput
+	SyncCompliance                pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	TagsAll                       pulumi.StringMapInput
+	Targets                       AssociationTargetArrayInput
+	WaitForSuccessTimeoutSeconds  pulumi.IntPtrInput
 }
 
 func (AssociationState) ElementType() reflect.Type {
@@ -581,82 +116,44 @@ func (AssociationState) ElementType() reflect.Type {
 }
 
 type associationArgs struct {
-	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
-	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
-	// The descriptive name for the association.
-	AssociationName *string `pulumi:"associationName"`
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
-	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
-	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
-	CalendarNames []string `pulumi:"calendarNames"`
-	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-	ComplianceSeverity *string `pulumi:"complianceSeverity"`
-	// The document version you want to associate with the target(s). Can be a specific version or the default version.
-	DocumentVersion *string `pulumi:"documentVersion"`
-	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
-	MaxErrors *string `pulumi:"maxErrors"`
-	// The name of the SSM document to apply.
-	Name *string `pulumi:"name"`
-	// An output location block. Output Location is documented below.
-	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
-	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-	SyncCompliance *string `pulumi:"syncCompliance"`
-	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-	Targets []AssociationTarget `pulumi:"targets"`
-	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
-	//
-	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
-	WaitForSuccessTimeoutSeconds *int `pulumi:"waitForSuccessTimeoutSeconds"`
+	ApplyOnlyAtCronInterval       *bool                      `pulumi:"applyOnlyAtCronInterval"`
+	AssociationName               *string                    `pulumi:"associationName"`
+	AutomationTargetParameterName *string                    `pulumi:"automationTargetParameterName"`
+	CalendarNames                 []string                   `pulumi:"calendarNames"`
+	ComplianceSeverity            *string                    `pulumi:"complianceSeverity"`
+	DocumentVersion               *string                    `pulumi:"documentVersion"`
+	MaxConcurrency                *string                    `pulumi:"maxConcurrency"`
+	MaxErrors                     *string                    `pulumi:"maxErrors"`
+	Name                          *string                    `pulumi:"name"`
+	OutputLocation                *AssociationOutputLocation `pulumi:"outputLocation"`
+	Parameters                    map[string]string          `pulumi:"parameters"`
+	Region                        *string                    `pulumi:"region"`
+	ScheduleExpression            *string                    `pulumi:"scheduleExpression"`
+	SyncCompliance                *string                    `pulumi:"syncCompliance"`
+	Tags                          map[string]string          `pulumi:"tags"`
+	Targets                       []AssociationTarget        `pulumi:"targets"`
+	WaitForSuccessTimeoutSeconds  *int                       `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 // The set of arguments for constructing a Association resource.
 type AssociationArgs struct {
-	// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
-	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
-	// The descriptive name for the association.
-	AssociationName pulumi.StringPtrInput
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+	ApplyOnlyAtCronInterval       pulumi.BoolPtrInput
+	AssociationName               pulumi.StringPtrInput
 	AutomationTargetParameterName pulumi.StringPtrInput
-	// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
-	CalendarNames pulumi.StringArrayInput
-	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-	ComplianceSeverity pulumi.StringPtrInput
-	// The document version you want to associate with the target(s). Can be a specific version or the default version.
-	DocumentVersion pulumi.StringPtrInput
-	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxConcurrency pulumi.StringPtrInput
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
-	MaxErrors pulumi.StringPtrInput
-	// The name of the SSM document to apply.
-	Name pulumi.StringPtrInput
-	// An output location block. Output Location is documented below.
-	OutputLocation AssociationOutputLocationPtrInput
-	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
-	ScheduleExpression pulumi.StringPtrInput
-	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-	SyncCompliance pulumi.StringPtrInput
-	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-	Targets AssociationTargetArrayInput
-	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
-	//
-	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
-	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput
+	CalendarNames                 pulumi.StringArrayInput
+	ComplianceSeverity            pulumi.StringPtrInput
+	DocumentVersion               pulumi.StringPtrInput
+	MaxConcurrency                pulumi.StringPtrInput
+	MaxErrors                     pulumi.StringPtrInput
+	Name                          pulumi.StringPtrInput
+	OutputLocation                AssociationOutputLocationPtrInput
+	Parameters                    pulumi.StringMapInput
+	Region                        pulumi.StringPtrInput
+	ScheduleExpression            pulumi.StringPtrInput
+	SyncCompliance                pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	Targets                       AssociationTargetArrayInput
+	WaitForSuccessTimeoutSeconds  pulumi.IntPtrInput
 }
 
 func (AssociationArgs) ElementType() reflect.Type {
@@ -746,104 +243,82 @@ func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
 func (o AssociationOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.BoolPtrOutput { return v.ApplyOnlyAtCronInterval }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the SSM association
 func (o AssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the SSM association.
 func (o AssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The descriptive name for the association.
 func (o AssociationOutput) AssociationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AssociationName }).(pulumi.StringPtrOutput)
 }
 
-// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 func (o AssociationOutput) AutomationTargetParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AutomationTargetParameterName }).(pulumi.StringPtrOutput)
 }
 
-// One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
 func (o AssociationOutput) CalendarNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringArrayOutput { return v.CalendarNames }).(pulumi.StringArrayOutput)
 }
 
-// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 func (o AssociationOutput) ComplianceSeverity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.ComplianceSeverity }).(pulumi.StringPtrOutput)
 }
 
-// The document version you want to associate with the target(s). Can be a specific version or the default version.
 func (o AssociationOutput) DocumentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.DocumentVersion }).(pulumi.StringOutput)
 }
 
-// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 func (o AssociationOutput) MaxConcurrency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.MaxConcurrency }).(pulumi.StringPtrOutput)
 }
 
-// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
 func (o AssociationOutput) MaxErrors() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.MaxErrors }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SSM document to apply.
 func (o AssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An output location block. Output Location is documented below.
 func (o AssociationOutput) OutputLocation() AssociationOutputLocationPtrOutput {
 	return o.ApplyT(func(v *Association) AssociationOutputLocationPtrOutput { return v.OutputLocation }).(AssociationOutputLocationPtrOutput)
 }
 
-// A block of arbitrary string parameters to pass to the SSM document.
 func (o AssociationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 func (o AssociationOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
-// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
 func (o AssociationOutput) SyncCompliance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.SyncCompliance }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 func (o AssociationOutput) Targets() AssociationTargetArrayOutput {
 	return o.ApplyT(func(v *Association) AssociationTargetArrayOutput { return v.Targets }).(AssociationTargetArrayOutput)
 }
 
-// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
-//
-// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
 func (o AssociationOutput) WaitForSuccessTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.IntPtrOutput { return v.WaitForSuccessTimeoutSeconds }).(pulumi.IntPtrOutput)
 }

@@ -62,9 +62,6 @@ class GetEmailIdentityResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Email Identity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -75,9 +72,6 @@ class GetEmailIdentityResult:
     @_builtins.property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Sequence['outputs.GetEmailIdentityDkimSigningAttributeResult']:
-        """
-        A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
-        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @_builtins.property
@@ -96,9 +90,6 @@ class GetEmailIdentityResult:
     @_builtins.property
     @pulumi.getter(name="identityType")
     def identity_type(self) -> _builtins.str:
-        """
-        The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-        """
         return pulumi.get(self, "identity_type")
 
     @_builtins.property
@@ -109,25 +100,16 @@ class GetEmailIdentityResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value mapping of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="verificationStatus")
     def verification_status(self) -> _builtins.str:
-        """
-        The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-        """
         return pulumi.get(self, "verification_status")
 
     @_builtins.property
     @pulumi.getter(name="verifiedForSendingStatus")
     def verified_for_sending_status(self) -> _builtins.bool:
-        """
-        Specifies whether or not the identity is verified.
-        """
         return pulumi.get(self, "verified_for_sending_status")
 
 
@@ -154,23 +136,7 @@ def get_email_identity(email_identity: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailIdentityResult:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_email_identity(email_identity="example.com")
-    ```
-
-
-    :param _builtins.str email_identity: The name of the email identity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
@@ -195,23 +161,7 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[_builtins.st
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_email_identity(email_identity="example.com")
-    ```
-
-
-    :param _builtins.str email_identity: The name of the email identity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity

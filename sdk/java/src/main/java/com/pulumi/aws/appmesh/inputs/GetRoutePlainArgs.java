@@ -16,92 +16,44 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRoutePlainArgs Empty = new GetRoutePlainArgs();
 
-    /**
-     * Name of the service mesh in which the virtual router exists.
-     * 
-     */
     @Import(name="meshName", required=true)
     private String meshName;
 
-    /**
-     * @return Name of the service mesh in which the virtual router exists.
-     * 
-     */
     public String meshName() {
         return this.meshName;
     }
 
-    /**
-     * AWS account ID of the service mesh&#39;s owner.
-     * 
-     */
     @Import(name="meshOwner")
     private @Nullable String meshOwner;
 
-    /**
-     * @return AWS account ID of the service mesh&#39;s owner.
-     * 
-     */
     public Optional<String> meshOwner() {
         return Optional.ofNullable(this.meshOwner);
     }
 
-    /**
-     * Name of the route.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the route.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Name of the virtual router in which the route exists.
-     * 
-     */
     @Import(name="virtualRouterName", required=true)
     private String virtualRouterName;
 
-    /**
-     * @return Name of the virtual router in which the route exists.
-     * 
-     */
     public String virtualRouterName() {
         return this.virtualRouterName;
     }
@@ -135,67 +87,31 @@ public final class GetRoutePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRoutePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param meshName Name of the service mesh in which the virtual router exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(String meshName) {
             $.meshName = meshName;
             return this;
         }
 
-        /**
-         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshOwner(@Nullable String meshOwner) {
             $.meshOwner = meshOwner;
             return this;
         }
 
-        /**
-         * @param name Name of the route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param virtualRouterName Name of the virtual router in which the route exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualRouterName(String virtualRouterName) {
             $.virtualRouterName = virtualRouterName;
             return this;

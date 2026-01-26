@@ -11,199 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage - Logging to CloudWatch
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ivschat"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cloudwatch.NewLogGroup(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
-//				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
-//					CloudwatchLogs: &ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs{
-//						LogGroupName: example.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ivschat"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"firehose.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("firehose_example_role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("pulumi-kinesis-firehose-extended-s3-example-stream"),
-//				Destination: pulumi.String("extended_s3"),
-//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   exampleRole.Arn,
-//					BucketArn: exampleBucket.Arn,
-//				},
-//				Tags: pulumi.StringMap{
-//					"LogDeliveryEnabled": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: exampleBucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
-//				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
-//					Firehose: &ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs{
-//						DeliveryStreamName: example.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Usage - Logging to S3
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ivschat"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				BucketName:   "tf-ivschat-logging",
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
-//				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
-//					S3: &ivschat.LoggingConfigurationDestinationConfigurationS3Args{
-//						BucketName: example.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
-//
-// Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
-//
-// % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Logging Configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+	Arn                      pulumi.StringOutput                                   `pulumi:"arn"`
 	DestinationConfiguration LoggingConfigurationDestinationConfigurationPtrOutput `pulumi:"destinationConfiguration"`
-	// Logging Configuration name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// State of the Logging Configuration.
-	State pulumi.StringOutput `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name                     pulumi.StringOutput                                   `pulumi:"name"`
+	Region                   pulumi.StringOutput                                   `pulumi:"region"`
+	State                    pulumi.StringOutput                                   `pulumi:"state"`
+	Tags                     pulumi.StringMapOutput                                `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                                `pulumi:"tagsAll"`
 }
 
 // NewLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -236,37 +53,23 @@ func GetLoggingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoggingConfiguration resources.
 type loggingConfigurationState struct {
-	// ARN of the Logging Configuration.
-	Arn *string `pulumi:"arn"`
-	// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+	Arn                      *string                                       `pulumi:"arn"`
 	DestinationConfiguration *LoggingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// Logging Configuration name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the Logging Configuration.
-	State *string `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name                     *string                                       `pulumi:"name"`
+	Region                   *string                                       `pulumi:"region"`
+	State                    *string                                       `pulumi:"state"`
+	Tags                     map[string]string                             `pulumi:"tags"`
+	TagsAll                  map[string]string                             `pulumi:"tagsAll"`
 }
 
 type LoggingConfigurationState struct {
-	// ARN of the Logging Configuration.
-	Arn pulumi.StringPtrInput
-	// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+	Arn                      pulumi.StringPtrInput
 	DestinationConfiguration LoggingConfigurationDestinationConfigurationPtrInput
-	// Logging Configuration name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of the Logging Configuration.
-	State pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	State                    pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (LoggingConfigurationState) ElementType() reflect.Type {
@@ -274,26 +77,18 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type loggingConfigurationArgs struct {
-	// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
 	DestinationConfiguration *LoggingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// Logging Configuration name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name                     *string                                       `pulumi:"name"`
+	Region                   *string                                       `pulumi:"region"`
+	Tags                     map[string]string                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoggingConfiguration resource.
 type LoggingConfigurationArgs struct {
-	// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
 	DestinationConfiguration LoggingConfigurationDestinationConfigurationPtrInput
-	// Logging Configuration name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (LoggingConfigurationArgs) ElementType() reflect.Type {
@@ -383,39 +178,32 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the Logging Configuration.
 func (o LoggingConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
 func (o LoggingConfigurationOutput) DestinationConfiguration() LoggingConfigurationDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationDestinationConfigurationPtrOutput {
 		return v.DestinationConfiguration
 	}).(LoggingConfigurationDestinationConfigurationPtrOutput)
 }
 
-// Logging Configuration name.
 func (o LoggingConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LoggingConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of the Logging Configuration.
 func (o LoggingConfigurationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LoggingConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LoggingConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

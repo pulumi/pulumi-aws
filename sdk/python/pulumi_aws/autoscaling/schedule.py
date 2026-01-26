@@ -31,20 +31,6 @@ class ScheduleArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[_builtins.str] scheduled_action_name: The name of this scaling action.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] end_time: The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-               
-               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
@@ -68,9 +54,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Auto Scaling group.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -80,11 +63,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of this scaling action.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scheduled_action_name")
 
     @scheduled_action_name.setter
@@ -94,9 +72,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "desired_capacity")
 
     @desired_capacity.setter
@@ -106,9 +81,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -118,9 +90,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
@@ -130,9 +99,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
@@ -142,9 +108,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def recurrence(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The recurring schedule for this action specified using the Unix cron syntax format.
-        """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
@@ -154,9 +117,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -166,9 +126,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -178,11 +135,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-
-        > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
-        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -206,21 +158,6 @@ class _ScheduleState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
-        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the autoscaling schedule.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[_builtins.int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] end_time: The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scheduled_action_name: The name of this scaling action.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-               
-               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -248,9 +185,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN assigned by AWS to the autoscaling schedule.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -260,9 +194,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Auto Scaling group.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -272,9 +203,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "desired_capacity")
 
     @desired_capacity.setter
@@ -284,9 +212,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -296,9 +221,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
@@ -308,9 +230,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
@@ -320,9 +239,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def recurrence(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The recurring schedule for this action specified using the Unix cron syntax format.
-        """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
@@ -332,9 +248,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -344,11 +257,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of this scaling action.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scheduled_action_name")
 
     @scheduled_action_name.setter
@@ -358,9 +266,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -370,11 +275,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-
-        > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
-        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -400,57 +300,9 @@ class Schedule(pulumi.CustomResource):
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AutoScaling Schedule resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.autoscaling.Group("foobar",
-            availability_zones=["us-west-2a"],
-            name="test-foobar5",
-            max_size=1,
-            min_size=1,
-            health_check_grace_period=300,
-            health_check_type="ELB",
-            force_delete=True,
-            termination_policies=["OldestInstance"])
-        foobar_schedule = aws.autoscaling.Schedule("foobar",
-            scheduled_action_name="foobar",
-            min_size=0,
-            max_size=1,
-            desired_capacity=0,
-            start_time="2016-12-11T18:00:00Z",
-            end_time="2016-12-12T06:00:00Z",
-            autoscaling_group_name=foobar.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
-
-        ```sh
-        $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
-        ```
-
+        Create a Schedule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[_builtins.int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] end_time: The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scheduled_action_name: The name of this scaling action.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-               
-               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         ...
     @overload
@@ -459,41 +311,7 @@ class Schedule(pulumi.CustomResource):
                  args: ScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AutoScaling Schedule resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.autoscaling.Group("foobar",
-            availability_zones=["us-west-2a"],
-            name="test-foobar5",
-            max_size=1,
-            min_size=1,
-            health_check_grace_period=300,
-            health_check_type="ELB",
-            force_delete=True,
-            termination_policies=["OldestInstance"])
-        foobar_schedule = aws.autoscaling.Schedule("foobar",
-            scheduled_action_name="foobar",
-            min_size=0,
-            max_size=1,
-            desired_capacity=0,
-            start_time="2016-12-11T18:00:00Z",
-            end_time="2016-12-12T06:00:00Z",
-            autoscaling_group_name=foobar.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
-
-        ```sh
-        $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
-        ```
-
+        Create a Schedule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -571,21 +389,6 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the autoscaling schedule.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[_builtins.int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] end_time: The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scheduled_action_name: The name of this scaling action.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        :param pulumi.Input[_builtins.str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-               
-               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -607,92 +410,55 @@ class Schedule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN assigned by AWS to the autoscaling schedule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Auto Scaling group.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "desired_capacity")
 
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        """
         return pulumi.get(self, "end_time")
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[_builtins.int]:
-        """
-        The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "max_size")
 
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[_builtins.int]:
-        """
-        The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        """
         return pulumi.get(self, "min_size")
 
     @_builtins.property
     @pulumi.getter
     def recurrence(self) -> pulumi.Output[_builtins.str]:
-        """
-        The recurring schedule for this action specified using the Unix cron syntax format.
-        """
         return pulumi.get(self, "recurrence")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of this scaling action.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scheduled_action_name")
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        """
         return pulumi.get(self, "start_time")
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-
-        > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
-        """
         return pulumi.get(self, "time_zone")
 

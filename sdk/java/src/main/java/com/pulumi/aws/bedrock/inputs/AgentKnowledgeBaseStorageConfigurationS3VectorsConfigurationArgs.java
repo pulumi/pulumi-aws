@@ -15,47 +15,23 @@ public final class AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationA
 
     public static final AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs();
 
-    /**
-     * ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
-     * 
-     */
     @Import(name="indexArn")
     private @Nullable Output<String> indexArn;
 
-    /**
-     * @return ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
-     * 
-     */
     public Optional<Output<String>> indexArn() {
         return Optional.ofNullable(this.indexArn);
     }
 
-    /**
-     * Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
-     * 
-     */
     @Import(name="indexName")
     private @Nullable Output<String> indexName;
 
-    /**
-     * @return Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
-     * 
-     */
     public Optional<Output<String>> indexName() {
         return Optional.ofNullable(this.indexName);
     }
 
-    /**
-     * ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
-     * 
-     */
     @Import(name="vectorBucketArn")
     private @Nullable Output<String> vectorBucketArn;
 
-    /**
-     * @return ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
-     * 
-     */
     public Optional<Output<String>> vectorBucketArn() {
         return Optional.ofNullable(this.vectorBucketArn);
     }
@@ -86,65 +62,29 @@ public final class AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationA
             $ = new AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexArn ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexArn(@Nullable Output<String> indexArn) {
             $.indexArn = indexArn;
             return this;
         }
 
-        /**
-         * @param indexArn ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexArn(String indexArn) {
             return indexArn(Output.of(indexArn));
         }
 
-        /**
-         * @param indexName Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(@Nullable Output<String> indexName) {
             $.indexName = indexName;
             return this;
         }
 
-        /**
-         * @param indexName Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(String indexName) {
             return indexName(Output.of(indexName));
         }
 
-        /**
-         * @param vectorBucketArn ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorBucketArn(@Nullable Output<String> vectorBucketArn) {
             $.vectorBucketArn = vectorBucketArn;
             return this;
         }
 
-        /**
-         * @param vectorBucketArn ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorBucketArn(String vectorBucketArn) {
             return vectorBucketArn(Output.of(vectorBucketArn));
         }

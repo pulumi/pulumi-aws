@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class InsightFiltersResourceAwsEc2InstanceIpv6AddressGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A finding's CIDR value.
-        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 

@@ -12,175 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Agent.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: []string{
-// "bedrock.amazonaws.com",
-// },
-// Type: "Service",
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// {
-// Test: "ArnLike",
-// Values: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
-// },
-// Variable: "AWS:SourceArn",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "bedrock:InvokeModel",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-v2", currentGetPartition.Partition, currentGetRegion.Region),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(exampleAgentTrust.Json),
-// NamePrefix: pulumi.String("AmazonBedrockExecutionRoleForAgents_"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Policy: pulumi.String(exampleAgentPermissions.Json),
-// Role: example.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = bedrock.NewAgentAgent(ctx, "example", &bedrock.AgentAgentArgs{
-// AgentName: pulumi.String("my-agent-name"),
-// AgentResourceRoleArn: example.Arn,
-// IdleSessionTtlInSeconds: pulumi.Int(500),
-// Instruction: pulumi.String("You are a friendly assistant who helps answer questions."),
-// FoundationModel: pulumi.String("anthropic.claude-v2"),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the agent ID. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
-// ```
 type AgentAgent struct {
 	pulumi.CustomResourceState
 
-	// ARN of the agent.
-	AgentArn pulumi.StringOutput `pulumi:"agentArn"`
-	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-	AgentCollaboration pulumi.StringOutput `pulumi:"agentCollaboration"`
-	// Unique identifier of the agent.
-	AgentId pulumi.StringOutput `pulumi:"agentId"`
-	// Name of the agent.
-	AgentName pulumi.StringOutput `pulumi:"agentName"`
-	// ARN of the IAM role with permissions to invoke API operations on the agent.
-	AgentResourceRoleArn pulumi.StringOutput `pulumi:"agentResourceRoleArn"`
-	// Version of the agent.
-	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// ARN of the AWS KMS key that encrypts the agent.
-	CustomerEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"customerEncryptionKeyArn"`
-	// Description of the agent.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Foundation model used for orchestration by the agent.
-	//
-	// The following arguments are optional:
-	FoundationModel pulumi.StringOutput `pulumi:"foundationModel"`
-	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
-	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayOutput `pulumi:"guardrailConfigurations"`
-	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-	Instruction pulumi.StringOutput `pulumi:"instruction"`
-	// Configurations for the agent's ability to retain the conversational context.
-	MemoryConfigurations AgentAgentMemoryConfigurationArrayOutput `pulumi:"memoryConfigurations"`
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
-	// Timestamp of when the agent was last prepared.
-	PreparedAt pulumi.StringOutput `pulumi:"preparedAt"`
-	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
+	AgentArn                     pulumi.StringOutput                              `pulumi:"agentArn"`
+	AgentCollaboration           pulumi.StringOutput                              `pulumi:"agentCollaboration"`
+	AgentId                      pulumi.StringOutput                              `pulumi:"agentId"`
+	AgentName                    pulumi.StringOutput                              `pulumi:"agentName"`
+	AgentResourceRoleArn         pulumi.StringOutput                              `pulumi:"agentResourceRoleArn"`
+	AgentVersion                 pulumi.StringOutput                              `pulumi:"agentVersion"`
+	CustomerEncryptionKeyArn     pulumi.StringPtrOutput                           `pulumi:"customerEncryptionKeyArn"`
+	Description                  pulumi.StringPtrOutput                           `pulumi:"description"`
+	FoundationModel              pulumi.StringOutput                              `pulumi:"foundationModel"`
+	GuardrailConfigurations      AgentAgentGuardrailConfigurationArrayOutput      `pulumi:"guardrailConfigurations"`
+	IdleSessionTtlInSeconds      pulumi.IntOutput                                 `pulumi:"idleSessionTtlInSeconds"`
+	Instruction                  pulumi.StringOutput                              `pulumi:"instruction"`
+	MemoryConfigurations         AgentAgentMemoryConfigurationArrayOutput         `pulumi:"memoryConfigurations"`
+	PrepareAgent                 pulumi.BoolOutput                                `pulumi:"prepareAgent"`
+	PreparedAt                   pulumi.StringOutput                              `pulumi:"preparedAt"`
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayOutput `pulumi:"promptOverrideConfigurations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the agent.
-	SkipResourceInUseCheck pulumi.BoolOutput `pulumi:"skipResourceInUseCheck"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
-	Timeouts AgentAgentTimeoutsPtrOutput `pulumi:"timeouts"`
+	Region                       pulumi.StringOutput                              `pulumi:"region"`
+	SkipResourceInUseCheck       pulumi.BoolOutput                                `pulumi:"skipResourceInUseCheck"`
+	Tags                         pulumi.StringMapOutput                           `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput                           `pulumi:"tagsAll"`
+	Timeouts                     AgentAgentTimeoutsPtrOutput                      `pulumi:"timeouts"`
 }
 
 // NewAgentAgent registers a new resource with the given unique name, arguments, and options.
@@ -222,95 +77,51 @@ func GetAgentAgent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentAgent resources.
 type agentAgentState struct {
-	// ARN of the agent.
-	AgentArn *string `pulumi:"agentArn"`
-	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-	AgentCollaboration *string `pulumi:"agentCollaboration"`
-	// Unique identifier of the agent.
-	AgentId *string `pulumi:"agentId"`
-	// Name of the agent.
-	AgentName *string `pulumi:"agentName"`
-	// ARN of the IAM role with permissions to invoke API operations on the agent.
-	AgentResourceRoleArn *string `pulumi:"agentResourceRoleArn"`
-	// Version of the agent.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// ARN of the AWS KMS key that encrypts the agent.
-	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
-	// Description of the agent.
-	Description *string `pulumi:"description"`
-	// Foundation model used for orchestration by the agent.
-	//
-	// The following arguments are optional:
-	FoundationModel *string `pulumi:"foundationModel"`
-	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
-	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
-	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-	Instruction *string `pulumi:"instruction"`
-	// Configurations for the agent's ability to retain the conversational context.
-	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// Timestamp of when the agent was last prepared.
-	PreparedAt *string `pulumi:"preparedAt"`
-	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
+	AgentArn                     *string                                 `pulumi:"agentArn"`
+	AgentCollaboration           *string                                 `pulumi:"agentCollaboration"`
+	AgentId                      *string                                 `pulumi:"agentId"`
+	AgentName                    *string                                 `pulumi:"agentName"`
+	AgentResourceRoleArn         *string                                 `pulumi:"agentResourceRoleArn"`
+	AgentVersion                 *string                                 `pulumi:"agentVersion"`
+	CustomerEncryptionKeyArn     *string                                 `pulumi:"customerEncryptionKeyArn"`
+	Description                  *string                                 `pulumi:"description"`
+	FoundationModel              *string                                 `pulumi:"foundationModel"`
+	GuardrailConfigurations      []AgentAgentGuardrailConfiguration      `pulumi:"guardrailConfigurations"`
+	IdleSessionTtlInSeconds      *int                                    `pulumi:"idleSessionTtlInSeconds"`
+	Instruction                  *string                                 `pulumi:"instruction"`
+	MemoryConfigurations         []AgentAgentMemoryConfiguration         `pulumi:"memoryConfigurations"`
+	PrepareAgent                 *bool                                   `pulumi:"prepareAgent"`
+	PreparedAt                   *string                                 `pulumi:"preparedAt"`
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the agent.
-	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string   `pulumi:"tagsAll"`
-	Timeouts *AgentAgentTimeouts `pulumi:"timeouts"`
+	Region                       *string                                 `pulumi:"region"`
+	SkipResourceInUseCheck       *bool                                   `pulumi:"skipResourceInUseCheck"`
+	Tags                         map[string]string                       `pulumi:"tags"`
+	TagsAll                      map[string]string                       `pulumi:"tagsAll"`
+	Timeouts                     *AgentAgentTimeouts                     `pulumi:"timeouts"`
 }
 
 type AgentAgentState struct {
-	// ARN of the agent.
-	AgentArn pulumi.StringPtrInput
-	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-	AgentCollaboration pulumi.StringPtrInput
-	// Unique identifier of the agent.
-	AgentId pulumi.StringPtrInput
-	// Name of the agent.
-	AgentName pulumi.StringPtrInput
-	// ARN of the IAM role with permissions to invoke API operations on the agent.
-	AgentResourceRoleArn pulumi.StringPtrInput
-	// Version of the agent.
-	AgentVersion pulumi.StringPtrInput
-	// ARN of the AWS KMS key that encrypts the agent.
-	CustomerEncryptionKeyArn pulumi.StringPtrInput
-	// Description of the agent.
-	Description pulumi.StringPtrInput
-	// Foundation model used for orchestration by the agent.
-	//
-	// The following arguments are optional:
-	FoundationModel pulumi.StringPtrInput
-	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
-	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
-	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-	Instruction pulumi.StringPtrInput
-	// Configurations for the agent's ability to retain the conversational context.
-	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent pulumi.BoolPtrInput
-	// Timestamp of when the agent was last prepared.
-	PreparedAt pulumi.StringPtrInput
-	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
+	AgentArn                     pulumi.StringPtrInput
+	AgentCollaboration           pulumi.StringPtrInput
+	AgentId                      pulumi.StringPtrInput
+	AgentName                    pulumi.StringPtrInput
+	AgentResourceRoleArn         pulumi.StringPtrInput
+	AgentVersion                 pulumi.StringPtrInput
+	CustomerEncryptionKeyArn     pulumi.StringPtrInput
+	Description                  pulumi.StringPtrInput
+	FoundationModel              pulumi.StringPtrInput
+	GuardrailConfigurations      AgentAgentGuardrailConfigurationArrayInput
+	IdleSessionTtlInSeconds      pulumi.IntPtrInput
+	Instruction                  pulumi.StringPtrInput
+	MemoryConfigurations         AgentAgentMemoryConfigurationArrayInput
+	PrepareAgent                 pulumi.BoolPtrInput
+	PreparedAt                   pulumi.StringPtrInput
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether the in-use check is skipped when deleting the agent.
-	SkipResourceInUseCheck pulumi.BoolPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts AgentAgentTimeoutsPtrInput
+	Region                       pulumi.StringPtrInput
+	SkipResourceInUseCheck       pulumi.BoolPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
+	Timeouts                     AgentAgentTimeoutsPtrInput
 }
 
 func (AgentAgentState) ElementType() reflect.Type {
@@ -318,76 +129,42 @@ func (AgentAgentState) ElementType() reflect.Type {
 }
 
 type agentAgentArgs struct {
-	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-	AgentCollaboration *string `pulumi:"agentCollaboration"`
-	// Name of the agent.
-	AgentName string `pulumi:"agentName"`
-	// ARN of the IAM role with permissions to invoke API operations on the agent.
-	AgentResourceRoleArn string `pulumi:"agentResourceRoleArn"`
-	// ARN of the AWS KMS key that encrypts the agent.
-	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
-	// Description of the agent.
-	Description *string `pulumi:"description"`
-	// Foundation model used for orchestration by the agent.
-	//
-	// The following arguments are optional:
-	FoundationModel string `pulumi:"foundationModel"`
-	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
-	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
-	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-	Instruction *string `pulumi:"instruction"`
-	// Configurations for the agent's ability to retain the conversational context.
-	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
+	AgentCollaboration           *string                                 `pulumi:"agentCollaboration"`
+	AgentName                    string                                  `pulumi:"agentName"`
+	AgentResourceRoleArn         string                                  `pulumi:"agentResourceRoleArn"`
+	CustomerEncryptionKeyArn     *string                                 `pulumi:"customerEncryptionKeyArn"`
+	Description                  *string                                 `pulumi:"description"`
+	FoundationModel              string                                  `pulumi:"foundationModel"`
+	GuardrailConfigurations      []AgentAgentGuardrailConfiguration      `pulumi:"guardrailConfigurations"`
+	IdleSessionTtlInSeconds      *int                                    `pulumi:"idleSessionTtlInSeconds"`
+	Instruction                  *string                                 `pulumi:"instruction"`
+	MemoryConfigurations         []AgentAgentMemoryConfiguration         `pulumi:"memoryConfigurations"`
+	PrepareAgent                 *bool                                   `pulumi:"prepareAgent"`
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the agent.
-	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string   `pulumi:"tags"`
-	Timeouts *AgentAgentTimeouts `pulumi:"timeouts"`
+	Region                       *string                                 `pulumi:"region"`
+	SkipResourceInUseCheck       *bool                                   `pulumi:"skipResourceInUseCheck"`
+	Tags                         map[string]string                       `pulumi:"tags"`
+	Timeouts                     *AgentAgentTimeouts                     `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentAgent resource.
 type AgentAgentArgs struct {
-	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
-	AgentCollaboration pulumi.StringPtrInput
-	// Name of the agent.
-	AgentName pulumi.StringInput
-	// ARN of the IAM role with permissions to invoke API operations on the agent.
-	AgentResourceRoleArn pulumi.StringInput
-	// ARN of the AWS KMS key that encrypts the agent.
-	CustomerEncryptionKeyArn pulumi.StringPtrInput
-	// Description of the agent.
-	Description pulumi.StringPtrInput
-	// Foundation model used for orchestration by the agent.
-	//
-	// The following arguments are optional:
-	FoundationModel pulumi.StringInput
-	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
-	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
-	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-	Instruction pulumi.StringPtrInput
-	// Configurations for the agent's ability to retain the conversational context.
-	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent pulumi.BoolPtrInput
-	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
+	AgentCollaboration           pulumi.StringPtrInput
+	AgentName                    pulumi.StringInput
+	AgentResourceRoleArn         pulumi.StringInput
+	CustomerEncryptionKeyArn     pulumi.StringPtrInput
+	Description                  pulumi.StringPtrInput
+	FoundationModel              pulumi.StringInput
+	GuardrailConfigurations      AgentAgentGuardrailConfigurationArrayInput
+	IdleSessionTtlInSeconds      pulumi.IntPtrInput
+	Instruction                  pulumi.StringPtrInput
+	MemoryConfigurations         AgentAgentMemoryConfigurationArrayInput
+	PrepareAgent                 pulumi.BoolPtrInput
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether the in-use check is skipped when deleting the agent.
-	SkipResourceInUseCheck pulumi.BoolPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts AgentAgentTimeoutsPtrInput
+	Region                       pulumi.StringPtrInput
+	SkipResourceInUseCheck       pulumi.BoolPtrInput
+	Tags                         pulumi.StringMapInput
+	Timeouts                     AgentAgentTimeoutsPtrInput
 }
 
 func (AgentAgentArgs) ElementType() reflect.Type {
@@ -477,106 +254,84 @@ func (o AgentAgentOutput) ToAgentAgentOutputWithContext(ctx context.Context) Age
 	return o
 }
 
-// ARN of the agent.
 func (o AgentAgentOutput) AgentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentArn }).(pulumi.StringOutput)
 }
 
-// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
 func (o AgentAgentOutput) AgentCollaboration() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentCollaboration }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the agent.
 func (o AgentAgentOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// Name of the agent.
 func (o AgentAgentOutput) AgentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentName }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role with permissions to invoke API operations on the agent.
 func (o AgentAgentOutput) AgentResourceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentResourceRoleArn }).(pulumi.StringOutput)
 }
 
-// Version of the agent.
 func (o AgentAgentOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }
 
-// ARN of the AWS KMS key that encrypts the agent.
 func (o AgentAgentOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringPtrOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Description of the agent.
 func (o AgentAgentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Foundation model used for orchestration by the agent.
-//
-// The following arguments are optional:
 func (o AgentAgentOutput) FoundationModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.FoundationModel }).(pulumi.StringOutput)
 }
 
-// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
 func (o AgentAgentOutput) GuardrailConfigurations() AgentAgentGuardrailConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentGuardrailConfigurationArrayOutput { return v.GuardrailConfigurations }).(AgentAgentGuardrailConfigurationArrayOutput)
 }
 
-// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 func (o AgentAgentOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
 }
 
-// Configurations for the agent's ability to retain the conversational context.
 func (o AgentAgentOutput) MemoryConfigurations() AgentAgentMemoryConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentMemoryConfigurationArrayOutput { return v.MemoryConfigurations }).(AgentAgentMemoryConfigurationArrayOutput)
 }
 
-// Whether to prepare the agent after creation or modification. Defaults to `true`.
 func (o AgentAgentOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
 }
 
-// Timestamp of when the agent was last prepared.
 func (o AgentAgentOutput) PreparedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.PreparedAt }).(pulumi.StringOutput)
 }
 
-// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 func (o AgentAgentOutput) PromptOverrideConfigurations() AgentAgentPromptOverrideConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentPromptOverrideConfigurationArrayOutput {
 		return v.PromptOverrideConfigurations
 	}).(AgentAgentPromptOverrideConfigurationArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentAgentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether the in-use check is skipped when deleting the agent.
 func (o AgentAgentOutput) SkipResourceInUseCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.BoolOutput { return v.SkipResourceInUseCheck }).(pulumi.BoolOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentAgentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentAgentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

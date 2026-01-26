@@ -14,10 +14,6 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("values")]
         private InputList<Inputs.GetListenerRuleConditionQueryStringValueInputArgs>? _values;
-
-        /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
-        /// </summary>
         public InputList<Inputs.GetListenerRuleConditionQueryStringValueInputArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.GetListenerRuleConditionQueryStringValueInputArgs>());

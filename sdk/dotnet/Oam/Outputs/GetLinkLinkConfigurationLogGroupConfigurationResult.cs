@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Oam.Outputs
     [OutputType]
     public sealed class GetLinkLinkConfigurationLogGroupConfigurationResult
     {
-        /// <summary>
-        /// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        /// </summary>
         public readonly string Filter;
 
         [OutputConstructor]

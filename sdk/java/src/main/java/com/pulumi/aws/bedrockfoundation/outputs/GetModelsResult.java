@@ -18,15 +18,7 @@ public final class GetModelsResult {
     private @Nullable String byInferenceType;
     private @Nullable String byOutputModality;
     private @Nullable String byProvider;
-    /**
-     * @return AWS region.
-     * 
-     */
     private String id;
-    /**
-     * @return List of model summary objects. See `modelSummaries`.
-     * 
-     */
     private List<GetModelsModelSummary> modelSummaries;
     private String region;
 
@@ -43,17 +35,9 @@ public final class GetModelsResult {
     public Optional<String> byProvider() {
         return Optional.ofNullable(this.byProvider);
     }
-    /**
-     * @return AWS region.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of model summary objects. See `modelSummaries`.
-     * 
-     */
     public List<GetModelsModelSummary> modelSummaries() {
         return this.modelSummaries;
     }

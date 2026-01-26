@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.LogDeliveryDestinationPolicy("example", {
- *     deliveryDestinationName: exampleAwsCloudwatchLogDeliveryDestination.name,
- *     deliveryDestinationPolicy: exampleAwsIamPolicyDocument.json,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example
- * ```
- */
 export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LogDeliveryDestinationPolicy resource's state with the given name, ID, and optional extra
@@ -57,17 +32,8 @@ export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDeliveryDestinationPolicy.__pulumiType;
     }
 
-    /**
-     * The name of the delivery destination to assign this policy to.
-     */
     declare public readonly deliveryDestinationName: pulumi.Output<string>;
-    /**
-     * The contents of the policy.
-     */
     declare public readonly deliveryDestinationPolicy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -107,17 +73,8 @@ export class LogDeliveryDestinationPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogDeliveryDestinationPolicy resources.
  */
 export interface LogDeliveryDestinationPolicyState {
-    /**
-     * The name of the delivery destination to assign this policy to.
-     */
     deliveryDestinationName?: pulumi.Input<string>;
-    /**
-     * The contents of the policy.
-     */
     deliveryDestinationPolicy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -125,16 +82,7 @@ export interface LogDeliveryDestinationPolicyState {
  * The set of arguments for constructing a LogDeliveryDestinationPolicy resource.
  */
 export interface LogDeliveryDestinationPolicyArgs {
-    /**
-     * The name of the delivery destination to assign this policy to.
-     */
     deliveryDestinationName: pulumi.Input<string>;
-    /**
-     * The contents of the policy.
-     */
     deliveryDestinationPolicy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

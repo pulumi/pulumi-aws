@@ -57,9 +57,6 @@ class GetApisResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of API identifiers.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -103,23 +100,7 @@ def get_apis(name: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApisResult:
     """
-    Provides details about multiple Amazon API Gateway Version 2 APIs.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
-    ```
-
-
-    :param _builtins.str name: API name.
-    :param _builtins.str protocol_type: API protocol.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired APIs.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -142,23 +123,7 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApisResult]:
     """
-    Provides details about multiple Amazon API Gateway Version 2 APIs.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
-    ```
-
-
-    :param _builtins.str name: API name.
-    :param _builtins.str protocol_type: API protocol.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired APIs.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

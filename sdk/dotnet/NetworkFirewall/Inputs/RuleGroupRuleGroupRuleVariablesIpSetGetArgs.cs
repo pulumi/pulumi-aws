@@ -12,15 +12,9 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class RuleGroupRuleGroupRuleVariablesIpSetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A configuration block that defines a set of IP addresses. See IP Set below for details.
-        /// </summary>
         [Input("ipSet", required: true)]
         public Input<Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetGetArgs> IpSet { get; set; } = null!;
 
-        /// <summary>
-        /// A unique alphanumeric string to identify the `IpSet`.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

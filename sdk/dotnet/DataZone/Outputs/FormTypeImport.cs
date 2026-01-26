@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DataZone.Outputs
     [OutputType]
     public sealed class FormTypeImport
     {
-        /// <summary>
-        /// Name of the form type. Must be the name of the structure in smithy document.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Revision of the Form Type.
-        /// </summary>
         public readonly string Revision;
 
         [OutputConstructor]

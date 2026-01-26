@@ -18,32 +18,16 @@ public final class MultitenantDistributionTenantConfigParameterDefinitionArgs ex
 
     public static final MultitenantDistributionTenantConfigParameterDefinitionArgs Empty = new MultitenantDistributionTenantConfigParameterDefinitionArgs();
 
-    /**
-     * Definition of the parameter schema. See Parameter Definition Schema below.
-     * 
-     */
     @Import(name="definitions")
     private @Nullable Output<List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs>> definitions;
 
-    /**
-     * @return Definition of the parameter schema. See Parameter Definition Schema below.
-     * 
-     */
     public Optional<Output<List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs>>> definitions() {
         return Optional.ofNullable(this.definitions);
     }
 
-    /**
-     * Name of the parameter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -73,54 +57,24 @@ public final class MultitenantDistributionTenantConfigParameterDefinitionArgs ex
             $ = new MultitenantDistributionTenantConfigParameterDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definitions Definition of the parameter schema. See Parameter Definition Schema below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(@Nullable Output<List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs>> definitions) {
             $.definitions = definitions;
             return this;
         }
 
-        /**
-         * @param definitions Definition of the parameter schema. See Parameter Definition Schema below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs> definitions) {
             return definitions(Output.of(definitions));
         }
 
-        /**
-         * @param definitions Definition of the parameter schema. See Parameter Definition Schema below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs... definitions) {
             return definitions(List.of(definitions));
         }
 
-        /**
-         * @param name Name of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

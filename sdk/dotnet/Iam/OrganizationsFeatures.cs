@@ -9,56 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Manages centralized root access features across AWS member accounts managed using AWS Organizations. More information about managing root access in IAM can be found in the [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
-    /// 
-    /// &gt; **NOTE:** The AWS account utilizing this resource must be an Organizations management account. Also, you must enable trusted access for AWS Identity and Access Management in AWS Organizations.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.Organization("example", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "iam.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleOrganizationsFeatures = new Aws.Iam.OrganizationsFeatures("example", new()
-    ///     {
-    ///         EnabledFeatures = new[]
-    ///         {
-    ///             "RootCredentialsManagement",
-    ///             "RootSessions",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import root access features using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/organizationsFeatures:OrganizationsFeatures")]
     public partial class OrganizationsFeatures : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-        /// </summary>
         [Output("enabledFeatures")]
         public Output<ImmutableArray<string>> EnabledFeatures { get; private set; } = null!;
 
@@ -110,10 +63,6 @@ namespace Pulumi.Aws.Iam
     {
         [Input("enabledFeatures", required: true)]
         private InputList<string>? _enabledFeatures;
-
-        /// <summary>
-        /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-        /// </summary>
         public InputList<string> EnabledFeatures
         {
             get => _enabledFeatures ?? (_enabledFeatures = new InputList<string>());
@@ -130,10 +79,6 @@ namespace Pulumi.Aws.Iam
     {
         [Input("enabledFeatures")]
         private InputList<string>? _enabledFeatures;
-
-        /// <summary>
-        /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-        /// </summary>
         public InputList<string> EnabledFeatures
         {
             get => _enabledFeatures ?? (_enabledFeatures = new InputList<string>());

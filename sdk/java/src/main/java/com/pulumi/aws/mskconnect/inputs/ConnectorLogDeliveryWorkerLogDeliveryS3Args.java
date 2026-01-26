@@ -17,47 +17,23 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
 
     public static final ConnectorLogDeliveryWorkerLogDeliveryS3Args Empty = new ConnectorLogDeliveryWorkerLogDeliveryS3Args();
 
-    /**
-     * The name of the S3 bucket that is the destination for log delivery.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return The name of the S3 bucket that is the destination for log delivery.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Specifies whether connector logs get sent to the specified Amazon S3 destination.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * The S3 prefix that is the destination for log delivery.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return The S3 prefix that is the destination for log delivery.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -88,65 +64,29 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
             $ = new ConnectorLogDeliveryWorkerLogDeliveryS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The name of the S3 bucket that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the S3 bucket that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param prefix The S3 prefix that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The S3 prefix that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

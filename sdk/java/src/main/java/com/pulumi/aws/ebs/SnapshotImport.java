@@ -19,150 +19,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Imports a disk image from S3 as a Snapshot.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ebs.SnapshotImport;
- * import com.pulumi.aws.ebs.SnapshotImportArgs;
- * import com.pulumi.aws.ebs.inputs.SnapshotImportDiskContainerArgs;
- * import com.pulumi.aws.ebs.inputs.SnapshotImportDiskContainerUserBucketArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SnapshotImport("example", SnapshotImportArgs.builder()
- *             .diskContainer(SnapshotImportDiskContainerArgs.builder()
- *                 .format("VHD")
- *                 .userBucket(SnapshotImportDiskContainerUserBucketArgs.builder()
- *                     .s3Bucket("disk-images")
- *                     .s3Key("source.vhd")
- *                     .build())
- *                 .build())
- *             .roleName("disk-image-import")
- *             .tags(Map.of("Name", "HelloWorld"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ebs/snapshotImport:SnapshotImport")
 public class SnapshotImport extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The client-specific data. Detailed below.
-     * 
-     */
     @Export(name="clientData", refs={SnapshotImportClientData.class}, tree="[0]")
     private Output</* @Nullable */ SnapshotImportClientData> clientData;
 
-    /**
-     * @return The client-specific data. Detailed below.
-     * 
-     */
     public Output<Optional<SnapshotImportClientData>> clientData() {
         return Codegen.optional(this.clientData);
     }
-    /**
-     * The data encryption key identifier for the snapshot.
-     * 
-     */
     @Export(name="dataEncryptionKeyId", refs={String.class}, tree="[0]")
     private Output<String> dataEncryptionKeyId;
 
-    /**
-     * @return The data encryption key identifier for the snapshot.
-     * 
-     */
     public Output<String> dataEncryptionKeyId() {
         return this.dataEncryptionKeyId;
     }
-    /**
-     * The description string for the import snapshot task.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The description string for the import snapshot task.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Information about the disk container. Detailed below.
-     * 
-     */
     @Export(name="diskContainer", refs={SnapshotImportDiskContainer.class}, tree="[0]")
     private Output<SnapshotImportDiskContainer> diskContainer;
 
-    /**
-     * @return Information about the disk container. Detailed below.
-     * 
-     */
     public Output<SnapshotImportDiskContainer> diskContainer() {
         return this.diskContainer;
     }
-    /**
-     * Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-     * 
-     */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> encrypted;
 
-    /**
-     * @return Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-     * 
-     */
     public Output<Optional<Boolean>> encrypted() {
         return Codegen.optional(this.encrypted);
     }
-    /**
-     * An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
-    /**
-     * @return An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-     * 
-     */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
@@ -172,129 +69,57 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
     public Output<String> outpostArn() {
         return this.outpostArn;
     }
-    /**
-     * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-     * 
-     */
     @Export(name="ownerAlias", refs={String.class}, tree="[0]")
     private Output<String> ownerAlias;
 
-    /**
-     * @return Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-     * 
-     */
     public Output<String> ownerAlias() {
         return this.ownerAlias;
     }
-    /**
-     * The AWS account ID of the EBS snapshot owner.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return The AWS account ID of the EBS snapshot owner.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Indicates whether to permanently restore an archived snapshot.
-     * 
-     */
     @Export(name="permanentRestore", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> permanentRestore;
 
-    /**
-     * @return Indicates whether to permanently restore an archived snapshot.
-     * 
-     */
     public Output<Optional<Boolean>> permanentRestore() {
         return Codegen.optional(this.permanentRestore);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-     * 
-     */
     @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleName;
 
-    /**
-     * @return The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-     * 
-     */
     public Output<Optional<String>> roleName() {
         return Codegen.optional(this.roleName);
     }
-    /**
-     * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-     * 
-     */
     @Export(name="storageTier", refs={String.class}, tree="[0]")
     private Output<String> storageTier;
 
-    /**
-     * @return The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-     * 
-     */
     public Output<String> storageTier() {
         return this.storageTier;
     }
-    /**
-     * A map of tags to assign to the snapshot.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the snapshot.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-     * 
-     */
     @Export(name="temporaryRestoreDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> temporaryRestoreDays;
 
-    /**
-     * @return Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-     * 
-     */
     public Output<Optional<Integer>> temporaryRestoreDays() {
         return Codegen.optional(this.temporaryRestoreDays);
     }
@@ -304,17 +129,9 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
     public Output<String> volumeId() {
         return this.volumeId;
     }
-    /**
-     * The size of the drive in GiBs.
-     * 
-     */
     @Export(name="volumeSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> volumeSize;
 
-    /**
-     * @return The size of the drive in GiBs.
-     * 
-     */
     public Output<Integer> volumeSize() {
         return this.volumeSize;
     }

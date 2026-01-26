@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class ConnectorEgressConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
-        /// </summary>
         [Input("vpcLattice")]
         public Input<Inputs.ConnectorEgressConfigVpcLatticeGetArgs>? VpcLattice { get; set; }
 

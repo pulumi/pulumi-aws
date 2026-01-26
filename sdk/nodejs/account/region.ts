@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Enable (Opt-In) or Disable (Opt-Out) a particular Region for an AWS account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.account.Region("example", {
- *     regionName: "ap-southeast-3",
- *     enabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`. For example:
- *
- * ```sh
- * $ pulumi import aws:account/region:Region example ap-southeast-3
- * ```
- */
 export class Region extends pulumi.CustomResource {
     /**
      * Get an existing Region resource's state with the given name, ID, and optional extra
@@ -55,21 +32,9 @@ export class Region extends pulumi.CustomResource {
         return obj['__pulumiType'] === Region.__pulumiType;
     }
 
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-     */
     declare public readonly accountId: pulumi.Output<string | undefined>;
-    /**
-     * Whether the region is enabled.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
-    /**
-     * The region opt status.
-     */
     declare public /*out*/ readonly optStatus: pulumi.Output<string>;
-    /**
-     * The region name to manage.
-     */
     declare public readonly regionName: pulumi.Output<string>;
 
     /**
@@ -111,21 +76,9 @@ export class Region extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Region resources.
  */
 export interface RegionState {
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Whether the region is enabled.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * The region opt status.
-     */
     optStatus?: pulumi.Input<string>;
-    /**
-     * The region name to manage.
-     */
     regionName?: pulumi.Input<string>;
 }
 
@@ -133,16 +86,7 @@ export interface RegionState {
  * The set of arguments for constructing a Region resource.
  */
 export interface RegionArgs {
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Whether the region is enabled.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * The region name to manage.
-     */
     regionName: pulumi.Input<string>;
 }

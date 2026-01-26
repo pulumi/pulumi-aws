@@ -26,13 +26,6 @@ class EventRuleArgs:
                  event_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventRule resource.
-        :param pulumi.Input[_builtins.str] event_type: Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
-        :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        :param pulumi.Input[_builtins.str] source: Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] event_pattern: JSON string defining the event pattern to match. Maximum length is 4096 characters.
         """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "notification_configuration_arn", notification_configuration_arn)
@@ -44,9 +37,6 @@ class EventRuleArgs:
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
-        """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
@@ -56,9 +46,6 @@ class EventRuleArgs:
     @_builtins.property
     @pulumi.getter(name="notificationConfigurationArn")
     def notification_configuration_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        """
         return pulumi.get(self, "notification_configuration_arn")
 
     @notification_configuration_arn.setter
@@ -68,9 +55,6 @@ class EventRuleArgs:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -80,11 +64,6 @@ class EventRuleArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
-        """
-        Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -94,9 +73,6 @@ class EventRuleArgs:
     @_builtins.property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
@@ -115,14 +91,6 @@ class _EventRuleState:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventRule resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Event Rule.
-        :param pulumi.Input[_builtins.str] event_pattern: JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        :param pulumi.Input[_builtins.str] event_type: Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
-        :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        :param pulumi.Input[_builtins.str] source: Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -140,9 +108,6 @@ class _EventRuleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Event Rule.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -152,9 +117,6 @@ class _EventRuleState:
     @_builtins.property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
@@ -164,9 +126,6 @@ class _EventRuleState:
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
-        """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
@@ -176,9 +135,6 @@ class _EventRuleState:
     @_builtins.property
     @pulumi.getter(name="notificationConfigurationArn")
     def notification_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        """
         return pulumi.get(self, "notification_configuration_arn")
 
     @notification_configuration_arn.setter
@@ -188,9 +144,6 @@ class _EventRuleState:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -200,11 +153,6 @@ class _EventRuleState:
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -225,54 +173,9 @@ class EventRule(pulumi.CustomResource):
                  source: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS User Notifications Event Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationConfiguration("example",
-            name="example",
-            description="example configuration")
-        example_event_rule = aws.notifications.EventRule("example",
-            event_pattern=json.dumps({
-                "detail": {
-                    "state": {
-                        "value": ["ALARM"],
-                    },
-                },
-            }),
-            event_type="CloudWatch Alarm State Change",
-            notification_configuration_arn=example.arn,
-            regions=[
-                "us-east-1",
-                "us-west-2",
-            ],
-            source="aws.cloudwatch")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Event Rule using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345
-        ```
-
+        Create a EventRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] event_pattern: JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        :param pulumi.Input[_builtins.str] event_type: Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
-        :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        :param pulumi.Input[_builtins.str] source: Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -281,45 +184,7 @@ class EventRule(pulumi.CustomResource):
                  args: EventRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS User Notifications Event Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationConfiguration("example",
-            name="example",
-            description="example configuration")
-        example_event_rule = aws.notifications.EventRule("example",
-            event_pattern=json.dumps({
-                "detail": {
-                    "state": {
-                        "value": ["ALARM"],
-                    },
-                },
-            }),
-            event_type="CloudWatch Alarm State Change",
-            notification_configuration_arn=example.arn,
-            regions=[
-                "us-east-1",
-                "us-west-2",
-            ],
-            source="aws.cloudwatch")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Event Rule using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345
-        ```
-
+        Create a EventRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -386,14 +251,6 @@ class EventRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Event Rule.
-        :param pulumi.Input[_builtins.str] event_pattern: JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        :param pulumi.Input[_builtins.str] event_type: Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
-        :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        :param pulumi.Input[_builtins.str] source: Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -410,50 +267,30 @@ class EventRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Event Rule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        """
         return pulumi.get(self, "event_pattern")
 
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="notificationConfigurationArn")
     def notification_configuration_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        """
         return pulumi.get(self, "notification_configuration_arn")
 
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Output[_builtins.str]:
-        """
-        Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "source")
 

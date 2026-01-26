@@ -11,59 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a static IP address.
-//
-// Use this resource to allocate a static IP address that can be attached to Lightsail instances to provide a consistent public IP address that persists across instance restarts.
-//
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewStaticIp(ctx, "example", &lightsail.StaticIpArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/staticIp:StaticIp example example
-// ```
 type StaticIp struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Lightsail static IP.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Allocated static IP address.
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// Name for the allocated static IP.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	Arn         pulumi.StringOutput `pulumi:"arn"`
+	IpAddress   pulumi.StringOutput `pulumi:"ipAddress"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 }
 
@@ -97,32 +51,18 @@ func GetStaticIp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticIp resources.
 type staticIpState struct {
-	// ARN of the Lightsail static IP.
-	Arn *string `pulumi:"arn"`
-	// Allocated static IP address.
-	IpAddress *string `pulumi:"ipAddress"`
-	// Name for the allocated static IP.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	Arn         *string `pulumi:"arn"`
+	IpAddress   *string `pulumi:"ipAddress"`
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
 	SupportCode *string `pulumi:"supportCode"`
 }
 
 type StaticIpState struct {
-	// ARN of the Lightsail static IP.
-	Arn pulumi.StringPtrInput
-	// Allocated static IP address.
-	IpAddress pulumi.StringPtrInput
-	// Name for the allocated static IP.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	Arn         pulumi.StringPtrInput
+	IpAddress   pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	SupportCode pulumi.StringPtrInput
 }
 
@@ -131,21 +71,13 @@ func (StaticIpState) ElementType() reflect.Type {
 }
 
 type staticIpArgs struct {
-	// Name for the allocated static IP.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a StaticIp resource.
 type StaticIpArgs struct {
-	// Name for the allocated static IP.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 }
 
@@ -236,29 +168,22 @@ func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticI
 	return o
 }
 
-// ARN of the Lightsail static IP.
 func (o StaticIpOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Allocated static IP address.
 func (o StaticIpOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Name for the allocated static IP.
-//
-// The following arguments are optional:
 func (o StaticIpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StaticIpOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 func (o StaticIpOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }

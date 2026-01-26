@@ -11,84 +11,12 @@ namespace Pulumi.Aws.DirectConnect
 {
     public static class GetLocation
     {
-        /// <summary>
-        /// Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-        /// These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-        /// 
-        /// &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectConnect.GetLocation.Invoke(new()
-        ///     {
-        ///         LocationCode = "CS32A-24FL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("aws:directconnect/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-        /// These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-        /// 
-        /// &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectConnect.GetLocation.Invoke(new()
-        ///     {
-        ///         LocationCode = "CS32A-24FL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("aws:directconnect/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-        /// These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-        /// 
-        /// &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectConnect.GetLocation.Invoke(new()
-        ///     {
-        ///         LocationCode = "CS32A-24FL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("aws:directconnect/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
     }
@@ -96,15 +24,9 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class GetLocationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Code for the location to retrieve.
-        /// </summary>
         [Input("locationCode", required: true)]
         public string LocationCode { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -116,15 +38,9 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class GetLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Code for the location to retrieve.
-        /// </summary>
         [Input("locationCode", required: true)]
         public Input<string> LocationCode { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -138,26 +54,14 @@ namespace Pulumi.Aws.DirectConnect
     [OutputType]
     public sealed class GetLocationResult
     {
-        /// <summary>
-        /// The available MAC Security (MACsec) port speeds for the location.
-        /// </summary>
         public readonly ImmutableArray<string> AvailableMacsecPortSpeeds;
-        /// <summary>
-        /// The available port speeds for the location.
-        /// </summary>
         public readonly ImmutableArray<string> AvailablePortSpeeds;
-        /// <summary>
-        /// Names of the service providers for the location.
-        /// </summary>
         public readonly ImmutableArray<string> AvailableProviders;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string LocationCode;
-        /// <summary>
-        /// Name of the location. This includes the name of the colocation partner and the physical site of the building.
-        /// </summary>
         public readonly string LocationName;
         public readonly string Region;
 

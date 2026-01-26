@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("hiddenAppTypes")]
         private InputList<string>? _hiddenAppTypes;
-
-        /// <summary>
-        /// The Applications supported in Studio that are hidden from the Studio left navigation pane.
-        /// </summary>
         public InputList<string> HiddenAppTypes
         {
             get => _hiddenAppTypes ?? (_hiddenAppTypes = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("hiddenInstanceTypes")]
         private InputList<string>? _hiddenInstanceTypes;
-
-        /// <summary>
-        /// The instance types you are hiding from the Studio user interface.
-        /// </summary>
         public InputList<string> HiddenInstanceTypes
         {
             get => _hiddenInstanceTypes ?? (_hiddenInstanceTypes = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("hiddenMlTools")]
         private InputList<string>? _hiddenMlTools;
-
-        /// <summary>
-        /// The machine learning tools that are hidden from the Studio left navigation pane.
-        /// </summary>
         public InputList<string> HiddenMlTools
         {
             get => _hiddenMlTools ?? (_hiddenMlTools = new InputList<string>());

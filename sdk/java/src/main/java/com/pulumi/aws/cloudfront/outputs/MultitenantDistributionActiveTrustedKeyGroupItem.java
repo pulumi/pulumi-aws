@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionActiveTrustedKeyGroupItem {
-    /**
-     * @return ID of the key group that contains the public keys.
-     * 
-     */
     private @Nullable String keyGroupId;
-    /**
-     * @return Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
-     * 
-     */
     private @Nullable List<String> keyPairIds;
 
     private MultitenantDistributionActiveTrustedKeyGroupItem() {}
-    /**
-     * @return ID of the key group that contains the public keys.
-     * 
-     */
     public Optional<String> keyGroupId() {
         return Optional.ofNullable(this.keyGroupId);
     }
-    /**
-     * @return Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
-     * 
-     */
     public List<String> keyPairIds() {
         return this.keyPairIds == null ? List.of() : this.keyPairIds;
     }

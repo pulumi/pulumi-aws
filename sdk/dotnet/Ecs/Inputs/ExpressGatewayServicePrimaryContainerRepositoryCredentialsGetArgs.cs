@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ExpressGatewayServicePrimaryContainerRepositoryCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the AWS Systems Manager parameter containing the repository credentials.
-        /// </summary>
         [Input("credentialsParameter", required: true)]
         public Input<string> CredentialsParameter { get; set; } = null!;
 

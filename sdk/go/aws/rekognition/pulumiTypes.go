@@ -307,7 +307,7 @@ func (o ProjectTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type StreamProcessorDataSharingPreference struct {
-	// Whether you are sharing data with Rekognition to improve model performance.
+	// Do you want to share data with Rekognition to improve model performance.
 	OptIn bool `pulumi:"optIn"`
 }
 
@@ -323,7 +323,7 @@ type StreamProcessorDataSharingPreferenceInput interface {
 }
 
 type StreamProcessorDataSharingPreferenceArgs struct {
-	// Whether you are sharing data with Rekognition to improve model performance.
+	// Do you want to share data with Rekognition to improve model performance.
 	OptIn pulumi.BoolInput `pulumi:"optIn"`
 }
 
@@ -404,7 +404,7 @@ func (o StreamProcessorDataSharingPreferenceOutput) ToStreamProcessorDataSharing
 	}).(StreamProcessorDataSharingPreferencePtrOutput)
 }
 
-// Whether you are sharing data with Rekognition to improve model performance.
+// Do you want to share data with Rekognition to improve model performance.
 func (o StreamProcessorDataSharingPreferenceOutput) OptIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v StreamProcessorDataSharingPreference) bool { return v.OptIn }).(pulumi.BoolOutput)
 }
@@ -433,7 +433,7 @@ func (o StreamProcessorDataSharingPreferencePtrOutput) Elem() StreamProcessorDat
 	}).(StreamProcessorDataSharingPreferenceOutput)
 }
 
-// Whether you are sharing data with Rekognition to improve model performance.
+// Do you want to share data with Rekognition to improve model performance.
 func (o StreamProcessorDataSharingPreferencePtrOutput) OptIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamProcessorDataSharingPreference) *bool {
 		if v == nil {
@@ -444,7 +444,7 @@ func (o StreamProcessorDataSharingPreferencePtrOutput) OptIn() pulumi.BoolPtrOut
 }
 
 type StreamProcessorInputType struct {
-	// Kinesis input stream. See `kinesisVideoStream`.
+	// Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
 	KinesisVideoStream *StreamProcessorInputKinesisVideoStream `pulumi:"kinesisVideoStream"`
 }
 
@@ -460,7 +460,7 @@ type StreamProcessorInputTypeInput interface {
 }
 
 type StreamProcessorInputTypeArgs struct {
-	// Kinesis input stream. See `kinesisVideoStream`.
+	// Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
 	KinesisVideoStream StreamProcessorInputKinesisVideoStreamPtrInput `pulumi:"kinesisVideoStream"`
 }
 
@@ -541,7 +541,7 @@ func (o StreamProcessorInputTypeOutput) ToStreamProcessorInputTypePtrOutputWithC
 	}).(StreamProcessorInputTypePtrOutput)
 }
 
-// Kinesis input stream. See `kinesisVideoStream`.
+// Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
 func (o StreamProcessorInputTypeOutput) KinesisVideoStream() StreamProcessorInputKinesisVideoStreamPtrOutput {
 	return o.ApplyT(func(v StreamProcessorInputType) *StreamProcessorInputKinesisVideoStream { return v.KinesisVideoStream }).(StreamProcessorInputKinesisVideoStreamPtrOutput)
 }
@@ -570,7 +570,7 @@ func (o StreamProcessorInputTypePtrOutput) Elem() StreamProcessorInputTypeOutput
 	}).(StreamProcessorInputTypeOutput)
 }
 
-// Kinesis input stream. See `kinesisVideoStream`.
+// Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
 func (o StreamProcessorInputTypePtrOutput) KinesisVideoStream() StreamProcessorInputKinesisVideoStreamPtrOutput {
 	return o.ApplyT(func(v *StreamProcessorInputType) *StreamProcessorInputKinesisVideoStream {
 		if v == nil {
@@ -855,9 +855,9 @@ func (o StreamProcessorNotificationChannelPtrOutput) SnsTopicArn() pulumi.String
 }
 
 type StreamProcessorOutputType struct {
-	// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+	// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
 	KinesisDataStream *StreamProcessorOutputKinesisDataStream `pulumi:"kinesisDataStream"`
-	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
 	S3Destination *StreamProcessorOutputS3Destination `pulumi:"s3Destination"`
 }
 
@@ -873,9 +873,9 @@ type StreamProcessorOutputTypeInput interface {
 }
 
 type StreamProcessorOutputTypeArgs struct {
-	// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+	// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
 	KinesisDataStream StreamProcessorOutputKinesisDataStreamPtrInput `pulumi:"kinesisDataStream"`
-	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+	// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
 	S3Destination StreamProcessorOutputS3DestinationPtrInput `pulumi:"s3Destination"`
 }
 
@@ -956,12 +956,12 @@ func (o StreamProcessorOutputTypeOutput) ToStreamProcessorOutputTypePtrOutputWit
 	}).(StreamProcessorOutputTypePtrOutput)
 }
 
-// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
 func (o StreamProcessorOutputTypeOutput) KinesisDataStream() StreamProcessorOutputKinesisDataStreamPtrOutput {
 	return o.ApplyT(func(v StreamProcessorOutputType) *StreamProcessorOutputKinesisDataStream { return v.KinesisDataStream }).(StreamProcessorOutputKinesisDataStreamPtrOutput)
 }
 
-// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
 func (o StreamProcessorOutputTypeOutput) S3Destination() StreamProcessorOutputS3DestinationPtrOutput {
 	return o.ApplyT(func(v StreamProcessorOutputType) *StreamProcessorOutputS3Destination { return v.S3Destination }).(StreamProcessorOutputS3DestinationPtrOutput)
 }
@@ -990,7 +990,7 @@ func (o StreamProcessorOutputTypePtrOutput) Elem() StreamProcessorOutputTypeOutp
 	}).(StreamProcessorOutputTypeOutput)
 }
 
-// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
 func (o StreamProcessorOutputTypePtrOutput) KinesisDataStream() StreamProcessorOutputKinesisDataStreamPtrOutput {
 	return o.ApplyT(func(v *StreamProcessorOutputType) *StreamProcessorOutputKinesisDataStream {
 		if v == nil {
@@ -1000,7 +1000,7 @@ func (o StreamProcessorOutputTypePtrOutput) KinesisDataStream() StreamProcessorO
 	}).(StreamProcessorOutputKinesisDataStreamPtrOutput)
 }
 
-// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
 func (o StreamProcessorOutputTypePtrOutput) S3Destination() StreamProcessorOutputS3DestinationPtrOutput {
 	return o.ApplyT(func(v *StreamProcessorOutputType) *StreamProcessorOutputS3Destination {
 		if v == nil {
@@ -1148,7 +1148,7 @@ func (o StreamProcessorOutputKinesisDataStreamPtrOutput) Arn() pulumi.StringPtrO
 }
 
 type StreamProcessorOutputS3Destination struct {
-	// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+	// The name of the Amazon S3 bucket you want to associate with the streaming video project.
 	Bucket *string `pulumi:"bucket"`
 	// The prefix value of the location within the bucket that you want the information to be published to.
 	KeyPrefix *string `pulumi:"keyPrefix"`
@@ -1166,7 +1166,7 @@ type StreamProcessorOutputS3DestinationInput interface {
 }
 
 type StreamProcessorOutputS3DestinationArgs struct {
-	// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+	// The name of the Amazon S3 bucket you want to associate with the streaming video project.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
 	// The prefix value of the location within the bucket that you want the information to be published to.
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
@@ -1249,7 +1249,7 @@ func (o StreamProcessorOutputS3DestinationOutput) ToStreamProcessorOutputS3Desti
 	}).(StreamProcessorOutputS3DestinationPtrOutput)
 }
 
-// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+// The name of the Amazon S3 bucket you want to associate with the streaming video project.
 func (o StreamProcessorOutputS3DestinationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamProcessorOutputS3Destination) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
@@ -1283,7 +1283,7 @@ func (o StreamProcessorOutputS3DestinationPtrOutput) Elem() StreamProcessorOutpu
 	}).(StreamProcessorOutputS3DestinationOutput)
 }
 
-// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+// The name of the Amazon S3 bucket you want to associate with the streaming video project.
 func (o StreamProcessorOutputS3DestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamProcessorOutputS3Destination) *string {
 		if v == nil {
@@ -1304,9 +1304,9 @@ func (o StreamProcessorOutputS3DestinationPtrOutput) KeyPrefix() pulumi.StringPt
 }
 
 type StreamProcessorRegionsOfInterest struct {
-	// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+	// The box representing a region of interest on screen.
 	BoundingBox StreamProcessorRegionsOfInterestBoundingBox `pulumi:"boundingBox"`
-	// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+	// Specifies a shape made of 3 to 10 Point objects that define a region of interest.
 	Polygons []StreamProcessorRegionsOfInterestPolygon `pulumi:"polygons"`
 }
 
@@ -1322,9 +1322,9 @@ type StreamProcessorRegionsOfInterestInput interface {
 }
 
 type StreamProcessorRegionsOfInterestArgs struct {
-	// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+	// The box representing a region of interest on screen.
 	BoundingBox StreamProcessorRegionsOfInterestBoundingBoxInput `pulumi:"boundingBox"`
-	// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+	// Specifies a shape made of 3 to 10 Point objects that define a region of interest.
 	Polygons StreamProcessorRegionsOfInterestPolygonArrayInput `pulumi:"polygons"`
 }
 
@@ -1379,14 +1379,14 @@ func (o StreamProcessorRegionsOfInterestOutput) ToStreamProcessorRegionsOfIntere
 	return o
 }
 
-// Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+// The box representing a region of interest on screen.
 func (o StreamProcessorRegionsOfInterestOutput) BoundingBox() StreamProcessorRegionsOfInterestBoundingBoxOutput {
 	return o.ApplyT(func(v StreamProcessorRegionsOfInterest) StreamProcessorRegionsOfInterestBoundingBox {
 		return v.BoundingBox
 	}).(StreamProcessorRegionsOfInterestBoundingBoxOutput)
 }
 
-// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+// Specifies a shape made of 3 to 10 Point objects that define a region of interest.
 func (o StreamProcessorRegionsOfInterestOutput) Polygons() StreamProcessorRegionsOfInterestPolygonArrayOutput {
 	return o.ApplyT(func(v StreamProcessorRegionsOfInterest) []StreamProcessorRegionsOfInterestPolygon { return v.Polygons }).(StreamProcessorRegionsOfInterestPolygonArrayOutput)
 }
@@ -1597,9 +1597,9 @@ func (o StreamProcessorRegionsOfInterestPolygonArrayOutput) Index(i pulumi.IntIn
 }
 
 type StreamProcessorSettings struct {
-	// Label detection settings to use on a streaming video. See `connectedHome`.
+	// Label detection settings to use on a streaming video.
 	ConnectedHome *StreamProcessorSettingsConnectedHome `pulumi:"connectedHome"`
-	// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+	// Face search settings to use on a streaming video.
 	FaceSearch *StreamProcessorSettingsFaceSearch `pulumi:"faceSearch"`
 }
 
@@ -1615,9 +1615,9 @@ type StreamProcessorSettingsInput interface {
 }
 
 type StreamProcessorSettingsArgs struct {
-	// Label detection settings to use on a streaming video. See `connectedHome`.
+	// Label detection settings to use on a streaming video.
 	ConnectedHome StreamProcessorSettingsConnectedHomePtrInput `pulumi:"connectedHome"`
-	// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+	// Face search settings to use on a streaming video.
 	FaceSearch StreamProcessorSettingsFaceSearchPtrInput `pulumi:"faceSearch"`
 }
 
@@ -1698,12 +1698,12 @@ func (o StreamProcessorSettingsOutput) ToStreamProcessorSettingsPtrOutputWithCon
 	}).(StreamProcessorSettingsPtrOutput)
 }
 
-// Label detection settings to use on a streaming video. See `connectedHome`.
+// Label detection settings to use on a streaming video.
 func (o StreamProcessorSettingsOutput) ConnectedHome() StreamProcessorSettingsConnectedHomePtrOutput {
 	return o.ApplyT(func(v StreamProcessorSettings) *StreamProcessorSettingsConnectedHome { return v.ConnectedHome }).(StreamProcessorSettingsConnectedHomePtrOutput)
 }
 
-// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+// Face search settings to use on a streaming video.
 func (o StreamProcessorSettingsOutput) FaceSearch() StreamProcessorSettingsFaceSearchPtrOutput {
 	return o.ApplyT(func(v StreamProcessorSettings) *StreamProcessorSettingsFaceSearch { return v.FaceSearch }).(StreamProcessorSettingsFaceSearchPtrOutput)
 }
@@ -1732,7 +1732,7 @@ func (o StreamProcessorSettingsPtrOutput) Elem() StreamProcessorSettingsOutput {
 	}).(StreamProcessorSettingsOutput)
 }
 
-// Label detection settings to use on a streaming video. See `connectedHome`.
+// Label detection settings to use on a streaming video.
 func (o StreamProcessorSettingsPtrOutput) ConnectedHome() StreamProcessorSettingsConnectedHomePtrOutput {
 	return o.ApplyT(func(v *StreamProcessorSettings) *StreamProcessorSettingsConnectedHome {
 		if v == nil {
@@ -1742,7 +1742,7 @@ func (o StreamProcessorSettingsPtrOutput) ConnectedHome() StreamProcessorSetting
 	}).(StreamProcessorSettingsConnectedHomePtrOutput)
 }
 
-// Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+// Face search settings to use on a streaming video.
 func (o StreamProcessorSettingsPtrOutput) FaceSearch() StreamProcessorSettingsFaceSearchPtrOutput {
 	return o.ApplyT(func(v *StreamProcessorSettings) *StreamProcessorSettingsFaceSearch {
 		if v == nil {
@@ -1753,9 +1753,9 @@ func (o StreamProcessorSettingsPtrOutput) FaceSearch() StreamProcessorSettingsFa
 }
 
 type StreamProcessorSettingsConnectedHome struct {
-	// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+	// Specifies what you want to detect in the video, such as people, packages, or pets.
 	Labels []string `pulumi:"labels"`
-	// Minimum confidence required to label an object in the video.
+	// The minimum confidence required to label an object in the video.
 	MinConfidence *float64 `pulumi:"minConfidence"`
 }
 
@@ -1771,9 +1771,9 @@ type StreamProcessorSettingsConnectedHomeInput interface {
 }
 
 type StreamProcessorSettingsConnectedHomeArgs struct {
-	// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+	// Specifies what you want to detect in the video, such as people, packages, or pets.
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
-	// Minimum confidence required to label an object in the video.
+	// The minimum confidence required to label an object in the video.
 	MinConfidence pulumi.Float64PtrInput `pulumi:"minConfidence"`
 }
 
@@ -1854,12 +1854,12 @@ func (o StreamProcessorSettingsConnectedHomeOutput) ToStreamProcessorSettingsCon
 	}).(StreamProcessorSettingsConnectedHomePtrOutput)
 }
 
-// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+// Specifies what you want to detect in the video, such as people, packages, or pets.
 func (o StreamProcessorSettingsConnectedHomeOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StreamProcessorSettingsConnectedHome) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
-// Minimum confidence required to label an object in the video.
+// The minimum confidence required to label an object in the video.
 func (o StreamProcessorSettingsConnectedHomeOutput) MinConfidence() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StreamProcessorSettingsConnectedHome) *float64 { return v.MinConfidence }).(pulumi.Float64PtrOutput)
 }
@@ -1888,7 +1888,7 @@ func (o StreamProcessorSettingsConnectedHomePtrOutput) Elem() StreamProcessorSet
 	}).(StreamProcessorSettingsConnectedHomeOutput)
 }
 
-// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+// Specifies what you want to detect in the video, such as people, packages, or pets.
 func (o StreamProcessorSettingsConnectedHomePtrOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StreamProcessorSettingsConnectedHome) []string {
 		if v == nil {
@@ -1898,7 +1898,7 @@ func (o StreamProcessorSettingsConnectedHomePtrOutput) Labels() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Minimum confidence required to label an object in the video.
+// The minimum confidence required to label an object in the video.
 func (o StreamProcessorSettingsConnectedHomePtrOutput) MinConfidence() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *StreamProcessorSettingsConnectedHome) *float64 {
 		if v == nil {
@@ -1909,7 +1909,7 @@ func (o StreamProcessorSettingsConnectedHomePtrOutput) MinConfidence() pulumi.Fl
 }
 
 type StreamProcessorSettingsFaceSearch struct {
-	// ID of a collection that contains faces that you want to search for.
+	// The ID of a collection that contains faces that you want to search for.
 	CollectionId string `pulumi:"collectionId"`
 	// Minimum face match confidence score that must be met to return a result for a recognized face.
 	FaceMatchThreshold *float64 `pulumi:"faceMatchThreshold"`
@@ -1927,7 +1927,7 @@ type StreamProcessorSettingsFaceSearchInput interface {
 }
 
 type StreamProcessorSettingsFaceSearchArgs struct {
-	// ID of a collection that contains faces that you want to search for.
+	// The ID of a collection that contains faces that you want to search for.
 	CollectionId pulumi.StringInput `pulumi:"collectionId"`
 	// Minimum face match confidence score that must be met to return a result for a recognized face.
 	FaceMatchThreshold pulumi.Float64PtrInput `pulumi:"faceMatchThreshold"`
@@ -2010,7 +2010,7 @@ func (o StreamProcessorSettingsFaceSearchOutput) ToStreamProcessorSettingsFaceSe
 	}).(StreamProcessorSettingsFaceSearchPtrOutput)
 }
 
-// ID of a collection that contains faces that you want to search for.
+// The ID of a collection that contains faces that you want to search for.
 func (o StreamProcessorSettingsFaceSearchOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamProcessorSettingsFaceSearch) string { return v.CollectionId }).(pulumi.StringOutput)
 }
@@ -2044,7 +2044,7 @@ func (o StreamProcessorSettingsFaceSearchPtrOutput) Elem() StreamProcessorSettin
 	}).(StreamProcessorSettingsFaceSearchOutput)
 }
 
-// ID of a collection that contains faces that you want to search for.
+// The ID of a collection that contains faces that you want to search for.
 func (o StreamProcessorSettingsFaceSearchPtrOutput) CollectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamProcessorSettingsFaceSearch) *string {
 		if v == nil {

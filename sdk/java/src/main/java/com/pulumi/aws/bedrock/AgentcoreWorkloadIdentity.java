@@ -15,150 +15,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Bedrock AgentCore Workload Identity. Workload Identity provides OAuth2-based authentication and authorization for AI agents to access external resources securely.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreWorkloadIdentity;
- * import com.pulumi.aws.bedrock.AgentcoreWorkloadIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreWorkloadIdentity("example", AgentcoreWorkloadIdentityArgs.builder()
- *             .name("example-workload-identity")
- *             .allowedResourceOauth2ReturnUrls("https://example.com/callback")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Workload Identity with Multiple Return URLs
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreWorkloadIdentity;
- * import com.pulumi.aws.bedrock.AgentcoreWorkloadIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreWorkloadIdentity("example", AgentcoreWorkloadIdentityArgs.builder()
- *             .name("example-workload-identity")
- *             .allowedResourceOauth2ReturnUrls(            
- *                 "https://app.example.com/oauth/callback",
- *                 "https://api.example.com/auth/return",
- *                 "https://example.com/callback")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity example example-workload-identity
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity")
 public class AgentcoreWorkloadIdentity extends com.pulumi.resources.CustomResource {
-    /**
-     * Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-     * 
-     */
     @Export(name="allowedResourceOauth2ReturnUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedResourceOauth2ReturnUrls;
 
-    /**
-     * @return Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-     * 
-     */
     public Output<Optional<List<String>>> allowedResourceOauth2ReturnUrls() {
         return Codegen.optional(this.allowedResourceOauth2ReturnUrls);
     }
-    /**
-     * Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the Workload Identity.
-     * 
-     */
     @Export(name="workloadIdentityArn", refs={String.class}, tree="[0]")
     private Output<String> workloadIdentityArn;
 
-    /**
-     * @return ARN of the Workload Identity.
-     * 
-     */
     public Output<String> workloadIdentityArn() {
         return this.workloadIdentityArn;
     }

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Ecs
 {
     public static class GetService
     {
-        /// <summary>
-        /// The ECS Service data source allows access to details of a specific
-        /// Service within a AWS ECS Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetService.Invoke(new()
-        ///     {
-        ///         ServiceName = "example",
-        ///         ClusterArn = exampleAwsEcsCluster.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECS Service data source allows access to details of a specific
-        /// Service within a AWS ECS Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetService.Invoke(new()
-        ///     {
-        ///         ServiceName = "example",
-        ///         ClusterArn = exampleAwsEcsCluster.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECS Service data source allows access to details of a specific
-        /// Service within a AWS ECS Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetService.Invoke(new()
-        ///     {
-        ///         ServiceName = "example",
-        ///         ClusterArn = exampleAwsEcsCluster.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
@@ -93,30 +24,17 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the ECS Cluster
-        /// </summary>
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Name of the ECS Service
-        /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -131,30 +49,17 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the ECS Cluster
-        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the ECS Service
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -171,132 +76,42 @@ namespace Pulumi.Aws.Ecs
     [OutputType]
     public sealed class GetServiceResult
     {
-        /// <summary>
-        /// ARN of the task set
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Whether Availability Zone rebalancing is enabled
-        /// </summary>
         public readonly string AvailabilityZoneRebalancing;
-        /// <summary>
-        /// Capacity provider strategy for the service. See `CapacityProviderStrategy` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceCapacityProviderStrategyResult> CapacityProviderStrategies;
         public readonly string ClusterArn;
-        /// <summary>
-        /// Time when task set was created (RFC3339 format)
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Principal that created the service
-        /// </summary>
         public readonly string CreatedBy;
-        /// <summary>
-        /// Deployment configuration for the service. See `DeploymentConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentConfigurationResult> DeploymentConfigurations;
-        /// <summary>
-        /// Deployment controller configuration. See `DeploymentController` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentControllerResult> DeploymentControllers;
-        /// <summary>
-        /// Current deployments for the service. See `Deployments` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentResult> Deployments;
-        /// <summary>
-        /// Desired number of tasks
-        /// </summary>
         public readonly int DesiredCount;
-        /// <summary>
-        /// Whether ECS managed tags are enabled
-        /// </summary>
         public readonly bool EnableEcsManagedTags;
-        /// <summary>
-        /// Whether execute command functionality is enabled
-        /// </summary>
         public readonly bool EnableExecuteCommand;
-        /// <summary>
-        /// Recent service events. See `Events` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceEventResult> Events;
-        /// <summary>
-        /// Grace period for health checks
-        /// </summary>
         public readonly int HealthCheckGracePeriodSeconds;
-        /// <summary>
-        /// ARN of the IAM role associated with the service
-        /// </summary>
         public readonly string IamRole;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Launch type for the ECS Service
-        /// </summary>
         public readonly string LaunchType;
-        /// <summary>
-        /// Load balancers for the ECS Service. See `LoadBalancer` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLoadBalancerResult> LoadBalancers;
-        /// <summary>
-        /// Network configuration for the service. See `NetworkConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceNetworkConfigurationResult> NetworkConfigurations;
-        /// <summary>
-        /// Placement strategy for tasks. See `OrderedPlacementStrategy` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceOrderedPlacementStrategyResult> OrderedPlacementStrategies;
-        /// <summary>
-        /// Number of pending tasks
-        /// </summary>
         public readonly int PendingCount;
-        /// <summary>
-        /// Placement constraints for tasks. See `PlacementConstraints` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServicePlacementConstraintResult> PlacementConstraints;
-        /// <summary>
-        /// Platform family for Fargate tasks
-        /// </summary>
         public readonly string PlatformFamily;
-        /// <summary>
-        /// Platform version for Fargate tasks
-        /// </summary>
         public readonly string PlatformVersion;
-        /// <summary>
-        /// Whether tags are propagated from task definition or service
-        /// </summary>
         public readonly string PropagateTags;
         public readonly string Region;
-        /// <summary>
-        /// Number of running tasks
-        /// </summary>
         public readonly int RunningCount;
-        /// <summary>
-        /// Scheduling strategy for the ECS Service
-        /// </summary>
         public readonly string SchedulingStrategy;
         public readonly string ServiceName;
-        /// <summary>
-        /// Service discovery registries. See `ServiceRegistries` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceServiceRegistryResult> ServiceRegistries;
-        /// <summary>
-        /// Task set status
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Task definition ARN
-        /// </summary>
         public readonly string TaskDefinition;
-        /// <summary>
-        /// Task sets for the service. See `TaskSets` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceTaskSetResult> TaskSets;
 
         [OutputConstructor]

@@ -14,105 +14,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerDefaultActionAuthenticateCognito {
-    /**
-     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
-     * 
-     */
     private @Nullable Map<String,String> authenticationRequestExtraParams;
-    /**
-     * @return Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
-     * 
-     */
     private @Nullable String onUnauthenticatedRequest;
-    /**
-     * @return Set of user claims to be requested from the IdP.
-     * 
-     */
     private @Nullable String scope;
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     private @Nullable String sessionCookieName;
-    /**
-     * @return Maximum duration of the authentication session, in seconds.
-     * 
-     */
     private @Nullable Integer sessionTimeout;
-    /**
-     * @return ARN of the Cognito user pool.
-     * 
-     */
     private String userPoolArn;
-    /**
-     * @return ID of the Cognito user pool client.
-     * 
-     */
     private String userPoolClientId;
-    /**
-     * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String userPoolDomain;
 
     private ListenerDefaultActionAuthenticateCognito() {}
-    /**
-     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
-     * 
-     */
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams == null ? Map.of() : this.authenticationRequestExtraParams;
     }
-    /**
-     * @return Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
-     * 
-     */
     public Optional<String> onUnauthenticatedRequest() {
         return Optional.ofNullable(this.onUnauthenticatedRequest);
     }
-    /**
-     * @return Set of user claims to be requested from the IdP.
-     * 
-     */
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
     }
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     public Optional<String> sessionCookieName() {
         return Optional.ofNullable(this.sessionCookieName);
     }
-    /**
-     * @return Maximum duration of the authentication session, in seconds.
-     * 
-     */
     public Optional<Integer> sessionTimeout() {
         return Optional.ofNullable(this.sessionTimeout);
     }
-    /**
-     * @return ARN of the Cognito user pool.
-     * 
-     */
     public String userPoolArn() {
         return this.userPoolArn;
     }
-    /**
-     * @return ID of the Cognito user pool client.
-     * 
-     */
     public String userPoolClientId() {
         return this.userPoolClientId;
     }
-    /**
-     * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String userPoolDomain() {
         return this.userPoolDomain;
     }

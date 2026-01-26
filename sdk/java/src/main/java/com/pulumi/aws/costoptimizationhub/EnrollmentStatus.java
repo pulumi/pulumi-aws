@@ -14,98 +14,11 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing AWS Cost Optimization Hub Enrollment Status.
- * 
- * &gt; **TIP:** The Cost Optimization Hub only has a `us-east-1` endpoint. However, you can access the service globally with the AWS Provider from other regions. Other tools, such as the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cost-optimization-hub/index.html), may require you to specify the `us-east-1` region when using the service.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.costoptimizationhub.EnrollmentStatus;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EnrollmentStatus("example");
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with all the arguments
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.costoptimizationhub.EnrollmentStatus;
- * import com.pulumi.aws.costoptimizationhub.EnrollmentStatusArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EnrollmentStatus("example", EnrollmentStatusArgs.builder()
- *             .includeMemberAccounts(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cost Optimization Hub Enrollment Status using your AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
- * ```
- * 
- */
 @ResourceType(type="aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus")
 public class EnrollmentStatus extends com.pulumi.resources.CustomResource {
-    /**
-     * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-     * 
-     */
     @Export(name="includeMemberAccounts", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> includeMemberAccounts;
 
-    /**
-     * @return Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-     * 
-     */
     public Output<Boolean> includeMemberAccounts() {
         return this.includeMemberAccounts;
     }

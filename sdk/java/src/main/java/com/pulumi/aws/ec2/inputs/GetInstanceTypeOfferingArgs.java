@@ -17,62 +17,30 @@ public final class GetInstanceTypeOfferingArgs extends com.pulumi.resources.Invo
 
     public static final GetInstanceTypeOfferingArgs Empty = new GetInstanceTypeOfferingArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetInstanceTypeOfferingFilterArgs>> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetInstanceTypeOfferingFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-     * 
-     */
     @Import(name="locationType")
     private @Nullable Output<String> locationType;
 
-    /**
-     * @return Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-     * 
-     */
     public Optional<Output<String>> locationType() {
         return Optional.ofNullable(this.locationType);
     }
 
-    /**
-     * Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     * 
-     */
     @Import(name="preferredInstanceTypes")
     private @Nullable Output<List<String>> preferredInstanceTypes;
 
-    /**
-     * @return Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     * 
-     */
     public Optional<Output<List<String>>> preferredInstanceTypes() {
         return Optional.ofNullable(this.preferredInstanceTypes);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,106 +72,46 @@ public final class GetInstanceTypeOfferingArgs extends com.pulumi.resources.Invo
             $ = new GetInstanceTypeOfferingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetInstanceTypeOfferingFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetInstanceTypeOfferingFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetInstanceTypeOfferingFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param locationType Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locationType(@Nullable Output<String> locationType) {
             $.locationType = locationType;
             return this;
         }
 
-        /**
-         * @param locationType Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locationType(String locationType) {
             return locationType(Output.of(locationType));
         }
 
-        /**
-         * @param preferredInstanceTypes Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredInstanceTypes(@Nullable Output<List<String>> preferredInstanceTypes) {
             $.preferredInstanceTypes = preferredInstanceTypes;
             return this;
         }
 
-        /**
-         * @param preferredInstanceTypes Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredInstanceTypes(List<String> preferredInstanceTypes) {
             return preferredInstanceTypes(Output.of(preferredInstanceTypes));
         }
 
-        /**
-         * @param preferredInstanceTypes Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

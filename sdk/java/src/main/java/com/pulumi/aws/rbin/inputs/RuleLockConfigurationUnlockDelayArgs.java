@@ -15,32 +15,16 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
 
     public static final RuleLockConfigurationUnlockDelayArgs Empty = new RuleLockConfigurationUnlockDelayArgs();
 
-    /**
-     * Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-     * 
-     */
     @Import(name="unlockDelayUnit", required=true)
     private Output<String> unlockDelayUnit;
 
-    /**
-     * @return Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-     * 
-     */
     public Output<String> unlockDelayUnit() {
         return this.unlockDelayUnit;
     }
 
-    /**
-     * Unlock delay period, measured in the unit specified for UnlockDelayUnit.
-     * 
-     */
     @Import(name="unlockDelayValue", required=true)
     private Output<Integer> unlockDelayValue;
 
-    /**
-     * @return Unlock delay period, measured in the unit specified for UnlockDelayUnit.
-     * 
-     */
     public Output<Integer> unlockDelayValue() {
         return this.unlockDelayValue;
     }
@@ -70,44 +54,20 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
             $ = new RuleLockConfigurationUnlockDelayArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param unlockDelayUnit Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unlockDelayUnit(Output<String> unlockDelayUnit) {
             $.unlockDelayUnit = unlockDelayUnit;
             return this;
         }
 
-        /**
-         * @param unlockDelayUnit Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unlockDelayUnit(String unlockDelayUnit) {
             return unlockDelayUnit(Output.of(unlockDelayUnit));
         }
 
-        /**
-         * @param unlockDelayValue Unlock delay period, measured in the unit specified for UnlockDelayUnit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unlockDelayValue(Output<Integer> unlockDelayValue) {
             $.unlockDelayValue = unlockDelayValue;
             return this;
         }
 
-        /**
-         * @param unlockDelayValue Unlock delay period, measured in the unit specified for UnlockDelayUnit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unlockDelayValue(Integer unlockDelayValue) {
             return unlockDelayValue(Output.of(unlockDelayValue));
         }

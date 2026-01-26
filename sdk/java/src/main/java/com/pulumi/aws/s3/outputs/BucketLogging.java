@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLogging {
-    /**
-     * @return Name of the bucket that will receive the log objects.
-     * 
-     */
     private String targetBucket;
-    /**
-     * @return To specify a key prefix for log objects.
-     * 
-     */
     private @Nullable String targetPrefix;
 
     private BucketLogging() {}
-    /**
-     * @return Name of the bucket that will receive the log objects.
-     * 
-     */
     public String targetBucket() {
         return this.targetBucket;
     }
-    /**
-     * @return To specify a key prefix for log objects.
-     * 
-     */
     public Optional<String> targetPrefix() {
         return Optional.ofNullable(this.targetPrefix);
     }

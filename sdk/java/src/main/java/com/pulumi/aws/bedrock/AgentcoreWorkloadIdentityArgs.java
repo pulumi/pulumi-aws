@@ -16,51 +16,23 @@ public final class AgentcoreWorkloadIdentityArgs extends com.pulumi.resources.Re
 
     public static final AgentcoreWorkloadIdentityArgs Empty = new AgentcoreWorkloadIdentityArgs();
 
-    /**
-     * Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-     * 
-     */
     @Import(name="allowedResourceOauth2ReturnUrls")
     private @Nullable Output<List<String>> allowedResourceOauth2ReturnUrls;
 
-    /**
-     * @return Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-     * 
-     */
     public Optional<Output<List<String>>> allowedResourceOauth2ReturnUrls() {
         return Optional.ofNullable(this.allowedResourceOauth2ReturnUrls);
     }
 
-    /**
-     * Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -91,79 +63,33 @@ public final class AgentcoreWorkloadIdentityArgs extends com.pulumi.resources.Re
             $ = new AgentcoreWorkloadIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedResourceOauth2ReturnUrls Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedResourceOauth2ReturnUrls(@Nullable Output<List<String>> allowedResourceOauth2ReturnUrls) {
             $.allowedResourceOauth2ReturnUrls = allowedResourceOauth2ReturnUrls;
             return this;
         }
 
-        /**
-         * @param allowedResourceOauth2ReturnUrls Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedResourceOauth2ReturnUrls(List<String> allowedResourceOauth2ReturnUrls) {
             return allowedResourceOauth2ReturnUrls(Output.of(allowedResourceOauth2ReturnUrls));
         }
 
-        /**
-         * @param allowedResourceOauth2ReturnUrls Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedResourceOauth2ReturnUrls(String... allowedResourceOauth2ReturnUrls) {
             return allowedResourceOauth2ReturnUrls(List.of(allowedResourceOauth2ReturnUrls));
         }
 
-        /**
-         * @param name Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

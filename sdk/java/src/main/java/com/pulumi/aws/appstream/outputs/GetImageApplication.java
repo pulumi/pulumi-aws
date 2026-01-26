@@ -14,189 +14,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageApplication {
-    /**
-     * @return The app block ARN of the application.
-     * 
-     */
     private String appBlockArn;
-    /**
-     * @return ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
-     * 
-     */
     private String arn;
-    /**
-     * @return Time at which this image was created.
-     * 
-     */
     private String createdTime;
-    /**
-     * @return Description of image.
-     * 
-     */
     private String description;
-    /**
-     * @return Image name to display.
-     * 
-     */
     private String displayName;
-    /**
-     * @return Bool based on if the application is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return A list named iconS3Location that contains the following:
-     * 
-     */
     private List<GetImageApplicationIconS3Location> iconS3Locations;
-    /**
-     * @return URL of the application icon. This URL may be time-limited.
-     * 
-     */
     private String iconUrl;
-    /**
-     * @return List of the instance families of the application.
-     * 
-     */
     private List<String> instanceFamilies;
-    /**
-     * @return Arguments that are passed to the application at it&#39;s launch.
-     * 
-     */
     private String launchParameters;
-    /**
-     * @return Path to the application&#39;s excecutable in the instance.
-     * 
-     */
     private String launchPath;
-    /**
-     * @return String to string map that contains additional attributes used to describe the application.
-     * * `Name` - Name of the application.
-     * 
-     */
     private Map<String,String> metadata;
-    /**
-     * @return Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
-     * 
-     */
     private String name;
-    /**
-     * @return Array of strings describing the platforms on which the application can run.
-     * Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-     * 
-     */
     private List<String> platforms;
-    /**
-     * @return Working directory for the application.
-     * 
-     */
     private String workingDirectory;
 
     private GetImageApplication() {}
-    /**
-     * @return The app block ARN of the application.
-     * 
-     */
     public String appBlockArn() {
         return this.appBlockArn;
     }
-    /**
-     * @return ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Time at which this image was created.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
-    /**
-     * @return Description of image.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Image name to display.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return Bool based on if the application is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return A list named iconS3Location that contains the following:
-     * 
-     */
     public List<GetImageApplicationIconS3Location> iconS3Locations() {
         return this.iconS3Locations;
     }
-    /**
-     * @return URL of the application icon. This URL may be time-limited.
-     * 
-     */
     public String iconUrl() {
         return this.iconUrl;
     }
-    /**
-     * @return List of the instance families of the application.
-     * 
-     */
     public List<String> instanceFamilies() {
         return this.instanceFamilies;
     }
-    /**
-     * @return Arguments that are passed to the application at it&#39;s launch.
-     * 
-     */
     public String launchParameters() {
         return this.launchParameters;
     }
-    /**
-     * @return Path to the application&#39;s excecutable in the instance.
-     * 
-     */
     public String launchPath() {
         return this.launchPath;
     }
-    /**
-     * @return String to string map that contains additional attributes used to describe the application.
-     * * `Name` - Name of the application.
-     * 
-     */
     public Map<String,String> metadata() {
         return this.metadata;
     }
-    /**
-     * @return Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Array of strings describing the platforms on which the application can run.
-     * Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-     * 
-     */
     public List<String> platforms() {
         return this.platforms;
     }
-    /**
-     * @return Working directory for the application.
-     * 
-     */
     public String workingDirectory() {
         return this.workingDirectory;
     }

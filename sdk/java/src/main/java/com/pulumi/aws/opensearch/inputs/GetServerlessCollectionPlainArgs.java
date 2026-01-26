@@ -14,51 +14,23 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
 
     public static final GetServerlessCollectionPlainArgs Empty = new GetServerlessCollectionPlainArgs();
 
-    /**
-     * ID of the collection.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the collection.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the collection.
-     * 
-     * &gt; Exactly one of `id` or `name` is required.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the collection.
-     * 
-     * &gt; Exactly one of `id` or `name` is required.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -89,36 +61,16 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
             $ = new GetServerlessCollectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name Name of the collection.
-         * 
-         * &gt; Exactly one of `id` or `name` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

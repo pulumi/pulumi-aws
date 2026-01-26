@@ -12,105 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("test-lb"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("https"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewSslNegotiationPolicy(ctx, "foo", &elb.SslNegotiationPolicyArgs{
-//				Name:         pulumi.String("foo-policy"),
-//				LoadBalancer: lb.ID(),
-//				LbPort:       pulumi.Int(443),
-//				Attributes: elb.SslNegotiationPolicyAttributeArray{
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1"),
-//						Value: pulumi.String("false"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1.1"),
-//						Value: pulumi.String("false"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1.2"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Server-Defined-Cipher-Order"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("ECDHE-RSA-AES128-GCM-SHA256"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("AES128-GCM-SHA256"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("EDH-RSA-DES-CBC3-SHA"),
-//						Value: pulumi.String("false"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SslNegotiationPolicy struct {
 	pulumi.CustomResourceState
 
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes SslNegotiationPolicyAttributeArrayOutput `pulumi:"attributes"`
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort pulumi.IntOutput `pulumi:"lbPort"`
-	// The load balancer to which the policy
-	// should be attached.
-	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
-	// The name of the SSL negotiation policy.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	//
-	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-	//
-	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
+	Attributes   SslNegotiationPolicyAttributeArrayOutput `pulumi:"attributes"`
+	LbPort       pulumi.IntOutput                         `pulumi:"lbPort"`
+	LoadBalancer pulumi.StringOutput                      `pulumi:"loadBalancer"`
+	Name         pulumi.StringOutput                      `pulumi:"name"`
+	Region       pulumi.StringOutput                      `pulumi:"region"`
+	Triggers     pulumi.StringMapOutput                   `pulumi:"triggers"`
 }
 
 // NewSslNegotiationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -155,47 +65,21 @@ func GetSslNegotiationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SslNegotiationPolicy resources.
 type sslNegotiationPolicyState struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes []SslNegotiationPolicyAttribute `pulumi:"attributes"`
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort *int `pulumi:"lbPort"`
-	// The load balancer to which the policy
-	// should be attached.
-	LoadBalancer *string `pulumi:"loadBalancer"`
-	// The name of the SSL negotiation policy.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	//
-	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-	//
-	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-	Triggers map[string]string `pulumi:"triggers"`
+	Attributes   []SslNegotiationPolicyAttribute `pulumi:"attributes"`
+	LbPort       *int                            `pulumi:"lbPort"`
+	LoadBalancer *string                         `pulumi:"loadBalancer"`
+	Name         *string                         `pulumi:"name"`
+	Region       *string                         `pulumi:"region"`
+	Triggers     map[string]string               `pulumi:"triggers"`
 }
 
 type SslNegotiationPolicyState struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes SslNegotiationPolicyAttributeArrayInput
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort pulumi.IntPtrInput
-	// The load balancer to which the policy
-	// should be attached.
+	Attributes   SslNegotiationPolicyAttributeArrayInput
+	LbPort       pulumi.IntPtrInput
 	LoadBalancer pulumi.StringPtrInput
-	// The name of the SSL negotiation policy.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	//
-	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-	//
-	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-	Triggers pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Triggers     pulumi.StringMapInput
 }
 
 func (SslNegotiationPolicyState) ElementType() reflect.Type {
@@ -203,48 +87,22 @@ func (SslNegotiationPolicyState) ElementType() reflect.Type {
 }
 
 type sslNegotiationPolicyArgs struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes []SslNegotiationPolicyAttribute `pulumi:"attributes"`
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort int `pulumi:"lbPort"`
-	// The load balancer to which the policy
-	// should be attached.
-	LoadBalancer string `pulumi:"loadBalancer"`
-	// The name of the SSL negotiation policy.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	//
-	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-	//
-	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-	Triggers map[string]string `pulumi:"triggers"`
+	Attributes   []SslNegotiationPolicyAttribute `pulumi:"attributes"`
+	LbPort       int                             `pulumi:"lbPort"`
+	LoadBalancer string                          `pulumi:"loadBalancer"`
+	Name         *string                         `pulumi:"name"`
+	Region       *string                         `pulumi:"region"`
+	Triggers     map[string]string               `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a SslNegotiationPolicy resource.
 type SslNegotiationPolicyArgs struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes SslNegotiationPolicyAttributeArrayInput
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort pulumi.IntInput
-	// The load balancer to which the policy
-	// should be attached.
+	Attributes   SslNegotiationPolicyAttributeArrayInput
+	LbPort       pulumi.IntInput
 	LoadBalancer pulumi.StringInput
-	// The name of the SSL negotiation policy.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	//
-	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-	//
-	// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-	Triggers pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Triggers     pulumi.StringMapInput
 }
 
 func (SslNegotiationPolicyArgs) ElementType() reflect.Type {
@@ -334,39 +192,26 @@ func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutputWithContext(ctx 
 	return o
 }
 
-// An SSL Negotiation policy attribute. Each has two properties:
 func (o SslNegotiationPolicyOutput) Attributes() SslNegotiationPolicyAttributeArrayOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) SslNegotiationPolicyAttributeArrayOutput { return v.Attributes }).(SslNegotiationPolicyAttributeArrayOutput)
 }
 
-// The load balancer port to which the policy
-// should be applied. This must be an active listener on the load
-// balancer.
 func (o SslNegotiationPolicyOutput) LbPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.IntOutput { return v.LbPort }).(pulumi.IntOutput)
 }
 
-// The load balancer to which the policy
-// should be attached.
 func (o SslNegotiationPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
 }
 
-// The name of the SSL negotiation policy.
 func (o SslNegotiationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SslNegotiationPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-//
-// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-//
-// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
 func (o SslNegotiationPolicyOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }

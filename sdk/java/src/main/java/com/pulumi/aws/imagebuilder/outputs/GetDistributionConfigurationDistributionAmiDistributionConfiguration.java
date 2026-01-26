@@ -13,77 +13,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionAmiDistributionConfiguration {
-    /**
-     * @return Key-value map of tags to apply to distributed AMI.
-     * 
-     */
     private Map<String,String> amiTags;
-    /**
-     * @return Description of the container distribution configuration.
-     * 
-     */
     private String description;
-    /**
-     * @return ARN of Key Management Service (KMS) Key to encrypt AMI.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Nested list of EC2 launch permissions.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions;
-    /**
-     * @return Name of the distribution configuration.
-     * 
-     */
     private String name;
-    /**
-     * @return Set of target AWS Account identifiers.
-     * 
-     */
     private List<String> targetAccountIds;
 
     private GetDistributionConfigurationDistributionAmiDistributionConfiguration() {}
-    /**
-     * @return Key-value map of tags to apply to distributed AMI.
-     * 
-     */
     public Map<String,String> amiTags() {
         return this.amiTags;
     }
-    /**
-     * @return Description of the container distribution configuration.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return ARN of Key Management Service (KMS) Key to encrypt AMI.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Nested list of EC2 launch permissions.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions() {
         return this.launchPermissions;
     }
-    /**
-     * @return Name of the distribution configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of target AWS Account identifiers.
-     * 
-     */
     public List<String> targetAccountIds() {
         return this.targetAccountIds;
     }

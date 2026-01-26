@@ -44,36 +44,6 @@ class KxClusterArgs:
                  tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a KxCluster resource.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. The following types are available:
-               * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-               * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-               * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-               * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-               * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
-        :param pulumi.Input['KxClusterVpcConfigurationArgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        :param pulumi.Input['KxClusterCodeArgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]] databases: KX database that will be available for querying. Defined below.
-        :param pulumi.Input[_builtins.str] description: Description of the cluster.
-        :param pulumi.Input[_builtins.str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
-        :param pulumi.Input[_builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
-        :param pulumi.Input[_builtins.str] name: Unique name for the cluster that you want to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
-        :param pulumi.Input['KxClusterScalingGroupConfigurationArgs'] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         """
         pulumi.set(__self__, "az_mode", az_mode)
         pulumi.set(__self__, "environment_id", environment_id)
@@ -116,11 +86,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="azMode")
     def az_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * SINGLE - Assigns one availability zone per cluster.
-        * MULTI - Assigns all the availability zones per cluster.
-        """
         return pulumi.get(self, "az_mode")
 
     @az_mode.setter
@@ -130,9 +95,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier for the KX environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -142,9 +104,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of FinSpace Managed kdb to run.
-        """
         return pulumi.get(self, "release_label")
 
     @release_label.setter
@@ -154,14 +113,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of KDB database. The following types are available:
-        * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-        * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-        * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-        * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -171,11 +122,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['KxClusterVpcConfigurationArgs']:
-        """
-        Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -185,9 +131,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="autoScalingConfiguration")
     def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]:
-        """
-        Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
-        """
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
@@ -197,9 +140,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -209,9 +149,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="cacheStorageConfigurations")
     def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
-        """
-        Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        """
         return pulumi.get(self, "cache_storage_configurations")
 
     @cache_storage_configurations.setter
@@ -221,9 +158,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="capacityConfiguration")
     def capacity_configuration(self) -> Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]:
-        """
-        Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
@@ -233,9 +167,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input['KxClusterCodeArgs']]:
-        """
-        Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
-        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -245,9 +176,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
     def command_line_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of key-value pairs to make available inside the cluster.
-        """
         return pulumi.get(self, "command_line_arguments")
 
     @command_line_arguments.setter
@@ -257,9 +185,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter
     def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
-        """
-        KX database that will be available for querying. Defined below.
-        """
         return pulumi.get(self, "databases")
 
     @databases.setter
@@ -269,9 +194,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the cluster.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -281,9 +203,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
-        """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
@@ -293,9 +212,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="initializationScript")
     def initialization_script(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
-        """
         return pulumi.get(self, "initialization_script")
 
     @initialization_script.setter
@@ -305,9 +221,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the cluster that you want to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -317,9 +230,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -329,9 +239,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="savedownStorageConfiguration")
     def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]:
-        """
-        Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
-        """
         return pulumi.get(self, "savedown_storage_configuration")
 
     @savedown_storage_configuration.setter
@@ -341,9 +248,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="scalingGroupConfiguration")
     def scaling_group_configuration(self) -> Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]:
-        """
-        The structure that stores the configuration details of a scaling group.
-        """
         return pulumi.get(self, "scaling_group_configuration")
 
     @scaling_group_configuration.setter
@@ -353,9 +257,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -365,9 +266,6 @@ class KxClusterArgs:
     @_builtins.property
     @pulumi.getter(name="tickerplantLogConfigurations")
     def tickerplant_log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
-        """
-        A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
-        """
         return pulumi.get(self, "tickerplant_log_configurations")
 
     @tickerplant_log_configurations.setter
@@ -407,40 +305,6 @@ class _KxClusterState:
                  vpc_configuration: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering KxCluster resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
-        :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        :param pulumi.Input['KxClusterCodeArgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
-        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]] databases: KX database that will be available for querying. Defined below.
-        :param pulumi.Input[_builtins.str] description: Description of the cluster.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
-        :param pulumi.Input[_builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
-        :param pulumi.Input[_builtins.str] last_modified_timestamp: Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[_builtins.str] name: Unique name for the cluster that you want to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
-        :param pulumi.Input['KxClusterScalingGroupConfigurationArgs'] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. The following types are available:
-               * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-               * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-               * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-               * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-               * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
-        :param pulumi.Input['KxClusterVpcConfigurationArgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -500,9 +364,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) identifier of the KX cluster.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -512,9 +373,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="autoScalingConfiguration")
     def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]:
-        """
-        Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
-        """
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
@@ -524,9 +382,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -536,11 +391,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="azMode")
     def az_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * SINGLE - Assigns one availability zone per cluster.
-        * MULTI - Assigns all the availability zones per cluster.
-        """
         return pulumi.get(self, "az_mode")
 
     @az_mode.setter
@@ -550,9 +400,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="cacheStorageConfigurations")
     def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
-        """
-        Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        """
         return pulumi.get(self, "cache_storage_configurations")
 
     @cache_storage_configurations.setter
@@ -562,9 +409,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="capacityConfiguration")
     def capacity_configuration(self) -> Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]:
-        """
-        Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
@@ -574,9 +418,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input['KxClusterCodeArgs']]:
-        """
-        Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
-        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -586,9 +427,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
     def command_line_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of key-value pairs to make available inside the cluster.
-        """
         return pulumi.get(self, "command_line_arguments")
 
     @command_line_arguments.setter
@@ -598,9 +436,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "created_timestamp")
 
     @created_timestamp.setter
@@ -610,9 +445,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
-        """
-        KX database that will be available for querying. Defined below.
-        """
         return pulumi.get(self, "databases")
 
     @databases.setter
@@ -622,9 +454,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the cluster.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -634,9 +463,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the KX environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -646,9 +472,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
-        """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
@@ -658,9 +481,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="initializationScript")
     def initialization_script(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
-        """
         return pulumi.get(self, "initialization_script")
 
     @initialization_script.setter
@@ -670,9 +490,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedTimestamp")
     def last_modified_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "last_modified_timestamp")
 
     @last_modified_timestamp.setter
@@ -682,9 +499,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the cluster that you want to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -694,9 +508,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -706,9 +517,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of FinSpace Managed kdb to run.
-        """
         return pulumi.get(self, "release_label")
 
     @release_label.setter
@@ -718,9 +526,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="savedownStorageConfiguration")
     def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]:
-        """
-        Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
-        """
         return pulumi.get(self, "savedown_storage_configuration")
 
     @savedown_storage_configuration.setter
@@ -730,9 +535,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="scalingGroupConfiguration")
     def scaling_group_configuration(self) -> Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]:
-        """
-        The structure that stores the configuration details of a scaling group.
-        """
         return pulumi.get(self, "scaling_group_configuration")
 
     @scaling_group_configuration.setter
@@ -760,9 +562,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -772,9 +571,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -784,9 +580,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="tickerplantLogConfigurations")
     def tickerplant_log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
-        """
-        A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
-        """
         return pulumi.get(self, "tickerplant_log_configurations")
 
     @tickerplant_log_configurations.setter
@@ -796,14 +589,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of KDB database. The following types are available:
-        * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-        * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-        * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-        * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -813,11 +598,6 @@ class _KxClusterState:
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['KxClusterVpcConfigurationArgs']]:
-        """
-        Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -854,90 +634,9 @@ class KxCluster(pulumi.CustomResource):
                  vpc_configuration: Optional[pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS FinSpace Kx Cluster.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.finspace.KxCluster("example",
-            name="my-tf-kx-cluster",
-            environment_id=example_aws_finspace_kx_environment["id"],
-            type="HDB",
-            release_label="1.0",
-            az_mode="SINGLE",
-            availability_zone_id="use1-az2",
-            capacity_configuration={
-                "node_type": "kx.s.2xlarge",
-                "node_count": 2,
-            },
-            vpc_configuration={
-                "vpc_id": test["id"],
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [example_aws_subnet["id"]],
-                "ip_address_type": "IP_V4",
-            },
-            cache_storage_configurations=[{
-                "type": "CACHE_1000",
-                "size": 1200,
-            }],
-            databases=[{
-                "database_name": example_aws_finspace_kx_database["name"],
-                "cache_configuration": [{
-                    "cacheType": "CACHE_1000",
-                    "dbPaths": "/",
-                }],
-            }],
-            code={
-                "s3_bucket": test_aws_s3_bucket["id"],
-                "s3_key": object["key"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
-
-        ```sh
-        $ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
-        ```
-
+        Create a KxCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        :param pulumi.Input[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]] databases: KX database that will be available for querying. Defined below.
-        :param pulumi.Input[_builtins.str] description: Description of the cluster.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
-        :param pulumi.Input[_builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
-        :param pulumi.Input[_builtins.str] name: Unique name for the cluster that you want to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
-        :param pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. The following types are available:
-               * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-               * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-               * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-               * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-               * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
-        :param pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -946,58 +645,7 @@ class KxCluster(pulumi.CustomResource):
                  args: KxClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS FinSpace Kx Cluster.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.finspace.KxCluster("example",
-            name="my-tf-kx-cluster",
-            environment_id=example_aws_finspace_kx_environment["id"],
-            type="HDB",
-            release_label="1.0",
-            az_mode="SINGLE",
-            availability_zone_id="use1-az2",
-            capacity_configuration={
-                "node_type": "kx.s.2xlarge",
-                "node_count": 2,
-            },
-            vpc_configuration={
-                "vpc_id": test["id"],
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [example_aws_subnet["id"]],
-                "ip_address_type": "IP_V4",
-            },
-            cache_storage_configurations=[{
-                "type": "CACHE_1000",
-                "size": 1200,
-            }],
-            databases=[{
-                "database_name": example_aws_finspace_kx_database["name"],
-                "cache_configuration": [{
-                    "cacheType": "CACHE_1000",
-                    "dbPaths": "/",
-                }],
-            }],
-            code={
-                "s3_bucket": test_aws_s3_bucket["id"],
-                "s3_key": object["key"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
-
-        ```sh
-        $ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
-        ```
-
+        Create a KxCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KxClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1124,40 +772,6 @@ class KxCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
-        :param pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        :param pulumi.Input[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
-        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]] databases: KX database that will be available for querying. Defined below.
-        :param pulumi.Input[_builtins.str] description: Description of the cluster.
-        :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
-        :param pulumi.Input[_builtins.str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
-        :param pulumi.Input[_builtins.str] last_modified_timestamp: Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[_builtins.str] name: Unique name for the cluster that you want to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
-        :param pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
-        :param pulumi.Input[_builtins.str] type: Type of KDB database. The following types are available:
-               * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-               * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-               * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-               * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-               * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
-        :param pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1195,163 +809,101 @@ class KxCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) identifier of the KX cluster.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoScalingConfiguration")
     def auto_scaling_configuration(self) -> pulumi.Output[Optional['outputs.KxClusterAutoScalingConfiguration']]:
-        """
-        Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
-        """
         return pulumi.get(self, "auto_scaling_configuration")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="azMode")
     def az_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * SINGLE - Assigns one availability zone per cluster.
-        * MULTI - Assigns all the availability zones per cluster.
-        """
         return pulumi.get(self, "az_mode")
 
     @_builtins.property
     @pulumi.getter(name="cacheStorageConfigurations")
     def cache_storage_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.KxClusterCacheStorageConfiguration']]]:
-        """
-        Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        """
         return pulumi.get(self, "cache_storage_configurations")
 
     @_builtins.property
     @pulumi.getter(name="capacityConfiguration")
     def capacity_configuration(self) -> pulumi.Output[Optional['outputs.KxClusterCapacityConfiguration']]:
-        """
-        Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        """
         return pulumi.get(self, "capacity_configuration")
 
     @_builtins.property
     @pulumi.getter
     def code(self) -> pulumi.Output[Optional['outputs.KxClusterCode']]:
-        """
-        Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
-        """
         return pulumi.get(self, "code")
 
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
     def command_line_arguments(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        List of key-value pairs to make available inside the cluster.
-        """
         return pulumi.get(self, "command_line_arguments")
 
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "created_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def databases(self) -> pulumi.Output[Optional[Sequence['outputs.KxClusterDatabase']]]:
-        """
-        KX database that will be available for querying. Defined below.
-        """
         return pulumi.get(self, "databases")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the cluster.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the KX environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
-        """
         return pulumi.get(self, "execution_role")
 
     @_builtins.property
     @pulumi.getter(name="initializationScript")
     def initialization_script(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
-        """
         return pulumi.get(self, "initialization_script")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTimestamp")
     def last_modified_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        """
         return pulumi.get(self, "last_modified_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name for the cluster that you want to create.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of FinSpace Managed kdb to run.
-        """
         return pulumi.get(self, "release_label")
 
     @_builtins.property
     @pulumi.getter(name="savedownStorageConfiguration")
     def savedown_storage_configuration(self) -> pulumi.Output[Optional['outputs.KxClusterSavedownStorageConfiguration']]:
-        """
-        Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
-        """
         return pulumi.get(self, "savedown_storage_configuration")
 
     @_builtins.property
     @pulumi.getter(name="scalingGroupConfiguration")
     def scaling_group_configuration(self) -> pulumi.Output[Optional['outputs.KxClusterScalingGroupConfiguration']]:
-        """
-        The structure that stores the configuration details of a scaling group.
-        """
         return pulumi.get(self, "scaling_group_configuration")
 
     @_builtins.property
@@ -1367,47 +919,25 @@ class KxCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="tickerplantLogConfigurations")
     def tickerplant_log_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.KxClusterTickerplantLogConfiguration']]]:
-        """
-        A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
-        """
         return pulumi.get(self, "tickerplant_log_configurations")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of KDB database. The following types are available:
-        * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-        * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-        * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-        * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output['outputs.KxClusterVpcConfiguration']:
-        """
-        Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_configuration")
 

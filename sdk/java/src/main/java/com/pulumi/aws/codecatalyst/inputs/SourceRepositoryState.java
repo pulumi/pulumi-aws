@@ -15,81 +15,37 @@ public final class SourceRepositoryState extends com.pulumi.resources.ResourceAr
 
     public static final SourceRepositoryState Empty = new SourceRepositoryState();
 
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The name of the project in the CodeCatalyst space.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
-    /**
-     * @return The name of the project in the CodeCatalyst space.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> projectName() {
         return Optional.ofNullable(this.projectName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the CodeCatalyst space.
-     * 
-     */
     @Import(name="spaceName")
     private @Nullable Output<String> spaceName;
 
-    /**
-     * @return The name of the CodeCatalyst space.
-     * 
-     */
     public Optional<Output<String>> spaceName() {
         return Optional.ofNullable(this.spaceName);
     }
@@ -122,111 +78,47 @@ public final class SourceRepositoryState extends com.pulumi.resources.ResourceAr
             $ = new SourceRepositoryState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param projectName The name of the project in the CodeCatalyst space.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(@Nullable Output<String> projectName) {
             $.projectName = projectName;
             return this;
         }
 
-        /**
-         * @param projectName The name of the project in the CodeCatalyst space.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param spaceName The name of the CodeCatalyst space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(@Nullable Output<String> spaceName) {
             $.spaceName = spaceName;
             return this;
         }
 
-        /**
-         * @param spaceName The name of the CodeCatalyst space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(String spaceName) {
             return spaceName(Output.of(spaceName));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader
     {
-        /// <summary>
-        /// Name of the HTTP header to match.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Configuration block for header value matching criteria. See below.
-        /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue Value;
 
         [OutputConstructor]

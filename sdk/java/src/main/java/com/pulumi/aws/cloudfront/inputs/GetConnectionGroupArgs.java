@@ -15,32 +15,16 @@ public final class GetConnectionGroupArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetConnectionGroupArgs Empty = new GetConnectionGroupArgs();
 
-    /**
-     * Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     @Import(name="routingEndpoint")
     private @Nullable Output<String> routingEndpoint;
 
-    /**
-     * @return Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     public Optional<Output<String>> routingEndpoint() {
         return Optional.ofNullable(this.routingEndpoint);
     }
@@ -70,44 +54,20 @@ public final class GetConnectionGroupArgs extends com.pulumi.resources.InvokeArg
             $ = new GetConnectionGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param routingEndpoint Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingEndpoint(@Nullable Output<String> routingEndpoint) {
             $.routingEndpoint = routingEndpoint;
             return this;
         }
 
-        /**
-         * @param routingEndpoint Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingEndpoint(String routingEndpoint) {
             return routingEndpoint(Output.of(routingEndpoint));
         }

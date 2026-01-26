@@ -11,99 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// main, err := aws.GetBillingServiceAccount(ctx, &aws.GetBillingServiceAccountArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// billingLogs, err := s3.NewBucket(ctx, "billing_logs", &s3.BucketArgs{
-// Bucket: pulumi.String("my-billing-tf-test-bucket"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = s3.NewBucketAcl(ctx, "billing_logs_acl", &s3.BucketAclArgs{
-// Bucket: billingLogs.ID(),
-// Acl: pulumi.String("private"),
-// })
-// if err != nil {
-// return err
-// }
-// allowBillingLogging := pulumi.All(billingLogs.Arn,billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// billingLogsArn := _args[0].(string)
-// billingLogsArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement(pulumi.Array{
-// iam.GetPolicyDocumentStatement{
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// main.Arn,
-// },
-// },
-// },
-// Actions: []string{
-// "s3:GetBucketAcl",
-// "s3:GetBucketPolicy",
-// },
-// Resources: []string{
-// billingLogsArn,
-// },
-// },
-// iam.GetPolicyDocumentStatement{
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// main.Arn,
-// },
-// },
-// },
-// Actions: []string{
-// "s3:PutObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/*", billingLogsArn1),
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
-// Bucket: billingLogs.ID(),
-// Policy: pulumi.String(allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowBillingLogging.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 func GetBillingServiceAccount(ctx *pulumi.Context, args *GetBillingServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetBillingServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBillingServiceAccountResult
@@ -116,16 +23,13 @@ func GetBillingServiceAccount(ctx *pulumi.Context, args *GetBillingServiceAccoun
 
 // A collection of arguments for invoking getBillingServiceAccount.
 type GetBillingServiceAccountArgs struct {
-	// ID of the AWS billing service account.
 	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getBillingServiceAccount.
 type GetBillingServiceAccountResult struct {
-	// ARN of the AWS billing service account.
 	Arn string `pulumi:"arn"`
-	// ID of the AWS billing service account.
-	Id string `pulumi:"id"`
+	Id  string `pulumi:"id"`
 }
 
 func GetBillingServiceAccountOutput(ctx *pulumi.Context, args GetBillingServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetBillingServiceAccountResultOutput {
@@ -139,7 +43,6 @@ func GetBillingServiceAccountOutput(ctx *pulumi.Context, args GetBillingServiceA
 
 // A collection of arguments for invoking getBillingServiceAccount.
 type GetBillingServiceAccountOutputArgs struct {
-	// ID of the AWS billing service account.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -162,12 +65,10 @@ func (o GetBillingServiceAccountResultOutput) ToGetBillingServiceAccountResultOu
 	return o
 }
 
-// ARN of the AWS billing service account.
 func (o GetBillingServiceAccountResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBillingServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the AWS billing service account.
 func (o GetBillingServiceAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBillingServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class OutboundConnectionConnectionProperties
     {
-        /// <summary>
-        /// Configuration block for cross cluster search.
-        /// </summary>
         public readonly Outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch? CrossClusterSearch;
-        /// <summary>
-        /// The endpoint of the remote domain, is only set when `ConnectionMode` is `VPC_ENDPOINT` and `AcceptConnection` is `TRUE`.
-        /// </summary>
         public readonly string? Endpoint;
 
         [OutputConstructor]

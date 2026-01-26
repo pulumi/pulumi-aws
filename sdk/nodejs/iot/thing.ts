@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates and manages an AWS IoT Thing.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.Thing("example", {
- *     name: "example",
- *     attributes: {
- *         First: "examplevalue",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IOT Things using the name. For example:
- *
- * ```sh
- * $ pulumi import aws:iot/thing:Thing example example
- * ```
- */
 export class Thing extends pulumi.CustomResource {
     /**
      * Get an existing Thing resource's state with the given name, ID, and optional extra
@@ -57,33 +32,12 @@ export class Thing extends pulumi.CustomResource {
         return obj['__pulumiType'] === Thing.__pulumiType;
     }
 
-    /**
-     * The ARN of the thing.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Map of attributes of the thing.
-     */
     declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The default client ID.
-     */
     declare public /*out*/ readonly defaultClientId: pulumi.Output<string>;
-    /**
-     * The name of the thing.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The thing type name.
-     */
     declare public readonly thingTypeName: pulumi.Output<string | undefined>;
-    /**
-     * The current version of the thing record in the registry.
-     */
     declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
@@ -125,33 +79,12 @@ export class Thing extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Thing resources.
  */
 export interface ThingState {
-    /**
-     * The ARN of the thing.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Map of attributes of the thing.
-     */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The default client ID.
-     */
     defaultClientId?: pulumi.Input<string>;
-    /**
-     * The name of the thing.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The thing type name.
-     */
     thingTypeName?: pulumi.Input<string>;
-    /**
-     * The current version of the thing record in the registry.
-     */
     version?: pulumi.Input<number>;
 }
 
@@ -159,20 +92,8 @@ export interface ThingState {
  * The set of arguments for constructing a Thing resource.
  */
 export interface ThingArgs {
-    /**
-     * Map of attributes of the thing.
-     */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the thing.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The thing type name.
-     */
     thingTypeName?: pulumi.Input<string>;
 }

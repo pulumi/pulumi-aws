@@ -12,67 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Accepts a shared directory in a consumer account.
-//
-// > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := directoryservice.NewSharedDirectory(ctx, "example", &directoryservice.SharedDirectoryArgs{
-//				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
-//				Notes:       pulumi.String("example"),
-//				Target: &directoryservice.SharedDirectoryTargetArgs{
-//					Id: pulumi.Any(receiver.AccountId),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "example", &directoryservice.SharedDirectoryAccepterArgs{
-//				SharedDirectoryId: example.SharedDirectoryId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
-//
-// ```sh
-// $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
-// ```
 type SharedDirectoryAccepter struct {
 	pulumi.CustomResourceState
 
-	// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-	Method pulumi.StringOutput `pulumi:"method"`
-	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-	Notes pulumi.StringOutput `pulumi:"notes"`
-	// Account identifier of the directory owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-	OwnerDirectoryId pulumi.StringOutput `pulumi:"ownerDirectoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+	Method            pulumi.StringOutput `pulumi:"method"`
+	Notes             pulumi.StringOutput `pulumi:"notes"`
+	OwnerAccountId    pulumi.StringOutput `pulumi:"ownerAccountId"`
+	OwnerDirectoryId  pulumi.StringOutput `pulumi:"ownerDirectoryId"`
+	Region            pulumi.StringOutput `pulumi:"region"`
 	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
 }
 
@@ -109,32 +56,20 @@ func GetSharedDirectoryAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SharedDirectoryAccepter resources.
 type sharedDirectoryAccepterState struct {
-	// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-	Method *string `pulumi:"method"`
-	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-	Notes *string `pulumi:"notes"`
-	// Account identifier of the directory owner.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-	OwnerDirectoryId *string `pulumi:"ownerDirectoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+	Method            *string `pulumi:"method"`
+	Notes             *string `pulumi:"notes"`
+	OwnerAccountId    *string `pulumi:"ownerAccountId"`
+	OwnerDirectoryId  *string `pulumi:"ownerDirectoryId"`
+	Region            *string `pulumi:"region"`
 	SharedDirectoryId *string `pulumi:"sharedDirectoryId"`
 }
 
 type SharedDirectoryAccepterState struct {
-	// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-	Method pulumi.StringPtrInput
-	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-	Notes pulumi.StringPtrInput
-	// Account identifier of the directory owner.
-	OwnerAccountId pulumi.StringPtrInput
-	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-	OwnerDirectoryId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+	Method            pulumi.StringPtrInput
+	Notes             pulumi.StringPtrInput
+	OwnerAccountId    pulumi.StringPtrInput
+	OwnerDirectoryId  pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	SharedDirectoryId pulumi.StringPtrInput
 }
 
@@ -143,17 +78,13 @@ func (SharedDirectoryAccepterState) ElementType() reflect.Type {
 }
 
 type sharedDirectoryAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-	SharedDirectoryId string `pulumi:"sharedDirectoryId"`
+	Region            *string `pulumi:"region"`
+	SharedDirectoryId string  `pulumi:"sharedDirectoryId"`
 }
 
 // The set of arguments for constructing a SharedDirectoryAccepter resource.
 type SharedDirectoryAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+	Region            pulumi.StringPtrInput
 	SharedDirectoryId pulumi.StringInput
 }
 
@@ -244,32 +175,26 @@ func (o SharedDirectoryAccepterOutput) ToSharedDirectoryAccepterOutputWithContex
 	return o
 }
 
-// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
 func (o SharedDirectoryAccepterOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Method }).(pulumi.StringOutput)
 }
 
-// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 func (o SharedDirectoryAccepterOutput) Notes() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
 }
 
-// Account identifier of the directory owner.
 func (o SharedDirectoryAccepterOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
 func (o SharedDirectoryAccepterOutput) OwnerDirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.OwnerDirectoryId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SharedDirectoryAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 func (o SharedDirectoryAccepterOutput) SharedDirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.SharedDirectoryId }).(pulumi.StringOutput)
 }

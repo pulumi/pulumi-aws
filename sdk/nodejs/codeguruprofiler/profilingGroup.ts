@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CodeGuru Profiler Profiling Group.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codeguruprofiler.ProfilingGroup("example", {
- *     name: "example",
- *     computePlatform: "Default",
- *     agentOrchestrationConfig: {
- *         profilingEnabled: true,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
- * ```
- */
 export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * Get an existing ProfilingGroup resource's state with the given name, ID, and optional extra
@@ -63,35 +35,12 @@ export class ProfilingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProfilingGroup.__pulumiType;
     }
 
-    /**
-     * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-     */
     declare public readonly agentOrchestrationConfig: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig | undefined>;
-    /**
-     * ARN of the profiling group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Compute platform of the profiling group.
-     */
     declare public readonly computePlatform: pulumi.Output<string>;
-    /**
-     * Name of the profiling group.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -133,35 +82,12 @@ export class ProfilingGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProfilingGroup resources.
  */
 export interface ProfilingGroupState {
-    /**
-     * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-     */
     agentOrchestrationConfig?: pulumi.Input<inputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig>;
-    /**
-     * ARN of the profiling group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Compute platform of the profiling group.
-     */
     computePlatform?: pulumi.Input<string>;
-    /**
-     * Name of the profiling group.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -169,26 +95,9 @@ export interface ProfilingGroupState {
  * The set of arguments for constructing a ProfilingGroup resource.
  */
 export interface ProfilingGroupArgs {
-    /**
-     * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-     */
     agentOrchestrationConfig?: pulumi.Input<inputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig>;
-    /**
-     * Compute platform of the profiling group.
-     */
     computePlatform?: pulumi.Input<string>;
-    /**
-     * Name of the profiling group.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -14,144 +14,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Resource for enabling Amazon Inspector resource scans.
- * 
- * This resource must be created in the Organization&#39;s Administrator Account.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.inspector2.Enabler;
- * import com.pulumi.aws.inspector2.EnablerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Enabler("example", EnablerArgs.builder()
- *             .accountIds("123456789012")
- *             .resourceTypes("EC2")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### For the Calling Account
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inspector2.Enabler;
- * import com.pulumi.aws.inspector2.EnablerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var test = new Enabler("test", EnablerArgs.builder()
- *             .accountIds(current.accountId())
- *             .resourceTypes(            
- *                 "ECR",
- *                 "EC2")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Inspector Enabler using using `account_ids` and `region_types` formatted as `[account_id1]:[account_id2]:...-[resource_type1]:[resource_type2]:...`, where `account_ids` are sorted in ascending order and `resource_types` are sorted in alphabetical order. For example:
- * 
- * ```sh
- * $ pulumi import aws:inspector2/enabler:Enabler example 123456789012:234567890123-EC2:ECR
- * ```
- * 
- */
 @ResourceType(type="aws:inspector2/enabler:Enabler")
 public class Enabler extends com.pulumi.resources.CustomResource {
-    /**
-     * Set of account IDs.
-     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
-     * 
-     */
     @Export(name="accountIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountIds;
 
-    /**
-     * @return Set of account IDs.
-     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
-     * 
-     */
     public Output<List<String>> accountIds() {
         return this.accountIds;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-     * At least one item is required.
-     * 
-     */
     @Export(name="resourceTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resourceTypes;
 
-    /**
-     * @return Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-     * At least one item is required.
-     * 
-     */
     public Output<List<String>> resourceTypes() {
         return this.resourceTypes;
     }

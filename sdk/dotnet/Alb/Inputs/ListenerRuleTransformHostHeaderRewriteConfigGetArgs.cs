@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Alb.Inputs
 
     public sealed class ListenerRuleTransformHostHeaderRewriteConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-        /// </summary>
         [Input("rewrite")]
         public Input<Inputs.ListenerRuleTransformHostHeaderRewriteConfigRewriteGetArgs>? Rewrite { get; set; }
 

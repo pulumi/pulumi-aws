@@ -17,47 +17,23 @@ public final class MultitenantDistributionOriginVpcOriginConfigArgs extends com.
 
     public static final MultitenantDistributionOriginVpcOriginConfigArgs Empty = new MultitenantDistributionOriginVpcOriginConfigArgs();
 
-    /**
-     * Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-     * 
-     */
     @Import(name="originKeepaliveTimeout")
     private @Nullable Output<Integer> originKeepaliveTimeout;
 
-    /**
-     * @return Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-     * 
-     */
     public Optional<Output<Integer>> originKeepaliveTimeout() {
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
 
-    /**
-     * Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-     * 
-     */
     @Import(name="originReadTimeout")
     private @Nullable Output<Integer> originReadTimeout;
 
-    /**
-     * @return Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-     * 
-     */
     public Optional<Output<Integer>> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
     }
 
-    /**
-     * ID of the VPC origin that you want CloudFront to route requests to.
-     * 
-     */
     @Import(name="vpcOriginId", required=true)
     private Output<String> vpcOriginId;
 
-    /**
-     * @return ID of the VPC origin that you want CloudFront to route requests to.
-     * 
-     */
     public Output<String> vpcOriginId() {
         return this.vpcOriginId;
     }
@@ -88,65 +64,29 @@ public final class MultitenantDistributionOriginVpcOriginConfigArgs extends com.
             $ = new MultitenantDistributionOriginVpcOriginConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param originKeepaliveTimeout Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originKeepaliveTimeout(@Nullable Output<Integer> originKeepaliveTimeout) {
             $.originKeepaliveTimeout = originKeepaliveTimeout;
             return this;
         }
 
-        /**
-         * @param originKeepaliveTimeout Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originKeepaliveTimeout(Integer originKeepaliveTimeout) {
             return originKeepaliveTimeout(Output.of(originKeepaliveTimeout));
         }
 
-        /**
-         * @param originReadTimeout Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originReadTimeout(@Nullable Output<Integer> originReadTimeout) {
             $.originReadTimeout = originReadTimeout;
             return this;
         }
 
-        /**
-         * @param originReadTimeout Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originReadTimeout(Integer originReadTimeout) {
             return originReadTimeout(Output.of(originReadTimeout));
         }
 
-        /**
-         * @param vpcOriginId ID of the VPC origin that you want CloudFront to route requests to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOriginId(Output<String> vpcOriginId) {
             $.vpcOriginId = vpcOriginId;
             return this;
         }
 
-        /**
-         * @param vpcOriginId ID of the VPC origin that you want CloudFront to route requests to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOriginId(String vpcOriginId) {
             return vpcOriginId(Output.of(vpcOriginId));
         }

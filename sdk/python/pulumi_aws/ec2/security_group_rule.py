@@ -34,22 +34,6 @@ class SecurityGroupRuleArgs:
                  source_security_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityGroupRule resource.
-        :param pulumi.Input[_builtins.int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        :param pulumi.Input[Union[_builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        :param pulumi.Input[_builtins.str] security_group_id: Security group to apply this rule to.
-        :param pulumi.Input[_builtins.int] to_port: End port (or ICMP code if protocol is "icmp").
-        :param pulumi.Input[_builtins.str] type: Type of rule being created. Valid options are `ingress` (inbound)
-               or `egress` (outbound).
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_list_ids: List of Prefix List IDs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-        :param pulumi.Input[_builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-        :param pulumi.Input[_builtins.str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -74,9 +58,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -86,9 +67,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[Union[_builtins.str, 'ProtocolType']]:
-        """
-        Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -98,9 +76,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Security group to apply this rule to.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -110,9 +85,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        End port (or ICMP code if protocol is "icmp").
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -122,12 +94,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of rule being created. Valid options are `ingress` (inbound)
-        or `egress` (outbound).
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -137,9 +103,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @cidr_blocks.setter
@@ -149,9 +112,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the rule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -161,9 +121,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @ipv6_cidr_blocks.setter
@@ -173,9 +130,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of Prefix List IDs.
-        """
         return pulumi.get(self, "prefix_list_ids")
 
     @prefix_list_ids.setter
@@ -185,10 +139,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -198,9 +148,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-        """
         return pulumi.get(self, "self")
 
     @self.setter
@@ -210,9 +157,6 @@ class SecurityGroupRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroupId")
     def source_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-        """
         return pulumi.get(self, "source_security_group_id")
 
     @source_security_group_id.setter
@@ -238,23 +182,6 @@ class _SecurityGroupRuleState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
-        :param pulumi.Input[_builtins.int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_list_ids: List of Prefix List IDs.
-        :param pulumi.Input[Union[_builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-        :param pulumi.Input[_builtins.str] security_group_id: Security group to apply this rule to.
-        :param pulumi.Input[_builtins.str] security_group_rule_id: If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-        :param pulumi.Input[_builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-        :param pulumi.Input[_builtins.str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-        :param pulumi.Input[_builtins.int] to_port: End port (or ICMP code if protocol is "icmp").
-        :param pulumi.Input[_builtins.str] type: Type of rule being created. Valid options are `ingress` (inbound)
-               or `egress` (outbound).
-               
-               The following arguments are optional:
         """
         if cidr_blocks is not None:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
@@ -286,9 +213,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @cidr_blocks.setter
@@ -298,9 +222,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the rule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -310,9 +231,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -322,9 +240,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @ipv6_cidr_blocks.setter
@@ -334,9 +249,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of Prefix List IDs.
-        """
         return pulumi.get(self, "prefix_list_ids")
 
     @prefix_list_ids.setter
@@ -346,9 +258,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProtocolType']]]:
-        """
-        Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -358,10 +267,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -371,9 +276,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Security group to apply this rule to.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -383,9 +285,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="securityGroupRuleId")
     def security_group_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-        """
         return pulumi.get(self, "security_group_rule_id")
 
     @security_group_rule_id.setter
@@ -395,9 +294,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-        """
         return pulumi.get(self, "self")
 
     @self.setter
@@ -407,9 +303,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroupId")
     def source_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-        """
         return pulumi.get(self, "source_security_group_id")
 
     @source_security_group_id.setter
@@ -419,9 +312,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        End port (or ICMP code if protocol is "icmp").
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -431,12 +321,6 @@ class _SecurityGroupRuleState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of rule being created. Valid options are `ingress` (inbound)
-        or `egress` (outbound).
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -464,148 +348,9 @@ class SecurityGroupRule(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a security group rule resource. Represents a single `ingress` or `egress` group rule, which can be added to external Security Groups.
-
-        > **NOTE:** Avoid using the `ec2.SecurityGroupRule` resource, as it struggles with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
-
-        !> **WARNING:** You should not use the `ec2.SecurityGroupRule` resource in conjunction with `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or with an `ec2.SecurityGroup` resource that has in-line rules. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
-
-        > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
-
-        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
-
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroupRule("example",
-            type="ingress",
-            from_port=0,
-            to_port=65535,
-            protocol=aws.ec2.ProtocolType.TCP,
-            cidr_blocks=[example_aws_vpc["cidrBlock"]],
-            ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
-            security_group_id="sg-123456")
-        ```
-
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Managed Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
-        allow_all = aws.ec2.SecurityGroupRule("allow_all",
-            type="egress",
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-            from_port=0,
-            security_group_id="sg-123456")
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list`
-        or `ec2_managed_prefix_list` data sources:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.region}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
-            description="S3 Gateway Egress",
-            type="egress",
-            security_group_id="sg-123456",
-            from_port=443,
-            to_port=443,
-            protocol=aws.ec2.ProtocolType.TCP,
-            prefix_list_ids=[s3.id])
-        ```
-
-        ## Import
-
-        Import a rule with various IPv4 and IPv6 source CIDR blocks:
-
-        Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
-
-        Import a default any/any egress rule to 0.0.0.0/0:
-
-        Import an egress rule with a prefix list ID destination:
-
-        Import a rule applicable to all protocols and ports with a security group source:
-
-        Import a rule that has itself and an IPv6 CIDR block as sources:
-
-        __Using `pulumi import` to import__ Security Group Rules using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (such as a `cidr_block`) separated by underscores (`_`). All parts are required. For example:
-
-        __NOTE:__ Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule.
-
-        Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
-        ```
-        Import a rule with various IPv4 and IPv6 source CIDR blocks:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
-        ```
-        Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
-        ```
-        Import a default any/any egress rule to 0.0.0.0/0:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
-        ```
-        Import an egress rule with a prefix list ID destination:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
-        ```
-        Import a rule applicable to all protocols and ports with a security group source:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
-        ```
-        Import a rule that has itself and an IPv6 CIDR block as sources:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
-        ```
-
+        Create a SecurityGroupRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
-        :param pulumi.Input[_builtins.int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_list_ids: List of Prefix List IDs.
-        :param pulumi.Input[Union[_builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-        :param pulumi.Input[_builtins.str] security_group_id: Security group to apply this rule to.
-        :param pulumi.Input[_builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-        :param pulumi.Input[_builtins.str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-        :param pulumi.Input[_builtins.int] to_port: End port (or ICMP code if protocol is "icmp").
-        :param pulumi.Input[_builtins.str] type: Type of rule being created. Valid options are `ingress` (inbound)
-               or `egress` (outbound).
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -614,130 +359,7 @@ class SecurityGroupRule(pulumi.CustomResource):
                  args: SecurityGroupRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a security group rule resource. Represents a single `ingress` or `egress` group rule, which can be added to external Security Groups.
-
-        > **NOTE:** Avoid using the `ec2.SecurityGroupRule` resource, as it struggles with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
-
-        !> **WARNING:** You should not use the `ec2.SecurityGroupRule` resource in conjunction with `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or with an `ec2.SecurityGroup` resource that has in-line rules. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
-
-        > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
-
-        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
-
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroupRule("example",
-            type="ingress",
-            from_port=0,
-            to_port=65535,
-            protocol=aws.ec2.ProtocolType.TCP,
-            cidr_blocks=[example_aws_vpc["cidrBlock"]],
-            ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
-            security_group_id="sg-123456")
-        ```
-
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Managed Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
-        allow_all = aws.ec2.SecurityGroupRule("allow_all",
-            type="egress",
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-            from_port=0,
-            security_group_id="sg-123456")
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list`
-        or `ec2_managed_prefix_list` data sources:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.region}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
-            description="S3 Gateway Egress",
-            type="egress",
-            security_group_id="sg-123456",
-            from_port=443,
-            to_port=443,
-            protocol=aws.ec2.ProtocolType.TCP,
-            prefix_list_ids=[s3.id])
-        ```
-
-        ## Import
-
-        Import a rule with various IPv4 and IPv6 source CIDR blocks:
-
-        Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
-
-        Import a default any/any egress rule to 0.0.0.0/0:
-
-        Import an egress rule with a prefix list ID destination:
-
-        Import a rule applicable to all protocols and ports with a security group source:
-
-        Import a rule that has itself and an IPv6 CIDR block as sources:
-
-        __Using `pulumi import` to import__ Security Group Rules using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (such as a `cidr_block`) separated by underscores (`_`). All parts are required. For example:
-
-        __NOTE:__ Not all rule permissions (e.g., not all of a rule's CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule's permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule.
-
-        Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
-        ```
-        Import a rule with various IPv4 and IPv6 source CIDR blocks:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
-        ```
-        Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number. For example: 92.
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
-        ```
-        Import a default any/any egress rule to 0.0.0.0/0:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
-        ```
-        Import an egress rule with a prefix list ID destination:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
-        ```
-        Import a rule applicable to all protocols and ports with a security group source:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
-        ```
-        Import a rule that has itself and an IPv6 CIDR block as sources:
-
-        ```sh
-        $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
-        ```
-
+        Create a SecurityGroupRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SecurityGroupRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -827,23 +449,6 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
-        :param pulumi.Input[_builtins.int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_list_ids: List of Prefix List IDs.
-        :param pulumi.Input[Union[_builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-        :param pulumi.Input[_builtins.str] security_group_id: Security group to apply this rule to.
-        :param pulumi.Input[_builtins.str] security_group_rule_id: If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-        :param pulumi.Input[_builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-        :param pulumi.Input[_builtins.str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-        :param pulumi.Input[_builtins.int] to_port: End port (or ICMP code if protocol is "icmp").
-        :param pulumi.Input[_builtins.str] type: Type of rule being created. Valid options are `ingress` (inbound)
-               or `egress` (outbound).
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -867,108 +472,65 @@ class SecurityGroupRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the rule.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Output[_builtins.int]:
-        """
-        Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
-        """
         return pulumi.get(self, "from_port")
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @_builtins.property
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of Prefix List IDs.
-        """
         return pulumi.get(self, "prefix_list_ids")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[_builtins.str]:
-        """
-        Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Security group to apply this rule to.
-        """
         return pulumi.get(self, "security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupRuleId")
     def security_group_rule_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-        """
         return pulumi.get(self, "security_group_rule_id")
 
     @_builtins.property
     @pulumi.getter
     def self(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-        """
         return pulumi.get(self, "self")
 
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroupId")
     def source_security_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-        """
         return pulumi.get(self, "source_security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Output[_builtins.int]:
-        """
-        End port (or ICMP code if protocol is "icmp").
-        """
         return pulumi.get(self, "to_port")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of rule being created. Valid options are `ingress` (inbound)
-        or `egress` (outbound).
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecHttp2RouteMatchQueryParameter
     {
-        /// <summary>
-        /// The query parameter to match on.
-        /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatchQueryParameterMatch? Match;
-        /// <summary>
-        /// Name for the query parameter that will be matched on.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

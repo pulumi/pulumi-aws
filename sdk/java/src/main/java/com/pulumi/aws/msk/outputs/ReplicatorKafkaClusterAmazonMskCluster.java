@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ReplicatorKafkaClusterAmazonMskCluster {
-    /**
-     * @return The ARN of an Amazon MSK cluster.
-     * 
-     */
     private String mskClusterArn;
 
     private ReplicatorKafkaClusterAmazonMskCluster() {}
-    /**
-     * @return The ARN of an Amazon MSK cluster.
-     * 
-     */
     public String mskClusterArn() {
         return this.mskClusterArn;
     }

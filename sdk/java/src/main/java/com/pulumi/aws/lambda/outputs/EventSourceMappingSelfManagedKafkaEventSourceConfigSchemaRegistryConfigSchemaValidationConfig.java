@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
-    /**
-     * @return Message attribute to validate. Valid values: `KEY`, `VALUE`.
-     * 
-     */
     private @Nullable String attribute;
 
     private EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig() {}
-    /**
-     * @return Message attribute to validate. Valid values: `KEY`, `VALUE`.
-     * 
-     */
     public Optional<String> attribute() {
         return Optional.ofNullable(this.attribute);
     }

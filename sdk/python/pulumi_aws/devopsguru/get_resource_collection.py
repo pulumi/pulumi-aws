@@ -47,17 +47,11 @@ class GetResourceCollectionResult:
     @_builtins.property
     @pulumi.getter
     def cloudformations(self) -> Sequence['outputs.GetResourceCollectionCloudformationResult']:
-        """
-        A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-        """
         return pulumi.get(self, "cloudformations")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Type of AWS resource collection to create (same value as `type`).
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -68,9 +62,6 @@ class GetResourceCollectionResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetResourceCollectionTagResult']:
-        """
-        AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -96,22 +87,7 @@ def get_resource_collection(region: Optional[_builtins.str] = None,
                             type: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceCollectionResult:
     """
-    Data source for managing an AWS DevOps Guru Resource Collection.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.devopsguru.get_resource_collection(type="AWS_SERVICE")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -129,22 +105,7 @@ def get_resource_collection_output(region: Optional[pulumi.Input[Optional[_built
                                    type: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
-    Data source for managing an AWS DevOps Guru Resource Collection.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.devopsguru.get_resource_collection(type="AWS_SERVICE")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class DistributionConfigurationDistributionS3ExportConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-        /// </summary>
         [Input("diskImageFormat", required: true)]
         public Input<string> DiskImageFormat { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the IAM role to use for exporting.
-        /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// The prefix for the exported image.
-        /// </summary>
         [Input("s3Prefix")]
         public Input<string>? S3Prefix { get; set; }
 

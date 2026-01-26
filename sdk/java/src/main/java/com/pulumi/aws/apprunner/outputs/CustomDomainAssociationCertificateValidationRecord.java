@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomDomainAssociationCertificateValidationRecord {
-    /**
-     * @return Certificate CNAME record name.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return Record type, always `CNAME`.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return Certificate CNAME record value.
-     * 
-     */
     private @Nullable String value;
 
     private CustomDomainAssociationCertificateValidationRecord() {}
-    /**
-     * @return Certificate CNAME record name.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return Record type, always `CNAME`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return Certificate CNAME record value.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

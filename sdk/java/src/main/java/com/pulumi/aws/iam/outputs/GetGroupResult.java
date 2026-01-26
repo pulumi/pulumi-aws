@@ -12,15 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupResult {
-    /**
-     * @return User ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return Stable and unique string identifying the group.
-     * 
-     */
     private String groupId;
     private String groupName;
     /**
@@ -28,29 +20,13 @@ public final class GetGroupResult {
      * 
      */
     private String id;
-    /**
-     * @return Path to the IAM user.
-     * 
-     */
     private String path;
-    /**
-     * @return List of objects containing group member information. See below.
-     * 
-     */
     private List<GetGroupUser> users;
 
     private GetGroupResult() {}
-    /**
-     * @return User ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Stable and unique string identifying the group.
-     * 
-     */
     public String groupId() {
         return this.groupId;
     }
@@ -64,17 +40,9 @@ public final class GetGroupResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Path to the IAM user.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return List of objects containing group member information. See below.
-     * 
-     */
     public List<GetGroupUser> users() {
         return this.users;
     }

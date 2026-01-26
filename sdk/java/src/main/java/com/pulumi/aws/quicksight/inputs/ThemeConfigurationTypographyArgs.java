@@ -16,17 +16,9 @@ public final class ThemeConfigurationTypographyArgs extends com.pulumi.resources
 
     public static final ThemeConfigurationTypographyArgs Empty = new ThemeConfigurationTypographyArgs();
 
-    /**
-     * Determines the list of font families. Maximum number of 5 items. See font_families.
-     * 
-     */
     @Import(name="fontFamilies")
     private @Nullable Output<List<ThemeConfigurationTypographyFontFamilyArgs>> fontFamilies;
 
-    /**
-     * @return Determines the list of font families. Maximum number of 5 items. See font_families.
-     * 
-     */
     public Optional<Output<List<ThemeConfigurationTypographyFontFamilyArgs>>> fontFamilies() {
         return Optional.ofNullable(this.fontFamilies);
     }
@@ -55,33 +47,15 @@ public final class ThemeConfigurationTypographyArgs extends com.pulumi.resources
             $ = new ThemeConfigurationTypographyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fontFamilies Determines the list of font families. Maximum number of 5 items. See font_families.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fontFamilies(@Nullable Output<List<ThemeConfigurationTypographyFontFamilyArgs>> fontFamilies) {
             $.fontFamilies = fontFamilies;
             return this;
         }
 
-        /**
-         * @param fontFamilies Determines the list of font families. Maximum number of 5 items. See font_families.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fontFamilies(List<ThemeConfigurationTypographyFontFamilyArgs> fontFamilies) {
             return fontFamilies(Output.of(fontFamilies));
         }
 
-        /**
-         * @param fontFamilies Determines the list of font families. Maximum number of 5 items. See font_families.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fontFamilies(ThemeConfigurationTypographyFontFamilyArgs... fontFamilies) {
             return fontFamilies(List.of(fontFamilies));
         }

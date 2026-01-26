@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataZone.Outputs
     [OutputType]
     public sealed class GlossaryTermTermRelations
     {
-        /// <summary>
-        /// String array that calssifies the term relations.
-        /// </summary>
         public readonly ImmutableArray<string> Classifies;
         public readonly ImmutableArray<string> IsAs;
 

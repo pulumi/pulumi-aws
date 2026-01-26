@@ -76,25 +76,16 @@ class GetLocalGatewayVirtualInterfaceResult:
     @_builtins.property
     @pulumi.getter(name="localAddress")
     def local_address(self) -> _builtins.str:
-        """
-        Local address.
-        """
         return pulumi.get(self, "local_address")
 
     @_builtins.property
     @pulumi.getter(name="localBgpAsn")
     def local_bgp_asn(self) -> _builtins.int:
-        """
-        Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
-        """
         return pulumi.get(self, "local_bgp_asn")
 
     @_builtins.property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> _builtins.str:
-        """
-        Identifier of the EC2 Local Gateway.
-        """
         return pulumi.get(self, "local_gateway_id")
 
     @_builtins.property
@@ -105,17 +96,11 @@ class GetLocalGatewayVirtualInterfaceResult:
     @_builtins.property
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> _builtins.str:
-        """
-        Peer address.
-        """
         return pulumi.get(self, "peer_address")
 
     @_builtins.property
     @pulumi.getter(name="peerBgpAsn")
     def peer_bgp_asn(self) -> _builtins.int:
-        """
-        Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
-        """
         return pulumi.get(self, "peer_bgp_asn")
 
     @_builtins.property
@@ -131,9 +116,6 @@ class GetLocalGatewayVirtualInterfaceResult:
     @_builtins.property
     @pulumi.getter
     def vlan(self) -> _builtins.int:
-        """
-        Virtual Local Area Network.
-        """
         return pulumi.get(self, "vlan")
 
 
@@ -162,22 +144,7 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[Union['GetLoc
                                         tags: Optional[Mapping[str, _builtins.str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceResult:
     """
-    Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = {__key: aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"]}
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
-    :param _builtins.str id: Identifier of EC2 Local Gateway Virtual Interface.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -205,22 +172,7 @@ def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Op
                                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceResult]:
     """
-    Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = {__key: aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"]}
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
-    :param _builtins.str id: Identifier of EC2 Local Gateway Virtual Interface.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

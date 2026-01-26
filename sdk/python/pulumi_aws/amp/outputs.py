@@ -55,10 +55,6 @@ class QueryLoggingConfigurationDestination(dict):
     def __init__(__self__, *,
                  cloudwatch_logs: Optional['outputs.QueryLoggingConfigurationDestinationCloudwatchLogs'] = None,
                  filters: Optional['outputs.QueryLoggingConfigurationDestinationFilters'] = None):
-        """
-        :param 'QueryLoggingConfigurationDestinationCloudwatchLogsArgs' cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
-        :param 'QueryLoggingConfigurationDestinationFiltersArgs' filters: A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if filters is not None:
@@ -67,17 +63,11 @@ class QueryLoggingConfigurationDestination(dict):
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['outputs.QueryLoggingConfigurationDestinationCloudwatchLogs']:
-        """
-        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional['outputs.QueryLoggingConfigurationDestinationFilters']:
-        """
-        A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-        """
         return pulumi.get(self, "filters")
 
 
@@ -102,17 +92,11 @@ class QueryLoggingConfigurationDestinationCloudwatchLogs(dict):
 
     def __init__(__self__, *,
                  log_group_arn: _builtins.str):
-        """
-        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-        """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> _builtins.str:
-        """
-        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-        """
         return pulumi.get(self, "log_group_arn")
 
 
@@ -137,17 +121,11 @@ class QueryLoggingConfigurationDestinationFilters(dict):
 
     def __init__(__self__, *,
                  qsp_threshold: _builtins.int):
-        """
-        :param _builtins.int qsp_threshold: The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-        """
         pulumi.set(__self__, "qsp_threshold", qsp_threshold)
 
     @_builtins.property
     @pulumi.getter(name="qspThreshold")
     def qsp_threshold(self) -> _builtins.int:
-        """
-        The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-        """
         return pulumi.get(self, "qsp_threshold")
 
 
@@ -241,18 +219,12 @@ class ResourcePolicyTimeouts(dict):
 class ScraperDestination(dict):
     def __init__(__self__, *,
                  amp: Optional['outputs.ScraperDestinationAmp'] = None):
-        """
-        :param 'ScraperDestinationAmpArgs' amp: Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-        """
         if amp is not None:
             pulumi.set(__self__, "amp", amp)
 
     @_builtins.property
     @pulumi.getter
     def amp(self) -> Optional['outputs.ScraperDestinationAmp']:
-        """
-        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-        """
         return pulumi.get(self, "amp")
 
 
@@ -277,17 +249,11 @@ class ScraperDestinationAmp(dict):
 
     def __init__(__self__, *,
                  workspace_arn: _builtins.str):
-        """
-        :param _builtins.str workspace_arn: The Amazon Resource Name (ARN) of the prometheus workspace.
-        """
         pulumi.set(__self__, "workspace_arn", workspace_arn)
 
     @_builtins.property
     @pulumi.getter(name="workspaceArn")
     def workspace_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the prometheus workspace.
-        """
         return pulumi.get(self, "workspace_arn")
 
 
@@ -315,10 +281,6 @@ class ScraperRoleConfiguration(dict):
     def __init__(__self__, *,
                  source_role_arn: Optional[_builtins.str] = None,
                  target_role_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source_role_arn: The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        :param _builtins.str target_role_arn: The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-        """
         if source_role_arn is not None:
             pulumi.set(__self__, "source_role_arn", source_role_arn)
         if target_role_arn is not None:
@@ -327,17 +289,11 @@ class ScraperRoleConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="sourceRoleArn")
     def source_role_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        """
         return pulumi.get(self, "source_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetRoleArn")
     def target_role_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-        """
         return pulumi.get(self, "target_role_arn")
 
 
@@ -345,18 +301,12 @@ class ScraperRoleConfiguration(dict):
 class ScraperSource(dict):
     def __init__(__self__, *,
                  eks: Optional['outputs.ScraperSourceEks'] = None):
-        """
-        :param 'ScraperSourceEksArgs' eks: Configuration block for an EKS cluster source. See `eks`.
-        """
         if eks is not None:
             pulumi.set(__self__, "eks", eks)
 
     @_builtins.property
     @pulumi.getter
     def eks(self) -> Optional['outputs.ScraperSourceEks']:
-        """
-        Configuration block for an EKS cluster source. See `eks`.
-        """
         return pulumi.get(self, "eks")
 
 
@@ -387,10 +337,6 @@ class ScraperSourceEks(dict):
                  cluster_arn: _builtins.str,
                  subnet_ids: Sequence[_builtins.str],
                  security_group_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
-        :param Sequence[_builtins.str] security_group_ids: List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
@@ -404,17 +350,11 @@ class ScraperSourceEks(dict):
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of subnet IDs. Must be in at least two different availability zones.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        """
         return pulumi.get(self, "security_group_ids")
 
 
@@ -483,10 +423,6 @@ class WorkspaceConfigurationLimitsPerLabelSet(dict):
     def __init__(__self__, *,
                  label_set: Mapping[str, _builtins.str],
                  limits: Optional['outputs.WorkspaceConfigurationLimitsPerLabelSetLimits'] = None):
-        """
-        :param Mapping[str, _builtins.str] label_set: Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        :param 'WorkspaceConfigurationLimitsPerLabelSetLimitsArgs' limits: Configuration block for the limits to apply to the specified label set. Detailed below.
-        """
         pulumi.set(__self__, "label_set", label_set)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
@@ -494,17 +430,11 @@ class WorkspaceConfigurationLimitsPerLabelSet(dict):
     @_builtins.property
     @pulumi.getter(name="labelSet")
     def label_set(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        """
         return pulumi.get(self, "label_set")
 
     @_builtins.property
     @pulumi.getter
     def limits(self) -> Optional['outputs.WorkspaceConfigurationLimitsPerLabelSetLimits']:
-        """
-        Configuration block for the limits to apply to the specified label set. Detailed below.
-        """
         return pulumi.get(self, "limits")
 
 
@@ -529,17 +459,11 @@ class WorkspaceConfigurationLimitsPerLabelSetLimits(dict):
 
     def __init__(__self__, *,
                  max_series: _builtins.int):
-        """
-        :param _builtins.int max_series: Maximum number of active time series that can be ingested for metrics matching the label set.
-        """
         pulumi.set(__self__, "max_series", max_series)
 
     @_builtins.property
     @pulumi.getter(name="maxSeries")
     def max_series(self) -> _builtins.int:
-        """
-        Maximum number of active time series that can be ingested for metrics matching the label set.
-        """
         return pulumi.get(self, "max_series")
 
 
@@ -595,17 +519,11 @@ class WorkspaceLoggingConfiguration(dict):
 
     def __init__(__self__, *,
                  log_group_arn: _builtins.str):
-        """
-        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
-        """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> _builtins.str:
-        """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
-        """
         return pulumi.get(self, "log_group_arn")
 
 

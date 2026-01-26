@@ -14,21 +14,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCredentialsResult {
     private @Nullable String dbName;
-    /**
-     * @return Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-     * 
-     */
     private String dbPassword;
-    /**
-     * @return A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
-     * 
-     */
     private String dbUser;
     private @Nullable Integer durationSeconds;
-    /**
-     * @return Date and time the password in `dbPassword` expires.
-     * 
-     */
     private String expiration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -42,27 +30,15 @@ public final class GetCredentialsResult {
     public Optional<String> dbName() {
         return Optional.ofNullable(this.dbName);
     }
-    /**
-     * @return Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-     * 
-     */
     public String dbPassword() {
         return this.dbPassword;
     }
-    /**
-     * @return A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
-     * 
-     */
     public String dbUser() {
         return this.dbUser;
     }
     public Optional<Integer> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
     }
-    /**
-     * @return Date and time the password in `dbPassword` expires.
-     * 
-     */
     public String expiration() {
         return this.expiration;
     }

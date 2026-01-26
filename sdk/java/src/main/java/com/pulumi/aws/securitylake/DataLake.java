@@ -17,217 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Security Lake Data Lake.
- * 
- * &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating other Security Lake resources. Use a `dependsOn` statement.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securitylake.DataLake;
- * import com.pulumi.aws.securitylake.DataLakeArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationExpirationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLake("example", DataLakeArgs.builder()
- *             .metaStoreManagerRoleArn(metaStoreManager.arn())
- *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region("eu-west-1")
- *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
- *                     .kmsKeyId("S3_MANAGED_KEY")
- *                     .build())
- *                 .lifecycleConfiguration(DataLakeConfigurationLifecycleConfigurationArgs.builder()
- *                     .transitions(                    
- *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
- *                             .days(31)
- *                             .storageClass("STANDARD_IA")
- *                             .build(),
- *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
- *                             .days(80)
- *                             .storageClass("ONEZONE_IA")
- *                             .build())
- *                     .expiration(DataLakeConfigurationLifecycleConfigurationExpirationArgs.builder()
- *                         .days(300)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securitylake.DataLake;
- * import com.pulumi.aws.securitylake.DataLakeArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLake("example", DataLakeArgs.builder()
- *             .metaStoreManagerRoleArn(metaStoreManager.arn())
- *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region("eu-west-1")
- *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
- *                     .kmsKeyId("S3_MANAGED_KEY")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Security Lake data lake.
- * 
- * Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
- * 
- * % pulumi import aws_securitylake_data_lake.example arn:aws:securitylake:eu-west-1:123456789012:data-lake/default
- * 
- */
 @ResourceType(type="aws:securitylake/dataLake:DataLake")
 public class DataLake extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Data Lake.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Data Lake.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Specify the Region or Regions that will contribute data to the rollup region.
-     * 
-     */
     @Export(name="configuration", refs={DataLakeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataLakeConfiguration> configuration;
 
-    /**
-     * @return Specify the Region or Regions that will contribute data to the rollup region.
-     * 
-     */
     public Output<Optional<DataLakeConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    /**
-     * The Amazon Resource Name (ARN) used to create and update the AWS Glue table. This table contains partitions generated by the ingestion and normalization of AWS log sources and custom sources.
-     * 
-     */
     @Export(name="metaStoreManagerRoleArn", refs={String.class}, tree="[0]")
     private Output<String> metaStoreManagerRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) used to create and update the AWS Glue table. This table contains partitions generated by the ingestion and normalization of AWS log sources and custom sources.
-     * 
-     */
     public Output<String> metaStoreManagerRoleArn() {
         return this.metaStoreManagerRoleArn;
     }
-    /**
-     * The AWS Regions where Security Lake is automatically enabled.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ARN for the Amazon Security Lake Amazon S3 bucket.
-     * 
-     */
     @Export(name="s3BucketArn", refs={String.class}, tree="[0]")
     private Output<String> s3BucketArn;
 
-    /**
-     * @return The ARN for the Amazon Security Lake Amazon S3 bucket.
-     * 
-     */
     public Output<String> s3BucketArn() {
         return this.s3BucketArn;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

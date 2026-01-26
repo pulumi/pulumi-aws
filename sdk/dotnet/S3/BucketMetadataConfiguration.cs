@@ -9,84 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Manages Amazon S3 Metadata for a bucket.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.BucketMetadataConfiguration("example", new()
-    ///     {
-    ///         Bucket = exampleAwsS3Bucket.Bucket,
-    ///         MetadataConfiguration = new Aws.S3.Inputs.BucketMetadataConfigurationMetadataConfigurationArgs
-    ///         {
-    ///             InventoryTableConfiguration = new Aws.S3.Inputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs
-    ///             {
-    ///                 ConfigurationState = "ENABLED",
-    ///             },
-    ///             JournalTableConfiguration = new Aws.S3.Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs
-    ///             {
-    ///                 RecordExpiration = new Aws.S3.Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs
-    ///                 {
-    ///                     Days = 7,
-    ///                     Expiration = "ENABLED",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// __Using `pulumi import` to import__ S3 bucket metadata configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-    /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, import using the `bucket`:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name
-    /// ```
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration")]
     public partial class BucketMetadataConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// General purpose bucket that you want to create the metadata configuration for.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Metadata configuration. See `MetadataConfiguration` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("metadataConfiguration")]
         public Output<Outputs.BucketMetadataConfigurationMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -139,26 +73,15 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketMetadataConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// General purpose bucket that you want to create the metadata configuration for.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Metadata configuration. See `MetadataConfiguration` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -173,26 +96,15 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketMetadataConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// General purpose bucket that you want to create the metadata configuration for.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Metadata configuration. See `MetadataConfiguration` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationGetArgs>? MetadataConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

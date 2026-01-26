@@ -16,15 +16,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOpenZfsSnapshotResult {
-    /**
-     * @return Amazon Resource Name of the snapshot.
-     * 
-     */
     private String arn;
-    /**
-     * @return Time that the resource was created.
-     * 
-     */
     private String creationTime;
     private @Nullable List<GetOpenZfsSnapshotFilter> filters;
     /**
@@ -33,41 +25,17 @@ public final class GetOpenZfsSnapshotResult {
      */
     private String id;
     private @Nullable Boolean mostRecent;
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     private @Nullable String name;
     private String region;
-    /**
-     * @return ID of the snapshot.
-     * 
-     */
     private String snapshotId;
     private @Nullable List<String> snapshotIds;
-    /**
-     * @return List of Tag values, with a maximum of 50 elements.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return ID of the volume that the snapshot is of.
-     * 
-     */
     private String volumeId;
 
     private GetOpenZfsSnapshotResult() {}
-    /**
-     * @return Amazon Resource Name of the snapshot.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Time that the resource was created.
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
@@ -84,37 +52,21 @@ public final class GetOpenZfsSnapshotResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ID of the snapshot.
-     * 
-     */
     public String snapshotId() {
         return this.snapshotId;
     }
     public List<String> snapshotIds() {
         return this.snapshotIds == null ? List.of() : this.snapshotIds;
     }
-    /**
-     * @return List of Tag values, with a maximum of 50 elements.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return ID of the volume that the snapshot is of.
-     * 
-     */
     public String volumeId() {
         return this.volumeId;
     }

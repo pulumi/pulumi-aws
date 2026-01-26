@@ -16,49 +16,23 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
 
     public static final DataSourceCredentialsArgs Empty = new DataSourceCredentialsArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-     * When the value is not null, the `credentialPair` from the data source in the ARN is used.
-     * 
-     */
     @Import(name="copySourceArn")
     private @Nullable Output<String> copySourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-     * When the value is not null, the `credentialPair` from the data source in the ARN is used.
-     * 
-     */
     public Optional<Output<String>> copySourceArn() {
         return Optional.ofNullable(this.copySourceArn);
     }
 
-    /**
-     * Credential pair. See Credential Pair below for more details.
-     * 
-     */
     @Import(name="credentialPair")
     private @Nullable Output<DataSourceCredentialsCredentialPairArgs> credentialPair;
 
-    /**
-     * @return Credential pair. See Credential Pair below for more details.
-     * 
-     */
     public Optional<Output<DataSourceCredentialsCredentialPairArgs>> credentialPair() {
         return Optional.ofNullable(this.credentialPair);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
-     * 
-     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
-     * 
-     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
@@ -89,67 +63,29 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
             $ = new DataSourceCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param copySourceArn The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-         * When the value is not null, the `credentialPair` from the data source in the ARN is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copySourceArn(@Nullable Output<String> copySourceArn) {
             $.copySourceArn = copySourceArn;
             return this;
         }
 
-        /**
-         * @param copySourceArn The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-         * When the value is not null, the `credentialPair` from the data source in the ARN is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copySourceArn(String copySourceArn) {
             return copySourceArn(Output.of(copySourceArn));
         }
 
-        /**
-         * @param credentialPair Credential pair. See Credential Pair below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialPair(@Nullable Output<DataSourceCredentialsCredentialPairArgs> credentialPair) {
             $.credentialPair = credentialPair;
             return this;
         }
 
-        /**
-         * @param credentialPair Credential pair. See Credential Pair below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialPair(DataSourceCredentialsCredentialPairArgs credentialPair) {
             return credentialPair(Output.of(credentialPair));
         }
 
-        /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }

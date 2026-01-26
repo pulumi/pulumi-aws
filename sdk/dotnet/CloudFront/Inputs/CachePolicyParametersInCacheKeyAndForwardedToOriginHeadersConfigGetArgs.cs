@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `HeaderBehavior` are `None` and `Whitelist`.
-        /// </summary>
         [Input("headerBehavior")]
         public Input<string>? HeaderBehavior { get; set; }
 
-        /// <summary>
-        /// Object contains a list of header names. See Items for more information.
-        /// </summary>
         [Input("headers")]
         public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersGetArgs>? Headers { get; set; }
 

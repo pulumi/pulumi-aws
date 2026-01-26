@@ -32,9 +32,6 @@ class CustomActionTypeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
-        :param pulumi.Input[_builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "input_artifact_details", input_artifact_details)
@@ -53,9 +50,6 @@ class CustomActionTypeArgs:
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Input[_builtins.str]:
-        """
-        The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        """
         return pulumi.get(self, "category")
 
     @category.setter
@@ -101,9 +95,6 @@ class CustomActionTypeArgs:
     @_builtins.property
     @pulumi.getter(name="configurationProperties")
     def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
-        """
-        The configuration properties for the custom action. Max 10 items.
-        """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
@@ -113,9 +104,6 @@ class CustomActionTypeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -158,12 +146,6 @@ class _CustomActionTypeState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomActionType resources.
-        :param pulumi.Input[_builtins.str] arn: The action ARN.
-        :param pulumi.Input[_builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input[_builtins.str] owner: The creator of the action being called.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -193,9 +175,6 @@ class _CustomActionTypeState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -205,9 +184,6 @@ class _CustomActionTypeState:
     @_builtins.property
     @pulumi.getter
     def category(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        """
         return pulumi.get(self, "category")
 
     @category.setter
@@ -217,9 +193,6 @@ class _CustomActionTypeState:
     @_builtins.property
     @pulumi.getter(name="configurationProperties")
     def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
-        """
-        The configuration properties for the custom action. Max 10 items.
-        """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
@@ -247,9 +220,6 @@ class _CustomActionTypeState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The creator of the action being called.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -268,9 +238,6 @@ class _CustomActionTypeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -298,9 +265,6 @@ class _CustomActionTypeState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -334,41 +298,9 @@ class CustomActionType(pulumi.CustomResource):
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CodeDeploy CustomActionType
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codepipeline.CustomActionType("example",
-            category="Build",
-            input_artifact_details={
-                "maximum_count": 1,
-                "minimum_count": 0,
-            },
-            output_artifact_details={
-                "maximum_count": 1,
-                "minimum_count": 0,
-            },
-            provider_name="example",
-            version="1")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
-        ```
-
+        Create a CustomActionType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -377,36 +309,7 @@ class CustomActionType(pulumi.CustomResource):
                  args: CustomActionTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeDeploy CustomActionType
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codepipeline.CustomActionType("example",
-            category="Build",
-            input_artifact_details={
-                "maximum_count": 1,
-                "minimum_count": 0,
-            },
-            output_artifact_details={
-                "maximum_count": 1,
-                "minimum_count": 0,
-            },
-            provider_name="example",
-            version="1")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
-        ```
-
+        Create a CustomActionType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomActionTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -491,12 +394,6 @@ class CustomActionType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The action ARN.
-        :param pulumi.Input[_builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input[_builtins.str] owner: The creator of the action being called.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -519,25 +416,16 @@ class CustomActionType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The action ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[_builtins.str]:
-        """
-        The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        """
         return pulumi.get(self, "category")
 
     @_builtins.property
     @pulumi.getter(name="configurationProperties")
     def configuration_properties(self) -> pulumi.Output[Optional[Sequence['outputs.CustomActionTypeConfigurationProperty']]]:
-        """
-        The configuration properties for the custom action. Max 10 items.
-        """
         return pulumi.get(self, "configuration_properties")
 
     @_builtins.property
@@ -553,9 +441,6 @@ class CustomActionType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        The creator of the action being called.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
@@ -566,9 +451,6 @@ class CustomActionType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -584,9 +466,6 @@ class CustomActionType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

@@ -17,81 +17,37 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventRuleArgs Empty = new EventRuleArgs();
 
-    /**
-     * JSON string defining the event pattern to match. Maximum length is 4096 characters.
-     * 
-     */
     @Import(name="eventPattern")
     private @Nullable Output<String> eventPattern;
 
-    /**
-     * @return JSON string defining the event pattern to match. Maximum length is 4096 characters.
-     * 
-     */
     public Optional<Output<String>> eventPattern() {
         return Optional.ofNullable(this.eventPattern);
     }
 
-    /**
-     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-     * 
-     */
     @Import(name="eventType", required=true)
     private Output<String> eventType;
 
-    /**
-     * @return Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-     * 
-     */
     public Output<String> eventType() {
         return this.eventType;
     }
 
-    /**
-     * ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-     * 
-     */
     @Import(name="notificationConfigurationArn", required=true)
     private Output<String> notificationConfigurationArn;
 
-    /**
-     * @return ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-     * 
-     */
     public Output<String> notificationConfigurationArn() {
         return this.notificationConfigurationArn;
     }
 
-    /**
-     * Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-     * 
-     */
     @Import(name="regions", required=true)
     private Output<List<String>> regions;
 
-    /**
-     * @return Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-     * 
-     */
     public Output<List<String>> regions() {
         return this.regions;
     }
 
-    /**
-     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
@@ -124,121 +80,51 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EventRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventPattern JSON string defining the event pattern to match. Maximum length is 4096 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventPattern(@Nullable Output<String> eventPattern) {
             $.eventPattern = eventPattern;
             return this;
         }
 
-        /**
-         * @param eventPattern JSON string defining the event pattern to match. Maximum length is 4096 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventPattern(String eventPattern) {
             return eventPattern(Output.of(eventPattern));
         }
 
-        /**
-         * @param eventType Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(Output<String> eventType) {
             $.eventType = eventType;
             return this;
         }
 
-        /**
-         * @param eventType Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(String eventType) {
             return eventType(Output.of(eventType));
         }
 
-        /**
-         * @param notificationConfigurationArn ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationConfigurationArn(Output<String> notificationConfigurationArn) {
             $.notificationConfigurationArn = notificationConfigurationArn;
             return this;
         }
 
-        /**
-         * @param notificationConfigurationArn ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationConfigurationArn(String notificationConfigurationArn) {
             return notificationConfigurationArn(Output.of(notificationConfigurationArn));
         }
 
-        /**
-         * @param regions Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
 
-        /**
-         * @param source Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

@@ -18,69 +18,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Lake Formation Opt In.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.OptIn;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OptIn("example");
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:lakeformation/optIn:OptIn")
 public class OptIn extends com.pulumi.resources.CustomResource {
-    /**
-     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-     * 
-     */
     @Export(name="conditions", refs={List.class,OptInCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptInCondition>> conditions;
 
-    /**
-     * @return Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-     * 
-     */
     public Output<Optional<List<OptInCondition>>> conditions() {
         return Codegen.optional(this.conditions);
     }
-    /**
-     * Last modified date and time of the record.
-     * 
-     */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
-    /**
-     * @return Last modified date and time of the record.
-     * 
-     */
     public Output<String> lastModified() {
         return this.lastModified;
     }
@@ -90,45 +38,21 @@ public class OptIn extends com.pulumi.resources.CustomResource {
     public Output<String> lastUpdatedBy() {
         return this.lastUpdatedBy;
     }
-    /**
-     * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-     * 
-     */
     @Export(name="principals", refs={List.class,OptInPrincipal.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptInPrincipal>> principals;
 
-    /**
-     * @return Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-     * 
-     */
     public Output<Optional<List<OptInPrincipal>>> principals() {
         return Codegen.optional(this.principals);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Structure for the resource. See Resource for more details.
-     * 
-     */
     @Export(name="resourceDatas", refs={List.class,OptInResourceData.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptInResourceData>> resourceDatas;
 
-    /**
-     * @return Structure for the resource. See Resource for more details.
-     * 
-     */
     public Output<Optional<List<OptInResourceData>>> resourceDatas() {
         return Codegen.optional(this.resourceDatas);
     }

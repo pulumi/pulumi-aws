@@ -15,47 +15,23 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
 
     public static final QueueReservationPlanSettingsArgs Empty = new QueueReservationPlanSettingsArgs();
 
-    /**
-     * The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-     * 
-     */
     @Import(name="commitment", required=true)
     private Output<String> commitment;
 
-    /**
-     * @return The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-     * 
-     */
     public Output<String> commitment() {
         return this.commitment;
     }
 
-    /**
-     * Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-     * 
-     */
     @Import(name="renewalType", required=true)
     private Output<String> renewalType;
 
-    /**
-     * @return Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-     * 
-     */
     public Output<String> renewalType() {
         return this.renewalType;
     }
 
-    /**
-     * Specifies the number of reserved transcode slots (RTS) for queue.
-     * 
-     */
     @Import(name="reservedSlots", required=true)
     private Output<Integer> reservedSlots;
 
-    /**
-     * @return Specifies the number of reserved transcode slots (RTS) for queue.
-     * 
-     */
     public Output<Integer> reservedSlots() {
         return this.reservedSlots;
     }
@@ -86,65 +62,29 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
             $ = new QueueReservationPlanSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param commitment The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commitment(Output<String> commitment) {
             $.commitment = commitment;
             return this;
         }
 
-        /**
-         * @param commitment The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commitment(String commitment) {
             return commitment(Output.of(commitment));
         }
 
-        /**
-         * @param renewalType Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder renewalType(Output<String> renewalType) {
             $.renewalType = renewalType;
             return this;
         }
 
-        /**
-         * @param renewalType Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder renewalType(String renewalType) {
             return renewalType(Output.of(renewalType));
         }
 
-        /**
-         * @param reservedSlots Specifies the number of reserved transcode slots (RTS) for queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reservedSlots(Output<Integer> reservedSlots) {
             $.reservedSlots = reservedSlots;
             return this;
         }
 
-        /**
-         * @param reservedSlots Specifies the number of reserved transcode slots (RTS) for queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reservedSlots(Integer reservedSlots) {
             return reservedSlots(Output.of(reservedSlots));
         }

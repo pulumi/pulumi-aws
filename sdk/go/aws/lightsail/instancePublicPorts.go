@@ -12,87 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages public ports for a Lightsail instance. Use this resource to open ports for a specific Amazon Lightsail instance and specify the IP addresses allowed to connect to the instance through the ports and the protocol.
-//
-// > See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
-//
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example-instance"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_3_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewInstancePublicPorts(ctx, "example", &lightsail.InstancePublicPortsArgs{
-//				InstanceName: example.Name,
-//				PortInfos: lightsail.InstancePublicPortsPortInfoArray{
-//					&lightsail.InstancePublicPortsPortInfoArgs{
-//						Protocol: pulumi.String("tcp"),
-//						FromPort: pulumi.Int(80),
-//						ToPort:   pulumi.Int(80),
-//					},
-//					&lightsail.InstancePublicPortsPortInfoArgs{
-//						Protocol: pulumi.String("tcp"),
-//						FromPort: pulumi.Int(443),
-//						ToPort:   pulumi.Int(443),
-//						Cidrs: pulumi.StringArray{
-//							pulumi.String("192.168.1.0/24"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type InstancePublicPorts struct {
 	pulumi.CustomResourceState
 
-	// Name of the instance for which to open ports.
-	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-	//
-	// The following arguments are optional:
-	PortInfos InstancePublicPortsPortInfoArrayOutput `pulumi:"portInfos"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	InstanceName pulumi.StringOutput                    `pulumi:"instanceName"`
+	PortInfos    InstancePublicPortsPortInfoArrayOutput `pulumi:"portInfos"`
+	Region       pulumi.StringOutput                    `pulumi:"region"`
 }
 
 // NewInstancePublicPorts registers a new resource with the given unique name, arguments, and options.
@@ -131,25 +56,15 @@ func GetInstancePublicPorts(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstancePublicPorts resources.
 type instancePublicPortsState struct {
-	// Name of the instance for which to open ports.
-	InstanceName *string `pulumi:"instanceName"`
-	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-	//
-	// The following arguments are optional:
-	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceName *string                       `pulumi:"instanceName"`
+	PortInfos    []InstancePublicPortsPortInfo `pulumi:"portInfos"`
+	Region       *string                       `pulumi:"region"`
 }
 
 type InstancePublicPortsState struct {
-	// Name of the instance for which to open ports.
 	InstanceName pulumi.StringPtrInput
-	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-	//
-	// The following arguments are optional:
-	PortInfos InstancePublicPortsPortInfoArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortInfos    InstancePublicPortsPortInfoArrayInput
+	Region       pulumi.StringPtrInput
 }
 
 func (InstancePublicPortsState) ElementType() reflect.Type {
@@ -157,26 +72,16 @@ func (InstancePublicPortsState) ElementType() reflect.Type {
 }
 
 type instancePublicPortsArgs struct {
-	// Name of the instance for which to open ports.
-	InstanceName string `pulumi:"instanceName"`
-	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-	//
-	// The following arguments are optional:
-	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceName string                        `pulumi:"instanceName"`
+	PortInfos    []InstancePublicPortsPortInfo `pulumi:"portInfos"`
+	Region       *string                       `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InstancePublicPorts resource.
 type InstancePublicPortsArgs struct {
-	// Name of the instance for which to open ports.
 	InstanceName pulumi.StringInput
-	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-	//
-	// The following arguments are optional:
-	PortInfos InstancePublicPortsPortInfoArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortInfos    InstancePublicPortsPortInfoArrayInput
+	Region       pulumi.StringPtrInput
 }
 
 func (InstancePublicPortsArgs) ElementType() reflect.Type {
@@ -266,19 +171,14 @@ func (o InstancePublicPortsOutput) ToInstancePublicPortsOutputWithContext(ctx co
 	return o
 }
 
-// Name of the instance for which to open ports.
 func (o InstancePublicPortsOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstancePublicPorts) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-//
-// The following arguments are optional:
 func (o InstancePublicPortsOutput) PortInfos() InstancePublicPortsPortInfoArrayOutput {
 	return o.ApplyT(func(v *InstancePublicPorts) InstancePublicPortsPortInfoArrayOutput { return v.PortInfos }).(InstancePublicPortsPortInfoArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstancePublicPortsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstancePublicPorts) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

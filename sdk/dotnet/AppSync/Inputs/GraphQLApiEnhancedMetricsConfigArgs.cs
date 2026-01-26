@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class GraphQLApiEnhancedMetricsConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-        /// </summary>
         [Input("dataSourceLevelMetricsBehavior", required: true)]
         public Input<string> DataSourceLevelMetricsBehavior { get; set; } = null!;
 
-        /// <summary>
-        /// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-        /// </summary>
         [Input("operationLevelMetricsConfig", required: true)]
         public Input<string> OperationLevelMetricsConfig { get; set; } = null!;
 
-        /// <summary>
-        /// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-        /// </summary>
         [Input("resolverLevelMetricsBehavior", required: true)]
         public Input<string> ResolverLevelMetricsBehavior { get; set; } = null!;
 

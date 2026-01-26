@@ -12,30 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Transfer Family Web App Customization.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
-// ```
 type WebAppCustomization struct {
 	pulumi.CustomResourceState
 
-	FaviconFile pulumi.StringOutput `pulumi:"faviconFile"`
-	LogoFile    pulumi.StringOutput `pulumi:"logoFile"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// The identifier of the web app to be customized.
-	//
-	// The following arguments are optional:
-	WebAppId pulumi.StringOutput `pulumi:"webAppId"`
+	FaviconFile pulumi.StringOutput    `pulumi:"faviconFile"`
+	LogoFile    pulumi.StringOutput    `pulumi:"logoFile"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Title       pulumi.StringPtrOutput `pulumi:"title"`
+	WebAppId    pulumi.StringOutput    `pulumi:"webAppId"`
 }
 
 // NewWebAppCustomization registers a new resource with the given unique name, arguments, and options.
@@ -73,27 +57,17 @@ func GetWebAppCustomization(ctx *pulumi.Context,
 type webAppCustomizationState struct {
 	FaviconFile *string `pulumi:"faviconFile"`
 	LogoFile    *string `pulumi:"logoFile"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-	Title *string `pulumi:"title"`
-	// The identifier of the web app to be customized.
-	//
-	// The following arguments are optional:
-	WebAppId *string `pulumi:"webAppId"`
+	Region      *string `pulumi:"region"`
+	Title       *string `pulumi:"title"`
+	WebAppId    *string `pulumi:"webAppId"`
 }
 
 type WebAppCustomizationState struct {
 	FaviconFile pulumi.StringPtrInput
 	LogoFile    pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-	Title pulumi.StringPtrInput
-	// The identifier of the web app to be customized.
-	//
-	// The following arguments are optional:
-	WebAppId pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Title       pulumi.StringPtrInput
+	WebAppId    pulumi.StringPtrInput
 }
 
 func (WebAppCustomizationState) ElementType() reflect.Type {
@@ -103,28 +77,18 @@ func (WebAppCustomizationState) ElementType() reflect.Type {
 type webAppCustomizationArgs struct {
 	FaviconFile *string `pulumi:"faviconFile"`
 	LogoFile    *string `pulumi:"logoFile"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-	Title *string `pulumi:"title"`
-	// The identifier of the web app to be customized.
-	//
-	// The following arguments are optional:
-	WebAppId string `pulumi:"webAppId"`
+	Region      *string `pulumi:"region"`
+	Title       *string `pulumi:"title"`
+	WebAppId    string  `pulumi:"webAppId"`
 }
 
 // The set of arguments for constructing a WebAppCustomization resource.
 type WebAppCustomizationArgs struct {
 	FaviconFile pulumi.StringPtrInput
 	LogoFile    pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-	Title pulumi.StringPtrInput
-	// The identifier of the web app to be customized.
-	//
-	// The following arguments are optional:
-	WebAppId pulumi.StringInput
+	Region      pulumi.StringPtrInput
+	Title       pulumi.StringPtrInput
+	WebAppId    pulumi.StringInput
 }
 
 func (WebAppCustomizationArgs) ElementType() reflect.Type {
@@ -222,19 +186,14 @@ func (o WebAppCustomizationOutput) LogoFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAppCustomization) pulumi.StringOutput { return v.LogoFile }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebAppCustomizationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAppCustomization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
 func (o WebAppCustomizationOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAppCustomization) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the web app to be customized.
-//
-// The following arguments are optional:
 func (o WebAppCustomizationOutput) WebAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAppCustomization) pulumi.StringOutput { return v.WebAppId }).(pulumi.StringOutput)
 }

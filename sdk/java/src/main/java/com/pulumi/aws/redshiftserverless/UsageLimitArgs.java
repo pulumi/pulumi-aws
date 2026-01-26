@@ -17,92 +17,44 @@ public final class UsageLimitArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UsageLimitArgs Empty = new UsageLimitArgs();
 
-    /**
-     * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-     * 
-     */
     @Import(name="amount", required=true)
     private Output<Integer> amount;
 
-    /**
-     * @return The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-     * 
-     */
     public Output<Integer> amount() {
         return this.amount;
     }
 
-    /**
-     * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-     * 
-     */
     @Import(name="breachAction")
     private @Nullable Output<String> breachAction;
 
-    /**
-     * @return The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-     * 
-     */
     public Optional<Output<String>> breachAction() {
         return Optional.ofNullable(this.breachAction);
     }
 
-    /**
-     * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-     * 
-     */
     @Import(name="period")
     private @Nullable Output<String> period;
 
-    /**
-     * @return The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-     * 
-     */
     public Optional<Output<String>> period() {
         return Optional.ofNullable(this.period);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
 
-    /**
-     * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-     * 
-     */
     @Import(name="usageType", required=true)
     private Output<String> usageType;
 
-    /**
-     * @return The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-     * 
-     */
     public Output<String> usageType() {
         return this.usageType;
     }
@@ -136,128 +88,56 @@ public final class UsageLimitArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UsageLimitArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amount The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amount(Output<Integer> amount) {
             $.amount = amount;
             return this;
         }
 
-        /**
-         * @param amount The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amount(Integer amount) {
             return amount(Output.of(amount));
         }
 
-        /**
-         * @param breachAction The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder breachAction(@Nullable Output<String> breachAction) {
             $.breachAction = breachAction;
             return this;
         }
 
-        /**
-         * @param breachAction The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder breachAction(String breachAction) {
             return breachAction(Output.of(breachAction));
         }
 
-        /**
-         * @param period The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder period(@Nullable Output<String> period) {
             $.period = period;
             return this;
         }
 
-        /**
-         * @param period The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder period(String period) {
             return period(Output.of(period));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param usageType The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageType(Output<String> usageType) {
             $.usageType = usageType;
             return this;
         }
 
-        /**
-         * @param usageType The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageType(String usageType) {
             return usageType(Output.of(usageType));
         }

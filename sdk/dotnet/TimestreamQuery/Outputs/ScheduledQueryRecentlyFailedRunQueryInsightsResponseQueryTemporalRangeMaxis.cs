@@ -13,13 +13,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis
     {
-        /// <summary>
-        /// ARN of the table which is queried with the largest time range.
-        /// </summary>
         public readonly string? TableArn;
-        /// <summary>
-        /// Maximum duration in nanoseconds between the start and end of the query.
-        /// </summary>
         public readonly int? Value;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponse
     {
-        /// <summary>
-        /// Key of a custom response body to use.
-        /// </summary>
         public readonly string? CustomResponseBodyKey;
-        /// <summary>
-        /// HTTP response code to return (200-599).
-        /// </summary>
         public readonly int ResponseCode;
-        /// <summary>
-        /// Headers to include in the response. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeader> ResponseHeaders;
 
         [OutputConstructor]

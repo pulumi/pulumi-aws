@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTagsFilter {
-    /**
-     * @return Return results that match both `Dimension` objects.
-     * 
-     */
     private @Nullable List<GetTagsFilterAnd> ands;
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
-     * 
-     */
     private @Nullable GetTagsFilterCostCategory costCategory;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     private @Nullable GetTagsFilterDimension dimension;
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     private @Nullable GetTagsFilterNot not;
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     private @Nullable List<GetTagsFilterOr> ors;
-    /**
-     * @return Tags that match your request.
-     * 
-     */
     private @Nullable GetTagsFilterTags tags;
 
     private GetTagsFilter() {}
-    /**
-     * @return Return results that match both `Dimension` objects.
-     * 
-     */
     public List<GetTagsFilterAnd> ands() {
         return this.ands == null ? List.of() : this.ands;
     }
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
-     * 
-     */
     public Optional<GetTagsFilterCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     public Optional<GetTagsFilterDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     public Optional<GetTagsFilterNot> not() {
         return Optional.ofNullable(this.not);
     }
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     public List<GetTagsFilterOr> ors() {
         return this.ors == null ? List.of() : this.ors;
     }
-    /**
-     * @return Tags that match your request.
-     * 
-     */
     public Optional<GetTagsFilterTags> tags() {
         return Optional.ofNullable(this.tags);
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleActionFindingFieldsUpdateWorkflow
     {
-        /// <summary>
-        /// The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

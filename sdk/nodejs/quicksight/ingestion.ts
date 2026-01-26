@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS QuickSight Ingestion.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Ingestion("example", {
- *     dataSetId: exampleAwsQuicksightDataSet.dataSetId,
- *     ingestionId: "example-id",
- *     ingestionType: "FULL_REFRESH",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
- * ```
- */
 export class Ingestion extends pulumi.CustomResource {
     /**
      * Get an existing Ingestion resource's state with the given name, ID, and optional extra
@@ -58,32 +32,12 @@ export class Ingestion extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ingestion.__pulumiType;
     }
 
-    /**
-     * ARN of the Ingestion.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * ID of the dataset used in the ingestion.
-     */
     declare public readonly dataSetId: pulumi.Output<string>;
-    /**
-     * ID for the ingestion.
-     */
     declare public readonly ingestionId: pulumi.Output<string>;
-    /**
-     * Ingestion status.
-     */
     declare public /*out*/ readonly ingestionStatus: pulumi.Output<string>;
-    /**
-     * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly ingestionType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -134,32 +88,12 @@ export class Ingestion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Ingestion resources.
  */
 export interface IngestionState {
-    /**
-     * ARN of the Ingestion.
-     */
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * ID of the dataset used in the ingestion.
-     */
     dataSetId?: pulumi.Input<string>;
-    /**
-     * ID for the ingestion.
-     */
     ingestionId?: pulumi.Input<string>;
-    /**
-     * Ingestion status.
-     */
     ingestionStatus?: pulumi.Input<string>;
-    /**
-     * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     *
-     * The following arguments are optional:
-     */
     ingestionType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -168,22 +102,8 @@ export interface IngestionState {
  */
 export interface IngestionArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * ID of the dataset used in the ingestion.
-     */
     dataSetId: pulumi.Input<string>;
-    /**
-     * ID for the ingestion.
-     */
     ingestionId: pulumi.Input<string>;
-    /**
-     * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     *
-     * The following arguments are optional:
-     */
     ingestionType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

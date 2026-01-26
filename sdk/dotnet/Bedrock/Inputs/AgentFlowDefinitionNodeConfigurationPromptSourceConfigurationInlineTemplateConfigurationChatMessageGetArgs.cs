@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-        /// </summary>
         [Input("content")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentGetArgs>? Content { get; set; }
 
-        /// <summary>
-        /// The role that the message belongs to.
-        /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 

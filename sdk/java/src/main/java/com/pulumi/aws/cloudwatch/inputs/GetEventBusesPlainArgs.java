@@ -14,32 +14,16 @@ public final class GetEventBusesPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetEventBusesPlainArgs Empty = new GetEventBusesPlainArgs();
 
-    /**
-     * Specifying this limits the results to only those event buses with names that start with the specified prefix.
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable String namePrefix;
 
-    /**
-     * @return Specifying this limits the results to only those event buses with names that start with the specified prefix.
-     * 
-     */
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -69,23 +53,11 @@ public final class GetEventBusesPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetEventBusesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namePrefix Specifying this limits the results to only those event buses with names that start with the specified prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable String namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

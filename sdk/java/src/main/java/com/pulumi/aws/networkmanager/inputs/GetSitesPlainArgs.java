@@ -16,32 +16,16 @@ public final class GetSitesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSitesPlainArgs Empty = new GetSitesPlainArgs();
 
-    /**
-     * ID of the Global Network of the sites to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the sites to retrieve.
-     * 
-     */
     public String globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Restricts the list to the sites with these tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Restricts the list to the sites with these tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,23 +55,11 @@ public final class GetSitesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSitesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the sites to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param tags Restricts the list to the sites with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

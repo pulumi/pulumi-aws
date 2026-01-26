@@ -12,33 +12,20 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the array items.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Nested items definition for arrays of arrays.
-        /// </summary>
         [Input("items")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs>? Items { get; set; }
 
         [Input("properties")]
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs>? _properties;
-
-        /// <summary>
-        /// Set of property definitions for arrays of objects. See `Property` below.
-        /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs> Properties
         {
             get => _properties ?? (_properties = new InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs>());
             set => _properties = value;
         }
 
-        /// <summary>
-        /// Data type of the array items.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

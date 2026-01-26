@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LaunchTemplateHibernationOptions {
-    /**
-     * @return If set to `true`, the launched EC2 instance will hibernation enabled.
-     * 
-     */
     private Boolean configured;
 
     private LaunchTemplateHibernationOptions() {}
-    /**
-     * @return If set to `true`, the launched EC2 instance will hibernation enabled.
-     * 
-     */
     public Boolean configured() {
         return this.configured;
     }

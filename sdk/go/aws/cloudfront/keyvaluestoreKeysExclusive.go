@@ -12,24 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c
-// ```
 type KeyvaluestoreKeysExclusive struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Key Value Store.
-	//
-	// The following arguments are optional:
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn pulumi.StringOutput `pulumi:"keyValueStoreArn"`
-	// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
-	MaxBatchSize pulumi.IntOutput `pulumi:"maxBatchSize"`
-	// A list of all resource key value pairs associated with the KeyValueStore.
-	// See `resourceKeyValuePair` below.
+	// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
+	MaxBatchSize          pulumi.IntOutput                                          `pulumi:"maxBatchSize"`
 	ResourceKeyValuePairs KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput `pulumi:"resourceKeyValuePairs"`
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes pulumi.IntOutput `pulumi:"totalSizeInBytes"`
@@ -68,28 +57,20 @@ func GetKeyvaluestoreKeysExclusive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyvaluestoreKeysExclusive resources.
 type keyvaluestoreKeysExclusiveState struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
-	//
-	// The following arguments are optional:
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn *string `pulumi:"keyValueStoreArn"`
-	// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
-	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// A list of all resource key value pairs associated with the KeyValueStore.
-	// See `resourceKeyValuePair` below.
+	// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
+	MaxBatchSize          *int                                             `pulumi:"maxBatchSize"`
 	ResourceKeyValuePairs []KeyvaluestoreKeysExclusiveResourceKeyValuePair `pulumi:"resourceKeyValuePairs"`
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes *int `pulumi:"totalSizeInBytes"`
 }
 
 type KeyvaluestoreKeysExclusiveState struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
-	//
-	// The following arguments are optional:
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn pulumi.StringPtrInput
-	// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
-	MaxBatchSize pulumi.IntPtrInput
-	// A list of all resource key value pairs associated with the KeyValueStore.
-	// See `resourceKeyValuePair` below.
+	// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
+	MaxBatchSize          pulumi.IntPtrInput
 	ResourceKeyValuePairs KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayInput
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes pulumi.IntPtrInput
@@ -100,27 +81,19 @@ func (KeyvaluestoreKeysExclusiveState) ElementType() reflect.Type {
 }
 
 type keyvaluestoreKeysExclusiveArgs struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
-	//
-	// The following arguments are optional:
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
-	// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
-	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// A list of all resource key value pairs associated with the KeyValueStore.
-	// See `resourceKeyValuePair` below.
+	// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
+	MaxBatchSize          *int                                             `pulumi:"maxBatchSize"`
 	ResourceKeyValuePairs []KeyvaluestoreKeysExclusiveResourceKeyValuePair `pulumi:"resourceKeyValuePairs"`
 }
 
 // The set of arguments for constructing a KeyvaluestoreKeysExclusive resource.
 type KeyvaluestoreKeysExclusiveArgs struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
-	//
-	// The following arguments are optional:
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn pulumi.StringInput
-	// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
-	MaxBatchSize pulumi.IntPtrInput
-	// A list of all resource key value pairs associated with the KeyValueStore.
-	// See `resourceKeyValuePair` below.
+	// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
+	MaxBatchSize          pulumi.IntPtrInput
 	ResourceKeyValuePairs KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayInput
 }
 
@@ -211,20 +184,16 @@ func (o KeyvaluestoreKeysExclusiveOutput) ToKeyvaluestoreKeysExclusiveOutputWith
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Key Value Store.
-//
-// The following arguments are optional:
+// The Amazon Resource Name (ARN) of the Key Value Store.
 func (o KeyvaluestoreKeysExclusiveOutput) KeyValueStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKeysExclusive) pulumi.StringOutput { return v.KeyValueStoreArn }).(pulumi.StringOutput)
 }
 
-// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
 func (o KeyvaluestoreKeysExclusiveOutput) MaxBatchSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKeysExclusive) pulumi.IntOutput { return v.MaxBatchSize }).(pulumi.IntOutput)
 }
 
-// A list of all resource key value pairs associated with the KeyValueStore.
-// See `resourceKeyValuePair` below.
 func (o KeyvaluestoreKeysExclusiveOutput) ResourceKeyValuePairs() KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKeysExclusive) KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput {
 		return v.ResourceKeyValuePairs

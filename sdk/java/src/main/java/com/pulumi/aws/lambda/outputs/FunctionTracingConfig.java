@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FunctionTracingConfig {
-    /**
-     * @return X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-     * 
-     */
     private String mode;
 
     private FunctionTracingConfig() {}
-    /**
-     * @return X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }

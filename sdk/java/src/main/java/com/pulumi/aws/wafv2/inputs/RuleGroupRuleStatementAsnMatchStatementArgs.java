@@ -18,32 +18,16 @@ public final class RuleGroupRuleStatementAsnMatchStatementArgs extends com.pulum
 
     public static final RuleGroupRuleStatementAsnMatchStatementArgs Empty = new RuleGroupRuleStatementAsnMatchStatementArgs();
 
-    /**
-     * List of Autonomous System Numbers (ASNs).
-     * 
-     */
     @Import(name="asnLists", required=true)
     private Output<List<Integer>> asnLists;
 
-    /**
-     * @return List of Autonomous System Numbers (ASNs).
-     * 
-     */
     public Output<List<Integer>> asnLists() {
         return this.asnLists;
     }
 
-    /**
-     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for more details.
-     * 
-     */
     @Import(name="forwardedIpConfig")
     private @Nullable Output<RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs> forwardedIpConfig;
 
-    /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for more details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs>> forwardedIpConfig() {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
@@ -73,54 +57,24 @@ public final class RuleGroupRuleStatementAsnMatchStatementArgs extends com.pulum
             $ = new RuleGroupRuleStatementAsnMatchStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnLists(Output<List<Integer>> asnLists) {
             $.asnLists = asnLists;
             return this;
         }
 
-        /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnLists(List<Integer> asnLists) {
             return asnLists(Output.of(asnLists));
         }
 
-        /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnLists(Integer... asnLists) {
             return asnLists(List.of(asnLists));
         }
 
-        /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedIpConfig(@Nullable Output<RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs> forwardedIpConfig) {
             $.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
 
-        /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedIpConfig(RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs forwardedIpConfig) {
             return forwardedIpConfig(Output.of(forwardedIpConfig));
         }

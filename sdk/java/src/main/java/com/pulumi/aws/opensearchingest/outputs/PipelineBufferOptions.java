@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PipelineBufferOptions {
-    /**
-     * @return Whether persistent buffering should be enabled.
-     * 
-     */
     private Boolean persistentBufferEnabled;
 
     private PipelineBufferOptions() {}
-    /**
-     * @return Whether persistent buffering should be enabled.
-     * 
-     */
     public Boolean persistentBufferEnabled() {
         return this.persistentBufferEnabled;
     }

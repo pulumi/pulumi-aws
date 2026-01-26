@@ -11,62 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Batch Job Definition.
-//
-// ## Example Usage
-//
-// ### Lookup via Arn
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.LookupJobDefinition(ctx, &batch.LookupJobDefinitionArgs{
-//				Arn: pulumi.StringRef("arn:aws:batch:us-east-1:012345678910:job-definition/example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Lookup via Name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.LookupJobDefinition(ctx, &batch.LookupJobDefinitionArgs{
-//				Name:     pulumi.StringRef("example"),
-//				Revision: pulumi.IntRef(2),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupJobDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupJobDefinitionResult
@@ -79,44 +23,30 @@ func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opt
 
 // A collection of arguments for invoking getJobDefinition.
 type LookupJobDefinitionArgs struct {
-	// ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-	Arn *string `pulumi:"arn"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The revision of the job definition.
-	Revision *int `pulumi:"revision"`
-	// The status of the job definition.
-	Status *string `pulumi:"status"`
+	Arn      *string `pulumi:"arn"`
+	Name     *string `pulumi:"name"`
+	Region   *string `pulumi:"region"`
+	Revision *int    `pulumi:"revision"`
+	Status   *string `pulumi:"status"`
 }
 
 // A collection of values returned by getJobDefinition.
 type LookupJobDefinitionResult struct {
-	Arn       *string `pulumi:"arn"`
-	ArnPrefix string  `pulumi:"arnPrefix"`
-	// The orchestration type of the compute environment.
-	ContainerOrchestrationType string `pulumi:"containerOrchestrationType"`
-	// An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
-	EksProperties []GetJobDefinitionEksProperty `pulumi:"eksProperties"`
-	// The ARN
-	Id string `pulumi:"id"`
-	// The name of the volume.
-	Name *string `pulumi:"name"`
-	// An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
-	NodeProperties []GetJobDefinitionNodeProperty `pulumi:"nodeProperties"`
-	Region         string                         `pulumi:"region"`
-	// The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
-	RetryStrategies []GetJobDefinitionRetryStrategy `pulumi:"retryStrategies"`
-	Revision        *int                            `pulumi:"revision"`
-	// The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
-	SchedulingPriority int               `pulumi:"schedulingPriority"`
-	Status             *string           `pulumi:"status"`
-	Tags               map[string]string `pulumi:"tags"`
-	// The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
-	Timeouts []GetJobDefinitionTimeout `pulumi:"timeouts"`
-	// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
-	Type string `pulumi:"type"`
+	Arn                        *string                         `pulumi:"arn"`
+	ArnPrefix                  string                          `pulumi:"arnPrefix"`
+	ContainerOrchestrationType string                          `pulumi:"containerOrchestrationType"`
+	EksProperties              []GetJobDefinitionEksProperty   `pulumi:"eksProperties"`
+	Id                         string                          `pulumi:"id"`
+	Name                       *string                         `pulumi:"name"`
+	NodeProperties             []GetJobDefinitionNodeProperty  `pulumi:"nodeProperties"`
+	Region                     string                          `pulumi:"region"`
+	RetryStrategies            []GetJobDefinitionRetryStrategy `pulumi:"retryStrategies"`
+	Revision                   *int                            `pulumi:"revision"`
+	SchedulingPriority         int                             `pulumi:"schedulingPriority"`
+	Status                     *string                         `pulumi:"status"`
+	Tags                       map[string]string               `pulumi:"tags"`
+	Timeouts                   []GetJobDefinitionTimeout       `pulumi:"timeouts"`
+	Type                       string                          `pulumi:"type"`
 }
 
 func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupJobDefinitionResultOutput {
@@ -130,16 +60,11 @@ func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutp
 
 // A collection of arguments for invoking getJobDefinition.
 type LookupJobDefinitionOutputArgs struct {
-	// ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The revision of the job definition.
-	Revision pulumi.IntPtrInput `pulumi:"revision"`
-	// The status of the job definition.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Arn      pulumi.StringPtrInput `pulumi:"arn"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
+	Revision pulumi.IntPtrInput    `pulumi:"revision"`
+	Status   pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (LookupJobDefinitionOutputArgs) ElementType() reflect.Type {
@@ -169,27 +94,22 @@ func (o LookupJobDefinitionResultOutput) ArnPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.ArnPrefix }).(pulumi.StringOutput)
 }
 
-// The orchestration type of the compute environment.
 func (o LookupJobDefinitionResultOutput) ContainerOrchestrationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.ContainerOrchestrationType }).(pulumi.StringOutput)
 }
 
-// An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
 func (o LookupJobDefinitionResultOutput) EksProperties() GetJobDefinitionEksPropertyArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionEksProperty { return v.EksProperties }).(GetJobDefinitionEksPropertyArrayOutput)
 }
 
-// The ARN
 func (o LookupJobDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the volume.
 func (o LookupJobDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
 func (o LookupJobDefinitionResultOutput) NodeProperties() GetJobDefinitionNodePropertyArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionNodeProperty { return v.NodeProperties }).(GetJobDefinitionNodePropertyArrayOutput)
 }
@@ -198,7 +118,6 @@ func (o LookupJobDefinitionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
 func (o LookupJobDefinitionResultOutput) RetryStrategies() GetJobDefinitionRetryStrategyArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionRetryStrategy { return v.RetryStrategies }).(GetJobDefinitionRetryStrategyArrayOutput)
 }
@@ -207,7 +126,6 @@ func (o LookupJobDefinitionResultOutput) Revision() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *int { return v.Revision }).(pulumi.IntPtrOutput)
 }
 
-// The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 func (o LookupJobDefinitionResultOutput) SchedulingPriority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) int { return v.SchedulingPriority }).(pulumi.IntOutput)
 }
@@ -220,12 +138,10 @@ func (o LookupJobDefinitionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
 func (o LookupJobDefinitionResultOutput) Timeouts() GetJobDefinitionTimeoutArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionTimeout { return v.Timeouts }).(GetJobDefinitionTimeoutArrayOutput)
 }
 
-// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
 func (o LookupJobDefinitionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
 }

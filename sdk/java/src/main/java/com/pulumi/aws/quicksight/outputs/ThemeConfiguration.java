@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThemeConfiguration {
-    /**
-     * @return Color properties that apply to chart data colors. See data_color_palette.
-     * 
-     */
     private @Nullable ThemeConfigurationDataColorPalette dataColorPalette;
-    /**
-     * @return Display options related to sheets. See sheet.
-     * 
-     */
     private @Nullable ThemeConfigurationSheet sheet;
-    /**
-     * @return Determines the typography options. See typography.
-     * 
-     */
     private @Nullable ThemeConfigurationTypography typography;
-    /**
-     * @return Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-     * 
-     */
     private @Nullable ThemeConfigurationUiColorPalette uiColorPalette;
 
     private ThemeConfiguration() {}
-    /**
-     * @return Color properties that apply to chart data colors. See data_color_palette.
-     * 
-     */
     public Optional<ThemeConfigurationDataColorPalette> dataColorPalette() {
         return Optional.ofNullable(this.dataColorPalette);
     }
-    /**
-     * @return Display options related to sheets. See sheet.
-     * 
-     */
     public Optional<ThemeConfigurationSheet> sheet() {
         return Optional.ofNullable(this.sheet);
     }
-    /**
-     * @return Determines the typography options. See typography.
-     * 
-     */
     public Optional<ThemeConfigurationTypography> typography() {
         return Optional.ofNullable(this.typography);
     }
-    /**
-     * @return Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-     * 
-     */
     public Optional<ThemeConfigurationUiColorPalette> uiColorPalette() {
         return Optional.ofNullable(this.uiColorPalette);
     }

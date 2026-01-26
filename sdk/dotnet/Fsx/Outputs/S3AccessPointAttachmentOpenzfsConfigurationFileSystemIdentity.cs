@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity
     {
-        /// <summary>
-        /// UID and GIDs of the file system POSIX user. See `PosixUser` Block for details.
-        /// </summary>
         public readonly Outputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUser? PosixUser;
-        /// <summary>
-        /// FSx for OpenZFS user identity type. Valid values: `POSIX`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

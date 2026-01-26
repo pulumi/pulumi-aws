@@ -16,101 +16,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStageBeforeEntryConditionRule {
-    /**
-     * @return The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-     * 
-     */
     private @Nullable List<String> commands;
-    /**
-     * @return The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-     * 
-     */
     private @Nullable Map<String,String> configuration;
-    /**
-     * @return The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-     * 
-     */
     private @Nullable List<String> inputArtifacts;
-    /**
-     * @return The name of the rule that is created for the condition, such as `VariableCheck`.
-     * 
-     */
     private String name;
-    /**
-     * @return The Region for the condition associated with the rule.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return The pipeline role ARN associated with the rule.
-     * 
-     */
     private @Nullable String roleArn;
-    /**
-     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-     * 
-     */
     private PipelineStageBeforeEntryConditionRuleRuleTypeId ruleTypeId;
-    /**
-     * @return The action timeout for the rule.
-     * 
-     */
     private @Nullable Integer timeoutInMinutes;
 
     private PipelineStageBeforeEntryConditionRule() {}
-    /**
-     * @return The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-     * 
-     */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
-    /**
-     * @return The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-     * 
-     */
     public Map<String,String> configuration() {
         return this.configuration == null ? Map.of() : this.configuration;
     }
-    /**
-     * @return The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-     * 
-     */
     public List<String> inputArtifacts() {
         return this.inputArtifacts == null ? List.of() : this.inputArtifacts;
     }
-    /**
-     * @return The name of the rule that is created for the condition, such as `VariableCheck`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The Region for the condition associated with the rule.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return The pipeline role ARN associated with the rule.
-     * 
-     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
-    /**
-     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
-     * 
-     */
     public PipelineStageBeforeEntryConditionRuleRuleTypeId ruleTypeId() {
         return this.ruleTypeId;
     }
-    /**
-     * @return The action timeout for the rule.
-     * 
-     */
     public Optional<Integer> timeoutInMinutes() {
         return Optional.ofNullable(this.timeoutInMinutes);
     }

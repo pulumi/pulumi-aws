@@ -16,62 +16,30 @@ public final class EmailIdentityPolicyArgs extends com.pulumi.resources.Resource
 
     public static final EmailIdentityPolicyArgs Empty = new EmailIdentityPolicyArgs();
 
-    /**
-     * The email identity.
-     * 
-     */
     @Import(name="emailIdentity", required=true)
     private Output<String> emailIdentity;
 
-    /**
-     * @return The email identity.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
 
-    /**
-     * The text of the policy in JSON format.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return The text of the policy in JSON format.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * The name of the policy.
-     * 
-     */
     @Import(name="policyName", required=true)
     private Output<String> policyName;
 
-    /**
-     * @return The name of the policy.
-     * 
-     */
     public Output<String> policyName() {
         return this.policyName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class EmailIdentityPolicyArgs extends com.pulumi.resources.Resource
             $ = new EmailIdentityPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param emailIdentity The email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(Output<String> emailIdentity) {
             $.emailIdentity = emailIdentity;
             return this;
         }
 
-        /**
-         * @param emailIdentity The email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
         }
 
-        /**
-         * @param policy The text of the policy in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The text of the policy in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param policyName The name of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(Output<String> policyName) {
             $.policyName = policyName;
             return this;
         }
 
-        /**
-         * @param policyName The name of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(String policyName) {
             return policyName(Output.of(policyName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

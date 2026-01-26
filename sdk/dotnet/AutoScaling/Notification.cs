@@ -9,83 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AutoScaling
 {
-    /// <summary>
-    /// Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
-    /// the `Notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
-    /// Services, and are applied to each AutoScaling Group you supply.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sns.Topic("example", new()
-    ///     {
-    ///         Name = "example-topic",
-    ///     });
-    /// 
-    ///     var bar = new Aws.AutoScaling.Group("bar", new()
-    ///     {
-    ///         Name = "foobar1-test",
-    ///     });
-    /// 
-    ///     var foo = new Aws.AutoScaling.Group("foo", new()
-    ///     {
-    ///         Name = "barfoo-test",
-    ///     });
-    /// 
-    ///     var exampleNotifications = new Aws.AutoScaling.Notification("example_notifications", new()
-    ///     {
-    ///         GroupNames = new[]
-    ///         {
-    ///             bar.Name,
-    ///             foo.Name,
-    ///         },
-    ///         Notifications = new[]
-    ///         {
-    ///             Aws.AutoScaling.NotificationType.InstanceLaunch,
-    ///             Aws.AutoScaling.NotificationType.InstanceTerminate,
-    ///             Aws.AutoScaling.NotificationType.InstanceLaunchError,
-    ///             Aws.AutoScaling.NotificationType.InstanceTerminateError,
-    ///         },
-    ///         TopicArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:autoscaling/notification:Notification")]
     public partial class Notification : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of AutoScaling Group Names
-        /// </summary>
         [Output("groupNames")]
         public Output<ImmutableArray<string>> GroupNames { get; private set; } = null!;
 
-        /// <summary>
-        /// List of Notification Types that trigger
-        /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-        /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<Pulumi.Aws.AutoScaling.NotificationType>> Notifications { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Topic ARN for notifications to be sent through
-        /// </summary>
         [Output("topicArn")]
         public Output<string> TopicArn { get; private set; } = null!;
 
@@ -137,10 +72,6 @@ namespace Pulumi.Aws.AutoScaling
     {
         [Input("groupNames", required: true)]
         private InputList<string>? _groupNames;
-
-        /// <summary>
-        /// List of AutoScaling Group Names
-        /// </summary>
         public InputList<string> GroupNames
         {
             get => _groupNames ?? (_groupNames = new InputList<string>());
@@ -149,26 +80,15 @@ namespace Pulumi.Aws.AutoScaling
 
         [Input("notifications", required: true)]
         private InputList<Pulumi.Aws.AutoScaling.NotificationType>? _notifications;
-
-        /// <summary>
-        /// List of Notification Types that trigger
-        /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-        /// </summary>
         public InputList<Pulumi.Aws.AutoScaling.NotificationType> Notifications
         {
             get => _notifications ?? (_notifications = new InputList<Pulumi.Aws.AutoScaling.NotificationType>());
             set => _notifications = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Topic ARN for notifications to be sent through
-        /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
 
@@ -182,10 +102,6 @@ namespace Pulumi.Aws.AutoScaling
     {
         [Input("groupNames")]
         private InputList<string>? _groupNames;
-
-        /// <summary>
-        /// List of AutoScaling Group Names
-        /// </summary>
         public InputList<string> GroupNames
         {
             get => _groupNames ?? (_groupNames = new InputList<string>());
@@ -194,26 +110,15 @@ namespace Pulumi.Aws.AutoScaling
 
         [Input("notifications")]
         private InputList<Pulumi.Aws.AutoScaling.NotificationType>? _notifications;
-
-        /// <summary>
-        /// List of Notification Types that trigger
-        /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-        /// </summary>
         public InputList<Pulumi.Aws.AutoScaling.NotificationType> Notifications
         {
             get => _notifications ?? (_notifications = new InputList<Pulumi.Aws.AutoScaling.NotificationType>());
             set => _notifications = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Topic ARN for notifications to be sent through
-        /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }
 

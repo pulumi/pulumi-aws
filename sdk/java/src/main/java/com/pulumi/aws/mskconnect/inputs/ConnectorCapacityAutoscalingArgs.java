@@ -18,77 +18,37 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
 
     public static final ConnectorCapacityAutoscalingArgs Empty = new ConnectorCapacityAutoscalingArgs();
 
-    /**
-     * The maximum number of workers allocated to the connector.
-     * 
-     */
     @Import(name="maxWorkerCount", required=true)
     private Output<Integer> maxWorkerCount;
 
-    /**
-     * @return The maximum number of workers allocated to the connector.
-     * 
-     */
     public Output<Integer> maxWorkerCount() {
         return this.maxWorkerCount;
     }
 
-    /**
-     * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     @Import(name="mcuCount")
     private @Nullable Output<Integer> mcuCount;
 
-    /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     public Optional<Output<Integer>> mcuCount() {
         return Optional.ofNullable(this.mcuCount);
     }
 
-    /**
-     * The minimum number of workers allocated to the connector.
-     * 
-     */
     @Import(name="minWorkerCount", required=true)
     private Output<Integer> minWorkerCount;
 
-    /**
-     * @return The minimum number of workers allocated to the connector.
-     * 
-     */
     public Output<Integer> minWorkerCount() {
         return this.minWorkerCount;
     }
 
-    /**
-     * The scale-in policy for the connector. See `scaleInPolicy` Block for details.
-     * 
-     */
     @Import(name="scaleInPolicy")
     private @Nullable Output<ConnectorCapacityAutoscalingScaleInPolicyArgs> scaleInPolicy;
 
-    /**
-     * @return The scale-in policy for the connector. See `scaleInPolicy` Block for details.
-     * 
-     */
     public Optional<Output<ConnectorCapacityAutoscalingScaleInPolicyArgs>> scaleInPolicy() {
         return Optional.ofNullable(this.scaleInPolicy);
     }
 
-    /**
-     * The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
-     * 
-     */
     @Import(name="scaleOutPolicy")
     private @Nullable Output<ConnectorCapacityAutoscalingScaleOutPolicyArgs> scaleOutPolicy;
 
-    /**
-     * @return The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
-     * 
-     */
     public Optional<Output<ConnectorCapacityAutoscalingScaleOutPolicyArgs>> scaleOutPolicy() {
         return Optional.ofNullable(this.scaleOutPolicy);
     }
@@ -121,107 +81,47 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
             $ = new ConnectorCapacityAutoscalingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxWorkerCount The maximum number of workers allocated to the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxWorkerCount(Output<Integer> maxWorkerCount) {
             $.maxWorkerCount = maxWorkerCount;
             return this;
         }
 
-        /**
-         * @param maxWorkerCount The maximum number of workers allocated to the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxWorkerCount(Integer maxWorkerCount) {
             return maxWorkerCount(Output.of(maxWorkerCount));
         }
 
-        /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcuCount(@Nullable Output<Integer> mcuCount) {
             $.mcuCount = mcuCount;
             return this;
         }
 
-        /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcuCount(Integer mcuCount) {
             return mcuCount(Output.of(mcuCount));
         }
 
-        /**
-         * @param minWorkerCount The minimum number of workers allocated to the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minWorkerCount(Output<Integer> minWorkerCount) {
             $.minWorkerCount = minWorkerCount;
             return this;
         }
 
-        /**
-         * @param minWorkerCount The minimum number of workers allocated to the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minWorkerCount(Integer minWorkerCount) {
             return minWorkerCount(Output.of(minWorkerCount));
         }
 
-        /**
-         * @param scaleInPolicy The scale-in policy for the connector. See `scaleInPolicy` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleInPolicy(@Nullable Output<ConnectorCapacityAutoscalingScaleInPolicyArgs> scaleInPolicy) {
             $.scaleInPolicy = scaleInPolicy;
             return this;
         }
 
-        /**
-         * @param scaleInPolicy The scale-in policy for the connector. See `scaleInPolicy` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleInPolicy(ConnectorCapacityAutoscalingScaleInPolicyArgs scaleInPolicy) {
             return scaleInPolicy(Output.of(scaleInPolicy));
         }
 
-        /**
-         * @param scaleOutPolicy The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleOutPolicy(@Nullable Output<ConnectorCapacityAutoscalingScaleOutPolicyArgs> scaleOutPolicy) {
             $.scaleOutPolicy = scaleOutPolicy;
             return this;
         }
 
-        /**
-         * @param scaleOutPolicy The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleOutPolicy(ConnectorCapacityAutoscalingScaleOutPolicyArgs scaleOutPolicy) {
             return scaleOutPolicy(Output.of(scaleOutPolicy));
         }

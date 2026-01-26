@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineTriggerAllGitConfigurationPullRequest {
-    /**
-     * @return The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-     * 
-     */
     private @Nullable List<PipelineTriggerAllGitConfigurationPullRequestBranch> branches;
-    /**
-     * @return A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-     * 
-     */
     private @Nullable List<String> events;
-    /**
-     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     private @Nullable List<PipelineTriggerAllGitConfigurationPullRequestFilePath> filePaths;
 
     private PipelineTriggerAllGitConfigurationPullRequest() {}
-    /**
-     * @return The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-     * 
-     */
     public List<PipelineTriggerAllGitConfigurationPullRequestBranch> branches() {
         return this.branches == null ? List.of() : this.branches;
     }
-    /**
-     * @return A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
-     * 
-     */
     public List<String> events() {
         return this.events == null ? List.of() : this.events;
     }
-    /**
-     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     public List<PipelineTriggerAllGitConfigurationPullRequestFilePath> filePaths() {
         return this.filePaths == null ? List.of() : this.filePaths;
     }

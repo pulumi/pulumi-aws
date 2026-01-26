@@ -18,126 +18,58 @@ public final class GlossaryTermArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GlossaryTermArgs Empty = new GlossaryTermArgs();
 
-    /**
-     * Identifier of domain.
-     * 
-     */
     @Import(name="domainIdentifier")
     private @Nullable Output<String> domainIdentifier;
 
-    /**
-     * @return Identifier of domain.
-     * 
-     */
     public Optional<Output<String>> domainIdentifier() {
         return Optional.ofNullable(this.domainIdentifier);
     }
 
-    /**
-     * Identifier of glossary.
-     * 
-     */
     @Import(name="glossaryIdentifier", required=true)
     private Output<String> glossaryIdentifier;
 
-    /**
-     * @return Identifier of glossary.
-     * 
-     */
     public Output<String> glossaryIdentifier() {
         return this.glossaryIdentifier;
     }
 
-    /**
-     * Long description of entry.
-     * 
-     */
     @Import(name="longDescription")
     private @Nullable Output<String> longDescription;
 
-    /**
-     * @return Long description of entry.
-     * 
-     */
     public Optional<Output<String>> longDescription() {
         return Optional.ofNullable(this.longDescription);
     }
 
-    /**
-     * Name of glossary term.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of glossary term.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Short description of entry.
-     * 
-     */
     @Import(name="shortDescription")
     private @Nullable Output<String> shortDescription;
 
-    /**
-     * @return Short description of entry.
-     * 
-     */
     public Optional<Output<String>> shortDescription() {
         return Optional.ofNullable(this.shortDescription);
     }
 
-    /**
-     * If glossary term is ENABLED or DISABLED.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return If glossary term is ENABLED or DISABLED.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Object classifying the term relations through the following attributes:
-     * 
-     */
     @Import(name="termRelations")
     private @Nullable Output<GlossaryTermTermRelationsArgs> termRelations;
 
-    /**
-     * @return Object classifying the term relations through the following attributes:
-     * 
-     */
     public Optional<Output<GlossaryTermTermRelationsArgs>> termRelations() {
         return Optional.ofNullable(this.termRelations);
     }
@@ -181,174 +113,74 @@ public final class GlossaryTermArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GlossaryTermArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainIdentifier Identifier of domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(@Nullable Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier Identifier of domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param glossaryIdentifier Identifier of glossary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryIdentifier(Output<String> glossaryIdentifier) {
             $.glossaryIdentifier = glossaryIdentifier;
             return this;
         }
 
-        /**
-         * @param glossaryIdentifier Identifier of glossary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryIdentifier(String glossaryIdentifier) {
             return glossaryIdentifier(Output.of(glossaryIdentifier));
         }
 
-        /**
-         * @param longDescription Long description of entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longDescription(@Nullable Output<String> longDescription) {
             $.longDescription = longDescription;
             return this;
         }
 
-        /**
-         * @param longDescription Long description of entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longDescription(String longDescription) {
             return longDescription(Output.of(longDescription));
         }
 
-        /**
-         * @param name Name of glossary term.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of glossary term.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param shortDescription Short description of entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shortDescription(@Nullable Output<String> shortDescription) {
             $.shortDescription = shortDescription;
             return this;
         }
 
-        /**
-         * @param shortDescription Short description of entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shortDescription(String shortDescription) {
             return shortDescription(Output.of(shortDescription));
         }
 
-        /**
-         * @param status If glossary term is ENABLED or DISABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status If glossary term is ENABLED or DISABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param termRelations Object classifying the term relations through the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder termRelations(@Nullable Output<GlossaryTermTermRelationsArgs> termRelations) {
             $.termRelations = termRelations;
             return this;
         }
 
-        /**
-         * @param termRelations Object classifying the term relations through the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder termRelations(GlossaryTermTermRelationsArgs termRelations) {
             return termRelations(Output.of(termRelations));
         }

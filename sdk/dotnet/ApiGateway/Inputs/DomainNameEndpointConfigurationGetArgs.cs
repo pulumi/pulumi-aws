@@ -15,9 +15,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
-        /// <summary>
-        /// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-        /// </summary>
         [Input("types", required: true)]
         public Input<string> Types { get; set; } = null!;
 

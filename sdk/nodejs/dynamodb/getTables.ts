@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Returns a list of all AWS DynamoDB table names in a region.
- *
- * ## Example Usage
- *
- * The following example retrieves a list of all DynamoDB table names in a region.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const all = aws.dynamodb.getTables({});
- * export const tableNames = all.then(all => all.names);
- * ```
- */
 export function getTables(args?: GetTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,9 +16,6 @@ export function getTables(args?: GetTablesArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -45,27 +27,9 @@ export interface GetTablesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * A list of all the DynamoDB table names found.
-     */
     readonly names: string[];
     readonly region: string;
 }
-/**
- * Returns a list of all AWS DynamoDB table names in a region.
- *
- * ## Example Usage
- *
- * The following example retrieves a list of all DynamoDB table names in a region.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const all = aws.dynamodb.getTables({});
- * export const tableNames = all.then(all => all.names);
- * ```
- */
 export function getTablesOutput(args?: GetTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,8 +42,5 @@ export function getTablesOutput(args?: GetTablesOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

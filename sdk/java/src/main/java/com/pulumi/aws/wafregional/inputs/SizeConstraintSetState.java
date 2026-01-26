@@ -24,47 +24,23 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The name or description of the Size Constraint Set.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the Size Constraint Set.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the parts of web requests that you want to inspect the size of.
-     * 
-     */
     @Import(name="sizeConstraints")
     private @Nullable Output<List<SizeConstraintSetSizeConstraintArgs>> sizeConstraints;
 
-    /**
-     * @return Specifies the parts of web requests that you want to inspect the size of.
-     * 
-     */
     public Optional<Output<List<SizeConstraintSetSizeConstraintArgs>>> sizeConstraints() {
         return Optional.ofNullable(this.sizeConstraints);
     }
@@ -105,75 +81,33 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name The name or description of the Size Constraint Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the Size Constraint Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraints(@Nullable Output<List<SizeConstraintSetSizeConstraintArgs>> sizeConstraints) {
             $.sizeConstraints = sizeConstraints;
             return this;
         }
 
-        /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraints(List<SizeConstraintSetSizeConstraintArgs> sizeConstraints) {
             return sizeConstraints(Output.of(sizeConstraints));
         }
 
-        /**
-         * @param sizeConstraints Specifies the parts of web requests that you want to inspect the size of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraints(SizeConstraintSetSizeConstraintArgs... sizeConstraints) {
             return sizeConstraints(List.of(sizeConstraints));
         }

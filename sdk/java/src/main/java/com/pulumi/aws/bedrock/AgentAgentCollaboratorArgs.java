@@ -26,17 +26,9 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.agentDescriptor);
     }
 
-    /**
-     * ID if the agent to associate the collaborator.
-     * 
-     */
     @Import(name="agentId", required=true)
     private Output<String> agentId;
 
-    /**
-     * @return ID if the agent to associate the collaborator.
-     * 
-     */
     public Output<String> agentId() {
         return this.agentId;
     }
@@ -48,81 +40,37 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.agentVersion);
     }
 
-    /**
-     * Instruction to give the collaborator.
-     * 
-     */
     @Import(name="collaborationInstruction", required=true)
     private Output<String> collaborationInstruction;
 
-    /**
-     * @return Instruction to give the collaborator.
-     * 
-     */
     public Output<String> collaborationInstruction() {
         return this.collaborationInstruction;
     }
 
-    /**
-     * Name of this collaborator.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="collaboratorName", required=true)
     private Output<String> collaboratorName;
 
-    /**
-     * @return Name of this collaborator.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> collaboratorName() {
         return this.collaboratorName;
     }
 
-    /**
-     * Whether to prepare the agent after creation or modification. Defaults to `true`.
-     * 
-     */
     @Import(name="prepareAgent")
     private @Nullable Output<Boolean> prepareAgent;
 
-    /**
-     * @return Whether to prepare the agent after creation or modification. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> prepareAgent() {
         return Optional.ofNullable(this.prepareAgent);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configure relaying the history to the collaborator.
-     * 
-     */
     @Import(name="relayConversationHistory")
     private @Nullable Output<String> relayConversationHistory;
 
-    /**
-     * @return Configure relaying the history to the collaborator.
-     * 
-     */
     public Optional<Output<String>> relayConversationHistory() {
         return Optional.ofNullable(this.relayConversationHistory);
     }
@@ -175,23 +123,11 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
             return agentDescriptor(Output.of(agentDescriptor));
         }
 
-        /**
-         * @param agentId ID if the agent to associate the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentId(Output<String> agentId) {
             $.agentId = agentId;
             return this;
         }
 
-        /**
-         * @param agentId ID if the agent to associate the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentId(String agentId) {
             return agentId(Output.of(agentId));
         }
@@ -205,111 +141,47 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
             return agentVersion(Output.of(agentVersion));
         }
 
-        /**
-         * @param collaborationInstruction Instruction to give the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaborationInstruction(Output<String> collaborationInstruction) {
             $.collaborationInstruction = collaborationInstruction;
             return this;
         }
 
-        /**
-         * @param collaborationInstruction Instruction to give the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaborationInstruction(String collaborationInstruction) {
             return collaborationInstruction(Output.of(collaborationInstruction));
         }
 
-        /**
-         * @param collaboratorName Name of this collaborator.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaboratorName(Output<String> collaboratorName) {
             $.collaboratorName = collaboratorName;
             return this;
         }
 
-        /**
-         * @param collaboratorName Name of this collaborator.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaboratorName(String collaboratorName) {
             return collaboratorName(Output.of(collaboratorName));
         }
 
-        /**
-         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prepareAgent(@Nullable Output<Boolean> prepareAgent) {
             $.prepareAgent = prepareAgent;
             return this;
         }
 
-        /**
-         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prepareAgent(Boolean prepareAgent) {
             return prepareAgent(Output.of(prepareAgent));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param relayConversationHistory Configure relaying the history to the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relayConversationHistory(@Nullable Output<String> relayConversationHistory) {
             $.relayConversationHistory = relayConversationHistory;
             return this;
         }
 
-        /**
-         * @param relayConversationHistory Configure relaying the history to the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relayConversationHistory(String relayConversationHistory) {
             return relayConversationHistory(Output.of(relayConversationHistory));
         }

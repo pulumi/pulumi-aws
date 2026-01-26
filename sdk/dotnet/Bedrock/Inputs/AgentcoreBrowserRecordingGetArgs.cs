@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreBrowserRecordingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable recording for browser sessions. Defaults to `False`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// S3 location where browser session recordings are stored. See `S3Location` below.
-        /// </summary>
         [Input("s3Location")]
         public Input<Inputs.AgentcoreBrowserRecordingS3LocationGetArgs>? S3Location { get; set; }
 

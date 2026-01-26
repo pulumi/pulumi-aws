@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceCapacityProviderStrategyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-        /// </summary>
         [Input("base")]
         public Input<int>? Base { get; set; }
 
-        /// <summary>
-        /// Short name of the capacity provider.
-        /// </summary>
         [Input("capacityProvider", required: true)]
         public Input<string> CapacityProvider { get; set; } = null!;
 
-        /// <summary>
-        /// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
-        /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }
 

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexingConfigurationThingIndexingConfigurationFilter {
-    /**
-     * @return List of shadow names that you select to index.
-     * 
-     */
     private @Nullable List<String> namedShadowNames;
 
     private IndexingConfigurationThingIndexingConfigurationFilter() {}
-    /**
-     * @return List of shadow names that you select to index.
-     * 
-     */
     public List<String> namedShadowNames() {
         return this.namedShadowNames == null ? List.of() : this.namedShadowNames;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer
     {
-        /// <summary>
-        /// Endpoint for the MCP server target configuration.
-        /// </summary>
         public readonly string Endpoint;
 
         [OutputConstructor]

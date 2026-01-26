@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing AWS Cost Optimization Hub Preferences.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.costoptimizationhub.Preferences("example", {});
- * ```
- *
- * ### Usage with all the arguments
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.costoptimizationhub.Preferences("example", {
- *     memberAccountDiscountVisibility: "None",
- *     savingsEstimationMode: "AfterDiscounts",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Cost Optimization Hub Preferences using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
- * ```
- */
 export class Preferences extends pulumi.CustomResource {
     /**
      * Get an existing Preferences resource's state with the given name, ID, and optional extra
@@ -66,13 +32,7 @@ export class Preferences extends pulumi.CustomResource {
         return obj['__pulumiType'] === Preferences.__pulumiType;
     }
 
-    /**
-     * Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-     */
     declare public readonly memberAccountDiscountVisibility: pulumi.Output<string>;
-    /**
-     * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-     */
     declare public readonly savingsEstimationMode: pulumi.Output<string>;
 
     /**
@@ -104,13 +64,7 @@ export class Preferences extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Preferences resources.
  */
 export interface PreferencesState {
-    /**
-     * Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-     */
     memberAccountDiscountVisibility?: pulumi.Input<string>;
-    /**
-     * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-     */
     savingsEstimationMode?: pulumi.Input<string>;
 }
 
@@ -118,12 +72,6 @@ export interface PreferencesState {
  * The set of arguments for constructing a Preferences resource.
  */
 export interface PreferencesArgs {
-    /**
-     * Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-     */
     memberAccountDiscountVisibility?: pulumi.Input<string>;
-    /**
-     * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-     */
     savingsEstimationMode?: pulumi.Input<string>;
 }

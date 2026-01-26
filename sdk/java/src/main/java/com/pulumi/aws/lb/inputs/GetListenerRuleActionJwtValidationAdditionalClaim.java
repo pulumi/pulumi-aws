@@ -14,47 +14,23 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaim extends com
 
     public static final GetListenerRuleActionJwtValidationAdditionalClaim Empty = new GetListenerRuleActionJwtValidationAdditionalClaim();
 
-    /**
-     * Format of the claim value.
-     * 
-     */
     @Import(name="format", required=true)
     private String format;
 
-    /**
-     * @return Format of the claim value.
-     * 
-     */
     public String format() {
         return this.format;
     }
 
-    /**
-     * Name of the claim to validate.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the claim to validate.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -85,45 +61,21 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaim extends com
             $ = new GetListenerRuleActionJwtValidationAdditionalClaim(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param format Format of the claim value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param name Name of the claim to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

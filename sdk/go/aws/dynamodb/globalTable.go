@@ -12,100 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
-//
-// > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `dynamodb.Table` resource `replica` configuration block.
-//
-// > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			us_east_1, err := dynamodb.NewTable(ctx, "us-east-1", &dynamodb.TableArgs{
-//				HashKey:        pulumi.String("myAttribute"),
-//				Name:           pulumi.String("myTable"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//				ReadCapacity:   pulumi.Int(1),
-//				WriteCapacity:  pulumi.Int(1),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("myAttribute"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			us_west_2, err := dynamodb.NewTable(ctx, "us-west-2", &dynamodb.TableArgs{
-//				HashKey:        pulumi.String("myAttribute"),
-//				Name:           pulumi.String("myTable"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//				ReadCapacity:   pulumi.Int(1),
-//				WriteCapacity:  pulumi.Int(1),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("myAttribute"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewGlobalTable(ctx, "myTable", &dynamodb.GlobalTableArgs{
-//				Name: pulumi.String("myTable"),
-//				Replicas: dynamodb.GlobalTableReplicaArray{
-//					&dynamodb.GlobalTableReplicaArgs{
-//						RegionName: pulumi.String("us-east-1"),
-//					},
-//					&dynamodb.GlobalTableReplicaArgs{
-//						RegionName: pulumi.String("us-west-2"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				us_east_1,
-//				us_west_2,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
-//
-// ```sh
-// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-// ```
 type GlobalTable struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the DynamoDB Global Table
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+	Arn      pulumi.StringOutput           `pulumi:"arn"`
+	Name     pulumi.StringOutput           `pulumi:"name"`
+	Region   pulumi.StringOutput           `pulumi:"region"`
 	Replicas GlobalTableReplicaArrayOutput `pulumi:"replicas"`
 }
 
@@ -142,24 +54,16 @@ func GetGlobalTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalTable resources.
 type globalTableState struct {
-	// The ARN of the DynamoDB Global Table
-	Arn *string `pulumi:"arn"`
-	// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+	Arn      *string              `pulumi:"arn"`
+	Name     *string              `pulumi:"name"`
+	Region   *string              `pulumi:"region"`
 	Replicas []GlobalTableReplica `pulumi:"replicas"`
 }
 
 type GlobalTableState struct {
-	// The ARN of the DynamoDB Global Table
-	Arn pulumi.StringPtrInput
-	// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+	Arn      pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 	Replicas GlobalTableReplicaArrayInput
 }
 
@@ -168,21 +72,15 @@ func (GlobalTableState) ElementType() reflect.Type {
 }
 
 type globalTableArgs struct {
-	// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+	Name     *string              `pulumi:"name"`
+	Region   *string              `pulumi:"region"`
 	Replicas []GlobalTableReplica `pulumi:"replicas"`
 }
 
 // The set of arguments for constructing a GlobalTable resource.
 type GlobalTableArgs struct {
-	// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+	Name     pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 	Replicas GlobalTableReplicaArrayInput
 }
 
@@ -273,22 +171,18 @@ func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// The ARN of the DynamoDB Global Table
 func (o GlobalTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the global table. Must match underlying DynamoDB Table names in all regions.
 func (o GlobalTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GlobalTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
 func (o GlobalTableOutput) Replicas() GlobalTableReplicaArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableReplicaArrayOutput { return v.Replicas }).(GlobalTableReplicaArrayOutput)
 }

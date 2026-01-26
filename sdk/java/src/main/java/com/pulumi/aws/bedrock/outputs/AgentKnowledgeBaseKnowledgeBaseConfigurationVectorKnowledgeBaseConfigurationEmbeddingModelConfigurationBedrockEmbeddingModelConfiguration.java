@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
-    /**
-     * @return Dimension details for the vector configuration used on the Bedrock embeddings model.
-     * 
-     */
     private @Nullable Integer dimensions;
-    /**
-     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-     * 
-     */
     private @Nullable String embeddingDataType;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration() {}
-    /**
-     * @return Dimension details for the vector configuration used on the Bedrock embeddings model.
-     * 
-     */
     public Optional<Integer> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
-    /**
-     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-     * 
-     */
     public Optional<String> embeddingDataType() {
         return Optional.ofNullable(this.embeddingDataType);
     }

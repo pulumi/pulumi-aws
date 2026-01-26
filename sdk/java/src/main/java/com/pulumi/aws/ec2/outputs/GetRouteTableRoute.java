@@ -10,173 +10,61 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteTableRoute {
-    /**
-     * @return ID of the Carrier Gateway.
-     * 
-     */
     private String carrierGatewayId;
-    /**
-     * @return CIDR block of the route.
-     * 
-     */
     private String cidrBlock;
-    /**
-     * @return ARN of the core network.
-     * 
-     */
     private String coreNetworkArn;
-    /**
-     * @return The ID of a managed prefix list destination of the route.
-     * 
-     */
     private String destinationPrefixListId;
-    /**
-     * @return ID of the Egress Only Internet Gateway.
-     * 
-     */
     private String egressOnlyGatewayId;
-    /**
-     * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-     * 
-     */
     private String gatewayId;
-    /**
-     * @return EC2 instance ID.
-     * 
-     */
     private String instanceId;
-    /**
-     * @return IPv6 CIDR block of the route.
-     * 
-     */
     private String ipv6CidrBlock;
-    /**
-     * @return Local Gateway ID.
-     * 
-     */
     private String localGatewayId;
-    /**
-     * @return NAT Gateway ID.
-     * 
-     */
     private String natGatewayId;
-    /**
-     * @return ID of the elastic network interface (eni) to use.
-     * 
-     */
     private String networkInterfaceId;
-    /**
-     * @return EC2 Transit Gateway ID.
-     * 
-     */
     private String transitGatewayId;
-    /**
-     * @return VPC Endpoint ID.
-     * 
-     */
     private String vpcEndpointId;
-    /**
-     * @return VPC Peering ID.
-     * 
-     */
     private String vpcPeeringConnectionId;
 
     private GetRouteTableRoute() {}
-    /**
-     * @return ID of the Carrier Gateway.
-     * 
-     */
     public String carrierGatewayId() {
         return this.carrierGatewayId;
     }
-    /**
-     * @return CIDR block of the route.
-     * 
-     */
     public String cidrBlock() {
         return this.cidrBlock;
     }
-    /**
-     * @return ARN of the core network.
-     * 
-     */
     public String coreNetworkArn() {
         return this.coreNetworkArn;
     }
-    /**
-     * @return The ID of a managed prefix list destination of the route.
-     * 
-     */
     public String destinationPrefixListId() {
         return this.destinationPrefixListId;
     }
-    /**
-     * @return ID of the Egress Only Internet Gateway.
-     * 
-     */
     public String egressOnlyGatewayId() {
         return this.egressOnlyGatewayId;
     }
-    /**
-     * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-     * 
-     */
     public String gatewayId() {
         return this.gatewayId;
     }
-    /**
-     * @return EC2 instance ID.
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return IPv6 CIDR block of the route.
-     * 
-     */
     public String ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }
-    /**
-     * @return Local Gateway ID.
-     * 
-     */
     public String localGatewayId() {
         return this.localGatewayId;
     }
-    /**
-     * @return NAT Gateway ID.
-     * 
-     */
     public String natGatewayId() {
         return this.natGatewayId;
     }
-    /**
-     * @return ID of the elastic network interface (eni) to use.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * @return EC2 Transit Gateway ID.
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * @return VPC Endpoint ID.
-     * 
-     */
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
-    /**
-     * @return VPC Peering ID.
-     * 
-     */
     public String vpcPeeringConnectionId() {
         return this.vpcPeeringConnectionId;
     }

@@ -54,17 +54,11 @@ class GetWorkspacesResult:
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> Sequence[_builtins.str]:
-        """
-        List of aliases of the matched Prometheus workspaces.
-        """
         return pulumi.get(self, "aliases")
 
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        List of ARNs of the matched Prometheus workspaces.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -83,9 +77,6 @@ class GetWorkspacesResult:
     @_builtins.property
     @pulumi.getter(name="workspaceIds")
     def workspace_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of workspace IDs of the matched Prometheus workspaces.
-        """
         return pulumi.get(self, "workspace_ids")
 
 
@@ -107,32 +98,7 @@ def get_workspaces(alias_prefix: Optional[_builtins.str] = None,
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspacesResult:
     """
-    Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-
-    ## Example Usage
-
-    The following example returns all of the workspaces in a region:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspaces()
-    ```
-
-    The following example filters the workspaces by alias. Only the workspaces with
-    aliases that begin with the value of `alias_prefix` will be returned:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspaces(alias_prefix="example")
-    ```
-
-
-    :param _builtins.str alias_prefix: Limits results to workspaces with aliases that begin with this value.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['aliasPrefix'] = alias_prefix
@@ -151,32 +117,7 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[_builtins
                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacesResult]:
     """
-    Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-
-    ## Example Usage
-
-    The following example returns all of the workspaces in a region:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspaces()
-    ```
-
-    The following example filters the workspaces by alias. Only the workspaces with
-    aliases that begin with the value of `alias_prefix` will be returned:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspaces(alias_prefix="example")
-    ```
-
-
-    :param _builtins.str alias_prefix: Limits results to workspaces with aliases that begin with this value.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['aliasPrefix'] = alias_prefix

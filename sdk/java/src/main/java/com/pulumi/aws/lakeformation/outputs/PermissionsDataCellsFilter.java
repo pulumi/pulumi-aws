@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class PermissionsDataCellsFilter {
-    /**
-     * @return The name of the database.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return The name of the data cells filter.
-     * 
-     */
     private String name;
-    /**
-     * @return The ID of the Data Catalog.
-     * 
-     */
     private String tableCatalogId;
-    /**
-     * @return The name of the table.
-     * 
-     */
     private String tableName;
 
     private PermissionsDataCellsFilter() {}
-    /**
-     * @return The name of the database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return The name of the data cells filter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The ID of the Data Catalog.
-     * 
-     */
     public String tableCatalogId() {
         return this.tableCatalogId;
     }
-    /**
-     * @return The name of the table.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }

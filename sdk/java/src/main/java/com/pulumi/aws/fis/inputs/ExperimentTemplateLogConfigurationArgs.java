@@ -18,47 +18,23 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
 
     public static final ExperimentTemplateLogConfigurationArgs Empty = new ExperimentTemplateLogConfigurationArgs();
 
-    /**
-     * The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-     * 
-     */
     @Import(name="cloudwatchLogsConfiguration")
     private @Nullable Output<ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs> cloudwatchLogsConfiguration;
 
-    /**
-     * @return The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-     * 
-     */
     public Optional<Output<ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs>> cloudwatchLogsConfiguration() {
         return Optional.ofNullable(this.cloudwatchLogsConfiguration);
     }
 
-    /**
-     * The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-     * 
-     */
     @Import(name="logSchemaVersion", required=true)
     private Output<Integer> logSchemaVersion;
 
-    /**
-     * @return The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-     * 
-     */
     public Output<Integer> logSchemaVersion() {
         return this.logSchemaVersion;
     }
 
-    /**
-     * The configuration for experiment logging to Amazon S3. See below.
-     * 
-     */
     @Import(name="s3Configuration")
     private @Nullable Output<ExperimentTemplateLogConfigurationS3ConfigurationArgs> s3Configuration;
 
-    /**
-     * @return The configuration for experiment logging to Amazon S3. See below.
-     * 
-     */
     public Optional<Output<ExperimentTemplateLogConfigurationS3ConfigurationArgs>> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
@@ -89,65 +65,29 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
             $ = new ExperimentTemplateLogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogsConfiguration The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsConfiguration(@Nullable Output<ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs> cloudwatchLogsConfiguration) {
             $.cloudwatchLogsConfiguration = cloudwatchLogsConfiguration;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogsConfiguration The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsConfiguration(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs cloudwatchLogsConfiguration) {
             return cloudwatchLogsConfiguration(Output.of(cloudwatchLogsConfiguration));
         }
 
-        /**
-         * @param logSchemaVersion The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logSchemaVersion(Output<Integer> logSchemaVersion) {
             $.logSchemaVersion = logSchemaVersion;
             return this;
         }
 
-        /**
-         * @param logSchemaVersion The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logSchemaVersion(Integer logSchemaVersion) {
             return logSchemaVersion(Output.of(logSchemaVersion));
         }
 
-        /**
-         * @param s3Configuration The configuration for experiment logging to Amazon S3. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(@Nullable Output<ExperimentTemplateLogConfigurationS3ConfigurationArgs> s3Configuration) {
             $.s3Configuration = s3Configuration;
             return this;
         }
 
-        /**
-         * @param s3Configuration The configuration for experiment logging to Amazon S3. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(ExperimentTemplateLogConfigurationS3ConfigurationArgs s3Configuration) {
             return s3Configuration(Output.of(s3Configuration));
         }

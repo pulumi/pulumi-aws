@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enable speaker search.
-        /// </summary>
         [Input("speakerSearchStatus", required: true)]
         public Input<string> SpeakerSearchStatus { get; set; } = null!;
 
-        /// <summary>
-        /// Enable voice tone analysis.
-        /// </summary>
         [Input("voiceToneAnalysisStatus", required: true)]
         public Input<string> VoiceToneAnalysisStatus { get; set; } = null!;
 

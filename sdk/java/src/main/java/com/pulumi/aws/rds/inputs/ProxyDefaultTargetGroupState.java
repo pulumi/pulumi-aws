@@ -16,77 +16,37 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
 
     public static final ProxyDefaultTargetGroupState Empty = new ProxyDefaultTargetGroupState();
 
-    /**
-     * The Amazon Resource Name (ARN) representing the target group.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) representing the target group.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
-     * 
-     */
     @Import(name="connectionPoolConfig")
     private @Nullable Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs> connectionPoolConfig;
 
-    /**
-     * @return The settings that determine the size and behavior of the connection pool for the target group.
-     * 
-     */
     public Optional<Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs>> connectionPoolConfig() {
         return Optional.ofNullable(this.connectionPoolConfig);
     }
 
-    /**
-     * Name of the RDS DB Proxy.
-     * 
-     */
     @Import(name="dbProxyName")
     private @Nullable Output<String> dbProxyName;
 
-    /**
-     * @return Name of the RDS DB Proxy.
-     * 
-     */
     public Optional<Output<String>> dbProxyName() {
         return Optional.ofNullable(this.dbProxyName);
     }
 
-    /**
-     * The name of the default target group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the default target group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -119,107 +79,47 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
             $ = new ProxyDefaultTargetGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) representing the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) representing the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionPoolConfig(@Nullable Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs> connectionPoolConfig) {
             $.connectionPoolConfig = connectionPoolConfig;
             return this;
         }
 
-        /**
-         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionPoolConfig(ProxyDefaultTargetGroupConnectionPoolConfigArgs connectionPoolConfig) {
             return connectionPoolConfig(Output.of(connectionPoolConfig));
         }
 
-        /**
-         * @param dbProxyName Name of the RDS DB Proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyName(@Nullable Output<String> dbProxyName) {
             $.dbProxyName = dbProxyName;
             return this;
         }
 
-        /**
-         * @param dbProxyName Name of the RDS DB Proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyName(String dbProxyName) {
             return dbProxyName(Output.of(dbProxyName));
         }
 
-        /**
-         * @param name The name of the default target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the default target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

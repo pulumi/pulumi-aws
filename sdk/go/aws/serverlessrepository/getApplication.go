@@ -11,42 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/serverlessrepository"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := serverlessrepository.GetApplication(ctx, &serverlessrepository.GetApplicationArgs{
-//				ApplicationId: "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = serverlessrepository.NewCloudFormationStack(ctx, "example", &serverlessrepository.CloudFormationStackArgs{
-//				Name:            pulumi.String("Example"),
-//				ApplicationId:   pulumi.String(example.ApplicationId),
-//				SemanticVersion: pulumi.String(example.SemanticVersion),
-//				Capabilities:    interface{}(example.RequiredCapabilities),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationResult
@@ -59,30 +23,22 @@ func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulum
 
 // A collection of arguments for invoking getApplication.
 type GetApplicationArgs struct {
-	// ARN of the application.
-	ApplicationId string `pulumi:"applicationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Requested version of the application. By default, retrieves the latest version.
+	ApplicationId   string  `pulumi:"applicationId"`
+	Region          *string `pulumi:"region"`
 	SemanticVersion *string `pulumi:"semanticVersion"`
 }
 
 // A collection of values returned by getApplication.
 type GetApplicationResult struct {
-	// ARN of the application.
 	ApplicationId string `pulumi:"applicationId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the application.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// A list of capabilities describing the permissions needed to deploy the application.
+	Id                   string   `pulumi:"id"`
+	Name                 string   `pulumi:"name"`
+	Region               string   `pulumi:"region"`
 	RequiredCapabilities []string `pulumi:"requiredCapabilities"`
 	SemanticVersion      string   `pulumi:"semanticVersion"`
-	// URL pointing to the source code of the application version.
-	SourceCodeUrl string `pulumi:"sourceCodeUrl"`
-	// URL pointing to the Cloud Formation template for the application version.
-	TemplateUrl string `pulumi:"templateUrl"`
+	SourceCodeUrl        string   `pulumi:"sourceCodeUrl"`
+	TemplateUrl          string   `pulumi:"templateUrl"`
 }
 
 func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, opts ...pulumi.InvokeOption) GetApplicationResultOutput {
@@ -96,11 +52,8 @@ func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, op
 
 // A collection of arguments for invoking getApplication.
 type GetApplicationOutputArgs struct {
-	// ARN of the application.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Requested version of the application. By default, retrieves the latest version.
+	ApplicationId   pulumi.StringInput    `pulumi:"applicationId"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 	SemanticVersion pulumi.StringPtrInput `pulumi:"semanticVersion"`
 }
 
@@ -123,7 +76,6 @@ func (o GetApplicationResultOutput) ToGetApplicationResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the application.
 func (o GetApplicationResultOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
@@ -133,7 +85,6 @@ func (o GetApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the application.
 func (o GetApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -142,7 +93,6 @@ func (o GetApplicationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of capabilities describing the permissions needed to deploy the application.
 func (o GetApplicationResultOutput) RequiredCapabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationResult) []string { return v.RequiredCapabilities }).(pulumi.StringArrayOutput)
 }
@@ -151,12 +101,10 @@ func (o GetApplicationResultOutput) SemanticVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.SemanticVersion }).(pulumi.StringOutput)
 }
 
-// URL pointing to the source code of the application version.
 func (o GetApplicationResultOutput) SourceCodeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.SourceCodeUrl }).(pulumi.StringOutput)
 }
 
-// URL pointing to the Cloud Formation template for the application version.
 func (o GetApplicationResultOutput) TemplateUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.TemplateUrl }).(pulumi.StringOutput)
 }

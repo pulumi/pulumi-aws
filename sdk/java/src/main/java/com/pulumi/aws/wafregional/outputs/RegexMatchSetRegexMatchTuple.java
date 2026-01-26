@@ -11,47 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RegexMatchSetRegexMatchTuple {
-    /**
-     * @return The part of a web request that you want to search, such as a specified header or a query string.
-     * 
-     */
     private RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch;
-    /**
-     * @return The ID of a Regex Pattern Set.
-     * 
-     */
     private String regexPatternSetId;
-    /**
-     * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     private String textTransformation;
 
     private RegexMatchSetRegexMatchTuple() {}
-    /**
-     * @return The part of a web request that you want to search, such as a specified header or a query string.
-     * 
-     */
     public RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch() {
         return this.fieldToMatch;
     }
-    /**
-     * @return The ID of a Regex Pattern Set.
-     * 
-     */
     public String regexPatternSetId() {
         return this.regexPatternSetId;
     }
-    /**
-     * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     public String textTransformation() {
         return this.textTransformation;
     }

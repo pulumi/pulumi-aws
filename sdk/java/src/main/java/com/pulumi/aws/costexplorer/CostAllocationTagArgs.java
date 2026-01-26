@@ -14,32 +14,16 @@ public final class CostAllocationTagArgs extends com.pulumi.resources.ResourceAr
 
     public static final CostAllocationTagArgs Empty = new CostAllocationTagArgs();
 
-    /**
-     * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
 
-    /**
-     * The key for the cost allocation tag.
-     * 
-     */
     @Import(name="tagKey", required=true)
     private Output<String> tagKey;
 
-    /**
-     * @return The key for the cost allocation tag.
-     * 
-     */
     public Output<String> tagKey() {
         return this.tagKey;
     }
@@ -69,44 +53,20 @@ public final class CostAllocationTagArgs extends com.pulumi.resources.ResourceAr
             $ = new CostAllocationTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tagKey The key for the cost allocation tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param tagKey The key for the cost allocation tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }

@@ -16,196 +16,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.AnalyticsConfiguration;
- * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("example")
- *             .build());
- * 
- *         var analytics = new Bucket("analytics", BucketArgs.builder()
- *             .bucket("analytics-destination")
- *             .build());
- * 
- *         var example_entire_bucket = new AnalyticsConfiguration("example-entire-bucket", AnalyticsConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .name("EntireBucket")
- *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
- *                 .dataExport(AnalyticsConfigurationStorageClassAnalysisDataExportArgs.builder()
- *                     .destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.builder()
- *                         .s3BucketDestination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.builder()
- *                             .bucketArn(analytics.arn())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Add analytics configuration with S3 object filter
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.AnalyticsConfiguration;
- * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("example")
- *             .build());
- * 
- *         var example_filtered = new AnalyticsConfiguration("example-filtered", AnalyticsConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .name("ImportantBlueDocuments")
- *             .filter(AnalyticsConfigurationFilterArgs.builder()
- *                 .prefix("documents/")
- *                 .tags(Map.ofEntries(
- *                     Map.entry("priority", "high"),
- *                     Map.entry("class", "blue")
- *                 ))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3/analyticsConfiguration:AnalyticsConfiguration")
 public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket this analytics configuration is associated with.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket this analytics configuration is associated with.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-     * 
-     */
     @Export(name="filter", refs={AnalyticsConfigurationFilter.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsConfigurationFilter> filter;
 
-    /**
-     * @return Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-     * 
-     */
     public Output<Optional<AnalyticsConfigurationFilter>> filter() {
         return Codegen.optional(this.filter);
     }
-    /**
-     * Unique identifier of the analytics configuration for the bucket.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique identifier of the analytics configuration for the bucket.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration for the analytics data export (documented below).
-     * 
-     */
     @Export(name="storageClassAnalysis", refs={AnalyticsConfigurationStorageClassAnalysis.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsConfigurationStorageClassAnalysis> storageClassAnalysis;
 
-    /**
-     * @return Configuration for the analytics data export (documented below).
-     * 
-     */
     public Output<Optional<AnalyticsConfigurationStorageClassAnalysis>> storageClassAnalysis() {
         return Codegen.optional(this.storageClassAnalysis);
     }

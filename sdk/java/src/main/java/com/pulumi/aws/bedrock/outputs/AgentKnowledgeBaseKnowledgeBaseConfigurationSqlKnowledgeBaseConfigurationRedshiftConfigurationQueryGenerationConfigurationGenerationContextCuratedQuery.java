@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery {
-    /**
-     * @return Example natural language query.
-     * 
-     */
     private String naturalLanguage;
-    /**
-     * @return SQL equivalent of `naturalLanguage`.
-     * 
-     */
     private String sql;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery() {}
-    /**
-     * @return Example natural language query.
-     * 
-     */
     public String naturalLanguage() {
         return this.naturalLanguage;
     }
-    /**
-     * @return SQL equivalent of `naturalLanguage`.
-     * 
-     */
     public String sql() {
         return this.sql;
     }

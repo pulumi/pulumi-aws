@@ -14,32 +14,16 @@ public final class LogTransformerTransformerConfigTypeConverterEntryArgs extends
 
     public static final LogTransformerTransformerConfigTypeConverterEntryArgs Empty = new LogTransformerTransformerConfigTypeConverterEntryArgs();
 
-    /**
-     * Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class LogTransformerTransformerConfigTypeConverterEntryArgs extends
             $ = new LogTransformerTransformerConfigTypeConverterEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Specifies the key with the value that will be converted to a different type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Specifies the key with the value that will be converted to a different type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param type Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

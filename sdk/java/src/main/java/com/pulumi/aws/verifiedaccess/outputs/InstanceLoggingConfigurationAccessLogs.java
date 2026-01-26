@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceLoggingConfigurationAccessLogs {
-    /**
-     * @return A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-     * 
-     */
     private @Nullable InstanceLoggingConfigurationAccessLogsCloudwatchLogs cloudwatchLogs;
-    /**
-     * @return Include trust data sent by trust providers into the logs.
-     * 
-     */
     private @Nullable Boolean includeTrustContext;
-    /**
-     * @return A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-     * 
-     */
     private @Nullable InstanceLoggingConfigurationAccessLogsKinesisDataFirehose kinesisDataFirehose;
-    /**
-     * @return The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-     * 
-     */
     private @Nullable String logVersion;
-    /**
-     * @return A block that specifies configures sending Verified Access logs to S3. Detailed below.
-     * 
-     */
     private @Nullable InstanceLoggingConfigurationAccessLogsS3 s3;
 
     private InstanceLoggingConfigurationAccessLogs() {}
-    /**
-     * @return A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-     * 
-     */
     public Optional<InstanceLoggingConfigurationAccessLogsCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
-    /**
-     * @return Include trust data sent by trust providers into the logs.
-     * 
-     */
     public Optional<Boolean> includeTrustContext() {
         return Optional.ofNullable(this.includeTrustContext);
     }
-    /**
-     * @return A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-     * 
-     */
     public Optional<InstanceLoggingConfigurationAccessLogsKinesisDataFirehose> kinesisDataFirehose() {
         return Optional.ofNullable(this.kinesisDataFirehose);
     }
-    /**
-     * @return The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-     * 
-     */
     public Optional<String> logVersion() {
         return Optional.ofNullable(this.logVersion);
     }
-    /**
-     * @return A block that specifies configures sending Verified Access logs to S3. Detailed below.
-     * 
-     */
     public Optional<InstanceLoggingConfigurationAccessLogsS3> s3() {
         return Optional.ofNullable(this.s3);
     }

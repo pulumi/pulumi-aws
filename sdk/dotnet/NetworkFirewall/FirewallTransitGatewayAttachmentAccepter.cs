@@ -9,59 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall
 {
-    /// <summary>
-    /// Manages an AWS Network Firewall Firewall Transit Gateway Attachment Accepter.
-    /// 
-    /// When a cross-account (requester's AWS account differs from the accepter's AWS account) requester creates a Network Firewall with Transit Gateway ID using `aws.networkfirewall.Firewall`. Then an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
-    /// The accepter can use the `aws.networkfirewall.FirewallTransitGatewayAttachmentAccepter` resource to "adopt" its side of the connection into management.
-    /// 
-    /// &gt; **NOTE:** If the `TransitGatewayId` argument in the `aws.networkfirewall.Firewall` resource is used to attach a firewall to a transit gateway in a cross-account setup (where **Auto accept shared attachments** is disabled), the resource will be considered created when the transit gateway attachment is in the *Pending Acceptance* state and the firewall is in the *Provisioning* status. At this point, you can use the `aws.networkfirewall.FirewallTransitGatewayAttachmentAccepter` resource to finalize the network firewall deployment. Once the transit gateway attachment reaches the *Available* state, the firewall status *Ready*.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkFirewall.FirewallTransitGatewayAttachmentAccepter("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = exampleAwsNetworkfirewallFirewall.FirewallStatus[0].TransitGatewayAttachmentSyncState[0].AttachmentId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `aws.networkfirewall.Firewall` and `aws.networkfirewall.FirewallTransitGatewayAttachmentAccepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Network Firewall Firewall Transit Gateway Attachment Accepter using the `transit_gateway_attachment_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter example tgw-attach-0c3b7e9570eee089c
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter")]
     public partial class FirewallTransitGatewayAttachmentAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.FirewallTransitGatewayAttachmentAccepterTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
-        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
@@ -111,18 +67,12 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class FirewallTransitGatewayAttachmentAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.FirewallTransitGatewayAttachmentAccepterTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
-        /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
@@ -134,18 +84,12 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class FirewallTransitGatewayAttachmentAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.FirewallTransitGatewayAttachmentAccepterTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 

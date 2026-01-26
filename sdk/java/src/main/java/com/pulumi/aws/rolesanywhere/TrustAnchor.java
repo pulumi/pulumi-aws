@@ -19,146 +19,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing a Roles Anywhere Trust Anchor.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.acmpca.CertificateAuthority;
- * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.acmpca.Certificate;
- * import com.pulumi.aws.acmpca.CertificateArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;
- * import com.pulumi.aws.acmpca.CertificateAuthorityCertificate;
- * import com.pulumi.aws.acmpca.CertificateAuthorityCertificateArgs;
- * import com.pulumi.aws.rolesanywhere.TrustAnchor;
- * import com.pulumi.aws.rolesanywhere.TrustAnchorArgs;
- * import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorSourceArgs;
- * import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorSourceSourceDataArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()
- *             .permanentDeletionTimeInDays(7)
- *             .type("ROOT")
- *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
- *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName("example.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var test = new Certificate("test", CertificateArgs.builder()
- *             .certificateAuthorityArn(example.arn())
- *             .certificateSigningRequest(example.certificateSigningRequest())
- *             .signingAlgorithm("SHA512WITHRSA")
- *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.partition()))
- *             .validity(CertificateValidityArgs.builder()
- *                 .type("YEARS")
- *                 .value("1")
- *                 .build())
- *             .build());
- * 
- *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", CertificateAuthorityCertificateArgs.builder()
- *             .certificateAuthorityArn(example.arn())
- *             .certificate(exampleAwsAcmpcaCertificate.certificate())
- *             .certificateChain(exampleAwsAcmpcaCertificate.certificateChain())
- *             .build());
- * 
- *         var testTrustAnchor = new TrustAnchor("testTrustAnchor", TrustAnchorArgs.builder()
- *             .name("example")
- *             .source(TrustAnchorSourceArgs.builder()
- *                 .sourceData(TrustAnchorSourceSourceDataArgs.builder()
- *                     .acmPcaArn(example.arn())
- *                     .build())
- *                 .sourceType("AWS_ACM_PCA")
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleCertificateAuthorityCertificate)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
- * ```
- * 
- */
 @ResourceType(type="aws:rolesanywhere/trustAnchor:TrustAnchor")
 public class TrustAnchor extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Trust Anchor
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Trust Anchor
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * The name of the Trust Anchor.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Trust Anchor.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -168,45 +45,21 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
     public Output<List<TrustAnchorNotificationSetting>> notificationSettings() {
         return this.notificationSettings;
     }
-    /**
-     * The source of trust, documented below
-     * 
-     */
     @Export(name="source", refs={TrustAnchorSource.class}, tree="[0]")
     private Output<TrustAnchorSource> source;
 
-    /**
-     * @return The source of trust, documented below
-     * 
-     */
     public Output<TrustAnchorSource> source() {
         return this.source;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

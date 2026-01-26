@@ -23,8 +23,7 @@ class OrganizationConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
-        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
         if region is not None:
@@ -34,7 +33,7 @@ class OrganizationConfigurationArgs:
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Input[_builtins.bool]:
         """
-        Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+        Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         """
         return pulumi.get(self, "auto_enable")
 
@@ -45,9 +44,6 @@ class OrganizationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -62,8 +58,7 @@ class _OrganizationConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
-        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         """
         if auto_enable is not None:
             pulumi.set(__self__, "auto_enable", auto_enable)
@@ -74,7 +69,7 @@ class _OrganizationConfigurationState:
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+        Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         """
         return pulumi.get(self, "auto_enable")
 
@@ -85,9 +80,6 @@ class _OrganizationConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -105,21 +97,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage Amazon Macie configuration settings for an organization in AWS Organizations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.macie2.OrganizationConfiguration("example", auto_enable=True)
-        ```
-
+        Create a OrganizationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         """
         ...
     @overload
@@ -128,17 +109,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  args: OrganizationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage Amazon Macie configuration settings for an organization in AWS Organizations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.macie2.OrganizationConfiguration("example", auto_enable=True)
-        ```
-
+        Create a OrganizationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,8 +159,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -203,15 +173,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+        Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         """
         return pulumi.get(self, "auto_enable")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

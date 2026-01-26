@@ -39,22 +39,6 @@ class LocationHdfsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationHdfs resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        :param pulumi.Input[_builtins.str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
-        :param pulumi.Input[_builtins.int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[_builtins.str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
-        :param pulumi.Input[_builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "name_nodes", name_nodes)
@@ -90,9 +74,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated.
-        """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
@@ -102,9 +83,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="nameNodes")
     def name_nodes(self) -> pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]:
-        """
-        The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        """
         return pulumi.get(self, "name_nodes")
 
     @name_nodes.setter
@@ -114,9 +92,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -126,9 +101,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="blockSize")
     def block_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        """
         return pulumi.get(self, "block_size")
 
     @block_size.setter
@@ -138,9 +110,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
     def kerberos_keytab(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
-        """
         return pulumi.get(self, "kerberos_keytab")
 
     @kerberos_keytab.setter
@@ -150,9 +119,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosKeytabBase64")
     def kerberos_keytab_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
-        """
         return pulumi.get(self, "kerberos_keytab_base64")
 
     @kerberos_keytab_base64.setter
@@ -162,9 +128,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5Conf")
     def kerberos_krb5_conf(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
-        """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @kerberos_krb5_conf.setter
@@ -174,9 +137,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5ConfBase64")
     def kerberos_krb5_conf_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
-        """
         return pulumi.get(self, "kerberos_krb5_conf_base64")
 
     @kerberos_krb5_conf_base64.setter
@@ -186,9 +146,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosPrincipal")
     def kerberos_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        """
         return pulumi.get(self, "kerberos_principal")
 
     @kerberos_principal.setter
@@ -198,9 +155,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyProviderUri")
     def kms_key_provider_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URI of the HDFS cluster's Key Management Server (KMS).
-        """
         return pulumi.get(self, "kms_key_provider_uri")
 
     @kms_key_provider_uri.setter
@@ -210,9 +164,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="qopConfiguration")
     def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
-        """
-        The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-        """
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
@@ -222,9 +173,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -234,9 +182,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
-        """
         return pulumi.get(self, "replication_factor")
 
     @replication_factor.setter
@@ -246,9 +191,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter(name="simpleUser")
     def simple_user(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
-        """
         return pulumi.get(self, "simple_user")
 
     @simple_user.setter
@@ -258,9 +200,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -270,9 +209,6 @@ class LocationHdfsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -304,24 +240,6 @@ class _LocationHdfsState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationHdfs resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[_builtins.str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
-        :param pulumi.Input[_builtins.int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[_builtins.str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
-        :param pulumi.Input[_builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if agent_arns is not None:
             pulumi.set(__self__, "agent_arns", agent_arns)
@@ -365,9 +283,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated.
-        """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
@@ -377,9 +292,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Location.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -389,9 +301,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -401,9 +310,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="blockSize")
     def block_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        """
         return pulumi.get(self, "block_size")
 
     @block_size.setter
@@ -413,9 +319,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
     def kerberos_keytab(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
-        """
         return pulumi.get(self, "kerberos_keytab")
 
     @kerberos_keytab.setter
@@ -425,9 +328,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="kerberosKeytabBase64")
     def kerberos_keytab_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
-        """
         return pulumi.get(self, "kerberos_keytab_base64")
 
     @kerberos_keytab_base64.setter
@@ -437,9 +337,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5Conf")
     def kerberos_krb5_conf(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
-        """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @kerberos_krb5_conf.setter
@@ -449,9 +346,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5ConfBase64")
     def kerberos_krb5_conf_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
-        """
         return pulumi.get(self, "kerberos_krb5_conf_base64")
 
     @kerberos_krb5_conf_base64.setter
@@ -461,9 +355,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="kerberosPrincipal")
     def kerberos_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        """
         return pulumi.get(self, "kerberos_principal")
 
     @kerberos_principal.setter
@@ -473,9 +364,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyProviderUri")
     def kms_key_provider_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URI of the HDFS cluster's Key Management Server (KMS).
-        """
         return pulumi.get(self, "kms_key_provider_uri")
 
     @kms_key_provider_uri.setter
@@ -485,9 +373,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="nameNodes")
     def name_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]]:
-        """
-        The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        """
         return pulumi.get(self, "name_nodes")
 
     @name_nodes.setter
@@ -497,9 +382,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="qopConfiguration")
     def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
-        """
-        The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-        """
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
@@ -509,9 +391,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -521,9 +400,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
-        """
         return pulumi.get(self, "replication_factor")
 
     @replication_factor.setter
@@ -533,9 +409,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="simpleUser")
     def simple_user(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
-        """
         return pulumi.get(self, "simple_user")
 
     @simple_user.setter
@@ -545,9 +418,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -557,9 +427,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -569,9 +436,6 @@ class _LocationHdfsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -612,75 +476,9 @@ class LocationHdfs(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an HDFS Location within AWS DataSync.
-
-        > **NOTE:** The DataSync Agents must be available before creating this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
-            name_nodes=[{
-                "hostname": example_aws_instance["privateDns"],
-                "port": 80,
-            }])
-        ```
-
-        ### Kerberos Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="KERBEROS",
-            name_nodes=[{
-                "hostname": example_aws_instance["privateDns"],
-                "port": 80,
-            }],
-            kerberos_principal="user@example.com",
-            kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
-            kerberos_krb5_conf=std.file(input="krb5.conf").result)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
-
-        Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_location_hdfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-
+        Create a LocationHdfs resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
-        :param pulumi.Input[_builtins.int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[_builtins.str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        :param pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
-        :param pulumi.Input[_builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -689,57 +487,7 @@ class LocationHdfs(pulumi.CustomResource):
                  args: LocationHdfsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an HDFS Location within AWS DataSync.
-
-        > **NOTE:** The DataSync Agents must be available before creating this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
-            name_nodes=[{
-                "hostname": example_aws_instance["privateDns"],
-                "port": 80,
-            }])
-        ```
-
-        ### Kerberos Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="KERBEROS",
-            name_nodes=[{
-                "hostname": example_aws_instance["privateDns"],
-                "port": 80,
-            }],
-            kerberos_principal="user@example.com",
-            kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
-            kerberos_krb5_conf=std.file(input="krb5.conf").result)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
-
-        Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_location_hdfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-
+        Create a LocationHdfs resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocationHdfsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -839,24 +587,6 @@ class LocationHdfs(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[_builtins.str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
-        :param pulumi.Input[_builtins.int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        :param pulumi.Input[_builtins.str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_keytab_base64: Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_krb5_conf_base64: Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
-        :param pulumi.Input[_builtins.str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        :param pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
-        :param pulumi.Input[_builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -886,145 +616,91 @@ class LocationHdfs(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated.
-        """
         return pulumi.get(self, "agent_arns")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Location.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @_builtins.property
     @pulumi.getter(name="blockSize")
     def block_size(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-        """
         return pulumi.get(self, "block_size")
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
     def kerberos_keytab(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
-        """
         return pulumi.get(self, "kerberos_keytab")
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytabBase64")
     def kerberos_keytab_base64(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
-        """
         return pulumi.get(self, "kerberos_keytab_base64")
 
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5Conf")
     def kerberos_krb5_conf(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
-        """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5ConfBase64")
     def kerberos_krb5_conf_base64(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
-        """
         return pulumi.get(self, "kerberos_krb5_conf_base64")
 
     @_builtins.property
     @pulumi.getter(name="kerberosPrincipal")
     def kerberos_principal(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
-        """
         return pulumi.get(self, "kerberos_principal")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyProviderUri")
     def kms_key_provider_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The URI of the HDFS cluster's Key Management Server (KMS).
-        """
         return pulumi.get(self, "kms_key_provider_uri")
 
     @_builtins.property
     @pulumi.getter(name="nameNodes")
     def name_nodes(self) -> pulumi.Output[Sequence['outputs.LocationHdfsNameNode']]:
-        """
-        The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        """
         return pulumi.get(self, "name_nodes")
 
     @_builtins.property
     @pulumi.getter(name="qopConfiguration")
     def qop_configuration(self) -> pulumi.Output['outputs.LocationHdfsQopConfiguration']:
-        """
-        The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
-        """
         return pulumi.get(self, "qop_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
-        """
         return pulumi.get(self, "replication_factor")
 
     @_builtins.property
     @pulumi.getter(name="simpleUser")
     def simple_user(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
-        """
         return pulumi.get(self, "simple_user")
 
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        """
         return pulumi.get(self, "subdirectory")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

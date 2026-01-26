@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationInclude {
-    /**
-     * @return List of S3 bucket ARNs.
-     * 
-     */
     private @Nullable List<String> buckets;
-    /**
-     * @return List of AWS Regions.
-     * 
-     */
     private @Nullable List<String> regions;
 
     private StorageLensConfigurationStorageLensConfigurationInclude() {}
-    /**
-     * @return List of S3 bucket ARNs.
-     * 
-     */
     public List<String> buckets() {
         return this.buckets == null ? List.of() : this.buckets;
     }
-    /**
-     * @return List of AWS Regions.
-     * 
-     */
     public List<String> regions() {
         return this.regions == null ? List.of() : this.regions;
     }

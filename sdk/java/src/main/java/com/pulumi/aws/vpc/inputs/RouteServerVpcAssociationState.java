@@ -16,32 +16,16 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
 
     public static final RouteServerVpcAssociationState Empty = new RouteServerVpcAssociationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique identifier for the route server to be associated.
-     * 
-     */
     @Import(name="routeServerId")
     private @Nullable Output<String> routeServerId;
 
-    /**
-     * @return The unique identifier for the route server to be associated.
-     * 
-     */
     public Optional<Output<String>> routeServerId() {
         return Optional.ofNullable(this.routeServerId);
     }
@@ -53,21 +37,9 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The ID of the VPC to associate with the route server.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to associate with the route server.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -99,44 +71,20 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
             $ = new RouteServerVpcAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeServerId The unique identifier for the route server to be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(@Nullable Output<String> routeServerId) {
             $.routeServerId = routeServerId;
             return this;
         }
 
-        /**
-         * @param routeServerId The unique identifier for the route server to be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(String routeServerId) {
             return routeServerId(Output.of(routeServerId));
         }
@@ -150,27 +98,11 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcId The ID of the VPC to associate with the route server.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC to associate with the route server.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

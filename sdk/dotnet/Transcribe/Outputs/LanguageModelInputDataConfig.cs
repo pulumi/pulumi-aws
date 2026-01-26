@@ -13,19 +13,8 @@ namespace Pulumi.Aws.Transcribe.Outputs
     [OutputType]
     public sealed class LanguageModelInputDataConfig
     {
-        /// <summary>
-        /// IAM role with access to S3 bucket.
-        /// </summary>
         public readonly string DataAccessRoleArn;
-        /// <summary>
-        /// S3 URI where training data is located.
-        /// </summary>
         public readonly string S3Uri;
-        /// <summary>
-        /// S3 URI where tuning data is located.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string? TuningDataS3Uri;
 
         [OutputConstructor]

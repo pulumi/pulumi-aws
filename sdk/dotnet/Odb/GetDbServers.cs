@@ -11,87 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetDbServers
     {
-        /// <summary>
-        /// Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbServers.Invoke(new()
-        ///     {
-        ///         CloudExadataInfrastructureId = "exadata_infra_id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDbServersResult> InvokeAsync(GetDbServersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbServersResult>("aws:odb/getDbServers:getDbServers", args ?? new GetDbServersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbServers.Invoke(new()
-        ///     {
-        ///         CloudExadataInfrastructureId = "exadata_infra_id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDbServersResult> Invoke(GetDbServersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbServersResult>("aws:odb/getDbServers:getDbServers", args ?? new GetDbServersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbServers.Invoke(new()
-        ///     {
-        ///         CloudExadataInfrastructureId = "exadata_infra_id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDbServersResult> Invoke(GetDbServersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbServersResult>("aws:odb/getDbServers:getDbServers", args ?? new GetDbServersInvokeArgs(), options.WithDefaults());
     }
@@ -99,17 +24,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetDbServersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier of the cloud vm cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("cloudExadataInfrastructureId", required: true)]
         public string CloudExadataInfrastructureId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -121,17 +38,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetDbServersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier of the cloud vm cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("cloudExadataInfrastructureId", required: true)]
         public Input<string> CloudExadataInfrastructureId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -146,9 +55,6 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbServersResult
     {
         public readonly string CloudExadataInfrastructureId;
-        /// <summary>
-        /// the list of DB servers along with their properties.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDbServersDbServerResult> DbServers;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

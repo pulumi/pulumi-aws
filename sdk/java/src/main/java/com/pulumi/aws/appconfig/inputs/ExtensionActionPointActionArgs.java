@@ -16,62 +16,30 @@ public final class ExtensionActionPointActionArgs extends com.pulumi.resources.R
 
     public static final ExtensionActionPointActionArgs Empty = new ExtensionActionPointActionArgs();
 
-    /**
-     * Information about the action.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Information about the action.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The action name.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The action name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-     * 
-     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
-    /**
-     * @return The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-     * 
-     */
     public Output<String> uri() {
         return this.uri;
     }
@@ -103,86 +71,38 @@ public final class ExtensionActionPointActionArgs extends com.pulumi.resources.R
             $ = new ExtensionActionPointActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Information about the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Information about the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The action name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The action name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param roleArn An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param uri The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

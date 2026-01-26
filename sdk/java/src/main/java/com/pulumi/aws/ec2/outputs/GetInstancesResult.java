@@ -20,27 +20,11 @@ public final class GetInstancesResult {
      * 
      */
     private String id;
-    /**
-     * @return IDs of instances found through the filter
-     * 
-     */
     private List<String> ids;
     private @Nullable List<String> instanceStateNames;
     private Map<String,String> instanceTags;
-    /**
-     * @return IPv6 addresses of instances found through the filter
-     * 
-     */
     private List<String> ipv6Addresses;
-    /**
-     * @return Private IP addresses of instances found through the filter
-     * 
-     */
     private List<String> privateIps;
-    /**
-     * @return Public IP addresses of instances found through the filter
-     * 
-     */
     private List<String> publicIps;
     private String region;
 
@@ -55,10 +39,6 @@ public final class GetInstancesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IDs of instances found through the filter
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }
@@ -68,24 +48,12 @@ public final class GetInstancesResult {
     public Map<String,String> instanceTags() {
         return this.instanceTags;
     }
-    /**
-     * @return IPv6 addresses of instances found through the filter
-     * 
-     */
     public List<String> ipv6Addresses() {
         return this.ipv6Addresses;
     }
-    /**
-     * @return Private IP addresses of instances found through the filter
-     * 
-     */
     public List<String> privateIps() {
         return this.privateIps;
     }
-    /**
-     * @return Public IP addresses of instances found through the filter
-     * 
-     */
     public List<String> publicIps() {
         return this.publicIps;
     }

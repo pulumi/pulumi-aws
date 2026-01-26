@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleSns
     {
-        /// <summary>
-        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        /// </summary>
         public readonly string? MessageFormat;
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The ARN of the SNS topic.
-        /// </summary>
         public readonly string TargetArn;
 
         [OutputConstructor]

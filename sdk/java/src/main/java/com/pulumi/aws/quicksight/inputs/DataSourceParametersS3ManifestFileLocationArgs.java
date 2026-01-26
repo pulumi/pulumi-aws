@@ -14,32 +14,16 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
 
     public static final DataSourceParametersS3ManifestFileLocationArgs Empty = new DataSourceParametersS3ManifestFileLocationArgs();
 
-    /**
-     * The name of the bucket that contains the manifest file.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The name of the bucket that contains the manifest file.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The key of the manifest file within the bucket.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The key of the manifest file within the bucket.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -69,44 +53,20 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
             $ = new DataSourceParametersS3ManifestFileLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The name of the bucket that contains the manifest file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the bucket that contains the manifest file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param key The key of the manifest file within the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The key of the manifest file within the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

@@ -11,128 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
-//				FunctionName: "my_lambda_function",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("functionUrl", example.FunctionUrl)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Qualifier
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
-//				FunctionName: exampleAwsLambdaFunction.FunctionName,
-//				Qualifier:    pulumi.StringRef("production"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
-//				Text:    example.FunctionUrl,
-//				Search:  "https://",
-//				Replace: "",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Use the URL in other resources
-//			_, err = route53.NewRecord(ctx, "lambda_alias", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
-//				Name:   pulumi.String("api.example.com"),
-//				Type:   pulumi.String(route53.RecordTypeCNAME),
-//				Ttl:    pulumi.Int(300),
-//				Records: pulumi.StringArray{
-//					pulumi.String(invokeReplace.Result),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Retrieve CORS Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
-// FunctionName: "api_function",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// var tmp0
-// if length > 0 {
-// tmp0 = example.Cors[0]
-// } else {
-// tmp0 = nil
-// }
-// corsConfig := len(example.Cors).ApplyT(func(length int) (lambda.GetFunctionUrlCor, error) {
-// return tmp0, nil
-// }).(lambda.GetFunctionUrlCorOutput)
-// var tmp1 interface{}
-// if corsConfig != nil {
-// tmp1 = corsConfig.AllowOrigins
-// } else {
-// tmp1 = []interface{}{
-// }
-// }
-// allowedOrigins := tmp1;
-// ctx.Export("corsAllowedOrigins", allowedOrigins)
-// return nil
-// })
-// }
-// ```
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionUrlResult
@@ -145,39 +23,26 @@ func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ..
 
 // A collection of arguments for invoking getFunctionUrl.
 type LookupFunctionUrlArgs struct {
-	// Name or ARN of the Lambda function.
-	//
-	// The following arguments are optional:
-	FunctionName string `pulumi:"functionName"`
-	// Alias name or `$LATEST`.
-	Qualifier *string `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FunctionName string  `pulumi:"functionName"`
+	Qualifier    *string `pulumi:"qualifier"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFunctionUrl.
 type LookupFunctionUrlResult struct {
-	// Type of authentication that the function URL uses.
-	AuthorizationType string `pulumi:"authorizationType"`
-	// Cross-origin resource sharing (CORS) settings for the function URL. See below.
-	Cors []GetFunctionUrlCor `pulumi:"cors"`
-	// When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-	CreationTime string `pulumi:"creationTime"`
-	// ARN of the function.
-	FunctionArn  string `pulumi:"functionArn"`
-	FunctionName string `pulumi:"functionName"`
-	// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
-	FunctionUrl string `pulumi:"functionUrl"`
+	AuthorizationType string              `pulumi:"authorizationType"`
+	Cors              []GetFunctionUrlCor `pulumi:"cors"`
+	CreationTime      string              `pulumi:"creationTime"`
+	FunctionArn       string              `pulumi:"functionArn"`
+	FunctionName      string              `pulumi:"functionName"`
+	FunctionUrl       string              `pulumi:"functionUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
-	InvokeMode string `pulumi:"invokeMode"`
-	// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
+	Id               string  `pulumi:"id"`
+	InvokeMode       string  `pulumi:"invokeMode"`
 	LastModifiedTime string  `pulumi:"lastModifiedTime"`
 	Qualifier        *string `pulumi:"qualifier"`
 	Region           string  `pulumi:"region"`
-	// Generated ID for the endpoint.
-	UrlId string `pulumi:"urlId"`
+	UrlId            string  `pulumi:"urlId"`
 }
 
 func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionUrlResultOutput {
@@ -191,14 +56,9 @@ func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputAr
 
 // A collection of arguments for invoking getFunctionUrl.
 type LookupFunctionUrlOutputArgs struct {
-	// Name or ARN of the Lambda function.
-	//
-	// The following arguments are optional:
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// Alias name or `$LATEST`.
-	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	FunctionName pulumi.StringInput    `pulumi:"functionName"`
+	Qualifier    pulumi.StringPtrInput `pulumi:"qualifier"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupFunctionUrlOutputArgs) ElementType() reflect.Type {
@@ -220,22 +80,18 @@ func (o LookupFunctionUrlResultOutput) ToLookupFunctionUrlResultOutputWithContex
 	return o
 }
 
-// Type of authentication that the function URL uses.
 func (o LookupFunctionUrlResultOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
 
-// Cross-origin resource sharing (CORS) settings for the function URL. See below.
 func (o LookupFunctionUrlResultOutput) Cors() GetFunctionUrlCorArrayOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) []GetFunctionUrlCor { return v.Cors }).(GetFunctionUrlCorArrayOutput)
 }
 
-// When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 func (o LookupFunctionUrlResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// ARN of the function.
 func (o LookupFunctionUrlResultOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -244,7 +100,6 @@ func (o LookupFunctionUrlResultOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 func (o LookupFunctionUrlResultOutput) FunctionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionUrl }).(pulumi.StringOutput)
 }
@@ -254,12 +109,10 @@ func (o LookupFunctionUrlResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
 func (o LookupFunctionUrlResultOutput) InvokeMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.InvokeMode }).(pulumi.StringOutput)
 }
 
-// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 func (o LookupFunctionUrlResultOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
@@ -272,7 +125,6 @@ func (o LookupFunctionUrlResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Generated ID for the endpoint.
 func (o LookupFunctionUrlResultOutput) UrlId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.UrlId }).(pulumi.StringOutput)
 }

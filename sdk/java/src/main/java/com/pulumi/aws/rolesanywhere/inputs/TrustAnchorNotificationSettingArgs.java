@@ -31,17 +31,9 @@ public final class TrustAnchorNotificationSettingArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.configuredBy);
     }
 
-    /**
-     * Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -106,23 +98,11 @@ public final class TrustAnchorNotificationSettingArgs extends com.pulumi.resourc
             return configuredBy(Output.of(configuredBy));
         }
 
-        /**
-         * @param enabled Whether or not the Trust Anchor should be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether or not the Trust Anchor should be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

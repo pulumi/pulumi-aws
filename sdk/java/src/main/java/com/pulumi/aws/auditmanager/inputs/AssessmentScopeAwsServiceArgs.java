@@ -14,17 +14,9 @@ public final class AssessmentScopeAwsServiceArgs extends com.pulumi.resources.Re
 
     public static final AssessmentScopeAwsServiceArgs Empty = new AssessmentScopeAwsServiceArgs();
 
-    /**
-     * Name of the Amazon Web Service.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return Name of the Amazon Web Service.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -53,23 +45,11 @@ public final class AssessmentScopeAwsServiceArgs extends com.pulumi.resources.Re
             $ = new AssessmentScopeAwsServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param serviceName Name of the Amazon Web Service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the Amazon Web Service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

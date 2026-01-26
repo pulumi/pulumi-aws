@@ -19,92 +19,44 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
 
     public static final BucketIntelligentTieringConfigurationArgs Empty = new BucketIntelligentTieringConfigurationArgs();
 
-    /**
-     * Name of the bucket this intelligent tiering configuration is associated with.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket this intelligent tiering configuration is associated with.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
-     * 
-     */
     @Import(name="filter")
     private @Nullable Output<BucketIntelligentTieringConfigurationFilterArgs> filter;
 
-    /**
-     * @return Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
-     * 
-     */
     public Optional<Output<BucketIntelligentTieringConfigurationFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    /**
-     * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-     * 
-     */
     @Import(name="tierings", required=true)
     private Output<List<BucketIntelligentTieringConfigurationTieringArgs>> tierings;
 
-    /**
-     * @return S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-     * 
-     */
     public Output<List<BucketIntelligentTieringConfigurationTieringArgs>> tierings() {
         return this.tierings;
     }
@@ -138,138 +90,60 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
             $ = new BucketIntelligentTieringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket this intelligent tiering configuration is associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket this intelligent tiering configuration is associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param filter Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(@Nullable Output<BucketIntelligentTieringConfigurationFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(BucketIntelligentTieringConfigurationFilterArgs filter) {
             return filter(Output.of(filter));
         }
 
-        /**
-         * @param name Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tierings S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierings(Output<List<BucketIntelligentTieringConfigurationTieringArgs>> tierings) {
             $.tierings = tierings;
             return this;
         }
 
-        /**
-         * @param tierings S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierings(List<BucketIntelligentTieringConfigurationTieringArgs> tierings) {
             return tierings(Output.of(tierings));
         }
 
-        /**
-         * @param tierings S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierings(BucketIntelligentTieringConfigurationTieringArgs... tierings) {
             return tierings(List.of(tierings));
         }

@@ -16,51 +16,23 @@ public final class GetProducerDataSharesArgs extends com.pulumi.resources.Invoke
 
     public static final GetProducerDataSharesArgs Empty = new GetProducerDataSharesArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="producerArn", required=true)
     private Output<String> producerArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> producerArn() {
         return this.producerArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -91,69 +63,29 @@ public final class GetProducerDataSharesArgs extends com.pulumi.resources.Invoke
             $ = new GetProducerDataSharesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder producerArn(Output<String> producerArn) {
             $.producerArn = producerArn;
             return this;
         }
 
-        /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder producerArn(String producerArn) {
             return producerArn(Output.of(producerArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

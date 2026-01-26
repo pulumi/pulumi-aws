@@ -12,30 +12,17 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The built-in pattern from the list of preconfigured patterns. Either a `CustomPattern` or `BuiltInPatternId` is required.
-        /// </summary>
         [Input("builtInPatternId")]
         public Input<string>? BuiltInPatternId { get; set; }
 
-        /// <summary>
-        /// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        /// </summary>
         [Input("confidenceLevel")]
         public Input<int>? ConfidenceLevel { get; set; }
 
-        /// <summary>
-        /// The configuration for a custom pattern. Either a `CustomPattern` or `BuiltInPatternId` is required. Detailed below.
-        /// </summary>
         [Input("customPattern")]
         public Input<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternGetArgs>? CustomPattern { get; set; }
 
         [Input("enforcedUrls")]
         private InputList<string>? _enforcedUrls;
-
-        /// <summary>
-        /// The enforced URL configuration for the inline redaction pattern.
-        /// </summary>
         public InputList<string> EnforcedUrls
         {
             get => _enforcedUrls ?? (_enforcedUrls = new InputList<string>());
@@ -44,10 +31,6 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
         [Input("exemptUrls")]
         private InputList<string>? _exemptUrls;
-
-        /// <summary>
-        /// The exempt URL configuration for the inline redaction pattern.
-        /// </summary>
         public InputList<string> ExemptUrls
         {
             get => _exemptUrls ?? (_exemptUrls = new InputList<string>());
@@ -56,10 +39,6 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
         [Input("redactionPlaceHolders")]
         private InputList<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderGetArgs>? _redactionPlaceHolders;
-
-        /// <summary>
-        /// The redaction placeholder that will replace the redacted text in session. Detailed below.
-        /// </summary>
         public InputList<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderGetArgs> RedactionPlaceHolders
         {
             get => _redactionPlaceHolders ?? (_redactionPlaceHolders = new InputList<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderGetArgs>());

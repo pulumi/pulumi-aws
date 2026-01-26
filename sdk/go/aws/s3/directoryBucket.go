@@ -12,97 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon S3 Express directory bucket resource.
-//
-// ## Example Usage
-//
-// ### Availability Zone
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--usw2-az1--x-s3"),
-//				Location: &s3.DirectoryBucketLocationArgs{
-//					Name: pulumi.String("usw2-az1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Dedicated Local Zone
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewDirectoryBucket(ctx, "example_local_zone", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--usw2-xxx-lz1--x-s3"),
-//				Location: &s3.DirectoryBucketLocationArgs{
-//					Name: pulumi.String("usw2-xxx-lz1"),
-//					Type: pulumi.String("LocalZone"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 bucket using `bucket`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
-// ```
 type DirectoryBucket struct {
 	pulumi.CustomResourceState
 
-	// ARN of the bucket.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
-	DataRedundancy pulumi.StringOutput `pulumi:"dataRedundancy"`
-	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
-	// Bucket location. See Location below for more details.
-	Location DirectoryBucketLocationPtrOutput `pulumi:"location"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Bucket type. Valid values: `Directory`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Arn            pulumi.StringOutput              `pulumi:"arn"`
+	Bucket         pulumi.StringOutput              `pulumi:"bucket"`
+	DataRedundancy pulumi.StringOutput              `pulumi:"dataRedundancy"`
+	ForceDestroy   pulumi.BoolOutput                `pulumi:"forceDestroy"`
+	Location       DirectoryBucketLocationPtrOutput `pulumi:"location"`
+	Region         pulumi.StringOutput              `pulumi:"region"`
+	Tags           pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	Type           pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewDirectoryBucket registers a new resource with the given unique name, arguments, and options.
@@ -138,45 +59,27 @@ func GetDirectoryBucket(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DirectoryBucket resources.
 type directoryBucketState struct {
-	// ARN of the bucket.
-	Arn *string `pulumi:"arn"`
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
-	Bucket *string `pulumi:"bucket"`
-	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
-	DataRedundancy *string `pulumi:"dataRedundancy"`
-	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Bucket location. See Location below for more details.
-	Location *DirectoryBucketLocation `pulumi:"location"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Bucket type. Valid values: `Directory`.
-	Type *string `pulumi:"type"`
+	Arn            *string                  `pulumi:"arn"`
+	Bucket         *string                  `pulumi:"bucket"`
+	DataRedundancy *string                  `pulumi:"dataRedundancy"`
+	ForceDestroy   *bool                    `pulumi:"forceDestroy"`
+	Location       *DirectoryBucketLocation `pulumi:"location"`
+	Region         *string                  `pulumi:"region"`
+	Tags           map[string]string        `pulumi:"tags"`
+	TagsAll        map[string]string        `pulumi:"tagsAll"`
+	Type           *string                  `pulumi:"type"`
 }
 
 type DirectoryBucketState struct {
-	// ARN of the bucket.
-	Arn pulumi.StringPtrInput
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
-	Bucket pulumi.StringPtrInput
-	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
+	Arn            pulumi.StringPtrInput
+	Bucket         pulumi.StringPtrInput
 	DataRedundancy pulumi.StringPtrInput
-	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-	ForceDestroy pulumi.BoolPtrInput
-	// Bucket location. See Location below for more details.
-	Location DirectoryBucketLocationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Bucket type. Valid values: `Directory`.
-	Type pulumi.StringPtrInput
+	ForceDestroy   pulumi.BoolPtrInput
+	Location       DirectoryBucketLocationPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
+	Type           pulumi.StringPtrInput
 }
 
 func (DirectoryBucketState) ElementType() reflect.Type {
@@ -184,38 +87,24 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 }
 
 type directoryBucketArgs struct {
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
-	Bucket string `pulumi:"bucket"`
-	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
-	DataRedundancy *string `pulumi:"dataRedundancy"`
-	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Bucket location. See Location below for more details.
-	Location *DirectoryBucketLocation `pulumi:"location"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Bucket type. Valid values: `Directory`.
-	Type *string `pulumi:"type"`
+	Bucket         string                   `pulumi:"bucket"`
+	DataRedundancy *string                  `pulumi:"dataRedundancy"`
+	ForceDestroy   *bool                    `pulumi:"forceDestroy"`
+	Location       *DirectoryBucketLocation `pulumi:"location"`
+	Region         *string                  `pulumi:"region"`
+	Tags           map[string]string        `pulumi:"tags"`
+	Type           *string                  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DirectoryBucket resource.
 type DirectoryBucketArgs struct {
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
-	Bucket pulumi.StringInput
-	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
+	Bucket         pulumi.StringInput
 	DataRedundancy pulumi.StringPtrInput
-	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-	ForceDestroy pulumi.BoolPtrInput
-	// Bucket location. See Location below for more details.
-	Location DirectoryBucketLocationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Bucket type. Valid values: `Directory`.
-	Type pulumi.StringPtrInput
+	ForceDestroy   pulumi.BoolPtrInput
+	Location       DirectoryBucketLocationPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	Type           pulumi.StringPtrInput
 }
 
 func (DirectoryBucketArgs) ElementType() reflect.Type {
@@ -305,47 +194,38 @@ func (o DirectoryBucketOutput) ToDirectoryBucketOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the bucket.
 func (o DirectoryBucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 func (o DirectoryBucketOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 func (o DirectoryBucketOutput) DataRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.DataRedundancy }).(pulumi.StringOutput)
 }
 
-// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 func (o DirectoryBucketOutput) ForceDestroy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.BoolOutput { return v.ForceDestroy }).(pulumi.BoolOutput)
 }
 
-// Bucket location. See Location below for more details.
 func (o DirectoryBucketOutput) Location() DirectoryBucketLocationPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketLocationPtrOutput { return v.Location }).(DirectoryBucketLocationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DirectoryBucketOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DirectoryBucketOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DirectoryBucketOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Bucket type. Valid values: `Directory`.
 func (o DirectoryBucketOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -18,32 +18,16 @@ public final class WorkspaceConfigurationLimitsPerLabelSetArgs extends com.pulum
 
     public static final WorkspaceConfigurationLimitsPerLabelSetArgs Empty = new WorkspaceConfigurationLimitsPerLabelSetArgs();
 
-    /**
-     * Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don&#39;t match any other label set.
-     * 
-     */
     @Import(name="labelSet", required=true)
     private Output<Map<String,String>> labelSet;
 
-    /**
-     * @return Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don&#39;t match any other label set.
-     * 
-     */
     public Output<Map<String,String>> labelSet() {
         return this.labelSet;
     }
 
-    /**
-     * Configuration block for the limits to apply to the specified label set. Detailed below.
-     * 
-     */
     @Import(name="limits")
     private @Nullable Output<WorkspaceConfigurationLimitsPerLabelSetLimitsArgs> limits;
 
-    /**
-     * @return Configuration block for the limits to apply to the specified label set. Detailed below.
-     * 
-     */
     public Optional<Output<WorkspaceConfigurationLimitsPerLabelSetLimitsArgs>> limits() {
         return Optional.ofNullable(this.limits);
     }
@@ -73,44 +57,20 @@ public final class WorkspaceConfigurationLimitsPerLabelSetArgs extends com.pulum
             $ = new WorkspaceConfigurationLimitsPerLabelSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param labelSet Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don&#39;t match any other label set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelSet(Output<Map<String,String>> labelSet) {
             $.labelSet = labelSet;
             return this;
         }
 
-        /**
-         * @param labelSet Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don&#39;t match any other label set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelSet(Map<String,String> labelSet) {
             return labelSet(Output.of(labelSet));
         }
 
-        /**
-         * @param limits Configuration block for the limits to apply to the specified label set. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limits(@Nullable Output<WorkspaceConfigurationLimitsPerLabelSetLimitsArgs> limits) {
             $.limits = limits;
             return this;
         }
 
-        /**
-         * @param limits Configuration block for the limits to apply to the specified label set. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limits(WorkspaceConfigurationLimitsPerLabelSetLimitsArgs limits) {
             return limits(Output.of(limits));
         }

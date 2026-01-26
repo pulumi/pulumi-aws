@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PipelineParallelismConfiguration {
-    /**
-     * @return The max number of steps that can be executed in parallel.
-     * 
-     */
     private Integer maxParallelExecutionSteps;
 
     private PipelineParallelismConfiguration() {}
-    /**
-     * @return The max number of steps that can be executed in parallel.
-     * 
-     */
     public Integer maxParallelExecutionSteps() {
         return this.maxParallelExecutionSteps;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceDataDatabase
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// Name of the table.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

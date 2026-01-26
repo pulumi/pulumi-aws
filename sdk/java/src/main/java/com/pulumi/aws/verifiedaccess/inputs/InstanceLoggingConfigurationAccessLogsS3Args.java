@@ -17,62 +17,30 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
 
     public static final InstanceLoggingConfigurationAccessLogsS3Args Empty = new InstanceLoggingConfigurationAccessLogsS3Args();
 
-    /**
-     * The name of S3 bucket.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return The name of S3 bucket.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * The ID of the AWS account that owns the Amazon S3 bucket.
-     * 
-     */
     @Import(name="bucketOwner")
     private @Nullable Output<String> bucketOwner;
 
-    /**
-     * @return The ID of the AWS account that owns the Amazon S3 bucket.
-     * 
-     */
     public Optional<Output<String>> bucketOwner() {
         return Optional.ofNullable(this.bucketOwner);
     }
 
-    /**
-     * Indicates whether logging is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether logging is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * The bucket prefix.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return The bucket prefix.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -104,86 +72,38 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
             $ = new InstanceLoggingConfigurationAccessLogsS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName The name of S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName The name of S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketOwner The ID of the AWS account that owns the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwner(@Nullable Output<String> bucketOwner) {
             $.bucketOwner = bucketOwner;
             return this;
         }
 
-        /**
-         * @param bucketOwner The ID of the AWS account that owns the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwner(String bucketOwner) {
             return bucketOwner(Output.of(bucketOwner));
         }
 
-        /**
-         * @param enabled Indicates whether logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param prefix The bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

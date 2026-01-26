@@ -12,101 +12,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentRuleLocation {
-    /**
-     * @return Value of a continent.
-     * 
-     */
     private @Nullable String continent;
-    /**
-     * @return Value of a country.
-     * 
-     */
     private @Nullable String country;
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     private @Nullable String endpointReference;
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     private @Nullable Boolean evaluateTargetHealth;
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     private @Nullable String healthCheck;
-    /**
-     * @return Indicates whether this set of values represents the default location.
-     * 
-     */
     private @Nullable Boolean isDefault;
-    /**
-     * @return References to a rule.
-     * 
-     */
     private @Nullable String ruleReference;
-    /**
-     * @return Value of a subdivision.
-     * 
-     */
     private @Nullable String subdivision;
 
     private GetTrafficPolicyDocumentRuleLocation() {}
-    /**
-     * @return Value of a continent.
-     * 
-     */
     public Optional<String> continent() {
         return Optional.ofNullable(this.continent);
     }
-    /**
-     * @return Value of a country.
-     * 
-     */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
     }
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
-    /**
-     * @return Indicates whether this set of values represents the default location.
-     * 
-     */
     public Optional<Boolean> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }
-    /**
-     * @return Value of a subdivision.
-     * 
-     */
     public Optional<String> subdivision() {
         return Optional.ofNullable(this.subdivision);
     }

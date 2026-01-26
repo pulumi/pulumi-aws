@@ -9,63 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages a Network Manager transit gateway Connect peer association. Associates a transit gateway Connect peer with a device, and optionally, with a link. If you specify a link, it must be associated with the specified device.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.TransitGatewayConnectPeerAssociation("example", new()
-    ///     {
-    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
-    ///         DeviceId = exampleAwsNetworkmanagerDevice.Id,
-    ///         TransitGatewayConnectPeerArn = exampleAwsEc2TransitGatewayConnectPeer.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_connect_peer_association` using the global network ID and Connect peer ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")]
     public partial class TransitGatewayConnectPeerAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the link.
-        /// </summary>
         [Output("linkId")]
         public Output<string?> LinkId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Connect peer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("transitGatewayConnectPeerArn")]
         public Output<string> TransitGatewayConnectPeerArn { get; private set; } = null!;
 
@@ -115,29 +70,15 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayConnectPeerAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the link.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
-        /// <summary>
-        /// ARN of the Connect peer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transitGatewayConnectPeerArn", required: true)]
         public Input<string> TransitGatewayConnectPeerArn { get; set; } = null!;
 
@@ -149,29 +90,15 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayConnectPeerAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// ID of the link.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
-        /// <summary>
-        /// ARN of the Connect peer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transitGatewayConnectPeerArn")]
         public Input<string>? TransitGatewayConnectPeerArn { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourcePermission
     {
-        /// <summary>
-        /// Set of IAM actions to grant or revoke permissions on. Max of 16 items.
-        /// </summary>
         public readonly ImmutableArray<string> Actions;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the principal.
-        /// </summary>
         public readonly string Principal;
 
         [OutputConstructor]

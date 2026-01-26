@@ -14,34 +14,21 @@ namespace Pulumi.Aws.AppMesh.Inputs
     {
         [Input("metadatas")]
         private InputList<Inputs.RouteSpecGrpcRouteMatchMetadataArgs>? _metadatas;
-
-        /// <summary>
-        /// Data to match from the gRPC request.
-        /// </summary>
         public InputList<Inputs.RouteSpecGrpcRouteMatchMetadataArgs> Metadatas
         {
             get => _metadatas ?? (_metadatas = new InputList<Inputs.RouteSpecGrpcRouteMatchMetadataArgs>());
             set => _metadatas = value;
         }
 
-        /// <summary>
-        /// Method name to match from the request. If you specify a name, you must also specify a `ServiceName`.
-        /// </summary>
         [Input("methodName")]
         public Input<string>? MethodName { get; set; }
 
-        /// <summary>
-        /// The port number to match from the request.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
-        /// <summary>
-        /// Fully qualified domain name for the service to match from the request.
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 

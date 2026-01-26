@@ -13,25 +13,10 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetGroupsGroupResult
     {
-        /// <summary>
-        /// Description of the specified group.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Group's display name.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// List of identifiers issued to this resource by an external identity provider.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupsGroupExternalIdResult> ExternalIds;
-        /// <summary>
-        /// Identifier of the group in the Identity Store.
-        /// </summary>
         public readonly string GroupId;
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On (SSO) Instance.
-        /// </summary>
         public readonly string IdentityStoreId;
 
         [OutputConstructor]

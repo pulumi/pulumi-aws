@@ -19,419 +19,113 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail container service. Use this resource to create and manage a scalable compute and networking platform for deploying, running, and managing containerized applications in Lightsail.
- * 
- * &gt; **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services, see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
- * 
- * &gt; **NOTE:** You must create and validate an SSL/TLS certificate before you can use `publicDomainNames` with your container service. For more information, see [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.ContainerService;
- * import com.pulumi.aws.lightsail.ContainerServiceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContainerService("example", ContainerServiceArgs.builder()
- *             .name("container-service-1")
- *             .power("nano")
- *             .scale(1)
- *             .isDisabled(false)
- *             .tags(Map.ofEntries(
- *                 Map.entry("foo1", "bar1"),
- *                 Map.entry("foo2", "")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Public Domain Names
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.ContainerService;
- * import com.pulumi.aws.lightsail.ContainerServiceArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServicePublicDomainNamesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContainerService("example", ContainerServiceArgs.builder()
- *             .publicDomainNames(ContainerServicePublicDomainNamesArgs.builder()
- *                 .certificates(ContainerServicePublicDomainNamesCertificateArgs.builder()
- *                     .certificateName("example-certificate")
- *                     .domainNames("www.example.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Private Registry Access
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.ContainerService;
- * import com.pulumi.aws.lightsail.ContainerServiceArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.ecr.RepositoryPolicy;
- * import com.pulumi.aws.ecr.RepositoryPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleContainerService = new ContainerService("exampleContainerService", ContainerServiceArgs.builder()
- *             .privateRegistryAccess(ContainerServicePrivateRegistryAccessArgs.builder()
- *                 .ecrImagePullerRole(ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs.builder()
- *                     .isActive(true)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         final var example = exampleContainerService.privateRegistryAccess().applyValue(_privateRegistryAccess -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers(_privateRegistryAccess.ecrImagePullerRole().principalArn())
- *                     .build())
- *                 .actions(                
- *                     "ecr:BatchGetImage",
- *                     "ecr:GetDownloadUrlForLayer")
- *                 .build())
- *             .build()));
- * 
- *         var exampleRepositoryPolicy = new RepositoryPolicy("exampleRepositoryPolicy", RepositoryPolicyArgs.builder()
- *             .repository(exampleAwsEcrRepository.name())
- *             .policy(example.applyValue(_example -> _example.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/containerService:ContainerService example container-service-1
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/containerService:ContainerService")
 public class ContainerService extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the container service.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the container service.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Availability Zone. Follows the format us-east-2a (case-sensitive).
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
-    /**
-     * @return Availability Zone. Follows the format us-east-2a (case-sensitive).
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * Date and time when the container service was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Date and time when the container service was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Whether to disable the container service. Defaults to `false`.
-     * 
-     */
     @Export(name="isDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isDisabled;
 
-    /**
-     * @return Whether to disable the container service. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> isDisabled() {
         return Codegen.optional(this.isDisabled);
     }
-    /**
-     * Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-     * 
-     */
     @Export(name="power", refs={String.class}, tree="[0]")
     private Output<String> power;
 
-    /**
-     * @return Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-     * 
-     */
     public Output<String> power() {
         return this.power;
     }
-    /**
-     * Power ID of the container service.
-     * 
-     */
     @Export(name="powerId", refs={String.class}, tree="[0]")
     private Output<String> powerId;
 
-    /**
-     * @return Power ID of the container service.
-     * 
-     */
     public Output<String> powerId() {
         return this.powerId;
     }
-    /**
-     * Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-     * 
-     */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
-    /**
-     * @return Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-     * 
-     */
     public Output<String> principalArn() {
         return this.principalArn;
     }
-    /**
-     * Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-     * 
-     */
     @Export(name="privateDomainName", refs={String.class}, tree="[0]")
     private Output<String> privateDomainName;
 
-    /**
-     * @return Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-     * 
-     */
     public Output<String> privateDomainName() {
         return this.privateDomainName;
     }
-    /**
-     * Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-     * 
-     */
     @Export(name="privateRegistryAccess", refs={ContainerServicePrivateRegistryAccess.class}, tree="[0]")
     private Output<ContainerServicePrivateRegistryAccess> privateRegistryAccess;
 
-    /**
-     * @return Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-     * 
-     */
     public Output<ContainerServicePrivateRegistryAccess> privateRegistryAccess() {
         return this.privateRegistryAccess;
     }
-    /**
-     * Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
-     * 
-     */
     @Export(name="publicDomainNames", refs={ContainerServicePublicDomainNames.class}, tree="[0]")
     private Output</* @Nullable */ ContainerServicePublicDomainNames> publicDomainNames;
 
-    /**
-     * @return Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
-     * 
-     */
     public Output<Optional<ContainerServicePublicDomainNames>> publicDomainNames() {
         return Codegen.optional(this.publicDomainNames);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Lightsail resource type of the container service (i.e., ContainerService).
-     * 
-     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
-    /**
-     * @return Lightsail resource type of the container service (i.e., ContainerService).
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
-    /**
-     * Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="scale", refs={Integer.class}, tree="[0]")
     private Output<Integer> scale;
 
-    /**
-     * @return Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> scale() {
         return this.scale;
     }
-    /**
-     * Current state of the container service.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return Current state of the container service.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
-     * 
-     */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
-    /**
-     * @return Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
 
     public sealed class ResponsePlanActionSsmAutomationParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of parameter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The values for the associated parameter name.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

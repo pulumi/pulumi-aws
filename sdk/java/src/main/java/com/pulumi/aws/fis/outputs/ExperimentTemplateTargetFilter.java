@@ -11,33 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateTargetFilter {
-    /**
-     * @return Attribute path for the filter.
-     * 
-     */
     private String path;
-    /**
-     * @return Set of attribute values for the filter.
-     * 
-     * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
-     * 
-     */
     private List<String> values;
 
     private ExperimentTemplateTargetFilter() {}
-    /**
-     * @return Attribute path for the filter.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return Set of attribute values for the filter.
-     * 
-     * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

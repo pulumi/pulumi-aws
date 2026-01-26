@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAssociationSubDomain {
-    /**
-     * @return Branch name setting for the subdomain.
-     * 
-     */
     private String branchName;
-    /**
-     * @return DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
-     * 
-     */
     private @Nullable String dnsRecord;
-    /**
-     * @return Prefix setting for the subdomain.
-     * 
-     */
     private String prefix;
-    /**
-     * @return Verified status of the subdomain.
-     * 
-     */
     private @Nullable Boolean verified;
 
     private DomainAssociationSubDomain() {}
-    /**
-     * @return Branch name setting for the subdomain.
-     * 
-     */
     public String branchName() {
         return this.branchName;
     }
-    /**
-     * @return DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
-     * 
-     */
     public Optional<String> dnsRecord() {
         return Optional.ofNullable(this.dnsRecord);
     }
-    /**
-     * @return Prefix setting for the subdomain.
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }
-    /**
-     * @return Verified status of the subdomain.
-     * 
-     */
     public Optional<Boolean> verified() {
         return Optional.ofNullable(this.verified);
     }

@@ -10,73 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPortfolioConstraintsDetail {
-    /**
-     * @return Identifier of the constraint.
-     * 
-     */
     private String constraintId;
-    /**
-     * @return Description of the constraint.
-     * 
-     */
     private String description;
     private String owner;
-    /**
-     * @return Portfolio identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String portfolioId;
-    /**
-     * @return Product identifier.
-     * 
-     */
     private String productId;
-    /**
-     * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-     * 
-     */
     private String type;
 
     private GetPortfolioConstraintsDetail() {}
-    /**
-     * @return Identifier of the constraint.
-     * 
-     */
     public String constraintId() {
         return this.constraintId;
     }
-    /**
-     * @return Description of the constraint.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Portfolio identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String portfolioId() {
         return this.portfolioId;
     }
-    /**
-     * @return Product identifier.
-     * 
-     */
     public String productId() {
         return this.productId;
     }
-    /**
-     * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

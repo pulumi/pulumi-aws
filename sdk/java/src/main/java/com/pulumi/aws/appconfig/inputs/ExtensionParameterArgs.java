@@ -17,47 +17,23 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
 
     public static final ExtensionParameterArgs Empty = new ExtensionParameterArgs();
 
-    /**
-     * Information about the parameter.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Information about the parameter.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The parameter name.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The parameter name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Determines if a parameter value must be specified in the extension association.
-     * 
-     */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
-    /**
-     * @return Determines if a parameter value must be specified in the extension association.
-     * 
-     */
     public Optional<Output<Boolean>> required() {
         return Optional.ofNullable(this.required);
     }
@@ -88,65 +64,29 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
             $ = new ExtensionParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Information about the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Information about the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param required Determines if a parameter value must be specified in the extension association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(@Nullable Output<Boolean> required) {
             $.required = required;
             return this;
         }
 
-        /**
-         * @param required Determines if a parameter value must be specified in the extension association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(Boolean required) {
             return required(Output.of(required));
         }

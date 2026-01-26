@@ -68,25 +68,16 @@ class GetWorkgroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetWorkgroupEndpointResult']:
-        """
-        The endpoint that is created from the workgroup. See `Endpoint` below.
-        """
         return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> _builtins.bool:
-        """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @_builtins.property
@@ -105,9 +96,6 @@ class GetWorkgroupResult:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> _builtins.bool:
-        """
-        A value that specifies whether the workgroup can be accessed from a public network.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
@@ -118,33 +106,21 @@ class GetWorkgroupResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        An array of security group IDs to associate with the workgroup.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="trackName")
     def track_name(self) -> _builtins.str:
-        """
-        The name of the track for the workgroup.
-        """
         return pulumi.get(self, "track_name")
 
     @_builtins.property
     @pulumi.getter(name="workgroupId")
     def workgroup_id(self) -> _builtins.str:
-        """
-        The Redshift Workgroup ID.
-        """
         return pulumi.get(self, "workgroup_id")
 
     @_builtins.property
@@ -177,22 +153,7 @@ def get_workgroup(region: Optional[_builtins.str] = None,
                   workgroup_name: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkgroupResult:
     """
-    Data source for managing an AWS Redshift Serverless Workgroup.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str workgroup_name: The name of the workgroup associated with the database.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -217,22 +178,7 @@ def get_workgroup_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
                          workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkgroupResult]:
     """
-    Data source for managing an AWS Redshift Serverless Workgroup.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str workgroup_name: The name of the workgroup associated with the database.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

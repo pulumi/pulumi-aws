@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionUrlCors {
-    /**
-     * @return Whether to allow cookies or other credentials in requests to the function URL.
-     * 
-     */
     private @Nullable Boolean allowCredentials;
-    /**
-     * @return HTTP headers that origins can include in requests to the function URL.
-     * 
-     */
     private @Nullable List<String> allowHeaders;
-    /**
-     * @return HTTP methods that are allowed when calling the function URL.
-     * 
-     */
     private @Nullable List<String> allowMethods;
-    /**
-     * @return Origins that can access the function URL.
-     * 
-     */
     private @Nullable List<String> allowOrigins;
-    /**
-     * @return HTTP headers in your function response that you want to expose to origins that call the function URL.
-     * 
-     */
     private @Nullable List<String> exposeHeaders;
-    /**
-     * @return Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-     * 
-     */
     private @Nullable Integer maxAge;
 
     private FunctionUrlCors() {}
-    /**
-     * @return Whether to allow cookies or other credentials in requests to the function URL.
-     * 
-     */
     public Optional<Boolean> allowCredentials() {
         return Optional.ofNullable(this.allowCredentials);
     }
-    /**
-     * @return HTTP headers that origins can include in requests to the function URL.
-     * 
-     */
     public List<String> allowHeaders() {
         return this.allowHeaders == null ? List.of() : this.allowHeaders;
     }
-    /**
-     * @return HTTP methods that are allowed when calling the function URL.
-     * 
-     */
     public List<String> allowMethods() {
         return this.allowMethods == null ? List.of() : this.allowMethods;
     }
-    /**
-     * @return Origins that can access the function URL.
-     * 
-     */
     public List<String> allowOrigins() {
         return this.allowOrigins == null ? List.of() : this.allowOrigins;
     }
-    /**
-     * @return HTTP headers in your function response that you want to expose to origins that call the function URL.
-     * 
-     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
-    /**
-     * @return Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-     * 
-     */
     public Optional<Integer> maxAge() {
         return Optional.ofNullable(this.maxAge);
     }

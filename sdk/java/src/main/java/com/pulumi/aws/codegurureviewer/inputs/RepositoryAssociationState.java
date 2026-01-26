@@ -20,141 +20,65 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
 
     public static final RepositoryAssociationState Empty = new RepositoryAssociationState();
 
-    /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) identifying the repository association.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The ID of the repository association.
-     * 
-     */
     @Import(name="associationId")
     private @Nullable Output<String> associationId;
 
-    /**
-     * @return The ID of the repository association.
-     * 
-     */
     public Optional<Output<String>> associationId() {
         return Optional.ofNullable(this.associationId);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     @Import(name="connectionArn")
     private @Nullable Output<String> connectionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     public Optional<Output<String>> connectionArn() {
         return Optional.ofNullable(this.connectionArn);
     }
 
-    /**
-     * An object describing the KMS key to asssociate. Block is documented below.
-     * 
-     */
     @Import(name="kmsKeyDetails")
     private @Nullable Output<RepositoryAssociationKmsKeyDetailsArgs> kmsKeyDetails;
 
-    /**
-     * @return An object describing the KMS key to asssociate. Block is documented below.
-     * 
-     */
     public Optional<Output<RepositoryAssociationKmsKeyDetailsArgs>> kmsKeyDetails() {
         return Optional.ofNullable(this.kmsKeyDetails);
     }
 
-    /**
-     * The name of the repository.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the repository.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The owner of the repository.
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return The owner of the repository.
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * The provider type of the repository association.
-     * 
-     */
     @Import(name="providerType")
     private @Nullable Output<String> providerType;
 
-    /**
-     * @return The provider type of the repository association.
-     * 
-     */
     public Optional<Output<String>> providerType() {
         return Optional.ofNullable(this.providerType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<RepositoryAssociationRepositoryArgs> repository;
 
-    /**
-     * @return An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<RepositoryAssociationRepositoryArgs>> repository() {
         return Optional.ofNullable(this.repository);
     }
@@ -166,32 +90,16 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.s3RepositoryDetails);
     }
 
-    /**
-     * The state of the repository association.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The state of the repository association.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * A description of why the repository association is in the current state.
-     * 
-     */
     @Import(name="stateReason")
     private @Nullable Output<String> stateReason;
 
-    /**
-     * @return A description of why the repository association is in the current state.
-     * 
-     */
     public Optional<Output<String>> stateReason() {
         return Optional.ofNullable(this.stateReason);
     }
@@ -247,195 +155,83 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
             $ = new RepositoryAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) identifying the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) identifying the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param associationId The ID of the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationId(@Nullable Output<String> associationId) {
             $.associationId = associationId;
             return this;
         }
 
-        /**
-         * @param associationId The ID of the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationId(String associationId) {
             return associationId(Output.of(associationId));
         }
 
-        /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionArn(@Nullable Output<String> connectionArn) {
             $.connectionArn = connectionArn;
             return this;
         }
 
-        /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionArn(String connectionArn) {
             return connectionArn(Output.of(connectionArn));
         }
 
-        /**
-         * @param kmsKeyDetails An object describing the KMS key to asssociate. Block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyDetails(@Nullable Output<RepositoryAssociationKmsKeyDetailsArgs> kmsKeyDetails) {
             $.kmsKeyDetails = kmsKeyDetails;
             return this;
         }
 
-        /**
-         * @param kmsKeyDetails An object describing the KMS key to asssociate. Block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyDetails(RepositoryAssociationKmsKeyDetailsArgs kmsKeyDetails) {
             return kmsKeyDetails(Output.of(kmsKeyDetails));
         }
 
-        /**
-         * @param name The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param owner The owner of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner The owner of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param providerType The provider type of the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(@Nullable Output<String> providerType) {
             $.providerType = providerType;
             return this;
         }
 
-        /**
-         * @param providerType The provider type of the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param repository An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<RepositoryAssociationRepositoryArgs> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(RepositoryAssociationRepositoryArgs repository) {
             return repository(Output.of(repository));
         }
@@ -453,44 +249,20 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
             return s3RepositoryDetails(List.of(s3RepositoryDetails));
         }
 
-        /**
-         * @param state The state of the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The state of the repository association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param stateReason A description of why the repository association is in the current state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateReason(@Nullable Output<String> stateReason) {
             $.stateReason = stateReason;
             return this;
         }
 
-        /**
-         * @param stateReason A description of why the repository association is in the current state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateReason(String stateReason) {
             return stateReason(Output.of(stateReason));
         }

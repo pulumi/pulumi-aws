@@ -40,27 +40,6 @@ class ClusterInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections. Defaults to `8182`.
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "instance_class", instance_class)
@@ -102,9 +81,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the `neptune.Cluster` in which to launch this instance.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -114,9 +90,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="instanceClass")
     def instance_class(self) -> pulumi.Input[_builtins.str]:
-        """
-        The instance class to use.
-        """
         return pulumi.get(self, "instance_class")
 
     @instance_class.setter
@@ -126,10 +99,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any instance modifications
-        are applied immediately, or during the next maintenance window. Default is`false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -139,9 +108,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
@@ -151,9 +117,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The EC2 Availability Zone that the neptune instance is created in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -163,9 +126,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -175,9 +135,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The neptune engine version. Currently configuring this argumnet has no effect.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -187,9 +144,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -199,9 +153,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @identifier_prefix.setter
@@ -211,9 +162,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="neptuneParameterGroupName")
     def neptune_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the neptune parameter group to associate with this instance.
-        """
         return pulumi.get(self, "neptune_parameter_group_name")
 
     @neptune_parameter_group_name.setter
@@ -223,9 +171,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
-        """
         return pulumi.get(self, "neptune_subnet_group_name")
 
     @neptune_subnet_group_name.setter
@@ -235,9 +180,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port on which the DB accepts connections. Defaults to `8182`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -247,9 +189,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -259,10 +198,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -272,9 +207,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        """
         return pulumi.get(self, "promotion_tier")
 
     @promotion_tier.setter
@@ -284,9 +216,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Bool to control if instance is publicly accessible. Default is `false`.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -296,9 +225,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -308,9 +234,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines whether a final DB snapshot is created before the DB instance is deleted.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -320,9 +243,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -363,36 +283,6 @@ class _ClusterInstanceState:
                  writer: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ClusterInstance resources.
-        :param pulumi.Input[_builtins.str] address: The hostname of the instance. See also `endpoint` and `port`.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of neptune instance
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.str] dbi_resource_id: The region-unique, immutable identifier for the neptune instance.
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint in `address:port` format.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key if one is set to the neptune cluster.
-        :param pulumi.Input[_builtins.str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections. Defaults to `8182`.
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the neptune cluster is encrypted.
-        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -454,9 +344,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The hostname of the instance. See also `endpoint` and `port`.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -466,10 +353,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any instance modifications
-        are applied immediately, or during the next maintenance window. Default is`false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -479,9 +362,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of neptune instance
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -491,9 +371,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
@@ -503,9 +380,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The EC2 Availability Zone that the neptune instance is created in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -515,9 +389,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the `neptune.Cluster` in which to launch this instance.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -527,9 +398,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="dbiResourceId")
     def dbi_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region-unique, immutable identifier for the neptune instance.
-        """
         return pulumi.get(self, "dbi_resource_id")
 
     @dbi_resource_id.setter
@@ -539,9 +407,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The connection endpoint in `address:port` format.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -551,9 +416,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -563,9 +425,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The neptune engine version. Currently configuring this argumnet has no effect.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -575,9 +434,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -587,9 +443,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @identifier_prefix.setter
@@ -599,9 +452,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceClass")
     def instance_class(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The instance class to use.
-        """
         return pulumi.get(self, "instance_class")
 
     @instance_class.setter
@@ -611,9 +461,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for the KMS encryption key if one is set to the neptune cluster.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -623,9 +470,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="neptuneParameterGroupName")
     def neptune_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the neptune parameter group to associate with this instance.
-        """
         return pulumi.get(self, "neptune_parameter_group_name")
 
     @neptune_parameter_group_name.setter
@@ -635,9 +479,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
-        """
         return pulumi.get(self, "neptune_subnet_group_name")
 
     @neptune_subnet_group_name.setter
@@ -647,9 +488,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port on which the DB accepts connections. Defaults to `8182`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -659,9 +497,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -671,10 +506,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -684,9 +515,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        """
         return pulumi.get(self, "promotion_tier")
 
     @promotion_tier.setter
@@ -696,9 +524,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Bool to control if instance is publicly accessible. Default is `false`.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -708,9 +533,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -720,9 +542,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines whether a final DB snapshot is created before the DB instance is deleted.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -732,9 +551,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the neptune cluster is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -744,9 +560,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Storage type associated with the cluster `standard/iopt1`.
-        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -756,9 +569,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -768,9 +578,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -780,9 +587,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def writer(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-        """
         return pulumi.get(self, "writer")
 
     @writer.setter
@@ -817,67 +621,9 @@ class ClusterInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
-
-        You can simply add neptune instances and Neptune manages the replication. You can use the count
-        meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
-
-        ## Example Usage
-
-        The following example will create a neptune cluster with two neptune instances(one writer and one reader).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.neptune.Cluster("default",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
-            backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True,
-            iam_database_authentication_enabled=True,
-            apply_immediately=True)
-        example = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.neptune.ClusterInstance(f"example-{range['value']}",
-                cluster_identifier=default.id,
-                engine="neptune",
-                instance_class="db.r4.large",
-                apply_immediately=True))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
-
-        ```sh
-        $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
-        ```
-
+        Create a ClusterInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
-        :param pulumi.Input[_builtins.str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections. Defaults to `8182`.
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -886,44 +632,7 @@ class ClusterInstance(pulumi.CustomResource):
                  args: ClusterInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
-
-        You can simply add neptune instances and Neptune manages the replication. You can use the count
-        meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
-
-        ## Example Usage
-
-        The following example will create a neptune cluster with two neptune instances(one writer and one reader).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.neptune.Cluster("default",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
-            backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True,
-            iam_database_authentication_enabled=True,
-            apply_immediately=True)
-        example = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.neptune.ClusterInstance(f"example-{range['value']}",
-                cluster_identifier=default.id,
-                engine="neptune",
-                instance_class="db.r4.large",
-                apply_immediately=True))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
-
-        ```sh
-        $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
-        ```
-
+        Create a ClusterInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1044,36 +753,6 @@ class ClusterInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address: The hostname of the instance. See also `endpoint` and `port`.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of neptune instance
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.str] dbi_resource_id: The region-unique, immutable identifier for the neptune instance.
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint in `address:port` format.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key if one is set to the neptune cluster.
-        :param pulumi.Input[_builtins.str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections. Defaults to `8182`.
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB instance is deleted.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the neptune cluster is encrypted.
-        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1112,226 +791,140 @@ class ClusterInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[_builtins.str]:
-        """
-        The hostname of the instance. See also `endpoint` and `port`.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies whether any instance modifications
-        are applied immediately, or during the next maintenance window. Default is`false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of neptune instance
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        The EC2 Availability Zone that the neptune instance is created in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the `neptune.Cluster` in which to launch this instance.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="dbiResourceId")
     def dbi_resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The region-unique, immutable identifier for the neptune instance.
-        """
         return pulumi.get(self, "dbi_resource_id")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The connection endpoint in `address:port` format.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The neptune engine version. Currently configuring this argumnet has no effect.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @_builtins.property
     @pulumi.getter(name="instanceClass")
     def instance_class(self) -> pulumi.Output[_builtins.str]:
-        """
-        The instance class to use.
-        """
         return pulumi.get(self, "instance_class")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN for the KMS encryption key if one is set to the neptune cluster.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="neptuneParameterGroupName")
     def neptune_parameter_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the neptune parameter group to associate with this instance.
-        """
         return pulumi.get(self, "neptune_parameter_group_name")
 
     @_builtins.property
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
-        """
         return pulumi.get(self, "neptune_subnet_group_name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The port on which the DB accepts connections. Defaults to `8182`.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        """
         return pulumi.get(self, "promotion_tier")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Bool to control if instance is publicly accessible. Default is `false`.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Determines whether a final DB snapshot is created before the DB instance is deleted.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies whether the neptune cluster is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Storage type associated with the cluster `standard/iopt1`.
-        """
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def writer(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-        """
         return pulumi.get(self, "writer")
 

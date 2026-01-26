@@ -20,107 +20,51 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
 
     public static final GetTaskExecutionOverridesContainerOverrideArgs Empty = new GetTaskExecutionOverridesContainerOverrideArgs();
 
-    /**
-     * The command to send to the container that overrides the default command from the Docker image or the task definition.
-     * 
-     */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
-    /**
-     * @return The command to send to the container that overrides the default command from the Docker image or the task definition.
-     * 
-     */
     public Optional<Output<List<String>>> commands() {
         return Optional.ofNullable(this.commands);
     }
 
-    /**
-     * The number of cpu units reserved for the container, instead of the default value from the task definition.
-     * 
-     */
     @Import(name="cpu")
     private @Nullable Output<Integer> cpu;
 
-    /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition.
-     * 
-     */
     public Optional<Output<Integer>> cpu() {
         return Optional.ofNullable(this.cpu);
     }
 
-    /**
-     * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-     * 
-     */
     @Import(name="environments")
     private @Nullable Output<List<GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>> environments;
 
-    /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-     * 
-     */
     public Optional<Output<List<GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>>> environments() {
         return Optional.ofNullable(this.environments);
     }
 
-    /**
-     * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-     * 
-     */
     @Import(name="memory")
     private @Nullable Output<Integer> memory;
 
-    /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-     * 
-     */
     public Optional<Output<Integer>> memory() {
         return Optional.ofNullable(this.memory);
     }
 
-    /**
-     * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-     * 
-     */
     @Import(name="memoryReservation")
     private @Nullable Output<Integer> memoryReservation;
 
-    /**
-     * @return The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-     * 
-     */
     public Optional<Output<Integer>> memoryReservation() {
         return Optional.ofNullable(this.memoryReservation);
     }
 
-    /**
-     * The name of the container that receives the override. This parameter is required if any override is specified.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the container that receives the override. This parameter is required if any override is specified.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-     * 
-     */
     @Import(name="resourceRequirements")
     private @Nullable Output<List<GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>> resourceRequirements;
 
-    /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-     * 
-     */
     public Optional<Output<List<GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>>> resourceRequirements() {
         return Optional.ofNullable(this.resourceRequirements);
     }
@@ -155,179 +99,77 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
             $ = new GetTaskExecutionOverridesContainerOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(@Nullable Output<List<String>> commands) {
             $.commands = commands;
             return this;
         }
 
-        /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(List<String> commands) {
             return commands(Output.of(commands));
         }
 
-        /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
 
-        /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(@Nullable Output<Integer> cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(Integer cpu) {
             return cpu(Output.of(cpu));
         }
 
-        /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environments(@Nullable Output<List<GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>> environments) {
             $.environments = environments;
             return this;
         }
 
-        /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environments(List<GetTaskExecutionOverridesContainerOverrideEnvironmentArgs> environments) {
             return environments(Output.of(environments));
         }
 
-        /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environments(GetTaskExecutionOverridesContainerOverrideEnvironmentArgs... environments) {
             return environments(List.of(environments));
         }
 
-        /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(@Nullable Output<Integer> memory) {
             $.memory = memory;
             return this;
         }
 
-        /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(Integer memory) {
             return memory(Output.of(memory));
         }
 
-        /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryReservation(@Nullable Output<Integer> memoryReservation) {
             $.memoryReservation = memoryReservation;
             return this;
         }
 
-        /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryReservation(Integer memoryReservation) {
             return memoryReservation(Output.of(memoryReservation));
         }
 
-        /**
-         * @param name The name of the container that receives the override. This parameter is required if any override is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the container that receives the override. This parameter is required if any override is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRequirements(@Nullable Output<List<GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>> resourceRequirements) {
             $.resourceRequirements = resourceRequirements;
             return this;
         }
 
-        /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRequirements(List<GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs> resourceRequirements) {
             return resourceRequirements(Output.of(resourceRequirements));
         }
 
-        /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRequirements(GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs... resourceRequirements) {
             return resourceRequirements(List.of(resourceRequirements));
         }

@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use the `awsPrefixListEntry` resource to manage a managed prefix list entry.
- *
- * > **NOTE:** Pulumi currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten.
- *
- * > **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
- *
- * ## Example Usage
- *
- * Basic usage.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.ManagedPrefixList("example", {
- *     name: "All VPC CIDR-s",
- *     addressFamily: "IPv4",
- *     maxEntries: 5,
- *     tags: {
- *         Env: "live",
- *     },
- * });
- * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry_1", {
- *     cidr: exampleAwsVpc.cidrBlock,
- *     description: "Primary",
- *     prefixListId: example.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
- * ```
- */
 export class ManagedPrefixListEntry extends pulumi.CustomResource {
     /**
      * Get an existing ManagedPrefixListEntry resource's state with the given name, ID, and optional extra
@@ -70,21 +32,9 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedPrefixListEntry.__pulumiType;
     }
 
-    /**
-     * CIDR block of this entry.
-     */
     declare public readonly cidr: pulumi.Output<string>;
-    /**
-     * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the prefix list.
-     */
     declare public readonly prefixListId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -126,21 +76,9 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ManagedPrefixListEntry resources.
  */
 export interface ManagedPrefixListEntryState {
-    /**
-     * CIDR block of this entry.
-     */
     cidr?: pulumi.Input<string>;
-    /**
-     * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of the prefix list.
-     */
     prefixListId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -148,20 +86,8 @@ export interface ManagedPrefixListEntryState {
  * The set of arguments for constructing a ManagedPrefixListEntry resource.
  */
 export interface ManagedPrefixListEntryArgs {
-    /**
-     * CIDR block of this entry.
-     */
     cidr: pulumi.Input<string>;
-    /**
-     * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of the prefix list.
-     */
     prefixListId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

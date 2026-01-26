@@ -27,11 +27,6 @@ class IpRestrictionArgs:
                  vpc_id_restriction_rule_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpRestriction resource.
-        :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_endpoint_id_restriction_rule_map: Map of allowed VPC endpoint IDs and descriptions.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_id_restriction_rule_map: Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
         """
         pulumi.set(__self__, "enabled", enabled)
         if aws_account_id is not None:
@@ -48,9 +43,6 @@ class IpRestrictionArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether IP rules are turned on.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -69,9 +61,6 @@ class IpRestrictionArgs:
     @_builtins.property
     @pulumi.getter(name="ipRestrictionRuleMap")
     def ip_restriction_rule_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of allowed IPv4 CIDR ranges and descriptions.
-        """
         return pulumi.get(self, "ip_restriction_rule_map")
 
     @ip_restriction_rule_map.setter
@@ -81,9 +70,6 @@ class IpRestrictionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -93,9 +79,6 @@ class IpRestrictionArgs:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointIdRestrictionRuleMap")
     def vpc_endpoint_id_restriction_rule_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of allowed VPC endpoint IDs and descriptions.
-        """
         return pulumi.get(self, "vpc_endpoint_id_restriction_rule_map")
 
     @vpc_endpoint_id_restriction_rule_map.setter
@@ -105,9 +88,6 @@ class IpRestrictionArgs:
     @_builtins.property
     @pulumi.getter(name="vpcIdRestrictionRuleMap")
     def vpc_id_restriction_rule_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-        """
         return pulumi.get(self, "vpc_id_restriction_rule_map")
 
     @vpc_id_restriction_rule_map.setter
@@ -126,11 +106,6 @@ class _IpRestrictionState:
                  vpc_id_restriction_rule_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IpRestriction resources.
-        :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_endpoint_id_restriction_rule_map: Map of allowed VPC endpoint IDs and descriptions.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_id_restriction_rule_map: Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -157,9 +132,6 @@ class _IpRestrictionState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether IP rules are turned on.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -169,9 +141,6 @@ class _IpRestrictionState:
     @_builtins.property
     @pulumi.getter(name="ipRestrictionRuleMap")
     def ip_restriction_rule_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of allowed IPv4 CIDR ranges and descriptions.
-        """
         return pulumi.get(self, "ip_restriction_rule_map")
 
     @ip_restriction_rule_map.setter
@@ -181,9 +150,6 @@ class _IpRestrictionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -193,9 +159,6 @@ class _IpRestrictionState:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointIdRestrictionRuleMap")
     def vpc_endpoint_id_restriction_rule_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of allowed VPC endpoint IDs and descriptions.
-        """
         return pulumi.get(self, "vpc_endpoint_id_restriction_rule_map")
 
     @vpc_endpoint_id_restriction_rule_map.setter
@@ -205,9 +168,6 @@ class _IpRestrictionState:
     @_builtins.property
     @pulumi.getter(name="vpcIdRestrictionRuleMap")
     def vpc_id_restriction_rule_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-        """
         return pulumi.get(self, "vpc_id_restriction_rule_map")
 
     @vpc_id_restriction_rule_map.setter
@@ -229,41 +189,9 @@ class IpRestriction(pulumi.CustomResource):
                  vpc_id_restriction_rule_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages the content and status of IP rules.
-
-        > Deletion of this resource clears all IP restrictions from a QuickSight account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.IpRestriction("example",
-            enabled=True,
-            ip_restriction_rule_map={
-                "108.56.166.202/32": "Allow self",
-            },
-            vpc_id_restriction_rule_map={
-                example_aws_vpc["id"]: "Main VPC",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight IP restriction using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/ipRestriction:IpRestriction example "012345678901"
-        ```
-
+        Create a IpRestriction resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_endpoint_id_restriction_rule_map: Map of allowed VPC endpoint IDs and descriptions.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_id_restriction_rule_map: Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
         """
         ...
     @overload
@@ -272,34 +200,7 @@ class IpRestriction(pulumi.CustomResource):
                  args: IpRestrictionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the content and status of IP rules.
-
-        > Deletion of this resource clears all IP restrictions from a QuickSight account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.IpRestriction("example",
-            enabled=True,
-            ip_restriction_rule_map={
-                "108.56.166.202/32": "Allow self",
-            },
-            vpc_id_restriction_rule_map={
-                example_aws_vpc["id"]: "Main VPC",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight IP restriction using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/ipRestriction:IpRestriction example "012345678901"
-        ```
-
+        Create a IpRestriction resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IpRestrictionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,11 +262,6 @@ class IpRestriction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_endpoint_id_restriction_rule_map: Map of allowed VPC endpoint IDs and descriptions.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_id_restriction_rule_map: Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -387,40 +283,25 @@ class IpRestriction(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether IP rules are turned on.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="ipRestrictionRuleMap")
     def ip_restriction_rule_map(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of allowed IPv4 CIDR ranges and descriptions.
-        """
         return pulumi.get(self, "ip_restriction_rule_map")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointIdRestrictionRuleMap")
     def vpc_endpoint_id_restriction_rule_map(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of allowed VPC endpoint IDs and descriptions.
-        """
         return pulumi.get(self, "vpc_endpoint_id_restriction_rule_map")
 
     @_builtins.property
     @pulumi.getter(name="vpcIdRestrictionRuleMap")
     def vpc_id_restriction_rule_map(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-        """
         return pulumi.get(self, "vpc_id_restriction_rule_map")
 

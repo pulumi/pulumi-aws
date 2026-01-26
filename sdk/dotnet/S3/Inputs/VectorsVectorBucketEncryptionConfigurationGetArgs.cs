@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class VectorsVectorBucketEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `SseType` is set to `aws:kms`.
-        /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 
-        /// <summary>
-        /// Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-        /// </summary>
         [Input("sseType", required: true)]
         public Input<string> SseType { get; set; } = null!;
 

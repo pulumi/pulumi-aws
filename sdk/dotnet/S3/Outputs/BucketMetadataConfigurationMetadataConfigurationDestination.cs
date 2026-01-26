@@ -13,17 +13,8 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfigurationMetadataConfigurationDestination
     {
-        /// <summary>
-        /// ARN of the table bucket where the metadata configuration is stored.
-        /// </summary>
         public readonly string TableBucketArn;
-        /// <summary>
-        /// Type of the table bucket where the metadata configuration is stored.
-        /// </summary>
         public readonly string TableBucketType;
-        /// <summary>
-        /// Namespace in the table bucket where the metadata tables for the metadata configuration are stored.
-        /// </summary>
         public readonly string TableNamespace;
 
         [OutputConstructor]

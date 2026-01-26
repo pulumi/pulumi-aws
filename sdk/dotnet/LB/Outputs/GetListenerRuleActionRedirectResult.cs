@@ -13,29 +13,11 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionRedirectResult
     {
-        /// <summary>
-        /// The hostname.
-        /// </summary>
         public readonly string Host;
-        /// <summary>
-        /// The absolute path, starting with `/`.
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// The port.
-        /// </summary>
         public readonly string Port;
-        /// <summary>
-        /// The protocol.
-        /// </summary>
         public readonly string Protocol;
-        /// <summary>
-        /// The query parameters.
-        /// </summary>
         public readonly string Query;
-        /// <summary>
-        /// The HTTP redirect code.
-        /// </summary>
         public readonly string StatusCode;
 
         [OutputConstructor]

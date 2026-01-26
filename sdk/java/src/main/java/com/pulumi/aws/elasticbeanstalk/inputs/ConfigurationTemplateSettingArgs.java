@@ -16,17 +16,9 @@ public final class ConfigurationTemplateSettingArgs extends com.pulumi.resources
 
     public static final ConfigurationTemplateSettingArgs Empty = new ConfigurationTemplateSettingArgs();
 
-    /**
-     * A unique name for this Template.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A unique name for this Template.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -79,23 +71,11 @@ public final class ConfigurationTemplateSettingArgs extends com.pulumi.resources
             $ = new ConfigurationTemplateSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name A unique name for this Template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A unique name for this Template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

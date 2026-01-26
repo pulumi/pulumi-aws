@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment {
-    /**
-     * @return What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-     * 
-     */
     private @Nullable String fallbackBehavior;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment() {}
-    /**
-     * @return What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-     * 
-     */
     public Optional<String> fallbackBehavior() {
         return Optional.ofNullable(this.fallbackBehavior);
     }

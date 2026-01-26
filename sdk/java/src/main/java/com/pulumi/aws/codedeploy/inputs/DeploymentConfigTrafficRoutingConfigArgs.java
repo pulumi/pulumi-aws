@@ -17,47 +17,23 @@ public final class DeploymentConfigTrafficRoutingConfigArgs extends com.pulumi.r
 
     public static final DeploymentConfigTrafficRoutingConfigArgs Empty = new DeploymentConfigTrafficRoutingConfigArgs();
 
-    /**
-     * The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
-     * 
-     */
     @Import(name="timeBasedCanary")
     private @Nullable Output<DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs> timeBasedCanary;
 
-    /**
-     * @return The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
-     * 
-     */
     public Optional<Output<DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs>> timeBasedCanary() {
         return Optional.ofNullable(this.timeBasedCanary);
     }
 
-    /**
-     * The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
-     * 
-     */
     @Import(name="timeBasedLinear")
     private @Nullable Output<DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs> timeBasedLinear;
 
-    /**
-     * @return The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
-     * 
-     */
     public Optional<Output<DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs>> timeBasedLinear() {
         return Optional.ofNullable(this.timeBasedLinear);
     }
 
-    /**
-     * Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -88,65 +64,29 @@ public final class DeploymentConfigTrafficRoutingConfigArgs extends com.pulumi.r
             $ = new DeploymentConfigTrafficRoutingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param timeBasedCanary The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeBasedCanary(@Nullable Output<DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs> timeBasedCanary) {
             $.timeBasedCanary = timeBasedCanary;
             return this;
         }
 
-        /**
-         * @param timeBasedCanary The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeBasedCanary(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs timeBasedCanary) {
             return timeBasedCanary(Output.of(timeBasedCanary));
         }
 
-        /**
-         * @param timeBasedLinear The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeBasedLinear(@Nullable Output<DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs> timeBasedLinear) {
             $.timeBasedLinear = timeBasedLinear;
             return this;
         }
 
-        /**
-         * @param timeBasedLinear The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeBasedLinear(DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs timeBasedLinear) {
             return timeBasedLinear(Output.of(timeBasedLinear));
         }
 
-        /**
-         * @param type Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

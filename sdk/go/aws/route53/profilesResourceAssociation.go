@@ -12,90 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Route 53 Profiles Resource Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := route53.NewProfilesProfile(ctx, "example", &route53.ProfilesProfileArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				Cidr: "10.0.0.0/16",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
-//				Name: pulumi.String("example.com"),
-//				Vpcs: route53.ZoneVpcArray{
-//					&route53.ZoneVpcArgs{
-//						VpcId: exampleVpc.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewProfilesResourceAssociation(ctx, "example", &route53.ProfilesResourceAssociationArgs{
-//				Name:        pulumi.String("example"),
-//				ProfileId:   example.ID(),
-//				ResourceArn: exampleZone.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
-// ```
 type ProfilesResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	// Name of the Profile Resource Association.
-	Name    pulumi.StringOutput `pulumi:"name"`
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// ID of the profile associated with the VPC.
-	ProfileId pulumi.StringOutput `pulumi:"profileId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Resource ID of the resource to be associated with the profile.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Resource properties for the resource to be associated with the profile.
-	ResourceProperties pulumi.StringOutput `pulumi:"resourceProperties"`
-	// Type of resource associated with the profile.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Status message of the Profile Resource Association.
-	StatusMessage pulumi.StringOutput                          `pulumi:"statusMessage"`
-	Timeouts      ProfilesResourceAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	Name               pulumi.StringOutput                          `pulumi:"name"`
+	OwnerId            pulumi.StringOutput                          `pulumi:"ownerId"`
+	ProfileId          pulumi.StringOutput                          `pulumi:"profileId"`
+	Region             pulumi.StringOutput                          `pulumi:"region"`
+	ResourceArn        pulumi.StringOutput                          `pulumi:"resourceArn"`
+	ResourceProperties pulumi.StringOutput                          `pulumi:"resourceProperties"`
+	ResourceType       pulumi.StringOutput                          `pulumi:"resourceType"`
+	Status             pulumi.StringOutput                          `pulumi:"status"`
+	StatusMessage      pulumi.StringOutput                          `pulumi:"statusMessage"`
+	Timeouts           ProfilesResourceAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewProfilesResourceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -134,45 +63,29 @@ func GetProfilesResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfilesResourceAssociation resources.
 type profilesResourceAssociationState struct {
-	// Name of the Profile Resource Association.
-	Name    *string `pulumi:"name"`
-	OwnerId *string `pulumi:"ownerId"`
-	// ID of the profile associated with the VPC.
-	ProfileId *string `pulumi:"profileId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource ID of the resource to be associated with the profile.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// Resource properties for the resource to be associated with the profile.
-	ResourceProperties *string `pulumi:"resourceProperties"`
-	// Type of resource associated with the profile.
-	ResourceType *string `pulumi:"resourceType"`
-	// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-	Status *string `pulumi:"status"`
-	// Status message of the Profile Resource Association.
-	StatusMessage *string                              `pulumi:"statusMessage"`
-	Timeouts      *ProfilesResourceAssociationTimeouts `pulumi:"timeouts"`
+	Name               *string                              `pulumi:"name"`
+	OwnerId            *string                              `pulumi:"ownerId"`
+	ProfileId          *string                              `pulumi:"profileId"`
+	Region             *string                              `pulumi:"region"`
+	ResourceArn        *string                              `pulumi:"resourceArn"`
+	ResourceProperties *string                              `pulumi:"resourceProperties"`
+	ResourceType       *string                              `pulumi:"resourceType"`
+	Status             *string                              `pulumi:"status"`
+	StatusMessage      *string                              `pulumi:"statusMessage"`
+	Timeouts           *ProfilesResourceAssociationTimeouts `pulumi:"timeouts"`
 }
 
 type ProfilesResourceAssociationState struct {
-	// Name of the Profile Resource Association.
-	Name    pulumi.StringPtrInput
-	OwnerId pulumi.StringPtrInput
-	// ID of the profile associated with the VPC.
-	ProfileId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource ID of the resource to be associated with the profile.
-	ResourceArn pulumi.StringPtrInput
-	// Resource properties for the resource to be associated with the profile.
+	Name               pulumi.StringPtrInput
+	OwnerId            pulumi.StringPtrInput
+	ProfileId          pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	ResourceArn        pulumi.StringPtrInput
 	ResourceProperties pulumi.StringPtrInput
-	// Type of resource associated with the profile.
-	ResourceType pulumi.StringPtrInput
-	// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-	Status pulumi.StringPtrInput
-	// Status message of the Profile Resource Association.
-	StatusMessage pulumi.StringPtrInput
-	Timeouts      ProfilesResourceAssociationTimeoutsPtrInput
+	ResourceType       pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
+	StatusMessage      pulumi.StringPtrInput
+	Timeouts           ProfilesResourceAssociationTimeoutsPtrInput
 }
 
 func (ProfilesResourceAssociationState) ElementType() reflect.Type {
@@ -180,30 +93,20 @@ func (ProfilesResourceAssociationState) ElementType() reflect.Type {
 }
 
 type profilesResourceAssociationArgs struct {
-	// Name of the Profile Resource Association.
-	Name *string `pulumi:"name"`
-	// ID of the profile associated with the VPC.
-	ProfileId string `pulumi:"profileId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource ID of the resource to be associated with the profile.
-	ResourceArn string `pulumi:"resourceArn"`
-	// Resource properties for the resource to be associated with the profile.
+	Name               *string                              `pulumi:"name"`
+	ProfileId          string                               `pulumi:"profileId"`
+	Region             *string                              `pulumi:"region"`
+	ResourceArn        string                               `pulumi:"resourceArn"`
 	ResourceProperties *string                              `pulumi:"resourceProperties"`
 	Timeouts           *ProfilesResourceAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ProfilesResourceAssociation resource.
 type ProfilesResourceAssociationArgs struct {
-	// Name of the Profile Resource Association.
-	Name pulumi.StringPtrInput
-	// ID of the profile associated with the VPC.
-	ProfileId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource ID of the resource to be associated with the profile.
-	ResourceArn pulumi.StringInput
-	// Resource properties for the resource to be associated with the profile.
+	Name               pulumi.StringPtrInput
+	ProfileId          pulumi.StringInput
+	Region             pulumi.StringPtrInput
+	ResourceArn        pulumi.StringInput
 	ResourceProperties pulumi.StringPtrInput
 	Timeouts           ProfilesResourceAssociationTimeoutsPtrInput
 }
@@ -295,7 +198,6 @@ func (o ProfilesResourceAssociationOutput) ToProfilesResourceAssociationOutputWi
 	return o
 }
 
-// Name of the Profile Resource Association.
 func (o ProfilesResourceAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -304,37 +206,30 @@ func (o ProfilesResourceAssociationOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// ID of the profile associated with the VPC.
 func (o ProfilesResourceAssociationOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProfilesResourceAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Resource ID of the resource to be associated with the profile.
 func (o ProfilesResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Resource properties for the resource to be associated with the profile.
 func (o ProfilesResourceAssociationOutput) ResourceProperties() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.ResourceProperties }).(pulumi.StringOutput)
 }
 
-// Type of resource associated with the profile.
 func (o ProfilesResourceAssociationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
 func (o ProfilesResourceAssociationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Status message of the Profile Resource Association.
 func (o ProfilesResourceAssociationOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }

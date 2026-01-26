@@ -13,126 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
- * 
- * ## Example Usage
- * 
- * ### Accept cross-account request
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpointService;
- * import com.pulumi.aws.ec2.VpcEndpointServiceArgs;
- * import com.pulumi.aws.ec2.VpcEndpoint;
- * import com.pulumi.aws.ec2.VpcEndpointArgs;
- * import com.pulumi.aws.ec2.VpcEndpointConnectionAccepter;
- * import com.pulumi.aws.ec2.VpcEndpointConnectionAccepterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()
- *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(exampleAwsLb.arn())
- *             .build());
- * 
- *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
- *             .vpcId(testAlternate.id())
- *             .serviceName(testAwsVpcEndpointService.serviceName())
- *             .vpcEndpointType("Interface")
- *             .privateDnsEnabled(false)
- *             .securityGroupIds(test.id())
- *             .build());
- * 
- *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", VpcEndpointConnectionAccepterArgs.builder()
- *             .vpcEndpointServiceId(example.id())
- *             .vpcEndpointId(exampleVpcEndpoint.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")
 public class VpcEndpointConnectionAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * AWS VPC Endpoint ID.
-     * 
-     */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return AWS VPC Endpoint ID.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
-    /**
-     * AWS VPC Endpoint Service ID.
-     * 
-     */
     @Export(name="vpcEndpointServiceId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointServiceId;
 
-    /**
-     * @return AWS VPC Endpoint Service ID.
-     * 
-     */
     public Output<String> vpcEndpointServiceId() {
         return this.vpcEndpointServiceId;
     }
-    /**
-     * State of the VPC Endpoint.
-     * 
-     */
     @Export(name="vpcEndpointState", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointState;
 
-    /**
-     * @return State of the VPC Endpoint.
-     * 
-     */
     public Output<String> vpcEndpointState() {
         return this.vpcEndpointState;
     }

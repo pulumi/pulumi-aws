@@ -7,15 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Import
- *
- * Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
- * ```
- */
 export class V2modelsSlot extends pulumi.CustomResource {
     /**
      * Get an existing V2modelsSlot resource's state with the given name, ID, and optional extra
@@ -44,56 +35,17 @@ export class V2modelsSlot extends pulumi.CustomResource {
         return obj['__pulumiType'] === V2modelsSlot.__pulumiType;
     }
 
-    /**
-     * Identifier of the bot associated with the slot.
-     */
     declare public readonly botId: pulumi.Output<string>;
-    /**
-     * Version of the bot associated with the slot.
-     */
     declare public readonly botVersion: pulumi.Output<string>;
-    /**
-     * Description of the slot.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Identifier of the intent that contains the slot.
-     */
     declare public readonly intentId: pulumi.Output<string>;
-    /**
-     * Identifier of the language and locale that the slot will be used in.
-     */
     declare public readonly localeId: pulumi.Output<string>;
-    /**
-     * Whether the slot returns multiple values in one response.
-     * See the `multipleValuesSetting` argument reference below.
-     */
     declare public readonly multipleValuesSettings: pulumi.Output<outputs.lex.V2modelsSlotMultipleValuesSetting[] | undefined>;
-    /**
-     * Name of the slot.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscationSetting` argument reference below.
-     */
     declare public readonly obfuscationSettings: pulumi.Output<outputs.lex.V2modelsSlotObfuscationSetting[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Unique identifier associated with the slot.
-     */
     declare public /*out*/ readonly slotId: pulumi.Output<string>;
-    /**
-     * Unique identifier for the slot type associated with this slot.
-     */
     declare public readonly slotTypeId: pulumi.Output<string>;
-    /**
-     * Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `subSlotSetting` argument reference below.
-     */
     declare public readonly subSlotSettings: pulumi.Output<outputs.lex.V2modelsSlotSubSlotSetting[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsSlotTimeouts | undefined>;
     declare public readonly valueElicitationSetting: pulumi.Output<outputs.lex.V2modelsSlotValueElicitationSetting | undefined>;
@@ -163,56 +115,17 @@ export class V2modelsSlot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering V2modelsSlot resources.
  */
 export interface V2modelsSlotState {
-    /**
-     * Identifier of the bot associated with the slot.
-     */
     botId?: pulumi.Input<string>;
-    /**
-     * Version of the bot associated with the slot.
-     */
     botVersion?: pulumi.Input<string>;
-    /**
-     * Description of the slot.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Identifier of the intent that contains the slot.
-     */
     intentId?: pulumi.Input<string>;
-    /**
-     * Identifier of the language and locale that the slot will be used in.
-     */
     localeId?: pulumi.Input<string>;
-    /**
-     * Whether the slot returns multiple values in one response.
-     * See the `multipleValuesSetting` argument reference below.
-     */
     multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[]>;
-    /**
-     * Name of the slot.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscationSetting` argument reference below.
-     */
     obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Unique identifier associated with the slot.
-     */
     slotId?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the slot type associated with this slot.
-     */
     slotTypeId?: pulumi.Input<string>;
-    /**
-     * Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `subSlotSetting` argument reference below.
-     */
     subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
     valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
@@ -222,52 +135,16 @@ export interface V2modelsSlotState {
  * The set of arguments for constructing a V2modelsSlot resource.
  */
 export interface V2modelsSlotArgs {
-    /**
-     * Identifier of the bot associated with the slot.
-     */
     botId: pulumi.Input<string>;
-    /**
-     * Version of the bot associated with the slot.
-     */
     botVersion: pulumi.Input<string>;
-    /**
-     * Description of the slot.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Identifier of the intent that contains the slot.
-     */
     intentId: pulumi.Input<string>;
-    /**
-     * Identifier of the language and locale that the slot will be used in.
-     */
     localeId: pulumi.Input<string>;
-    /**
-     * Whether the slot returns multiple values in one response.
-     * See the `multipleValuesSetting` argument reference below.
-     */
     multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[]>;
-    /**
-     * Name of the slot.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscationSetting` argument reference below.
-     */
     obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the slot type associated with this slot.
-     */
     slotTypeId?: pulumi.Input<string>;
-    /**
-     * Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `subSlotSetting` argument reference below.
-     */
     subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
     valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;

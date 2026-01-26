@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DirectoryActiveDirectoryConfig {
-    /**
-     * @return Fully qualified domain name of the AWS Directory Service directory.
-     * 
-     */
     private String domainName;
-    /**
-     * @return ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
-     * 
-     */
     private String serviceAccountSecretArn;
 
     private DirectoryActiveDirectoryConfig() {}
-    /**
-     * @return Fully qualified domain name of the AWS Directory Service directory.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
-     * 
-     */
     public String serviceAccountSecretArn() {
         return this.serviceAccountSecretArn;
     }

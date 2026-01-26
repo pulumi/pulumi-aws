@@ -19,96 +19,44 @@ public final class BaselineArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BaselineArgs Empty = new BaselineArgs();
 
-    /**
-     * The ARN of the baseline to be enabled.
-     * 
-     */
     @Import(name="baselineIdentifier", required=true)
     private Output<String> baselineIdentifier;
 
-    /**
-     * @return The ARN of the baseline to be enabled.
-     * 
-     */
     public Output<String> baselineIdentifier() {
         return this.baselineIdentifier;
     }
 
-    /**
-     * The version of the baseline to be enabled.
-     * 
-     */
     @Import(name="baselineVersion", required=true)
     private Output<String> baselineVersion;
 
-    /**
-     * @return The version of the baseline to be enabled.
-     * 
-     */
     public Output<String> baselineVersion() {
         return this.baselineVersion;
     }
 
-    /**
-     * A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<BaselineParametersArgs> parameters;
 
-    /**
-     * @return A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-     * 
-     */
     public Optional<Output<BaselineParametersArgs>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="targetIdentifier", required=true)
     private Output<String> targetIdentifier;
 
-    /**
-     * @return The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetIdentifier() {
         return this.targetIdentifier;
     }
@@ -150,132 +98,56 @@ public final class BaselineArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BaselineArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baselineIdentifier The ARN of the baseline to be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineIdentifier(Output<String> baselineIdentifier) {
             $.baselineIdentifier = baselineIdentifier;
             return this;
         }
 
-        /**
-         * @param baselineIdentifier The ARN of the baseline to be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineIdentifier(String baselineIdentifier) {
             return baselineIdentifier(Output.of(baselineIdentifier));
         }
 
-        /**
-         * @param baselineVersion The version of the baseline to be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineVersion(Output<String> baselineVersion) {
             $.baselineVersion = baselineVersion;
             return this;
         }
 
-        /**
-         * @param baselineVersion The version of the baseline to be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineVersion(String baselineVersion) {
             return baselineVersion(Output.of(baselineVersion));
         }
 
-        /**
-         * @param parameters A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<BaselineParametersArgs> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(BaselineParametersArgs parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param targetIdentifier The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(Output<String> targetIdentifier) {
             $.targetIdentifier = targetIdentifier;
             return this;
         }
 
-        /**
-         * @param targetIdentifier The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(String targetIdentifier) {
             return targetIdentifier(Output.of(targetIdentifier));
         }

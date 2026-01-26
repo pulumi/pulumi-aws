@@ -17,47 +17,23 @@ public final class PipelineStageOnFailureArgs extends com.pulumi.resources.Resou
 
     public static final PipelineStageOnFailureArgs Empty = new PipelineStageOnFailureArgs();
 
-    /**
-     * The conditions that are failure conditions. Defined as a `condition` block below.
-     * 
-     */
     @Import(name="condition")
     private @Nullable Output<PipelineStageOnFailureConditionArgs> condition;
 
-    /**
-     * @return The conditions that are failure conditions. Defined as a `condition` block below.
-     * 
-     */
     public Optional<Output<PipelineStageOnFailureConditionArgs>> condition() {
         return Optional.ofNullable(this.condition);
     }
 
-    /**
-     * The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     @Import(name="result")
     private @Nullable Output<String> result;
 
-    /**
-     * @return The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     public Optional<Output<String>> result() {
         return Optional.ofNullable(this.result);
     }
 
-    /**
-     * The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
-     * 
-     */
     @Import(name="retryConfiguration")
     private @Nullable Output<PipelineStageOnFailureRetryConfigurationArgs> retryConfiguration;
 
-    /**
-     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
-     * 
-     */
     public Optional<Output<PipelineStageOnFailureRetryConfigurationArgs>> retryConfiguration() {
         return Optional.ofNullable(this.retryConfiguration);
     }
@@ -88,65 +64,29 @@ public final class PipelineStageOnFailureArgs extends com.pulumi.resources.Resou
             $ = new PipelineStageOnFailureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param condition The conditions that are failure conditions. Defined as a `condition` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(@Nullable Output<PipelineStageOnFailureConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
-        /**
-         * @param condition The conditions that are failure conditions. Defined as a `condition` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(PipelineStageOnFailureConditionArgs condition) {
             return condition(Output.of(condition));
         }
 
-        /**
-         * @param result The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder result(@Nullable Output<String> result) {
             $.result = result;
             return this;
         }
 
-        /**
-         * @param result The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder result(String result) {
             return result(Output.of(result));
         }
 
-        /**
-         * @param retryConfiguration The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryConfiguration(@Nullable Output<PipelineStageOnFailureRetryConfigurationArgs> retryConfiguration) {
             $.retryConfiguration = retryConfiguration;
             return this;
         }
 
-        /**
-         * @param retryConfiguration The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryConfiguration(PipelineStageOnFailureRetryConfigurationArgs retryConfiguration) {
             return retryConfiguration(Output.of(retryConfiguration));
         }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayInterceptorConfiguration
     {
-        /// <summary>
-        /// Input configuration for the interceptor. See `InputConfiguration` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayInterceptorConfigurationInputConfiguration? InputConfiguration;
-        /// <summary>
-        /// Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-        /// </summary>
         public readonly ImmutableArray<string> InterceptionPoints;
-        /// <summary>
-        /// Interceptor infrastructure configuration. See `Interceptor` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayInterceptorConfigurationInterceptor? Interceptor;
 
         [OutputConstructor]

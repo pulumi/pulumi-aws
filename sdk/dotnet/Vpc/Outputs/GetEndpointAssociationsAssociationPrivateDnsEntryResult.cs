@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Vpc.Outputs
     [OutputType]
     public sealed class GetEndpointAssociationsAssociationPrivateDnsEntryResult
     {
-        /// <summary>
-        /// DNS name.
-        /// </summary>
         public readonly string DnsName;
-        /// <summary>
-        /// ID of the private hosted zone.
-        /// </summary>
         public readonly string HostedZoneId;
 
         [OutputConstructor]

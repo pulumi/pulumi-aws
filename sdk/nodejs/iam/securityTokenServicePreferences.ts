@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an IAM Security Token Service Preferences resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.SecurityTokenServicePreferences("example", {globalEndpointTokenVersion: "v2Token"});
- * ```
- */
 export class SecurityTokenServicePreferences extends pulumi.CustomResource {
     /**
      * Get an existing SecurityTokenServicePreferences resource's state with the given name, ID, and optional extra
@@ -44,9 +32,6 @@ export class SecurityTokenServicePreferences extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityTokenServicePreferences.__pulumiType;
     }
 
-    /**
-     * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-     */
     declare public readonly globalEndpointTokenVersion: pulumi.Output<string>;
 
     /**
@@ -79,9 +64,6 @@ export class SecurityTokenServicePreferences extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityTokenServicePreferences resources.
  */
 export interface SecurityTokenServicePreferencesState {
-    /**
-     * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-     */
     globalEndpointTokenVersion?: pulumi.Input<string>;
 }
 
@@ -89,8 +71,5 @@ export interface SecurityTokenServicePreferencesState {
  * The set of arguments for constructing a SecurityTokenServicePreferences resource.
  */
 export interface SecurityTokenServicePreferencesArgs {
-    /**
-     * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-     */
     globalEndpointTokenVersion: pulumi.Input<string>;
 }

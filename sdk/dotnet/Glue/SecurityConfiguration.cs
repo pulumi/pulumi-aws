@@ -9,69 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
-    /// <summary>
-    /// Manages a Glue Security Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.SecurityConfiguration("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
-    ///         {
-    ///             CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
-    ///             {
-    ///                 CloudwatchEncryptionMode = "DISABLED",
-    ///             },
-    ///             JobBookmarksEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs
-    ///             {
-    ///                 JobBookmarksEncryptionMode = "DISABLED",
-    ///             },
-    ///             S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
-    ///             {
-    ///                 KmsKeyArn = exampleAwsKmsKey.Arn,
-    ///                 S3EncryptionMode = "SSE-KMS",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Glue Security Configurations using `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:glue/securityConfiguration:SecurityConfiguration")]
     public partial class SecurityConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block containing encryption configuration. Detailed below.
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.SecurityConfigurationEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the security configuration.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -121,21 +67,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class SecurityConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block containing encryption configuration. Detailed below.
-        /// </summary>
         [Input("encryptionConfiguration", required: true)]
         public Input<Inputs.SecurityConfigurationEncryptionConfigurationArgs> EncryptionConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the security configuration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -147,21 +84,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class SecurityConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block containing encryption configuration. Detailed below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.SecurityConfigurationEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// Name of the security configuration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -16,47 +16,23 @@ public final class EndpointConfigurationProductionVariantServerlessConfigArgs ex
 
     public static final EndpointConfigurationProductionVariantServerlessConfigArgs Empty = new EndpointConfigurationProductionVariantServerlessConfigArgs();
 
-    /**
-     * Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-     * 
-     */
     @Import(name="maxConcurrency", required=true)
     private Output<Integer> maxConcurrency;
 
-    /**
-     * @return Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-     * 
-     */
     public Output<Integer> maxConcurrency() {
         return this.maxConcurrency;
     }
 
-    /**
-     * Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-     * 
-     */
     @Import(name="memorySizeInMb", required=true)
     private Output<Integer> memorySizeInMb;
 
-    /**
-     * @return Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-     * 
-     */
     public Output<Integer> memorySizeInMb() {
         return this.memorySizeInMb;
     }
 
-    /**
-     * Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
-     * 
-     */
     @Import(name="provisionedConcurrency")
     private @Nullable Output<Integer> provisionedConcurrency;
 
-    /**
-     * @return Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
-     * 
-     */
     public Optional<Output<Integer>> provisionedConcurrency() {
         return Optional.ofNullable(this.provisionedConcurrency);
     }
@@ -87,65 +63,29 @@ public final class EndpointConfigurationProductionVariantServerlessConfigArgs ex
             $ = new EndpointConfigurationProductionVariantServerlessConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxConcurrency Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrency(Output<Integer> maxConcurrency) {
             $.maxConcurrency = maxConcurrency;
             return this;
         }
 
-        /**
-         * @param maxConcurrency Maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrency(Integer maxConcurrency) {
             return maxConcurrency(Output.of(maxConcurrency));
         }
 
-        /**
-         * @param memorySizeInMb Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memorySizeInMb(Output<Integer> memorySizeInMb) {
             $.memorySizeInMb = memorySizeInMb;
             return this;
         }
 
-        /**
-         * @param memorySizeInMb Memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memorySizeInMb(Integer memorySizeInMb) {
             return memorySizeInMb(Output.of(memorySizeInMb));
         }
 
-        /**
-         * @param provisionedConcurrency Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConcurrency(@Nullable Output<Integer> provisionedConcurrency) {
             $.provisionedConcurrency = provisionedConcurrency;
             return this;
         }
 
-        /**
-         * @param provisionedConcurrency Amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConcurrency(Integer provisionedConcurrency) {
             return provisionedConcurrency(Output.of(provisionedConcurrency));
         }

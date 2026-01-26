@@ -12,62 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/m2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := m2.NewDeployment(ctx, "test", &m2.DeploymentArgs{
-//				EnvironmentId:      pulumi.String("01234567890abcdef012345678"),
-//				ApplicationId:      pulumi.String("34567890abcdef012345678012"),
-//				ApplicationVersion: pulumi.Int(1),
-//				Start:              pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Mainframe Modernization Deployment using the `APPLICATION-ID,DEPLOYMENT-ID`. For example:
-//
-// ```sh
-// $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
-// ```
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// Application to deploy.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Version to application to deploy
-	ApplicationVersion pulumi.IntOutput    `pulumi:"applicationVersion"`
-	DeploymentId       pulumi.StringOutput `pulumi:"deploymentId"`
-	// Environment to deploy application to.
-	EnvironmentId pulumi.StringOutput  `pulumi:"environmentId"`
-	ForceStop     pulumi.BoolPtrOutput `pulumi:"forceStop"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Start the application once deployed.
-	Start    pulumi.BoolOutput           `pulumi:"start"`
-	Timeouts DeploymentTimeoutsPtrOutput `pulumi:"timeouts"`
+	ApplicationId      pulumi.StringOutput         `pulumi:"applicationId"`
+	ApplicationVersion pulumi.IntOutput            `pulumi:"applicationVersion"`
+	DeploymentId       pulumi.StringOutput         `pulumi:"deploymentId"`
+	EnvironmentId      pulumi.StringOutput         `pulumi:"environmentId"`
+	ForceStop          pulumi.BoolPtrOutput        `pulumi:"forceStop"`
+	Region             pulumi.StringOutput         `pulumi:"region"`
+	Start              pulumi.BoolOutput           `pulumi:"start"`
+	Timeouts           DeploymentTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -112,35 +67,25 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// Application to deploy.
-	ApplicationId *string `pulumi:"applicationId"`
-	// Version to application to deploy
-	ApplicationVersion *int    `pulumi:"applicationVersion"`
-	DeploymentId       *string `pulumi:"deploymentId"`
-	// Environment to deploy application to.
-	EnvironmentId *string `pulumi:"environmentId"`
-	ForceStop     *bool   `pulumi:"forceStop"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Start the application once deployed.
-	Start    *bool               `pulumi:"start"`
-	Timeouts *DeploymentTimeouts `pulumi:"timeouts"`
+	ApplicationId      *string             `pulumi:"applicationId"`
+	ApplicationVersion *int                `pulumi:"applicationVersion"`
+	DeploymentId       *string             `pulumi:"deploymentId"`
+	EnvironmentId      *string             `pulumi:"environmentId"`
+	ForceStop          *bool               `pulumi:"forceStop"`
+	Region             *string             `pulumi:"region"`
+	Start              *bool               `pulumi:"start"`
+	Timeouts           *DeploymentTimeouts `pulumi:"timeouts"`
 }
 
 type DeploymentState struct {
-	// Application to deploy.
-	ApplicationId pulumi.StringPtrInput
-	// Version to application to deploy
+	ApplicationId      pulumi.StringPtrInput
 	ApplicationVersion pulumi.IntPtrInput
 	DeploymentId       pulumi.StringPtrInput
-	// Environment to deploy application to.
-	EnvironmentId pulumi.StringPtrInput
-	ForceStop     pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Start the application once deployed.
-	Start    pulumi.BoolPtrInput
-	Timeouts DeploymentTimeoutsPtrInput
+	EnvironmentId      pulumi.StringPtrInput
+	ForceStop          pulumi.BoolPtrInput
+	Region             pulumi.StringPtrInput
+	Start              pulumi.BoolPtrInput
+	Timeouts           DeploymentTimeoutsPtrInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {
@@ -148,34 +93,24 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// Application to deploy.
-	ApplicationId string `pulumi:"applicationId"`
-	// Version to application to deploy
-	ApplicationVersion int `pulumi:"applicationVersion"`
-	// Environment to deploy application to.
-	EnvironmentId string `pulumi:"environmentId"`
-	ForceStop     *bool  `pulumi:"forceStop"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Start the application once deployed.
-	Start    bool                `pulumi:"start"`
-	Timeouts *DeploymentTimeouts `pulumi:"timeouts"`
+	ApplicationId      string              `pulumi:"applicationId"`
+	ApplicationVersion int                 `pulumi:"applicationVersion"`
+	EnvironmentId      string              `pulumi:"environmentId"`
+	ForceStop          *bool               `pulumi:"forceStop"`
+	Region             *string             `pulumi:"region"`
+	Start              bool                `pulumi:"start"`
+	Timeouts           *DeploymentTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// Application to deploy.
-	ApplicationId pulumi.StringInput
-	// Version to application to deploy
+	ApplicationId      pulumi.StringInput
 	ApplicationVersion pulumi.IntInput
-	// Environment to deploy application to.
-	EnvironmentId pulumi.StringInput
-	ForceStop     pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Start the application once deployed.
-	Start    pulumi.BoolInput
-	Timeouts DeploymentTimeoutsPtrInput
+	EnvironmentId      pulumi.StringInput
+	ForceStop          pulumi.BoolPtrInput
+	Region             pulumi.StringPtrInput
+	Start              pulumi.BoolInput
+	Timeouts           DeploymentTimeoutsPtrInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -265,12 +200,10 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// Application to deploy.
 func (o DeploymentOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Version to application to deploy
 func (o DeploymentOutput) ApplicationVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntOutput { return v.ApplicationVersion }).(pulumi.IntOutput)
 }
@@ -279,7 +212,6 @@ func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
-// Environment to deploy application to.
 func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
@@ -288,12 +220,10 @@ func (o DeploymentOutput) ForceStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.ForceStop }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Start the application once deployed.
 func (o DeploymentOutput) Start() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolOutput { return v.Start }).(pulumi.BoolOutput)
 }

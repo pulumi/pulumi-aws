@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC Lattice Service.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.Service("example", {
- *     name: "example",
- *     authType: "AWS_IAM",
- *     customDomainName: "example.com",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
- * ```
- */
 export class Service extends pulumi.CustomResource {
     /**
      * Get an existing Service resource's state with the given name, ID, and optional extra
@@ -61,47 +35,15 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
-    /**
-     * ARN of the service.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Type of IAM policy. Either `NONE` or `AWS_IAM`.
-     */
     declare public readonly authType: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the certificate.
-     */
     declare public readonly certificateArn: pulumi.Output<string | undefined>;
-    /**
-     * Custom domain name of the service.
-     */
     declare public readonly customDomainName: pulumi.Output<string | undefined>;
-    /**
-     * DNS name of the service.
-     */
     declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
-    /**
-     * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of the service.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -149,47 +91,15 @@ export class Service extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Service resources.
  */
 export interface ServiceState {
-    /**
-     * ARN of the service.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Type of IAM policy. Either `NONE` or `AWS_IAM`.
-     */
     authType?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the certificate.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Custom domain name of the service.
-     */
     customDomainName?: pulumi.Input<string>;
-    /**
-     * DNS name of the service.
-     */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceDnsEntry>[]>;
-    /**
-     * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of the service.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -197,30 +107,10 @@ export interface ServiceState {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
-    /**
-     * Type of IAM policy. Either `NONE` or `AWS_IAM`.
-     */
     authType?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the certificate.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Custom domain name of the service.
-     */
     customDomainName?: pulumi.Input<string>;
-    /**
-     * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -23,126 +23,58 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Email address of the user that you want to register.
-     * 
-     */
     @Import(name="email", required=true)
     private Output<String> email;
 
-    /**
-     * @return Email address of the user that you want to register.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
 
-    /**
-     * ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
-     * 
-     */
     @Import(name="iamArn")
     private @Nullable Output<String> iamArn;
 
-    /**
-     * @return ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
-     * 
-     */
     public Optional<Output<String>> iamArn() {
         return Optional.ofNullable(this.iamArn);
     }
 
-    /**
-     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
-     * 
-     */
     @Import(name="identityType", required=true)
     private Output<String> identityType;
 
-    /**
-     * @return Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
-     * 
-     */
     public Output<String> identityType() {
         return this.identityType;
     }
 
-    /**
-     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-     * 
-     */
     @Import(name="sessionName")
     private @Nullable Output<String> sessionName;
 
-    /**
-     * @return Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-     * 
-     */
     public Optional<Output<String>> sessionName() {
         return Optional.ofNullable(this.sessionName);
     }
 
-    /**
-     * Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
 
-    /**
-     * Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userRole", required=true)
     private Output<String> userRole;
 
-    /**
-     * @return Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userRole() {
         return this.userRole;
     }
@@ -188,174 +120,74 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param email Email address of the user that you want to register.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email Email address of the user that you want to register.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
-        /**
-         * @param iamArn ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamArn(@Nullable Output<String> iamArn) {
             $.iamArn = iamArn;
             return this;
         }
 
-        /**
-         * @param iamArn ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamArn(String iamArn) {
             return iamArn(Output.of(iamArn));
         }
 
-        /**
-         * @param identityType Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityType(Output<String> identityType) {
             $.identityType = identityType;
             return this;
         }
 
-        /**
-         * @param identityType Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityType(String identityType) {
             return identityType(Output.of(identityType));
         }
 
-        /**
-         * @param namespace The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sessionName Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionName(@Nullable Output<String> sessionName) {
             $.sessionName = sessionName;
             return this;
         }
 
-        /**
-         * @param sessionName Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionName(String sessionName) {
             return sessionName(Output.of(sessionName));
         }
 
-        /**
-         * @param userName Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }
 
-        /**
-         * @param userRole Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userRole(Output<String> userRole) {
             $.userRole = userRole;
             return this;
         }
 
-        /**
-         * @param userRole Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userRole(String userRole) {
             return userRole(Output.of(userRole));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class WorkteamWorkerAccessConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines any Amazon S3 resource constraints. see S3 Presign details below.
-        /// </summary>
         [Input("s3Presign")]
         public Input<Inputs.WorkteamWorkerAccessConfigurationS3PresignArgs>? S3Presign { get; set; }
 

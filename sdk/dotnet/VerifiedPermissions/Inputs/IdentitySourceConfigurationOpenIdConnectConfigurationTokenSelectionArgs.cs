@@ -12,15 +12,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
 
     public sealed class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The OIDC configuration for processing access tokens. See Access Token Only below.
-        /// </summary>
         [Input("accessTokenOnly")]
         public Input<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs>? AccessTokenOnly { get; set; }
 
-        /// <summary>
-        /// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-        /// </summary>
         [Input("identityTokenOnly")]
         public Input<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs>? IdentityTokenOnly { get; set; }
 

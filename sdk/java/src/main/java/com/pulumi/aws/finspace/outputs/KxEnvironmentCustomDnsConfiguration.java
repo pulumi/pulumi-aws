@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class KxEnvironmentCustomDnsConfiguration {
-    /**
-     * @return IP address of the DNS server.
-     * 
-     */
     private String customDnsServerIp;
-    /**
-     * @return Name of the DNS server.
-     * 
-     */
     private String customDnsServerName;
 
     private KxEnvironmentCustomDnsConfiguration() {}
-    /**
-     * @return IP address of the DNS server.
-     * 
-     */
     public String customDnsServerIp() {
         return this.customDnsServerIp;
     }
-    /**
-     * @return Name of the DNS server.
-     * 
-     */
     public String customDnsServerName() {
         return this.customDnsServerName;
     }

@@ -22,149 +22,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementCustomKey {
-    /**
-     * @return Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyAsn asn;
-    /**
-     * @return Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyCookie cookie;
-    /**
-     * @return Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp forwardedIp;
-    /**
-     * @return Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyHeader header;
-    /**
-     * @return Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod httpMethod;
-    /**
-     * @return Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyIp ip;
-    /**
-     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint;
-    /**
-     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint;
-    /**
-     * @return Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace;
-    /**
-     * @return Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument;
-    /**
-     * @return Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyQueryString queryString;
-    /**
-     * @return Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyUriPath uriPath;
 
     private WebAclRuleStatementRateBasedStatementCustomKey() {}
-    /**
-     * @return Use an Autonomous System Number (ASN) derived from the request&#39;s originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyAsn> asn() {
         return Optional.ofNullable(this.asn);
     }
-    /**
-     * @return Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyCookie> cookie() {
         return Optional.ofNullable(this.cookie);
     }
-    /**
-     * @return Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp> forwardedIp() {
         return Optional.ofNullable(this.forwardedIp);
     }
-    /**
-     * @return Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyHeader> header() {
         return Optional.ofNullable(this.header);
     }
-    /**
-     * @return Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod> httpMethod() {
         return Optional.ofNullable(this.httpMethod);
     }
-    /**
-     * @return Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyIp> ip() {
         return Optional.ofNullable(this.ip);
     }
-    /**
-     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
-    /**
-     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint> ja4Fingerprint() {
         return Optional.ofNullable(this.ja4Fingerprint);
     }
-    /**
-     * @return Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace> labelNamespace() {
         return Optional.ofNullable(this.labelNamespace);
     }
-    /**
-     * @return Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument> queryArgument() {
         return Optional.ofNullable(this.queryArgument);
     }
-    /**
-     * @return Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
-    /**
-     * @return Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementCustomKeyUriPath> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }

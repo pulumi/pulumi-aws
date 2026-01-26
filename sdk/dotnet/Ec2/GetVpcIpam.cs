@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcIpam
     {
-        /// <summary>
-        /// Data source for managing a VPC IPAM.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpam.Invoke(new()
-        ///     {
-        ///         Id = "ipam-abcd1234",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcIpamResult> InvokeAsync(GetVpcIpamArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamResult>("aws:ec2/getVpcIpam:getVpcIpam", args ?? new GetVpcIpamArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing a VPC IPAM.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpam.Invoke(new()
-        ///     {
-        ///         Id = "ipam-abcd1234",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcIpamResult> Invoke(GetVpcIpamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamResult>("aws:ec2/getVpcIpam:getVpcIpam", args ?? new GetVpcIpamInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing a VPC IPAM.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpam.Invoke(new()
-        ///     {
-        ///         Id = "ipam-abcd1234",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcIpamResult> Invoke(GetVpcIpamInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamResult>("aws:ec2/getVpcIpam:getVpcIpam", args ?? new GetVpcIpamInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcIpamArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the IPAM.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcIpamInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the IPAM.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,78 +54,24 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetVpcIpamResult
     {
-        /// <summary>
-        /// ARN of the IPAM.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The default resource discovery association ID.
-        /// </summary>
         public readonly string DefaultResourceDiscoveryAssociationId;
-        /// <summary>
-        /// The default resource discovery ID.
-        /// </summary>
         public readonly string DefaultResourceDiscoveryId;
-        /// <summary>
-        /// Description for the IPAM.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// If private GUA is enabled.
-        /// </summary>
         public readonly bool EnablePrivateGua;
-        /// <summary>
-        /// ID of the IPAM resource.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Region that the IPAM exists in.
-        /// </summary>
         public readonly string IpamRegion;
-        /// <summary>
-        /// AWS account that is charged for active IP addresses managed in IPAM.
-        /// </summary>
         public readonly string MeteredAccount;
-        /// <summary>
-        /// Regions that the IPAM is configured to operate in.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamOperatingRegionResult> OperatingRegions;
-        /// <summary>
-        /// ID of the account that owns this IPAM.
-        /// </summary>
         public readonly string OwnerId;
-        /// <summary>
-        /// ID of the default private scope.
-        /// </summary>
         public readonly string PrivateDefaultScopeId;
-        /// <summary>
-        /// ID of the default public scope.
-        /// </summary>
         public readonly string PublicDefaultScopeId;
         public readonly string Region;
-        /// <summary>
-        /// Number of resource discovery associations.
-        /// </summary>
         public readonly int ResourceDiscoveryAssociationCount;
-        /// <summary>
-        /// Number of scopes on this IPAM.
-        /// </summary>
         public readonly int ScopeCount;
-        /// <summary>
-        /// Current state of the IPAM.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// State message of the IPAM.
-        /// </summary>
         public readonly string StateMessage;
-        /// <summary>
-        /// Tags of the IPAM resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// IPAM Tier.
-        /// </summary>
         public readonly string Tier;
 
         [OutputConstructor]

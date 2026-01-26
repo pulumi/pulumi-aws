@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTargetRetryPolicy {
-    /**
-     * @return Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-     * 
-     */
     private @Nullable Integer maximumEventAgeInSeconds;
-    /**
-     * @return Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-     * 
-     */
     private @Nullable Integer maximumRetryAttempts;
 
     private ScheduleTargetRetryPolicy() {}
-    /**
-     * @return Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-     * 
-     */
     public Optional<Integer> maximumEventAgeInSeconds() {
         return Optional.ofNullable(this.maximumEventAgeInSeconds);
     }
-    /**
-     * @return Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-     * 
-     */
     public Optional<Integer> maximumRetryAttempts() {
         return Optional.ofNullable(this.maximumRetryAttempts);
     }

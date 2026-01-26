@@ -16,32 +16,16 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
 
     public static final PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs Empty = new PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs();
 
-    /**
-     * Metric type.
-     * 
-     */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
-    /**
-     * @return Metric type.
-     * 
-     */
     public Output<String> predefinedMetricType() {
         return this.predefinedMetricType;
     }
 
-    /**
-     * Identifies the resource associated with the metric type.
-     * 
-     */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     public Optional<Output<String>> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }
@@ -71,44 +55,20 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
             $ = new PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param predefinedMetricType Metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(Output<String> predefinedMetricType) {
             $.predefinedMetricType = predefinedMetricType;
             return this;
         }
 
-        /**
-         * @param predefinedMetricType Metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(String predefinedMetricType) {
             return predefinedMetricType(Output.of(predefinedMetricType));
         }
 
-        /**
-         * @param resourceLabel Identifies the resource associated with the metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(@Nullable Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
 
-        /**
-         * @param resourceLabel Identifies the resource associated with the metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(String resourceLabel) {
             return resourceLabel(Output.of(resourceLabel));
         }

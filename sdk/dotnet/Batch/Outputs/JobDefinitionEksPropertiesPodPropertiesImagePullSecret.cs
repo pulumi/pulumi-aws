@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksPropertiesPodPropertiesImagePullSecret
     {
-        /// <summary>
-        /// Unique identifier.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

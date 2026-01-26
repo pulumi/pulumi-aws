@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRegionResult {
-    /**
-     * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
-     * 
-     */
     private String description;
     private String endpoint;
     private String id;
@@ -27,10 +23,6 @@ public final class GetRegionResult {
     private String region;
 
     private GetRegionResult() {}
-    /**
-     * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
-     * 
-     */
     public String description() {
         return this.description;
     }

@@ -12,111 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Manager Customer Gateway Association.
-//
-// Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := networkmanager.NewGlobalNetwork(ctx, "example", &networkmanager.GlobalNetworkArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSite, err := networkmanager.NewSite(ctx, "example", &networkmanager.SiteArgs{
-//				GlobalNetworkId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDevice, err := networkmanager.NewDevice(ctx, "example", &networkmanager.DeviceArgs{
-//				GlobalNetworkId: example.ID(),
-//				SiteId:          exampleSite.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "example", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.83.124.10"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
-//				Type:              exampleCustomerGateway.Type,
-//				StaticRoutesOnly:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGatewayRegistration, err := networkmanager.NewTransitGatewayRegistration(ctx, "example", &networkmanager.TransitGatewayRegistrationArgs{
-//				GlobalNetworkId:   example.ID(),
-//				TransitGatewayArn: exampleTransitGateway.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpnConnection,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkmanager.NewCustomerGatewayAssociation(ctx, "example", &networkmanager.CustomerGatewayAssociationArgs{
-//				GlobalNetworkId:    example.ID(),
-//				CustomerGatewayArn: exampleCustomerGateway.Arn,
-//				DeviceId:           exampleDevice.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleTransitGatewayRegistration,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
-// ```
 type CustomerGatewayAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the customer gateway.
-	CustomerGatewayArn pulumi.StringOutput `pulumi:"customerGatewayArn"`
-	// ID of the device.
-	DeviceId pulumi.StringOutput `pulumi:"deviceId"`
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// ID of the link.
-	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
+	CustomerGatewayArn pulumi.StringOutput    `pulumi:"customerGatewayArn"`
+	DeviceId           pulumi.StringOutput    `pulumi:"deviceId"`
+	GlobalNetworkId    pulumi.StringOutput    `pulumi:"globalNetworkId"`
+	LinkId             pulumi.StringPtrOutput `pulumi:"linkId"`
 }
 
 // NewCustomerGatewayAssociation registers a new resource with the given unique name, arguments, and options.
@@ -158,29 +60,17 @@ func GetCustomerGatewayAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerGatewayAssociation resources.
 type customerGatewayAssociationState struct {
-	// ARN of the customer gateway.
 	CustomerGatewayArn *string `pulumi:"customerGatewayArn"`
-	// ID of the device.
-	DeviceId *string `pulumi:"deviceId"`
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// ID of the link.
-	LinkId *string `pulumi:"linkId"`
+	DeviceId           *string `pulumi:"deviceId"`
+	GlobalNetworkId    *string `pulumi:"globalNetworkId"`
+	LinkId             *string `pulumi:"linkId"`
 }
 
 type CustomerGatewayAssociationState struct {
-	// ARN of the customer gateway.
 	CustomerGatewayArn pulumi.StringPtrInput
-	// ID of the device.
-	DeviceId pulumi.StringPtrInput
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId pulumi.StringPtrInput
-	// ID of the link.
-	LinkId pulumi.StringPtrInput
+	DeviceId           pulumi.StringPtrInput
+	GlobalNetworkId    pulumi.StringPtrInput
+	LinkId             pulumi.StringPtrInput
 }
 
 func (CustomerGatewayAssociationState) ElementType() reflect.Type {
@@ -188,30 +78,18 @@ func (CustomerGatewayAssociationState) ElementType() reflect.Type {
 }
 
 type customerGatewayAssociationArgs struct {
-	// ARN of the customer gateway.
-	CustomerGatewayArn string `pulumi:"customerGatewayArn"`
-	// ID of the device.
-	DeviceId string `pulumi:"deviceId"`
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// ID of the link.
-	LinkId *string `pulumi:"linkId"`
+	CustomerGatewayArn string  `pulumi:"customerGatewayArn"`
+	DeviceId           string  `pulumi:"deviceId"`
+	GlobalNetworkId    string  `pulumi:"globalNetworkId"`
+	LinkId             *string `pulumi:"linkId"`
 }
 
 // The set of arguments for constructing a CustomerGatewayAssociation resource.
 type CustomerGatewayAssociationArgs struct {
-	// ARN of the customer gateway.
 	CustomerGatewayArn pulumi.StringInput
-	// ID of the device.
-	DeviceId pulumi.StringInput
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId pulumi.StringInput
-	// ID of the link.
-	LinkId pulumi.StringPtrInput
+	DeviceId           pulumi.StringInput
+	GlobalNetworkId    pulumi.StringInput
+	LinkId             pulumi.StringPtrInput
 }
 
 func (CustomerGatewayAssociationArgs) ElementType() reflect.Type {
@@ -301,24 +179,18 @@ func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutputWith
 	return o
 }
 
-// ARN of the customer gateway.
 func (o CustomerGatewayAssociationOutput) CustomerGatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.CustomerGatewayArn }).(pulumi.StringOutput)
 }
 
-// ID of the device.
 func (o CustomerGatewayAssociationOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
 }
 
-// ID of the global network.
-//
-// The following arguments are optional:
 func (o CustomerGatewayAssociationOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// ID of the link.
 func (o CustomerGatewayAssociationOutput) LinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringPtrOutput { return v.LinkId }).(pulumi.StringPtrOutput)
 }

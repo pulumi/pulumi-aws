@@ -14,19 +14,12 @@ namespace Pulumi.Aws.S3Control.Inputs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
-
-        /// <summary>
-        /// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
-        /// </summary>
         [Input("contentTransformation", required: true)]
         public Input<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationGetArgs> ContentTransformation { get; set; } = null!;
 

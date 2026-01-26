@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class EncryptionControlResourceExclusions
     {
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsEgressOnlyInternetGateway EgressOnlyInternetGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Elastic File System (EFS).
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsElasticFileSystem ElasticFileSystem;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Internet Gateways.
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsInternetGateway InternetGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Lambda Functions.
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsLambda Lambda;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for NAT Gateways.
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsNatGateway NatGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Virtual Private Gateways.
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsVirtualPrivateGateway VirtualPrivateGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for VPC Lattice.
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsVpcLattice VpcLattice;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for peered VPCs.
-        /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsVpcPeering VpcPeering;
 
         [OutputConstructor]

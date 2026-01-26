@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class SubscriberSource
     {
-        /// <summary>
-        /// Amazon Security Lake supports log and event collection for natively supported AWS services. See `AwsLogSourceResource` Block below.
-        /// </summary>
         public readonly Outputs.SubscriberSourceAwsLogSourceResource? AwsLogSourceResource;
-        /// <summary>
-        /// Amazon Security Lake supports custom source types. See `CustomLogSourceResource` Block below.
-        /// </summary>
         public readonly Outputs.SubscriberSourceCustomLogSourceResource? CustomLogSourceResource;
 
         [OutputConstructor]

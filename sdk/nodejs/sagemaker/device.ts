@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Device resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Device("example", {
- *     deviceFleetName: exampleAwsSagemakerDeviceFleet.deviceFleetName,
- *     device: {
- *         deviceName: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
- * ```
- */
 export class Device extends pulumi.CustomResource {
     /**
      * Get an existing Device resource's state with the given name, ID, and optional extra
@@ -63,21 +36,9 @@ export class Device extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The device to register with SageMaker AI Edge Manager. See Device details below.
-     */
     declare public readonly device: pulumi.Output<outputs.sagemaker.DeviceDevice>;
-    /**
-     * The name of the Device Fleet.
-     */
     declare public readonly deviceFleetName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -122,21 +83,9 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceState {
     agentVersion?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The device to register with SageMaker AI Edge Manager. See Device details below.
-     */
     device?: pulumi.Input<inputs.sagemaker.DeviceDevice>;
-    /**
-     * The name of the Device Fleet.
-     */
     deviceFleetName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -144,16 +93,7 @@ export interface DeviceState {
  * The set of arguments for constructing a Device resource.
  */
 export interface DeviceArgs {
-    /**
-     * The device to register with SageMaker AI Edge Manager. See Device details below.
-     */
     device: pulumi.Input<inputs.sagemaker.DeviceDevice>;
-    /**
-     * The name of the Device Fleet.
-     */
     deviceFleetName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

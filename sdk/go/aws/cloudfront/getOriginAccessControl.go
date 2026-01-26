@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information for an Amazon CloudFront origin access control config.
-//
-// ## Example Usage
-//
-// The below example retrieves a CloudFront origin access control config.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.LookupOriginAccessControl(ctx, &cloudfront.LookupOriginAccessControlArgs{
-//				Id: "E2T5VTFBZJ3BJB",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOriginAccessControl(ctx *pulumi.Context, args *LookupOriginAccessControlArgs, opts ...pulumi.InvokeOption) (*LookupOriginAccessControlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOriginAccessControlResult
@@ -52,27 +23,19 @@ func LookupOriginAccessControl(ctx *pulumi.Context, args *LookupOriginAccessCont
 
 // A collection of arguments for invoking getOriginAccessControl.
 type LookupOriginAccessControlArgs struct {
-	// The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getOriginAccessControl.
 type LookupOriginAccessControlResult struct {
-	// The origin access control ARN.
-	Arn string `pulumi:"arn"`
-	// A description of the origin access control.
-	Description string `pulumi:"description"`
-	// Current version of the origin access control's information. For example: `E2QWRUHAPOMQZL`.
-	Etag string `pulumi:"etag"`
-	Id   string `pulumi:"id"`
-	// A name to identify the origin access control.
-	Name string `pulumi:"name"`
-	// The type of origin that this origin access control is for.
+	Arn                           string `pulumi:"arn"`
+	Description                   string `pulumi:"description"`
+	Etag                          string `pulumi:"etag"`
+	Id                            string `pulumi:"id"`
+	Name                          string `pulumi:"name"`
 	OriginAccessControlOriginType string `pulumi:"originAccessControlOriginType"`
-	// Specifies which requests CloudFront signs.
-	SigningBehavior string `pulumi:"signingBehavior"`
-	// The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests.
-	SigningProtocol string `pulumi:"signingProtocol"`
+	SigningBehavior               string `pulumi:"signingBehavior"`
+	SigningProtocol               string `pulumi:"signingProtocol"`
 }
 
 func LookupOriginAccessControlOutput(ctx *pulumi.Context, args LookupOriginAccessControlOutputArgs, opts ...pulumi.InvokeOption) LookupOriginAccessControlResultOutput {
@@ -86,7 +49,6 @@ func LookupOriginAccessControlOutput(ctx *pulumi.Context, args LookupOriginAcces
 
 // A collection of arguments for invoking getOriginAccessControl.
 type LookupOriginAccessControlOutputArgs struct {
-	// The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -109,17 +71,14 @@ func (o LookupOriginAccessControlResultOutput) ToLookupOriginAccessControlResult
 	return o
 }
 
-// The origin access control ARN.
 func (o LookupOriginAccessControlResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the origin access control.
 func (o LookupOriginAccessControlResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Current version of the origin access control's information. For example: `E2QWRUHAPOMQZL`.
 func (o LookupOriginAccessControlResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -128,22 +87,18 @@ func (o LookupOriginAccessControlResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A name to identify the origin access control.
 func (o LookupOriginAccessControlResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of origin that this origin access control is for.
 func (o LookupOriginAccessControlResultOutput) OriginAccessControlOriginType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.OriginAccessControlOriginType }).(pulumi.StringOutput)
 }
 
-// Specifies which requests CloudFront signs.
 func (o LookupOriginAccessControlResultOutput) SigningBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.SigningBehavior }).(pulumi.StringOutput)
 }
 
-// The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests.
 func (o LookupOriginAccessControlResultOutput) SigningProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.SigningProtocol }).(pulumi.StringOutput)
 }

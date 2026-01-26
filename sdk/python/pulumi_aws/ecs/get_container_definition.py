@@ -72,33 +72,21 @@ class GetContainerDefinitionResult:
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> _builtins.int:
-        """
-        CPU limit for this container definition
-        """
         return pulumi.get(self, "cpu")
 
     @_builtins.property
     @pulumi.getter(name="disableNetworking")
     def disable_networking(self) -> _builtins.bool:
-        """
-        Indicator if networking is disabled
-        """
         return pulumi.get(self, "disable_networking")
 
     @_builtins.property
     @pulumi.getter(name="dockerLabels")
     def docker_labels(self) -> Mapping[str, _builtins.str]:
-        """
-        Set docker labels
-        """
         return pulumi.get(self, "docker_labels")
 
     @_builtins.property
     @pulumi.getter
     def environment(self) -> Mapping[str, _builtins.str]:
-        """
-        Environment in use
-        """
         return pulumi.get(self, "environment")
 
     @_builtins.property
@@ -112,33 +100,21 @@ class GetContainerDefinitionResult:
     @_builtins.property
     @pulumi.getter
     def image(self) -> _builtins.str:
-        """
-        Docker image in use, including the digest
-        """
         return pulumi.get(self, "image")
 
     @_builtins.property
     @pulumi.getter(name="imageDigest")
     def image_digest(self) -> _builtins.str:
-        """
-        Digest of the docker image in use
-        """
         return pulumi.get(self, "image_digest")
 
     @_builtins.property
     @pulumi.getter
     def memory(self) -> _builtins.int:
-        """
-        Memory limit for this container definition
-        """
         return pulumi.get(self, "memory")
 
     @_builtins.property
     @pulumi.getter(name="memoryReservation")
     def memory_reservation(self) -> _builtins.int:
-        """
-        Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-        """
         return pulumi.get(self, "memory_reservation")
 
     @_builtins.property
@@ -177,23 +153,7 @@ def get_container_definition(container_name: Optional[_builtins.str] = None,
                              task_definition: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerDefinitionResult:
     """
-    The ECS container definition data source allows access to details of
-    a specific container within an AWS ECS service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecs_mongo = aws.ecs.get_container_definition(task_definition=mongo["id"],
-        container_name="mongodb")
-    ```
-
-
-    :param _builtins.str container_name: Name of the container definition
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str task_definition: ARN of the task definition which contains the container
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['containerName'] = container_name
@@ -220,23 +180,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[_built
                                     task_definition: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerDefinitionResult]:
     """
-    The ECS container definition data source allows access to details of
-    a specific container within an AWS ECS service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecs_mongo = aws.ecs.get_container_definition(task_definition=mongo["id"],
-        container_name="mongodb")
-    ```
-
-
-    :param _builtins.str container_name: Name of the container definition
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str task_definition: ARN of the task definition which contains the container
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['containerName'] = container_name

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange {
-    /**
-     * @return The final port in the range of TCP ports.
-     * 
-     */
     private Integer maxRange;
-    /**
-     * @return The first port in the range of TCP ports.
-     * 
-     */
     private Integer minRange;
 
     private BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange() {}
-    /**
-     * @return The final port in the range of TCP ports.
-     * 
-     */
     public Integer maxRange() {
         return this.maxRange;
     }
-    /**
-     * @return The first port in the range of TCP ports.
-     * 
-     */
     public Integer minRange() {
         return this.minRange;
     }

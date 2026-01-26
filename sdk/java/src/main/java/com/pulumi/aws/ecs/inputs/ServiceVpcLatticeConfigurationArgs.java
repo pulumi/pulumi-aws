@@ -14,47 +14,23 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
 
     public static final ServiceVpcLatticeConfigurationArgs Empty = new ServiceVpcLatticeConfigurationArgs();
 
-    /**
-     * The name of the port for a target group associated with the VPC Lattice configuration.
-     * 
-     */
     @Import(name="portName", required=true)
     private Output<String> portName;
 
-    /**
-     * @return The name of the port for a target group associated with the VPC Lattice configuration.
-     * 
-     */
     public Output<String> portName() {
         return this.portName;
     }
 
-    /**
-     * The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The full ARN of the target group or groups associated with the VPC Lattice configuration.
-     * 
-     */
     @Import(name="targetGroupArn", required=true)
     private Output<String> targetGroupArn;
 
-    /**
-     * @return The full ARN of the target group or groups associated with the VPC Lattice configuration.
-     * 
-     */
     public Output<String> targetGroupArn() {
         return this.targetGroupArn;
     }
@@ -85,65 +61,29 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
             $ = new ServiceVpcLatticeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param portName The name of the port for a target group associated with the VPC Lattice configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portName(Output<String> portName) {
             $.portName = portName;
             return this;
         }
 
-        /**
-         * @param portName The name of the port for a target group associated with the VPC Lattice configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portName(String portName) {
             return portName(Output.of(portName));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param targetGroupArn The full ARN of the target group or groups associated with the VPC Lattice configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(Output<String> targetGroupArn) {
             $.targetGroupArn = targetGroupArn;
             return this;
         }
 
-        /**
-         * @param targetGroupArn The full ARN of the target group or groups associated with the VPC Lattice configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(String targetGroupArn) {
             return targetGroupArn(Output.of(targetGroupArn));
         }

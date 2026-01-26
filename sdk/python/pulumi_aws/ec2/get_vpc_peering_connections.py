@@ -61,9 +61,6 @@ class GetVpcPeeringConnectionsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of the VPC Peering Connections.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -95,34 +92,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[Union['GetVpcPeeringC
                                 tags: Optional[Mapping[str, _builtins.str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcPeeringConnectionsResult:
     """
-    Use this data source to get IDs of Amazon VPC peering connections
-    To get more details on each connection, use the data resource ec2.VpcPeeringConnection
-
-    Note: To use this data source in a count, the resources should exist before trying to access
-    the data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    pcs = aws.ec2.get_vpc_peering_connections(filters=[{
-        "name": "requester-vpc-info.vpc-id",
-        "values": [foo["id"]],
-    }])
-    # get the details of each resource
-    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in len(pcs.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired VPC Peering Connection.
-           
-           The arguments of this data source act as filters for querying the available VPC peering connections.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -142,34 +112,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
                                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
     """
-    Use this data source to get IDs of Amazon VPC peering connections
-    To get more details on each connection, use the data resource ec2.VpcPeeringConnection
-
-    Note: To use this data source in a count, the resources should exist before trying to access
-    the data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    pcs = aws.ec2.get_vpc_peering_connections(filters=[{
-        "name": "requester-vpc-info.vpc-id",
-        "values": [foo["id"]],
-    }])
-    # get the details of each resource
-    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in len(pcs.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired VPC Peering Connection.
-           
-           The arguments of this data source act as filters for querying the available VPC peering connections.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

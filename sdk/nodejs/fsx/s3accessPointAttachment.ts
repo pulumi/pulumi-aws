@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon FSx S3 Access Point attachment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.fsx.S3AccessPointAttachment("example", {
- *     name: "example-attachment",
- *     type: "OPENZFS",
- *     openzfsConfiguration: {
- *         volumeId: exampleAwsFsxOpenzfsVolume.id,
- *         fileSystemIdentity: {
- *             type: "POSIX",
- *             posixUser: {
- *                 uid: 1001,
- *                 gid: 1001,
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import FSx S3 Access Point attachments using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment
- * ```
- */
 export class S3AccessPointAttachment extends pulumi.CustomResource {
     /**
      * Get an existing S3AccessPointAttachment resource's state with the given name, ID, and optional extra
@@ -68,36 +35,13 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === S3AccessPointAttachment.__pulumiType;
     }
 
-    /**
-     * Name of the S3 access point.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     */
     declare public readonly openzfsConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * S3 access point configuration. See `s3AccessPoint` Block for details.
-     */
     declare public readonly s3AccessPoint: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPoint | undefined>;
-    /**
-     * S3 access point's alias.
-     */
     declare public /*out*/ readonly s3AccessPointAlias: pulumi.Output<string>;
-    /**
-     * S3 access point's ARN.
-     */
     declare public /*out*/ readonly s3AccessPointArn: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.fsx.S3AccessPointAttachmentTimeouts | undefined>;
-    /**
-     * Type of S3 access point. Valid values: `OpenZFS`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -144,36 +88,13 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering S3AccessPointAttachment resources.
  */
 export interface S3AccessPointAttachmentState {
-    /**
-     * Name of the S3 access point.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     */
     openzfsConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * S3 access point configuration. See `s3AccessPoint` Block for details.
-     */
     s3AccessPoint?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPoint>;
-    /**
-     * S3 access point's alias.
-     */
     s3AccessPointAlias?: pulumi.Input<string>;
-    /**
-     * S3 access point's ARN.
-     */
     s3AccessPointArn?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentTimeouts>;
-    /**
-     * Type of S3 access point. Valid values: `OpenZFS`.
-     *
-     * The following arguments are optional:
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -181,27 +102,10 @@ export interface S3AccessPointAttachmentState {
  * The set of arguments for constructing a S3AccessPointAttachment resource.
  */
 export interface S3AccessPointAttachmentArgs {
-    /**
-     * Name of the S3 access point.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     */
     openzfsConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentOpenzfsConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * S3 access point configuration. See `s3AccessPoint` Block for details.
-     */
     s3AccessPoint?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPoint>;
     timeouts?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentTimeouts>;
-    /**
-     * Type of S3 access point. Valid values: `OpenZFS`.
-     *
-     * The following arguments are optional:
-     */
     type: pulumi.Input<string>;
 }

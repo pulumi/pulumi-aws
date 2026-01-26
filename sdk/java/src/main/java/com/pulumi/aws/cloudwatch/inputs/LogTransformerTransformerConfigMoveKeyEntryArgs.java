@@ -17,49 +17,23 @@ public final class LogTransformerTransformerConfigMoveKeyEntryArgs extends com.p
 
     public static final LogTransformerTransformerConfigMoveKeyEntryArgs Empty = new LogTransformerTransformerConfigMoveKeyEntryArgs();
 
-    /**
-     * Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     @Import(name="overwriteIfExists")
     private @Nullable Output<Boolean> overwriteIfExists;
 
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     public Optional<Output<Boolean>> overwriteIfExists() {
         return Optional.ofNullable(this.overwriteIfExists);
     }
 
-    /**
-     * Specifies the key to modify.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * Specifies the key to move to.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return Specifies the key to move to.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
@@ -90,67 +64,29 @@ public final class LogTransformerTransformerConfigMoveKeyEntryArgs extends com.p
             $ = new LogTransformerTransformerConfigMoveKeyEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * * `renameTo` - (Required) Specifies the new name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(@Nullable Output<Boolean> overwriteIfExists) {
             $.overwriteIfExists = overwriteIfExists;
             return this;
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * * `renameTo` - (Required) Specifies the new name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(Boolean overwriteIfExists) {
             return overwriteIfExists(Output.of(overwriteIfExists));
         }
 
-        /**
-         * @param source Specifies the key to modify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the key to modify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param target Specifies the key to move to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target Specifies the key to move to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

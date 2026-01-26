@@ -13,70 +13,22 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetVpcIpamsIpamResult
     {
-        /// <summary>
-        /// ARN of the IPAM.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The default resource discovery association ID.
-        /// </summary>
         public readonly string DefaultResourceDiscoveryAssociationId;
-        /// <summary>
-        /// The default resource discovery ID.
-        /// </summary>
         public readonly string DefaultResourceDiscoveryId;
-        /// <summary>
-        /// Description for the IPAM.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// If private GUA is enabled.
-        /// </summary>
         public readonly bool EnablePrivateGua;
-        /// <summary>
-        /// ID of the IPAM resource.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Region that the IPAM exists in.
-        /// </summary>
         public readonly string IpamRegion;
         public readonly string MeteredAccount;
-        /// <summary>
-        /// Regions that the IPAM is configured to operate in.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamsIpamOperatingRegionResult> OperatingRegions;
-        /// <summary>
-        /// ID of the account that owns this IPAM.
-        /// </summary>
         public readonly string OwnerId;
-        /// <summary>
-        /// ID of the default private scope.
-        /// </summary>
         public readonly string PrivateDefaultScopeId;
-        /// <summary>
-        /// ID of the default public scope.
-        /// </summary>
         public readonly string PublicDefaultScopeId;
-        /// <summary>
-        /// Number of resource discovery associations.
-        /// </summary>
         public readonly int ResourceDiscoveryAssociationCount;
-        /// <summary>
-        /// Number of scopes on this IPAM.
-        /// </summary>
         public readonly int ScopeCount;
-        /// <summary>
-        /// Current state of the IPAM.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// State message of the IPAM.
-        /// </summary>
         public readonly string StateMessage;
-        /// <summary>
-        /// IPAM Tier.
-        /// </summary>
         public readonly string Tier;
 
         [OutputConstructor]

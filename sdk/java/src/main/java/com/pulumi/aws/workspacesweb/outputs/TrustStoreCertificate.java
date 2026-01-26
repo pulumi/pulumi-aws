@@ -12,77 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustStoreCertificate {
-    /**
-     * @return Certificate body in PEM format.
-     * 
-     */
     private String body;
-    /**
-     * @return Certificate issuer.
-     * 
-     */
     private @Nullable String issuer;
-    /**
-     * @return Date and time when the certificate expires in RFC3339 format.
-     * 
-     */
     private @Nullable String notValidAfter;
-    /**
-     * @return Date and time when the certificate becomes valid in RFC3339 format.
-     * 
-     */
     private @Nullable String notValidBefore;
-    /**
-     * @return Certificate subject.
-     * 
-     */
     private @Nullable String subject;
-    /**
-     * @return Certificate thumbprint.
-     * 
-     */
     private @Nullable String thumbprint;
 
     private TrustStoreCertificate() {}
-    /**
-     * @return Certificate body in PEM format.
-     * 
-     */
     public String body() {
         return this.body;
     }
-    /**
-     * @return Certificate issuer.
-     * 
-     */
     public Optional<String> issuer() {
         return Optional.ofNullable(this.issuer);
     }
-    /**
-     * @return Date and time when the certificate expires in RFC3339 format.
-     * 
-     */
     public Optional<String> notValidAfter() {
         return Optional.ofNullable(this.notValidAfter);
     }
-    /**
-     * @return Date and time when the certificate becomes valid in RFC3339 format.
-     * 
-     */
     public Optional<String> notValidBefore() {
         return Optional.ofNullable(this.notValidBefore);
     }
-    /**
-     * @return Certificate subject.
-     * 
-     */
     public Optional<String> subject() {
         return Optional.ofNullable(this.subject);
     }
-    /**
-     * @return Certificate thumbprint.
-     * 
-     */
     public Optional<String> thumbprint() {
         return Optional.ofNullable(this.thumbprint);
     }

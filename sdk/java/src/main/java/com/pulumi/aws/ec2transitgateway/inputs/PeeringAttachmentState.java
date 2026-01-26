@@ -17,92 +17,44 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
 
     public static final PeeringAttachmentState Empty = new PeeringAttachmentState();
 
-    /**
-     * ARN of the attachment.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-     * 
-     */
     @Import(name="options")
     private @Nullable Output<PeeringAttachmentOptionsArgs> options;
 
-    /**
-     * @return Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-     * 
-     */
     public Optional<Output<PeeringAttachmentOptionsArgs>> options() {
         return Optional.ofNullable(this.options);
     }
 
-    /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-     * 
-     */
     @Import(name="peerAccountId")
     private @Nullable Output<String> peerAccountId;
 
-    /**
-     * @return Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-     * 
-     */
     public Optional<Output<String>> peerAccountId() {
         return Optional.ofNullable(this.peerAccountId);
     }
 
-    /**
-     * Region of EC2 Transit Gateway to peer with.
-     * 
-     */
     @Import(name="peerRegion")
     private @Nullable Output<String> peerRegion;
 
-    /**
-     * @return Region of EC2 Transit Gateway to peer with.
-     * 
-     */
     public Optional<Output<String>> peerRegion() {
         return Optional.ofNullable(this.peerRegion);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway to peer with.
-     * 
-     */
     @Import(name="peerTransitGatewayId")
     private @Nullable Output<String> peerTransitGatewayId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway to peer with.
-     * 
-     */
     public Optional<Output<String>> peerTransitGatewayId() {
         return Optional.ofNullable(this.peerTransitGatewayId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -114,47 +66,23 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway.
-     * 
-     */
     @Import(name="transitGatewayId")
     private @Nullable Output<String> transitGatewayId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway.
-     * 
-     */
     public Optional<Output<String>> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
     }
@@ -192,128 +120,56 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
             $ = new PeeringAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(@Nullable Output<PeeringAttachmentOptionsArgs> options) {
             $.options = options;
             return this;
         }
 
-        /**
-         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(PeeringAttachmentOptionsArgs options) {
             return options(Output.of(options));
         }
 
-        /**
-         * @param peerAccountId Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAccountId(@Nullable Output<String> peerAccountId) {
             $.peerAccountId = peerAccountId;
             return this;
         }
 
-        /**
-         * @param peerAccountId Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAccountId(String peerAccountId) {
             return peerAccountId(Output.of(peerAccountId));
         }
 
-        /**
-         * @param peerRegion Region of EC2 Transit Gateway to peer with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerRegion(@Nullable Output<String> peerRegion) {
             $.peerRegion = peerRegion;
             return this;
         }
 
-        /**
-         * @param peerRegion Region of EC2 Transit Gateway to peer with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerRegion(String peerRegion) {
             return peerRegion(Output.of(peerRegion));
         }
 
-        /**
-         * @param peerTransitGatewayId Identifier of EC2 Transit Gateway to peer with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerTransitGatewayId(@Nullable Output<String> peerTransitGatewayId) {
             $.peerTransitGatewayId = peerTransitGatewayId;
             return this;
         }
 
-        /**
-         * @param peerTransitGatewayId Identifier of EC2 Transit Gateway to peer with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerTransitGatewayId(String peerTransitGatewayId) {
             return peerTransitGatewayId(Output.of(peerTransitGatewayId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -327,65 +183,29 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
             return state(Output.of(state));
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param transitGatewayId Identifier of EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(@Nullable Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId Identifier of EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }

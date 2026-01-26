@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult
     {
-        /// <summary>
-        /// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationResult> EfsVolumeConfigurations;
-        /// <summary>
-        /// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult> Hosts;
-        /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -12,10 +12,6 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class EventActionEventRevisionPublishedArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the data set to monitor for revision publications.
-        /// Changing this value will recreate the resource.
-        /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 

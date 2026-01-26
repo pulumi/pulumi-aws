@@ -7,59 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amp.Workspace("example", {
- *     alias: "example",
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- *
- * ### CloudWatch Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.LogGroup("example", {name: "example"});
- * const exampleWorkspace = new aws.amp.Workspace("example", {loggingConfiguration: {
- *     logGroupArn: pulumi.interpolate`${example.arn}:*`,
- * }});
- * ```
- *
- * ### AWS KMS Customer Managed Keys (CMK)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("example", {
- *     description: "example",
- *     deletionWindowInDays: 7,
- * });
- * const example = new aws.amp.Workspace("example", {
- *     alias: "example",
- *     kmsKeyArn: exampleKey.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AMP Workspaces using the identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
- * ```
- */
 export class Workspace extends pulumi.CustomResource {
     /**
      * Get an existing Workspace resource's state with the given name, ID, and optional extra
@@ -88,37 +35,13 @@ export class Workspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workspace.__pulumiType;
     }
 
-    /**
-     * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-     */
     declare public readonly alias: pulumi.Output<string | undefined>;
-    /**
-     * Amazon Resource Name (ARN) of the workspace.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-     */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
-    /**
-     * Logging configuration for the workspace. See Logging Configuration below for details.
-     */
     declare public readonly loggingConfiguration: pulumi.Output<outputs.amp.WorkspaceLoggingConfiguration | undefined>;
-    /**
-     * Prometheus endpoint available for this workspace.
-     */
     declare public /*out*/ readonly prometheusEndpoint: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -162,37 +85,13 @@ export class Workspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workspace resources.
  */
 export interface WorkspaceState {
-    /**
-     * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-     */
     alias?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the workspace.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Logging configuration for the workspace. See Logging Configuration below for details.
-     */
     loggingConfiguration?: pulumi.Input<inputs.amp.WorkspaceLoggingConfiguration>;
-    /**
-     * Prometheus endpoint available for this workspace.
-     */
     prometheusEndpoint?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -200,24 +99,9 @@ export interface WorkspaceState {
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
-    /**
-     * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-     */
     alias?: pulumi.Input<string>;
-    /**
-     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Logging configuration for the workspace. See Logging Configuration below for details.
-     */
     loggingConfiguration?: pulumi.Input<inputs.amp.WorkspaceLoggingConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

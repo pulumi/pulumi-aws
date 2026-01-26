@@ -44,9 +44,6 @@ class GetUserHierarchyStructureResult:
     @_builtins.property
     @pulumi.getter(name="hierarchyStructures")
     def hierarchy_structures(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureResult']:
-        """
-        Block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
-        """
         return pulumi.get(self, "hierarchy_structures")
 
     @_builtins.property
@@ -84,20 +81,7 @@ def get_user_hierarchy_structure(instance_id: Optional[_builtins.str] = None,
                                  region: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserHierarchyStructureResult:
     """
-    Provides details about a specific Amazon Connect User Hierarchy Structure
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_user_hierarchy_structure(instance_id=test_aws_connect_instance["id"])
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -114,20 +98,7 @@ def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[_buil
                                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
-    Provides details about a specific Amazon Connect User Hierarchy Structure
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_user_hierarchy_structure(instance_id=test_aws_connect_instance["id"])
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

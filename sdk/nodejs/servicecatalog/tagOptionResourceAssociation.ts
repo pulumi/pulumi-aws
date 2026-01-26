@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Tag Option Resource Association.
- *
- * > **Tip:** A "resource" is either a Service Catalog portfolio or product.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.TagOptionResourceAssociation("example", {
- *     resourceId: "prod-dnigbtea24ste",
- *     tagOptionId: "tag-pjtvyakdlyo3m",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For example:
- *
- * ```sh
- * $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
- * ```
- */
 export class TagOptionResourceAssociation extends pulumi.CustomResource {
     /**
      * Get an existing TagOptionResourceAssociation resource's state with the given name, ID, and optional extra
@@ -59,33 +32,12 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TagOptionResourceAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the resource.
-     */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
-    /**
-     * Creation time of the resource.
-     */
     declare public /*out*/ readonly resourceCreatedTime: pulumi.Output<string>;
-    /**
-     * Description of the resource.
-     */
     declare public /*out*/ readonly resourceDescription: pulumi.Output<string>;
-    /**
-     * Resource identifier.
-     */
     declare public readonly resourceId: pulumi.Output<string>;
-    /**
-     * Description of the resource.
-     */
     declare public /*out*/ readonly resourceName: pulumi.Output<string>;
-    /**
-     * Tag Option identifier.
-     */
     declare public readonly tagOptionId: pulumi.Output<string>;
 
     /**
@@ -133,33 +85,12 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagOptionResourceAssociation resources.
  */
 export interface TagOptionResourceAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the resource.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * Creation time of the resource.
-     */
     resourceCreatedTime?: pulumi.Input<string>;
-    /**
-     * Description of the resource.
-     */
     resourceDescription?: pulumi.Input<string>;
-    /**
-     * Resource identifier.
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * Description of the resource.
-     */
     resourceName?: pulumi.Input<string>;
-    /**
-     * Tag Option identifier.
-     */
     tagOptionId?: pulumi.Input<string>;
 }
 
@@ -167,16 +98,7 @@ export interface TagOptionResourceAssociationState {
  * The set of arguments for constructing a TagOptionResourceAssociation resource.
  */
 export interface TagOptionResourceAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Resource identifier.
-     */
     resourceId: pulumi.Input<string>;
-    /**
-     * Tag Option identifier.
-     */
     tagOptionId: pulumi.Input<string>;
 }

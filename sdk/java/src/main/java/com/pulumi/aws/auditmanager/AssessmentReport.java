@@ -14,141 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Audit Manager Assessment Report.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.auditmanager.AssessmentReport;
- * import com.pulumi.aws.auditmanager.AssessmentReportArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new AssessmentReport("test", AssessmentReportArgs.builder()
- *             .name("example")
- *             .assessmentId(testAwsAuditmanagerAssessment.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
- * ```
- * 
- */
 @ResourceType(type="aws:auditmanager/assessmentReport:AssessmentReport")
 public class AssessmentReport extends com.pulumi.resources.CustomResource {
-    /**
-     * Unique identifier of the assessment to create the report from.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="assessmentId", refs={String.class}, tree="[0]")
     private Output<String> assessmentId;
 
-    /**
-     * @return Unique identifier of the assessment to create the report from.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> assessmentId() {
         return this.assessmentId;
     }
-    /**
-     * Name of the user who created the assessment report.
-     * 
-     */
     @Export(name="author", refs={String.class}, tree="[0]")
     private Output<String> author;
 
-    /**
-     * @return Name of the user who created the assessment report.
-     * 
-     */
     public Output<String> author() {
         return this.author;
     }
-    /**
-     * Description of the assessment report.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the assessment report.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the assessment report.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the assessment report.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

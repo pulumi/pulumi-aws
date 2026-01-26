@@ -24,77 +24,37 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.addressFamily);
     }
 
-    /**
-     * The ARN of the attachment.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the attachment.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The destination IP address. This must be either IPV4 or IPV6.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
-    /**
-     * @return The destination IP address. This must be either IPV4 or IPV6.
-     * 
-     */
     public Optional<Output<String>> destination() {
         return Optional.ofNullable(this.destination);
     }
 
-    /**
-     * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-     * 
-     */
     @Import(name="destinationPort")
     private @Nullable Output<Integer> destinationPort;
 
-    /**
-     * @return The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-     * 
-     */
     public Optional<Output<Integer>> destinationPort() {
         return Optional.ofNullable(this.destinationPort);
     }
 
-    /**
-     * The name of the monitor.
-     * 
-     */
     @Import(name="monitorName")
     private @Nullable Output<String> monitorName;
 
-    /**
-     * @return The name of the monitor.
-     * 
-     */
     public Optional<Output<String>> monitorName() {
         return Optional.ofNullable(this.monitorName);
     }
 
-    /**
-     * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     * 
-     */
     @Import(name="packetSize")
     private @Nullable Output<Integer> packetSize;
 
-    /**
-     * @return The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     * 
-     */
     public Optional<Output<Integer>> packetSize() {
         return Optional.ofNullable(this.packetSize);
     }
@@ -106,77 +66,37 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.probeId);
     }
 
-    /**
-     * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ARN of the subnet.
-     * 
-     */
     @Import(name="sourceArn")
     private @Nullable Output<String> sourceArn;
 
-    /**
-     * @return The ARN of the subnet.
-     * 
-     */
     public Optional<Output<String>> sourceArn() {
         return Optional.ofNullable(this.sourceArn);
     }
 
-    /**
-     * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -233,107 +153,47 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
             return addressFamily(Output.of(addressFamily));
         }
 
-        /**
-         * @param arn The ARN of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param destination The destination IP address. This must be either IPV4 or IPV6.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination The destination IP address. This must be either IPV4 or IPV6.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param destinationPort The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPort(@Nullable Output<Integer> destinationPort) {
             $.destinationPort = destinationPort;
             return this;
         }
 
-        /**
-         * @param destinationPort The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPort(Integer destinationPort) {
             return destinationPort(Output.of(destinationPort));
         }
 
-        /**
-         * @param monitorName The name of the monitor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorName(@Nullable Output<String> monitorName) {
             $.monitorName = monitorName;
             return this;
         }
 
-        /**
-         * @param monitorName The name of the monitor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorName(String monitorName) {
             return monitorName(Output.of(monitorName));
         }
 
-        /**
-         * @param packetSize The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packetSize(@Nullable Output<Integer> packetSize) {
             $.packetSize = packetSize;
             return this;
         }
 
-        /**
-         * @param packetSize The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packetSize(Integer packetSize) {
             return packetSize(Output.of(packetSize));
         }
@@ -347,107 +207,47 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
             return probeId(Output.of(probeId));
         }
 
-        /**
-         * @param protocol The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceArn The ARN of the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(@Nullable Output<String> sourceArn) {
             $.sourceArn = sourceArn;
             return this;
         }
 
-        /**
-         * @param sourceArn The ARN of the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(String sourceArn) {
             return sourceArn(Output.of(sourceArn));
         }
 
-        /**
-         * @param tags Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

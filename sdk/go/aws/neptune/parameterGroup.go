@@ -12,69 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Neptune Parameter Group
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/neptune"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewParameterGroup(ctx, "example", &neptune.ParameterGroupArgs{
-//				Family: pulumi.String("neptune1"),
-//				Name:   pulumi.String("example"),
-//				Parameters: neptune.ParameterGroupParameterArray{
-//					&neptune.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("neptune_query_timeout"),
-//						Value: pulumi.String("25"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
-// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// The Neptune parameter group Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The family of the Neptune parameter group.
-	Family pulumi.StringOutput `pulumi:"family"`
-	// The name of the Neptune parameter.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// A list of Neptune parameters to apply.
-	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn         pulumi.StringOutput                `pulumi:"arn"`
+	Description pulumi.StringPtrOutput             `pulumi:"description"`
+	Family      pulumi.StringOutput                `pulumi:"family"`
+	Name        pulumi.StringOutput                `pulumi:"name"`
+	NamePrefix  pulumi.StringOutput                `pulumi:"namePrefix"`
+	Parameters  ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	Region      pulumi.StringOutput                `pulumi:"region"`
+	Tags        pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput             `pulumi:"tagsAll"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -110,45 +59,27 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	// The Neptune parameter group Amazon Resource Name (ARN).
-	Arn *string `pulumi:"arn"`
-	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// The family of the Neptune parameter group.
-	Family *string `pulumi:"family"`
-	// The name of the Neptune parameter.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// A list of Neptune parameters to apply.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string                   `pulumi:"arn"`
+	Description *string                   `pulumi:"description"`
+	Family      *string                   `pulumi:"family"`
+	Name        *string                   `pulumi:"name"`
+	NamePrefix  *string                   `pulumi:"namePrefix"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
+	Region      *string                   `pulumi:"region"`
+	Tags        map[string]string         `pulumi:"tags"`
+	TagsAll     map[string]string         `pulumi:"tagsAll"`
 }
 
 type ParameterGroupState struct {
-	// The Neptune parameter group Amazon Resource Name (ARN).
-	Arn pulumi.StringPtrInput
-	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The family of the Neptune parameter group.
-	Family pulumi.StringPtrInput
-	// The name of the Neptune parameter.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// A list of Neptune parameters to apply.
-	Parameters ParameterGroupParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Family      pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	NamePrefix  pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -156,38 +87,24 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// The family of the Neptune parameter group.
-	Family string `pulumi:"family"`
-	// The name of the Neptune parameter.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// A list of Neptune parameters to apply.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string                   `pulumi:"description"`
+	Family      string                    `pulumi:"family"`
+	Name        *string                   `pulumi:"name"`
+	NamePrefix  *string                   `pulumi:"namePrefix"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
+	Region      *string                   `pulumi:"region"`
+	Tags        map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The family of the Neptune parameter group.
-	Family pulumi.StringInput
-	// The name of the Neptune parameter.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// A list of Neptune parameters to apply.
-	Parameters ParameterGroupParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Family      pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	NamePrefix  pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -277,47 +194,38 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Neptune parameter group Amazon Resource Name (ARN).
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
 func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The family of the Neptune parameter group.
 func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// The name of the Neptune parameter.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o ParameterGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// A list of Neptune parameters to apply.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ParameterGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

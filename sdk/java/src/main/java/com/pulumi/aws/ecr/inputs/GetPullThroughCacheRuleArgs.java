@@ -16,32 +16,16 @@ public final class GetPullThroughCacheRuleArgs extends com.pulumi.resources.Invo
 
     public static final GetPullThroughCacheRuleArgs Empty = new GetPullThroughCacheRuleArgs();
 
-    /**
-     * The repository name prefix to use when caching images from the source registry.
-     * 
-     */
     @Import(name="ecrRepositoryPrefix", required=true)
     private Output<String> ecrRepositoryPrefix;
 
-    /**
-     * @return The repository name prefix to use when caching images from the source registry.
-     * 
-     */
     public Output<String> ecrRepositoryPrefix() {
         return this.ecrRepositoryPrefix;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class GetPullThroughCacheRuleArgs extends com.pulumi.resources.Invo
             $ = new GetPullThroughCacheRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ecrRepositoryPrefix The repository name prefix to use when caching images from the source registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrRepositoryPrefix(Output<String> ecrRepositoryPrefix) {
             $.ecrRepositoryPrefix = ecrRepositoryPrefix;
             return this;
         }
 
-        /**
-         * @param ecrRepositoryPrefix The repository name prefix to use when caching images from the source registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrRepositoryPrefix(String ecrRepositoryPrefix) {
             return ecrRepositoryPrefix(Output.of(ecrRepositoryPrefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

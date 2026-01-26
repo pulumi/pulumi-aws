@@ -12,93 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a GuardDuty filter.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewFilter(ctx, "MyFilter", &guardduty.FilterArgs{
-//				Name:       pulumi.String("MyFilter"),
-//				Action:     pulumi.String("ARCHIVE"),
-//				DetectorId: pulumi.Any(example.Id),
-//				Rank:       pulumi.Int(1),
-//				FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
-//					Criterions: guardduty.FilterFindingCriteriaCriterionArray{
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field: pulumi.String("region"),
-//							Equals: pulumi.StringArray{
-//								pulumi.String("eu-west-1"),
-//							},
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field: pulumi.String("service.additionalInfo.threatListName"),
-//							NotEquals: pulumi.StringArray{
-//								pulumi.String("some-threat"),
-//								pulumi.String("another-threat"),
-//							},
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field:       pulumi.String("updatedAt"),
-//							GreaterThan: pulumi.String("2020-01-01T00:00:00Z"),
-//							LessThan:    pulumi.String("2020-02-01T00:00:00Z"),
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field:              pulumi.String("severity"),
-//							GreaterThanOrEqual: pulumi.String("4"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
-//
-// ```sh
-// $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
-// ```
 type Filter struct {
 	pulumi.CustomResourceState
 
-	// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-	Action pulumi.StringOutput `pulumi:"action"`
-	// The ARN of the GuardDuty filter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the filter.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ID of a GuardDuty detector, attached to your account.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+	Action          pulumi.StringOutput         `pulumi:"action"`
+	Arn             pulumi.StringOutput         `pulumi:"arn"`
+	Description     pulumi.StringPtrOutput      `pulumi:"description"`
+	DetectorId      pulumi.StringOutput         `pulumi:"detectorId"`
 	FindingCriteria FilterFindingCriteriaOutput `pulumi:"findingCriteria"`
-	// The name of your filter.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-	Rank pulumi.IntOutput `pulumi:"rank"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name            pulumi.StringOutput         `pulumi:"name"`
+	Rank            pulumi.IntOutput            `pulumi:"rank"`
+	Region          pulumi.StringOutput         `pulumi:"region"`
+	Tags            pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput      `pulumi:"tagsAll"`
 }
 
 // NewFilter registers a new resource with the given unique name, arguments, and options.
@@ -143,49 +69,29 @@ func GetFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Filter resources.
 type filterState struct {
-	// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-	Action *string `pulumi:"action"`
-	// The ARN of the GuardDuty filter.
-	Arn *string `pulumi:"arn"`
-	// Description of the filter.
-	Description *string `pulumi:"description"`
-	// ID of a GuardDuty detector, attached to your account.
-	DetectorId *string `pulumi:"detectorId"`
-	// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+	Action          *string                `pulumi:"action"`
+	Arn             *string                `pulumi:"arn"`
+	Description     *string                `pulumi:"description"`
+	DetectorId      *string                `pulumi:"detectorId"`
 	FindingCriteria *FilterFindingCriteria `pulumi:"findingCriteria"`
-	// The name of your filter.
-	Name *string `pulumi:"name"`
-	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-	Rank *int `pulumi:"rank"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name            *string                `pulumi:"name"`
+	Rank            *int                   `pulumi:"rank"`
+	Region          *string                `pulumi:"region"`
+	Tags            map[string]string      `pulumi:"tags"`
+	TagsAll         map[string]string      `pulumi:"tagsAll"`
 }
 
 type FilterState struct {
-	// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-	Action pulumi.StringPtrInput
-	// The ARN of the GuardDuty filter.
-	Arn pulumi.StringPtrInput
-	// Description of the filter.
-	Description pulumi.StringPtrInput
-	// ID of a GuardDuty detector, attached to your account.
-	DetectorId pulumi.StringPtrInput
-	// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+	Action          pulumi.StringPtrInput
+	Arn             pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
+	DetectorId      pulumi.StringPtrInput
 	FindingCriteria FilterFindingCriteriaPtrInput
-	// The name of your filter.
-	Name pulumi.StringPtrInput
-	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-	Rank pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Rank            pulumi.IntPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (FilterState) ElementType() reflect.Type {
@@ -193,42 +99,26 @@ func (FilterState) ElementType() reflect.Type {
 }
 
 type filterArgs struct {
-	// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-	Action string `pulumi:"action"`
-	// Description of the filter.
-	Description *string `pulumi:"description"`
-	// ID of a GuardDuty detector, attached to your account.
-	DetectorId string `pulumi:"detectorId"`
-	// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+	Action          string                `pulumi:"action"`
+	Description     *string               `pulumi:"description"`
+	DetectorId      string                `pulumi:"detectorId"`
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
-	// The name of your filter.
-	Name *string `pulumi:"name"`
-	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-	Rank int `pulumi:"rank"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name            *string               `pulumi:"name"`
+	Rank            int                   `pulumi:"rank"`
+	Region          *string               `pulumi:"region"`
+	Tags            map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Filter resource.
 type FilterArgs struct {
-	// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-	Action pulumi.StringInput
-	// Description of the filter.
-	Description pulumi.StringPtrInput
-	// ID of a GuardDuty detector, attached to your account.
-	DetectorId pulumi.StringInput
-	// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+	Action          pulumi.StringInput
+	Description     pulumi.StringPtrInput
+	DetectorId      pulumi.StringInput
 	FindingCriteria FilterFindingCriteriaInput
-	// The name of your filter.
-	Name pulumi.StringPtrInput
-	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-	Rank pulumi.IntInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Rank            pulumi.IntInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (FilterArgs) ElementType() reflect.Type {
@@ -318,52 +208,42 @@ func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutpu
 	return o
 }
 
-// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
 func (o FilterOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// The ARN of the GuardDuty filter.
 func (o FilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the filter.
 func (o FilterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ID of a GuardDuty detector, attached to your account.
 func (o FilterOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
 func (o FilterOutput) FindingCriteria() FilterFindingCriteriaOutput {
 	return o.ApplyT(func(v *Filter) FilterFindingCriteriaOutput { return v.FindingCriteria }).(FilterFindingCriteriaOutput)
 }
 
-// The name of your filter.
 func (o FilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 func (o FilterOutput) Rank() pulumi.IntOutput {
 	return o.ApplyT(func(v *Filter) pulumi.IntOutput { return v.Rank }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

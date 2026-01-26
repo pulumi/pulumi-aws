@@ -11,72 +11,12 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetProfilesProfiles
     {
-        /// <summary>
-        /// Data source for managing an AWS Route 53 Profiles.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetProfilesProfiles.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetProfilesProfilesResult> InvokeAsync(GetProfilesProfilesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfilesProfilesResult>("aws:route53/getProfilesProfiles:getProfilesProfiles", args ?? new GetProfilesProfilesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Route 53 Profiles.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetProfilesProfiles.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProfilesProfilesResult> Invoke(GetProfilesProfilesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilesProfilesResult>("aws:route53/getProfilesProfiles:getProfilesProfiles", args ?? new GetProfilesProfilesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Route 53 Profiles.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetProfilesProfiles.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProfilesProfilesResult> Invoke(GetProfilesProfilesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilesProfilesResult>("aws:route53/getProfilesProfiles:getProfilesProfiles", args ?? new GetProfilesProfilesInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetProfilesProfilesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetProfilesProfilesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -118,9 +52,6 @@ namespace Pulumi.Aws.Route53
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of Profiles.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetProfilesProfilesProfileResult> Profiles;
         public readonly string Region;
 

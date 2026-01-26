@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetSubnetGroup
     {
-        /// <summary>
-        /// Use this data source to get information about an RDS subnet group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var database = Aws.Rds.GetSubnetGroup.Invoke(new()
-        ///     {
-        ///         Name = "my-test-database-subnet-group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an RDS subnet group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var database = Aws.Rds.GetSubnetGroup.Invoke(new()
-        ///     {
-        ///         Name = "my-test-database-subnet-group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an RDS subnet group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var database = Aws.Rds.GetSubnetGroup.Invoke(new()
-        ///     {
-        ///         Name = "my-test-database-subnet-group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the RDS database subnet group.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the RDS database subnet group.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,13 +54,7 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetSubnetGroupResult
     {
-        /// <summary>
-        /// ARN for the DB subnet group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Provides the description of the DB subnet group.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -143,21 +62,9 @@ namespace Pulumi.Aws.Rds
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Provides the status of the DB subnet group.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Contains a list of subnet identifiers.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The network type of the DB subnet group.
-        /// </summary>
         public readonly ImmutableArray<string> SupportedNetworkTypes;
-        /// <summary>
-        /// Provides the VPC ID of the DB subnet group.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

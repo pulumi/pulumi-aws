@@ -25,264 +25,88 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
-    /**
-     * @return ARN of the task set
-     * 
-     */
     private String arn;
-    /**
-     * @return Whether Availability Zone rebalancing is enabled
-     * 
-     */
     private String availabilityZoneRebalancing;
-    /**
-     * @return Capacity provider strategy for the service. See `capacityProviderStrategy` Block for details.
-     * 
-     */
     private List<GetServiceCapacityProviderStrategy> capacityProviderStrategies;
     private String clusterArn;
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Principal that created the service
-     * 
-     */
     private String createdBy;
-    /**
-     * @return Deployment configuration for the service. See `deploymentConfiguration` Block for details.
-     * 
-     */
     private List<GetServiceDeploymentConfiguration> deploymentConfigurations;
-    /**
-     * @return Deployment controller configuration. See `deploymentController` Block for details.
-     * 
-     */
     private List<GetServiceDeploymentController> deploymentControllers;
-    /**
-     * @return Current deployments for the service. See `deployments` Block for details.
-     * 
-     */
     private List<GetServiceDeployment> deployments;
-    /**
-     * @return Desired number of tasks
-     * 
-     */
     private Integer desiredCount;
-    /**
-     * @return Whether ECS managed tags are enabled
-     * 
-     */
     private Boolean enableEcsManagedTags;
-    /**
-     * @return Whether execute command functionality is enabled
-     * 
-     */
     private Boolean enableExecuteCommand;
-    /**
-     * @return Recent service events. See `events` Block for details.
-     * 
-     */
     private List<GetServiceEvent> events;
-    /**
-     * @return Grace period for health checks
-     * 
-     */
     private Integer healthCheckGracePeriodSeconds;
-    /**
-     * @return ARN of the IAM role associated with the service
-     * 
-     */
     private String iamRole;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Launch type for the ECS Service
-     * 
-     */
     private String launchType;
-    /**
-     * @return Load balancers for the ECS Service. See `loadBalancer` Block for details.
-     * 
-     */
     private List<GetServiceLoadBalancer> loadBalancers;
-    /**
-     * @return Network configuration for the service. See `networkConfiguration` Block for details.
-     * 
-     */
     private List<GetServiceNetworkConfiguration> networkConfigurations;
-    /**
-     * @return Placement strategy for tasks. See `orderedPlacementStrategy` Block for details.
-     * 
-     */
     private List<GetServiceOrderedPlacementStrategy> orderedPlacementStrategies;
-    /**
-     * @return Number of pending tasks
-     * 
-     */
     private Integer pendingCount;
-    /**
-     * @return Placement constraints for tasks. See `placementConstraints` Block for details.
-     * 
-     */
     private List<GetServicePlacementConstraint> placementConstraints;
-    /**
-     * @return Platform family for Fargate tasks
-     * 
-     */
     private String platformFamily;
-    /**
-     * @return Platform version for Fargate tasks
-     * 
-     */
     private String platformVersion;
-    /**
-     * @return Whether tags are propagated from task definition or service
-     * 
-     */
     private String propagateTags;
     private String region;
-    /**
-     * @return Number of running tasks
-     * 
-     */
     private Integer runningCount;
-    /**
-     * @return Scheduling strategy for the ECS Service
-     * 
-     */
     private String schedulingStrategy;
     private String serviceName;
-    /**
-     * @return Service discovery registries. See `serviceRegistries` Block for details.
-     * 
-     */
     private List<GetServiceServiceRegistry> serviceRegistries;
-    /**
-     * @return Task set status
-     * 
-     */
     private String status;
-    /**
-     * @return Resource tags.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Task definition ARN
-     * 
-     */
     private String taskDefinition;
-    /**
-     * @return Task sets for the service. See `taskSets` Block for details.
-     * 
-     */
     private List<GetServiceTaskSet> taskSets;
 
     private GetServiceResult() {}
-    /**
-     * @return ARN of the task set
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Whether Availability Zone rebalancing is enabled
-     * 
-     */
     public String availabilityZoneRebalancing() {
         return this.availabilityZoneRebalancing;
     }
-    /**
-     * @return Capacity provider strategy for the service. See `capacityProviderStrategy` Block for details.
-     * 
-     */
     public List<GetServiceCapacityProviderStrategy> capacityProviderStrategies() {
         return this.capacityProviderStrategies;
     }
     public String clusterArn() {
         return this.clusterArn;
     }
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Principal that created the service
-     * 
-     */
     public String createdBy() {
         return this.createdBy;
     }
-    /**
-     * @return Deployment configuration for the service. See `deploymentConfiguration` Block for details.
-     * 
-     */
     public List<GetServiceDeploymentConfiguration> deploymentConfigurations() {
         return this.deploymentConfigurations;
     }
-    /**
-     * @return Deployment controller configuration. See `deploymentController` Block for details.
-     * 
-     */
     public List<GetServiceDeploymentController> deploymentControllers() {
         return this.deploymentControllers;
     }
-    /**
-     * @return Current deployments for the service. See `deployments` Block for details.
-     * 
-     */
     public List<GetServiceDeployment> deployments() {
         return this.deployments;
     }
-    /**
-     * @return Desired number of tasks
-     * 
-     */
     public Integer desiredCount() {
         return this.desiredCount;
     }
-    /**
-     * @return Whether ECS managed tags are enabled
-     * 
-     */
     public Boolean enableEcsManagedTags() {
         return this.enableEcsManagedTags;
     }
-    /**
-     * @return Whether execute command functionality is enabled
-     * 
-     */
     public Boolean enableExecuteCommand() {
         return this.enableExecuteCommand;
     }
-    /**
-     * @return Recent service events. See `events` Block for details.
-     * 
-     */
     public List<GetServiceEvent> events() {
         return this.events;
     }
-    /**
-     * @return Grace period for health checks
-     * 
-     */
     public Integer healthCheckGracePeriodSeconds() {
         return this.healthCheckGracePeriodSeconds;
     }
-    /**
-     * @return ARN of the IAM role associated with the service
-     * 
-     */
     public String iamRole() {
         return this.iamRole;
     }
@@ -293,121 +117,57 @@ public final class GetServiceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Launch type for the ECS Service
-     * 
-     */
     public String launchType() {
         return this.launchType;
     }
-    /**
-     * @return Load balancers for the ECS Service. See `loadBalancer` Block for details.
-     * 
-     */
     public List<GetServiceLoadBalancer> loadBalancers() {
         return this.loadBalancers;
     }
-    /**
-     * @return Network configuration for the service. See `networkConfiguration` Block for details.
-     * 
-     */
     public List<GetServiceNetworkConfiguration> networkConfigurations() {
         return this.networkConfigurations;
     }
-    /**
-     * @return Placement strategy for tasks. See `orderedPlacementStrategy` Block for details.
-     * 
-     */
     public List<GetServiceOrderedPlacementStrategy> orderedPlacementStrategies() {
         return this.orderedPlacementStrategies;
     }
-    /**
-     * @return Number of pending tasks
-     * 
-     */
     public Integer pendingCount() {
         return this.pendingCount;
     }
-    /**
-     * @return Placement constraints for tasks. See `placementConstraints` Block for details.
-     * 
-     */
     public List<GetServicePlacementConstraint> placementConstraints() {
         return this.placementConstraints;
     }
-    /**
-     * @return Platform family for Fargate tasks
-     * 
-     */
     public String platformFamily() {
         return this.platformFamily;
     }
-    /**
-     * @return Platform version for Fargate tasks
-     * 
-     */
     public String platformVersion() {
         return this.platformVersion;
     }
-    /**
-     * @return Whether tags are propagated from task definition or service
-     * 
-     */
     public String propagateTags() {
         return this.propagateTags;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Number of running tasks
-     * 
-     */
     public Integer runningCount() {
         return this.runningCount;
     }
-    /**
-     * @return Scheduling strategy for the ECS Service
-     * 
-     */
     public String schedulingStrategy() {
         return this.schedulingStrategy;
     }
     public String serviceName() {
         return this.serviceName;
     }
-    /**
-     * @return Service discovery registries. See `serviceRegistries` Block for details.
-     * 
-     */
     public List<GetServiceServiceRegistry> serviceRegistries() {
         return this.serviceRegistries;
     }
-    /**
-     * @return Task set status
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Resource tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Task definition ARN
-     * 
-     */
     public String taskDefinition() {
         return this.taskDefinition;
     }
-    /**
-     * @return Task sets for the service. See `taskSets` Block for details.
-     * 
-     */
     public List<GetServiceTaskSet> taskSets() {
         return this.taskSets;
     }

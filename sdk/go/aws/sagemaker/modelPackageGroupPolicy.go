@@ -12,105 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI Model Package Group Policy resource.
-//
-// ## Example Usage
-//
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleModelPackageGroup, err := sagemaker.NewModelPackageGroup(ctx, "example", &sagemaker.ModelPackageGroupArgs{
-// ModelPackageGroupName: pulumi.String("example"),
-// })
-// if err != nil {
-// return err
-// }
-// example := exampleModelPackageGroup.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AddPermModelPackageGroup"))),
-// Actions: []string{
-// "sagemaker:DescribeModelPackage",
-// "sagemaker:ListModelPackages",
-// },
-// Resources: []string{
-// arn,
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: interface{}{
-// current.AccountId,
-// },
-// Type: "AWS",
-// },
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// invokeJsondecode, err := std.Jsondecode(ctx, &std.JsondecodeArgs{
-// Input: example.Json,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// _, err = sagemaker.NewModelPackageGroupPolicy(ctx, "example", &sagemaker.ModelPackageGroupPolicyArgs{
-// ModelPackageGroupName: exampleModelPackageGroup.ModelPackageGroupName,
-// ResourcePolicy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (std.JsondecodeResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JsondecodeResultOutput).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
-// var _zero pulumi.String
-// tmpJSON0, err := json.Marshal(invoke.Result)
-// if err != nil {
-// return _zero, err
-// }
-// json0 := string(tmpJSON0)
-// return pulumi.String(json0), nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
-// ```
 type ModelPackageGroupPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region         pulumi.StringOutput `pulumi:"region"`
-	ResourcePolicy pulumi.StringOutput `pulumi:"resourcePolicy"`
+	Region                pulumi.StringOutput `pulumi:"region"`
+	ResourcePolicy        pulumi.StringOutput `pulumi:"resourcePolicy"`
 }
 
 // NewModelPackageGroupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -149,19 +56,15 @@ func GetModelPackageGroupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
 type modelPackageGroupPolicyState struct {
-	// The name of the model package group.
 	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region         *string `pulumi:"region"`
-	ResourcePolicy *string `pulumi:"resourcePolicy"`
+	Region                *string `pulumi:"region"`
+	ResourcePolicy        *string `pulumi:"resourcePolicy"`
 }
 
 type ModelPackageGroupPolicyState struct {
-	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region         pulumi.StringPtrInput
-	ResourcePolicy pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	ResourcePolicy        pulumi.StringPtrInput
 }
 
 func (ModelPackageGroupPolicyState) ElementType() reflect.Type {
@@ -169,20 +72,16 @@ func (ModelPackageGroupPolicyState) ElementType() reflect.Type {
 }
 
 type modelPackageGroupPolicyArgs struct {
-	// The name of the model package group.
-	ModelPackageGroupName string `pulumi:"modelPackageGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region         *string `pulumi:"region"`
-	ResourcePolicy string  `pulumi:"resourcePolicy"`
+	ModelPackageGroupName string  `pulumi:"modelPackageGroupName"`
+	Region                *string `pulumi:"region"`
+	ResourcePolicy        string  `pulumi:"resourcePolicy"`
 }
 
 // The set of arguments for constructing a ModelPackageGroupPolicy resource.
 type ModelPackageGroupPolicyArgs struct {
-	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region         pulumi.StringPtrInput
-	ResourcePolicy pulumi.StringInput
+	Region                pulumi.StringPtrInput
+	ResourcePolicy        pulumi.StringInput
 }
 
 func (ModelPackageGroupPolicyArgs) ElementType() reflect.Type {
@@ -272,12 +171,10 @@ func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyOutputWithContex
 	return o
 }
 
-// The name of the model package group.
 func (o ModelPackageGroupPolicyOutput) ModelPackageGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroupPolicy) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ModelPackageGroupPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroupPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

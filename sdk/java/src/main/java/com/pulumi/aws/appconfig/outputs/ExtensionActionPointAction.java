@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExtensionActionPointAction {
-    /**
-     * @return Information about the action.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The action name.
-     * 
-     */
     private String name;
-    /**
-     * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-     * 
-     */
     private @Nullable String roleArn;
-    /**
-     * @return The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-     * 
-     */
     private String uri;
 
     private ExtensionActionPointAction() {}
-    /**
-     * @return Information about the action.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The action name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-     * 
-     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
-    /**
-     * @return The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-     * 
-     */
     public String uri() {
         return this.uri;
     }

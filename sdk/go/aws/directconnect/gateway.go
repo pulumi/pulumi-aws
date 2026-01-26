@@ -12,67 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Direct Connect Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				Name:          pulumi.String("tf-dxg-example"),
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `id` (String) ID of the Direct Connect Gateway.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
-//
-// % pulumi import aws_dx_gateway.example abcd1234-dcba-5678-be23-cdef9876ab45
 type Gateway struct {
 	pulumi.CustomResourceState
 
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
-	// The ARN of the gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the connection.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// AWS Account ID of the gateway.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AmazonSideAsn  pulumi.StringOutput    `pulumi:"amazonSideAsn"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	OwnerAccountId pulumi.StringOutput    `pulumi:"ownerAccountId"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -108,33 +56,21 @@ func GetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gateway resources.
 type gatewayState struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// The ARN of the gateway.
-	Arn *string `pulumi:"arn"`
-	// The name of the connection.
-	Name *string `pulumi:"name"`
-	// AWS Account ID of the gateway.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AmazonSideAsn  *string           `pulumi:"amazonSideAsn"`
+	Arn            *string           `pulumi:"arn"`
+	Name           *string           `pulumi:"name"`
+	OwnerAccountId *string           `pulumi:"ownerAccountId"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
 }
 
 type GatewayState struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn pulumi.StringPtrInput
-	// The ARN of the gateway.
-	Arn pulumi.StringPtrInput
-	// The name of the connection.
-	Name pulumi.StringPtrInput
-	// AWS Account ID of the gateway.
+	AmazonSideAsn  pulumi.StringPtrInput
+	Arn            pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
 	OwnerAccountId pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (GatewayState) ElementType() reflect.Type {
@@ -142,22 +78,16 @@ func (GatewayState) ElementType() reflect.Type {
 }
 
 type gatewayArgs struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn string `pulumi:"amazonSideAsn"`
-	// The name of the connection.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AmazonSideAsn string            `pulumi:"amazonSideAsn"`
+	Name          *string           `pulumi:"name"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 	AmazonSideAsn pulumi.StringInput
-	// The name of the connection.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name          pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -247,32 +177,26 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 	return o
 }
 
-// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 func (o GatewayOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }
 
-// The ARN of the gateway.
 func (o GatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the connection.
 func (o GatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// AWS Account ID of the gateway.
 func (o GatewayOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,19 +13,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class PermissionsLfTag
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// The key-name for the tag.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// A list of possible values an attribute can take.
-        /// 
-        /// The following argument is optional:
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

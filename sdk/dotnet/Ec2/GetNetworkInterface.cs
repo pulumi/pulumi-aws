@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetNetworkInterface
     {
-        /// <summary>
-        /// Use this data source to get information about a Network Interface.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.Ec2.GetNetworkInterface.Invoke(new()
-        ///     {
-        ///         Id = "eni-01234567",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("aws:ec2/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a Network Interface.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.Ec2.GetNetworkInterface.Invoke(new()
-        ///     {
-        ///         Id = "eni-01234567",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("aws:ec2/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a Network Interface.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.Ec2.GetNetworkInterface.Invoke(new()
-        ///     {
-        ///         Id = "eni-01234567",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("aws:ec2/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
     }
@@ -89,34 +26,20 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetNetworkInterfaceFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
-        /// </summary>
         public List<Inputs.GetNetworkInterfaceFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetNetworkInterfaceFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier for the network interface.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Any tags assigned to the network interface.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -133,34 +56,20 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetNetworkInterfaceFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
-        /// </summary>
         public InputList<Inputs.GetNetworkInterfaceFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetNetworkInterfaceFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier for the network interface.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Any tags assigned to the network interface.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -177,80 +86,26 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetNetworkInterfaceResult
     {
-        /// <summary>
-        /// ARN of the network interface.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceAssociationResult> Associations;
-        /// <summary>
-        /// Attachment of the ENI. See attachment below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceAttachmentResult> Attachments;
-        /// <summary>
-        /// Availability Zone.
-        /// </summary>
         public readonly string AvailabilityZone;
-        /// <summary>
-        /// Description of the network interface.
-        /// </summary>
         public readonly string Description;
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceFilterResult> Filters;
         public readonly string Id;
-        /// <summary>
-        /// Type of interface.
-        /// </summary>
         public readonly string InterfaceType;
-        /// <summary>
-        /// List of IPv6 addresses to assign to the ENI.
-        /// </summary>
         public readonly ImmutableArray<string> Ipv6Addresses;
-        /// <summary>
-        /// MAC address.
-        /// </summary>
         public readonly string MacAddress;
-        /// <summary>
-        /// ARN of the Outpost.
-        /// </summary>
         public readonly string OutpostArn;
-        /// <summary>
-        /// AWS account ID of the owner of the network interface.
-        /// </summary>
         public readonly string OwnerId;
-        /// <summary>
-        /// Private DNS name.
-        /// </summary>
         public readonly string PrivateDnsName;
-        /// <summary>
-        /// Private IPv4 address of the network interface within the subnet.
-        /// </summary>
         public readonly string PrivateIp;
-        /// <summary>
-        /// Private IPv4 addresses associated with the network interface.
-        /// </summary>
         public readonly ImmutableArray<string> PrivateIps;
         public readonly string Region;
-        /// <summary>
-        /// ID of the entity that launched the instance on your behalf.
-        /// </summary>
         public readonly string RequesterId;
-        /// <summary>
-        /// List of security groups for the network interface.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// ID of the subnet.
-        /// </summary>
         public readonly string SubnetId;
-        /// <summary>
-        /// Any tags assigned to the network interface.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// ID of the VPC.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

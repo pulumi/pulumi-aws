@@ -13,21 +13,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceDataDataCellsFilter
     {
-        /// <summary>
-        /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-        /// </summary>
         public readonly string? DatabaseName;
-        /// <summary>
-        /// Name of the table.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// ID of the catalog to which the table belongs.
-        /// </summary>
         public readonly string? TableCatalogId;
-        /// <summary>
-        /// Name of the table.
-        /// </summary>
         public readonly string? TableName;
 
         [OutputConstructor]

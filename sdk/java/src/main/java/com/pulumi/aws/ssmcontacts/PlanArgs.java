@@ -18,47 +18,23 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PlanArgs Empty = new PlanArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
-     * 
-     */
     @Import(name="contactId", required=true)
     private Output<String> contactId;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
-     * 
-     */
     public Output<String> contactId() {
         return this.contactId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-     * 
-     */
     @Import(name="stages", required=true)
     private Output<List<PlanStageArgs>> stages;
 
-    /**
-     * @return One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-     * 
-     */
     public Output<List<PlanStageArgs>> stages() {
         return this.stages;
     }
@@ -89,75 +65,33 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PlanArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact or escalation plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactId(Output<String> contactId) {
             $.contactId = contactId;
             return this;
         }
 
-        /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact or escalation plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactId(String contactId) {
             return contactId(Output.of(contactId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param stages One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stages(Output<List<PlanStageArgs>> stages) {
             $.stages = stages;
             return this;
         }
 
-        /**
-         * @param stages One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stages(List<PlanStageArgs> stages) {
             return stages(Output.of(stages));
         }
 
-        /**
-         * @param stages One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stages(PlanStageArgs... stages) {
             return stages(List.of(stages));
         }

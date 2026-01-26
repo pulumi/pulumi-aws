@@ -12,17 +12,9 @@ namespace Pulumi.Aws.Rbin.Inputs
 
     public sealed class RuleExcludeResourceTagGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag key.
-        /// 
-        /// The following argument is optional:
-        /// </summary>
         [Input("resourceTagKey", required: true)]
         public Input<string> ResourceTagKey { get; set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("resourceTagValue")]
         public Input<string>? ResourceTagValue { get; set; }
 

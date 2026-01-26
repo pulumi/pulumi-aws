@@ -15,32 +15,16 @@ public final class EventEndpointRoutingConfigFailoverConfigArgs extends com.pulu
 
     public static final EventEndpointRoutingConfigFailoverConfigArgs Empty = new EventEndpointRoutingConfigFailoverConfigArgs();
 
-    /**
-     * Parameters used for the primary Region. Documented below.
-     * 
-     */
     @Import(name="primary", required=true)
     private Output<EventEndpointRoutingConfigFailoverConfigPrimaryArgs> primary;
 
-    /**
-     * @return Parameters used for the primary Region. Documented below.
-     * 
-     */
     public Output<EventEndpointRoutingConfigFailoverConfigPrimaryArgs> primary() {
         return this.primary;
     }
 
-    /**
-     * Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-     * 
-     */
     @Import(name="secondary", required=true)
     private Output<EventEndpointRoutingConfigFailoverConfigSecondaryArgs> secondary;
 
-    /**
-     * @return Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-     * 
-     */
     public Output<EventEndpointRoutingConfigFailoverConfigSecondaryArgs> secondary() {
         return this.secondary;
     }
@@ -70,44 +54,20 @@ public final class EventEndpointRoutingConfigFailoverConfigArgs extends com.pulu
             $ = new EventEndpointRoutingConfigFailoverConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param primary Parameters used for the primary Region. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(Output<EventEndpointRoutingConfigFailoverConfigPrimaryArgs> primary) {
             $.primary = primary;
             return this;
         }
 
-        /**
-         * @param primary Parameters used for the primary Region. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(EventEndpointRoutingConfigFailoverConfigPrimaryArgs primary) {
             return primary(Output.of(primary));
         }
 
-        /**
-         * @param secondary Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondary(Output<EventEndpointRoutingConfigFailoverConfigSecondaryArgs> secondary) {
             $.secondary = secondary;
             return this;
         }
 
-        /**
-         * @param secondary Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondary(EventEndpointRoutingConfigFailoverConfigSecondaryArgs secondary) {
             return secondary(Output.of(secondary));
         }

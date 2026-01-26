@@ -14,32 +14,16 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
 
     public static final AccessHomeDirectoryMappingArgs Empty = new AccessHomeDirectoryMappingArgs();
 
-    /**
-     * Represents an entry and a target.
-     * 
-     */
     @Import(name="entry", required=true)
     private Output<String> entry;
 
-    /**
-     * @return Represents an entry and a target.
-     * 
-     */
     public Output<String> entry() {
         return this.entry;
     }
 
-    /**
-     * Represents the map target.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return Represents the map target.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
@@ -69,44 +53,20 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
             $ = new AccessHomeDirectoryMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entry Represents an entry and a target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entry(Output<String> entry) {
             $.entry = entry;
             return this;
         }
 
-        /**
-         * @param entry Represents an entry and a target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entry(String entry) {
             return entry(Output.of(entry));
         }
 
-        /**
-         * @param target Represents the map target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target Represents the map target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

@@ -16,184 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Endpoint.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpc.RouteServerEndpoint;
- * import com.pulumi.aws.vpc.RouteServerEndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new RouteServerEndpoint("test", RouteServerEndpointArgs.builder()
- *             .routeServerId(example.routeServerId())
- *             .subnetId(main.id())
- *             .tags(Map.of("Name", "Endpoint A"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `route_server_endpoint_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:vpc/routeServerEndpoint:RouteServerEndpoint example rse-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:vpc/routeServerEndpoint:RouteServerEndpoint")
 public class RouteServerEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the route server endpoint.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the route server endpoint.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The IP address of the Elastic network interface for the endpoint.
-     * 
-     */
     @Export(name="eniAddress", refs={String.class}, tree="[0]")
     private Output<String> eniAddress;
 
-    /**
-     * @return The IP address of the Elastic network interface for the endpoint.
-     * 
-     */
     public Output<String> eniAddress() {
         return this.eniAddress;
     }
-    /**
-     * The ID of the Elastic network interface for the endpoint.
-     * 
-     */
     @Export(name="eniId", refs={String.class}, tree="[0]")
     private Output<String> eniId;
 
-    /**
-     * @return The ID of the Elastic network interface for the endpoint.
-     * 
-     */
     public Output<String> eniId() {
         return this.eniId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The unique identifier of the route server endpoint.
-     * 
-     */
     @Export(name="routeServerEndpointId", refs={String.class}, tree="[0]")
     private Output<String> routeServerEndpointId;
 
-    /**
-     * @return The unique identifier of the route server endpoint.
-     * 
-     */
     public Output<String> routeServerEndpointId() {
         return this.routeServerEndpointId;
     }
-    /**
-     * The ID of the route server for which to create an endpoint.
-     * 
-     */
     @Export(name="routeServerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerId;
 
-    /**
-     * @return The ID of the route server for which to create an endpoint.
-     * 
-     */
     public Output<String> routeServerId() {
         return this.routeServerId;
     }
-    /**
-     * The ID of the subnet in which to create the route server endpoint.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet in which to create the route server endpoint.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -203,17 +78,9 @@ public class RouteServerEndpoint extends com.pulumi.resources.CustomResource {
     public Output<Optional<RouteServerEndpointTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The ID of the VPC containing the endpoint.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC containing the endpoint.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

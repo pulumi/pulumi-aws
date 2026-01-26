@@ -9,75 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ResourceGroups
 {
-    /// <summary>
-    /// Resource for managing an AWS Resource Groups Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.DedicatedHost("example", new()
-    ///     {
-    ///         InstanceFamily = "t3",
-    ///         AvailabilityZone = "us-east-1a",
-    ///         HostRecovery = "off",
-    ///         AutoPlacement = "on",
-    ///     });
-    /// 
-    ///     var exampleGroup = new Aws.ResourceGroups.Group("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleResource = new Aws.ResourceGroups.Resource("example", new()
-    ///     {
-    ///         GroupArn = exampleGroup.Arn,
-    ///         ResourceArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:resourcegroups/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name or ARN of the resource group to add resources to.
-        /// </summary>
         [Output("groupArn")]
         public Output<string> GroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the resource to be added to the group.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The resource type of a resource, such as `AWS::EC2::Instance`.
-        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
@@ -127,21 +70,12 @@ namespace Pulumi.Aws.ResourceGroups
 
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name or ARN of the resource group to add resources to.
-        /// </summary>
         [Input("groupArn", required: true)]
         public Input<string> GroupArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the resource to be added to the group.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -153,27 +87,15 @@ namespace Pulumi.Aws.ResourceGroups
 
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name or ARN of the resource group to add resources to.
-        /// </summary>
         [Input("groupArn")]
         public Input<string>? GroupArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the resource to be added to the group.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// The resource type of a resource, such as `AWS::EC2::Instance`.
-        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 

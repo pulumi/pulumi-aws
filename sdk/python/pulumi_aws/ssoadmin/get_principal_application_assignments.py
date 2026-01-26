@@ -51,9 +51,6 @@ class GetPrincipalApplicationAssignmentsResult:
     @_builtins.property
     @pulumi.getter(name="applicationAssignments")
     def application_assignments(self) -> Optional[Sequence['outputs.GetPrincipalApplicationAssignmentsApplicationAssignmentResult']]:
-        """
-        List of principals assigned to the application. See the `application_assignments` attribute reference below.
-        """
         return pulumi.get(self, "application_assignments")
 
     @_builtins.property
@@ -69,17 +66,11 @@ class GetPrincipalApplicationAssignmentsResult:
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
-        """
-        An identifier for an object in IAM Identity Center, such as a user or group.
-        """
         return pulumi.get(self, "principal_id")
 
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> _builtins.str:
-        """
-        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
     @_builtins.property
@@ -109,27 +100,7 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
                                           region: Optional[_builtins.str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrincipalApplicationAssignmentsResult:
     """
-    Data source for viewing AWS SSO Admin Principal Application Assignments.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_principal_application_assignments(instance_arn=test["arns"][0],
-        principal_id=test_aws_identitystore_user["userId"],
-        principal_type="USER")
-    ```
-
-
-    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
-    :param _builtins.str instance_arn: ARN of the instance of IAM Identity Center.
-    :param _builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-    :param _builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationAssignments'] = application_assignments
@@ -154,27 +125,7 @@ def get_principal_application_assignments_output(application_assignments: Option
                                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalApplicationAssignmentsResult]:
     """
-    Data source for viewing AWS SSO Admin Principal Application Assignments.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_principal_application_assignments(instance_arn=test["arns"][0],
-        principal_id=test_aws_identitystore_user["userId"],
-        principal_type="USER")
-    ```
-
-
-    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
-    :param _builtins.str instance_arn: ARN of the instance of IAM Identity Center.
-    :param _builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-    :param _builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationAssignments'] = application_assignments

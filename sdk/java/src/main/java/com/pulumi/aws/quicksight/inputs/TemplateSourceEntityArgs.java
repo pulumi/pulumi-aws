@@ -16,32 +16,16 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
 
     public static final TemplateSourceEntityArgs Empty = new TemplateSourceEntityArgs();
 
-    /**
-     * The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
-     * 
-     */
     @Import(name="sourceAnalysis")
     private @Nullable Output<TemplateSourceEntitySourceAnalysisArgs> sourceAnalysis;
 
-    /**
-     * @return The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
-     * 
-     */
     public Optional<Output<TemplateSourceEntitySourceAnalysisArgs>> sourceAnalysis() {
         return Optional.ofNullable(this.sourceAnalysis);
     }
 
-    /**
-     * The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
-     * 
-     */
     @Import(name="sourceTemplate")
     private @Nullable Output<TemplateSourceEntitySourceTemplateArgs> sourceTemplate;
 
-    /**
-     * @return The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
-     * 
-     */
     public Optional<Output<TemplateSourceEntitySourceTemplateArgs>> sourceTemplate() {
         return Optional.ofNullable(this.sourceTemplate);
     }
@@ -71,44 +55,20 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
             $ = new TemplateSourceEntityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceAnalysis The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAnalysis(@Nullable Output<TemplateSourceEntitySourceAnalysisArgs> sourceAnalysis) {
             $.sourceAnalysis = sourceAnalysis;
             return this;
         }
 
-        /**
-         * @param sourceAnalysis The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAnalysis(TemplateSourceEntitySourceAnalysisArgs sourceAnalysis) {
             return sourceAnalysis(Output.of(sourceAnalysis));
         }
 
-        /**
-         * @param sourceTemplate The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceTemplate(@Nullable Output<TemplateSourceEntitySourceTemplateArgs> sourceTemplate) {
             $.sourceTemplate = sourceTemplate;
             return this;
         }
 
-        /**
-         * @param sourceTemplate The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceTemplate(TemplateSourceEntitySourceTemplateArgs sourceTemplate) {
             return sourceTemplate(Output.of(sourceTemplate));
         }

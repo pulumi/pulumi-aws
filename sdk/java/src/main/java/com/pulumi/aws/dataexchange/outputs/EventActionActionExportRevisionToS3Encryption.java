@@ -11,31 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventActionActionExportRevisionToS3Encryption {
-    /**
-     * @return ARN of the KMS key used for encryption.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return Type of server-side encryption.
-     * Valid values are `aws:kms` or `aws:s3`.
-     * 
-     */
     private @Nullable String type;
 
     private EventActionActionExportRevisionToS3Encryption() {}
-    /**
-     * @return ARN of the KMS key used for encryption.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return Type of server-side encryption.
-     * Valid values are `aws:kms` or `aws:s3`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

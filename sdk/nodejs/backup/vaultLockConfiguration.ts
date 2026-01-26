@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Backup vault lock configuration resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.backup.VaultLockConfiguration("test", {
- *     backupVaultName: "example_backup_vault",
- *     changeableForDays: 3,
- *     maxRetentionDays: 1200,
- *     minRetentionDays: 7,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
- * ```
- */
 export class VaultLockConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing VaultLockConfiguration resource's state with the given name, ID, and optional extra
@@ -57,29 +32,11 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === VaultLockConfiguration.__pulumiType;
     }
 
-    /**
-     * The ARN of the vault.
-     */
     declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
-    /**
-     * Name of the backup vault to add a lock configuration for.
-     */
     declare public readonly backupVaultName: pulumi.Output<string>;
-    /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-     */
     declare public readonly changeableForDays: pulumi.Output<number | undefined>;
-    /**
-     * The maximum retention period that the vault retains its recovery points.
-     */
     declare public readonly maxRetentionDays: pulumi.Output<number | undefined>;
-    /**
-     * The minimum retention period that the vault retains its recovery points.
-     */
     declare public readonly minRetentionDays: pulumi.Output<number | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -122,29 +79,11 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VaultLockConfiguration resources.
  */
 export interface VaultLockConfigurationState {
-    /**
-     * The ARN of the vault.
-     */
     backupVaultArn?: pulumi.Input<string>;
-    /**
-     * Name of the backup vault to add a lock configuration for.
-     */
     backupVaultName?: pulumi.Input<string>;
-    /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-     */
     changeableForDays?: pulumi.Input<number>;
-    /**
-     * The maximum retention period that the vault retains its recovery points.
-     */
     maxRetentionDays?: pulumi.Input<number>;
-    /**
-     * The minimum retention period that the vault retains its recovery points.
-     */
     minRetentionDays?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -152,24 +91,9 @@ export interface VaultLockConfigurationState {
  * The set of arguments for constructing a VaultLockConfiguration resource.
  */
 export interface VaultLockConfigurationArgs {
-    /**
-     * Name of the backup vault to add a lock configuration for.
-     */
     backupVaultName: pulumi.Input<string>;
-    /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-     */
     changeableForDays?: pulumi.Input<number>;
-    /**
-     * The maximum retention period that the vault retains its recovery points.
-     */
     maxRetentionDays?: pulumi.Input<number>;
-    /**
-     * The minimum retention period that the vault retains its recovery points.
-     */
     minRetentionDays?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

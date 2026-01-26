@@ -15,32 +15,16 @@ public final class ApplicationDefinitionArgs extends com.pulumi.resources.Resour
 
     public static final ApplicationDefinitionArgs Empty = new ApplicationDefinitionArgs();
 
-    /**
-     * JSON application definition. Either this or `s3Location` must be specified.
-     * 
-     */
     @Import(name="content")
     private @Nullable Output<String> content;
 
-    /**
-     * @return JSON application definition. Either this or `s3Location` must be specified.
-     * 
-     */
     public Optional<Output<String>> content() {
         return Optional.ofNullable(this.content);
     }
 
-    /**
-     * Location of the application definition in S3. Either this or `content` must be specified.
-     * 
-     */
     @Import(name="s3Location")
     private @Nullable Output<String> s3Location;
 
-    /**
-     * @return Location of the application definition in S3. Either this or `content` must be specified.
-     * 
-     */
     public Optional<Output<String>> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }
@@ -70,44 +54,20 @@ public final class ApplicationDefinitionArgs extends com.pulumi.resources.Resour
             $ = new ApplicationDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param content JSON application definition. Either this or `s3Location` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(@Nullable Output<String> content) {
             $.content = content;
             return this;
         }
 
-        /**
-         * @param content JSON application definition. Either this or `s3Location` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(String content) {
             return content(Output.of(content));
         }
 
-        /**
-         * @param s3Location Location of the application definition in S3. Either this or `content` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(@Nullable Output<String> s3Location) {
             $.s3Location = s3Location;
             return this;
         }
 
-        /**
-         * @param s3Location Location of the application definition in S3. Either this or `content` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(String s3Location) {
             return s3Location(Output.of(s3Location));
         }

@@ -18,107 +18,51 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
 
     public static final ProxyEndpointState Empty = new ProxyEndpointState();
 
-    /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the proxy endpoint.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
-     * 
-     */
     @Import(name="dbProxyEndpointName")
     private @Nullable Output<String> dbProxyEndpointName;
 
-    /**
-     * @return The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
-     * 
-     */
     public Optional<Output<String>> dbProxyEndpointName() {
         return Optional.ofNullable(this.dbProxyEndpointName);
     }
 
-    /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
-     * 
-     */
     @Import(name="dbProxyName")
     private @Nullable Output<String> dbProxyName;
 
-    /**
-     * @return The name of the DB proxy associated with the DB proxy endpoint that you create.
-     * 
-     */
     public Optional<Output<String>> dbProxyName() {
         return Optional.ofNullable(this.dbProxyName);
     }
 
-    /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-     * 
-     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
-    /**
-     * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-     * 
-     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
 
-    /**
-     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-     * 
-     */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
-    /**
-     * @return Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-     * 
-     */
     public Optional<Output<Boolean>> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -130,62 +74,30 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-     * 
-     */
     @Import(name="targetRole")
     private @Nullable Output<String> targetRole;
 
-    /**
-     * @return Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-     * 
-     */
     public Optional<Output<String>> targetRole() {
         return Optional.ofNullable(this.targetRole);
     }
 
-    /**
-     * The VPC ID of the DB proxy endpoint.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The VPC ID of the DB proxy endpoint.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
 
-    /**
-     * One or more VPC security group IDs to associate with the new proxy.
-     * 
-     */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
-    /**
-     * @return One or more VPC security group IDs to associate with the new proxy.
-     * 
-     */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
         return Optional.ofNullable(this.vpcSecurityGroupIds);
     }
 
-    /**
-     * One or more VPC subnet IDs to associate with the new proxy.
-     * 
-     */
     @Import(name="vpcSubnetIds")
     private @Nullable Output<List<String>> vpcSubnetIds;
 
-    /**
-     * @return One or more VPC subnet IDs to associate with the new proxy.
-     * 
-     */
     public Optional<Output<List<String>>> vpcSubnetIds() {
         return Optional.ofNullable(this.vpcSubnetIds);
     }
@@ -225,149 +137,65 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
             $ = new ProxyEndpointState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param dbProxyEndpointName The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyEndpointName(@Nullable Output<String> dbProxyEndpointName) {
             $.dbProxyEndpointName = dbProxyEndpointName;
             return this;
         }
 
-        /**
-         * @param dbProxyEndpointName The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyEndpointName(String dbProxyEndpointName) {
             return dbProxyEndpointName(Output.of(dbProxyEndpointName));
         }
 
-        /**
-         * @param dbProxyName The name of the DB proxy associated with the DB proxy endpoint that you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyName(@Nullable Output<String> dbProxyName) {
             $.dbProxyName = dbProxyName;
             return this;
         }
 
-        /**
-         * @param dbProxyName The name of the DB proxy associated with the DB proxy endpoint that you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyName(String dbProxyName) {
             return dbProxyName(Output.of(dbProxyName));
         }
 
-        /**
-         * @param endpoint The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
-        /**
-         * @param isDefault Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(@Nullable Output<Boolean> isDefault) {
             $.isDefault = isDefault;
             return this;
         }
 
-        /**
-         * @param isDefault Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(Boolean isDefault) {
             return isDefault(Output.of(isDefault));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -381,106 +209,46 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param targetRole Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRole(@Nullable Output<String> targetRole) {
             $.targetRole = targetRole;
             return this;
         }
 
-        /**
-         * @param targetRole Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRole(String targetRole) {
             return targetRole(Output.of(targetRole));
         }
 
-        /**
-         * @param vpcId The VPC ID of the DB proxy endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The VPC ID of the DB proxy endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }
 
-        /**
-         * @param vpcSecurityGroupIds One or more VPC security group IDs to associate with the new proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSecurityGroupIds(@Nullable Output<List<String>> vpcSecurityGroupIds) {
             $.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
 
-        /**
-         * @param vpcSecurityGroupIds One or more VPC security group IDs to associate with the new proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(Output.of(vpcSecurityGroupIds));
         }
 
-        /**
-         * @param vpcSecurityGroupIds One or more VPC security group IDs to associate with the new proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
 
-        /**
-         * @param vpcSubnetIds One or more VPC subnet IDs to associate with the new proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSubnetIds(@Nullable Output<List<String>> vpcSubnetIds) {
             $.vpcSubnetIds = vpcSubnetIds;
             return this;
         }
 
-        /**
-         * @param vpcSubnetIds One or more VPC subnet IDs to associate with the new proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSubnetIds(List<String> vpcSubnetIds) {
             return vpcSubnetIds(Output.of(vpcSubnetIds));
         }
 
-        /**
-         * @param vpcSubnetIds One or more VPC subnet IDs to associate with the new proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSubnetIds(String... vpcSubnetIds) {
             return vpcSubnetIds(List.of(vpcSubnetIds));
         }

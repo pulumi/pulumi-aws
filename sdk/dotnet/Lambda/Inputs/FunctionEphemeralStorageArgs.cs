@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionEphemeralStorageArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 

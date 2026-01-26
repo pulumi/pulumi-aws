@@ -1236,10 +1236,8 @@ func (o EndpointSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 type GroupSseConfiguration struct {
-	// Boolean flag to indicate that the CMK should be used.
-	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
-	// ARN of the KMS key to use.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	CustomerManagedKeyEnabled *bool   `pulumi:"customerManagedKeyEnabled"`
+	KmsKeyArn                 *string `pulumi:"kmsKeyArn"`
 }
 
 // GroupSseConfigurationInput is an input type that accepts GroupSseConfigurationArgs and GroupSseConfigurationOutput values.
@@ -1254,10 +1252,8 @@ type GroupSseConfigurationInput interface {
 }
 
 type GroupSseConfigurationArgs struct {
-	// Boolean flag to indicate that the CMK should be used.
-	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
-	// ARN of the KMS key to use.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput   `pulumi:"customerManagedKeyEnabled"`
+	KmsKeyArn                 pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (GroupSseConfigurationArgs) ElementType() reflect.Type {
@@ -1337,12 +1333,10 @@ func (o GroupSseConfigurationOutput) ToGroupSseConfigurationPtrOutputWithContext
 	}).(GroupSseConfigurationPtrOutput)
 }
 
-// Boolean flag to indicate that the CMK should be used.
 func (o GroupSseConfigurationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupSseConfiguration) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the KMS key to use.
 func (o GroupSseConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupSseConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -1371,7 +1365,6 @@ func (o GroupSseConfigurationPtrOutput) Elem() GroupSseConfigurationOutput {
 	}).(GroupSseConfigurationOutput)
 }
 
-// Boolean flag to indicate that the CMK should be used.
 func (o GroupSseConfigurationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupSseConfiguration) *bool {
 		if v == nil {
@@ -1381,7 +1374,6 @@ func (o GroupSseConfigurationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the KMS key to use.
 func (o GroupSseConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupSseConfiguration) *string {
 		if v == nil {
@@ -1392,16 +1384,11 @@ func (o GroupSseConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 type InstanceLoggingConfigurationAccessLogs struct {
-	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-	CloudwatchLogs *InstanceLoggingConfigurationAccessLogsCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// Include trust data sent by trust providers into the logs.
-	IncludeTrustContext *bool `pulumi:"includeTrustContext"`
-	// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+	CloudwatchLogs      *InstanceLoggingConfigurationAccessLogsCloudwatchLogs      `pulumi:"cloudwatchLogs"`
+	IncludeTrustContext *bool                                                      `pulumi:"includeTrustContext"`
 	KinesisDataFirehose *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose `pulumi:"kinesisDataFirehose"`
-	// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-	LogVersion *string `pulumi:"logVersion"`
-	// A block that specifies configures sending Verified Access logs to S3. Detailed below.
-	S3 *InstanceLoggingConfigurationAccessLogsS3 `pulumi:"s3"`
+	LogVersion          *string                                                    `pulumi:"logVersion"`
+	S3                  *InstanceLoggingConfigurationAccessLogsS3                  `pulumi:"s3"`
 }
 
 // InstanceLoggingConfigurationAccessLogsInput is an input type that accepts InstanceLoggingConfigurationAccessLogsArgs and InstanceLoggingConfigurationAccessLogsOutput values.
@@ -1416,16 +1403,11 @@ type InstanceLoggingConfigurationAccessLogsInput interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsArgs struct {
-	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-	CloudwatchLogs InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	// Include trust data sent by trust providers into the logs.
-	IncludeTrustContext pulumi.BoolPtrInput `pulumi:"includeTrustContext"`
-	// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+	CloudwatchLogs      InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput      `pulumi:"cloudwatchLogs"`
+	IncludeTrustContext pulumi.BoolPtrInput                                               `pulumi:"includeTrustContext"`
 	KinesisDataFirehose InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput `pulumi:"kinesisDataFirehose"`
-	// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-	LogVersion pulumi.StringPtrInput `pulumi:"logVersion"`
-	// A block that specifies configures sending Verified Access logs to S3. Detailed below.
-	S3 InstanceLoggingConfigurationAccessLogsS3PtrInput `pulumi:"s3"`
+	LogVersion          pulumi.StringPtrInput                                             `pulumi:"logVersion"`
+	S3                  InstanceLoggingConfigurationAccessLogsS3PtrInput                  `pulumi:"s3"`
 }
 
 func (InstanceLoggingConfigurationAccessLogsArgs) ElementType() reflect.Type {
@@ -1505,31 +1487,26 @@ func (o InstanceLoggingConfigurationAccessLogsOutput) ToInstanceLoggingConfigura
 	}).(InstanceLoggingConfigurationAccessLogsPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsOutput) CloudwatchLogs() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-// Include trust data sent by trust providers into the logs.
 func (o InstanceLoggingConfigurationAccessLogsOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *bool { return v.IncludeTrustContext }).(pulumi.BoolPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsOutput) KinesisDataFirehose() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
 		return v.KinesisDataFirehose
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
 func (o InstanceLoggingConfigurationAccessLogsOutput) LogVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *string { return v.LogVersion }).(pulumi.StringPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to S3. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsOutput) S3() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsS3 { return v.S3 }).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
 }
@@ -1558,7 +1535,6 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) Elem() InstanceLoggingC
 	}).(InstanceLoggingConfigurationAccessLogsOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) CloudwatchLogs() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
 		if v == nil {
@@ -1568,7 +1544,6 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) CloudwatchLogs() Instan
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-// Include trust data sent by trust providers into the logs.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *bool {
 		if v == nil {
@@ -1578,7 +1553,6 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) IncludeTrustContext() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) KinesisDataFirehose() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
 		if v == nil {
@@ -1588,7 +1562,6 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) KinesisDataFirehose() I
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) LogVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *string {
 		if v == nil {
@@ -1598,7 +1571,6 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) LogVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to S3. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) S3() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsS3 {
 		if v == nil {
@@ -1609,9 +1581,7 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) S3() InstanceLoggingCon
 }
 
 type InstanceLoggingConfigurationAccessLogsCloudwatchLogs struct {
-	// Indicates whether logging is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The name of the CloudWatch Logs Log Group.
+	Enabled  bool    `pulumi:"enabled"`
 	LogGroup *string `pulumi:"logGroup"`
 }
 
@@ -1627,9 +1597,7 @@ type InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs struct {
-	// Indicates whether logging is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The name of the CloudWatch Logs Log Group.
+	Enabled  pulumi.BoolInput      `pulumi:"enabled"`
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
 }
 
@@ -1710,12 +1678,10 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToInstanceLo
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-// Indicates whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The name of the CloudWatch Logs Log Group.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -1744,7 +1710,6 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Elem() In
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput)
 }
 
-// Indicates whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *bool {
 		if v == nil {
@@ -1754,7 +1719,6 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Enabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the CloudWatch Logs Log Group.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *string {
 		if v == nil {
@@ -1765,10 +1729,8 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) LogGroup(
 }
 
 type InstanceLoggingConfigurationAccessLogsKinesisDataFirehose struct {
-	// The name of the delivery stream.
 	DeliveryStream *string `pulumi:"deliveryStream"`
-	// Indicates whether logging is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled        bool    `pulumi:"enabled"`
 }
 
 // InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseInput is an input type that accepts InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs and InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput values.
@@ -1783,10 +1745,8 @@ type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseInput interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs struct {
-	// The name of the delivery stream.
 	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
-	// Indicates whether logging is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled        pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ElementType() reflect.Type {
@@ -1866,12 +1826,10 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToInsta
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-// The name of the delivery stream.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1900,7 +1858,6 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Elem
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput)
 }
 
-// The name of the delivery stream.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *string {
 		if v == nil {
@@ -1910,7 +1867,6 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Deli
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *bool {
 		if v == nil {
@@ -1921,14 +1877,10 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Enab
 }
 
 type InstanceLoggingConfigurationAccessLogsS3 struct {
-	// The name of S3 bucket.
-	BucketName *string `pulumi:"bucketName"`
-	// The ID of the AWS account that owns the Amazon S3 bucket.
+	BucketName  *string `pulumi:"bucketName"`
 	BucketOwner *string `pulumi:"bucketOwner"`
-	// Indicates whether logging is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The bucket prefix.
-	Prefix *string `pulumi:"prefix"`
+	Enabled     bool    `pulumi:"enabled"`
+	Prefix      *string `pulumi:"prefix"`
 }
 
 // InstanceLoggingConfigurationAccessLogsS3Input is an input type that accepts InstanceLoggingConfigurationAccessLogsS3Args and InstanceLoggingConfigurationAccessLogsS3Output values.
@@ -1943,14 +1895,10 @@ type InstanceLoggingConfigurationAccessLogsS3Input interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsS3Args struct {
-	// The name of S3 bucket.
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The ID of the AWS account that owns the Amazon S3 bucket.
+	BucketName  pulumi.StringPtrInput `pulumi:"bucketName"`
 	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
-	// Indicates whether logging is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The bucket prefix.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Enabled     pulumi.BoolInput      `pulumi:"enabled"`
+	Prefix      pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (InstanceLoggingConfigurationAccessLogsS3Args) ElementType() reflect.Type {
@@ -2030,22 +1978,18 @@ func (o InstanceLoggingConfigurationAccessLogsS3Output) ToInstanceLoggingConfigu
 	}).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
 }
 
-// The name of S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS account that owns the Amazon S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The bucket prefix.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2074,7 +2018,6 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Elem() InstanceLoggin
 	}).(InstanceLoggingConfigurationAccessLogsS3Output)
 }
 
-// The name of S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
 		if v == nil {
@@ -2084,7 +2027,6 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS account that owns the Amazon S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
 		if v == nil {
@@ -2094,7 +2036,6 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketOwner() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *bool {
 		if v == nil {
@@ -2104,7 +2045,6 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The bucket prefix.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
 		if v == nil {
@@ -2115,15 +2055,10 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Prefix() pulumi.Strin
 }
 
 type InstanceVerifiedAccessTrustProvider struct {
-	// A description for the AWS Verified Access Instance.
-	Description *string `pulumi:"description"`
-	// The type of device-based trust provider.
-	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
-	// The type of trust provider (user- or device-based).
-	TrustProviderType *string `pulumi:"trustProviderType"`
-	// The type of user-based trust provider.
-	UserTrustProviderType *string `pulumi:"userTrustProviderType"`
-	// The ID of the trust provider.
+	Description                   *string `pulumi:"description"`
+	DeviceTrustProviderType       *string `pulumi:"deviceTrustProviderType"`
+	TrustProviderType             *string `pulumi:"trustProviderType"`
+	UserTrustProviderType         *string `pulumi:"userTrustProviderType"`
 	VerifiedAccessTrustProviderId *string `pulumi:"verifiedAccessTrustProviderId"`
 }
 
@@ -2139,15 +2074,10 @@ type InstanceVerifiedAccessTrustProviderInput interface {
 }
 
 type InstanceVerifiedAccessTrustProviderArgs struct {
-	// A description for the AWS Verified Access Instance.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The type of device-based trust provider.
-	DeviceTrustProviderType pulumi.StringPtrInput `pulumi:"deviceTrustProviderType"`
-	// The type of trust provider (user- or device-based).
-	TrustProviderType pulumi.StringPtrInput `pulumi:"trustProviderType"`
-	// The type of user-based trust provider.
-	UserTrustProviderType pulumi.StringPtrInput `pulumi:"userTrustProviderType"`
-	// The ID of the trust provider.
+	Description                   pulumi.StringPtrInput `pulumi:"description"`
+	DeviceTrustProviderType       pulumi.StringPtrInput `pulumi:"deviceTrustProviderType"`
+	TrustProviderType             pulumi.StringPtrInput `pulumi:"trustProviderType"`
+	UserTrustProviderType         pulumi.StringPtrInput `pulumi:"userTrustProviderType"`
 	VerifiedAccessTrustProviderId pulumi.StringPtrInput `pulumi:"verifiedAccessTrustProviderId"`
 }
 
@@ -2202,27 +2132,22 @@ func (o InstanceVerifiedAccessTrustProviderOutput) ToInstanceVerifiedAccessTrust
 	return o
 }
 
-// A description for the AWS Verified Access Instance.
 func (o InstanceVerifiedAccessTrustProviderOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The type of device-based trust provider.
 func (o InstanceVerifiedAccessTrustProviderOutput) DeviceTrustProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.DeviceTrustProviderType }).(pulumi.StringPtrOutput)
 }
 
-// The type of trust provider (user- or device-based).
 func (o InstanceVerifiedAccessTrustProviderOutput) TrustProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.TrustProviderType }).(pulumi.StringPtrOutput)
 }
 
-// The type of user-based trust provider.
 func (o InstanceVerifiedAccessTrustProviderOutput) UserTrustProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.UserTrustProviderType }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the trust provider.
 func (o InstanceVerifiedAccessTrustProviderOutput) VerifiedAccessTrustProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.VerifiedAccessTrustProviderId }).(pulumi.StringPtrOutput)
 }

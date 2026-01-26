@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about a database parameter group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.LookupParameterGroup(ctx, &rds.LookupParameterGroupArgs{
-//				Name: "default.postgres15",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupParameterGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupParameterGroupResult
@@ -50,20 +23,15 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupArgs struct {
-	// DB parameter group name.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getParameterGroup.
 type LookupParameterGroupResult struct {
-	// ARN of the parameter group.
-	Arn string `pulumi:"arn"`
-	// Description of the parameter group.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
-	// Family of the parameter group.
-	Family string `pulumi:"family"`
+	Family      string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
@@ -81,9 +49,7 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupOutputArgs struct {
-	// DB parameter group name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -106,17 +72,14 @@ func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutputWith
 	return o
 }
 
-// ARN of the parameter group.
 func (o LookupParameterGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the parameter group.
 func (o LookupParameterGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Family of the parameter group.
 func (o LookupParameterGroupResultOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Family }).(pulumi.StringOutput)
 }

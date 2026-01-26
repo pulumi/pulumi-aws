@@ -17,47 +17,23 @@ public final class EndpointConnectionLogOptionsArgs extends com.pulumi.resources
 
     public static final EndpointConnectionLogOptionsArgs Empty = new EndpointConnectionLogOptionsArgs();
 
-    /**
-     * The name of the CloudWatch Logs log group.
-     * 
-     */
     @Import(name="cloudwatchLogGroup")
     private @Nullable Output<String> cloudwatchLogGroup;
 
-    /**
-     * @return The name of the CloudWatch Logs log group.
-     * 
-     */
     public Optional<Output<String>> cloudwatchLogGroup() {
         return Optional.ofNullable(this.cloudwatchLogGroup);
     }
 
-    /**
-     * The name of the CloudWatch Logs log stream to which the connection data is published.
-     * 
-     */
     @Import(name="cloudwatchLogStream")
     private @Nullable Output<String> cloudwatchLogStream;
 
-    /**
-     * @return The name of the CloudWatch Logs log stream to which the connection data is published.
-     * 
-     */
     public Optional<Output<String>> cloudwatchLogStream() {
         return Optional.ofNullable(this.cloudwatchLogStream);
     }
 
-    /**
-     * Indicates whether connection logging is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether connection logging is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -88,65 +64,29 @@ public final class EndpointConnectionLogOptionsArgs extends com.pulumi.resources
             $ = new EndpointConnectionLogOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogGroup The name of the CloudWatch Logs log group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogGroup(@Nullable Output<String> cloudwatchLogGroup) {
             $.cloudwatchLogGroup = cloudwatchLogGroup;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogGroup The name of the CloudWatch Logs log group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogGroup(String cloudwatchLogGroup) {
             return cloudwatchLogGroup(Output.of(cloudwatchLogGroup));
         }
 
-        /**
-         * @param cloudwatchLogStream The name of the CloudWatch Logs log stream to which the connection data is published.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogStream(@Nullable Output<String> cloudwatchLogStream) {
             $.cloudwatchLogStream = cloudwatchLogStream;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogStream The name of the CloudWatch Logs log stream to which the connection data is published.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogStream(String cloudwatchLogStream) {
             return cloudwatchLogStream(Output.of(cloudwatchLogStream));
         }
 
-        /**
-         * @param enabled Indicates whether connection logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether connection logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

@@ -20,120 +20,48 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamIcebergConfiguration {
     private @Nullable Boolean appendOnly;
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
-     * 
-     */
     private @Nullable Integer bufferingInterval;
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
-     * 
-     */
     private @Nullable Integer bufferingSize;
-    /**
-     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
-     * 
-     */
     private String catalogArn;
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
-    /**
-     * @return Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
-     * 
-     */
     private @Nullable List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> destinationTableConfigurations;
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration processingConfiguration;
-    /**
-     * @return The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
-     * 
-     */
     private @Nullable Integer retryDuration;
-    /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-     * 
-     */
     private String roleArn;
     private @Nullable String s3BackupMode;
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     private FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration;
 
     private FirehoseDeliveryStreamIcebergConfiguration() {}
     public Optional<Boolean> appendOnly() {
         return Optional.ofNullable(this.appendOnly);
     }
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
-     * 
-     */
     public Optional<Integer> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
-     * 
-     */
     public Optional<Integer> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
-    /**
-     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
-     * 
-     */
     public String catalogArn() {
         return this.catalogArn;
     }
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
-    /**
-     * @return Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
-     * 
-     */
     public List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> destinationTableConfigurations() {
         return this.destinationTableConfigurations == null ? List.of() : this.destinationTableConfigurations;
     }
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
-    /**
-     * @return The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
-    /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     public FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }

@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves information about a Service Discovery Service.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicediscovery.LookupService(ctx, &servicediscovery.LookupServiceArgs{
-//				Name:        "example",
-//				NamespaceId: "NAMESPACE_ID_VALUE",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult
@@ -51,36 +23,25 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
-	// Name of the service.
-	Name string `pulumi:"name"`
-	// ID of the namespace that the service belongs to.
-	NamespaceId string `pulumi:"namespaceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name        string            `pulumi:"name"`
+	NamespaceId string            `pulumi:"namespaceId"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
-	// ARN of the service.
-	Arn string `pulumi:"arn"`
-	// Description of the service.
-	Description string `pulumi:"description"`
-	// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
-	DnsConfigs []GetServiceDnsConfig `pulumi:"dnsConfigs"`
-	// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
-	HealthCheckConfigs []GetServiceHealthCheckConfig `pulumi:"healthCheckConfigs"`
-	// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+	Arn                      string                              `pulumi:"arn"`
+	Description              string                              `pulumi:"description"`
+	DnsConfigs               []GetServiceDnsConfig               `pulumi:"dnsConfigs"`
+	HealthCheckConfigs       []GetServiceHealthCheckConfig       `pulumi:"healthCheckConfigs"`
 	HealthCheckCustomConfigs []GetServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfigs"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// ID of the namespace to use for DNS configuration.
-	NamespaceId string `pulumi:"namespaceId"`
-	Region      string `pulumi:"region"`
-	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Id          string            `pulumi:"id"`
+	Name        string            `pulumi:"name"`
+	NamespaceId string            `pulumi:"namespaceId"`
+	Region      string            `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -94,14 +55,10 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 
 // A collection of arguments for invoking getService.
 type LookupServiceOutputArgs struct {
-	// Name of the service.
-	Name pulumi.StringInput `pulumi:"name"`
-	// ID of the namespace that the service belongs to.
-	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	NamespaceId pulumi.StringInput    `pulumi:"namespaceId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {
@@ -123,27 +80,22 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the service.
 func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the service.
 func (o LookupServiceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
 func (o LookupServiceResultOutput) DnsConfigs() GetServiceDnsConfigArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceDnsConfig { return v.DnsConfigs }).(GetServiceDnsConfigArrayOutput)
 }
 
-// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 func (o LookupServiceResultOutput) HealthCheckConfigs() GetServiceHealthCheckConfigArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceHealthCheckConfig { return v.HealthCheckConfigs }).(GetServiceHealthCheckConfigArrayOutput)
 }
 
-// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
 func (o LookupServiceResultOutput) HealthCheckCustomConfigs() GetServiceHealthCheckCustomConfigArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceHealthCheckCustomConfig { return v.HealthCheckCustomConfigs }).(GetServiceHealthCheckCustomConfigArrayOutput)
 }
@@ -157,7 +109,6 @@ func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// ID of the namespace to use for DNS configuration.
 func (o LookupServiceResultOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.NamespaceId }).(pulumi.StringOutput)
 }
@@ -166,7 +117,6 @@ func (o LookupServiceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

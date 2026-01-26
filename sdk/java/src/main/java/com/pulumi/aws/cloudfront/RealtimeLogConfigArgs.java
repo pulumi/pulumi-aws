@@ -19,62 +19,30 @@ public final class RealtimeLogConfigArgs extends com.pulumi.resources.ResourceAr
 
     public static final RealtimeLogConfigArgs Empty = new RealtimeLogConfigArgs();
 
-    /**
-     * The Amazon Kinesis data streams where real-time log data is sent.
-     * 
-     */
     @Import(name="endpoint", required=true)
     private Output<RealtimeLogConfigEndpointArgs> endpoint;
 
-    /**
-     * @return The Amazon Kinesis data streams where real-time log data is sent.
-     * 
-     */
     public Output<RealtimeLogConfigEndpointArgs> endpoint() {
         return this.endpoint;
     }
 
-    /**
-     * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     * 
-     */
     @Import(name="fields", required=true)
     private Output<List<String>> fields;
 
-    /**
-     * @return The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     * 
-     */
     public Output<List<String>> fields() {
         return this.fields;
     }
 
-    /**
-     * The unique name to identify this real-time log configuration.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The unique name to identify this real-time log configuration.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     * 
-     */
     @Import(name="samplingRate", required=true)
     private Output<Integer> samplingRate;
 
-    /**
-     * @return The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     * 
-     */
     public Output<Integer> samplingRate() {
         return this.samplingRate;
     }
@@ -106,96 +74,42 @@ public final class RealtimeLogConfigArgs extends com.pulumi.resources.ResourceAr
             $ = new RealtimeLogConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint The Amazon Kinesis data streams where real-time log data is sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(Output<RealtimeLogConfigEndpointArgs> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint The Amazon Kinesis data streams where real-time log data is sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(RealtimeLogConfigEndpointArgs endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
-        /**
-         * @param fields The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fields(Output<List<String>> fields) {
             $.fields = fields;
             return this;
         }
 
-        /**
-         * @param fields The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fields(List<String> fields) {
             return fields(Output.of(fields));
         }
 
-        /**
-         * @param fields The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fields(String... fields) {
             return fields(List.of(fields));
         }
 
-        /**
-         * @param name The unique name to identify this real-time log configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The unique name to identify this real-time log configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param samplingRate The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samplingRate(Output<Integer> samplingRate) {
             $.samplingRate = samplingRate;
             return this;
         }
 
-        /**
-         * @param samplingRate The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samplingRate(Integer samplingRate) {
             return samplingRate(Output.of(samplingRate));
         }

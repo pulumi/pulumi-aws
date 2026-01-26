@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS SSO Identity Store Groups.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = identitystore.GetGroups(ctx, &identitystore.GetGroupsArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetGroups(ctx *pulumi.Context, args *GetGroupsArgs, opts ...pulumi.InvokeOption) (*GetGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGroupsResult
@@ -57,15 +23,12 @@ func GetGroups(ctx *pulumi.Context, args *GetGroupsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsArgs struct {
-	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroups.
 type GetGroupsResult struct {
-	// List of Identity Store Groups
 	Groups []GetGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
@@ -84,10 +47,8 @@ func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsOutputArgs struct {
-	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
-	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	IdentityStoreId pulumi.StringInput    `pulumi:"identityStoreId"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetGroupsOutputArgs) ElementType() reflect.Type {
@@ -109,7 +70,6 @@ func (o GetGroupsResultOutput) ToGetGroupsResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// List of Identity Store Groups
 func (o GetGroupsResultOutput) Groups() GetGroupsGroupArrayOutput {
 	return o.ApplyT(func(v GetGroupsResult) []GetGroupsGroup { return v.Groups }).(GetGroupsGroupArrayOutput)
 }

@@ -9,53 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Shield
 {
-    /// <summary>
-    /// Resource for managing an AWS Shield Subscription.
-    /// 
-    /// &gt; This resource creates a subscription to AWS Shield Advanced, which requires a 1 year subscription commitment with a monthly fee. Refer to the [AWS Shield Pricing](https://aws.amazon.com/shield/pricing/) page for more details.
-    /// 
-    /// &gt; Destruction of this resource will set `AutoRenew` to `DISABLED`. Automatic renewal can only be disabled during the last 30 days of a subscription. To unsubscribe outside of this window, you must contact AWS Support. Set `SkipDestroy` to `True` to skip modifying the `AutoRenew` argument during destruction.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Shield.Subscription("example", new()
-    ///     {
-    ///         AutoRenew = "ENABLED",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Shield Subscription using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:shield/subscription:Subscription example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:shield/subscription:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+        /// Whether to automatically renew the subscription when it expires.
         /// </summary>
         [Output("autoRenew")]
         public Output<string> AutoRenew { get; private set; } = null!;
 
-        /// <summary>
-        /// Skip attempting to disable automated renewal upon destruction. If set to `True`, the `AutoRenew` value will be left as-is and the resource will simply be removed from state.
-        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
@@ -106,14 +68,11 @@ namespace Pulumi.Aws.Shield
     public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+        /// Whether to automatically renew the subscription when it expires.
         /// </summary>
         [Input("autoRenew")]
         public Input<string>? AutoRenew { get; set; }
 
-        /// <summary>
-        /// Skip attempting to disable automated renewal upon destruction. If set to `True`, the `AutoRenew` value will be left as-is and the resource will simply be removed from state.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
@@ -126,14 +85,11 @@ namespace Pulumi.Aws.Shield
     public sealed class SubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+        /// Whether to automatically renew the subscription when it expires.
         /// </summary>
         [Input("autoRenew")]
         public Input<string>? AutoRenew { get; set; }
 
-        /// <summary>
-        /// Skip attempting to disable automated renewal upon destruction. If set to `True`, the `AutoRenew` value will be left as-is and the resource will simply be removed from state.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 

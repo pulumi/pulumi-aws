@@ -11,42 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be used to get a set of license ARNs matching a filter.
-//
-// ## Example Usage
-//
-// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
-//				Filters: []licensemanager.GetReceivedLicensesFilter{
-//					{
-//						Name: "IssuerName",
-//						Values: []string{
-//							"AWS/Marketplace",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicensesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicensesResult
@@ -59,15 +23,12 @@ func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opt
 
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesArgs struct {
-	// Custom filter block as described below.
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                     `pulumi:"region"`
 }
 
 // A collection of values returned by getReceivedLicenses.
 type GetReceivedLicensesResult struct {
-	// List of all the license ARNs found.
 	Arns    []string                    `pulumi:"arns"`
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
@@ -86,10 +47,8 @@ func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutp
 
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetReceivedLicensesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput               `pulumi:"region"`
 }
 
 func (GetReceivedLicensesOutputArgs) ElementType() reflect.Type {
@@ -111,7 +70,6 @@ func (o GetReceivedLicensesResultOutput) ToGetReceivedLicensesResultOutputWithCo
 	return o
 }
 
-// List of all the license ARNs found.
 func (o GetReceivedLicensesResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReceivedLicensesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

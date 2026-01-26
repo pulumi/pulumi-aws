@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class GetUserIdentityInfoResult
     {
-        /// <summary>
-        /// The email address.
-        /// </summary>
         public readonly string Email;
-        /// <summary>
-        /// The first name.
-        /// </summary>
         public readonly string FirstName;
-        /// <summary>
-        /// The last name.
-        /// </summary>
         public readonly string LastName;
-        /// <summary>
-        /// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-        /// </summary>
         public readonly string SecondaryEmail;
 
         [OutputConstructor]

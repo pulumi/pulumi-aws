@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPhoneNumber {
-    /**
-     * @return When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     private Boolean primary;
-    /**
-     * @return The type of phone number.
-     * 
-     */
     private String type;
-    /**
-     * @return The user&#39;s phone number.
-     * 
-     */
     private String value;
 
     private GetUserPhoneNumber() {}
-    /**
-     * @return When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     public Boolean primary() {
         return this.primary;
     }
-    /**
-     * @return The type of phone number.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return The user&#39;s phone number.
-     * 
-     */
     public String value() {
         return this.value;
     }

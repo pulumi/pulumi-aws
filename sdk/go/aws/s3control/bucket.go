@@ -12,67 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Control Bucket.
-//
-// > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Buckets in an AWS Partition, see the `s3.Bucket` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.NewBucket(ctx, "example", &s3control.BucketArgs{
-//				Bucket:    pulumi.String("example"),
-//				OutpostId: pulumi.Any(exampleAwsOutpostsOutpost.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) ARN of the bucket.
-//
-// Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_s3control_bucket.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
 type Bucket struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the bucket.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Identifier of the Outpost to contain this bucket.
-	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
-	// Boolean whether Public Access Block is enabled.
-	PublicAccessBlockEnabled pulumi.BoolOutput `pulumi:"publicAccessBlockEnabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                      pulumi.StringOutput    `pulumi:"arn"`
+	Bucket                   pulumi.StringOutput    `pulumi:"bucket"`
+	CreationDate             pulumi.StringOutput    `pulumi:"creationDate"`
+	OutpostId                pulumi.StringOutput    `pulumi:"outpostId"`
+	PublicAccessBlockEnabled pulumi.BoolOutput      `pulumi:"publicAccessBlockEnabled"`
+	Region                   pulumi.StringOutput    `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -111,41 +61,25 @@ func GetBucket(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bucket resources.
 type bucketState struct {
-	// Amazon Resource Name (ARN) of the bucket.
-	Arn *string `pulumi:"arn"`
-	// Name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationDate *string `pulumi:"creationDate"`
-	// Identifier of the Outpost to contain this bucket.
-	OutpostId *string `pulumi:"outpostId"`
-	// Boolean whether Public Access Block is enabled.
-	PublicAccessBlockEnabled *bool `pulumi:"publicAccessBlockEnabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                      *string           `pulumi:"arn"`
+	Bucket                   *string           `pulumi:"bucket"`
+	CreationDate             *string           `pulumi:"creationDate"`
+	OutpostId                *string           `pulumi:"outpostId"`
+	PublicAccessBlockEnabled *bool             `pulumi:"publicAccessBlockEnabled"`
+	Region                   *string           `pulumi:"region"`
+	Tags                     map[string]string `pulumi:"tags"`
+	TagsAll                  map[string]string `pulumi:"tagsAll"`
 }
 
 type BucketState struct {
-	// Amazon Resource Name (ARN) of the bucket.
-	Arn pulumi.StringPtrInput
-	// Name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationDate pulumi.StringPtrInput
-	// Identifier of the Outpost to contain this bucket.
-	OutpostId pulumi.StringPtrInput
-	// Boolean whether Public Access Block is enabled.
+	Arn                      pulumi.StringPtrInput
+	Bucket                   pulumi.StringPtrInput
+	CreationDate             pulumi.StringPtrInput
+	OutpostId                pulumi.StringPtrInput
 	PublicAccessBlockEnabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (BucketState) ElementType() reflect.Type {
@@ -153,26 +87,18 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
-	// Name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// Identifier of the Outpost to contain this bucket.
-	OutpostId string `pulumi:"outpostId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Bucket    string            `pulumi:"bucket"`
+	OutpostId string            `pulumi:"outpostId"`
+	Region    *string           `pulumi:"region"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
-	// Name of the bucket.
-	Bucket pulumi.StringInput
-	// Identifier of the Outpost to contain this bucket.
+	Bucket    pulumi.StringInput
 	OutpostId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region    pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {
@@ -262,42 +188,34 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the bucket.
 func (o BucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the bucket.
 func (o BucketOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o BucketOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// Identifier of the Outpost to contain this bucket.
 func (o BucketOutput) OutpostId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.OutpostId }).(pulumi.StringOutput)
 }
 
-// Boolean whether Public Access Block is enabled.
 func (o BucketOutput) PublicAccessBlockEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.BoolOutput { return v.PublicAccessBlockEnabled }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BucketOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BucketOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

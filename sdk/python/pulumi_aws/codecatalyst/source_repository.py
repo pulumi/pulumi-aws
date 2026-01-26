@@ -26,13 +26,6 @@ class SourceRepositoryArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceRepository resource.
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the CodeCatalyst space.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] space_name: The name of the CodeCatalyst space.
-        :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        :param pulumi.Input[_builtins.str] name: The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "space_name", space_name)
@@ -46,11 +39,6 @@ class SourceRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the project in the CodeCatalyst space.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -60,9 +48,6 @@ class SourceRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the CodeCatalyst space.
-        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -72,9 +57,6 @@ class SourceRepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -84,9 +66,6 @@ class SourceRepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -96,9 +75,6 @@ class SourceRepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,13 +92,6 @@ class _SourceRepositoryState:
                  space_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceRepository resources.
-        :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        :param pulumi.Input[_builtins.str] name: The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the CodeCatalyst space.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] space_name: The name of the CodeCatalyst space.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -138,9 +107,6 @@ class _SourceRepositoryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -150,9 +116,6 @@ class _SourceRepositoryState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -162,11 +125,6 @@ class _SourceRepositoryState:
     @_builtins.property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the project in the CodeCatalyst space.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -176,9 +134,6 @@ class _SourceRepositoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +143,6 @@ class _SourceRepositoryState:
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the CodeCatalyst space.
-        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -211,39 +163,9 @@ class SourceRepository(pulumi.CustomResource):
                  space_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CodeCatalyst Source Repository.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codecatalyst.SourceRepository("example",
-            name="example-repo",
-            project_name="example-project",
-            space_name="example-space")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
-        ```
-
+        Create a SourceRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        :param pulumi.Input[_builtins.str] name: The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the CodeCatalyst space.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] space_name: The name of the CodeCatalyst space.
         """
         ...
     @overload
@@ -252,30 +174,7 @@ class SourceRepository(pulumi.CustomResource):
                  args: SourceRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CodeCatalyst Source Repository.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codecatalyst.SourceRepository("example",
-            name="example-repo",
-            project_name="example-project",
-            space_name="example-space")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
-        ```
-
+        Create a SourceRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SourceRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,13 +235,6 @@ class SourceRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        :param pulumi.Input[_builtins.str] name: The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        :param pulumi.Input[_builtins.str] project_name: The name of the project in the CodeCatalyst space.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] space_name: The name of the CodeCatalyst space.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -358,42 +250,25 @@ class SourceRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the project in the CodeCatalyst space.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "project_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the CodeCatalyst space.
-        """
         return pulumi.get(self, "space_name")
 

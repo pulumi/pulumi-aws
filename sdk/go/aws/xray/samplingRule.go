@@ -12,89 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates and manages an AWS XRay Sampling Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/xray"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
-//				RuleName:      pulumi.String("example"),
-//				Priority:      pulumi.Int(9999),
-//				Version:       pulumi.Int(1),
-//				ReservoirSize: pulumi.Int(1),
-//				FixedRate:     pulumi.Float64(0.05),
-//				UrlPath:       pulumi.String("*"),
-//				Host:          pulumi.String("*"),
-//				HttpMethod:    pulumi.String("*"),
-//				ServiceType:   pulumi.String("*"),
-//				ServiceName:   pulumi.String("*"),
-//				ResourceArn:   pulumi.String("*"),
-//				Attributes: pulumi.StringMap{
-//					"Hello": pulumi.String("Tris"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import XRay Sampling Rules using the name. For example:
-//
-// ```sh
-// $ pulumi import aws:xray/samplingRule:SamplingRule example example
-// ```
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the sampling rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Matches attributes derived from the request.
-	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
-	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate pulumi.Float64Output `pulumi:"fixedRate"`
-	// Matches the hostname from a request URL.
-	Host pulumi.StringOutput `pulumi:"host"`
-	// Matches the HTTP method of a request.
-	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
-	// The priority of the sampling rule.
-	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize pulumi.IntOutput `pulumi:"reservoirSize"`
-	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The name of the sampling rule.
-	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
-	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Matches the path from a request URL.
-	UrlPath pulumi.StringOutput `pulumi:"urlPath"`
-	// The version of the sampling rule format (`1` )
-	Version pulumi.IntOutput `pulumi:"version"`
+	Arn           pulumi.StringOutput    `pulumi:"arn"`
+	Attributes    pulumi.StringMapOutput `pulumi:"attributes"`
+	FixedRate     pulumi.Float64Output   `pulumi:"fixedRate"`
+	Host          pulumi.StringOutput    `pulumi:"host"`
+	HttpMethod    pulumi.StringOutput    `pulumi:"httpMethod"`
+	Priority      pulumi.IntOutput       `pulumi:"priority"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	ReservoirSize pulumi.IntOutput       `pulumi:"reservoirSize"`
+	ResourceArn   pulumi.StringOutput    `pulumi:"resourceArn"`
+	RuleName      pulumi.StringPtrOutput `pulumi:"ruleName"`
+	ServiceName   pulumi.StringOutput    `pulumi:"serviceName"`
+	ServiceType   pulumi.StringOutput    `pulumi:"serviceType"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	UrlPath       pulumi.StringOutput    `pulumi:"urlPath"`
+	Version       pulumi.IntOutput       `pulumi:"version"`
 }
 
 // NewSamplingRule registers a new resource with the given unique name, arguments, and options.
@@ -157,73 +93,41 @@ func GetSamplingRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SamplingRule resources.
 type samplingRuleState struct {
-	// The ARN of the sampling rule.
-	Arn *string `pulumi:"arn"`
-	// Matches attributes derived from the request.
-	Attributes map[string]string `pulumi:"attributes"`
-	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate *float64 `pulumi:"fixedRate"`
-	// Matches the hostname from a request URL.
-	Host *string `pulumi:"host"`
-	// Matches the HTTP method of a request.
-	HttpMethod *string `pulumi:"httpMethod"`
-	// The priority of the sampling rule.
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize *int `pulumi:"reservoirSize"`
-	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// The name of the sampling rule.
-	RuleName *string `pulumi:"ruleName"`
-	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName *string `pulumi:"serviceName"`
-	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType *string `pulumi:"serviceType"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Matches the path from a request URL.
-	UrlPath *string `pulumi:"urlPath"`
-	// The version of the sampling rule format (`1` )
-	Version *int `pulumi:"version"`
+	Arn           *string           `pulumi:"arn"`
+	Attributes    map[string]string `pulumi:"attributes"`
+	FixedRate     *float64          `pulumi:"fixedRate"`
+	Host          *string           `pulumi:"host"`
+	HttpMethod    *string           `pulumi:"httpMethod"`
+	Priority      *int              `pulumi:"priority"`
+	Region        *string           `pulumi:"region"`
+	ReservoirSize *int              `pulumi:"reservoirSize"`
+	ResourceArn   *string           `pulumi:"resourceArn"`
+	RuleName      *string           `pulumi:"ruleName"`
+	ServiceName   *string           `pulumi:"serviceName"`
+	ServiceType   *string           `pulumi:"serviceType"`
+	Tags          map[string]string `pulumi:"tags"`
+	TagsAll       map[string]string `pulumi:"tagsAll"`
+	UrlPath       *string           `pulumi:"urlPath"`
+	Version       *int              `pulumi:"version"`
 }
 
 type SamplingRuleState struct {
-	// The ARN of the sampling rule.
-	Arn pulumi.StringPtrInput
-	// Matches attributes derived from the request.
-	Attributes pulumi.StringMapInput
-	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate pulumi.Float64PtrInput
-	// Matches the hostname from a request URL.
-	Host pulumi.StringPtrInput
-	// Matches the HTTP method of a request.
-	HttpMethod pulumi.StringPtrInput
-	// The priority of the sampling rule.
-	Priority pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+	Arn           pulumi.StringPtrInput
+	Attributes    pulumi.StringMapInput
+	FixedRate     pulumi.Float64PtrInput
+	Host          pulumi.StringPtrInput
+	HttpMethod    pulumi.StringPtrInput
+	Priority      pulumi.IntPtrInput
+	Region        pulumi.StringPtrInput
 	ReservoirSize pulumi.IntPtrInput
-	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn pulumi.StringPtrInput
-	// The name of the sampling rule.
-	RuleName pulumi.StringPtrInput
-	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName pulumi.StringPtrInput
-	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Matches the path from a request URL.
-	UrlPath pulumi.StringPtrInput
-	// The version of the sampling rule format (`1` )
-	Version pulumi.IntPtrInput
+	ResourceArn   pulumi.StringPtrInput
+	RuleName      pulumi.StringPtrInput
+	ServiceName   pulumi.StringPtrInput
+	ServiceType   pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	UrlPath       pulumi.StringPtrInput
+	Version       pulumi.IntPtrInput
 }
 
 func (SamplingRuleState) ElementType() reflect.Type {
@@ -231,66 +135,38 @@ func (SamplingRuleState) ElementType() reflect.Type {
 }
 
 type samplingRuleArgs struct {
-	// Matches attributes derived from the request.
-	Attributes map[string]string `pulumi:"attributes"`
-	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate float64 `pulumi:"fixedRate"`
-	// Matches the hostname from a request URL.
-	Host string `pulumi:"host"`
-	// Matches the HTTP method of a request.
-	HttpMethod string `pulumi:"httpMethod"`
-	// The priority of the sampling rule.
-	Priority int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize int `pulumi:"reservoirSize"`
-	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn string `pulumi:"resourceArn"`
-	// The name of the sampling rule.
-	RuleName *string `pulumi:"ruleName"`
-	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName string `pulumi:"serviceName"`
-	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType string `pulumi:"serviceType"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
-	// Matches the path from a request URL.
-	UrlPath string `pulumi:"urlPath"`
-	// The version of the sampling rule format (`1` )
-	Version int `pulumi:"version"`
+	Attributes    map[string]string `pulumi:"attributes"`
+	FixedRate     float64           `pulumi:"fixedRate"`
+	Host          string            `pulumi:"host"`
+	HttpMethod    string            `pulumi:"httpMethod"`
+	Priority      int               `pulumi:"priority"`
+	Region        *string           `pulumi:"region"`
+	ReservoirSize int               `pulumi:"reservoirSize"`
+	ResourceArn   string            `pulumi:"resourceArn"`
+	RuleName      *string           `pulumi:"ruleName"`
+	ServiceName   string            `pulumi:"serviceName"`
+	ServiceType   string            `pulumi:"serviceType"`
+	Tags          map[string]string `pulumi:"tags"`
+	UrlPath       string            `pulumi:"urlPath"`
+	Version       int               `pulumi:"version"`
 }
 
 // The set of arguments for constructing a SamplingRule resource.
 type SamplingRuleArgs struct {
-	// Matches attributes derived from the request.
-	Attributes pulumi.StringMapInput
-	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate pulumi.Float64Input
-	// Matches the hostname from a request URL.
-	Host pulumi.StringInput
-	// Matches the HTTP method of a request.
-	HttpMethod pulumi.StringInput
-	// The priority of the sampling rule.
-	Priority pulumi.IntInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+	Attributes    pulumi.StringMapInput
+	FixedRate     pulumi.Float64Input
+	Host          pulumi.StringInput
+	HttpMethod    pulumi.StringInput
+	Priority      pulumi.IntInput
+	Region        pulumi.StringPtrInput
 	ReservoirSize pulumi.IntInput
-	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn pulumi.StringInput
-	// The name of the sampling rule.
-	RuleName pulumi.StringPtrInput
-	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName pulumi.StringInput
-	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
-	// Matches the path from a request URL.
-	UrlPath pulumi.StringInput
-	// The version of the sampling rule format (`1` )
-	Version pulumi.IntInput
+	ResourceArn   pulumi.StringInput
+	RuleName      pulumi.StringPtrInput
+	ServiceName   pulumi.StringInput
+	ServiceType   pulumi.StringInput
+	Tags          pulumi.StringMapInput
+	UrlPath       pulumi.StringInput
+	Version       pulumi.IntInput
 }
 
 func (SamplingRuleArgs) ElementType() reflect.Type {
@@ -380,82 +256,66 @@ func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ARN of the sampling rule.
 func (o SamplingRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Matches attributes derived from the request.
 func (o SamplingRuleOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
-// The percentage of matching requests to instrument, after the reservoir is exhausted.
 func (o SamplingRuleOutput) FixedRate() pulumi.Float64Output {
 	return o.ApplyT(func(v *SamplingRule) pulumi.Float64Output { return v.FixedRate }).(pulumi.Float64Output)
 }
 
-// Matches the hostname from a request URL.
 func (o SamplingRuleOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.Host }).(pulumi.StringOutput)
 }
 
-// Matches the HTTP method of a request.
 func (o SamplingRuleOutput) HttpMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.HttpMethod }).(pulumi.StringOutput)
 }
 
-// The priority of the sampling rule.
 func (o SamplingRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SamplingRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 func (o SamplingRuleOutput) ReservoirSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.IntOutput { return v.ReservoirSize }).(pulumi.IntOutput)
 }
 
-// Matches the ARN of the AWS resource on which the service runs.
 func (o SamplingRuleOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The name of the sampling rule.
 func (o SamplingRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// Matches the `name` that the service uses to identify itself in segments.
 func (o SamplingRuleOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// Matches the `origin` that the service uses to identify its type in segments.
 func (o SamplingRuleOutput) ServiceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.ServiceType }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o SamplingRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SamplingRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Matches the path from a request URL.
 func (o SamplingRuleOutput) UrlPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.UrlPath }).(pulumi.StringOutput)
 }
 
-// The version of the sampling rule format (`1` )
 func (o SamplingRuleOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

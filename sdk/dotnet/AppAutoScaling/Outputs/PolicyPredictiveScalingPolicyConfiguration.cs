@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingPolicyConfiguration
     {
-        /// <summary>
-        /// The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
-        /// </summary>
         public readonly string? MaxCapacityBreachBehavior;
-        /// <summary>
-        /// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `MaxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
-        /// </summary>
         public readonly int? MaxCapacityBuffer;
-        /// <summary>
-        /// Metrics and target utilization to use for predictive scaling. See supported fields below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecification> MetricSpecifications;
-        /// <summary>
-        /// Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
-        /// </summary>
         public readonly string? Mode;
-        /// <summary>
-        /// Amount of time, in seconds, that the start time can be advanced.
-        /// </summary>
         public readonly int? SchedulingBufferTime;
 
         [OutputConstructor]

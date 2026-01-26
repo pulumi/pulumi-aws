@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
-    /**
-     * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-     * 
-     */
     private String queryStringBehavior;
-    /**
-     * @return Object that contains a list of query string names. See Items for more information.
-     * 
-     */
     private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings;
 
     private GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig() {}
-    /**
-     * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-     * 
-     */
     public String queryStringBehavior() {
         return this.queryStringBehavior;
     }
-    /**
-     * @return Object that contains a list of query string names. See Items for more information.
-     * 
-     */
     public List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString> queryStrings() {
         return this.queryStrings;
     }

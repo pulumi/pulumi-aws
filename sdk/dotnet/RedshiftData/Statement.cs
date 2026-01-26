@@ -9,119 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedshiftData
 {
-    /// <summary>
-    /// Executes a Redshift Data Statement.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### ClusterIdentifier
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftData.Statement("example", new()
-    ///     {
-    ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
-    ///         Database = exampleAwsRedshiftCluster.DatabaseName,
-    ///         DbUser = exampleAwsRedshiftCluster.MasterUsername,
-    ///         Sql = "CREATE GROUP group_name;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### WorkgroupName
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftData.Statement("example", new()
-    ///     {
-    ///         WorkgroupName = exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
-    ///         Database = "dev",
-    ///         Sql = "CREATE GROUP group_name;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshiftdata/statement:Statement example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshiftdata/statement:Statement")]
     public partial class Statement : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string?> ClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the database.
-        /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
-        /// <summary>
-        /// The database user name.
-        /// </summary>
         [Output("dbUser")]
         public Output<string?> DbUser { get; private set; } = null!;
 
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.StatementParameter>> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name or ARN of the secret that enables access to the database.
-        /// </summary>
         [Output("secretArn")]
         public Output<string?> SecretArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The SQL statement text to run.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("sql")]
         public Output<string> Sql { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        /// </summary>
         [Output("statementName")]
         public Output<string?> StatementName { get; private set; } = null!;
 
-        /// <summary>
-        /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        /// </summary>
         [Output("withEvent")]
         public Output<bool?> WithEvent { get; private set; } = null!;
 
-        /// <summary>
-        /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-        /// </summary>
         [Output("workgroupName")]
         public Output<string?> WorkgroupName { get; private set; } = null!;
 
@@ -171,21 +88,12 @@ namespace Pulumi.Aws.RedshiftData
 
     public sealed class StatementArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// The name of the database.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// The database user name.
-        /// </summary>
         [Input("dbUser")]
         public Input<string>? DbUser { get; set; }
 
@@ -197,41 +105,21 @@ namespace Pulumi.Aws.RedshiftData
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name or ARN of the secret that enables access to the database.
-        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
-        /// <summary>
-        /// The SQL statement text to run.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("sql", required: true)]
         public Input<string> Sql { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        /// </summary>
         [Input("statementName")]
         public Input<string>? StatementName { get; set; }
 
-        /// <summary>
-        /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        /// </summary>
         [Input("withEvent")]
         public Input<bool>? WithEvent { get; set; }
 
-        /// <summary>
-        /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-        /// </summary>
         [Input("workgroupName")]
         public Input<string>? WorkgroupName { get; set; }
 
@@ -243,21 +131,12 @@ namespace Pulumi.Aws.RedshiftData
 
     public sealed class StatementState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// The name of the database.
-        /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
-        /// <summary>
-        /// The database user name.
-        /// </summary>
         [Input("dbUser")]
         public Input<string>? DbUser { get; set; }
 
@@ -269,41 +148,21 @@ namespace Pulumi.Aws.RedshiftData
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name or ARN of the secret that enables access to the database.
-        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
-        /// <summary>
-        /// The SQL statement text to run.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("sql")]
         public Input<string>? Sql { get; set; }
 
-        /// <summary>
-        /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        /// </summary>
         [Input("statementName")]
         public Input<string>? StatementName { get; set; }
 
-        /// <summary>
-        /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        /// </summary>
         [Input("withEvent")]
         public Input<bool>? WithEvent { get; set; }
 
-        /// <summary>
-        /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-        /// </summary>
         [Input("workgroupName")]
         public Input<string>? WorkgroupName { get; set; }
 

@@ -9,155 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Provides a Cognito User Pool Domain resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Amazon Cognito domain
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cognito.UserPool("example", new()
-    ///     {
-    ///         Name = "example-pool",
-    ///     });
-    /// 
-    ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
-    ///     {
-    ///         Domain = "example-domain",
-    ///         UserPoolId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Custom Cognito domain
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("example", new()
-    ///     {
-    ///         Name = "example-pool",
-    ///     });
-    /// 
-    ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
-    ///     {
-    ///         Domain = "auth.example.com",
-    ///         CertificateArn = cert.Arn,
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     });
-    /// 
-    ///     var example = Aws.Route53.GetZone.Invoke(new()
-    ///     {
-    ///         Name = "example.com",
-    ///     });
-    /// 
-    ///     var auth_cognito_A = new Aws.Route53.Record("auth-cognito-A", new()
-    ///     {
-    ///         Name = main.Domain,
-    ///         Type = Aws.Route53.RecordType.A,
-    ///         ZoneId = example.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-    ///         Aliases = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.RecordAliasArgs
-    ///             {
-    ///                 EvaluateTargetHealth = false,
-    ///                 Name = main.CloudfrontDistribution,
-    ///                 ZoneId = main.CloudfrontDistributionZoneId,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]
     public partial class UserPoolDomain : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID for the user pool owner.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-        /// </summary>
         [Output("cloudfrontDistribution")]
         public Output<string> CloudfrontDistribution { get; private set; } = null!;
 
-        /// <summary>
-        /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
-        /// </summary>
         [Output("cloudfrontDistributionArn")]
         public Output<string> CloudfrontDistributionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Route 53 hosted zone ID of the CloudFront distribution.
-        /// </summary>
         [Output("cloudfrontDistributionZoneId")]
         public Output<string> CloudfrontDistributionZoneId { get; private set; } = null!;
 
-        /// <summary>
-        /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
-        /// <summary>
-        /// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        /// </summary>
         [Output("managedLoginVersion")]
         public Output<int> ManagedLoginVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The S3 bucket where the static files for this domain are stored.
-        /// </summary>
         [Output("s3Bucket")]
         public Output<string> S3Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
-        /// <summary>
-        /// The app version.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -207,33 +91,18 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserPoolDomainArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        /// <summary>
-        /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        /// </summary>
         [Input("managedLoginVersion")]
         public Input<int>? ManagedLoginVersion { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -245,69 +114,36 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserPoolDomainState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the user pool owner.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        /// <summary>
-        /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-        /// </summary>
         [Input("cloudfrontDistribution")]
         public Input<string>? CloudfrontDistribution { get; set; }
 
-        /// <summary>
-        /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
-        /// </summary>
         [Input("cloudfrontDistributionArn")]
         public Input<string>? CloudfrontDistributionArn { get; set; }
 
-        /// <summary>
-        /// The Route 53 hosted zone ID of the CloudFront distribution.
-        /// </summary>
         [Input("cloudfrontDistributionZoneId")]
         public Input<string>? CloudfrontDistributionZoneId { get; set; }
 
-        /// <summary>
-        /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        /// </summary>
         [Input("managedLoginVersion")]
         public Input<int>? ManagedLoginVersion { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The S3 bucket where the static files for this domain are stored.
-        /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 
-        /// <summary>
-        /// The app version.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

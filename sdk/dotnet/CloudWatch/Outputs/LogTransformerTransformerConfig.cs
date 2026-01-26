@@ -13,97 +13,28 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfig
     {
-        /// <summary>
-        /// Adds new key-value pairs to the log event. See `AddKeys` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigAddKeys? AddKeys;
-        /// <summary>
-        /// Copies values within a log event. See `CopyValue` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigCopyValue? CopyValue;
-        /// <summary>
-        /// Parses comma-separated values (CSV) from the log events into columns. See `Csv` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigCsv> Csvs;
-        /// <summary>
-        /// Converts a datetime string into a format that you specify. See `DateTimeConverter` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigDateTimeConverter> DateTimeConverters;
-        /// <summary>
-        /// Deletes entry from a log event. See `DeleteKeys` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigDeleteKey> DeleteKeys;
-        /// <summary>
-        /// Parses and structures unstructured data by using pattern matching. See `Grok` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigGrok? Grok;
-        /// <summary>
-        /// Converts list of objects that contain key fields into a map of target keys. See `ListToMap` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigListToMap> ListToMaps;
-        /// <summary>
-        /// Converts a string to lowercase. See `LowerCaseString` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigLowerCaseString> LowerCaseStrings;
-        /// <summary>
-        /// Moves a key from one field to another. See `MoveKeys` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigMoveKey> MoveKeys;
-        /// <summary>
-        /// Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `ParseCloudfront` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigParseCloudfront? ParseCloudfront;
-        /// <summary>
-        /// Parses log events that are in JSON format. See `ParseJson` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigParseJson> ParseJsons;
-        /// <summary>
-        /// Parses a specified field in the original log event into key-value pairs. See `ParseKeyValue` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigParseKeyValue> ParseKeyValues;
-        /// <summary>
-        /// Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `ParsePostgres` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigParsePostgres? ParsePostgres;
-        /// <summary>
-        /// Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `ParseRoute53` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigParseRoute53? ParseRoute53;
-        /// <summary>
-        /// Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `ParseToOcsf` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigParseToOcsf? ParseToOcsf;
-        /// <summary>
-        /// Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `ParseVpc` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigParseVpc? ParseVpc;
-        /// <summary>
-        /// Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `ParseWaf` below for details.
-        /// </summary>
         public readonly Outputs.LogTransformerTransformerConfigParseWaf? ParseWaf;
-        /// <summary>
-        /// Renames keys in a log event. See `RenameKeys` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigRenameKey> RenameKeys;
-        /// <summary>
-        /// Splits a field into an array of strings using a delimiting character. See `SplitString` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigSplitString> SplitStrings;
-        /// <summary>
-        /// Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `SubstituteString` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigSubstituteString> SubstituteStrings;
-        /// <summary>
-        /// Removes leading and trailing whitespace from a string. See `TrimString` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigTrimString> TrimStrings;
-        /// <summary>
-        /// Converts a value type associated with the specified key to the specified type. See `TypeConverter` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigTypeConverter> TypeConverters;
-        /// <summary>
-        /// Converts a string to uppercase. See `UpperCaseString` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigUpperCaseString> UpperCaseStrings;
 
         [OutputConstructor]

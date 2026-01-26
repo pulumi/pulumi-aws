@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration {
-    /**
-     * @return Configuration block for backup settings. See `backupConfiguration` below.
-     * 
-     */
     private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration backupConfiguration;
-    /**
-     * @return Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
-     * 
-     */
     private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration logsEncryptionConfiguration;
 
     private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration() {}
-    /**
-     * @return Configuration block for backup settings. See `backupConfiguration` below.
-     * 
-     */
     public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration> backupConfiguration() {
         return Optional.ofNullable(this.backupConfiguration);
     }
-    /**
-     * @return Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
-     * 
-     */
     public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration> logsEncryptionConfiguration() {
         return Optional.ofNullable(this.logsEncryptionConfiguration);
     }

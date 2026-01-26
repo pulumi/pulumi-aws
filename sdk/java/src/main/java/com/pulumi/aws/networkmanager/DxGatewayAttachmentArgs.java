@@ -19,81 +19,37 @@ public final class DxGatewayAttachmentArgs extends com.pulumi.resources.Resource
 
     public static final DxGatewayAttachmentArgs Empty = new DxGatewayAttachmentArgs();
 
-    /**
-     * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     * 
-     */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
 
-    /**
-     * ARN of the Direct Connect gateway attachment.
-     * 
-     */
     @Import(name="directConnectGatewayArn", required=true)
     private Output<String> directConnectGatewayArn;
 
-    /**
-     * @return ARN of the Direct Connect gateway attachment.
-     * 
-     */
     public Output<String> directConnectGatewayArn() {
         return this.directConnectGatewayArn;
     }
 
-    /**
-     * One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="edgeLocations", required=true)
     private Output<List<String>> edgeLocations;
 
-    /**
-     * @return One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<String>> edgeLocations() {
         return this.edgeLocations;
     }
 
-    /**
-     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Import(name="routingPolicyLabel")
     private @Nullable Output<String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Optional<Output<String>> routingPolicyLabel() {
         return Optional.ofNullable(this.routingPolicyLabel);
     }
 
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -134,123 +90,51 @@ public final class DxGatewayAttachmentArgs extends com.pulumi.resources.Resource
             $ = new DxGatewayAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param coreNetworkId ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
-        /**
-         * @param coreNetworkId ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
-        /**
-         * @param directConnectGatewayArn ARN of the Direct Connect gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directConnectGatewayArn(Output<String> directConnectGatewayArn) {
             $.directConnectGatewayArn = directConnectGatewayArn;
             return this;
         }
 
-        /**
-         * @param directConnectGatewayArn ARN of the Direct Connect gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directConnectGatewayArn(String directConnectGatewayArn) {
             return directConnectGatewayArn(Output.of(directConnectGatewayArn));
         }
 
-        /**
-         * @param edgeLocations One or more core network edge locations to associate with the Direct Connect gateway attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(Output<List<String>> edgeLocations) {
             $.edgeLocations = edgeLocations;
             return this;
         }
 
-        /**
-         * @param edgeLocations One or more core network edge locations to associate with the Direct Connect gateway attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(List<String> edgeLocations) {
             return edgeLocations(Output.of(edgeLocations));
         }
 
-        /**
-         * @param edgeLocations One or more core network edge locations to associate with the Direct Connect gateway attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(String... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
             $.routingPolicyLabel = routingPolicyLabel;
             return this;
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(String routingPolicyLabel) {
             return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

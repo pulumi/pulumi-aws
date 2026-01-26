@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-        /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
 
-        /// <summary>
-        /// Algorithm control for the audio description.
-        /// </summary>
         [Input("algorithmControl")]
         public Input<string>? AlgorithmControl { get; set; }
 
-        /// <summary>
-        /// Target LKFS (loudness) to adjust volume to.
-        /// </summary>
         [Input("targetLkfs")]
         public Input<double>? TargetLkfs { get; set; }
 

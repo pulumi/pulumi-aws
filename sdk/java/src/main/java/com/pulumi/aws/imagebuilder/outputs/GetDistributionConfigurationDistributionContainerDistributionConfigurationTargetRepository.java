@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
-    /**
-     * @return Name of the container repository where the output container image is stored.
-     * 
-     */
     private String repositoryName;
-    /**
-     * @return Service in which the image is registered.
-     * 
-     */
     private String service;
 
     private GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository() {}
-    /**
-     * @return Name of the container repository where the output container image is stored.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }
-    /**
-     * @return Service in which the image is registered.
-     * 
-     */
     public String service() {
         return this.service;
     }

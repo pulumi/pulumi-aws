@@ -16,47 +16,23 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
 
     public static final VirtualNodeSpecServiceDiscoveryDnsArgs Empty = new VirtualNodeSpecServiceDiscoveryDnsArgs();
 
-    /**
-     * DNS host name for your virtual node.
-     * 
-     */
     @Import(name="hostname", required=true)
     private Output<String> hostname;
 
-    /**
-     * @return DNS host name for your virtual node.
-     * 
-     */
     public Output<String> hostname() {
         return this.hostname;
     }
 
-    /**
-     * The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
-     * 
-     */
     @Import(name="ipPreference")
     private @Nullable Output<String> ipPreference;
 
-    /**
-     * @return The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
-     * 
-     */
     public Optional<Output<String>> ipPreference() {
         return Optional.ofNullable(this.ipPreference);
     }
 
-    /**
-     * The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
-     * 
-     */
     @Import(name="responseType")
     private @Nullable Output<String> responseType;
 
-    /**
-     * @return The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
-     * 
-     */
     public Optional<Output<String>> responseType() {
         return Optional.ofNullable(this.responseType);
     }
@@ -87,65 +63,29 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
             $ = new VirtualNodeSpecServiceDiscoveryDnsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostname DNS host name for your virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(Output<String> hostname) {
             $.hostname = hostname;
             return this;
         }
 
-        /**
-         * @param hostname DNS host name for your virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(String hostname) {
             return hostname(Output.of(hostname));
         }
 
-        /**
-         * @param ipPreference The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipPreference(@Nullable Output<String> ipPreference) {
             $.ipPreference = ipPreference;
             return this;
         }
 
-        /**
-         * @param ipPreference The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipPreference(String ipPreference) {
             return ipPreference(Output.of(ipPreference));
         }
 
-        /**
-         * @param responseType The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseType(@Nullable Output<String> responseType) {
             $.responseType = responseType;
             return this;
         }
 
-        /**
-         * @param responseType The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseType(String responseType) {
             return responseType(Output.of(responseType));
         }

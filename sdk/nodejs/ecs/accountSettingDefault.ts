@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
- *
- * > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
- *
- * > **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
- *
- * ## Example Usage
- *
- * ### Enable the long task ARN format
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ecs.AccountSettingDefault("test", {
- *     name: "taskLongArnFormat",
- *     value: "enabled",
- * });
- * ```
- *
- * ### Set the default log driver mode to non-blocking
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ecs.AccountSettingDefault("test", {
- *     name: "defaultLogDriverMode",
- *     value: "non-blocking",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
- * ```
- */
 export class AccountSettingDefault extends pulumi.CustomResource {
     /**
      * Get an existing AccountSettingDefault resource's state with the given name, ID, and optional extra
@@ -73,18 +32,9 @@ export class AccountSettingDefault extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountSettingDefault.__pulumiType;
     }
 
-    /**
-     * Name of the account setting to set.
-     */
     declare public readonly name: pulumi.Output<string>;
     declare public /*out*/ readonly principalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * State of the setting.
-     */
     declare public readonly value: pulumi.Output<string>;
 
     /**
@@ -123,18 +73,9 @@ export class AccountSettingDefault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountSettingDefault resources.
  */
 export interface AccountSettingDefaultState {
-    /**
-     * Name of the account setting to set.
-     */
     name?: pulumi.Input<string>;
     principalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * State of the setting.
-     */
     value?: pulumi.Input<string>;
 }
 
@@ -142,16 +83,7 @@ export interface AccountSettingDefaultState {
  * The set of arguments for constructing a AccountSettingDefault resource.
  */
 export interface AccountSettingDefaultArgs {
-    /**
-     * Name of the account setting to set.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * State of the setting.
-     */
     value: pulumi.Input<string>;
 }

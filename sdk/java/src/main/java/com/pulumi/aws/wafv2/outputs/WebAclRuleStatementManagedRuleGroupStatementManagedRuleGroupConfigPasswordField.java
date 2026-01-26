@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField {
-    /**
-     * @return The name of the password field.
-     * 
-     */
     private String identifier;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField() {}
-    /**
-     * @return The name of the password field.
-     * 
-     */
     public String identifier() {
         return this.identifier;
     }

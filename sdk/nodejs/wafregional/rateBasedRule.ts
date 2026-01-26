@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Rate Based Rule Resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ipset = new aws.wafregional.IpSet("ipset", {
- *     name: "tfIPSet",
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const wafrule = new aws.wafregional.RateBasedRule("wafrule", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
- *     rateKey: "IP",
- *     rateLimit: 100,
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- * }, {
- *     dependsOn: [ipset],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF Regional Rate Based Rule using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- */
 export class RateBasedRule extends pulumi.CustomResource {
     /**
      * Get an existing RateBasedRule resource's state with the given name, ID, and optional extra
@@ -74,41 +35,14 @@ export class RateBasedRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === RateBasedRule.__pulumiType;
     }
 
-    /**
-     * The ARN of the WAF Regional Rate Based Rule.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
-     */
     declare public readonly metricName: pulumi.Output<string>;
-    /**
-     * The name or description of the rule.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The objects to include in a rule (documented below).
-     */
     declare public readonly predicates: pulumi.Output<outputs.wafregional.RateBasedRulePredicate[] | undefined>;
-    /**
-     * Valid value is IP.
-     */
     declare public readonly rateKey: pulumi.Output<string>;
-    /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-     */
     declare public readonly rateLimit: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -163,41 +97,14 @@ export class RateBasedRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RateBasedRule resources.
  */
 export interface RateBasedRuleState {
-    /**
-     * The ARN of the WAF Regional Rate Based Rule.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
-     */
     metricName?: pulumi.Input<string>;
-    /**
-     * The name or description of the rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The objects to include in a rule (documented below).
-     */
     predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RateBasedRulePredicate>[]>;
-    /**
-     * Valid value is IP.
-     */
     rateKey?: pulumi.Input<string>;
-    /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-     */
     rateLimit?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -205,32 +112,11 @@ export interface RateBasedRuleState {
  * The set of arguments for constructing a RateBasedRule resource.
  */
 export interface RateBasedRuleArgs {
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
-     */
     metricName: pulumi.Input<string>;
-    /**
-     * The name or description of the rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The objects to include in a rule (documented below).
-     */
     predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RateBasedRulePredicate>[]>;
-    /**
-     * Valid value is IP.
-     */
     rateKey: pulumi.Input<string>;
-    /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-     */
     rateLimit: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

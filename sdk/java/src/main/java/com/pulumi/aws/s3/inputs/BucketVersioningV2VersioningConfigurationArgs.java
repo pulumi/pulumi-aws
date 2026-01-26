@@ -16,32 +16,16 @@ public final class BucketVersioningV2VersioningConfigurationArgs extends com.pul
 
     public static final BucketVersioningV2VersioningConfigurationArgs Empty = new BucketVersioningV2VersioningConfigurationArgs();
 
-    /**
-     * Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     @Import(name="mfaDelete")
     private @Nullable Output<String> mfaDelete;
 
-    /**
-     * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     public Optional<Output<String>> mfaDelete() {
         return Optional.ofNullable(this.mfaDelete);
     }
 
-    /**
-     * Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -71,44 +55,20 @@ public final class BucketVersioningV2VersioningConfigurationArgs extends com.pul
             $ = new BucketVersioningV2VersioningConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mfaDelete Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfaDelete(@Nullable Output<String> mfaDelete) {
             $.mfaDelete = mfaDelete;
             return this;
         }
 
-        /**
-         * @param mfaDelete Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfaDelete(String mfaDelete) {
             return mfaDelete(Output.of(mfaDelete));
         }
 
-        /**
-         * @param status Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

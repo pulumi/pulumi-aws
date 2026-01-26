@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationCloudwatchLoggingOptions
     {
-        /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The ARN of the CloudWatch Log Stream.
-        /// </summary>
         public readonly string LogStreamArn;
-        /// <summary>
-        /// The ARN of the IAM Role used to send application messages.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInput {
-    /**
-     * @return A required metadata operation. Can only be set to CREATE.
-     * 
-     */
     private String metadataOperation;
-    /**
-     * @return The table version for the Iceberg table. Defaults to 2.
-     * 
-     */
     private @Nullable String version;
 
     private CatalogTableOpenTableFormatInputIcebergInput() {}
-    /**
-     * @return A required metadata operation. Can only be set to CREATE.
-     * 
-     */
     public String metadataOperation() {
         return this.metadataOperation;
     }
-    /**
-     * @return The table version for the Iceberg table. Defaults to 2.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

@@ -15,17 +15,9 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
 
     public static final WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs Empty = new WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs();
 
-    /**
-     * Custom handling for challenge requests. See below.
-     * 
-     */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs> customRequestHandling;
 
-    /**
-     * @return Custom handling for challenge requests. See below.
-     * 
-     */
     public Optional<Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs>> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
             $ = new WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRequestHandling Custom handling for challenge requests. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(@Nullable Output<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs> customRequestHandling) {
             $.customRequestHandling = customRequestHandling;
             return this;
         }
 
-        /**
-         * @param customRequestHandling Custom handling for challenge requests. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs customRequestHandling) {
             return customRequestHandling(Output.of(customRequestHandling));
         }

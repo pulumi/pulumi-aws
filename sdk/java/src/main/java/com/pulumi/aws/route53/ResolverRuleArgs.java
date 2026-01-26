@@ -19,111 +19,51 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResolverRuleArgs Empty = new ResolverRuleArgs();
 
-    /**
-     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
-     * This argument should only be specified for `FORWARD` type rules.
-     * 
-     */
     @Import(name="resolverEndpointId")
     private @Nullable Output<String> resolverEndpointId;
 
-    /**
-     * @return ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
-     * This argument should only be specified for `FORWARD` type rules.
-     * 
-     */
     public Optional<Output<String>> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
     }
 
-    /**
-     * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-     * 
-     */
     @Import(name="ruleType", required=true)
     private Output<String> ruleType;
 
-    /**
-     * @return Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-     * 
-     */
     public Output<String> ruleType() {
         return this.ruleType;
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-     * This argument should only be specified for `FORWARD` type rules.
-     * 
-     */
     @Import(name="targetIps")
     private @Nullable Output<List<ResolverRuleTargetIpArgs>> targetIps;
 
-    /**
-     * @return Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-     * This argument should only be specified for `FORWARD` type rules.
-     * 
-     */
     public Optional<Output<List<ResolverRuleTargetIpArgs>>> targetIps() {
         return Optional.ofNullable(this.targetIps);
     }
@@ -158,164 +98,69 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ResolverRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param name Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
-         * This argument should only be specified for `FORWARD` type rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverEndpointId(@Nullable Output<String> resolverEndpointId) {
             $.resolverEndpointId = resolverEndpointId;
             return this;
         }
 
-        /**
-         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
-         * This argument should only be specified for `FORWARD` type rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverEndpointId(String resolverEndpointId) {
             return resolverEndpointId(Output.of(resolverEndpointId));
         }
 
-        /**
-         * @param ruleType Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleType(Output<String> ruleType) {
             $.ruleType = ruleType;
             return this;
         }
 
-        /**
-         * @param ruleType Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleType(String ruleType) {
             return ruleType(Output.of(ruleType));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param targetIps Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-         * This argument should only be specified for `FORWARD` type rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIps(@Nullable Output<List<ResolverRuleTargetIpArgs>> targetIps) {
             $.targetIps = targetIps;
             return this;
         }
 
-        /**
-         * @param targetIps Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-         * This argument should only be specified for `FORWARD` type rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIps(List<ResolverRuleTargetIpArgs> targetIps) {
             return targetIps(Output.of(targetIps));
         }
 
-        /**
-         * @param targetIps Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-         * This argument should only be specified for `FORWARD` type rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIps(ResolverRuleTargetIpArgs... targetIps) {
             return targetIps(List.of(targetIps));
         }

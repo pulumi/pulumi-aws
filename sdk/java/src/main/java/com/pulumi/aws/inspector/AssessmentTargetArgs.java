@@ -15,47 +15,23 @@ public final class AssessmentTargetArgs extends com.pulumi.resources.ResourceArg
 
     public static final AssessmentTargetArgs Empty = new AssessmentTargetArgs();
 
-    /**
-     * The name of the assessment target.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the assessment target.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-     * 
-     */
     @Import(name="resourceGroupArn")
     private @Nullable Output<String> resourceGroupArn;
 
-    /**
-     * @return Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-     * 
-     */
     public Optional<Output<String>> resourceGroupArn() {
         return Optional.ofNullable(this.resourceGroupArn);
     }
@@ -86,65 +62,29 @@ public final class AssessmentTargetArgs extends com.pulumi.resources.ResourceArg
             $ = new AssessmentTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the assessment target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the assessment target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceGroupArn Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceGroupArn(@Nullable Output<String> resourceGroupArn) {
             $.resourceGroupArn = resourceGroupArn;
             return this;
         }
 
-        /**
-         * @param resourceGroupArn Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceGroupArn(String resourceGroupArn) {
             return resourceGroupArn(Output.of(resourceGroupArn));
         }

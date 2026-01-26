@@ -14,165 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager Customer Gateway Association.
- * 
- * Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.GlobalNetwork;
- * import com.pulumi.aws.networkmanager.GlobalNetworkArgs;
- * import com.pulumi.aws.networkmanager.Site;
- * import com.pulumi.aws.networkmanager.SiteArgs;
- * import com.pulumi.aws.networkmanager.Device;
- * import com.pulumi.aws.networkmanager.DeviceArgs;
- * import com.pulumi.aws.ec2.CustomerGateway;
- * import com.pulumi.aws.ec2.CustomerGatewayArgs;
- * import com.pulumi.aws.ec2transitgateway.TransitGateway;
- * import com.pulumi.aws.ec2.VpnConnection;
- * import com.pulumi.aws.ec2.VpnConnectionArgs;
- * import com.pulumi.aws.networkmanager.TransitGatewayRegistration;
- * import com.pulumi.aws.networkmanager.TransitGatewayRegistrationArgs;
- * import com.pulumi.aws.networkmanager.CustomerGatewayAssociation;
- * import com.pulumi.aws.networkmanager.CustomerGatewayAssociationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GlobalNetwork("example", GlobalNetworkArgs.builder()
- *             .description("example")
- *             .build());
- * 
- *         var exampleSite = new Site("exampleSite", SiteArgs.builder()
- *             .globalNetworkId(example.id())
- *             .build());
- * 
- *         var exampleDevice = new Device("exampleDevice", DeviceArgs.builder()
- *             .globalNetworkId(example.id())
- *             .siteId(exampleSite.id())
- *             .build());
- * 
- *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn("65000")
- *             .ipAddress("172.83.124.10")
- *             .type("ipsec.1")
- *             .build());
- * 
- *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway");
- * 
- *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()
- *             .customerGatewayId(exampleCustomerGateway.id())
- *             .transitGatewayId(exampleTransitGateway.id())
- *             .type(exampleCustomerGateway.type())
- *             .staticRoutesOnly(true)
- *             .build());
- * 
- *         var exampleTransitGatewayRegistration = new TransitGatewayRegistration("exampleTransitGatewayRegistration", TransitGatewayRegistrationArgs.builder()
- *             .globalNetworkId(example.id())
- *             .transitGatewayArn(exampleTransitGateway.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleVpnConnection)
- *                 .build());
- * 
- *         var exampleCustomerGatewayAssociation = new CustomerGatewayAssociation("exampleCustomerGatewayAssociation", CustomerGatewayAssociationArgs.builder()
- *             .globalNetworkId(example.id())
- *             .customerGatewayArn(exampleCustomerGateway.arn())
- *             .deviceId(exampleDevice.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleTransitGatewayRegistration)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")
 public class CustomerGatewayAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the customer gateway.
-     * 
-     */
     @Export(name="customerGatewayArn", refs={String.class}, tree="[0]")
     private Output<String> customerGatewayArn;
 
-    /**
-     * @return ARN of the customer gateway.
-     * 
-     */
     public Output<String> customerGatewayArn() {
         return this.customerGatewayArn;
     }
-    /**
-     * ID of the device.
-     * 
-     */
     @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
-    /**
-     * @return ID of the device.
-     * 
-     */
     public Output<String> deviceId() {
         return this.deviceId;
     }
-    /**
-     * ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
-    /**
-     * ID of the link.
-     * 
-     */
     @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> linkId;
 
-    /**
-     * @return ID of the link.
-     * 
-     */
     public Output<Optional<String>> linkId() {
         return Codegen.optional(this.linkId);
     }

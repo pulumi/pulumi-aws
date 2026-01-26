@@ -15,32 +15,16 @@ public final class UserPoolDeviceConfigurationArgs extends com.pulumi.resources.
 
     public static final UserPoolDeviceConfigurationArgs Empty = new UserPoolDeviceConfigurationArgs();
 
-    /**
-     * Whether a challenge is required on a new device. Only applicable to a new device.
-     * 
-     */
     @Import(name="challengeRequiredOnNewDevice")
     private @Nullable Output<Boolean> challengeRequiredOnNewDevice;
 
-    /**
-     * @return Whether a challenge is required on a new device. Only applicable to a new device.
-     * 
-     */
     public Optional<Output<Boolean>> challengeRequiredOnNewDevice() {
         return Optional.ofNullable(this.challengeRequiredOnNewDevice);
     }
 
-    /**
-     * Whether a device is only remembered on user prompt. `false` equates to &#34;Always&#34; remember, `true` is &#34;User Opt In,&#34; and not using a `deviceConfiguration` block is &#34;No.&#34;
-     * 
-     */
     @Import(name="deviceOnlyRememberedOnUserPrompt")
     private @Nullable Output<Boolean> deviceOnlyRememberedOnUserPrompt;
 
-    /**
-     * @return Whether a device is only remembered on user prompt. `false` equates to &#34;Always&#34; remember, `true` is &#34;User Opt In,&#34; and not using a `deviceConfiguration` block is &#34;No.&#34;
-     * 
-     */
     public Optional<Output<Boolean>> deviceOnlyRememberedOnUserPrompt() {
         return Optional.ofNullable(this.deviceOnlyRememberedOnUserPrompt);
     }
@@ -70,44 +54,20 @@ public final class UserPoolDeviceConfigurationArgs extends com.pulumi.resources.
             $ = new UserPoolDeviceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param challengeRequiredOnNewDevice Whether a challenge is required on a new device. Only applicable to a new device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challengeRequiredOnNewDevice(@Nullable Output<Boolean> challengeRequiredOnNewDevice) {
             $.challengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
             return this;
         }
 
-        /**
-         * @param challengeRequiredOnNewDevice Whether a challenge is required on a new device. Only applicable to a new device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challengeRequiredOnNewDevice(Boolean challengeRequiredOnNewDevice) {
             return challengeRequiredOnNewDevice(Output.of(challengeRequiredOnNewDevice));
         }
 
-        /**
-         * @param deviceOnlyRememberedOnUserPrompt Whether a device is only remembered on user prompt. `false` equates to &#34;Always&#34; remember, `true` is &#34;User Opt In,&#34; and not using a `deviceConfiguration` block is &#34;No.&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceOnlyRememberedOnUserPrompt(@Nullable Output<Boolean> deviceOnlyRememberedOnUserPrompt) {
             $.deviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
             return this;
         }
 
-        /**
-         * @param deviceOnlyRememberedOnUserPrompt Whether a device is only remembered on user prompt. `false` equates to &#34;Always&#34; remember, `true` is &#34;User Opt In,&#34; and not using a `deviceConfiguration` block is &#34;No.&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceOnlyRememberedOnUserPrompt(Boolean deviceOnlyRememberedOnUserPrompt) {
             return deviceOnlyRememberedOnUserPrompt(Output.of(deviceOnlyRememberedOnUserPrompt));
         }

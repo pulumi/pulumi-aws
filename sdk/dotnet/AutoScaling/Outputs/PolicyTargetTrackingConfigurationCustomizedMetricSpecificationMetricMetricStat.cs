@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat
     {
-        /// <summary>
-        /// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        /// </summary>
         public readonly Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric Metric;
-        /// <summary>
-        /// The period of the metric in seconds.
-        /// </summary>
         public readonly int? Period;
-        /// <summary>
-        /// Statistic of the metrics to return.
-        /// </summary>
         public readonly string Stat;
-        /// <summary>
-        /// Unit of the metrics to return.
-        /// </summary>
         public readonly string? Unit;
 
         [OutputConstructor]

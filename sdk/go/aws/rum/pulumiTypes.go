@@ -14,24 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppMonitorAppMonitorConfiguration struct {
-	// If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
-	AllowCookies *bool `pulumi:"allowCookies"`
-	// If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
-	EnableXray *bool `pulumi:"enableXray"`
-	// A list of URLs in your website or application to exclude from RUM data collection.
-	ExcludedPages []string `pulumi:"excludedPages"`
-	// A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
-	FavoritePages []string `pulumi:"favoritePages"`
-	// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
-	GuestRoleArn *string `pulumi:"guestRoleArn"`
-	// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
-	IdentityPoolId *string `pulumi:"identityPoolId"`
-	// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
-	IncludedPages []string `pulumi:"includedPages"`
-	// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
+	AllowCookies      *bool    `pulumi:"allowCookies"`
+	EnableXray        *bool    `pulumi:"enableXray"`
+	ExcludedPages     []string `pulumi:"excludedPages"`
+	FavoritePages     []string `pulumi:"favoritePages"`
+	GuestRoleArn      *string  `pulumi:"guestRoleArn"`
+	IdentityPoolId    *string  `pulumi:"identityPoolId"`
+	IncludedPages     []string `pulumi:"includedPages"`
 	SessionSampleRate *float64 `pulumi:"sessionSampleRate"`
-	// An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
-	Telemetries []string `pulumi:"telemetries"`
+	Telemetries       []string `pulumi:"telemetries"`
 }
 
 // AppMonitorAppMonitorConfigurationInput is an input type that accepts AppMonitorAppMonitorConfigurationArgs and AppMonitorAppMonitorConfigurationOutput values.
@@ -46,24 +37,15 @@ type AppMonitorAppMonitorConfigurationInput interface {
 }
 
 type AppMonitorAppMonitorConfigurationArgs struct {
-	// If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
-	AllowCookies pulumi.BoolPtrInput `pulumi:"allowCookies"`
-	// If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
-	EnableXray pulumi.BoolPtrInput `pulumi:"enableXray"`
-	// A list of URLs in your website or application to exclude from RUM data collection.
-	ExcludedPages pulumi.StringArrayInput `pulumi:"excludedPages"`
-	// A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
-	FavoritePages pulumi.StringArrayInput `pulumi:"favoritePages"`
-	// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
-	GuestRoleArn pulumi.StringPtrInput `pulumi:"guestRoleArn"`
-	// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
-	IdentityPoolId pulumi.StringPtrInput `pulumi:"identityPoolId"`
-	// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
-	IncludedPages pulumi.StringArrayInput `pulumi:"includedPages"`
-	// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
-	SessionSampleRate pulumi.Float64PtrInput `pulumi:"sessionSampleRate"`
-	// An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
-	Telemetries pulumi.StringArrayInput `pulumi:"telemetries"`
+	AllowCookies      pulumi.BoolPtrInput     `pulumi:"allowCookies"`
+	EnableXray        pulumi.BoolPtrInput     `pulumi:"enableXray"`
+	ExcludedPages     pulumi.StringArrayInput `pulumi:"excludedPages"`
+	FavoritePages     pulumi.StringArrayInput `pulumi:"favoritePages"`
+	GuestRoleArn      pulumi.StringPtrInput   `pulumi:"guestRoleArn"`
+	IdentityPoolId    pulumi.StringPtrInput   `pulumi:"identityPoolId"`
+	IncludedPages     pulumi.StringArrayInput `pulumi:"includedPages"`
+	SessionSampleRate pulumi.Float64PtrInput  `pulumi:"sessionSampleRate"`
+	Telemetries       pulumi.StringArrayInput `pulumi:"telemetries"`
 }
 
 func (AppMonitorAppMonitorConfigurationArgs) ElementType() reflect.Type {
@@ -143,47 +125,38 @@ func (o AppMonitorAppMonitorConfigurationOutput) ToAppMonitorAppMonitorConfigura
 	}).(AppMonitorAppMonitorConfigurationPtrOutput)
 }
 
-// If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
 func (o AppMonitorAppMonitorConfigurationOutput) AllowCookies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) *bool { return v.AllowCookies }).(pulumi.BoolPtrOutput)
 }
 
-// If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
 func (o AppMonitorAppMonitorConfigurationOutput) EnableXray() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) *bool { return v.EnableXray }).(pulumi.BoolPtrOutput)
 }
 
-// A list of URLs in your website or application to exclude from RUM data collection.
 func (o AppMonitorAppMonitorConfigurationOutput) ExcludedPages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) []string { return v.ExcludedPages }).(pulumi.StringArrayOutput)
 }
 
-// A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
 func (o AppMonitorAppMonitorConfigurationOutput) FavoritePages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) []string { return v.FavoritePages }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
 func (o AppMonitorAppMonitorConfigurationOutput) GuestRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) *string { return v.GuestRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
 func (o AppMonitorAppMonitorConfigurationOutput) IdentityPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) *string { return v.IdentityPoolId }).(pulumi.StringPtrOutput)
 }
 
-// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
 func (o AppMonitorAppMonitorConfigurationOutput) IncludedPages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) []string { return v.IncludedPages }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
 func (o AppMonitorAppMonitorConfigurationOutput) SessionSampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) *float64 { return v.SessionSampleRate }).(pulumi.Float64PtrOutput)
 }
 
-// An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
 func (o AppMonitorAppMonitorConfigurationOutput) Telemetries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppMonitorAppMonitorConfiguration) []string { return v.Telemetries }).(pulumi.StringArrayOutput)
 }
@@ -212,7 +185,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) Elem() AppMonitorAppMonitorC
 	}).(AppMonitorAppMonitorConfigurationOutput)
 }
 
-// If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) AllowCookies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) *bool {
 		if v == nil {
@@ -222,7 +194,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) AllowCookies() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) EnableXray() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) *bool {
 		if v == nil {
@@ -232,7 +203,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) EnableXray() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of URLs in your website or application to exclude from RUM data collection.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) ExcludedPages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) []string {
 		if v == nil {
@@ -242,7 +212,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) ExcludedPages() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) FavoritePages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) []string {
 		if v == nil {
@@ -252,7 +221,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) FavoritePages() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) GuestRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) *string {
 		if v == nil {
@@ -262,7 +230,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) GuestRoleArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) IdentityPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) *string {
 		if v == nil {
@@ -272,7 +239,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) IdentityPoolId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) IncludedPages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) []string {
 		if v == nil {
@@ -282,7 +248,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) IncludedPages() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) SessionSampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) *float64 {
 		if v == nil {
@@ -292,7 +257,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) SessionSampleRate() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
 func (o AppMonitorAppMonitorConfigurationPtrOutput) Telemetries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppMonitorAppMonitorConfiguration) []string {
 		if v == nil {
@@ -303,7 +267,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) Telemetries() pulumi.StringA
 }
 
 type AppMonitorCustomEvents struct {
-	// Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
 	Status *string `pulumi:"status"`
 }
 
@@ -319,7 +282,6 @@ type AppMonitorCustomEventsInput interface {
 }
 
 type AppMonitorCustomEventsArgs struct {
-	// Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -400,7 +362,6 @@ func (o AppMonitorCustomEventsOutput) ToAppMonitorCustomEventsPtrOutputWithConte
 	}).(AppMonitorCustomEventsPtrOutput)
 }
 
-// Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
 func (o AppMonitorCustomEventsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppMonitorCustomEvents) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -429,7 +390,6 @@ func (o AppMonitorCustomEventsPtrOutput) Elem() AppMonitorCustomEventsOutput {
 	}).(AppMonitorCustomEventsOutput)
 }
 
-// Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
 func (o AppMonitorCustomEventsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppMonitorCustomEvents) *string {
 		if v == nil {

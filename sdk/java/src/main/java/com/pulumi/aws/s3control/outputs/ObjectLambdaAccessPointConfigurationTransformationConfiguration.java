@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ObjectLambdaAccessPointConfigurationTransformationConfiguration {
-    /**
-     * @return The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-     * 
-     */
     private List<String> actions;
-    /**
-     * @return The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
-     * 
-     */
     private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation;
 
     private ObjectLambdaAccessPointConfigurationTransformationConfiguration() {}
-    /**
-     * @return The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-     * 
-     */
     public List<String> actions() {
         return this.actions;
     }
-    /**
-     * @return The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
-     * 
-     */
     public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation() {
         return this.contentTransformation;
     }

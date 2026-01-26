@@ -14,21 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DocumentClassifierInputDataConfig struct {
-	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-	// See the `augmentedManifests` Configuration Block section below.
 	AugmentedManifests []DocumentClassifierInputDataConfigAugmentedManifest `pulumi:"augmentedManifests"`
-	// The format for the training data.
-	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-	DataFormat *string `pulumi:"dataFormat"`
-	// Delimiter between labels when training a multi-label classifier.
-	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
-	// Default is `|`.
-	LabelDelimiter *string `pulumi:"labelDelimiter"`
-	// Location of training documents.
-	// Used if `dataFormat` is `COMPREHEND_CSV`.
-	S3Uri     *string `pulumi:"s3Uri"`
-	TestS3Uri *string `pulumi:"testS3Uri"`
+	DataFormat         *string                                              `pulumi:"dataFormat"`
+	LabelDelimiter     *string                                              `pulumi:"labelDelimiter"`
+	S3Uri              *string                                              `pulumi:"s3Uri"`
+	TestS3Uri          *string                                              `pulumi:"testS3Uri"`
 }
 
 // DocumentClassifierInputDataConfigInput is an input type that accepts DocumentClassifierInputDataConfigArgs and DocumentClassifierInputDataConfigOutput values.
@@ -43,21 +33,11 @@ type DocumentClassifierInputDataConfigInput interface {
 }
 
 type DocumentClassifierInputDataConfigArgs struct {
-	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-	// See the `augmentedManifests` Configuration Block section below.
 	AugmentedManifests DocumentClassifierInputDataConfigAugmentedManifestArrayInput `pulumi:"augmentedManifests"`
-	// The format for the training data.
-	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-	DataFormat pulumi.StringPtrInput `pulumi:"dataFormat"`
-	// Delimiter between labels when training a multi-label classifier.
-	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
-	// Default is `|`.
-	LabelDelimiter pulumi.StringPtrInput `pulumi:"labelDelimiter"`
-	// Location of training documents.
-	// Used if `dataFormat` is `COMPREHEND_CSV`.
-	S3Uri     pulumi.StringPtrInput `pulumi:"s3Uri"`
-	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
+	DataFormat         pulumi.StringPtrInput                                        `pulumi:"dataFormat"`
+	LabelDelimiter     pulumi.StringPtrInput                                        `pulumi:"labelDelimiter"`
+	S3Uri              pulumi.StringPtrInput                                        `pulumi:"s3Uri"`
+	TestS3Uri          pulumi.StringPtrInput                                        `pulumi:"testS3Uri"`
 }
 
 func (DocumentClassifierInputDataConfigArgs) ElementType() reflect.Type {
@@ -137,30 +117,20 @@ func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataCo
 	}).(DocumentClassifierInputDataConfigPtrOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-// See the `augmentedManifests` Configuration Block section below.
 func (o DocumentClassifierInputDataConfigOutput) AugmentedManifests() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) []DocumentClassifierInputDataConfigAugmentedManifest {
 		return v.AugmentedManifests
 	}).(DocumentClassifierInputDataConfigAugmentedManifestArrayOutput)
 }
 
-// The format for the training data.
-// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
 func (o DocumentClassifierInputDataConfigOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
 }
 
-// Delimiter between labels when training a multi-label classifier.
-// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
-// Default is `|`.
 func (o DocumentClassifierInputDataConfigOutput) LabelDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.LabelDelimiter }).(pulumi.StringPtrOutput)
 }
 
-// Location of training documents.
-// Used if `dataFormat` is `COMPREHEND_CSV`.
 func (o DocumentClassifierInputDataConfigOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -193,9 +163,6 @@ func (o DocumentClassifierInputDataConfigPtrOutput) Elem() DocumentClassifierInp
 	}).(DocumentClassifierInputDataConfigOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-// See the `augmentedManifests` Configuration Block section below.
 func (o DocumentClassifierInputDataConfigPtrOutput) AugmentedManifests() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) []DocumentClassifierInputDataConfigAugmentedManifest {
 		if v == nil {
@@ -205,8 +172,6 @@ func (o DocumentClassifierInputDataConfigPtrOutput) AugmentedManifests() Documen
 	}).(DocumentClassifierInputDataConfigAugmentedManifestArrayOutput)
 }
 
-// The format for the training data.
-// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
 func (o DocumentClassifierInputDataConfigPtrOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
 		if v == nil {
@@ -216,9 +181,6 @@ func (o DocumentClassifierInputDataConfigPtrOutput) DataFormat() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Delimiter between labels when training a multi-label classifier.
-// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
-// Default is `|`.
 func (o DocumentClassifierInputDataConfigPtrOutput) LabelDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
 		if v == nil {
@@ -228,8 +190,6 @@ func (o DocumentClassifierInputDataConfigPtrOutput) LabelDelimiter() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of training documents.
-// Used if `dataFormat` is `COMPREHEND_CSV`.
 func (o DocumentClassifierInputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
 		if v == nil {
@@ -249,20 +209,12 @@ func (o DocumentClassifierInputDataConfigPtrOutput) TestS3Uri() pulumi.StringPtr
 }
 
 type DocumentClassifierInputDataConfigAugmentedManifest struct {
-	// Location of annotation files.
-	AnnotationDataS3Uri *string `pulumi:"annotationDataS3Uri"`
-	// The JSON attribute that contains the annotations for the training documents.
-	AttributeNames []string `pulumi:"attributeNames"`
-	// Type of augmented manifest.
-	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-	DocumentType *string `pulumi:"documentType"`
-	// Location of augmented manifest file.
-	S3Uri string `pulumi:"s3Uri"`
-	// Location of source PDF files.
-	SourceDocumentsS3Uri *string `pulumi:"sourceDocumentsS3Uri"`
-	// Purpose of data in augmented manifest.
-	// One of `TRAIN` or `TEST`.
-	Split *string `pulumi:"split"`
+	AnnotationDataS3Uri  *string  `pulumi:"annotationDataS3Uri"`
+	AttributeNames       []string `pulumi:"attributeNames"`
+	DocumentType         *string  `pulumi:"documentType"`
+	S3Uri                string   `pulumi:"s3Uri"`
+	SourceDocumentsS3Uri *string  `pulumi:"sourceDocumentsS3Uri"`
+	Split                *string  `pulumi:"split"`
 }
 
 // DocumentClassifierInputDataConfigAugmentedManifestInput is an input type that accepts DocumentClassifierInputDataConfigAugmentedManifestArgs and DocumentClassifierInputDataConfigAugmentedManifestOutput values.
@@ -277,20 +229,12 @@ type DocumentClassifierInputDataConfigAugmentedManifestInput interface {
 }
 
 type DocumentClassifierInputDataConfigAugmentedManifestArgs struct {
-	// Location of annotation files.
-	AnnotationDataS3Uri pulumi.StringPtrInput `pulumi:"annotationDataS3Uri"`
-	// The JSON attribute that contains the annotations for the training documents.
-	AttributeNames pulumi.StringArrayInput `pulumi:"attributeNames"`
-	// Type of augmented manifest.
-	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
-	// Location of augmented manifest file.
-	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
-	// Location of source PDF files.
-	SourceDocumentsS3Uri pulumi.StringPtrInput `pulumi:"sourceDocumentsS3Uri"`
-	// Purpose of data in augmented manifest.
-	// One of `TRAIN` or `TEST`.
-	Split pulumi.StringPtrInput `pulumi:"split"`
+	AnnotationDataS3Uri  pulumi.StringPtrInput   `pulumi:"annotationDataS3Uri"`
+	AttributeNames       pulumi.StringArrayInput `pulumi:"attributeNames"`
+	DocumentType         pulumi.StringPtrInput   `pulumi:"documentType"`
+	S3Uri                pulumi.StringInput      `pulumi:"s3Uri"`
+	SourceDocumentsS3Uri pulumi.StringPtrInput   `pulumi:"sourceDocumentsS3Uri"`
+	Split                pulumi.StringPtrInput   `pulumi:"split"`
 }
 
 func (DocumentClassifierInputDataConfigAugmentedManifestArgs) ElementType() reflect.Type {
@@ -344,34 +288,26 @@ func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) ToDocumentClas
 	return o
 }
 
-// Location of annotation files.
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) AnnotationDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.AnnotationDataS3Uri }).(pulumi.StringPtrOutput)
 }
 
-// The JSON attribute that contains the annotations for the training documents.
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) AttributeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) []string { return v.AttributeNames }).(pulumi.StringArrayOutput)
 }
 
-// Type of augmented manifest.
-// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
 
-// Location of augmented manifest file.
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
-// Location of source PDF files.
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) SourceDocumentsS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.SourceDocumentsS3Uri }).(pulumi.StringPtrOutput)
 }
 
-// Purpose of data in augmented manifest.
-// One of `TRAIN` or `TEST`.
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) Split() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.Split }).(pulumi.StringPtrOutput)
 }
@@ -397,14 +333,9 @@ func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) Index(i p
 }
 
 type DocumentClassifierOutputDataConfig struct {
-	// KMS Key used to encrypt the output documents.
-	// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Full path for the output documents.
+	KmsKeyId    *string `pulumi:"kmsKeyId"`
 	OutputS3Uri *string `pulumi:"outputS3Uri"`
-	// Destination path for the output documents.
-	// The full path to the output file will be returned in `outputS3Uri`.
-	S3Uri string `pulumi:"s3Uri"`
+	S3Uri       string  `pulumi:"s3Uri"`
 }
 
 // DocumentClassifierOutputDataConfigInput is an input type that accepts DocumentClassifierOutputDataConfigArgs and DocumentClassifierOutputDataConfigOutput values.
@@ -419,14 +350,9 @@ type DocumentClassifierOutputDataConfigInput interface {
 }
 
 type DocumentClassifierOutputDataConfigArgs struct {
-	// KMS Key used to encrypt the output documents.
-	// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Full path for the output documents.
+	KmsKeyId    pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	OutputS3Uri pulumi.StringPtrInput `pulumi:"outputS3Uri"`
-	// Destination path for the output documents.
-	// The full path to the output file will be returned in `outputS3Uri`.
-	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	S3Uri       pulumi.StringInput    `pulumi:"s3Uri"`
 }
 
 func (DocumentClassifierOutputDataConfigArgs) ElementType() reflect.Type {
@@ -506,19 +432,14 @@ func (o DocumentClassifierOutputDataConfigOutput) ToDocumentClassifierOutputData
 	}).(DocumentClassifierOutputDataConfigPtrOutput)
 }
 
-// KMS Key used to encrypt the output documents.
-// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
 func (o DocumentClassifierOutputDataConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Full path for the output documents.
 func (o DocumentClassifierOutputDataConfigOutput) OutputS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) *string { return v.OutputS3Uri }).(pulumi.StringPtrOutput)
 }
 
-// Destination path for the output documents.
-// The full path to the output file will be returned in `outputS3Uri`.
 func (o DocumentClassifierOutputDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -547,8 +468,6 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) Elem() DocumentClassifierOu
 	}).(DocumentClassifierOutputDataConfigOutput)
 }
 
-// KMS Key used to encrypt the output documents.
-// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
 func (o DocumentClassifierOutputDataConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
 		if v == nil {
@@ -558,7 +477,6 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Full path for the output documents.
 func (o DocumentClassifierOutputDataConfigPtrOutput) OutputS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
 		if v == nil {
@@ -568,8 +486,6 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) OutputS3Uri() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Destination path for the output documents.
-// The full path to the output file will be returned in `outputS3Uri`.
 func (o DocumentClassifierOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
 		if v == nil {
@@ -580,10 +496,8 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOut
 }
 
 type DocumentClassifierVpcConfig struct {
-	// List of security group IDs.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of VPC subnets.
-	Subnets []string `pulumi:"subnets"`
+	Subnets          []string `pulumi:"subnets"`
 }
 
 // DocumentClassifierVpcConfigInput is an input type that accepts DocumentClassifierVpcConfigArgs and DocumentClassifierVpcConfigOutput values.
@@ -598,10 +512,8 @@ type DocumentClassifierVpcConfigInput interface {
 }
 
 type DocumentClassifierVpcConfigArgs struct {
-	// List of security group IDs.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// List of VPC subnets.
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (DocumentClassifierVpcConfigArgs) ElementType() reflect.Type {
@@ -681,12 +593,10 @@ func (o DocumentClassifierVpcConfigOutput) ToDocumentClassifierVpcConfigPtrOutpu
 	}).(DocumentClassifierVpcConfigPtrOutput)
 }
 
-// List of security group IDs.
 func (o DocumentClassifierVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// List of VPC subnets.
 func (o DocumentClassifierVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -715,7 +625,6 @@ func (o DocumentClassifierVpcConfigPtrOutput) Elem() DocumentClassifierVpcConfig
 	}).(DocumentClassifierVpcConfigOutput)
 }
 
-// List of security group IDs.
 func (o DocumentClassifierVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifierVpcConfig) []string {
 		if v == nil {
@@ -725,7 +634,6 @@ func (o DocumentClassifierVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of VPC subnets.
 func (o DocumentClassifierVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifierVpcConfig) []string {
 		if v == nil {
@@ -736,29 +644,12 @@ func (o DocumentClassifierVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 }
 
 type EntityRecognizerInputDataConfig struct {
-	// Specifies location of the document annotation data.
-	// See the `annotations` Configuration Block section below.
-	// One of `annotations` or `entityList` is required.
-	Annotations *EntityRecognizerInputDataConfigAnnotations `pulumi:"annotations"`
-	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-	// See the `augmentedManifests` Configuration Block section below.
+	Annotations        *EntityRecognizerInputDataConfigAnnotations        `pulumi:"annotations"`
 	AugmentedManifests []EntityRecognizerInputDataConfigAugmentedManifest `pulumi:"augmentedManifests"`
-	// The format for the training data.
-	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-	DataFormat *string `pulumi:"dataFormat"`
-	// Specifies a collection of training documents.
-	// Used if `dataFormat` is `COMPREHEND_CSV`.
-	// See the `documents` Configuration Block section below.
-	Documents *EntityRecognizerInputDataConfigDocuments `pulumi:"documents"`
-	// Specifies location of the entity list data.
-	// See the `entityList` Configuration Block section below.
-	// One of `entityList` or `annotations` is required.
-	EntityList *EntityRecognizerInputDataConfigEntityList `pulumi:"entityList"`
-	// Set of entity types to be recognized.
-	// Has a maximum of 25 items.
-	// See the `entityTypes` Configuration Block section below.
-	EntityTypes []EntityRecognizerInputDataConfigEntityType `pulumi:"entityTypes"`
+	DataFormat         *string                                            `pulumi:"dataFormat"`
+	Documents          *EntityRecognizerInputDataConfigDocuments          `pulumi:"documents"`
+	EntityList         *EntityRecognizerInputDataConfigEntityList         `pulumi:"entityList"`
+	EntityTypes        []EntityRecognizerInputDataConfigEntityType        `pulumi:"entityTypes"`
 }
 
 // EntityRecognizerInputDataConfigInput is an input type that accepts EntityRecognizerInputDataConfigArgs and EntityRecognizerInputDataConfigOutput values.
@@ -773,29 +664,12 @@ type EntityRecognizerInputDataConfigInput interface {
 }
 
 type EntityRecognizerInputDataConfigArgs struct {
-	// Specifies location of the document annotation data.
-	// See the `annotations` Configuration Block section below.
-	// One of `annotations` or `entityList` is required.
-	Annotations EntityRecognizerInputDataConfigAnnotationsPtrInput `pulumi:"annotations"`
-	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-	// See the `augmentedManifests` Configuration Block section below.
+	Annotations        EntityRecognizerInputDataConfigAnnotationsPtrInput         `pulumi:"annotations"`
 	AugmentedManifests EntityRecognizerInputDataConfigAugmentedManifestArrayInput `pulumi:"augmentedManifests"`
-	// The format for the training data.
-	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-	DataFormat pulumi.StringPtrInput `pulumi:"dataFormat"`
-	// Specifies a collection of training documents.
-	// Used if `dataFormat` is `COMPREHEND_CSV`.
-	// See the `documents` Configuration Block section below.
-	Documents EntityRecognizerInputDataConfigDocumentsPtrInput `pulumi:"documents"`
-	// Specifies location of the entity list data.
-	// See the `entityList` Configuration Block section below.
-	// One of `entityList` or `annotations` is required.
-	EntityList EntityRecognizerInputDataConfigEntityListPtrInput `pulumi:"entityList"`
-	// Set of entity types to be recognized.
-	// Has a maximum of 25 items.
-	// See the `entityTypes` Configuration Block section below.
-	EntityTypes EntityRecognizerInputDataConfigEntityTypeArrayInput `pulumi:"entityTypes"`
+	DataFormat         pulumi.StringPtrInput                                      `pulumi:"dataFormat"`
+	Documents          EntityRecognizerInputDataConfigDocumentsPtrInput           `pulumi:"documents"`
+	EntityList         EntityRecognizerInputDataConfigEntityListPtrInput          `pulumi:"entityList"`
+	EntityTypes        EntityRecognizerInputDataConfigEntityTypeArrayInput        `pulumi:"entityTypes"`
 }
 
 func (EntityRecognizerInputDataConfigArgs) ElementType() reflect.Type {
@@ -875,49 +749,32 @@ func (o EntityRecognizerInputDataConfigOutput) ToEntityRecognizerInputDataConfig
 	}).(EntityRecognizerInputDataConfigPtrOutput)
 }
 
-// Specifies location of the document annotation data.
-// See the `annotations` Configuration Block section below.
-// One of `annotations` or `entityList` is required.
 func (o EntityRecognizerInputDataConfigOutput) Annotations() EntityRecognizerInputDataConfigAnnotationsPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfigAnnotations {
 		return v.Annotations
 	}).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-// See the `augmentedManifests` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigOutput) AugmentedManifests() EntityRecognizerInputDataConfigAugmentedManifestArrayOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfig) []EntityRecognizerInputDataConfigAugmentedManifest {
 		return v.AugmentedManifests
 	}).(EntityRecognizerInputDataConfigAugmentedManifestArrayOutput)
 }
 
-// The format for the training data.
-// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
 func (o EntityRecognizerInputDataConfigOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a collection of training documents.
-// Used if `dataFormat` is `COMPREHEND_CSV`.
-// See the `documents` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigOutput) Documents() EntityRecognizerInputDataConfigDocumentsPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfigDocuments { return v.Documents }).(EntityRecognizerInputDataConfigDocumentsPtrOutput)
 }
 
-// Specifies location of the entity list data.
-// See the `entityList` Configuration Block section below.
-// One of `entityList` or `annotations` is required.
 func (o EntityRecognizerInputDataConfigOutput) EntityList() EntityRecognizerInputDataConfigEntityListPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfigEntityList {
 		return v.EntityList
 	}).(EntityRecognizerInputDataConfigEntityListPtrOutput)
 }
 
-// Set of entity types to be recognized.
-// Has a maximum of 25 items.
-// See the `entityTypes` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigOutput) EntityTypes() EntityRecognizerInputDataConfigEntityTypeArrayOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfig) []EntityRecognizerInputDataConfigEntityType {
 		return v.EntityTypes
@@ -948,9 +805,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) Elem() EntityRecognizerInputDa
 	}).(EntityRecognizerInputDataConfigOutput)
 }
 
-// Specifies location of the document annotation data.
-// See the `annotations` Configuration Block section below.
-// One of `annotations` or `entityList` is required.
 func (o EntityRecognizerInputDataConfigPtrOutput) Annotations() EntityRecognizerInputDataConfigAnnotationsPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfigAnnotations {
 		if v == nil {
@@ -960,9 +814,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) Annotations() EntityRecognizer
 	}).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-// See the `augmentedManifests` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigPtrOutput) AugmentedManifests() EntityRecognizerInputDataConfigAugmentedManifestArrayOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfig) []EntityRecognizerInputDataConfigAugmentedManifest {
 		if v == nil {
@@ -972,8 +823,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) AugmentedManifests() EntityRec
 	}).(EntityRecognizerInputDataConfigAugmentedManifestArrayOutput)
 }
 
-// The format for the training data.
-// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
 func (o EntityRecognizerInputDataConfigPtrOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfig) *string {
 		if v == nil {
@@ -983,9 +832,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) DataFormat() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a collection of training documents.
-// Used if `dataFormat` is `COMPREHEND_CSV`.
-// See the `documents` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigPtrOutput) Documents() EntityRecognizerInputDataConfigDocumentsPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfigDocuments {
 		if v == nil {
@@ -995,9 +841,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) Documents() EntityRecognizerIn
 	}).(EntityRecognizerInputDataConfigDocumentsPtrOutput)
 }
 
-// Specifies location of the entity list data.
-// See the `entityList` Configuration Block section below.
-// One of `entityList` or `annotations` is required.
 func (o EntityRecognizerInputDataConfigPtrOutput) EntityList() EntityRecognizerInputDataConfigEntityListPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfigEntityList {
 		if v == nil {
@@ -1007,9 +850,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) EntityList() EntityRecognizerI
 	}).(EntityRecognizerInputDataConfigEntityListPtrOutput)
 }
 
-// Set of entity types to be recognized.
-// Has a maximum of 25 items.
-// See the `entityTypes` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigPtrOutput) EntityTypes() EntityRecognizerInputDataConfigEntityTypeArrayOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfig) []EntityRecognizerInputDataConfigEntityType {
 		if v == nil {
@@ -1020,7 +860,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) EntityTypes() EntityRecognizer
 }
 
 type EntityRecognizerInputDataConfigAnnotations struct {
-	// Location of training annotations.
 	S3Uri     string  `pulumi:"s3Uri"`
 	TestS3Uri *string `pulumi:"testS3Uri"`
 }
@@ -1037,7 +876,6 @@ type EntityRecognizerInputDataConfigAnnotationsInput interface {
 }
 
 type EntityRecognizerInputDataConfigAnnotationsArgs struct {
-	// Location of training annotations.
 	S3Uri     pulumi.StringInput    `pulumi:"s3Uri"`
 	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
 }
@@ -1119,7 +957,6 @@ func (o EntityRecognizerInputDataConfigAnnotationsOutput) ToEntityRecognizerInpu
 	}).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-// Location of training annotations.
 func (o EntityRecognizerInputDataConfigAnnotationsOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAnnotations) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -1152,7 +989,6 @@ func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) Elem() EntityRecogn
 	}).(EntityRecognizerInputDataConfigAnnotationsOutput)
 }
 
-// Location of training annotations.
 func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfigAnnotations) *string {
 		if v == nil {
@@ -1172,20 +1008,12 @@ func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) TestS3Uri() pulumi.
 }
 
 type EntityRecognizerInputDataConfigAugmentedManifest struct {
-	// Location of annotation files.
-	AnnotationDataS3Uri *string `pulumi:"annotationDataS3Uri"`
-	// The JSON attribute that contains the annotations for the training documents.
-	AttributeNames []string `pulumi:"attributeNames"`
-	// Type of augmented manifest.
-	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-	DocumentType *string `pulumi:"documentType"`
-	// Location of augmented manifest file.
-	S3Uri string `pulumi:"s3Uri"`
-	// Location of source PDF files.
-	SourceDocumentsS3Uri *string `pulumi:"sourceDocumentsS3Uri"`
-	// Purpose of data in augmented manifest.
-	// One of `TRAIN` or `TEST`.
-	Split *string `pulumi:"split"`
+	AnnotationDataS3Uri  *string  `pulumi:"annotationDataS3Uri"`
+	AttributeNames       []string `pulumi:"attributeNames"`
+	DocumentType         *string  `pulumi:"documentType"`
+	S3Uri                string   `pulumi:"s3Uri"`
+	SourceDocumentsS3Uri *string  `pulumi:"sourceDocumentsS3Uri"`
+	Split                *string  `pulumi:"split"`
 }
 
 // EntityRecognizerInputDataConfigAugmentedManifestInput is an input type that accepts EntityRecognizerInputDataConfigAugmentedManifestArgs and EntityRecognizerInputDataConfigAugmentedManifestOutput values.
@@ -1200,20 +1028,12 @@ type EntityRecognizerInputDataConfigAugmentedManifestInput interface {
 }
 
 type EntityRecognizerInputDataConfigAugmentedManifestArgs struct {
-	// Location of annotation files.
-	AnnotationDataS3Uri pulumi.StringPtrInput `pulumi:"annotationDataS3Uri"`
-	// The JSON attribute that contains the annotations for the training documents.
-	AttributeNames pulumi.StringArrayInput `pulumi:"attributeNames"`
-	// Type of augmented manifest.
-	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
-	// Location of augmented manifest file.
-	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
-	// Location of source PDF files.
-	SourceDocumentsS3Uri pulumi.StringPtrInput `pulumi:"sourceDocumentsS3Uri"`
-	// Purpose of data in augmented manifest.
-	// One of `TRAIN` or `TEST`.
-	Split pulumi.StringPtrInput `pulumi:"split"`
+	AnnotationDataS3Uri  pulumi.StringPtrInput   `pulumi:"annotationDataS3Uri"`
+	AttributeNames       pulumi.StringArrayInput `pulumi:"attributeNames"`
+	DocumentType         pulumi.StringPtrInput   `pulumi:"documentType"`
+	S3Uri                pulumi.StringInput      `pulumi:"s3Uri"`
+	SourceDocumentsS3Uri pulumi.StringPtrInput   `pulumi:"sourceDocumentsS3Uri"`
+	Split                pulumi.StringPtrInput   `pulumi:"split"`
 }
 
 func (EntityRecognizerInputDataConfigAugmentedManifestArgs) ElementType() reflect.Type {
@@ -1267,34 +1087,26 @@ func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) ToEntityRecogniz
 	return o
 }
 
-// Location of annotation files.
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) AnnotationDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) *string { return v.AnnotationDataS3Uri }).(pulumi.StringPtrOutput)
 }
 
-// The JSON attribute that contains the annotations for the training documents.
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) AttributeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) []string { return v.AttributeNames }).(pulumi.StringArrayOutput)
 }
 
-// Type of augmented manifest.
-// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
 
-// Location of augmented manifest file.
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
-// Location of source PDF files.
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) SourceDocumentsS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) *string { return v.SourceDocumentsS3Uri }).(pulumi.StringPtrOutput)
 }
 
-// Purpose of data in augmented manifest.
-// One of `TRAIN` or `TEST`.
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) Split() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) *string { return v.Split }).(pulumi.StringPtrOutput)
 }
@@ -1320,12 +1132,9 @@ func (o EntityRecognizerInputDataConfigAugmentedManifestArrayOutput) Index(i pul
 }
 
 type EntityRecognizerInputDataConfigDocuments struct {
-	// Specifies how the input files should be processed.
-	// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
 	InputFormat *string `pulumi:"inputFormat"`
-	// Location of training documents.
-	S3Uri     string  `pulumi:"s3Uri"`
-	TestS3Uri *string `pulumi:"testS3Uri"`
+	S3Uri       string  `pulumi:"s3Uri"`
+	TestS3Uri   *string `pulumi:"testS3Uri"`
 }
 
 // EntityRecognizerInputDataConfigDocumentsInput is an input type that accepts EntityRecognizerInputDataConfigDocumentsArgs and EntityRecognizerInputDataConfigDocumentsOutput values.
@@ -1340,12 +1149,9 @@ type EntityRecognizerInputDataConfigDocumentsInput interface {
 }
 
 type EntityRecognizerInputDataConfigDocumentsArgs struct {
-	// Specifies how the input files should be processed.
-	// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
 	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
-	// Location of training documents.
-	S3Uri     pulumi.StringInput    `pulumi:"s3Uri"`
-	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
+	S3Uri       pulumi.StringInput    `pulumi:"s3Uri"`
+	TestS3Uri   pulumi.StringPtrInput `pulumi:"testS3Uri"`
 }
 
 func (EntityRecognizerInputDataConfigDocumentsArgs) ElementType() reflect.Type {
@@ -1425,13 +1231,10 @@ func (o EntityRecognizerInputDataConfigDocumentsOutput) ToEntityRecognizerInputD
 	}).(EntityRecognizerInputDataConfigDocumentsPtrOutput)
 }
 
-// Specifies how the input files should be processed.
-// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
 func (o EntityRecognizerInputDataConfigDocumentsOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigDocuments) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
 }
 
-// Location of training documents.
 func (o EntityRecognizerInputDataConfigDocumentsOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigDocuments) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -1464,8 +1267,6 @@ func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) Elem() EntityRecogniz
 	}).(EntityRecognizerInputDataConfigDocumentsOutput)
 }
 
-// Specifies how the input files should be processed.
-// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
 func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfigDocuments) *string {
 		if v == nil {
@@ -1475,7 +1276,6 @@ func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) InputFormat() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of training documents.
 func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfigDocuments) *string {
 		if v == nil {
@@ -1495,7 +1295,6 @@ func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) TestS3Uri() pulumi.St
 }
 
 type EntityRecognizerInputDataConfigEntityList struct {
-	// Location of entity list.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -1511,7 +1310,6 @@ type EntityRecognizerInputDataConfigEntityListInput interface {
 }
 
 type EntityRecognizerInputDataConfigEntityListArgs struct {
-	// Location of entity list.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -1592,7 +1390,6 @@ func (o EntityRecognizerInputDataConfigEntityListOutput) ToEntityRecognizerInput
 	}).(EntityRecognizerInputDataConfigEntityListPtrOutput)
 }
 
-// Location of entity list.
 func (o EntityRecognizerInputDataConfigEntityListOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigEntityList) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -1621,7 +1418,6 @@ func (o EntityRecognizerInputDataConfigEntityListPtrOutput) Elem() EntityRecogni
 	}).(EntityRecognizerInputDataConfigEntityListOutput)
 }
 
-// Location of entity list.
 func (o EntityRecognizerInputDataConfigEntityListPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfigEntityList) *string {
 		if v == nil {
@@ -1632,8 +1428,6 @@ func (o EntityRecognizerInputDataConfigEntityListPtrOutput) S3Uri() pulumi.Strin
 }
 
 type EntityRecognizerInputDataConfigEntityType struct {
-	// An entity type to be matched by the Entity Recognizer.
-	// Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
 	Type string `pulumi:"type"`
 }
 
@@ -1649,8 +1443,6 @@ type EntityRecognizerInputDataConfigEntityTypeInput interface {
 }
 
 type EntityRecognizerInputDataConfigEntityTypeArgs struct {
-	// An entity type to be matched by the Entity Recognizer.
-	// Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1705,8 +1497,6 @@ func (o EntityRecognizerInputDataConfigEntityTypeOutput) ToEntityRecognizerInput
 	return o
 }
 
-// An entity type to be matched by the Entity Recognizer.
-// Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
 func (o EntityRecognizerInputDataConfigEntityTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigEntityType) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1732,10 +1522,8 @@ func (o EntityRecognizerInputDataConfigEntityTypeArrayOutput) Index(i pulumi.Int
 }
 
 type EntityRecognizerVpcConfig struct {
-	// List of security group IDs.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of VPC subnets.
-	Subnets []string `pulumi:"subnets"`
+	Subnets          []string `pulumi:"subnets"`
 }
 
 // EntityRecognizerVpcConfigInput is an input type that accepts EntityRecognizerVpcConfigArgs and EntityRecognizerVpcConfigOutput values.
@@ -1750,10 +1538,8 @@ type EntityRecognizerVpcConfigInput interface {
 }
 
 type EntityRecognizerVpcConfigArgs struct {
-	// List of security group IDs.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// List of VPC subnets.
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (EntityRecognizerVpcConfigArgs) ElementType() reflect.Type {
@@ -1833,12 +1619,10 @@ func (o EntityRecognizerVpcConfigOutput) ToEntityRecognizerVpcConfigPtrOutputWit
 	}).(EntityRecognizerVpcConfigPtrOutput)
 }
 
-// List of security group IDs.
 func (o EntityRecognizerVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EntityRecognizerVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// List of VPC subnets.
 func (o EntityRecognizerVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EntityRecognizerVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -1867,7 +1651,6 @@ func (o EntityRecognizerVpcConfigPtrOutput) Elem() EntityRecognizerVpcConfigOutp
 	}).(EntityRecognizerVpcConfigOutput)
 }
 
-// List of security group IDs.
 func (o EntityRecognizerVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EntityRecognizerVpcConfig) []string {
 		if v == nil {
@@ -1877,7 +1660,6 @@ func (o EntityRecognizerVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of VPC subnets.
 func (o EntityRecognizerVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EntityRecognizerVpcConfig) []string {
 		if v == nil {

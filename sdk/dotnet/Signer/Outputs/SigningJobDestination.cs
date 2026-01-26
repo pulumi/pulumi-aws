@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class SigningJobDestination
     {
-        /// <summary>
-        /// A configuration block describing the S3 Destination object: See S3 Destination below for details.
-        /// </summary>
         public readonly Outputs.SigningJobDestinationS3 S3;
 
         [OutputConstructor]

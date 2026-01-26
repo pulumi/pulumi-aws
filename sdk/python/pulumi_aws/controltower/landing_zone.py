@@ -27,10 +27,6 @@ class LandingZoneArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
-        :param pulumi.Input[_builtins.str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        :param pulumi.Input[_builtins.str] version: The landing zone version.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "manifest_json", manifest_json)
         pulumi.set(__self__, "version", version)
@@ -42,9 +38,6 @@ class LandingZoneArgs:
     @_builtins.property
     @pulumi.getter(name="manifestJson")
     def manifest_json(self) -> pulumi.Input[_builtins.str]:
-        """
-        The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        """
         return pulumi.get(self, "manifest_json")
 
     @manifest_json.setter
@@ -54,9 +47,6 @@ class LandingZoneArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The landing zone version.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -66,9 +56,6 @@ class LandingZoneArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +65,6 @@ class LandingZoneArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,14 +85,6 @@ class _LandingZoneState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LandingZone resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the landing zone.
-        :param pulumi.Input[Sequence[pulumi.Input['LandingZoneDriftStatusArgs']]] drift_statuses: The drift status summary of the landing zone.
-        :param pulumi.Input[_builtins.str] latest_available_version: The latest available version of the landing zone.
-        :param pulumi.Input[_builtins.str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The landing zone version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -130,9 +106,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the landing zone.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -142,9 +115,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter(name="driftStatuses")
     def drift_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneDriftStatusArgs']]]]:
-        """
-        The drift status summary of the landing zone.
-        """
         return pulumi.get(self, "drift_statuses")
 
     @drift_statuses.setter
@@ -154,9 +124,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter(name="latestAvailableVersion")
     def latest_available_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The latest available version of the landing zone.
-        """
         return pulumi.get(self, "latest_available_version")
 
     @latest_available_version.setter
@@ -166,9 +133,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter(name="manifestJson")
     def manifest_json(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        """
         return pulumi.get(self, "manifest_json")
 
     @manifest_json.setter
@@ -178,9 +142,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -190,9 +151,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -202,9 +160,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -214,9 +169,6 @@ class _LandingZoneState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The landing zone version.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -236,23 +188,9 @@ class LandingZone(pulumi.CustomResource):
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates a new landing zone using Control Tower. For more information on usage, please see the
-        [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
-
-        ## Import
-
-        Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
-        ```
-
+        Create a LandingZone resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] version: The landing zone version.
         """
         ...
     @overload
@@ -261,17 +199,7 @@ class LandingZone(pulumi.CustomResource):
                  args: LandingZoneArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new landing zone using Control Tower. For more information on usage, please see the
-        [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
-
-        ## Import
-
-        Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
-        ```
-
+        Create a LandingZone resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LandingZoneArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,14 +265,6 @@ class LandingZone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the landing zone.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict']]]] drift_statuses: The drift status summary of the landing zone.
-        :param pulumi.Input[_builtins.str] latest_available_version: The latest available version of the landing zone.
-        :param pulumi.Input[_builtins.str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The landing zone version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -363,64 +283,40 @@ class LandingZone(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the landing zone.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="driftStatuses")
     def drift_statuses(self) -> pulumi.Output[Sequence['outputs.LandingZoneDriftStatus']]:
-        """
-        The drift status summary of the landing zone.
-        """
         return pulumi.get(self, "drift_statuses")
 
     @_builtins.property
     @pulumi.getter(name="latestAvailableVersion")
     def latest_available_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The latest available version of the landing zone.
-        """
         return pulumi.get(self, "latest_available_version")
 
     @_builtins.property
     @pulumi.getter(name="manifestJson")
     def manifest_json(self) -> pulumi.Output[_builtins.str]:
-        """
-        The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        """
         return pulumi.get(self, "manifest_json")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The landing zone version.
-        """
         return pulumi.get(self, "version")
 

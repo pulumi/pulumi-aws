@@ -17,47 +17,23 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetEmailIdentityArgs Empty = new GetEmailIdentityArgs();
 
-    /**
-     * The name of the email identity.
-     * 
-     */
     @Import(name="emailIdentity", required=true)
     private Output<String> emailIdentity;
 
-    /**
-     * @return The name of the email identity.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetEmailIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param emailIdentity The name of the email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(Output<String> emailIdentity) {
             $.emailIdentity = emailIdentity;
             return this;
         }
 
-        /**
-         * @param emailIdentity The name of the email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

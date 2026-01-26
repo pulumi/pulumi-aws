@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorKafkaClusterApacheKafkaClusterVpc {
-    /**
-     * @return The security groups for the connector.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return The subnets for the connector.
-     * 
-     */
     private List<String> subnets;
 
     private ConnectorKafkaClusterApacheKafkaClusterVpc() {}
-    /**
-     * @return The security groups for the connector.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return The subnets for the connector.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS VPC Lattice Service.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.LookupService(ctx, &vpclattice.LookupServiceArgs{
-//				Name: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult
@@ -52,37 +23,26 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
-	// Service name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service.
-	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// List of tags associated with the service.
-	Tags map[string]string `pulumi:"tags"`
+	Name              *string           `pulumi:"name"`
+	Region            *string           `pulumi:"region"`
+	ServiceIdentifier *string           `pulumi:"serviceIdentifier"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
-	// ARN of the service.
-	Arn string `pulumi:"arn"`
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType string `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
-	CertificateArn string `pulumi:"certificateArn"`
-	// Custom domain name of the service.
-	CustomDomainName string `pulumi:"customDomainName"`
-	// List of objects with DNS names.
-	DnsEntries []GetServiceDnsEntry `pulumi:"dnsEntries"`
+	Arn              string               `pulumi:"arn"`
+	AuthType         string               `pulumi:"authType"`
+	CertificateArn   string               `pulumi:"certificateArn"`
+	CustomDomainName string               `pulumi:"customDomainName"`
+	DnsEntries       []GetServiceDnsEntry `pulumi:"dnsEntries"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	Name              string `pulumi:"name"`
-	Region            string `pulumi:"region"`
-	ServiceIdentifier string `pulumi:"serviceIdentifier"`
-	// Status of the service.
-	Status string `pulumi:"status"`
-	// List of tags associated with the service.
-	Tags map[string]string `pulumi:"tags"`
+	Id                string            `pulumi:"id"`
+	Name              string            `pulumi:"name"`
+	Region            string            `pulumi:"region"`
+	ServiceIdentifier string            `pulumi:"serviceIdentifier"`
+	Status            string            `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -96,14 +56,10 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 
 // A collection of arguments for invoking getService.
 type LookupServiceOutputArgs struct {
-	// Service name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service.
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
 	ServiceIdentifier pulumi.StringPtrInput `pulumi:"serviceIdentifier"`
-	// List of tags associated with the service.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupServiceOutputArgs) ElementType() reflect.Type {
@@ -125,27 +81,22 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the service.
 func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 func (o LookupServiceResultOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the certificate.
 func (o LookupServiceResultOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// Custom domain name of the service.
 func (o LookupServiceResultOutput) CustomDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.CustomDomainName }).(pulumi.StringOutput)
 }
 
-// List of objects with DNS names.
 func (o LookupServiceResultOutput) DnsEntries() GetServiceDnsEntryArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceDnsEntry { return v.DnsEntries }).(GetServiceDnsEntryArrayOutput)
 }
@@ -167,12 +118,10 @@ func (o LookupServiceResultOutput) ServiceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ServiceIdentifier }).(pulumi.StringOutput)
 }
 
-// Status of the service.
 func (o LookupServiceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// List of tags associated with the service.
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -15,32 +15,16 @@ public final class AgentcoreBrowserNetworkConfigurationVpcConfigArgs extends com
 
     public static final AgentcoreBrowserNetworkConfigurationVpcConfigArgs Empty = new AgentcoreBrowserNetworkConfigurationVpcConfigArgs();
 
-    /**
-     * Set of security group IDs for the VPC configuration.
-     * 
-     */
     @Import(name="securityGroups", required=true)
     private Output<List<String>> securityGroups;
 
-    /**
-     * @return Set of security group IDs for the VPC configuration.
-     * 
-     */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
 
-    /**
-     * Set of subnet IDs for the VPC configuration.
-     * 
-     */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
-    /**
-     * @return Set of subnet IDs for the VPC configuration.
-     * 
-     */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
@@ -70,64 +54,28 @@ public final class AgentcoreBrowserNetworkConfigurationVpcConfigArgs extends com
             $ = new AgentcoreBrowserNetworkConfigurationVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroups Set of security group IDs for the VPC configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups Set of security group IDs for the VPC configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups Set of security group IDs for the VPC configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
-        /**
-         * @param subnets Set of subnet IDs for the VPC configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets Set of subnet IDs for the VPC configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets Set of subnet IDs for the VPC configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

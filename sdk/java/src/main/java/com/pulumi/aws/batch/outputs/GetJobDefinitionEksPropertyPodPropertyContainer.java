@@ -15,113 +15,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyContainer {
-    /**
-     * @return An array of arguments to the entrypoint
-     * 
-     */
     private List<String> args;
-    /**
-     * @return The command that&#39;s passed to the container.
-     * 
-     */
     private List<String> commands;
-    /**
-     * @return The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
-     * 
-     */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerEnv> envs;
-    /**
-     * @return The image used to start a container.
-     * 
-     */
     private String image;
-    /**
-     * @return The image pull policy for the container.
-     * 
-     */
     private String imagePullPolicy;
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     private String name;
-    /**
-     * @return The type and amount of resources to assign to a container.
-     * 
-     */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerResource> resources;
-    /**
-     * @return The security context for a job.
-     * 
-     */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext> securityContexts;
-    /**
-     * @return The volume mounts for the container.
-     * 
-     */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount> volumeMounts;
 
     private GetJobDefinitionEksPropertyPodPropertyContainer() {}
-    /**
-     * @return An array of arguments to the entrypoint
-     * 
-     */
     public List<String> args() {
         return this.args;
     }
-    /**
-     * @return The command that&#39;s passed to the container.
-     * 
-     */
     public List<String> commands() {
         return this.commands;
     }
-    /**
-     * @return The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
-     * 
-     */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerEnv> envs() {
         return this.envs;
     }
-    /**
-     * @return The image used to start a container.
-     * 
-     */
     public String image() {
         return this.image;
     }
-    /**
-     * @return The image pull policy for the container.
-     * 
-     */
     public String imagePullPolicy() {
         return this.imagePullPolicy;
     }
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The type and amount of resources to assign to a container.
-     * 
-     */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerResource> resources() {
         return this.resources;
     }
-    /**
-     * @return The security context for a job.
-     * 
-     */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext> securityContexts() {
         return this.securityContexts;
     }
-    /**
-     * @return The volume mounts for the container.
-     * 
-     */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount> volumeMounts() {
         return this.volumeMounts;
     }

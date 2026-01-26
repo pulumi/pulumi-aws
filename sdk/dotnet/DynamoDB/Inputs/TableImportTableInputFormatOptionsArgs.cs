@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableImportTableInputFormatOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// This block contains the processing options for the CSV file being imported:
-        /// </summary>
         [Input("csv")]
         public Input<Inputs.TableImportTableInputFormatOptionsCsvArgs>? Csv { get; set; }
 

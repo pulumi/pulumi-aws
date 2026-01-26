@@ -9,69 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
-    /// <summary>
-    /// Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sizeConstraintSet = new Aws.WafRegional.SizeConstraintSet("size_constraint_set", new()
-    ///     {
-    ///         Name = "tfsize_constraints",
-    ///         SizeConstraints = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintArgs
-    ///             {
-    ///                 TextTransformation = "NONE",
-    ///                 ComparisonOperator = "EQ",
-    ///                 Size = 4096,
-    ///                 FieldToMatch = new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
-    ///                 {
-    ///                     Type = "BODY",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WAF Size Constraint Set using the id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:wafregional/sizeConstraintSet:SizeConstraintSet")]
     public partial class SizeConstraintSet : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name or description of the Size Constraint Set.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the parts of web requests that you want to inspect the size of.
-        /// </summary>
         [Output("sizeConstraints")]
         public Output<ImmutableArray<Outputs.SizeConstraintSetSizeConstraint>> SizeConstraints { get; private set; } = null!;
 
@@ -121,24 +70,14 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class SizeConstraintSetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name or description of the Size Constraint Set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("sizeConstraints")]
         private InputList<Inputs.SizeConstraintSetSizeConstraintArgs>? _sizeConstraints;
-
-        /// <summary>
-        /// Specifies the parts of web requests that you want to inspect the size of.
-        /// </summary>
         public InputList<Inputs.SizeConstraintSetSizeConstraintArgs> SizeConstraints
         {
             get => _sizeConstraints ?? (_sizeConstraints = new InputList<Inputs.SizeConstraintSetSizeConstraintArgs>());
@@ -156,24 +95,14 @@ namespace Pulumi.Aws.WafRegional
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name or description of the Size Constraint Set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("sizeConstraints")]
         private InputList<Inputs.SizeConstraintSetSizeConstraintGetArgs>? _sizeConstraints;
-
-        /// <summary>
-        /// Specifies the parts of web requests that you want to inspect the size of.
-        /// </summary>
         public InputList<Inputs.SizeConstraintSetSizeConstraintGetArgs> SizeConstraints
         {
             get => _sizeConstraints ?? (_sizeConstraints = new InputList<Inputs.SizeConstraintSetSizeConstraintGetArgs>());

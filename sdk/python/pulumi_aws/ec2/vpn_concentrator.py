@@ -25,12 +25,6 @@ class VpnConcentratorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpnConcentrator resource.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         pulumi.set(__self__, "type", type)
@@ -42,11 +36,6 @@ class VpnConcentratorArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the transit gateway to attach the VPN concentrator to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -56,9 +45,6 @@ class VpnConcentratorArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of VPN concentrator. Valid value: `ipsec.1`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -68,9 +54,6 @@ class VpnConcentratorArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +63,6 @@ class VpnConcentratorArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -102,15 +82,6 @@ class _VpnConcentratorState:
                  vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnConcentrator resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: ID of the transit gateway attachment created for the VPN concentrator.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
-        :param pulumi.Input[_builtins.str] vpn_concentrator_id: ID of the VPN Concentrator.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -130,9 +101,6 @@ class _VpnConcentratorState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -142,9 +110,6 @@ class _VpnConcentratorState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -154,9 +119,6 @@ class _VpnConcentratorState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -166,9 +128,6 @@ class _VpnConcentratorState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the transit gateway attachment created for the VPN concentrator.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -178,11 +137,6 @@ class _VpnConcentratorState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the transit gateway to attach the VPN concentrator to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -192,9 +146,6 @@ class _VpnConcentratorState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of VPN concentrator. Valid value: `ipsec.1`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -204,9 +155,6 @@ class _VpnConcentratorState:
     @_builtins.property
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the VPN Concentrator.
-        """
         return pulumi.get(self, "vpn_concentrator_id")
 
     @vpn_concentrator_id.setter
@@ -226,43 +174,9 @@ class VpnConcentrator(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to create a VPN Concentrator that aggregates multiple VPN connections to a transit gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.TransitGateway("example",
-            description="example",
-            tags={
-                "Name": "example",
-            })
-        example_vpn_concentrator = aws.ec2.VpnConcentrator("example",
-            type="ipsec.1",
-            transit_gateway_id=example.id,
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPN Concentrators using the VPN concentrator ID. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpnConcentrator:VpnConcentrator example vcn-12345678
-        ```
-
+        Create a VpnConcentrator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
         """
         ...
     @overload
@@ -271,35 +185,7 @@ class VpnConcentrator(pulumi.CustomResource):
                  args: VpnConcentratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create a VPN Concentrator that aggregates multiple VPN connections to a transit gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.TransitGateway("example",
-            description="example",
-            tags={
-                "Name": "example",
-            })
-        example_vpn_concentrator = aws.ec2.VpnConcentrator("example",
-            type="ipsec.1",
-            transit_gateway_id=example.id,
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPN Concentrators using the VPN concentrator ID. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpnConcentrator:VpnConcentrator example vcn-12345678
-        ```
-
+        Create a VpnConcentrator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpnConcentratorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -363,15 +249,6 @@ class VpnConcentrator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: ID of the transit gateway attachment created for the VPN concentrator.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
-        :param pulumi.Input[_builtins.str] vpn_concentrator_id: ID of the VPN Concentrator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -389,58 +266,35 @@ class VpnConcentrator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the transit gateway attachment created for the VPN concentrator.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the transit gateway to attach the VPN concentrator to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of VPN concentrator. Valid value: `ipsec.1`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the VPN Concentrator.
-        """
         return pulumi.get(self, "vpn_concentrator_id")
 

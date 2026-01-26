@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the model used to create vector embeddings for the knowledge base.
-        /// </summary>
         [Input("embeddingModelArn", required: true)]
         public Input<string> EmbeddingModelArn { get; set; } = null!;
 
-        /// <summary>
-        /// The embeddings model configuration details for the vector model used in Knowledge Base.  See `EmbeddingModelConfiguration` block for details.
-        /// </summary>
         [Input("embeddingModelConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationGetArgs>? EmbeddingModelConfiguration { get; set; }
 
-        /// <summary>
-        /// supplemental_data_storage_configuration.  See `SupplementalDataStorageConfiguration` block for details.
-        /// </summary>
         [Input("supplementalDataStorageConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationGetArgs>? SupplementalDataStorageConfiguration { get; set; }
 

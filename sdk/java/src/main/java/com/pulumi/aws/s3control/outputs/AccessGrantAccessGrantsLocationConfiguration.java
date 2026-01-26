@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AccessGrantAccessGrantsLocationConfiguration {
-    /**
-     * @return Sub-prefix.
-     * 
-     */
     private @Nullable String s3SubPrefix;
 
     private AccessGrantAccessGrantsLocationConfiguration() {}
-    /**
-     * @return Sub-prefix.
-     * 
-     */
     public Optional<String> s3SubPrefix() {
         return Optional.ofNullable(this.s3SubPrefix);
     }

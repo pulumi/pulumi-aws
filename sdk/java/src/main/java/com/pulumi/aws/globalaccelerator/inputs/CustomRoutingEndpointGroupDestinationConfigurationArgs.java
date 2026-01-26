@@ -16,47 +16,23 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
 
     public static final CustomRoutingEndpointGroupDestinationConfigurationArgs Empty = new CustomRoutingEndpointGroupDestinationConfigurationArgs();
 
-    /**
-     * The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
-    /**
-     * @return The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     public Output<Integer> fromPort() {
         return this.fromPort;
     }
 
-    /**
-     * The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
-     * 
-     */
     @Import(name="protocols", required=true)
     private Output<List<String>> protocols;
 
-    /**
-     * @return The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
-     * 
-     */
     public Output<List<String>> protocols() {
         return this.protocols;
     }
 
-    /**
-     * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
-    /**
-     * @return The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     public Output<Integer> toPort() {
         return this.toPort;
     }
@@ -87,75 +63,33 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
             $ = new CustomRoutingEndpointGroupDestinationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fromPort The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Output<Integer> fromPort) {
             $.fromPort = fromPort;
             return this;
         }
 
-        /**
-         * @param fromPort The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
         }
 
-        /**
-         * @param protocols The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
-        /**
-         * @param protocols The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
-        /**
-         * @param protocols The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
-        /**
-         * @param toPort The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(Output<Integer> toPort) {
             $.toPort = toPort;
             return this;
         }
 
-        /**
-         * @param toPort The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(Integer toPort) {
             return toPort(Output.of(toPort));
         }

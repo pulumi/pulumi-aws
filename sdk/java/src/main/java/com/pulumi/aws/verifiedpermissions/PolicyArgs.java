@@ -17,47 +17,23 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyArgs Empty = new PolicyArgs();
 
-    /**
-     * The definition of the policy. See Definition below.
-     * 
-     */
     @Import(name="definition")
     private @Nullable Output<PolicyDefinitionArgs> definition;
 
-    /**
-     * @return The definition of the policy. See Definition below.
-     * 
-     */
     public Optional<Output<PolicyDefinitionArgs>> definition() {
         return Optional.ofNullable(this.definition);
     }
 
-    /**
-     * The Policy Store ID of the policy store.
-     * 
-     */
     @Import(name="policyStoreId", required=true)
     private Output<String> policyStoreId;
 
-    /**
-     * @return The Policy Store ID of the policy store.
-     * 
-     */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,65 +64,29 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definition The definition of the policy. See Definition below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(@Nullable Output<PolicyDefinitionArgs> definition) {
             $.definition = definition;
             return this;
         }
 
-        /**
-         * @param definition The definition of the policy. See Definition below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(PolicyDefinitionArgs definition) {
             return definition(Output.of(definition));
         }
 
-        /**
-         * @param policyStoreId The Policy Store ID of the policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(Output<String> policyStoreId) {
             $.policyStoreId = policyStoreId;
             return this;
         }
 
-        /**
-         * @param policyStoreId The Policy Store ID of the policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

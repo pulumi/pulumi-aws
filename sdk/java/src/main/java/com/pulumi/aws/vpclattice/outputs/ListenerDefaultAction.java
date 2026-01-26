@@ -14,24 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerDefaultAction {
     private @Nullable ListenerDefaultActionFixedResponse fixedResponse;
-    /**
-     * @return Route requests to one or more target groups. See Forward blocks below.
-     * 
-     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-     * 
-     */
     private @Nullable List<ListenerDefaultActionForward> forwards;
 
     private ListenerDefaultAction() {}
     public Optional<ListenerDefaultActionFixedResponse> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
-    /**
-     * @return Route requests to one or more target groups. See Forward blocks below.
-     * 
-     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-     * 
-     */
     public List<ListenerDefaultActionForward> forwards() {
         return this.forwards == null ? List.of() : this.forwards;
     }

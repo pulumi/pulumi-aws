@@ -16,47 +16,23 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
 
     public static final ClusterConfigurationExecuteCommandConfigurationArgs Empty = new ClusterConfigurationExecuteCommandConfigurationArgs();
 
-    /**
-     * AWS Key Management Service key ID to encrypt the data between the local client and the container.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
-     * 
-     */
     @Import(name="logConfiguration")
     private @Nullable Output<ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs> logConfiguration;
 
-    /**
-     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs>> logConfiguration() {
         return Optional.ofNullable(this.logConfiguration);
     }
 
-    /**
-     * Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
-     * 
-     */
     @Import(name="logging")
     private @Nullable Output<String> logging;
 
-    /**
-     * @return Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
-     * 
-     */
     public Optional<Output<String>> logging() {
         return Optional.ofNullable(this.logging);
     }
@@ -87,65 +63,29 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
             $ = new ClusterConfigurationExecuteCommandConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId AWS Key Management Service key ID to encrypt the data between the local client and the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId AWS Key Management Service key ID to encrypt the data between the local client and the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param logConfiguration Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logConfiguration(@Nullable Output<ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs> logConfiguration) {
             $.logConfiguration = logConfiguration;
             return this;
         }
 
-        /**
-         * @param logConfiguration Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logConfiguration(ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs logConfiguration) {
             return logConfiguration(Output.of(logConfiguration));
         }
 
-        /**
-         * @param logging Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logging(@Nullable Output<String> logging) {
             $.logging = logging;
             return this;
         }
 
-        /**
-         * @param logging Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logging(String logging) {
             return logging(Output.of(logging));
         }

@@ -18,14 +18,14 @@ public final class StreamProcessorSettingsConnectedHomeArgs extends com.pulumi.r
     public static final StreamProcessorSettingsConnectedHomeArgs Empty = new StreamProcessorSettingsConnectedHomeArgs();
 
     /**
-     * Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+     * Specifies what you want to detect in the video, such as people, packages, or pets.
      * 
      */
     @Import(name="labels")
     private @Nullable Output<List<String>> labels;
 
     /**
-     * @return Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+     * @return Specifies what you want to detect in the video, such as people, packages, or pets.
      * 
      */
     public Optional<Output<List<String>>> labels() {
@@ -33,14 +33,14 @@ public final class StreamProcessorSettingsConnectedHomeArgs extends com.pulumi.r
     }
 
     /**
-     * Minimum confidence required to label an object in the video.
+     * The minimum confidence required to label an object in the video.
      * 
      */
     @Import(name="minConfidence")
     private @Nullable Output<Double> minConfidence;
 
     /**
-     * @return Minimum confidence required to label an object in the video.
+     * @return The minimum confidence required to label an object in the video.
      * 
      */
     public Optional<Output<Double>> minConfidence() {
@@ -73,7 +73,7 @@ public final class StreamProcessorSettingsConnectedHomeArgs extends com.pulumi.r
         }
 
         /**
-         * @param labels Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+         * @param labels Specifies what you want to detect in the video, such as people, packages, or pets.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class StreamProcessorSettingsConnectedHomeArgs extends com.pulumi.r
         }
 
         /**
-         * @param labels Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+         * @param labels Specifies what you want to detect in the video, such as people, packages, or pets.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class StreamProcessorSettingsConnectedHomeArgs extends com.pulumi.r
         }
 
         /**
-         * @param labels Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+         * @param labels Specifies what you want to detect in the video, such as people, packages, or pets.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class StreamProcessorSettingsConnectedHomeArgs extends com.pulumi.r
         }
 
         /**
-         * @param minConfidence Minimum confidence required to label an object in the video.
+         * @param minConfidence The minimum confidence required to label an object in the video.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class StreamProcessorSettingsConnectedHomeArgs extends com.pulumi.r
         }
 
         /**
-         * @param minConfidence Minimum confidence required to label an object in the video.
+         * @param minConfidence The minimum confidence required to label an object in the video.
          * 
          * @return builder
          * 

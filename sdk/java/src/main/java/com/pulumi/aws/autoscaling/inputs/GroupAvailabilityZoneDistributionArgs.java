@@ -15,17 +15,9 @@ public final class GroupAvailabilityZoneDistributionArgs extends com.pulumi.reso
 
     public static final GroupAvailabilityZoneDistributionArgs Empty = new GroupAvailabilityZoneDistributionArgs();
 
-    /**
-     * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
-     * 
-     */
     @Import(name="capacityDistributionStrategy")
     private @Nullable Output<String> capacityDistributionStrategy;
 
-    /**
-     * @return The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
-     * 
-     */
     public Optional<Output<String>> capacityDistributionStrategy() {
         return Optional.ofNullable(this.capacityDistributionStrategy);
     }
@@ -54,23 +46,11 @@ public final class GroupAvailabilityZoneDistributionArgs extends com.pulumi.reso
             $ = new GroupAvailabilityZoneDistributionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityDistributionStrategy The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityDistributionStrategy(@Nullable Output<String> capacityDistributionStrategy) {
             $.capacityDistributionStrategy = capacityDistributionStrategy;
             return this;
         }
 
-        /**
-         * @param capacityDistributionStrategy The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityDistributionStrategy(String capacityDistributionStrategy) {
             return capacityDistributionStrategy(Output.of(capacityDistributionStrategy));
         }

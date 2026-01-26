@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformProjectOperation {
-    /**
-     * @return Projected columns.
-     * 
-     */
     private List<String> projectedColumns;
 
     private DataSetLogicalTableMapDataTransformProjectOperation() {}
-    /**
-     * @return Projected columns.
-     * 
-     */
     public List<String> projectedColumns() {
         return this.projectedColumns;
     }

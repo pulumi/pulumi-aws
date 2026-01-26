@@ -12,169 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
-//
-// ## Example Usage
-//
-// ### All Regions Usage
-//
-// The following example will enable the aggregator for every region.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("ALL_REGIONS"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### All Regions Except Specified Regions Usage
-//
-// The following example will enable the aggregator for every region except those specified in `specifiedRegions`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("ALL_REGIONS_EXCEPT_SPECIFIED"),
-//				SpecifiedRegions: pulumi.StringArray{
-//					pulumi.String("eu-west-1"),
-//					pulumi.String("eu-west-2"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Specified Regions Usage
-//
-// The following example will enable the aggregator for every region specified in `specifiedRegions`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("SPECIFIED_REGIONS"),
-//				SpecifiedRegions: pulumi.StringArray{
-//					pulumi.String("eu-west-1"),
-//					pulumi.String("eu-west-2"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### No Regions Usage
-//
-// The following example will enable the aggregator but not link any AWS Regions to the home Region.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("NO_REGIONS"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
-// ```
 type FindingAggregator struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-	LinkingMode pulumi.StringOutput `pulumi:"linkingMode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+	LinkingMode      pulumi.StringOutput      `pulumi:"linkingMode"`
+	Region           pulumi.StringOutput      `pulumi:"region"`
 	SpecifiedRegions pulumi.StringArrayOutput `pulumi:"specifiedRegions"`
 }
 
@@ -211,20 +53,14 @@ func GetFindingAggregator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FindingAggregator resources.
 type findingAggregatorState struct {
-	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-	LinkingMode *string `pulumi:"linkingMode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+	LinkingMode      *string  `pulumi:"linkingMode"`
+	Region           *string  `pulumi:"region"`
 	SpecifiedRegions []string `pulumi:"specifiedRegions"`
 }
 
 type FindingAggregatorState struct {
-	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-	LinkingMode pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+	LinkingMode      pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 	SpecifiedRegions pulumi.StringArrayInput
 }
 
@@ -233,21 +69,15 @@ func (FindingAggregatorState) ElementType() reflect.Type {
 }
 
 type findingAggregatorArgs struct {
-	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-	LinkingMode string `pulumi:"linkingMode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+	LinkingMode      string   `pulumi:"linkingMode"`
+	Region           *string  `pulumi:"region"`
 	SpecifiedRegions []string `pulumi:"specifiedRegions"`
 }
 
 // The set of arguments for constructing a FindingAggregator resource.
 type FindingAggregatorArgs struct {
-	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-	LinkingMode pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+	LinkingMode      pulumi.StringInput
+	Region           pulumi.StringPtrInput
 	SpecifiedRegions pulumi.StringArrayInput
 }
 
@@ -338,17 +168,14 @@ func (o FindingAggregatorOutput) ToFindingAggregatorOutputWithContext(ctx contex
 	return o
 }
 
-// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 func (o FindingAggregatorOutput) LinkingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingAggregator) pulumi.StringOutput { return v.LinkingMode }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FindingAggregatorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingAggregator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
 func (o FindingAggregatorOutput) SpecifiedRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FindingAggregator) pulumi.StringArrayOutput { return v.SpecifiedRegions }).(pulumi.StringArrayOutput)
 }

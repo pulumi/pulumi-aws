@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclCaptchaConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines custom immunity time. See `ImmunityTimeProperty` below for details.
-        /// </summary>
         [Input("immunityTimeProperty")]
         public Input<Inputs.WebAclCaptchaConfigImmunityTimePropertyArgs>? ImmunityTimeProperty { get; set; }
 

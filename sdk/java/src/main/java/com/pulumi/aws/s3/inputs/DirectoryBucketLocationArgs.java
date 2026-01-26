@@ -16,32 +16,16 @@ public final class DirectoryBucketLocationArgs extends com.pulumi.resources.Reso
 
     public static final DirectoryBucketLocationArgs Empty = new DirectoryBucketLocationArgs();
 
-    /**
-     * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Location type. Valid values: `AvailabilityZone`, `LocalZone`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Location type. Valid values: `AvailabilityZone`, `LocalZone`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -71,44 +55,20 @@ public final class DirectoryBucketLocationArgs extends com.pulumi.resources.Reso
             $ = new DirectoryBucketLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type Location type. Valid values: `AvailabilityZone`, `LocalZone`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Location type. Valid values: `AvailabilityZone`, `LocalZone`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

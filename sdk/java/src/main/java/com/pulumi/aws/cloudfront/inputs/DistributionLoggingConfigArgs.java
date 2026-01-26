@@ -16,47 +16,23 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
 
     public static final DistributionLoggingConfigArgs Empty = new DistributionLoggingConfigArgs();
 
-    /**
-     * Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-     * 
-     */
     @Import(name="includeCookies")
     private @Nullable Output<Boolean> includeCookies;
 
-    /**
-     * @return Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-     * 
-     */
     public Optional<Output<Boolean>> includeCookies() {
         return Optional.ofNullable(this.includeCookies);
     }
 
-    /**
-     * Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -87,65 +63,29 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
             $ = new DistributionLoggingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param includeCookies Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeCookies(@Nullable Output<Boolean> includeCookies) {
             $.includeCookies = includeCookies;
             return this;
         }
 
-        /**
-         * @param includeCookies Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeCookies(Boolean includeCookies) {
             return includeCookies(Output.of(includeCookies));
         }
 
-        /**
-         * @param prefix Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

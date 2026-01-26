@@ -12,220 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an S3 bucket (server access) logging resource. For more information, see [Logging requests using server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html)
-// in the AWS S3 User Guide.
-//
-// > **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
-// to decide which method meets your requirements.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ### Grant permission by using bucket policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// logging, err := s3.NewBucket(ctx, "logging", &s3.BucketArgs{
-// Bucket: pulumi.String("access-logging-bucket"),
-// })
-// if err != nil {
-// return err
-// }
-// loggingBucketPolicy := logging.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: []string{
-// "logging.s3.amazonaws.com",
-// },
-// Type: "Service",
-// },
-// },
-// Actions: []string{
-// "s3:PutObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/*", arn),
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "aws:SourceAccount",
-// Values: interface{}{
-// current.AccountId,
-// },
-// },
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "logging", &s3.BucketPolicyArgs{
-// Bucket: logging.Bucket,
-// Policy: pulumi.String(loggingBucketPolicy.ApplyT(func(loggingBucketPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &loggingBucketPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-// Bucket: pulumi.String("example-bucket"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = s3.NewBucketLogging(ctx, "example", &s3.BucketLoggingArgs{
-// Bucket: example.Bucket,
-// TargetBucket: logging.Bucket,
-// TargetPrefix: pulumi.String("log/"),
-// TargetObjectKeyFormat: &s3.BucketLoggingTargetObjectKeyFormatArgs{
-// PartitionedPrefix: &s3.BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs{
-// PartitionDateSource: pulumi.String("EventTime"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ### Grant permission by using bucket ACL
-//
-// The [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) does not recommend using the ACL.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-tf-example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			logBucket, err := s3.NewBucket(ctx, "log_bucket", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-tf-log-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "log_bucket_acl", &s3.BucketAclArgs{
-//				Bucket: logBucket.ID(),
-//				Acl:    pulumi.String("log-delivery-write"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketLogging(ctx, "example", &s3.BucketLoggingArgs{
-//				Bucket:       example.ID(),
-//				TargetBucket: logBucket.ID(),
-//				TargetPrefix: pulumi.String("log/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `bucket` (String) S3 bucket name.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// terraform
-//
-// import {
-//
-//	to = aws_s3_bucket_logging.example
-//
-//	id = "bucket-name,123456789012"
-//
-// }
-//
-// **Using `pulumi import` to import** S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-//
-// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-//
-// % pulumi import aws_s3_bucket_logging.example bucket-name
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// % pulumi import aws_s3_bucket_logging.example bucket-name,123456789012
-//
 // Deprecated: aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging
 type BucketLoggingV2 struct {
 	pulumi.CustomResourceState
 
-	// Name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the bucket where you want Amazon S3 to store server access logs.
-	TargetBucket pulumi.StringOutput `pulumi:"targetBucket"`
-	// Set of configuration blocks with information for granting permissions. See below.
-	TargetGrants BucketLoggingV2TargetGrantArrayOutput `pulumi:"targetGrants"`
-	// Amazon S3 key format for log objects. See below.
+	Bucket                pulumi.StringOutput                           `pulumi:"bucket"`
+	ExpectedBucketOwner   pulumi.StringPtrOutput                        `pulumi:"expectedBucketOwner"`
+	Region                pulumi.StringOutput                           `pulumi:"region"`
+	TargetBucket          pulumi.StringOutput                           `pulumi:"targetBucket"`
+	TargetGrants          BucketLoggingV2TargetGrantArrayOutput         `pulumi:"targetGrants"`
 	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrOutput `pulumi:"targetObjectKeyFormat"`
-	// Prefix for all log object keys.
-	TargetPrefix pulumi.StringOutput `pulumi:"targetPrefix"`
+	TargetPrefix          pulumi.StringOutput                           `pulumi:"targetPrefix"`
 }
 
 // NewBucketLoggingV2 registers a new resource with the given unique name, arguments, and options.
@@ -273,37 +70,23 @@ func GetBucketLoggingV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketLoggingV2 resources.
 type bucketLoggingV2State struct {
-	// Name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the bucket where you want Amazon S3 to store server access logs.
-	TargetBucket *string `pulumi:"targetBucket"`
-	// Set of configuration blocks with information for granting permissions. See below.
-	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
-	// Amazon S3 key format for log objects. See below.
+	Bucket                *string                               `pulumi:"bucket"`
+	ExpectedBucketOwner   *string                               `pulumi:"expectedBucketOwner"`
+	Region                *string                               `pulumi:"region"`
+	TargetBucket          *string                               `pulumi:"targetBucket"`
+	TargetGrants          []BucketLoggingV2TargetGrant          `pulumi:"targetGrants"`
 	TargetObjectKeyFormat *BucketLoggingV2TargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
-	// Prefix for all log object keys.
-	TargetPrefix *string `pulumi:"targetPrefix"`
+	TargetPrefix          *string                               `pulumi:"targetPrefix"`
 }
 
 type BucketLoggingV2State struct {
-	// Name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the bucket where you want Amazon S3 to store server access logs.
-	TargetBucket pulumi.StringPtrInput
-	// Set of configuration blocks with information for granting permissions. See below.
-	TargetGrants BucketLoggingV2TargetGrantArrayInput
-	// Amazon S3 key format for log objects. See below.
+	Bucket                pulumi.StringPtrInput
+	ExpectedBucketOwner   pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	TargetBucket          pulumi.StringPtrInput
+	TargetGrants          BucketLoggingV2TargetGrantArrayInput
 	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrInput
-	// Prefix for all log object keys.
-	TargetPrefix pulumi.StringPtrInput
+	TargetPrefix          pulumi.StringPtrInput
 }
 
 func (BucketLoggingV2State) ElementType() reflect.Type {
@@ -311,38 +94,24 @@ func (BucketLoggingV2State) ElementType() reflect.Type {
 }
 
 type bucketLoggingV2Args struct {
-	// Name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the bucket where you want Amazon S3 to store server access logs.
-	TargetBucket string `pulumi:"targetBucket"`
-	// Set of configuration blocks with information for granting permissions. See below.
-	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
-	// Amazon S3 key format for log objects. See below.
+	Bucket                string                                `pulumi:"bucket"`
+	ExpectedBucketOwner   *string                               `pulumi:"expectedBucketOwner"`
+	Region                *string                               `pulumi:"region"`
+	TargetBucket          string                                `pulumi:"targetBucket"`
+	TargetGrants          []BucketLoggingV2TargetGrant          `pulumi:"targetGrants"`
 	TargetObjectKeyFormat *BucketLoggingV2TargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
-	// Prefix for all log object keys.
-	TargetPrefix string `pulumi:"targetPrefix"`
+	TargetPrefix          string                                `pulumi:"targetPrefix"`
 }
 
 // The set of arguments for constructing a BucketLoggingV2 resource.
 type BucketLoggingV2Args struct {
-	// Name of the bucket.
-	Bucket pulumi.StringInput
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the bucket where you want Amazon S3 to store server access logs.
-	TargetBucket pulumi.StringInput
-	// Set of configuration blocks with information for granting permissions. See below.
-	TargetGrants BucketLoggingV2TargetGrantArrayInput
-	// Amazon S3 key format for log objects. See below.
+	Bucket                pulumi.StringInput
+	ExpectedBucketOwner   pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	TargetBucket          pulumi.StringInput
+	TargetGrants          BucketLoggingV2TargetGrantArrayInput
 	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrInput
-	// Prefix for all log object keys.
-	TargetPrefix pulumi.StringInput
+	TargetPrefix          pulumi.StringInput
 }
 
 func (BucketLoggingV2Args) ElementType() reflect.Type {
@@ -432,37 +201,30 @@ func (o BucketLoggingV2Output) ToBucketLoggingV2OutputWithContext(ctx context.Co
 	return o
 }
 
-// Name of the bucket.
 func (o BucketLoggingV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Account ID of the expected bucket owner.
 func (o BucketLoggingV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketLoggingV2Output) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the bucket where you want Amazon S3 to store server access logs.
 func (o BucketLoggingV2Output) TargetBucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.TargetBucket }).(pulumi.StringOutput)
 }
 
-// Set of configuration blocks with information for granting permissions. See below.
 func (o BucketLoggingV2Output) TargetGrants() BucketLoggingV2TargetGrantArrayOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) BucketLoggingV2TargetGrantArrayOutput { return v.TargetGrants }).(BucketLoggingV2TargetGrantArrayOutput)
 }
 
-// Amazon S3 key format for log objects. See below.
 func (o BucketLoggingV2Output) TargetObjectKeyFormat() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) BucketLoggingV2TargetObjectKeyFormatPtrOutput { return v.TargetObjectKeyFormat }).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
 }
 
-// Prefix for all log object keys.
 func (o BucketLoggingV2Output) TargetPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.TargetPrefix }).(pulumi.StringOutput)
 }

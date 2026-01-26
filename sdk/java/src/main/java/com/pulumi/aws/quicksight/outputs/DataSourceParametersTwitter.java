@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceParametersTwitter {
-    /**
-     * @return The maximum number of rows to query.
-     * 
-     */
     private Integer maxRows;
-    /**
-     * @return The Twitter query to retrieve the data.
-     * 
-     */
     private String query;
 
     private DataSourceParametersTwitter() {}
-    /**
-     * @return The maximum number of rows to query.
-     * 
-     */
     public Integer maxRows() {
         return this.maxRows;
     }
-    /**
-     * @return The Twitter query to retrieve the data.
-     * 
-     */
     public String query() {
         return this.query;
     }

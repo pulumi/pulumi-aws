@@ -14,31 +14,18 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("columns")]
         private InputList<Inputs.DataSetPhysicalTableMapCustomSqlColumnArgs>? _columns;
-
-        /// <summary>
-        /// Column schema from the SQL query result set. See columns.
-        /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapCustomSqlColumnArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.DataSetPhysicalTableMapCustomSqlColumnArgs>());
             set => _columns = value;
         }
 
-        /// <summary>
-        /// ARN of the data source.
-        /// </summary>
         [Input("dataSourceArn", required: true)]
         public Input<string> DataSourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Display name for the SQL query result.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// SQL query.
-        /// </summary>
         [Input("sqlQuery", required: true)]
         public Input<string> SqlQuery { get; set; } = null!;
 

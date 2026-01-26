@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
-    /**
-     * @return The ID of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     private @Nullable String launchTemplateId;
-    /**
-     * @return The name of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     private @Nullable String launchTemplateName;
-    /**
-     * @return The version of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     private @Nullable String launchTemplateVersion;
 
     private DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate() {}
-    /**
-     * @return The ID of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public Optional<String> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
-    /**
-     * @return The name of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public Optional<String> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }
-    /**
-     * @return The version of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public Optional<String> launchTemplateVersion() {
         return Optional.ofNullable(this.launchTemplateVersion);
     }

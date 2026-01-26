@@ -15,32 +15,16 @@ public final class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs 
 
     public static final ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs();
 
-    /**
-     * Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
-    /**
-     * @return Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Output<Boolean> override() {
         return this.override;
     }
 
-    /**
-     * The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-     * 
-     */
     @Import(name="referrerPolicy", required=true)
     private Output<String> referrerPolicy;
 
-    /**
-     * @return The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-     * 
-     */
     public Output<String> referrerPolicy() {
         return this.referrerPolicy;
     }
@@ -70,44 +54,20 @@ public final class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs 
             $ = new ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Output<Boolean> override) {
             $.override = override;
             return this;
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Boolean override) {
             return override(Output.of(override));
         }
 
-        /**
-         * @param referrerPolicy The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-         * 
-         * @return builder
-         * 
-         */
         public Builder referrerPolicy(Output<String> referrerPolicy) {
             $.referrerPolicy = referrerPolicy;
             return this;
         }
 
-        /**
-         * @param referrerPolicy The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-         * 
-         * @return builder
-         * 
-         */
         public Builder referrerPolicy(String referrerPolicy) {
             return referrerPolicy(Output.of(referrerPolicy));
         }

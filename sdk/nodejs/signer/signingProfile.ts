@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testSp = new aws.signer.SigningProfile("test_sp", {platformId: "AWSLambda-SHA384-ECDSA"});
- * const prodSp = new aws.signer.SigningProfile("prod_sp", {
- *     platformId: "AWSLambda-SHA384-ECDSA",
- *     namePrefix: "prod_sp_",
- *     signatureValidityPeriod: {
- *         value: 5,
- *         type: "YEARS",
- *     },
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Signer signing profiles using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
- * ```
- */
 export class SigningProfile extends pulumi.CustomResource {
     /**
      * Get an existing SigningProfile resource's state with the given name, ID, and optional extra
@@ -67,59 +35,20 @@ export class SigningProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === SigningProfile.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) for the signing profile.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly name: pulumi.Output<string>;
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * A human-readable name for the signing platform associated with the signing profile.
-     */
     declare public /*out*/ readonly platformDisplayName: pulumi.Output<string>;
-    /**
-     * The ID of the platform that is used by the target signing profile.
-     */
     declare public readonly platformId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Revocation information for a signing profile. See `revocationRecord` Block below for details.
-     */
     declare public /*out*/ readonly revocationRecords: pulumi.Output<outputs.signer.SigningProfileRevocationRecord[]>;
-    /**
-     * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-     */
     declare public readonly signatureValidityPeriod: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod>;
-    /**
-     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-     */
     declare public readonly signingMaterial: pulumi.Output<outputs.signer.SigningProfileSigningMaterial>;
-    /**
-     * Map of key-value pairs for signing. These can include any information that you want to use during signing.
-     */
     declare public readonly signingParameters: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The status of the target signing profile.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The current version of the signing profile.
-     */
     declare public /*out*/ readonly version: pulumi.Output<string>;
-    /**
-     * The signing profile ARN, including the profile version.
-     */
     declare public /*out*/ readonly versionArn: pulumi.Output<string>;
 
     /**
@@ -180,59 +109,20 @@ export class SigningProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SigningProfile resources.
  */
 export interface SigningProfileState {
-    /**
-     * The Amazon Resource Name (ARN) for the signing profile.
-     */
     arn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     namePrefix?: pulumi.Input<string>;
-    /**
-     * A human-readable name for the signing platform associated with the signing profile.
-     */
     platformDisplayName?: pulumi.Input<string>;
-    /**
-     * The ID of the platform that is used by the target signing profile.
-     */
     platformId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Revocation information for a signing profile. See `revocationRecord` Block below for details.
-     */
     revocationRecords?: pulumi.Input<pulumi.Input<inputs.signer.SigningProfileRevocationRecord>[]>;
-    /**
-     * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-     */
     signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriod>;
-    /**
-     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-     */
     signingMaterial?: pulumi.Input<inputs.signer.SigningProfileSigningMaterial>;
-    /**
-     * Map of key-value pairs for signing. These can include any information that you want to use during signing.
-     */
     signingParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The status of the target signing profile.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The current version of the signing profile.
-     */
     version?: pulumi.Input<string>;
-    /**
-     * The signing profile ARN, including the profile version.
-     */
     versionArn?: pulumi.Input<string>;
 }
 
@@ -242,28 +132,10 @@ export interface SigningProfileState {
 export interface SigningProfileArgs {
     name?: pulumi.Input<string>;
     namePrefix?: pulumi.Input<string>;
-    /**
-     * The ID of the platform that is used by the target signing profile.
-     */
     platformId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-     */
     signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriod>;
-    /**
-     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-     */
     signingMaterial?: pulumi.Input<inputs.signer.SigningProfileSigningMaterial>;
-    /**
-     * Map of key-value pairs for signing. These can include any information that you want to use during signing.
-     */
     signingParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

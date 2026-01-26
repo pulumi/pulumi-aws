@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecretReplica {
-    /**
-     * @return ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Date that you last accessed the secret in the Region.
-     * 
-     */
     private @Nullable String lastAccessedDate;
-    /**
-     * @return Region for replicating the secret.
-     * 
-     */
     private String region;
-    /**
-     * @return Status can be `InProgress`, `Failed`, or `InSync`.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-     * 
-     */
     private @Nullable String statusMessage;
 
     private SecretReplica() {}
-    /**
-     * @return ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Date that you last accessed the secret in the Region.
-     * 
-     */
     public Optional<String> lastAccessedDate() {
         return Optional.ofNullable(this.lastAccessedDate);
     }
-    /**
-     * @return Region for replicating the secret.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status can be `InProgress`, `Failed`, or `InSync`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-     * 
-     */
     public Optional<String> statusMessage() {
         return Optional.ofNullable(this.statusMessage);
     }

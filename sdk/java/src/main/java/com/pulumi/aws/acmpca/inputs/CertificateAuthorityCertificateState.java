@@ -15,62 +15,30 @@ public final class CertificateAuthorityCertificateState extends com.pulumi.resou
 
     public static final CertificateAuthorityCertificateState Empty = new CertificateAuthorityCertificateState();
 
-    /**
-     * PEM-encoded certificate for the Certificate Authority.
-     * 
-     */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
-    /**
-     * @return PEM-encoded certificate for the Certificate Authority.
-     * 
-     */
     public Optional<Output<String>> certificate() {
         return Optional.ofNullable(this.certificate);
     }
 
-    /**
-     * ARN of the Certificate Authority.
-     * 
-     */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
-    /**
-     * @return ARN of the Certificate Authority.
-     * 
-     */
     public Optional<Output<String>> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
 
-    /**
-     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-     * 
-     */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
-    /**
-     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-     * 
-     */
     public Optional<Output<String>> certificateChain() {
         return Optional.ofNullable(this.certificateChain);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,86 +70,38 @@ public final class CertificateAuthorityCertificateState extends com.pulumi.resou
             $ = new CertificateAuthorityCertificateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificate PEM-encoded certificate for the Certificate Authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(@Nullable Output<String> certificate) {
             $.certificate = certificate;
             return this;
         }
 
-        /**
-         * @param certificate PEM-encoded certificate for the Certificate Authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(String certificate) {
             return certificate(Output.of(certificate));
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of the Certificate Authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(@Nullable Output<String> certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
             return this;
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of the Certificate Authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             return certificateAuthorityArn(Output.of(certificateAuthorityArn));
         }
 
-        /**
-         * @param certificateChain PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(@Nullable Output<String> certificateChain) {
             $.certificateChain = certificateChain;
             return this;
         }
 
-        /**
-         * @param certificateChain PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(String certificateChain) {
             return certificateChain(Output.of(certificateChain));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

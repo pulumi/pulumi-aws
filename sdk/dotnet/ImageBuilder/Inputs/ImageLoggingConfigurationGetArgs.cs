@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImageLoggingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the CloudWatch Log Group to send logs to.
-        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 

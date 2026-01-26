@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class ContainerServicePublicDomainNamesCertificate
     {
-        /// <summary>
-        /// Name of the certificate.
-        /// </summary>
         public readonly string CertificateName;
-        /// <summary>
-        /// List of domain names for the certificate.
-        /// </summary>
         public readonly ImmutableArray<string> DomainNames;
 
         [OutputConstructor]

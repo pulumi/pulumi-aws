@@ -18,62 +18,30 @@ public final class CostCategorySplitChargeRuleArgs extends com.pulumi.resources.
 
     public static final CostCategorySplitChargeRuleArgs Empty = new CostCategorySplitChargeRuleArgs();
 
-    /**
-     * Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-     * 
-     */
     @Import(name="method", required=true)
     private Output<String> method;
 
-    /**
-     * @return Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-     * 
-     */
     public Output<String> method() {
         return this.method;
     }
 
-    /**
-     * Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<CostCategorySplitChargeRuleParameterArgs>> parameters;
 
-    /**
-     * @return Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-     * 
-     */
     public Optional<Output<List<CostCategorySplitChargeRuleParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Cost Category value that you want to split.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return Cost Category value that you want to split.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
-     * 
-     */
     @Import(name="targets", required=true)
     private Output<List<String>> targets;
 
-    /**
-     * @return Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
-     * 
-     */
     public Output<List<String>> targets() {
         return this.targets;
     }
@@ -105,106 +73,46 @@ public final class CostCategorySplitChargeRuleArgs extends com.pulumi.resources.
             $ = new CostCategorySplitChargeRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param method Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(Output<String> method) {
             $.method = method;
             return this;
         }
 
-        /**
-         * @param method Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(String method) {
             return method(Output.of(method));
         }
 
-        /**
-         * @param parameters Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<CostCategorySplitChargeRuleParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<CostCategorySplitChargeRuleParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(CostCategorySplitChargeRuleParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param source Cost Category value that you want to split.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Cost Category value that you want to split.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param targets Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(Output<List<String>> targets) {
             $.targets = targets;
             return this;
         }
 
-        /**
-         * @param targets Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(List<String> targets) {
             return targets(Output.of(targets));
         }
 
-        /**
-         * @param targets Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(String... targets) {
             return targets(List.of(targets));
         }

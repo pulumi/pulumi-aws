@@ -9,56 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.StorageGateway
 {
-    /// <summary>
-    /// Manages an AWS Storage Gateway cache.
-    /// 
-    /// &gt; **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this resource does not perform any Storage Gateway actions.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.Cache("example", new()
-    ///     {
-    ///         DiskId = exampleAwsStoragegatewayLocalDisk.Id,
-    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_storagegateway_cache` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:storagegateway/cache:Cache")]
     public partial class Cache : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        /// </summary>
         [Output("diskId")]
         public Output<string> DiskId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
-        /// </summary>
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -108,21 +67,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        /// </summary>
         [Input("diskId", required: true)]
         public Input<string> DiskId { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
-        /// </summary>
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -134,21 +84,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class CacheState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        /// </summary>
         [Input("diskId")]
         public Input<string>? DiskId { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
-        /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

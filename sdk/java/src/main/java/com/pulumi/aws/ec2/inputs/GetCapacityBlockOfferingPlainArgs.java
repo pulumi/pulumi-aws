@@ -16,92 +16,44 @@ public final class GetCapacityBlockOfferingPlainArgs extends com.pulumi.resource
 
     public static final GetCapacityBlockOfferingPlainArgs Empty = new GetCapacityBlockOfferingPlainArgs();
 
-    /**
-     * The amount of time of the Capacity Block reservation in hours.
-     * 
-     */
     @Import(name="capacityDurationHours", required=true)
     private Integer capacityDurationHours;
 
-    /**
-     * @return The amount of time of the Capacity Block reservation in hours.
-     * 
-     */
     public Integer capacityDurationHours() {
         return this.capacityDurationHours;
     }
 
-    /**
-     * The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     @Import(name="endDateRange")
     private @Nullable String endDateRange;
 
-    /**
-     * @return The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     public Optional<String> endDateRange() {
         return Optional.ofNullable(this.endDateRange);
     }
 
-    /**
-     * The number of instances for which to reserve capacity.
-     * 
-     */
     @Import(name="instanceCount", required=true)
     private Integer instanceCount;
 
-    /**
-     * @return The number of instances for which to reserve capacity.
-     * 
-     */
     public Integer instanceCount() {
         return this.instanceCount;
     }
 
-    /**
-     * The instance type for which to reserve capacity.
-     * 
-     */
     @Import(name="instanceType", required=true)
     private String instanceType;
 
-    /**
-     * @return The instance type for which to reserve capacity.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     @Import(name="startDateRange")
     private @Nullable String startDateRange;
 
-    /**
-     * @return The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     public Optional<String> startDateRange() {
         return Optional.ofNullable(this.startDateRange);
     }
@@ -135,67 +87,31 @@ public final class GetCapacityBlockOfferingPlainArgs extends com.pulumi.resource
             $ = new GetCapacityBlockOfferingPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityDurationHours The amount of time of the Capacity Block reservation in hours.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityDurationHours(Integer capacityDurationHours) {
             $.capacityDurationHours = capacityDurationHours;
             return this;
         }
 
-        /**
-         * @param endDateRange The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder endDateRange(@Nullable String endDateRange) {
             $.endDateRange = endDateRange;
             return this;
         }
 
-        /**
-         * @param instanceCount The number of instances for which to reserve capacity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceCount(Integer instanceCount) {
             $.instanceCount = instanceCount;
             return this;
         }
 
-        /**
-         * @param instanceType The instance type for which to reserve capacity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param startDateRange The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder startDateRange(@Nullable String startDateRange) {
             $.startDateRange = startDateRange;
             return this;

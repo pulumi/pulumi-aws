@@ -9,62 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
-    /// <summary>
-    /// Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.FastSnapshotRestore("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         SnapshotId = exampleAwsEbsSnapshot.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `availability_zone` and `snapshot_id` separated by `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ebs/fastSnapshotRestore:FastSnapshotRestore")]
     public partial class FastSnapshotRestore : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Availability zone in which to enable fast snapshot restores.
-        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the snapshot.
-        /// </summary>
         [Output("snapshotId")]
         public Output<string> SnapshotId { get; private set; } = null!;
 
-        /// <summary>
-        /// State of fast snapshot restores. Valid values are `Enabling`, `Optimizing`, `Enabled`, `Disabling`, `Disabled`.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -117,21 +73,12 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class FastSnapshotRestoreArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Availability zone in which to enable fast snapshot restores.
-        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the snapshot.
-        /// </summary>
         [Input("snapshotId", required: true)]
         public Input<string> SnapshotId { get; set; } = null!;
 
@@ -146,27 +93,15 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class FastSnapshotRestoreState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Availability zone in which to enable fast snapshot restores.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the snapshot.
-        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
-        /// <summary>
-        /// State of fast snapshot restores. Valid values are `Enabling`, `Optimizing`, `Enabled`, `Disabling`, `Disabled`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

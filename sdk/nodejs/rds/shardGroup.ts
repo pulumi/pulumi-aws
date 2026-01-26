@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon Aurora Limitless Database DB shard group
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.Cluster("example", {
- *     clusterIdentifier: "example-limitless-cluster",
- *     engine: aws.rds.EngineType.AuroraPostgresql,
- *     engineVersion: "16.6-limitless",
- *     engineMode: "",
- *     storageType: "aurora-iopt1",
- *     clusterScalabilityType: "limitless",
- *     masterUsername: "foo",
- *     masterPassword: "must_be_eight_characters",
- *     performanceInsightsEnabled: true,
- *     performanceInsightsRetentionPeriod: 31,
- *     enabledCloudwatchLogsExports: ["postgresql"],
- *     monitoringInterval: 5,
- *     monitoringRoleArn: exampleAwsIamRole.arn,
- * });
- * const exampleShardGroup = new aws.rds.ShardGroup("example", {
- *     dbShardGroupIdentifier: "example-shard-group",
- *     dbClusterIdentifier: example.id,
- *     maxAcu: 1200,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import shard group using the `db_shard_group_identifier`. For example:
- *
- * ```sh
- * $ pulumi import aws:rds/shardGroup:ShardGroup example example-shard-group
- * ```
- */
 export class ShardGroup extends pulumi.CustomResource {
     /**
      * Get an existing ShardGroup resource's state with the given name, ID, and optional extra
@@ -76,55 +35,17 @@ export class ShardGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ShardGroup.__pulumiType;
     }
 
-    /**
-     * ARN of the shard group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-     */
     declare public readonly computeRedundancy: pulumi.Output<number>;
-    /**
-     * The name of the primary DB cluster for the DB shard group.
-     */
     declare public readonly dbClusterIdentifier: pulumi.Output<string>;
-    /**
-     * The name of the DB shard group.
-     */
     declare public readonly dbShardGroupIdentifier: pulumi.Output<string>;
-    /**
-     * The AWS Region-unique, immutable identifier for the DB shard group.
-     */
     declare public /*out*/ readonly dbShardGroupResourceId: pulumi.Output<string>;
-    /**
-     * The connection endpoint for the DB shard group.
-     */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
-    /**
-     * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-     */
     declare public readonly maxAcu: pulumi.Output<number>;
-    /**
-     * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-     */
     declare public readonly minAcu: pulumi.Output<number>;
-    /**
-     * Indicates whether the DB shard group is publicly accessible.
-     */
     declare public readonly publiclyAccessible: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.rds.ShardGroupTimeouts | undefined>;
 
@@ -188,55 +109,17 @@ export class ShardGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ShardGroup resources.
  */
 export interface ShardGroupState {
-    /**
-     * ARN of the shard group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-     */
     computeRedundancy?: pulumi.Input<number>;
-    /**
-     * The name of the primary DB cluster for the DB shard group.
-     */
     dbClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * The name of the DB shard group.
-     */
     dbShardGroupIdentifier?: pulumi.Input<string>;
-    /**
-     * The AWS Region-unique, immutable identifier for the DB shard group.
-     */
     dbShardGroupResourceId?: pulumi.Input<string>;
-    /**
-     * The connection endpoint for the DB shard group.
-     */
     endpoint?: pulumi.Input<string>;
-    /**
-     * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-     */
     maxAcu?: pulumi.Input<number>;
-    /**
-     * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-     */
     minAcu?: pulumi.Input<number>;
-    /**
-     * Indicates whether the DB shard group is publicly accessible.
-     */
     publiclyAccessible?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.rds.ShardGroupTimeouts>;
 }
@@ -245,39 +128,13 @@ export interface ShardGroupState {
  * The set of arguments for constructing a ShardGroup resource.
  */
 export interface ShardGroupArgs {
-    /**
-     * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-     */
     computeRedundancy?: pulumi.Input<number>;
-    /**
-     * The name of the primary DB cluster for the DB shard group.
-     */
     dbClusterIdentifier: pulumi.Input<string>;
-    /**
-     * The name of the DB shard group.
-     */
     dbShardGroupIdentifier: pulumi.Input<string>;
-    /**
-     * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-     */
     maxAcu: pulumi.Input<number>;
-    /**
-     * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-     */
     minAcu?: pulumi.Input<number>;
-    /**
-     * Indicates whether the DB shard group is publicly accessible.
-     */
     publiclyAccessible?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.rds.ShardGroupTimeouts>;
 }

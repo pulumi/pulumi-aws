@@ -17,62 +17,30 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
 
     public static final ModelContainerModelDataSourceS3DataSourceArgs Empty = new ModelContainerModelDataSourceS3DataSourceArgs();
 
-    /**
-     * How the model data is prepared. Allowed values are: `None` and `Gzip`.
-     * 
-     */
     @Import(name="compressionType", required=true)
     private Output<String> compressionType;
 
-    /**
-     * @return How the model data is prepared. Allowed values are: `None` and `Gzip`.
-     * 
-     */
     public Output<String> compressionType() {
         return this.compressionType;
     }
 
-    /**
-     * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
-     * 
-     */
     @Import(name="modelAccessConfig")
     private @Nullable Output<ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs> modelAccessConfig;
 
-    /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
-     * 
-     */
     public Optional<Output<ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs>> modelAccessConfig() {
         return Optional.ofNullable(this.modelAccessConfig);
     }
 
-    /**
-     * Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
-     * 
-     */
     @Import(name="s3DataType", required=true)
     private Output<String> s3DataType;
 
-    /**
-     * @return Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
-     * 
-     */
     public Output<String> s3DataType() {
         return this.s3DataType;
     }
 
-    /**
-     * The S3 path of model data to deploy.
-     * 
-     */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
-    /**
-     * @return The S3 path of model data to deploy.
-     * 
-     */
     public Output<String> s3Uri() {
         return this.s3Uri;
     }
@@ -104,86 +72,38 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
             $ = new ModelContainerModelDataSourceS3DataSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param compressionType How the model data is prepared. Allowed values are: `None` and `Gzip`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compressionType(Output<String> compressionType) {
             $.compressionType = compressionType;
             return this;
         }
 
-        /**
-         * @param compressionType How the model data is prepared. Allowed values are: `None` and `Gzip`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compressionType(String compressionType) {
             return compressionType(Output.of(compressionType));
         }
 
-        /**
-         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelAccessConfig(@Nullable Output<ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs> modelAccessConfig) {
             $.modelAccessConfig = modelAccessConfig;
             return this;
         }
 
-        /**
-         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelAccessConfig(ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs modelAccessConfig) {
             return modelAccessConfig(Output.of(modelAccessConfig));
         }
 
-        /**
-         * @param s3DataType Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataType(Output<String> s3DataType) {
             $.s3DataType = s3DataType;
             return this;
         }
 
-        /**
-         * @param s3DataType Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataType(String s3DataType) {
             return s3DataType(Output.of(s3DataType));
         }
 
-        /**
-         * @param s3Uri The S3 path of model data to deploy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri The S3 path of model data to deploy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

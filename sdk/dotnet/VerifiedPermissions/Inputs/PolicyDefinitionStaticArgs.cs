@@ -12,15 +12,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
 
     public sealed class PolicyDefinitionStaticArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the static policy.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The statement of the static policy.
-        /// </summary>
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
 

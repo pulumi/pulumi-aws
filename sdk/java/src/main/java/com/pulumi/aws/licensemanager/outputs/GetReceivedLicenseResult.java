@@ -17,118 +17,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseResult {
-    /**
-     * @return Granted license beneficiary. This is in the form of the ARN of the root user of the account.
-     * 
-     */
     private String beneficiary;
-    /**
-     * @return Configuration for consumption of the license. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations;
-    /**
-     * @return Creation time of the granted license in RFC 3339 format.
-     * 
-     */
     private String createTime;
-    /**
-     * @return License entitlements. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseEntitlement> entitlements;
-    /**
-     * @return Home Region of the granted license.
-     * 
-     */
     private String homeRegion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Granted license issuer. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseIssuer> issuers;
-    /**
-     * @return Amazon Resource Name (ARN) of the license.
-     * 
-     */
     private String licenseArn;
-    /**
-     * @return Granted license metadata. This is in the form of a set of all meta data. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseLicenseMetadata> licenseMetadatas;
-    /**
-     * @return License name.
-     * 
-     */
     private String licenseName;
-    /**
-     * @return Product name.
-     * * ` productSku  ` - Product SKU.
-     * 
-     */
     private String productName;
     private String productSku;
-    /**
-     * @return Granted license received metadata. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseReceivedMetadata> receivedMetadatas;
     private String region;
-    /**
-     * @return Granted license status.
-     * 
-     */
     private String status;
-    /**
-     * @return Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseValidity> validities;
-    /**
-     * @return Version of the granted license.
-     * 
-     */
     private String version;
 
     private GetReceivedLicenseResult() {}
-    /**
-     * @return Granted license beneficiary. This is in the form of the ARN of the root user of the account.
-     * 
-     */
     public String beneficiary() {
         return this.beneficiary;
     }
-    /**
-     * @return Configuration for consumption of the license. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations() {
         return this.consumptionConfigurations;
     }
-    /**
-     * @return Creation time of the granted license in RFC 3339 format.
-     * 
-     */
     public String createTime() {
         return this.createTime;
     }
-    /**
-     * @return License entitlements. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseEntitlement> entitlements() {
         return this.entitlements;
     }
-    /**
-     * @return Home Region of the granted license.
-     * 
-     */
     public String homeRegion() {
         return this.homeRegion;
     }
@@ -139,73 +62,36 @@ public final class GetReceivedLicenseResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Granted license issuer. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseIssuer> issuers() {
         return this.issuers;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the license.
-     * 
-     */
     public String licenseArn() {
         return this.licenseArn;
     }
-    /**
-     * @return Granted license metadata. This is in the form of a set of all meta data. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseLicenseMetadata> licenseMetadatas() {
         return this.licenseMetadatas;
     }
-    /**
-     * @return License name.
-     * 
-     */
     public String licenseName() {
         return this.licenseName;
     }
-    /**
-     * @return Product name.
-     * * ` productSku  ` - Product SKU.
-     * 
-     */
     public String productName() {
         return this.productName;
     }
     public String productSku() {
         return this.productSku;
     }
-    /**
-     * @return Granted license received metadata. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseReceivedMetadata> receivedMetadatas() {
         return this.receivedMetadatas;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Granted license status.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseValidity> validities() {
         return this.validities;
     }
-    /**
-     * @return Version of the granted license.
-     * 
-     */
     public String version() {
         return this.version;
     }

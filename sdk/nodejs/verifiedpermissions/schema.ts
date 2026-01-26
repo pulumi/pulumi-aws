@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedpermissions.Schema("example", {
- *     policyStoreId: exampleAwsVerifiedpermissionsPolicyStore.policyStoreId,
- *     definition: {
- *         value: JSON.stringify({
- *             Namespace: {
- *                 entityTypes: {},
- *                 actions: {},
- *             },
- *         }),
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
- *
- *  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
- */
 export class Schema extends pulumi.CustomResource {
     /**
      * Get an existing Schema resource's state with the given name, ID, and optional extra
@@ -63,21 +35,9 @@ export class Schema extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schema.__pulumiType;
     }
 
-    /**
-     * The definition of the schema.
-     */
     declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.SchemaDefinition | undefined>;
-    /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
-     */
     declare public /*out*/ readonly namespaces: pulumi.Output<string[]>;
-    /**
-     * The ID of the Policy Store.
-     */
     declare public readonly policyStoreId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -116,21 +76,9 @@ export class Schema extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schema resources.
  */
 export interface SchemaState {
-    /**
-     * The definition of the schema.
-     */
     definition?: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition>;
-    /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
-     */
     namespaces?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID of the Policy Store.
-     */
     policyStoreId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -138,16 +86,7 @@ export interface SchemaState {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
-    /**
-     * The definition of the schema.
-     */
     definition?: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition>;
-    /**
-     * The ID of the Policy Store.
-     */
     policyStoreId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

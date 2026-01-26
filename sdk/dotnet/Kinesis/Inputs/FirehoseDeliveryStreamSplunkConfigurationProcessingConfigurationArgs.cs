@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("processors")]
         private InputList<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs>? _processors;
-
-        /// <summary>
-        /// Specifies the data processors as multiple blocks. See `Processors` block below for details.
-        /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs> Processors
         {
             get => _processors ?? (_processors = new InputList<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs>());

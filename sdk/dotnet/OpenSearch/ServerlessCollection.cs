@@ -9,75 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Resource for managing an AWS OpenSearch Serverless Collection.
-    /// 
-    /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `DependsOn` meta-argument to define this dependency.
-    /// 
-    /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Type = "encryption",
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Rules"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Resource"] = new[]
-    ///                     {
-    ///                         "collection/example",
-    ///                     },
-    ///                     ["ResourceType"] = "collection",
-    ///                 },
-    ///             },
-    ///             ["AWSOwnedKey"] = true,
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/serverlessCollection:ServerlessCollection")]
     public partial class ServerlessCollection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the collection.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -107,15 +41,10 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the collection.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -125,9 +54,6 @@ namespace Pulumi.Aws.OpenSearch
         [Output("standbyReplicas")]
         public Output<string> StandbyReplicas { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the collection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -197,15 +123,10 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the collection.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -217,10 +138,6 @@ namespace Pulumi.Aws.OpenSearch
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the collection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -244,9 +161,6 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class ServerlessCollectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the collection.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -276,15 +190,10 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the collection.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -296,10 +205,6 @@ namespace Pulumi.Aws.OpenSearch
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the collection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

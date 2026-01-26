@@ -13,14 +13,8 @@ namespace Pulumi.Aws.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentLastUpdated
     {
-        /// <summary>
-        /// The Created At date of the MWAA Environment
-        /// </summary>
         public readonly string? CreatedAt;
         public readonly ImmutableArray<Outputs.EnvironmentLastUpdatedError> Errors;
-        /// <summary>
-        /// The status of the Amazon MWAA Environment
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

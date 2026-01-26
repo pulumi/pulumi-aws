@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Auditmanager
 {
-    /// <summary>
-    /// Resource for managing an AWS Audit Manager Assessment Report.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Auditmanager.AssessmentReport("test", new()
-    ///     {
-    ///         Name = "example",
-    ///         AssessmentId = testAwsAuditmanagerAssessment.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:auditmanager/assessmentReport:AssessmentReport")]
     public partial class AssessmentReport : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Unique identifier of the assessment to create the report from.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("assessmentId")]
         public Output<string> AssessmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the user who created the assessment report.
-        /// </summary>
         [Output("author")]
         public Output<string> Author { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the assessment report.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the assessment report.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -128,29 +76,15 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class AssessmentReportArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique identifier of the assessment to create the report from.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("assessmentId", required: true)]
         public Input<string> AssessmentId { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the assessment report.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the assessment report.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,41 +96,21 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class AssessmentReportState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique identifier of the assessment to create the report from.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("assessmentId")]
         public Input<string>? AssessmentId { get; set; }
 
-        /// <summary>
-        /// Name of the user who created the assessment report.
-        /// </summary>
         [Input("author")]
         public Input<string>? Author { get; set; }
 
-        /// <summary>
-        /// Description of the assessment report.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the assessment report.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

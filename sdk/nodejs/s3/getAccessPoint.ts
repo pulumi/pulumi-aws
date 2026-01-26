@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific S3 access point.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getAccessPoint({
- *     name: "example-access-point",
- * });
- * ```
- */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getAccessPoint:getAccessPoint", {
@@ -34,17 +20,8 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAccessPoint.
  */
 export interface GetAccessPointArgs {
-    /**
-     * AWS account ID for the account that owns the specified access point.
-     */
     accountId?: string;
-    /**
-     * Name of the access point.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -53,71 +30,24 @@ export interface GetAccessPointArgs {
  */
 export interface GetAccessPointResult {
     readonly accountId: string;
-    /**
-     * Access point alias.
-     */
     readonly alias: string;
-    /**
-     * Access point ARN.
-     */
     readonly arn: string;
-    /**
-     * Name of the bucket associated with the access point.
-     */
     readonly bucket: string;
-    /**
-     * AWS account ID associated with the S3 bucket associated with the access point.
-     */
     readonly bucketAccountId: string;
-    /**
-     * Unique identifier for the data source of the access point.
-     */
     readonly dataSourceId: string;
-    /**
-     * Type of the data source that the access point is attached to.
-     */
     readonly dataSourceType: string;
-    /**
-     * VPC endpoint for the access point.
-     */
     readonly endpoints: {[key: string]: string};
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
-    /**
-     * Indicates whether the access point allows access from the public Internet.
-     */
     readonly networkOrigin: string;
-    /**
-     * `PublicAccessBlock` configuration for the access point.
-     */
     readonly publicAccessBlockConfigurations: outputs.s3.GetAccessPointPublicAccessBlockConfiguration[];
     readonly region: string;
-    /**
-     * Tags assigned to the access point.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * VPC configuration for the access point.
-     */
     readonly vpcConfigurations: outputs.s3.GetAccessPointVpcConfiguration[];
 }
-/**
- * Provides details about a specific S3 access point.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getAccessPoint({
- *     name: "example-access-point",
- * });
- * ```
- */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getAccessPoint:getAccessPoint", {
@@ -131,16 +61,7 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
  * A collection of arguments for invoking getAccessPoint.
  */
 export interface GetAccessPointOutputArgs {
-    /**
-     * AWS account ID for the account that owns the specified access point.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Name of the access point.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

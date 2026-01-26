@@ -12,70 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := guardduty.NewDetector(ctx, "primary", nil)
-//			if err != nil {
-//				return err
-//			}
-//			memberDetector, err := guardduty.NewDetector(ctx, "member", nil)
-//			if err != nil {
-//				return err
-//			}
-//			memberMember, err := guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
-//				AccountId:  memberDetector.AccountId,
-//				DetectorId: primary.ID(),
-//				Email:      pulumi.String("required@example.com"),
-//				Invite:     pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewInviteAccepter(ctx, "member", &guardduty.InviteAccepterArgs{
-//				DetectorId:      memberDetector.ID(),
-//				MasterAccountId: primary.AccountId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				memberMember,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:
-//
-// ```sh
-// $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
-// ```
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 
-	// The detector ID of the member GuardDuty account.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// AWS account ID for primary account.
+	DetectorId      pulumi.StringOutput `pulumi:"detectorId"`
 	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInviteAccepter registers a new resource with the given unique name, arguments, and options.
@@ -114,21 +56,15 @@ func GetInviteAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InviteAccepter resources.
 type inviteAccepterState struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId *string `pulumi:"detectorId"`
-	// AWS account ID for primary account.
+	DetectorId      *string `pulumi:"detectorId"`
 	MasterAccountId *string `pulumi:"masterAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region          *string `pulumi:"region"`
 }
 
 type InviteAccepterState struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId pulumi.StringPtrInput
-	// AWS account ID for primary account.
+	DetectorId      pulumi.StringPtrInput
 	MasterAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (InviteAccepterState) ElementType() reflect.Type {
@@ -136,22 +72,16 @@ func (InviteAccepterState) ElementType() reflect.Type {
 }
 
 type inviteAccepterArgs struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId string `pulumi:"detectorId"`
-	// AWS account ID for primary account.
-	MasterAccountId string `pulumi:"masterAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DetectorId      string  `pulumi:"detectorId"`
+	MasterAccountId string  `pulumi:"masterAccountId"`
+	Region          *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InviteAccepter resource.
 type InviteAccepterArgs struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId pulumi.StringInput
-	// AWS account ID for primary account.
+	DetectorId      pulumi.StringInput
 	MasterAccountId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (InviteAccepterArgs) ElementType() reflect.Type {
@@ -241,17 +171,14 @@ func (o InviteAccepterOutput) ToInviteAccepterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The detector ID of the member GuardDuty account.
 func (o InviteAccepterOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// AWS account ID for primary account.
 func (o InviteAccepterOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InviteAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

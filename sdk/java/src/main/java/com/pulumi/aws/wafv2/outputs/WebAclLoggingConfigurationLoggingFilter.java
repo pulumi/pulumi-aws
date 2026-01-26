@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclLoggingConfigurationLoggingFilter {
-    /**
-     * @return Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
-     * 
-     */
     private String defaultBehavior;
-    /**
-     * @return Filter(s) that you want to apply to the logs. See Filter below for more details.
-     * 
-     */
     private List<WebAclLoggingConfigurationLoggingFilterFilter> filters;
 
     private WebAclLoggingConfigurationLoggingFilter() {}
-    /**
-     * @return Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
-     * 
-     */
     public String defaultBehavior() {
         return this.defaultBehavior;
     }
-    /**
-     * @return Filter(s) that you want to apply to the logs. See Filter below for more details.
-     * 
-     */
     public List<WebAclLoggingConfigurationLoggingFilterFilter> filters() {
         return this.filters;
     }

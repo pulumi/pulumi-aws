@@ -28,13 +28,6 @@ class ProxyEndpointArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProxyEndpoint resource.
-        :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         """
         pulumi.set(__self__, "db_proxy_endpoint_name", db_proxy_endpoint_name)
         pulumi.set(__self__, "db_proxy_name", db_proxy_name)
@@ -51,9 +44,6 @@ class ProxyEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="dbProxyEndpointName")
     def db_proxy_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        """
         return pulumi.get(self, "db_proxy_endpoint_name")
 
     @db_proxy_endpoint_name.setter
@@ -63,9 +53,6 @@ class ProxyEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="dbProxyName")
     def db_proxy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the DB proxy associated with the DB proxy endpoint that you create.
-        """
         return pulumi.get(self, "db_proxy_name")
 
     @db_proxy_name.setter
@@ -75,9 +62,6 @@ class ProxyEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        One or more VPC subnet IDs to associate with the new proxy.
-        """
         return pulumi.get(self, "vpc_subnet_ids")
 
     @vpc_subnet_ids.setter
@@ -87,9 +71,6 @@ class ProxyEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,9 +80,6 @@ class ProxyEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,9 +89,6 @@ class ProxyEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="targetRole")
     def target_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        """
         return pulumi.get(self, "target_role")
 
     @target_role.setter
@@ -123,9 +98,6 @@ class ProxyEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        One or more VPC security group IDs to associate with the new proxy.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -150,17 +122,6 @@ class _ProxyEndpointState:
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProxyEndpoint resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the proxy endpoint.
-        :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
-        :param pulumi.Input[_builtins.str] endpoint: The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-        :param pulumi.Input[_builtins.bool] is_default: Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the DB proxy endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -190,9 +151,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the proxy endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -202,9 +160,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter(name="dbProxyEndpointName")
     def db_proxy_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        """
         return pulumi.get(self, "db_proxy_endpoint_name")
 
     @db_proxy_endpoint_name.setter
@@ -214,9 +169,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter(name="dbProxyName")
     def db_proxy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the DB proxy associated with the DB proxy endpoint that you create.
-        """
         return pulumi.get(self, "db_proxy_name")
 
     @db_proxy_name.setter
@@ -226,9 +178,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -238,9 +187,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -250,9 +196,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -262,9 +205,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -283,9 +223,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter(name="targetRole")
     def target_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        """
         return pulumi.get(self, "target_role")
 
     @target_role.setter
@@ -295,9 +232,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The VPC ID of the DB proxy endpoint.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -307,9 +241,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        One or more VPC security group IDs to associate with the new proxy.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -319,9 +250,6 @@ class _ProxyEndpointState:
     @_builtins.property
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        One or more VPC subnet IDs to associate with the new proxy.
-        """
         return pulumi.get(self, "vpc_subnet_ids")
 
     @vpc_subnet_ids.setter
@@ -344,38 +272,9 @@ class ProxyEndpoint(pulumi.CustomResource):
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.ProxyEndpoint("example",
-            db_proxy_name=test["name"],
-            db_proxy_endpoint_name="example",
-            vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
-            target_role="READ_ONLY")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-        ```
-
+        Create a ProxyEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
         """
         ...
     @overload
@@ -384,29 +283,7 @@ class ProxyEndpoint(pulumi.CustomResource):
                  args: ProxyEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.ProxyEndpoint("example",
-            db_proxy_name=test["name"],
-            db_proxy_endpoint_name="example",
-            vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
-            target_role="READ_ONLY")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-        ```
-
+        Create a ProxyEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProxyEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -485,17 +362,6 @@ class ProxyEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the proxy endpoint.
-        :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
-        :param pulumi.Input[_builtins.str] endpoint: The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-        :param pulumi.Input[_builtins.bool] is_default: Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the DB proxy endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -518,57 +384,36 @@ class ProxyEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the proxy endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dbProxyEndpointName")
     def db_proxy_endpoint_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-        """
         return pulumi.get(self, "db_proxy_endpoint_name")
 
     @_builtins.property
     @pulumi.getter(name="dbProxyName")
     def db_proxy_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the DB proxy associated with the DB proxy endpoint that you create.
-        """
         return pulumi.get(self, "db_proxy_name")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -579,32 +424,20 @@ class ProxyEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="targetRole")
     def target_role(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-        """
         return pulumi.get(self, "target_role")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The VPC ID of the DB proxy endpoint.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        One or more VPC security group IDs to associate with the new proxy.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        One or more VPC subnet IDs to associate with the new proxy.
-        """
         return pulumi.get(self, "vpc_subnet_ids")
 

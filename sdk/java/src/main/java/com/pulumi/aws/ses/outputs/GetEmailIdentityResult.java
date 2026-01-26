@@ -10,15 +10,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEmailIdentityResult {
-    /**
-     * @return The ARN of the email identity.
-     * 
-     */
     private String arn;
-    /**
-     * @return Email identity.
-     * 
-     */
     private String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,17 +20,9 @@ public final class GetEmailIdentityResult {
     private String region;
 
     private GetEmailIdentityResult() {}
-    /**
-     * @return The ARN of the email identity.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Email identity.
-     * 
-     */
     public String email() {
         return this.email;
     }

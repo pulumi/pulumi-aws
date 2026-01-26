@@ -33,27 +33,7 @@ class SharingWithOrganization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
-        Manages Resource Access Manager (RAM) Resource Sharing with AWS Organizations. If you enable sharing with your organization, you can share resources without using invitations. Refer to the [AWS RAM user guide](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs) for more details.
-
-        > **NOTE:** Use this resource to manage resource sharing within your organization, **not** the `organizations.Organization` resource with `ram.amazonaws.com` configured in `aws_service_access_principals`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.SharingWithOrganization("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the resource using the current AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
-        ```
-
+        Create a SharingWithOrganization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -64,27 +44,7 @@ class SharingWithOrganization(pulumi.CustomResource):
                  args: Optional[SharingWithOrganizationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages Resource Access Manager (RAM) Resource Sharing with AWS Organizations. If you enable sharing with your organization, you can share resources without using invitations. Refer to the [AWS RAM user guide](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs) for more details.
-
-        > **NOTE:** Use this resource to manage resource sharing within your organization, **not** the `organizations.Organization` resource with `ram.amazonaws.com` configured in `aws_service_access_principals`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.SharingWithOrganization("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the resource using the current AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
-        ```
-
+        Create a SharingWithOrganization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SharingWithOrganizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

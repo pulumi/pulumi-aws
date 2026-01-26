@@ -15,17 +15,9 @@ public final class ThemeConfigurationSheetTileLayoutMarginArgs extends com.pulum
 
     public static final ThemeConfigurationSheetTileLayoutMarginArgs Empty = new ThemeConfigurationSheetTileLayoutMarginArgs();
 
-    /**
-     * This Boolean value controls whether to display sheet margins.
-     * 
-     */
     @Import(name="show")
     private @Nullable Output<Boolean> show;
 
-    /**
-     * @return This Boolean value controls whether to display sheet margins.
-     * 
-     */
     public Optional<Output<Boolean>> show() {
         return Optional.ofNullable(this.show);
     }
@@ -54,23 +46,11 @@ public final class ThemeConfigurationSheetTileLayoutMarginArgs extends com.pulum
             $ = new ThemeConfigurationSheetTileLayoutMarginArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param show This Boolean value controls whether to display sheet margins.
-         * 
-         * @return builder
-         * 
-         */
         public Builder show(@Nullable Output<Boolean> show) {
             $.show = show;
             return this;
         }
 
-        /**
-         * @param show This Boolean value controls whether to display sheet margins.
-         * 
-         * @return builder
-         * 
-         */
         public Builder show(Boolean show) {
             return show(Output.of(show));
         }

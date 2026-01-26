@@ -14,195 +14,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.CatalogDatabase;
- * import com.pulumi.aws.glue.CatalogDatabaseArgs;
- * import com.pulumi.aws.glue.CatalogTable;
- * import com.pulumi.aws.glue.CatalogTableArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSerDeInfoArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSkewedInfoArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTablePartitionKeyArgs;
- * import com.pulumi.aws.glue.PartitionIndex;
- * import com.pulumi.aws.glue.PartitionIndexArgs;
- * import com.pulumi.aws.glue.inputs.PartitionIndexPartitionIndexArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()
- *             .name("example")
- *             .databaseName(example.name())
- *             .owner("my_owner")
- *             .retention(1)
- *             .tableType("VIRTUAL_VIEW")
- *             .viewExpandedText("view_expanded_text_1")
- *             .viewOriginalText("view_original_text_1")
- *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .bucketColumns("bucket_column_1")
- *                 .compressed(false)
- *                 .inputFormat("SequenceFileInputFormat")
- *                 .location("my_location")
- *                 .numberOfBuckets(1)
- *                 .outputFormat("SequenceFileInputFormat")
- *                 .storedAsSubDirectories(false)
- *                 .parameters(Map.of("param1", "param1_val"))
- *                 .columns(                
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name("my_column_1")
- *                         .type("int")
- *                         .comment("my_column1_comment")
- *                         .build(),
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name("my_column_2")
- *                         .type("string")
- *                         .comment("my_column2_comment")
- *                         .build())
- *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
- *                     .name("ser_de_name")
- *                     .parameters(Map.of("param1", "param_val_1"))
- *                     .serializationLibrary("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe")
- *                     .build())
- *                 .sortColumns(CatalogTableStorageDescriptorSortColumnArgs.builder()
- *                     .column("my_column_1")
- *                     .sortOrder(1)
- *                     .build())
- *                 .skewedInfo(CatalogTableStorageDescriptorSkewedInfoArgs.builder()
- *                     .skewedColumnNames("my_column_1")
- *                     .skewedColumnValueLocationMaps(Map.of("my_column_1", "my_column_1_val_loc_map"))
- *                     .skewedColumnValues("skewed_val_1")
- *                     .build())
- *                 .build())
- *             .partitionKeys(            
- *                 CatalogTablePartitionKeyArgs.builder()
- *                     .name("my_column_1")
- *                     .type("int")
- *                     .comment("my_column_1_comment")
- *                     .build(),
- *                 CatalogTablePartitionKeyArgs.builder()
- *                     .name("my_column_2")
- *                     .type("string")
- *                     .comment("my_column_2_comment")
- *                     .build())
- *             .parameters(Map.of("param1", "param1_val"))
- *             .build());
- * 
- *         var examplePartitionIndex = new PartitionIndex("examplePartitionIndex", PartitionIndexArgs.builder()
- *             .databaseName(example.name())
- *             .tableName(exampleCatalogTable.name())
- *             .partitionIndex(PartitionIndexPartitionIndexArgs.builder()
- *                 .indexName("example")
- *                 .keys(                
- *                     "my_column_1",
- *                     "my_column_2")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
- * 
- * ```sh
- * $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
- * ```
- * 
- */
 @ResourceType(type="aws:glue/partitionIndex:PartitionIndex")
 public class PartitionIndex extends com.pulumi.resources.CustomResource {
-    /**
-     * The catalog ID where the table resides.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
-    /**
-     * @return The catalog ID where the table resides.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
-    /**
-     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * Configuration block for a partition index. See `partitionIndex` below.
-     * 
-     */
     @Export(name="partitionIndex", refs={PartitionIndexPartitionIndex.class}, tree="[0]")
     private Output<PartitionIndexPartitionIndex> partitionIndex;
 
-    /**
-     * @return Configuration block for a partition index. See `partitionIndex` below.
-     * 
-     */
     public Output<PartitionIndexPartitionIndex> partitionIndex() {
         return this.partitionIndex;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the table. For Hive compatibility, this must be entirely lowercase.
-     * 
-     */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
-    /**
-     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }

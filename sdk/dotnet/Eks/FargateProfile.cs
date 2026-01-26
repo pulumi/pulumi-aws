@@ -9,148 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Eks
 {
-    /// <summary>
-    /// Manages an EKS Fargate Profile.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Eks.FargateProfile("example", new()
-    ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         FargateProfileName = "example",
-    ///         PodExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
-    ///         Selectors = new[]
-    ///         {
-    ///             new Aws.Eks.Inputs.FargateProfileSelectorArgs
-    ///             {
-    ///                 Namespace = "example",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Example IAM Role for EKS Fargate Profile
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "eks-fargate-profile-example",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "eks-fargate-pods.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2012-10-17",
-    ///         }),
-    ///     });
-    /// 
-    ///     var example_AmazonEKSFargatePodExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", new()
-    ///     {
-    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
-    ///         Role = example.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:eks/fargateProfile:FargateProfile")]
     public partial class FargateProfile : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the EKS Cluster.
-        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the EKS Fargate Profile.
-        /// </summary>
         [Output("fargateProfileName")]
         public Output<string> FargateProfileName { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-        /// </summary>
         [Output("podExecutionRoleArn")]
         public Output<string> PodExecutionRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-        /// </summary>
         [Output("selectors")]
         public Output<ImmutableArray<Outputs.FargateProfileSelector>> Selectors { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the EKS Fargate Profile.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -200,36 +88,20 @@ namespace Pulumi.Aws.Eks
 
     public sealed class FargateProfileArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the EKS Cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the EKS Fargate Profile.
-        /// </summary>
         [Input("fargateProfileName")]
         public Input<string>? FargateProfileName { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-        /// </summary>
         [Input("podExecutionRoleArn", required: true)]
         public Input<string> PodExecutionRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("selectors", required: true)]
         private InputList<Inputs.FargateProfileSelectorArgs>? _selectors;
-
-        /// <summary>
-        /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-        /// </summary>
         public InputList<Inputs.FargateProfileSelectorArgs> Selectors
         {
             get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorArgs>());
@@ -238,12 +110,6 @@ namespace Pulumi.Aws.Eks
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -252,10 +118,6 @@ namespace Pulumi.Aws.Eks
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -270,62 +132,34 @@ namespace Pulumi.Aws.Eks
 
     public sealed class FargateProfileState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the EKS Cluster.
-        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
-        /// <summary>
-        /// Name of the EKS Fargate Profile.
-        /// </summary>
         [Input("fargateProfileName")]
         public Input<string>? FargateProfileName { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-        /// </summary>
         [Input("podExecutionRoleArn")]
         public Input<string>? PodExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("selectors")]
         private InputList<Inputs.FargateProfileSelectorGetArgs>? _selectors;
-
-        /// <summary>
-        /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-        /// </summary>
         public InputList<Inputs.FargateProfileSelectorGetArgs> Selectors
         {
             get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorGetArgs>());
             set => _selectors = value;
         }
 
-        /// <summary>
-        /// Status of the EKS Fargate Profile.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -334,10 +168,6 @@ namespace Pulumi.Aws.Eks
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -346,10 +176,6 @@ namespace Pulumi.Aws.Eks
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

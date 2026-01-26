@@ -14,17 +14,9 @@ public final class RepositoryUpstreamArgs extends com.pulumi.resources.ResourceA
 
     public static final RepositoryUpstreamArgs Empty = new RepositoryUpstreamArgs();
 
-    /**
-     * The name of an upstream repository.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return The name of an upstream repository.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -53,23 +45,11 @@ public final class RepositoryUpstreamArgs extends com.pulumi.resources.ResourceA
             $ = new RepositoryUpstreamArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryName The name of an upstream repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name of an upstream repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

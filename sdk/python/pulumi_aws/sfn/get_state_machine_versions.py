@@ -61,9 +61,6 @@ class GetStateMachineVersionsResult:
     @_builtins.property
     @pulumi.getter(name="statemachineVersions")
     def statemachine_versions(self) -> Sequence[_builtins.str]:
-        """
-        ARN List identifying the statemachine versions.
-        """
         return pulumi.get(self, "statemachine_versions")
 
 
@@ -83,22 +80,7 @@ def get_state_machine_versions(region: Optional[_builtins.str] = None,
                                statemachine_arn: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStateMachineVersionsResult:
     """
-    Data source for managing an AWS SFN (Step Functions) State Machine Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sfn.get_state_machine_versions(statemachine_arn=test_aws_sfn_state_machine["arn"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str statemachine_arn: ARN of the State Machine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -115,22 +97,7 @@ def get_state_machine_versions_output(region: Optional[pulumi.Input[Optional[_bu
                                       statemachine_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineVersionsResult]:
     """
-    Data source for managing an AWS SFN (Step Functions) State Machine Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sfn.get_state_machine_versions(statemachine_arn=test_aws_sfn_state_machine["arn"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str statemachine_arn: ARN of the State Machine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

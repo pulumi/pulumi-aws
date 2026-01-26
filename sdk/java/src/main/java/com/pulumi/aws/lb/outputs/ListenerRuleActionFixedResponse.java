@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleActionFixedResponse {
-    /**
-     * @return The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-     * 
-     */
     private String contentType;
-    /**
-     * @return The message body.
-     * 
-     */
     private @Nullable String messageBody;
-    /**
-     * @return The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-     * 
-     */
     private @Nullable String statusCode;
 
     private ListenerRuleActionFixedResponse() {}
-    /**
-     * @return The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }
-    /**
-     * @return The message body.
-     * 
-     */
     public Optional<String> messageBody() {
         return Optional.ofNullable(this.messageBody);
     }
-    /**
-     * @return The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-     * 
-     */
     public Optional<String> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }

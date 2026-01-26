@@ -12,70 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
-//
-// Accepts a Security Hub invitation.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleMember, err := securityhub.NewMember(ctx, "example", &securityhub.MemberArgs{
-//				AccountId: pulumi.String("123456789012"),
-//				Email:     pulumi.String("example@example.com"),
-//				Invite:    pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invitee, err := securityhub.NewAccount(ctx, "invitee", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewInviteAccepter(ctx, "invitee", &securityhub.InviteAccepterArgs{
-//				MasterId: exampleMember.MasterId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				invitee,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-// ```
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 
-	// The ID of the invitation.
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
-	// The account ID of the master Security Hub account whose invitation you're accepting.
-	MasterId pulumi.StringOutput `pulumi:"masterId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	MasterId     pulumi.StringOutput `pulumi:"masterId"`
+	Region       pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInviteAccepter registers a new resource with the given unique name, arguments, and options.
@@ -111,21 +53,15 @@ func GetInviteAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InviteAccepter resources.
 type inviteAccepterState struct {
-	// The ID of the invitation.
 	InvitationId *string `pulumi:"invitationId"`
-	// The account ID of the master Security Hub account whose invitation you're accepting.
-	MasterId *string `pulumi:"masterId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	MasterId     *string `pulumi:"masterId"`
+	Region       *string `pulumi:"region"`
 }
 
 type InviteAccepterState struct {
-	// The ID of the invitation.
 	InvitationId pulumi.StringPtrInput
-	// The account ID of the master Security Hub account whose invitation you're accepting.
-	MasterId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	MasterId     pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (InviteAccepterState) ElementType() reflect.Type {
@@ -133,18 +69,14 @@ func (InviteAccepterState) ElementType() reflect.Type {
 }
 
 type inviteAccepterArgs struct {
-	// The account ID of the master Security Hub account whose invitation you're accepting.
-	MasterId string `pulumi:"masterId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	MasterId string  `pulumi:"masterId"`
+	Region   *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InviteAccepter resource.
 type InviteAccepterArgs struct {
-	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (InviteAccepterArgs) ElementType() reflect.Type {
@@ -234,17 +166,14 @@ func (o InviteAccepterOutput) ToInviteAccepterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ID of the invitation.
 func (o InviteAccepterOutput) InvitationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
 }
 
-// The account ID of the master Security Hub account whose invitation you're accepting.
 func (o InviteAccepterOutput) MasterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.MasterId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InviteAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

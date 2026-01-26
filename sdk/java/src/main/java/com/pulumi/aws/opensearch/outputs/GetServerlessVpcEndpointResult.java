@@ -11,44 +11,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessVpcEndpointResult {
-    /**
-     * @return The date the endpoint was created.
-     * 
-     */
     private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The name of the endpoint.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The IDs of the subnets from which you access OpenSearch Serverless.
-     * 
-     */
     private List<String> subnetIds;
     private String vpcEndpointId;
-    /**
-     * @return The ID of the VPC from which you access OpenSearch Serverless.
-     * 
-     */
     private String vpcId;
 
     private GetServerlessVpcEndpointResult() {}
-    /**
-     * @return The date the endpoint was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
@@ -59,37 +35,21 @@ public final class GetServerlessVpcEndpointResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The name of the endpoint.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The IDs of the subnets from which you access OpenSearch Serverless.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
-    /**
-     * @return The ID of the VPC from which you access OpenSearch Serverless.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

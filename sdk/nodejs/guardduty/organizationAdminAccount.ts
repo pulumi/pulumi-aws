@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.Organization("example", {
- *     awsServiceAccessPrincipals: ["guardduty.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleDetector = new aws.guardduty.Detector("example", {});
- * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("example", {adminAccountId: "123456789012"}, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
- * ```
- */
 export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationAdminAccount resource's state with the given name, ID, and optional extra
@@ -59,13 +32,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationAdminAccount.__pulumiType;
     }
 
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     */
     declare public readonly adminAccountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -100,13 +67,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationAdminAccount resources.
  */
 export interface OrganizationAdminAccountState {
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     */
     adminAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -114,12 +75,6 @@ export interface OrganizationAdminAccountState {
  * The set of arguments for constructing a OrganizationAdminAccount resource.
  */
 export interface OrganizationAdminAccountArgs {
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     */
     adminAccountId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -9,45 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rds.Certificate("example", new()
-    ///     {
-    ///         CertificateIdentifier = "rds-ca-rsa4096-g1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the RDS certificate override using the `region`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rds/certificate:Certificate example us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
-        /// </summary>
         [Output("certificateIdentifier")]
         public Output<string> CertificateIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -97,15 +64,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
-        /// </summary>
         [Input("certificateIdentifier", required: true)]
         public Input<string> CertificateIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -117,15 +78,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
-        /// </summary>
         [Input("certificateIdentifier")]
         public Input<string>? CertificateIdentifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetGroupMembershipsGroupMembershipResult
     {
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         public readonly string GroupId;
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         public readonly string IdentityStoreId;
-        /// <summary>
-        /// An object containing the identifier of a group member. See `MemberId` below.
-        /// </summary>
         public readonly Outputs.GetGroupMembershipsGroupMembershipMemberIdResult MemberId;
         public readonly string MembershipId;
 

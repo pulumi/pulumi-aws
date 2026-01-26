@@ -7,56 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * The following shows outputting all network ACL ids in a vpc.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const example = await aws.ec2.getNetworkAcls({
- *         vpcId: vpcId,
- *     });
- *     return {
- *         example: example.ids,
- *     };
- * }
- * ```
- *
- * The following example retrieves a list of all network ACL ids in a VPC with a custom
- * tag of `Tier` set to a value of "Private".
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkAcls({
- *     vpcId: vpcId,
- *     tags: {
- *         Tier: "Private",
- *     },
- * });
- * ```
- *
- * The following example retrieves a network ACL id in a VPC which associated
- * with specific subnet.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkAcls({
- *     vpcId: vpcId,
- *     filters: [{
- *         name: "association.subnet-id",
- *         values: [test.id],
- *     }],
- * });
- * ```
- */
 export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,22 +22,9 @@ export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getNetworkAcls.
  */
 export interface GetNetworkAclsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetNetworkAclsFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired network ACLs.
-     */
     tags?: {[key: string]: string};
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: string;
 }
 
@@ -100,64 +37,11 @@ export interface GetNetworkAclsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the network ACL ids found.
-     */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
-/**
- * ## Example Usage
- *
- * The following shows outputting all network ACL ids in a vpc.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const example = await aws.ec2.getNetworkAcls({
- *         vpcId: vpcId,
- *     });
- *     return {
- *         example: example.ids,
- *     };
- * }
- * ```
- *
- * The following example retrieves a list of all network ACL ids in a VPC with a custom
- * tag of `Tier` set to a value of "Private".
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkAcls({
- *     vpcId: vpcId,
- *     tags: {
- *         Tier: "Private",
- *     },
- * });
- * ```
- *
- * The following example retrieves a network ACL id in a VPC which associated
- * with specific subnet.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkAcls({
- *     vpcId: vpcId,
- *     filters: [{
- *         name: "association.subnet-id",
- *         values: [test.id],
- *     }],
- * });
- * ```
- */
 export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkAclsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -173,21 +57,8 @@ export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pul
  * A collection of arguments for invoking getNetworkAcls.
  */
 export interface GetNetworkAclsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkAclsFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired network ACLs.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: pulumi.Input<string>;
 }

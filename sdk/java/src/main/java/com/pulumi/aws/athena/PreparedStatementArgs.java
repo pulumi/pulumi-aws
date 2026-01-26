@@ -16,77 +16,37 @@ public final class PreparedStatementArgs extends com.pulumi.resources.ResourceAr
 
     public static final PreparedStatementArgs Empty = new PreparedStatementArgs();
 
-    /**
-     * Brief explanation of prepared statement. Maximum length of 1024.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Brief explanation of prepared statement. Maximum length of 1024.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the prepared statement. Maximum length of 256.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the prepared statement. Maximum length of 256.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The query string for the prepared statement.
-     * 
-     */
     @Import(name="queryStatement", required=true)
     private Output<String> queryStatement;
 
-    /**
-     * @return The query string for the prepared statement.
-     * 
-     */
     public Output<String> queryStatement() {
         return this.queryStatement;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the workgroup to which the prepared statement belongs.
-     * 
-     */
     @Import(name="workgroup", required=true)
     private Output<String> workgroup;
 
-    /**
-     * @return The name of the workgroup to which the prepared statement belongs.
-     * 
-     */
     public Output<String> workgroup() {
         return this.workgroup;
     }
@@ -119,107 +79,47 @@ public final class PreparedStatementArgs extends com.pulumi.resources.ResourceAr
             $ = new PreparedStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Brief explanation of prepared statement. Maximum length of 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Brief explanation of prepared statement. Maximum length of 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of the prepared statement. Maximum length of 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the prepared statement. Maximum length of 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param queryStatement The query string for the prepared statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStatement(Output<String> queryStatement) {
             $.queryStatement = queryStatement;
             return this;
         }
 
-        /**
-         * @param queryStatement The query string for the prepared statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStatement(String queryStatement) {
             return queryStatement(Output.of(queryStatement));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param workgroup The name of the workgroup to which the prepared statement belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroup(Output<String> workgroup) {
             $.workgroup = workgroup;
             return this;
         }
 
-        /**
-         * @param workgroup The name of the workgroup to which the prepared statement belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroup(String workgroup) {
             return workgroup(Output.of(workgroup));
         }

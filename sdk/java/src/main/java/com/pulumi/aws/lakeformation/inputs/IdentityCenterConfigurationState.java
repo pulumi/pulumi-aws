@@ -15,32 +15,22 @@ public final class IdentityCenterConfigurationState extends com.pulumi.resources
 
     public static final IdentityCenterConfigurationState Empty = new IdentityCenterConfigurationState();
 
-    /**
-     * ARN of the Lake Formation applicated integrated with IAM Identity Center.
-     * 
-     */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
-    /**
-     * @return ARN of the Lake Formation applicated integrated with IAM Identity Center.
-     * 
-     */
     public Optional<Output<String>> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
 
     /**
-     * Identifier for the Data Catalog.
-     * By default, the account ID.
+     * The ID of the Data Catalog.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog.
-     * By default, the account ID.
+     * @return The ID of the Data Catalog.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -48,50 +38,30 @@ public final class IdentityCenterConfigurationState extends com.pulumi.resources
     }
 
     /**
-     * ARN of the IAM Identity Center Instance to associate.
-     * 
-     * The following arguments are optional:
+     * The ARN of the Identity Center instance.
      * 
      */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
     /**
-     * @return ARN of the IAM Identity Center Instance to associate.
-     * 
-     * The following arguments are optional:
+     * @return The ARN of the Identity Center instance.
      * 
      */
     public Optional<Output<String>> instanceArn() {
         return Optional.ofNullable(this.instanceArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the Resource Access Manager (RAM) resource share.
-     * 
-     */
     @Import(name="resourceShare")
     private @Nullable Output<String> resourceShare;
 
-    /**
-     * @return ARN of the Resource Access Manager (RAM) resource share.
-     * 
-     */
     public Optional<Output<String>> resourceShare() {
         return Optional.ofNullable(this.resourceShare);
     }
@@ -124,30 +94,17 @@ public final class IdentityCenterConfigurationState extends com.pulumi.resources
             $ = new IdentityCenterConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn ARN of the Lake Formation applicated integrated with IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(@Nullable Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param applicationArn ARN of the Lake Formation applicated integrated with IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog.
-         * By default, the account ID.
+         * @param catalogId The ID of the Data Catalog.
          * 
          * @return builder
          * 
@@ -158,8 +115,7 @@ public final class IdentityCenterConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog.
-         * By default, the account ID.
+         * @param catalogId The ID of the Data Catalog.
          * 
          * @return builder
          * 
@@ -169,9 +125,7 @@ public final class IdentityCenterConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param instanceArn ARN of the IAM Identity Center Instance to associate.
-         * 
-         * The following arguments are optional:
+         * @param instanceArn The ARN of the Identity Center instance.
          * 
          * @return builder
          * 
@@ -182,9 +136,7 @@ public final class IdentityCenterConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param instanceArn ARN of the IAM Identity Center Instance to associate.
-         * 
-         * The following arguments are optional:
+         * @param instanceArn The ARN of the Identity Center instance.
          * 
          * @return builder
          * 
@@ -193,44 +145,20 @@ public final class IdentityCenterConfigurationState extends com.pulumi.resources
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceShare ARN of the Resource Access Manager (RAM) resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShare(@Nullable Output<String> resourceShare) {
             $.resourceShare = resourceShare;
             return this;
         }
 
-        /**
-         * @param resourceShare ARN of the Resource Access Manager (RAM) resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShare(String resourceShare) {
             return resourceShare(Output.of(resourceShare));
         }

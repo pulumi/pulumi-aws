@@ -12,133 +12,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkPeeringConnectionResult {
-    /**
-     * @return The Amazon Resource Name (ARN) for the  ODB network peering connection.
-     * 
-     */
     private String arn;
-    /**
-     * @return Created time of the ODB network peering connection.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Display name of the ODB network peering connection.
-     * 
-     */
     private String displayName;
     private String id;
-    /**
-     * @return ARN of the ODB network peering connection.
-     * 
-     */
     private String odbNetworkArn;
-    /**
-     * @return Type of the ODB peering connection.
-     * 
-     */
     private String odbPeeringConnectionType;
-    /**
-     * @return ARN of the peer network peering connection.
-     * 
-     */
     private String peerNetworkArn;
-    /**
-     * @return Progress of the ODB network peering connection.
-     * 
-     */
     private Double percentProgress;
     private String region;
-    /**
-     * @return Status of the ODB network peering connection.
-     * 
-     */
     private String status;
-    /**
-     * @return Status of the ODB network peering connection.
-     * 
-     */
     private String statusReason;
-    /**
-     * @return Tags applied to the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetNetworkPeeringConnectionResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) for the  ODB network peering connection.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Created time of the ODB network peering connection.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Display name of the ODB network peering connection.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the ODB network peering connection.
-     * 
-     */
     public String odbNetworkArn() {
         return this.odbNetworkArn;
     }
-    /**
-     * @return Type of the ODB peering connection.
-     * 
-     */
     public String odbPeeringConnectionType() {
         return this.odbPeeringConnectionType;
     }
-    /**
-     * @return ARN of the peer network peering connection.
-     * 
-     */
     public String peerNetworkArn() {
         return this.peerNetworkArn;
     }
-    /**
-     * @return Progress of the ODB network peering connection.
-     * 
-     */
     public Double percentProgress() {
         return this.percentProgress;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the ODB network peering connection.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Status of the ODB network peering connection.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }
-    /**
-     * @return Tags applied to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

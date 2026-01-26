@@ -12,78 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudFront Field-level Encryption Config resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewFieldLevelEncryptionConfig(ctx, "test", &cloudfront.FieldLevelEncryptionConfigArgs{
-//				Comment: pulumi.String("test comment"),
-//				ContentTypeProfileConfig: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs{
-//					ForwardWhenContentTypeIsUnknown: pulumi.Bool(true),
-//					ContentTypeProfiles: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{
-//						Items: cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{
-//							&cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{
-//								ContentType: pulumi.String("application/x-www-form-urlencoded"),
-//								Format:      pulumi.String("URLEncoded"),
-//							},
-//						},
-//					},
-//				},
-//				QueryArgProfileConfig: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs{
-//					ForwardWhenQueryArgProfileIsUnknown: pulumi.Bool(true),
-//					QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
-//						Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
-//							&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
-//								ProfileId: pulumi.Any(testAwsCloudfrontFieldLevelEncryptionProfile.Id),
-//								QueryArg:  pulumi.String("Arg1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
-// ```
 type FieldLevelEncryptionConfig struct {
 	pulumi.CustomResourceState
 
-	// The Field Level Encryption Config ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
-	// An optional comment about the Field Level Encryption Config.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+	Arn                      pulumi.StringOutput                                      `pulumi:"arn"`
+	CallerReference          pulumi.StringOutput                                      `pulumi:"callerReference"`
+	Comment                  pulumi.StringPtrOutput                                   `pulumi:"comment"`
 	ContentTypeProfileConfig FieldLevelEncryptionConfigContentTypeProfileConfigOutput `pulumi:"contentTypeProfileConfig"`
-	// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-	QueryArgProfileConfig FieldLevelEncryptionConfigQueryArgProfileConfigOutput `pulumi:"queryArgProfileConfig"`
+	Etag                     pulumi.StringOutput                                      `pulumi:"etag"`
+	QueryArgProfileConfig    FieldLevelEncryptionConfigQueryArgProfileConfigOutput    `pulumi:"queryArgProfileConfig"`
 }
 
 // NewFieldLevelEncryptionConfig registers a new resource with the given unique name, arguments, and options.
@@ -122,33 +59,21 @@ func GetFieldLevelEncryptionConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FieldLevelEncryptionConfig resources.
 type fieldLevelEncryptionConfigState struct {
-	// The Field Level Encryption Config ARN.
-	Arn *string `pulumi:"arn"`
-	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-	CallerReference *string `pulumi:"callerReference"`
-	// An optional comment about the Field Level Encryption Config.
-	Comment *string `pulumi:"comment"`
-	// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+	Arn                      *string                                             `pulumi:"arn"`
+	CallerReference          *string                                             `pulumi:"callerReference"`
+	Comment                  *string                                             `pulumi:"comment"`
 	ContentTypeProfileConfig *FieldLevelEncryptionConfigContentTypeProfileConfig `pulumi:"contentTypeProfileConfig"`
-	// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-	Etag *string `pulumi:"etag"`
-	// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-	QueryArgProfileConfig *FieldLevelEncryptionConfigQueryArgProfileConfig `pulumi:"queryArgProfileConfig"`
+	Etag                     *string                                             `pulumi:"etag"`
+	QueryArgProfileConfig    *FieldLevelEncryptionConfigQueryArgProfileConfig    `pulumi:"queryArgProfileConfig"`
 }
 
 type FieldLevelEncryptionConfigState struct {
-	// The Field Level Encryption Config ARN.
-	Arn pulumi.StringPtrInput
-	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-	CallerReference pulumi.StringPtrInput
-	// An optional comment about the Field Level Encryption Config.
-	Comment pulumi.StringPtrInput
-	// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+	Arn                      pulumi.StringPtrInput
+	CallerReference          pulumi.StringPtrInput
+	Comment                  pulumi.StringPtrInput
 	ContentTypeProfileConfig FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput
-	// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringPtrInput
-	// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-	QueryArgProfileConfig FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput
+	Etag                     pulumi.StringPtrInput
+	QueryArgProfileConfig    FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput
 }
 
 func (FieldLevelEncryptionConfigState) ElementType() reflect.Type {
@@ -156,22 +81,16 @@ func (FieldLevelEncryptionConfigState) ElementType() reflect.Type {
 }
 
 type fieldLevelEncryptionConfigArgs struct {
-	// An optional comment about the Field Level Encryption Config.
-	Comment *string `pulumi:"comment"`
-	// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+	Comment                  *string                                            `pulumi:"comment"`
 	ContentTypeProfileConfig FieldLevelEncryptionConfigContentTypeProfileConfig `pulumi:"contentTypeProfileConfig"`
-	// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-	QueryArgProfileConfig FieldLevelEncryptionConfigQueryArgProfileConfig `pulumi:"queryArgProfileConfig"`
+	QueryArgProfileConfig    FieldLevelEncryptionConfigQueryArgProfileConfig    `pulumi:"queryArgProfileConfig"`
 }
 
 // The set of arguments for constructing a FieldLevelEncryptionConfig resource.
 type FieldLevelEncryptionConfigArgs struct {
-	// An optional comment about the Field Level Encryption Config.
-	Comment pulumi.StringPtrInput
-	// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+	Comment                  pulumi.StringPtrInput
 	ContentTypeProfileConfig FieldLevelEncryptionConfigContentTypeProfileConfigInput
-	// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-	QueryArgProfileConfig FieldLevelEncryptionConfigQueryArgProfileConfigInput
+	QueryArgProfileConfig    FieldLevelEncryptionConfigQueryArgProfileConfigInput
 }
 
 func (FieldLevelEncryptionConfigArgs) ElementType() reflect.Type {
@@ -261,34 +180,28 @@ func (o FieldLevelEncryptionConfigOutput) ToFieldLevelEncryptionConfigOutputWith
 	return o
 }
 
-// The Field Level Encryption Config ARN.
 func (o FieldLevelEncryptionConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
 func (o FieldLevelEncryptionConfigOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
 }
 
-// An optional comment about the Field Level Encryption Config.
 func (o FieldLevelEncryptionConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
 func (o FieldLevelEncryptionConfigOutput) ContentTypeProfileConfig() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionConfig) FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
 		return v.ContentTypeProfileConfig
 	}).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput)
 }
 
-// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
 func (o FieldLevelEncryptionConfigOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
 func (o FieldLevelEncryptionConfigOutput) QueryArgProfileConfig() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionConfig) FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
 		return v.QueryArgProfileConfig

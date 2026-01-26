@@ -12,53 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearchServerless VPC Endpoint.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.NewServerlessVpcEndpoint(ctx, "example", &opensearch.ServerlessVpcEndpointArgs{
-//				Name: pulumi.String("myendpoint"),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				VpcId: pulumi.Any(exampleAwsVpc.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-// ```
 type ServerlessVpcEndpoint struct {
 	pulumi.CustomResourceState
 
 	// Name of the interface endpoint.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringOutput `pulumi:"name"`
 	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -66,8 +24,6 @@ type ServerlessVpcEndpoint struct {
 	SubnetIds pulumi.StringArrayOutput               `pulumi:"subnetIds"`
 	Timeouts  ServerlessVpcEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
 	// ID of the VPC from which you'll access OpenSearch Serverless.
-	//
-	// The following arguments are optional:
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -108,8 +64,7 @@ func GetServerlessVpcEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServerlessVpcEndpoint resources.
 type serverlessVpcEndpointState struct {
 	// Name of the interface endpoint.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -117,15 +72,12 @@ type serverlessVpcEndpointState struct {
 	SubnetIds []string                       `pulumi:"subnetIds"`
 	Timeouts  *ServerlessVpcEndpointTimeouts `pulumi:"timeouts"`
 	// ID of the VPC from which you'll access OpenSearch Serverless.
-	//
-	// The following arguments are optional:
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type ServerlessVpcEndpointState struct {
 	// Name of the interface endpoint.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -133,8 +85,6 @@ type ServerlessVpcEndpointState struct {
 	SubnetIds pulumi.StringArrayInput
 	Timeouts  ServerlessVpcEndpointTimeoutsPtrInput
 	// ID of the VPC from which you'll access OpenSearch Serverless.
-	//
-	// The following arguments are optional:
 	VpcId pulumi.StringPtrInput
 }
 
@@ -144,8 +94,7 @@ func (ServerlessVpcEndpointState) ElementType() reflect.Type {
 
 type serverlessVpcEndpointArgs struct {
 	// Name of the interface endpoint.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -153,16 +102,13 @@ type serverlessVpcEndpointArgs struct {
 	SubnetIds []string                       `pulumi:"subnetIds"`
 	Timeouts  *ServerlessVpcEndpointTimeouts `pulumi:"timeouts"`
 	// ID of the VPC from which you'll access OpenSearch Serverless.
-	//
-	// The following arguments are optional:
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ServerlessVpcEndpoint resource.
 type ServerlessVpcEndpointArgs struct {
 	// Name of the interface endpoint.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -170,8 +116,6 @@ type ServerlessVpcEndpointArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	Timeouts  ServerlessVpcEndpointTimeoutsPtrInput
 	// ID of the VPC from which you'll access OpenSearch Serverless.
-	//
-	// The following arguments are optional:
 	VpcId pulumi.StringInput
 }
 
@@ -267,7 +211,6 @@ func (o ServerlessVpcEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessVpcEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessVpcEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessVpcEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -287,8 +230,6 @@ func (o ServerlessVpcEndpointOutput) Timeouts() ServerlessVpcEndpointTimeoutsPtr
 }
 
 // ID of the VPC from which you'll access OpenSearch Serverless.
-//
-// The following arguments are optional:
 func (o ServerlessVpcEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessVpcEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

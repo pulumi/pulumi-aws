@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amplify Backend Environment resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {name: "example"});
- * const exampleBackendEnvironment = new aws.amplify.BackendEnvironment("example", {
- *     appId: example.id,
- *     environmentName: "example",
- *     deploymentArtifacts: "app-example-deployment",
- *     stackName: "amplify-app-example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
- * ```
- */
 export class BackendEnvironment extends pulumi.CustomResource {
     /**
      * Get an existing BackendEnvironment resource's state with the given name, ID, and optional extra
@@ -58,29 +32,11 @@ export class BackendEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackendEnvironment.__pulumiType;
     }
 
-    /**
-     * Unique ID for an Amplify app.
-     */
     declare public readonly appId: pulumi.Output<string>;
-    /**
-     * ARN for a backend environment that is part of an Amplify app.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of deployment artifacts.
-     */
     declare public readonly deploymentArtifacts: pulumi.Output<string>;
-    /**
-     * Name for the backend environment.
-     */
     declare public readonly environmentName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * AWS CloudFormation stack name of a backend environment.
-     */
     declare public readonly stackName: pulumi.Output<string>;
 
     /**
@@ -126,29 +82,11 @@ export class BackendEnvironment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BackendEnvironment resources.
  */
 export interface BackendEnvironmentState {
-    /**
-     * Unique ID for an Amplify app.
-     */
     appId?: pulumi.Input<string>;
-    /**
-     * ARN for a backend environment that is part of an Amplify app.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of deployment artifacts.
-     */
     deploymentArtifacts?: pulumi.Input<string>;
-    /**
-     * Name for the backend environment.
-     */
     environmentName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * AWS CloudFormation stack name of a backend environment.
-     */
     stackName?: pulumi.Input<string>;
 }
 
@@ -156,24 +94,9 @@ export interface BackendEnvironmentState {
  * The set of arguments for constructing a BackendEnvironment resource.
  */
 export interface BackendEnvironmentArgs {
-    /**
-     * Unique ID for an Amplify app.
-     */
     appId: pulumi.Input<string>;
-    /**
-     * Name of deployment artifacts.
-     */
     deploymentArtifacts?: pulumi.Input<string>;
-    /**
-     * Name for the backend environment.
-     */
     environmentName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * AWS CloudFormation stack name of a backend environment.
-     */
     stackName?: pulumi.Input<string>;
 }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow {
-    /**
-     * @return Mode of threat protection operation in custom authentication.
-     * 
-     */
     private String customAuthMode;
 
     private GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow() {}
-    /**
-     * @return Mode of threat protection operation in custom authentication.
-     * 
-     */
     public String customAuthMode() {
         return this.customAuthMode;
     }

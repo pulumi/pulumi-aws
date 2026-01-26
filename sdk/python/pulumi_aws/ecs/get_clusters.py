@@ -40,9 +40,6 @@ class GetClustersResult:
     @_builtins.property
     @pulumi.getter(name="clusterArns")
     def cluster_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of ECS cluster ARNs associated with the account.
-        """
         return pulumi.get(self, "cluster_arns")
 
     @_builtins.property
@@ -73,21 +70,7 @@ class AwaitableGetClustersResult(GetClustersResult):
 def get_clusters(region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
-    Data source for managing an AWS ECS (Elastic Container) Clusters.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecs.get_clusters()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -101,21 +84,7 @@ def get_clusters(region: Optional[_builtins.str] = None,
 def get_clusters_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
-    Data source for managing an AWS ECS (Elastic Container) Clusters.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecs.get_clusters()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

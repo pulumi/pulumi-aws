@@ -11,49 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleSourceSourceDetail {
-    /**
-     * @return The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
-     * 
-     */
     private @Nullable String eventSource;
-    /**
-     * @return The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
-     * 
-     */
     private @Nullable String maximumExecutionFrequency;
-    /**
-     * @return The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
-     * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
-     * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-     * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximumExecutionFrequency`.
-     * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
-     * 
-     */
     private @Nullable String messageType;
 
     private RuleSourceSourceDetail() {}
-    /**
-     * @return The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
-     * 
-     */
     public Optional<String> eventSource() {
         return Optional.ofNullable(this.eventSource);
     }
-    /**
-     * @return The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
-     * 
-     */
     public Optional<String> maximumExecutionFrequency() {
         return Optional.ofNullable(this.maximumExecutionFrequency);
     }
-    /**
-     * @return The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
-     * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
-     * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-     * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximumExecutionFrequency`.
-     * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
-     * 
-     */
     public Optional<String> messageType() {
         return Optional.ofNullable(this.messageType);
     }

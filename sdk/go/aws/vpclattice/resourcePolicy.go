@@ -12,95 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Resource Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := vpclattice.NewServiceNetwork(ctx, "example", &vpclattice.ServiceNetworkArgs{
-//				Name: pulumi.String("example-vpclattice-service-network"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpclattice.NewResourcePolicy(ctx, "example", &vpclattice.ResourcePolicyArgs{
-//				ResourceArn: example.Arn,
-//				Policy: example.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Sid":    "test-pol-principals-6",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
-//								},
-//								"Action": []string{
-//									"vpc-lattice:CreateServiceNetworkVpcAssociation",
-//									"vpc-lattice:CreateServiceNetworkServiceAssociation",
-//									"vpc-lattice:GetServiceNetwork",
-//								},
-//								"Resource": arn,
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
-// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	Policy      pulumi.StringOutput `pulumi:"policy"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -140,20 +56,14 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	Policy      *string `pulumi:"policy"`
+	Region      *string `pulumi:"region"`
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 type ResourcePolicyState struct {
-	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	Policy      pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
 }
 
@@ -162,21 +72,15 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-	ResourceArn string `pulumi:"resourceArn"`
+	Policy      string  `pulumi:"policy"`
+	Region      *string `pulumi:"region"`
+	ResourceArn string  `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	Policy      pulumi.StringInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringInput
 }
 
@@ -267,17 +171,14 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
 func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

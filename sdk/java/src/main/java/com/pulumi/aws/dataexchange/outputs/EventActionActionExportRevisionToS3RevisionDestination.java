@@ -12,31 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventActionActionExportRevisionToS3RevisionDestination {
-    /**
-     * @return The S3 bucket where the revision will be exported.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Pattern for naming revisions in the S3 bucket.
-     * Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-     * 
-     */
     private @Nullable String keyPattern;
 
     private EventActionActionExportRevisionToS3RevisionDestination() {}
-    /**
-     * @return The S3 bucket where the revision will be exported.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Pattern for naming revisions in the S3 bucket.
-     * Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-     * 
-     */
     public Optional<String> keyPattern() {
         return Optional.ofNullable(this.keyPattern);
     }

@@ -19,92 +19,44 @@ public final class ClassifierState extends com.pulumi.resources.ResourceArgs {
 
     public static final ClassifierState Empty = new ClassifierState();
 
-    /**
-     * A classifier for CSV content. Defined below.
-     * 
-     */
     @Import(name="csvClassifier")
     private @Nullable Output<ClassifierCsvClassifierArgs> csvClassifier;
 
-    /**
-     * @return A classifier for CSV content. Defined below.
-     * 
-     */
     public Optional<Output<ClassifierCsvClassifierArgs>> csvClassifier() {
         return Optional.ofNullable(this.csvClassifier);
     }
 
-    /**
-     * A classifier that uses grok patterns. Defined below.
-     * 
-     */
     @Import(name="grokClassifier")
     private @Nullable Output<ClassifierGrokClassifierArgs> grokClassifier;
 
-    /**
-     * @return A classifier that uses grok patterns. Defined below.
-     * 
-     */
     public Optional<Output<ClassifierGrokClassifierArgs>> grokClassifier() {
         return Optional.ofNullable(this.grokClassifier);
     }
 
-    /**
-     * A classifier for JSON content. Defined below.
-     * 
-     */
     @Import(name="jsonClassifier")
     private @Nullable Output<ClassifierJsonClassifierArgs> jsonClassifier;
 
-    /**
-     * @return A classifier for JSON content. Defined below.
-     * 
-     */
     public Optional<Output<ClassifierJsonClassifierArgs>> jsonClassifier() {
         return Optional.ofNullable(this.jsonClassifier);
     }
 
-    /**
-     * The name of the classifier.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the classifier.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A classifier for XML content. Defined below.
-     * 
-     */
     @Import(name="xmlClassifier")
     private @Nullable Output<ClassifierXmlClassifierArgs> xmlClassifier;
 
-    /**
-     * @return A classifier for XML content. Defined below.
-     * 
-     */
     public Optional<Output<ClassifierXmlClassifierArgs>> xmlClassifier() {
         return Optional.ofNullable(this.xmlClassifier);
     }
@@ -138,128 +90,56 @@ public final class ClassifierState extends com.pulumi.resources.ResourceArgs {
             $ = new ClassifierState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param csvClassifier A classifier for CSV content. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csvClassifier(@Nullable Output<ClassifierCsvClassifierArgs> csvClassifier) {
             $.csvClassifier = csvClassifier;
             return this;
         }
 
-        /**
-         * @param csvClassifier A classifier for CSV content. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csvClassifier(ClassifierCsvClassifierArgs csvClassifier) {
             return csvClassifier(Output.of(csvClassifier));
         }
 
-        /**
-         * @param grokClassifier A classifier that uses grok patterns. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grokClassifier(@Nullable Output<ClassifierGrokClassifierArgs> grokClassifier) {
             $.grokClassifier = grokClassifier;
             return this;
         }
 
-        /**
-         * @param grokClassifier A classifier that uses grok patterns. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grokClassifier(ClassifierGrokClassifierArgs grokClassifier) {
             return grokClassifier(Output.of(grokClassifier));
         }
 
-        /**
-         * @param jsonClassifier A classifier for JSON content. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonClassifier(@Nullable Output<ClassifierJsonClassifierArgs> jsonClassifier) {
             $.jsonClassifier = jsonClassifier;
             return this;
         }
 
-        /**
-         * @param jsonClassifier A classifier for JSON content. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonClassifier(ClassifierJsonClassifierArgs jsonClassifier) {
             return jsonClassifier(Output.of(jsonClassifier));
         }
 
-        /**
-         * @param name The name of the classifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the classifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param xmlClassifier A classifier for XML content. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlClassifier(@Nullable Output<ClassifierXmlClassifierArgs> xmlClassifier) {
             $.xmlClassifier = xmlClassifier;
             return this;
         }
 
-        /**
-         * @param xmlClassifier A classifier for XML content. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlClassifier(ClassifierXmlClassifierArgs xmlClassifier) {
             return xmlClassifier(Output.of(xmlClassifier));
         }

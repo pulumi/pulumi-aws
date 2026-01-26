@@ -9,259 +9,63 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.M2
 {
-    /// <summary>
-    /// Resource for managing an [AWS Mainframe Modernization Environment](https://docs.aws.amazon.com/m2/latest/userguide/environments-m2.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.M2.Environment("test", new()
-    ///     {
-    ///         Name = "test-env",
-    ///         EngineType = "bluage",
-    ///         InstanceType = "M2.m5.large",
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             "sg-01234567890abcdef",
-    ///         },
-    ///         SubnetIds = new[]
-    ///         {
-    ///             "subnet-01234567890abcdef",
-    ///             "subnet-01234567890abcdea",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### High Availability
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.M2.Environment("test", new()
-    ///     {
-    ///         Name = "test-env",
-    ///         EngineType = "bluage",
-    ///         InstanceType = "M2.m5.large",
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             "sg-01234567890abcdef",
-    ///         },
-    ///         SubnetIds = new[]
-    ///         {
-    ///             "subnet-01234567890abcdef",
-    ///             "subnet-01234567890abcdea",
-    ///         },
-    ///         HighAvailabilityConfig = new Aws.M2.Inputs.EnvironmentHighAvailabilityConfigArgs
-    ///         {
-    ///             DesiredCapacity = 2,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### EFS Filesystem
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.M2.Environment("test", new()
-    ///     {
-    ///         Name = "test-env",
-    ///         EngineType = "bluage",
-    ///         InstanceType = "M2.m5.large",
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             "sg-01234567890abcdef",
-    ///         },
-    ///         SubnetIds = new[]
-    ///         {
-    ///             "subnet-01234567890abcdef",
-    ///             "subnet-01234567890abcdea",
-    ///         },
-    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
-    ///         {
-    ///             Efs = new Aws.M2.Inputs.EnvironmentStorageConfigurationEfsArgs
-    ///             {
-    ///                 FileSystemId = "fs-01234567890abcdef",
-    ///                 MountPoint = "/m2/mount/example",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### FSX Filesystem
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.M2.Environment("test", new()
-    ///     {
-    ///         Name = "test-env",
-    ///         EngineType = "bluage",
-    ///         InstanceType = "M2.m5.large",
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             "sg-01234567890abcdef",
-    ///         },
-    ///         SubnetIds = new[]
-    ///         {
-    ///             "subnet-01234567890abcdef",
-    ///             "subnet-01234567890abcdea",
-    ///         },
-    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
-    ///         {
-    ///             Fsx = new Aws.M2.Inputs.EnvironmentStorageConfigurationFsxArgs
-    ///             {
-    ///                 FileSystemId = "fs-01234567890abcdef",
-    ///                 MountPoint = "/m2/mount/example",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:m2/environment:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {
         [Output("applyChangesDuringMaintenanceWindow")]
         public Output<bool?> ApplyChangesDuringMaintenanceWindow { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Environment.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Engine type must be `Microfocus` or `Bluage`.
-        /// </summary>
         [Output("engineType")]
         public Output<string> EngineType { get; private set; } = null!;
 
-        /// <summary>
-        /// The specific version of the engine for the Environment.
-        /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The id of the Environment.
-        /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Force update the environment even if applications are running.
-        /// </summary>
         [Output("forceUpdate")]
         public Output<bool?> ForceUpdate { get; private set; } = null!;
 
         [Output("highAvailabilityConfig")]
         public Output<Outputs.EnvironmentHighAvailabilityConfig?> HighAvailabilityConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// M2 Instance Type.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the KMS key to use for the Environment.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the load balancer created by the Environment.
-        /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the runtime environment. Must be unique within the account.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
-        /// <summary>
-        /// Allow applications deployed to this environment to be publicly accessible.
-        /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// List of security group ids.
-        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         [Output("storageConfiguration")]
         public Output<Outputs.EnvironmentStorageConfiguration?> StorageConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// List of subnet ids to deploy environment to.
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -323,71 +127,38 @@ namespace Pulumi.Aws.M2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Engine type must be `Microfocus` or `Bluage`.
-        /// </summary>
         [Input("engineType", required: true)]
         public Input<string> EngineType { get; set; } = null!;
 
-        /// <summary>
-        /// The specific version of the engine for the Environment.
-        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
-        /// <summary>
-        /// Force update the environment even if applications are running.
-        /// </summary>
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 
         [Input("highAvailabilityConfig")]
         public Input<Inputs.EnvironmentHighAvailabilityConfigArgs>? HighAvailabilityConfig { get; set; }
 
-        /// <summary>
-        /// M2 Instance Type.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the KMS key to use for the Environment.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Name of the runtime environment. Must be unique within the account.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
-        /// <summary>
-        /// Allow applications deployed to this environment to be publicly accessible.
-        /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of security group ids.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -399,10 +170,6 @@ namespace Pulumi.Aws.M2
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet ids to deploy environment to.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -411,10 +178,6 @@ namespace Pulumi.Aws.M2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -435,92 +198,50 @@ namespace Pulumi.Aws.M2
         [Input("applyChangesDuringMaintenanceWindow")]
         public Input<bool>? ApplyChangesDuringMaintenanceWindow { get; set; }
 
-        /// <summary>
-        /// ARN of the Environment.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Engine type must be `Microfocus` or `Bluage`.
-        /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
 
-        /// <summary>
-        /// The specific version of the engine for the Environment.
-        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
-        /// <summary>
-        /// The id of the Environment.
-        /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
-        /// <summary>
-        /// Force update the environment even if applications are running.
-        /// </summary>
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 
         [Input("highAvailabilityConfig")]
         public Input<Inputs.EnvironmentHighAvailabilityConfigGetArgs>? HighAvailabilityConfig { get; set; }
 
-        /// <summary>
-        /// M2 Instance Type.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        /// <summary>
-        /// ARN of the KMS key to use for the Environment.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// ARN of the load balancer created by the Environment.
-        /// </summary>
         [Input("loadBalancerArn")]
         public Input<string>? LoadBalancerArn { get; set; }
 
-        /// <summary>
-        /// Name of the runtime environment. Must be unique within the account.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
-        /// <summary>
-        /// Allow applications deployed to this environment to be publicly accessible.
-        /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of security group ids.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -532,10 +253,6 @@ namespace Pulumi.Aws.M2
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet ids to deploy environment to.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -544,10 +261,6 @@ namespace Pulumi.Aws.M2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -14,17 +14,9 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
 
     public static final WebAclRuleActionArgs Empty = new WebAclRuleActionArgs();
 
-    /**
-     * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -53,23 +45,11 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
             $ = new WebAclRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

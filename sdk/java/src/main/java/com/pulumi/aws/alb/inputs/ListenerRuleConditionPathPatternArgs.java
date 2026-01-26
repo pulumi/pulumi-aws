@@ -16,32 +16,16 @@ public final class ListenerRuleConditionPathPatternArgs extends com.pulumi.resou
 
     public static final ListenerRuleConditionPathPatternArgs Empty = new ListenerRuleConditionPathPatternArgs();
 
-    /**
-     * List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
-     * 
-     */
     @Import(name="regexValues")
     private @Nullable Output<List<String>> regexValues;
 
-    /**
-     * @return List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
-     * 
-     */
     public Optional<Output<List<String>>> regexValues() {
         return Optional.ofNullable(this.regexValues);
     }
 
-    /**
-     * List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
-     * 
-     */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
-    /**
-     * @return List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
-     * 
-     */
     public Optional<Output<List<String>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -71,64 +55,28 @@ public final class ListenerRuleConditionPathPatternArgs extends com.pulumi.resou
             $ = new ListenerRuleConditionPathPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regexValues List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(@Nullable Output<List<String>> regexValues) {
             $.regexValues = regexValues;
             return this;
         }
 
-        /**
-         * @param regexValues List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(List<String> regexValues) {
             return regexValues(Output.of(regexValues));
         }
 
-        /**
-         * @param regexValues List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(String... regexValues) {
             return regexValues(List.of(regexValues));
         }
 
-        /**
-         * @param values List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -15,17 +15,9 @@ public final class EventEndpointRoutingConfigFailoverConfigSecondaryArgs extends
 
     public static final EventEndpointRoutingConfigFailoverConfigSecondaryArgs Empty = new EventEndpointRoutingConfigFailoverConfigSecondaryArgs();
 
-    /**
-     * The name of the secondary Region.
-     * 
-     */
     @Import(name="route")
     private @Nullable Output<String> route;
 
-    /**
-     * @return The name of the secondary Region.
-     * 
-     */
     public Optional<Output<String>> route() {
         return Optional.ofNullable(this.route);
     }
@@ -54,23 +46,11 @@ public final class EventEndpointRoutingConfigFailoverConfigSecondaryArgs extends
             $ = new EventEndpointRoutingConfigFailoverConfigSecondaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param route The name of the secondary Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder route(@Nullable Output<String> route) {
             $.route = route;
             return this;
         }
 
-        /**
-         * @param route The name of the secondary Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder route(String route) {
             return route(Output.of(route));
         }

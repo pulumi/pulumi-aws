@@ -14,9 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetConnectionFilter struct {
-	// Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -32,9 +30,7 @@ type GetConnectionFilterInput interface {
 }
 
 type GetConnectionFilterArgs struct {
-	// Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -89,12 +85,10 @@ func (o GetConnectionFilterOutput) ToGetConnectionFilterOutputWithContext(ctx co
 	return o
 }
 
-// Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
 func (o GetConnectionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetConnectionFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConnectionFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -122,8 +116,7 @@ func (o GetConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetConnectionFi
 type GetConnectionRoute struct {
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
 	Source               string `pulumi:"source"`
-	// Current state of the VPN connection.
-	State string `pulumi:"state"`
+	State                string `pulumi:"state"`
 }
 
 // GetConnectionRouteInput is an input type that accepts GetConnectionRouteArgs and GetConnectionRouteOutput values.
@@ -140,8 +133,7 @@ type GetConnectionRouteInput interface {
 type GetConnectionRouteArgs struct {
 	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	Source               pulumi.StringInput `pulumi:"source"`
-	// Current state of the VPN connection.
-	State pulumi.StringInput `pulumi:"state"`
+	State                pulumi.StringInput `pulumi:"state"`
 }
 
 func (GetConnectionRouteArgs) ElementType() reflect.Type {
@@ -203,7 +195,6 @@ func (o GetConnectionRouteOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionRoute) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// Current state of the VPN connection.
 func (o GetConnectionRouteOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionRoute) string { return v.State }).(pulumi.StringOutput)
 }

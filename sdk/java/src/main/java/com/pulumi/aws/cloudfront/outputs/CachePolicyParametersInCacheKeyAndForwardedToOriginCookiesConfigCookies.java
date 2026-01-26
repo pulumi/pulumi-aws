@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
-    /**
-     * @return List of item names, such as cookies, headers, or query strings.
-     * 
-     */
     private @Nullable List<String> items;
 
     private CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies() {}
-    /**
-     * @return List of item names, such as cookies, headers, or query strings.
-     * 
-     */
     public List<String> items() {
         return this.items == null ? List.of() : this.items;
     }

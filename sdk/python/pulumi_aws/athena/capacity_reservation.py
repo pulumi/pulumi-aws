@@ -28,12 +28,6 @@ class CapacityReservationArgs:
                  timeouts: Optional[pulumi.Input['CapacityReservationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
-        :param pulumi.Input[_builtins.int] target_dpus: Number of data processing units requested. Must be at least `24` units.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the capacity reservation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "target_dpus", target_dpus)
         if name is not None:
@@ -48,11 +42,6 @@ class CapacityReservationArgs:
     @_builtins.property
     @pulumi.getter(name="targetDpus")
     def target_dpus(self) -> pulumi.Input[_builtins.int]:
-        """
-        Number of data processing units requested. Must be at least `24` units.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_dpus")
 
     @target_dpus.setter
@@ -62,9 +51,6 @@ class CapacityReservationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the capacity reservation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -74,9 +60,6 @@ class CapacityReservationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -86,9 +69,6 @@ class CapacityReservationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -119,16 +99,6 @@ class _CapacityReservationState:
                  timeouts: Optional[pulumi.Input['CapacityReservationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CapacityReservation resources.
-        :param pulumi.Input[_builtins.int] allocated_dpus: Number of data processing units currently allocated.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] name: Name of the capacity reservation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the capacity reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] target_dpus: Number of data processing units requested. Must be at least `24` units.
-               
-               The following arguments are optional:
         """
         if allocated_dpus is not None:
             pulumi.set(__self__, "allocated_dpus", allocated_dpus)
@@ -152,9 +122,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter(name="allocatedDpus")
     def allocated_dpus(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of data processing units currently allocated.
-        """
         return pulumi.get(self, "allocated_dpus")
 
     @allocated_dpus.setter
@@ -164,9 +131,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Capacity Reservation.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -176,9 +140,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the capacity reservation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -188,9 +149,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -200,9 +158,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the capacity reservation.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -212,9 +167,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +176,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -236,11 +185,6 @@ class _CapacityReservationState:
     @_builtins.property
     @pulumi.getter(name="targetDpus")
     def target_dpus(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of data processing units requested. Must be at least `24` units.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_dpus")
 
     @target_dpus.setter
@@ -270,39 +214,9 @@ class CapacityReservation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Athena Capacity Reservation.
-
-        > Destruction of this resource will both [cancel](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-cancelling-a-capacity-reservation.html) and [delete](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-deleting-a-capacity-reservation.html) the capacity reservation.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.CapacityReservation("example",
-            name="example-reservation",
-            target_dpus=24)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Athena Capacity Reservation using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation
-        ```
-
+        Create a CapacityReservation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the capacity reservation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.int] target_dpus: Number of data processing units requested. Must be at least `24` units.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -311,31 +225,7 @@ class CapacityReservation(pulumi.CustomResource):
                  args: CapacityReservationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Athena Capacity Reservation.
-
-        > Destruction of this resource will both [cancel](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-cancelling-a-capacity-reservation.html) and [delete](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-deleting-a-capacity-reservation.html) the capacity reservation.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.CapacityReservation("example",
-            name="example-reservation",
-            target_dpus=24)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Athena Capacity Reservation using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation
-        ```
-
+        Create a CapacityReservation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,16 +292,6 @@ class CapacityReservation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] allocated_dpus: Number of data processing units currently allocated.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] name: Name of the capacity reservation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the capacity reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] target_dpus: Number of data processing units requested. Must be at least `24` units.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -431,67 +311,41 @@ class CapacityReservation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allocatedDpus")
     def allocated_dpus(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of data processing units currently allocated.
-        """
         return pulumi.get(self, "allocated_dpus")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Capacity Reservation.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the capacity reservation.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the capacity reservation.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetDpus")
     def target_dpus(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of data processing units requested. Must be at least `24` units.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_dpus")
 
     @_builtins.property

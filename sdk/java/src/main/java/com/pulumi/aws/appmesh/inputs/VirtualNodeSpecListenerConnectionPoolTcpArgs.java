@@ -14,17 +14,9 @@ public final class VirtualNodeSpecListenerConnectionPoolTcpArgs extends com.pulu
 
     public static final VirtualNodeSpecListenerConnectionPoolTcpArgs Empty = new VirtualNodeSpecListenerConnectionPoolTcpArgs();
 
-    /**
-     * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     @Import(name="maxConnections", required=true)
     private Output<Integer> maxConnections;
 
-    /**
-     * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     public Output<Integer> maxConnections() {
         return this.maxConnections;
     }
@@ -53,23 +45,11 @@ public final class VirtualNodeSpecListenerConnectionPoolTcpArgs extends com.pulu
             $ = new VirtualNodeSpecListenerConnectionPoolTcpArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxConnections Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConnections(Output<Integer> maxConnections) {
             $.maxConnections = maxConnections;
             return this;
         }
 
-        /**
-         * @param maxConnections Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConnections(Integer maxConnections) {
             return maxConnections(Output.of(maxConnections));
         }

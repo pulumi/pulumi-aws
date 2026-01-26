@@ -38,21 +38,6 @@ class FleetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input[_builtins.str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
-        :param pulumi.Input[_builtins.str] build_id: ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
-        :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
-        :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
-        :param pulumi.Input[_builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "ec2_instance_type", ec2_instance_type)
         if build_id is not None:
@@ -87,9 +72,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="ec2InstanceType")
     def ec2_instance_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of an EC2 instance typeE.g., `t2.micro`
-        """
         return pulumi.get(self, "ec2_instance_type")
 
     @ec2_instance_type.setter
@@ -99,9 +81,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="buildId")
     def build_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
-        """
         return pulumi.get(self, "build_id")
 
     @build_id.setter
@@ -111,9 +90,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="certificateConfiguration")
     def certificate_configuration(self) -> Optional[pulumi.Input['FleetCertificateConfigurationArgs']]:
-        """
-        Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        """
         return pulumi.get(self, "certificate_configuration")
 
     @certificate_configuration.setter
@@ -123,9 +99,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable description of the fleet.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -135,9 +108,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="ec2InboundPermissions")
     def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]:
-        """
-        Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        """
         return pulumi.get(self, "ec2_inbound_permissions")
 
     @ec2_inbound_permissions.setter
@@ -147,9 +117,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        """
         return pulumi.get(self, "fleet_type")
 
     @fleet_type.setter
@@ -159,9 +126,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="instanceRoleArn")
     def instance_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an IAM role that instances in the fleet can assume.
-        """
         return pulumi.get(self, "instance_role_arn")
 
     @instance_role_arn.setter
@@ -171,9 +135,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="metricGroups")
     def metric_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        """
         return pulumi.get(self, "metric_groups")
 
     @metric_groups.setter
@@ -183,9 +144,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the fleet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -195,9 +153,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
     def new_game_session_protection_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        """
         return pulumi.get(self, "new_game_session_protection_policy")
 
     @new_game_session_protection_policy.setter
@@ -207,9 +162,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -219,9 +171,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
-        """
-        Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        """
         return pulumi.get(self, "resource_creation_limit_policy")
 
     @resource_creation_limit_policy.setter
@@ -231,9 +180,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]:
-        """
-        Instructions for launching server processes on each instance in the fleet. See below.
-        """
         return pulumi.get(self, "runtime_configuration")
 
     @runtime_configuration.setter
@@ -243,9 +189,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="scriptId")
     def script_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
-        """
         return pulumi.get(self, "script_id")
 
     @script_id.setter
@@ -255,9 +198,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -291,26 +231,6 @@ class _FleetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
-        :param pulumi.Input[_builtins.str] arn: Fleet ARN.
-        :param pulumi.Input[_builtins.str] build_arn: Build ARN.
-        :param pulumi.Input[_builtins.str] build_id: ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
-        :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        :param pulumi.Input[_builtins.str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
-        :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
-        :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        :param pulumi.Input[_builtins.str] operating_system: Operating system of the fleet's computing resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
-        :param pulumi.Input[_builtins.str] script_arn: Script ARN.
-        :param pulumi.Input[_builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -358,9 +278,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fleet ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -370,9 +287,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="buildArn")
     def build_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Build ARN.
-        """
         return pulumi.get(self, "build_arn")
 
     @build_arn.setter
@@ -382,9 +296,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="buildId")
     def build_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
-        """
         return pulumi.get(self, "build_id")
 
     @build_id.setter
@@ -394,9 +305,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="certificateConfiguration")
     def certificate_configuration(self) -> Optional[pulumi.Input['FleetCertificateConfigurationArgs']]:
-        """
-        Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        """
         return pulumi.get(self, "certificate_configuration")
 
     @certificate_configuration.setter
@@ -406,9 +314,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable description of the fleet.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -418,9 +323,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="ec2InboundPermissions")
     def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]:
-        """
-        Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        """
         return pulumi.get(self, "ec2_inbound_permissions")
 
     @ec2_inbound_permissions.setter
@@ -430,9 +332,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="ec2InstanceType")
     def ec2_instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of an EC2 instance typeE.g., `t2.micro`
-        """
         return pulumi.get(self, "ec2_instance_type")
 
     @ec2_instance_type.setter
@@ -442,9 +341,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        """
         return pulumi.get(self, "fleet_type")
 
     @fleet_type.setter
@@ -454,9 +350,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="instanceRoleArn")
     def instance_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an IAM role that instances in the fleet can assume.
-        """
         return pulumi.get(self, "instance_role_arn")
 
     @instance_role_arn.setter
@@ -475,9 +368,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="metricGroups")
     def metric_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        """
         return pulumi.get(self, "metric_groups")
 
     @metric_groups.setter
@@ -487,9 +377,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the fleet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -499,9 +386,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
     def new_game_session_protection_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        """
         return pulumi.get(self, "new_game_session_protection_policy")
 
     @new_game_session_protection_policy.setter
@@ -511,9 +395,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Operating system of the fleet's computing resources.
-        """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
@@ -523,9 +404,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -535,9 +413,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
-        """
-        Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        """
         return pulumi.get(self, "resource_creation_limit_policy")
 
     @resource_creation_limit_policy.setter
@@ -547,9 +422,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]:
-        """
-        Instructions for launching server processes on each instance in the fleet. See below.
-        """
         return pulumi.get(self, "runtime_configuration")
 
     @runtime_configuration.setter
@@ -559,9 +431,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="scriptArn")
     def script_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Script ARN.
-        """
         return pulumi.get(self, "script_arn")
 
     @script_arn.setter
@@ -571,9 +440,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="scriptId")
     def script_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
-        """
         return pulumi.get(self, "script_id")
 
     @script_id.setter
@@ -583,9 +449,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -595,9 +458,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -628,52 +488,9 @@ class Fleet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a GameLift Fleet resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.gamelift.Fleet("example",
-            build_id=example_aws_gamelift_build["id"],
-            ec2_instance_type="t2.micro",
-            fleet_type="ON_DEMAND",
-            name="example-fleet-name",
-            runtime_configuration={
-                "server_processes": [{
-                    "concurrent_executions": 1,
-                    "launch_path": "C:\\\\game\\\\GomokuServer.exe",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GameLift Fleets using the ID. For example:
-
-        ```sh
-        $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
-        ```
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] build_id: ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
-        :param pulumi.Input[Union['FleetCertificateConfigurationArgs', 'FleetCertificateConfigurationArgsDict']] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetEc2InboundPermissionArgs', 'FleetEc2InboundPermissionArgsDict']]]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        :param pulumi.Input[_builtins.str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
-        :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
-        :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
-        :param pulumi.Input[_builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -682,35 +499,7 @@ class Fleet(pulumi.CustomResource):
                  args: FleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a GameLift Fleet resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.gamelift.Fleet("example",
-            build_id=example_aws_gamelift_build["id"],
-            ec2_instance_type="t2.micro",
-            fleet_type="ON_DEMAND",
-            name="example-fleet-name",
-            runtime_configuration={
-                "server_processes": [{
-                    "concurrent_executions": 1,
-                    "launch_path": "C:\\\\game\\\\GomokuServer.exe",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GameLift Fleets using the ID. For example:
-
-        ```sh
-        $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
-        ```
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -811,26 +600,6 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Fleet ARN.
-        :param pulumi.Input[_builtins.str] build_arn: Build ARN.
-        :param pulumi.Input[_builtins.str] build_id: ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
-        :param pulumi.Input[Union['FleetCertificateConfigurationArgs', 'FleetCertificateConfigurationArgsDict']] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetEc2InboundPermissionArgs', 'FleetEc2InboundPermissionArgsDict']]]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        :param pulumi.Input[_builtins.str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
-        :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
-        :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        :param pulumi.Input[_builtins.str] operating_system: Operating system of the fleet's computing resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
-        :param pulumi.Input[_builtins.str] script_arn: Script ARN.
-        :param pulumi.Input[_builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -862,73 +631,46 @@ class Fleet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Fleet ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="buildArn")
     def build_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Build ARN.
-        """
         return pulumi.get(self, "build_arn")
 
     @_builtins.property
     @pulumi.getter(name="buildId")
     def build_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
-        """
         return pulumi.get(self, "build_id")
 
     @_builtins.property
     @pulumi.getter(name="certificateConfiguration")
     def certificate_configuration(self) -> pulumi.Output['outputs.FleetCertificateConfiguration']:
-        """
-        Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        """
         return pulumi.get(self, "certificate_configuration")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Human-readable description of the fleet.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="ec2InboundPermissions")
     def ec2_inbound_permissions(self) -> pulumi.Output[Sequence['outputs.FleetEc2InboundPermission']]:
-        """
-        Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        """
         return pulumi.get(self, "ec2_inbound_permissions")
 
     @_builtins.property
     @pulumi.getter(name="ec2InstanceType")
     def ec2_instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of an EC2 instance typeE.g., `t2.micro`
-        """
         return pulumi.get(self, "ec2_instance_type")
 
     @_builtins.property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        """
         return pulumi.get(self, "fleet_type")
 
     @_builtins.property
     @pulumi.getter(name="instanceRoleArn")
     def instance_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of an IAM role that instances in the fleet can assume.
-        """
         return pulumi.get(self, "instance_role_arn")
 
     @_builtins.property
@@ -939,88 +681,55 @@ class Fleet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="metricGroups")
     def metric_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        """
         return pulumi.get(self, "metric_groups")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the fleet.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
     def new_game_session_protection_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        """
         return pulumi.get(self, "new_game_session_protection_policy")
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Output[_builtins.str]:
-        """
-        Operating system of the fleet's computing resources.
-        """
         return pulumi.get(self, "operating_system")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> pulumi.Output[Optional['outputs.FleetResourceCreationLimitPolicy']]:
-        """
-        Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        """
         return pulumi.get(self, "resource_creation_limit_policy")
 
     @_builtins.property
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> pulumi.Output[Optional['outputs.FleetRuntimeConfiguration']]:
-        """
-        Instructions for launching server processes on each instance in the fleet. See below.
-        """
         return pulumi.get(self, "runtime_configuration")
 
     @_builtins.property
     @pulumi.getter(name="scriptArn")
     def script_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Script ARN.
-        """
         return pulumi.get(self, "script_arn")
 
     @_builtins.property
     @pulumi.getter(name="scriptId")
     def script_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
-        """
         return pulumi.get(self, "script_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

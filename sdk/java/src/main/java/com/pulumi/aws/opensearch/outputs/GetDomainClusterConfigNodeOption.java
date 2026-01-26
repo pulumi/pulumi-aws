@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainClusterConfigNodeOption {
-    /**
-     * @return Sizing of a node type.
-     * 
-     */
     private List<GetDomainClusterConfigNodeOptionNodeConfig> nodeConfigs;
-    /**
-     * @return Type of node this configuration describes.
-     * 
-     */
     private String nodeType;
 
     private GetDomainClusterConfigNodeOption() {}
-    /**
-     * @return Sizing of a node type.
-     * 
-     */
     public List<GetDomainClusterConfigNodeOptionNodeConfig> nodeConfigs() {
         return this.nodeConfigs;
     }
-    /**
-     * @return Type of node this configuration describes.
-     * 
-     */
     public String nodeType() {
         return this.nodeType;
     }

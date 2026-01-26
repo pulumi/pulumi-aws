@@ -19,47 +19,23 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StatementArgs Empty = new StatementArgs();
 
-    /**
-     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     public Optional<Output<String>> clusterIdentifier() {
         return Optional.ofNullable(this.clusterIdentifier);
     }
 
-    /**
-     * The name of the database.
-     * 
-     */
     @Import(name="database", required=true)
     private Output<String> database;
 
-    /**
-     * @return The name of the database.
-     * 
-     */
     public Output<String> database() {
         return this.database;
     }
 
-    /**
-     * The database user name.
-     * 
-     */
     @Import(name="dbUser")
     private @Nullable Output<String> dbUser;
 
-    /**
-     * @return The database user name.
-     * 
-     */
     public Optional<Output<String>> dbUser() {
         return Optional.ofNullable(this.dbUser);
     }
@@ -71,96 +47,44 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name or ARN of the secret that enables access to the database.
-     * 
-     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
-    /**
-     * @return The name or ARN of the secret that enables access to the database.
-     * 
-     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
 
-    /**
-     * The SQL statement text to run.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="sql", required=true)
     private Output<String> sql;
 
-    /**
-     * @return The SQL statement text to run.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> sql() {
         return this.sql;
     }
 
-    /**
-     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-     * 
-     */
     @Import(name="statementName")
     private @Nullable Output<String> statementName;
 
-    /**
-     * @return The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-     * 
-     */
     public Optional<Output<String>> statementName() {
         return Optional.ofNullable(this.statementName);
     }
 
-    /**
-     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-     * 
-     */
     @Import(name="withEvent")
     private @Nullable Output<Boolean> withEvent;
 
-    /**
-     * @return A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-     * 
-     */
     public Optional<Output<Boolean>> withEvent() {
         return Optional.ofNullable(this.withEvent);
     }
 
-    /**
-     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     @Import(name="workgroupName")
     private @Nullable Output<String> workgroupName;
 
-    /**
-     * @return The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     public Optional<Output<String>> workgroupName() {
         return Optional.ofNullable(this.workgroupName);
     }
@@ -198,65 +122,29 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
             $ = new StatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(@Nullable Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param database The name of the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(Output<String> database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param database The name of the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(String database) {
             return database(Output.of(database));
         }
 
-        /**
-         * @param dbUser The database user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbUser(@Nullable Output<String> dbUser) {
             $.dbUser = dbUser;
             return this;
         }
 
-        /**
-         * @param dbUser The database user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbUser(String dbUser) {
             return dbUser(Output.of(dbUser));
         }
@@ -274,132 +162,56 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secretArn The name or ARN of the secret that enables access to the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn The name or ARN of the secret that enables access to the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }
 
-        /**
-         * @param sql The SQL statement text to run.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(Output<String> sql) {
             $.sql = sql;
             return this;
         }
 
-        /**
-         * @param sql The SQL statement text to run.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(String sql) {
             return sql(Output.of(sql));
         }
 
-        /**
-         * @param statementName The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statementName(@Nullable Output<String> statementName) {
             $.statementName = statementName;
             return this;
         }
 
-        /**
-         * @param statementName The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statementName(String statementName) {
             return statementName(Output.of(statementName));
         }
 
-        /**
-         * @param withEvent A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withEvent(@Nullable Output<Boolean> withEvent) {
             $.withEvent = withEvent;
             return this;
         }
 
-        /**
-         * @param withEvent A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withEvent(Boolean withEvent) {
             return withEvent(Output.of(withEvent));
         }
 
-        /**
-         * @param workgroupName The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupName(@Nullable Output<String> workgroupName) {
             $.workgroupName = workgroupName;
             return this;
         }
 
-        /**
-         * @param workgroupName The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupName(String workgroupName) {
             return workgroupName(Output.of(workgroupName));
         }

@@ -16,77 +16,37 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
 
     public static final Smsvoicev2ConfigurationSetArgs Empty = new Smsvoicev2ConfigurationSetArgs();
 
-    /**
-     * The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
-     * 
-     */
     @Import(name="defaultMessageType")
     private @Nullable Output<String> defaultMessageType;
 
-    /**
-     * @return The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
-     * 
-     */
     public Optional<Output<String>> defaultMessageType() {
         return Optional.ofNullable(this.defaultMessageType);
     }
 
-    /**
-     * The default sender ID to use for this configuration set.
-     * 
-     */
     @Import(name="defaultSenderId")
     private @Nullable Output<String> defaultSenderId;
 
-    /**
-     * @return The default sender ID to use for this configuration set.
-     * 
-     */
     public Optional<Output<String>> defaultSenderId() {
         return Optional.ofNullable(this.defaultSenderId);
     }
 
-    /**
-     * The name of the configuration set.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the configuration set.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -119,107 +79,47 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
             $ = new Smsvoicev2ConfigurationSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultMessageType The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultMessageType(@Nullable Output<String> defaultMessageType) {
             $.defaultMessageType = defaultMessageType;
             return this;
         }
 
-        /**
-         * @param defaultMessageType The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultMessageType(String defaultMessageType) {
             return defaultMessageType(Output.of(defaultMessageType));
         }
 
-        /**
-         * @param defaultSenderId The default sender ID to use for this configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSenderId(@Nullable Output<String> defaultSenderId) {
             $.defaultSenderId = defaultSenderId;
             return this;
         }
 
-        /**
-         * @param defaultSenderId The default sender ID to use for this configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSenderId(String defaultSenderId) {
             return defaultSenderId(Output.of(defaultSenderId));
         }
 
-        /**
-         * @param name The name of the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

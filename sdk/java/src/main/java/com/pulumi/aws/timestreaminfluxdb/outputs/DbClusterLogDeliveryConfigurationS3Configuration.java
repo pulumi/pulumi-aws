@@ -12,21 +12,19 @@ import java.util.Objects;
 @CustomType
 public final class DbClusterLogDeliveryConfigurationS3Configuration {
     /**
-     * @return Name of the S3 bucket to deliver logs to.
+     * @return The name of the S3 bucket to deliver logs to.
      * 
      */
     private String bucketName;
     /**
      * @return Indicates whether log delivery to the S3 bucket is enabled.
      * 
-     * **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
-     * 
      */
     private Boolean enabled;
 
     private DbClusterLogDeliveryConfigurationS3Configuration() {}
     /**
-     * @return Name of the S3 bucket to deliver logs to.
+     * @return The name of the S3 bucket to deliver logs to.
      * 
      */
     public String bucketName() {
@@ -34,8 +32,6 @@ public final class DbClusterLogDeliveryConfigurationS3Configuration {
     }
     /**
      * @return Indicates whether log delivery to the S3 bucket is enabled.
-     * 
-     * **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
      * 
      */
     public Boolean enabled() {

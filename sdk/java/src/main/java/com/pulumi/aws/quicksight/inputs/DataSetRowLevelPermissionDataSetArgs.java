@@ -16,77 +16,37 @@ public final class DataSetRowLevelPermissionDataSetArgs extends com.pulumi.resou
 
     public static final DataSetRowLevelPermissionDataSetArgs Empty = new DataSetRowLevelPermissionDataSetArgs();
 
-    /**
-     * ARN of the dataset that contains permissions for RLS.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return ARN of the dataset that contains permissions for RLS.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * User or group rules associated with the dataset that contains permissions for RLS.
-     * 
-     */
     @Import(name="formatVersion")
     private @Nullable Output<String> formatVersion;
 
-    /**
-     * @return User or group rules associated with the dataset that contains permissions for RLS.
-     * 
-     */
     public Optional<Output<String>> formatVersion() {
         return Optional.ofNullable(this.formatVersion);
     }
 
-    /**
-     * Namespace associated with the dataset that contains permissions for RLS.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace associated with the dataset that contains permissions for RLS.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
-     * 
-     */
     @Import(name="permissionPolicy", required=true)
     private Output<String> permissionPolicy;
 
-    /**
-     * @return Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
-     * 
-     */
     public Output<String> permissionPolicy() {
         return this.permissionPolicy;
     }
 
-    /**
-     * Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -119,107 +79,47 @@ public final class DataSetRowLevelPermissionDataSetArgs extends com.pulumi.resou
             $ = new DataSetRowLevelPermissionDataSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the dataset that contains permissions for RLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the dataset that contains permissions for RLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param formatVersion User or group rules associated with the dataset that contains permissions for RLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder formatVersion(@Nullable Output<String> formatVersion) {
             $.formatVersion = formatVersion;
             return this;
         }
 
-        /**
-         * @param formatVersion User or group rules associated with the dataset that contains permissions for RLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder formatVersion(String formatVersion) {
             return formatVersion(Output.of(formatVersion));
         }
 
-        /**
-         * @param namespace Namespace associated with the dataset that contains permissions for RLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace associated with the dataset that contains permissions for RLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param permissionPolicy Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionPolicy(Output<String> permissionPolicy) {
             $.permissionPolicy = permissionPolicy;
             return this;
         }
 
-        /**
-         * @param permissionPolicy Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionPolicy(String permissionPolicy) {
             return permissionPolicy(Output.of(permissionPolicy));
         }
 
-        /**
-         * @param status Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

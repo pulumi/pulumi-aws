@@ -12,7 +12,6 @@ import java.util.Objects;
 public final class TableMetadataIceberg {
     /**
      * @return Schema configuration for the Iceberg table.
-     * See `schema` below.
      * 
      */
     private TableMetadataIcebergSchema schema;
@@ -20,7 +19,6 @@ public final class TableMetadataIceberg {
     private TableMetadataIceberg() {}
     /**
      * @return Schema configuration for the Iceberg table.
-     * See `schema` below.
      * 
      */
     public TableMetadataIcebergSchema schema() {

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionTenancyConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        /// </summary>
         [Input("tenantIsolationMode", required: true)]
         public Input<string> TenantIsolationMode { get; set; } = null!;
 

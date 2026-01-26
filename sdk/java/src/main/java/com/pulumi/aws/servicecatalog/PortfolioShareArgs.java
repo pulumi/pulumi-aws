@@ -17,126 +17,58 @@ public final class PortfolioShareArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final PortfolioShareArgs Empty = new PortfolioShareArgs();
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * Portfolio identifier.
-     * 
-     */
     @Import(name="portfolioId", required=true)
     private Output<String> portfolioId;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public Output<String> portfolioId() {
         return this.portfolioId;
     }
 
-    /**
-     * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-     * 
-     */
     @Import(name="principalId", required=true)
     private Output<String> principalId;
 
-    /**
-     * @return Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-     * 
-     */
     public Output<String> principalId() {
         return this.principalId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
-     * 
-     */
     @Import(name="sharePrincipals")
     private @Nullable Output<Boolean> sharePrincipals;
 
-    /**
-     * @return Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
-     * 
-     */
     public Optional<Output<Boolean>> sharePrincipals() {
         return Optional.ofNullable(this.sharePrincipals);
     }
 
-    /**
-     * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
-     * 
-     */
     @Import(name="shareTagOptions")
     private @Nullable Output<Boolean> shareTagOptions;
 
-    /**
-     * @return Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
-     * 
-     */
     public Optional<Output<Boolean>> shareTagOptions() {
         return Optional.ofNullable(this.shareTagOptions);
     }
 
-    /**
-     * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-     * 
-     */
     @Import(name="waitForAcceptance")
     private @Nullable Output<Boolean> waitForAcceptance;
 
-    /**
-     * @return Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-     * 
-     */
     public Optional<Output<Boolean>> waitForAcceptance() {
         return Optional.ofNullable(this.waitForAcceptance);
     }
@@ -172,174 +104,74 @@ public final class PortfolioShareArgs extends com.pulumi.resources.ResourceArgs 
             $ = new PortfolioShareArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(Output<String> portfolioId) {
             $.portfolioId = portfolioId;
             return this;
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(String portfolioId) {
             return portfolioId(Output.of(portfolioId));
         }
 
-        /**
-         * @param principalId Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
-        /**
-         * @param principalId Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sharePrincipals Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharePrincipals(@Nullable Output<Boolean> sharePrincipals) {
             $.sharePrincipals = sharePrincipals;
             return this;
         }
 
-        /**
-         * @param sharePrincipals Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharePrincipals(Boolean sharePrincipals) {
             return sharePrincipals(Output.of(sharePrincipals));
         }
 
-        /**
-         * @param shareTagOptions Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareTagOptions(@Nullable Output<Boolean> shareTagOptions) {
             $.shareTagOptions = shareTagOptions;
             return this;
         }
 
-        /**
-         * @param shareTagOptions Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareTagOptions(Boolean shareTagOptions) {
             return shareTagOptions(Output.of(shareTagOptions));
         }
 
-        /**
-         * @param type Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param waitForAcceptance Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForAcceptance(@Nullable Output<Boolean> waitForAcceptance) {
             $.waitForAcceptance = waitForAcceptance;
             return this;
         }
 
-        /**
-         * @param waitForAcceptance Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForAcceptance(Boolean waitForAcceptance) {
             return waitForAcceptance(Output.of(waitForAcceptance));
         }

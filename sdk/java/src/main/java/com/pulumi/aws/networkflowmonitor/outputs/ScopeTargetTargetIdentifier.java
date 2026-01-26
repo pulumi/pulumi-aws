@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScopeTargetTargetIdentifier {
-    /**
-     * @return The identifier for a target, which is currently always an account ID.
-     * 
-     */
     private @Nullable ScopeTargetTargetIdentifierTargetId targetId;
-    /**
-     * @return The type of a target. A target type is currently always `ACCOUNT`.
-     * 
-     */
     private String targetType;
 
     private ScopeTargetTargetIdentifier() {}
-    /**
-     * @return The identifier for a target, which is currently always an account ID.
-     * 
-     */
     public Optional<ScopeTargetTargetIdentifierTargetId> targetId() {
         return Optional.ofNullable(this.targetId);
     }
-    /**
-     * @return The type of a target. A target type is currently always `ACCOUNT`.
-     * 
-     */
     public String targetType() {
         return this.targetType;
     }

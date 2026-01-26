@@ -17,96 +17,44 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FunctionUrlArgs Empty = new FunctionUrlArgs();
 
-    /**
-     * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-     * 
-     */
     @Import(name="authorizationType", required=true)
     private Output<String> authorizationType;
 
-    /**
-     * @return Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-     * 
-     */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
 
-    /**
-     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
-     * 
-     */
     @Import(name="cors")
     private @Nullable Output<FunctionUrlCorsArgs> cors;
 
-    /**
-     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
-     * 
-     */
     public Optional<Output<FunctionUrlCorsArgs>> cors() {
         return Optional.ofNullable(this.cors);
     }
 
-    /**
-     * Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
-    /**
-     * @return Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
 
-    /**
-     * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
-     * 
-     */
     @Import(name="invokeMode")
     private @Nullable Output<String> invokeMode;
 
-    /**
-     * @return How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
-     * 
-     */
     public Optional<Output<String>> invokeMode() {
         return Optional.ofNullable(this.invokeMode);
     }
 
-    /**
-     * Alias name or `$LATEST`.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
-    /**
-     * @return Alias name or `$LATEST`.
-     * 
-     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -140,132 +88,56 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FunctionUrlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationType Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(Output<String> authorizationType) {
             $.authorizationType = authorizationType;
             return this;
         }
 
-        /**
-         * @param authorizationType Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(String authorizationType) {
             return authorizationType(Output.of(authorizationType));
         }
 
-        /**
-         * @param cors Cross-origin resource sharing (CORS) settings for the function URL. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cors(@Nullable Output<FunctionUrlCorsArgs> cors) {
             $.cors = cors;
             return this;
         }
 
-        /**
-         * @param cors Cross-origin resource sharing (CORS) settings for the function URL. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cors(FunctionUrlCorsArgs cors) {
             return cors(Output.of(cors));
         }
 
-        /**
-         * @param functionName Name or ARN of the Lambda function.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName Name or ARN of the Lambda function.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param invokeMode How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invokeMode(@Nullable Output<String> invokeMode) {
             $.invokeMode = invokeMode;
             return this;
         }
 
-        /**
-         * @param invokeMode How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invokeMode(String invokeMode) {
             return invokeMode(Output.of(invokeMode));
         }
 
-        /**
-         * @param qualifier Alias name or `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier Alias name or `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

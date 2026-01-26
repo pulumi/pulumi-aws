@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplate
     {
-        /// <summary>
-        /// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
-        /// </summary>
         public readonly string? CapacityOptionType;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
-        /// </summary>
         public readonly string Ec2InstanceProfileArn;
-        /// <summary>
-        /// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
-        /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements? InstanceRequirements;
-        /// <summary>
-        /// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
-        /// </summary>
         public readonly string? Monitoring;
-        /// <summary>
-        /// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
-        /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration NetworkConfiguration;
-        /// <summary>
-        /// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
-        /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration? StorageConfiguration;
 
         [OutputConstructor]

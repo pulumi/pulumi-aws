@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterComputeConfig {
-    /**
-     * @return Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
-     * 
-     */
     private @Nullable List<String> nodePools;
-    /**
-     * @return The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
-     * 
-     */
     private @Nullable String nodeRoleArn;
 
     private ClusterComputeConfig() {}
-    /**
-     * @return Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
-     * 
-     */
     public List<String> nodePools() {
         return this.nodePools == null ? List.of() : this.nodePools;
     }
-    /**
-     * @return The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
-     * 
-     */
     public Optional<String> nodeRoleArn() {
         return Optional.ofNullable(this.nodeRoleArn);
     }

@@ -13,33 +13,12 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class TargetGroupConfig
     {
-        /// <summary>
-        /// The health check configuration.
-        /// </summary>
         public readonly Outputs.TargetGroupConfigHealthCheck? HealthCheck;
-        /// <summary>
-        /// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-        /// </summary>
         public readonly string? IpAddressType;
-        /// <summary>
-        /// The version of the event structure that the Lambda function receives. Supported only if `Type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-        /// </summary>
         public readonly string? LambdaEventStructureVersion;
-        /// <summary>
-        /// The port on which the targets are listening.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-        /// </summary>
         public readonly string? Protocol;
-        /// <summary>
-        /// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-        /// </summary>
         public readonly string? ProtocolVersion;
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         public readonly string? VpcIdentifier;
 
         [OutputConstructor]

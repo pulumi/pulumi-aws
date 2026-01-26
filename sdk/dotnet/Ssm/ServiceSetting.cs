@@ -9,66 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    /// <summary>
-    /// This setting defines how a user interacts with or uses a service or a feature of a service.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testSetting = new Aws.Ssm.ServiceSetting("test_setting", new()
-    ///     {
-    ///         SettingId = "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
-    ///         SettingValue = "true",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssm/serviceSetting:ServiceSetting")]
     public partial class ServiceSetting : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the service setting.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-        /// </summary>
         [Output("settingId")]
         public Output<string> SettingId { get; private set; } = null!;
 
-        /// <summary>
-        /// Value of the service setting.
-        /// </summary>
         [Output("settingValue")]
         public Output<string> SettingValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -118,21 +73,12 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class ServiceSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-        /// </summary>
         [Input("settingId", required: true)]
         public Input<string> SettingId { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the service setting.
-        /// </summary>
         [Input("settingValue", required: true)]
         public Input<string> SettingValue { get; set; } = null!;
 
@@ -144,33 +90,18 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class ServiceSettingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the service setting.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-        /// </summary>
         [Input("settingId")]
         public Input<string>? SettingId { get; set; }
 
-        /// <summary>
-        /// Value of the service setting.
-        /// </summary>
         [Input("settingValue")]
         public Input<string>? SettingValue { get; set; }
 
-        /// <summary>
-        /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

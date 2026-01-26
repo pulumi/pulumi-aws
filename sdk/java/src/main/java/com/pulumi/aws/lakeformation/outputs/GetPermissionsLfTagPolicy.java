@@ -12,45 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionsLfTagPolicy {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private List<GetPermissionsLfTagPolicyExpression> expressions;
-    /**
-     * @return Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-     * 
-     */
     private String resourceType;
 
     private GetPermissionsLfTagPolicy() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public List<GetPermissionsLfTagPolicyExpression> expressions() {
         return this.expressions;
     }
-    /**
-     * @return Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }

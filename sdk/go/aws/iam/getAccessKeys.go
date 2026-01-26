@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about IAM access keys of a
-// specific IAM user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetAccessKeys(ctx, &iam.GetAccessKeysArgs{
-//				User: "an_example_user_name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAccessKeys(ctx *pulumi.Context, args *GetAccessKeysArgs, opts ...pulumi.InvokeOption) (*GetAccessKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccessKeysResult
@@ -51,13 +23,11 @@ func GetAccessKeys(ctx *pulumi.Context, args *GetAccessKeysArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getAccessKeys.
 type GetAccessKeysArgs struct {
-	// Name of the IAM user associated with the access keys.
 	User string `pulumi:"user"`
 }
 
 // A collection of values returned by getAccessKeys.
 type GetAccessKeysResult struct {
-	// List of the IAM access keys associated with the specified user. See below.
 	AccessKeys []GetAccessKeysAccessKey `pulumi:"accessKeys"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -75,7 +45,6 @@ func GetAccessKeysOutput(ctx *pulumi.Context, args GetAccessKeysOutputArgs, opts
 
 // A collection of arguments for invoking getAccessKeys.
 type GetAccessKeysOutputArgs struct {
-	// Name of the IAM user associated with the access keys.
 	User pulumi.StringInput `pulumi:"user"`
 }
 
@@ -98,7 +67,6 @@ func (o GetAccessKeysResultOutput) ToGetAccessKeysResultOutputWithContext(ctx co
 	return o
 }
 
-// List of the IAM access keys associated with the specified user. See below.
 func (o GetAccessKeysResultOutput) AccessKeys() GetAccessKeysAccessKeyArrayOutput {
 	return o.ApplyT(func(v GetAccessKeysResult) []GetAccessKeysAccessKey { return v.AccessKeys }).(GetAccessKeysAccessKeyArrayOutput)
 }

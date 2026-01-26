@@ -9,185 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web IP Access Settings resource. Once associated with a web portal, IP access settings control which IP addresses users can connect from.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///         IpRules = new[]
-    ///         {
-    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
-    ///             {
-    ///                 IpRange = "10.0.0.0/16",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Multiple IP Rules
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///         Description = "Example IP access settings",
-    ///         IpRules = new[]
-    ///         {
-    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
-    ///             {
-    ///                 IpRange = "10.0.0.0/16",
-    ///                 Description = "Main office",
-    ///             },
-    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
-    ///             {
-    ///                 IpRange = "192.168.0.0/24",
-    ///                 Description = "Branch office",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With All Arguments
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "KMS key for WorkSpaces Web IP Access Settings",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleIpAccessSettings = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///         Description = "Example IP access settings",
-    ///         CustomerManagedKey = example.Arn,
-    ///         AdditionalEncryptionContext = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///         IpRules = new[]
-    ///         {
-    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
-    ///             {
-    ///                 IpRange = "10.0.0.0/16",
-    ///                 Description = "Main office",
-    ///             },
-    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
-    ///             {
-    ///                 IpRange = "192.168.0.0/24",
-    ///                 Description = "Branch office",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-ip-access-settings" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web IP Access Settings using the `ip_access_settings_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/ipAccessSettings:IpAccessSettings")]
     public partial class IpAccessSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Additional encryption context for the IP access settings.
-        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
-        /// <summary>
-        /// List of web portal ARNs that this IP access settings resource is associated with.
-        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the customer managed KMS key.
-        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the IP access settings.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The display name of the IP access settings.
-        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IP access settings resource.
-        /// </summary>
         [Output("ipAccessSettingsArn")]
         public Output<string> IpAccessSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The IP rules of the IP access settings. See IP Rule below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("ipRules")]
         public Output<ImmutableArray<Outputs.IpAccessSettingsIpRule>> IpRules { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -239,60 +90,34 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Additional encryption context for the IP access settings.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
-        /// <summary>
-        /// ARN of the customer managed KMS key.
-        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
-        /// <summary>
-        /// The description of the IP access settings.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The display name of the IP access settings.
-        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<Inputs.IpAccessSettingsIpRuleArgs>? _ipRules;
-
-        /// <summary>
-        /// The IP rules of the IP access settings. See IP Rule below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.IpAccessSettingsIpRuleArgs> IpRules
         {
             get => _ipRules ?? (_ipRules = new InputList<Inputs.IpAccessSettingsIpRuleArgs>());
             set => _ipRules = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -309,10 +134,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Additional encryption context for the IP access settings.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
@@ -321,66 +142,37 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("associatedPortalArns")]
         private InputList<string>? _associatedPortalArns;
-
-        /// <summary>
-        /// List of web portal ARNs that this IP access settings resource is associated with.
-        /// </summary>
         public InputList<string> AssociatedPortalArns
         {
             get => _associatedPortalArns ?? (_associatedPortalArns = new InputList<string>());
             set => _associatedPortalArns = value;
         }
 
-        /// <summary>
-        /// ARN of the customer managed KMS key.
-        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
-        /// <summary>
-        /// The description of the IP access settings.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The display name of the IP access settings.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// ARN of the IP access settings resource.
-        /// </summary>
         [Input("ipAccessSettingsArn")]
         public Input<string>? IpAccessSettingsArn { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.IpAccessSettingsIpRuleGetArgs>? _ipRules;
-
-        /// <summary>
-        /// The IP rules of the IP access settings. See IP Rule below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.IpAccessSettingsIpRuleGetArgs> IpRules
         {
             get => _ipRules ?? (_ipRules = new InputList<Inputs.IpAccessSettingsIpRuleGetArgs>());
             set => _ipRules = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -389,10 +181,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

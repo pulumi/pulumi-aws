@@ -14,32 +14,16 @@ public final class GetPatchBaselinesFilter extends com.pulumi.resources.InvokeAr
 
     public static final GetPatchBaselinesFilter Empty = new GetPatchBaselinesFilter();
 
-    /**
-     * Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-     * 
-     */
     public String key() {
         return this.key;
     }
 
-    /**
-     * Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,34 +53,16 @@ public final class GetPatchBaselinesFilter extends com.pulumi.resources.InvokeAr
             $ = new GetPatchBaselinesFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param values Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following adds a route for a particular cidr block to every (private
- * kops) route table in a specified vpc to use a particular vpc peering
- * connection.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const rts = aws.ec2.getRouteTables({
- *     vpcId: vpcId,
- *     filters: [{
- *         name: "tag:kubernetes.io/kops/role",
- *         values: ["private*"],
- *     }],
- * });
- * const r: aws.ec2.Route[] = [];
- * rts.then(rts => rts.ids).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: rts.then(rts => rts.ids[range.value]),
- *             destinationCidrBlock: "10.0.0.0/22",
- *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
- *         }));
- *     }
- * });
- * ```
- */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,22 +22,9 @@ export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getRouteTables.
  */
 export interface GetRouteTablesArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetRouteTablesFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired route tables.
-     */
     tags?: {[key: string]: string};
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: string;
 }
 
@@ -82,46 +37,11 @@ export interface GetRouteTablesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the route table ids found.
-     */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
-/**
- * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following adds a route for a particular cidr block to every (private
- * kops) route table in a specified vpc to use a particular vpc peering
- * connection.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const rts = aws.ec2.getRouteTables({
- *     vpcId: vpcId,
- *     filters: [{
- *         name: "tag:kubernetes.io/kops/role",
- *         values: ["private*"],
- *     }],
- * });
- * const r: aws.ec2.Route[] = [];
- * rts.then(rts => rts.ids).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: rts.then(rts => rts.ids[range.value]),
- *             destinationCidrBlock: "10.0.0.0/22",
- *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
- *         }));
- *     }
- * });
- * ```
- */
 export function getRouteTablesOutput(args?: GetRouteTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -137,21 +57,8 @@ export function getRouteTablesOutput(args?: GetRouteTablesOutputArgs, opts?: pul
  * A collection of arguments for invoking getRouteTables.
  */
 export interface GetRouteTablesOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetRouteTablesFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired route tables.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: pulumi.Input<string>;
 }

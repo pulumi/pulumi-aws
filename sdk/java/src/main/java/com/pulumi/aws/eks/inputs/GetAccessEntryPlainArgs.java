@@ -16,47 +16,23 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetAccessEntryPlainArgs Empty = new GetAccessEntryPlainArgs();
 
-    /**
-     * Name of the EKS Cluster.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private String clusterName;
 
-    /**
-     * @return Name of the EKS Cluster.
-     * 
-     */
     public String clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     @Import(name="principalArn", required=true)
     private String principalArn;
 
-    /**
-     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     public String principalArn() {
         return this.principalArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -68,17 +44,9 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Map<String,String> tagsAll;
 
-    /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Map<String,String>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -111,34 +79,16 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetAccessEntryPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(String principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
@@ -149,12 +99,6 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
             return this;
         }
 
-        /**
-         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
             $.tagsAll = tagsAll;
             return this;

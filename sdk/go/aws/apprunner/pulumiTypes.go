@@ -14,14 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CustomDomainAssociationCertificateValidationRecord struct {
-	// Certificate CNAME record name.
-	Name *string `pulumi:"name"`
-	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+	Name   *string `pulumi:"name"`
 	Status *string `pulumi:"status"`
-	// Record type, always `CNAME`.
-	Type *string `pulumi:"type"`
-	// Certificate CNAME record value.
-	Value *string `pulumi:"value"`
+	Type   *string `pulumi:"type"`
+	Value  *string `pulumi:"value"`
 }
 
 // CustomDomainAssociationCertificateValidationRecordInput is an input type that accepts CustomDomainAssociationCertificateValidationRecordArgs and CustomDomainAssociationCertificateValidationRecordOutput values.
@@ -36,14 +32,10 @@ type CustomDomainAssociationCertificateValidationRecordInput interface {
 }
 
 type CustomDomainAssociationCertificateValidationRecordArgs struct {
-	// Certificate CNAME record name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Record type, always `CNAME`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Certificate CNAME record value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (CustomDomainAssociationCertificateValidationRecordArgs) ElementType() reflect.Type {
@@ -97,22 +89,18 @@ func (o CustomDomainAssociationCertificateValidationRecordOutput) ToCustomDomain
 	return o
 }
 
-// Certificate CNAME record name.
 func (o CustomDomainAssociationCertificateValidationRecordOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 func (o CustomDomainAssociationCertificateValidationRecordOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Record type, always `CNAME`.
 func (o CustomDomainAssociationCertificateValidationRecordOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Certificate CNAME record value.
 func (o CustomDomainAssociationCertificateValidationRecordOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -275,7 +263,6 @@ func (o DeploymentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 }
 
 type ObservabilityConfigurationTraceConfiguration struct {
-	// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
 	Vendor *string `pulumi:"vendor"`
 }
 
@@ -291,7 +278,6 @@ type ObservabilityConfigurationTraceConfigurationInput interface {
 }
 
 type ObservabilityConfigurationTraceConfigurationArgs struct {
-	// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
 	Vendor pulumi.StringPtrInput `pulumi:"vendor"`
 }
 
@@ -372,7 +358,6 @@ func (o ObservabilityConfigurationTraceConfigurationOutput) ToObservabilityConfi
 	}).(ObservabilityConfigurationTraceConfigurationPtrOutput)
 }
 
-// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
 func (o ObservabilityConfigurationTraceConfigurationOutput) Vendor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityConfigurationTraceConfiguration) *string { return v.Vendor }).(pulumi.StringPtrOutput)
 }
@@ -401,7 +386,6 @@ func (o ObservabilityConfigurationTraceConfigurationPtrOutput) Elem() Observabil
 	}).(ObservabilityConfigurationTraceConfigurationOutput)
 }
 
-// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
 func (o ObservabilityConfigurationTraceConfigurationPtrOutput) Vendor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObservabilityConfigurationTraceConfiguration) *string {
 		if v == nil {
@@ -412,7 +396,6 @@ func (o ObservabilityConfigurationTraceConfigurationPtrOutput) Vendor() pulumi.S
 }
 
 type ServiceEncryptionConfiguration struct {
-	// ARN of the KMS key used for encryption.
 	KmsKey string `pulumi:"kmsKey"`
 }
 
@@ -428,7 +411,6 @@ type ServiceEncryptionConfigurationInput interface {
 }
 
 type ServiceEncryptionConfigurationArgs struct {
-	// ARN of the KMS key used for encryption.
 	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
 }
 
@@ -509,7 +491,6 @@ func (o ServiceEncryptionConfigurationOutput) ToServiceEncryptionConfigurationPt
 	}).(ServiceEncryptionConfigurationPtrOutput)
 }
 
-// ARN of the KMS key used for encryption.
 func (o ServiceEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
 }
@@ -538,7 +519,6 @@ func (o ServiceEncryptionConfigurationPtrOutput) Elem() ServiceEncryptionConfigu
 	}).(ServiceEncryptionConfigurationOutput)
 }
 
-// ARN of the KMS key used for encryption.
 func (o ServiceEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEncryptionConfiguration) *string {
 		if v == nil {
@@ -549,18 +529,12 @@ func (o ServiceEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput
 }
 
 type ServiceHealthCheckConfiguration struct {
-	// Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
-	HealthyThreshold *int `pulumi:"healthyThreshold"`
-	// Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
-	Interval *int `pulumi:"interval"`
-	// URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
-	Path *string `pulumi:"path"`
-	// IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
-	Protocol *string `pulumi:"protocol"`
-	// Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
-	Timeout *int `pulumi:"timeout"`
-	// Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
-	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   *int    `pulumi:"healthyThreshold"`
+	Interval           *int    `pulumi:"interval"`
+	Path               *string `pulumi:"path"`
+	Protocol           *string `pulumi:"protocol"`
+	Timeout            *int    `pulumi:"timeout"`
+	UnhealthyThreshold *int    `pulumi:"unhealthyThreshold"`
 }
 
 // ServiceHealthCheckConfigurationInput is an input type that accepts ServiceHealthCheckConfigurationArgs and ServiceHealthCheckConfigurationOutput values.
@@ -575,18 +549,12 @@ type ServiceHealthCheckConfigurationInput interface {
 }
 
 type ServiceHealthCheckConfigurationArgs struct {
-	// Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
-	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
-	// Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
-	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   pulumi.IntPtrInput    `pulumi:"healthyThreshold"`
+	Interval           pulumi.IntPtrInput    `pulumi:"interval"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
+	Timeout            pulumi.IntPtrInput    `pulumi:"timeout"`
+	UnhealthyThreshold pulumi.IntPtrInput    `pulumi:"unhealthyThreshold"`
 }
 
 func (ServiceHealthCheckConfigurationArgs) ElementType() reflect.Type {
@@ -666,32 +634,26 @@ func (o ServiceHealthCheckConfigurationOutput) ToServiceHealthCheckConfiguration
 	}).(ServiceHealthCheckConfigurationPtrOutput)
 }
 
-// Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-// Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
 func (o ServiceHealthCheckConfigurationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
 func (o ServiceHealthCheckConfigurationOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
@@ -720,7 +682,6 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Elem() ServiceHealthCheckConfi
 	}).(ServiceHealthCheckConfigurationOutput)
 }
 
-// Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -730,7 +691,6 @@ func (o ServiceHealthCheckConfigurationPtrOutput) HealthyThreshold() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -740,7 +700,6 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Interval() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
 func (o ServiceHealthCheckConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *string {
 		if v == nil {
@@ -750,7 +709,6 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Path() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
 func (o ServiceHealthCheckConfigurationPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *string {
 		if v == nil {
@@ -760,7 +718,6 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Protocol() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -770,7 +727,6 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Timeout() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
 func (o ServiceHealthCheckConfigurationPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -781,12 +737,9 @@ func (o ServiceHealthCheckConfigurationPtrOutput) UnhealthyThreshold() pulumi.In
 }
 
 type ServiceInstanceConfiguration struct {
-	// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
-	Cpu *string `pulumi:"cpu"`
-	// ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+	Cpu             *string `pulumi:"cpu"`
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
-	// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
-	Memory *string `pulumi:"memory"`
+	Memory          *string `pulumi:"memory"`
 }
 
 // ServiceInstanceConfigurationInput is an input type that accepts ServiceInstanceConfigurationArgs and ServiceInstanceConfigurationOutput values.
@@ -801,12 +754,9 @@ type ServiceInstanceConfigurationInput interface {
 }
 
 type ServiceInstanceConfigurationArgs struct {
-	// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
-	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
-	// ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+	Cpu             pulumi.StringPtrInput `pulumi:"cpu"`
 	InstanceRoleArn pulumi.StringPtrInput `pulumi:"instanceRoleArn"`
-	// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
-	Memory pulumi.StringPtrInput `pulumi:"memory"`
+	Memory          pulumi.StringPtrInput `pulumi:"memory"`
 }
 
 func (ServiceInstanceConfigurationArgs) ElementType() reflect.Type {
@@ -886,17 +836,14 @@ func (o ServiceInstanceConfigurationOutput) ToServiceInstanceConfigurationPtrOut
 	}).(ServiceInstanceConfigurationPtrOutput)
 }
 
-// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
 func (o ServiceInstanceConfigurationOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
-// ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
 func (o ServiceInstanceConfigurationOutput) InstanceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.InstanceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
 func (o ServiceInstanceConfigurationOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -925,7 +872,6 @@ func (o ServiceInstanceConfigurationPtrOutput) Elem() ServiceInstanceConfigurati
 	}).(ServiceInstanceConfigurationOutput)
 }
 
-// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
 func (o ServiceInstanceConfigurationPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {
@@ -935,7 +881,6 @@ func (o ServiceInstanceConfigurationPtrOutput) Cpu() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
 func (o ServiceInstanceConfigurationPtrOutput) InstanceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {
@@ -945,7 +890,6 @@ func (o ServiceInstanceConfigurationPtrOutput) InstanceRoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
 func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {
@@ -956,12 +900,9 @@ func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 }
 
 type ServiceNetworkConfiguration struct {
-	// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-	EgressConfiguration *ServiceNetworkConfigurationEgressConfiguration `pulumi:"egressConfiguration"`
-	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+	EgressConfiguration  *ServiceNetworkConfigurationEgressConfiguration  `pulumi:"egressConfiguration"`
 	IngressConfiguration *ServiceNetworkConfigurationIngressConfiguration `pulumi:"ingressConfiguration"`
-	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-	IpAddressType *string `pulumi:"ipAddressType"`
+	IpAddressType        *string                                          `pulumi:"ipAddressType"`
 }
 
 // ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
@@ -976,12 +917,9 @@ type ServiceNetworkConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationArgs struct {
-	// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-	EgressConfiguration ServiceNetworkConfigurationEgressConfigurationPtrInput `pulumi:"egressConfiguration"`
-	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+	EgressConfiguration  ServiceNetworkConfigurationEgressConfigurationPtrInput  `pulumi:"egressConfiguration"`
 	IngressConfiguration ServiceNetworkConfigurationIngressConfigurationPtrInput `pulumi:"ingressConfiguration"`
-	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	IpAddressType        pulumi.StringPtrInput                                   `pulumi:"ipAddressType"`
 }
 
 func (ServiceNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -1061,21 +999,18 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
 
-// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
 func (o ServiceNetworkConfigurationOutput) EgressConfiguration() ServiceNetworkConfigurationEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfigurationEgressConfiguration {
 		return v.EgressConfiguration
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
-// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
 func (o ServiceNetworkConfigurationOutput) IngressConfiguration() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfigurationIngressConfiguration {
 		return v.IngressConfiguration
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
-// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 func (o ServiceNetworkConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -1104,7 +1039,6 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 	}).(ServiceNetworkConfigurationOutput)
 }
 
-// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
 func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceNetworkConfigurationEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceNetworkConfigurationEgressConfiguration {
 		if v == nil {
@@ -1114,7 +1048,6 @@ func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceNetwo
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
-// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
 func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceNetworkConfigurationIngressConfiguration {
 		if v == nil {
@@ -1124,7 +1057,6 @@ func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceNetw
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
-// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 func (o ServiceNetworkConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *string {
 		if v == nil {
@@ -1135,9 +1067,7 @@ func (o ServiceNetworkConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOu
 }
 
 type ServiceNetworkConfigurationEgressConfiguration struct {
-	// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-	EgressType *string `pulumi:"egressType"`
-	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+	EgressType      *string `pulumi:"egressType"`
 	VpcConnectorArn *string `pulumi:"vpcConnectorArn"`
 }
 
@@ -1153,9 +1083,7 @@ type ServiceNetworkConfigurationEgressConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationEgressConfigurationArgs struct {
-	// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-	EgressType pulumi.StringPtrInput `pulumi:"egressType"`
-	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+	EgressType      pulumi.StringPtrInput `pulumi:"egressType"`
 	VpcConnectorArn pulumi.StringPtrInput `pulumi:"vpcConnectorArn"`
 }
 
@@ -1236,12 +1164,10 @@ func (o ServiceNetworkConfigurationEgressConfigurationOutput) ToServiceNetworkCo
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
-// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationOutput) EgressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.EgressType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.VpcConnectorArn }).(pulumi.StringPtrOutput)
 }
@@ -1270,7 +1196,6 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) Elem() ServiceN
 	}).(ServiceNetworkConfigurationEgressConfigurationOutput)
 }
 
-// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) EgressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationEgressConfiguration) *string {
 		if v == nil {
@@ -1280,7 +1205,6 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) EgressType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationEgressConfiguration) *string {
 		if v == nil {
@@ -1291,7 +1215,6 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn
 }
 
 type ServiceNetworkConfigurationIngressConfiguration struct {
-	// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
 	IsPubliclyAccessible *bool `pulumi:"isPubliclyAccessible"`
 }
 
@@ -1307,7 +1230,6 @@ type ServiceNetworkConfigurationIngressConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationIngressConfigurationArgs struct {
-	// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
 	IsPubliclyAccessible pulumi.BoolPtrInput `pulumi:"isPubliclyAccessible"`
 }
 
@@ -1388,7 +1310,6 @@ func (o ServiceNetworkConfigurationIngressConfigurationOutput) ToServiceNetworkC
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
-// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
 func (o ServiceNetworkConfigurationIngressConfigurationOutput) IsPubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationIngressConfiguration) *bool { return v.IsPubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
@@ -1417,7 +1338,6 @@ func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) Elem() Service
 	}).(ServiceNetworkConfigurationIngressConfigurationOutput)
 }
 
-// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
 func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) IsPubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationIngressConfiguration) *bool {
 		if v == nil {
@@ -1428,10 +1348,8 @@ func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) IsPubliclyAcce
 }
 
 type ServiceObservabilityConfiguration struct {
-	// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
 	ObservabilityConfigurationArn *string `pulumi:"observabilityConfigurationArn"`
-	// When `true`, an observability configuration resource is associated with the service.
-	ObservabilityEnabled bool `pulumi:"observabilityEnabled"`
+	ObservabilityEnabled          bool    `pulumi:"observabilityEnabled"`
 }
 
 // ServiceObservabilityConfigurationInput is an input type that accepts ServiceObservabilityConfigurationArgs and ServiceObservabilityConfigurationOutput values.
@@ -1446,10 +1364,8 @@ type ServiceObservabilityConfigurationInput interface {
 }
 
 type ServiceObservabilityConfigurationArgs struct {
-	// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
 	ObservabilityConfigurationArn pulumi.StringPtrInput `pulumi:"observabilityConfigurationArn"`
-	// When `true`, an observability configuration resource is associated with the service.
-	ObservabilityEnabled pulumi.BoolInput `pulumi:"observabilityEnabled"`
+	ObservabilityEnabled          pulumi.BoolInput      `pulumi:"observabilityEnabled"`
 }
 
 func (ServiceObservabilityConfigurationArgs) ElementType() reflect.Type {
@@ -1529,12 +1445,10 @@ func (o ServiceObservabilityConfigurationOutput) ToServiceObservabilityConfigura
 	}).(ServiceObservabilityConfigurationPtrOutput)
 }
 
-// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
 func (o ServiceObservabilityConfigurationOutput) ObservabilityConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceObservabilityConfiguration) *string { return v.ObservabilityConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
-// When `true`, an observability configuration resource is associated with the service.
 func (o ServiceObservabilityConfigurationOutput) ObservabilityEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceObservabilityConfiguration) bool { return v.ObservabilityEnabled }).(pulumi.BoolOutput)
 }
@@ -1563,7 +1477,6 @@ func (o ServiceObservabilityConfigurationPtrOutput) Elem() ServiceObservabilityC
 	}).(ServiceObservabilityConfigurationOutput)
 }
 
-// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
 func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceObservabilityConfiguration) *string {
 		if v == nil {
@@ -1573,7 +1486,6 @@ func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityConfigurationAr
 	}).(pulumi.StringPtrOutput)
 }
 
-// When `true`, an observability configuration resource is associated with the service.
 func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceObservabilityConfiguration) *bool {
 		if v == nil {
@@ -1584,14 +1496,10 @@ func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityEnabled() pulum
 }
 
 type ServiceSourceConfiguration struct {
-	// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
 	AuthenticationConfiguration *ServiceSourceConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-	AutoDeploymentsEnabled *bool `pulumi:"autoDeploymentsEnabled"`
-	// Description of a source code repository. See Code Repository below for more details.
-	CodeRepository *ServiceSourceConfigurationCodeRepository `pulumi:"codeRepository"`
-	// Description of a source image repository. See Image Repository below for more details.
-	ImageRepository *ServiceSourceConfigurationImageRepository `pulumi:"imageRepository"`
+	AutoDeploymentsEnabled      *bool                                                  `pulumi:"autoDeploymentsEnabled"`
+	CodeRepository              *ServiceSourceConfigurationCodeRepository              `pulumi:"codeRepository"`
+	ImageRepository             *ServiceSourceConfigurationImageRepository             `pulumi:"imageRepository"`
 }
 
 // ServiceSourceConfigurationInput is an input type that accepts ServiceSourceConfigurationArgs and ServiceSourceConfigurationOutput values.
@@ -1606,14 +1514,10 @@ type ServiceSourceConfigurationInput interface {
 }
 
 type ServiceSourceConfigurationArgs struct {
-	// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
 	AuthenticationConfiguration ServiceSourceConfigurationAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
-	// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-	AutoDeploymentsEnabled pulumi.BoolPtrInput `pulumi:"autoDeploymentsEnabled"`
-	// Description of a source code repository. See Code Repository below for more details.
-	CodeRepository ServiceSourceConfigurationCodeRepositoryPtrInput `pulumi:"codeRepository"`
-	// Description of a source image repository. See Image Repository below for more details.
-	ImageRepository ServiceSourceConfigurationImageRepositoryPtrInput `pulumi:"imageRepository"`
+	AutoDeploymentsEnabled      pulumi.BoolPtrInput                                           `pulumi:"autoDeploymentsEnabled"`
+	CodeRepository              ServiceSourceConfigurationCodeRepositoryPtrInput              `pulumi:"codeRepository"`
+	ImageRepository             ServiceSourceConfigurationImageRepositoryPtrInput             `pulumi:"imageRepository"`
 }
 
 func (ServiceSourceConfigurationArgs) ElementType() reflect.Type {
@@ -1693,24 +1597,20 @@ func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutputW
 	}).(ServiceSourceConfigurationPtrOutput)
 }
 
-// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
 func (o ServiceSourceConfigurationOutput) AuthenticationConfiguration() ServiceSourceConfigurationAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfigurationAuthenticationConfiguration {
 		return v.AuthenticationConfiguration
 	}).(ServiceSourceConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
 func (o ServiceSourceConfigurationOutput) AutoDeploymentsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *bool { return v.AutoDeploymentsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Description of a source code repository. See Code Repository below for more details.
 func (o ServiceSourceConfigurationOutput) CodeRepository() ServiceSourceConfigurationCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfigurationCodeRepository { return v.CodeRepository }).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
 }
 
-// Description of a source image repository. See Image Repository below for more details.
 func (o ServiceSourceConfigurationOutput) ImageRepository() ServiceSourceConfigurationImageRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfigurationImageRepository {
 		return v.ImageRepository
@@ -1741,7 +1641,6 @@ func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOu
 	}).(ServiceSourceConfigurationOutput)
 }
 
-// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
 func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() ServiceSourceConfigurationAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationAuthenticationConfiguration {
 		if v == nil {
@@ -1751,7 +1650,6 @@ func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() Servi
 	}).(ServiceSourceConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
 func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *bool {
 		if v == nil {
@@ -1761,7 +1659,6 @@ func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Description of a source code repository. See Code Repository below for more details.
 func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceSourceConfigurationCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationCodeRepository {
 		if v == nil {
@@ -1771,7 +1668,6 @@ func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceSourceConfi
 	}).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
 }
 
-// Description of a source image repository. See Image Repository below for more details.
 func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceSourceConfigurationImageRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationImageRepository {
 		if v == nil {
@@ -1782,9 +1678,7 @@ func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceSourceConf
 }
 
 type ServiceSourceConfigurationAuthenticationConfiguration struct {
-	// ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
 	AccessRoleArn *string `pulumi:"accessRoleArn"`
-	// ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
 	ConnectionArn *string `pulumi:"connectionArn"`
 }
 
@@ -1800,9 +1694,7 @@ type ServiceSourceConfigurationAuthenticationConfigurationInput interface {
 }
 
 type ServiceSourceConfigurationAuthenticationConfigurationArgs struct {
-	// ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
 	AccessRoleArn pulumi.StringPtrInput `pulumi:"accessRoleArn"`
-	// ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
 	ConnectionArn pulumi.StringPtrInput `pulumi:"connectionArn"`
 }
 
@@ -1883,12 +1775,10 @@ func (o ServiceSourceConfigurationAuthenticationConfigurationOutput) ToServiceSo
 	}).(ServiceSourceConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
 func (o ServiceSourceConfigurationAuthenticationConfigurationOutput) AccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationAuthenticationConfiguration) *string { return v.AccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
 func (o ServiceSourceConfigurationAuthenticationConfigurationOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationAuthenticationConfiguration) *string { return v.ConnectionArn }).(pulumi.StringPtrOutput)
 }
@@ -1917,7 +1807,6 @@ func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) Elem() S
 	}).(ServiceSourceConfigurationAuthenticationConfigurationOutput)
 }
 
-// ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
 func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) AccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationAuthenticationConfiguration) *string {
 		if v == nil {
@@ -1927,7 +1816,6 @@ func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) AccessRo
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
 func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationAuthenticationConfiguration) *string {
 		if v == nil {
@@ -1938,14 +1826,10 @@ func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) Connecti
 }
 
 type ServiceSourceConfigurationCodeRepository struct {
-	// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
 	CodeConfiguration *ServiceSourceConfigurationCodeRepositoryCodeConfiguration `pulumi:"codeConfiguration"`
-	// Location of the repository that contains the source code.
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// Version that should be used within the source code repository. See Source Code Version below for more details.
-	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersion `pulumi:"sourceCodeVersion"`
-	// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
-	SourceDirectory *string `pulumi:"sourceDirectory"`
+	RepositoryUrl     string                                                     `pulumi:"repositoryUrl"`
+	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersion  `pulumi:"sourceCodeVersion"`
+	SourceDirectory   *string                                                    `pulumi:"sourceDirectory"`
 }
 
 // ServiceSourceConfigurationCodeRepositoryInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryArgs and ServiceSourceConfigurationCodeRepositoryOutput values.
@@ -1960,14 +1844,10 @@ type ServiceSourceConfigurationCodeRepositoryInput interface {
 }
 
 type ServiceSourceConfigurationCodeRepositoryArgs struct {
-	// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
 	CodeConfiguration ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrInput `pulumi:"codeConfiguration"`
-	// Location of the repository that contains the source code.
-	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// Version that should be used within the source code repository. See Source Code Version below for more details.
-	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput `pulumi:"sourceCodeVersion"`
-	// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
-	SourceDirectory pulumi.StringPtrInput `pulumi:"sourceDirectory"`
+	RepositoryUrl     pulumi.StringInput                                                `pulumi:"repositoryUrl"`
+	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput    `pulumi:"sourceCodeVersion"`
+	SourceDirectory   pulumi.StringPtrInput                                             `pulumi:"sourceDirectory"`
 }
 
 func (ServiceSourceConfigurationCodeRepositoryArgs) ElementType() reflect.Type {
@@ -2047,26 +1927,22 @@ func (o ServiceSourceConfigurationCodeRepositoryOutput) ToServiceSourceConfigura
 	}).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
 }
 
-// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
 func (o ServiceSourceConfigurationCodeRepositoryOutput) CodeConfiguration() ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
 		return v.CodeConfiguration
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput)
 }
 
-// Location of the repository that contains the source code.
 func (o ServiceSourceConfigurationCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// Version that should be used within the source code repository. See Source Code Version below for more details.
 func (o ServiceSourceConfigurationCodeRepositoryOutput) SourceCodeVersion() ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
 		return v.SourceCodeVersion
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput)
 }
 
-// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
 func (o ServiceSourceConfigurationCodeRepositoryOutput) SourceDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) *string { return v.SourceDirectory }).(pulumi.StringPtrOutput)
 }
@@ -2095,7 +1971,6 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) Elem() ServiceSourceC
 	}).(ServiceSourceConfigurationCodeRepositoryOutput)
 }
 
-// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) CodeConfiguration() ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
 		if v == nil {
@@ -2105,7 +1980,6 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) CodeConfiguration() S
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput)
 }
 
-// Location of the repository that contains the source code.
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *string {
 		if v == nil {
@@ -2115,7 +1989,6 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) RepositoryUrl() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version that should be used within the source code repository. See Source Code Version below for more details.
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceCodeVersion() ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
 		if v == nil {
@@ -2125,7 +1998,6 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceCodeVersion() S
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput)
 }
 
-// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *string {
 		if v == nil {
@@ -2136,14 +2008,8 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceDirectory() pul
 }
 
 type ServiceSourceConfigurationCodeRepositoryCodeConfiguration struct {
-	// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
 	CodeConfigurationValues *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues `pulumi:"codeConfigurationValues"`
-	// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-	// * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-	//   source code repository and ignores the CodeConfigurationValues parameter.
-	// * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-	//   parameter and ignores the apprunner.yaml file in the source code repository.
-	ConfigurationSource string `pulumi:"configurationSource"`
+	ConfigurationSource     string                                                                            `pulumi:"configurationSource"`
 }
 
 // ServiceSourceConfigurationCodeRepositoryCodeConfigurationInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs and ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput values.
@@ -2158,14 +2024,8 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationInput interface {
 }
 
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs struct {
-	// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
 	CodeConfigurationValues ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrInput `pulumi:"codeConfigurationValues"`
-	// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-	// * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-	//   source code repository and ignores the CodeConfigurationValues parameter.
-	// * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-	//   parameter and ignores the apprunner.yaml file in the source code repository.
-	ConfigurationSource pulumi.StringInput `pulumi:"configurationSource"`
+	ConfigurationSource     pulumi.StringInput                                                                       `pulumi:"configurationSource"`
 }
 
 func (ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs) ElementType() reflect.Type {
@@ -2245,18 +2105,12 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) ToServi
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput)
 }
 
-// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) CodeConfigurationValues() ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
 		return v.CodeConfigurationValues
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput)
 }
 
-// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-//   - `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-//     source code repository and ignores the CodeConfigurationValues parameter.
-//   - `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-//     parameter and ignores the apprunner.yaml file in the source code repository.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) ConfigurationSource() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfiguration) string { return v.ConfigurationSource }).(pulumi.StringOutput)
 }
@@ -2285,7 +2139,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) Elem
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput)
 }
 
-// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) CodeConfigurationValues() ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
 		if v == nil {
@@ -2295,11 +2148,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) Code
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput)
 }
 
-// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-//   - `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-//     source code repository and ignores the CodeConfigurationValues parameter.
-//   - `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-//     parameter and ignores the apprunner.yaml file in the source code repository.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) ConfigurationSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *string {
 		if v == nil {
@@ -2310,18 +2158,12 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) Conf
 }
 
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues struct {
-	// Command App Runner runs to build your application.
-	BuildCommand *string `pulumi:"buildCommand"`
-	// Port that your application listens to in the container. Defaults to `"8080"`.
-	Port *string `pulumi:"port"`
-	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
-	Runtime string `pulumi:"runtime"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
-	RuntimeEnvironmentSecrets map[string]string `pulumi:"runtimeEnvironmentSecrets"`
-	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+	BuildCommand                *string           `pulumi:"buildCommand"`
+	Port                        *string           `pulumi:"port"`
+	Runtime                     string            `pulumi:"runtime"`
+	RuntimeEnvironmentSecrets   map[string]string `pulumi:"runtimeEnvironmentSecrets"`
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
-	// Command App Runner runs to start your application.
-	StartCommand *string `pulumi:"startCommand"`
+	StartCommand                *string           `pulumi:"startCommand"`
 }
 
 // ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs and ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput values.
@@ -2336,18 +2178,12 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 }
 
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs struct {
-	// Command App Runner runs to build your application.
-	BuildCommand pulumi.StringPtrInput `pulumi:"buildCommand"`
-	// Port that your application listens to in the container. Defaults to `"8080"`.
-	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
-	Runtime pulumi.StringInput `pulumi:"runtime"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
-	RuntimeEnvironmentSecrets pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
-	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+	BuildCommand                pulumi.StringPtrInput `pulumi:"buildCommand"`
+	Port                        pulumi.StringPtrInput `pulumi:"port"`
+	Runtime                     pulumi.StringInput    `pulumi:"runtime"`
+	RuntimeEnvironmentSecrets   pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
-	// Command App Runner runs to start your application.
-	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
+	StartCommand                pulumi.StringPtrInput `pulumi:"startCommand"`
 }
 
 func (ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs) ElementType() reflect.Type {
@@ -2427,42 +2263,36 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput)
 }
 
-// Command App Runner runs to build your application.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) BuildCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		return v.BuildCommand
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port that your application listens to in the container. Defaults to `"8080"`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		return v.Port
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) string {
 		return v.Runtime
 	}).(pulumi.StringOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
 		return v.RuntimeEnvironmentSecrets
 	}).(pulumi.StringMapOutput)
 }
 
-// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) RuntimeEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
 		return v.RuntimeEnvironmentVariables
 	}).(pulumi.StringMapOutput)
 }
 
-// Command App Runner runs to start your application.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		return v.StartCommand
@@ -2493,7 +2323,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput)
 }
 
-// Command App Runner runs to build your application.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) BuildCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		if v == nil {
@@ -2503,7 +2332,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Port that your application listens to in the container. Defaults to `"8080"`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		if v == nil {
@@ -2513,7 +2341,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		if v == nil {
@@ -2523,7 +2350,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
 		if v == nil {
@@ -2533,7 +2359,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringMapOutput)
 }
 
-// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) RuntimeEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
 		if v == nil {
@@ -2543,7 +2368,6 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringMapOutput)
 }
 
-// Command App Runner runs to start your application.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		if v == nil {
@@ -2554,9 +2378,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 }
 
 type ServiceSourceConfigurationCodeRepositorySourceCodeVersion struct {
-	// Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
-	Type string `pulumi:"type"`
-	// Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -2572,9 +2394,7 @@ type ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput interface {
 }
 
 type ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs struct {
-	// Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2655,12 +2475,10 @@ func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput) ToServi
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput)
 }
 
-// Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
 func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositorySourceCodeVersion) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
 func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositorySourceCodeVersion) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2689,7 +2507,6 @@ func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) Elem
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput)
 }
 
-// Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
 func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositorySourceCodeVersion) *string {
 		if v == nil {
@@ -2699,7 +2516,6 @@ func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) Type
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
 func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositorySourceCodeVersion) *string {
 		if v == nil {
@@ -2710,13 +2526,9 @@ func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) Valu
 }
 
 type ServiceSourceConfigurationImageRepository struct {
-	// Configuration for running the identified image. See Image Configuration below for more details.
-	ImageConfiguration *ServiceSourceConfigurationImageRepositoryImageConfiguration `pulumi:"imageConfiguration"`
-	// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-	// image name format, see Pulling an image in the Amazon ECR User Guide.
-	ImageIdentifier string `pulumi:"imageIdentifier"`
-	// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-	ImageRepositoryType string `pulumi:"imageRepositoryType"`
+	ImageConfiguration  *ServiceSourceConfigurationImageRepositoryImageConfiguration `pulumi:"imageConfiguration"`
+	ImageIdentifier     string                                                       `pulumi:"imageIdentifier"`
+	ImageRepositoryType string                                                       `pulumi:"imageRepositoryType"`
 }
 
 // ServiceSourceConfigurationImageRepositoryInput is an input type that accepts ServiceSourceConfigurationImageRepositoryArgs and ServiceSourceConfigurationImageRepositoryOutput values.
@@ -2731,13 +2543,9 @@ type ServiceSourceConfigurationImageRepositoryInput interface {
 }
 
 type ServiceSourceConfigurationImageRepositoryArgs struct {
-	// Configuration for running the identified image. See Image Configuration below for more details.
-	ImageConfiguration ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput `pulumi:"imageConfiguration"`
-	// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-	// image name format, see Pulling an image in the Amazon ECR User Guide.
-	ImageIdentifier pulumi.StringInput `pulumi:"imageIdentifier"`
-	// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-	ImageRepositoryType pulumi.StringInput `pulumi:"imageRepositoryType"`
+	ImageConfiguration  ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput `pulumi:"imageConfiguration"`
+	ImageIdentifier     pulumi.StringInput                                                  `pulumi:"imageIdentifier"`
+	ImageRepositoryType pulumi.StringInput                                                  `pulumi:"imageRepositoryType"`
 }
 
 func (ServiceSourceConfigurationImageRepositoryArgs) ElementType() reflect.Type {
@@ -2817,20 +2625,16 @@ func (o ServiceSourceConfigurationImageRepositoryOutput) ToServiceSourceConfigur
 	}).(ServiceSourceConfigurationImageRepositoryPtrOutput)
 }
 
-// Configuration for running the identified image. See Image Configuration below for more details.
 func (o ServiceSourceConfigurationImageRepositoryOutput) ImageConfiguration() ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepository) *ServiceSourceConfigurationImageRepositoryImageConfiguration {
 		return v.ImageConfiguration
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput)
 }
 
-// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-// image name format, see Pulling an image in the Amazon ECR User Guide.
 func (o ServiceSourceConfigurationImageRepositoryOutput) ImageIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepository) string { return v.ImageIdentifier }).(pulumi.StringOutput)
 }
 
-// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
 func (o ServiceSourceConfigurationImageRepositoryOutput) ImageRepositoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepository) string { return v.ImageRepositoryType }).(pulumi.StringOutput)
 }
@@ -2859,7 +2663,6 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) Elem() ServiceSource
 	}).(ServiceSourceConfigurationImageRepositoryOutput)
 }
 
-// Configuration for running the identified image. See Image Configuration below for more details.
 func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageConfiguration() ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepository) *ServiceSourceConfigurationImageRepositoryImageConfiguration {
 		if v == nil {
@@ -2869,8 +2672,6 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageConfiguration()
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput)
 }
 
-// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-// image name format, see Pulling an image in the Amazon ECR User Guide.
 func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepository) *string {
 		if v == nil {
@@ -2880,7 +2681,6 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageIdentifier() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
 func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageRepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepository) *string {
 		if v == nil {
@@ -2891,14 +2691,10 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageRepositoryType(
 }
 
 type ServiceSourceConfigurationImageRepositoryImageConfiguration struct {
-	// Port that your application listens to in the container. Defaults to `"8080"`.
-	Port *string `pulumi:"port"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
-	RuntimeEnvironmentSecrets map[string]string `pulumi:"runtimeEnvironmentSecrets"`
-	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+	Port                        *string           `pulumi:"port"`
+	RuntimeEnvironmentSecrets   map[string]string `pulumi:"runtimeEnvironmentSecrets"`
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
-	// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
-	StartCommand *string `pulumi:"startCommand"`
+	StartCommand                *string           `pulumi:"startCommand"`
 }
 
 // ServiceSourceConfigurationImageRepositoryImageConfigurationInput is an input type that accepts ServiceSourceConfigurationImageRepositoryImageConfigurationArgs and ServiceSourceConfigurationImageRepositoryImageConfigurationOutput values.
@@ -2913,14 +2709,10 @@ type ServiceSourceConfigurationImageRepositoryImageConfigurationInput interface 
 }
 
 type ServiceSourceConfigurationImageRepositoryImageConfigurationArgs struct {
-	// Port that your application listens to in the container. Defaults to `"8080"`.
-	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
-	RuntimeEnvironmentSecrets pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
-	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
+	Port                        pulumi.StringPtrInput `pulumi:"port"`
+	RuntimeEnvironmentSecrets   pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
-	// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
-	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
+	StartCommand                pulumi.StringPtrInput `pulumi:"startCommand"`
 }
 
 func (ServiceSourceConfigurationImageRepositoryImageConfigurationArgs) ElementType() reflect.Type {
@@ -3000,26 +2792,22 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) ToSer
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput)
 }
 
-// Port that your application listens to in the container. Defaults to `"8080"`.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
 		return v.RuntimeEnvironmentSecrets
 	}).(pulumi.StringMapOutput)
 }
 
-// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) RuntimeEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
 		return v.RuntimeEnvironmentVariables
 	}).(pulumi.StringMapOutput)
 }
 
-// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) *string { return v.StartCommand }).(pulumi.StringPtrOutput)
 }
@@ -3048,7 +2836,6 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) El
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationOutput)
 }
 
-// Port that your application listens to in the container. Defaults to `"8080"`.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepositoryImageConfiguration) *string {
 		if v == nil {
@@ -3058,7 +2845,6 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) Po
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
 		if v == nil {
@@ -3068,7 +2854,6 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) Ru
 	}).(pulumi.StringMapOutput)
 }
 
-// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) RuntimeEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
 		if v == nil {
@@ -3078,7 +2863,6 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) Ru
 	}).(pulumi.StringMapOutput)
 }
 
-// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepositoryImageConfiguration) *string {
 		if v == nil {
@@ -3089,10 +2873,8 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) St
 }
 
 type VpcIngressConnectionIngressVpcConfiguration struct {
-	// The ID of the VPC endpoint that your App Runner service connects to.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
-	// The ID of the VPC that is used for the VPC endpoint.
-	VpcId *string `pulumi:"vpcId"`
+	VpcId         *string `pulumi:"vpcId"`
 }
 
 // VpcIngressConnectionIngressVpcConfigurationInput is an input type that accepts VpcIngressConnectionIngressVpcConfigurationArgs and VpcIngressConnectionIngressVpcConfigurationOutput values.
@@ -3107,10 +2889,8 @@ type VpcIngressConnectionIngressVpcConfigurationInput interface {
 }
 
 type VpcIngressConnectionIngressVpcConfigurationArgs struct {
-	// The ID of the VPC endpoint that your App Runner service connects to.
 	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
-	// The ID of the VPC that is used for the VPC endpoint.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	VpcId         pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (VpcIngressConnectionIngressVpcConfigurationArgs) ElementType() reflect.Type {
@@ -3190,12 +2970,10 @@ func (o VpcIngressConnectionIngressVpcConfigurationOutput) ToVpcIngressConnectio
 	}).(VpcIngressConnectionIngressVpcConfigurationPtrOutput)
 }
 
-// The ID of the VPC endpoint that your App Runner service connects to.
 func (o VpcIngressConnectionIngressVpcConfigurationOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcIngressConnectionIngressVpcConfiguration) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC that is used for the VPC endpoint.
 func (o VpcIngressConnectionIngressVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcIngressConnectionIngressVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -3224,7 +3002,6 @@ func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) Elem() VpcIngressC
 	}).(VpcIngressConnectionIngressVpcConfigurationOutput)
 }
 
-// The ID of the VPC endpoint that your App Runner service connects to.
 func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIngressConnectionIngressVpcConfiguration) *string {
 		if v == nil {
@@ -3234,7 +3011,6 @@ func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcEndpointId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC that is used for the VPC endpoint.
 func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIngressConnectionIngressVpcConfiguration) *string {
 		if v == nil {

@@ -16,116 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.IpSet;
- * import com.pulumi.aws.wafregional.IpSetArgs;
- * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ipset = new IpSet("ipset", IpSetArgs.builder()
- *             .name("tfIPSet")
- *             .ipSetDescriptors(            
- *                 IpSetIpSetDescriptorArgs.builder()
- *                     .type("IPV4")
- *                     .value("192.0.7.0/24")
- *                     .build(),
- *                 IpSetIpSetDescriptorArgs.builder()
- *                     .type("IPV4")
- *                     .value("10.16.16.0/16")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAF Regional IPSets using their ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/ipSet:IpSet")
 public class IpSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the WAF IPSet.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the WAF IPSet.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-     * 
-     */
     @Export(name="ipSetDescriptors", refs={List.class,IpSetIpSetDescriptor.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IpSetIpSetDescriptor>> ipSetDescriptors;
 
-    /**
-     * @return One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-     * 
-     */
     public Output<Optional<List<IpSetIpSetDescriptor>>> ipSetDescriptors() {
         return Codegen.optional(this.ipSetDescriptors);
     }
-    /**
-     * The name or description of the IPSet.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the IPSet.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

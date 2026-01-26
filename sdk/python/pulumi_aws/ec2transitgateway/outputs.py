@@ -179,18 +179,12 @@ class PeeringAttachmentOptions(dict):
 
     def __init__(__self__, *,
                  dynamic_routing: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str dynamic_routing: Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
-        """
         if dynamic_routing is not None:
             pulumi.set(__self__, "dynamic_routing", dynamic_routing)
 
     @_builtins.property
     @pulumi.getter(name="dynamicRouting")
     def dynamic_routing(self) -> Optional[_builtins.str]:
-        """
-        Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
-        """
         return pulumi.get(self, "dynamic_routing")
 
 
@@ -199,27 +193,17 @@ class GetAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -228,27 +212,17 @@ class GetAttachmentsFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -257,27 +231,17 @@ class GetConnectFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter.
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -286,27 +250,17 @@ class GetConnectPeerFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter.
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -315,27 +269,17 @@ class GetDirectConnectGatewayAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
 
@@ -344,27 +288,17 @@ class GetMulticastDomainAssociationResult(dict):
     def __init__(__self__, *,
                  subnet_id: _builtins.str,
                  transit_gateway_attachment_id: _builtins.str):
-        """
-        :param _builtins.str subnet_id: The ID of the subnet associated with the transit gateway multicast domain.
-        :param _builtins.str transit_gateway_attachment_id: The ID of the transit gateway attachment.
-        """
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The ID of the subnet associated with the transit gateway multicast domain.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> _builtins.str:
-        """
-        The ID of the transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
 
@@ -373,27 +307,17 @@ class GetMulticastDomainFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
-        """
         return pulumi.get(self, "values")
 
 
@@ -402,27 +326,17 @@ class GetMulticastDomainMemberResult(dict):
     def __init__(__self__, *,
                  group_ip_address: _builtins.str,
                  network_interface_id: _builtins.str):
-        """
-        :param _builtins.str group_ip_address: The IP address assigned to the transit gateway multicast group.
-        :param _builtins.str network_interface_id: The group members' network interface ID.
-        """
         pulumi.set(__self__, "group_ip_address", group_ip_address)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @_builtins.property
     @pulumi.getter(name="groupIpAddress")
     def group_ip_address(self) -> _builtins.str:
-        """
-        The IP address assigned to the transit gateway multicast group.
-        """
         return pulumi.get(self, "group_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> _builtins.str:
-        """
-        The group members' network interface ID.
-        """
         return pulumi.get(self, "network_interface_id")
 
 
@@ -431,27 +345,17 @@ class GetMulticastDomainSourceResult(dict):
     def __init__(__self__, *,
                  group_ip_address: _builtins.str,
                  network_interface_id: _builtins.str):
-        """
-        :param _builtins.str group_ip_address: The IP address assigned to the transit gateway multicast group.
-        :param _builtins.str network_interface_id: The group members' network interface ID.
-        """
         pulumi.set(__self__, "group_ip_address", group_ip_address)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @_builtins.property
     @pulumi.getter(name="groupIpAddress")
     def group_ip_address(self) -> _builtins.str:
-        """
-        The IP address assigned to the transit gateway multicast group.
-        """
         return pulumi.get(self, "group_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> _builtins.str:
-        """
-        The group members' network interface ID.
-        """
         return pulumi.get(self, "network_interface_id")
 
 
@@ -460,31 +364,17 @@ class GetPeeringAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
-        """
         return pulumi.get(self, "values")
 
 
@@ -493,27 +383,17 @@ class GetPeeringAttachmentsFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -522,31 +402,17 @@ class GetRouteTableAssociationsFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A Transit Gateway Route Table will be selected if any one of the given values matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        A Transit Gateway Route Table will be selected if any one of the given values matches.
-        """
         return pulumi.get(self, "values")
 
 
@@ -555,27 +421,17 @@ class GetRouteTableFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter.
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -584,31 +440,17 @@ class GetRouteTablePropagationsFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A Transit Gateway Route Table will be selected if any one of the given values matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        A Transit Gateway Route Table will be selected if any one of the given values matches.
-        """
         return pulumi.get(self, "values")
 
 
@@ -617,29 +459,17 @@ class GetRouteTableRoutesFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        """
         return pulumi.get(self, "values")
 
 
@@ -651,13 +481,6 @@ class GetRouteTableRoutesRouteResult(dict):
                  state: _builtins.str,
                  transit_gateway_route_table_announcement_id: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str destination_cidr_block: The CIDR used for route destination matches.
-        :param _builtins.str prefix_list_id: The ID of the prefix list used for destination matches.
-        :param _builtins.str state: The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-        :param _builtins.str transit_gateway_route_table_announcement_id: The id of the transit gateway route table announcement, most of the time it is an empty string.
-        :param _builtins.str type: The type of the route, can be `propagated` or `static`.
-        """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         pulumi.set(__self__, "state", state)
@@ -667,41 +490,26 @@ class GetRouteTableRoutesRouteResult(dict):
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> _builtins.str:
-        """
-        The CIDR used for route destination matches.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> _builtins.str:
-        """
-        The ID of the prefix list used for destination matches.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableAnnouncementId")
     def transit_gateway_route_table_announcement_id(self) -> _builtins.str:
-        """
-        The id of the transit gateway route table announcement, most of the time it is an empty string.
-        """
         return pulumi.get(self, "transit_gateway_route_table_announcement_id")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the route, can be `propagated` or `static`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -710,27 +518,17 @@ class GetTransitGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -739,27 +537,17 @@ class GetVpcAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter.
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -768,27 +556,17 @@ class GetVpcAttachmentsFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-        :param Sequence[_builtins.str] values: List of one or more values for the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        List of one or more values for the filter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -797,27 +575,17 @@ class GetVpnAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
 

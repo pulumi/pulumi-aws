@@ -14,41 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetParametersByPathResult {
-    /**
-     * @return A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return A list that contains the names of the retrieved parameters.
-     * 
-     */
     private List<String> names;
     private String path;
     private @Nullable Boolean recursive;
     private String region;
-    /**
-     * @return A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
-     * 
-     */
     private List<String> types;
-    /**
-     * @return A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
-     * 
-     */
     private List<String> values;
     private @Nullable Boolean withDecryption;
 
     private GetParametersByPathResult() {}
-    /**
-     * @return A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -59,10 +39,6 @@ public final class GetParametersByPathResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return A list that contains the names of the retrieved parameters.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }
@@ -75,17 +51,9 @@ public final class GetParametersByPathResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
-     * 
-     */
     public List<String> types() {
         return this.types;
     }
-    /**
-     * @return A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

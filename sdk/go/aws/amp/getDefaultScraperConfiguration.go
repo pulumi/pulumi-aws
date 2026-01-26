@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.GetDefaultScraperConfiguration(ctx, &amp.GetDefaultScraperConfigurationArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDefaultScraperConfiguration(ctx *pulumi.Context, args *GetDefaultScraperConfigurationArgs, opts ...pulumi.InvokeOption) (*GetDefaultScraperConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultScraperConfigurationResult
@@ -48,13 +23,11 @@ func GetDefaultScraperConfiguration(ctx *pulumi.Context, args *GetDefaultScraper
 
 // A collection of arguments for invoking getDefaultScraperConfiguration.
 type GetDefaultScraperConfigurationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDefaultScraperConfiguration.
 type GetDefaultScraperConfigurationResult struct {
-	// The configuration file.
 	Configuration string `pulumi:"configuration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -72,7 +45,6 @@ func GetDefaultScraperConfigurationOutput(ctx *pulumi.Context, args GetDefaultSc
 
 // A collection of arguments for invoking getDefaultScraperConfiguration.
 type GetDefaultScraperConfigurationOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -95,7 +67,6 @@ func (o GetDefaultScraperConfigurationResultOutput) ToGetDefaultScraperConfigura
 	return o
 }
 
-// The configuration file.
 func (o GetDefaultScraperConfigurationResultOutput) Configuration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultScraperConfigurationResult) string { return v.Configuration }).(pulumi.StringOutput)
 }

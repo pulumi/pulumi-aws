@@ -12,83 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS End User Messaging SMS phone number.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pinpoint.NewSmsvoicev2PhoneNumber(ctx, "example", &pinpoint.Smsvoicev2PhoneNumberArgs{
-//				IsoCountryCode: pulumi.String("US"),
-//				MessageType:    pulumi.String("TRANSACTIONAL"),
-//				NumberType:     pulumi.String("TOLL_FREE"),
-//				NumberCapabilities: pulumi.StringArray{
-//					pulumi.String("SMS"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import phone numbers using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber example phone-abcdef0123456789abcdef0123456789
-// ```
 type Smsvoicev2PhoneNumber struct {
 	pulumi.CustomResourceState
 
-	// ARN of the phone number.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// By default this is set to `false`. When set to true the phone number can’t be deleted.
-	DeletionProtectionEnabled pulumi.BoolOutput `pulumi:"deletionProtectionEnabled"`
-	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-	IsoCountryCode pulumi.StringOutput `pulumi:"isoCountryCode"`
-	// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-	MessageType pulumi.StringOutput `pulumi:"messageType"`
-	// The monthly price, in US dollars, to lease the phone number.
-	MonthlyLeasingPrice pulumi.StringOutput `pulumi:"monthlyLeasingPrice"`
-	// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-	NumberCapabilities pulumi.StringArrayOutput `pulumi:"numberCapabilities"`
-	// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-	NumberType pulumi.StringOutput `pulumi:"numberType"`
-	// The name of the opt-out list to associate with the phone number.
-	OptOutListName pulumi.StringOutput `pulumi:"optOutListName"`
-	// The new phone number that was requested.
-	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Use this field to attach your phone number for an external registration process.
-	RegistrationId pulumi.StringPtrOutput `pulumi:"registrationId"`
-	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
-	SelfManagedOptOutsEnabled pulumi.BoolOutput      `pulumi:"selfManagedOptOutsEnabled"`
-	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                 `pulumi:"tagsAll"`
-	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-	TwoWayChannelArn pulumi.StringPtrOutput `pulumi:"twoWayChannelArn"`
-	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
-	TwoWayChannelEnabled pulumi.BoolOutput `pulumi:"twoWayChannelEnabled"`
-	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-	TwoWayChannelRole pulumi.StringPtrOutput `pulumi:"twoWayChannelRole"`
+	Arn                       pulumi.StringOutput                    `pulumi:"arn"`
+	DeletionProtectionEnabled pulumi.BoolOutput                      `pulumi:"deletionProtectionEnabled"`
+	IsoCountryCode            pulumi.StringOutput                    `pulumi:"isoCountryCode"`
+	MessageType               pulumi.StringOutput                    `pulumi:"messageType"`
+	MonthlyLeasingPrice       pulumi.StringOutput                    `pulumi:"monthlyLeasingPrice"`
+	NumberCapabilities        pulumi.StringArrayOutput               `pulumi:"numberCapabilities"`
+	NumberType                pulumi.StringOutput                    `pulumi:"numberType"`
+	OptOutListName            pulumi.StringOutput                    `pulumi:"optOutListName"`
+	PhoneNumber               pulumi.StringOutput                    `pulumi:"phoneNumber"`
+	Region                    pulumi.StringOutput                    `pulumi:"region"`
+	RegistrationId            pulumi.StringPtrOutput                 `pulumi:"registrationId"`
+	SelfManagedOptOutsEnabled pulumi.BoolOutput                      `pulumi:"selfManagedOptOutsEnabled"`
+	Tags                      pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                 `pulumi:"tagsAll"`
+	Timeouts                  Smsvoicev2PhoneNumberTimeoutsPtrOutput `pulumi:"timeouts"`
+	TwoWayChannelArn          pulumi.StringPtrOutput                 `pulumi:"twoWayChannelArn"`
+	TwoWayChannelEnabled      pulumi.BoolOutput                      `pulumi:"twoWayChannelEnabled"`
+	TwoWayChannelRole         pulumi.StringPtrOutput                 `pulumi:"twoWayChannelRole"`
 }
 
 // NewSmsvoicev2PhoneNumber registers a new resource with the given unique name, arguments, and options.
@@ -133,77 +77,45 @@ func GetSmsvoicev2PhoneNumber(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Smsvoicev2PhoneNumber resources.
 type smsvoicev2PhoneNumberState struct {
-	// ARN of the phone number.
-	Arn *string `pulumi:"arn"`
-	// By default this is set to `false`. When set to true the phone number can’t be deleted.
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-	IsoCountryCode *string `pulumi:"isoCountryCode"`
-	// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-	MessageType *string `pulumi:"messageType"`
-	// The monthly price, in US dollars, to lease the phone number.
-	MonthlyLeasingPrice *string `pulumi:"monthlyLeasingPrice"`
-	// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-	NumberCapabilities []string `pulumi:"numberCapabilities"`
-	// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-	NumberType *string `pulumi:"numberType"`
-	// The name of the opt-out list to associate with the phone number.
-	OptOutListName *string `pulumi:"optOutListName"`
-	// The new phone number that was requested.
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Use this field to attach your phone number for an external registration process.
-	RegistrationId *string `pulumi:"registrationId"`
-	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
-	SelfManagedOptOutsEnabled *bool             `pulumi:"selfManagedOptOutsEnabled"`
-	Tags                      map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string              `pulumi:"tagsAll"`
-	Timeouts *Smsvoicev2PhoneNumberTimeouts `pulumi:"timeouts"`
-	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-	TwoWayChannelArn *string `pulumi:"twoWayChannelArn"`
-	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
-	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
-	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-	TwoWayChannelRole *string `pulumi:"twoWayChannelRole"`
+	Arn                       *string                        `pulumi:"arn"`
+	DeletionProtectionEnabled *bool                          `pulumi:"deletionProtectionEnabled"`
+	IsoCountryCode            *string                        `pulumi:"isoCountryCode"`
+	MessageType               *string                        `pulumi:"messageType"`
+	MonthlyLeasingPrice       *string                        `pulumi:"monthlyLeasingPrice"`
+	NumberCapabilities        []string                       `pulumi:"numberCapabilities"`
+	NumberType                *string                        `pulumi:"numberType"`
+	OptOutListName            *string                        `pulumi:"optOutListName"`
+	PhoneNumber               *string                        `pulumi:"phoneNumber"`
+	Region                    *string                        `pulumi:"region"`
+	RegistrationId            *string                        `pulumi:"registrationId"`
+	SelfManagedOptOutsEnabled *bool                          `pulumi:"selfManagedOptOutsEnabled"`
+	Tags                      map[string]string              `pulumi:"tags"`
+	TagsAll                   map[string]string              `pulumi:"tagsAll"`
+	Timeouts                  *Smsvoicev2PhoneNumberTimeouts `pulumi:"timeouts"`
+	TwoWayChannelArn          *string                        `pulumi:"twoWayChannelArn"`
+	TwoWayChannelEnabled      *bool                          `pulumi:"twoWayChannelEnabled"`
+	TwoWayChannelRole         *string                        `pulumi:"twoWayChannelRole"`
 }
 
 type Smsvoicev2PhoneNumberState struct {
-	// ARN of the phone number.
-	Arn pulumi.StringPtrInput
-	// By default this is set to `false`. When set to true the phone number can’t be deleted.
+	Arn                       pulumi.StringPtrInput
 	DeletionProtectionEnabled pulumi.BoolPtrInput
-	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-	IsoCountryCode pulumi.StringPtrInput
-	// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-	MessageType pulumi.StringPtrInput
-	// The monthly price, in US dollars, to lease the phone number.
-	MonthlyLeasingPrice pulumi.StringPtrInput
-	// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-	NumberCapabilities pulumi.StringArrayInput
-	// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-	NumberType pulumi.StringPtrInput
-	// The name of the opt-out list to associate with the phone number.
-	OptOutListName pulumi.StringPtrInput
-	// The new phone number that was requested.
-	PhoneNumber pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Use this field to attach your phone number for an external registration process.
-	RegistrationId pulumi.StringPtrInput
-	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+	IsoCountryCode            pulumi.StringPtrInput
+	MessageType               pulumi.StringPtrInput
+	MonthlyLeasingPrice       pulumi.StringPtrInput
+	NumberCapabilities        pulumi.StringArrayInput
+	NumberType                pulumi.StringPtrInput
+	OptOutListName            pulumi.StringPtrInput
+	PhoneNumber               pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	RegistrationId            pulumi.StringPtrInput
 	SelfManagedOptOutsEnabled pulumi.BoolPtrInput
 	Tags                      pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrInput
-	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-	TwoWayChannelArn pulumi.StringPtrInput
-	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
-	TwoWayChannelEnabled pulumi.BoolPtrInput
-	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-	TwoWayChannelRole pulumi.StringPtrInput
+	TagsAll                   pulumi.StringMapInput
+	Timeouts                  Smsvoicev2PhoneNumberTimeoutsPtrInput
+	TwoWayChannelArn          pulumi.StringPtrInput
+	TwoWayChannelEnabled      pulumi.BoolPtrInput
+	TwoWayChannelRole         pulumi.StringPtrInput
 }
 
 func (Smsvoicev2PhoneNumberState) ElementType() reflect.Type {
@@ -211,62 +123,38 @@ func (Smsvoicev2PhoneNumberState) ElementType() reflect.Type {
 }
 
 type smsvoicev2PhoneNumberArgs struct {
-	// By default this is set to `false`. When set to true the phone number can’t be deleted.
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-	IsoCountryCode string `pulumi:"isoCountryCode"`
-	// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-	MessageType string `pulumi:"messageType"`
-	// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-	NumberCapabilities []string `pulumi:"numberCapabilities"`
-	// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-	NumberType string `pulumi:"numberType"`
-	// The name of the opt-out list to associate with the phone number.
-	OptOutListName *string `pulumi:"optOutListName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Use this field to attach your phone number for an external registration process.
-	RegistrationId *string `pulumi:"registrationId"`
-	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+	DeletionProtectionEnabled *bool                          `pulumi:"deletionProtectionEnabled"`
+	IsoCountryCode            string                         `pulumi:"isoCountryCode"`
+	MessageType               string                         `pulumi:"messageType"`
+	NumberCapabilities        []string                       `pulumi:"numberCapabilities"`
+	NumberType                string                         `pulumi:"numberType"`
+	OptOutListName            *string                        `pulumi:"optOutListName"`
+	Region                    *string                        `pulumi:"region"`
+	RegistrationId            *string                        `pulumi:"registrationId"`
 	SelfManagedOptOutsEnabled *bool                          `pulumi:"selfManagedOptOutsEnabled"`
 	Tags                      map[string]string              `pulumi:"tags"`
 	Timeouts                  *Smsvoicev2PhoneNumberTimeouts `pulumi:"timeouts"`
-	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-	TwoWayChannelArn *string `pulumi:"twoWayChannelArn"`
-	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
-	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
-	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-	TwoWayChannelRole *string `pulumi:"twoWayChannelRole"`
+	TwoWayChannelArn          *string                        `pulumi:"twoWayChannelArn"`
+	TwoWayChannelEnabled      *bool                          `pulumi:"twoWayChannelEnabled"`
+	TwoWayChannelRole         *string                        `pulumi:"twoWayChannelRole"`
 }
 
 // The set of arguments for constructing a Smsvoicev2PhoneNumber resource.
 type Smsvoicev2PhoneNumberArgs struct {
-	// By default this is set to `false`. When set to true the phone number can’t be deleted.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
-	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-	IsoCountryCode pulumi.StringInput
-	// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-	MessageType pulumi.StringInput
-	// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-	NumberCapabilities pulumi.StringArrayInput
-	// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-	NumberType pulumi.StringInput
-	// The name of the opt-out list to associate with the phone number.
-	OptOutListName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Use this field to attach your phone number for an external registration process.
-	RegistrationId pulumi.StringPtrInput
-	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+	IsoCountryCode            pulumi.StringInput
+	MessageType               pulumi.StringInput
+	NumberCapabilities        pulumi.StringArrayInput
+	NumberType                pulumi.StringInput
+	OptOutListName            pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	RegistrationId            pulumi.StringPtrInput
 	SelfManagedOptOutsEnabled pulumi.BoolPtrInput
 	Tags                      pulumi.StringMapInput
 	Timeouts                  Smsvoicev2PhoneNumberTimeoutsPtrInput
-	// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-	TwoWayChannelArn pulumi.StringPtrInput
-	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
-	TwoWayChannelEnabled pulumi.BoolPtrInput
-	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-	TwoWayChannelRole pulumi.StringPtrInput
+	TwoWayChannelArn          pulumi.StringPtrInput
+	TwoWayChannelEnabled      pulumi.BoolPtrInput
+	TwoWayChannelRole         pulumi.StringPtrInput
 }
 
 func (Smsvoicev2PhoneNumberArgs) ElementType() reflect.Type {
@@ -356,62 +244,50 @@ func (o Smsvoicev2PhoneNumberOutput) ToSmsvoicev2PhoneNumberOutputWithContext(ct
 	return o
 }
 
-// ARN of the phone number.
 func (o Smsvoicev2PhoneNumberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// By default this is set to `false`. When set to true the phone number can’t be deleted.
 func (o Smsvoicev2PhoneNumberOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.BoolOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
 }
 
-// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
 func (o Smsvoicev2PhoneNumberOutput) IsoCountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.IsoCountryCode }).(pulumi.StringOutput)
 }
 
-// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
 func (o Smsvoicev2PhoneNumberOutput) MessageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.MessageType }).(pulumi.StringOutput)
 }
 
-// The monthly price, in US dollars, to lease the phone number.
 func (o Smsvoicev2PhoneNumberOutput) MonthlyLeasingPrice() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.MonthlyLeasingPrice }).(pulumi.StringOutput)
 }
 
-// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
 func (o Smsvoicev2PhoneNumberOutput) NumberCapabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringArrayOutput { return v.NumberCapabilities }).(pulumi.StringArrayOutput)
 }
 
-// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
 func (o Smsvoicev2PhoneNumberOutput) NumberType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.NumberType }).(pulumi.StringOutput)
 }
 
-// The name of the opt-out list to associate with the phone number.
 func (o Smsvoicev2PhoneNumberOutput) OptOutListName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.OptOutListName }).(pulumi.StringOutput)
 }
 
-// The new phone number that was requested.
 func (o Smsvoicev2PhoneNumberOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o Smsvoicev2PhoneNumberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Use this field to attach your phone number for an external registration process.
 func (o Smsvoicev2PhoneNumberOutput) RegistrationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringPtrOutput { return v.RegistrationId }).(pulumi.StringPtrOutput)
 }
 
-// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
 func (o Smsvoicev2PhoneNumberOutput) SelfManagedOptOutsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.BoolOutput { return v.SelfManagedOptOutsEnabled }).(pulumi.BoolOutput)
 }
@@ -420,7 +296,6 @@ func (o Smsvoicev2PhoneNumberOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o Smsvoicev2PhoneNumberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -429,17 +304,14 @@ func (o Smsvoicev2PhoneNumberOutput) Timeouts() Smsvoicev2PhoneNumberTimeoutsPtr
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) Smsvoicev2PhoneNumberTimeoutsPtrOutput { return v.Timeouts }).(Smsvoicev2PhoneNumberTimeoutsPtrOutput)
 }
 
-// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
 func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringPtrOutput { return v.TwoWayChannelArn }).(pulumi.StringPtrOutput)
 }
 
-// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.BoolOutput { return v.TwoWayChannelEnabled }).(pulumi.BoolOutput)
 }
 
-// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
 func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringPtrOutput { return v.TwoWayChannelRole }).(pulumi.StringPtrOutput)
 }

@@ -61,17 +61,11 @@ class GetFirewallPolicyResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the firewall policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicies")
     def firewall_policies(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyResult']:
-        """
-        The [policy][2] for the specified firewall policy.
-        """
         return pulumi.get(self, "firewall_policies")
 
     @_builtins.property
@@ -95,17 +89,11 @@ class GetFirewallPolicyResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the firewall policy.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> _builtins.str:
-        """
-        Token used for optimistic locking.
-        """
         return pulumi.get(self, "update_token")
 
 
@@ -131,49 +119,7 @@ def get_firewall_policy(arn: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
-    Retrieve information about a firewall policy.
-
-    ## Example Usage
-
-    ### Find firewall policy by name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall_policy(name=firewall_policy_name)
-    ```
-
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn)
-    ```
-
-    ### Find firewall policy by name and ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn,
-        name=firewall_policy_name)
-    ```
-
-    AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
-
-    > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
-
-
-    :param _builtins.str arn: ARN of the firewall policy.
-    :param _builtins.str name: Descriptive name of the firewall policy.
-           
-           One or more of these arguments is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the firewall policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -198,49 +144,7 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[_builtins.str
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
-    Retrieve information about a firewall policy.
-
-    ## Example Usage
-
-    ### Find firewall policy by name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall_policy(name=firewall_policy_name)
-    ```
-
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn)
-    ```
-
-    ### Find firewall policy by name and ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall_policy(arn=firewall_policy_arn,
-        name=firewall_policy_name)
-    ```
-
-    AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
-
-    > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
-
-
-    :param _builtins.str arn: ARN of the firewall policy.
-    :param _builtins.str name: Descriptive name of the firewall policy.
-           
-           One or more of these arguments is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the firewall policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class UserDefinedFunctionResourceUri {
-    /**
-     * @return The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
-     * 
-     */
     private String resourceType;
-    /**
-     * @return The URI for accessing the resource.
-     * 
-     */
     private String uri;
 
     private UserDefinedFunctionResourceUri() {}
-    /**
-     * @return The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }
-    /**
-     * @return The URI for accessing the resource.
-     * 
-     */
     public String uri() {
         return this.uri;
     }

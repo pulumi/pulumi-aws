@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DashboardSourceEntitySourceTemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("dataSetReferences", required: true)]
         private InputList<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs>? _dataSetReferences;
-
-        /// <summary>
-        /// List of dataset references. See data_set_references.
-        /// </summary>
         public InputList<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs> DataSetReferences
         {
             get => _dataSetReferences ?? (_dataSetReferences = new InputList<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs>());

@@ -19,96 +19,44 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProjectArgs Empty = new ProjectArgs();
 
-    /**
-     * Description of project.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of project.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     @Import(name="domainIdentifier", required=true)
     private Output<String> domainIdentifier;
 
-    /**
-     * @return Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
 
-    /**
-     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     @Import(name="glossaryTerms")
     private @Nullable Output<List<String>> glossaryTerms;
 
-    /**
-     * @return List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     public Optional<Output<List<String>>> glossaryTerms() {
         return Optional.ofNullable(this.glossaryTerms);
     }
 
-    /**
-     * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Optional flag to delete all child entities within the project.
-     * 
-     */
     @Import(name="skipDeletionCheck")
     private @Nullable Output<Boolean> skipDeletionCheck;
 
-    /**
-     * @return Optional flag to delete all child entities within the project.
-     * 
-     */
     public Optional<Output<Boolean>> skipDeletionCheck() {
         return Optional.ofNullable(this.skipDeletionCheck);
     }
@@ -150,142 +98,60 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProjectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param domainIdentifier Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param glossaryTerms List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryTerms(@Nullable Output<List<String>> glossaryTerms) {
             $.glossaryTerms = glossaryTerms;
             return this;
         }
 
-        /**
-         * @param glossaryTerms List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryTerms(List<String> glossaryTerms) {
             return glossaryTerms(Output.of(glossaryTerms));
         }
 
-        /**
-         * @param glossaryTerms List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryTerms(String... glossaryTerms) {
             return glossaryTerms(List.of(glossaryTerms));
         }
 
-        /**
-         * @param name Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param skipDeletionCheck Optional flag to delete all child entities within the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDeletionCheck(@Nullable Output<Boolean> skipDeletionCheck) {
             $.skipDeletionCheck = skipDeletionCheck;
             return this;
         }
 
-        /**
-         * @param skipDeletionCheck Optional flag to delete all child entities within the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDeletionCheck(Boolean skipDeletionCheck) {
             return skipDeletionCheck(Output.of(skipDeletionCheck));
         }

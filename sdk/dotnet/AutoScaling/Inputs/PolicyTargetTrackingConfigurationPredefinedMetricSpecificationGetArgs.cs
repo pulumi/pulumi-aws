@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class PolicyTargetTrackingConfigurationPredefinedMetricSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Metric type.
-        /// </summary>
         [Input("predefinedMetricType", required: true)]
         public Input<string> PredefinedMetricType { get; set; } = null!;
 
-        /// <summary>
-        /// Identifies the resource associated with the metric type.
-        /// </summary>
         [Input("resourceLabel")]
         public Input<string>? ResourceLabel { get; set; }
 

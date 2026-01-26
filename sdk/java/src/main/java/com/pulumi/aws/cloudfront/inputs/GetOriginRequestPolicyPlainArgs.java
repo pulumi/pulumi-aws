@@ -14,32 +14,16 @@ public final class GetOriginRequestPolicyPlainArgs extends com.pulumi.resources.
 
     public static final GetOriginRequestPolicyPlainArgs Empty = new GetOriginRequestPolicyPlainArgs();
 
-    /**
-     * Identifier for the origin request policy.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier for the origin request policy.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Unique name to identify the origin request policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Unique name to identify the origin request policy.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -69,23 +53,11 @@ public final class GetOriginRequestPolicyPlainArgs extends com.pulumi.resources.
             $ = new GetOriginRequestPolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the origin request policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name Unique name to identify the origin request policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

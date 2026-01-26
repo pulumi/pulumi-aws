@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection {
-    /**
-     * @return Configures inspection of the response body. See `bodyContains` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains bodyContains;
-    /**
-     * @return Configures inspection of the response header.See `header` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader header;
-    /**
-     * @return Configures inspection of the response JSON. See `json` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson json;
-    /**
-     * @return Configures inspection of the response status code.See `statusCode` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode statusCode;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection() {}
-    /**
-     * @return Configures inspection of the response body. See `bodyContains` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains> bodyContains() {
         return Optional.ofNullable(this.bodyContains);
     }
-    /**
-     * @return Configures inspection of the response header.See `header` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader> header() {
         return Optional.ofNullable(this.header);
     }
-    /**
-     * @return Configures inspection of the response JSON. See `json` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson> json() {
         return Optional.ofNullable(this.json);
     }
-    /**
-     * @return Configures inspection of the response status code.See `statusCode` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }

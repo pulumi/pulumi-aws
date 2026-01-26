@@ -14,113 +14,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GuardrailContentPolicyConfigFiltersConfig {
-    /**
-     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-     * 
-     */
     private @Nullable String inputAction;
-    /**
-     * @return Toggles guardrail evaluation on input.
-     * 
-     */
     private @Nullable Boolean inputEnabled;
-    /**
-     * @return List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
-     * 
-     */
     private @Nullable List<String> inputModalities;
-    /**
-     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-     * 
-     */
     private String inputStrength;
-    /**
-     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-     * 
-     */
     private @Nullable String outputAction;
-    /**
-     * @return Toggles guardrail evaluation on output.
-     * 
-     */
     private @Nullable Boolean outputEnabled;
-    /**
-     * @return List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
-     * 
-     */
     private @Nullable List<String> outputModalities;
-    /**
-     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-     * 
-     */
     private String outputStrength;
-    /**
-     * @return Type of contextual grounding filter.
-     * 
-     */
     private String type;
 
     private GuardrailContentPolicyConfigFiltersConfig() {}
-    /**
-     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-     * 
-     */
     public Optional<String> inputAction() {
         return Optional.ofNullable(this.inputAction);
     }
-    /**
-     * @return Toggles guardrail evaluation on input.
-     * 
-     */
     public Optional<Boolean> inputEnabled() {
         return Optional.ofNullable(this.inputEnabled);
     }
-    /**
-     * @return List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
-     * 
-     */
     public List<String> inputModalities() {
         return this.inputModalities == null ? List.of() : this.inputModalities;
     }
-    /**
-     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-     * 
-     */
     public String inputStrength() {
         return this.inputStrength;
     }
-    /**
-     * @return Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-     * 
-     */
     public Optional<String> outputAction() {
         return Optional.ofNullable(this.outputAction);
     }
-    /**
-     * @return Toggles guardrail evaluation on output.
-     * 
-     */
     public Optional<Boolean> outputEnabled() {
         return Optional.ofNullable(this.outputEnabled);
     }
-    /**
-     * @return List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
-     * 
-     */
     public List<String> outputModalities() {
         return this.outputModalities == null ? List.of() : this.outputModalities;
     }
-    /**
-     * @return Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-     * 
-     */
     public String outputStrength() {
         return this.outputStrength;
     }
-    /**
-     * @return Type of contextual grounding filter.
-     * 
-     */
     public String type() {
         return this.type;
     }

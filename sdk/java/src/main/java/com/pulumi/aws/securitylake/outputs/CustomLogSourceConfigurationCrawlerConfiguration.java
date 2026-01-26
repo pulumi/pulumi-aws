@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class CustomLogSourceConfigurationCrawlerConfiguration {
-    /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-     * 
-     */
     private String roleArn;
 
     private CustomLogSourceConfigurationCrawlerConfiguration() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

@@ -28,13 +28,6 @@ class SharedDirectoryArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedDirectory resource.
-        :param pulumi.Input[_builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        :param pulumi.Input['SharedDirectoryTargetArgs'] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        :param pulumi.Input[_builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "target", target)
@@ -48,9 +41,6 @@ class SharedDirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -60,11 +50,6 @@ class SharedDirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Input['SharedDirectoryTargetArgs']:
-        """
-        Identifier for the directory consumer account with whom the directory is to be shared. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -74,9 +59,6 @@ class SharedDirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -86,9 +68,6 @@ class SharedDirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -98,9 +77,6 @@ class SharedDirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,14 +95,6 @@ class _SharedDirectoryState:
                  target: Optional[pulumi.Input['SharedDirectoryTargetArgs']] = None):
         """
         Input properties used for looking up and filtering SharedDirectory resources.
-        :param pulumi.Input[_builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        :param pulumi.Input[_builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        :param pulumi.Input[_builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        :param pulumi.Input['SharedDirectoryTargetArgs'] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
-               
-               The following arguments are optional:
         """
         if directory_id is not None:
             pulumi.set(__self__, "directory_id", directory_id)
@@ -144,9 +112,6 @@ class _SharedDirectoryState:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -156,9 +121,6 @@ class _SharedDirectoryState:
     @_builtins.property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -168,9 +130,6 @@ class _SharedDirectoryState:
     @_builtins.property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -180,9 +139,6 @@ class _SharedDirectoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -192,9 +148,6 @@ class _SharedDirectoryState:
     @_builtins.property
     @pulumi.getter(name="sharedDirectoryId")
     def shared_directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        """
         return pulumi.get(self, "shared_directory_id")
 
     @shared_directory_id.setter
@@ -204,11 +157,6 @@ class _SharedDirectoryState:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['SharedDirectoryTargetArgs']]:
-        """
-        Identifier for the directory consumer account with whom the directory is to be shared. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -229,48 +177,9 @@ class SharedDirectory(pulumi.CustomResource):
                  target: Optional[pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']]] = None,
                  __props__=None):
         """
-        Manages a directory in your account (directory owner) shared with another account (directory consumer).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.Directory("example",
-            name="tf-example",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            edition="Standard",
-            vpc_settings={
-                "vpc_id": example_aws_vpc["id"],
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-            })
-        example_shared_directory = aws.directoryservice.SharedDirectory("example",
-            directory_id=example.id,
-            notes="You wanna have a catch?",
-            target={
-                "id": receiver["accountId"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
-        ```
-
+        Create a SharedDirectory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        :param pulumi.Input[_builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        :param pulumi.Input[_builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -279,39 +188,7 @@ class SharedDirectory(pulumi.CustomResource):
                  args: SharedDirectoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a directory in your account (directory owner) shared with another account (directory consumer).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.Directory("example",
-            name="tf-example",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            edition="Standard",
-            vpc_settings={
-                "vpc_id": example_aws_vpc["id"],
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-            })
-        example_shared_directory = aws.directoryservice.SharedDirectory("example",
-            directory_id=example.id,
-            notes="You wanna have a catch?",
-            target={
-                "id": receiver["accountId"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
-        ```
-
+        Create a SharedDirectory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SharedDirectoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,14 +253,6 @@ class SharedDirectory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        :param pulumi.Input[_builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        :param pulumi.Input[_builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -400,50 +269,30 @@ class SharedDirectory(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        """
         return pulumi.get(self, "directory_id")
 
     @_builtins.property
     @pulumi.getter
     def method(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        """
         return pulumi.get(self, "method")
 
     @_builtins.property
     @pulumi.getter
     def notes(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        """
         return pulumi.get(self, "notes")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sharedDirectoryId")
     def shared_directory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        """
         return pulumi.get(self, "shared_directory_id")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Output['outputs.SharedDirectoryTarget']:
-        """
-        Identifier for the directory consumer account with whom the directory is to be shared. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target")
 

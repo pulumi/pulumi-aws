@@ -12,62 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewSmsChannel(ctx, "sms", &pinpoint.SmsChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-// ```
 type SmsChannel struct {
 	pulumi.CustomResourceState
 
-	// ID of the application.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Whether the channel is enabled or disabled. By default, it is set to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Maximum number of promotional messages that can be sent per second.
-	PromotionalMessagesPerSecond pulumi.IntOutput `pulumi:"promotionalMessagesPerSecond"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the sender for your messages.
-	SenderId pulumi.StringPtrOutput `pulumi:"senderId"`
-	// Short Code registered with the phone provider.
-	ShortCode pulumi.StringPtrOutput `pulumi:"shortCode"`
-	// Maximum number of transactional messages per second that can be sent.
-	TransactionalMessagesPerSecond pulumi.IntOutput `pulumi:"transactionalMessagesPerSecond"`
+	ApplicationId                  pulumi.StringOutput    `pulumi:"applicationId"`
+	Enabled                        pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	PromotionalMessagesPerSecond   pulumi.IntOutput       `pulumi:"promotionalMessagesPerSecond"`
+	Region                         pulumi.StringOutput    `pulumi:"region"`
+	SenderId                       pulumi.StringPtrOutput `pulumi:"senderId"`
+	ShortCode                      pulumi.StringPtrOutput `pulumi:"shortCode"`
+	TransactionalMessagesPerSecond pulumi.IntOutput       `pulumi:"transactionalMessagesPerSecond"`
 }
 
 // NewSmsChannel registers a new resource with the given unique name, arguments, and options.
@@ -103,36 +57,22 @@ func GetSmsChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SmsChannel resources.
 type smsChannelState struct {
-	// ID of the application.
-	ApplicationId *string `pulumi:"applicationId"`
-	// Whether the channel is enabled or disabled. By default, it is set to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Maximum number of promotional messages that can be sent per second.
-	PromotionalMessagesPerSecond *int `pulumi:"promotionalMessagesPerSecond"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the sender for your messages.
-	SenderId *string `pulumi:"senderId"`
-	// Short Code registered with the phone provider.
-	ShortCode *string `pulumi:"shortCode"`
-	// Maximum number of transactional messages per second that can be sent.
-	TransactionalMessagesPerSecond *int `pulumi:"transactionalMessagesPerSecond"`
+	ApplicationId                  *string `pulumi:"applicationId"`
+	Enabled                        *bool   `pulumi:"enabled"`
+	PromotionalMessagesPerSecond   *int    `pulumi:"promotionalMessagesPerSecond"`
+	Region                         *string `pulumi:"region"`
+	SenderId                       *string `pulumi:"senderId"`
+	ShortCode                      *string `pulumi:"shortCode"`
+	TransactionalMessagesPerSecond *int    `pulumi:"transactionalMessagesPerSecond"`
 }
 
 type SmsChannelState struct {
-	// ID of the application.
-	ApplicationId pulumi.StringPtrInput
-	// Whether the channel is enabled or disabled. By default, it is set to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Maximum number of promotional messages that can be sent per second.
-	PromotionalMessagesPerSecond pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the sender for your messages.
-	SenderId pulumi.StringPtrInput
-	// Short Code registered with the phone provider.
-	ShortCode pulumi.StringPtrInput
-	// Maximum number of transactional messages per second that can be sent.
+	ApplicationId                  pulumi.StringPtrInput
+	Enabled                        pulumi.BoolPtrInput
+	PromotionalMessagesPerSecond   pulumi.IntPtrInput
+	Region                         pulumi.StringPtrInput
+	SenderId                       pulumi.StringPtrInput
+	ShortCode                      pulumi.StringPtrInput
 	TransactionalMessagesPerSecond pulumi.IntPtrInput
 }
 
@@ -141,30 +81,20 @@ func (SmsChannelState) ElementType() reflect.Type {
 }
 
 type smsChannelArgs struct {
-	// ID of the application.
-	ApplicationId string `pulumi:"applicationId"`
-	// Whether the channel is enabled or disabled. By default, it is set to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the sender for your messages.
-	SenderId *string `pulumi:"senderId"`
-	// Short Code registered with the phone provider.
-	ShortCode *string `pulumi:"shortCode"`
+	ApplicationId string  `pulumi:"applicationId"`
+	Enabled       *bool   `pulumi:"enabled"`
+	Region        *string `pulumi:"region"`
+	SenderId      *string `pulumi:"senderId"`
+	ShortCode     *string `pulumi:"shortCode"`
 }
 
 // The set of arguments for constructing a SmsChannel resource.
 type SmsChannelArgs struct {
-	// ID of the application.
 	ApplicationId pulumi.StringInput
-	// Whether the channel is enabled or disabled. By default, it is set to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the sender for your messages.
-	SenderId pulumi.StringPtrInput
-	// Short Code registered with the phone provider.
-	ShortCode pulumi.StringPtrInput
+	Enabled       pulumi.BoolPtrInput
+	Region        pulumi.StringPtrInput
+	SenderId      pulumi.StringPtrInput
+	ShortCode     pulumi.StringPtrInput
 }
 
 func (SmsChannelArgs) ElementType() reflect.Type {
@@ -254,37 +184,30 @@ func (o SmsChannelOutput) ToSmsChannelOutputWithContext(ctx context.Context) Sms
 	return o
 }
 
-// ID of the application.
 func (o SmsChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Whether the channel is enabled or disabled. By default, it is set to `true`.
 func (o SmsChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Maximum number of promotional messages that can be sent per second.
 func (o SmsChannelOutput) PromotionalMessagesPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.IntOutput { return v.PromotionalMessagesPerSecond }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SmsChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the sender for your messages.
 func (o SmsChannelOutput) SenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringPtrOutput { return v.SenderId }).(pulumi.StringPtrOutput)
 }
 
-// Short Code registered with the phone provider.
 func (o SmsChannelOutput) ShortCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringPtrOutput { return v.ShortCode }).(pulumi.StringPtrOutput)
 }
 
-// Maximum number of transactional messages per second that can be sent.
 func (o SmsChannelOutput) TransactionalMessagesPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.IntOutput { return v.TransactionalMessagesPerSecond }).(pulumi.IntOutput)
 }

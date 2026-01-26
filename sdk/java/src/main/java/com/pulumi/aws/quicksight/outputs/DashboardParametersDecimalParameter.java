@@ -12,18 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardParametersDecimalParameter {
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     private String name;
     private List<Double> values;
 
     private DashboardParametersDecimalParameter() {}
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     public String name() {
         return this.name;
     }

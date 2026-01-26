@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecommendationPreferencesUtilizationPreferenceMetricParameters {
-    /**
-     * @return The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-     * 
-     */
     private String headroom;
-    /**
-     * @return The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-     * 
-     */
     private @Nullable String threshold;
 
     private RecommendationPreferencesUtilizationPreferenceMetricParameters() {}
-    /**
-     * @return The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-     * 
-     */
     public String headroom() {
         return this.headroom;
     }
-    /**
-     * @return The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-     * 
-     */
     public Optional<String> threshold() {
         return Optional.ofNullable(this.threshold);
     }

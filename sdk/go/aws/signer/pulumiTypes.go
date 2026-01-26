@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type SigningJobDestination struct {
-	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 	S3 SigningJobDestinationS3 `pulumi:"s3"`
 }
 
@@ -30,7 +29,6 @@ type SigningJobDestinationInput interface {
 }
 
 type SigningJobDestinationArgs struct {
-	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 	S3 SigningJobDestinationS3Input `pulumi:"s3"`
 }
 
@@ -111,7 +109,6 @@ func (o SigningJobDestinationOutput) ToSigningJobDestinationPtrOutputWithContext
 	}).(SigningJobDestinationPtrOutput)
 }
 
-// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 func (o SigningJobDestinationOutput) S3() SigningJobDestinationS3Output {
 	return o.ApplyT(func(v SigningJobDestination) SigningJobDestinationS3 { return v.S3 }).(SigningJobDestinationS3Output)
 }
@@ -140,7 +137,6 @@ func (o SigningJobDestinationPtrOutput) Elem() SigningJobDestinationOutput {
 	}).(SigningJobDestinationOutput)
 }
 
-// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 func (o SigningJobDestinationPtrOutput) S3() SigningJobDestinationS3PtrOutput {
 	return o.ApplyT(func(v *SigningJobDestination) *SigningJobDestinationS3 {
 		if v == nil {
@@ -151,8 +147,7 @@ func (o SigningJobDestinationPtrOutput) S3() SigningJobDestinationS3PtrOutput {
 }
 
 type SigningJobDestinationS3 struct {
-	Bucket string `pulumi:"bucket"`
-	// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+	Bucket string  `pulumi:"bucket"`
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -168,8 +163,7 @@ type SigningJobDestinationS3Input interface {
 }
 
 type SigningJobDestinationS3Args struct {
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+	Bucket pulumi.StringInput    `pulumi:"bucket"`
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -254,7 +248,6 @@ func (o SigningJobDestinationS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobDestinationS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
 func (o SigningJobDestinationS3Output) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobDestinationS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -292,7 +285,6 @@ func (o SigningJobDestinationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
 func (o SigningJobDestinationS3PtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobDestinationS3) *string {
 		if v == nil {
@@ -504,8 +496,7 @@ func (o SigningJobSignedObjectArrayOutput) Index(i pulumi.IntInput) SigningJobSi
 
 type SigningJobSignedObjectS3 struct {
 	Bucket *string `pulumi:"bucket"`
-	// Key name of the object that contains your unsigned code.
-	Key *string `pulumi:"key"`
+	Key    *string `pulumi:"key"`
 }
 
 // SigningJobSignedObjectS3Input is an input type that accepts SigningJobSignedObjectS3Args and SigningJobSignedObjectS3Output values.
@@ -521,8 +512,7 @@ type SigningJobSignedObjectS3Input interface {
 
 type SigningJobSignedObjectS3Args struct {
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// Key name of the object that contains your unsigned code.
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (SigningJobSignedObjectS3Args) ElementType() reflect.Type {
@@ -580,7 +570,6 @@ func (o SigningJobSignedObjectS3Output) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobSignedObjectS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// Key name of the object that contains your unsigned code.
 func (o SigningJobSignedObjectS3Output) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobSignedObjectS3) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -606,7 +595,6 @@ func (o SigningJobSignedObjectS3ArrayOutput) Index(i pulumi.IntInput) SigningJob
 }
 
 type SigningJobSource struct {
-	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3 SigningJobSourceS3 `pulumi:"s3"`
 }
 
@@ -622,7 +610,6 @@ type SigningJobSourceInput interface {
 }
 
 type SigningJobSourceArgs struct {
-	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3 SigningJobSourceS3Input `pulumi:"s3"`
 }
 
@@ -703,7 +690,6 @@ func (o SigningJobSourceOutput) ToSigningJobSourcePtrOutputWithContext(ctx conte
 	}).(SigningJobSourcePtrOutput)
 }
 
-// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSourceOutput) S3() SigningJobSourceS3Output {
 	return o.ApplyT(func(v SigningJobSource) SigningJobSourceS3 { return v.S3 }).(SigningJobSourceS3Output)
 }
@@ -732,7 +718,6 @@ func (o SigningJobSourcePtrOutput) Elem() SigningJobSourceOutput {
 	}).(SigningJobSourceOutput)
 }
 
-// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSourcePtrOutput) S3() SigningJobSourceS3PtrOutput {
 	return o.ApplyT(func(v *SigningJobSource) *SigningJobSourceS3 {
 		if v == nil {
@@ -743,10 +728,8 @@ func (o SigningJobSourcePtrOutput) S3() SigningJobSourceS3PtrOutput {
 }
 
 type SigningJobSourceS3 struct {
-	Bucket string `pulumi:"bucket"`
-	// Key name of the object that contains your unsigned code.
-	Key string `pulumi:"key"`
-	// Version of your source image in your version enabled S3 bucket.
+	Bucket  string `pulumi:"bucket"`
+	Key     string `pulumi:"key"`
 	Version string `pulumi:"version"`
 }
 
@@ -762,10 +745,8 @@ type SigningJobSourceS3Input interface {
 }
 
 type SigningJobSourceS3Args struct {
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Key name of the object that contains your unsigned code.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Version of your source image in your version enabled S3 bucket.
+	Bucket  pulumi.StringInput `pulumi:"bucket"`
+	Key     pulumi.StringInput `pulumi:"key"`
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -850,12 +831,10 @@ func (o SigningJobSourceS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Key name of the object that contains your unsigned code.
 func (o SigningJobSourceS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Version of your source image in your version enabled S3 bucket.
 func (o SigningJobSourceS3Output) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -893,7 +872,6 @@ func (o SigningJobSourceS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key name of the object that contains your unsigned code.
 func (o SigningJobSourceS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobSourceS3) *string {
 		if v == nil {
@@ -903,7 +881,6 @@ func (o SigningJobSourceS3PtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of your source image in your version enabled S3 bucket.
 func (o SigningJobSourceS3PtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobSourceS3) *string {
 		if v == nil {
@@ -914,12 +891,9 @@ func (o SigningJobSourceS3PtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type SigningProfileRevocationRecord struct {
-	// The time when revocation becomes effective.
 	RevocationEffectiveFrom *string `pulumi:"revocationEffectiveFrom"`
-	// The time when the signing profile was revoked.
-	RevokedAt *string `pulumi:"revokedAt"`
-	// The identity of the revoker.
-	RevokedBy *string `pulumi:"revokedBy"`
+	RevokedAt               *string `pulumi:"revokedAt"`
+	RevokedBy               *string `pulumi:"revokedBy"`
 }
 
 // SigningProfileRevocationRecordInput is an input type that accepts SigningProfileRevocationRecordArgs and SigningProfileRevocationRecordOutput values.
@@ -934,12 +908,9 @@ type SigningProfileRevocationRecordInput interface {
 }
 
 type SigningProfileRevocationRecordArgs struct {
-	// The time when revocation becomes effective.
 	RevocationEffectiveFrom pulumi.StringPtrInput `pulumi:"revocationEffectiveFrom"`
-	// The time when the signing profile was revoked.
-	RevokedAt pulumi.StringPtrInput `pulumi:"revokedAt"`
-	// The identity of the revoker.
-	RevokedBy pulumi.StringPtrInput `pulumi:"revokedBy"`
+	RevokedAt               pulumi.StringPtrInput `pulumi:"revokedAt"`
+	RevokedBy               pulumi.StringPtrInput `pulumi:"revokedBy"`
 }
 
 func (SigningProfileRevocationRecordArgs) ElementType() reflect.Type {
@@ -993,17 +964,14 @@ func (o SigningProfileRevocationRecordOutput) ToSigningProfileRevocationRecordOu
 	return o
 }
 
-// The time when revocation becomes effective.
 func (o SigningProfileRevocationRecordOutput) RevocationEffectiveFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningProfileRevocationRecord) *string { return v.RevocationEffectiveFrom }).(pulumi.StringPtrOutput)
 }
 
-// The time when the signing profile was revoked.
 func (o SigningProfileRevocationRecordOutput) RevokedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningProfileRevocationRecord) *string { return v.RevokedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity of the revoker.
 func (o SigningProfileRevocationRecordOutput) RevokedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningProfileRevocationRecord) *string { return v.RevokedBy }).(pulumi.StringPtrOutput)
 }
@@ -1029,10 +997,8 @@ func (o SigningProfileRevocationRecordArrayOutput) Index(i pulumi.IntInput) Sign
 }
 
 type SigningProfileSignatureValidityPeriod struct {
-	// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
-	Type string `pulumi:"type"`
-	// The numerical value of the time unit for signature validity.
-	Value int `pulumi:"value"`
+	Type  string `pulumi:"type"`
+	Value int    `pulumi:"value"`
 }
 
 // SigningProfileSignatureValidityPeriodInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs and SigningProfileSignatureValidityPeriodOutput values.
@@ -1047,10 +1013,8 @@ type SigningProfileSignatureValidityPeriodInput interface {
 }
 
 type SigningProfileSignatureValidityPeriodArgs struct {
-	// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The numerical value of the time unit for signature validity.
-	Value pulumi.IntInput `pulumi:"value"`
+	Type  pulumi.StringInput `pulumi:"type"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (SigningProfileSignatureValidityPeriodArgs) ElementType() reflect.Type {
@@ -1130,12 +1094,10 @@ func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureVa
 	}).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
-// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
 func (o SigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The numerical value of the time unit for signature validity.
 func (o SigningProfileSignatureValidityPeriodOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -1164,7 +1126,6 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Elem() SigningProfileSig
 	}).(SigningProfileSignatureValidityPeriodOutput)
 }
 
-// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *string {
 		if v == nil {
@@ -1174,7 +1135,6 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The numerical value of the time unit for signature validity.
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *int {
 		if v == nil {
@@ -1185,7 +1145,6 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOut
 }
 
 type SigningProfileSigningMaterial struct {
-	// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 	CertificateArn string `pulumi:"certificateArn"`
 }
 
@@ -1201,7 +1160,6 @@ type SigningProfileSigningMaterialInput interface {
 }
 
 type SigningProfileSigningMaterialArgs struct {
-	// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 }
 
@@ -1282,7 +1240,6 @@ func (o SigningProfileSigningMaterialOutput) ToSigningProfileSigningMaterialPtrO
 	}).(SigningProfileSigningMaterialPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 func (o SigningProfileSigningMaterialOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSigningMaterial) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -1311,7 +1268,6 @@ func (o SigningProfileSigningMaterialPtrOutput) Elem() SigningProfileSigningMate
 	}).(SigningProfileSigningMaterialOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 func (o SigningProfileSigningMaterialPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSigningMaterial) *string {
 		if v == nil {
@@ -2028,7 +1984,6 @@ func (o GetSigningProfileSignatureValidityPeriodArrayOutput) Index(i pulumi.IntI
 }
 
 type GetSigningProfileSigningMaterial struct {
-	// ARN of the certificate used for signing.
 	CertificateArn string `pulumi:"certificateArn"`
 }
 
@@ -2044,7 +1999,6 @@ type GetSigningProfileSigningMaterialInput interface {
 }
 
 type GetSigningProfileSigningMaterialArgs struct {
-	// ARN of the certificate used for signing.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 }
 
@@ -2099,7 +2053,6 @@ func (o GetSigningProfileSigningMaterialOutput) ToGetSigningProfileSigningMateri
 	return o
 }
 
-// ARN of the certificate used for signing.
 func (o GetSigningProfileSigningMaterialOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSigningProfileSigningMaterial) string { return v.CertificateArn }).(pulumi.StringOutput)
 }

@@ -14,15 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpcEndpointVpcOptions {
     private @Nullable List<String> availabilityZones;
-    /**
-     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
-     * 
-     */
     private List<String> subnetIds;
     private @Nullable String vpcId;
 
@@ -30,17 +22,9 @@ public final class VpcEndpointVpcOptions {
     public List<String> availabilityZones() {
         return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
-    /**
-     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

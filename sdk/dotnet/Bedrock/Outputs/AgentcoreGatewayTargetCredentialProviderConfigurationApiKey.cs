@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationApiKey
     {
-        /// <summary>
-        /// Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-        /// </summary>
         public readonly string? CredentialLocation;
-        /// <summary>
-        /// Name of the parameter containing the API key credential.
-        /// </summary>
         public readonly string? CredentialParameterName;
-        /// <summary>
-        /// Prefix to add to the API key credential value.
-        /// </summary>
         public readonly string? CredentialPrefix;
-        /// <summary>
-        /// ARN of the OIDC provider for API key authentication.
-        /// </summary>
         public readonly string ProviderArn;
 
         [OutputConstructor]

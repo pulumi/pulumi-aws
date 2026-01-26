@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteServerPeerBgpOptions {
-    /**
-     * @return The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-     * 
-     */
     private Integer peerAsn;
-    /**
-     * @return The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-     * 
-     */
     private @Nullable String peerLivenessDetection;
 
     private RouteServerPeerBgpOptions() {}
-    /**
-     * @return The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-     * 
-     */
     public Integer peerAsn() {
         return this.peerAsn;
     }
-    /**
-     * @return The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-     * 
-     */
     public Optional<String> peerLivenessDetection() {
         return Optional.ofNullable(this.peerLivenessDetection);
     }

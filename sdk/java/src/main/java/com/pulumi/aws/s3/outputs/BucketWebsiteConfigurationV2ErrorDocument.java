@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketWebsiteConfigurationV2ErrorDocument {
-    /**
-     * @return Object key name to use when a 4XX class error occurs.
-     * 
-     */
     private String key;
 
     private BucketWebsiteConfigurationV2ErrorDocument() {}
-    /**
-     * @return Object key name to use when a 4XX class error occurs.
-     * 
-     */
     public String key() {
         return this.key;
     }

@@ -9,54 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AutoScaling
 {
-    /// <summary>
-    /// Attaches a traffic source to an Auto Scaling group.
-    /// 
-    /// &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `LoadBalancers`, `TargetGroupArns` and `TrafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `Lifecycle` configuration block can be used to suppress differences if necessary.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AutoScaling.TrafficSourceAttachment("example", new()
-    ///     {
-    ///         AutoscalingGroupName = exampleAwsAutoscalingGroup.Id,
-    ///         TrafficSource = new Aws.AutoScaling.Inputs.TrafficSourceAttachmentTrafficSourceArgs
-    ///         {
-    ///             Identifier = exampleAwsLbTargetGroup.Arn,
-    ///             Type = "elbv2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")]
     public partial class TrafficSourceAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the Auto Scaling group.
-        /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifiers of a traffic sources.
-        /// </summary>
         [Output("trafficSource")]
         public Output<Outputs.TrafficSourceAttachmentTrafficSource?> TrafficSource { get; private set; } = null!;
 
@@ -106,21 +67,12 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class TrafficSourceAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Auto Scaling group.
-        /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifiers of a traffic sources.
-        /// </summary>
         [Input("trafficSource")]
         public Input<Inputs.TrafficSourceAttachmentTrafficSourceArgs>? TrafficSource { get; set; }
 
@@ -132,21 +84,12 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class TrafficSourceAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Auto Scaling group.
-        /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifiers of a traffic sources.
-        /// </summary>
         [Input("trafficSource")]
         public Input<Inputs.TrafficSourceAttachmentTrafficSourceGetArgs>? TrafficSource { get; set; }
 

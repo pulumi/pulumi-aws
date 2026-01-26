@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReportGroupExportConfig {
-    /**
-     * @return contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-     * 
-     */
     private @Nullable ReportGroupExportConfigS3Destination s3Destination;
-    /**
-     * @return The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-     * 
-     */
     private String type;
 
     private ReportGroupExportConfig() {}
-    /**
-     * @return contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-     * 
-     */
     public Optional<ReportGroupExportConfigS3Destination> s3Destination() {
         return Optional.ofNullable(this.s3Destination);
     }
-    /**
-     * @return The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-     * 
-     */
     public String type() {
         return this.type;
     }

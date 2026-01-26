@@ -11,21 +11,12 @@ namespace Pulumi.Aws.Outposts
 {
     public static class GetAsset
     {
-        /// <summary>
-        /// Information about a specific hardware asset in an Outpost.
-        /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about a specific hardware asset in an Outpost.
-        /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about a specific hardware asset in an Outpost.
-        /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
@@ -33,21 +24,12 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetAssetArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Outpost ARN.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the asset.
-        /// </summary>
         [Input("assetId", required: true)]
         public string AssetId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -59,21 +41,12 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetAssetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Outpost ARN.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the asset.
-        /// </summary>
         [Input("assetId", required: true)]
         public Input<string> AssetId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -89,25 +62,13 @@ namespace Pulumi.Aws.Outposts
     {
         public readonly string Arn;
         public readonly string AssetId;
-        /// <summary>
-        /// Type of the asset.
-        /// </summary>
         public readonly string AssetType;
-        /// <summary>
-        /// Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-        /// </summary>
         public readonly string HostId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Position of an asset in a rack measured in rack units.
-        /// </summary>
         public readonly int RackElevation;
-        /// <summary>
-        /// Rack ID of the asset.
-        /// </summary>
         public readonly string RackId;
         public readonly string Region;
 

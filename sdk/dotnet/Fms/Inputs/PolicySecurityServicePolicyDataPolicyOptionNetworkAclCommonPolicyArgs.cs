@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Fms.Inputs
 
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines NACL entries for Network ACL policy. See the `NetworkAclEntrySet` block.
-        /// </summary>
         [Input("networkAclEntrySet")]
         public Input<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs>? NetworkAclEntrySet { get; set; }
 

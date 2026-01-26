@@ -16,47 +16,23 @@ public final class TaskTaskReportConfigS3DestinationArgs extends com.pulumi.reso
 
     public static final TaskTaskReportConfigS3DestinationArgs Empty = new TaskTaskReportConfigS3DestinationArgs();
 
-    /**
-     * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-     * 
-     */
     @Import(name="bucketAccessRoleArn", required=true)
     private Output<String> bucketAccessRoleArn;
 
-    /**
-     * @return Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-     * 
-     */
     public Output<String> bucketAccessRoleArn() {
         return this.bucketAccessRoleArn;
     }
 
-    /**
-     * Specifies the ARN of the S3 bucket where DataSync uploads your report.
-     * 
-     */
     @Import(name="s3BucketArn", required=true)
     private Output<String> s3BucketArn;
 
-    /**
-     * @return Specifies the ARN of the S3 bucket where DataSync uploads your report.
-     * 
-     */
     public Output<String> s3BucketArn() {
         return this.s3BucketArn;
     }
 
-    /**
-     * Specifies a bucket prefix for your report.
-     * 
-     */
     @Import(name="subdirectory")
     private @Nullable Output<String> subdirectory;
 
-    /**
-     * @return Specifies a bucket prefix for your report.
-     * 
-     */
     public Optional<Output<String>> subdirectory() {
         return Optional.ofNullable(this.subdirectory);
     }
@@ -87,65 +63,29 @@ public final class TaskTaskReportConfigS3DestinationArgs extends com.pulumi.reso
             $ = new TaskTaskReportConfigS3DestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketAccessRoleArn Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketAccessRoleArn(Output<String> bucketAccessRoleArn) {
             $.bucketAccessRoleArn = bucketAccessRoleArn;
             return this;
         }
 
-        /**
-         * @param bucketAccessRoleArn Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketAccessRoleArn(String bucketAccessRoleArn) {
             return bucketAccessRoleArn(Output.of(bucketAccessRoleArn));
         }
 
-        /**
-         * @param s3BucketArn Specifies the ARN of the S3 bucket where DataSync uploads your report.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketArn(Output<String> s3BucketArn) {
             $.s3BucketArn = s3BucketArn;
             return this;
         }
 
-        /**
-         * @param s3BucketArn Specifies the ARN of the S3 bucket where DataSync uploads your report.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketArn(String s3BucketArn) {
             return s3BucketArn(Output.of(s3BucketArn));
         }
 
-        /**
-         * @param subdirectory Specifies a bucket prefix for your report.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdirectory(@Nullable Output<String> subdirectory) {
             $.subdirectory = subdirectory;
             return this;
         }
 
-        /**
-         * @param subdirectory Specifies a bucket prefix for your report.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdirectory(String subdirectory) {
             return subdirectory(Output.of(subdirectory));
         }

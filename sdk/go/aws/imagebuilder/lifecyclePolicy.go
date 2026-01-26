@@ -12,139 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Image Builder Lifecycle Policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": fmt.Sprintf("imagebuilder.%v", currentGetPartition.DnsSuffix),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//				Name:             pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.Sprintf("arn:%v:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy", currentGetPartition.Partition),
-//				Role:      example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = imagebuilder.NewLifecyclePolicy(ctx, "example", &imagebuilder.LifecyclePolicyArgs{
-//				Name:          pulumi.String("name"),
-//				Description:   pulumi.String("Example description"),
-//				ExecutionRole: example.Arn,
-//				ResourceType:  pulumi.String("AMI_IMAGE"),
-//				PolicyDetails: imagebuilder.LifecyclePolicyPolicyDetailArray{
-//					&imagebuilder.LifecyclePolicyPolicyDetailArgs{
-//						Action: &imagebuilder.LifecyclePolicyPolicyDetailActionArgs{
-//							Type: pulumi.String("DELETE"),
-//						},
-//						Filter: &imagebuilder.LifecyclePolicyPolicyDetailFilterArgs{
-//							Type:          pulumi.String("AGE"),
-//							Value:         pulumi.Int(6),
-//							RetainAtLeast: pulumi.Int(10),
-//							Unit:          pulumi.String("YEARS"),
-//						},
-//					},
-//				},
-//				ResourceSelection: &imagebuilder.LifecyclePolicyResourceSelectionArgs{
-//					TagMap: pulumi.StringMap{
-//						"key1": pulumi.String("value1"),
-//						"key2": pulumi.String("value2"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleRolePolicyAttachment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
-//
-// Using `pulumi import`, import `aws_imagebuilder_lifecycle_policy` using the Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_imagebuilder_lifecycle_policy.example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the lifecycle policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// description for the lifecycle policy.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-	ExecutionRole pulumi.StringOutput `pulumi:"executionRole"`
-	// The name of the lifecycle policy to create.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration block with policy details. Detailed below.
-	PolicyDetails LifecyclePolicyPolicyDetailArrayOutput `pulumi:"policyDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-	//
-	// The following arguments are optional:
+	Arn               pulumi.StringOutput                       `pulumi:"arn"`
+	Description       pulumi.StringPtrOutput                    `pulumi:"description"`
+	ExecutionRole     pulumi.StringOutput                       `pulumi:"executionRole"`
+	Name              pulumi.StringOutput                       `pulumi:"name"`
+	PolicyDetails     LifecyclePolicyPolicyDetailArrayOutput    `pulumi:"policyDetails"`
+	Region            pulumi.StringOutput                       `pulumi:"region"`
 	ResourceSelection LifecyclePolicyResourceSelectionPtrOutput `pulumi:"resourceSelection"`
-	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// The status of the lifecycle policy.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ResourceType      pulumi.StringOutput                       `pulumi:"resourceType"`
+	Status            pulumi.StringOutput                       `pulumi:"status"`
+	Tags              pulumi.StringMapOutput                    `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput                    `pulumi:"tagsAll"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
@@ -183,57 +64,31 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type lifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the lifecycle policy.
-	Arn *string `pulumi:"arn"`
-	// description for the lifecycle policy.
-	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-	ExecutionRole *string `pulumi:"executionRole"`
-	// The name of the lifecycle policy to create.
-	Name *string `pulumi:"name"`
-	// Configuration block with policy details. Detailed below.
-	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-	//
-	// The following arguments are optional:
+	Arn               *string                           `pulumi:"arn"`
+	Description       *string                           `pulumi:"description"`
+	ExecutionRole     *string                           `pulumi:"executionRole"`
+	Name              *string                           `pulumi:"name"`
+	PolicyDetails     []LifecyclePolicyPolicyDetail     `pulumi:"policyDetails"`
+	Region            *string                           `pulumi:"region"`
 	ResourceSelection *LifecyclePolicyResourceSelection `pulumi:"resourceSelection"`
-	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-	ResourceType *string `pulumi:"resourceType"`
-	// The status of the lifecycle policy.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ResourceType      *string                           `pulumi:"resourceType"`
+	Status            *string                           `pulumi:"status"`
+	Tags              map[string]string                 `pulumi:"tags"`
+	TagsAll           map[string]string                 `pulumi:"tagsAll"`
 }
 
 type LifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the lifecycle policy.
-	Arn pulumi.StringPtrInput
-	// description for the lifecycle policy.
-	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-	ExecutionRole pulumi.StringPtrInput
-	// The name of the lifecycle policy to create.
-	Name pulumi.StringPtrInput
-	// Configuration block with policy details. Detailed below.
-	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-	//
-	// The following arguments are optional:
+	Arn               pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	ExecutionRole     pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	PolicyDetails     LifecyclePolicyPolicyDetailArrayInput
+	Region            pulumi.StringPtrInput
 	ResourceSelection LifecyclePolicyResourceSelectionPtrInput
-	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-	ResourceType pulumi.StringPtrInput
-	// The status of the lifecycle policy.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ResourceType      pulumi.StringPtrInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (LifecyclePolicyState) ElementType() reflect.Type {
@@ -241,50 +96,28 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 }
 
 type lifecyclePolicyArgs struct {
-	// description for the lifecycle policy.
-	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-	ExecutionRole string `pulumi:"executionRole"`
-	// The name of the lifecycle policy to create.
-	Name *string `pulumi:"name"`
-	// Configuration block with policy details. Detailed below.
-	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-	//
-	// The following arguments are optional:
+	Description       *string                           `pulumi:"description"`
+	ExecutionRole     string                            `pulumi:"executionRole"`
+	Name              *string                           `pulumi:"name"`
+	PolicyDetails     []LifecyclePolicyPolicyDetail     `pulumi:"policyDetails"`
+	Region            *string                           `pulumi:"region"`
 	ResourceSelection *LifecyclePolicyResourceSelection `pulumi:"resourceSelection"`
-	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-	ResourceType string `pulumi:"resourceType"`
-	// The status of the lifecycle policy.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ResourceType      string                            `pulumi:"resourceType"`
+	Status            *string                           `pulumi:"status"`
+	Tags              map[string]string                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
-	// description for the lifecycle policy.
-	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-	ExecutionRole pulumi.StringInput
-	// The name of the lifecycle policy to create.
-	Name pulumi.StringPtrInput
-	// Configuration block with policy details. Detailed below.
-	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-	//
-	// The following arguments are optional:
+	Description       pulumi.StringPtrInput
+	ExecutionRole     pulumi.StringInput
+	Name              pulumi.StringPtrInput
+	PolicyDetails     LifecyclePolicyPolicyDetailArrayInput
+	Region            pulumi.StringPtrInput
 	ResourceSelection LifecyclePolicyResourceSelectionPtrInput
-	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-	ResourceType pulumi.StringInput
-	// The status of the lifecycle policy.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ResourceType      pulumi.StringInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
@@ -374,59 +207,46 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the lifecycle policy.
 func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// description for the lifecycle policy.
 func (o LifecyclePolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
 func (o LifecyclePolicyOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
-// The name of the lifecycle policy to create.
 func (o LifecyclePolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration block with policy details. Detailed below.
 func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailArrayOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-//
-// The following arguments are optional:
 func (o LifecyclePolicyOutput) ResourceSelection() LifecyclePolicyResourceSelectionPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyResourceSelectionPtrOutput { return v.ResourceSelection }).(LifecyclePolicyResourceSelectionPtrOutput)
 }
 
-// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
 func (o LifecyclePolicyOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// The status of the lifecycle policy.
 func (o LifecyclePolicyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LifecyclePolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LifecyclePolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

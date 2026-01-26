@@ -13,63 +13,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualClusterResult {
-    /**
-     * @return ARN of the cluster.
-     * 
-     */
     private String arn;
-    /**
-     * @return Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
-     * 
-     */
     private List<GetVirtualClusterContainerProvider> containerProviders;
-    /**
-     * @return Unix epoch time stamp in seconds for when the cluster was created.
-     * 
-     */
     private String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
-     * 
-     */
     private String state;
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     private Map<String,String> tags;
     private String virtualClusterId;
 
     private GetVirtualClusterResult() {}
-    /**
-     * @return ARN of the cluster.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
-     * 
-     */
     public List<GetVirtualClusterContainerProvider> containerProviders() {
         return this.containerProviders;
     }
-    /**
-     * @return Unix epoch time stamp in seconds for when the cluster was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
@@ -80,27 +44,15 @@ public final class GetVirtualClusterResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

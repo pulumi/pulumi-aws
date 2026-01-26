@@ -11,71 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon CloudFront Connection Group.
-//
-// For information about CloudFront Connection Groups, see the [AWS CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewConnectionGroup(ctx, "example", &cloudfront.ConnectionGroupArgs{
-//				Name:        pulumi.String("example"),
-//				Enabled:     pulumi.Bool(true),
-//				Ipv6Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Connection Groups using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
-// ```
 type ConnectionGroup struct {
 	pulumi.CustomResourceState
 
-	// ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-	AnycastIpListId pulumi.StringPtrOutput `pulumi:"anycastIpListId"`
-	// ARN of the connection group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether the connection group is enabled. Default is `true`.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Current version of the connection group.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Whether IPv6 is enabled for the connection group. Default is `false`.
-	Ipv6Enabled pulumi.BoolOutput `pulumi:"ipv6Enabled"`
-	// Whether the connection group is the default connection group for the distribution tenants.
-	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// Date and time when the connection group was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// Name of the connection group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-	RoutingEndpoint pulumi.StringOutput `pulumi:"routingEndpoint"`
-	// Current status of the connection group.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	AnycastIpListId   pulumi.StringPtrOutput           `pulumi:"anycastIpListId"`
+	Arn               pulumi.StringOutput              `pulumi:"arn"`
+	Enabled           pulumi.BoolOutput                `pulumi:"enabled"`
+	Etag              pulumi.StringOutput              `pulumi:"etag"`
+	Ipv6Enabled       pulumi.BoolOutput                `pulumi:"ipv6Enabled"`
+	IsDefault         pulumi.BoolOutput                `pulumi:"isDefault"`
+	LastModifiedTime  pulumi.StringOutput              `pulumi:"lastModifiedTime"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	RoutingEndpoint   pulumi.StringOutput              `pulumi:"routingEndpoint"`
+	Status            pulumi.StringOutput              `pulumi:"status"`
+	Tags              pulumi.StringMapOutput           `pulumi:"tags"`
 	TagsAll           pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts          ConnectionGroupTimeoutsPtrOutput `pulumi:"timeouts"`
 	WaitForDeployment pulumi.BoolOutput                `pulumi:"waitForDeployment"`
@@ -111,58 +60,34 @@ func GetConnectionGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectionGroup resources.
 type connectionGroupState struct {
-	// ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-	AnycastIpListId *string `pulumi:"anycastIpListId"`
-	// ARN of the connection group.
-	Arn *string `pulumi:"arn"`
-	// Whether the connection group is enabled. Default is `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Current version of the connection group.
-	Etag *string `pulumi:"etag"`
-	// Whether IPv6 is enabled for the connection group. Default is `false`.
-	Ipv6Enabled *bool `pulumi:"ipv6Enabled"`
-	// Whether the connection group is the default connection group for the distribution tenants.
-	IsDefault *bool `pulumi:"isDefault"`
-	// Date and time when the connection group was last modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Name of the connection group.
-	Name *string `pulumi:"name"`
-	// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-	RoutingEndpoint *string `pulumi:"routingEndpoint"`
-	// Current status of the connection group.
-	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	AnycastIpListId   *string                  `pulumi:"anycastIpListId"`
+	Arn               *string                  `pulumi:"arn"`
+	Enabled           *bool                    `pulumi:"enabled"`
+	Etag              *string                  `pulumi:"etag"`
+	Ipv6Enabled       *bool                    `pulumi:"ipv6Enabled"`
+	IsDefault         *bool                    `pulumi:"isDefault"`
+	LastModifiedTime  *string                  `pulumi:"lastModifiedTime"`
+	Name              *string                  `pulumi:"name"`
+	RoutingEndpoint   *string                  `pulumi:"routingEndpoint"`
+	Status            *string                  `pulumi:"status"`
+	Tags              map[string]string        `pulumi:"tags"`
 	TagsAll           map[string]string        `pulumi:"tagsAll"`
 	Timeouts          *ConnectionGroupTimeouts `pulumi:"timeouts"`
 	WaitForDeployment *bool                    `pulumi:"waitForDeployment"`
 }
 
 type ConnectionGroupState struct {
-	// ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-	AnycastIpListId pulumi.StringPtrInput
-	// ARN of the connection group.
-	Arn pulumi.StringPtrInput
-	// Whether the connection group is enabled. Default is `true`.
-	Enabled pulumi.BoolPtrInput
-	// Current version of the connection group.
-	Etag pulumi.StringPtrInput
-	// Whether IPv6 is enabled for the connection group. Default is `false`.
-	Ipv6Enabled pulumi.BoolPtrInput
-	// Whether the connection group is the default connection group for the distribution tenants.
-	IsDefault pulumi.BoolPtrInput
-	// Date and time when the connection group was last modified.
-	LastModifiedTime pulumi.StringPtrInput
-	// Name of the connection group.
-	Name pulumi.StringPtrInput
-	// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-	RoutingEndpoint pulumi.StringPtrInput
-	// Current status of the connection group.
-	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	AnycastIpListId   pulumi.StringPtrInput
+	Arn               pulumi.StringPtrInput
+	Enabled           pulumi.BoolPtrInput
+	Etag              pulumi.StringPtrInput
+	Ipv6Enabled       pulumi.BoolPtrInput
+	IsDefault         pulumi.BoolPtrInput
+	LastModifiedTime  pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	RoutingEndpoint   pulumi.StringPtrInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 	TagsAll           pulumi.StringMapInput
 	Timeouts          ConnectionGroupTimeoutsPtrInput
 	WaitForDeployment pulumi.BoolPtrInput
@@ -173,15 +98,10 @@ func (ConnectionGroupState) ElementType() reflect.Type {
 }
 
 type connectionGroupArgs struct {
-	// ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-	AnycastIpListId *string `pulumi:"anycastIpListId"`
-	// Whether the connection group is enabled. Default is `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Whether IPv6 is enabled for the connection group. Default is `false`.
-	Ipv6Enabled *bool `pulumi:"ipv6Enabled"`
-	// Name of the connection group.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	AnycastIpListId   *string                  `pulumi:"anycastIpListId"`
+	Enabled           *bool                    `pulumi:"enabled"`
+	Ipv6Enabled       *bool                    `pulumi:"ipv6Enabled"`
+	Name              *string                  `pulumi:"name"`
 	Tags              map[string]string        `pulumi:"tags"`
 	Timeouts          *ConnectionGroupTimeouts `pulumi:"timeouts"`
 	WaitForDeployment *bool                    `pulumi:"waitForDeployment"`
@@ -189,15 +109,10 @@ type connectionGroupArgs struct {
 
 // The set of arguments for constructing a ConnectionGroup resource.
 type ConnectionGroupArgs struct {
-	// ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-	AnycastIpListId pulumi.StringPtrInput
-	// Whether the connection group is enabled. Default is `true`.
-	Enabled pulumi.BoolPtrInput
-	// Whether IPv6 is enabled for the connection group. Default is `false`.
-	Ipv6Enabled pulumi.BoolPtrInput
-	// Name of the connection group.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	AnycastIpListId   pulumi.StringPtrInput
+	Enabled           pulumi.BoolPtrInput
+	Ipv6Enabled       pulumi.BoolPtrInput
+	Name              pulumi.StringPtrInput
 	Tags              pulumi.StringMapInput
 	Timeouts          ConnectionGroupTimeoutsPtrInput
 	WaitForDeployment pulumi.BoolPtrInput
@@ -290,62 +205,50 @@ func (o ConnectionGroupOutput) ToConnectionGroupOutputWithContext(ctx context.Co
 	return o
 }
 
-// ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
 func (o ConnectionGroupOutput) AnycastIpListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringPtrOutput { return v.AnycastIpListId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the connection group.
 func (o ConnectionGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether the connection group is enabled. Default is `true`.
 func (o ConnectionGroupOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Current version of the connection group.
 func (o ConnectionGroupOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Whether IPv6 is enabled for the connection group. Default is `false`.
 func (o ConnectionGroupOutput) Ipv6Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.BoolOutput { return v.Ipv6Enabled }).(pulumi.BoolOutput)
 }
 
-// Whether the connection group is the default connection group for the distribution tenants.
 func (o ConnectionGroupOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// Date and time when the connection group was last modified.
 func (o ConnectionGroupOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// Name of the connection group.
 func (o ConnectionGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
 func (o ConnectionGroupOutput) RoutingEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringOutput { return v.RoutingEndpoint }).(pulumi.StringOutput)
 }
 
-// Current status of the connection group.
 func (o ConnectionGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

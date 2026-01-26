@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an Amazon MSK Connect custom plugin.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getCustomPlugin({
- *     name: "example-debezium-1",
- * });
- * ```
- */
 export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomPluginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
@@ -31,17 +17,8 @@ export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getCustomPlugin.
  */
 export interface GetCustomPluginArgs {
-    /**
-     * Name of the custom plugin.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * A map of tags assigned to the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -49,47 +26,18 @@ export interface GetCustomPluginArgs {
  * A collection of values returned by getCustomPlugin.
  */
 export interface GetCustomPluginResult {
-    /**
-     * the ARN of the custom plugin.
-     */
     readonly arn: string;
-    /**
-     * a summary description of the custom plugin.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * an ID of the latest successfully created revision of the custom plugin.
-     */
     readonly latestRevision: number;
     readonly name: string;
     readonly region: string;
-    /**
-     * the state of the custom plugin.
-     */
     readonly state: string;
-    /**
-     * A map of tags assigned to the resource.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Get information on an Amazon MSK Connect custom plugin.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getCustomPlugin({
- *     name: "example-debezium-1",
- * });
- * ```
- */
 export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomPluginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
@@ -103,16 +51,7 @@ export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pu
  * A collection of arguments for invoking getCustomPlugin.
  */
 export interface GetCustomPluginOutputArgs {
-    /**
-     * Name of the custom plugin.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

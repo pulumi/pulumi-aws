@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class QueueOutboundCallerConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the caller ID name.
-        /// </summary>
         [Input("outboundCallerIdName")]
         public Input<string>? OutboundCallerIdName { get; set; }
 
-        /// <summary>
-        /// Specifies the caller ID number.
-        /// </summary>
         [Input("outboundCallerIdNumberId")]
         public Input<string>? OutboundCallerIdNumberId { get; set; }
 
-        /// <summary>
-        /// Specifies outbound whisper flow to be used during an outbound call.
-        /// </summary>
         [Input("outboundFlowId")]
         public Input<string>? OutboundFlowId { get; set; }
 

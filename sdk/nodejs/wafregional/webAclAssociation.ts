@@ -4,82 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an association with WAF Regional Web ACL.
- *
- * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
- *
- * ## Example Usage
- *
- * ### Application Load Balancer Association
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ipset = new aws.wafregional.IpSet("ipset", {
- *     name: "tfIPSet",
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const foo = new aws.wafregional.Rule("foo", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- * });
- * const fooWebAcl = new aws.wafregional.WebAcl("foo", {
- *     name: "foo",
- *     metricName: "foo",
- *     defaultAction: {
- *         type: "ALLOW",
- *     },
- *     rules: [{
- *         action: {
- *             type: "BLOCK",
- *         },
- *         priority: 1,
- *         ruleId: foo.id,
- *     }],
- * });
- * const fooVpc = new aws.ec2.Vpc("foo", {cidrBlock: "10.1.0.0/16"});
- * const available = aws.getAvailabilityZones({});
- * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     vpcId: fooVpc.id,
- *     cidrBlock: "10.1.1.0/24",
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * const bar = new aws.ec2.Subnet("bar", {
- *     vpcId: fooVpc.id,
- *     cidrBlock: "10.1.2.0/24",
- *     availabilityZone: available.then(available => available.names?.[1]),
- * });
- * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
- *     internal: true,
- *     subnets: [
- *         fooSubnet.id,
- *         bar.id,
- *     ],
- * });
- * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
- *     resourceArn: fooLoadBalancer.arn,
- *     webAclId: fooWebAcl.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
- * ```
- */
 export class WebAclAssociation extends pulumi.CustomResource {
     /**
      * Get an existing WebAclAssociation resource's state with the given name, ID, and optional extra
@@ -108,17 +32,8 @@ export class WebAclAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAclAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
-    /**
-     * The ID of the WAF Regional WebACL to create an association.
-     */
     declare public readonly webAclId: pulumi.Output<string>;
 
     /**
@@ -158,17 +73,8 @@ export class WebAclAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAclAssociation resources.
  */
 export interface WebAclAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * The ID of the WAF Regional WebACL to create an association.
-     */
     webAclId?: pulumi.Input<string>;
 }
 
@@ -176,16 +82,7 @@ export interface WebAclAssociationState {
  * The set of arguments for constructing a WebAclAssociation resource.
  */
 export interface WebAclAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-     */
     resourceArn: pulumi.Input<string>;
-    /**
-     * The ID of the WAF Regional WebACL to create an association.
-     */
     webAclId: pulumi.Input<string>;
 }

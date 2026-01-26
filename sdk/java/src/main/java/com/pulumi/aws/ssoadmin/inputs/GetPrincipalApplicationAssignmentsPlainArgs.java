@@ -17,77 +17,37 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
 
     public static final GetPrincipalApplicationAssignmentsPlainArgs Empty = new GetPrincipalApplicationAssignmentsPlainArgs();
 
-    /**
-     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     @Import(name="applicationAssignments")
     private @Nullable List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments;
 
-    /**
-     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     public Optional<List<GetPrincipalApplicationAssignmentsApplicationAssignment>> applicationAssignments() {
         return Optional.ofNullable(this.applicationAssignments);
     }
 
-    /**
-     * ARN of the instance of IAM Identity Center.
-     * 
-     */
     @Import(name="instanceArn", required=true)
     private String instanceArn;
 
-    /**
-     * @return ARN of the instance of IAM Identity Center.
-     * 
-     */
     public String instanceArn() {
         return this.instanceArn;
     }
 
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     @Import(name="principalId", required=true)
     private String principalId;
 
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public String principalId() {
         return this.principalId;
     }
 
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     @Import(name="principalType", required=true)
     private String principalType;
 
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public String principalType() {
         return this.principalType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -120,66 +80,30 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
             $ = new GetPrincipalApplicationAssignmentsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationAssignments(@Nullable List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments) {
             $.applicationAssignments = applicationAssignments;
             return this;
         }
 
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationAssignments(GetPrincipalApplicationAssignmentsApplicationAssignment... applicationAssignments) {
             return applicationAssignments(List.of(applicationAssignments));
         }
 
-        /**
-         * @param instanceArn ARN of the instance of IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(String principalId) {
             $.principalId = principalId;
             return this;
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             $.principalType = principalType;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

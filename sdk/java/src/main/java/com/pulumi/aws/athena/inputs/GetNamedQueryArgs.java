@@ -16,47 +16,23 @@ public final class GetNamedQueryArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetNamedQueryArgs Empty = new GetNamedQueryArgs();
 
-    /**
-     * The plain language name for the query. Maximum length of 128.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The plain language name for the query. Maximum length of 128.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The workgroup to which the query belongs. Defaults to `primary`.
-     * 
-     */
     @Import(name="workgroup")
     private @Nullable Output<String> workgroup;
 
-    /**
-     * @return The workgroup to which the query belongs. Defaults to `primary`.
-     * 
-     */
     public Optional<Output<String>> workgroup() {
         return Optional.ofNullable(this.workgroup);
     }
@@ -87,65 +63,29 @@ public final class GetNamedQueryArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetNamedQueryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The plain language name for the query. Maximum length of 128.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The plain language name for the query. Maximum length of 128.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param workgroup The workgroup to which the query belongs. Defaults to `primary`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroup(@Nullable Output<String> workgroup) {
             $.workgroup = workgroup;
             return this;
         }
 
-        /**
-         * @param workgroup The workgroup to which the query belongs. Defaults to `primary`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroup(String workgroup) {
             return workgroup(Output.of(workgroup));
         }

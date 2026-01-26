@@ -27,14 +27,6 @@ class KeyPairArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] pgp_key: PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        :param pulumi.Input[_builtins.str] public_key: Public key material. This public key will be imported into Lightsail.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -52,9 +44,6 @@ class KeyPairArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,9 +53,6 @@ class KeyPairArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -76,9 +62,6 @@ class KeyPairArgs:
     @_builtins.property
     @pulumi.getter(name="pgpKey")
     def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
@@ -88,9 +71,6 @@ class KeyPairArgs:
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public key material. This public key will be imported into Lightsail.
-        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -100,9 +80,6 @@ class KeyPairArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,11 +89,6 @@ class KeyPairArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -141,20 +113,6 @@ class _KeyPairState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KeyPair resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail key pair.
-        :param pulumi.Input[_builtins.str] encrypted_fingerprint: MD5 public key fingerprint for the encrypted private key.
-        :param pulumi.Input[_builtins.str] encrypted_private_key: Private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
-        :param pulumi.Input[_builtins.str] fingerprint: MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] pgp_key: PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        :param pulumi.Input[_builtins.str] private_key: Private key, base64 encoded. This is only populated when creating a new key, and when no `pgp_key` is provided.
-        :param pulumi.Input[_builtins.str] public_key: Public key material. This public key will be imported into Lightsail.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,9 +142,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Lightsail key pair.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -196,9 +151,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter(name="encryptedFingerprint")
     def encrypted_fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        MD5 public key fingerprint for the encrypted private key.
-        """
         return pulumi.get(self, "encrypted_fingerprint")
 
     @encrypted_fingerprint.setter
@@ -208,9 +160,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter(name="encryptedPrivateKey")
     def encrypted_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
-        """
         return pulumi.get(self, "encrypted_private_key")
 
     @encrypted_private_key.setter
@@ -220,9 +169,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter
     def fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        """
         return pulumi.get(self, "fingerprint")
 
     @fingerprint.setter
@@ -232,9 +178,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -244,9 +187,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -256,9 +196,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter(name="pgpKey")
     def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
@@ -268,9 +205,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Private key, base64 encoded. This is only populated when creating a new key, and when no `pgp_key` is provided.
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -280,9 +214,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public key material. This public key will be imported into Lightsail.
-        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -292,9 +223,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -304,11 +232,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -318,9 +241,6 @@ class _KeyPairState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -342,58 +262,9 @@ class KeyPair(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Lightsail Key Pair for use with Lightsail Instances. Use this resource to create or import key pairs that are separate from EC2 Key Pairs and required for Lightsail instances.
-
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-
-        ## Example Usage
-
-        ### Create New Key Pair
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.KeyPair("example", name="example")
-        ```
-
-        ### Create New Key Pair with PGP Encrypted Private Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.KeyPair("example",
-            name="example",
-            pgp_key="keybase:keybaseusername")
-        ```
-
-        ### Existing Public Key Import
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.lightsail.KeyPair("example",
-            name="example",
-            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
-        ```
-
-        ## Import
-
-        You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
-
+        Create a KeyPair resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] pgp_key: PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        :param pulumi.Input[_builtins.str] public_key: Public key material. This public key will be imported into Lightsail.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
         """
         ...
     @overload
@@ -402,48 +273,7 @@ class KeyPair(pulumi.CustomResource):
                  args: Optional[KeyPairArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail Key Pair for use with Lightsail Instances. Use this resource to create or import key pairs that are separate from EC2 Key Pairs and required for Lightsail instances.
-
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-
-        ## Example Usage
-
-        ### Create New Key Pair
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.KeyPair("example", name="example")
-        ```
-
-        ### Create New Key Pair with PGP Encrypted Private Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.KeyPair("example",
-            name="example",
-            pgp_key="keybase:keybaseusername")
-        ```
-
-        ### Existing Public Key Import
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.lightsail.KeyPair("example",
-            name="example",
-            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
-        ```
-
-        ## Import
-
-        You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
-
+        Create a KeyPair resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KeyPairArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -515,20 +345,6 @@ class KeyPair(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail key pair.
-        :param pulumi.Input[_builtins.str] encrypted_fingerprint: MD5 public key fingerprint for the encrypted private key.
-        :param pulumi.Input[_builtins.str] encrypted_private_key: Private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
-        :param pulumi.Input[_builtins.str] fingerprint: MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] pgp_key: PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        :param pulumi.Input[_builtins.str] private_key: Private key, base64 encoded. This is only populated when creating a new key, and when no `pgp_key` is provided.
-        :param pulumi.Input[_builtins.str] public_key: Public key material. This public key will be imported into Lightsail.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -551,98 +367,60 @@ class KeyPair(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Lightsail key pair.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="encryptedFingerprint")
     def encrypted_fingerprint(self) -> pulumi.Output[_builtins.str]:
-        """
-        MD5 public key fingerprint for the encrypted private key.
-        """
         return pulumi.get(self, "encrypted_fingerprint")
 
     @_builtins.property
     @pulumi.getter(name="encryptedPrivateKey")
     def encrypted_private_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
-        """
         return pulumi.get(self, "encrypted_private_key")
 
     @_builtins.property
     @pulumi.getter
     def fingerprint(self) -> pulumi.Output[_builtins.str]:
-        """
-        MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        """
         return pulumi.get(self, "fingerprint")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter(name="pgpKey")
     def pgp_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        """
         return pulumi.get(self, "pgp_key")
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Private key, base64 encoded. This is only populated when creating a new key, and when no `pgp_key` is provided.
-        """
         return pulumi.get(self, "private_key")
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Public key material. This public key will be imported into Lightsail.
-        """
         return pulumi.get(self, "public_key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgp_key` is ignored if `public_key` is supplied.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementIpSetReferenceStatement
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `IpSetForwardedIpConfig` below for more details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig? IpSetForwardedIpConfig;
 
         [OutputConstructor]

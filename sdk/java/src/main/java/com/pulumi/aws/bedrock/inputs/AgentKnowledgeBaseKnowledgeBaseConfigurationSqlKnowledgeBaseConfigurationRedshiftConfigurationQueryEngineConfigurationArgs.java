@@ -18,47 +18,23 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs();
 
-    /**
-     * Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
-     * 
-     */
     @Import(name="provisionedConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs> provisionedConfiguration;
 
-    /**
-     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs>> provisionedConfiguration() {
         return Optional.ofNullable(this.provisionedConfiguration);
     }
 
-    /**
-     * Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
-     * 
-     */
     @Import(name="serverlessConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs> serverlessConfiguration;
 
-    /**
-     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs>> serverlessConfiguration() {
         return Optional.ofNullable(this.serverlessConfiguration);
     }
 
-    /**
-     * Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -89,65 +65,29 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param provisionedConfiguration Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs> provisionedConfiguration) {
             $.provisionedConfiguration = provisionedConfiguration;
             return this;
         }
 
-        /**
-         * @param provisionedConfiguration Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs provisionedConfiguration) {
             return provisionedConfiguration(Output.of(provisionedConfiguration));
         }
 
-        /**
-         * @param serverlessConfiguration Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverlessConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs> serverlessConfiguration) {
             $.serverlessConfiguration = serverlessConfiguration;
             return this;
         }
 
-        /**
-         * @param serverlessConfiguration Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverlessConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs serverlessConfiguration) {
             return serverlessConfiguration(Output.of(serverlessConfiguration));
         }
 
-        /**
-         * @param type Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

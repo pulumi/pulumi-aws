@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataCatalog {
-    /**
-     * @return Identifier for the catalog resource.
-     * 
-     */
     private @Nullable String id;
 
     private OptInResourceDataCatalog() {}
-    /**
-     * @return Identifier for the catalog resource.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }

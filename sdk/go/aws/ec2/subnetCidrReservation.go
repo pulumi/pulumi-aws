@@ -12,58 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a subnet CIDR reservation resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSubnetCidrReservation(ctx, "example", &ec2.SubnetCidrReservationArgs{
-//				CidrBlock:       pulumi.String("10.0.0.16/28"),
-//				ReservationType: pulumi.String("prefix"),
-//				SubnetId:        pulumi.Any(exampleAwsSubnet.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
-// ```
 type SubnetCidrReservation struct {
 	pulumi.CustomResourceState
 
-	// The CIDR block for the reservation.
-	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
-	// A brief description of the reservation.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ID of the AWS account that owns this CIDR reservation.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The type of reservation to create. Valid values: `explicit`, `prefix`
-	ReservationType pulumi.StringOutput `pulumi:"reservationType"`
-	// The ID of the subnet to create the reservation for.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	CidrBlock       pulumi.StringOutput    `pulumi:"cidrBlock"`
+	Description     pulumi.StringPtrOutput `pulumi:"description"`
+	OwnerId         pulumi.StringOutput    `pulumi:"ownerId"`
+	Region          pulumi.StringOutput    `pulumi:"region"`
+	ReservationType pulumi.StringOutput    `pulumi:"reservationType"`
+	SubnetId        pulumi.StringOutput    `pulumi:"subnetId"`
 }
 
 // NewSubnetCidrReservation registers a new resource with the given unique name, arguments, and options.
@@ -105,33 +62,21 @@ func GetSubnetCidrReservation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetCidrReservation resources.
 type subnetCidrReservationState struct {
-	// The CIDR block for the reservation.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// A brief description of the reservation.
-	Description *string `pulumi:"description"`
-	// ID of the AWS account that owns this CIDR reservation.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The type of reservation to create. Valid values: `explicit`, `prefix`
+	CidrBlock       *string `pulumi:"cidrBlock"`
+	Description     *string `pulumi:"description"`
+	OwnerId         *string `pulumi:"ownerId"`
+	Region          *string `pulumi:"region"`
 	ReservationType *string `pulumi:"reservationType"`
-	// The ID of the subnet to create the reservation for.
-	SubnetId *string `pulumi:"subnetId"`
+	SubnetId        *string `pulumi:"subnetId"`
 }
 
 type SubnetCidrReservationState struct {
-	// The CIDR block for the reservation.
-	CidrBlock pulumi.StringPtrInput
-	// A brief description of the reservation.
-	Description pulumi.StringPtrInput
-	// ID of the AWS account that owns this CIDR reservation.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The type of reservation to create. Valid values: `explicit`, `prefix`
+	CidrBlock       pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
+	OwnerId         pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	ReservationType pulumi.StringPtrInput
-	// The ID of the subnet to create the reservation for.
-	SubnetId pulumi.StringPtrInput
+	SubnetId        pulumi.StringPtrInput
 }
 
 func (SubnetCidrReservationState) ElementType() reflect.Type {
@@ -139,30 +84,20 @@ func (SubnetCidrReservationState) ElementType() reflect.Type {
 }
 
 type subnetCidrReservationArgs struct {
-	// The CIDR block for the reservation.
-	CidrBlock string `pulumi:"cidrBlock"`
-	// A brief description of the reservation.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The type of reservation to create. Valid values: `explicit`, `prefix`
-	ReservationType string `pulumi:"reservationType"`
-	// The ID of the subnet to create the reservation for.
-	SubnetId string `pulumi:"subnetId"`
+	CidrBlock       string  `pulumi:"cidrBlock"`
+	Description     *string `pulumi:"description"`
+	Region          *string `pulumi:"region"`
+	ReservationType string  `pulumi:"reservationType"`
+	SubnetId        string  `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a SubnetCidrReservation resource.
 type SubnetCidrReservationArgs struct {
-	// The CIDR block for the reservation.
-	CidrBlock pulumi.StringInput
-	// A brief description of the reservation.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The type of reservation to create. Valid values: `explicit`, `prefix`
+	CidrBlock       pulumi.StringInput
+	Description     pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	ReservationType pulumi.StringInput
-	// The ID of the subnet to create the reservation for.
-	SubnetId pulumi.StringInput
+	SubnetId        pulumi.StringInput
 }
 
 func (SubnetCidrReservationArgs) ElementType() reflect.Type {
@@ -252,32 +187,26 @@ func (o SubnetCidrReservationOutput) ToSubnetCidrReservationOutputWithContext(ct
 	return o
 }
 
-// The CIDR block for the reservation.
 func (o SubnetCidrReservationOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// A brief description of the reservation.
 func (o SubnetCidrReservationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ID of the AWS account that owns this CIDR reservation.
 func (o SubnetCidrReservationOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SubnetCidrReservationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The type of reservation to create. Valid values: `explicit`, `prefix`
 func (o SubnetCidrReservationOutput) ReservationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.ReservationType }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet to create the reservation for.
 func (o SubnetCidrReservationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

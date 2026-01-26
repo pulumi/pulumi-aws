@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type NotificationRuleTarget struct {
-	// The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-	Address string `pulumi:"address"`
-	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-	Status *string `pulumi:"status"`
-	// The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-	Type *string `pulumi:"type"`
+	Address string  `pulumi:"address"`
+	Status  *string `pulumi:"status"`
+	Type    *string `pulumi:"type"`
 }
 
 // NotificationRuleTargetInput is an input type that accepts NotificationRuleTargetArgs and NotificationRuleTargetOutput values.
@@ -34,12 +31,9 @@ type NotificationRuleTargetInput interface {
 }
 
 type NotificationRuleTargetArgs struct {
-	// The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-	Address pulumi.StringInput `pulumi:"address"`
-	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Address pulumi.StringInput    `pulumi:"address"`
+	Status  pulumi.StringPtrInput `pulumi:"status"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (NotificationRuleTargetArgs) ElementType() reflect.Type {
@@ -93,17 +87,14 @@ func (o NotificationRuleTargetOutput) ToNotificationRuleTargetOutputWithContext(
 	return o
 }
 
-// The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
 func (o NotificationRuleTargetOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleTarget) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 func (o NotificationRuleTargetOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationRuleTarget) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
 func (o NotificationRuleTargetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationRuleTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

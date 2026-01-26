@@ -19,47 +19,23 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
 
     public static final ChannelEncoderSettingsOutputGroupArgs Empty = new ChannelEncoderSettingsOutputGroupArgs();
 
-    /**
-     * Custom output group name defined by the user.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Custom output group name defined by the user.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Settings associated with the output group. See Output Group Settings for more details.
-     * 
-     */
     @Import(name="outputGroupSettings", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs> outputGroupSettings;
 
-    /**
-     * @return Settings associated with the output group. See Output Group Settings for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs> outputGroupSettings() {
         return this.outputGroupSettings;
     }
 
-    /**
-     * List of outputs. See Outputs for more details.
-     * 
-     */
     @Import(name="outputs", required=true)
     private Output<List<ChannelEncoderSettingsOutputGroupOutputArgs>> outputs;
 
-    /**
-     * @return List of outputs. See Outputs for more details.
-     * 
-     */
     public Output<List<ChannelEncoderSettingsOutputGroupOutputArgs>> outputs() {
         return this.outputs;
     }
@@ -90,75 +66,33 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
             $ = new ChannelEncoderSettingsOutputGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Custom output group name defined by the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Custom output group name defined by the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param outputGroupSettings Settings associated with the output group. See Output Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputGroupSettings(Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs> outputGroupSettings) {
             $.outputGroupSettings = outputGroupSettings;
             return this;
         }
 
-        /**
-         * @param outputGroupSettings Settings associated with the output group. See Output Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs outputGroupSettings) {
             return outputGroupSettings(Output.of(outputGroupSettings));
         }
 
-        /**
-         * @param outputs List of outputs. See Outputs for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputs(Output<List<ChannelEncoderSettingsOutputGroupOutputArgs>> outputs) {
             $.outputs = outputs;
             return this;
         }
 
-        /**
-         * @param outputs List of outputs. See Outputs for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputs(List<ChannelEncoderSettingsOutputGroupOutputArgs> outputs) {
             return outputs(Output.of(outputs));
         }
 
-        /**
-         * @param outputs List of outputs. See Outputs for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputs(ChannelEncoderSettingsOutputGroupOutputArgs... outputs) {
             return outputs(List.of(outputs));
         }

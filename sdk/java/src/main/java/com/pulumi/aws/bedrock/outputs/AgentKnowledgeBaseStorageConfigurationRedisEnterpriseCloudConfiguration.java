@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
-     * 
-     */
     private String credentialsSecretArn;
-    /**
-     * @return Endpoint URL of the Redis Enterprise Cloud database.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping;
-    /**
-     * @return Name of the vector index.
-     * 
-     */
     private String vectorIndexName;
 
     private AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration() {}
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
-     * 
-     */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
-    /**
-     * @return Endpoint URL of the Redis Enterprise Cloud database.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
-    /**
-     * @return Name of the vector index.
-     * 
-     */
     public String vectorIndexName() {
         return this.vectorIndexName;
     }

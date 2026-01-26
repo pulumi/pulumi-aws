@@ -18,107 +18,51 @@ public final class ApiCacheArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ApiCacheArgs Empty = new ApiCacheArgs();
 
-    /**
-     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     * 
-     */
     @Import(name="apiCachingBehavior", required=true)
     private Output<String> apiCachingBehavior;
 
-    /**
-     * @return Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     * 
-     */
     public Output<String> apiCachingBehavior() {
         return this.apiCachingBehavior;
     }
 
-    /**
-     * GraphQL API ID.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return GraphQL API ID.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * At-rest encryption flag for cache. You cannot update this setting after creation.
-     * 
-     */
     @Import(name="atRestEncryptionEnabled")
     private @Nullable Output<Boolean> atRestEncryptionEnabled;
 
-    /**
-     * @return At-rest encryption flag for cache. You cannot update this setting after creation.
-     * 
-     */
     public Optional<Output<Boolean>> atRestEncryptionEnabled() {
         return Optional.ofNullable(this.atRestEncryptionEnabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     * 
-     */
     @Import(name="transitEncryptionEnabled")
     private @Nullable Output<Boolean> transitEncryptionEnabled;
 
-    /**
-     * @return Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     * 
-     */
     public Optional<Output<Boolean>> transitEncryptionEnabled() {
         return Optional.ofNullable(this.transitEncryptionEnabled);
     }
 
-    /**
-     * TTL in seconds for cache entries.
-     * 
-     */
     @Import(name="ttl", required=true)
     private Output<Integer> ttl;
 
-    /**
-     * @return TTL in seconds for cache entries.
-     * 
-     */
     public Output<Integer> ttl() {
         return this.ttl;
     }
 
-    /**
-     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -153,149 +97,65 @@ public final class ApiCacheArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ApiCacheArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiCachingBehavior Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiCachingBehavior(Output<String> apiCachingBehavior) {
             $.apiCachingBehavior = apiCachingBehavior;
             return this;
         }
 
-        /**
-         * @param apiCachingBehavior Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiCachingBehavior(String apiCachingBehavior) {
             return apiCachingBehavior(Output.of(apiCachingBehavior));
         }
 
-        /**
-         * @param apiId GraphQL API ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId GraphQL API ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param atRestEncryptionEnabled At-rest encryption flag for cache. You cannot update this setting after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder atRestEncryptionEnabled(@Nullable Output<Boolean> atRestEncryptionEnabled) {
             $.atRestEncryptionEnabled = atRestEncryptionEnabled;
             return this;
         }
 
-        /**
-         * @param atRestEncryptionEnabled At-rest encryption flag for cache. You cannot update this setting after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder atRestEncryptionEnabled(Boolean atRestEncryptionEnabled) {
             return atRestEncryptionEnabled(Output.of(atRestEncryptionEnabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param transitEncryptionEnabled Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitEncryptionEnabled(@Nullable Output<Boolean> transitEncryptionEnabled) {
             $.transitEncryptionEnabled = transitEncryptionEnabled;
             return this;
         }
 
-        /**
-         * @param transitEncryptionEnabled Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitEncryptionEnabled(Boolean transitEncryptionEnabled) {
             return transitEncryptionEnabled(Output.of(transitEncryptionEnabled));
         }
 
-        /**
-         * @param ttl TTL in seconds for cache entries.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(Output<Integer> ttl) {
             $.ttl = ttl;
             return this;
         }
 
-        /**
-         * @param ttl TTL in seconds for cache entries.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
         }
 
-        /**
-         * @param type Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

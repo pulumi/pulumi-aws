@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryAssociationKmsKeyDetails {
-    /**
-     * @return The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-     * 
-     */
     private @Nullable String encryptionOption;
-    /**
-     * @return The ID of the AWS KMS key that is associated with a repository association.
-     * 
-     */
     private @Nullable String kmsKeyId;
 
     private RepositoryAssociationKmsKeyDetails() {}
-    /**
-     * @return The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-     * 
-     */
     public Optional<String> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
-    /**
-     * @return The ID of the AWS KMS key that is associated with a repository association.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }

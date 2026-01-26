@@ -16,32 +16,16 @@ public final class AnalyzerConfigurationArgs extends com.pulumi.resources.Resour
 
     public static final AnalyzerConfigurationArgs Empty = new AnalyzerConfigurationArgs();
 
-    /**
-     * Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
-     * 
-     */
     @Import(name="internalAccess")
     private @Nullable Output<AnalyzerConfigurationInternalAccessArgs> internalAccess;
 
-    /**
-     * @return Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
-     * 
-     */
     public Optional<Output<AnalyzerConfigurationInternalAccessArgs>> internalAccess() {
         return Optional.ofNullable(this.internalAccess);
     }
 
-    /**
-     * Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
-     * 
-     */
     @Import(name="unusedAccess")
     private @Nullable Output<AnalyzerConfigurationUnusedAccessArgs> unusedAccess;
 
-    /**
-     * @return Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
-     * 
-     */
     public Optional<Output<AnalyzerConfigurationUnusedAccessArgs>> unusedAccess() {
         return Optional.ofNullable(this.unusedAccess);
     }
@@ -71,44 +55,20 @@ public final class AnalyzerConfigurationArgs extends com.pulumi.resources.Resour
             $ = new AnalyzerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param internalAccess Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internalAccess(@Nullable Output<AnalyzerConfigurationInternalAccessArgs> internalAccess) {
             $.internalAccess = internalAccess;
             return this;
         }
 
-        /**
-         * @param internalAccess Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internalAccess(AnalyzerConfigurationInternalAccessArgs internalAccess) {
             return internalAccess(Output.of(internalAccess));
         }
 
-        /**
-         * @param unusedAccess Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unusedAccess(@Nullable Output<AnalyzerConfigurationUnusedAccessArgs> unusedAccess) {
             $.unusedAccess = unusedAccess;
             return this;
         }
 
-        /**
-         * @param unusedAccess Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unusedAccess(AnalyzerConfigurationUnusedAccessArgs unusedAccess) {
             return unusedAccess(Output.of(unusedAccess));
         }

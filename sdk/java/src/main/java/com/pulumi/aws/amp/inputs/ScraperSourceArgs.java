@@ -15,17 +15,9 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ScraperSourceArgs Empty = new ScraperSourceArgs();
 
-    /**
-     * Configuration block for an EKS cluster source. See `eks`.
-     * 
-     */
     @Import(name="eks")
     private @Nullable Output<ScraperSourceEksArgs> eks;
 
-    /**
-     * @return Configuration block for an EKS cluster source. See `eks`.
-     * 
-     */
     public Optional<Output<ScraperSourceEksArgs>> eks() {
         return Optional.ofNullable(this.eks);
     }
@@ -54,23 +46,11 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ScraperSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eks Configuration block for an EKS cluster source. See `eks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eks(@Nullable Output<ScraperSourceEksArgs> eks) {
             $.eks = eks;
             return this;
         }
 
-        /**
-         * @param eks Configuration block for an EKS cluster source. See `eks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eks(ScraperSourceEksArgs eks) {
             return eks(Output.of(eks));
         }

@@ -12,57 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContactListTopic {
-    /**
-     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-     * 
-     */
     private String defaultSubscriptionStatus;
-    /**
-     * @return Description of what the topic is about, which the contact will see.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Name of the topic the contact will see.
-     * 
-     */
     private String displayName;
-    /**
-     * @return Name of the topic.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String topicName;
 
     private ContactListTopic() {}
-    /**
-     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
-     * 
-     */
     public String defaultSubscriptionStatus() {
         return this.defaultSubscriptionStatus;
     }
-    /**
-     * @return Description of what the topic is about, which the contact will see.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Name of the topic the contact will see.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return Name of the topic.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String topicName() {
         return this.topicName;
     }

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StreamKinesisConfiguration {
-    /**
-     * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
-     * 
-     */
     private @Nullable Boolean aggregationEnabled;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-     * 
-     */
     private String streamArn;
 
     private StreamKinesisConfiguration() {}
-    /**
-     * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
-     * 
-     */
     public Optional<Boolean> aggregationEnabled() {
         return Optional.ofNullable(this.aggregationEnabled);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-     * 
-     */
     public String streamArn() {
         return this.streamArn;
     }

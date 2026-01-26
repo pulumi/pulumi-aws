@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Managed Prometheus workspace data source.
-//
-// ## Example Usage
-//
-// ### Basic configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.LookupWorkspace(ctx, &amp.LookupWorkspaceArgs{
-//				WorkspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult
@@ -52,34 +23,24 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Prometheus workspace ID.
-	WorkspaceId string `pulumi:"workspaceId"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	WorkspaceId string            `pulumi:"workspaceId"`
 }
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	// Prometheus workspace alias.
-	Alias string `pulumi:"alias"`
-	// ARN of the Prometheus workspace.
-	Arn string `pulumi:"arn"`
-	// Creation date of the Prometheus workspace.
+	Alias       string `pulumi:"alias"`
+	Arn         string `pulumi:"arn"`
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the KMS key used to encrypt data in the Prometheus workspace.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// Endpoint of the Prometheus workspace.
-	PrometheusEndpoint string `pulumi:"prometheusEndpoint"`
-	Region             string `pulumi:"region"`
-	// Status of the Prometheus workspace.
-	Status string `pulumi:"status"`
-	// Tags assigned to the resource.
-	Tags        map[string]string `pulumi:"tags"`
-	WorkspaceId string            `pulumi:"workspaceId"`
+	Id                 string            `pulumi:"id"`
+	KmsKeyArn          string            `pulumi:"kmsKeyArn"`
+	PrometheusEndpoint string            `pulumi:"prometheusEndpoint"`
+	Region             string            `pulumi:"region"`
+	Status             string            `pulumi:"status"`
+	Tags               map[string]string `pulumi:"tags"`
+	WorkspaceId        string            `pulumi:"workspaceId"`
 }
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
@@ -93,12 +54,9 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Prometheus workspace ID.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
+	WorkspaceId pulumi.StringInput    `pulumi:"workspaceId"`
 }
 
 func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
@@ -120,17 +78,14 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
-// Prometheus workspace alias.
 func (o LookupWorkspaceResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
-// ARN of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation date of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -140,12 +95,10 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the KMS key used to encrypt data in the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Endpoint of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.PrometheusEndpoint }).(pulumi.StringOutput)
 }
@@ -154,12 +107,10 @@ func (o LookupWorkspaceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Tags assigned to the resource.
 func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

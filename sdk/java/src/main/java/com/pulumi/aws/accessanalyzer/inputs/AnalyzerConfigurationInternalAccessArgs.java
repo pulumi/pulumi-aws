@@ -15,17 +15,9 @@ public final class AnalyzerConfigurationInternalAccessArgs extends com.pulumi.re
 
     public static final AnalyzerConfigurationInternalAccessArgs Empty = new AnalyzerConfigurationInternalAccessArgs();
 
-    /**
-     * Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
-     * 
-     */
     @Import(name="analysisRule")
     private @Nullable Output<AnalyzerConfigurationInternalAccessAnalysisRuleArgs> analysisRule;
 
-    /**
-     * @return Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
-     * 
-     */
     public Optional<Output<AnalyzerConfigurationInternalAccessAnalysisRuleArgs>> analysisRule() {
         return Optional.ofNullable(this.analysisRule);
     }
@@ -54,23 +46,11 @@ public final class AnalyzerConfigurationInternalAccessArgs extends com.pulumi.re
             $ = new AnalyzerConfigurationInternalAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param analysisRule Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analysisRule(@Nullable Output<AnalyzerConfigurationInternalAccessAnalysisRuleArgs> analysisRule) {
             $.analysisRule = analysisRule;
             return this;
         }
 
-        /**
-         * @param analysisRule Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analysisRule(AnalyzerConfigurationInternalAccessAnalysisRuleArgs analysisRule) {
             return analysisRule(Output.of(analysisRule));
         }

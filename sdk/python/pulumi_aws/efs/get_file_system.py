@@ -86,25 +86,16 @@ class GetFileSystemResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name of the file system.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
-        """
-        The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> _builtins.str:
-        """
-        The Availability Zone name in which the file system's One Zone storage classes exist.
-        """
         return pulumi.get(self, "availability_zone_name")
 
     @_builtins.property
@@ -115,17 +106,11 @@ class GetFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> _builtins.bool:
-        """
-        Whether EFS is encrypted.
-        """
         return pulumi.get(self, "encrypted")
 
     @_builtins.property
@@ -144,33 +129,21 @@ class GetFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        ARN for the KMS encryption key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> Sequence['outputs.GetFileSystemLifecyclePolicyResult']:
-        """
-        File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-        """
         return pulumi.get(self, "lifecycle_policies")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The value of the file system's `Name` tag.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> _builtins.str:
-        """
-        File system performance mode.
-        """
         return pulumi.get(self, "performance_mode")
 
     @_builtins.property
@@ -181,9 +154,6 @@ class GetFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> _builtins.float:
-        """
-        The throughput, measured in MiB/s, that you want to provision for the file system.
-        """
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
     @_builtins.property
@@ -194,25 +164,16 @@ class GetFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> _builtins.int:
-        """
-        Current byte count used by the file system.
-        """
         return pulumi.get(self, "size_in_bytes")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assign to the file system.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> _builtins.str:
-        """
-        Throughput mode for the file system.
-        """
         return pulumi.get(self, "throughput_mode")
 
 
@@ -248,29 +209,7 @@ def get_file_system(creation_token: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileSystemResult:
     """
-    Provides information about an Elastic File System (EFS) File System.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    file_system_id = config.get("fileSystemId")
-    if file_system_id is None:
-        file_system_id = ""
-    by_id = aws.efs.get_file_system(file_system_id=file_system_id)
-    by_tag = aws.efs.get_file_system(tags={
-        "Environment": "dev",
-    })
-    ```
-
-
-    :param _builtins.str creation_token: Restricts the list to the file system with this creation token.
-    :param _builtins.str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the file system with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['creationToken'] = creation_token
@@ -305,29 +244,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[_built
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemResult]:
     """
-    Provides information about an Elastic File System (EFS) File System.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    file_system_id = config.get("fileSystemId")
-    if file_system_id is None:
-        file_system_id = ""
-    by_id = aws.efs.get_file_system(file_system_id=file_system_id)
-    by_tag = aws.efs.get_file_system(tags={
-        "Environment": "dev",
-    })
-    ```
-
-
-    :param _builtins.str creation_token: Restricts the list to the file system with this creation token.
-    :param _builtins.str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the file system with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['creationToken'] = creation_token

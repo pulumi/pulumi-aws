@@ -12,17 +12,9 @@ namespace Pulumi.Aws.CodeCatalyst.Inputs
 
     public sealed class DevEnvironmentRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the branch in a source repository.
-        /// 
-        /// persistent storage (` PersistentStorage`) supports the following:
-        /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
 
-        /// <summary>
-        /// The name of the source repository.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 

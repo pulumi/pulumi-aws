@@ -12,15 +12,9 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
     public sealed class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// First port in the range.
-        /// </summary>
         [Input("from", required: true)]
         public Input<int> From { get; set; } = null!;
 
-        /// <summary>
-        /// Last port in the range.
-        /// </summary>
         [Input("to", required: true)]
         public Input<int> To { get; set; } = null!;
 

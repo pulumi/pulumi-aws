@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterEncryptionInfoGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        /// </summary>
         [Input("encryptionAtRestKmsKeyArn")]
         public Input<string>? EncryptionAtRestKmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Configuration block to specify encryption in transit. See EncryptionInfo encryption_in_transit Argument Reference below.
-        /// </summary>
         [Input("encryptionInTransit")]
         public Input<Inputs.ClusterEncryptionInfoEncryptionInTransitGetArgs>? EncryptionInTransit { get; set; }
 

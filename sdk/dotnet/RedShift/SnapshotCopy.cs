@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Resource for managing an AWS Redshift Snapshot Copy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.SnapshotCopy("example", new()
-    ///     {
-    ///         ClusterIdentifier = exampleAwsRedshiftCluster.Id,
-    ///         DestinationRegion = "us-east-1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Snapshot Copy using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/snapshotCopy:SnapshotCopy example cluster-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/snapshotCopy:SnapshotCopy")]
     public partial class SnapshotCopy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier of the source cluster.
-        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Region to copy snapshots to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("destinationRegion")]
         public Output<string> DestinationRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-        /// </summary>
         [Output("manualSnapshotRetentionPeriod")]
         public Output<int> ManualSnapshotRetentionPeriod { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-        /// </summary>
         [Output("retentionPeriod")]
         public Output<int> RetentionPeriod { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-        /// </summary>
         [Output("snapshotCopyGrantName")]
         public Output<string?> SnapshotCopyGrantName { get; private set; } = null!;
 
@@ -128,41 +76,21 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class SnapshotCopyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the source cluster.
-        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// AWS Region to copy snapshots to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("destinationRegion", required: true)]
         public Input<string> DestinationRegion { get; set; } = null!;
 
-        /// <summary>
-        /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-        /// </summary>
         [Input("manualSnapshotRetentionPeriod")]
         public Input<int>? ManualSnapshotRetentionPeriod { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-        /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
 
-        /// <summary>
-        /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-        /// </summary>
         [Input("snapshotCopyGrantName")]
         public Input<string>? SnapshotCopyGrantName { get; set; }
 
@@ -174,41 +102,21 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class SnapshotCopyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the source cluster.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// AWS Region to copy snapshots to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
 
-        /// <summary>
-        /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-        /// </summary>
         [Input("manualSnapshotRetentionPeriod")]
         public Input<int>? ManualSnapshotRetentionPeriod { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-        /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
 
-        /// <summary>
-        /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-        /// </summary>
         [Input("snapshotCopyGrantName")]
         public Input<string>? SnapshotCopyGrantName { get; set; }
 

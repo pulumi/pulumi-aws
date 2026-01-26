@@ -15,17 +15,9 @@ public final class FileSystemProtectionArgs extends com.pulumi.resources.Resourc
 
     public static final FileSystemProtectionArgs Empty = new FileSystemProtectionArgs();
 
-    /**
-     * Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     @Import(name="replicationOverwrite")
     private @Nullable Output<String> replicationOverwrite;
 
-    /**
-     * @return Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> replicationOverwrite() {
         return Optional.ofNullable(this.replicationOverwrite);
     }
@@ -54,23 +46,11 @@ public final class FileSystemProtectionArgs extends com.pulumi.resources.Resourc
             $ = new FileSystemProtectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param replicationOverwrite Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationOverwrite(@Nullable Output<String> replicationOverwrite) {
             $.replicationOverwrite = replicationOverwrite;
             return this;
         }
 
-        /**
-         * @param replicationOverwrite Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationOverwrite(String replicationOverwrite) {
             return replicationOverwrite(Output.of(replicationOverwrite));
         }

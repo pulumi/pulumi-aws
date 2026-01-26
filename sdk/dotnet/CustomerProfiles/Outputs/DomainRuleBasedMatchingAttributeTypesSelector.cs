@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainRuleBasedMatchingAttributeTypesSelector
     {
-        /// <summary>
-        /// The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-        /// </summary>
         public readonly ImmutableArray<string> Addresses;
-        /// <summary>
-        /// Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-        /// </summary>
         public readonly string AttributeMatchingModel;
-        /// <summary>
-        /// The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-        /// </summary>
         public readonly ImmutableArray<string> EmailAddresses;
-        /// <summary>
-        /// The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-        /// </summary>
         public readonly ImmutableArray<string> PhoneNumbers;
 
         [OutputConstructor]

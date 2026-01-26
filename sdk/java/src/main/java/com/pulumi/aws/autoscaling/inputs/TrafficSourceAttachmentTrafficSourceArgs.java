@@ -14,40 +14,16 @@ public final class TrafficSourceAttachmentTrafficSourceArgs extends com.pulumi.r
 
     public static final TrafficSourceAttachmentTrafficSourceArgs Empty = new TrafficSourceAttachmentTrafficSourceArgs();
 
-    /**
-     * Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-     * 
-     */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
-    /**
-     * @return Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
 
-    /**
-     * Provides additional context for the value of `identifier`.
-     * The following lists the valid values:
-     * `elb` if `identifier` is the name of a Classic Load Balancer.
-     * `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-     * `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Provides additional context for the value of `identifier`.
-     * The following lists the valid values:
-     * `elb` if `identifier` is the name of a Classic Load Balancer.
-     * `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-     * `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -77,52 +53,20 @@ public final class TrafficSourceAttachmentTrafficSourceArgs extends com.pulumi.r
             $ = new TrafficSourceAttachmentTrafficSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identifier Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
-        /**
-         * @param identifier Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
-        /**
-         * @param type Provides additional context for the value of `identifier`.
-         * The following lists the valid values:
-         * `elb` if `identifier` is the name of a Classic Load Balancer.
-         * `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-         * `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Provides additional context for the value of `identifier`.
-         * The following lists the valid values:
-         * `elb` if `identifier` is the name of a Classic Load Balancer.
-         * `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-         * `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

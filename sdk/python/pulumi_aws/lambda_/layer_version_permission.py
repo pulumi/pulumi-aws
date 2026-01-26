@@ -29,16 +29,6 @@ class LayerVersionPermissionArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
-        :param pulumi.Input[_builtins.str] action: Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-        :param pulumi.Input[_builtins.str] layer_name: Name or ARN of the Lambda Layer.
-        :param pulumi.Input[_builtins.str] principal: AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-        :param pulumi.Input[_builtins.str] statement_id: Unique identifier for the permission statement.
-        :param pulumi.Input[_builtins.int] version_number: Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] organization_id: AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the permission when the resource is destroyed. Default is `false`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "layer_name", layer_name)
@@ -55,9 +45,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
-        """
-        Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -67,9 +54,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name or ARN of the Lambda Layer.
-        """
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
@@ -79,9 +63,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter
     def principal(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -91,9 +72,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier for the permission statement.
-        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -103,11 +81,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Input[_builtins.int]:
-        """
-        Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -117,9 +90,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
-        """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
@@ -129,9 +99,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -141,9 +108,6 @@ class LayerVersionPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to retain the permission when the resource is destroyed. Default is `false`.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -166,18 +130,6 @@ class _LayerVersionPermissionState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering LayerVersionPermission resources.
-        :param pulumi.Input[_builtins.str] action: Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-        :param pulumi.Input[_builtins.str] layer_name: Name or ARN of the Lambda Layer.
-        :param pulumi.Input[_builtins.str] organization_id: AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
-        :param pulumi.Input[_builtins.str] policy: Full Lambda Layer Permission policy.
-        :param pulumi.Input[_builtins.str] principal: AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: Unique identifier for the current revision of the policy.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the permission when the resource is destroyed. Default is `false`.
-        :param pulumi.Input[_builtins.str] statement_id: Unique identifier for the permission statement.
-        :param pulumi.Input[_builtins.int] version_number: Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-               
-               The following arguments are optional:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -203,9 +155,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -215,9 +164,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name or ARN of the Lambda Layer.
-        """
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
@@ -227,9 +173,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
-        """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
@@ -239,9 +182,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Full Lambda Layer Permission policy.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -251,9 +191,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -263,9 +200,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -275,9 +209,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the current revision of the policy.
-        """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
@@ -287,9 +218,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to retain the permission when the resource is destroyed. Default is `false`.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -299,9 +227,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the permission statement.
-        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -311,11 +236,6 @@ class _LayerVersionPermissionState:
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -339,114 +259,9 @@ class LayerVersionPermission(pulumi.CustomResource):
                  version_number: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Manages an AWS Lambda Layer Version Permission. Use this resource to share Lambda Layers with other AWS accounts, organizations, or make them publicly accessible.
-
-        For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer).
-
-        > **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
-
-        ## Example Usage
-
-        ### Share Layer with Specific Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Lambda layer to share
-        example = aws.lambda_.LayerVersion("example",
-            code=pulumi.FileArchive("layer.zip"),
-            layer_name="shared_utilities",
-            description="Common utilities for Lambda functions",
-            compatible_runtimes=[
-                "nodejs20.x",
-                "python3.12",
-            ])
-        # Grant permission to specific AWS account
-        example_layer_version_permission = aws.lambda_.LayerVersionPermission("example",
-            layer_name=example.layer_name,
-            version_number=example.version,
-            principal="123456789012",
-            action="lambda:GetLayerVersion",
-            statement_id="dev-account-access")
-        ```
-
-        ### Share Layer with Organization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.LayerVersionPermission("example",
-            layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
-            principal="*",
-            organization_id="o-1234567890",
-            action="lambda:GetLayerVersion",
-            statement_id="org-wide-access")
-        ```
-
-        ### Share Layer Publicly
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.LayerVersionPermission("example",
-            layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
-            principal="*",
-            action="lambda:GetLayerVersion",
-            statement_id="public-access")
-        ```
-
-        ### Multiple Account Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Share with multiple specific accounts
-        dev_account = aws.lambda_.LayerVersionPermission("dev_account",
-            layer_name=example["layerName"],
-            version_number=example["version"],
-            principal="111111111111",
-            action="lambda:GetLayerVersion",
-            statement_id="dev-account")
-        staging_account = aws.lambda_.LayerVersionPermission("staging_account",
-            layer_name=example["layerName"],
-            version_number=example["version"],
-            principal="222222222222",
-            action="lambda:GetLayerVersion",
-            statement_id="staging-account")
-        prod_account = aws.lambda_.LayerVersionPermission("prod_account",
-            layer_name=example["layerName"],
-            version_number=example["version"],
-            principal="333333333333",
-            action="lambda:GetLayerVersion",
-            statement_id="prod-account")
-        ```
-
-        ## Import
-
-        For backwards compatibility, the following legacy `pulumi import` command is also supported:
-
-        ```sh
-        $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456789012:layer:shared_utilities,1
-        ```
-
+        Create a LayerVersionPermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-        :param pulumi.Input[_builtins.str] layer_name: Name or ARN of the Lambda Layer.
-        :param pulumi.Input[_builtins.str] organization_id: AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
-        :param pulumi.Input[_builtins.str] principal: AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the permission when the resource is destroyed. Default is `false`.
-        :param pulumi.Input[_builtins.str] statement_id: Unique identifier for the permission statement.
-        :param pulumi.Input[_builtins.int] version_number: Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -455,102 +270,7 @@ class LayerVersionPermission(pulumi.CustomResource):
                  args: LayerVersionPermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Lambda Layer Version Permission. Use this resource to share Lambda Layers with other AWS accounts, organizations, or make them publicly accessible.
-
-        For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer).
-
-        > **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
-
-        ## Example Usage
-
-        ### Share Layer with Specific Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Lambda layer to share
-        example = aws.lambda_.LayerVersion("example",
-            code=pulumi.FileArchive("layer.zip"),
-            layer_name="shared_utilities",
-            description="Common utilities for Lambda functions",
-            compatible_runtimes=[
-                "nodejs20.x",
-                "python3.12",
-            ])
-        # Grant permission to specific AWS account
-        example_layer_version_permission = aws.lambda_.LayerVersionPermission("example",
-            layer_name=example.layer_name,
-            version_number=example.version,
-            principal="123456789012",
-            action="lambda:GetLayerVersion",
-            statement_id="dev-account-access")
-        ```
-
-        ### Share Layer with Organization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.LayerVersionPermission("example",
-            layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
-            principal="*",
-            organization_id="o-1234567890",
-            action="lambda:GetLayerVersion",
-            statement_id="org-wide-access")
-        ```
-
-        ### Share Layer Publicly
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.LayerVersionPermission("example",
-            layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
-            principal="*",
-            action="lambda:GetLayerVersion",
-            statement_id="public-access")
-        ```
-
-        ### Multiple Account Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Share with multiple specific accounts
-        dev_account = aws.lambda_.LayerVersionPermission("dev_account",
-            layer_name=example["layerName"],
-            version_number=example["version"],
-            principal="111111111111",
-            action="lambda:GetLayerVersion",
-            statement_id="dev-account")
-        staging_account = aws.lambda_.LayerVersionPermission("staging_account",
-            layer_name=example["layerName"],
-            version_number=example["version"],
-            principal="222222222222",
-            action="lambda:GetLayerVersion",
-            statement_id="staging-account")
-        prod_account = aws.lambda_.LayerVersionPermission("prod_account",
-            layer_name=example["layerName"],
-            version_number=example["version"],
-            principal="333333333333",
-            action="lambda:GetLayerVersion",
-            statement_id="prod-account")
-        ```
-
-        ## Import
-
-        For backwards compatibility, the following legacy `pulumi import` command is also supported:
-
-        ```sh
-        $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456789012:layer:shared_utilities,1
-        ```
-
+        Create a LayerVersionPermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -630,18 +350,6 @@ class LayerVersionPermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-        :param pulumi.Input[_builtins.str] layer_name: Name or ARN of the Lambda Layer.
-        :param pulumi.Input[_builtins.str] organization_id: AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
-        :param pulumi.Input[_builtins.str] policy: Full Lambda Layer Permission policy.
-        :param pulumi.Input[_builtins.str] principal: AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: Unique identifier for the current revision of the policy.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the permission when the resource is destroyed. Default is `false`.
-        :param pulumi.Input[_builtins.str] statement_id: Unique identifier for the permission statement.
-        :param pulumi.Input[_builtins.int] version_number: Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -662,82 +370,50 @@ class LayerVersionPermission(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:
-        """
-        Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name or ARN of the Lambda Layer.
-        """
         return pulumi.get(self, "layer_name")
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
-        """
         return pulumi.get(self, "organization_id")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Full Lambda Layer Permission policy.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def principal(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-        """
         return pulumi.get(self, "principal")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the current revision of the policy.
-        """
         return pulumi.get(self, "revision_id")
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to retain the permission when the resource is destroyed. Default is `false`.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @_builtins.property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the permission statement.
-        """
         return pulumi.get(self, "statement_id")
 
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version_number")
 

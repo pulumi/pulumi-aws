@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetCatalogTablePartitionKeyResult
     {
-        /// <summary>
-        /// Free-form text comment.
-        /// </summary>
         public readonly string Comment;
-        /// <summary>
-        /// Name of the table.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
-        /// <summary>
-        /// Datatype of data in the Column.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

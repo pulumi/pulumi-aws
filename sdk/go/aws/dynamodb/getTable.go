@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a DynamoDB table.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
-//				Name: "tableName",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableResult
@@ -50,9 +23,7 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTable.
 type LookupTableArgs struct {
-	// Name of the DynamoDB table.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name                 string                        `pulumi:"name"`
 	Region               *string                       `pulumi:"region"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
 	Tags                 map[string]string             `pulumi:"tags"`
@@ -99,9 +70,7 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 
 // A collection of arguments for invoking getTable.
 type LookupTableOutputArgs struct {
-	// Name of the DynamoDB table.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name                 pulumi.StringInput                   `pulumi:"name"`
 	Region               pulumi.StringPtrInput                `pulumi:"region"`
 	ServerSideEncryption GetTableServerSideEncryptionPtrInput `pulumi:"serverSideEncryption"`
 	Tags                 pulumi.StringMapInput                `pulumi:"tags"`

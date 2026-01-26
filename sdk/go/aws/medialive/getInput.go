@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Elemental MediaLive Input.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/medialive"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := medialive.LookupInput(ctx, &medialive.LookupInputArgs{
-//				Id: exampleAwsMedialiveInput.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInputResult
@@ -52,45 +23,29 @@ func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getInput.
 type LookupInputArgs struct {
-	// The ID of the Input.
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInput.
 type LookupInputResult struct {
-	// ARN of the Input.
-	Arn string `pulumi:"arn"`
-	// Channels attached to Input.
-	AttachedChannels []string              `pulumi:"attachedChannels"`
-	Destinations     []GetInputDestination `pulumi:"destinations"`
-	Id               string                `pulumi:"id"`
-	// The input class.
-	InputClass string `pulumi:"inputClass"`
-	// Settings for the devices.
-	InputDevices []GetInputInputDevice `pulumi:"inputDevices"`
-	// A list of IDs for all Inputs which are partners of this one.
-	InputPartnerIds []string `pulumi:"inputPartnerIds"`
-	// Source type of the input.
-	InputSourceType string `pulumi:"inputSourceType"`
-	// A list of the MediaConnect Flows.
+	Arn               string                     `pulumi:"arn"`
+	AttachedChannels  []string                   `pulumi:"attachedChannels"`
+	Destinations      []GetInputDestination      `pulumi:"destinations"`
+	Id                string                     `pulumi:"id"`
+	InputClass        string                     `pulumi:"inputClass"`
+	InputDevices      []GetInputInputDevice      `pulumi:"inputDevices"`
+	InputPartnerIds   []string                   `pulumi:"inputPartnerIds"`
+	InputSourceType   string                     `pulumi:"inputSourceType"`
 	MediaConnectFlows []GetInputMediaConnectFlow `pulumi:"mediaConnectFlows"`
-	// Name of the input.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// The ARN of the role this input assumes during and after creation.
-	RoleArn string `pulumi:"roleArn"`
-	// List of input security groups.
-	SecurityGroups []string `pulumi:"securityGroups"`
-	// The source URLs for a PULL-type input.
-	Sources []GetInputSource `pulumi:"sources"`
-	// The state of the input.
-	State string `pulumi:"state"`
-	// A map of tags assigned to the Input.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the input.
-	Type string `pulumi:"type"`
+	Name              string                     `pulumi:"name"`
+	Region            string                     `pulumi:"region"`
+	RoleArn           string                     `pulumi:"roleArn"`
+	SecurityGroups    []string                   `pulumi:"securityGroups"`
+	Sources           []GetInputSource           `pulumi:"sources"`
+	State             string                     `pulumi:"state"`
+	Tags              map[string]string          `pulumi:"tags"`
+	Type              string                     `pulumi:"type"`
 }
 
 func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...pulumi.InvokeOption) LookupInputResultOutput {
@@ -104,9 +59,7 @@ func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...
 
 // A collection of arguments for invoking getInput.
 type LookupInputOutputArgs struct {
-	// The ID of the Input.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringInput    `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -129,12 +82,10 @@ func (o LookupInputResultOutput) ToLookupInputResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the Input.
 func (o LookupInputResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Channels attached to Input.
 func (o LookupInputResultOutput) AttachedChannels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []string { return v.AttachedChannels }).(pulumi.StringArrayOutput)
 }
@@ -147,32 +98,26 @@ func (o LookupInputResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The input class.
 func (o LookupInputResultOutput) InputClass() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.InputClass }).(pulumi.StringOutput)
 }
 
-// Settings for the devices.
 func (o LookupInputResultOutput) InputDevices() GetInputInputDeviceArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []GetInputInputDevice { return v.InputDevices }).(GetInputInputDeviceArrayOutput)
 }
 
-// A list of IDs for all Inputs which are partners of this one.
 func (o LookupInputResultOutput) InputPartnerIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []string { return v.InputPartnerIds }).(pulumi.StringArrayOutput)
 }
 
-// Source type of the input.
 func (o LookupInputResultOutput) InputSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.InputSourceType }).(pulumi.StringOutput)
 }
 
-// A list of the MediaConnect Flows.
 func (o LookupInputResultOutput) MediaConnectFlows() GetInputMediaConnectFlowArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []GetInputMediaConnectFlow { return v.MediaConnectFlows }).(GetInputMediaConnectFlowArrayOutput)
 }
 
-// Name of the input.
 func (o LookupInputResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -181,32 +126,26 @@ func (o LookupInputResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the role this input assumes during and after creation.
 func (o LookupInputResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// List of input security groups.
 func (o LookupInputResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The source URLs for a PULL-type input.
 func (o LookupInputResultOutput) Sources() GetInputSourceArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []GetInputSource { return v.Sources }).(GetInputSourceArrayOutput)
 }
 
-// The state of the input.
 func (o LookupInputResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Input.
 func (o LookupInputResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupInputResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the input.
 func (o LookupInputResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInputResult) string { return v.Type }).(pulumi.StringOutput)
 }

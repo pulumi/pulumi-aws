@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Kms
 {
     public static class GetCustomKeyStore
     {
-        /// <summary>
-        /// Use this data source to get the metadata KMS custom key store.
-        /// By using this data source, you can reference KMS custom key store
-        /// without having to hard code the ID as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var keystore = Aws.Kms.GetCustomKeyStore.Invoke(new()
-        ///     {
-        ///         CustomKeyStoreName = "my_cloudhsm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCustomKeyStoreResult> InvokeAsync(GetCustomKeyStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the metadata KMS custom key store.
-        /// By using this data source, you can reference KMS custom key store
-        /// without having to hard code the ID as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var keystore = Aws.Kms.GetCustomKeyStore.Invoke(new()
-        ///     {
-        ///         CustomKeyStoreName = "my_cloudhsm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCustomKeyStoreResult> Invoke(GetCustomKeyStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the metadata KMS custom key store.
-        /// By using this data source, you can reference KMS custom key store
-        /// without having to hard code the ID as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var keystore = Aws.Kms.GetCustomKeyStore.Invoke(new()
-        ///     {
-        ///         CustomKeyStoreName = "my_cloudhsm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCustomKeyStoreResult> Invoke(GetCustomKeyStoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreInvokeArgs(), options.WithDefaults());
     }
@@ -93,21 +24,12 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetCustomKeyStoreArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID for the custom key store.
-        /// </summary>
         [Input("customKeyStoreId")]
         public string? CustomKeyStoreId { get; set; }
 
-        /// <summary>
-        /// The user-specified friendly name for the custom key store.
-        /// </summary>
         [Input("customKeyStoreName")]
         public string? CustomKeyStoreName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -119,21 +41,12 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetCustomKeyStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID for the custom key store.
-        /// </summary>
         [Input("customKeyStoreId")]
         public Input<string>? CustomKeyStoreId { get; set; }
 
-        /// <summary>
-        /// The user-specified friendly name for the custom key store.
-        /// </summary>
         [Input("customKeyStoreName")]
         public Input<string>? CustomKeyStoreName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -148,13 +61,7 @@ namespace Pulumi.Aws.Kms
     public sealed class GetCustomKeyStoreResult
     {
         public readonly string CloudHsmClusterId;
-        /// <summary>
-        /// Indicates whether the custom key store is connected to its CloudHSM cluster.
-        /// </summary>
         public readonly string ConnectionState;
-        /// <summary>
-        /// The date and time when the custom key store was created.
-        /// </summary>
         public readonly string CreationDate;
         public readonly string CustomKeyStoreId;
         public readonly string CustomKeyStoreName;
@@ -163,9 +70,6 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// The trust anchor certificate of the associated CloudHSM cluster.
-        /// </summary>
         public readonly string TrustAnchorCertificate;
 
         [OutputConstructor]

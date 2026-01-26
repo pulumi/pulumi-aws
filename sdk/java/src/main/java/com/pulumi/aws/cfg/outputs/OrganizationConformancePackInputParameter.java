@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class OrganizationConformancePackInputParameter {
-    /**
-     * @return The input key.
-     * 
-     */
     private String parameterName;
-    /**
-     * @return The input value.
-     * 
-     */
     private String parameterValue;
 
     private OrganizationConformancePackInputParameter() {}
-    /**
-     * @return The input key.
-     * 
-     */
     public String parameterName() {
         return this.parameterName;
     }
-    /**
-     * @return The input value.
-     * 
-     */
     public String parameterValue() {
         return this.parameterValue;
     }

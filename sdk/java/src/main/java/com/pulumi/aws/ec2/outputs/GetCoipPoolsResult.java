@@ -20,10 +20,6 @@ public final class GetCoipPoolsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of COIP Pool Identifiers
-     * 
-     */
     private List<String> poolIds;
     private String region;
     private @Nullable Map<String,String> tags;
@@ -39,10 +35,6 @@ public final class GetCoipPoolsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of COIP Pool Identifiers
-     * 
-     */
     public List<String> poolIds() {
         return this.poolIds;
     }

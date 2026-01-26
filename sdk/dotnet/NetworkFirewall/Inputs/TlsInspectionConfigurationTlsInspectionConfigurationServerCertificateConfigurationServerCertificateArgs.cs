@@ -12,9 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

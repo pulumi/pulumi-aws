@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
 
     public sealed class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-        /// </summary>
         [Input("encryptionConflictResolutionStrategy")]
         public Input<string>? EncryptionConflictResolutionStrategy { get; set; }
 
-        /// <summary>
-        /// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-        /// </summary>
         [Input("encryptionStrategy", required: true)]
         public Input<string> EncryptionStrategy { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the KMS key to use for encryption when `EncryptionStrategy` is `CUSTOMER_MANAGED`.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

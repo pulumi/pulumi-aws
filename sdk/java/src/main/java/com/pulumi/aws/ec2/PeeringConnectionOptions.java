@@ -15,223 +15,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage VPC peering connection options.
- * 
- * &gt; **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
- * both a standalone VPC Peering Connection Options and a VPC Peering Connection
- * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
- * connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
- * Doing so will cause a conflict of options and will overwrite the options.
- * Using a VPC Peering Connection Options resource decouples management of the connection options from
- * management of the VPC Peering Connection and allows options to be set correctly in cross-region and
- * cross-account scenarios.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
- * import com.pulumi.aws.ec2.PeeringConnectionOptions;
- * import com.pulumi.aws.ec2.PeeringConnectionOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsAccepterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Vpc("foo", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .build());
- * 
- *         var bar = new Vpc("bar", VpcArgs.builder()
- *             .cidrBlock("10.1.0.0/16")
- *             .build());
- * 
- *         var fooVpcPeeringConnection = new VpcPeeringConnection("fooVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
- *             .vpcId(foo.id())
- *             .peerVpcId(bar.id())
- *             .autoAccept(true)
- *             .build());
- * 
- *         var fooPeeringConnectionOptions = new PeeringConnectionOptions("fooPeeringConnectionOptions", PeeringConnectionOptionsArgs.builder()
- *             .vpcPeeringConnectionId(fooVpcPeeringConnection.id())
- *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Cross-Account Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepterArgs;
- * import com.pulumi.aws.ec2.PeeringConnectionOptions;
- * import com.pulumi.aws.ec2.PeeringConnectionOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsRequesterArgs;
- * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsAccepterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build());
- * 
- *         var peerVpc = new Vpc("peerVpc", VpcArgs.builder()
- *             .cidrBlock("10.1.0.0/16")
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build());
- * 
- *         final var peer = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         // Requester's side of the connection.
- *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
- *             .vpcId(main.id())
- *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peer.accountId())
- *             .autoAccept(false)
- *             .tags(Map.of("Side", "Requester"))
- *             .build());
- * 
- *         // Accepter's side of the connection.
- *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()
- *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
- *             .autoAccept(true)
- *             .tags(Map.of("Side", "Accepter"))
- *             .build());
- * 
- *         var requester = new PeeringConnectionOptions("requester", PeeringConnectionOptionsArgs.builder()
- *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
- *             .requester(PeeringConnectionOptionsRequesterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
- *             .build());
- * 
- *         var accepter = new PeeringConnectionOptions("accepter", PeeringConnectionOptionsArgs.builder()
- *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
- *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/peeringConnectionOptions:PeeringConnectionOptions")
 public class PeeringConnectionOptions extends com.pulumi.resources.CustomResource {
-    /**
-     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-     * 
-     */
     @Export(name="accepter", refs={PeeringConnectionOptionsAccepter.class}, tree="[0]")
     private Output<PeeringConnectionOptionsAccepter> accepter;
 
-    /**
-     * @return An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-     * 
-     */
     public Output<PeeringConnectionOptionsAccepter> accepter() {
         return this.accepter;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-     * 
-     */
     @Export(name="requester", refs={PeeringConnectionOptionsRequester.class}, tree="[0]")
     private Output<PeeringConnectionOptionsRequester> requester;
 
-    /**
-     * @return A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-     * 
-     */
     public Output<PeeringConnectionOptionsRequester> requester() {
         return this.requester;
     }
-    /**
-     * The ID of the requester VPC peering connection.
-     * 
-     */
     @Export(name="vpcPeeringConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpcPeeringConnectionId;
 
-    /**
-     * @return The ID of the requester VPC peering connection.
-     * 
-     */
     public Output<String> vpcPeeringConnectionId() {
         return this.vpcPeeringConnectionId;
     }

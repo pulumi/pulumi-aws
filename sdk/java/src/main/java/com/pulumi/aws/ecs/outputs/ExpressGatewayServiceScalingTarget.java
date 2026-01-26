@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class ExpressGatewayServiceScalingTarget {
-    /**
-     * @return Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
-     * 
-     */
     private String autoScalingMetric;
-    /**
-     * @return Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-     * 
-     */
     private Integer autoScalingTargetValue;
-    /**
-     * @return Maximum number of tasks to run.
-     * 
-     */
     private Integer maxTaskCount;
-    /**
-     * @return Minimum number of tasks to run.
-     * 
-     */
     private Integer minTaskCount;
 
     private ExpressGatewayServiceScalingTarget() {}
-    /**
-     * @return Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
-     * 
-     */
     public String autoScalingMetric() {
         return this.autoScalingMetric;
     }
-    /**
-     * @return Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-     * 
-     */
     public Integer autoScalingTargetValue() {
         return this.autoScalingTargetValue;
     }
-    /**
-     * @return Maximum number of tasks to run.
-     * 
-     */
     public Integer maxTaskCount() {
         return this.maxTaskCount;
     }
-    /**
-     * @return Minimum number of tasks to run.
-     * 
-     */
     public Integer minTaskCount() {
         return this.minTaskCount;
     }

@@ -9,71 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.AccountVdmAttributes("example", new()
-    ///     {
-    ///         VdmEnabled = "ENABLED",
-    ///         DashboardAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesDashboardAttributesArgs
-    ///         {
-    ///             EngagementMetrics = "ENABLED",
-    ///         },
-    ///         GuardianAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesGuardianAttributesArgs
-    ///         {
-    ///             OptimizedSharedDelivery = "ENABLED",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/accountVdmAttributes:AccountVdmAttributes")]
     public partial class AccountVdmAttributes : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        /// </summary>
         [Output("dashboardAttributes")]
         public Output<Outputs.AccountVdmAttributesDashboardAttributes> DashboardAttributes { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-        /// </summary>
         [Output("guardianAttributes")]
         public Output<Outputs.AccountVdmAttributesGuardianAttributes> GuardianAttributes { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("vdmEnabled")]
         public Output<string> VdmEnabled { get; private set; } = null!;
 
@@ -123,29 +70,15 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class AccountVdmAttributesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        /// </summary>
         [Input("dashboardAttributes")]
         public Input<Inputs.AccountVdmAttributesDashboardAttributesArgs>? DashboardAttributes { get; set; }
 
-        /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-        /// </summary>
         [Input("guardianAttributes")]
         public Input<Inputs.AccountVdmAttributesGuardianAttributesArgs>? GuardianAttributes { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vdmEnabled", required: true)]
         public Input<string> VdmEnabled { get; set; } = null!;
 
@@ -157,29 +90,15 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class AccountVdmAttributesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        /// </summary>
         [Input("dashboardAttributes")]
         public Input<Inputs.AccountVdmAttributesDashboardAttributesGetArgs>? DashboardAttributes { get; set; }
 
-        /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-        /// </summary>
         [Input("guardianAttributes")]
         public Input<Inputs.AccountVdmAttributesGuardianAttributesGetArgs>? GuardianAttributes { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vdmEnabled")]
         public Input<string>? VdmEnabled { get; set; }
 

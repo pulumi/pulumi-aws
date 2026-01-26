@@ -12,77 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"$schema": "http://json-schema.org/draft-04/schema#",
-//				"title":   "ExampleModel",
-//				"type":    "object",
-//				"properties": map[string]interface{}{
-//					"id": map[string]interface{}{
-//						"type": "string",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = apigatewayv2.NewModel(ctx, "example", &apigatewayv2.ModelArgs{
-//				ApiId:       pulumi.Any(exampleAwsApigatewayv2Api.Id),
-//				ContentType: pulumi.String("application/json"),
-//				Name:        pulumi.String("example"),
-//				Schema:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
-// ```
 type Model struct {
 	pulumi.CustomResourceState
 
-	// API identifier.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// Description of the model. Must be between 1 and 128 characters in length.
+	ApiId       pulumi.StringOutput    `pulumi:"apiId"`
+	ContentType pulumi.StringOutput    `pulumi:"contentType"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-	Schema pulumi.StringOutput `pulumi:"schema"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Schema      pulumi.StringOutput    `pulumi:"schema"`
 }
 
 // NewModel registers a new resource with the given unique name, arguments, and options.
@@ -124,33 +62,21 @@ func GetModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Model resources.
 type modelState struct {
-	// API identifier.
-	ApiId *string `pulumi:"apiId"`
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	ApiId       *string `pulumi:"apiId"`
 	ContentType *string `pulumi:"contentType"`
-	// Description of the model. Must be between 1 and 128 characters in length.
 	Description *string `pulumi:"description"`
-	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-	Schema *string `pulumi:"schema"`
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
+	Schema      *string `pulumi:"schema"`
 }
 
 type ModelState struct {
-	// API identifier.
-	ApiId pulumi.StringPtrInput
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	ApiId       pulumi.StringPtrInput
 	ContentType pulumi.StringPtrInput
-	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrInput
-	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-	Schema pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Schema      pulumi.StringPtrInput
 }
 
 func (ModelState) ElementType() reflect.Type {
@@ -158,34 +84,22 @@ func (ModelState) ElementType() reflect.Type {
 }
 
 type modelArgs struct {
-	// API identifier.
-	ApiId string `pulumi:"apiId"`
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-	ContentType string `pulumi:"contentType"`
-	// Description of the model. Must be between 1 and 128 characters in length.
+	ApiId       string  `pulumi:"apiId"`
+	ContentType string  `pulumi:"contentType"`
 	Description *string `pulumi:"description"`
-	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-	Schema string `pulumi:"schema"`
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
+	Schema      string  `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a Model resource.
 type ModelArgs struct {
-	// API identifier.
-	ApiId pulumi.StringInput
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	ApiId       pulumi.StringInput
 	ContentType pulumi.StringInput
-	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrInput
-	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-	Schema pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Schema      pulumi.StringInput
 }
 
 func (ModelArgs) ElementType() reflect.Type {
@@ -275,32 +189,26 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
-// API identifier.
 func (o ModelOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 func (o ModelOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// Description of the model. Must be between 1 and 128 characters in length.
 func (o ModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
 func (o ModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ModelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
 func (o ModelOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

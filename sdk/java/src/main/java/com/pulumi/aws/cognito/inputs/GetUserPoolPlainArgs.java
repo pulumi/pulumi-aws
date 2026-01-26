@@ -15,32 +15,16 @@ public final class GetUserPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetUserPoolPlainArgs Empty = new GetUserPoolPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The cognito pool ID
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private String userPoolId;
 
-    /**
-     * @return The cognito pool ID
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }
@@ -70,23 +54,11 @@ public final class GetUserPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetUserPoolPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param userPoolId The cognito pool ID
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             $.userPoolId = userPoolId;
             return this;

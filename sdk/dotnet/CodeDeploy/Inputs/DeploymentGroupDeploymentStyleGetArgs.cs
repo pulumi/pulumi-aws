@@ -12,17 +12,9 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupDeploymentStyleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-        /// </summary>
         [Input("deploymentOption")]
         public Input<string>? DeploymentOption { get; set; }
 
-        /// <summary>
-        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-        /// 
-        /// _Only one `DeploymentStyle` is allowed_.
-        /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
 

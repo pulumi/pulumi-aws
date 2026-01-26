@@ -17,47 +17,23 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
 
     public static final CentralizationRuleForOrganizationRuleDestinationArgs Empty = new CentralizationRuleForOrganizationRuleDestinationArgs();
 
-    /**
-     * AWS account ID where logs will be centralized.
-     * 
-     */
     @Import(name="account", required=true)
     private Output<String> account;
 
-    /**
-     * @return AWS account ID where logs will be centralized.
-     * 
-     */
     public Output<String> account() {
         return this.account;
     }
 
-    /**
-     * Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
-     * 
-     */
     @Import(name="destinationLogsConfiguration")
     private @Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs> destinationLogsConfiguration;
 
-    /**
-     * @return Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
-     * 
-     */
     public Optional<Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs>> destinationLogsConfiguration() {
         return Optional.ofNullable(this.destinationLogsConfiguration);
     }
 
-    /**
-     * AWS region where logs will be centralized.
-     * 
-     */
     @Import(name="region", required=true)
     private Output<String> region;
 
-    /**
-     * @return AWS region where logs will be centralized.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -88,65 +64,29 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
             $ = new CentralizationRuleForOrganizationRuleDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param account AWS account ID where logs will be centralized.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(Output<String> account) {
             $.account = account;
             return this;
         }
 
-        /**
-         * @param account AWS account ID where logs will be centralized.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(String account) {
             return account(Output.of(account));
         }
 
-        /**
-         * @param destinationLogsConfiguration Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationLogsConfiguration(@Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs> destinationLogsConfiguration) {
             $.destinationLogsConfiguration = destinationLogsConfiguration;
             return this;
         }
 
-        /**
-         * @param destinationLogsConfiguration Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationLogsConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs destinationLogsConfiguration) {
             return destinationLogsConfiguration(Output.of(destinationLogsConfiguration));
         }
 
-        /**
-         * @param region AWS region where logs will be centralized.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS region where logs will be centralized.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

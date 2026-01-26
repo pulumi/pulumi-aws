@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainLogPublishingOption {
-    /**
-     * @return ARN of the Cloudwatch log group to which log needs to be published.
-     * 
-     */
     private String cloudwatchLogGroupArn;
-    /**
-     * @return Whether given log publishing option is enabled or not.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-     * 
-     */
     private String logType;
 
     private DomainLogPublishingOption() {}
-    /**
-     * @return ARN of the Cloudwatch log group to which log needs to be published.
-     * 
-     */
     public String cloudwatchLogGroupArn() {
         return this.cloudwatchLogGroupArn;
     }
-    /**
-     * @return Whether given log publishing option is enabled or not.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-     * 
-     */
     public String logType() {
         return this.logType;
     }

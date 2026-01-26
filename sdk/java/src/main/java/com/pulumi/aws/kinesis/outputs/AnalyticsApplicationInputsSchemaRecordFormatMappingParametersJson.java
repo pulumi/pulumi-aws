@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
-    /**
-     * @return Path to the top-level parent that contains the records.
-     * 
-     */
     private String recordRowPath;
 
     private AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson() {}
-    /**
-     * @return Path to the top-level parent that contains the records.
-     * 
-     */
     public String recordRowPath() {
         return this.recordRowPath;
     }

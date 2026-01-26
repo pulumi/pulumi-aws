@@ -12,11 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class AnalysisParametersIntegerParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Display name for the analysis.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

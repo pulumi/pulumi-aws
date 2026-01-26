@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
-    /**
-     * @return Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-     * 
-     */
     private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts flowTimeouts;
-    /**
-     * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     private @Nullable String ruleOrder;
-    /**
-     * @return Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-     * 
-     */
     private @Nullable String streamExceptionPolicy;
 
     private FirewallPolicyFirewallPolicyStatefulEngineOptions() {}
-    /**
-     * @return Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-     * 
-     */
     public Optional<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts> flowTimeouts() {
         return Optional.ofNullable(this.flowTimeouts);
     }
-    /**
-     * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     public Optional<String> ruleOrder() {
         return Optional.ofNullable(this.ruleOrder);
     }
-    /**
-     * @return Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-     * 
-     */
     public Optional<String> streamExceptionPolicy() {
         return Optional.ofNullable(this.streamExceptionPolicy);
     }

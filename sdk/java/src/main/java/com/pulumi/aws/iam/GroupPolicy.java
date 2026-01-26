@@ -13,130 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM policy attached to a group.
- * 
- * &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Group;
- * import com.pulumi.aws.iam.GroupArgs;
- * import com.pulumi.aws.iam.GroupPolicy;
- * import com.pulumi.aws.iam.GroupPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myDevelopers = new Group("myDevelopers", GroupArgs.builder()
- *             .name("developers")
- *             .path("/users/")
- *             .build());
- * 
- *         var myDeveloperPolicy = new GroupPolicy("myDeveloperPolicy", GroupPolicyArgs.builder()
- *             .name("my_developer_policy")
- *             .group(myDevelopers.name())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", "*")
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
- * ```
- * 
- */
 @ResourceType(type="aws:iam/groupPolicy:GroupPolicy")
 public class GroupPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The IAM group to attach to the policy.
-     * 
-     */
     @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
-    /**
-     * @return The IAM group to attach to the policy.
-     * 
-     */
     public Output<String> group() {
         return this.group;
     }
-    /**
-     * The name of the policy. If omitted, the provider will
-     * assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the policy. If omitted, the provider will
-     * assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }

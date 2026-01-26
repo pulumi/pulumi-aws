@@ -26,13 +26,10 @@ class ServerlessSecurityPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessSecurityPolicy resource.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] type: Type of security policy. One of `encryption` or `network`.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
@@ -47,7 +44,7 @@ class ServerlessSecurityPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
         """
-        JSON policy document to use as the content for the new policy
+        JSON policy document to use as the content for the new policy.
         """
         return pulumi.get(self, "policy")
 
@@ -60,8 +57,6 @@ class ServerlessSecurityPolicyArgs:
     def type(self) -> pulumi.Input[_builtins.str]:
         """
         Type of security policy. One of `encryption` or `network`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -96,9 +91,6 @@ class ServerlessSecurityPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,12 +111,9 @@ class _ServerlessSecurityPolicyState:
         Input properties used for looking up and filtering ServerlessSecurityPolicy resources.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] policy_version: Version of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of security policy. One of `encryption` or `network`.
-               
-               The following arguments are optional:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -167,7 +156,7 @@ class _ServerlessSecurityPolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        JSON policy document to use as the content for the new policy
+        JSON policy document to use as the content for the new policy.
         """
         return pulumi.get(self, "policy")
 
@@ -190,9 +179,6 @@ class _ServerlessSecurityPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -204,8 +190,6 @@ class _ServerlessSecurityPolicyState:
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of security policy. One of `encryption` or `network`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -227,185 +211,13 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
-
-        ## Example Usage
-
-        ### Encryption Security Policy
-
-        ### Applies to a single collection
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            description="encryption security policy for example-collection",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example-collection"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": True,
-            }))
-        ```
-
-        ### Applies to multiple collections
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            description="encryption security policy for collections that begin with \\"example\\"",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example*"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": True,
-            }))
-        ```
-
-        ### Using a customer managed key
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            description="encryption security policy using customer KMS key",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/customer-managed-key-collection"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": False,
-                "KmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
-            }))
-        ```
-
-        ### Network Security Policy
-
-        ### Allow public access to the collection endpoint and the Dashboards endpoint
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="network",
-            description="Public access",
-            policy=json.dumps([{
-                "Description": "Public access to collection and Dashboards endpoint for example collection",
-                "Rules": [
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                    },
-                    {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
-                    },
-                ],
-                "AllowFromPublic": True,
-            }]))
-        ```
-
-        ### Allow VPC access to the collection endpoint and the Dashboards endpoint
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="network",
-            description="VPC access",
-            policy=json.dumps([{
-                "Description": "VPC access to collection and Dashboards endpoint for example collection",
-                "Rules": [
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                    },
-                    {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
-                    },
-                ],
-                "AllowFromPublic": False,
-                "SourceVPCEs": ["vpce-050f79086ee71ac05"],
-            }]))
-        ```
-
-        ### Mixed access for different collections
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="network",
-            description="Mixed access for marketing and sales",
-            policy=json.dumps([
-                {
-                    "Description": "Marketing access",
-                    "Rules": [
-                        {
-                            "ResourceType": "collection",
-                            "Resource": ["collection/marketing*"],
-                        },
-                        {
-                            "ResourceType": "dashboard",
-                            "Resource": ["collection/marketing*"],
-                        },
-                    ],
-                    "AllowFromPublic": False,
-                    "SourceVPCEs": ["vpce-050f79086ee71ac05"],
-                },
-                {
-                    "Description": "Sales access",
-                    "Rules": [{
-                        "ResourceType": "collection",
-                        "Resource": ["collection/finance"],
-                    }],
-                    "AllowFromPublic": True,
-                },
-            ]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
-        ```
-
+        Create a ServerlessSecurityPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] type: Type of security policy. One of `encryption` or `network`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -414,176 +226,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                  args: ServerlessSecurityPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
-
-        ## Example Usage
-
-        ### Encryption Security Policy
-
-        ### Applies to a single collection
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            description="encryption security policy for example-collection",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example-collection"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": True,
-            }))
-        ```
-
-        ### Applies to multiple collections
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            description="encryption security policy for collections that begin with \\"example\\"",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example*"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": True,
-            }))
-        ```
-
-        ### Using a customer managed key
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            description="encryption security policy using customer KMS key",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/customer-managed-key-collection"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": False,
-                "KmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
-            }))
-        ```
-
-        ### Network Security Policy
-
-        ### Allow public access to the collection endpoint and the Dashboards endpoint
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="network",
-            description="Public access",
-            policy=json.dumps([{
-                "Description": "Public access to collection and Dashboards endpoint for example collection",
-                "Rules": [
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                    },
-                    {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
-                    },
-                ],
-                "AllowFromPublic": True,
-            }]))
-        ```
-
-        ### Allow VPC access to the collection endpoint and the Dashboards endpoint
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="network",
-            description="VPC access",
-            policy=json.dumps([{
-                "Description": "VPC access to collection and Dashboards endpoint for example collection",
-                "Rules": [
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                    },
-                    {
-                        "ResourceType": "dashboard",
-                        "Resource": ["collection/example-collection"],
-                    },
-                ],
-                "AllowFromPublic": False,
-                "SourceVPCEs": ["vpce-050f79086ee71ac05"],
-            }]))
-        ```
-
-        ### Mixed access for different collections
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="network",
-            description="Mixed access for marketing and sales",
-            policy=json.dumps([
-                {
-                    "Description": "Marketing access",
-                    "Rules": [
-                        {
-                            "ResourceType": "collection",
-                            "Resource": ["collection/marketing*"],
-                        },
-                        {
-                            "ResourceType": "dashboard",
-                            "Resource": ["collection/marketing*"],
-                        },
-                    ],
-                    "AllowFromPublic": False,
-                    "SourceVPCEs": ["vpce-050f79086ee71ac05"],
-                },
-                {
-                    "Description": "Sales access",
-                    "Rules": [{
-                        "ResourceType": "collection",
-                        "Resource": ["collection/finance"],
-                    }],
-                    "AllowFromPublic": True,
-                },
-            ]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
-        ```
-
+        Create a ServerlessSecurityPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerlessSecurityPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -648,12 +291,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] policy_version: Version of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of security policy. One of `encryption` or `network`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -687,7 +327,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        JSON policy document to use as the content for the new policy
+        JSON policy document to use as the content for the new policy.
         """
         return pulumi.get(self, "policy")
 
@@ -702,9 +342,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -712,8 +349,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
     def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of security policy. One of `encryption` or `network`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

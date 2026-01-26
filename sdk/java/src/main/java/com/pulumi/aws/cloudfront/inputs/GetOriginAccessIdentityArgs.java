@@ -14,17 +14,9 @@ public final class GetOriginAccessIdentityArgs extends com.pulumi.resources.Invo
 
     public static final GetOriginAccessIdentityArgs Empty = new GetOriginAccessIdentityArgs();
 
-    /**
-     * The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -53,23 +45,11 @@ public final class GetOriginAccessIdentityArgs extends com.pulumi.resources.Invo
             $ = new GetOriginAccessIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

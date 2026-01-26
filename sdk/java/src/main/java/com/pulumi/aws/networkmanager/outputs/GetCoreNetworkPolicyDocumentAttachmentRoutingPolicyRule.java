@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule {
-    /**
-     * @return Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     private GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction action;
-    /**
-     * @return A block argument. Detailed below.
-     * 
-     */
     private List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition> conditions;
-    /**
-     * @return A user-defined description that further helps identify the rule.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return A set of AWS Region codes where this rule applies.
-     * 
-     */
     private @Nullable List<String> edgeLocations;
-    /**
-     * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
-     * 
-     */
     private Integer ruleNumber;
 
     private GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule() {}
-    /**
-     * @return Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     public GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction action() {
         return this.action;
     }
-    /**
-     * @return A block argument. Detailed below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition> conditions() {
         return this.conditions;
     }
-    /**
-     * @return A user-defined description that further helps identify the rule.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return A set of AWS Region codes where this rule applies.
-     * 
-     */
     public List<String> edgeLocations() {
         return this.edgeLocations == null ? List.of() : this.edgeLocations;
     }
-    /**
-     * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
-     * 
-     */
     public Integer ruleNumber() {
         return this.ruleNumber;
     }

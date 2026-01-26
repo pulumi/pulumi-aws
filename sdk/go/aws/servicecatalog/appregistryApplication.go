@@ -11,98 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Service Catalog AppRegistry Application.
-//
-// > An AWS Service Catalog AppRegistry Application is displayed in the AWS Console under "MyApplications".
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewAppregistryApplication(ctx, "example", &servicecatalog.AppregistryApplicationArgs{
-//				Name: pulumi.String("example-app"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Connecting Resources
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := servicecatalog.NewAppregistryApplication(ctx, "example", &servicecatalog.AppregistryApplicationArgs{
-//				Name: pulumi.String("example-app"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-//				Bucket: pulumi.String("example-bucket"),
-//				Tags:   example.ApplicationTag,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Service Catalog AppRegistry Application using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/appregistryApplication:AppregistryApplication example application-id-12345678
-// ```
 type AppregistryApplication struct {
 	pulumi.CustomResourceState
 
-	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
 	ApplicationTag pulumi.StringMapOutput `pulumi:"applicationTag"`
-	// ARN (Amazon Resource Name) of the application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the application.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the application. The name must be unique within an AWS region.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAppregistryApplication registers a new resource with the given unique name, arguments, and options.
@@ -135,41 +53,23 @@ func GetAppregistryApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppregistryApplication resources.
 type appregistryApplicationState struct {
-	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
 	ApplicationTag map[string]string `pulumi:"applicationTag"`
-	// ARN (Amazon Resource Name) of the application.
-	Arn *string `pulumi:"arn"`
-	// Description of the application.
-	Description *string `pulumi:"description"`
-	// Name of the application. The name must be unique within an AWS region.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string           `pulumi:"arn"`
+	Description    *string           `pulumi:"description"`
+	Name           *string           `pulumi:"name"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
 }
 
 type AppregistryApplicationState struct {
-	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
 	ApplicationTag pulumi.StringMapInput
-	// ARN (Amazon Resource Name) of the application.
-	Arn pulumi.StringPtrInput
-	// Description of the application.
-	Description pulumi.StringPtrInput
-	// Name of the application. The name must be unique within an AWS region.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn            pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (AppregistryApplicationState) ElementType() reflect.Type {
@@ -177,30 +77,18 @@ func (AppregistryApplicationState) ElementType() reflect.Type {
 }
 
 type appregistryApplicationArgs struct {
-	// Description of the application.
-	Description *string `pulumi:"description"`
-	// Name of the application. The name must be unique within an AWS region.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppregistryApplication resource.
 type AppregistryApplicationArgs struct {
-	// Description of the application.
 	Description pulumi.StringPtrInput
-	// Name of the application. The name must be unique within an AWS region.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (AppregistryApplicationArgs) ElementType() reflect.Type {
@@ -290,39 +178,30 @@ func (o AppregistryApplicationOutput) ToAppregistryApplicationOutputWithContext(
 	return o
 }
 
-// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
 func (o AppregistryApplicationOutput) ApplicationTag() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringMapOutput { return v.ApplicationTag }).(pulumi.StringMapOutput)
 }
 
-// ARN (Amazon Resource Name) of the application.
 func (o AppregistryApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the application.
 func (o AppregistryApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the application. The name must be unique within an AWS region.
-//
-// The following arguments are optional:
 func (o AppregistryApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppregistryApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AppregistryApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AppregistryApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,10 +12,6 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationProfilesResult {
     private String applicationId;
-    /**
-     * @return Set of Configuration Profile IDs associated with the AppConfig Application.
-     * 
-     */
     private List<String> configurationProfileIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,10 +24,6 @@ public final class GetConfigurationProfilesResult {
     public String applicationId() {
         return this.applicationId;
     }
-    /**
-     * @return Set of Configuration Profile IDs associated with the AppConfig Application.
-     * 
-     */
     public List<String> configurationProfileIds() {
         return this.configurationProfileIds;
     }

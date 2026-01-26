@@ -14,19 +14,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
     {
         [Input("jsons")]
         private InputList<Inputs.VirtualGatewaySpecLoggingAccessLogFileFormatJsonGetArgs>? _jsons;
-
-        /// <summary>
-        /// The logging format for JSON.
-        /// </summary>
         public InputList<Inputs.VirtualGatewaySpecLoggingAccessLogFileFormatJsonGetArgs> Jsons
         {
             get => _jsons ?? (_jsons = new InputList<Inputs.VirtualGatewaySpecLoggingAccessLogFileFormatJsonGetArgs>());
             set => _jsons = value;
         }
 
-        /// <summary>
-        /// The logging format for text. Must be between 1 and 1000 characters in length.
-        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 

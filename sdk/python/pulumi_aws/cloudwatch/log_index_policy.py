@@ -24,9 +24,7 @@ class LogIndexPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogIndexPolicy resource.
-        :param pulumi.Input[_builtins.str] log_group_name: Log group name to set the policy for.
-        :param pulumi.Input[_builtins.str] policy_document: JSON policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] policy_document: Field index filter policy, in JSON
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -36,9 +34,6 @@ class LogIndexPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Log group name to set the policy for.
-        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -49,7 +44,7 @@ class LogIndexPolicyArgs:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[_builtins.str]:
         """
-        JSON policy document. This is a JSON formatted string.
+        Field index filter policy, in JSON
         """
         return pulumi.get(self, "policy_document")
 
@@ -60,9 +55,6 @@ class LogIndexPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +70,7 @@ class _LogIndexPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogIndexPolicy resources.
-        :param pulumi.Input[_builtins.str] log_group_name: Log group name to set the policy for.
-        :param pulumi.Input[_builtins.str] policy_document: JSON policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] policy_document: Field index filter policy, in JSON
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
@@ -92,9 +82,6 @@ class _LogIndexPolicyState:
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Log group name to set the policy for.
-        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -105,7 +92,7 @@ class _LogIndexPolicyState:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        JSON policy document. This is a JSON formatted string.
+        Field index filter policy, in JSON
         """
         return pulumi.get(self, "policy_document")
 
@@ -116,9 +103,6 @@ class _LogIndexPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,38 +121,10 @@ class LogIndexPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CloudWatch Logs Index Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogGroup("example", name="example")
-        example_log_index_policy = aws.cloudwatch.LogIndexPolicy("example",
-            log_group_name=example.name,
-            policy_document=json.dumps({
-                "Fields": ["eventName"],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Logs Index Policy using the `log_group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logIndexPolicy:LogIndexPolicy example /aws/log/group/name
-        ```
-
+        Create a LogIndexPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] log_group_name: Log group name to set the policy for.
-        :param pulumi.Input[_builtins.str] policy_document: JSON policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] policy_document: Field index filter policy, in JSON
         """
         ...
     @overload
@@ -177,33 +133,7 @@ class LogIndexPolicy(pulumi.CustomResource):
                  args: LogIndexPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CloudWatch Logs Index Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogGroup("example", name="example")
-        example_log_index_policy = aws.cloudwatch.LogIndexPolicy("example",
-            log_group_name=example.name,
-            policy_document=json.dumps({
-                "Fields": ["eventName"],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Logs Index Policy using the `log_group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logIndexPolicy:LogIndexPolicy example /aws/log/group/name
-        ```
-
+        Create a LogIndexPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogIndexPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,9 +188,7 @@ class LogIndexPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] log_group_name: Log group name to set the policy for.
-        :param pulumi.Input[_builtins.str] policy_document: JSON policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] policy_document: Field index filter policy, in JSON
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -274,24 +202,18 @@ class LogIndexPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Log group name to set the policy for.
-        """
         return pulumi.get(self, "log_group_name")
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[_builtins.str]:
         """
-        JSON policy document. This is a JSON formatted string.
+        Field index filter policy, in JSON
         """
         return pulumi.get(self, "policy_document")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

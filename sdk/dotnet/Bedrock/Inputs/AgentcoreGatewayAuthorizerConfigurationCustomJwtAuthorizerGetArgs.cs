@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
-
-        /// <summary>
-        /// Set of allowed audience values for JWT token validation.
-        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
@@ -26,19 +22,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("allowedClients")]
         private InputList<string>? _allowedClients;
-
-        /// <summary>
-        /// Set of allowed client IDs for JWT token validation.
-        /// </summary>
         public InputList<string> AllowedClients
         {
             get => _allowedClients ?? (_allowedClients = new InputList<string>());
             set => _allowedClients = value;
         }
 
-        /// <summary>
-        /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-        /// </summary>
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
 

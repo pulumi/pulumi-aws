@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpcPeeringConnectionAccepterAccepter
     {
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
         public readonly bool? AllowRemoteVpcDnsResolution;
 
         [OutputConstructor]

@@ -17,32 +17,16 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
 
     public static final ControlControlMappingSourceArgs Empty = new ControlControlMappingSourceArgs();
 
-    /**
-     * Description of the source.
-     * 
-     */
     @Import(name="sourceDescription")
     private @Nullable Output<String> sourceDescription;
 
-    /**
-     * @return Description of the source.
-     * 
-     */
     public Optional<Output<String>> sourceDescription() {
         return Optional.ofNullable(this.sourceDescription);
     }
 
-    /**
-     * Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-     * 
-     */
     @Import(name="sourceFrequency")
     private @Nullable Output<String> sourceFrequency;
 
-    /**
-     * @return Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-     * 
-     */
     public Optional<Output<String>> sourceFrequency() {
         return Optional.ofNullable(this.sourceFrequency);
     }
@@ -54,81 +38,37 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.sourceId);
     }
 
-    /**
-     * The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-     * 
-     */
     @Import(name="sourceKeyword")
     private @Nullable Output<ControlControlMappingSourceSourceKeywordArgs> sourceKeyword;
 
-    /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-     * 
-     */
     public Optional<Output<ControlControlMappingSourceSourceKeywordArgs>> sourceKeyword() {
         return Optional.ofNullable(this.sourceKeyword);
     }
 
-    /**
-     * Name of the source.
-     * 
-     */
     @Import(name="sourceName", required=true)
     private Output<String> sourceName;
 
-    /**
-     * @return Name of the source.
-     * 
-     */
     public Output<String> sourceName() {
         return this.sourceName;
     }
 
-    /**
-     * The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-     * 
-     */
     @Import(name="sourceSetUpOption", required=true)
     private Output<String> sourceSetUpOption;
 
-    /**
-     * @return The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-     * 
-     */
     public Output<String> sourceSetUpOption() {
         return this.sourceSetUpOption;
     }
 
-    /**
-     * Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="sourceType", required=true)
     private Output<String> sourceType;
 
-    /**
-     * @return Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> sourceType() {
         return this.sourceType;
     }
 
-    /**
-     * Instructions for troubleshooting the control.
-     * 
-     */
     @Import(name="troubleshootingText")
     private @Nullable Output<String> troubleshootingText;
 
-    /**
-     * @return Instructions for troubleshooting the control.
-     * 
-     */
     public Optional<Output<String>> troubleshootingText() {
         return Optional.ofNullable(this.troubleshootingText);
     }
@@ -164,44 +104,20 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
             $ = new ControlControlMappingSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceDescription Description of the source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDescription(@Nullable Output<String> sourceDescription) {
             $.sourceDescription = sourceDescription;
             return this;
         }
 
-        /**
-         * @param sourceDescription Description of the source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDescription(String sourceDescription) {
             return sourceDescription(Output.of(sourceDescription));
         }
 
-        /**
-         * @param sourceFrequency Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFrequency(@Nullable Output<String> sourceFrequency) {
             $.sourceFrequency = sourceFrequency;
             return this;
         }
 
-        /**
-         * @param sourceFrequency Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFrequency(String sourceFrequency) {
             return sourceFrequency(Output.of(sourceFrequency));
         }
@@ -215,111 +131,47 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
             return sourceId(Output.of(sourceId));
         }
 
-        /**
-         * @param sourceKeyword The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceKeyword(@Nullable Output<ControlControlMappingSourceSourceKeywordArgs> sourceKeyword) {
             $.sourceKeyword = sourceKeyword;
             return this;
         }
 
-        /**
-         * @param sourceKeyword The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceKeyword(ControlControlMappingSourceSourceKeywordArgs sourceKeyword) {
             return sourceKeyword(Output.of(sourceKeyword));
         }
 
-        /**
-         * @param sourceName Name of the source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
-        /**
-         * @param sourceName Name of the source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }
 
-        /**
-         * @param sourceSetUpOption The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceSetUpOption(Output<String> sourceSetUpOption) {
             $.sourceSetUpOption = sourceSetUpOption;
             return this;
         }
 
-        /**
-         * @param sourceSetUpOption The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceSetUpOption(String sourceSetUpOption) {
             return sourceSetUpOption(Output.of(sourceSetUpOption));
         }
 
-        /**
-         * @param sourceType Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceType(Output<String> sourceType) {
             $.sourceType = sourceType;
             return this;
         }
 
-        /**
-         * @param sourceType Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceType(String sourceType) {
             return sourceType(Output.of(sourceType));
         }
 
-        /**
-         * @param troubleshootingText Instructions for troubleshooting the control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder troubleshootingText(@Nullable Output<String> troubleshootingText) {
             $.troubleshootingText = troubleshootingText;
             return this;
         }
 
-        /**
-         * @param troubleshootingText Instructions for troubleshooting the control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder troubleshootingText(String troubleshootingText) {
             return troubleshootingText(Output.of(troubleshootingText));
         }

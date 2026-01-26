@@ -7,86 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon Customer Profiles Domain.
- * See the [Create Domain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.customerprofiles.Domain("example", {domainName: "example"});
- * ```
- *
- * ### With SQS DLQ and KMS set
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sqs.Queue("example", {
- *     name: "example",
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "Customer Profiles SQS policy",
- *             Effect: "Allow",
- *             Action: ["sqs:SendMessage"],
- *             Resource: "*",
- *             Principal: {
- *                 Service: "profile.amazonaws.com",
- *             },
- *         }],
- *     }),
- * });
- * const exampleKey = new aws.kms.Key("example", {
- *     description: "example",
- *     deletionWindowInDays: 10,
- * });
- * const exampleBucket = new aws.s3.Bucket("example", {
- *     bucket: "example",
- *     forceDestroy: true,
- * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucket.id,
- *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "Customer Profiles S3 policy",
- *             Effect: "Allow",
- *             Action: [
- *                 "s3:GetObject",
- *                 "s3:PutObject",
- *                 "s3:ListBucket",
- *             ],
- *             Resource: [
- *                 exampleBucket.arn,
- *                 pulumi.interpolate`${exampleBucket.arn}/*`,
- *             ],
- *             Principal: {
- *                 Service: "profile.amazonaws.com",
- *             },
- *         }],
- *     }),
- * });
- * const test = new aws.customerprofiles.Domain("test", {
- *     domainName: example,
- *     deadLetterQueueUrl: example.id,
- *     defaultEncryptionKey: exampleKey.arn,
- *     defaultExpirationDays: 365,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
- * ```
- */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -115,47 +35,15 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-     */
     declare public readonly deadLetterQueueUrl: pulumi.Output<string | undefined>;
-    /**
-     * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-     */
     declare public readonly defaultEncryptionKey: pulumi.Output<string | undefined>;
-    /**
-     * The default number of days until the data within the domain expires.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly defaultExpirationDays: pulumi.Output<number>;
-    /**
-     * The name for your Customer Profile domain. It must be unique for your AWS account.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * A block that specifies the process of matching duplicate profiles. Documented below.
-     */
     declare public readonly matching: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-     */
     declare public readonly ruleBasedMatching: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
-    /**
-     * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -209,47 +97,15 @@ export class Domain extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Domain resources.
  */
 export interface DomainState {
-    /**
-     * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-     */
     deadLetterQueueUrl?: pulumi.Input<string>;
-    /**
-     * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-     */
     defaultEncryptionKey?: pulumi.Input<string>;
-    /**
-     * The default number of days until the data within the domain expires.
-     *
-     * The following arguments are optional:
-     */
     defaultExpirationDays?: pulumi.Input<number>;
-    /**
-     * The name for your Customer Profile domain. It must be unique for your AWS account.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * A block that specifies the process of matching duplicate profiles. Documented below.
-     */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-     */
     ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
-    /**
-     * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -257,38 +113,12 @@ export interface DomainState {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
-    /**
-     * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-     */
     deadLetterQueueUrl?: pulumi.Input<string>;
-    /**
-     * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-     */
     defaultEncryptionKey?: pulumi.Input<string>;
-    /**
-     * The default number of days until the data within the domain expires.
-     *
-     * The following arguments are optional:
-     */
     defaultExpirationDays: pulumi.Input<number>;
-    /**
-     * The name for your Customer Profile domain. It must be unique for your AWS account.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * A block that specifies the process of matching duplicate profiles. Documented below.
-     */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-     */
     ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
-    /**
-     * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

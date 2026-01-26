@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
-    /**
-     * @return Whether prefix-level storage metrics are enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Selection criteria. See Selection Criteria below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria selectionCriteria;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics() {}
-    /**
-     * @return Whether prefix-level storage metrics are enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Selection criteria. See Selection Criteria below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria> selectionCriteria() {
         return Optional.ofNullable(this.selectionCriteria);
     }

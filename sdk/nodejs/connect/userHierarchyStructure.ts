@@ -7,64 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Connect User Hierarchy Structure resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.UserHierarchyStructure("example", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     hierarchyStructure: {
- *         levelOne: {
- *             name: "levelone",
- *         },
- *     },
- * });
- * ```
- *
- * ### With Five Levels
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.UserHierarchyStructure("example", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     hierarchyStructure: {
- *         levelOne: {
- *             name: "levelone",
- *         },
- *         levelTwo: {
- *             name: "leveltwo",
- *         },
- *         levelThree: {
- *             name: "levelthree",
- *         },
- *         levelFour: {
- *             name: "levelfour",
- *         },
- *         levelFive: {
- *             name: "levelfive",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
- * ```
- */
 export class UserHierarchyStructure extends pulumi.CustomResource {
     /**
      * Get an existing UserHierarchyStructure resource's state with the given name, ID, and optional extra
@@ -93,17 +35,8 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserHierarchyStructure.__pulumiType;
     }
 
-    /**
-     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
-     */
     declare public readonly hierarchyStructure: pulumi.Output<outputs.connect.UserHierarchyStructureHierarchyStructure>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     declare public readonly instanceId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -143,17 +76,8 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserHierarchyStructure resources.
  */
 export interface UserHierarchyStructureState {
-    /**
-     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
-     */
     hierarchyStructure?: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -161,16 +85,7 @@ export interface UserHierarchyStructureState {
  * The set of arguments for constructing a UserHierarchyStructure resource.
  */
 export interface UserHierarchyStructureArgs {
-    /**
-     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
-     */
     hierarchyStructure: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

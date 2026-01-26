@@ -14,25 +14,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectPeerResult {
-    /**
-     * @return EC2 Transit Gateway Connect Peer ARN
-     * 
-     */
     private String arn;
-    /**
-     * @return BGP ASN number assigned customer device
-     * 
-     */
     private String bgpAsn;
-    /**
-     * @return The IP address assigned to customer device, which is used as BGP IP address.
-     * 
-     */
     private String bgpPeerAddress;
-    /**
-     * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
-     * 
-     */
     private List<String> bgpTransitGatewayAddresses;
     private @Nullable List<GetConnectPeerFilter> filters;
     /**
@@ -40,60 +24,24 @@ public final class GetConnectPeerResult {
      * 
      */
     private String id;
-    /**
-     * @return CIDR blocks that will be used for addressing within the tunnel.
-     * 
-     */
     private List<String> insideCidrBlocks;
-    /**
-     * @return IP addressed assigned to customer device, which is used as tunnel endpoint
-     * 
-     */
     private String peerAddress;
     private String region;
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Connect Peer
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-     * 
-     */
     private String transitGatewayAddress;
-    /**
-     * @return The Transit Gateway Connect
-     * 
-     */
     private String transitGatewayAttachmentId;
     private String transitGatewayConnectPeerId;
 
     private GetConnectPeerResult() {}
-    /**
-     * @return EC2 Transit Gateway Connect Peer ARN
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return BGP ASN number assigned customer device
-     * 
-     */
     public String bgpAsn() {
         return this.bgpAsn;
     }
-    /**
-     * @return The IP address assigned to customer device, which is used as BGP IP address.
-     * 
-     */
     public String bgpPeerAddress() {
         return this.bgpPeerAddress;
     }
-    /**
-     * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
-     * 
-     */
     public List<String> bgpTransitGatewayAddresses() {
         return this.bgpTransitGatewayAddresses;
     }
@@ -107,41 +55,21 @@ public final class GetConnectPeerResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return CIDR blocks that will be used for addressing within the tunnel.
-     * 
-     */
     public List<String> insideCidrBlocks() {
         return this.insideCidrBlocks;
     }
-    /**
-     * @return IP addressed assigned to customer device, which is used as tunnel endpoint
-     * 
-     */
     public String peerAddress() {
         return this.peerAddress;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Connect Peer
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-     * 
-     */
     public String transitGatewayAddress() {
         return this.transitGatewayAddress;
     }
-    /**
-     * @return The Transit Gateway Connect
-     * 
-     */
     public String transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }

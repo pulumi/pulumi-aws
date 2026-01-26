@@ -12,64 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewSnapshotSchedule(ctx, "default", &redshift.SnapshotScheduleArgs{
-//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
-//				Definitions: pulumi.StringArray{
-//					pulumi.String("rate(12 hours)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-// ```
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-	Definitions pulumi.StringArrayOutput `pulumi:"definitions"`
-	// The description of the snapshot schedule.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
-	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput      `pulumi:"arn"`
+	Definitions      pulumi.StringArrayOutput `pulumi:"definitions"`
+	Description      pulumi.StringPtrOutput   `pulumi:"description"`
+	ForceDestroy     pulumi.BoolPtrOutput     `pulumi:"forceDestroy"`
+	Identifier       pulumi.StringOutput      `pulumi:"identifier"`
+	IdentifierPrefix pulumi.StringOutput      `pulumi:"identifierPrefix"`
+	Region           pulumi.StringOutput      `pulumi:"region"`
+	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewSnapshotSchedule registers a new resource with the given unique name, arguments, and options.
@@ -105,47 +59,27 @@ func GetSnapshotSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotSchedule resources.
 type snapshotScheduleState struct {
-	// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-	Arn *string `pulumi:"arn"`
-	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-	Definitions []string `pulumi:"definitions"`
-	// The description of the snapshot schedule.
-	Description *string `pulumi:"description"`
-	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-	Identifier *string `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
-	IdentifierPrefix *string `pulumi:"identifierPrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string           `pulumi:"arn"`
+	Definitions      []string          `pulumi:"definitions"`
+	Description      *string           `pulumi:"description"`
+	ForceDestroy     *bool             `pulumi:"forceDestroy"`
+	Identifier       *string           `pulumi:"identifier"`
+	IdentifierPrefix *string           `pulumi:"identifierPrefix"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type SnapshotScheduleState struct {
-	// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-	Arn pulumi.StringPtrInput
-	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-	Definitions pulumi.StringArrayInput
-	// The description of the snapshot schedule.
-	Description pulumi.StringPtrInput
-	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-	ForceDestroy pulumi.BoolPtrInput
-	// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-	Identifier pulumi.StringPtrInput
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	Arn              pulumi.StringPtrInput
+	Definitions      pulumi.StringArrayInput
+	Description      pulumi.StringPtrInput
+	ForceDestroy     pulumi.BoolPtrInput
+	Identifier       pulumi.StringPtrInput
 	IdentifierPrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (SnapshotScheduleState) ElementType() reflect.Type {
@@ -153,40 +87,24 @@ func (SnapshotScheduleState) ElementType() reflect.Type {
 }
 
 type snapshotScheduleArgs struct {
-	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-	Definitions []string `pulumi:"definitions"`
-	// The description of the snapshot schedule.
-	Description *string `pulumi:"description"`
-	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-	Identifier *string `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
-	IdentifierPrefix *string `pulumi:"identifierPrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Definitions      []string          `pulumi:"definitions"`
+	Description      *string           `pulumi:"description"`
+	ForceDestroy     *bool             `pulumi:"forceDestroy"`
+	Identifier       *string           `pulumi:"identifier"`
+	IdentifierPrefix *string           `pulumi:"identifierPrefix"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotSchedule resource.
 type SnapshotScheduleArgs struct {
-	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-	Definitions pulumi.StringArrayInput
-	// The description of the snapshot schedule.
-	Description pulumi.StringPtrInput
-	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-	ForceDestroy pulumi.BoolPtrInput
-	// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-	Identifier pulumi.StringPtrInput
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	Definitions      pulumi.StringArrayInput
+	Description      pulumi.StringPtrInput
+	ForceDestroy     pulumi.BoolPtrInput
+	Identifier       pulumi.StringPtrInput
 	IdentifierPrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
 }
 
 func (SnapshotScheduleArgs) ElementType() reflect.Type {
@@ -276,48 +194,38 @@ func (o SnapshotScheduleOutput) ToSnapshotScheduleOutputWithContext(ctx context.
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
 func (o SnapshotScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
 func (o SnapshotScheduleOutput) Definitions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringArrayOutput { return v.Definitions }).(pulumi.StringArrayOutput)
 }
 
-// The description of the snapshot schedule.
 func (o SnapshotScheduleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
 func (o SnapshotScheduleOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
 func (o SnapshotScheduleOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Creates a unique
-// identifier beginning with the specified prefix. Conflicts with `identifier`.
 func (o SnapshotScheduleOutput) IdentifierPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.IdentifierPrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotScheduleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SnapshotScheduleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotScheduleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

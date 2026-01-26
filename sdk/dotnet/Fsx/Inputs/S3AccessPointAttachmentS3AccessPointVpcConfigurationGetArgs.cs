@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class S3AccessPointAttachmentS3AccessPointVpcConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// VPC ID.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

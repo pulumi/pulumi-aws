@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentAgentKnowledgeBaseAssociation("example", {
- *     agentId: "GGRRAED6JP",
- *     description: "Example Knowledge base",
- *     knowledgeBaseId: "EMDPPAYPZI",
- *     knowledgeBaseState: "ENABLED",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the agent ID, the agent version, and the knowledge base ID separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
- * ```
- */
 export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
     /**
      * Get an existing AgentAgentKnowledgeBaseAssociation resource's state with the given name, ID, and optional extra
@@ -62,31 +35,11 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentAgentKnowledgeBaseAssociation.__pulumiType;
     }
 
-    /**
-     * Unique identifier of the agent with which you want to associate the knowledge base.
-     */
     declare public readonly agentId: pulumi.Output<string>;
-    /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-     */
     declare public readonly agentVersion: pulumi.Output<string>;
-    /**
-     * Description of what the agent should use the knowledge base for.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Unique identifier of the knowledge base to associate with the agent.
-     */
     declare public readonly knowledgeBaseId: pulumi.Output<string>;
-    /**
-     * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly knowledgeBaseState: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts | undefined>;
 
@@ -141,31 +94,11 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentAgentKnowledgeBaseAssociation resources.
  */
 export interface AgentAgentKnowledgeBaseAssociationState {
-    /**
-     * Unique identifier of the agent with which you want to associate the knowledge base.
-     */
     agentId?: pulumi.Input<string>;
-    /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-     */
     agentVersion?: pulumi.Input<string>;
-    /**
-     * Description of what the agent should use the knowledge base for.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the knowledge base to associate with the agent.
-     */
     knowledgeBaseId?: pulumi.Input<string>;
-    /**
-     * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-     *
-     * The following arguments are optional:
-     */
     knowledgeBaseState?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts>;
 }
@@ -174,31 +107,11 @@ export interface AgentAgentKnowledgeBaseAssociationState {
  * The set of arguments for constructing a AgentAgentKnowledgeBaseAssociation resource.
  */
 export interface AgentAgentKnowledgeBaseAssociationArgs {
-    /**
-     * Unique identifier of the agent with which you want to associate the knowledge base.
-     */
     agentId: pulumi.Input<string>;
-    /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-     */
     agentVersion?: pulumi.Input<string>;
-    /**
-     * Description of what the agent should use the knowledge base for.
-     */
     description: pulumi.Input<string>;
-    /**
-     * Unique identifier of the knowledge base to associate with the agent.
-     */
     knowledgeBaseId: pulumi.Input<string>;
-    /**
-     * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-     *
-     * The following arguments are optional:
-     */
     knowledgeBaseState: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts>;
 }

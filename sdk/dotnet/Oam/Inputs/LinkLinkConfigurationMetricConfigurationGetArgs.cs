@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Oam.Inputs
 
     public sealed class LinkLinkConfigurationMetricConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 

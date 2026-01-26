@@ -16,17 +16,9 @@ public final class CapabilityConfigurationArgoCdNetworkAccessArgs extends com.pu
 
     public static final CapabilityConfigurationArgoCdNetworkAccessArgs Empty = new CapabilityConfigurationArgoCdNetworkAccessArgs();
 
-    /**
-     * VPC Endpoint IDs.
-     * 
-     */
     @Import(name="vpceIds")
     private @Nullable Output<List<String>> vpceIds;
 
-    /**
-     * @return VPC Endpoint IDs.
-     * 
-     */
     public Optional<Output<List<String>>> vpceIds() {
         return Optional.ofNullable(this.vpceIds);
     }
@@ -55,33 +47,15 @@ public final class CapabilityConfigurationArgoCdNetworkAccessArgs extends com.pu
             $ = new CapabilityConfigurationArgoCdNetworkAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param vpceIds VPC Endpoint IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceIds(@Nullable Output<List<String>> vpceIds) {
             $.vpceIds = vpceIds;
             return this;
         }
 
-        /**
-         * @param vpceIds VPC Endpoint IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceIds(List<String> vpceIds) {
             return vpceIds(Output.of(vpceIds));
         }
 
-        /**
-         * @param vpceIds VPC Endpoint IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceIds(String... vpceIds) {
             return vpceIds(List.of(vpceIds));
         }

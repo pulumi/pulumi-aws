@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkMonitor
 {
-    /// <summary>
-    /// Resource for managing an AWS Network Monitor Monitor.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkMonitor.Monitor("example", new()
-    ///     {
-    ///         AggregationPeriod = 30,
-    ///         MonitorName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmonitor_monitor` using the monitor name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmonitor/monitor:Monitor example monitor-7786087912324693644
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmonitor/monitor:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-        /// </summary>
         [Output("aggregationPeriod")]
         public Output<int> AggregationPeriod { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the monitor.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the monitor.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("monitorName")]
         public Output<string> MonitorName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the monitor. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -128,32 +76,17 @@ namespace Pulumi.Aws.NetworkMonitor
 
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-        /// </summary>
         [Input("aggregationPeriod")]
         public Input<int>? AggregationPeriod { get; set; }
 
-        /// <summary>
-        /// The name of the monitor.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("monitorName", required: true)]
         public Input<string> MonitorName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the monitor. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -168,38 +101,20 @@ namespace Pulumi.Aws.NetworkMonitor
 
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-        /// </summary>
         [Input("aggregationPeriod")]
         public Input<int>? AggregationPeriod { get; set; }
 
-        /// <summary>
-        /// The ARN of the monitor.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the monitor.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the monitor. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -208,10 +123,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

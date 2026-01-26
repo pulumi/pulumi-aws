@@ -13,140 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route53 query logging configuration resource.
- * 
- * &gt; **NOTE:** There are restrictions on the configuration of query logging. Notably,
- * the CloudWatch log group must be in the `us-east-1` region,
- * a permissive CloudWatch log resource policy must be in place, and
- * the Route53 hosted zone must be public.
- * See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.Zone;
- * import com.pulumi.aws.route53.ZoneArgs;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import com.pulumi.aws.route53.QueryLog;
- * import com.pulumi.aws.route53.QueryLogArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Example Route53 zone with query logging
- *         var exampleCom = new Zone("exampleCom", ZoneArgs.builder()
- *             .name("example.com")
- *             .build());
- * 
- *         var awsRoute53ExampleCom = new LogGroup("awsRoute53ExampleCom", LogGroupArgs.builder()
- *             .name(exampleCom.name().applyValue(_name -> String.format("/aws/route53/%s", _name)))
- *             .retentionInDays(30)
- *             .build());
- * 
- *         // Example CloudWatch log resource policy to allow Route53 to write logs
- *         // to any log group under /aws/route53/*
- *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers("route53.amazonaws.com")
- *                     .type("Service")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
- *             .policyDocument(route53_query_logging_policy.json())
- *             .policyName("route53-query-logging-policy")
- *             .build());
- * 
- *         var exampleComQueryLog = new QueryLog("exampleComQueryLog", QueryLogArgs.builder()
- *             .cloudwatchLogGroupArn(awsRoute53ExampleCom.arn())
- *             .zoneId(exampleCom.zoneId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(route53_query_logging_policyLogResourcePolicy)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
- * ```
- * 
- */
 @ResourceType(type="aws:route53/queryLog:QueryLog")
 public class QueryLog extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the Query Logging Config.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Query Logging Config.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * CloudWatch log group ARN to send query logs.
-     * 
-     */
     @Export(name="cloudwatchLogGroupArn", refs={String.class}, tree="[0]")
     private Output<String> cloudwatchLogGroupArn;
 
-    /**
-     * @return CloudWatch log group ARN to send query logs.
-     * 
-     */
     public Output<String> cloudwatchLogGroupArn() {
         return this.cloudwatchLogGroupArn;
     }
-    /**
-     * Route53 hosted zone ID to enable query logs.
-     * 
-     */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
-    /**
-     * @return Route53 hosted zone ID to enable query logs.
-     * 
-     */
     public Output<String> zoneId() {
         return this.zoneId;
     }

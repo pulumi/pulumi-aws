@@ -42,9 +42,6 @@ MYPY = False
 if not MYPY:
     class SigningJobDestinationArgsDict(TypedDict):
         s3: pulumi.Input['SigningJobDestinationS3ArgsDict']
-        """
-        A configuration block describing the S3 Destination object: See S3 Destination below for details.
-        """
 elif False:
     SigningJobDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -52,17 +49,11 @@ elif False:
 class SigningJobDestinationArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['SigningJobDestinationS3Args']):
-        """
-        :param pulumi.Input['SigningJobDestinationS3Args'] s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
-        """
         pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> pulumi.Input['SigningJobDestinationS3Args']:
-        """
-        A configuration block describing the S3 Destination object: See S3 Destination below for details.
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -74,9 +65,6 @@ if not MYPY:
     class SigningJobDestinationS3ArgsDict(TypedDict):
         bucket: pulumi.Input[_builtins.str]
         prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-        """
 elif False:
     SigningJobDestinationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -85,9 +73,6 @@ class SigningJobDestinationS3Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] prefix: An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-        """
         pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -104,9 +89,6 @@ class SigningJobDestinationS3Args:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -190,9 +172,6 @@ if not MYPY:
     class SigningJobSignedObjectS3ArgsDict(TypedDict):
         bucket: NotRequired[pulumi.Input[_builtins.str]]
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key name of the object that contains your unsigned code.
-        """
 elif False:
     SigningJobSignedObjectS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -201,9 +180,6 @@ class SigningJobSignedObjectS3Args:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key name of the object that contains your unsigned code.
-        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if key is not None:
@@ -221,9 +197,6 @@ class SigningJobSignedObjectS3Args:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key name of the object that contains your unsigned code.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -234,9 +207,6 @@ class SigningJobSignedObjectS3Args:
 if not MYPY:
     class SigningJobSourceArgsDict(TypedDict):
         s3: pulumi.Input['SigningJobSourceS3ArgsDict']
-        """
-        A configuration block describing the S3 Source object: See S3 Source below for details.
-        """
 elif False:
     SigningJobSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -244,17 +214,11 @@ elif False:
 class SigningJobSourceArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['SigningJobSourceS3Args']):
-        """
-        :param pulumi.Input['SigningJobSourceS3Args'] s3: A configuration block describing the S3 Source object: See S3 Source below for details.
-        """
         pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> pulumi.Input['SigningJobSourceS3Args']:
-        """
-        A configuration block describing the S3 Source object: See S3 Source below for details.
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -266,13 +230,7 @@ if not MYPY:
     class SigningJobSourceS3ArgsDict(TypedDict):
         bucket: pulumi.Input[_builtins.str]
         key: pulumi.Input[_builtins.str]
-        """
-        Key name of the object that contains your unsigned code.
-        """
         version: pulumi.Input[_builtins.str]
-        """
-        Version of your source image in your version enabled S3 bucket.
-        """
 elif False:
     SigningJobSourceS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -282,10 +240,6 @@ class SigningJobSourceS3Args:
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] key: Key name of the object that contains your unsigned code.
-        :param pulumi.Input[_builtins.str] version: Version of your source image in your version enabled S3 bucket.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "version", version)
@@ -302,9 +256,6 @@ class SigningJobSourceS3Args:
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Key name of the object that contains your unsigned code.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -314,9 +265,6 @@ class SigningJobSourceS3Args:
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of your source image in your version enabled S3 bucket.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -327,17 +275,8 @@ class SigningJobSourceS3Args:
 if not MYPY:
     class SigningProfileRevocationRecordArgsDict(TypedDict):
         revocation_effective_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when revocation becomes effective.
-        """
         revoked_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the signing profile was revoked.
-        """
         revoked_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity of the revoker.
-        """
 elif False:
     SigningProfileRevocationRecordArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -347,11 +286,6 @@ class SigningProfileRevocationRecordArgs:
                  revocation_effective_from: Optional[pulumi.Input[_builtins.str]] = None,
                  revoked_at: Optional[pulumi.Input[_builtins.str]] = None,
                  revoked_by: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] revocation_effective_from: The time when revocation becomes effective.
-        :param pulumi.Input[_builtins.str] revoked_at: The time when the signing profile was revoked.
-        :param pulumi.Input[_builtins.str] revoked_by: The identity of the revoker.
-        """
         if revocation_effective_from is not None:
             pulumi.set(__self__, "revocation_effective_from", revocation_effective_from)
         if revoked_at is not None:
@@ -362,9 +296,6 @@ class SigningProfileRevocationRecordArgs:
     @_builtins.property
     @pulumi.getter(name="revocationEffectiveFrom")
     def revocation_effective_from(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time when revocation becomes effective.
-        """
         return pulumi.get(self, "revocation_effective_from")
 
     @revocation_effective_from.setter
@@ -374,9 +305,6 @@ class SigningProfileRevocationRecordArgs:
     @_builtins.property
     @pulumi.getter(name="revokedAt")
     def revoked_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time when the signing profile was revoked.
-        """
         return pulumi.get(self, "revoked_at")
 
     @revoked_at.setter
@@ -386,9 +314,6 @@ class SigningProfileRevocationRecordArgs:
     @_builtins.property
     @pulumi.getter(name="revokedBy")
     def revoked_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identity of the revoker.
-        """
         return pulumi.get(self, "revoked_by")
 
     @revoked_by.setter
@@ -399,13 +324,7 @@ class SigningProfileRevocationRecordArgs:
 if not MYPY:
     class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
-        """
         value: pulumi.Input[_builtins.int]
-        """
-        The numerical value of the time unit for signature validity.
-        """
 elif False:
     SigningProfileSignatureValidityPeriodArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -414,19 +333,12 @@ class SigningProfileSignatureValidityPeriodArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.str] type: The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
-        :param pulumi.Input[_builtins.int] value: The numerical value of the time unit for signature validity.
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -436,9 +348,6 @@ class SigningProfileSignatureValidityPeriodArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.int]:
-        """
-        The numerical value of the time unit for signature validity.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -449,9 +358,6 @@ class SigningProfileSignatureValidityPeriodArgs:
 if not MYPY:
     class SigningProfileSigningMaterialArgsDict(TypedDict):
         certificate_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
-        """
 elif False:
     SigningProfileSigningMaterialArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -459,17 +365,11 @@ elif False:
 class SigningProfileSigningMaterialArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
-        """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter

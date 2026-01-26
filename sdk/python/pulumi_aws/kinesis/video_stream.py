@@ -28,14 +28,6 @@ class VideoStreamArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VideoStream resource.
-        :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-        :param pulumi.Input[_builtins.str] device_name: The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-        :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        :param pulumi.Input[_builtins.str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if data_retention_in_hours is not None:
             pulumi.set(__self__, "data_retention_in_hours", data_retention_in_hours)
@@ -55,9 +47,6 @@ class VideoStreamArgs:
     @_builtins.property
     @pulumi.getter(name="dataRetentionInHours")
     def data_retention_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-        """
         return pulumi.get(self, "data_retention_in_hours")
 
     @data_retention_in_hours.setter
@@ -67,9 +56,6 @@ class VideoStreamArgs:
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -79,9 +65,6 @@ class VideoStreamArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -91,9 +74,6 @@ class VideoStreamArgs:
     @_builtins.property
     @pulumi.getter(name="mediaType")
     def media_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-        """
         return pulumi.get(self, "media_type")
 
     @media_type.setter
@@ -103,10 +83,6 @@ class VideoStreamArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -116,9 +92,6 @@ class VideoStreamArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -128,9 +101,6 @@ class VideoStreamArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -154,18 +124,6 @@ class _VideoStreamState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VideoStream resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-        :param pulumi.Input[_builtins.str] creation_time: A time stamp that indicates when the stream was created.
-        :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-        :param pulumi.Input[_builtins.str] device_name: The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-        :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        :param pulumi.Input[_builtins.str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The version of the stream.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -193,9 +151,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -205,9 +160,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A time stamp that indicates when the stream was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
@@ -217,9 +169,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter(name="dataRetentionInHours")
     def data_retention_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-        """
         return pulumi.get(self, "data_retention_in_hours")
 
     @data_retention_in_hours.setter
@@ -229,9 +178,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -241,9 +187,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -253,9 +196,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter(name="mediaType")
     def media_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-        """
         return pulumi.get(self, "media_type")
 
     @media_type.setter
@@ -265,10 +205,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -278,9 +214,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -290,9 +223,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -302,9 +232,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -314,9 +241,6 @@ class _VideoStreamState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the stream.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -339,44 +263,9 @@ class VideoStream(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
-
-        For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.kinesis.VideoStream("default",
-            name="kinesis-video-stream",
-            data_retention_in_hours=1,
-            device_name="kinesis-video-device-name",
-            media_type="video/h264",
-            tags={
-                "Name": "kinesis-video-stream",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
-        ```
-
+        Create a VideoStream resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-        :param pulumi.Input[_builtins.str] device_name: The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-        :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        :param pulumi.Input[_builtins.str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -385,34 +274,7 @@ class VideoStream(pulumi.CustomResource):
                  args: Optional[VideoStreamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
-
-        For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.kinesis.VideoStream("default",
-            name="kinesis-video-stream",
-            data_retention_in_hours=1,
-            device_name="kinesis-video-device-name",
-            media_type="video/h264",
-            tags={
-                "Name": "kinesis-video-stream",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
-        ```
-
+        Create a VideoStream resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VideoStreamArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -483,18 +345,6 @@ class VideoStream(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-        :param pulumi.Input[_builtins.str] creation_time: A time stamp that indicates when the stream was created.
-        :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-        :param pulumi.Input[_builtins.str] device_name: The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-        :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        :param pulumi.Input[_builtins.str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The version of the stream.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -516,89 +366,55 @@ class VideoStream(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        A time stamp that indicates when the stream was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="dataRetentionInHours")
     def data_retention_in_hours(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-        """
         return pulumi.get(self, "data_retention_in_hours")
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-        """
         return pulumi.get(self, "device_name")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="mediaType")
     def media_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-        """
         return pulumi.get(self, "media_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the stream.
-        """
         return pulumi.get(self, "version")
 

@@ -9,63 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `aws.apigateway.Stage` resource and optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `AwsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
-    /// 
-    /// To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
-    /// 
-    /// * For REST APIs that are configured via OpenAPI specification (`aws.apigateway.RestApi` resource `Body` argument), no special dependency setup is needed beyond referencing the  `Id` attribute of that resource unless additional resources have further customized the REST API.
-    /// * When the REST API configuration involves other resources (`aws.apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `Triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `Triggers` argument should be preferred over `DependsOn`, since `DependsOn` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
-    /// ```
-    /// The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
-    /// 
-    /// The `triggers` argument cannot be imported.
-    /// </summary>
     [AwsResourceType("aws:apigateway/deployment:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Creation date of the deployment
-        /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the deployment.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// REST API identifier.
-        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
-        /// <summary>
-        /// Map to set on the related stage.
-        /// </summary>
         [Output("variables")]
         public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
 
@@ -115,30 +76,17 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the deployment.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// REST API identifier.
-        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
-
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());
@@ -147,10 +95,6 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("variables")]
         private InputMap<string>? _variables;
-
-        /// <summary>
-        /// Map to set on the related stage.
-        /// </summary>
         public InputMap<string> Variables
         {
             get => _variables ?? (_variables = new InputMap<string>());
@@ -165,36 +109,20 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Creation date of the deployment
-        /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
-        /// <summary>
-        /// Description of the deployment.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// REST API identifier.
-        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
-
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());
@@ -203,10 +131,6 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("variables")]
         private InputMap<string>? _variables;
-
-        /// <summary>
-        /// Map to set on the related stage.
-        /// </summary>
         public InputMap<string> Variables
         {
             get => _variables ?? (_variables = new InputMap<string>());

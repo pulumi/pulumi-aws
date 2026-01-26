@@ -12,82 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EKS Capability for an EKS cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewCapability(ctx, "example", &eks.CapabilityArgs{
-//				ClusterName:             pulumi.Any(exampleAwsEksCluster.Name),
-//				CapabilityName:          pulumi.String("argocd"),
-//				Type:                    pulumi.String("ARGOCD"),
-//				RoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
-//				DeletePropagationPolicy: pulumi.String("RETAIN"),
-//				Configuration: &eks.CapabilityConfigurationArgs{
-//					ArgoCd: &eks.CapabilityConfigurationArgoCdArgs{
-//						AwsIdc: &eks.CapabilityConfigurationArgoCdAwsIdcArgs{
-//							IdcInstanceArn: pulumi.String("arn:aws:sso:::instance/ssoins-1234567890abcdef0"),
-//						},
-//						Namespace: pulumi.String("argocd"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-capability"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
-// ```
 type Capability struct {
 	pulumi.CustomResourceState
 
-	// ARN of the capability.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the capability. Must be unique within the cluster.
-	CapabilityName pulumi.StringOutput `pulumi:"capabilityName"`
-	// Name of the EKS cluster.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// Configuration for the capability. See `configuration` below.
-	Configuration CapabilityConfigurationPtrOutput `pulumi:"configuration"`
-	// Delete propagation policy for the capability. Valid values: `RETAIN`.
-	DeletePropagationPolicy pulumi.StringOutput `pulumi:"deletePropagationPolicy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the IAM role to associate with the capability.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
-	Timeouts CapabilityTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the capability.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Arn                     pulumi.StringOutput              `pulumi:"arn"`
+	CapabilityName          pulumi.StringOutput              `pulumi:"capabilityName"`
+	ClusterName             pulumi.StringOutput              `pulumi:"clusterName"`
+	Configuration           CapabilityConfigurationPtrOutput `pulumi:"configuration"`
+	DeletePropagationPolicy pulumi.StringOutput              `pulumi:"deletePropagationPolicy"`
+	Region                  pulumi.StringOutput              `pulumi:"region"`
+	RoleArn                 pulumi.StringOutput              `pulumi:"roleArn"`
+	Tags                    pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	Timeouts                CapabilityTimeoutsPtrOutput      `pulumi:"timeouts"`
+	Type                    pulumi.StringOutput              `pulumi:"type"`
+	Version                 pulumi.StringOutput              `pulumi:"version"`
 }
 
 // NewCapability registers a new resource with the given unique name, arguments, and options.
@@ -135,55 +74,33 @@ func GetCapability(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Capability resources.
 type capabilityState struct {
-	// ARN of the capability.
-	Arn *string `pulumi:"arn"`
-	// Name of the capability. Must be unique within the cluster.
-	CapabilityName *string `pulumi:"capabilityName"`
-	// Name of the EKS cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// Configuration for the capability. See `configuration` below.
-	Configuration *CapabilityConfiguration `pulumi:"configuration"`
-	// Delete propagation policy for the capability. Valid values: `RETAIN`.
-	DeletePropagationPolicy *string `pulumi:"deletePropagationPolicy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the IAM role to associate with the capability.
-	RoleArn *string `pulumi:"roleArn"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string   `pulumi:"tagsAll"`
-	Timeouts *CapabilityTimeouts `pulumi:"timeouts"`
-	// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-	Type *string `pulumi:"type"`
-	// Version of the capability.
-	Version *string `pulumi:"version"`
+	Arn                     *string                  `pulumi:"arn"`
+	CapabilityName          *string                  `pulumi:"capabilityName"`
+	ClusterName             *string                  `pulumi:"clusterName"`
+	Configuration           *CapabilityConfiguration `pulumi:"configuration"`
+	DeletePropagationPolicy *string                  `pulumi:"deletePropagationPolicy"`
+	Region                  *string                  `pulumi:"region"`
+	RoleArn                 *string                  `pulumi:"roleArn"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	TagsAll                 map[string]string        `pulumi:"tagsAll"`
+	Timeouts                *CapabilityTimeouts      `pulumi:"timeouts"`
+	Type                    *string                  `pulumi:"type"`
+	Version                 *string                  `pulumi:"version"`
 }
 
 type CapabilityState struct {
-	// ARN of the capability.
-	Arn pulumi.StringPtrInput
-	// Name of the capability. Must be unique within the cluster.
-	CapabilityName pulumi.StringPtrInput
-	// Name of the EKS cluster.
-	ClusterName pulumi.StringPtrInput
-	// Configuration for the capability. See `configuration` below.
-	Configuration CapabilityConfigurationPtrInput
-	// Delete propagation policy for the capability. Valid values: `RETAIN`.
+	Arn                     pulumi.StringPtrInput
+	CapabilityName          pulumi.StringPtrInput
+	ClusterName             pulumi.StringPtrInput
+	Configuration           CapabilityConfigurationPtrInput
 	DeletePropagationPolicy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the IAM role to associate with the capability.
-	RoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts CapabilityTimeoutsPtrInput
-	// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-	Type pulumi.StringPtrInput
-	// Version of the capability.
-	Version pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	RoleArn                 pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Timeouts                CapabilityTimeoutsPtrInput
+	Type                    pulumi.StringPtrInput
+	Version                 pulumi.StringPtrInput
 }
 
 func (CapabilityState) ElementType() reflect.Type {
@@ -191,44 +108,28 @@ func (CapabilityState) ElementType() reflect.Type {
 }
 
 type capabilityArgs struct {
-	// Name of the capability. Must be unique within the cluster.
-	CapabilityName string `pulumi:"capabilityName"`
-	// Name of the EKS cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// Configuration for the capability. See `configuration` below.
-	Configuration *CapabilityConfiguration `pulumi:"configuration"`
-	// Delete propagation policy for the capability. Valid values: `RETAIN`.
-	DeletePropagationPolicy string `pulumi:"deletePropagationPolicy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the IAM role to associate with the capability.
-	RoleArn string `pulumi:"roleArn"`
-	// Key-value map of resource tags.
-	Tags     map[string]string   `pulumi:"tags"`
-	Timeouts *CapabilityTimeouts `pulumi:"timeouts"`
-	// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-	Type string `pulumi:"type"`
+	CapabilityName          string                   `pulumi:"capabilityName"`
+	ClusterName             string                   `pulumi:"clusterName"`
+	Configuration           *CapabilityConfiguration `pulumi:"configuration"`
+	DeletePropagationPolicy string                   `pulumi:"deletePropagationPolicy"`
+	Region                  *string                  `pulumi:"region"`
+	RoleArn                 string                   `pulumi:"roleArn"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	Timeouts                *CapabilityTimeouts      `pulumi:"timeouts"`
+	Type                    string                   `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Capability resource.
 type CapabilityArgs struct {
-	// Name of the capability. Must be unique within the cluster.
-	CapabilityName pulumi.StringInput
-	// Name of the EKS cluster.
-	ClusterName pulumi.StringInput
-	// Configuration for the capability. See `configuration` below.
-	Configuration CapabilityConfigurationPtrInput
-	// Delete propagation policy for the capability. Valid values: `RETAIN`.
+	CapabilityName          pulumi.StringInput
+	ClusterName             pulumi.StringInput
+	Configuration           CapabilityConfigurationPtrInput
 	DeletePropagationPolicy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the IAM role to associate with the capability.
-	RoleArn pulumi.StringInput
-	// Key-value map of resource tags.
-	Tags     pulumi.StringMapInput
-	Timeouts CapabilityTimeoutsPtrInput
-	// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-	Type pulumi.StringInput
+	Region                  pulumi.StringPtrInput
+	RoleArn                 pulumi.StringInput
+	Tags                    pulumi.StringMapInput
+	Timeouts                CapabilityTimeoutsPtrInput
+	Type                    pulumi.StringInput
 }
 
 func (CapabilityArgs) ElementType() reflect.Type {
@@ -318,47 +219,38 @@ func (o CapabilityOutput) ToCapabilityOutputWithContext(ctx context.Context) Cap
 	return o
 }
 
-// ARN of the capability.
 func (o CapabilityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the capability. Must be unique within the cluster.
 func (o CapabilityOutput) CapabilityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.CapabilityName }).(pulumi.StringOutput)
 }
 
-// Name of the EKS cluster.
 func (o CapabilityOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Configuration for the capability. See `configuration` below.
 func (o CapabilityOutput) Configuration() CapabilityConfigurationPtrOutput {
 	return o.ApplyT(func(v *Capability) CapabilityConfigurationPtrOutput { return v.Configuration }).(CapabilityConfigurationPtrOutput)
 }
 
-// Delete propagation policy for the capability. Valid values: `RETAIN`.
 func (o CapabilityOutput) DeletePropagationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.DeletePropagationPolicy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CapabilityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role to associate with the capability.
 func (o CapabilityOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags.
 func (o CapabilityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CapabilityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -367,12 +259,10 @@ func (o CapabilityOutput) Timeouts() CapabilityTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Capability) CapabilityTimeoutsPtrOutput { return v.Timeouts }).(CapabilityTimeoutsPtrOutput)
 }
 
-// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
 func (o CapabilityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Version of the capability.
 func (o CapabilityOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

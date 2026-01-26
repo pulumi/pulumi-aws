@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration
     {
-        /// <summary>
-        /// Name of the Amazon Redshift database.
-        /// </summary>
         public readonly string DatabaseName;
 
         [OutputConstructor]

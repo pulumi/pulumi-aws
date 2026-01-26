@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker AI projects.
- *
- * ## Example Usage
- *
- * Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.ServicecatalogPortfolioStatus("example", {status: "Enabled"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import models using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
- * ```
- */
 export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
     /**
      * Get an existing ServicecatalogPortfolioStatus resource's state with the given name, ID, and optional extra
@@ -54,13 +32,7 @@ export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServicecatalogPortfolioStatus.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     */
     declare public readonly status: pulumi.Output<string>;
 
     /**
@@ -95,13 +67,7 @@ export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServicecatalogPortfolioStatus resources.
  */
 export interface ServicecatalogPortfolioStatusState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -109,12 +75,6 @@ export interface ServicecatalogPortfolioStatusState {
  * The set of arguments for constructing a ServicecatalogPortfolioStatus resource.
  */
 export interface ServicecatalogPortfolioStatusArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     */
     status: pulumi.Input<string>;
 }

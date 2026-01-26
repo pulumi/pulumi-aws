@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
-//
-// ## Example Usage
-//
-// The following example retrieves a list of all Hosted Zone IDs.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			all, err := route53.GetZones(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("example", all.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetZones(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetZonesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetZonesResult
@@ -51,8 +23,7 @@ func GetZones(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetZonesResult
 
 // A collection of values returned by getZones.
 type GetZonesResult struct {
-	Id string `pulumi:"id"`
-	// A list of all the Route53 Hosted Zone IDs found.
+	Id  string   `pulumi:"id"`
 	Ids []string `pulumi:"ids"`
 }
 
@@ -82,7 +53,6 @@ func (o GetZonesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetZonesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the Route53 Hosted Zone IDs found.
 func (o GetZonesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetZonesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

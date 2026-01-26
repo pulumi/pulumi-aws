@@ -17,70 +17,30 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGroupArgs Empty = new GetGroupArgs();
 
-    /**
-     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
-     * 
-     */
     @Import(name="alternateIdentifier")
     private @Nullable Output<GetGroupAlternateIdentifierArgs> alternateIdentifier;
 
-    /**
-     * @return A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
-     * 
-     */
     public Optional<Output<GetGroupAlternateIdentifierArgs>> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
     }
 
-    /**
-     * The identifier for a group in the Identity Store.
-     * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-     * 
-     */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
-    /**
-     * @return The identifier for a group in the Identity Store.
-     * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-     * 
-     */
     public Optional<Output<String>> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> identityStoreId() {
         return this.identityStoreId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -112,94 +72,38 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateIdentifier(@Nullable Output<GetGroupAlternateIdentifierArgs> alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
-        /**
-         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateIdentifier(GetGroupAlternateIdentifierArgs alternateIdentifier) {
             return alternateIdentifier(Output.of(alternateIdentifier));
         }
 
-        /**
-         * @param groupId The identifier for a group in the Identity Store.
-         * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(@Nullable Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param groupId The identifier for a group in the Identity Store.
-         * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(Output<String> identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

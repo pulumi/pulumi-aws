@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorWorkerConfiguration {
-    /**
-     * @return The Amazon Resource Name (ARN) of the worker configuration.
-     * 
-     */
     private String arn;
-    /**
-     * @return The revision of the worker configuration.
-     * 
-     */
     private Integer revision;
 
     private ConnectorWorkerConfiguration() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the worker configuration.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The revision of the worker configuration.
-     * 
-     */
     public Integer revision() {
         return this.revision;
     }

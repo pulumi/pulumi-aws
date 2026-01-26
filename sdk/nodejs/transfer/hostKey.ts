@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a host key for a server. This is an [_additional server host key_](https://docs.aws.amazon.com/transfer/latest/userguide/server-host-key-add.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.HostKey("example", {
- *     serverId: exampleAwsTransferServer.id,
- *     description: "example additional host key",
- *     hostKeyBodyWo: "# Private key PEM.\n",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:transfer/hostKey:HostKey example s-12345678,key-12345
- * ```
- */
 export class HostKey extends pulumi.CustomResource {
     /**
      * Get an existing HostKey resource's state with the given name, ID, and optional extra
@@ -56,46 +32,18 @@ export class HostKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostKey.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of host key.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Text description.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Private key portion of an SSH key pair.
-     */
     declare public readonly hostKeyBody: pulumi.Output<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      */
     declare public readonly hostKeyBodyWo: pulumi.Output<string | undefined>;
-    /**
-     * Public key fingerprint.
-     */
     declare public /*out*/ readonly hostKeyFingerprint: pulumi.Output<string>;
-    /**
-     * ID of the host key.
-     */
     declare public /*out*/ readonly hostKeyId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Server ID.
-     */
     declare public readonly serverId: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -148,46 +96,18 @@ export class HostKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HostKey resources.
  */
 export interface HostKeyState {
-    /**
-     * Amazon Resource Name (ARN) of host key.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Text description.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Private key portion of an SSH key pair.
-     */
     hostKeyBody?: pulumi.Input<string>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      */
     hostKeyBodyWo?: pulumi.Input<string>;
-    /**
-     * Public key fingerprint.
-     */
     hostKeyFingerprint?: pulumi.Input<string>;
-    /**
-     * ID of the host key.
-     */
     hostKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Server ID.
-     */
     serverId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -195,29 +115,13 @@ export interface HostKeyState {
  * The set of arguments for constructing a HostKey resource.
  */
 export interface HostKeyArgs {
-    /**
-     * Text description.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Private key portion of an SSH key pair.
-     */
     hostKeyBody?: pulumi.Input<string>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      */
     hostKeyBodyWo?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Server ID.
-     */
     serverId: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

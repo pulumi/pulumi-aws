@@ -17,32 +17,16 @@ public final class GetResourcesTagFilterArgs extends com.pulumi.resources.Resour
 
     public static final GetResourcesTagFilterArgs Empty = new GetResourcesTagFilterArgs();
 
-    /**
-     * One part of a key-value pair that makes up a tag.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return One part of a key-value pair that makes up a tag.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Optional part of a key-value pair that make up a tag.
-     * 
-     */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
-    /**
-     * @return Optional part of a key-value pair that make up a tag.
-     * 
-     */
     public Optional<Output<List<String>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -72,54 +56,24 @@ public final class GetResourcesTagFilterArgs extends com.pulumi.resources.Resour
             $ = new GetResourcesTagFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key One part of a key-value pair that makes up a tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key One part of a key-value pair that makes up a tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values Optional part of a key-value pair that make up a tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Optional part of a key-value pair that make up a tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Optional part of a key-value pair that make up a tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

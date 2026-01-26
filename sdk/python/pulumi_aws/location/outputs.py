@@ -25,17 +25,11 @@ __all__ = [
 class MapConfiguration(dict):
     def __init__(__self__, *,
                  style: _builtins.str):
-        """
-        :param _builtins.str style: Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
         pulumi.set(__self__, "style", style)
 
     @_builtins.property
     @pulumi.getter
     def style(self) -> _builtins.str:
-        """
-        Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
         return pulumi.get(self, "style")
 
 
@@ -60,18 +54,12 @@ class PlaceIndexDataSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  intended_use: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
 
     @_builtins.property
     @pulumi.getter(name="intendedUse")
     def intended_use(self) -> Optional[_builtins.str]:
-        """
-        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
         return pulumi.get(self, "intended_use")
 
 
@@ -79,17 +67,11 @@ class PlaceIndexDataSourceConfiguration(dict):
 class GetMapConfigurationResult(dict):
     def __init__(__self__, *,
                  style: _builtins.str):
-        """
-        :param _builtins.str style: The map style selected from an available data provider.
-        """
         pulumi.set(__self__, "style", style)
 
     @_builtins.property
     @pulumi.getter
     def style(self) -> _builtins.str:
-        """
-        The map style selected from an available data provider.
-        """
         return pulumi.get(self, "style")
 
 

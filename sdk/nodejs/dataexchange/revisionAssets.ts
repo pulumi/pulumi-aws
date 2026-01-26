@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing AWS Data Exchange Revision Assets.
- *
- * > Note: This resource creates a new revision and adds associated assets. Destroying this resource will delete the revision and all associated assets.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dataexchange.RevisionAssets("example", {
- *     dataSetId: "example-data-set-id",
- *     assets: [{
- *         createS3DataAccessFromS3Bucket: {
- *             assetSource: {
- *                 bucket: "example-bucket",
- *             },
- *         },
- *     }],
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- */
 export class RevisionAssets extends pulumi.CustomResource {
     /**
      * Get an existing RevisionAssets resource's state with the given name, ID, and optional extra
@@ -63,46 +35,17 @@ export class RevisionAssets extends pulumi.CustomResource {
         return obj['__pulumiType'] === RevisionAssets.__pulumiType;
     }
 
-    /**
-     * The ARN of the Data Exchange Revision Assets.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A block to define the asset associated with the revision. See Asset for more details.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly assets: pulumi.Output<outputs.dataexchange.RevisionAssetsAsset[] | undefined>;
-    /**
-     * A comment for the revision. Maximum length is 16,348 characters.
-     */
     declare public readonly comment: pulumi.Output<string | undefined>;
-    /**
-     * The timestamp when the revision was created, in RFC3339 format.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Unique identifier for the data set associated with the revision.
-     */
     declare public readonly dataSetId: pulumi.Output<string>;
     declare public readonly finalized: pulumi.Output<boolean>;
     declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.dataexchange.RevisionAssetsTimeouts | undefined>;
-    /**
-     * The timestamp when the revision was last updated, in RFC3339 format.
-     */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
@@ -157,46 +100,17 @@ export class RevisionAssets extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RevisionAssets resources.
  */
 export interface RevisionAssetsState {
-    /**
-     * The ARN of the Data Exchange Revision Assets.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A block to define the asset associated with the revision. See Asset for more details.
-     *
-     * The following arguments are optional:
-     */
     assets?: pulumi.Input<pulumi.Input<inputs.dataexchange.RevisionAssetsAsset>[]>;
-    /**
-     * A comment for the revision. Maximum length is 16,348 characters.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * The timestamp when the revision was created, in RFC3339 format.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the data set associated with the revision.
-     */
     dataSetId?: pulumi.Input<string>;
     finalized?: pulumi.Input<boolean>;
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.dataexchange.RevisionAssetsTimeouts>;
-    /**
-     * The timestamp when the revision was last updated, in RFC3339 format.
-     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -204,29 +118,12 @@ export interface RevisionAssetsState {
  * The set of arguments for constructing a RevisionAssets resource.
  */
 export interface RevisionAssetsArgs {
-    /**
-     * A block to define the asset associated with the revision. See Asset for more details.
-     *
-     * The following arguments are optional:
-     */
     assets?: pulumi.Input<pulumi.Input<inputs.dataexchange.RevisionAssetsAsset>[]>;
-    /**
-     * A comment for the revision. Maximum length is 16,348 characters.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the data set associated with the revision.
-     */
     dataSetId: pulumi.Input<string>;
     finalized?: pulumi.Input<boolean>;
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.dataexchange.RevisionAssetsTimeouts>;
 }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateTargetResourceTag {
-    /**
-     * @return Tag key.
-     * 
-     */
     private String key;
-    /**
-     * @return Tag value.
-     * 
-     */
     private String value;
 
     private ExperimentTemplateTargetResourceTag() {}
-    /**
-     * @return Tag key.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Tag value.
-     * 
-     */
     public String value() {
         return this.value;
     }

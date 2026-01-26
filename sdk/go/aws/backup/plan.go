@@ -12,80 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Backup plan resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
-//				Name: pulumi.String("my_example_backup_plan"),
-//				Rules: backup.PlanRuleArray{
-//					&backup.PlanRuleArgs{
-//						RuleName:        pulumi.String("my_example_backup_rule"),
-//						TargetVaultName: pulumi.Any(test.Name),
-//						Schedule:        pulumi.String("cron(0 12 * * ? *)"),
-//						Lifecycle: &backup.PlanRuleLifecycleArgs{
-//							DeleteAfter: pulumi.Int(14),
-//						},
-//					},
-//				},
-//				AdvancedBackupSettings: backup.PlanAdvancedBackupSettingArray{
-//					&backup.PlanAdvancedBackupSettingArgs{
-//						BackupOptions: pulumi.StringMap{
-//							"WindowsVSS": pulumi.String("enabled"),
-//						},
-//						ResourceType: pulumi.String("EC2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup Plan using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/plan:Plan test <id>
-// ```
 type Plan struct {
 	pulumi.CustomResourceState
 
-	// An object that specifies backup options for each resource type.
 	AdvancedBackupSettings PlanAdvancedBackupSettingArrayOutput `pulumi:"advancedBackupSettings"`
-	// The ARN of the backup plan.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The display name of a backup plan.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-	Rules PlanRuleArrayOutput `pulumi:"rules"`
-	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-	ScanSettings PlanScanSettingArrayOutput `pulumi:"scanSettings"`
-	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Arn                    pulumi.StringOutput                  `pulumi:"arn"`
+	Name                   pulumi.StringOutput                  `pulumi:"name"`
+	Region                 pulumi.StringOutput                  `pulumi:"region"`
+	Rules                  PlanRuleArrayOutput                  `pulumi:"rules"`
+	ScanSettings           PlanScanSettingArrayOutput           `pulumi:"scanSettings"`
+	Tags                   pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	Version                pulumi.StringOutput                  `pulumi:"version"`
 }
 
 // NewPlan registers a new resource with the given unique name, arguments, and options.
@@ -121,45 +59,27 @@ func GetPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Plan resources.
 type planState struct {
-	// An object that specifies backup options for each resource type.
 	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
-	// The ARN of the backup plan.
-	Arn *string `pulumi:"arn"`
-	// The display name of a backup plan.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-	Rules []PlanRule `pulumi:"rules"`
-	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-	ScanSettings []PlanScanSetting `pulumi:"scanSettings"`
-	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-	Version *string `pulumi:"version"`
+	Arn                    *string                     `pulumi:"arn"`
+	Name                   *string                     `pulumi:"name"`
+	Region                 *string                     `pulumi:"region"`
+	Rules                  []PlanRule                  `pulumi:"rules"`
+	ScanSettings           []PlanScanSetting           `pulumi:"scanSettings"`
+	Tags                   map[string]string           `pulumi:"tags"`
+	TagsAll                map[string]string           `pulumi:"tagsAll"`
+	Version                *string                     `pulumi:"version"`
 }
 
 type PlanState struct {
-	// An object that specifies backup options for each resource type.
 	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
-	// The ARN of the backup plan.
-	Arn pulumi.StringPtrInput
-	// The display name of a backup plan.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-	Rules PlanRuleArrayInput
-	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-	ScanSettings PlanScanSettingArrayInput
-	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-	Version pulumi.StringPtrInput
+	Arn                    pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Rules                  PlanRuleArrayInput
+	ScanSettings           PlanScanSettingArrayInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	Version                pulumi.StringPtrInput
 }
 
 func (PlanState) ElementType() reflect.Type {
@@ -167,34 +87,22 @@ func (PlanState) ElementType() reflect.Type {
 }
 
 type planArgs struct {
-	// An object that specifies backup options for each resource type.
 	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
-	// The display name of a backup plan.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-	Rules []PlanRule `pulumi:"rules"`
-	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-	ScanSettings []PlanScanSetting `pulumi:"scanSettings"`
-	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name                   *string                     `pulumi:"name"`
+	Region                 *string                     `pulumi:"region"`
+	Rules                  []PlanRule                  `pulumi:"rules"`
+	ScanSettings           []PlanScanSetting           `pulumi:"scanSettings"`
+	Tags                   map[string]string           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
-	// An object that specifies backup options for each resource type.
 	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
-	// The display name of a backup plan.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-	Rules PlanRuleArrayInput
-	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-	ScanSettings PlanScanSettingArrayInput
-	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Rules                  PlanRuleArrayInput
+	ScanSettings           PlanScanSettingArrayInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (PlanArgs) ElementType() reflect.Type {
@@ -284,47 +192,38 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
 }
 
-// An object that specifies backup options for each resource type.
 func (o PlanOutput) AdvancedBackupSettings() PlanAdvancedBackupSettingArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanAdvancedBackupSettingArrayOutput { return v.AdvancedBackupSettings }).(PlanAdvancedBackupSettingArrayOutput)
 }
 
-// The ARN of the backup plan.
 func (o PlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The display name of a backup plan.
 func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PlanOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 func (o PlanOutput) Rules() PlanRuleArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanRuleArrayOutput { return v.Rules }).(PlanRuleArrayOutput)
 }
 
-// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
 func (o PlanOutput) ScanSettings() PlanScanSettingArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanScanSettingArrayOutput { return v.ScanSettings }).(PlanScanSettingArrayOutput)
 }
 
-// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 func (o PlanOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

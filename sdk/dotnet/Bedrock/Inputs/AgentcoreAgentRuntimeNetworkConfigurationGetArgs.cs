@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-        /// </summary>
         [Input("networkMode", required: true)]
         public Input<string> NetworkMode { get; set; } = null!;
 
-        /// <summary>
-        /// Network mode configuration. See `NetworkModeConfig` below.
-        /// </summary>
         [Input("networkModeConfig")]
         public Input<Inputs.AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigGetArgs>? NetworkModeConfig { get; set; }
 

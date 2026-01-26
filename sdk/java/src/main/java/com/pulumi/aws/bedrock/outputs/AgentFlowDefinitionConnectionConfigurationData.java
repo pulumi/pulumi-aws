@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionConnectionConfigurationData {
-    /**
-     * @return The name of the output in the source node that the connection begins from.
-     * 
-     */
     private String sourceOutput;
-    /**
-     * @return The name of the input in the target node that the connection ends at.
-     * 
-     */
     private String targetInput;
 
     private AgentFlowDefinitionConnectionConfigurationData() {}
-    /**
-     * @return The name of the output in the source node that the connection begins from.
-     * 
-     */
     public String sourceOutput() {
         return this.sourceOutput;
     }
-    /**
-     * @return The name of the input in the target node that the connection ends at.
-     * 
-     */
     public String targetInput() {
         return this.targetInput;
     }

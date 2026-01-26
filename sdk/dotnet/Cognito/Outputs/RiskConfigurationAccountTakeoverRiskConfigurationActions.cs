@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActions
     {
-        /// <summary>
-        /// Action to take for a high risk. See action block below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction? HighAction;
-        /// <summary>
-        /// Action to take for a low risk. See action block below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction? LowAction;
-        /// <summary>
-        /// Action to take for a medium risk. See action block below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction? MediumAction;
 
         [OutputConstructor]

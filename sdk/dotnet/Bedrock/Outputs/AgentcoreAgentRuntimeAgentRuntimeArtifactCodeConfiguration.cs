@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration
     {
-        /// <summary>
-        /// Configuration block for the source code location and configuration details. See `Code` below.
-        /// </summary>
         public readonly Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode? Code;
-        /// <summary>
-        /// Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
-        /// </summary>
         public readonly ImmutableArray<string> EntryPoints;
-        /// <summary>
-        /// Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
-        /// </summary>
         public readonly string Runtime;
 
         [OutputConstructor]

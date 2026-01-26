@@ -15,47 +15,23 @@ public final class DomainDefaultUserSettingsSharingSettingsArgs extends com.pulu
 
     public static final DomainDefaultUserSettingsSharingSettingsArgs Empty = new DomainDefaultUserSettingsSharingSettingsArgs();
 
-    /**
-     * Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
-     * 
-     */
     @Import(name="notebookOutputOption")
     private @Nullable Output<String> notebookOutputOption;
 
-    /**
-     * @return Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
-     * 
-     */
     public Optional<Output<String>> notebookOutputOption() {
         return Optional.ofNullable(this.notebookOutputOption);
     }
 
-    /**
-     * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-     * 
-     */
     @Import(name="s3KmsKeyId")
     private @Nullable Output<String> s3KmsKeyId;
 
-    /**
-     * @return When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-     * 
-     */
     public Optional<Output<String>> s3KmsKeyId() {
         return Optional.ofNullable(this.s3KmsKeyId);
     }
 
-    /**
-     * When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
-     * 
-     */
     @Import(name="s3OutputPath")
     private @Nullable Output<String> s3OutputPath;
 
-    /**
-     * @return When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
-     * 
-     */
     public Optional<Output<String>> s3OutputPath() {
         return Optional.ofNullable(this.s3OutputPath);
     }
@@ -86,65 +62,29 @@ public final class DomainDefaultUserSettingsSharingSettingsArgs extends com.pulu
             $ = new DomainDefaultUserSettingsSharingSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param notebookOutputOption Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notebookOutputOption(@Nullable Output<String> notebookOutputOption) {
             $.notebookOutputOption = notebookOutputOption;
             return this;
         }
 
-        /**
-         * @param notebookOutputOption Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notebookOutputOption(String notebookOutputOption) {
             return notebookOutputOption(Output.of(notebookOutputOption));
         }
 
-        /**
-         * @param s3KmsKeyId When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KmsKeyId(@Nullable Output<String> s3KmsKeyId) {
             $.s3KmsKeyId = s3KmsKeyId;
             return this;
         }
 
-        /**
-         * @param s3KmsKeyId When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KmsKeyId(String s3KmsKeyId) {
             return s3KmsKeyId(Output.of(s3KmsKeyId));
         }
 
-        /**
-         * @param s3OutputPath When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputPath(@Nullable Output<String> s3OutputPath) {
             $.s3OutputPath = s3OutputPath;
             return this;
         }
 
-        /**
-         * @param s3OutputPath When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputPath(String s3OutputPath) {
             return s3OutputPath(Output.of(s3OutputPath));
         }

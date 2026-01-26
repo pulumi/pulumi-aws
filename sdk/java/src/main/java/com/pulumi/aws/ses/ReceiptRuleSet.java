@@ -13,92 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SES receipt rule set resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.ReceiptRuleSet;
- * import com.pulumi.aws.ses.ReceiptRuleSetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new ReceiptRuleSet("main", ReceiptRuleSetArgs.builder()
- *             .ruleSetName("primary-rules")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SES receipt rule sets using the rule set name. For example:
- * 
- * ```sh
- * $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
- * ```
- * 
- */
 @ResourceType(type="aws:ses/receiptRuleSet:ReceiptRuleSet")
 public class ReceiptRuleSet extends com.pulumi.resources.CustomResource {
-    /**
-     * SES receipt rule set ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return SES receipt rule set ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the rule set.
-     * 
-     */
     @Export(name="ruleSetName", refs={String.class}, tree="[0]")
     private Output<String> ruleSetName;
 
-    /**
-     * @return Name of the rule set.
-     * 
-     */
     public Output<String> ruleSetName() {
         return this.ruleSetName;
     }

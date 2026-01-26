@@ -30,15 +30,6 @@ class ConformancePackArgs:
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConformancePack resource.
-        :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-        :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
-        :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-        :param pulumi.Input[_builtins.str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[_builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-               
-               > **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
         """
         if delivery_s3_bucket is not None:
             pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
@@ -58,9 +49,6 @@ class ConformancePackArgs:
     @_builtins.property
     @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-        """
         return pulumi.get(self, "delivery_s3_bucket")
 
     @delivery_s3_bucket.setter
@@ -70,9 +58,6 @@ class ConformancePackArgs:
     @_builtins.property
     @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix for the Amazon S3 bucket. Maximum length of 1024.
-        """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
     @delivery_s3_key_prefix.setter
@@ -82,9 +67,6 @@ class ConformancePackArgs:
     @_builtins.property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]:
-        """
-        Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-        """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
@@ -94,9 +76,6 @@ class ConformancePackArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -106,9 +85,6 @@ class ConformancePackArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,9 +94,6 @@ class ConformancePackArgs:
     @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
@@ -130,11 +103,6 @@ class ConformancePackArgs:
     @_builtins.property
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-
-        > **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
-        """
         return pulumi.get(self, "template_s3_uri")
 
     @template_s3_uri.setter
@@ -155,16 +123,6 @@ class _ConformancePackState:
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConformancePack resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the conformance pack.
-        :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-        :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
-        :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-        :param pulumi.Input[_builtins.str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[_builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-               
-               > **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -186,9 +144,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the conformance pack.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -198,9 +153,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-        """
         return pulumi.get(self, "delivery_s3_bucket")
 
     @delivery_s3_bucket.setter
@@ -210,9 +162,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix for the Amazon S3 bucket. Maximum length of 1024.
-        """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
     @delivery_s3_key_prefix.setter
@@ -222,9 +171,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]:
-        """
-        Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-        """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
@@ -234,9 +180,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -246,9 +189,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -258,9 +198,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
@@ -270,11 +207,6 @@ class _ConformancePackState:
     @_builtins.property
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-
-        > **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
-        """
         return pulumi.get(self, "template_s3_uri")
 
     @template_s3_uri.setter
@@ -297,92 +229,9 @@ class ConformancePack(pulumi.CustomResource):
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Config Conformance Pack. More information about this collection of Config rules and remediation actions can be found in the
-        [Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) documentation.
-        Sample Conformance Pack templates may be found in the
-        [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
-
-        > **NOTE:** The account must have a Configuration Recorder with proper IAM permissions before the Conformance Pack will
-        successfully create or update. See also the
-        `cfg.Recorder` resource.
-
-        ## Example Usage
-
-        ### Template Body
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cfg.ConformancePack("example",
-            name="example",
-            input_parameters=[{
-                "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
-                "parameter_value": "90",
-            }],
-            template_body=\"\"\"Parameters:
-          AccessKeysRotatedParameterMaxAccessKeyAge:
-            Type: String
-        Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
-        ```
-
-        ### Template S3 URI
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket.id,
-            key="example-key",
-            content=\"\"\"Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\")
-        example = aws.cfg.ConformancePack("example",
-            name="example",
-            template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket.bucket,
-                key=example_bucket_objectv2.key
-        ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
-        ,
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/conformancePack:ConformancePack example example
-        ```
-
+        Create a ConformancePack resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-        :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-        :param pulumi.Input[_builtins.str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[_builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-               
-               > **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
         """
         ...
     @overload
@@ -391,81 +240,7 @@ class ConformancePack(pulumi.CustomResource):
                  args: Optional[ConformancePackArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Config Conformance Pack. More information about this collection of Config rules and remediation actions can be found in the
-        [Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) documentation.
-        Sample Conformance Pack templates may be found in the
-        [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
-
-        > **NOTE:** The account must have a Configuration Recorder with proper IAM permissions before the Conformance Pack will
-        successfully create or update. See also the
-        `cfg.Recorder` resource.
-
-        ## Example Usage
-
-        ### Template Body
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cfg.ConformancePack("example",
-            name="example",
-            input_parameters=[{
-                "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
-                "parameter_value": "90",
-            }],
-            template_body=\"\"\"Parameters:
-          AccessKeysRotatedParameterMaxAccessKeyAge:
-            Type: String
-        Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
-        ```
-
-        ### Template S3 URI
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket.id,
-            key="example-key",
-            content=\"\"\"Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\")
-        example = aws.cfg.ConformancePack("example",
-            name="example",
-            template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket.bucket,
-                key=example_bucket_objectv2.key
-        ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
-        ,
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/conformancePack:ConformancePack example example
-        ```
-
+        Create a ConformancePack resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConformancePackArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -530,16 +305,6 @@ class ConformancePack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the conformance pack.
-        :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-        :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-        :param pulumi.Input[_builtins.str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[_builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-               
-               > **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -558,66 +323,40 @@ class ConformancePack(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the conformance pack.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-        """
         return pulumi.get(self, "delivery_s3_bucket")
 
     @_builtins.property
     @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The prefix for the Amazon S3 bucket. Maximum length of 1024.
-        """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
     @_builtins.property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ConformancePackInputParameter']]]:
-        """
-        Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-        """
         return pulumi.get(self, "input_parameters")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        """
         return pulumi.get(self, "template_body")
 
     @_builtins.property
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-
-        > **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
-        """
         return pulumi.get(self, "template_s3_uri")
 

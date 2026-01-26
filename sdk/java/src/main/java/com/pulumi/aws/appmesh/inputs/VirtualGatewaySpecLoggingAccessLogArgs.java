@@ -15,17 +15,9 @@ public final class VirtualGatewaySpecLoggingAccessLogArgs extends com.pulumi.res
 
     public static final VirtualGatewaySpecLoggingAccessLogArgs Empty = new VirtualGatewaySpecLoggingAccessLogArgs();
 
-    /**
-     * File object to send virtual gateway access logs to.
-     * 
-     */
     @Import(name="file")
     private @Nullable Output<VirtualGatewaySpecLoggingAccessLogFileArgs> file;
 
-    /**
-     * @return File object to send virtual gateway access logs to.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecLoggingAccessLogFileArgs>> file() {
         return Optional.ofNullable(this.file);
     }
@@ -54,23 +46,11 @@ public final class VirtualGatewaySpecLoggingAccessLogArgs extends com.pulumi.res
             $ = new VirtualGatewaySpecLoggingAccessLogArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param file File object to send virtual gateway access logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(@Nullable Output<VirtualGatewaySpecLoggingAccessLogFileArgs> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file File object to send virtual gateway access logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(VirtualGatewaySpecLoggingAccessLogFileArgs file) {
             return file(Output.of(file));
         }

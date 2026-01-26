@@ -25,12 +25,6 @@ class PolicyTemplateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyTemplate resource.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Provides a description for the policy template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy_store_id", policy_store_id)
         pulumi.set(__self__, "statement", statement)
@@ -42,9 +36,6 @@ class PolicyTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Policy Store.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
@@ -54,11 +45,6 @@ class PolicyTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def statement(self) -> pulumi.Input[_builtins.str]:
-        """
-        Defines the content of the statement, written in Cedar policy language.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "statement")
 
     @statement.setter
@@ -68,9 +54,6 @@ class PolicyTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Provides a description for the policy template.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -80,9 +63,6 @@ class PolicyTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -101,14 +81,6 @@ class _PolicyTemplateState:
                  statement: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyTemplate resources.
-        :param pulumi.Input[_builtins.str] created_date: The date the Policy Store was created.
-        :param pulumi.Input[_builtins.str] description: Provides a description for the policy template.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] policy_template_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
-               
-               The following arguments are optional:
         """
         if created_date is not None:
             pulumi.set(__self__, "created_date", created_date)
@@ -126,9 +98,6 @@ class _PolicyTemplateState:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date the Policy Store was created.
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -138,9 +107,6 @@ class _PolicyTemplateState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Provides a description for the policy template.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -150,9 +116,6 @@ class _PolicyTemplateState:
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Policy Store.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
@@ -162,9 +125,6 @@ class _PolicyTemplateState:
     @_builtins.property
     @pulumi.getter(name="policyTemplateId")
     def policy_template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Policy Store.
-        """
         return pulumi.get(self, "policy_template_id")
 
     @policy_template_id.setter
@@ -174,9 +134,6 @@ class _PolicyTemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -186,11 +143,6 @@ class _PolicyTemplateState:
     @_builtins.property
     @pulumi.getter
     def statement(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defines the content of the statement, written in Cedar policy language.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "statement")
 
     @statement.setter
@@ -210,37 +162,9 @@ class PolicyTemplate(pulumi.CustomResource):
                  statement: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Verified Permissions Policy Template.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyTemplate("example",
-            policy_store_id=example_aws_verifiedpermissions_policy_store["id"],
-            statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
-        ```
-
+        Create a PolicyTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Provides a description for the policy template.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -249,29 +173,7 @@ class PolicyTemplate(pulumi.CustomResource):
                  args: PolicyTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Verified Permissions Policy Template.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyTemplate("example",
-            policy_store_id=example_aws_verifiedpermissions_policy_store["id"],
-            statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
-        ```
-
+        Create a PolicyTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,14 +235,6 @@ class PolicyTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_date: The date the Policy Store was created.
-        :param pulumi.Input[_builtins.str] description: Provides a description for the policy template.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] policy_template_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -357,50 +251,30 @@ class PolicyTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date the Policy Store was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Provides a description for the policy template.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Policy Store.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @_builtins.property
     @pulumi.getter(name="policyTemplateId")
     def policy_template_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Policy Store.
-        """
         return pulumi.get(self, "policy_template_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def statement(self) -> pulumi.Output[_builtins.str]:
-        """
-        Defines the content of the statement, written in Cedar policy language.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "statement")
 

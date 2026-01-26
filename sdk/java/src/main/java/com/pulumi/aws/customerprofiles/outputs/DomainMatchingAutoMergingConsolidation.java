@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainMatchingAutoMergingConsolidation {
-    /**
-     * @return A list of matching criteria.
-     * 
-     */
     private List<List<String>> matchingAttributesLists;
 
     private DomainMatchingAutoMergingConsolidation() {}
-    /**
-     * @return A list of matching criteria.
-     * 
-     */
     public List<List<String>> matchingAttributesLists() {
         return this.matchingAttributesLists;
     }

@@ -11,113 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
-//
-// The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
-//
-// > **Note:** The `lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
-//
-// > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
-//
-// ## Example Usage
-//
-// ### Basic Invocation
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"operation": "getStatus",
-//				"id":        "123456",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			example, err := lambda.LookupInvocation(ctx, &lambda.LookupInvocationArgs{
-//				FunctionName: exampleAwsLambdaFunction.FunctionName,
-//				Input:        json0,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("result", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
-//				Input: example.Result,
-//			}, nil).Result))
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Dynamic Resource Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"environment": environment,
-//				"region":      current.Region,
-//				"service":     "api",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			// Get resource configuration from Lambda
-//			resourceConfig, err := lambda.LookupInvocation(ctx, &lambda.LookupInvocationArgs{
-//				FunctionName: "resource-config-generator",
-//				Qualifier:    pulumi.StringRef("production"),
-//				Input:        json0,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			config := std.Jsondecode(ctx, &std.JsondecodeArgs{
-//				Input: resourceConfig.Result,
-//			}, nil).Result
-//			// Use dynamic configuration
-//			_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
-//				ClusterId:          pulumi.Any(config.Cache.ClusterId),
-//				Engine:             pulumi.Any(config.Cache.Engine),
-//				NodeType:           pulumi.Any(config.Cache.NodeType),
-//				NumCacheNodes:      pulumi.Any(config.Cache.Nodes),
-//				ParameterGroupName: pulumi.Any(config.Cache.ParameterGroup),
-//				Tags:               pulumi.Any(config.Tags),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...pulumi.InvokeOption) (*LookupInvocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInvocationResult
@@ -130,18 +23,11 @@ func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...p
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationArgs struct {
-	// Name of the Lambda function.
-	FunctionName string `pulumi:"functionName"`
-	// String in JSON format that is passed as payload to the Lambda function.
-	//
-	// The following arguments are optional:
-	Input string `pulumi:"input"`
-	// Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
-	Qualifier *string `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tenant Id to serve invocations from specified tenant.
-	TenantId *string `pulumi:"tenantId"`
+	FunctionName string  `pulumi:"functionName"`
+	Input        string  `pulumi:"input"`
+	Qualifier    *string `pulumi:"qualifier"`
+	Region       *string `pulumi:"region"`
+	TenantId     *string `pulumi:"tenantId"`
 }
 
 // A collection of values returned by getInvocation.
@@ -152,9 +38,8 @@ type LookupInvocationResult struct {
 	Input     string  `pulumi:"input"`
 	Qualifier *string `pulumi:"qualifier"`
 	Region    string  `pulumi:"region"`
-	// String result of the Lambda function invocation.
-	Result   string  `pulumi:"result"`
-	TenantId *string `pulumi:"tenantId"`
+	Result    string  `pulumi:"result"`
+	TenantId  *string `pulumi:"tenantId"`
 }
 
 func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
@@ -168,18 +53,11 @@ func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationOutputArgs struct {
-	// Name of the Lambda function.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// String in JSON format that is passed as payload to the Lambda function.
-	//
-	// The following arguments are optional:
-	Input pulumi.StringInput `pulumi:"input"`
-	// Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
-	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tenant Id to serve invocations from specified tenant.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	FunctionName pulumi.StringInput    `pulumi:"functionName"`
+	Input        pulumi.StringInput    `pulumi:"input"`
+	Qualifier    pulumi.StringPtrInput `pulumi:"qualifier"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
+	TenantId     pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (LookupInvocationOutputArgs) ElementType() reflect.Type {
@@ -222,7 +100,6 @@ func (o LookupInvocationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// String result of the Lambda function invocation.
 func (o LookupInvocationResultOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.Result }).(pulumi.StringOutput)
 }

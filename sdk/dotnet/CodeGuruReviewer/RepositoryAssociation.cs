@@ -9,116 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeGuruReviewer
 {
-    /// <summary>
-    /// Resource for managing an AWS CodeGuru Reviewer Repository Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example");
-    /// 
-    ///     var exampleRepository = new Aws.CodeCommit.Repository("example", new()
-    ///     {
-    ///         RepositoryName = "example-repo",
-    ///     });
-    /// 
-    ///     var exampleRepositoryAssociation = new Aws.CodeGuruReviewer.RepositoryAssociation("example", new()
-    ///     {
-    ///         Repository = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationRepositoryArgs
-    ///         {
-    ///             Codecommit = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationRepositoryCodecommitArgs
-    ///             {
-    ///                 Name = exampleRepository.RepositoryName,
-    ///             },
-    ///         },
-    ///         KmsKeyDetails = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationKmsKeyDetailsArgs
-    ///         {
-    ///             EncryptionOption = "CUSTOMER_MANAGED_CMK",
-    ///             KmsKeyId = example.KeyId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
     public partial class RepositoryAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) identifying the repository association.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the repository association.
-        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        /// </summary>
         [Output("connectionArn")]
         public Output<string> ConnectionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// An object describing the KMS key to asssociate. Block is documented below.
-        /// </summary>
         [Output("kmsKeyDetails")]
         public Output<Outputs.RepositoryAssociationKmsKeyDetails?> KmsKeyDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner of the repository.
-        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// The provider type of the repository association.
-        /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// An object describing the repository to associate. Valid values: `Bitbucket`, `Codecommit`, `GithubEnterpriseServer`, or `S3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `Bitbucket`, `GithubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("repository")]
         public Output<Outputs.RepositoryAssociationRepository> Repository { get; private set; } = null!;
 
         [Output("s3RepositoryDetails")]
         public Output<ImmutableArray<Outputs.RepositoryAssociationS3RepositoryDetail>> S3RepositoryDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The state of the repository association.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of why the repository association is in the current state.
-        /// </summary>
         [Output("stateReason")]
         public Output<string> StateReason { get; private set; } = null!;
 
@@ -174,23 +100,12 @@ namespace Pulumi.Aws.CodeGuruReviewer
 
     public sealed class RepositoryAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An object describing the KMS key to asssociate. Block is documented below.
-        /// </summary>
         [Input("kmsKeyDetails")]
         public Input<Inputs.RepositoryAssociationKmsKeyDetailsArgs>? KmsKeyDetails { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// An object describing the repository to associate. Valid values: `Bitbucket`, `Codecommit`, `GithubEnterpriseServer`, or `S3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `Bitbucket`, `GithubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("repository", required: true)]
         public Input<Inputs.RepositoryAssociationRepositoryArgs> Repository { get; set; } = null!;
 
@@ -210,59 +125,30 @@ namespace Pulumi.Aws.CodeGuruReviewer
 
     public sealed class RepositoryAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) identifying the repository association.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID of the repository association.
-        /// </summary>
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        /// </summary>
         [Input("connectionArn")]
         public Input<string>? ConnectionArn { get; set; }
 
-        /// <summary>
-        /// An object describing the KMS key to asssociate. Block is documented below.
-        /// </summary>
         [Input("kmsKeyDetails")]
         public Input<Inputs.RepositoryAssociationKmsKeyDetailsGetArgs>? KmsKeyDetails { get; set; }
 
-        /// <summary>
-        /// The name of the repository.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The owner of the repository.
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// The provider type of the repository association.
-        /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// An object describing the repository to associate. Valid values: `Bitbucket`, `Codecommit`, `GithubEnterpriseServer`, or `S3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `Bitbucket`, `GithubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("repository")]
         public Input<Inputs.RepositoryAssociationRepositoryGetArgs>? Repository { get; set; }
 
@@ -274,15 +160,9 @@ namespace Pulumi.Aws.CodeGuruReviewer
             set => _s3RepositoryDetails = value;
         }
 
-        /// <summary>
-        /// The state of the repository association.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// A description of why the repository association is in the current state.
-        /// </summary>
         [Input("stateReason")]
         public Input<string>? StateReason { get; set; }
 

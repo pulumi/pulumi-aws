@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about a single ElastiCache Reserved Cache Node Offering.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.GetReservedCacheNodeOffering(ctx, &elasticache.GetReservedCacheNodeOfferingArgs{
-//				CacheNodeType:      "cache.t4g.small",
-//				Duration:           "P1Y",
-//				OfferingType:       "No Upfront",
-//				ProductDescription: "redis",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetReservedCacheNodeOffering(ctx *pulumi.Context, args *GetReservedCacheNodeOfferingArgs, opts ...pulumi.InvokeOption) (*GetReservedCacheNodeOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReservedCacheNodeOfferingResult
@@ -53,34 +23,20 @@ func GetReservedCacheNodeOffering(ctx *pulumi.Context, args *GetReservedCacheNod
 
 // A collection of arguments for invoking getReservedCacheNodeOffering.
 type GetReservedCacheNodeOfferingArgs struct {
-	// Node type for the reserved cache node.
-	// See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-	// See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-	CacheNodeType string `pulumi:"cacheNodeType"`
-	// Duration of the reservation in RFC3339 duration format.
-	// Valid values are `P1Y` (one year) and `P3Y` (three years).
-	Duration string `pulumi:"duration"`
-	// Offering type of this reserved cache node.
-	// For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-	// For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-	// For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-	OfferingType string `pulumi:"offeringType"`
-	// Engine type for the reserved cache node.
-	// Valid values are `redis`, `valkey` and `memcached`.
-	ProductDescription string `pulumi:"productDescription"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CacheNodeType      string  `pulumi:"cacheNodeType"`
+	Duration           string  `pulumi:"duration"`
+	OfferingType       string  `pulumi:"offeringType"`
+	ProductDescription string  `pulumi:"productDescription"`
+	Region             *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReservedCacheNodeOffering.
 type GetReservedCacheNodeOfferingResult struct {
-	CacheNodeType string `pulumi:"cacheNodeType"`
-	Duration      string `pulumi:"duration"`
-	// Fixed price charged for this reserved cache node.
-	FixedPrice float64 `pulumi:"fixedPrice"`
+	CacheNodeType string  `pulumi:"cacheNodeType"`
+	Duration      string  `pulumi:"duration"`
+	FixedPrice    float64 `pulumi:"fixedPrice"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Unique identifier for the reservation.
+	Id                 string `pulumi:"id"`
 	OfferingId         string `pulumi:"offeringId"`
 	OfferingType       string `pulumi:"offeringType"`
 	ProductDescription string `pulumi:"productDescription"`
@@ -98,23 +54,11 @@ func GetReservedCacheNodeOfferingOutput(ctx *pulumi.Context, args GetReservedCac
 
 // A collection of arguments for invoking getReservedCacheNodeOffering.
 type GetReservedCacheNodeOfferingOutputArgs struct {
-	// Node type for the reserved cache node.
-	// See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-	// See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-	CacheNodeType pulumi.StringInput `pulumi:"cacheNodeType"`
-	// Duration of the reservation in RFC3339 duration format.
-	// Valid values are `P1Y` (one year) and `P3Y` (three years).
-	Duration pulumi.StringInput `pulumi:"duration"`
-	// Offering type of this reserved cache node.
-	// For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-	// For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-	// For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-	OfferingType pulumi.StringInput `pulumi:"offeringType"`
-	// Engine type for the reserved cache node.
-	// Valid values are `redis`, `valkey` and `memcached`.
-	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	CacheNodeType      pulumi.StringInput    `pulumi:"cacheNodeType"`
+	Duration           pulumi.StringInput    `pulumi:"duration"`
+	OfferingType       pulumi.StringInput    `pulumi:"offeringType"`
+	ProductDescription pulumi.StringInput    `pulumi:"productDescription"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReservedCacheNodeOfferingOutputArgs) ElementType() reflect.Type {
@@ -144,7 +88,6 @@ func (o GetReservedCacheNodeOfferingResultOutput) Duration() pulumi.StringOutput
 	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// Fixed price charged for this reserved cache node.
 func (o GetReservedCacheNodeOfferingResultOutput) FixedPrice() pulumi.Float64Output {
 	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) float64 { return v.FixedPrice }).(pulumi.Float64Output)
 }
@@ -154,7 +97,6 @@ func (o GetReservedCacheNodeOfferingResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the reservation.
 func (o GetReservedCacheNodeOfferingResultOutput) OfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.OfferingId }).(pulumi.StringOutput)
 }

@@ -9,120 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGateway.RestApiPut("example", new()
-    ///     {
-    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["swagger"] = "2.0",
-    ///             ["info"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["title"] = "Example API",
-    ///                 ["version"] = "v1",
-    ///             },
-    ///             ["schemes"] = new[]
-    ///             {
-    ///                 "https",
-    ///             },
-    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["/example"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["responses"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["200"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["description"] = "OK",
-    ///                             },
-    ///                         },
-    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["httpMethod"] = "GET",
-    ///                             ["type"] = "HTTP",
-    ///                             ["responses"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["default"] = new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     ["statusCode"] = 200,
-    ///                                 },
-    ///                             },
-    ///                             ["uri"] = "https://api.example.com/",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///         FailOnWarnings = true,
-    ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/restApiPut:RestApiPut")]
     public partial class RestApiPut : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        /// </summary>
         [Output("body")]
         public Output<string> Body { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to rollback the API update when a warning is encountered. The default value is `False`.
-        /// </summary>
         [Output("failOnWarnings")]
         public Output<bool> FailOnWarnings { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of customizations for importing the specification in the `Body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `Basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the associated REST API.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.RestApiPutTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-        /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
@@ -172,41 +79,23 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RestApiPutArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to rollback the API update when a warning is encountered. The default value is `False`.
-        /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Map of customizations for importing the specification in the `Body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `Basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the associated REST API.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
@@ -215,10 +104,6 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
-
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());
@@ -233,41 +118,23 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RestApiPutState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
-        /// <summary>
-        /// Whether to rollback the API update when a warning is encountered. The default value is `False`.
-        /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Map of customizations for importing the specification in the `Body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `Basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the associated REST API.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
@@ -276,10 +143,6 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
-
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());

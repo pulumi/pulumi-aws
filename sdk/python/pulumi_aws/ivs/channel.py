@@ -28,13 +28,6 @@ class ChannelArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Channel resource.
-        :param pulumi.Input[_builtins.bool] authorized: If `true`, channel is private (enabled for playback authorization).
-        :param pulumi.Input[_builtins.str] latency_mode: Channel latency mode. Valid values: `NORMAL`, `LOW`.
-        :param pulumi.Input[_builtins.str] name: Channel name.
-        :param pulumi.Input[_builtins.str] recording_configuration_arn: Recording configuration ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
         if authorized is not None:
             pulumi.set(__self__, "authorized", authorized)
@@ -54,9 +47,6 @@ class ChannelArgs:
     @_builtins.property
     @pulumi.getter
     def authorized(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, channel is private (enabled for playback authorization).
-        """
         return pulumi.get(self, "authorized")
 
     @authorized.setter
@@ -66,9 +56,6 @@ class ChannelArgs:
     @_builtins.property
     @pulumi.getter(name="latencyMode")
     def latency_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel latency mode. Valid values: `NORMAL`, `LOW`.
-        """
         return pulumi.get(self, "latency_mode")
 
     @latency_mode.setter
@@ -78,9 +65,6 @@ class ChannelArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -90,9 +74,6 @@ class ChannelArgs:
     @_builtins.property
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Recording configuration ARN.
-        """
         return pulumi.get(self, "recording_configuration_arn")
 
     @recording_configuration_arn.setter
@@ -102,9 +83,6 @@ class ChannelArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -114,9 +92,6 @@ class ChannelArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -126,9 +101,6 @@ class ChannelArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -152,17 +124,6 @@ class _ChannelState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Channel resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Channel.
-        :param pulumi.Input[_builtins.bool] authorized: If `true`, channel is private (enabled for playback authorization).
-        :param pulumi.Input[_builtins.str] ingest_endpoint: Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-        :param pulumi.Input[_builtins.str] latency_mode: Channel latency mode. Valid values: `NORMAL`, `LOW`.
-        :param pulumi.Input[_builtins.str] name: Channel name.
-        :param pulumi.Input[_builtins.str] playback_url: Channel playback URL.
-        :param pulumi.Input[_builtins.str] recording_configuration_arn: Recording configuration ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -190,9 +151,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Channel.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -202,9 +160,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter
     def authorized(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, channel is private (enabled for playback authorization).
-        """
         return pulumi.get(self, "authorized")
 
     @authorized.setter
@@ -214,9 +169,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter(name="ingestEndpoint")
     def ingest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-        """
         return pulumi.get(self, "ingest_endpoint")
 
     @ingest_endpoint.setter
@@ -226,9 +178,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter(name="latencyMode")
     def latency_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel latency mode. Valid values: `NORMAL`, `LOW`.
-        """
         return pulumi.get(self, "latency_mode")
 
     @latency_mode.setter
@@ -238,9 +187,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -250,9 +196,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter(name="playbackUrl")
     def playback_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel playback URL.
-        """
         return pulumi.get(self, "playback_url")
 
     @playback_url.setter
@@ -262,9 +205,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Recording configuration ARN.
-        """
         return pulumi.get(self, "recording_configuration_arn")
 
     @recording_configuration_arn.setter
@@ -274,9 +214,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -286,9 +223,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -298,9 +232,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -310,9 +241,6 @@ class _ChannelState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -335,40 +263,9 @@ class Channel(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS IVS (Interactive Video) Channel.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ivs.Channel("example", name="channel-1")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS channel.
-
-        Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
-
-        % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
-
+        Create a Channel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] authorized: If `true`, channel is private (enabled for playback authorization).
-        :param pulumi.Input[_builtins.str] latency_mode: Channel latency mode. Valid values: `NORMAL`, `LOW`.
-        :param pulumi.Input[_builtins.str] name: Channel name.
-        :param pulumi.Input[_builtins.str] recording_configuration_arn: Recording configuration ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
         ...
     @overload
@@ -377,31 +274,7 @@ class Channel(pulumi.CustomResource):
                  args: Optional[ChannelArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS IVS (Interactive Video) Channel.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ivs.Channel("example", name="channel-1")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS channel.
-
-        Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
-
-        % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
-
+        Create a Channel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -472,17 +345,6 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Channel.
-        :param pulumi.Input[_builtins.bool] authorized: If `true`, channel is private (enabled for playback authorization).
-        :param pulumi.Input[_builtins.str] ingest_endpoint: Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-        :param pulumi.Input[_builtins.str] latency_mode: Channel latency mode. Valid values: `NORMAL`, `LOW`.
-        :param pulumi.Input[_builtins.str] name: Channel name.
-        :param pulumi.Input[_builtins.str] playback_url: Channel playback URL.
-        :param pulumi.Input[_builtins.str] recording_configuration_arn: Recording configuration ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -504,88 +366,55 @@ class Channel(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Channel.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def authorized(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If `true`, channel is private (enabled for playback authorization).
-        """
         return pulumi.get(self, "authorized")
 
     @_builtins.property
     @pulumi.getter(name="ingestEndpoint")
     def ingest_endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-        """
         return pulumi.get(self, "ingest_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="latencyMode")
     def latency_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Channel latency mode. Valid values: `NORMAL`, `LOW`.
-        """
         return pulumi.get(self, "latency_mode")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Channel name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="playbackUrl")
     def playback_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        Channel playback URL.
-        """
         return pulumi.get(self, "playback_url")
 
     @_builtins.property
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Recording configuration ARN.
-        """
         return pulumi.get(self, "recording_configuration_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-        """
         return pulumi.get(self, "type")
 

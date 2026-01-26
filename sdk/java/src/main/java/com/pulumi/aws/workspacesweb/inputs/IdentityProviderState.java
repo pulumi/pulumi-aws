@@ -16,128 +16,58 @@ public final class IdentityProviderState extends com.pulumi.resources.ResourceAr
 
     public static final IdentityProviderState Empty = new IdentityProviderState();
 
-    /**
-     * ARN of the identity provider.
-     * 
-     */
     @Import(name="identityProviderArn")
     private @Nullable Output<String> identityProviderArn;
 
-    /**
-     * @return ARN of the identity provider.
-     * 
-     */
     public Optional<Output<String>> identityProviderArn() {
         return Optional.ofNullable(this.identityProviderArn);
     }
 
-    /**
-     * Identity provider details. The following list describes the provider detail keys for each identity provider type:
-     * * For Google and Login with Amazon:
-     * 
-     */
     @Import(name="identityProviderDetails")
     private @Nullable Output<Map<String,String>> identityProviderDetails;
 
-    /**
-     * @return Identity provider details. The following list describes the provider detail keys for each identity provider type:
-     * * For Google and Login with Amazon:
-     * 
-     */
     public Optional<Output<Map<String,String>>> identityProviderDetails() {
         return Optional.ofNullable(this.identityProviderDetails);
     }
 
-    /**
-     * Identity provider name.
-     * 
-     */
     @Import(name="identityProviderName")
     private @Nullable Output<String> identityProviderName;
 
-    /**
-     * @return Identity provider name.
-     * 
-     */
     public Optional<Output<String>> identityProviderName() {
         return Optional.ofNullable(this.identityProviderName);
     }
 
-    /**
-     * Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-     * 
-     */
     @Import(name="identityProviderType")
     private @Nullable Output<String> identityProviderType;
 
-    /**
-     * @return Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-     * 
-     */
     public Optional<Output<String>> identityProviderType() {
         return Optional.ofNullable(this.identityProviderType);
     }
 
-    /**
-     * ARN of the web portal. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn")
     private @Nullable Output<String> portalArn;
 
-    /**
-     * @return ARN of the web portal. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> portalArn() {
         return Optional.ofNullable(this.portalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -173,176 +103,74 @@ public final class IdentityProviderState extends com.pulumi.resources.ResourceAr
             $ = new IdentityProviderState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identityProviderArn ARN of the identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderArn(@Nullable Output<String> identityProviderArn) {
             $.identityProviderArn = identityProviderArn;
             return this;
         }
 
-        /**
-         * @param identityProviderArn ARN of the identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderArn(String identityProviderArn) {
             return identityProviderArn(Output.of(identityProviderArn));
         }
 
-        /**
-         * @param identityProviderDetails Identity provider details. The following list describes the provider detail keys for each identity provider type:
-         * * For Google and Login with Amazon:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderDetails(@Nullable Output<Map<String,String>> identityProviderDetails) {
             $.identityProviderDetails = identityProviderDetails;
             return this;
         }
 
-        /**
-         * @param identityProviderDetails Identity provider details. The following list describes the provider detail keys for each identity provider type:
-         * * For Google and Login with Amazon:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderDetails(Map<String,String> identityProviderDetails) {
             return identityProviderDetails(Output.of(identityProviderDetails));
         }
 
-        /**
-         * @param identityProviderName Identity provider name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(@Nullable Output<String> identityProviderName) {
             $.identityProviderName = identityProviderName;
             return this;
         }
 
-        /**
-         * @param identityProviderName Identity provider name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(String identityProviderName) {
             return identityProviderName(Output.of(identityProviderName));
         }
 
-        /**
-         * @param identityProviderType Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderType(@Nullable Output<String> identityProviderType) {
             $.identityProviderType = identityProviderType;
             return this;
         }
 
-        /**
-         * @param identityProviderType Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderType(String identityProviderType) {
             return identityProviderType(Output.of(identityProviderType));
         }
 
-        /**
-         * @param portalArn ARN of the web portal. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(@Nullable Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the web portal. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

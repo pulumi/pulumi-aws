@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
     public sealed class DataLakeConfigurationEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-        /// </summary>
         [Input("kmsKeyId", required: true)]
         public Input<string> KmsKeyId { get; set; } = null!;
 

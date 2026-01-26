@@ -12,80 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSO Admin Trusted Token Issuer.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewTrustedTokenIssuer(ctx, "example", &ssoadmin.TrustedTokenIssuerArgs{
-//				Name:                   pulumi.String("example"),
-//				InstanceArn:            pulumi.String(example.Arns[0]),
-//				TrustedTokenIssuerType: pulumi.String("OIDC_JWT"),
-//				TrustedTokenIssuerConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{
-//					OidcJwtConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{
-//						ClaimAttributePath:         pulumi.String("email"),
-//						IdentityStoreAttributePath: pulumi.String("emails.value"),
-//						IssuerUrl:                  pulumi.String("https://example.com"),
-//						JwksRetrievalOption:        pulumi.String("OPEN_ID_DISCOVERY"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::123456789012:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
-// ```
 type TrustedTokenIssuer struct {
 	pulumi.CustomResourceState
 
-	// ARN of the trusted token issuer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// Name of the trusted token issuer.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
+	Arn                             pulumi.StringOutput                                        `pulumi:"arn"`
+	ClientToken                     pulumi.StringPtrOutput                                     `pulumi:"clientToken"`
+	InstanceArn                     pulumi.StringOutput                                        `pulumi:"instanceArn"`
+	Name                            pulumi.StringOutput                                        `pulumi:"name"`
+	Region                          pulumi.StringOutput                                        `pulumi:"region"`
+	Tags                            pulumi.StringMapOutput                                     `pulumi:"tags"`
+	TagsAll                         pulumi.StringMapOutput                                     `pulumi:"tagsAll"`
 	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput `pulumi:"trustedTokenIssuerConfiguration"`
-	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-	//
-	// The following arguments are optional:
-	TrustedTokenIssuerType pulumi.StringOutput `pulumi:"trustedTokenIssuerType"`
+	TrustedTokenIssuerType          pulumi.StringOutput                                        `pulumi:"trustedTokenIssuerType"`
 }
 
 // NewTrustedTokenIssuer registers a new resource with the given unique name, arguments, and options.
@@ -124,49 +62,27 @@ func GetTrustedTokenIssuer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustedTokenIssuer resources.
 type trustedTokenIssuerState struct {
-	// ARN of the trusted token issuer.
-	Arn *string `pulumi:"arn"`
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken *string `pulumi:"clientToken"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn *string `pulumi:"instanceArn"`
-	// Name of the trusted token issuer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
+	Arn                             *string                                            `pulumi:"arn"`
+	ClientToken                     *string                                            `pulumi:"clientToken"`
+	InstanceArn                     *string                                            `pulumi:"instanceArn"`
+	Name                            *string                                            `pulumi:"name"`
+	Region                          *string                                            `pulumi:"region"`
+	Tags                            map[string]string                                  `pulumi:"tags"`
+	TagsAll                         map[string]string                                  `pulumi:"tagsAll"`
 	TrustedTokenIssuerConfiguration *TrustedTokenIssuerTrustedTokenIssuerConfiguration `pulumi:"trustedTokenIssuerConfiguration"`
-	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-	//
-	// The following arguments are optional:
-	TrustedTokenIssuerType *string `pulumi:"trustedTokenIssuerType"`
+	TrustedTokenIssuerType          *string                                            `pulumi:"trustedTokenIssuerType"`
 }
 
 type TrustedTokenIssuerState struct {
-	// ARN of the trusted token issuer.
-	Arn pulumi.StringPtrInput
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken pulumi.StringPtrInput
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn pulumi.StringPtrInput
-	// Name of the trusted token issuer.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
+	Arn                             pulumi.StringPtrInput
+	ClientToken                     pulumi.StringPtrInput
+	InstanceArn                     pulumi.StringPtrInput
+	Name                            pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
 	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput
-	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-	//
-	// The following arguments are optional:
-	TrustedTokenIssuerType pulumi.StringPtrInput
+	TrustedTokenIssuerType          pulumi.StringPtrInput
 }
 
 func (TrustedTokenIssuerState) ElementType() reflect.Type {
@@ -174,42 +90,24 @@ func (TrustedTokenIssuerState) ElementType() reflect.Type {
 }
 
 type trustedTokenIssuerArgs struct {
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken *string `pulumi:"clientToken"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn string `pulumi:"instanceArn"`
-	// Name of the trusted token issuer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
+	ClientToken                     *string                                            `pulumi:"clientToken"`
+	InstanceArn                     string                                             `pulumi:"instanceArn"`
+	Name                            *string                                            `pulumi:"name"`
+	Region                          *string                                            `pulumi:"region"`
+	Tags                            map[string]string                                  `pulumi:"tags"`
 	TrustedTokenIssuerConfiguration *TrustedTokenIssuerTrustedTokenIssuerConfiguration `pulumi:"trustedTokenIssuerConfiguration"`
-	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-	//
-	// The following arguments are optional:
-	TrustedTokenIssuerType string `pulumi:"trustedTokenIssuerType"`
+	TrustedTokenIssuerType          string                                             `pulumi:"trustedTokenIssuerType"`
 }
 
 // The set of arguments for constructing a TrustedTokenIssuer resource.
 type TrustedTokenIssuerArgs struct {
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken pulumi.StringPtrInput
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn pulumi.StringInput
-	// Name of the trusted token issuer.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
+	ClientToken                     pulumi.StringPtrInput
+	InstanceArn                     pulumi.StringInput
+	Name                            pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
 	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput
-	// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-	//
-	// The following arguments are optional:
-	TrustedTokenIssuerType pulumi.StringInput
+	TrustedTokenIssuerType          pulumi.StringInput
 }
 
 func (TrustedTokenIssuerArgs) ElementType() reflect.Type {
@@ -299,51 +197,40 @@ func (o TrustedTokenIssuerOutput) ToTrustedTokenIssuerOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the trusted token issuer.
 func (o TrustedTokenIssuerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 func (o TrustedTokenIssuerOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the instance of IAM Identity Center.
 func (o TrustedTokenIssuerOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// Name of the trusted token issuer.
 func (o TrustedTokenIssuerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustedTokenIssuerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrustedTokenIssuerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrustedTokenIssuerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
 func (o TrustedTokenIssuerOutput) TrustedTokenIssuerConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
 		return v.TrustedTokenIssuerConfiguration
 	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput)
 }
 
-// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-//
-// The following arguments are optional:
 func (o TrustedTokenIssuerOutput) TrustedTokenIssuerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringOutput { return v.TrustedTokenIssuerType }).(pulumi.StringOutput)
 }

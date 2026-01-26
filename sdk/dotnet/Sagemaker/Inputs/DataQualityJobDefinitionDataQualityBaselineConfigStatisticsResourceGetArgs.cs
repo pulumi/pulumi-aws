@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 URI for the statistics resource.
-        /// </summary>
         [Input("s3Uri")]
         public Input<string>? S3Uri { get; set; }
 

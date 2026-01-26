@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleCaptchaConfig {
-    /**
-     * @return Defines custom immunity time. See Immunity Time Property below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleCaptchaConfigImmunityTimeProperty immunityTimeProperty;
 
     private RuleGroupRuleCaptchaConfig() {}
-    /**
-     * @return Defines custom immunity time. See Immunity Time Property below for details.
-     * 
-     */
     public Optional<RuleGroupRuleCaptchaConfigImmunityTimeProperty> immunityTimeProperty() {
         return Optional.ofNullable(this.immunityTimeProperty);
     }

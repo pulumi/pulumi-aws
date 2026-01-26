@@ -17,227 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Browser Settings resource.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.BrowserSettings;
- * import com.pulumi.aws.workspacesweb.BrowserSettingsArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BrowserSettings("example", BrowserSettingsArgs.builder()
- *             .browserPolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("AdditionalSettings", jsonObject(
- *                         jsonProperty("DownloadsSettings", jsonObject(
- *                             jsonProperty("Behavior", "DISABLE")
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With All Arguments
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.workspacesweb.BrowserSettings;
- * import com.pulumi.aws.workspacesweb.BrowserSettingsArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()
- *             .description("KMS key for WorkSpaces Web Browser Settings")
- *             .deletionWindowInDays(7)
- *             .build());
- * 
- *         var exampleBrowserSettings = new BrowserSettings("exampleBrowserSettings", BrowserSettingsArgs.builder()
- *             .browserPolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("chromePolicies", jsonObject(
- *                         jsonProperty("DefaultDownloadDirectory", jsonObject(
- *                             jsonProperty("value", "/home/as2-streaming-user/MyFiles/TemporaryFiles1")
- *                         ))
- *                     ))
- *                 )))
- *             .customerManagedKey(example.arn())
- *             .additionalEncryptionContext(Map.of("Environment", "Production"))
- *             .tags(Map.of("Name", "example-browser-settings"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web Browser Settings using the `browser_settings_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/browserSettings:BrowserSettings")
 public class BrowserSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * Additional encryption context for the browser settings.
-     * 
-     */
     @Export(name="additionalEncryptionContext", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalEncryptionContext;
 
-    /**
-     * @return Additional encryption context for the browser settings.
-     * 
-     */
     public Output<Optional<Map<String,String>>> additionalEncryptionContext() {
         return Codegen.optional(this.additionalEncryptionContext);
     }
-    /**
-     * List of web portal ARNs to associate with the browser settings.
-     * 
-     */
     @Export(name="associatedPortalArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> associatedPortalArns;
 
-    /**
-     * @return List of web portal ARNs to associate with the browser settings.
-     * 
-     */
     public Output<List<String>> associatedPortalArns() {
         return this.associatedPortalArns;
     }
-    /**
-     * Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="browserPolicy", refs={String.class}, tree="[0]")
     private Output<String> browserPolicy;
 
-    /**
-     * @return Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> browserPolicy() {
         return this.browserPolicy;
     }
-    /**
-     * ARN of the browser settings resource.
-     * 
-     */
     @Export(name="browserSettingsArn", refs={String.class}, tree="[0]")
     private Output<String> browserSettingsArn;
 
-    /**
-     * @return ARN of the browser settings resource.
-     * 
-     */
     public Output<String> browserSettingsArn() {
         return this.browserSettingsArn;
     }
-    /**
-     * ARN of the customer managed KMS key.
-     * 
-     */
     @Export(name="customerManagedKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerManagedKey;
 
-    /**
-     * @return ARN of the customer managed KMS key.
-     * 
-     */
     public Output<Optional<String>> customerManagedKey() {
         return Codegen.optional(this.customerManagedKey);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

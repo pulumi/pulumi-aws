@@ -16,62 +16,30 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
 
     public static final DomainVpcOptionsArgs Empty = new DomainVpcOptionsArgs();
 
-    /**
-     * If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-     * 
-     */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
-    /**
-     * @return If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-     * 
-     */
     public Optional<Output<List<String>>> availabilityZones() {
         return Optional.ofNullable(this.availabilityZones);
     }
 
-    /**
-     * List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
-    /**
-     * If the domain was created inside a VPC, the ID of the VPC.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return If the domain was created inside a VPC, the ID of the VPC.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -103,116 +71,50 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
             $ = new DomainVpcOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZones(@Nullable Output<List<String>> availabilityZones) {
             $.availabilityZones = availabilityZones;
             return this;
         }
 
-        /**
-         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZones(List<String> availabilityZones) {
             return availabilityZones(Output.of(availabilityZones));
         }
 
-        /**
-         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
 
-        /**
-         * @param securityGroupIds List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcId If the domain was created inside a VPC, the ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId If the domain was created inside a VPC, the ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

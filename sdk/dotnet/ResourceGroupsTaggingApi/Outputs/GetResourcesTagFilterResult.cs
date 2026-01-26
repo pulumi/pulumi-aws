@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Outputs
     [OutputType]
     public sealed class GetResourcesTagFilterResult
     {
-        /// <summary>
-        /// One part of a key-value pair that makes up a tag.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Optional part of a key-value pair that make up a tag.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

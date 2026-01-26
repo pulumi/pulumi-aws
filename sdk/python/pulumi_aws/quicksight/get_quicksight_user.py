@@ -67,17 +67,11 @@ class GetQuicksightUserResult:
     @_builtins.property
     @pulumi.getter
     def active(self) -> _builtins.bool:
-        """
-        The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-        """
         return pulumi.get(self, "active")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the user.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -88,17 +82,11 @@ class GetQuicksightUserResult:
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> _builtins.str:
-        """
-        The custom permissions profile associated with this user.
-        """
         return pulumi.get(self, "custom_permissions_name")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
-        """
-        The user's email address.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
@@ -112,9 +100,6 @@ class GetQuicksightUserResult:
     @_builtins.property
     @pulumi.getter(name="identityType")
     def identity_type(self) -> _builtins.str:
-        """
-        The type of identity authentication used by the user.
-        """
         return pulumi.get(self, "identity_type")
 
     @_builtins.property
@@ -125,9 +110,6 @@ class GetQuicksightUserResult:
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of the user.
-        """
         return pulumi.get(self, "principal_id")
 
     @_builtins.property
@@ -143,12 +125,6 @@ class GetQuicksightUserResult:
     @_builtins.property
     @pulumi.getter(name="userRole")
     def user_role(self) -> _builtins.str:
-        """
-        The Amazon QuickSight role for the user. The user role can be one of the following:.
-        - `READER`: A user who has read-only access to dashboards.
-        - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-        - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
-        """
         return pulumi.get(self, "user_role")
 
 
@@ -178,27 +154,7 @@ def get_quicksight_user(aws_account_id: Optional[_builtins.str] = None,
                         user_name: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuicksightUserResult:
     """
-    This data source can be used to fetch information about a specific
-    QuickSight user. By using this data source, you can reference QuickSight user
-    properties without having to hard code ARNs or unique IDs as input.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_quicksight_user(user_name="example")
-    ```
-
-
-    :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_name: The name of the user that you want to match.
-           
-           The following arguments are optional:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -227,27 +183,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[_b
                                user_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightUserResult]:
     """
-    This data source can be used to fetch information about a specific
-    QuickSight user. By using this data source, you can reference QuickSight user
-    properties without having to hard code ARNs or unique IDs as input.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_quicksight_user(user_name="example")
-    ```
-
-
-    :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_name: The name of the user that you want to match.
-           
-           The following arguments are optional:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id

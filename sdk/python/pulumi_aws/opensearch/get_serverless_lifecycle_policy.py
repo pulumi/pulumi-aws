@@ -58,17 +58,11 @@ class GetServerlessLifecyclePolicyResult:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        The date the lifecycle policy was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the policy. Typically used to store information about the permissions defined in the policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -79,9 +73,6 @@ class GetServerlessLifecyclePolicyResult:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> _builtins.str:
-        """
-        The date the lifecycle policy was last modified.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
@@ -92,17 +83,11 @@ class GetServerlessLifecyclePolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        JSON policy document to use as the content for the new policy.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="policyVersion")
     def policy_version(self) -> _builtins.str:
-        """
-        Version of the policy.
-        """
         return pulumi.get(self, "policy_version")
 
     @_builtins.property
@@ -138,24 +123,7 @@ def get_serverless_lifecycle_policy(name: Optional[_builtins.str] = None,
                                     type: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessLifecyclePolicyResult:
     """
-    Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_lifecycle_policy(name="example-lifecycle-policy",
-        type="retention")
-    ```
-
-
-    :param _builtins.str name: Name of the policy
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of lifecycle policy. Must be `retention`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -179,24 +147,7 @@ def get_serverless_lifecycle_policy_output(name: Optional[pulumi.Input[_builtins
                                            type: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessLifecyclePolicyResult]:
     """
-    Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_lifecycle_policy(name="example-lifecycle-policy",
-        type="retention")
-    ```
-
-
-    :param _builtins.str name: Name of the policy
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of lifecycle policy. Must be `retention`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

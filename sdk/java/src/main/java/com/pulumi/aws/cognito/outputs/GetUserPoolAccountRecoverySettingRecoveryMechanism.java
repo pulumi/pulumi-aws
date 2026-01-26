@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolAccountRecoverySettingRecoveryMechanism {
-    /**
-     * @return - Name of the attribute.
-     * 
-     */
     private String name;
-    /**
-     * @return - Priority of this mechanism in the recovery process (lower numbers are higher priority).
-     * 
-     */
     private Integer priority;
 
     private GetUserPoolAccountRecoverySettingRecoveryMechanism() {}
-    /**
-     * @return - Name of the attribute.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return - Priority of this mechanism in the recovery process (lower numbers are higher priority).
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }

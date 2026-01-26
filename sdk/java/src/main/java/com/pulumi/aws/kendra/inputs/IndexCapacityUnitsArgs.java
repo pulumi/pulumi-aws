@@ -15,32 +15,16 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
 
     public static final IndexCapacityUnitsArgs Empty = new IndexCapacityUnitsArgs();
 
-    /**
-     * The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-     * 
-     */
     @Import(name="queryCapacityUnits")
     private @Nullable Output<Integer> queryCapacityUnits;
 
-    /**
-     * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-     * 
-     */
     public Optional<Output<Integer>> queryCapacityUnits() {
         return Optional.ofNullable(this.queryCapacityUnits);
     }
 
-    /**
-     * The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-     * 
-     */
     @Import(name="storageCapacityUnits")
     private @Nullable Output<Integer> storageCapacityUnits;
 
-    /**
-     * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-     * 
-     */
     public Optional<Output<Integer>> storageCapacityUnits() {
         return Optional.ofNullable(this.storageCapacityUnits);
     }
@@ -70,44 +54,20 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
             $ = new IndexCapacityUnitsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param queryCapacityUnits The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryCapacityUnits(@Nullable Output<Integer> queryCapacityUnits) {
             $.queryCapacityUnits = queryCapacityUnits;
             return this;
         }
 
-        /**
-         * @param queryCapacityUnits The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryCapacityUnits(Integer queryCapacityUnits) {
             return queryCapacityUnits(Output.of(queryCapacityUnits));
         }
 
-        /**
-         * @param storageCapacityUnits The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageCapacityUnits(@Nullable Output<Integer> storageCapacityUnits) {
             $.storageCapacityUnits = storageCapacityUnits;
             return this;
         }
 
-        /**
-         * @param storageCapacityUnits The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageCapacityUnits(Integer storageCapacityUnits) {
             return storageCapacityUnits(Output.of(storageCapacityUnits));
         }

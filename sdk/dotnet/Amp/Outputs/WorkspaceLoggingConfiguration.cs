@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Amp.Outputs
     [OutputType]
     public sealed class WorkspaceLoggingConfiguration
     {
-        /// <summary>
-        /// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
-        /// </summary>
         public readonly string LogGroupArn;
 
         [OutputConstructor]

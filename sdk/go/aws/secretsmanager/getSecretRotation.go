@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-//
-// ## Example Usage
-//
-// ### Retrieve Secret Rotation Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecretRotation(ctx, &secretsmanager.LookupSecretRotationArgs{
-//				SecretId: exampleAwsSecretsmanagerSecret.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSecretRotation(ctx *pulumi.Context, args *LookupSecretRotationArgs, opts ...pulumi.InvokeOption) (*LookupSecretRotationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretRotationResult
@@ -52,24 +23,19 @@ func LookupSecretRotation(ctx *pulumi.Context, args *LookupSecretRotationArgs, o
 
 // A collection of arguments for invoking getSecretRotation.
 type LookupSecretRotationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-	SecretId string `pulumi:"secretId"`
+	Region   *string `pulumi:"region"`
+	SecretId string  `pulumi:"secretId"`
 }
 
 // A collection of values returned by getSecretRotation.
 type LookupSecretRotationResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Specifies whether automatic rotation is enabled for this secret.
-	RotationEnabled bool `pulumi:"rotationEnabled"`
-	// Amazon Resource Name (ARN) of the lambda function used for rotation.
-	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
-	// Configuration block for rotation rules. See `rotationRules` below.
-	RotationRules []GetSecretRotationRotationRule `pulumi:"rotationRules"`
-	SecretId      string                          `pulumi:"secretId"`
+	Id                string                          `pulumi:"id"`
+	Region            string                          `pulumi:"region"`
+	RotationEnabled   bool                            `pulumi:"rotationEnabled"`
+	RotationLambdaArn string                          `pulumi:"rotationLambdaArn"`
+	RotationRules     []GetSecretRotationRotationRule `pulumi:"rotationRules"`
+	SecretId          string                          `pulumi:"secretId"`
 }
 
 func LookupSecretRotationOutput(ctx *pulumi.Context, args LookupSecretRotationOutputArgs, opts ...pulumi.InvokeOption) LookupSecretRotationResultOutput {
@@ -83,10 +49,8 @@ func LookupSecretRotationOutput(ctx *pulumi.Context, args LookupSecretRotationOu
 
 // A collection of arguments for invoking getSecretRotation.
 type LookupSecretRotationOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-	SecretId pulumi.StringInput `pulumi:"secretId"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
+	SecretId pulumi.StringInput    `pulumi:"secretId"`
 }
 
 func (LookupSecretRotationOutputArgs) ElementType() reflect.Type {
@@ -117,17 +81,14 @@ func (o LookupSecretRotationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies whether automatic rotation is enabled for this secret.
 func (o LookupSecretRotationResultOutput) RotationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the lambda function used for rotation.
 func (o LookupSecretRotationResultOutput) RotationLambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.RotationLambdaArn }).(pulumi.StringOutput)
 }
 
-// Configuration block for rotation rules. See `rotationRules` below.
 func (o LookupSecretRotationResultOutput) RotationRules() GetSecretRotationRotationRuleArrayOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) []GetSecretRotationRotationRule { return v.RotationRules }).(GetSecretRotationRotationRuleArrayOutput)
 }

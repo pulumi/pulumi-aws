@@ -15,17 +15,9 @@ public final class EndpointOracleSettingsArgs extends com.pulumi.resources.Resou
 
     public static final EndpointOracleSettingsArgs Empty = new EndpointOracleSettingsArgs();
 
-    /**
-     * Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-     * 
-     */
     @Import(name="authenticationMethod")
     private @Nullable Output<String> authenticationMethod;
 
-    /**
-     * @return Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-     * 
-     */
     public Optional<Output<String>> authenticationMethod() {
         return Optional.ofNullable(this.authenticationMethod);
     }
@@ -54,23 +46,11 @@ public final class EndpointOracleSettingsArgs extends com.pulumi.resources.Resou
             $ = new EndpointOracleSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationMethod Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMethod(@Nullable Output<String> authenticationMethod) {
             $.authenticationMethod = authenticationMethod;
             return this;
         }
 
-        /**
-         * @param authenticationMethod Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMethod(String authenticationMethod) {
             return authenticationMethod(Output.of(authenticationMethod));
         }

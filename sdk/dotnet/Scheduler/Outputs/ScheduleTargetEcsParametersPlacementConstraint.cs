@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetEcsParametersPlacementConstraint
     {
-        /// <summary>
-        /// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
-        /// </summary>
         public readonly string? Expression;
-        /// <summary>
-        /// The type of constraint. One of: `distinctInstance`, `memberOf`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

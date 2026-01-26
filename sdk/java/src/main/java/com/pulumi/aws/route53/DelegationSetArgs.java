@@ -15,19 +15,9 @@ public final class DelegationSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DelegationSetArgs Empty = new DelegationSetArgs();
 
-    /**
-     * This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     * 
-     */
     @Import(name="referenceName")
     private @Nullable Output<String> referenceName;
 
-    /**
-     * @return This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     * 
-     */
     public Optional<Output<String>> referenceName() {
         return Optional.ofNullable(this.referenceName);
     }
@@ -56,25 +46,11 @@ public final class DelegationSetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DelegationSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param referenceName This is a reference name used in Caller Reference
-         * (helpful for identifying single delegation set amongst others)
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceName(@Nullable Output<String> referenceName) {
             $.referenceName = referenceName;
             return this;
         }
 
-        /**
-         * @param referenceName This is a reference name used in Caller Reference
-         * (helpful for identifying single delegation set amongst others)
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceName(String referenceName) {
             return referenceName(Output.of(referenceName));
         }

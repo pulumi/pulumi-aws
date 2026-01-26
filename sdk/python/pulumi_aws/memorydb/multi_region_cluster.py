@@ -35,18 +35,6 @@ class MultiRegionClusterArgs:
                  update_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MultiRegionCluster resource.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name_suffix: A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be used for the multi-region cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: description for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] engine: The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        :param pulumi.Input[_builtins.str] multi_region_parameter_group_name: The name of the multi-region parameter group to be associated with the cluster.
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
         """
         pulumi.set(__self__, "multi_region_cluster_name_suffix", multi_region_cluster_name_suffix)
         pulumi.set(__self__, "node_type", node_type)
@@ -74,9 +62,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter(name="multiRegionClusterNameSuffix")
     def multi_region_cluster_name_suffix(self) -> pulumi.Input[_builtins.str]:
-        """
-        A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        """
         return pulumi.get(self, "multi_region_cluster_name_suffix")
 
     @multi_region_cluster_name_suffix.setter
@@ -86,11 +71,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The node type to be used for the multi-region cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -100,9 +80,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        description for the multi-region cluster.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -112,9 +89,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -124,9 +98,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -136,9 +107,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter(name="multiRegionParameterGroupName")
     def multi_region_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the multi-region parameter group to be associated with the cluster.
-        """
         return pulumi.get(self, "multi_region_parameter_group_name")
 
     @multi_region_parameter_group_name.setter
@@ -148,9 +116,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of shards for the multi-region cluster.
-        """
         return pulumi.get(self, "num_shards")
 
     @num_shards.setter
@@ -160,9 +125,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -172,9 +134,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -193,9 +152,6 @@ class MultiRegionClusterArgs:
     @_builtins.property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag to enable in-transit encryption on the cluster.
-        """
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
@@ -233,21 +189,6 @@ class _MultiRegionClusterState:
                  update_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MultiRegionCluster resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the multi-region cluster.
-        :param pulumi.Input[_builtins.str] description: description for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] engine: The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name: The name of the multi-region cluster.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name_suffix: A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        :param pulumi.Input[_builtins.str] multi_region_parameter_group_name: The name of the multi-region parameter group to be associated with the cluster.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be used for the multi-region cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -285,9 +226,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the multi-region cluster.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -297,9 +235,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        description for the multi-region cluster.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -309,9 +244,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -321,9 +253,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -333,9 +262,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="multiRegionClusterName")
     def multi_region_cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the multi-region cluster.
-        """
         return pulumi.get(self, "multi_region_cluster_name")
 
     @multi_region_cluster_name.setter
@@ -345,9 +271,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="multiRegionClusterNameSuffix")
     def multi_region_cluster_name_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        """
         return pulumi.get(self, "multi_region_cluster_name_suffix")
 
     @multi_region_cluster_name_suffix.setter
@@ -357,9 +280,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="multiRegionParameterGroupName")
     def multi_region_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the multi-region parameter group to be associated with the cluster.
-        """
         return pulumi.get(self, "multi_region_parameter_group_name")
 
     @multi_region_parameter_group_name.setter
@@ -369,11 +289,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The node type to be used for the multi-region cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -383,9 +298,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of shards for the multi-region cluster.
-        """
         return pulumi.get(self, "num_shards")
 
     @num_shards.setter
@@ -395,9 +307,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -416,9 +325,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -428,9 +334,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -449,9 +352,6 @@ class _MultiRegionClusterState:
     @_builtins.property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag to enable in-transit encryption on the cluster.
-        """
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
@@ -488,53 +388,9 @@ class MultiRegionCluster(pulumi.CustomResource):
                  update_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a MemoryDB Multi Region Cluster.
-
-        More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.memorydb.MultiRegionCluster("example",
-            multi_region_cluster_name_suffix="example",
-            node_type="db.r7g.xlarge")
-        example_cluster = aws.memorydb.Cluster("example",
-            acl_name=example_aws_memorydb_acl["id"],
-            auto_minor_version_upgrade=False,
-            name="example",
-            node_type="db.t4g.small",
-            num_shards=2,
-            security_group_ids=[example_aws_security_group["id"]],
-            snapshot_retention_limit=7,
-            subnet_group_name=example_aws_memorydb_subnet_group["id"],
-            multi_region_cluster_name=example.multi_region_cluster_name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a cluster using the `multi_region_cluster_name`. For example:
-
-        ```sh
-        $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example
-        ```
-
+        Create a MultiRegionCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: description for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] engine: The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name_suffix: A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        :param pulumi.Input[_builtins.str] multi_region_parameter_group_name: The name of the multi-region parameter group to be associated with the cluster.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be used for the multi-region cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
         """
         ...
     @overload
@@ -543,39 +399,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  args: MultiRegionClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a MemoryDB Multi Region Cluster.
-
-        More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.memorydb.MultiRegionCluster("example",
-            multi_region_cluster_name_suffix="example",
-            node_type="db.r7g.xlarge")
-        example_cluster = aws.memorydb.Cluster("example",
-            acl_name=example_aws_memorydb_acl["id"],
-            auto_minor_version_upgrade=False,
-            name="example",
-            node_type="db.t4g.small",
-            num_shards=2,
-            security_group_ids=[example_aws_security_group["id"]],
-            snapshot_retention_limit=7,
-            subnet_group_name=example_aws_memorydb_subnet_group["id"],
-            multi_region_cluster_name=example.multi_region_cluster_name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a cluster using the `multi_region_cluster_name`. For example:
-
-        ```sh
-        $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example
-        ```
-
+        Create a MultiRegionCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MultiRegionClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -665,21 +489,6 @@ class MultiRegionCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the multi-region cluster.
-        :param pulumi.Input[_builtins.str] description: description for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] engine: The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name: The name of the multi-region cluster.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name_suffix: A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        :param pulumi.Input[_builtins.str] multi_region_parameter_group_name: The name of the multi-region parameter group to be associated with the cluster.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be used for the multi-region cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards for the multi-region cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -706,83 +515,51 @@ class MultiRegionCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the multi-region cluster.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        description for the multi-region cluster.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionClusterName")
     def multi_region_cluster_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the multi-region cluster.
-        """
         return pulumi.get(self, "multi_region_cluster_name")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionClusterNameSuffix")
     def multi_region_cluster_name_suffix(self) -> pulumi.Output[_builtins.str]:
-        """
-        A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        """
         return pulumi.get(self, "multi_region_cluster_name_suffix")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionParameterGroupName")
     def multi_region_parameter_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the multi-region parameter group to be associated with the cluster.
-        """
         return pulumi.get(self, "multi_region_parameter_group_name")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The node type to be used for the multi-region cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "node_type")
 
     @_builtins.property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of shards for the multi-region cluster.
-        """
         return pulumi.get(self, "num_shards")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -793,17 +570,11 @@ class MultiRegionCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -814,9 +585,6 @@ class MultiRegionCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A flag to enable in-transit encryption on the cluster.
-        """
         return pulumi.get(self, "tls_enabled")
 
     @_builtins.property

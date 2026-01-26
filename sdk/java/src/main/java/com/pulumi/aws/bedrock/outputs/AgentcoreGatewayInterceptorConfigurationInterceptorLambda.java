@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreGatewayInterceptorConfigurationInterceptorLambda {
-    /**
-     * @return ARN of the Lambda function to invoke for the interceptor.
-     * 
-     */
     private String arn;
 
     private AgentcoreGatewayInterceptorConfigurationInterceptorLambda() {}
-    /**
-     * @return ARN of the Lambda function to invoke for the interceptor.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

@@ -14,49 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotTypeValueSelectionSetting {
-    /**
-     * @return Provides settings that enable advanced recognition settings for slot values.
-     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-     * See `advancedRecognitionSetting` argument reference below.
-     * 
-     */
     private @Nullable List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> advancedRecognitionSettings;
-    /**
-     * @return Used to validate the value of the slot.
-     * See `regexFilter` argument reference below.
-     * 
-     */
     private @Nullable List<V2modelsSlotTypeValueSelectionSettingRegexFilter> regexFilters;
-    /**
-     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-     * 
-     */
     private String resolutionStrategy;
 
     private V2modelsSlotTypeValueSelectionSetting() {}
-    /**
-     * @return Provides settings that enable advanced recognition settings for slot values.
-     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-     * See `advancedRecognitionSetting` argument reference below.
-     * 
-     */
     public List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> advancedRecognitionSettings() {
         return this.advancedRecognitionSettings == null ? List.of() : this.advancedRecognitionSettings;
     }
-    /**
-     * @return Used to validate the value of the slot.
-     * See `regexFilter` argument reference below.
-     * 
-     */
     public List<V2modelsSlotTypeValueSelectionSettingRegexFilter> regexFilters() {
         return this.regexFilters == null ? List.of() : this.regexFilters;
     }
-    /**
-     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-     * 
-     */
     public String resolutionStrategy() {
         return this.resolutionStrategy;
     }

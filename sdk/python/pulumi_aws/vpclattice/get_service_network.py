@@ -64,25 +64,16 @@ class GetServiceNetworkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Service Network.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
-        """
-        Authentication type for the service network. Either `NONE` or `AWS_IAM`.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Date and time the service network was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -96,33 +87,21 @@ class GetServiceNetworkResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> _builtins.str:
-        """
-        Date and time the service network was last updated.
-        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the service network.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="numberOfAssociatedServices")
     def number_of_associated_services(self) -> _builtins.int:
-        """
-        Number of services associated with this service network.
-        """
         return pulumi.get(self, "number_of_associated_services")
 
     @_builtins.property
     @pulumi.getter(name="numberOfAssociatedVpcs")
     def number_of_associated_vpcs(self) -> _builtins.int:
-        """
-        Number of VPCs associated with this service network.
-        """
         return pulumi.get(self, "number_of_associated_vpcs")
 
     @_builtins.property
@@ -165,22 +144,7 @@ def get_service_network(region: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkResult:
     """
-    Data source for managing an AWS VPC Lattice Service Network.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_service_network(service_network_identifier="snsa-01112223334445556")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_network_identifier: Identifier of the service network.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -206,22 +170,7 @@ def get_service_network_output(region: Optional[pulumi.Input[Optional[_builtins.
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResult]:
     """
-    Data source for managing an AWS VPC Lattice Service Network.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_service_network(service_network_identifier="snsa-01112223334445556")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_network_identifier: Identifier of the service network.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

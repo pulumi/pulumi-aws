@@ -16,51 +16,23 @@ public final class GetRouterConfigurationArgs extends com.pulumi.resources.Invok
 
     public static final GetRouterConfigurationArgs Empty = new GetRouterConfigurationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-     * 
-     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     * 
-     */
     @Import(name="routerTypeIdentifier", required=true)
     private Output<String> routerTypeIdentifier;
 
-    /**
-     * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-     * 
-     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     * 
-     */
     public Output<String> routerTypeIdentifier() {
         return this.routerTypeIdentifier;
     }
 
-    /**
-     * ID of the Direct Connect Virtual Interface
-     * 
-     */
     @Import(name="virtualInterfaceId", required=true)
     private Output<String> virtualInterfaceId;
 
-    /**
-     * @return ID of the Direct Connect Virtual Interface
-     * 
-     */
     public Output<String> virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
@@ -91,69 +63,29 @@ public final class GetRouterConfigurationArgs extends com.pulumi.resources.Invok
             $ = new GetRouterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routerTypeIdentifier ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-         * 
-         * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routerTypeIdentifier(Output<String> routerTypeIdentifier) {
             $.routerTypeIdentifier = routerTypeIdentifier;
             return this;
         }
 
-        /**
-         * @param routerTypeIdentifier ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-         * 
-         * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routerTypeIdentifier(String routerTypeIdentifier) {
             return routerTypeIdentifier(Output.of(routerTypeIdentifier));
         }
 
-        /**
-         * @param virtualInterfaceId ID of the Direct Connect Virtual Interface
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualInterfaceId(Output<String> virtualInterfaceId) {
             $.virtualInterfaceId = virtualInterfaceId;
             return this;
         }
 
-        /**
-         * @param virtualInterfaceId ID of the Direct Connect Virtual Interface
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualInterfaceId(String virtualInterfaceId) {
             return virtualInterfaceId(Output.of(virtualInterfaceId));
         }

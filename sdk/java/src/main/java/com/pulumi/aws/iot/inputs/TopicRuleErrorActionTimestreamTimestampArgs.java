@@ -14,32 +14,16 @@ public final class TopicRuleErrorActionTimestreamTimestampArgs extends com.pulum
 
     public static final TopicRuleErrorActionTimestreamTimestampArgs Empty = new TopicRuleErrorActionTimestreamTimestampArgs();
 
-    /**
-     * The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-     * 
-     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
-    /**
-     * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-     * 
-     */
     public Output<String> unit() {
         return this.unit;
     }
 
-    /**
-     * An expression that returns a long epoch time value.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return An expression that returns a long epoch time value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class TopicRuleErrorActionTimestreamTimestampArgs extends com.pulum
             $ = new TopicRuleErrorActionTimestreamTimestampArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param unit The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
-        /**
-         * @param value An expression that returns a long epoch time value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value An expression that returns a long epoch time value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

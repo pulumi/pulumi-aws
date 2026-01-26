@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterServiceConnectDefaults {
-    /**
-     * @return ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
-     * 
-     */
     private String namespace;
 
     private ClusterServiceConnectDefaults() {}
-    /**
-     * @return ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

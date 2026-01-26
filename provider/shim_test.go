@@ -18,7 +18,7 @@ import (
 	"context"
 	"testing"
 
-	shim "github.com/hashicorp/terraform-provider-aws/shim"
+	shim "github.com/blampe/patches/mirrors/aws/v6/shim"
 )
 
 // This checks that any runtime checks in the underlying provider (with patches) are passed.

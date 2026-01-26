@@ -11,71 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CodeConnections Connection.
-//
-// > **NOTE:** The `codeconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeconnections"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeconnections.NewConnection(ctx, "example", &codeconnections.ConnectionArgs{
-//				Name:         pulumi.String("example-connection"),
-//				ProviderType: pulumi.String("Bitbucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
-//
-// Using `pulumi import`, import CodeConnections connection using the ARN. For example:
-//
-// % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// The codeconnections connection ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-	HostArn pulumi.StringPtrOutput `pulumi:"hostArn"`
-	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-	Name           pulumi.StringOutput `pulumi:"name"`
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-	ProviderType pulumi.StringOutput `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
-	Timeouts ConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn              pulumi.StringOutput         `pulumi:"arn"`
+	ConnectionStatus pulumi.StringOutput         `pulumi:"connectionStatus"`
+	HostArn          pulumi.StringPtrOutput      `pulumi:"hostArn"`
+	Name             pulumi.StringOutput         `pulumi:"name"`
+	OwnerAccountId   pulumi.StringOutput         `pulumi:"ownerAccountId"`
+	ProviderType     pulumi.StringOutput         `pulumi:"providerType"`
+	Region           pulumi.StringOutput         `pulumi:"region"`
+	Tags             pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	Timeouts         ConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -108,45 +56,29 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// The codeconnections connection ARN.
-	Arn *string `pulumi:"arn"`
-	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-	HostArn *string `pulumi:"hostArn"`
-	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-	Name           *string `pulumi:"name"`
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-	ProviderType *string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string   `pulumi:"tagsAll"`
-	Timeouts *ConnectionTimeouts `pulumi:"timeouts"`
+	Arn              *string             `pulumi:"arn"`
+	ConnectionStatus *string             `pulumi:"connectionStatus"`
+	HostArn          *string             `pulumi:"hostArn"`
+	Name             *string             `pulumi:"name"`
+	OwnerAccountId   *string             `pulumi:"ownerAccountId"`
+	ProviderType     *string             `pulumi:"providerType"`
+	Region           *string             `pulumi:"region"`
+	Tags             map[string]string   `pulumi:"tags"`
+	TagsAll          map[string]string   `pulumi:"tagsAll"`
+	Timeouts         *ConnectionTimeouts `pulumi:"timeouts"`
 }
 
 type ConnectionState struct {
-	// The codeconnections connection ARN.
-	Arn pulumi.StringPtrInput
-	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	Arn              pulumi.StringPtrInput
 	ConnectionStatus pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-	HostArn pulumi.StringPtrInput
-	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-	Name           pulumi.StringPtrInput
-	OwnerAccountId pulumi.StringPtrInput
-	// The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-	ProviderType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ConnectionTimeoutsPtrInput
+	HostArn          pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	OwnerAccountId   pulumi.StringPtrInput
+	ProviderType     pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	Timeouts         ConnectionTimeoutsPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -154,32 +86,22 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-	HostArn *string `pulumi:"hostArn"`
-	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-	Name *string `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-	ProviderType *string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string   `pulumi:"tags"`
-	Timeouts *ConnectionTimeouts `pulumi:"timeouts"`
+	HostArn      *string             `pulumi:"hostArn"`
+	Name         *string             `pulumi:"name"`
+	ProviderType *string             `pulumi:"providerType"`
+	Region       *string             `pulumi:"region"`
+	Tags         map[string]string   `pulumi:"tags"`
+	Timeouts     *ConnectionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-	HostArn pulumi.StringPtrInput
-	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-	Name pulumi.StringPtrInput
-	// The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
+	HostArn      pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
 	ProviderType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ConnectionTimeoutsPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	Timeouts     ConnectionTimeoutsPtrInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -269,22 +191,18 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// The codeconnections connection ARN.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 func (o ConnectionOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
 func (o ConnectionOutput) HostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.HostArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -293,22 +211,18 @@ func (o ConnectionOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
 func (o ConnectionOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

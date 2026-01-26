@@ -15,120 +15,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.AccountVdmAttributes;
- * import com.pulumi.aws.sesv2.AccountVdmAttributesArgs;
- * import com.pulumi.aws.sesv2.inputs.AccountVdmAttributesDashboardAttributesArgs;
- * import com.pulumi.aws.sesv2.inputs.AccountVdmAttributesGuardianAttributesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccountVdmAttributes("example", AccountVdmAttributesArgs.builder()
- *             .vdmEnabled("ENABLED")
- *             .dashboardAttributes(AccountVdmAttributesDashboardAttributesArgs.builder()
- *                 .engagementMetrics("ENABLED")
- *                 .build())
- *             .guardianAttributes(AccountVdmAttributesGuardianAttributesArgs.builder()
- *                 .optimizedSharedDelivery("ENABLED")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/accountVdmAttributes:AccountVdmAttributes")
 public class AccountVdmAttributes extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-     * 
-     */
     @Export(name="dashboardAttributes", refs={AccountVdmAttributesDashboardAttributes.class}, tree="[0]")
     private Output<AccountVdmAttributesDashboardAttributes> dashboardAttributes;
 
-    /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-     * 
-     */
     public Output<AccountVdmAttributesDashboardAttributes> dashboardAttributes() {
         return this.dashboardAttributes;
     }
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
-     * 
-     */
     @Export(name="guardianAttributes", refs={AccountVdmAttributesGuardianAttributes.class}, tree="[0]")
     private Output<AccountVdmAttributesGuardianAttributes> guardianAttributes;
 
-    /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
-     * 
-     */
     public Output<AccountVdmAttributesGuardianAttributes> guardianAttributes() {
         return this.guardianAttributes;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vdmEnabled", refs={String.class}, tree="[0]")
     private Output<String> vdmEnabled;
 
-    /**
-     * @return Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vdmEnabled() {
         return this.vdmEnabled;
     }

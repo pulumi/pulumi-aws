@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * This data source can be used to fetch information about a specific
- * QuickSight group. By using this data source, you can reference QuickSight group
- * properties without having to hard code ARNs or unique IDs as input.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getQuicksightGroup({
- *     groupName: "example",
- * });
- * ```
- */
 export function getQuicksightGroup(args: GetQuicksightGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetQuicksightGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", {
@@ -37,19 +19,8 @@ export function getQuicksightGroup(args: GetQuicksightGroupArgs, opts?: pulumi.I
  */
 export interface GetQuicksightGroupArgs {
     awsAccountId?: string;
-    /**
-     * The name of the group that you want to match.
-     *
-     * The following arguments are optional:
-     */
     groupName: string;
-    /**
-     * QuickSight namespace. Defaults to `default`.
-     */
     namespace?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -57,14 +28,8 @@ export interface GetQuicksightGroupArgs {
  * A collection of values returned by getQuicksightGroup.
  */
 export interface GetQuicksightGroupResult {
-    /**
-     * The Amazon Resource Name (ARN) for the group.
-     */
     readonly arn: string;
     readonly awsAccountId: string;
-    /**
-     * The group description.
-     */
     readonly description: string;
     readonly groupName: string;
     /**
@@ -72,30 +37,9 @@ export interface GetQuicksightGroupResult {
      */
     readonly id: string;
     readonly namespace?: string;
-    /**
-     * The principal ID of the group.
-     */
     readonly principalId: string;
     readonly region: string;
 }
-/**
- * This data source can be used to fetch information about a specific
- * QuickSight group. By using this data source, you can reference QuickSight group
- * properties without having to hard code ARNs or unique IDs as input.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getQuicksightGroup({
- *     groupName: "example",
- * });
- * ```
- */
 export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuicksightGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightGroup:getQuicksightGroup", {
@@ -111,18 +55,7 @@ export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opt
  */
 export interface GetQuicksightGroupOutputArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The name of the group that you want to match.
-     *
-     * The following arguments are optional:
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * QuickSight namespace. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupExternalId {
-    /**
-     * @return The identifier issued to this resource by an external identity provider.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return The issuer for an external identifier.
-     * 
-     */
     private @Nullable String issuer;
 
     private GroupExternalId() {}
-    /**
-     * @return The identifier issued to this resource by an external identity provider.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return The issuer for an external identifier.
-     * 
-     */
     public Optional<String> issuer() {
         return Optional.ofNullable(this.issuer);
     }

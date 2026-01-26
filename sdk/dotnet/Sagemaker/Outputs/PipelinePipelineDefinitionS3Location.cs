@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class PipelinePipelineDefinitionS3Location
     {
-        /// <summary>
-        /// Name of the S3 bucket.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// The object key (or key name) uniquely identifies the object in an S3 bucket.
-        /// </summary>
         public readonly string ObjectKey;
-        /// <summary>
-        /// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
-        /// </summary>
         public readonly string? VersionId;
 
         [OutputConstructor]

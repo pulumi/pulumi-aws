@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreCodeInterpreterNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-        /// </summary>
         [Input("networkMode", required: true)]
         public Input<string> NetworkMode { get; set; } = null!;
 
-        /// <summary>
-        /// VPC configuration. See `VpcConfig` below.
-        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.AgentcoreCodeInterpreterNetworkConfigurationVpcConfigGetArgs>? VpcConfig { get; set; }
 

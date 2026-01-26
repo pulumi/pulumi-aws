@@ -12,60 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewAuthorizeVpcEndpointAccess(ctx, "test", &opensearch.AuthorizeVpcEndpointAccessArgs{
-//				DomainName: pulumi.Any(testAwsOpensearchDomain.DomainName),
-//				Account:    pulumi.String(current.AccountId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
-// ```
 type AuthorizeVpcEndpointAccess struct {
 	pulumi.CustomResourceState
 
-	// AWS account ID to grant access to.
-	Account pulumi.StringOutput `pulumi:"account"`
-	// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+	Account              pulumi.StringOutput                                      `pulumi:"account"`
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput `pulumi:"authorizedPrincipals"`
-	// Name of OpenSearch Service domain to provide access to.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	DomainName           pulumi.StringOutput                                      `pulumi:"domainName"`
+	Region               pulumi.StringOutput                                      `pulumi:"region"`
 }
 
 // NewAuthorizeVpcEndpointAccess registers a new resource with the given unique name, arguments, and options.
@@ -104,25 +57,17 @@ func GetAuthorizeVpcEndpointAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AuthorizeVpcEndpointAccess resources.
 type authorizeVpcEndpointAccessState struct {
-	// AWS account ID to grant access to.
-	Account *string `pulumi:"account"`
-	// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+	Account              *string                                         `pulumi:"account"`
 	AuthorizedPrincipals []AuthorizeVpcEndpointAccessAuthorizedPrincipal `pulumi:"authorizedPrincipals"`
-	// Name of OpenSearch Service domain to provide access to.
-	DomainName *string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DomainName           *string                                         `pulumi:"domainName"`
+	Region               *string                                         `pulumi:"region"`
 }
 
 type AuthorizeVpcEndpointAccessState struct {
-	// AWS account ID to grant access to.
-	Account pulumi.StringPtrInput
-	// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+	Account              pulumi.StringPtrInput
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput
-	// Name of OpenSearch Service domain to provide access to.
-	DomainName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DomainName           pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 }
 
 func (AuthorizeVpcEndpointAccessState) ElementType() reflect.Type {
@@ -130,22 +75,16 @@ func (AuthorizeVpcEndpointAccessState) ElementType() reflect.Type {
 }
 
 type authorizeVpcEndpointAccessArgs struct {
-	// AWS account ID to grant access to.
-	Account string `pulumi:"account"`
-	// Name of OpenSearch Service domain to provide access to.
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Account    string  `pulumi:"account"`
+	DomainName string  `pulumi:"domainName"`
+	Region     *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AuthorizeVpcEndpointAccess resource.
 type AuthorizeVpcEndpointAccessArgs struct {
-	// AWS account ID to grant access to.
-	Account pulumi.StringInput
-	// Name of OpenSearch Service domain to provide access to.
+	Account    pulumi.StringInput
 	DomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (AuthorizeVpcEndpointAccessArgs) ElementType() reflect.Type {
@@ -235,24 +174,20 @@ func (o AuthorizeVpcEndpointAccessOutput) ToAuthorizeVpcEndpointAccessOutputWith
 	return o
 }
 
-// AWS account ID to grant access to.
 func (o AuthorizeVpcEndpointAccessOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.Account }).(pulumi.StringOutput)
 }
 
-// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
 func (o AuthorizeVpcEndpointAccessOutput) AuthorizedPrincipals() AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
 		return v.AuthorizedPrincipals
 	}).(AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput)
 }
 
-// Name of OpenSearch Service domain to provide access to.
 func (o AuthorizeVpcEndpointAccessOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthorizeVpcEndpointAccessOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

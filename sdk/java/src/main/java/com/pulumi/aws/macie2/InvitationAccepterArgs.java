@@ -16,32 +16,16 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
 
     public static final InvitationAccepterArgs Empty = new InvitationAccepterArgs();
 
-    /**
-     * The AWS account ID for the account that sent the invitation.
-     * 
-     */
     @Import(name="administratorAccountId", required=true)
     private Output<String> administratorAccountId;
 
-    /**
-     * @return The AWS account ID for the account that sent the invitation.
-     * 
-     */
     public Output<String> administratorAccountId() {
         return this.administratorAccountId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
             $ = new InvitationAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder administratorAccountId(Output<String> administratorAccountId) {
             $.administratorAccountId = administratorAccountId;
             return this;
         }
 
-        /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder administratorAccountId(String administratorAccountId) {
             return administratorAccountId(Output.of(administratorAccountId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

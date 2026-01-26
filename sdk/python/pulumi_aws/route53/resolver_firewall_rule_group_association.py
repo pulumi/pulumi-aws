@@ -28,13 +28,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverFirewallRuleGroupAssociation resource.
-        :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
-        :param pulumi.Input[_builtins.int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
-        :param pulumi.Input[_builtins.str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the rule group association, to manage and use it.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
         pulumi.set(__self__, "priority", priority)
@@ -51,9 +44,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique identifier of the firewall rule group.
-        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @firewall_rule_group_id.setter
@@ -63,9 +53,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> pulumi.Input[_builtins.int]:
-        """
-        The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -75,9 +62,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique identifier of the VPC that you want to associate with the rule group.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -87,9 +71,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        """
         return pulumi.get(self, "mutation_protection")
 
     @mutation_protection.setter
@@ -99,9 +80,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name that lets you identify the rule group association, to manage and use it.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,9 +89,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -123,9 +98,6 @@ class ResolverFirewallRuleGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -147,15 +119,6 @@ class _ResolverFirewallRuleGroupAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallRuleGroupAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the firewall rule group association.
-        :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
-        :param pulumi.Input[_builtins.str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the rule group association, to manage and use it.
-        :param pulumi.Input[_builtins.int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -179,9 +142,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN (Amazon Resource Name) of the firewall rule group association.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -191,9 +151,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier of the firewall rule group.
-        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @firewall_rule_group_id.setter
@@ -203,9 +160,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        """
         return pulumi.get(self, "mutation_protection")
 
     @mutation_protection.setter
@@ -215,9 +169,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name that lets you identify the rule group association, to manage and use it.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -227,9 +178,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -239,9 +187,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -251,9 +196,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -263,9 +205,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -275,9 +214,6 @@ class _ResolverFirewallRuleGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier of the VPC that you want to associate with the rule group.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -300,39 +236,9 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Route 53 Resolver DNS Firewall rule group association resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("example",
-            name="example",
-            firewall_rule_group_id=example.id,
-            priority=100,
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-        ```
-
+        Create a ResolverFirewallRuleGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
-        :param pulumi.Input[_builtins.str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the rule group association, to manage and use it.
-        :param pulumi.Input[_builtins.int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
         ...
     @overload
@@ -341,30 +247,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
                  args: ResolverFirewallRuleGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route 53 Resolver DNS Firewall rule group association resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverFirewallRuleGroup("example", name="example")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("example",
-            name="example",
-            firewall_rule_group_id=example.id,
-            priority=100,
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-        ```
-
+        Create a ResolverFirewallRuleGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResolverFirewallRuleGroupAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -437,15 +320,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the firewall rule group association.
-        :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
-        :param pulumi.Input[_builtins.str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the rule group association, to manage and use it.
-        :param pulumi.Input[_builtins.int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -465,72 +339,45 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN (Amazon Resource Name) of the firewall rule group association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier of the firewall rule group.
-        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @_builtins.property
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> pulumi.Output[_builtins.str]:
-        """
-        If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        """
         return pulumi.get(self, "mutation_protection")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name that lets you identify the rule group association, to manage and use it.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> pulumi.Output[_builtins.int]:
-        """
-        The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier of the VPC that you want to associate with the rule group.
-        """
         return pulumi.get(self, "vpc_id")
 

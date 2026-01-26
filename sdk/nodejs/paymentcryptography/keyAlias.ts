@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.paymentcryptography.Key("test", {
- *     exportable: true,
- *     keyAttributes: [{
- *         keyAlgorithm: "TDES_3KEY",
- *         keyClass: "SYMMETRIC_KEY",
- *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
- *         keyModesOfUses: [{
- *             decrypt: true,
- *             encrypt: true,
- *             wrap: true,
- *             unwrap: true,
- *         }],
- *     }],
- * });
- * const testKeyAlias = new aws.paymentcryptography.KeyAlias("test", {
- *     aliasName: "alias/test-alias",
- *     keyArn: test.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
- *
- * ```sh
- * $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
- * ```
- */
 export class KeyAlias extends pulumi.CustomResource {
     /**
      * Get an existing KeyAlias resource's state with the given name, ID, and optional extra
@@ -71,19 +32,8 @@ export class KeyAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyAlias.__pulumiType;
     }
 
-    /**
-     * Name of the Key Alias.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly aliasName: pulumi.Output<string>;
-    /**
-     * ARN of the key.
-     */
     declare public readonly keyArn: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -120,19 +70,8 @@ export class KeyAlias extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KeyAlias resources.
  */
 export interface KeyAliasState {
-    /**
-     * Name of the Key Alias.
-     *
-     * The following arguments are optional:
-     */
     aliasName?: pulumi.Input<string>;
-    /**
-     * ARN of the key.
-     */
     keyArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -140,18 +79,7 @@ export interface KeyAliasState {
  * The set of arguments for constructing a KeyAlias resource.
  */
 export interface KeyAliasArgs {
-    /**
-     * Name of the Key Alias.
-     *
-     * The following arguments are optional:
-     */
     aliasName: pulumi.Input<string>;
-    /**
-     * ARN of the key.
-     */
     keyArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

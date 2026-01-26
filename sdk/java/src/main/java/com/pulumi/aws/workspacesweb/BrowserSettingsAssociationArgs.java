@@ -16,51 +16,23 @@ public final class BrowserSettingsAssociationArgs extends com.pulumi.resources.R
 
     public static final BrowserSettingsAssociationArgs Empty = new BrowserSettingsAssociationArgs();
 
-    /**
-     * ARN of the browser settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Import(name="browserSettingsArn", required=true)
     private Output<String> browserSettingsArn;
 
-    /**
-     * @return ARN of the browser settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> browserSettingsArn() {
         return this.browserSettingsArn;
     }
 
-    /**
-     * ARN of the portal to associate with the browser settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn", required=true)
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the browser settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -91,69 +63,29 @@ public final class BrowserSettingsAssociationArgs extends com.pulumi.resources.R
             $ = new BrowserSettingsAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param browserSettingsArn ARN of the browser settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder browserSettingsArn(Output<String> browserSettingsArn) {
             $.browserSettingsArn = browserSettingsArn;
             return this;
         }
 
-        /**
-         * @param browserSettingsArn ARN of the browser settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder browserSettingsArn(String browserSettingsArn) {
             return browserSettingsArn(Output.of(browserSettingsArn));
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the browser settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the browser settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

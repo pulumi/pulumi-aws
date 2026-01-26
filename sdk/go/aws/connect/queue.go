@@ -12,151 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Queue resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:               pulumi.String("Example Name"),
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Queue"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Quick Connect IDs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:               pulumi.String("Example Name"),
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				QuickConnectIds: pulumi.StringArray{
-//					pulumi.String("12345678-abcd-1234-abcd-123456789012"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Queue with Quick Connect IDs"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Outbound Caller Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:               pulumi.String("Example Name"),
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				OutboundCallerConfig: &connect.QueueOutboundCallerConfigArgs{
-//					OutboundCallerIdName:     pulumi.String("example"),
-//					OutboundCallerIdNumberId: pulumi.String("12345678-abcd-1234-abcd-123456789012"),
-//					OutboundFlowId:           pulumi.String("87654321-defg-1234-defg-987654321234"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Queue with Outbound Caller Config"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-// ```
 type Queue struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Queue.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the description of the Queue.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the identifier of the Hours of Operation.
-	HoursOfOperationId pulumi.StringOutput `pulumi:"hoursOfOperationId"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-	MaxContacts pulumi.IntPtrOutput `pulumi:"maxContacts"`
-	// Specifies the name of the Queue.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+	Arn                  pulumi.StringOutput                `pulumi:"arn"`
+	Description          pulumi.StringPtrOutput             `pulumi:"description"`
+	HoursOfOperationId   pulumi.StringOutput                `pulumi:"hoursOfOperationId"`
+	InstanceId           pulumi.StringOutput                `pulumi:"instanceId"`
+	MaxContacts          pulumi.IntPtrOutput                `pulumi:"maxContacts"`
+	Name                 pulumi.StringOutput                `pulumi:"name"`
 	OutboundCallerConfig QueueOutboundCallerConfigPtrOutput `pulumi:"outboundCallerConfig"`
-	// The identifier for the Queue.
-	QueueId pulumi.StringOutput `pulumi:"queueId"`
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	QueueId              pulumi.StringOutput                `pulumi:"queueId"`
+	QuickConnectIds      pulumi.StringArrayOutput           `pulumi:"quickConnectIds"`
+	Region               pulumi.StringOutput                `pulumi:"region"`
+	Status               pulumi.StringOutput                `pulumi:"status"`
+	Tags                 pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput             `pulumi:"tagsAll"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -195,61 +66,35 @@ func GetQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
-	// The Amazon Resource Name (ARN) of the Queue.
-	Arn *string `pulumi:"arn"`
-	// Specifies the description of the Queue.
-	Description *string `pulumi:"description"`
-	// Specifies the identifier of the Hours of Operation.
-	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-	MaxContacts *int `pulumi:"maxContacts"`
-	// Specifies the name of the Queue.
-	Name *string `pulumi:"name"`
-	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+	Arn                  *string                    `pulumi:"arn"`
+	Description          *string                    `pulumi:"description"`
+	HoursOfOperationId   *string                    `pulumi:"hoursOfOperationId"`
+	InstanceId           *string                    `pulumi:"instanceId"`
+	MaxContacts          *int                       `pulumi:"maxContacts"`
+	Name                 *string                    `pulumi:"name"`
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
-	// The identifier for the Queue.
-	QueueId *string `pulumi:"queueId"`
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds []string `pulumi:"quickConnectIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-	Status *string `pulumi:"status"`
-	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	QueueId              *string                    `pulumi:"queueId"`
+	QuickConnectIds      []string                   `pulumi:"quickConnectIds"`
+	Region               *string                    `pulumi:"region"`
+	Status               *string                    `pulumi:"status"`
+	Tags                 map[string]string          `pulumi:"tags"`
+	TagsAll              map[string]string          `pulumi:"tagsAll"`
 }
 
 type QueueState struct {
-	// The Amazon Resource Name (ARN) of the Queue.
-	Arn pulumi.StringPtrInput
-	// Specifies the description of the Queue.
-	Description pulumi.StringPtrInput
-	// Specifies the identifier of the Hours of Operation.
-	HoursOfOperationId pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-	MaxContacts pulumi.IntPtrInput
-	// Specifies the name of the Queue.
-	Name pulumi.StringPtrInput
-	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+	Arn                  pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	HoursOfOperationId   pulumi.StringPtrInput
+	InstanceId           pulumi.StringPtrInput
+	MaxContacts          pulumi.IntPtrInput
+	Name                 pulumi.StringPtrInput
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
-	// The identifier for the Queue.
-	QueueId pulumi.StringPtrInput
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-	Status pulumi.StringPtrInput
-	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	QueueId              pulumi.StringPtrInput
+	QuickConnectIds      pulumi.StringArrayInput
+	Region               pulumi.StringPtrInput
+	Status               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 }
 
 func (QueueState) ElementType() reflect.Type {
@@ -257,50 +102,30 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
-	// Specifies the description of the Queue.
-	Description *string `pulumi:"description"`
-	// Specifies the identifier of the Hours of Operation.
-	HoursOfOperationId string `pulumi:"hoursOfOperationId"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-	MaxContacts *int `pulumi:"maxContacts"`
-	// Specifies the name of the Queue.
-	Name *string `pulumi:"name"`
-	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+	Description          *string                    `pulumi:"description"`
+	HoursOfOperationId   string                     `pulumi:"hoursOfOperationId"`
+	InstanceId           string                     `pulumi:"instanceId"`
+	MaxContacts          *int                       `pulumi:"maxContacts"`
+	Name                 *string                    `pulumi:"name"`
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds []string `pulumi:"quickConnectIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-	Status *string `pulumi:"status"`
-	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	QuickConnectIds      []string                   `pulumi:"quickConnectIds"`
+	Region               *string                    `pulumi:"region"`
+	Status               *string                    `pulumi:"status"`
+	Tags                 map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
-	// Specifies the description of the Queue.
-	Description pulumi.StringPtrInput
-	// Specifies the identifier of the Hours of Operation.
-	HoursOfOperationId pulumi.StringInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-	MaxContacts pulumi.IntPtrInput
-	// Specifies the name of the Queue.
-	Name pulumi.StringPtrInput
-	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+	Description          pulumi.StringPtrInput
+	HoursOfOperationId   pulumi.StringInput
+	InstanceId           pulumi.StringInput
+	MaxContacts          pulumi.IntPtrInput
+	Name                 pulumi.StringPtrInput
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-	Status pulumi.StringPtrInput
-	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	QuickConnectIds      pulumi.StringArrayInput
+	Region               pulumi.StringPtrInput
+	Status               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -390,67 +215,54 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Queue.
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Queue.
 func (o QueueOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier of the Hours of Operation.
 func (o QueueOutput) HoursOfOperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.HoursOfOperationId }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o QueueOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
 func (o QueueOutput) MaxContacts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MaxContacts }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the name of the Queue.
 func (o QueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
 func (o QueueOutput) OutboundCallerConfig() QueueOutboundCallerConfigPtrOutput {
 	return o.ApplyT(func(v *Queue) QueueOutboundCallerConfigPtrOutput { return v.OutboundCallerConfig }).(QueueOutboundCallerConfigPtrOutput)
 }
 
-// The identifier for the Queue.
 func (o QueueOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
 }
 
-// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIds }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o QueueOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 func (o QueueOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o QueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o QueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentConfigurationAlarmResult
     {
-        /// <summary>
-        /// List of CloudWatch alarm names
-        /// </summary>
         public readonly ImmutableArray<string> AlarmNames;
-        /// <summary>
-        /// Whether circuit breaker is enabled
-        /// </summary>
         public readonly bool Enable;
-        /// <summary>
-        /// Whether to rollback on failure
-        /// </summary>
         public readonly bool Rollback;
 
         [OutputConstructor]

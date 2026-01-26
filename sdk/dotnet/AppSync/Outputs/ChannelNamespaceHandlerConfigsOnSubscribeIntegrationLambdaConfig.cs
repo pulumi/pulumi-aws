@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig
     {
-        /// <summary>
-        /// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-        /// </summary>
         public readonly string? InvokeType;
 
         [OutputConstructor]

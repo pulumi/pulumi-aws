@@ -64,25 +64,16 @@ class GetPublicKeyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Key ARN of the asymmetric CMK from which the public key was downloaded.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="customerMasterKeySpec")
     def customer_master_key_spec(self) -> _builtins.str:
-        """
-        Type of the public key that was downloaded.
-        """
         return pulumi.get(self, "customer_master_key_spec")
 
     @_builtins.property
     @pulumi.getter(name="encryptionAlgorithms")
     def encryption_algorithms(self) -> Sequence[_builtins.str]:
-        """
-        Encryption algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `ENCRYPT_DECRYPT`.
-        """
         return pulumi.get(self, "encryption_algorithms")
 
     @_builtins.property
@@ -106,25 +97,16 @@ class GetPublicKeyResult:
     @_builtins.property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> _builtins.str:
-        """
-        Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
-        """
         return pulumi.get(self, "key_usage")
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> _builtins.str:
-        """
-        Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
-        """
         return pulumi.get(self, "public_key")
 
     @_builtins.property
     @pulumi.getter(name="publicKeyPem")
     def public_key_pem(self) -> _builtins.str:
-        """
-        Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
-        """
         return pulumi.get(self, "public_key_pem")
 
     @_builtins.property
@@ -135,9 +117,6 @@ class GetPublicKeyResult:
     @_builtins.property
     @pulumi.getter(name="signingAlgorithms")
     def signing_algorithms(self) -> Sequence[_builtins.str]:
-        """
-        Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
-        """
         return pulumi.get(self, "signing_algorithms")
 
 
@@ -165,28 +144,7 @@ def get_public_key(grant_tokens: Optional[Sequence[_builtins.str]] = None,
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicKeyResult:
     """
-    Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_alias = aws.kms.get_public_key(key_id="alias/my-key")
-    by_id = aws.kms.get_public_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
-    by_alias_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
-    by_key_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-    ```
-
-
-    :param Sequence[_builtins.str] grant_tokens: List of grant tokens
-    :param _builtins.str key_id: Key identifier which can be one of the following format:
-           * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Alias name. E.g. - `alias/my-key`
-           * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
@@ -212,28 +170,7 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
-    Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_alias = aws.kms.get_public_key(key_id="alias/my-key")
-    by_id = aws.kms.get_public_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
-    by_alias_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
-    by_key_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-    ```
-
-
-    :param Sequence[_builtins.str] grant_tokens: List of grant tokens
-    :param _builtins.str key_id: Key identifier which can be one of the following format:
-           * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Alias name. E.g. - `alias/my-key`
-           * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens

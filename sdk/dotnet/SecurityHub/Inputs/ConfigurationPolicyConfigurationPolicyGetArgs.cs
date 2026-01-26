@@ -14,25 +14,15 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     {
         [Input("enabledStandardArns")]
         private InputList<string>? _enabledStandardArns;
-
-        /// <summary>
-        /// A list that defines which security standards are enabled in the configuration policy. It must be defined if `ServiceEnabled` is set to true.
-        /// </summary>
         public InputList<string> EnabledStandardArns
         {
             get => _enabledStandardArns ?? (_enabledStandardArns = new InputList<string>());
             set => _enabledStandardArns = value;
         }
 
-        /// <summary>
-        /// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-        /// </summary>
         [Input("securityControlsConfiguration")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationGetArgs>? SecurityControlsConfiguration { get; set; }
 
-        /// <summary>
-        /// Indicates whether Security Hub is enabled in the policy.
-        /// </summary>
         [Input("serviceEnabled", required: true)]
         public Input<bool> ServiceEnabled { get; set; } = null!;
 

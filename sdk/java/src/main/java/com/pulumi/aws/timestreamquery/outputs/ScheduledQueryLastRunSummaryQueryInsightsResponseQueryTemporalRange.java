@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange {
-    /**
-     * @return Insights into the most sub-optimal performing table on the temporal axis:
-     * 
-     */
     private @Nullable List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis> maxes;
 
     private ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange() {}
-    /**
-     * @return Insights into the most sub-optimal performing table on the temporal axis:
-     * 
-     */
     public List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis> maxes() {
         return this.maxes == null ? List.of() : this.maxes;
     }

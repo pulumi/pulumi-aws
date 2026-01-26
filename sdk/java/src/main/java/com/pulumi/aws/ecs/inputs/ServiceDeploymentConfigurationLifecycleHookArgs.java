@@ -17,62 +17,30 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
 
     public static final ServiceDeploymentConfigurationLifecycleHookArgs Empty = new ServiceDeploymentConfigurationLifecycleHookArgs();
 
-    /**
-     * Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
-     * 
-     */
     @Import(name="hookDetails")
     private @Nullable Output<String> hookDetails;
 
-    /**
-     * @return Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
-     * 
-     */
     public Optional<Output<String>> hookDetails() {
         return Optional.ofNullable(this.hookDetails);
     }
 
-    /**
-     * ARN of the Lambda function to invoke for the lifecycle hook.
-     * 
-     */
     @Import(name="hookTargetArn", required=true)
     private Output<String> hookTargetArn;
 
-    /**
-     * @return ARN of the Lambda function to invoke for the lifecycle hook.
-     * 
-     */
     public Output<String> hookTargetArn() {
         return this.hookTargetArn;
     }
 
-    /**
-     * Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-     * 
-     */
     @Import(name="lifecycleStages", required=true)
     private Output<List<String>> lifecycleStages;
 
-    /**
-     * @return Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-     * 
-     */
     public Output<List<String>> lifecycleStages() {
         return this.lifecycleStages;
     }
 
-    /**
-     * ARN of the IAM role that grants the service permission to invoke the Lambda function.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -104,96 +72,42 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
             $ = new ServiceDeploymentConfigurationLifecycleHookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hookDetails Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
-         * 
-         * @return builder
-         * 
-         */
         public Builder hookDetails(@Nullable Output<String> hookDetails) {
             $.hookDetails = hookDetails;
             return this;
         }
 
-        /**
-         * @param hookDetails Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
-         * 
-         * @return builder
-         * 
-         */
         public Builder hookDetails(String hookDetails) {
             return hookDetails(Output.of(hookDetails));
         }
 
-        /**
-         * @param hookTargetArn ARN of the Lambda function to invoke for the lifecycle hook.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hookTargetArn(Output<String> hookTargetArn) {
             $.hookTargetArn = hookTargetArn;
             return this;
         }
 
-        /**
-         * @param hookTargetArn ARN of the Lambda function to invoke for the lifecycle hook.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hookTargetArn(String hookTargetArn) {
             return hookTargetArn(Output.of(hookTargetArn));
         }
 
-        /**
-         * @param lifecycleStages Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleStages(Output<List<String>> lifecycleStages) {
             $.lifecycleStages = lifecycleStages;
             return this;
         }
 
-        /**
-         * @param lifecycleStages Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleStages(List<String> lifecycleStages) {
             return lifecycleStages(Output.of(lifecycleStages));
         }
 
-        /**
-         * @param lifecycleStages Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleStages(String... lifecycleStages) {
             return lifecycleStages(List.of(lifecycleStages));
         }
 
-        /**
-         * @param roleArn ARN of the IAM role that grants the service permission to invoke the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of the IAM role that grants the service permission to invoke the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

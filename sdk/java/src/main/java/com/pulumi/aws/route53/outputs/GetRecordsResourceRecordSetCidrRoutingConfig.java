@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRecordsResourceRecordSetCidrRoutingConfig {
-    /**
-     * @return The CIDR collection ID.
-     * 
-     */
     private String collectionId;
-    /**
-     * @return The CIDR collection location name.
-     * 
-     */
     private String locationName;
 
     private GetRecordsResourceRecordSetCidrRoutingConfig() {}
-    /**
-     * @return The CIDR collection ID.
-     * 
-     */
     public String collectionId() {
         return this.collectionId;
     }
-    /**
-     * @return The CIDR collection location name.
-     * 
-     */
     public String locationName() {
         return this.locationName;
     }

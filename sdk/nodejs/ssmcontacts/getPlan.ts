@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing a Plan of an AWS SSM Contact.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ssmcontacts.getPlan({
- *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
- * });
- * ```
- */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmcontacts/getPlan:getPlan", {
@@ -35,13 +19,7 @@ export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getPlan.
  */
 export interface GetPlanArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
-     */
     contactId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -55,27 +33,8 @@ export interface GetPlanResult {
      */
     readonly id: string;
     readonly region: string;
-    /**
-     * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-     */
     readonly stages: outputs.ssmcontacts.GetPlanStage[];
 }
-/**
- * Data source for managing a Plan of an AWS SSM Contact.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ssmcontacts.getPlan({
- *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
- * });
- * ```
- */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmcontacts/getPlan:getPlan", {
@@ -88,12 +47,6 @@ export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getPlan.
  */
 export interface GetPlanOutputArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
-     */
     contactId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

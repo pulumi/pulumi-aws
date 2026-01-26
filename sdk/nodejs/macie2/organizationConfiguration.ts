@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage Amazon Macie configuration settings for an organization in AWS Organizations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.macie2.OrganizationConfiguration("example", {autoEnable: true});
- * ```
- */
 export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationConfiguration resource's state with the given name, ID, and optional extra
@@ -45,12 +33,9 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
      */
     declare public readonly autoEnable: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -86,12 +71,9 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
  */
 export interface OrganizationConfigurationState {
     /**
-     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
      */
     autoEnable?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -100,11 +82,8 @@ export interface OrganizationConfigurationState {
  */
 export interface OrganizationConfigurationArgs {
     /**
-     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
      */
     autoEnable: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

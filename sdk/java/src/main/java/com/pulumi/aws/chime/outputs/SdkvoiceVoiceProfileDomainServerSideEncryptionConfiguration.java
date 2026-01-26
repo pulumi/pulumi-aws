@@ -10,21 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration {
-    /**
-     * @return ARN for KMS Key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String kmsKeyArn;
 
     private SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration() {}
-    /**
-     * @return ARN for KMS Key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }

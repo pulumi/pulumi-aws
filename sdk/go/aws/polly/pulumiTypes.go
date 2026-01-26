@@ -14,20 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetVoicesVoice struct {
-	// Additional codes for languages available for the specified voice in addition to its default language.
 	AdditionalLanguageCodes []string `pulumi:"additionalLanguageCodes"`
-	// Gender of the voice.
-	Gender string `pulumi:"gender"`
-	// Amazon Polly assigned voice ID.
-	Id string `pulumi:"id"`
-	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-	LanguageCode string `pulumi:"languageCode"`
-	// Human readable name of the language in English.
-	LanguageName string `pulumi:"languageName"`
-	// Name of the voice.
-	Name string `pulumi:"name"`
-	// Specifies which engines are supported by a given voice.
-	SupportedEngines []string `pulumi:"supportedEngines"`
+	Gender                  string   `pulumi:"gender"`
+	Id                      string   `pulumi:"id"`
+	LanguageCode            string   `pulumi:"languageCode"`
+	LanguageName            string   `pulumi:"languageName"`
+	Name                    string   `pulumi:"name"`
+	SupportedEngines        []string `pulumi:"supportedEngines"`
 }
 
 // GetVoicesVoiceInput is an input type that accepts GetVoicesVoiceArgs and GetVoicesVoiceOutput values.
@@ -42,20 +35,13 @@ type GetVoicesVoiceInput interface {
 }
 
 type GetVoicesVoiceArgs struct {
-	// Additional codes for languages available for the specified voice in addition to its default language.
 	AdditionalLanguageCodes pulumi.StringArrayInput `pulumi:"additionalLanguageCodes"`
-	// Gender of the voice.
-	Gender pulumi.StringInput `pulumi:"gender"`
-	// Amazon Polly assigned voice ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-	LanguageCode pulumi.StringInput `pulumi:"languageCode"`
-	// Human readable name of the language in English.
-	LanguageName pulumi.StringInput `pulumi:"languageName"`
-	// Name of the voice.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies which engines are supported by a given voice.
-	SupportedEngines pulumi.StringArrayInput `pulumi:"supportedEngines"`
+	Gender                  pulumi.StringInput      `pulumi:"gender"`
+	Id                      pulumi.StringInput      `pulumi:"id"`
+	LanguageCode            pulumi.StringInput      `pulumi:"languageCode"`
+	LanguageName            pulumi.StringInput      `pulumi:"languageName"`
+	Name                    pulumi.StringInput      `pulumi:"name"`
+	SupportedEngines        pulumi.StringArrayInput `pulumi:"supportedEngines"`
 }
 
 func (GetVoicesVoiceArgs) ElementType() reflect.Type {
@@ -109,37 +95,30 @@ func (o GetVoicesVoiceOutput) ToGetVoicesVoiceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Additional codes for languages available for the specified voice in addition to its default language.
 func (o GetVoicesVoiceOutput) AdditionalLanguageCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVoicesVoice) []string { return v.AdditionalLanguageCodes }).(pulumi.StringArrayOutput)
 }
 
-// Gender of the voice.
 func (o GetVoicesVoiceOutput) Gender() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesVoice) string { return v.Gender }).(pulumi.StringOutput)
 }
 
-// Amazon Polly assigned voice ID.
 func (o GetVoicesVoiceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesVoice) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
 func (o GetVoicesVoiceOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesVoice) string { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// Human readable name of the language in English.
 func (o GetVoicesVoiceOutput) LanguageName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesVoice) string { return v.LanguageName }).(pulumi.StringOutput)
 }
 
-// Name of the voice.
 func (o GetVoicesVoiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesVoice) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies which engines are supported by a given voice.
 func (o GetVoicesVoiceOutput) SupportedEngines() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVoicesVoice) []string { return v.SupportedEngines }).(pulumi.StringArrayOutput)
 }

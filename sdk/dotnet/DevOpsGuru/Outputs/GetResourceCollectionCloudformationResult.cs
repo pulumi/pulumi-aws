@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class GetResourceCollectionCloudformationResult
     {
-        /// <summary>
-        /// Array of the names of the AWS CloudFormation stacks.
-        /// </summary>
         public readonly ImmutableArray<string> StackNames;
 
         [OutputConstructor]

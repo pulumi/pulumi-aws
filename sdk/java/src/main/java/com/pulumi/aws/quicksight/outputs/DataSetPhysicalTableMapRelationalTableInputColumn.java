@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetPhysicalTableMapRelationalTableInputColumn {
-    /**
-     * @return Name of this column in the underlying data source.
-     * 
-     */
     private String name;
-    /**
-     * @return Data type of the column.
-     * 
-     */
     private String type;
 
     private DataSetPhysicalTableMapRelationalTableInputColumn() {}
-    /**
-     * @return Name of this column in the underlying data source.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Data type of the column.
-     * 
-     */
     public String type() {
         return this.type;
     }

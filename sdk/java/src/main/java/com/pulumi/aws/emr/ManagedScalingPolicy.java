@@ -17,143 +17,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.Cluster;
- * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
- * import com.pulumi.aws.emr.ManagedScalingPolicy;
- * import com.pulumi.aws.emr.ManagedScalingPolicyArgs;
- * import com.pulumi.aws.emr.inputs.ManagedScalingPolicyComputeLimitArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sample = new Cluster("sample", ClusterArgs.builder()
- *             .name("emr-sample-cluster")
- *             .releaseLabel("emr-5.30.0")
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType("m4.large")
- *                 .build())
- *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType("c4.large")
- *                 .build())
- *             .build());
- * 
- *         var samplepolicy = new ManagedScalingPolicy("samplepolicy", ManagedScalingPolicyArgs.builder()
- *             .clusterId(sample.id())
- *             .computeLimits(ManagedScalingPolicyComputeLimitArgs.builder()
- *                 .unitType("Instances")
- *                 .minimumCapacityUnits(2)
- *                 .maximumCapacityUnits(10)
- *                 .maximumOndemandCapacityUnits(2)
- *                 .maximumCoreCapacityUnits(10)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
- * ```
- * 
- */
 @ResourceType(type="aws:emr/managedScalingPolicy:ManagedScalingPolicy")
 public class ManagedScalingPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the EMR cluster
-     * 
-     */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
-    /**
-     * @return ID of the EMR cluster
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
-    /**
-     * Configuration block with compute limit settings. Described below.
-     * 
-     */
     @Export(name="computeLimits", refs={List.class,ManagedScalingPolicyComputeLimit.class}, tree="[0,1]")
     private Output<List<ManagedScalingPolicyComputeLimit>> computeLimits;
 
-    /**
-     * @return Configuration block with compute limit settings. Described below.
-     * 
-     */
     public Output<List<ManagedScalingPolicyComputeLimit>> computeLimits() {
         return this.computeLimits;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
-     * 
-     */
     @Export(name="scalingStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scalingStrategy;
 
-    /**
-     * @return Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
-     * 
-     */
     public Output<Optional<String>> scalingStrategy() {
         return Codegen.optional(this.scalingStrategy);
     }
-    /**
-     * Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
-     * 
-     */
     @Export(name="utilizationPerformanceIndex", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> utilizationPerformanceIndex;
 
-    /**
-     * @return Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
-     * 
-     */
     public Output<Optional<Integer>> utilizationPerformanceIndex() {
         return Codegen.optional(this.utilizationPerformanceIndex);
     }

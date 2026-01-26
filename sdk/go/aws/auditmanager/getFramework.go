@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Audit Manager Framework.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.LookupFramework(ctx, &auditmanager.LookupFrameworkArgs{
-//				Name:          "Essential Eight",
-//				FrameworkType: "Standard",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pulumi.InvokeOption) (*LookupFrameworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrameworkResult
@@ -53,11 +23,9 @@ func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pul
 
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkArgs struct {
-	FrameworkType string `pulumi:"frameworkType"`
-	// Name of the framework.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FrameworkType string  `pulumi:"frameworkType"`
+	Name          string  `pulumi:"name"`
+	Region        *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFramework.
@@ -84,11 +52,9 @@ func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, 
 
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkOutputArgs struct {
-	FrameworkType pulumi.StringInput `pulumi:"frameworkType"`
-	// Name of the framework.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	FrameworkType pulumi.StringInput    `pulumi:"frameworkType"`
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupFrameworkOutputArgs) ElementType() reflect.Type {

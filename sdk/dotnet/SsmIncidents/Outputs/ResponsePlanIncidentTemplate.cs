@@ -13,29 +13,11 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanIncidentTemplate
     {
-        /// <summary>
-        /// A string used to stop Incident Manager from creating multiple incident records for the same incident.
-        /// </summary>
         public readonly string? DedupeString;
-        /// <summary>
-        /// The impact value of a generated incident. The following values are supported:
-        /// </summary>
         public readonly int Impact;
-        /// <summary>
-        /// The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? IncidentTags;
-        /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `NotificationTarget` configuration block supports the following argument:
-        /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlanIncidentTemplateNotificationTarget> NotificationTargets;
-        /// <summary>
-        /// The summary of an incident.
-        /// </summary>
         public readonly string? Summary;
-        /// <summary>
-        /// The title of a generated incident.
-        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

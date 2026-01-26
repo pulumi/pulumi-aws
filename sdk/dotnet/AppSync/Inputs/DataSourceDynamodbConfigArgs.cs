@@ -12,33 +12,18 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceDynamodbConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The DeltaSyncConfig for a versioned data source. See `DeltaSyncConfig` Block for details.
-        /// </summary>
         [Input("deltaSyncConfig")]
         public Input<Inputs.DataSourceDynamodbConfigDeltaSyncConfigArgs>? DeltaSyncConfig { get; set; }
 
-        /// <summary>
-        /// AWS region of the DynamoDB table. Defaults to current region.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the DynamoDB table.
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
-        /// <summary>
-        /// Set to `True` to use Amazon Cognito credentials with this data source.
-        /// </summary>
         [Input("useCallerCredentials")]
         public Input<bool>? UseCallerCredentials { get; set; }
 
-        /// <summary>
-        /// Detects Conflict Detection and Resolution with this data source.
-        /// </summary>
         [Input("versioned")]
         public Input<bool>? Versioned { get; set; }
 

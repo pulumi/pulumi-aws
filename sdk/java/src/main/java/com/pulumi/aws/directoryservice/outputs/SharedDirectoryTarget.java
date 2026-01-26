@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SharedDirectoryTarget {
-    /**
-     * @return Identifier of the directory consumer account.
-     * 
-     */
     private String id;
-    /**
-     * @return Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
-     * 
-     */
     private @Nullable String type;
 
     private SharedDirectoryTarget() {}
-    /**
-     * @return Identifier of the directory consumer account.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

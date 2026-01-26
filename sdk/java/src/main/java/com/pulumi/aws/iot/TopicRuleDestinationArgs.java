@@ -18,47 +18,23 @@ public final class TopicRuleDestinationArgs extends com.pulumi.resources.Resourc
 
     public static final TopicRuleDestinationArgs Empty = new TopicRuleDestinationArgs();
 
-    /**
-     * Whether or not to enable the destination. Default: `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether or not to enable the destination. Default: `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-     * 
-     */
     @Import(name="vpcConfiguration", required=true)
     private Output<TopicRuleDestinationVpcConfigurationArgs> vpcConfiguration;
 
-    /**
-     * @return Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-     * 
-     */
     public Output<TopicRuleDestinationVpcConfigurationArgs> vpcConfiguration() {
         return this.vpcConfiguration;
     }
@@ -89,65 +65,29 @@ public final class TopicRuleDestinationArgs extends com.pulumi.resources.Resourc
             $ = new TopicRuleDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether or not to enable the destination. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether or not to enable the destination. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcConfiguration Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(Output<TopicRuleDestinationVpcConfigurationArgs> vpcConfiguration) {
             $.vpcConfiguration = vpcConfiguration;
             return this;
         }
 
-        /**
-         * @param vpcConfiguration Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(TopicRuleDestinationVpcConfigurationArgs vpcConfiguration) {
             return vpcConfiguration(Output.of(vpcConfiguration));
         }

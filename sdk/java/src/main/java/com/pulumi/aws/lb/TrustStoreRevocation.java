@@ -15,146 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a ELBv2 Trust Store Revocation for use with Application Load Balancer Listener resources.
- * 
- * ## Example Usage
- * 
- * ### Trust Store With Revocations
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TrustStore;
- * import com.pulumi.aws.lb.TrustStoreArgs;
- * import com.pulumi.aws.lb.TrustStoreRevocation;
- * import com.pulumi.aws.lb.TrustStoreRevocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new TrustStore("test", TrustStoreArgs.builder()
- *             .name("tf-example-lb-ts")
- *             .caCertificatesBundleS3Bucket("...")
- *             .caCertificatesBundleS3Key("...")
- *             .build());
- * 
- *         var testTrustStoreRevocation = new TrustStoreRevocation("testTrustStoreRevocation", TrustStoreRevocationArgs.builder()
- *             .trustStoreArn(test.arn())
- *             .revocationsS3Bucket("...")
- *             .revocationsS3Key("...")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Trust Store Revocations using their ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
- * ```
- * 
- */
 @ResourceType(type="aws:lb/trustStoreRevocation:TrustStoreRevocation")
 public class TrustStoreRevocation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * AWS assigned RevocationId, (number).
-     * 
-     */
     @Export(name="revocationId", refs={Integer.class}, tree="[0]")
     private Output<Integer> revocationId;
 
-    /**
-     * @return AWS assigned RevocationId, (number).
-     * 
-     */
     public Output<Integer> revocationId() {
         return this.revocationId;
     }
-    /**
-     * S3 Bucket name holding the client certificate CA bundle.
-     * 
-     */
     @Export(name="revocationsS3Bucket", refs={String.class}, tree="[0]")
     private Output<String> revocationsS3Bucket;
 
-    /**
-     * @return S3 Bucket name holding the client certificate CA bundle.
-     * 
-     */
     public Output<String> revocationsS3Bucket() {
         return this.revocationsS3Bucket;
     }
-    /**
-     * S3 object key holding the client certificate CA bundle.
-     * 
-     */
     @Export(name="revocationsS3Key", refs={String.class}, tree="[0]")
     private Output<String> revocationsS3Key;
 
-    /**
-     * @return S3 object key holding the client certificate CA bundle.
-     * 
-     */
     public Output<String> revocationsS3Key() {
         return this.revocationsS3Key;
     }
-    /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-     * 
-     */
     @Export(name="revocationsS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> revocationsS3ObjectVersion;
 
-    /**
-     * @return Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-     * 
-     */
     public Output<Optional<String>> revocationsS3ObjectVersion() {
         return Codegen.optional(this.revocationsS3ObjectVersion);
     }
-    /**
-     * Trust Store ARN.
-     * 
-     */
     @Export(name="trustStoreArn", refs={String.class}, tree="[0]")
     private Output<String> trustStoreArn;
 
-    /**
-     * @return Trust Store ARN.
-     * 
-     */
     public Output<String> trustStoreArn() {
         return this.trustStoreArn;
     }

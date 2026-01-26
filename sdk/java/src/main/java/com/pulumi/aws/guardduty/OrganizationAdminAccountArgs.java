@@ -16,32 +16,16 @@ public final class OrganizationAdminAccountArgs extends com.pulumi.resources.Res
 
     public static final OrganizationAdminAccountArgs Empty = new OrganizationAdminAccountArgs();
 
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     * 
-     */
     @Import(name="adminAccountId", required=true)
     private Output<String> adminAccountId;
 
-    /**
-     * @return AWS account identifier to designate as a delegated administrator for GuardDuty.
-     * 
-     */
     public Output<String> adminAccountId() {
         return this.adminAccountId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class OrganizationAdminAccountArgs extends com.pulumi.resources.Res
             $ = new OrganizationAdminAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adminAccountId AWS account identifier to designate as a delegated administrator for GuardDuty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminAccountId(Output<String> adminAccountId) {
             $.adminAccountId = adminAccountId;
             return this;
         }
 
-        /**
-         * @param adminAccountId AWS account identifier to designate as a delegated administrator for GuardDuty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminAccountId(String adminAccountId) {
             return adminAccountId(Output.of(adminAccountId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -25,17 +25,9 @@ public final class GetSecretsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-     * 
-     */
     @Import(name="secrets", required=true)
     private Output<List<GetSecretsSecretArgs>> secrets;
 
-    /**
-     * @return One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-     * 
-     */
     public Output<List<GetSecretsSecretArgs>> secrets() {
         return this.secrets;
     }
@@ -74,33 +66,15 @@ public final class GetSecretsArgs extends com.pulumi.resources.InvokeArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secrets(Output<List<GetSecretsSecretArgs>> secrets) {
             $.secrets = secrets;
             return this;
         }
 
-        /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secrets(List<GetSecretsSecretArgs> secrets) {
             return secrets(Output.of(secrets));
         }
 
-        /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secrets(GetSecretsSecretArgs... secrets) {
             return secrets(List.of(secrets));
         }

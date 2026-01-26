@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsBotMember
     {
-        /// <summary>
-        /// (Required) - Alias ID of a bot that is a member of this network of bots.
-        /// </summary>
         public readonly string AliasId;
-        /// <summary>
-        /// (Required) - Alias name of a bot that is a member of this network of bots.
-        /// </summary>
         public readonly string AliasName;
-        /// <summary>
-        /// (Required) - Unique ID of a bot that is a member of this network of bots.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// (Required) - Version of a bot that is a member of this network of bots.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

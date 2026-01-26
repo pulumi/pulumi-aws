@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class EndpointConfigurationDataCaptureConfigCaptureOptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
-        /// </summary>
         [Input("captureMode", required: true)]
         public Input<string> CaptureMode { get; set; } = null!;
 

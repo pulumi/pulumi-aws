@@ -16,66 +16,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS QuickSight Namespace.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.Namespace;
- * import com.pulumi.aws.quicksight.NamespaceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Namespace("example", NamespaceArgs.builder()
- *             .namespace("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/namespace:Namespace")
 public class Namespace extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Namespace.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Namespace.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -85,105 +30,45 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * Namespace AWS Region.
-     * 
-     */
     @Export(name="capacityRegion", refs={String.class}, tree="[0]")
     private Output<String> capacityRegion;
 
-    /**
-     * @return Namespace AWS Region.
-     * 
-     */
     public Output<String> capacityRegion() {
         return this.capacityRegion;
     }
-    /**
-     * Creation status of the namespace.
-     * 
-     */
     @Export(name="creationStatus", refs={String.class}, tree="[0]")
     private Output<String> creationStatus;
 
-    /**
-     * @return Creation status of the namespace.
-     * 
-     */
     public Output<String> creationStatus() {
         return this.creationStatus;
     }
-    /**
-     * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-     * 
-     */
     @Export(name="identityStore", refs={String.class}, tree="[0]")
     private Output<String> identityStore;
 
-    /**
-     * @return User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-     * 
-     */
     public Output<String> identityStore() {
         return this.identityStore;
     }
-    /**
-     * Name of the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output<String> namespace;
 
-    /**
-     * @return Name of the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttp2RouteActionRewritePrefix
     {
-        /// <summary>
-        /// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         public readonly string? DefaultPrefix;
-        /// <summary>
-        /// Value used to replace the incoming route prefix when rewritten.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

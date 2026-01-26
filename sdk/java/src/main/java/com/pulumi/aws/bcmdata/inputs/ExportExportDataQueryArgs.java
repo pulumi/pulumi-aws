@@ -17,32 +17,16 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
 
     public static final ExportExportDataQueryArgs Empty = new ExportExportDataQueryArgs();
 
-    /**
-     * Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-     * 
-     */
     @Import(name="queryStatement", required=true)
     private Output<String> queryStatement;
 
-    /**
-     * @return Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-     * 
-     */
     public Output<String> queryStatement() {
         return this.queryStatement;
     }
 
-    /**
-     * Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
-     * 
-     */
     @Import(name="tableConfigurations")
     private @Nullable Output<Map<String,Map<String,String>>> tableConfigurations;
 
-    /**
-     * @return Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
-     * 
-     */
     public Optional<Output<Map<String,Map<String,String>>>> tableConfigurations() {
         return Optional.ofNullable(this.tableConfigurations);
     }
@@ -72,44 +56,20 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
             $ = new ExportExportDataQueryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param queryStatement Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStatement(Output<String> queryStatement) {
             $.queryStatement = queryStatement;
             return this;
         }
 
-        /**
-         * @param queryStatement Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStatement(String queryStatement) {
             return queryStatement(Output.of(queryStatement));
         }
 
-        /**
-         * @param tableConfigurations Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableConfigurations(@Nullable Output<Map<String,Map<String,String>>> tableConfigurations) {
             $.tableConfigurations = tableConfigurations;
             return this;
         }
 
-        /**
-         * @param tableConfigurations Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableConfigurations(Map<String,Map<String,String>> tableConfigurations) {
             return tableConfigurations(Output.of(tableConfigurations));
         }

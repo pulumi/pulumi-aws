@@ -12,51 +12,29 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
 
     public sealed class DomainRuleBasedMatchingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-        /// </summary>
         [Input("attributeTypesSelector")]
         public Input<Inputs.DomainRuleBasedMatchingAttributeTypesSelectorGetArgs>? AttributeTypesSelector { get; set; }
 
-        /// <summary>
-        /// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        /// </summary>
         [Input("conflictResolution")]
         public Input<Inputs.DomainRuleBasedMatchingConflictResolutionGetArgs>? ConflictResolution { get; set; }
 
-        /// <summary>
-        /// The flag that enables the rule-based matching process of duplicate profiles.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        /// </summary>
         [Input("exportingConfig")]
         public Input<Inputs.DomainRuleBasedMatchingExportingConfigGetArgs>? ExportingConfig { get; set; }
 
         [Input("matchingRules")]
         private InputList<Inputs.DomainRuleBasedMatchingMatchingRuleGetArgs>? _matchingRules;
-
-        /// <summary>
-        /// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `Rule` in the `NatchingRules`. Documented below.
-        /// </summary>
         public InputList<Inputs.DomainRuleBasedMatchingMatchingRuleGetArgs> MatchingRules
         {
             get => _matchingRules ?? (_matchingRules = new InputList<Inputs.DomainRuleBasedMatchingMatchingRuleGetArgs>());
             set => _matchingRules = value;
         }
 
-        /// <summary>
-        /// Indicates the maximum allowed rule level for matching.
-        /// </summary>
         [Input("maxAllowedRuleLevelForMatching")]
         public Input<int>? MaxAllowedRuleLevelForMatching { get; set; }
 
-        /// <summary>
-        /// Indicates the maximum allowed rule level for merging.
-        /// </summary>
         [Input("maxAllowedRuleLevelForMerging")]
         public Input<int>? MaxAllowedRuleLevelForMerging { get; set; }
 

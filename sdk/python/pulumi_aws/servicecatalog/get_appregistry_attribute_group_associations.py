@@ -43,9 +43,6 @@ class GetAppregistryAttributeGroupAssociationsResult:
     @_builtins.property
     @pulumi.getter(name="attributeGroupIds")
     def attribute_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of attribute group IDs this application is associated with.
-        """
         return pulumi.get(self, "attribute_group_ids")
 
     @_builtins.property
@@ -81,24 +78,7 @@ def get_appregistry_attribute_group_associations(id: Optional[_builtins.str] = N
                                                  region: Optional[_builtins.str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppregistryAttributeGroupAssociationsResult:
     """
-    Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_appregistry_attribute_group_associations(id="12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
-    ```
-
-
-    :param _builtins.str id: ID of the application to which attribute groups are associated.
-    :param _builtins.str name: Name of the application to which attribute groups are associated.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-           > Exactly one of `id`or `name` must be set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -117,24 +97,7 @@ def get_appregistry_attribute_group_associations_output(id: Optional[pulumi.Inpu
                                                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppregistryAttributeGroupAssociationsResult]:
     """
-    Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_appregistry_attribute_group_associations(id="12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
-    ```
-
-
-    :param _builtins.str id: ID of the application to which attribute groups are associated.
-    :param _builtins.str name: Name of the application to which attribute groups are associated.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-           > Exactly one of `id`or `name` must be set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

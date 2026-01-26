@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification {
-    /**
-     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-     * 
-     */
     private String allocationStrategy;
 
     private ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification() {}
-    /**
-     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-     * 
-     */
     public String allocationStrategy() {
         return this.allocationStrategy;
     }

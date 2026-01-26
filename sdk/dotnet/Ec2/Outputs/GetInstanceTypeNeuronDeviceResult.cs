@@ -16,9 +16,6 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int CoreCount;
         public readonly int CoreVersion;
         public readonly int Count;
-        /// <summary>
-        /// Size of the instance memory, in MiB.
-        /// </summary>
         public readonly int MemorySize;
         public readonly string Name;
 

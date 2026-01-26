@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
-    /**
-     * @return The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     private String authType;
-    /**
-     * @return The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     private String credentialsSecretArn;
-    /**
-     * @return The domain of your SharePoint instance or site URL/URLs.
-     * 
-     */
     private String domain;
-    /**
-     * @return The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-     * 
-     */
     private String hostType;
-    /**
-     * @return A list of one or more SharePoint site URLs.
-     * 
-     */
     private List<String> siteUrls;
-    /**
-     * @return The identifier of your Microsoft 365 tenant.
-     * 
-     */
     private @Nullable String tenantId;
 
     private AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration() {}
-    /**
-     * @return The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     public String authType() {
         return this.authType;
     }
-    /**
-     * @return The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
-    /**
-     * @return The domain of your SharePoint instance or site URL/URLs.
-     * 
-     */
     public String domain() {
         return this.domain;
     }
-    /**
-     * @return The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-     * 
-     */
     public String hostType() {
         return this.hostType;
     }
-    /**
-     * @return A list of one or more SharePoint site URLs.
-     * 
-     */
     public List<String> siteUrls() {
         return this.siteUrls;
     }
-    /**
-     * @return The identifier of your Microsoft 365 tenant.
-     * 
-     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }

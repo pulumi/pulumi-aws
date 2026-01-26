@@ -9,115 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Resource for managing an Amazon S3 Vectors Index.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.VectorsIndex("example", new()
-    ///     {
-    ///         IndexName = "example-index",
-    ///         VectorBucketName = exampleAwsS3vectorsVectorBucket.VectorBucketName,
-    ///         DataType = "float32",
-    ///         Dimension = 2,
-    ///         DistanceMetric = "euclidean",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Vectors Index using the `index_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/vectorsIndex:VectorsIndex example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket/index/example-index
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/vectorsIndex:VectorsIndex")]
     public partial class VectorsIndex : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Date and time when the vector index was created.
-        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Data type of the vectors to be inserted into the vector index. Valid values: `Float32`.
-        /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
 
-        /// <summary>
-        /// Dimensions of the vectors to be inserted into the vector index.
-        /// </summary>
         [Output("dimension")]
         public Output<int> Dimension { get; private set; } = null!;
 
-        /// <summary>
-        /// Distance metric to be used for similarity search. Valid values: `Cosine`, `Euclidean`.
-        /// </summary>
         [Output("distanceMetric")]
         public Output<string> DistanceMetric { get; private set; } = null!;
 
-        /// <summary>
-        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
-        /// </summary>
         [Output("encryptionConfigurations")]
         public Output<ImmutableArray<Outputs.VectorsIndexEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the vector index.
-        /// </summary>
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the vector index.
-        /// </summary>
         [Output("indexName")]
         public Output<string> IndexName { get; private set; } = null!;
 
-        /// <summary>
-        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
-        /// </summary>
         [Output("metadataConfiguration")]
         public Output<Outputs.VectorsIndexMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the vector bucket for the vector index.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("vectorBucketName")]
         public Output<string> VectorBucketName { get; private set; } = null!;
 
@@ -167,71 +94,40 @@ namespace Pulumi.Aws.S3
 
     public sealed class VectorsIndexArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Data type of the vectors to be inserted into the vector index. Valid values: `Float32`.
-        /// </summary>
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
 
-        /// <summary>
-        /// Dimensions of the vectors to be inserted into the vector index.
-        /// </summary>
         [Input("dimension", required: true)]
         public Input<int> Dimension { get; set; } = null!;
 
-        /// <summary>
-        /// Distance metric to be used for similarity search. Valid values: `Cosine`, `Euclidean`.
-        /// </summary>
         [Input("distanceMetric", required: true)]
         public Input<string> DistanceMetric { get; set; } = null!;
 
         [Input("encryptionConfigurations")]
         private InputList<Inputs.VectorsIndexEncryptionConfigurationArgs>? _encryptionConfigurations;
-
-        /// <summary>
-        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
-        /// </summary>
         public InputList<Inputs.VectorsIndexEncryptionConfigurationArgs> EncryptionConfigurations
         {
             get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.VectorsIndexEncryptionConfigurationArgs>());
             set => _encryptionConfigurations = value;
         }
 
-        /// <summary>
-        /// Name of the vector index.
-        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
-        /// <summary>
-        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
-        /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.VectorsIndexMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the vector bucket for the vector index.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vectorBucketName", required: true)]
         public Input<string> VectorBucketName { get; set; } = null!;
 
@@ -243,72 +139,40 @@ namespace Pulumi.Aws.S3
 
     public sealed class VectorsIndexState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Date and time when the vector index was created.
-        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
-        /// <summary>
-        /// Data type of the vectors to be inserted into the vector index. Valid values: `Float32`.
-        /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
 
-        /// <summary>
-        /// Dimensions of the vectors to be inserted into the vector index.
-        /// </summary>
         [Input("dimension")]
         public Input<int>? Dimension { get; set; }
 
-        /// <summary>
-        /// Distance metric to be used for similarity search. Valid values: `Cosine`, `Euclidean`.
-        /// </summary>
         [Input("distanceMetric")]
         public Input<string>? DistanceMetric { get; set; }
 
         [Input("encryptionConfigurations")]
         private InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs>? _encryptionConfigurations;
-
-        /// <summary>
-        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
-        /// </summary>
         public InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs> EncryptionConfigurations
         {
             get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs>());
             set => _encryptionConfigurations = value;
         }
 
-        /// <summary>
-        /// ARN of the vector index.
-        /// </summary>
         [Input("indexArn")]
         public Input<string>? IndexArn { get; set; }
 
-        /// <summary>
-        /// Name of the vector index.
-        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
-        /// <summary>
-        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
-        /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.VectorsIndexMetadataConfigurationGetArgs>? MetadataConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -317,21 +181,12 @@ namespace Pulumi.Aws.S3
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Name of the vector bucket for the vector index.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vectorBucketName")]
         public Input<string>? VectorBucketName { get; set; }
 

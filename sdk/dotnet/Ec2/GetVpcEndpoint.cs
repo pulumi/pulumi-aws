@@ -11,102 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcEndpoint
     {
-        /// <summary>
-        /// The VPC Endpoint data source provides details about
-        /// a specific VPC endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///         ServiceName = "com.amazonaws.us-west-2.s3",
-        ///     });
-        /// 
-        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("private_s3", new()
-        ///     {
-        ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
-        ///         RouteTableId = @private.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcEndpointResult> InvokeAsync(GetVpcEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The VPC Endpoint data source provides details about
-        /// a specific VPC endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///         ServiceName = "com.amazonaws.us-west-2.s3",
-        ///     });
-        /// 
-        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("private_s3", new()
-        ///     {
-        ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
-        ///         RouteTableId = @private.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcEndpointResult> Invoke(GetVpcEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The VPC Endpoint data source provides details about
-        /// a specific VPC endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///         ServiceName = "com.amazonaws.us-west-2.s3",
-        ///     });
-        /// 
-        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("private_s3", new()
-        ///     {
-        ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
-        ///         RouteTableId = @private.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcEndpointResult> Invoke(GetVpcEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointInvokeArgs(), options.WithDefaults());
     }
@@ -116,71 +26,38 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetVpcEndpointFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetVpcEndpointFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcEndpointFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific VPC Endpoint to retrieve.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-        /// </summary>
         [Input("serviceName")]
         public string? ServiceName { get; set; }
 
-        /// <summary>
-        /// AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
-        /// </summary>
         [Input("serviceRegion")]
         public string? ServiceRegion { get; set; }
 
-        /// <summary>
-        /// State of the specific VPC Endpoint to retrieve.
-        /// </summary>
         [Input("state")]
         public string? State { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the specific VPC Endpoint to retrieve.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
-        /// </summary>
         [Input("vpcEndpointType")]
         public string? VpcEndpointType { get; set; }
 
-        /// <summary>
-        /// ID of the VPC in which the specific VPC Endpoint is used.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC endpoints.
-        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
-        /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
 
@@ -194,71 +71,38 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcEndpointFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetVpcEndpointFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcEndpointFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific VPC Endpoint to retrieve.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
-        /// <summary>
-        /// AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
-        /// </summary>
         [Input("serviceRegion")]
         public Input<string>? ServiceRegion { get; set; }
 
-        /// <summary>
-        /// State of the specific VPC Endpoint to retrieve.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the specific VPC Endpoint to retrieve.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
-        /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }
 
-        /// <summary>
-        /// ID of the VPC in which the specific VPC Endpoint is used.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC endpoints.
-        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
@@ -272,64 +116,25 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetVpcEndpointResult
     {
-        /// <summary>
-        /// ARN of the VPC endpoint.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
-        /// <summary>
-        /// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> DnsEntries;
-        /// <summary>
-        /// DNS options for the VPC Endpoint. DNS options blocks are documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsOptionResult> DnsOptions;
         public readonly ImmutableArray<Outputs.GetVpcEndpointFilterResult> Filters;
         public readonly string Id;
         public readonly string IpAddressType;
-        /// <summary>
-        /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
-        /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaceIds;
-        /// <summary>
-        /// ID of the AWS account that owns the VPC endpoint.
-        /// </summary>
         public readonly string OwnerId;
-        /// <summary>
-        /// Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
-        /// </summary>
         public readonly string Policy;
-        /// <summary>
-        /// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        /// </summary>
         public readonly string PrefixListId;
-        /// <summary>
-        /// Whether or not the VPC is associated with a private hosted zone - `True` or `False`. Applicable for endpoints of type `Interface`.
-        /// </summary>
         public readonly bool PrivateDnsEnabled;
         public readonly string Region;
-        /// <summary>
-        /// Whether or not the VPC Endpoint is being managed by its service - `True` or `False`.
-        /// </summary>
         public readonly bool RequesterManaged;
-        /// <summary>
-        /// One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
-        /// </summary>
         public readonly ImmutableArray<string> RouteTableIds;
-        /// <summary>
-        /// One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly string ServiceName;
         public readonly string ServiceRegion;
         public readonly string State;
-        /// <summary>
-        /// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcEndpointType;

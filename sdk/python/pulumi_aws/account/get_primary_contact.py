@@ -78,65 +78,41 @@ class GetPrimaryContactResult:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> _builtins.str:
-        """
-        The first line of the primary contact address.
-        """
         return pulumi.get(self, "address_line1")
 
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> _builtins.str:
-        """
-        The second line of the primary contact address.
-        """
         return pulumi.get(self, "address_line2")
 
     @_builtins.property
     @pulumi.getter(name="addressLine3")
     def address_line3(self) -> _builtins.str:
-        """
-        The third line of the primary contact address.
-        """
         return pulumi.get(self, "address_line3")
 
     @_builtins.property
     @pulumi.getter
     def city(self) -> _builtins.str:
-        """
-        The city of the primary contact address.
-        """
         return pulumi.get(self, "city")
 
     @_builtins.property
     @pulumi.getter(name="companyName")
     def company_name(self) -> _builtins.str:
-        """
-        The name of the company associated with the primary contact information.
-        """
         return pulumi.get(self, "company_name")
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> _builtins.str:
-        """
-        The ISO-3166 two-letter country code for the primary contact address.
-        """
         return pulumi.get(self, "country_code")
 
     @_builtins.property
     @pulumi.getter(name="districtOrCounty")
     def district_or_county(self) -> _builtins.str:
-        """
-        The district or county of the primary contact address.
-        """
         return pulumi.get(self, "district_or_county")
 
     @_builtins.property
     @pulumi.getter(name="fullName")
     def full_name(self) -> _builtins.str:
-        """
-        The full name of the primary contact address.
-        """
         return pulumi.get(self, "full_name")
 
     @_builtins.property
@@ -150,33 +126,21 @@ class GetPrimaryContactResult:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> _builtins.str:
-        """
-        The phone number of the primary contact information.
-        """
         return pulumi.get(self, "phone_number")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> _builtins.str:
-        """
-        The postal code of the primary contact address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter(name="stateOrRegion")
     def state_or_region(self) -> _builtins.str:
-        """
-        The state or region of the primary contact address.
-        """
         return pulumi.get(self, "state_or_region")
 
     @_builtins.property
     @pulumi.getter(name="websiteUrl")
     def website_url(self) -> _builtins.str:
-        """
-        The URL of the website associated with the primary contact information.
-        """
         return pulumi.get(self, "website_url")
 
 
@@ -205,19 +169,7 @@ class AwaitableGetPrimaryContactResult(GetPrimaryContactResult):
 def get_primary_contact(account_id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrimaryContactResult:
     """
-    Data source for the primary contact information associated with an AWS Account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.account.get_primary_contact()
-    ```
-
-
-    :param _builtins.str account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -242,19 +194,7 @@ def get_primary_contact(account_id: Optional[_builtins.str] = None,
 def get_primary_contact_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryContactResult]:
     """
-    Data source for the primary contact information associated with an AWS Account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.account.get_primary_contact()
-    ```
-
-
-    :param _builtins.str account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

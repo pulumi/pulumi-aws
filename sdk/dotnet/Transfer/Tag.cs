@@ -9,77 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transfer
 {
-    /// <summary>
-    /// Manages an individual Transfer Family resource tag. This resource should only be used in cases where Transfer Family resources are created outside the provider (e.g., Servers without AWS Management Console) or the tag key has the `aws:` prefix.
-    /// 
-    /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.transfer.Server` and `aws.transfer.Tag` to manage tags of the same server will cause a perpetual difference where the `aws.transfer.Server` resource will try to remove the tag being added by the `aws.transfer.Tag` resource.
-    /// 
-    /// &gt; **NOTE:** This tagging resource does not use the provider `IgnoreTags` configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
-    ///     {
-    ///         IdentityProviderType = "SERVICE_MANAGED",
-    ///     });
-    /// 
-    ///     var zoneId = new Aws.Transfer.Tag("zone_id", new()
-    ///     {
-    ///         ResourceArn = example.Arn,
-    ///         Key = "transfer:route53HostedZoneId",
-    ///         Value = "/hostedzone/MyHostedZoneId",
-    ///     });
-    /// 
-    ///     var hostname = new Aws.Transfer.Tag("hostname", new()
-    ///     {
-    ///         ResourceArn = example.Arn,
-    ///         Key = "transfer:customHostname",
-    ///         Value = "example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:transfer/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -129,27 +70,15 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -161,27 +90,15 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -12,17 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class InfrastructureConfigurationLoggingS3LogsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the S3 Bucket.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Prefix to use for S3 logs. Defaults to `/`.
-        /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 

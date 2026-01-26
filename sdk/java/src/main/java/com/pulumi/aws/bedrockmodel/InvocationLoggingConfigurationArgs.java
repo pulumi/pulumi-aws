@@ -16,32 +16,16 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
 
     public static final InvocationLoggingConfigurationArgs Empty = new InvocationLoggingConfigurationArgs();
 
-    /**
-     * The logging configuration values to set. See `loggingConfig` Block for details.
-     * 
-     */
     @Import(name="loggingConfig")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig;
 
-    /**
-     * @return The logging configuration values to set. See `loggingConfig` Block for details.
-     * 
-     */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigArgs>> loggingConfig() {
         return Optional.ofNullable(this.loggingConfig);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
             $ = new InvocationLoggingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param loggingConfig The logging configuration values to set. See `loggingConfig` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfig(@Nullable Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig) {
             $.loggingConfig = loggingConfig;
             return this;
         }
 
-        /**
-         * @param loggingConfig The logging configuration values to set. See `loggingConfig` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfig(InvocationLoggingConfigurationLoggingConfigArgs loggingConfig) {
             return loggingConfig(Output.of(loggingConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

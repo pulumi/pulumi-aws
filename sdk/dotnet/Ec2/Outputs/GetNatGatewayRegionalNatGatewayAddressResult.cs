@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNatGatewayRegionalNatGatewayAddressResult
     {
-        /// <summary>
-        /// Allocation ID of the Elastic IP address.
-        /// </summary>
         public readonly string AllocationId;
-        /// <summary>
-        /// Association ID of the Elastic IP address.
-        /// </summary>
         public readonly string AssociationId;
-        /// <summary>
-        /// Availability Zone where this specific NAT gateway configuration is active.
-        /// </summary>
         public readonly string AvailabilityZone;
-        /// <summary>
-        /// Availability Zone ID where this specific NAT gateway configuration is active
-        /// </summary>
         public readonly string AvailabilityZoneId;
-        /// <summary>
-        /// ID of the network interface.
-        /// </summary>
         public readonly string NetworkInterfaceId;
-        /// <summary>
-        /// Public IP address.
-        /// </summary>
         public readonly string PublicIp;
-        /// <summary>
-        /// Status of the NAT gateway address.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

@@ -9,63 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Detective
 {
-    /// <summary>
-    /// Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.Detective.Graph("primary");
-    /// 
-    ///     var primaryMember = new Aws.Detective.Member("primary", new()
-    ///     {
-    ///         AccountId = "ACCOUNT ID",
-    ///         EmailAddress = "EMAIL",
-    ///         GraphArn = primary.GraphArn,
-    ///         Message = "Message of the invite",
-    ///     });
-    /// 
-    ///     var member = new Aws.Detective.InvitationAccepter("member", new()
-    ///     {
-    ///         GraphArn = primary.GraphArn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primaryMember,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:detective/invitationAccepter:InvitationAccepter")]
     public partial class InvitationAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the behavior graph that the member account is accepting the invitation for.
-        /// </summary>
         [Output("graphArn")]
         public Output<string> GraphArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -115,15 +64,9 @@ namespace Pulumi.Aws.Detective
 
     public sealed class InvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the behavior graph that the member account is accepting the invitation for.
-        /// </summary>
         [Input("graphArn", required: true)]
         public Input<string> GraphArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,15 +78,9 @@ namespace Pulumi.Aws.Detective
 
     public sealed class InvitationAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the behavior graph that the member account is accepting the invitation for.
-        /// </summary>
         [Input("graphArn")]
         public Input<string>? GraphArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

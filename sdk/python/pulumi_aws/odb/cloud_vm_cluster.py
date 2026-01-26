@@ -48,27 +48,23 @@ class CloudVmClusterArgs:
         The set of arguments for constructing a CloudVmCluster resource.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-               
-               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
-        :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
+        :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] memory_size_in_gbs: The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] timezone: The configured time zone of the VM cluster. Changing this will create a new resource.
         """
         pulumi.set(__self__, "cpu_core_count", cpu_core_count)
@@ -128,8 +124,6 @@ class CloudVmClusterArgs:
     def data_storage_size_in_tbs(self) -> pulumi.Input[_builtins.float]:
         """
         The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -153,7 +147,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
         """
-        A user-friendly name for the VM cluster. Changing this will create a new resource.
+        A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "display_name")
 
@@ -165,7 +159,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> pulumi.Input[_builtins.str]:
         """
-        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "gi_version")
 
@@ -177,7 +171,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="hostnamePrefix")
     def hostname_prefix(self) -> pulumi.Input[_builtins.str]:
         """
-        The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "hostname_prefix")
 
@@ -189,7 +183,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="sshPublicKeys")
     def ssh_public_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "ssh_public_keys")
 
@@ -201,7 +195,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="cloudExadataInfrastructureArn")
     def cloud_exadata_infrastructure_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_arn")
 
@@ -213,7 +207,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 
@@ -237,7 +231,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="dataCollectionOptions")
     def data_collection_options(self) -> Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]:
         """
-        The set of preferences for the various diagnostic collection options for the VM cluster.
+        The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "data_collection_options")
 
@@ -309,7 +303,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "odb_network_arn")
 
@@ -321,7 +315,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="odbNetworkId")
     def odb_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "odb_network_id")
 
@@ -332,9 +326,6 @@ class CloudVmClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -345,7 +336,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="scanListenerPortTcp")
     def scan_listener_port_tcp(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         """
         return pulumi.get(self, "scan_listener_port_tcp")
 
@@ -356,9 +347,6 @@ class CloudVmClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -440,26 +428,22 @@ class _CloudVmClusterState:
                  vip_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CloudVmCluster resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the cloud vm cluster.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] compute_model: The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] created_at: The timestamp when the VM cluster was created.
-        :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
+        :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] disk_redundancy: The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-               * `AttrDomain` - The domain name associated with the VM cluster.
-        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] domain: The domain name associated with the VM cluster.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
-        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIormConfigCacheArgs']]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
@@ -472,22 +456,19 @@ class _CloudVmClusterState:
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor associated with the VM cluster.
         :param pulumi.Input[_builtins.str] oci_url: The HTTPS link to the VM cluster resource in OCI.
         :param pulumi.Input[_builtins.str] ocid: The OCID (Oracle Cloud Identifier) of the VM cluster.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] percent_progress: The percentage of progress made on the current operation for the VM cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] scan_dns_name: The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
         :param pulumi.Input[_builtins.str] scan_dns_record_id: The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scan_ip_ids: The list of OCIDs for SCAN IP addresses associated with the VM cluster.
-        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] shape: The hardware model name of the Exadata infrastructure running the VM cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] status: The current lifecycle status of the VM cluster.
         :param pulumi.Input[_builtins.str] status_reason: Additional information regarding the current status of the VM cluster.
         :param pulumi.Input[_builtins.int] storage_size_in_gbs: The local node storage allocated to the VM cluster, in gigabytes (GB).
         :param pulumi.Input[_builtins.str] system_version: The operating system version of the image chosen for the VM cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: The combined set of user-defined and provider-defined tags.
         :param pulumi.Input[_builtins.str] timezone: The configured time zone of the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vip_ids: The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
         """
@@ -591,9 +572,6 @@ class _CloudVmClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the cloud vm cluster.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -604,7 +582,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="cloudExadataInfrastructureArn")
     def cloud_exadata_infrastructure_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_arn")
 
@@ -616,7 +594,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 
@@ -676,7 +654,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="dataCollectionOptions")
     def data_collection_options(self) -> Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]:
         """
-        The set of preferences for the various diagnostic collection options for the VM cluster.
+        The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "data_collection_options")
 
@@ -689,8 +667,6 @@ class _CloudVmClusterState:
     def data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -727,7 +703,6 @@ class _CloudVmClusterState:
     def disk_redundancy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-        * `AttrDomain` - The domain name associated with the VM cluster.
         """
         return pulumi.get(self, "disk_redundancy")
 
@@ -739,7 +714,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A user-friendly name for the VM cluster. Changing this will create a new resource.
+        A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "display_name")
 
@@ -763,7 +738,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "gi_version")
 
@@ -787,7 +762,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="hostnamePrefix")
     def hostname_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "hostname_prefix")
 
@@ -943,7 +918,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "odb_network_arn")
 
@@ -955,7 +930,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="odbNetworkId")
     def odb_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "odb_network_id")
 
@@ -978,9 +953,6 @@ class _CloudVmClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -1027,7 +999,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="scanListenerPortTcp")
     def scan_listener_port_tcp(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         """
         return pulumi.get(self, "scan_listener_port_tcp")
 
@@ -1051,7 +1023,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="sshPublicKeys")
     def ssh_public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "ssh_public_keys")
 
@@ -1110,9 +1082,6 @@ class _CloudVmClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1122,9 +1091,6 @@ class _CloudVmClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The combined set of user-defined and provider-defined tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1196,101 +1162,28 @@ class CloudVmCluster(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        with_minimum_parameter = aws.odb.CloudVmCluster("with_minimum_parameter",
-            display_name="my_vm_cluster",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            cpu_core_count=6,
-            gi_version="23.0.0.0",
-            hostname_prefix="apollo12",
-            ssh_public_keys=["public-ssh-key"],
-            odb_network_id="<aws_odb_network_id>",
-            is_local_backup_enabled=True,
-            is_sparse_diskgroup_enabled=True,
-            license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
-            db_servers=[
-                "db-server-1",
-                "db-server-2",
-            ],
-            db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60,
-            data_collection_options={
-                "is_diagnostics_events_enabled": False,
-                "is_health_monitoring_enabled": False,
-                "is_incident_logs_enabled": False,
-            })
-        with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
-            display_name="my_vm_cluster",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            cpu_core_count=6,
-            gi_version="23.0.0.0",
-            hostname_prefix="apollo12",
-            ssh_public_keys=["my-ssh-key"],
-            odb_network_id="<aws_odb_network_id>",
-            is_local_backup_enabled=True,
-            is_sparse_diskgroup_enabled=True,
-            license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
-            db_servers=[
-                "my-dbserver-1",
-                "my-db-server-2",
-            ],
-            db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60,
-            cluster_name="julia-13",
-            timezone="UTC",
-            scan_listener_port_tcp=1521,
-            tags={
-                "env": "dev",
-            },
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import cloud vm cluster using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/cloudVmCluster:CloudVmCluster example example
-        ```
-
+        Create a CloudVmCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
+        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] memory_size_in_gbs: The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] timezone: The configured time zone of the VM cluster. Changing this will create a new resource.
         """
         ...
@@ -1300,76 +1193,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  args: CloudVmClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        with_minimum_parameter = aws.odb.CloudVmCluster("with_minimum_parameter",
-            display_name="my_vm_cluster",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            cpu_core_count=6,
-            gi_version="23.0.0.0",
-            hostname_prefix="apollo12",
-            ssh_public_keys=["public-ssh-key"],
-            odb_network_id="<aws_odb_network_id>",
-            is_local_backup_enabled=True,
-            is_sparse_diskgroup_enabled=True,
-            license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
-            db_servers=[
-                "db-server-1",
-                "db-server-2",
-            ],
-            db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60,
-            data_collection_options={
-                "is_diagnostics_events_enabled": False,
-                "is_health_monitoring_enabled": False,
-                "is_incident_logs_enabled": False,
-            })
-        with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
-            display_name="my_vm_cluster",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            cpu_core_count=6,
-            gi_version="23.0.0.0",
-            hostname_prefix="apollo12",
-            ssh_public_keys=["my-ssh-key"],
-            odb_network_id="<aws_odb_network_id>",
-            is_local_backup_enabled=True,
-            is_sparse_diskgroup_enabled=True,
-            license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
-            db_servers=[
-                "my-dbserver-1",
-                "my-db-server-2",
-            ],
-            db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60,
-            cluster_name="julia-13",
-            timezone="UTC",
-            scan_listener_port_tcp=1521,
-            tags={
-                "env": "dev",
-            },
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import cloud vm cluster using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/cloudVmCluster:CloudVmCluster example example
-        ```
-
+        Create a CloudVmCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CloudVmClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1544,26 +1368,22 @@ class CloudVmCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the cloud vm cluster.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] compute_model: The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] created_at: The timestamp when the VM cluster was created.
-        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
+        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] disk_redundancy: The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-               * `AttrDomain` - The domain name associated with the VM cluster.
-        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] domain: The domain name associated with the VM cluster.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
-        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCacheArgs', 'CloudVmClusterIormConfigCacheArgsDict']]]] iorm_config_caches: The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
@@ -1576,22 +1396,19 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor associated with the VM cluster.
         :param pulumi.Input[_builtins.str] oci_url: The HTTPS link to the VM cluster resource in OCI.
         :param pulumi.Input[_builtins.str] ocid: The OCID (Oracle Cloud Identifier) of the VM cluster.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
-        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] percent_progress: The percentage of progress made on the current operation for the VM cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] scan_dns_name: The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
         :param pulumi.Input[_builtins.str] scan_dns_record_id: The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scan_ip_ids: The list of OCIDs for SCAN IP addresses associated with the VM cluster.
-        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.int] scan_listener_port_tcp: The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] shape: The hardware model name of the Exadata infrastructure running the VM cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] status: The current lifecycle status of the VM cluster.
         :param pulumi.Input[_builtins.str] status_reason: Additional information regarding the current status of the VM cluster.
         :param pulumi.Input[_builtins.int] storage_size_in_gbs: The local node storage allocated to the VM cluster, in gigabytes (GB).
         :param pulumi.Input[_builtins.str] system_version: The operating system version of the image chosen for the VM cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: The combined set of user-defined and provider-defined tags.
         :param pulumi.Input[_builtins.str] timezone: The configured time zone of the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vip_ids: The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
         """
@@ -1652,16 +1469,13 @@ class CloudVmCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the cloud vm cluster.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudExadataInfrastructureArn")
     def cloud_exadata_infrastructure_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_arn")
 
@@ -1669,7 +1483,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 
@@ -1709,7 +1523,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="dataCollectionOptions")
     def data_collection_options(self) -> pulumi.Output[Optional['outputs.CloudVmClusterDataCollectionOptions']]:
         """
-        The set of preferences for the various diagnostic collection options for the VM cluster.
+        The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         """
         return pulumi.get(self, "data_collection_options")
 
@@ -1718,8 +1532,6 @@ class CloudVmCluster(pulumi.CustomResource):
     def data_storage_size_in_tbs(self) -> pulumi.Output[_builtins.float]:
         """
         The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -1744,7 +1556,6 @@ class CloudVmCluster(pulumi.CustomResource):
     def disk_redundancy(self) -> pulumi.Output[_builtins.str]:
         """
         The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-        * `AttrDomain` - The domain name associated with the VM cluster.
         """
         return pulumi.get(self, "disk_redundancy")
 
@@ -1752,7 +1563,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
         """
-        A user-friendly name for the VM cluster. Changing this will create a new resource.
+        A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "display_name")
 
@@ -1768,7 +1579,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> pulumi.Output[_builtins.str]:
         """
-        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "gi_version")
 
@@ -1784,7 +1595,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="hostnamePrefix")
     def hostname_prefix(self) -> pulumi.Output[_builtins.str]:
         """
-        The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "hostname_prefix")
 
@@ -1888,7 +1699,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "odb_network_arn")
 
@@ -1896,7 +1707,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="odbNetworkId")
     def odb_network_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "odb_network_id")
 
@@ -1911,9 +1722,6 @@ class CloudVmCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -1944,7 +1752,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="scanListenerPortTcp")
     def scan_listener_port_tcp(self) -> pulumi.Output[_builtins.int]:
         """
-        The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         """
         return pulumi.get(self, "scan_listener_port_tcp")
 
@@ -1960,7 +1768,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="sshPublicKeys")
     def ssh_public_keys(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         """
         return pulumi.get(self, "ssh_public_keys")
 
@@ -1999,17 +1807,11 @@ class CloudVmCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        The combined set of user-defined and provider-defined tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

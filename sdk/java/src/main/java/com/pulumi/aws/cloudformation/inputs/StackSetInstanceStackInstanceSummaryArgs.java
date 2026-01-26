@@ -15,47 +15,23 @@ public final class StackSetInstanceStackInstanceSummaryArgs extends com.pulumi.r
 
     public static final StackSetInstanceStackInstanceSummaryArgs Empty = new StackSetInstanceStackInstanceSummaryArgs();
 
-    /**
-     * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Organizational unit ID in which the stack is deployed.
-     * 
-     */
     @Import(name="organizationalUnitId")
     private @Nullable Output<String> organizationalUnitId;
 
-    /**
-     * @return Organizational unit ID in which the stack is deployed.
-     * 
-     */
     public Optional<Output<String>> organizationalUnitId() {
         return Optional.ofNullable(this.organizationalUnitId);
     }
 
-    /**
-     * Stack identifier.
-     * 
-     */
     @Import(name="stackId")
     private @Nullable Output<String> stackId;
 
-    /**
-     * @return Stack identifier.
-     * 
-     */
     public Optional<Output<String>> stackId() {
         return Optional.ofNullable(this.stackId);
     }
@@ -86,65 +62,29 @@ public final class StackSetInstanceStackInstanceSummaryArgs extends com.pulumi.r
             $ = new StackSetInstanceStackInstanceSummaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param organizationalUnitId Organizational unit ID in which the stack is deployed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitId(@Nullable Output<String> organizationalUnitId) {
             $.organizationalUnitId = organizationalUnitId;
             return this;
         }
 
-        /**
-         * @param organizationalUnitId Organizational unit ID in which the stack is deployed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitId(String organizationalUnitId) {
             return organizationalUnitId(Output.of(organizationalUnitId));
         }
 
-        /**
-         * @param stackId Stack identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stackId(@Nullable Output<String> stackId) {
             $.stackId = stackId;
             return this;
         }
 
-        /**
-         * @param stackId Stack identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stackId(String stackId) {
             return stackId(Output.of(stackId));
         }

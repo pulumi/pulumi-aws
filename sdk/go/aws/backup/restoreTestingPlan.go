@@ -12,73 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Backup Restore Testing Plan.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewRestoreTestingPlan(ctx, "example", &backup.RestoreTestingPlanArgs{
-//				Name: pulumi.String("example_restore_testing_plan"),
-//				RecoveryPointSelection: &backup.RestoreTestingPlanRecoveryPointSelectionArgs{
-//					Algorithm: pulumi.String("LATEST_WITHIN_WINDOW"),
-//					IncludeVaults: pulumi.StringArray{
-//						pulumi.String("*"),
-//					},
-//					RecoveryPointTypes: pulumi.StringArray{
-//						pulumi.String("CONTINUOUS"),
-//					},
-//				},
-//				ScheduleExpression: pulumi.String("cron(0 12 ? * * *)"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup Restore Testing Plan using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
-// ```
 type RestoreTestingPlan struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Restore Testing Plan.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrOutput `pulumi:"recoveryPointSelection"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The schedule expression for the restore testing plan.
-	ScheduleExpression pulumi.StringOutput `pulumi:"scheduleExpression"`
-	// The timezone for the schedule expression. If not provided, the state value will be used.
-	ScheduleExpressionTimezone pulumi.StringOutput `pulumi:"scheduleExpressionTimezone"`
-	// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-	StartWindowHours pulumi.IntOutput       `pulumi:"startWindowHours"`
-	Tags             pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                        pulumi.StringOutput                               `pulumi:"arn"`
+	Name                       pulumi.StringOutput                               `pulumi:"name"`
+	RecoveryPointSelection     RestoreTestingPlanRecoveryPointSelectionPtrOutput `pulumi:"recoveryPointSelection"`
+	Region                     pulumi.StringOutput                               `pulumi:"region"`
+	ScheduleExpression         pulumi.StringOutput                               `pulumi:"scheduleExpression"`
+	ScheduleExpressionTimezone pulumi.StringOutput                               `pulumi:"scheduleExpressionTimezone"`
+	StartWindowHours           pulumi.IntOutput                                  `pulumi:"startWindowHours"`
+	Tags                       pulumi.StringMapOutput                            `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput                            `pulumi:"tagsAll"`
 }
 
 // NewRestoreTestingPlan registers a new resource with the given unique name, arguments, and options.
@@ -114,43 +59,27 @@ func GetRestoreTestingPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestoreTestingPlan resources.
 type restoreTestingPlanState struct {
-	// ARN of the Restore Testing Plan.
-	Arn *string `pulumi:"arn"`
-	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-	Name *string `pulumi:"name"`
-	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The schedule expression for the restore testing plan.
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// The timezone for the schedule expression. If not provided, the state value will be used.
-	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
-	// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-	StartWindowHours *int              `pulumi:"startWindowHours"`
-	Tags             map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                        *string                                   `pulumi:"arn"`
+	Name                       *string                                   `pulumi:"name"`
+	RecoveryPointSelection     *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	Region                     *string                                   `pulumi:"region"`
+	ScheduleExpression         *string                                   `pulumi:"scheduleExpression"`
+	ScheduleExpressionTimezone *string                                   `pulumi:"scheduleExpressionTimezone"`
+	StartWindowHours           *int                                      `pulumi:"startWindowHours"`
+	Tags                       map[string]string                         `pulumi:"tags"`
+	TagsAll                    map[string]string                         `pulumi:"tagsAll"`
 }
 
 type RestoreTestingPlanState struct {
-	// ARN of the Restore Testing Plan.
-	Arn pulumi.StringPtrInput
-	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-	Name pulumi.StringPtrInput
-	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The schedule expression for the restore testing plan.
-	ScheduleExpression pulumi.StringPtrInput
-	// The timezone for the schedule expression. If not provided, the state value will be used.
+	Arn                        pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	RecoveryPointSelection     RestoreTestingPlanRecoveryPointSelectionPtrInput
+	Region                     pulumi.StringPtrInput
+	ScheduleExpression         pulumi.StringPtrInput
 	ScheduleExpressionTimezone pulumi.StringPtrInput
-	// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-	StartWindowHours pulumi.IntPtrInput
-	Tags             pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	StartWindowHours           pulumi.IntPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
 }
 
 func (RestoreTestingPlanState) ElementType() reflect.Type {
@@ -158,36 +87,24 @@ func (RestoreTestingPlanState) ElementType() reflect.Type {
 }
 
 type restoreTestingPlanArgs struct {
-	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-	Name *string `pulumi:"name"`
-	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The schedule expression for the restore testing plan.
-	ScheduleExpression string `pulumi:"scheduleExpression"`
-	// The timezone for the schedule expression. If not provided, the state value will be used.
-	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
-	// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-	StartWindowHours *int              `pulumi:"startWindowHours"`
-	Tags             map[string]string `pulumi:"tags"`
+	Name                       *string                                   `pulumi:"name"`
+	RecoveryPointSelection     *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	Region                     *string                                   `pulumi:"region"`
+	ScheduleExpression         string                                    `pulumi:"scheduleExpression"`
+	ScheduleExpressionTimezone *string                                   `pulumi:"scheduleExpressionTimezone"`
+	StartWindowHours           *int                                      `pulumi:"startWindowHours"`
+	Tags                       map[string]string                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestoreTestingPlan resource.
 type RestoreTestingPlanArgs struct {
-	// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-	Name pulumi.StringPtrInput
-	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The schedule expression for the restore testing plan.
-	ScheduleExpression pulumi.StringInput
-	// The timezone for the schedule expression. If not provided, the state value will be used.
+	Name                       pulumi.StringPtrInput
+	RecoveryPointSelection     RestoreTestingPlanRecoveryPointSelectionPtrInput
+	Region                     pulumi.StringPtrInput
+	ScheduleExpression         pulumi.StringInput
 	ScheduleExpressionTimezone pulumi.StringPtrInput
-	// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-	StartWindowHours pulumi.IntPtrInput
-	Tags             pulumi.StringMapInput
+	StartWindowHours           pulumi.IntPtrInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (RestoreTestingPlanArgs) ElementType() reflect.Type {
@@ -277,39 +194,32 @@ func (o RestoreTestingPlanOutput) ToRestoreTestingPlanOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the Restore Testing Plan.
 func (o RestoreTestingPlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
 func (o RestoreTestingPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 func (o RestoreTestingPlanOutput) RecoveryPointSelection() RestoreTestingPlanRecoveryPointSelectionPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) RestoreTestingPlanRecoveryPointSelectionPtrOutput {
 		return v.RecoveryPointSelection
 	}).(RestoreTestingPlanRecoveryPointSelectionPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RestoreTestingPlanOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The schedule expression for the restore testing plan.
 func (o RestoreTestingPlanOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
-// The timezone for the schedule expression. If not provided, the state value will be used.
 func (o RestoreTestingPlanOutput) ScheduleExpressionTimezone() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.ScheduleExpressionTimezone }).(pulumi.StringOutput)
 }
 
-// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
 func (o RestoreTestingPlanOutput) StartWindowHours() pulumi.IntOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.IntOutput { return v.StartWindowHours }).(pulumi.IntOutput)
 }
@@ -318,7 +228,6 @@ func (o RestoreTestingPlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RestoreTestingPlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

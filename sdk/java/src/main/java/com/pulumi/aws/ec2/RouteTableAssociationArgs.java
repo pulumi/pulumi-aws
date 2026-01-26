@@ -16,66 +16,30 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
 
     public static final RouteTableAssociationArgs Empty = new RouteTableAssociationArgs();
 
-    /**
-     * The gateway ID to create an association. Conflicts with `subnetId`.
-     * 
-     */
     @Import(name="gatewayId")
     private @Nullable Output<String> gatewayId;
 
-    /**
-     * @return The gateway ID to create an association. Conflicts with `subnetId`.
-     * 
-     */
     public Optional<Output<String>> gatewayId() {
         return Optional.ofNullable(this.gatewayId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the routing table to associate with.
-     * 
-     * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-     * 
-     */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
-    /**
-     * @return The ID of the routing table to associate with.
-     * 
-     * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
 
-    /**
-     * The subnet ID to create an association. Conflicts with `gatewayId`.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The subnet ID to create an association. Conflicts with `gatewayId`.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -107,90 +71,38 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
             $ = new RouteTableAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gatewayId The gateway ID to create an association. Conflicts with `subnetId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayId(@Nullable Output<String> gatewayId) {
             $.gatewayId = gatewayId;
             return this;
         }
 
-        /**
-         * @param gatewayId The gateway ID to create an association. Conflicts with `subnetId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayId(String gatewayId) {
             return gatewayId(Output.of(gatewayId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeTableId The ID of the routing table to associate with.
-         * 
-         * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(Output<String> routeTableId) {
             $.routeTableId = routeTableId;
             return this;
         }
 
-        /**
-         * @param routeTableId The ID of the routing table to associate with.
-         * 
-         * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(String routeTableId) {
             return routeTableId(Output.of(routeTableId));
         }
 
-        /**
-         * @param subnetId The subnet ID to create an association. Conflicts with `gatewayId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The subnet ID to create an association. Conflicts with `gatewayId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

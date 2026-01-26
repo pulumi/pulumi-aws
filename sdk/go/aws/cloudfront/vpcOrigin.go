@@ -11,83 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon CloudFront VPC origin.
-//
-// For information about CloudFront VPC origins, see
-// [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
-//
-// ## Example Usage
-//
-// ### Application Load Balancer
-//
-// The following example below creates a CloudFront VPC origin for a Application Load Balancer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewVpcOrigin(ctx, "alb", &cloudfront.VpcOriginArgs{
-//				VpcOriginEndpointConfig: &cloudfront.VpcOriginVpcOriginEndpointConfigArgs{
-//					Name:                 pulumi.String("example-vpc-origin"),
-//					Arn:                  pulumi.Any(this.Arn),
-//					HttpPort:             pulumi.Int(8080),
-//					HttpsPort:            pulumi.Int(8443),
-//					OriginProtocolPolicy: pulumi.String("https-only"),
-//					OriginSslProtocols: &cloudfront.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("TLSv1.2"),
-//						},
-//						Quantity: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// terraform
-//
-// import {
-//
-//	to = aws_cloudfront_vpc_origin.origin
-//
-//	id = "vo_JQEa410sssUFoY6wMkx69j"
-//
-// }
-//
-// Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
-//
-// % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
 type VpcOrigin struct {
 	pulumi.CustomResourceState
 
-	// The VPC origin ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The current version of the origin.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput     `pulumi:"tagsAll"`
-	Timeouts VpcOriginTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The VPC origin endpoint configuration.
-	//
-	// The following arguments are optional:
+	Arn                     pulumi.StringOutput                       `pulumi:"arn"`
+	Etag                    pulumi.StringOutput                       `pulumi:"etag"`
+	Tags                    pulumi.StringMapOutput                    `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                    `pulumi:"tagsAll"`
+	Timeouts                VpcOriginTimeoutsPtrOutput                `pulumi:"timeouts"`
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrOutput `pulumi:"vpcOriginEndpointConfig"`
 }
 
@@ -121,34 +52,20 @@ func GetVpcOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcOrigin resources.
 type vpcOriginState struct {
-	// The VPC origin ARN.
-	Arn *string `pulumi:"arn"`
-	// The current version of the origin.
-	Etag *string `pulumi:"etag"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string  `pulumi:"tagsAll"`
-	Timeouts *VpcOriginTimeouts `pulumi:"timeouts"`
-	// The VPC origin endpoint configuration.
-	//
-	// The following arguments are optional:
+	Arn                     *string                           `pulumi:"arn"`
+	Etag                    *string                           `pulumi:"etag"`
+	Tags                    map[string]string                 `pulumi:"tags"`
+	TagsAll                 map[string]string                 `pulumi:"tagsAll"`
+	Timeouts                *VpcOriginTimeouts                `pulumi:"timeouts"`
 	VpcOriginEndpointConfig *VpcOriginVpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
 }
 
 type VpcOriginState struct {
-	// The VPC origin ARN.
-	Arn pulumi.StringPtrInput
-	// The current version of the origin.
-	Etag pulumi.StringPtrInput
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts VpcOriginTimeoutsPtrInput
-	// The VPC origin endpoint configuration.
-	//
-	// The following arguments are optional:
+	Arn                     pulumi.StringPtrInput
+	Etag                    pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Timeouts                VpcOriginTimeoutsPtrInput
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrInput
 }
 
@@ -157,23 +74,15 @@ func (VpcOriginState) ElementType() reflect.Type {
 }
 
 type vpcOriginArgs struct {
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string  `pulumi:"tags"`
-	Timeouts *VpcOriginTimeouts `pulumi:"timeouts"`
-	// The VPC origin endpoint configuration.
-	//
-	// The following arguments are optional:
+	Tags                    map[string]string                 `pulumi:"tags"`
+	Timeouts                *VpcOriginTimeouts                `pulumi:"timeouts"`
 	VpcOriginEndpointConfig *VpcOriginVpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
 }
 
 // The set of arguments for constructing a VpcOrigin resource.
 type VpcOriginArgs struct {
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts VpcOriginTimeoutsPtrInput
-	// The VPC origin endpoint configuration.
-	//
-	// The following arguments are optional:
+	Tags                    pulumi.StringMapInput
+	Timeouts                VpcOriginTimeoutsPtrInput
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrInput
 }
 
@@ -264,22 +173,18 @@ func (o VpcOriginOutput) ToVpcOriginOutputWithContext(ctx context.Context) VpcOr
 	return o
 }
 
-// The VPC origin ARN.
 func (o VpcOriginOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The current version of the origin.
 func (o VpcOriginOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcOriginOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcOriginOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -288,9 +193,6 @@ func (o VpcOriginOutput) Timeouts() VpcOriginTimeoutsPtrOutput {
 	return o.ApplyT(func(v *VpcOrigin) VpcOriginTimeoutsPtrOutput { return v.Timeouts }).(VpcOriginTimeoutsPtrOutput)
 }
 
-// The VPC origin endpoint configuration.
-//
-// The following arguments are optional:
 func (o VpcOriginOutput) VpcOriginEndpointConfig() VpcOriginVpcOriginEndpointConfigPtrOutput {
 	return o.ApplyT(func(v *VpcOrigin) VpcOriginVpcOriginEndpointConfigPtrOutput { return v.VpcOriginEndpointConfig }).(VpcOriginVpcOriginEndpointConfigPtrOutput)
 }

@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Space resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Space("example", {
- *     domainId: test.id,
- *     spaceName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
- * ```
- */
 export class Space extends pulumi.CustomResource {
     /**
      * Get an existing Space resource's state with the given name, ID, and optional extra
@@ -60,53 +35,17 @@ export class Space extends pulumi.CustomResource {
         return obj['__pulumiType'] === Space.__pulumiType;
     }
 
-    /**
-     * The space's Amazon Resource Name (ARN).
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ID of the associated Domain.
-     */
     declare public readonly domainId: pulumi.Output<string>;
-    /**
-     * The ID of the space's profile in the Amazon Elastic File System volume.
-     */
     declare public /*out*/ readonly homeEfsFileSystemUid: pulumi.Output<string>;
-    /**
-     * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
-     */
     declare public readonly ownershipSettings: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the space that appears in the SageMaker AI Studio UI.
-     */
     declare public readonly spaceDisplayName: pulumi.Output<string | undefined>;
-    /**
-     * The name of the space.
-     */
     declare public readonly spaceName: pulumi.Output<string>;
-    /**
-     * A collection of space settings. See `spaceSettings` Block below.
-     */
     declare public readonly spaceSettings: pulumi.Output<outputs.sagemaker.SpaceSpaceSettings | undefined>;
-    /**
-     * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
-     */
     declare public readonly spaceSharingSettings: pulumi.Output<outputs.sagemaker.SpaceSpaceSharingSettings | undefined>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-     */
     declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
@@ -164,53 +103,17 @@ export class Space extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Space resources.
  */
 export interface SpaceState {
-    /**
-     * The space's Amazon Resource Name (ARN).
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the associated Domain.
-     */
     domainId?: pulumi.Input<string>;
-    /**
-     * The ID of the space's profile in the Amazon Elastic File System volume.
-     */
     homeEfsFileSystemUid?: pulumi.Input<string>;
-    /**
-     * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
-     */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the space that appears in the SageMaker AI Studio UI.
-     */
     spaceDisplayName?: pulumi.Input<string>;
-    /**
-     * The name of the space.
-     */
     spaceName?: pulumi.Input<string>;
-    /**
-     * A collection of space settings. See `spaceSettings` Block below.
-     */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
-    /**
-     * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
-     */
     spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -218,36 +121,12 @@ export interface SpaceState {
  * The set of arguments for constructing a Space resource.
  */
 export interface SpaceArgs {
-    /**
-     * The ID of the associated Domain.
-     */
     domainId: pulumi.Input<string>;
-    /**
-     * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
-     */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the space that appears in the SageMaker AI Studio UI.
-     */
     spaceDisplayName?: pulumi.Input<string>;
-    /**
-     * The name of the space.
-     */
     spaceName: pulumi.Input<string>;
-    /**
-     * A collection of space settings. See `spaceSettings` Block below.
-     */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
-    /**
-     * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
-     */
     spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

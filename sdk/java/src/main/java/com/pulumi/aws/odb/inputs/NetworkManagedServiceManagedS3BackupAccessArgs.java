@@ -22,17 +22,9 @@ public final class NetworkManagedServiceManagedS3BackupAccessArgs extends com.pu
         return this.ipv4Addresses;
     }
 
-    /**
-     * The status of the network resource.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -75,23 +67,11 @@ public final class NetworkManagedServiceManagedS3BackupAccessArgs extends com.pu
             return ipv4Addresses(List.of(ipv4Addresses));
         }
 
-        /**
-         * @param status The status of the network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

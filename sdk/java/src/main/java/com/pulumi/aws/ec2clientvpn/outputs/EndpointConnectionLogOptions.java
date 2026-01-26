@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointConnectionLogOptions {
-    /**
-     * @return The name of the CloudWatch Logs log group.
-     * 
-     */
     private @Nullable String cloudwatchLogGroup;
-    /**
-     * @return The name of the CloudWatch Logs log stream to which the connection data is published.
-     * 
-     */
     private @Nullable String cloudwatchLogStream;
-    /**
-     * @return Indicates whether connection logging is enabled.
-     * 
-     */
     private Boolean enabled;
 
     private EndpointConnectionLogOptions() {}
-    /**
-     * @return The name of the CloudWatch Logs log group.
-     * 
-     */
     public Optional<String> cloudwatchLogGroup() {
         return Optional.ofNullable(this.cloudwatchLogGroup);
     }
-    /**
-     * @return The name of the CloudWatch Logs log stream to which the connection data is published.
-     * 
-     */
     public Optional<String> cloudwatchLogStream() {
         return Optional.ofNullable(this.cloudwatchLogStream);
     }
-    /**
-     * @return Indicates whether connection logging is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

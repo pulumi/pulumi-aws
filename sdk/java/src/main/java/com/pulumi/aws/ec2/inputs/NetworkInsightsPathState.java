@@ -19,77 +19,37 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
 
     public static final NetworkInsightsPathState Empty = new NetworkInsightsPathState();
 
-    /**
-     * ARN of the Network Insights Path.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Network Insights Path.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
-    /**
-     * @return ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-     * 
-     */
     public Optional<Output<String>> destination() {
         return Optional.ofNullable(this.destination);
     }
 
-    /**
-     * ARN of the destination.
-     * 
-     */
     @Import(name="destinationArn")
     private @Nullable Output<String> destinationArn;
 
-    /**
-     * @return ARN of the destination.
-     * 
-     */
     public Optional<Output<String>> destinationArn() {
         return Optional.ofNullable(this.destinationArn);
     }
 
-    /**
-     * IP address of the destination resource.
-     * 
-     */
     @Import(name="destinationIp")
     private @Nullable Output<String> destinationIp;
 
-    /**
-     * @return IP address of the destination resource.
-     * 
-     */
     public Optional<Output<String>> destinationIp() {
         return Optional.ofNullable(this.destinationIp);
     }
 
-    /**
-     * Destination port to analyze access to.
-     * 
-     */
     @Import(name="destinationPort")
     private @Nullable Output<Integer> destinationPort;
 
-    /**
-     * @return Destination port to analyze access to.
-     * 
-     */
     public Optional<Output<Integer>> destinationPort() {
         return Optional.ofNullable(this.destinationPort);
     }
@@ -108,111 +68,51 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.filterAtSource);
     }
 
-    /**
-     * Protocol to use for analysis. Valid options are `tcp` or `udp`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return Protocol to use for analysis. Valid options are `tcp` or `udp`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
 
-    /**
-     * ARN of the source.
-     * 
-     */
     @Import(name="sourceArn")
     private @Nullable Output<String> sourceArn;
 
-    /**
-     * @return ARN of the source.
-     * 
-     */
     public Optional<Output<String>> sourceArn() {
         return Optional.ofNullable(this.sourceArn);
     }
 
-    /**
-     * IP address of the source resource.
-     * 
-     */
     @Import(name="sourceIp")
     private @Nullable Output<String> sourceIp;
 
-    /**
-     * @return IP address of the source resource.
-     * 
-     */
     public Optional<Output<String>> sourceIp() {
         return Optional.ofNullable(this.sourceIp);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -254,107 +154,47 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
             $ = new NetworkInsightsPathState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Network Insights Path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Network Insights Path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param destination ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param destinationArn ARN of the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(@Nullable Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn ARN of the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }
 
-        /**
-         * @param destinationIp IP address of the destination resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationIp(@Nullable Output<String> destinationIp) {
             $.destinationIp = destinationIp;
             return this;
         }
 
-        /**
-         * @param destinationIp IP address of the destination resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationIp(String destinationIp) {
             return destinationIp(Output.of(destinationIp));
         }
 
-        /**
-         * @param destinationPort Destination port to analyze access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPort(@Nullable Output<Integer> destinationPort) {
             $.destinationPort = destinationPort;
             return this;
         }
 
-        /**
-         * @param destinationPort Destination port to analyze access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPort(Integer destinationPort) {
             return destinationPort(Output.of(destinationPort));
         }
@@ -377,153 +217,65 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
             return filterAtSource(Output.of(filterAtSource));
         }
 
-        /**
-         * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param source ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param sourceArn ARN of the source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(@Nullable Output<String> sourceArn) {
             $.sourceArn = sourceArn;
             return this;
         }
 
-        /**
-         * @param sourceArn ARN of the source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(String sourceArn) {
             return sourceArn(Output.of(sourceArn));
         }
 
-        /**
-         * @param sourceIp IP address of the source resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIp(@Nullable Output<String> sourceIp) {
             $.sourceIp = sourceIp;
             return this;
         }
 
-        /**
-         * @param sourceIp IP address of the source resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIp(String sourceIp) {
             return sourceIp(Output.of(sourceIp));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

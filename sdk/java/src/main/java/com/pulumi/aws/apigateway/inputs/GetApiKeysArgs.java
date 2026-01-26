@@ -16,47 +16,23 @@ public final class GetApiKeysArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetApiKeysArgs Empty = new GetApiKeysArgs();
 
-    /**
-     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     @Import(name="customerId")
     private @Nullable Output<String> customerId;
 
-    /**
-     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     public Optional<Output<String>> customerId() {
         return Optional.ofNullable(this.customerId);
     }
 
-    /**
-     * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-     * 
-     */
     @Import(name="includeValues")
     private @Nullable Output<Boolean> includeValues;
 
-    /**
-     * @return Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> includeValues() {
         return Optional.ofNullable(this.includeValues);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class GetApiKeysArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetApiKeysArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customerId Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerId(@Nullable Output<String> customerId) {
             $.customerId = customerId;
             return this;
         }
 
-        /**
-         * @param customerId Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerId(String customerId) {
             return customerId(Output.of(customerId));
         }
 
-        /**
-         * @param includeValues Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeValues(@Nullable Output<Boolean> includeValues) {
             $.includeValues = includeValues;
             return this;
         }
 
-        /**
-         * @param includeValues Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeValues(Boolean includeValues) {
             return includeValues(Output.of(includeValues));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

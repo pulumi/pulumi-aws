@@ -14,32 +14,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs();
 
-    /**
-     * The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-     * 
-     */
     @Import(name="recordColumnDelimiter", required=true)
     private Output<String> recordColumnDelimiter;
 
-    /**
-     * @return The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-     * 
-     */
     public Output<String> recordColumnDelimiter() {
         return this.recordColumnDelimiter;
     }
 
-    /**
-     * The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
-     * 
-     */
     @Import(name="recordRowDelimiter", required=true)
     private Output<String> recordRowDelimiter;
 
-    /**
-     * @return The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
-     * 
-     */
     public Output<String> recordRowDelimiter() {
         return this.recordRowDelimiter;
     }
@@ -69,44 +53,20 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recordColumnDelimiter The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumnDelimiter(Output<String> recordColumnDelimiter) {
             $.recordColumnDelimiter = recordColumnDelimiter;
             return this;
         }
 
-        /**
-         * @param recordColumnDelimiter The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumnDelimiter(String recordColumnDelimiter) {
             return recordColumnDelimiter(Output.of(recordColumnDelimiter));
         }
 
-        /**
-         * @param recordRowDelimiter The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordRowDelimiter(Output<String> recordRowDelimiter) {
             $.recordRowDelimiter = recordRowDelimiter;
             return this;
         }
 
-        /**
-         * @param recordRowDelimiter The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordRowDelimiter(String recordRowDelimiter) {
             return recordRowDelimiter(Output.of(recordRowDelimiter));
         }

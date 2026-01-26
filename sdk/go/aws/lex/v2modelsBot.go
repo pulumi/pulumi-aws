@@ -12,113 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Lex V2 Models Bot.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "lexv2.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"created_by": pulumi.String("aws"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("Example description"),
-//				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
-//					&lex.V2modelsBotDataPrivacyArgs{
-//						ChildDirected: pulumi.Bool(false),
-//					},
-//				},
-//				IdleSessionTtlInSeconds: pulumi.Int(60),
-//				RoleArn:                 exampleRole.Arn,
-//				Type:                    pulumi.String("Bot"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
-// ```
 type V2modelsBot struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
-	DataPrivacies V2modelsBotDataPrivacyArrayOutput `pulumi:"dataPrivacies"`
-	// Description of the bot. It appears in lists to help you identify a particular bot.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
-	// List of bot members in a network to be created. See `botMembers`.
-	Members V2modelsBotMemberArrayOutput `pulumi:"members"`
-	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of an IAM role that has permission to access the bot.
-	//
-	// The following arguments are optional:
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-	TestBotAliasTags pulumi.StringMapOutput       `pulumi:"testBotAliasTags"`
-	Timeouts         V2modelsBotTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Arn                     pulumi.StringOutput               `pulumi:"arn"`
+	DataPrivacies           V2modelsBotDataPrivacyArrayOutput `pulumi:"dataPrivacies"`
+	Description             pulumi.StringPtrOutput            `pulumi:"description"`
+	IdleSessionTtlInSeconds pulumi.IntOutput                  `pulumi:"idleSessionTtlInSeconds"`
+	Members                 V2modelsBotMemberArrayOutput      `pulumi:"members"`
+	Name                    pulumi.StringOutput               `pulumi:"name"`
+	Region                  pulumi.StringOutput               `pulumi:"region"`
+	RoleArn                 pulumi.StringOutput               `pulumi:"roleArn"`
+	Tags                    pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	TestBotAliasTags        pulumi.StringMapOutput            `pulumi:"testBotAliasTags"`
+	Timeouts                V2modelsBotTimeoutsPtrOutput      `pulumi:"timeouts"`
+	Type                    pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewV2modelsBot registers a new resource with the given unique name, arguments, and options.
@@ -157,59 +66,35 @@ func GetV2modelsBot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering V2modelsBot resources.
 type v2modelsBotState struct {
-	Arn *string `pulumi:"arn"`
-	// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
-	DataPrivacies []V2modelsBotDataPrivacy `pulumi:"dataPrivacies"`
-	// Description of the bot. It appears in lists to help you identify a particular bot.
-	Description *string `pulumi:"description"`
-	// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// List of bot members in a network to be created. See `botMembers`.
-	Members []V2modelsBotMember `pulumi:"members"`
-	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of an IAM role that has permission to access the bot.
-	//
-	// The following arguments are optional:
-	RoleArn *string `pulumi:"roleArn"`
-	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-	TestBotAliasTags map[string]string    `pulumi:"testBotAliasTags"`
-	Timeouts         *V2modelsBotTimeouts `pulumi:"timeouts"`
-	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-	Type *string `pulumi:"type"`
+	Arn                     *string                  `pulumi:"arn"`
+	DataPrivacies           []V2modelsBotDataPrivacy `pulumi:"dataPrivacies"`
+	Description             *string                  `pulumi:"description"`
+	IdleSessionTtlInSeconds *int                     `pulumi:"idleSessionTtlInSeconds"`
+	Members                 []V2modelsBotMember      `pulumi:"members"`
+	Name                    *string                  `pulumi:"name"`
+	Region                  *string                  `pulumi:"region"`
+	RoleArn                 *string                  `pulumi:"roleArn"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	TagsAll                 map[string]string        `pulumi:"tagsAll"`
+	TestBotAliasTags        map[string]string        `pulumi:"testBotAliasTags"`
+	Timeouts                *V2modelsBotTimeouts     `pulumi:"timeouts"`
+	Type                    *string                  `pulumi:"type"`
 }
 
 type V2modelsBotState struct {
-	Arn pulumi.StringPtrInput
-	// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
-	DataPrivacies V2modelsBotDataPrivacyArrayInput
-	// Description of the bot. It appears in lists to help you identify a particular bot.
-	Description pulumi.StringPtrInput
-	// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
+	Arn                     pulumi.StringPtrInput
+	DataPrivacies           V2modelsBotDataPrivacyArrayInput
+	Description             pulumi.StringPtrInput
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// List of bot members in a network to be created. See `botMembers`.
-	Members V2modelsBotMemberArrayInput
-	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of an IAM role that has permission to access the bot.
-	//
-	// The following arguments are optional:
-	RoleArn pulumi.StringPtrInput
-	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-	TestBotAliasTags pulumi.StringMapInput
-	Timeouts         V2modelsBotTimeoutsPtrInput
-	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-	Type pulumi.StringPtrInput
+	Members                 V2modelsBotMemberArrayInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	RoleArn                 pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	TestBotAliasTags        pulumi.StringMapInput
+	Timeouts                V2modelsBotTimeoutsPtrInput
+	Type                    pulumi.StringPtrInput
 }
 
 func (V2modelsBotState) ElementType() reflect.Type {
@@ -217,56 +102,32 @@ func (V2modelsBotState) ElementType() reflect.Type {
 }
 
 type v2modelsBotArgs struct {
-	// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
-	DataPrivacies []V2modelsBotDataPrivacy `pulumi:"dataPrivacies"`
-	// Description of the bot. It appears in lists to help you identify a particular bot.
-	Description *string `pulumi:"description"`
-	// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-	IdleSessionTtlInSeconds int `pulumi:"idleSessionTtlInSeconds"`
-	// List of bot members in a network to be created. See `botMembers`.
-	Members []V2modelsBotMember `pulumi:"members"`
-	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of an IAM role that has permission to access the bot.
-	//
-	// The following arguments are optional:
-	RoleArn string `pulumi:"roleArn"`
-	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags map[string]string `pulumi:"tags"`
-	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-	TestBotAliasTags map[string]string    `pulumi:"testBotAliasTags"`
-	Timeouts         *V2modelsBotTimeouts `pulumi:"timeouts"`
-	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-	Type *string `pulumi:"type"`
+	DataPrivacies           []V2modelsBotDataPrivacy `pulumi:"dataPrivacies"`
+	Description             *string                  `pulumi:"description"`
+	IdleSessionTtlInSeconds int                      `pulumi:"idleSessionTtlInSeconds"`
+	Members                 []V2modelsBotMember      `pulumi:"members"`
+	Name                    *string                  `pulumi:"name"`
+	Region                  *string                  `pulumi:"region"`
+	RoleArn                 string                   `pulumi:"roleArn"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	TestBotAliasTags        map[string]string        `pulumi:"testBotAliasTags"`
+	Timeouts                *V2modelsBotTimeouts     `pulumi:"timeouts"`
+	Type                    *string                  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a V2modelsBot resource.
 type V2modelsBotArgs struct {
-	// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
-	DataPrivacies V2modelsBotDataPrivacyArrayInput
-	// Description of the bot. It appears in lists to help you identify a particular bot.
-	Description pulumi.StringPtrInput
-	// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
+	DataPrivacies           V2modelsBotDataPrivacyArrayInput
+	Description             pulumi.StringPtrInput
 	IdleSessionTtlInSeconds pulumi.IntInput
-	// List of bot members in a network to be created. See `botMembers`.
-	Members V2modelsBotMemberArrayInput
-	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of an IAM role that has permission to access the bot.
-	//
-	// The following arguments are optional:
-	RoleArn pulumi.StringInput
-	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags pulumi.StringMapInput
-	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-	TestBotAliasTags pulumi.StringMapInput
-	Timeouts         V2modelsBotTimeoutsPtrInput
-	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-	Type pulumi.StringPtrInput
+	Members                 V2modelsBotMemberArrayInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	RoleArn                 pulumi.StringInput
+	Tags                    pulumi.StringMapInput
+	TestBotAliasTags        pulumi.StringMapInput
+	Timeouts                V2modelsBotTimeoutsPtrInput
+	Type                    pulumi.StringPtrInput
 }
 
 func (V2modelsBotArgs) ElementType() reflect.Type {
@@ -360,44 +221,34 @@ func (o V2modelsBotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
 func (o V2modelsBotOutput) DataPrivacies() V2modelsBotDataPrivacyArrayOutput {
 	return o.ApplyT(func(v *V2modelsBot) V2modelsBotDataPrivacyArrayOutput { return v.DataPrivacies }).(V2modelsBotDataPrivacyArrayOutput)
 }
 
-// Description of the bot. It appears in lists to help you identify a particular bot.
 func (o V2modelsBotOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
 func (o V2modelsBotOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// List of bot members in a network to be created. See `botMembers`.
 func (o V2modelsBotOutput) Members() V2modelsBotMemberArrayOutput {
 	return o.ApplyT(func(v *V2modelsBot) V2modelsBotMemberArrayOutput { return v.Members }).(V2modelsBotMemberArrayOutput)
 }
 
-// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 func (o V2modelsBotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o V2modelsBotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of an IAM role that has permission to access the bot.
-//
-// The following arguments are optional:
 func (o V2modelsBotOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// List of tags to add to the bot. You can only add tags when you create a bot.
 func (o V2modelsBotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -406,7 +257,6 @@ func (o V2modelsBotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 func (o V2modelsBotOutput) TestBotAliasTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.TestBotAliasTags }).(pulumi.StringMapOutput)
 }
@@ -415,7 +265,6 @@ func (o V2modelsBotOutput) Timeouts() V2modelsBotTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsBot) V2modelsBotTimeoutsPtrOutput { return v.Timeouts }).(V2modelsBotTimeoutsPtrOutput)
 }
 
-// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
 func (o V2modelsBotOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

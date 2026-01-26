@@ -12,74 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Data Source.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentDataSource(ctx, "example", &bedrock.AgentDataSourceArgs{
-//				KnowledgeBaseId: pulumi.String("EMDPPAYPZI"),
-//				Name:            pulumi.String("example"),
-//				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
-//					Type: pulumi.String("S3"),
-//					S3Configuration: &bedrock.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{
-//						BucketArn: pulumi.String("arn:aws:s3:::example-bucket"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
-// ```
 type AgentDataSource struct {
 	pulumi.CustomResourceState
 
-	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-	DataDeletionPolicy pulumi.StringOutput `pulumi:"dataDeletionPolicy"`
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration AgentDataSourceDataSourceConfigurationPtrOutput `pulumi:"dataSourceConfiguration"`
-	// Unique identifier of the data source.
-	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
-	// Description of the data source.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Unique identifier of the knowledge base to which the data source belongs.
-	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
-	// Name of the data source.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	DataDeletionPolicy                pulumi.StringOutput                                       `pulumi:"dataDeletionPolicy"`
+	DataSourceConfiguration           AgentDataSourceDataSourceConfigurationPtrOutput           `pulumi:"dataSourceConfiguration"`
+	DataSourceId                      pulumi.StringOutput                                       `pulumi:"dataSourceId"`
+	Description                       pulumi.StringPtrOutput                                    `pulumi:"description"`
+	KnowledgeBaseId                   pulumi.StringOutput                                       `pulumi:"knowledgeBaseId"`
+	Name                              pulumi.StringOutput                                       `pulumi:"name"`
+	Region                            pulumi.StringOutput                                       `pulumi:"region"`
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          AgentDataSourceTimeoutsPtrOutput                          `pulumi:"timeouts"`
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
-	VectorIngestionConfiguration AgentDataSourceVectorIngestionConfigurationPtrOutput `pulumi:"vectorIngestionConfiguration"`
+	VectorIngestionConfiguration      AgentDataSourceVectorIngestionConfigurationPtrOutput      `pulumi:"vectorIngestionConfiguration"`
 }
 
 // NewAgentDataSource registers a new resource with the given unique name, arguments, and options.
@@ -115,51 +60,29 @@ func GetAgentDataSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentDataSource resources.
 type agentDataSourceState struct {
-	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-	DataDeletionPolicy *string `pulumi:"dataDeletionPolicy"`
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration *AgentDataSourceDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
-	// Unique identifier of the data source.
-	DataSourceId *string `pulumi:"dataSourceId"`
-	// Description of the data source.
-	Description *string `pulumi:"description"`
-	// Unique identifier of the knowledge base to which the data source belongs.
-	KnowledgeBaseId *string `pulumi:"knowledgeBaseId"`
-	// Name of the data source.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	DataDeletionPolicy                *string                                           `pulumi:"dataDeletionPolicy"`
+	DataSourceConfiguration           *AgentDataSourceDataSourceConfiguration           `pulumi:"dataSourceConfiguration"`
+	DataSourceId                      *string                                           `pulumi:"dataSourceId"`
+	Description                       *string                                           `pulumi:"description"`
+	KnowledgeBaseId                   *string                                           `pulumi:"knowledgeBaseId"`
+	Name                              *string                                           `pulumi:"name"`
+	Region                            *string                                           `pulumi:"region"`
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          *AgentDataSourceTimeouts                          `pulumi:"timeouts"`
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
-	VectorIngestionConfiguration *AgentDataSourceVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
+	VectorIngestionConfiguration      *AgentDataSourceVectorIngestionConfiguration      `pulumi:"vectorIngestionConfiguration"`
 }
 
 type AgentDataSourceState struct {
-	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-	DataDeletionPolicy pulumi.StringPtrInput
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration AgentDataSourceDataSourceConfigurationPtrInput
-	// Unique identifier of the data source.
-	DataSourceId pulumi.StringPtrInput
-	// Description of the data source.
-	Description pulumi.StringPtrInput
-	// Unique identifier of the knowledge base to which the data source belongs.
-	KnowledgeBaseId pulumi.StringPtrInput
-	// Name of the data source.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	DataDeletionPolicy                pulumi.StringPtrInput
+	DataSourceConfiguration           AgentDataSourceDataSourceConfigurationPtrInput
+	DataSourceId                      pulumi.StringPtrInput
+	Description                       pulumi.StringPtrInput
+	KnowledgeBaseId                   pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
 	Timeouts                          AgentDataSourceTimeoutsPtrInput
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
-	VectorIngestionConfiguration AgentDataSourceVectorIngestionConfigurationPtrInput
+	VectorIngestionConfiguration      AgentDataSourceVectorIngestionConfigurationPtrInput
 }
 
 func (AgentDataSourceState) ElementType() reflect.Type {
@@ -167,48 +90,28 @@ func (AgentDataSourceState) ElementType() reflect.Type {
 }
 
 type agentDataSourceArgs struct {
-	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-	DataDeletionPolicy *string `pulumi:"dataDeletionPolicy"`
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration *AgentDataSourceDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
-	// Description of the data source.
-	Description *string `pulumi:"description"`
-	// Unique identifier of the knowledge base to which the data source belongs.
-	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
-	// Name of the data source.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	DataDeletionPolicy                *string                                           `pulumi:"dataDeletionPolicy"`
+	DataSourceConfiguration           *AgentDataSourceDataSourceConfiguration           `pulumi:"dataSourceConfiguration"`
+	Description                       *string                                           `pulumi:"description"`
+	KnowledgeBaseId                   string                                            `pulumi:"knowledgeBaseId"`
+	Name                              *string                                           `pulumi:"name"`
+	Region                            *string                                           `pulumi:"region"`
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          *AgentDataSourceTimeouts                          `pulumi:"timeouts"`
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
-	VectorIngestionConfiguration *AgentDataSourceVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
+	VectorIngestionConfiguration      *AgentDataSourceVectorIngestionConfiguration      `pulumi:"vectorIngestionConfiguration"`
 }
 
 // The set of arguments for constructing a AgentDataSource resource.
 type AgentDataSourceArgs struct {
-	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-	DataDeletionPolicy pulumi.StringPtrInput
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration AgentDataSourceDataSourceConfigurationPtrInput
-	// Description of the data source.
-	Description pulumi.StringPtrInput
-	// Unique identifier of the knowledge base to which the data source belongs.
-	KnowledgeBaseId pulumi.StringInput
-	// Name of the data source.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	DataDeletionPolicy                pulumi.StringPtrInput
+	DataSourceConfiguration           AgentDataSourceDataSourceConfigurationPtrInput
+	Description                       pulumi.StringPtrInput
+	KnowledgeBaseId                   pulumi.StringInput
+	Name                              pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
 	Timeouts                          AgentDataSourceTimeoutsPtrInput
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
-	VectorIngestionConfiguration AgentDataSourceVectorIngestionConfigurationPtrInput
+	VectorIngestionConfiguration      AgentDataSourceVectorIngestionConfigurationPtrInput
 }
 
 func (AgentDataSourceArgs) ElementType() reflect.Type {
@@ -298,46 +201,36 @@ func (o AgentDataSourceOutput) ToAgentDataSourceOutputWithContext(ctx context.Co
 	return o
 }
 
-// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 func (o AgentDataSourceOutput) DataDeletionPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.DataDeletionPolicy }).(pulumi.StringOutput)
 }
 
-// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
 func (o AgentDataSourceOutput) DataSourceConfiguration() AgentDataSourceDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceDataSourceConfigurationPtrOutput {
 		return v.DataSourceConfiguration
 	}).(AgentDataSourceDataSourceConfigurationPtrOutput)
 }
 
-// Unique identifier of the data source.
 func (o AgentDataSourceOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// Description of the data source.
 func (o AgentDataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifier of the knowledge base to which the data source belongs.
 func (o AgentDataSourceOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
-// Name of the data source.
-//
-// The following arguments are optional:
 func (o AgentDataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentDataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 func (o AgentDataSourceOutput) ServerSideEncryptionConfiguration() AgentDataSourceServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
@@ -348,7 +241,6 @@ func (o AgentDataSourceOutput) Timeouts() AgentDataSourceTimeoutsPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceTimeoutsPtrOutput { return v.Timeouts }).(AgentDataSourceTimeoutsPtrOutput)
 }
 
-// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
 func (o AgentDataSourceOutput) VectorIngestionConfiguration() AgentDataSourceVectorIngestionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceVectorIngestionConfigurationPtrOutput {
 		return v.VectorIngestionConfiguration

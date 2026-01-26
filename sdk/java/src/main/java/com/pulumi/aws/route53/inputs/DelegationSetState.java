@@ -16,51 +16,23 @@ public final class DelegationSetState extends com.pulumi.resources.ResourceArgs 
 
     public static final DelegationSetState Empty = new DelegationSetState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Delegation Set.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * A list of authoritative name servers for the hosted zone
-     * (effectively a list of NS records).
-     * 
-     */
     @Import(name="nameServers")
     private @Nullable Output<List<String>> nameServers;
 
-    /**
-     * @return A list of authoritative name servers for the hosted zone
-     * (effectively a list of NS records).
-     * 
-     */
     public Optional<Output<List<String>>> nameServers() {
         return Optional.ofNullable(this.nameServers);
     }
 
-    /**
-     * This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     * 
-     */
     @Import(name="referenceName")
     private @Nullable Output<String> referenceName;
 
-    /**
-     * @return This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     * 
-     */
     public Optional<Output<String>> referenceName() {
         return Optional.ofNullable(this.referenceName);
     }
@@ -91,80 +63,33 @@ public final class DelegationSetState extends com.pulumi.resources.ResourceArgs 
             $ = new DelegationSetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the Delegation Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the Delegation Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param nameServers A list of authoritative name servers for the hosted zone
-         * (effectively a list of NS records).
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameServers(@Nullable Output<List<String>> nameServers) {
             $.nameServers = nameServers;
             return this;
         }
 
-        /**
-         * @param nameServers A list of authoritative name servers for the hosted zone
-         * (effectively a list of NS records).
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameServers(List<String> nameServers) {
             return nameServers(Output.of(nameServers));
         }
 
-        /**
-         * @param nameServers A list of authoritative name servers for the hosted zone
-         * (effectively a list of NS records).
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
         }
 
-        /**
-         * @param referenceName This is a reference name used in Caller Reference
-         * (helpful for identifying single delegation set amongst others)
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceName(@Nullable Output<String> referenceName) {
             $.referenceName = referenceName;
             return this;
         }
 
-        /**
-         * @param referenceName This is a reference name used in Caller Reference
-         * (helpful for identifying single delegation set amongst others)
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceName(String referenceName) {
             return referenceName(Output.of(referenceName));
         }

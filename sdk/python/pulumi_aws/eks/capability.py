@@ -32,14 +32,6 @@ class CapabilityArgs:
                  timeouts: Optional[pulumi.Input['CapabilityTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Capability resource.
-        :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
-        :param pulumi.Input[_builtins.str] delete_propagation_policy: Delete propagation policy for the capability. Valid values: `RETAIN`.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to associate with the capability.
-        :param pulumi.Input[_builtins.str] type: Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        :param pulumi.Input['CapabilityConfigurationArgs'] configuration: Configuration for the capability. See `configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags.
         """
         pulumi.set(__self__, "capability_name", capability_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -58,9 +50,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter(name="capabilityName")
     def capability_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the capability. Must be unique within the cluster.
-        """
         return pulumi.get(self, "capability_name")
 
     @capability_name.setter
@@ -70,9 +59,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the EKS cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -82,9 +68,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter(name="deletePropagationPolicy")
     def delete_propagation_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Delete propagation policy for the capability. Valid values: `RETAIN`.
-        """
         return pulumi.get(self, "delete_propagation_policy")
 
     @delete_propagation_policy.setter
@@ -94,9 +77,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role to associate with the capability.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -106,9 +86,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -118,9 +95,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['CapabilityConfigurationArgs']]:
-        """
-        Configuration for the capability. See `configuration` below.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -130,9 +104,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -142,9 +113,6 @@ class CapabilityArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -178,17 +146,6 @@ class _CapabilityState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Capability resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the capability.
-        :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
-        :param pulumi.Input['CapabilityConfigurationArgs'] configuration: Configuration for the capability. See `configuration` below.
-        :param pulumi.Input[_builtins.str] delete_propagation_policy: Delete propagation policy for the capability. Valid values: `RETAIN`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to associate with the capability.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        :param pulumi.Input[_builtins.str] version: Version of the capability.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -218,9 +175,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the capability.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -230,9 +184,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter(name="capabilityName")
     def capability_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the capability. Must be unique within the cluster.
-        """
         return pulumi.get(self, "capability_name")
 
     @capability_name.setter
@@ -242,9 +193,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the EKS cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -254,9 +202,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['CapabilityConfigurationArgs']]:
-        """
-        Configuration for the capability. See `configuration` below.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -266,9 +211,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter(name="deletePropagationPolicy")
     def delete_propagation_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Delete propagation policy for the capability. Valid values: `RETAIN`.
-        """
         return pulumi.get(self, "delete_propagation_policy")
 
     @delete_propagation_policy.setter
@@ -278,9 +220,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -290,9 +229,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role to associate with the capability.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -302,9 +238,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -314,9 +247,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -335,9 +265,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -347,9 +274,6 @@ class _CapabilityState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the capability.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -374,51 +298,9 @@ class Capability(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an EKS Capability for an EKS cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.Capability("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            capability_name="argocd",
-            type="ARGOCD",
-            role_arn=example_aws_iam_role["arn"],
-            delete_propagation_policy="RETAIN",
-            configuration={
-                "argo_cd": {
-                    "aws_idc": {
-                        "idc_instance_arn": "arn:aws:sso:::instance/ssoins-1234567890abcdef0",
-                    },
-                    "namespace": "argocd",
-                },
-            },
-            tags={
-                "Name": "example-capability",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
-        ```
-
+        Create a Capability resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
-        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']] configuration: Configuration for the capability. See `configuration` below.
-        :param pulumi.Input[_builtins.str] delete_propagation_policy: Delete propagation policy for the capability. Valid values: `RETAIN`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to associate with the capability.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags.
-        :param pulumi.Input[_builtins.str] type: Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
         """
         ...
     @overload
@@ -427,41 +309,7 @@ class Capability(pulumi.CustomResource):
                  args: CapabilityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EKS Capability for an EKS cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.Capability("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            capability_name="argocd",
-            type="ARGOCD",
-            role_arn=example_aws_iam_role["arn"],
-            delete_propagation_policy="RETAIN",
-            configuration={
-                "argo_cd": {
-                    "aws_idc": {
-                        "idc_instance_arn": "arn:aws:sso:::instance/ssoins-1234567890abcdef0",
-                    },
-                    "namespace": "argocd",
-                },
-            },
-            tags={
-                "Name": "example-capability",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
-        ```
-
+        Create a Capability resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -546,17 +394,6 @@ class Capability(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the capability.
-        :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
-        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']] configuration: Configuration for the capability. See `configuration` below.
-        :param pulumi.Input[_builtins.str] delete_propagation_policy: Delete propagation policy for the capability. Valid values: `RETAIN`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to associate with the capability.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        :param pulumi.Input[_builtins.str] version: Version of the capability.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -579,73 +416,46 @@ class Capability(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the capability.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="capabilityName")
     def capability_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the capability. Must be unique within the cluster.
-        """
         return pulumi.get(self, "capability_name")
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the EKS cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.CapabilityConfiguration']]:
-        """
-        Configuration for the capability. See `configuration` below.
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter(name="deletePropagationPolicy")
     def delete_propagation_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Delete propagation policy for the capability. Valid values: `RETAIN`.
-        """
         return pulumi.get(self, "delete_propagation_policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role to associate with the capability.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -656,16 +466,10 @@ class Capability(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the capability.
-        """
         return pulumi.get(self, "version")
 

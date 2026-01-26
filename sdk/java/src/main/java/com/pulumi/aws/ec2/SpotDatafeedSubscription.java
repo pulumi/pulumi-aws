@@ -14,102 +14,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **Note:** There is only a single subscription allowed per account.
- * 
- * To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
- * This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.ec2.SpotDatafeedSubscription;
- * import com.pulumi.aws.ec2.SpotDatafeedSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new Bucket("default", BucketArgs.builder()
- *             .bucket("tf-spot-datafeed")
- *             .build());
- * 
- *         var defaultSpotDatafeedSubscription = new SpotDatafeedSubscription("defaultSpotDatafeedSubscription", SpotDatafeedSubscriptionArgs.builder()
- *             .bucket(default_.id())
- *             .prefix("my_subdirectory")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")
 public class SpotDatafeedSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon S3 bucket in which to store the Spot instance data feed.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return The Amazon S3 bucket in which to store the Spot instance data feed.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Path of folder inside bucket to place spot pricing data.
-     * 
-     */
     @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
-    /**
-     * @return Path of folder inside bucket to place spot pricing data.
-     * 
-     */
     public Output<Optional<String>> prefix() {
         return Codegen.optional(this.prefix);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

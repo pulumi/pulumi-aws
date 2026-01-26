@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterLoggingInfoBrokerLogsFirehose
     {
-        /// <summary>
-        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-        /// </summary>
         public readonly string? DeliveryStream;
         public readonly bool Enabled;
 

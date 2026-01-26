@@ -18,186 +18,86 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
 
     public static final RouteServerPeerState Empty = new RouteServerPeerState();
 
-    /**
-     * The ARN of the route server peer.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the route server peer.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-     * 
-     */
     @Import(name="bgpOptions")
     private @Nullable Output<RouteServerPeerBgpOptionsArgs> bgpOptions;
 
-    /**
-     * @return The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-     * 
-     */
     public Optional<Output<RouteServerPeerBgpOptionsArgs>> bgpOptions() {
         return Optional.ofNullable(this.bgpOptions);
     }
 
-    /**
-     * The IP address of the Elastic network interface for the route server endpoint.
-     * 
-     */
     @Import(name="endpointEniAddress")
     private @Nullable Output<String> endpointEniAddress;
 
-    /**
-     * @return The IP address of the Elastic network interface for the route server endpoint.
-     * 
-     */
     public Optional<Output<String>> endpointEniAddress() {
         return Optional.ofNullable(this.endpointEniAddress);
     }
 
-    /**
-     * The ID of the Elastic network interface for the route server endpoint.
-     * 
-     */
     @Import(name="endpointEniId")
     private @Nullable Output<String> endpointEniId;
 
-    /**
-     * @return The ID of the Elastic network interface for the route server endpoint.
-     * 
-     */
     public Optional<Output<String>> endpointEniId() {
         return Optional.ofNullable(this.endpointEniId);
     }
 
-    /**
-     * The IPv4 address of the peer device.
-     * 
-     */
     @Import(name="peerAddress")
     private @Nullable Output<String> peerAddress;
 
-    /**
-     * @return The IPv4 address of the peer device.
-     * 
-     */
     public Optional<Output<String>> peerAddress() {
         return Optional.ofNullable(this.peerAddress);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the route server endpoint for which to create a peer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="routeServerEndpointId")
     private @Nullable Output<String> routeServerEndpointId;
 
-    /**
-     * @return The ID of the route server endpoint for which to create a peer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> routeServerEndpointId() {
         return Optional.ofNullable(this.routeServerEndpointId);
     }
 
-    /**
-     * The ID of the route server associated with this peer.
-     * 
-     */
     @Import(name="routeServerId")
     private @Nullable Output<String> routeServerId;
 
-    /**
-     * @return The ID of the route server associated with this peer.
-     * 
-     */
     public Optional<Output<String>> routeServerId() {
         return Optional.ofNullable(this.routeServerId);
     }
 
-    /**
-     * The unique identifier of the route server peer.
-     * 
-     */
     @Import(name="routeServerPeerId")
     private @Nullable Output<String> routeServerPeerId;
 
-    /**
-     * @return The unique identifier of the route server peer.
-     * 
-     */
     public Optional<Output<String>> routeServerPeerId() {
         return Optional.ofNullable(this.routeServerPeerId);
     }
 
-    /**
-     * The ID of the subnet containing the route server peer.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet containing the route server peer.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -209,17 +109,9 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The ID of the VPC containing the route server peer.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC containing the route server peer.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -261,258 +153,110 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
             $ = new RouteServerPeerState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpOptions(@Nullable Output<RouteServerPeerBgpOptionsArgs> bgpOptions) {
             $.bgpOptions = bgpOptions;
             return this;
         }
 
-        /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpOptions(RouteServerPeerBgpOptionsArgs bgpOptions) {
             return bgpOptions(Output.of(bgpOptions));
         }
 
-        /**
-         * @param endpointEniAddress The IP address of the Elastic network interface for the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointEniAddress(@Nullable Output<String> endpointEniAddress) {
             $.endpointEniAddress = endpointEniAddress;
             return this;
         }
 
-        /**
-         * @param endpointEniAddress The IP address of the Elastic network interface for the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointEniAddress(String endpointEniAddress) {
             return endpointEniAddress(Output.of(endpointEniAddress));
         }
 
-        /**
-         * @param endpointEniId The ID of the Elastic network interface for the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointEniId(@Nullable Output<String> endpointEniId) {
             $.endpointEniId = endpointEniId;
             return this;
         }
 
-        /**
-         * @param endpointEniId The ID of the Elastic network interface for the route server endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointEniId(String endpointEniId) {
             return endpointEniId(Output.of(endpointEniId));
         }
 
-        /**
-         * @param peerAddress The IPv4 address of the peer device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(@Nullable Output<String> peerAddress) {
             $.peerAddress = peerAddress;
             return this;
         }
 
-        /**
-         * @param peerAddress The IPv4 address of the peer device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(String peerAddress) {
             return peerAddress(Output.of(peerAddress));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerEndpointId(@Nullable Output<String> routeServerEndpointId) {
             $.routeServerEndpointId = routeServerEndpointId;
             return this;
         }
 
-        /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerEndpointId(String routeServerEndpointId) {
             return routeServerEndpointId(Output.of(routeServerEndpointId));
         }
 
-        /**
-         * @param routeServerId The ID of the route server associated with this peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(@Nullable Output<String> routeServerId) {
             $.routeServerId = routeServerId;
             return this;
         }
 
-        /**
-         * @param routeServerId The ID of the route server associated with this peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(String routeServerId) {
             return routeServerId(Output.of(routeServerId));
         }
 
-        /**
-         * @param routeServerPeerId The unique identifier of the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerPeerId(@Nullable Output<String> routeServerPeerId) {
             $.routeServerPeerId = routeServerPeerId;
             return this;
         }
 
-        /**
-         * @param routeServerPeerId The unique identifier of the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerPeerId(String routeServerPeerId) {
             return routeServerPeerId(Output.of(routeServerPeerId));
         }
 
-        /**
-         * @param subnetId The ID of the subnet containing the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet containing the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -526,23 +270,11 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcId The ID of the VPC containing the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC containing the route server peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

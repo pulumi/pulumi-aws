@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
- *
- * Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lightsail.Lb("example", {
- *     name: "example-load-balancer",
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const exampleLbCertificate = new aws.lightsail.LbCertificate("example", {
- *     name: "example-load-balancer-certificate",
- *     lbName: example.id,
- *     domainName: "example.com",
- * });
- * const exampleLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("example", {
- *     lbName: example.name,
- *     certificateName: exampleLbCertificate.name,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
- *
- * ```sh
- * $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
- * ```
- */
 export class LbCertificateAttachment extends pulumi.CustomResource {
     /**
      * Get an existing LbCertificateAttachment resource's state with the given name, ID, and optional extra
@@ -70,19 +32,8 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbCertificateAttachment.__pulumiType;
     }
 
-    /**
-     * Name of your SSL/TLS certificate.
-     */
     declare public readonly certificateName: pulumi.Output<string>;
-    /**
-     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly lbName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -122,19 +73,8 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbCertificateAttachment resources.
  */
 export interface LbCertificateAttachmentState {
-    /**
-     * Name of your SSL/TLS certificate.
-     */
     certificateName?: pulumi.Input<string>;
-    /**
-     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     *
-     * The following arguments are optional:
-     */
     lbName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -142,18 +82,7 @@ export interface LbCertificateAttachmentState {
  * The set of arguments for constructing a LbCertificateAttachment resource.
  */
 export interface LbCertificateAttachmentArgs {
-    /**
-     * Name of your SSL/TLS certificate.
-     */
     certificateName: pulumi.Input<string>;
-    /**
-     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     *
-     * The following arguments are optional:
-     */
     lbName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

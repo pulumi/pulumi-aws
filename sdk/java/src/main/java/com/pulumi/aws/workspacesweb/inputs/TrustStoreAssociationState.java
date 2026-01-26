@@ -15,51 +15,23 @@ public final class TrustStoreAssociationState extends com.pulumi.resources.Resou
 
     public static final TrustStoreAssociationState Empty = new TrustStoreAssociationState();
 
-    /**
-     * ARN of the portal to associate with the trust store. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn")
     private @Nullable Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the trust store. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> portalArn() {
         return Optional.ofNullable(this.portalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the trust store to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Import(name="trustStoreArn")
     private @Nullable Output<String> trustStoreArn;
 
-    /**
-     * @return ARN of the trust store to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Optional<Output<String>> trustStoreArn() {
         return Optional.ofNullable(this.trustStoreArn);
     }
@@ -90,69 +62,29 @@ public final class TrustStoreAssociationState extends com.pulumi.resources.Resou
             $ = new TrustStoreAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the trust store. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(@Nullable Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the trust store. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param trustStoreArn ARN of the trust store to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreArn(@Nullable Output<String> trustStoreArn) {
             $.trustStoreArn = trustStoreArn;
             return this;
         }
 
-        /**
-         * @param trustStoreArn ARN of the trust store to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreArn(String trustStoreArn) {
             return trustStoreArn(Output.of(trustStoreArn));
         }

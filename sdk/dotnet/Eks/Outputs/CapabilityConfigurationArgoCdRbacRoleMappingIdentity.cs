@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class CapabilityConfigurationArgoCdRbacRoleMappingIdentity
     {
-        /// <summary>
-        /// Identity ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

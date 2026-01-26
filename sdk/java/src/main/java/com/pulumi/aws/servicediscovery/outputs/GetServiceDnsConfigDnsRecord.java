@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDnsConfigDnsRecord {
-    /**
-     * @return Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-     * 
-     */
     private Integer ttl;
-    /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-     * 
-     */
     private String type;
 
     private GetServiceDnsConfigDnsRecord() {}
-    /**
-     * @return Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-     * 
-     */
     public Integer ttl() {
         return this.ttl;
     }
-    /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-     * 
-     */
     public String type() {
         return this.type;
     }

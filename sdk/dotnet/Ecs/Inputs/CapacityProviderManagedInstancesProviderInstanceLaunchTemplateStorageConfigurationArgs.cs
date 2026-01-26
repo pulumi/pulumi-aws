@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The size of the tasks volume in GiB. Must be at least 1.
-        /// </summary>
         [Input("storageSizeGib", required: true)]
         public Input<int> StorageSizeGib { get; set; } = null!;
 

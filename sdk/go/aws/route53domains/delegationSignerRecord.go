@@ -12,150 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a [delegation signer record](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html#dns-configuring-dnssec-enable-signing-step-1) in the parent DNS zone for domains registered with Route53.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53domains"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"kms:DescribeKey",
-//							"kms:GetPublicKey",
-//							"kms:Sign",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
-//						},
-//						"Sid":      "Allow Route 53 DNSSEC Service",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"StringEquals": map[string]interface{}{
-//								"aws:SourceAccount": current.AccountId,
-//							},
-//							"ArnLike": map[string]interface{}{
-//								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": "kms:CreateGrant",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
-//						},
-//						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"Bool": map[string]interface{}{
-//								"kms:GrantIsForAWSResource": "true",
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": "kms:*",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//						},
-//						"Resource": "*",
-//						"Sid":      "Enable IAM User Permissions",
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
-//				DeletionWindowInDays:  pulumi.Int(7),
-//				KeyUsage:              pulumi.String("SIGN_VERIFY"),
-//				Policy:                pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZone(ctx, "example", &route53.ZoneArgs{
-//				Name: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "example", &route53.KeySigningKeyArgs{
-//				HostedZoneId:            pulumi.Any(test.Id),
-//				KeyManagementServiceArn: pulumi.Any(testAwsKmsKey.Arn),
-//				Name:                    pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewHostedZoneDnsSec(ctx, "example", &route53.HostedZoneDnsSecArgs{
-//				HostedZoneId: exampleKeySigningKey.HostedZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeySigningKey,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53domains.NewDelegationSignerRecord(ctx, "example", &route53domains.DelegationSignerRecordArgs{
-//				DomainName: pulumi.String("example.com"),
-//				SigningAttributes: &route53domains.DelegationSignerRecordSigningAttributesArgs{
-//					Algorithm: exampleKeySigningKey.SigningAlgorithmType,
-//					Flags:     exampleKeySigningKey.Flag,
-//					PublicKey: exampleKeySigningKey.PublicKey,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
-// ```
 type DelegationSignerRecord struct {
 	pulumi.CustomResourceState
 
-	// An ID assigned to the created DS record.
-	DnssecKeyId pulumi.StringOutput `pulumi:"dnssecKeyId"`
-	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The information about a key, including the algorithm, public key-value, and flags.
+	DnssecKeyId       pulumi.StringOutput                              `pulumi:"dnssecKeyId"`
+	DomainName        pulumi.StringOutput                              `pulumi:"domainName"`
 	SigningAttributes DelegationSignerRecordSigningAttributesPtrOutput `pulumi:"signingAttributes"`
 	Timeouts          DelegationSignerRecordTimeoutsPtrOutput          `pulumi:"timeouts"`
 }
@@ -193,21 +54,15 @@ func GetDelegationSignerRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DelegationSignerRecord resources.
 type delegationSignerRecordState struct {
-	// An ID assigned to the created DS record.
-	DnssecKeyId *string `pulumi:"dnssecKeyId"`
-	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-	DomainName *string `pulumi:"domainName"`
-	// The information about a key, including the algorithm, public key-value, and flags.
+	DnssecKeyId       *string                                  `pulumi:"dnssecKeyId"`
+	DomainName        *string                                  `pulumi:"domainName"`
 	SigningAttributes *DelegationSignerRecordSigningAttributes `pulumi:"signingAttributes"`
 	Timeouts          *DelegationSignerRecordTimeouts          `pulumi:"timeouts"`
 }
 
 type DelegationSignerRecordState struct {
-	// An ID assigned to the created DS record.
-	DnssecKeyId pulumi.StringPtrInput
-	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-	DomainName pulumi.StringPtrInput
-	// The information about a key, including the algorithm, public key-value, and flags.
+	DnssecKeyId       pulumi.StringPtrInput
+	DomainName        pulumi.StringPtrInput
 	SigningAttributes DelegationSignerRecordSigningAttributesPtrInput
 	Timeouts          DelegationSignerRecordTimeoutsPtrInput
 }
@@ -217,18 +72,14 @@ func (DelegationSignerRecordState) ElementType() reflect.Type {
 }
 
 type delegationSignerRecordArgs struct {
-	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-	DomainName string `pulumi:"domainName"`
-	// The information about a key, including the algorithm, public key-value, and flags.
+	DomainName        string                                   `pulumi:"domainName"`
 	SigningAttributes *DelegationSignerRecordSigningAttributes `pulumi:"signingAttributes"`
 	Timeouts          *DelegationSignerRecordTimeouts          `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DelegationSignerRecord resource.
 type DelegationSignerRecordArgs struct {
-	// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-	DomainName pulumi.StringInput
-	// The information about a key, including the algorithm, public key-value, and flags.
+	DomainName        pulumi.StringInput
 	SigningAttributes DelegationSignerRecordSigningAttributesPtrInput
 	Timeouts          DelegationSignerRecordTimeoutsPtrInput
 }
@@ -320,17 +171,14 @@ func (o DelegationSignerRecordOutput) ToDelegationSignerRecordOutputWithContext(
 	return o
 }
 
-// An ID assigned to the created DS record.
 func (o DelegationSignerRecordOutput) DnssecKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegationSignerRecord) pulumi.StringOutput { return v.DnssecKeyId }).(pulumi.StringOutput)
 }
 
-// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
 func (o DelegationSignerRecordOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegationSignerRecord) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The information about a key, including the algorithm, public key-value, and flags.
 func (o DelegationSignerRecordOutput) SigningAttributes() DelegationSignerRecordSigningAttributesPtrOutput {
 	return o.ApplyT(func(v *DelegationSignerRecord) DelegationSignerRecordSigningAttributesPtrOutput {
 		return v.SigningAttributes

@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigAddKeys {
-    /**
-     * @return Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
-     * 
-     */
     private List<LogTransformerTransformerConfigAddKeysEntry> entries;
 
     private LogTransformerTransformerConfigAddKeys() {}
-    /**
-     * @return Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigAddKeysEntry> entries() {
         return this.entries;
     }

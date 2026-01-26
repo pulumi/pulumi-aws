@@ -14,17 +14,9 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfi
 
     public static final FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs Empty = new FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs();
 
-    /**
-     * The VPCE ID for Firehose to privately connect with Snowflake.
-     * 
-     */
     @Import(name="privateLinkVpceId", required=true)
     private Output<String> privateLinkVpceId;
 
-    /**
-     * @return The VPCE ID for Firehose to privately connect with Snowflake.
-     * 
-     */
     public Output<String> privateLinkVpceId() {
         return this.privateLinkVpceId;
     }
@@ -53,23 +45,11 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfi
             $ = new FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param privateLinkVpceId The VPCE ID for Firehose to privately connect with Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateLinkVpceId(Output<String> privateLinkVpceId) {
             $.privateLinkVpceId = privateLinkVpceId;
             return this;
         }
 
-        /**
-         * @param privateLinkVpceId The VPCE ID for Firehose to privately connect with Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateLinkVpceId(String privateLinkVpceId) {
             return privateLinkVpceId(Output.of(privateLinkVpceId));
         }

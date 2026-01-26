@@ -24,9 +24,6 @@ class BucketResourceAccessArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketResourceAccess resource.
-        :param pulumi.Input[_builtins.str] bucket_name: Name of the bucket to grant access to.
-        :param pulumi.Input[_builtins.str] resource_name: Name of the resource to grant bucket access.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "resource_name", resource_name)
@@ -36,9 +33,6 @@ class BucketResourceAccessArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the bucket to grant access to.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -48,9 +42,6 @@ class BucketResourceAccessArgs:
     @_builtins.property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the resource to grant bucket access.
-        """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
@@ -60,9 +51,6 @@ class BucketResourceAccessArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _BucketResourceAccessState:
                  resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketResourceAccess resources.
-        :param pulumi.Input[_builtins.str] bucket_name: Name of the bucket to grant access to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_name: Name of the resource to grant bucket access.
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -92,9 +77,6 @@ class _BucketResourceAccessState:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket to grant access to.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -104,9 +86,6 @@ class _BucketResourceAccessState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _BucketResourceAccessState:
     @_builtins.property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the resource to grant bucket access.
-        """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
@@ -137,40 +113,9 @@ class BucketResourceAccess(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Lightsail bucket resource access. Use this resource to grant a Lightsail resource (such as an instance) access to a specific bucket.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Bucket("example",
-            name="example-bucket",
-            bundle_id="small_1_0")
-        example_instance = aws.lightsail.Instance("example",
-            name="example-instance",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0")
-        example_bucket_resource_access = aws.lightsail.BucketResourceAccess("example",
-            bucket_name=example.id,
-            resource_name_=example_instance.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess example example-bucket,example-instance
-        ```
-
+        Create a BucketResourceAccess resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket_name: Name of the bucket to grant access to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_name_: Name of the resource to grant bucket access.
         """
         ...
     @overload
@@ -179,35 +124,7 @@ class BucketResourceAccess(pulumi.CustomResource):
                  args: BucketResourceAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail bucket resource access. Use this resource to grant a Lightsail resource (such as an instance) access to a specific bucket.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Bucket("example",
-            name="example-bucket",
-            bundle_id="small_1_0")
-        example_instance = aws.lightsail.Instance("example",
-            name="example-instance",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0")
-        example_bucket_resource_access = aws.lightsail.BucketResourceAccess("example",
-            bucket_name=example.id,
-            resource_name_=example_instance.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess example example-bucket,example-instance
-        ```
-
+        Create a BucketResourceAccess resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketResourceAccessArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,9 +179,6 @@ class BucketResourceAccess(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket_name: Name of the bucket to grant access to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_name_: Name of the resource to grant bucket access.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,24 +192,15 @@ class BucketResourceAccess(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket to grant access to.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the resource to grant bucket access.
-        """
         return pulumi.get(self, "resource_name")
 

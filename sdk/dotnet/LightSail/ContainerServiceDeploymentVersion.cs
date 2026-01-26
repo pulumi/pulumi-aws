@@ -9,116 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail container service deployment version. Use this resource to deploy containerized applications to your Lightsail container service with specific container configurations and settings.
-    /// 
-    /// &gt; **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
-    /// 
-    /// &gt; **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.ContainerServiceDeploymentVersion("example", new()
-    ///     {
-    ///         Containers = new[]
-    ///         {
-    ///             new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionContainerArgs
-    ///             {
-    ///                 ContainerName = "hello-world",
-    ///                 Image = "amazon/amazon-lightsail:hello-world",
-    ///                 Commands = new() { },
-    ///                 Environment = 
-    ///                 {
-    ///                     { "MY_ENVIRONMENT_VARIABLE", "my_value" },
-    ///                 },
-    ///                 Ports = 
-    ///                 {
-    ///                     { "80", "HTTP" },
-    ///                 },
-    ///             },
-    ///         },
-    ///         PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
-    ///         {
-    ///             ContainerName = "hello-world",
-    ///             ContainerPort = 80,
-    ///             HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
-    ///             {
-    ///                 HealthyThreshold = 2,
-    ///                 UnhealthyThreshold = 2,
-    ///                 TimeoutSeconds = 2,
-    ///                 IntervalSeconds = 5,
-    ///                 Path = "/",
-    ///                 SuccessCodes = "200-499",
-    ///             },
-    ///         },
-    ///         ServiceName = exampleAwsLightsailContainerService.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")]
     public partial class ContainerServiceDeploymentVersion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        /// </summary>
         [Output("containers")]
         public Output<ImmutableArray<Outputs.ContainerServiceDeploymentVersionContainer>> Containers { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time when the deployment was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block that describes the settings of the public endpoint for the container service. See below.
-        /// </summary>
         [Output("publicEndpoint")]
         public Output<Outputs.ContainerServiceDeploymentVersionPublicEndpoint?> PublicEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the container service.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Current state of the container service.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Version number of the deployment.
-        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -170,33 +81,18 @@ namespace Pulumi.Aws.LightSail
     {
         [Input("containers", required: true)]
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs>? _containers;
-
-        /// <summary>
-        /// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        /// </summary>
         public InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs> Containers
         {
             get => _containers ?? (_containers = new InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs>());
             set => _containers = value;
         }
 
-        /// <summary>
-        /// Configuration block that describes the settings of the public endpoint for the container service. See below.
-        /// </summary>
         [Input("publicEndpoint")]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs>? PublicEndpoint { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the container service.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
@@ -210,51 +106,27 @@ namespace Pulumi.Aws.LightSail
     {
         [Input("containers")]
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs>? _containers;
-
-        /// <summary>
-        /// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        /// </summary>
         public InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs> Containers
         {
             get => _containers ?? (_containers = new InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs>());
             set => _containers = value;
         }
 
-        /// <summary>
-        /// Date and time when the deployment was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Configuration block that describes the settings of the public endpoint for the container service. See below.
-        /// </summary>
         [Input("publicEndpoint")]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointGetArgs>? PublicEndpoint { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the container service.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
-        /// <summary>
-        /// Current state of the container service.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// Version number of the deployment.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

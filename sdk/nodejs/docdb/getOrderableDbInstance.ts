@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about DocumentDB orderable DB instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.docdb.getOrderableDbInstance({
- *     engine: "docdb",
- *     engineVersion: "3.6.0",
- *     licenseModel: "na",
- *     preferredInstanceClasses: [
- *         "db.r5.large",
- *         "db.r4.large",
- *         "db.t3.medium",
- *     ],
- * });
- * ```
- */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,33 +22,12 @@ export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?:
  * A collection of arguments for invoking getOrderableDbInstance.
  */
 export interface GetOrderableDbInstanceArgs {
-    /**
-     * DB engine. Default: `docdb`
-     */
     engine?: string;
-    /**
-     * Version of the DB engine.
-     */
     engineVersion?: string;
-    /**
-     * DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
-     */
     instanceClass?: string;
-    /**
-     * License model. Default: `na`
-     */
     licenseModel?: string;
-    /**
-     * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
-     */
     preferredInstanceClasses?: string[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Enable to show only VPC.
-     */
     vpc?: boolean;
 }
 
@@ -77,9 +35,6 @@ export interface GetOrderableDbInstanceArgs {
  * A collection of values returned by getOrderableDbInstance.
  */
 export interface GetOrderableDbInstanceResult {
-    /**
-     * Availability zones where the instance is available.
-     */
     readonly availabilityZones: string[];
     readonly engine?: string;
     readonly engineVersion: string;
@@ -93,27 +48,6 @@ export interface GetOrderableDbInstanceResult {
     readonly region: string;
     readonly vpc: boolean;
 }
-/**
- * Information about DocumentDB orderable DB instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.docdb.getOrderableDbInstance({
- *     engine: "docdb",
- *     engineVersion: "3.6.0",
- *     licenseModel: "na",
- *     preferredInstanceClasses: [
- *         "db.r5.large",
- *         "db.r4.large",
- *         "db.t3.medium",
- *     ],
- * });
- * ```
- */
 export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderableDbInstanceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -132,32 +66,11 @@ export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutput
  * A collection of arguments for invoking getOrderableDbInstance.
  */
 export interface GetOrderableDbInstanceOutputArgs {
-    /**
-     * DB engine. Default: `docdb`
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Version of the DB engine.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
-     */
     instanceClass?: pulumi.Input<string>;
-    /**
-     * License model. Default: `na`
-     */
     licenseModel?: pulumi.Input<string>;
-    /**
-     * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
-     */
     preferredInstanceClasses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Enable to show only VPC.
-     */
     vpc?: pulumi.Input<boolean>;
 }

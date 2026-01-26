@@ -15,254 +15,94 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkResult {
-    /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     private String arn;
-    /**
-     * @return The availability zone where the ODB network is located.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return The AZ ID of the AZ where the ODB network is located.
-     * 
-     */
     private String availabilityZoneId;
-    /**
-     * @return The CIDR range of the backup subnet for the ODB network.
-     * 
-     */
     private String backupSubnetCidr;
-    /**
-     * @return The CIDR notation for the network resource.
-     * 
-     */
     private String clientSubnetCidr;
-    /**
-     * @return The date and time when the ODB network was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return The name of the custom domain that the network is located.
-     * 
-     */
     private String customDomainName;
-    /**
-     * @return The default DNS prefix for the network resource.
-     * 
-     */
     private String defaultDnsPrefix;
-    /**
-     * @return Display name for the network resource.
-     * 
-     */
     private String displayName;
-    /**
-     * @return Unique identifier of the odb network resource.
-     * 
-     */
     private String id;
-    /**
-     * @return The managed services configuration for the ODB network.
-     * 
-     */
     private List<GetNetworkManagedService> managedServices;
     private List<GetNetworkOciDnsForwardingConfig> ociDnsForwardingConfigs;
-    /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
-     * 
-     */
     private String ociNetworkAnchorId;
-    /**
-     * @return The URL of the OCI network anchor for the ODB network.
-     * 
-     */
     private String ociNetworkAnchorUrl;
-    /**
-     * @return The name of the OCI resource anchor for the ODB network.
-     * 
-     */
     private String ociResourceAnchorName;
-    /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
-     * 
-     */
     private String ociVcnId;
-    /**
-     * @return The URL of the OCI VCN for the ODB network.
-     * 
-     */
     private String ociVcnUrl;
-    /**
-     * @return The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
-     * 
-     */
     private List<String> peeredCidrs;
-    /**
-     * @return The amount of progress made on the current operation on the ODB network, expressed as a percentage.
-     * 
-     */
     private Double percentProgress;
     private String region;
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     private String status;
-    /**
-     * @return Additional information about the current status of the ODB network.
-     * 
-     */
     private String statusReason;
     private Map<String,String> tags;
 
     private GetNetworkResult() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The availability zone where the ODB network is located.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return The AZ ID of the AZ where the ODB network is located.
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
-    /**
-     * @return The CIDR range of the backup subnet for the ODB network.
-     * 
-     */
     public String backupSubnetCidr() {
         return this.backupSubnetCidr;
     }
-    /**
-     * @return The CIDR notation for the network resource.
-     * 
-     */
     public String clientSubnetCidr() {
         return this.clientSubnetCidr;
     }
-    /**
-     * @return The date and time when the ODB network was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return The name of the custom domain that the network is located.
-     * 
-     */
     public String customDomainName() {
         return this.customDomainName;
     }
-    /**
-     * @return The default DNS prefix for the network resource.
-     * 
-     */
     public String defaultDnsPrefix() {
         return this.defaultDnsPrefix;
     }
-    /**
-     * @return Display name for the network resource.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return Unique identifier of the odb network resource.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The managed services configuration for the ODB network.
-     * 
-     */
     public List<GetNetworkManagedService> managedServices() {
         return this.managedServices;
     }
     public List<GetNetworkOciDnsForwardingConfig> ociDnsForwardingConfigs() {
         return this.ociDnsForwardingConfigs;
     }
-    /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
-     * 
-     */
     public String ociNetworkAnchorId() {
         return this.ociNetworkAnchorId;
     }
-    /**
-     * @return The URL of the OCI network anchor for the ODB network.
-     * 
-     */
     public String ociNetworkAnchorUrl() {
         return this.ociNetworkAnchorUrl;
     }
-    /**
-     * @return The name of the OCI resource anchor for the ODB network.
-     * 
-     */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
-    /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
-     * 
-     */
     public String ociVcnId() {
         return this.ociVcnId;
     }
-    /**
-     * @return The URL of the OCI VCN for the ODB network.
-     * 
-     */
     public String ociVcnUrl() {
         return this.ociVcnUrl;
     }
-    /**
-     * @return The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
-     * 
-     */
     public List<String> peeredCidrs() {
         return this.peeredCidrs;
     }
-    /**
-     * @return The amount of progress made on the current operation on the ODB network, expressed as a percentage.
-     * 
-     */
     public Double percentProgress() {
         return this.percentProgress;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Additional information about the current status of the ODB network.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }

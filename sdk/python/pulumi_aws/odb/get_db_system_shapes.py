@@ -49,9 +49,6 @@ class GetDbSystemShapesResult:
     @_builtins.property
     @pulumi.getter(name="dbSystemShapes")
     def db_system_shapes(self) -> Sequence['outputs.GetDbSystemShapesDbSystemShapeResult']:
-        """
-        The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
-        """
         return pulumi.get(self, "db_system_shapes")
 
     @_builtins.property
@@ -84,24 +81,7 @@ def get_db_system_shapes(availability_zone_id: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbSystemShapesResult:
     """
-    Data source to retrieve available system shapes Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_system_shapes()
-    ```
-
-
-    :param _builtins.str availability_zone_id: The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZoneId'] = availability_zone_id
@@ -118,24 +98,7 @@ def get_db_system_shapes_output(availability_zone_id: Optional[pulumi.Input[Opti
                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbSystemShapesResult]:
     """
-    Data source to retrieve available system shapes Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_system_shapes()
-    ```
-
-
-    :param _builtins.str availability_zone_id: The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZoneId'] = availability_zone_id

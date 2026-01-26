@@ -15,17 +15,9 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationArgs extends com.
 
     public static final AgentcoreAgentRuntimeAuthorizerConfigurationArgs Empty = new AgentcoreAgentRuntimeAuthorizerConfigurationArgs();
 
-    /**
-     * JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-     * 
-     */
     @Import(name="customJwtAuthorizer")
     private @Nullable Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs> customJwtAuthorizer;
 
-    /**
-     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-     * 
-     */
     public Optional<Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs>> customJwtAuthorizer() {
         return Optional.ofNullable(this.customJwtAuthorizer);
     }
@@ -54,23 +46,11 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationArgs extends com.
             $ = new AgentcoreAgentRuntimeAuthorizerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customJwtAuthorizer(@Nullable Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs> customJwtAuthorizer) {
             $.customJwtAuthorizer = customJwtAuthorizer;
             return this;
         }
 
-        /**
-         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customJwtAuthorizer(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs customJwtAuthorizer) {
             return customJwtAuthorizer(Output.of(customJwtAuthorizer));
         }

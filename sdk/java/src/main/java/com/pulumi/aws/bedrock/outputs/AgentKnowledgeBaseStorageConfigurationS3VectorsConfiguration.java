@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration {
-    /**
-     * @return ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
-     * 
-     */
     private @Nullable String indexArn;
-    /**
-     * @return Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
-     * 
-     */
     private @Nullable String indexName;
-    /**
-     * @return ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
-     * 
-     */
     private @Nullable String vectorBucketArn;
 
     private AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration() {}
-    /**
-     * @return ARN of the S3 Vectors index. Conflicts with `indexName` and `vectorBucketArn`.
-     * 
-     */
     public Optional<String> indexArn() {
         return Optional.ofNullable(this.indexArn);
     }
-    /**
-     * @return Name of the S3 Vectors index. Must be specified with `vectorBucketArn`. Conflicts with `indexArn`.
-     * 
-     */
     public Optional<String> indexName() {
         return Optional.ofNullable(this.indexName);
     }
-    /**
-     * @return ARN of the S3 Vectors vector bucket. Must be specified with `indexName`. Conflicts with `indexArn`.
-     * 
-     */
     public Optional<String> vectorBucketArn() {
         return Optional.ofNullable(this.vectorBucketArn);
     }

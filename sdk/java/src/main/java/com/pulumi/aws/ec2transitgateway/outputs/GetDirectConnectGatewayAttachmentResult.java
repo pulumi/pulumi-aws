@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectConnectGatewayAttachmentResult {
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     private String arn;
     private @Nullable String dxGatewayId;
     private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
@@ -28,18 +24,10 @@ public final class GetDirectConnectGatewayAttachmentResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Attachment.
-     * 
-     */
     private Map<String,String> tags;
     private @Nullable String transitGatewayId;
 
     private GetDirectConnectGatewayAttachmentResult() {}
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -59,10 +47,6 @@ public final class GetDirectConnectGatewayAttachmentResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Attachment.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

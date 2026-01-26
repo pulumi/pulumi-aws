@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetPublicIpv4PoolPoolAddressRangeResult
     {
-        /// <summary>
-        /// Number of addresses in the range.
-        /// </summary>
         public readonly int AddressCount;
-        /// <summary>
-        /// Number of available addresses in the range.
-        /// </summary>
         public readonly int AvailableAddressCount;
-        /// <summary>
-        /// First address in the range.
-        /// </summary>
         public readonly string FirstAddress;
-        /// <summary>
-        /// Last address in the range.
-        /// </summary>
         public readonly string LastAddress;
 
         [OutputConstructor]

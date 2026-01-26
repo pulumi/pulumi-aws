@@ -15,141 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Redshift Data Share Authorization.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.DataShareAuthorization;
- * import com.pulumi.aws.redshift.DataShareAuthorizationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataShareAuthorization("example", DataShareAuthorizationArgs.builder()
- *             .consumerIdentifier("123456789012")
- *             .dataShareArn("arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/dataShareAuthorization:DataShareAuthorization")
 public class DataShareAuthorization extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to allow write operations for a datashare.
-     * 
-     */
     @Export(name="allowWrites", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowWrites;
 
-    /**
-     * @return Whether to allow write operations for a datashare.
-     * 
-     */
     public Output<Optional<Boolean>> allowWrites() {
         return Codegen.optional(this.allowWrites);
     }
-    /**
-     * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-     * 
-     */
     @Export(name="consumerIdentifier", refs={String.class}, tree="[0]")
     private Output<String> consumerIdentifier;
 
-    /**
-     * @return Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-     * 
-     */
     public Output<String> consumerIdentifier() {
         return this.consumerIdentifier;
     }
-    /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="dataShareArn", refs={String.class}, tree="[0]")
     private Output<String> dataShareArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> dataShareArn() {
         return this.dataShareArn;
     }
-    /**
-     * Identifier of a datashare to show its managing entity.
-     * 
-     */
     @Export(name="managedBy", refs={String.class}, tree="[0]")
     private Output<String> managedBy;
 
-    /**
-     * @return Identifier of a datashare to show its managing entity.
-     * 
-     */
     public Output<String> managedBy() {
         return this.managedBy;
     }
-    /**
-     * Amazon Resource Name (ARN) of the producer.
-     * 
-     */
     @Export(name="producerArn", refs={String.class}, tree="[0]")
     private Output<String> producerArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the producer.
-     * 
-     */
     public Output<String> producerArn() {
         return this.producerArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

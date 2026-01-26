@@ -12,167 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSM Contact Plan.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewPlan(ctx, "example", &ssmcontacts.PlanArgs{
-//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
-//				Stages: ssmcontacts.PlanStageArray{
-//					&ssmcontacts.PlanStageArgs{
-//						DurationInMinutes: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with SSM Contact
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			contact, err := ssmcontacts.NewContact(ctx, "contact", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssmcontacts.NewPlan(ctx, "plan", &ssmcontacts.PlanArgs{
-//				ContactId: contact.Arn,
-//				Stages: ssmcontacts.PlanStageArray{
-//					&ssmcontacts.PlanStageArgs{
-//						DurationInMinutes: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage With All Fields
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			escalationPlan, err := ssmcontacts.NewContact(ctx, "escalation_plan", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("escalation-plan-alias"),
-//				Type:  pulumi.String("ESCALATION"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			contactOne, err := ssmcontacts.NewContact(ctx, "contact_one", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			contactTwo, err := ssmcontacts.NewContact(ctx, "contact_two", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssmcontacts.NewPlan(ctx, "test", &ssmcontacts.PlanArgs{
-//				ContactId: escalationPlan.Arn,
-//				Stages: ssmcontacts.PlanStageArray{
-//					&ssmcontacts.PlanStageArgs{
-//						DurationInMinutes: pulumi.Int(0),
-//						Targets: ssmcontacts.PlanStageTargetArray{
-//							&ssmcontacts.PlanStageTargetArgs{
-//								ContactTargetInfo: &ssmcontacts.PlanStageTargetContactTargetInfoArgs{
-//									IsEssential: pulumi.Bool(false),
-//									ContactId:   contactOne.Arn,
-//								},
-//							},
-//							&ssmcontacts.PlanStageTargetArgs{
-//								ContactTargetInfo: &ssmcontacts.PlanStageTargetContactTargetInfoArgs{
-//									IsEssential: pulumi.Bool(true),
-//									ContactId:   contactTwo.Arn,
-//								},
-//							},
-//							&ssmcontacts.PlanStageTargetArgs{
-//								ChannelTargetInfo: &ssmcontacts.PlanStageTargetChannelTargetInfoArgs{
-//									RetryIntervalInMinutes: pulumi.Int(2),
-//									ContactChannelId:       pulumi.Any(channel.Arn),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
-// ```
 type Plan struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId pulumi.StringOutput `pulumi:"contactId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-	Stages PlanStageArrayOutput `pulumi:"stages"`
+	ContactId pulumi.StringOutput  `pulumi:"contactId"`
+	Region    pulumi.StringOutput  `pulumi:"region"`
+	Stages    PlanStageArrayOutput `pulumi:"stages"`
 }
 
 // NewPlan registers a new resource with the given unique name, arguments, and options.
@@ -211,21 +56,15 @@ func GetPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Plan resources.
 type planState struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId *string `pulumi:"contactId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-	Stages []PlanStage `pulumi:"stages"`
+	ContactId *string     `pulumi:"contactId"`
+	Region    *string     `pulumi:"region"`
+	Stages    []PlanStage `pulumi:"stages"`
 }
 
 type PlanState struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-	Stages PlanStageArrayInput
+	Region    pulumi.StringPtrInput
+	Stages    PlanStageArrayInput
 }
 
 func (PlanState) ElementType() reflect.Type {
@@ -233,22 +72,16 @@ func (PlanState) ElementType() reflect.Type {
 }
 
 type planArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId string `pulumi:"contactId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-	Stages []PlanStage `pulumi:"stages"`
+	ContactId string      `pulumi:"contactId"`
+	Region    *string     `pulumi:"region"`
+	Stages    []PlanStage `pulumi:"stages"`
 }
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-	Stages PlanStageArrayInput
+	Region    pulumi.StringPtrInput
+	Stages    PlanStageArrayInput
 }
 
 func (PlanArgs) ElementType() reflect.Type {
@@ -338,17 +171,14 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the contact or escalation plan.
 func (o PlanOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PlanOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 func (o PlanOutput) Stages() PlanStageArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanStageArrayOutput { return v.Stages }).(PlanStageArrayOutput)
 }

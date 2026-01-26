@@ -16,62 +16,30 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
 
     public static final VpcBlockPublicAccessOptionsState Empty = new VpcBlockPublicAccessOptionsState();
 
-    /**
-     * The AWS account id to which these options apply.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return The AWS account id to which these options apply.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * The AWS region to which these options apply.
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
-    /**
-     * @return The AWS region to which these options apply.
-     * 
-     */
     public Optional<Output<String>> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
-    /**
-     * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-     * 
-     */
     @Import(name="internetGatewayBlockMode")
     private @Nullable Output<String> internetGatewayBlockMode;
 
-    /**
-     * @return Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-     * 
-     */
     public Optional<Output<String>> internetGatewayBlockMode() {
         return Optional.ofNullable(this.internetGatewayBlockMode);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -111,86 +79,38 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
             $ = new VpcBlockPublicAccessOptionsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId The AWS account id to which these options apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId The AWS account id to which these options apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param awsRegion The AWS region to which these options apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion The AWS region to which these options apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param internetGatewayBlockMode Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayBlockMode(@Nullable Output<String> internetGatewayBlockMode) {
             $.internetGatewayBlockMode = internetGatewayBlockMode;
             return this;
         }
 
-        /**
-         * @param internetGatewayBlockMode Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayBlockMode(String internetGatewayBlockMode) {
             return internetGatewayBlockMode(Output.of(internetGatewayBlockMode));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

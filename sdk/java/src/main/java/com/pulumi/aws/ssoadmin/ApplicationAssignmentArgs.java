@@ -16,62 +16,30 @@ public final class ApplicationAssignmentArgs extends com.pulumi.resources.Resour
 
     public static final ApplicationAssignmentArgs Empty = new ApplicationAssignmentArgs();
 
-    /**
-     * ARN of the application.
-     * 
-     */
     @Import(name="applicationArn", required=true)
     private Output<String> applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public Output<String> applicationArn() {
         return this.applicationArn;
     }
 
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     @Import(name="principalId", required=true)
     private Output<String> principalId;
 
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public Output<String> principalId() {
         return this.principalId;
     }
 
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     @Import(name="principalType", required=true)
     private Output<String> principalType;
 
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public Output<String> principalType() {
         return this.principalType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class ApplicationAssignmentArgs extends com.pulumi.resources.Resour
             $ = new ApplicationAssignmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(Output<String> principalType) {
             $.principalType = principalType;
             return this;
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

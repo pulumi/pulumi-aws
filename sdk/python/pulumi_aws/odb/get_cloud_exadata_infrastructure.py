@@ -152,41 +152,26 @@ class GetCloudExadataInfrastructureResult:
     @_builtins.property
     @pulumi.getter(name="activatedStorageCount")
     def activated_storage_count(self) -> _builtins.int:
-        """
-        The number of storage servers requested for the Exadata infrastructure.
-        """
         return pulumi.get(self, "activated_storage_count")
 
     @_builtins.property
     @pulumi.getter(name="additionalStorageCount")
     def additional_storage_count(self) -> _builtins.int:
-        """
-        The number of storage servers requested for the Exadata infrastructure.
-        """
         return pulumi.get(self, "additional_storage_count")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the Exadata infrastructure.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
-        """
-        The AZ ID of the AZ where the Exadata infrastructure is located.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
@@ -197,33 +182,21 @@ class GetCloudExadataInfrastructureResult:
     @_builtins.property
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> _builtins.int:
-        """
-        The number of database servers for the Exadata infrastructure.
-        """
         return pulumi.get(self, "compute_count")
 
     @_builtins.property
     @pulumi.getter(name="computeModel")
     def compute_model(self) -> _builtins.str:
-        """
-        The OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
-        """
         return pulumi.get(self, "compute_model")
 
     @_builtins.property
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> _builtins.int:
-        """
-        The total number of CPU cores that are allocated to the Exadata infrastructure.
-        """
         return pulumi.get(self, "cpu_count")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        The time when the Exadata infrastructure was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -234,161 +207,101 @@ class GetCloudExadataInfrastructureResult:
     @_builtins.property
     @pulumi.getter(name="dataStorageSizeInTbs")
     def data_storage_size_in_tbs(self) -> _builtins.float:
-        """
-        The size of the Exadata infrastructure's data disk group, in terabytes (TB).
-        """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
     @_builtins.property
     @pulumi.getter(name="databaseServerType")
     def database_server_type(self) -> _builtins.str:
-        """
-        The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
-        """
         return pulumi.get(self, "database_server_type")
 
     @_builtins.property
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
     def db_node_storage_size_in_gbs(self) -> _builtins.int:
-        """
-        The size of the storage available on each database node, in gigabytes (GB).
-        """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
 
     @_builtins.property
     @pulumi.getter(name="dbServerVersion")
     def db_server_version(self) -> _builtins.str:
-        """
-        The version of the Exadata infrastructure.
-        """
         return pulumi.get(self, "db_server_version")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        The display name of the Exadata infrastructure.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The unique identifier of the Exadata infrastructure.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="lastMaintenanceRunId")
     def last_maintenance_run_id(self) -> _builtins.str:
-        """
-        The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
-        """
         return pulumi.get(self, "last_maintenance_run_id")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> Sequence['outputs.GetCloudExadataInfrastructureMaintenanceWindowResult']:
-        """
-        The scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
-        """
         return pulumi.get(self, "maintenance_windows")
 
     @_builtins.property
     @pulumi.getter(name="maxCpuCount")
     def max_cpu_count(self) -> _builtins.int:
-        """
-        The total number of CPU cores available on the Exadata infrastructure.
-        """
         return pulumi.get(self, "max_cpu_count")
 
     @_builtins.property
     @pulumi.getter(name="maxDataStorageInTbs")
     def max_data_storage_in_tbs(self) -> _builtins.float:
-        """
-        The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
-        """
         return pulumi.get(self, "max_data_storage_in_tbs")
 
     @_builtins.property
     @pulumi.getter(name="maxDbNodeStorageSizeInGbs")
     def max_db_node_storage_size_in_gbs(self) -> _builtins.int:
-        """
-        The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
-        """
         return pulumi.get(self, "max_db_node_storage_size_in_gbs")
 
     @_builtins.property
     @pulumi.getter(name="maxMemoryInGbs")
     def max_memory_in_gbs(self) -> _builtins.int:
-        """
-        The total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
-        """
         return pulumi.get(self, "max_memory_in_gbs")
 
     @_builtins.property
     @pulumi.getter(name="memorySizeInGbs")
     def memory_size_in_gbs(self) -> _builtins.int:
-        """
-        The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
-        """
         return pulumi.get(self, "memory_size_in_gbs")
 
     @_builtins.property
     @pulumi.getter(name="monthlyDbServerVersion")
     def monthly_db_server_version(self) -> _builtins.str:
-        """
-        The monthly software version of the database servers installed on the Exadata infrastructure.
-        """
         return pulumi.get(self, "monthly_db_server_version")
 
     @_builtins.property
     @pulumi.getter(name="monthlyStorageServerVersion")
     def monthly_storage_server_version(self) -> _builtins.str:
-        """
-        The monthly software version of the storage servers installed on the Exadata infrastructure.
-        """
         return pulumi.get(self, "monthly_storage_server_version")
 
     @_builtins.property
     @pulumi.getter(name="nextMaintenanceRunId")
     def next_maintenance_run_id(self) -> _builtins.str:
-        """
-        The OCID of the next maintenance run for the Exadata infrastructure.
-        """
         return pulumi.get(self, "next_maintenance_run_id")
 
     @_builtins.property
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> _builtins.str:
-        """
-        The name of the OCI resource anchor for the Exadata infrastructure.
-        """
         return pulumi.get(self, "oci_resource_anchor_name")
 
     @_builtins.property
     @pulumi.getter(name="ociUrl")
     def oci_url(self) -> _builtins.str:
-        """
-        The HTTPS link to the Exadata infrastructure in OCI.
-        """
         return pulumi.get(self, "oci_url")
 
     @_builtins.property
     @pulumi.getter
     def ocid(self) -> _builtins.str:
-        """
-        The OCID of the Exadata infrastructure in OCI.
-        """
         return pulumi.get(self, "ocid")
 
     @_builtins.property
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> _builtins.float:
-        """
-        The amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
-        """
         return pulumi.get(self, "percent_progress")
 
     @_builtins.property
@@ -399,65 +312,41 @@ class GetCloudExadataInfrastructureResult:
     @_builtins.property
     @pulumi.getter
     def shape(self) -> _builtins.str:
-        """
-        The model name of the Exadata infrastructure.
-        """
         return pulumi.get(self, "shape")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The status of the Exadata infrastructure.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> _builtins.str:
-        """
-        Additional information about the status of the Exadata infrastructure.
-        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter(name="storageCount")
     def storage_count(self) -> _builtins.int:
-        """
-        The number of storage servers that are activated for the Exadata infrastructure.
-        """
         return pulumi.get(self, "storage_count")
 
     @_builtins.property
     @pulumi.getter(name="storageServerType")
     def storage_server_type(self) -> _builtins.str:
-        """
-        The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
-        """
         return pulumi.get(self, "storage_server_type")
 
     @_builtins.property
     @pulumi.getter(name="storageServerVersion")
     def storage_server_version(self) -> _builtins.str:
-        """
-        The software version of the storage servers on the Exadata infrastructure.
-        """
         return pulumi.get(self, "storage_server_version")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="totalStorageSizeInGbs")
     def total_storage_size_in_gbs(self) -> _builtins.int:
-        """
-        The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
-        """
         return pulumi.get(self, "total_storage_size_in_gbs")
 
 
@@ -513,26 +402,7 @@ def get_cloud_exadata_infrastructure(id: Optional[_builtins.str] = None,
                                      region: Optional[_builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudExadataInfrastructureResult:
     """
-    Data source for exadata infrastructure resource in AWS for Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_cloud_exadata_infrastructure(id="example")
-    ```
-
-
-    :param _builtins.str id: The unique identifier of the Exadata infrastructure.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -585,26 +455,7 @@ def get_cloud_exadata_infrastructure_output(id: Optional[pulumi.Input[_builtins.
                                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudExadataInfrastructureResult]:
     """
-    Data source for exadata infrastructure resource in AWS for Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_cloud_exadata_infrastructure(id="example")
-    ```
-
-
-    :param _builtins.str id: The unique identifier of the Exadata infrastructure.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

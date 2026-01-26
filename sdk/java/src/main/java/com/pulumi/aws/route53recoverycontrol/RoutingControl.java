@@ -13,158 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Route 53 Recovery Control Config Routing Control.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoverycontrol.RoutingControl;
- * import com.pulumi.aws.route53recoverycontrol.RoutingControlArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RoutingControl("example", RoutingControlArgs.builder()
- *             .name("tinlicker")
- *             .clusterArn("arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoverycontrol.RoutingControl;
- * import com.pulumi.aws.route53recoverycontrol.RoutingControlArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RoutingControl("example", RoutingControlArgs.builder()
- *             .name("thomasoliver")
- *             .clusterArn("arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
- *             .controlPanelArn("arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
- * ```
- * 
- */
 @ResourceType(type="aws:route53recoverycontrol/routingControl:RoutingControl")
 public class RoutingControl extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the routing control.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the routing control.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ARN of the cluster in which this routing control will reside.
-     * 
-     */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
-    /**
-     * @return ARN of the cluster in which this routing control will reside.
-     * 
-     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
-    /**
-     * ARN of the control panel in which this routing control will reside.
-     * 
-     */
     @Export(name="controlPanelArn", refs={String.class}, tree="[0]")
     private Output<String> controlPanelArn;
 
-    /**
-     * @return ARN of the control panel in which this routing control will reside.
-     * 
-     */
     public Output<String> controlPanelArn() {
         return this.controlPanelArn;
     }
-    /**
-     * The name describing the routing control.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name describing the routing control.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

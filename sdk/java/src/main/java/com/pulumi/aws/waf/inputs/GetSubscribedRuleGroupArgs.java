@@ -15,36 +15,16 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
 
     public static final GetSubscribedRuleGroupArgs Empty = new GetSubscribedRuleGroupArgs();
 
-    /**
-     * Name of the WAF rule group.
-     * 
-     * At least one of `name` or `metricName` must be configured.
-     * 
-     */
     @Import(name="metricName")
     private @Nullable Output<String> metricName;
 
-    /**
-     * @return Name of the WAF rule group.
-     * 
-     * At least one of `name` or `metricName` must be configured.
-     * 
-     */
     public Optional<Output<String>> metricName() {
         return Optional.ofNullable(this.metricName);
     }
 
-    /**
-     * Name of the WAF rule group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the WAF rule group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -74,48 +54,20 @@ public final class GetSubscribedRuleGroupArgs extends com.pulumi.resources.Invok
             $ = new GetSubscribedRuleGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricName Name of the WAF rule group.
-         * 
-         * At least one of `name` or `metricName` must be configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(@Nullable Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the WAF rule group.
-         * 
-         * At least one of `name` or `metricName` must be configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param name Name of the WAF rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the WAF rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

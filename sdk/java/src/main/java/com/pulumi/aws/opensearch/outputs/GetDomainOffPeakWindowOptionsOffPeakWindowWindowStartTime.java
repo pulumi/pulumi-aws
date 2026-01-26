@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
-    /**
-     * @return Starting hour of the 10-hour window for updates
-     * 
-     */
     private Integer hours;
-    /**
-     * @return Starting minute of the 10-hour window for updates
-     * 
-     */
     private Integer minutes;
 
     private GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime() {}
-    /**
-     * @return Starting hour of the 10-hour window for updates
-     * 
-     */
     public Integer hours() {
         return this.hours;
     }
-    /**
-     * @return Starting minute of the 10-hour window for updates
-     * 
-     */
     public Integer minutes() {
         return this.minutes;
     }

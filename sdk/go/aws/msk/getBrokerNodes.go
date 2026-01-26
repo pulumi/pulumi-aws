@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an Amazon MSK Broker Nodes.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.GetBrokerNodes(ctx, &msk.GetBrokerNodesArgs{
-//				ClusterArn: exampleAwsMskCluster.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerNodesResult
@@ -50,10 +23,8 @@ func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulum
 
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesArgs struct {
-	// ARN of the cluster the nodes belong to.
-	ClusterArn string `pulumi:"clusterArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ClusterArn string  `pulumi:"clusterArn"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBrokerNodes.
@@ -76,10 +47,8 @@ func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, op
 
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesOutputArgs struct {
-	// ARN of the cluster the nodes belong to.
-	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ClusterArn pulumi.StringInput    `pulumi:"clusterArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBrokerNodesOutputArgs) ElementType() reflect.Type {

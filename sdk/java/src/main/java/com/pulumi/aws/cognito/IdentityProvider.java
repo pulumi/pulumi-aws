@@ -16,166 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Cognito User Identity Provider resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.IdentityProvider;
- * import com.pulumi.aws.cognito.IdentityProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()
- *             .name("example-pool")
- *             .autoVerifiedAttributes("email")
- *             .build());
- * 
- *         var exampleProvider = new IdentityProvider("exampleProvider", IdentityProviderArgs.builder()
- *             .userPoolId(example.id())
- *             .providerName("Google")
- *             .providerType("Google")
- *             .providerDetails(Map.ofEntries(
- *                 Map.entry("authorize_scopes", "email"),
- *                 Map.entry("client_id", "your client_id"),
- *                 Map.entry("client_secret", "your client_secret")
- *             ))
- *             .attributeMapping(Map.ofEntries(
- *                 Map.entry("email", "email"),
- *                 Map.entry("username", "sub")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
- * 
- * ```sh
- * $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/identityProvider:IdentityProvider")
 public class IdentityProvider extends com.pulumi.resources.CustomResource {
-    /**
-     * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-     * 
-     */
     @Export(name="attributeMapping", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> attributeMapping;
 
-    /**
-     * @return The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-     * 
-     */
     public Output<Map<String,String>> attributeMapping() {
         return this.attributeMapping;
     }
-    /**
-     * The list of identity providers.
-     * 
-     */
     @Export(name="idpIdentifiers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> idpIdentifiers;
 
-    /**
-     * @return The list of identity providers.
-     * 
-     */
     public Output<Optional<List<String>>> idpIdentifiers() {
         return Codegen.optional(this.idpIdentifiers);
     }
-    /**
-     * The map of identity details, such as access token
-     * 
-     */
     @Export(name="providerDetails", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> providerDetails;
 
-    /**
-     * @return The map of identity details, such as access token
-     * 
-     */
     public Output<Map<String,String>> providerDetails() {
         return this.providerDetails;
     }
-    /**
-     * The provider name
-     * 
-     */
     @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output<String> providerName;
 
-    /**
-     * @return The provider name
-     * 
-     */
     public Output<String> providerName() {
         return this.providerName;
     }
-    /**
-     * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-     * 
-     */
     @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
-    /**
-     * @return The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-     * 
-     */
     public Output<String> providerType() {
         return this.providerType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The user pool id
-     * 
-     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
-    /**
-     * @return The user pool id
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }

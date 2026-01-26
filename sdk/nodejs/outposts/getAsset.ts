@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about a specific hardware asset in an Outpost.
- */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getAsset:getAsset", {
@@ -20,17 +17,8 @@ export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getAsset.
  */
 export interface GetAssetArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: string;
-    /**
-     * ID of the asset.
-     */
     assetId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -40,31 +28,16 @@ export interface GetAssetArgs {
 export interface GetAssetResult {
     readonly arn: string;
     readonly assetId: string;
-    /**
-     * Type of the asset.
-     */
     readonly assetType: string;
-    /**
-     * Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-     */
     readonly hostId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Position of an asset in a rack measured in rack units.
-     */
     readonly rackElevation: number;
-    /**
-     * Rack ID of the asset.
-     */
     readonly rackId: string;
     readonly region: string;
 }
-/**
- * Information about a specific hardware asset in an Outpost.
- */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getAsset:getAsset", {
@@ -78,16 +51,7 @@ export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getAsset.
  */
 export interface GetAssetOutputArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * ID of the asset.
-     */
     assetId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

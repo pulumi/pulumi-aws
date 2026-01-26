@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambda
     {
-        /// <summary>
-        /// ARN of the Lambda function to invoke.
-        /// </summary>
         public readonly string LambdaArn;
-        /// <summary>
-        /// Schema definition for the tool. See `ToolSchema` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema? ToolSchema;
 
         [OutputConstructor]

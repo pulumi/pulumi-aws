@@ -13,59 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AwsLogSourceSource {
-    /**
-     * @return Specify the AWS account information where you want to enable Security Lake.
-     * If not specified, uses all accounts included in the Security Lake.
-     * 
-     */
     private @Nullable List<String> accounts;
-    /**
-     * @return Specify the Regions where you want to enable Security Lake.
-     * 
-     */
     private List<String> regions;
-    /**
-     * @return The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-     * 
-     */
     private String sourceName;
-    /**
-     * @return The version for a AWS source.
-     * If not specified, the version will be the default.
-     * This must be a Regionally unique value.
-     * 
-     */
     private @Nullable String sourceVersion;
 
     private AwsLogSourceSource() {}
-    /**
-     * @return Specify the AWS account information where you want to enable Security Lake.
-     * If not specified, uses all accounts included in the Security Lake.
-     * 
-     */
     public List<String> accounts() {
         return this.accounts == null ? List.of() : this.accounts;
     }
-    /**
-     * @return Specify the Regions where you want to enable Security Lake.
-     * 
-     */
     public List<String> regions() {
         return this.regions;
     }
-    /**
-     * @return The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-     * 
-     */
     public String sourceName() {
         return this.sourceName;
     }
-    /**
-     * @return The version for a AWS source.
-     * If not specified, the version will be the default.
-     * This must be a Regionally unique value.
-     * 
-     */
     public Optional<String> sourceVersion() {
         return Optional.ofNullable(this.sourceVersion);
     }

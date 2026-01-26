@@ -20,177 +20,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTargetEcsParameters {
-    /**
-     * @return Up to `6` capacity provider strategies to use for the task. Detailed below.
-     * 
-     */
     private @Nullable List<ScheduleTargetEcsParametersCapacityProviderStrategy> capacityProviderStrategies;
-    /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     private @Nullable Boolean enableEcsManagedTags;
-    /**
-     * @return Specifies whether to enable the execute command functionality for the containers in this task.
-     * 
-     */
     private @Nullable Boolean enableExecuteCommand;
-    /**
-     * @return Specifies an ECS task group for the task. At most 255 characters.
-     * 
-     */
     private @Nullable String group;
-    /**
-     * @return Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
-     * 
-     */
     private @Nullable String launchType;
-    /**
-     * @return Configures the networking associated with the task. Detailed below.
-     * 
-     */
     private @Nullable ScheduleTargetEcsParametersNetworkConfiguration networkConfiguration;
-    /**
-     * @return A set of up to 10 placement constraints to use for the task. Detailed below.
-     * 
-     */
     private @Nullable List<ScheduleTargetEcsParametersPlacementConstraint> placementConstraints;
-    /**
-     * @return A set of up to 5 placement strategies. Detailed below.
-     * 
-     */
     private @Nullable List<ScheduleTargetEcsParametersPlacementStrategy> placementStrategies;
-    /**
-     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
-     * 
-     */
     private @Nullable String platformVersion;
-    /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
-     * 
-     */
     private @Nullable String propagateTags;
-    /**
-     * @return Reference ID to use for the task.
-     * 
-     */
     private @Nullable String referenceId;
-    /**
-     * @return The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
-     * 
-     */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return The number of tasks to create. Ranges from `1` (default) to `10`.
-     * 
-     */
     private @Nullable Integer taskCount;
-    /**
-     * @return ARN of the task definition to use.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String taskDefinitionArn;
 
     private ScheduleTargetEcsParameters() {}
-    /**
-     * @return Up to `6` capacity provider strategies to use for the task. Detailed below.
-     * 
-     */
     public List<ScheduleTargetEcsParametersCapacityProviderStrategy> capacityProviderStrategies() {
         return this.capacityProviderStrategies == null ? List.of() : this.capacityProviderStrategies;
     }
-    /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     public Optional<Boolean> enableEcsManagedTags() {
         return Optional.ofNullable(this.enableEcsManagedTags);
     }
-    /**
-     * @return Specifies whether to enable the execute command functionality for the containers in this task.
-     * 
-     */
     public Optional<Boolean> enableExecuteCommand() {
         return Optional.ofNullable(this.enableExecuteCommand);
     }
-    /**
-     * @return Specifies an ECS task group for the task. At most 255 characters.
-     * 
-     */
     public Optional<String> group() {
         return Optional.ofNullable(this.group);
     }
-    /**
-     * @return Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
-     * 
-     */
     public Optional<String> launchType() {
         return Optional.ofNullable(this.launchType);
     }
-    /**
-     * @return Configures the networking associated with the task. Detailed below.
-     * 
-     */
     public Optional<ScheduleTargetEcsParametersNetworkConfiguration> networkConfiguration() {
         return Optional.ofNullable(this.networkConfiguration);
     }
-    /**
-     * @return A set of up to 10 placement constraints to use for the task. Detailed below.
-     * 
-     */
     public List<ScheduleTargetEcsParametersPlacementConstraint> placementConstraints() {
         return this.placementConstraints == null ? List.of() : this.placementConstraints;
     }
-    /**
-     * @return A set of up to 5 placement strategies. Detailed below.
-     * 
-     */
     public List<ScheduleTargetEcsParametersPlacementStrategy> placementStrategies() {
         return this.placementStrategies == null ? List.of() : this.placementStrategies;
     }
-    /**
-     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
-     * 
-     */
     public Optional<String> platformVersion() {
         return Optional.ofNullable(this.platformVersion);
     }
-    /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
-     * 
-     */
     public Optional<String> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
-    /**
-     * @return Reference ID to use for the task.
-     * 
-     */
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
     }
-    /**
-     * @return The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return The number of tasks to create. Ranges from `1` (default) to `10`.
-     * 
-     */
     public Optional<Integer> taskCount() {
         return Optional.ofNullable(this.taskCount);
     }
-    /**
-     * @return ARN of the task definition to use.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String taskDefinitionArn() {
         return this.taskDefinitionArn;
     }

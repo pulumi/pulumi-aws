@@ -4,66 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web Session Logger Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePortal = new aws.workspacesweb.Portal("example", {displayName: "example"});
- * const exampleBucket = new aws.s3.Bucket("example", {
- *     bucket: "example-session-logs",
- *     forceDestroy: true,
- * });
- * const example = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["workspaces-web.amazonaws.com"],
- *         }],
- *         actions: ["s3:PutObject"],
- *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
- *     }],
- * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucket.id,
- *     policy: example.apply(example => example.json),
- * });
- * const exampleSessionLogger = new aws.workspacesweb.SessionLogger("example", {
- *     displayName: "example",
- *     eventFilter: {
- *         all: {}[0],
- *     },
- *     logConfiguration: {
- *         s3: {
- *             bucket: exampleBucket.id,
- *             folderStructure: "Flat",
- *             logFileFormat: "Json",
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleBucketPolicy],
- * });
- * const exampleSessionLoggerAssociation = new aws.workspacesweb.SessionLoggerAssociation("example", {
- *     portalArn: examplePortal.portalArn,
- *     sessionLoggerArn: exampleSessionLogger.sessionLoggerArn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web Session Logger Association using the `session_logger_arn,portal_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/sessionLoggerAssociation:SessionLoggerAssociation example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
- * ```
- */
 export class SessionLoggerAssociation extends pulumi.CustomResource {
     /**
      * Get an existing SessionLoggerAssociation resource's state with the given name, ID, and optional extra
@@ -92,19 +32,8 @@ export class SessionLoggerAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SessionLoggerAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the web portal.
-     */
     declare public readonly portalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the session logger.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly sessionLoggerArn: pulumi.Output<string>;
 
     /**
@@ -144,19 +73,8 @@ export class SessionLoggerAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SessionLoggerAssociation resources.
  */
 export interface SessionLoggerAssociationState {
-    /**
-     * ARN of the web portal.
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the session logger.
-     *
-     * The following arguments are optional:
-     */
     sessionLoggerArn?: pulumi.Input<string>;
 }
 
@@ -164,18 +82,7 @@ export interface SessionLoggerAssociationState {
  * The set of arguments for constructing a SessionLoggerAssociation resource.
  */
 export interface SessionLoggerAssociationArgs {
-    /**
-     * ARN of the web portal.
-     */
     portalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the session logger.
-     *
-     * The following arguments are optional:
-     */
     sessionLoggerArn: pulumi.Input<string>;
 }

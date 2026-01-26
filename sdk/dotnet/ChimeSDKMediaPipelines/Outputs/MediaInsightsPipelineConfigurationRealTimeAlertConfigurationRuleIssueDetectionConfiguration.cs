@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration
     {
-        /// <summary>
-        /// Rule name.
-        /// </summary>
         public readonly string RuleName;
 
         [OutputConstructor]

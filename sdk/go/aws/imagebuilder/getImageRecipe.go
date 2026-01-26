@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an Image Builder Image Recipe.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.LookupImageRecipe(ctx, &imagebuilder.LookupImageRecipeArgs{
-//				Arn: "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ...pulumi.InvokeOption) (*LookupImageRecipeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImageRecipeResult
@@ -50,46 +23,30 @@ func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ..
 
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeArgs struct {
-	// ARN of the image recipe.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the image recipe.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    string            `pulumi:"arn"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getImageRecipe.
 type LookupImageRecipeResult struct {
-	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
-	AmiTags map[string]string `pulumi:"amiTags"`
-	Arn     string            `pulumi:"arn"`
-	// Set of objects with block device mappings for the image recipe.
+	AmiTags             map[string]string                  `pulumi:"amiTags"`
+	Arn                 string                             `pulumi:"arn"`
 	BlockDeviceMappings []GetImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// List of objects with components for the image recipe.
-	Components []GetImageRecipeComponent `pulumi:"components"`
-	// Date the image recipe was created.
-	DateCreated string `pulumi:"dateCreated"`
-	// Description of the image recipe.
-	Description string `pulumi:"description"`
+	Components          []GetImageRecipeComponent          `pulumi:"components"`
+	DateCreated         string                             `pulumi:"dateCreated"`
+	Description         string                             `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the image recipe.
-	Name string `pulumi:"name"`
-	// Owner of the image recipe.
-	Owner string `pulumi:"owner"`
-	// Base image of the image recipe.
-	ParentImage string `pulumi:"parentImage"`
-	// Platform of the image recipe.
-	Platform string `pulumi:"platform"`
-	Region   string `pulumi:"region"`
-	// Key-value map of resource tags for the image recipe.
-	Tags map[string]string `pulumi:"tags"`
-	// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-	UserDataBase64 string `pulumi:"userDataBase64"`
-	// Version of the image recipe.
-	Version string `pulumi:"version"`
-	// Working directory used during build and test workflows.
-	WorkingDirectory string `pulumi:"workingDirectory"`
+	Id               string            `pulumi:"id"`
+	Name             string            `pulumi:"name"`
+	Owner            string            `pulumi:"owner"`
+	ParentImage      string            `pulumi:"parentImage"`
+	Platform         string            `pulumi:"platform"`
+	Region           string            `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	UserDataBase64   string            `pulumi:"userDataBase64"`
+	Version          string            `pulumi:"version"`
+	WorkingDirectory string            `pulumi:"workingDirectory"`
 }
 
 func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupImageRecipeResultOutput {
@@ -103,12 +60,9 @@ func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputAr
 
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeOutputArgs struct {
-	// ARN of the image recipe.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags for the image recipe.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupImageRecipeOutputArgs) ElementType() reflect.Type {
@@ -130,7 +84,6 @@ func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutputWithContex
 	return o
 }
 
-// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
 func (o LookupImageRecipeResultOutput) AmiTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) map[string]string { return v.AmiTags }).(pulumi.StringMapOutput)
 }
@@ -139,22 +92,18 @@ func (o LookupImageRecipeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Set of objects with block device mappings for the image recipe.
 func (o LookupImageRecipeResultOutput) BlockDeviceMappings() GetImageRecipeBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) []GetImageRecipeBlockDeviceMapping { return v.BlockDeviceMappings }).(GetImageRecipeBlockDeviceMappingArrayOutput)
 }
 
-// List of objects with components for the image recipe.
 func (o LookupImageRecipeResultOutput) Components() GetImageRecipeComponentArrayOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) []GetImageRecipeComponent { return v.Components }).(GetImageRecipeComponentArrayOutput)
 }
 
-// Date the image recipe was created.
 func (o LookupImageRecipeResultOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Description of the image recipe.
 func (o LookupImageRecipeResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -164,22 +113,18 @@ func (o LookupImageRecipeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the image recipe.
 func (o LookupImageRecipeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Owner of the image recipe.
 func (o LookupImageRecipeResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Base image of the image recipe.
 func (o LookupImageRecipeResultOutput) ParentImage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.ParentImage }).(pulumi.StringOutput)
 }
 
-// Platform of the image recipe.
 func (o LookupImageRecipeResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Platform }).(pulumi.StringOutput)
 }
@@ -188,22 +133,18 @@ func (o LookupImageRecipeResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the image recipe.
 func (o LookupImageRecipeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
 func (o LookupImageRecipeResultOutput) UserDataBase64() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.UserDataBase64 }).(pulumi.StringOutput)
 }
 
-// Version of the image recipe.
 func (o LookupImageRecipeResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// Working directory used during build and test workflows.
 func (o LookupImageRecipeResultOutput) WorkingDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.WorkingDirectory }).(pulumi.StringOutput)
 }

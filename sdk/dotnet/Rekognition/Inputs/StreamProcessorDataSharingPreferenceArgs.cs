@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorDataSharingPreferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether you are sharing data with Rekognition to improve model performance.
+        /// Do you want to share data with Rekognition to improve model performance.
         /// </summary>
         [Input("optIn", required: true)]
         public Input<bool> OptIn { get; set; } = null!;

@@ -16,89 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicatorReplicationInfoListTopicReplication {
-    /**
-     * @return Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-     * 
-     */
     private @Nullable Boolean copyAccessControlListsForTopics;
-    /**
-     * @return Whether to periodically configure remote topics to match their corresponding upstream topics.
-     * 
-     */
     private @Nullable Boolean copyTopicConfigurations;
-    /**
-     * @return Whether to periodically check for new topics and partitions.
-     * 
-     */
     private @Nullable Boolean detectAndCopyNewTopics;
-    /**
-     * @return Configuration for specifying the position in the topics to start replicating from.
-     * 
-     */
     private @Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition;
-    /**
-     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
-     * 
-     */
     private @Nullable ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration topicNameConfiguration;
-    /**
-     * @return List of regular expression patterns indicating the topics that should not be replica.
-     * 
-     */
     private @Nullable List<String> topicsToExcludes;
-    /**
-     * @return List of regular expression patterns indicating the topics to copy.
-     * 
-     */
     private List<String> topicsToReplicates;
 
     private ReplicatorReplicationInfoListTopicReplication() {}
-    /**
-     * @return Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-     * 
-     */
     public Optional<Boolean> copyAccessControlListsForTopics() {
         return Optional.ofNullable(this.copyAccessControlListsForTopics);
     }
-    /**
-     * @return Whether to periodically configure remote topics to match their corresponding upstream topics.
-     * 
-     */
     public Optional<Boolean> copyTopicConfigurations() {
         return Optional.ofNullable(this.copyTopicConfigurations);
     }
-    /**
-     * @return Whether to periodically check for new topics and partitions.
-     * 
-     */
     public Optional<Boolean> detectAndCopyNewTopics() {
         return Optional.ofNullable(this.detectAndCopyNewTopics);
     }
-    /**
-     * @return Configuration for specifying the position in the topics to start replicating from.
-     * 
-     */
     public Optional<ReplicatorReplicationInfoListTopicReplicationStartingPosition> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
-    /**
-     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
-     * 
-     */
     public Optional<ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration> topicNameConfiguration() {
         return Optional.ofNullable(this.topicNameConfiguration);
     }
-    /**
-     * @return List of regular expression patterns indicating the topics that should not be replica.
-     * 
-     */
     public List<String> topicsToExcludes() {
         return this.topicsToExcludes == null ? List.of() : this.topicsToExcludes;
     }
-    /**
-     * @return List of regular expression patterns indicating the topics to copy.
-     * 
-     */
     public List<String> topicsToReplicates() {
         return this.topicsToReplicates;
     }

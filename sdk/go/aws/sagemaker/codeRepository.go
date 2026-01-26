@@ -12,117 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI Code Repository resource.
-//
-// ## Example Usage
-//
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
-//				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-//					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example with Secret
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"username": "example",
-//				"password": "example",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     example.ID(),
-//				SecretString: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
-//				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-//					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
-//					SecretArn:     example.Arn,
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecretVersion,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker AI Code Repositories using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
-// ```
 type CodeRepository struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the Code Repository (must be unique).
-	CodeRepositoryName pulumi.StringOutput `pulumi:"codeRepositoryName"`
-	// Specifies details about the repository. see Git Config details below.
-	GitConfig CodeRepositoryGitConfigOutput `pulumi:"gitConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                pulumi.StringOutput           `pulumi:"arn"`
+	CodeRepositoryName pulumi.StringOutput           `pulumi:"codeRepositoryName"`
+	GitConfig          CodeRepositoryGitConfigOutput `pulumi:"gitConfig"`
+	Region             pulumi.StringOutput           `pulumi:"region"`
+	Tags               pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput        `pulumi:"tagsAll"`
 }
 
 // NewCodeRepository registers a new resource with the given unique name, arguments, and options.
@@ -161,33 +59,21 @@ func GetCodeRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CodeRepository resources.
 type codeRepositoryState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-	Arn *string `pulumi:"arn"`
-	// The name of the Code Repository (must be unique).
-	CodeRepositoryName *string `pulumi:"codeRepositoryName"`
-	// Specifies details about the repository. see Git Config details below.
-	GitConfig *CodeRepositoryGitConfig `pulumi:"gitConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                *string                  `pulumi:"arn"`
+	CodeRepositoryName *string                  `pulumi:"codeRepositoryName"`
+	GitConfig          *CodeRepositoryGitConfig `pulumi:"gitConfig"`
+	Region             *string                  `pulumi:"region"`
+	Tags               map[string]string        `pulumi:"tags"`
+	TagsAll            map[string]string        `pulumi:"tagsAll"`
 }
 
 type CodeRepositoryState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-	Arn pulumi.StringPtrInput
-	// The name of the Code Repository (must be unique).
+	Arn                pulumi.StringPtrInput
 	CodeRepositoryName pulumi.StringPtrInput
-	// Specifies details about the repository. see Git Config details below.
-	GitConfig CodeRepositoryGitConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	GitConfig          CodeRepositoryGitConfigPtrInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (CodeRepositoryState) ElementType() reflect.Type {
@@ -195,26 +81,18 @@ func (CodeRepositoryState) ElementType() reflect.Type {
 }
 
 type codeRepositoryArgs struct {
-	// The name of the Code Repository (must be unique).
-	CodeRepositoryName string `pulumi:"codeRepositoryName"`
-	// Specifies details about the repository. see Git Config details below.
-	GitConfig CodeRepositoryGitConfig `pulumi:"gitConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	CodeRepositoryName string                  `pulumi:"codeRepositoryName"`
+	GitConfig          CodeRepositoryGitConfig `pulumi:"gitConfig"`
+	Region             *string                 `pulumi:"region"`
+	Tags               map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CodeRepository resource.
 type CodeRepositoryArgs struct {
-	// The name of the Code Repository (must be unique).
 	CodeRepositoryName pulumi.StringInput
-	// Specifies details about the repository. see Git Config details below.
-	GitConfig CodeRepositoryGitConfigInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	GitConfig          CodeRepositoryGitConfigInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (CodeRepositoryArgs) ElementType() reflect.Type {
@@ -304,32 +182,26 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
 func (o CodeRepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeRepository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the Code Repository (must be unique).
 func (o CodeRepositoryOutput) CodeRepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeRepository) pulumi.StringOutput { return v.CodeRepositoryName }).(pulumi.StringOutput)
 }
 
-// Specifies details about the repository. see Git Config details below.
 func (o CodeRepositoryOutput) GitConfig() CodeRepositoryGitConfigOutput {
 	return o.ApplyT(func(v *CodeRepository) CodeRepositoryGitConfigOutput { return v.GitConfig }).(CodeRepositoryGitConfigOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CodeRepositoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeRepository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CodeRepositoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CodeRepository) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CodeRepositoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CodeRepository) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

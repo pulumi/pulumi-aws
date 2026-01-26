@@ -7,91 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC Lattice Listener Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.ListenerRule("example", {
- *     name: "example",
- *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
- *     serviceIdentifier: exampleAwsVpclatticeService.id,
- *     priority: 20,
- *     match: {
- *         httpMatch: {
- *             headerMatches: [{
- *                 name: "example-header",
- *                 caseSensitive: false,
- *                 match: {
- *                     exact: "example-contains",
- *                 },
- *             }],
- *             pathMatch: {
- *                 caseSensitive: true,
- *                 match: {
- *                     prefix: "/example-path",
- *                 },
- *             },
- *         },
- *     },
- *     action: {
- *         forward: {
- *             targetGroups: [
- *                 {
- *                     targetGroupIdentifier: exampleAwsVpclatticeTargetGroup.id,
- *                     weight: 1,
- *                 },
- *                 {
- *                     targetGroupIdentifier: example2.id,
- *                     weight: 2,
- *                 },
- *             ],
- *         },
- *     },
- * });
- * ```
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.ListenerRule("example", {
- *     name: "example",
- *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
- *     serviceIdentifier: exampleAwsVpclatticeService.id,
- *     priority: 10,
- *     match: {
- *         httpMatch: {
- *             pathMatch: {
- *                 caseSensitive: false,
- *                 match: {
- *                     exact: "/example-path",
- *                 },
- *             },
- *         },
- *     },
- *     action: {
- *         fixedResponse: {
- *             statusCode: 404,
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
- * ```
- */
 export class ListenerRule extends pulumi.CustomResource {
     /**
      * Get an existing ListenerRule resource's state with the given name, ID, and optional extra
@@ -120,53 +35,16 @@ export class ListenerRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ListenerRule.__pulumiType;
     }
 
-    /**
-     * The action for the listener rule.
-     * See `action` Block for details.
-     */
     declare public readonly action: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
-    /**
-     * The ARN for the listener rule.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
-     */
     declare public readonly listenerIdentifier: pulumi.Output<string>;
-    /**
-     * The rule match.
-     * See `match` Block
-     */
     declare public readonly match: pulumi.Output<outputs.vpclattice.ListenerRuleMatch>;
-    /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly priority: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Unique identifier for the listener rule.
-     */
     declare public /*out*/ readonly ruleId: pulumi.Output<string>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
-     */
     declare public readonly serviceIdentifier: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -231,53 +109,16 @@ export class ListenerRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ListenerRule resources.
  */
 export interface ListenerRuleState {
-    /**
-     * The action for the listener rule.
-     * See `action` Block for details.
-     */
     action?: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
-    /**
-     * The ARN for the listener rule.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
-     */
     listenerIdentifier?: pulumi.Input<string>;
-    /**
-     * The rule match.
-     * See `match` Block
-     */
     match?: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
-    /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     *
-     * The following arguments are optional:
-     */
     priority?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the listener rule.
-     */
     ruleId?: pulumi.Input<string>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
-     */
     serviceIdentifier?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -285,40 +126,12 @@ export interface ListenerRuleState {
  * The set of arguments for constructing a ListenerRule resource.
  */
 export interface ListenerRuleArgs {
-    /**
-     * The action for the listener rule.
-     * See `action` Block for details.
-     */
     action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
-     */
     listenerIdentifier: pulumi.Input<string>;
-    /**
-     * The rule match.
-     * See `match` Block
-     */
     match: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
-    /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     *
-     * The following arguments are optional:
-     */
     priority: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
-     */
     serviceIdentifier: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

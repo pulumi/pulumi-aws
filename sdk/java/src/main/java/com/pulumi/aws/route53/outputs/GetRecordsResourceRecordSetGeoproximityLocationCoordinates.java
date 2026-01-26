@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRecordsResourceRecordSetGeoproximityLocationCoordinates {
-    /**
-     * @return Latitude.
-     * 
-     */
     private String latitude;
-    /**
-     * @return Longitude.
-     * 
-     */
     private String longitude;
 
     private GetRecordsResourceRecordSetGeoproximityLocationCoordinates() {}
-    /**
-     * @return Latitude.
-     * 
-     */
     public String latitude() {
         return this.latitude;
     }
-    /**
-     * @return Longitude.
-     * 
-     */
     public String longitude() {
         return this.longitude;
     }

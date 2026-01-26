@@ -25,10 +25,6 @@ class ReceiptFilterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReceiptFilter resource.
-        :param pulumi.Input[_builtins.str] cidr: The IP address or address range to filter, in CIDR notation
-        :param pulumi.Input[_builtins.str] policy: Block or Allow
-        :param pulumi.Input[_builtins.str] name: The name of the filter
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "policy", policy)
@@ -40,9 +36,6 @@ class ReceiptFilterArgs:
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IP address or address range to filter, in CIDR notation
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -52,9 +45,6 @@ class ReceiptFilterArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Block or Allow
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -64,9 +54,6 @@ class ReceiptFilterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the filter
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,9 +63,6 @@ class ReceiptFilterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,11 +80,6 @@ class _ReceiptFilterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReceiptFilter resources.
-        :param pulumi.Input[_builtins.str] arn: The SES receipt filter ARN.
-        :param pulumi.Input[_builtins.str] cidr: The IP address or address range to filter, in CIDR notation
-        :param pulumi.Input[_builtins.str] name: The name of the filter
-        :param pulumi.Input[_builtins.str] policy: Block or Allow
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -116,9 +95,6 @@ class _ReceiptFilterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SES receipt filter ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -128,9 +104,6 @@ class _ReceiptFilterState:
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address or address range to filter, in CIDR notation
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -140,9 +113,6 @@ class _ReceiptFilterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the filter
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -152,9 +122,6 @@ class _ReceiptFilterState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Block or Allow
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -164,9 +131,6 @@ class _ReceiptFilterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -186,34 +150,9 @@ class ReceiptFilter(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an SES receipt filter resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        filter = aws.ses.ReceiptFilter("filter",
-            name="block-spammer",
-            cidr="10.10.10.10",
-            policy="Block")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
-        ```
-
+        Create a ReceiptFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr: The IP address or address range to filter, in CIDR notation
-        :param pulumi.Input[_builtins.str] name: The name of the filter
-        :param pulumi.Input[_builtins.str] policy: Block or Allow
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -222,28 +161,7 @@ class ReceiptFilter(pulumi.CustomResource):
                  args: ReceiptFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SES receipt filter resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        filter = aws.ses.ReceiptFilter("filter",
-            name="block-spammer",
-            cidr="10.10.10.10",
-            policy="Block")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
-        ```
-
+        Create a ReceiptFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ReceiptFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,11 +221,6 @@ class ReceiptFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The SES receipt filter ARN.
-        :param pulumi.Input[_builtins.str] cidr: The IP address or address range to filter, in CIDR notation
-        :param pulumi.Input[_builtins.str] name: The name of the filter
-        :param pulumi.Input[_builtins.str] policy: Block or Allow
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -323,40 +236,25 @@ class ReceiptFilter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The SES receipt filter ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IP address or address range to filter, in CIDR notation
-        """
         return pulumi.get(self, "cidr")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the filter
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Block or Allow
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

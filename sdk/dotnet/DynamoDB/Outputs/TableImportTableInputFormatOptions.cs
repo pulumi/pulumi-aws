@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableImportTableInputFormatOptions
     {
-        /// <summary>
-        /// This block contains the processing options for the CSV file being imported:
-        /// </summary>
         public readonly Outputs.TableImportTableInputFormatOptionsCsv? Csv;
 
         [OutputConstructor]

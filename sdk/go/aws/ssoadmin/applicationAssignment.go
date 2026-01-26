@@ -12,84 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSO Admin Application Assignment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.Arn),
-//				PrincipalId:    pulumi.Any(exampleAwsIdentitystoreUser.UserId),
-//				PrincipalType:  pulumi.String("USER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Group Type
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.Arn),
-//				PrincipalId:    pulumi.Any(exampleAwsIdentitystoreGroup.GroupId),
-//				PrincipalType:  pulumi.String("GROUP"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
-// ```
 type ApplicationAssignment struct {
 	pulumi.CustomResourceState
 
-	// ARN of the application.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	PrincipalId    pulumi.StringOutput `pulumi:"principalId"`
+	PrincipalType  pulumi.StringOutput `pulumi:"principalType"`
+	Region         pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewApplicationAssignment registers a new resource with the given unique name, arguments, and options.
@@ -131,25 +60,17 @@ func GetApplicationAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationAssignment resources.
 type applicationAssignmentState struct {
-	// ARN of the application.
 	ApplicationArn *string `pulumi:"applicationArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId *string `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType *string `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PrincipalId    *string `pulumi:"principalId"`
+	PrincipalType  *string `pulumi:"principalType"`
+	Region         *string `pulumi:"region"`
 }
 
 type ApplicationAssignmentState struct {
-	// ARN of the application.
 	ApplicationArn pulumi.StringPtrInput
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId pulumi.StringPtrInput
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PrincipalId    pulumi.StringPtrInput
+	PrincipalType  pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentState) ElementType() reflect.Type {
@@ -157,26 +78,18 @@ func (ApplicationAssignmentState) ElementType() reflect.Type {
 }
 
 type applicationAssignmentArgs struct {
-	// ARN of the application.
-	ApplicationArn string `pulumi:"applicationArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId string `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType string `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ApplicationArn string  `pulumi:"applicationArn"`
+	PrincipalId    string  `pulumi:"principalId"`
+	PrincipalType  string  `pulumi:"principalType"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApplicationAssignment resource.
 type ApplicationAssignmentArgs struct {
-	// ARN of the application.
 	ApplicationArn pulumi.StringInput
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId pulumi.StringInput
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PrincipalId    pulumi.StringInput
+	PrincipalType  pulumi.StringInput
+	Region         pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentArgs) ElementType() reflect.Type {
@@ -266,22 +179,18 @@ func (o ApplicationAssignmentOutput) ToApplicationAssignmentOutputWithContext(ct
 	return o
 }
 
-// ARN of the application.
 func (o ApplicationAssignmentOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// An identifier for an object in IAM Identity Center, such as a user or group.
 func (o ApplicationAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o ApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationAssignmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

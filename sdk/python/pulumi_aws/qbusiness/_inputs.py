@@ -29,7 +29,7 @@ if not MYPY:
     class ApplicationAttachmentsConfigurationArgsDict(TypedDict):
         attachments_control_mode: pulumi.Input[_builtins.str]
         """
-        Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+        Status information about whether file upload functionality is activated or deactivated for your end user.
         """
 elif False:
     ApplicationAttachmentsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -39,7 +39,7 @@ class ApplicationAttachmentsConfigurationArgs:
     def __init__(__self__, *,
                  attachments_control_mode: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] attachments_control_mode: Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[_builtins.str] attachments_control_mode: Status information about whether file upload functionality is activated or deactivated for your end user.
         """
         pulumi.set(__self__, "attachments_control_mode", attachments_control_mode)
 
@@ -47,7 +47,7 @@ class ApplicationAttachmentsConfigurationArgs:
     @pulumi.getter(name="attachmentsControlMode")
     def attachments_control_mode(self) -> pulumi.Input[_builtins.str]:
         """
-        Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+        Status information about whether file upload functionality is activated or deactivated for your end user.
         """
         return pulumi.get(self, "attachments_control_mode")
 
@@ -60,7 +60,7 @@ if not MYPY:
     class ApplicationEncryptionConfigurationArgsDict(TypedDict):
         kms_key_id: pulumi.Input[_builtins.str]
         """
-        Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+        The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
         """
 elif False:
     ApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -70,7 +70,7 @@ class ApplicationEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] kms_key_id: Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+        :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
 
@@ -78,7 +78,7 @@ class ApplicationEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+        The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
         """
         return pulumi.get(self, "kms_key_id")
 

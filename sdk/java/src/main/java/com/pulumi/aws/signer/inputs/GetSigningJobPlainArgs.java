@@ -15,32 +15,16 @@ public final class GetSigningJobPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetSigningJobPlainArgs Empty = new GetSigningJobPlainArgs();
 
-    /**
-     * ID of the signing job on output.
-     * 
-     */
     @Import(name="jobId", required=true)
     private String jobId;
 
-    /**
-     * @return ID of the signing job on output.
-     * 
-     */
     public String jobId() {
         return this.jobId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetSigningJobPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetSigningJobPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param jobId ID of the signing job on output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobId(String jobId) {
             $.jobId = jobId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

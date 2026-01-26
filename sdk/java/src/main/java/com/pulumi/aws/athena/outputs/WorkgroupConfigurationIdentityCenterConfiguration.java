@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationIdentityCenterConfiguration {
-    /**
-     * @return Specifies whether the workgroup is IAM Identity Center supported.
-     * 
-     */
     private @Nullable Boolean enableIdentityCenter;
-    /**
-     * @return The IAM Identity Center instance ARN that the workgroup associates to.
-     * 
-     */
     private @Nullable String identityCenterInstanceArn;
 
     private WorkgroupConfigurationIdentityCenterConfiguration() {}
-    /**
-     * @return Specifies whether the workgroup is IAM Identity Center supported.
-     * 
-     */
     public Optional<Boolean> enableIdentityCenter() {
         return Optional.ofNullable(this.enableIdentityCenter);
     }
-    /**
-     * @return The IAM Identity Center instance ARN that the workgroup associates to.
-     * 
-     */
     public Optional<String> identityCenterInstanceArn() {
         return Optional.ofNullable(this.identityCenterInstanceArn);
     }

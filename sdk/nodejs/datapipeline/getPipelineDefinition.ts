@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific DataPipeline Pipeline Definition.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.datapipeline.getPipelineDefinition({
- *     pipelineId: "pipelineID",
- * });
- * ```
- */
 export function getPipelineDefinition(args: GetPipelineDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
@@ -34,17 +20,8 @@ export function getPipelineDefinition(args: GetPipelineDefinitionArgs, opts?: pu
  * A collection of arguments for invoking getPipelineDefinition.
  */
 export interface GetPipelineDefinitionArgs {
-    /**
-     * Parameter values used in the pipeline definition. See below
-     */
     parameterValues?: inputs.datapipeline.GetPipelineDefinitionParameterValue[];
-    /**
-     * ID of the pipeline.
-     */
     pipelineId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -56,35 +33,12 @@ export interface GetPipelineDefinitionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Parameter objects used in the pipeline definition. See below
-     */
     readonly parameterObjects: outputs.datapipeline.GetPipelineDefinitionParameterObject[];
-    /**
-     * Parameter values used in the pipeline definition. See below
-     */
     readonly parameterValues?: outputs.datapipeline.GetPipelineDefinitionParameterValue[];
     readonly pipelineId: string;
-    /**
-     * Objects defined in the pipeline. See below
-     */
     readonly pipelineObjects: outputs.datapipeline.GetPipelineDefinitionPipelineObject[];
     readonly region: string;
 }
-/**
- * Provides details about a specific DataPipeline Pipeline Definition.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.datapipeline.getPipelineDefinition({
- *     pipelineId: "pipelineID",
- * });
- * ```
- */
 export function getPipelineDefinitionOutput(args: GetPipelineDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
@@ -98,16 +52,7 @@ export function getPipelineDefinitionOutput(args: GetPipelineDefinitionOutputArg
  * A collection of arguments for invoking getPipelineDefinition.
  */
 export interface GetPipelineDefinitionOutputArgs {
-    /**
-     * Parameter values used in the pipeline definition. See below
-     */
     parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.GetPipelineDefinitionParameterValueArgs>[]>;
-    /**
-     * ID of the pipeline.
-     */
     pipelineId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

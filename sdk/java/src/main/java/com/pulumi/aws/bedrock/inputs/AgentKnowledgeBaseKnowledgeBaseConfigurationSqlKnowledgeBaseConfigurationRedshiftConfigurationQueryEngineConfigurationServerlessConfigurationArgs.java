@@ -17,32 +17,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs();
 
-    /**
-     * Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-     * 
-     */
     @Import(name="authConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration;
 
-    /**
-     * @return Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs>> authConfiguration() {
         return Optional.ofNullable(this.authConfiguration);
     }
 
-    /**
-     * ARN of the Amazon Redshift workgroup.
-     * 
-     */
     @Import(name="workgroupArn", required=true)
     private Output<String> workgroupArn;
 
-    /**
-     * @return ARN of the Amazon Redshift workgroup.
-     * 
-     */
     public Output<String> workgroupArn() {
         return this.workgroupArn;
     }
@@ -72,44 +56,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authConfiguration Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration) {
             $.authConfiguration = authConfiguration;
             return this;
         }
 
-        /**
-         * @param authConfiguration Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs authConfiguration) {
             return authConfiguration(Output.of(authConfiguration));
         }
 
-        /**
-         * @param workgroupArn ARN of the Amazon Redshift workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupArn(Output<String> workgroupArn) {
             $.workgroupArn = workgroupArn;
             return this;
         }
 
-        /**
-         * @param workgroupArn ARN of the Amazon Redshift workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupArn(String workgroupArn) {
             return workgroupArn(Output.of(workgroupArn));
         }

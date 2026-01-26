@@ -15,119 +15,33 @@ import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Service Quotas Template.
- * 
- * &gt; Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicequotas.Template;
- * import com.pulumi.aws.servicequotas.TemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Template("example", TemplateArgs.builder()
- *             .awsRegion("us-east-1")
- *             .quotaCode("L-2ACBD22F")
- *             .serviceCode("lambda")
- *             .value(80.0)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Service Quotas Template using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
- * ```
- * 
- */
 @ResourceType(type="aws:servicequotas/template:Template")
 public class Template extends com.pulumi.resources.CustomResource {
-    /**
-     * AWS Region to which the template applies.
-     * 
-     */
     @Export(name="awsRegion", refs={String.class}, tree="[0]")
     private Output<String> awsRegion;
 
-    /**
-     * @return AWS Region to which the template applies.
-     * 
-     */
     public Output<String> awsRegion() {
         return this.awsRegion;
     }
-    /**
-     * Indicates whether the quota is global.
-     * 
-     */
     @Export(name="globalQuota", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> globalQuota;
 
-    /**
-     * @return Indicates whether the quota is global.
-     * 
-     */
     public Output<Boolean> globalQuota() {
         return this.globalQuota;
     }
-    /**
-     * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     * 
-     */
     @Export(name="quotaCode", refs={String.class}, tree="[0]")
     private Output<String> quotaCode;
 
-    /**
-     * @return Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     * 
-     */
     public Output<String> quotaCode() {
         return this.quotaCode;
     }
-    /**
-     * Quota name.
-     * 
-     */
     @Export(name="quotaName", refs={String.class}, tree="[0]")
     private Output<String> quotaName;
 
-    /**
-     * @return Quota name.
-     * 
-     */
     public Output<String> quotaName() {
         return this.quotaName;
     }
     /**
-     * AWS Region to which the template applies. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -136,66 +50,30 @@ public class Template extends com.pulumi.resources.CustomResource {
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return AWS Region to which the template applies. Use `aws.getRegion` instead.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     * 
-     */
     @Export(name="serviceCode", refs={String.class}, tree="[0]")
     private Output<String> serviceCode;
 
-    /**
-     * @return Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     * 
-     */
     public Output<String> serviceCode() {
         return this.serviceCode;
     }
-    /**
-     * Service name.
-     * 
-     */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
-    /**
-     * @return Service name.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
-    /**
-     * Unit of measurement.
-     * 
-     */
     @Export(name="unit", refs={String.class}, tree="[0]")
     private Output<String> unit;
 
-    /**
-     * @return Unit of measurement.
-     * 
-     */
     public Output<String> unit() {
         return this.unit;
     }
-    /**
-     * The new, increased value for the quota.
-     * 
-     */
     @Export(name="value", refs={Double.class}, tree="[0]")
     private Output<Double> value;
 
-    /**
-     * @return The new, increased value for the quota.
-     * 
-     */
     public Output<Double> value() {
         return this.value;
     }

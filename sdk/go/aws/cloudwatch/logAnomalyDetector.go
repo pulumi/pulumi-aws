@@ -12,87 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Logs Log Anomaly Detector.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var test []*cloudwatch.LogGroup
-//			for index := 0; index < 2; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := cloudwatch.NewLogGroup(ctx, fmt.Sprintf("test-%v", key0), &cloudwatch.LogGroupArgs{
-//					Name: pulumi.Sprintf("testing-%v", val0),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				test = append(test, __res)
-//			}
-//			_, err = cloudwatch.NewLogAnomalyDetector(ctx, "test", &cloudwatch.LogAnomalyDetectorArgs{
-//				DetectorName: pulumi.String("testing"),
-//				LogGroupArnLists: pulumi.StringArray{
-//					test[0].Arn,
-//				},
-//				AnomalyVisibilityTime: pulumi.Int(7),
-//				EvaluationFrequency:   pulumi.String("TEN_MIN"),
-//				Enabled:               pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
-// ```
 type LogAnomalyDetector struct {
 	pulumi.CustomResourceState
 
-	// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-	AnomalyVisibilityTime pulumi.IntOutput `pulumi:"anomalyVisibilityTime"`
-	// ARN of the log anomaly detector that you just created.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name for this anomaly detector.
-	DetectorName pulumi.StringPtrOutput `pulumi:"detectorName"`
-	Enabled      pulumi.BoolOutput      `pulumi:"enabled"`
-	// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-	EvaluationFrequency pulumi.StringPtrOutput `pulumi:"evaluationFrequency"`
-	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-	FilterPattern pulumi.StringPtrOutput `pulumi:"filterPattern"`
-	// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-	//
-	// The following arguments are optional:
-	LogGroupArnLists pulumi.StringArrayOutput `pulumi:"logGroupArnLists"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  pulumi.StringOutput    `pulumi:"region"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AnomalyVisibilityTime pulumi.IntOutput         `pulumi:"anomalyVisibilityTime"`
+	Arn                   pulumi.StringOutput      `pulumi:"arn"`
+	DetectorName          pulumi.StringPtrOutput   `pulumi:"detectorName"`
+	Enabled               pulumi.BoolOutput        `pulumi:"enabled"`
+	EvaluationFrequency   pulumi.StringPtrOutput   `pulumi:"evaluationFrequency"`
+	FilterPattern         pulumi.StringPtrOutput   `pulumi:"filterPattern"`
+	KmsKeyId              pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
+	LogGroupArnLists      pulumi.StringArrayOutput `pulumi:"logGroupArnLists"`
+	Region                pulumi.StringOutput      `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewLogAnomalyDetector registers a new resource with the given unique name, arguments, and options.
@@ -131,51 +64,31 @@ func GetLogAnomalyDetector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogAnomalyDetector resources.
 type logAnomalyDetectorState struct {
-	// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-	AnomalyVisibilityTime *int `pulumi:"anomalyVisibilityTime"`
-	// ARN of the log anomaly detector that you just created.
-	Arn *string `pulumi:"arn"`
-	// Name for this anomaly detector.
-	DetectorName *string `pulumi:"detectorName"`
-	Enabled      *bool   `pulumi:"enabled"`
-	// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
-	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-	FilterPattern *string `pulumi:"filterPattern"`
-	// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-	//
-	// The following arguments are optional:
-	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  *string           `pulumi:"region"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AnomalyVisibilityTime *int              `pulumi:"anomalyVisibilityTime"`
+	Arn                   *string           `pulumi:"arn"`
+	DetectorName          *string           `pulumi:"detectorName"`
+	Enabled               *bool             `pulumi:"enabled"`
+	EvaluationFrequency   *string           `pulumi:"evaluationFrequency"`
+	FilterPattern         *string           `pulumi:"filterPattern"`
+	KmsKeyId              *string           `pulumi:"kmsKeyId"`
+	LogGroupArnLists      []string          `pulumi:"logGroupArnLists"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type LogAnomalyDetectorState struct {
-	// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
 	AnomalyVisibilityTime pulumi.IntPtrInput
-	// ARN of the log anomaly detector that you just created.
-	Arn pulumi.StringPtrInput
-	// Name for this anomaly detector.
-	DetectorName pulumi.StringPtrInput
-	Enabled      pulumi.BoolPtrInput
-	// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-	EvaluationFrequency pulumi.StringPtrInput
-	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-	FilterPattern pulumi.StringPtrInput
-	// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-	KmsKeyId pulumi.StringPtrInput
-	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-	//
-	// The following arguments are optional:
-	LogGroupArnLists pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Arn                   pulumi.StringPtrInput
+	DetectorName          pulumi.StringPtrInput
+	Enabled               pulumi.BoolPtrInput
+	EvaluationFrequency   pulumi.StringPtrInput
+	FilterPattern         pulumi.StringPtrInput
+	KmsKeyId              pulumi.StringPtrInput
+	LogGroupArnLists      pulumi.StringArrayInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (LogAnomalyDetectorState) ElementType() reflect.Type {
@@ -183,46 +96,28 @@ func (LogAnomalyDetectorState) ElementType() reflect.Type {
 }
 
 type logAnomalyDetectorArgs struct {
-	// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-	AnomalyVisibilityTime *int `pulumi:"anomalyVisibilityTime"`
-	// Name for this anomaly detector.
-	DetectorName *string `pulumi:"detectorName"`
-	Enabled      bool    `pulumi:"enabled"`
-	// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
-	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-	FilterPattern *string `pulumi:"filterPattern"`
-	// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-	//
-	// The following arguments are optional:
-	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	AnomalyVisibilityTime *int              `pulumi:"anomalyVisibilityTime"`
+	DetectorName          *string           `pulumi:"detectorName"`
+	Enabled               bool              `pulumi:"enabled"`
+	EvaluationFrequency   *string           `pulumi:"evaluationFrequency"`
+	FilterPattern         *string           `pulumi:"filterPattern"`
+	KmsKeyId              *string           `pulumi:"kmsKeyId"`
+	LogGroupArnLists      []string          `pulumi:"logGroupArnLists"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogAnomalyDetector resource.
 type LogAnomalyDetectorArgs struct {
-	// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
 	AnomalyVisibilityTime pulumi.IntPtrInput
-	// Name for this anomaly detector.
-	DetectorName pulumi.StringPtrInput
-	Enabled      pulumi.BoolInput
-	// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-	EvaluationFrequency pulumi.StringPtrInput
-	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-	FilterPattern pulumi.StringPtrInput
-	// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-	KmsKeyId pulumi.StringPtrInput
-	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-	//
-	// The following arguments are optional:
-	LogGroupArnLists pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	DetectorName          pulumi.StringPtrInput
+	Enabled               pulumi.BoolInput
+	EvaluationFrequency   pulumi.StringPtrInput
+	FilterPattern         pulumi.StringPtrInput
+	KmsKeyId              pulumi.StringPtrInput
+	LogGroupArnLists      pulumi.StringArrayInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (LogAnomalyDetectorArgs) ElementType() reflect.Type {
@@ -312,17 +207,14 @@ func (o LogAnomalyDetectorOutput) ToLogAnomalyDetectorOutputWithContext(ctx cont
 	return o
 }
 
-// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
 func (o LogAnomalyDetectorOutput) AnomalyVisibilityTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.IntOutput { return v.AnomalyVisibilityTime }).(pulumi.IntOutput)
 }
 
-// ARN of the log anomaly detector that you just created.
 func (o LogAnomalyDetectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name for this anomaly detector.
 func (o LogAnomalyDetectorOutput) DetectorName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringPtrOutput { return v.DetectorName }).(pulumi.StringPtrOutput)
 }
@@ -331,29 +223,22 @@ func (o LogAnomalyDetectorOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
 func (o LogAnomalyDetectorOutput) EvaluationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringPtrOutput { return v.EvaluationFrequency }).(pulumi.StringPtrOutput)
 }
 
-// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 func (o LogAnomalyDetectorOutput) FilterPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringPtrOutput { return v.FilterPattern }).(pulumi.StringPtrOutput)
 }
 
-// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
 func (o LogAnomalyDetectorOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-//
-// The following arguments are optional:
 func (o LogAnomalyDetectorOutput) LogGroupArnLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringArrayOutput { return v.LogGroupArnLists }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogAnomalyDetectorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

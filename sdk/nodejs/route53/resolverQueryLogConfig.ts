@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver query logging configuration resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ResolverQueryLogConfig("example", {
- *     name: "example",
- *     destinationArn: exampleAwsS3Bucket.arn,
- *     tags: {
- *         Environment: "Prod",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
- * ```
- */
 export class ResolverQueryLogConfig extends pulumi.CustomResource {
     /**
      * Get an existing ResolverQueryLogConfig resource's state with the given name, ID, and optional extra
@@ -58,40 +32,13 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverQueryLogConfig.__pulumiType;
     }
 
-    /**
-     * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ARN of the resource that you want Route 53 Resolver to send query logs.
-     * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-     */
     declare public readonly destinationArn: pulumi.Output<string>;
-    /**
-     * The name of the Route 53 Resolver query logging configuration.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The AWS account ID of the account that created the query logging configuration.
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-     * Sharing is configured through AWS Resource Access Manager (AWS RAM).
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-     */
     declare public /*out*/ readonly shareStatus: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -138,40 +85,13 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverQueryLogConfig resources.
  */
 export interface ResolverQueryLogConfigState {
-    /**
-     * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN of the resource that you want Route 53 Resolver to send query logs.
-     * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-     */
     destinationArn?: pulumi.Input<string>;
-    /**
-     * The name of the Route 53 Resolver query logging configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS account ID of the account that created the query logging configuration.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-     * Sharing is configured through AWS Resource Access Manager (AWS RAM).
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-     */
     shareStatus?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -179,21 +99,8 @@ export interface ResolverQueryLogConfigState {
  * The set of arguments for constructing a ResolverQueryLogConfig resource.
  */
 export interface ResolverQueryLogConfigArgs {
-    /**
-     * The ARN of the resource that you want Route 53 Resolver to send query logs.
-     * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-     */
     destinationArn: pulumi.Input<string>;
-    /**
-     * The name of the Route 53 Resolver query logging configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

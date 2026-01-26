@@ -13,58 +13,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDetectorResult {
-    /**
-     * @return ARN of the detector.
-     * 
-     */
     private String arn;
-    /**
-     * @return Current configuration of the detector features.
-     * 
-     */
     private List<GetDetectorFeature> features;
-    /**
-     * @return The frequency of notifications sent about subsequent finding occurrences.
-     * 
-     */
     private String findingPublishingFrequency;
     private String id;
     private String region;
-    /**
-     * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
-     * 
-     */
     private String serviceRoleArn;
-    /**
-     * @return Current status of the detector.
-     * 
-     */
     private String status;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetDetectorResult() {}
-    /**
-     * @return ARN of the detector.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Current configuration of the detector features.
-     * 
-     */
     public List<GetDetectorFeature> features() {
         return this.features;
     }
-    /**
-     * @return The frequency of notifications sent about subsequent finding occurrences.
-     * 
-     */
     public String findingPublishingFrequency() {
         return this.findingPublishingFrequency;
     }
@@ -74,24 +38,12 @@ public final class GetDetectorResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
-     * 
-     */
     public String serviceRoleArn() {
         return this.serviceRoleArn;
     }
-    /**
-     * @return Current status of the detector.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

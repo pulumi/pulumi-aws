@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableImportTableInputFormatOptionsCsv {
-    /**
-     * @return The delimiter used for separating items in the CSV file being imported.
-     * 
-     */
     private @Nullable String delimiter;
-    /**
-     * @return List of the headers used to specify a common header for all source CSV files being imported.
-     * 
-     */
     private @Nullable List<String> headerLists;
 
     private TableImportTableInputFormatOptionsCsv() {}
-    /**
-     * @return The delimiter used for separating items in the CSV file being imported.
-     * 
-     */
     public Optional<String> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
-    /**
-     * @return List of the headers used to specify a common header for all source CSV files being imported.
-     * 
-     */
     public List<String> headerLists() {
         return this.headerLists == null ? List.of() : this.headerLists;
     }

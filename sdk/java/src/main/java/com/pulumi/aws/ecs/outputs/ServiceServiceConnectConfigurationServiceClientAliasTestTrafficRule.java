@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule {
-    /**
-     * @return Configuration block for header-based routing rules. See below.
-     * 
-     */
     private @Nullable ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader header;
 
     private ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule() {}
-    /**
-     * @return Configuration block for header-based routing rules. See below.
-     * 
-     */
     public Optional<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader> header() {
         return Optional.ofNullable(this.header);
     }

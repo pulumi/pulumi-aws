@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ContactChannelDeliveryAddress {
-    /**
-     * @return Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
-     * 
-     */
     private String simpleAddress;
 
     private ContactChannelDeliveryAddress() {}
-    /**
-     * @return Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
-     * 
-     */
     public String simpleAddress() {
         return this.simpleAddress;
     }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification
     {
-        /// <summary>
-        /// Configuration block for the settings on audio input. See `AudioSpecification`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? AudioSpecification;
-        /// <summary>
-        /// Configuration block for the settings on DTMF input. See `DtmfSpecification`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? DtmfSpecification;
-        /// <summary>
-        /// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-        /// </summary>
         public readonly int StartTimeoutMs;
 
         [OutputConstructor]

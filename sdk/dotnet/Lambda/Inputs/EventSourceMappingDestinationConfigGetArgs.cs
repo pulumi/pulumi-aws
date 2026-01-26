@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class EventSourceMappingDestinationConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Destination configuration for failed invocations. See below.
-        /// </summary>
         [Input("onFailure")]
         public Input<Inputs.EventSourceMappingDestinationConfigOnFailureGetArgs>? OnFailure { get; set; }
 

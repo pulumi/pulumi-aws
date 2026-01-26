@@ -17,137 +17,65 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
 
     public static final LifecyclePolicyState Empty = new LifecyclePolicyState();
 
-    /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-     * 
-     */
     @Import(name="defaultPolicy")
     private @Nullable Output<String> defaultPolicy;
 
-    /**
-     * @return Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-     * 
-     */
     public Optional<Output<String>> defaultPolicy() {
         return Optional.ofNullable(this.defaultPolicy);
     }
 
-    /**
-     * A description for the DLM lifecycle policy.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for the DLM lifecycle policy.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The ARN of an IAM role that is able to be assumed by the DLM service.
-     * 
-     */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
-    /**
-     * @return The ARN of an IAM role that is able to be assumed by the DLM service.
-     * 
-     */
     public Optional<Output<String>> executionRoleArn() {
         return Optional.ofNullable(this.executionRoleArn);
     }
 
-    /**
-     * See the `policyDetails` configuration block. Max of 1.
-     * 
-     */
     @Import(name="policyDetails")
     private @Nullable Output<LifecyclePolicyPolicyDetailsArgs> policyDetails;
 
-    /**
-     * @return See the `policyDetails` configuration block. Max of 1.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailsArgs>> policyDetails() {
         return Optional.ofNullable(this.policyDetails);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -184,191 +112,83 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
             $ = new LifecyclePolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param defaultPolicy Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultPolicy(@Nullable Output<String> defaultPolicy) {
             $.defaultPolicy = defaultPolicy;
             return this;
         }
 
-        /**
-         * @param defaultPolicy Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultPolicy(String defaultPolicy) {
             return defaultPolicy(Output.of(defaultPolicy));
         }
 
-        /**
-         * @param description A description for the DLM lifecycle policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for the DLM lifecycle policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param executionRoleArn The ARN of an IAM role that is able to be assumed by the DLM service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(@Nullable Output<String> executionRoleArn) {
             $.executionRoleArn = executionRoleArn;
             return this;
         }
 
-        /**
-         * @param executionRoleArn The ARN of an IAM role that is able to be assumed by the DLM service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(String executionRoleArn) {
             return executionRoleArn(Output.of(executionRoleArn));
         }
 
-        /**
-         * @param policyDetails See the `policyDetails` configuration block. Max of 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDetails(@Nullable Output<LifecyclePolicyPolicyDetailsArgs> policyDetails) {
             $.policyDetails = policyDetails;
             return this;
         }
 
-        /**
-         * @param policyDetails See the `policyDetails` configuration block. Max of 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDetails(LifecyclePolicyPolicyDetailsArgs policyDetails) {
             return policyDetails(Output.of(policyDetails));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param state Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

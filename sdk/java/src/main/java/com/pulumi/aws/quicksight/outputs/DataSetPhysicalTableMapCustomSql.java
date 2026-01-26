@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetPhysicalTableMapCustomSql {
-    /**
-     * @return Column schema from the SQL query result set. See columns.
-     * 
-     */
     private @Nullable List<DataSetPhysicalTableMapCustomSqlColumn> columns;
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     private String dataSourceArn;
-    /**
-     * @return Display name for the SQL query result.
-     * 
-     */
     private String name;
-    /**
-     * @return SQL query.
-     * 
-     */
     private String sqlQuery;
 
     private DataSetPhysicalTableMapCustomSql() {}
-    /**
-     * @return Column schema from the SQL query result set. See columns.
-     * 
-     */
     public List<DataSetPhysicalTableMapCustomSqlColumn> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     public String dataSourceArn() {
         return this.dataSourceArn;
     }
-    /**
-     * @return Display name for the SQL query result.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return SQL query.
-     * 
-     */
     public String sqlQuery() {
         return this.sqlQuery;
     }

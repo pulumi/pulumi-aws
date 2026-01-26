@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInput {
-    /**
-     * @return The Amazon S3 location being used to capture the data.
-     * 
-     */
     private String dataCapturedDestinationS3Uri;
-    /**
-     * @return The dataset format for your batch transform job. Fields are documented below.
-     * 
-     */
     private DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat datasetFormat;
-    /**
-     * @return Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     private @Nullable String localPath;
-    /**
-     * @return Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     private @Nullable String s3DataDistributionType;
-    /**
-     * @return Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     private @Nullable String s3InputMode;
 
     private DataQualityJobDefinitionDataQualityJobInputBatchTransformInput() {}
-    /**
-     * @return The Amazon S3 location being used to capture the data.
-     * 
-     */
     public String dataCapturedDestinationS3Uri() {
         return this.dataCapturedDestinationS3Uri;
     }
-    /**
-     * @return The dataset format for your batch transform job. Fields are documented below.
-     * 
-     */
     public DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat datasetFormat() {
         return this.datasetFormat;
     }
-    /**
-     * @return Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     public Optional<String> localPath() {
         return Optional.ofNullable(this.localPath);
     }
-    /**
-     * @return Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     public Optional<String> s3DataDistributionType() {
         return Optional.ofNullable(this.s3DataDistributionType);
     }
-    /**
-     * @return Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     public Optional<String> s3InputMode() {
         return Optional.ofNullable(this.s3InputMode);
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration
     {
-        /// <summary>
-        /// Kinesis Data Stream to deliver results.
-        /// </summary>
         public readonly string InsightsTarget;
 
         [OutputConstructor]

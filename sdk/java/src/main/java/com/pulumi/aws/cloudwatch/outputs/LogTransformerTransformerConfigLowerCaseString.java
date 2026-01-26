@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigLowerCaseString {
-    /**
-     * @return Specifies the keys of the fields to convert to lowercase.
-     * 
-     */
     private List<String> withKeys;
 
     private LogTransformerTransformerConfigLowerCaseString() {}
-    /**
-     * @return Specifies the keys of the fields to convert to lowercase.
-     * 
-     */
     public List<String> withKeys() {
         return this.withKeys;
     }

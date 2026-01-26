@@ -17,92 +17,44 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetVpcIpamPoolPlainArgs Empty = new GetVpcIpamPoolPlainArgs();
 
-    /**
-     * Tags that are required to create resources in using this pool.
-     * 
-     */
     @Import(name="allocationResourceTags")
     private @Nullable Map<String,String> allocationResourceTags;
 
-    /**
-     * @return Tags that are required to create resources in using this pool.
-     * 
-     */
     public Optional<Map<String,String>> allocationResourceTags() {
         return Optional.ofNullable(this.allocationResourceTags);
     }
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetVpcIpamPoolFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<List<GetVpcIpamPoolFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the IPAM pool.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the IPAM pool.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * ID of the IPAM pool you would like information on.
-     * 
-     */
     @Import(name="ipamPoolId")
     private @Nullable String ipamPoolId;
 
-    /**
-     * @return ID of the IPAM pool you would like information on.
-     * 
-     */
     public Optional<String> ipamPoolId() {
         return Optional.ofNullable(this.ipamPoolId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assigned to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags to assigned to the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -136,77 +88,35 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetVpcIpamPoolPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationResourceTags Tags that are required to create resources in using this pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationResourceTags(@Nullable Map<String,String> allocationResourceTags) {
             $.allocationResourceTags = allocationResourceTags;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetVpcIpamPoolFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcIpamPoolFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id ID of the IPAM pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param ipamPoolId ID of the IPAM pool you would like information on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(@Nullable String ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

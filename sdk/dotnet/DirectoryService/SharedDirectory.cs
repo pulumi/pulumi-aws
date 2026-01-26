@@ -9,91 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectoryService
 {
-    /// <summary>
-    /// Manages a directory in your account (directory owner) shared with another account (directory consumer).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectoryService.Directory("example", new()
-    ///     {
-    ///         Name = "tf-example",
-    ///         Password = "SuperSecretPassw0rd",
-    ///         Type = "MicrosoftAD",
-    ///         Edition = "Standard",
-    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
-    ///         {
-    ///             VpcId = exampleAwsVpc.Id,
-    ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("example", new()
-    ///     {
-    ///         DirectoryId = example.Id,
-    ///         Notes = "You wanna have a catch?",
-    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
-    ///         {
-    ///             Id = receiver.AccountId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]
     public partial class SharedDirectory : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        /// </summary>
         [Output("method")]
         public Output<string?> Method { get; private set; } = null!;
 
-        /// <summary>
-        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        /// </summary>
         [Output("notes")]
         public Output<string?> Notes { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        /// </summary>
         [Output("sharedDirectoryId")]
         public Output<string> SharedDirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("target")]
         public Output<Outputs.SharedDirectoryTarget> Target { get; private set; } = null!;
 
@@ -147,24 +80,14 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class SharedDirectoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
-        /// <summary>
-        /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
         [Input("notes")]
         private Input<string>? _notes;
-
-        /// <summary>
-        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        /// </summary>
         public Input<string>? Notes
         {
             get => _notes;
@@ -175,17 +98,9 @@ namespace Pulumi.Aws.DirectoryService
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.SharedDirectoryTargetArgs> Target { get; set; } = null!;
 
@@ -197,24 +112,14 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class SharedDirectoryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
         [Input("notes")]
         private Input<string>? _notes;
-
-        /// <summary>
-        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        /// </summary>
         public Input<string>? Notes
         {
             get => _notes;
@@ -225,23 +130,12 @@ namespace Pulumi.Aws.DirectoryService
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        /// </summary>
         [Input("sharedDirectoryId")]
         public Input<string>? SharedDirectoryId { get; set; }
 
-        /// <summary>
-        /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("target")]
         public Input<Inputs.SharedDirectoryTargetGetArgs>? Target { get; set; }
 

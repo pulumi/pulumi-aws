@@ -13,33 +13,12 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class GetReplicationGroupNodeGroupConfigurationResult
     {
-        /// <summary>
-        /// ID of the node group.
-        /// </summary>
         public readonly string NodeGroupId;
-        /// <summary>
-        /// Availability Zone for the primary node.
-        /// </summary>
         public readonly string PrimaryAvailabilityZone;
-        /// <summary>
-        /// Outpost ARN of the primary node.
-        /// </summary>
         public readonly string PrimaryOutpostArn;
-        /// <summary>
-        /// List of Availability Zones for the replica nodes.
-        /// </summary>
         public readonly ImmutableArray<string> ReplicaAvailabilityZones;
-        /// <summary>
-        /// Number of replica nodes in this node group.
-        /// </summary>
         public readonly int ReplicaCount;
-        /// <summary>
-        /// List of outpost ARNs for the replica nodes.
-        /// </summary>
         public readonly ImmutableArray<string> ReplicaOutpostArns;
-        /// <summary>
-        /// Keyspace for this node group (shard).
-        /// </summary>
         public readonly string Slots;
 
         [OutputConstructor]

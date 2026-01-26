@@ -20,21 +20,9 @@ public final class GetPipelineDefinitionResult {
      * 
      */
     private String id;
-    /**
-     * @return Parameter objects used in the pipeline definition. See below
-     * 
-     */
     private List<GetPipelineDefinitionParameterObject> parameterObjects;
-    /**
-     * @return Parameter values used in the pipeline definition. See below
-     * 
-     */
     private @Nullable List<GetPipelineDefinitionParameterValue> parameterValues;
     private String pipelineId;
-    /**
-     * @return Objects defined in the pipeline. See below
-     * 
-     */
     private List<GetPipelineDefinitionPipelineObject> pipelineObjects;
     private String region;
 
@@ -46,27 +34,15 @@ public final class GetPipelineDefinitionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Parameter objects used in the pipeline definition. See below
-     * 
-     */
     public List<GetPipelineDefinitionParameterObject> parameterObjects() {
         return this.parameterObjects;
     }
-    /**
-     * @return Parameter values used in the pipeline definition. See below
-     * 
-     */
     public List<GetPipelineDefinitionParameterValue> parameterValues() {
         return this.parameterValues == null ? List.of() : this.parameterValues;
     }
     public String pipelineId() {
         return this.pipelineId;
     }
-    /**
-     * @return Objects defined in the pipeline. See below
-     * 
-     */
     public List<GetPipelineDefinitionPipelineObject> pipelineObjects() {
         return this.pipelineObjects;
     }

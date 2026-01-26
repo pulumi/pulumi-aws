@@ -17,32 +17,16 @@ public final class AccessPolicyAssociationAccessScopeArgs extends com.pulumi.res
 
     public static final AccessPolicyAssociationAccessScopeArgs Empty = new AccessPolicyAssociationAccessScopeArgs();
 
-    /**
-     * The namespaces to which the access scope applies when type is namespace.
-     * 
-     */
     @Import(name="namespaces")
     private @Nullable Output<List<String>> namespaces;
 
-    /**
-     * @return The namespaces to which the access scope applies when type is namespace.
-     * 
-     */
     public Optional<Output<List<String>>> namespaces() {
         return Optional.ofNullable(this.namespaces);
     }
 
-    /**
-     * Valid values are `namespace` or `cluster`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Valid values are `namespace` or `cluster`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,54 +56,24 @@ public final class AccessPolicyAssociationAccessScopeArgs extends com.pulumi.res
             $ = new AccessPolicyAssociationAccessScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namespaces The namespaces to which the access scope applies when type is namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaces(@Nullable Output<List<String>> namespaces) {
             $.namespaces = namespaces;
             return this;
         }
 
-        /**
-         * @param namespaces The namespaces to which the access scope applies when type is namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaces(List<String> namespaces) {
             return namespaces(Output.of(namespaces));
         }
 
-        /**
-         * @param namespaces The namespaces to which the access scope applies when type is namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaces(String... namespaces) {
             return namespaces(List.of(namespaces));
         }
 
-        /**
-         * @param type Valid values are `namespace` or `cluster`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Valid values are `namespace` or `cluster`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

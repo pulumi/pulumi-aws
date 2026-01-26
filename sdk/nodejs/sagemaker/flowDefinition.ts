@@ -7,112 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Flow Definition resource.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.FlowDefinition("example", {
- *     flowDefinitionName: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     humanLoopConfig: {
- *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
- *         taskAvailabilityLifetimeInSeconds: 1,
- *         taskCount: 1,
- *         taskDescription: "example",
- *         taskTitle: "example",
- *         workteamArn: exampleAwsSagemakerWorkteam.arn,
- *     },
- *     outputConfig: {
- *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
- *     },
- * });
- * ```
- *
- * ### Public Workteam Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.FlowDefinition("example", {
- *     flowDefinitionName: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     humanLoopConfig: {
- *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
- *         taskAvailabilityLifetimeInSeconds: 1,
- *         taskCount: 1,
- *         taskDescription: "example",
- *         taskTitle: "example",
- *         workteamArn: `arn:aws:sagemaker:${current.region}:394669845002:workteam/public-crowd/default`,
- *         publicWorkforceTaskPrice: {
- *             amountInUsd: {
- *                 cents: 1,
- *                 tenthFractionsOfACent: 2,
- *             },
- *         },
- *     },
- *     outputConfig: {
- *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
- *     },
- * });
- * ```
- *
- * ### Human Loop Activation Config Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.FlowDefinition("example", {
- *     flowDefinitionName: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     humanLoopConfig: {
- *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
- *         taskAvailabilityLifetimeInSeconds: 1,
- *         taskCount: 1,
- *         taskDescription: "example",
- *         taskTitle: "example",
- *         workteamArn: exampleAwsSagemakerWorkteam.arn,
- *     },
- *     humanLoopRequestSource: {
- *         awsManagedHumanLoopRequestSource: "AWS/Textract/AnalyzeDocument/Forms/V1",
- *     },
- *     humanLoopActivationConfig: {
- *         humanLoopActivationConditionsConfig: {
- *             humanLoopActivationConditions: `        {
- * \\t\\t\\t\\"Conditions\\": [
- * \\t\\t\\t  {
- * \\t\\t\\t\\t\\"ConditionType\\": \\"Sampling\\",
- * \\t\\t\\t\\t\\"ConditionParameters\\": {
- * \\t\\t\\t\\t  \\"RandomSamplingPercentage\\": 5
- * \\t\\t\\t\\t}
- * \\t\\t\\t  }
- * \\t\\t\\t]
- * \\t\\t}
- * `,
- *         },
- *     },
- *     outputConfig: {
- *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI Flow Definitions using the `flow_definition_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
- * ```
- */
 export class FlowDefinition extends pulumi.CustomResource {
     /**
      * Get an existing FlowDefinition resource's state with the given name, ID, and optional extra
@@ -141,45 +35,15 @@ export class FlowDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === FlowDefinition.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of your flow definition.
-     */
     declare public readonly flowDefinitionName: pulumi.Output<string>;
-    /**
-     * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-     */
     declare public readonly humanLoopActivationConfig: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopActivationConfig | undefined>;
-    /**
-     * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-     */
     declare public readonly humanLoopConfig: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopConfig>;
-    /**
-     * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-     */
     declare public readonly humanLoopRequestSource: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopRequestSource | undefined>;
-    /**
-     * An object containing information about where the human review results will be uploaded. See Output Config details below.
-     */
     declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.FlowDefinitionOutputConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -239,45 +103,15 @@ export class FlowDefinition extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FlowDefinition resources.
  */
 export interface FlowDefinitionState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of your flow definition.
-     */
     flowDefinitionName?: pulumi.Input<string>;
-    /**
-     * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-     */
     humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig>;
-    /**
-     * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-     */
     humanLoopConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfig>;
-    /**
-     * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-     */
     humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource>;
-    /**
-     * An object containing information about where the human review results will be uploaded. See Output Config details below.
-     */
     outputConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -285,36 +119,12 @@ export interface FlowDefinitionState {
  * The set of arguments for constructing a FlowDefinition resource.
  */
 export interface FlowDefinitionArgs {
-    /**
-     * The name of your flow definition.
-     */
     flowDefinitionName: pulumi.Input<string>;
-    /**
-     * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-     */
     humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig>;
-    /**
-     * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-     */
     humanLoopConfig: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfig>;
-    /**
-     * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-     */
     humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource>;
-    /**
-     * An object containing information about where the human review results will be uploaded. See Output Config details below.
-     */
     outputConfig: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

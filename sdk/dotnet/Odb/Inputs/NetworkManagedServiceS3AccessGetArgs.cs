@@ -23,15 +23,9 @@ namespace Pulumi.Aws.Odb.Inputs
             set => _ipv4Addresses = value;
         }
 
-        /// <summary>
-        /// Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        /// </summary>
         [Input("s3PolicyDocument", required: true)]
         public Input<string> S3PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// The status of the network resource.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

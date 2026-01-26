@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkforceWorkforceVpcConfig
     {
-        /// <summary>
-        /// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The ID of the subnets in the VPC that you want to connect.
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
-        /// <summary>
-        /// The IDs for the VPC service endpoints of your VPC workforce.
-        /// </summary>
         public readonly string? VpcEndpointId;
-        /// <summary>
-        /// The ID of the VPC that the workforce uses for communication.
-        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

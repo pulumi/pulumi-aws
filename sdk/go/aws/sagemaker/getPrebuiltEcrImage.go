@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information about prebuilt Amazon SageMaker AI  Docker images.
-//
-// > **NOTE:** The AWS provider creates a validly constructed `registryPath` but does not verify that the `registryPath` corresponds to an existing image. For example, using a `registryPath` containing an `imageTag` that does not correspond to a Docker image in the ECR repository, will result in an error.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
-//				RepositoryName: "sagemaker-scikit-learn",
-//				ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opts ...pulumi.InvokeOption) (*GetPrebuiltEcrImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrebuiltEcrImageResult
@@ -55,28 +23,22 @@ func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opt
 
 // A collection of arguments for invoking getPrebuiltEcrImage.
 type GetPrebuiltEcrImageArgs struct {
-	// DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-	ImageTag *string `pulumi:"imageTag"`
-	// Region to use in the registry path. Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the repository, which is generally the algorithm or library. Values include `autogluon-inference`, `autogluon-training`, `blazingtext`, `djl-inference`, `factorization-machines`, `forecasting-deepar`, `huggingface-pytorch-inference`, `huggingface-pytorch-inference-neuron`, `huggingface-pytorch-inference-neuronx`, `huggingface-pytorch-tgi-inference`, `huggingface-pytorch-training`, `huggingface-pytorch-training-neuronx`, `huggingface-pytorch-trcomp-training`, `huggingface-tensorflow-inference`, `huggingface-tensorflow-training`, `huggingface-tensorflow-trcomp-training`, `image-classification`, `image-classification-neo`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference`, `mxnet-inference-eia`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference`, `pytorch-inference-eia`, `pytorch-inference-graviton`, `pytorch-inference-neuronx`, `pytorch-training`, `pytorch-training-neuronx`, `pytorch-trcomp-training`, `randomcutforest`, `sagemaker-base-python`, `sagemaker-chainer`, `sagemaker-clarify-processing`, `sagemaker-data-wrangler-container`, `sagemaker-debugger-rules`, `sagemaker-geospatial-v1-0`, `sagemaker-inference-mxnet`, `sagemaker-inference-pytorch`, `sagemaker-inference-tensorflow`, `sagemaker-model-monitor-analyzer`, `sagemaker-mxnet`, `sagemaker-mxnet-eia`, `sagemaker-mxnet-serving`, `sagemaker-mxnet-serving-eia`, `sagemaker-neo-mxnet`, `sagemaker-neo-pytorch`, `sagemaker-neo-tensorflow`, `sagemaker-pytorch`, `sagemaker-rl-coach-container`, `sagemaker-rl-mxnet`, `sagemaker-rl-ray-container`, `sagemaker-rl-tensorflow`, `sagemaker-rl-vw-container`, `sagemaker-scikit-learn`, `sagemaker-spark-processing`, `sagemaker-sparkml-serving`, `sagemaker-tensorflow`, `sagemaker-tensorflow-eia`, `sagemaker-tensorflow-scriptmode`, `sagemaker-tensorflow-serving`, `sagemaker-tensorflow-serving-eia`, `sagemaker-tritonserver`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `stabilityai-pytorch-inference`, `tei`, `tei-cpu`, `tensorflow-inference`, `tensorflow-inference-eia`, `tensorflow-inference-graviton`, `tensorflow-training`, and `xgboost-neo`.
-	RepositoryName string `pulumi:"repositoryName"`
+	DnsSuffix      *string `pulumi:"dnsSuffix"`
+	ImageTag       *string `pulumi:"imageTag"`
+	Region         *string `pulumi:"region"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 // A collection of values returned by getPrebuiltEcrImage.
 type GetPrebuiltEcrImageResult struct {
 	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string  `pulumi:"id"`
-	ImageTag *string `pulumi:"imageTag"`
-	Region   string  `pulumi:"region"`
-	// Account ID containing the image. For example, `469771592824`.
-	RegistryId string `pulumi:"registryId"`
-	// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
-	RegistryPath   string `pulumi:"registryPath"`
-	RepositoryName string `pulumi:"repositoryName"`
+	Id             string  `pulumi:"id"`
+	ImageTag       *string `pulumi:"imageTag"`
+	Region         string  `pulumi:"region"`
+	RegistryId     string  `pulumi:"registryId"`
+	RegistryPath   string  `pulumi:"registryPath"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 func GetPrebuiltEcrImageOutput(ctx *pulumi.Context, args GetPrebuiltEcrImageOutputArgs, opts ...pulumi.InvokeOption) GetPrebuiltEcrImageResultOutput {
@@ -90,14 +52,10 @@ func GetPrebuiltEcrImageOutput(ctx *pulumi.Context, args GetPrebuiltEcrImageOutp
 
 // A collection of arguments for invoking getPrebuiltEcrImage.
 type GetPrebuiltEcrImageOutputArgs struct {
-	// DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-	DnsSuffix pulumi.StringPtrInput `pulumi:"dnsSuffix"`
-	// Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
-	// Region to use in the registry path. Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Name of the repository, which is generally the algorithm or library. Values include `autogluon-inference`, `autogluon-training`, `blazingtext`, `djl-inference`, `factorization-machines`, `forecasting-deepar`, `huggingface-pytorch-inference`, `huggingface-pytorch-inference-neuron`, `huggingface-pytorch-inference-neuronx`, `huggingface-pytorch-tgi-inference`, `huggingface-pytorch-training`, `huggingface-pytorch-training-neuronx`, `huggingface-pytorch-trcomp-training`, `huggingface-tensorflow-inference`, `huggingface-tensorflow-training`, `huggingface-tensorflow-trcomp-training`, `image-classification`, `image-classification-neo`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference`, `mxnet-inference-eia`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference`, `pytorch-inference-eia`, `pytorch-inference-graviton`, `pytorch-inference-neuronx`, `pytorch-training`, `pytorch-training-neuronx`, `pytorch-trcomp-training`, `randomcutforest`, `sagemaker-base-python`, `sagemaker-chainer`, `sagemaker-clarify-processing`, `sagemaker-data-wrangler-container`, `sagemaker-debugger-rules`, `sagemaker-geospatial-v1-0`, `sagemaker-inference-mxnet`, `sagemaker-inference-pytorch`, `sagemaker-inference-tensorflow`, `sagemaker-model-monitor-analyzer`, `sagemaker-mxnet`, `sagemaker-mxnet-eia`, `sagemaker-mxnet-serving`, `sagemaker-mxnet-serving-eia`, `sagemaker-neo-mxnet`, `sagemaker-neo-pytorch`, `sagemaker-neo-tensorflow`, `sagemaker-pytorch`, `sagemaker-rl-coach-container`, `sagemaker-rl-mxnet`, `sagemaker-rl-ray-container`, `sagemaker-rl-tensorflow`, `sagemaker-rl-vw-container`, `sagemaker-scikit-learn`, `sagemaker-spark-processing`, `sagemaker-sparkml-serving`, `sagemaker-tensorflow`, `sagemaker-tensorflow-eia`, `sagemaker-tensorflow-scriptmode`, `sagemaker-tensorflow-serving`, `sagemaker-tensorflow-serving-eia`, `sagemaker-tritonserver`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `stabilityai-pytorch-inference`, `tei`, `tei-cpu`, `tensorflow-inference`, `tensorflow-inference-eia`, `tensorflow-inference-graviton`, `tensorflow-training`, and `xgboost-neo`.
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	DnsSuffix      pulumi.StringPtrInput `pulumi:"dnsSuffix"`
+	ImageTag       pulumi.StringPtrInput `pulumi:"imageTag"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	RepositoryName pulumi.StringInput    `pulumi:"repositoryName"`
 }
 
 func (GetPrebuiltEcrImageOutputArgs) ElementType() reflect.Type {
@@ -136,12 +94,10 @@ func (o GetPrebuiltEcrImageResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Account ID containing the image. For example, `469771592824`.
 func (o GetPrebuiltEcrImageResultOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
 func (o GetPrebuiltEcrImageResultOutput) RegistryPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.RegistryPath }).(pulumi.StringOutput)
 }

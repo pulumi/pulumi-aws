@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
 
     public sealed class ProvisionedProductProvisioningParameterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Parameter key.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to ignore `Value` and keep the previous parameter value. Ignored when initially provisioning a product.
-        /// </summary>
         [Input("usePreviousValue")]
         public Input<bool>? UsePreviousValue { get; set; }
 
-        /// <summary>
-        /// Parameter value.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

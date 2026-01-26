@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration {
-    /**
-     * @return Maximum time for the provisional configuration, in minutes.
-     * 
-     */
     private Integer maxTimeToLiveInMinutes;
 
     private GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration() {}
-    /**
-     * @return Maximum time for the provisional configuration, in minutes.
-     * 
-     */
     public Integer maxTimeToLiveInMinutes() {
         return this.maxTimeToLiveInMinutes;
     }

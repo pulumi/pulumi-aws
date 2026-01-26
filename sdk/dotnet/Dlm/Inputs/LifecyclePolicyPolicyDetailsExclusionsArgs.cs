@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsExclusionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `True`.
-        /// </summary>
         [Input("excludeBootVolumes")]
         public Input<bool>? ExcludeBootVolumes { get; set; }
 
         [Input("excludeTags")]
         private InputMap<string>? _excludeTags;
-
-        /// <summary>
-        /// Map specifies whether to exclude volumes that have specific tags.
-        /// </summary>
         public InputMap<string> ExcludeTags
         {
             get => _excludeTags ?? (_excludeTags = new InputMap<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.Dlm.Inputs
 
         [Input("excludeVolumeTypes")]
         private InputList<string>? _excludeVolumeTypes;
-
-        /// <summary>
-        /// List specifies the volume types to exclude.
-        /// </summary>
         public InputList<string> ExcludeVolumeTypes
         {
             get => _excludeVolumeTypes ?? (_excludeVolumeTypes = new InputList<string>());

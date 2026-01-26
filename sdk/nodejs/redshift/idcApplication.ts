@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift IDC application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.IdcApplication("example", {
- *     iamRoleArn: exampleAwsIamRole.arn,
- *     idcDisplayName: "example",
- *     idcInstanceArn: exampleAwsSsoadminInstances.arns[0],
- *     identityNamespace: "example",
- *     redshiftIdcApplicationName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift endpoint access using the `redshift_idc_application_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/idcApplication:IdcApplication example example
- * ```
- */
 export class IdcApplication extends pulumi.CustomResource {
     /**
      * Get an existing IdcApplication resource's state with the given name, ID, and optional extra
@@ -61,49 +35,16 @@ export class IdcApplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdcApplication.__pulumiType;
     }
 
-    /**
-     * Type of application being created. Valid values are `None` or `Lakehouse`.
-     */
     declare public readonly applicationType: pulumi.Output<string>;
-    /**
-     * Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-     */
     declare public readonly authorizedTokenIssuer: pulumi.Output<outputs.redshift.IdcApplicationAuthorizedTokenIssuer | undefined>;
-    /**
-     * IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-     */
     declare public readonly iamRoleArn: pulumi.Output<string>;
-    /**
-     * Display name for the Amazon Redshift IAM Identity Center application instance.
-     */
     declare public readonly idcDisplayName: pulumi.Output<string>;
-    /**
-     * ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-     */
     declare public readonly idcInstanceArn: pulumi.Output<string>;
-    /**
-     * ARN for the Amazon Redshift IAM Identity Center application.
-     */
     declare public /*out*/ readonly idcManagedApplicationArn: pulumi.Output<string>;
-    /**
-     * Namespace for the Amazon Redshift IAM Identity Center application instance.
-     */
     declare public readonly identityNamespace: pulumi.Output<string>;
-    /**
-     * ARN of the Redshift application in IAM Identity Center.
-     */
     declare public /*out*/ readonly redshiftIdcApplicationArn: pulumi.Output<string>;
-    /**
-     * Name of the Redshift application in IAM Identity Center.
-     */
     declare public readonly redshiftIdcApplicationName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-     */
     declare public readonly serviceIntegration: pulumi.Output<outputs.redshift.IdcApplicationServiceIntegration | undefined>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -171,49 +112,16 @@ export class IdcApplication extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdcApplication resources.
  */
 export interface IdcApplicationState {
-    /**
-     * Type of application being created. Valid values are `None` or `Lakehouse`.
-     */
     applicationType?: pulumi.Input<string>;
-    /**
-     * Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-     */
     authorizedTokenIssuer?: pulumi.Input<inputs.redshift.IdcApplicationAuthorizedTokenIssuer>;
-    /**
-     * IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-     */
     iamRoleArn?: pulumi.Input<string>;
-    /**
-     * Display name for the Amazon Redshift IAM Identity Center application instance.
-     */
     idcDisplayName?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-     */
     idcInstanceArn?: pulumi.Input<string>;
-    /**
-     * ARN for the Amazon Redshift IAM Identity Center application.
-     */
     idcManagedApplicationArn?: pulumi.Input<string>;
-    /**
-     * Namespace for the Amazon Redshift IAM Identity Center application instance.
-     */
     identityNamespace?: pulumi.Input<string>;
-    /**
-     * ARN of the Redshift application in IAM Identity Center.
-     */
     redshiftIdcApplicationArn?: pulumi.Input<string>;
-    /**
-     * Name of the Redshift application in IAM Identity Center.
-     */
     redshiftIdcApplicationName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-     */
     serviceIntegration?: pulumi.Input<inputs.redshift.IdcApplicationServiceIntegration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -223,41 +131,14 @@ export interface IdcApplicationState {
  * The set of arguments for constructing a IdcApplication resource.
  */
 export interface IdcApplicationArgs {
-    /**
-     * Type of application being created. Valid values are `None` or `Lakehouse`.
-     */
     applicationType?: pulumi.Input<string>;
-    /**
-     * Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-     */
     authorizedTokenIssuer?: pulumi.Input<inputs.redshift.IdcApplicationAuthorizedTokenIssuer>;
-    /**
-     * IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-     */
     iamRoleArn: pulumi.Input<string>;
-    /**
-     * Display name for the Amazon Redshift IAM Identity Center application instance.
-     */
     idcDisplayName: pulumi.Input<string>;
-    /**
-     * ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-     */
     idcInstanceArn: pulumi.Input<string>;
-    /**
-     * Namespace for the Amazon Redshift IAM Identity Center application instance.
-     */
     identityNamespace?: pulumi.Input<string>;
-    /**
-     * Name of the Redshift application in IAM Identity Center.
-     */
     redshiftIdcApplicationName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-     */
     serviceIntegration?: pulumi.Input<inputs.redshift.IdcApplicationServiceIntegration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

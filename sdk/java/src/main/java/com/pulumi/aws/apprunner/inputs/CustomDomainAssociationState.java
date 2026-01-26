@@ -18,107 +18,51 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
 
     public static final CustomDomainAssociationState Empty = new CustomDomainAssociationState();
 
-    /**
-     * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-     * 
-     */
     @Import(name="certificateValidationRecords")
     private @Nullable Output<List<CustomDomainAssociationCertificateValidationRecordArgs>> certificateValidationRecords;
 
-    /**
-     * @return A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-     * 
-     */
     public Optional<Output<List<CustomDomainAssociationCertificateValidationRecordArgs>>> certificateValidationRecords() {
         return Optional.ofNullable(this.certificateValidationRecords);
     }
 
-    /**
-     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-     * 
-     */
     @Import(name="dnsTarget")
     private @Nullable Output<String> dnsTarget;
 
-    /**
-     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-     * 
-     */
     public Optional<Output<String>> dnsTarget() {
         return Optional.ofNullable(this.dnsTarget);
     }
 
-    /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-     * 
-     */
     @Import(name="enableWwwSubdomain")
     private @Nullable Output<Boolean> enableWwwSubdomain;
 
-    /**
-     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enableWwwSubdomain() {
         return Optional.ofNullable(this.enableWwwSubdomain);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the App Runner service.
-     * 
-     */
     @Import(name="serviceArn")
     private @Nullable Output<String> serviceArn;
 
-    /**
-     * @return ARN of the App Runner service.
-     * 
-     */
     public Optional<Output<String>> serviceArn() {
         return Optional.ofNullable(this.serviceArn);
     }
 
-    /**
-     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -153,159 +97,69 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
             $ = new CustomDomainAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateValidationRecords A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateValidationRecords(@Nullable Output<List<CustomDomainAssociationCertificateValidationRecordArgs>> certificateValidationRecords) {
             $.certificateValidationRecords = certificateValidationRecords;
             return this;
         }
 
-        /**
-         * @param certificateValidationRecords A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateValidationRecords(List<CustomDomainAssociationCertificateValidationRecordArgs> certificateValidationRecords) {
             return certificateValidationRecords(Output.of(certificateValidationRecords));
         }
 
-        /**
-         * @param certificateValidationRecords A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateValidationRecords(CustomDomainAssociationCertificateValidationRecordArgs... certificateValidationRecords) {
             return certificateValidationRecords(List.of(certificateValidationRecords));
         }
 
-        /**
-         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsTarget(@Nullable Output<String> dnsTarget) {
             $.dnsTarget = dnsTarget;
             return this;
         }
 
-        /**
-         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsTarget(String dnsTarget) {
             return dnsTarget(Output.of(dnsTarget));
         }
 
-        /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableWwwSubdomain(@Nullable Output<Boolean> enableWwwSubdomain) {
             $.enableWwwSubdomain = enableWwwSubdomain;
             return this;
         }
 
-        /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableWwwSubdomain(Boolean enableWwwSubdomain) {
             return enableWwwSubdomain(Output.of(enableWwwSubdomain));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceArn ARN of the App Runner service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceArn(@Nullable Output<String> serviceArn) {
             $.serviceArn = serviceArn;
             return this;
         }
 
-        /**
-         * @param serviceArn ARN of the App Runner service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceArn(String serviceArn) {
             return serviceArn(Output.of(serviceArn));
         }
 
-        /**
-         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -27,14 +27,6 @@ class TrackerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Tracker resource.
-        :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: The optional description for the tracker resource.
-        :param pulumi.Input[_builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[_builtins.str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "tracker_name", tracker_name)
         if description is not None:
@@ -51,11 +43,6 @@ class TrackerArgs:
     @_builtins.property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the tracker resource.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -65,9 +52,6 @@ class TrackerArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The optional description for the tracker resource.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,9 +61,6 @@ class TrackerArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -89,9 +70,6 @@ class TrackerArgs:
     @_builtins.property
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-        """
         return pulumi.get(self, "position_filtering")
 
     @position_filtering.setter
@@ -101,9 +79,6 @@ class TrackerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,9 +88,6 @@ class TrackerArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -138,18 +110,6 @@ class _TrackerState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tracker resources.
-        :param pulumi.Input[_builtins.str] create_time: The timestamp for when the tracker resource was created in ISO 8601 format.
-        :param pulumi.Input[_builtins.str] description: The optional description for the tracker resource.
-        :param pulumi.Input[_builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[_builtins.str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tracker_arn: The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-        :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] update_time: The timestamp for when the tracker resource was last updated in ISO 8601 format.
         """
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
@@ -175,9 +135,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timestamp for when the tracker resource was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -187,9 +144,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The optional description for the tracker resource.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -199,9 +153,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -211,9 +162,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-        """
         return pulumi.get(self, "position_filtering")
 
     @position_filtering.setter
@@ -223,9 +171,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -235,9 +180,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -247,9 +189,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -259,9 +198,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-        """
         return pulumi.get(self, "tracker_arn")
 
     @tracker_arn.setter
@@ -271,11 +207,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the tracker resource.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -285,9 +216,6 @@ class _TrackerState:
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timestamp for when the tracker resource was last updated in ISO 8601 format.
-        """
         return pulumi.get(self, "update_time")
 
     @update_time.setter
@@ -309,35 +237,9 @@ class Tracker(pulumi.CustomResource):
                  tracker_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Location Service Tracker.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.location.Tracker("example", tracker_name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
-
-        ```sh
-        $ pulumi import aws:location/tracker:Tracker example example
-        ```
-
+        Create a Tracker resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The optional description for the tracker resource.
-        :param pulumi.Input[_builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[_builtins.str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -346,25 +248,7 @@ class Tracker(pulumi.CustomResource):
                  args: TrackerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Location Service Tracker.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.location.Tracker("example", tracker_name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
-
-        ```sh
-        $ pulumi import aws:location/tracker:Tracker example example
-        ```
-
+        Create a Tracker resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrackerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -434,18 +318,6 @@ class Tracker(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] create_time: The timestamp for when the tracker resource was created in ISO 8601 format.
-        :param pulumi.Input[_builtins.str] description: The optional description for the tracker resource.
-        :param pulumi.Input[_builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[_builtins.str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tracker_arn: The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-        :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] update_time: The timestamp for when the tracker resource was last updated in ISO 8601 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -466,82 +338,50 @@ class Tracker(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The timestamp for when the tracker resource was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The optional description for the tracker resource.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-        """
         return pulumi.get(self, "position_filtering")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-        """
         return pulumi.get(self, "tracker_arn")
 
     @_builtins.property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the tracker resource.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tracker_name")
 
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The timestamp for when the tracker resource was last updated in ISO 8601 format.
-        """
         return pulumi.get(self, "update_time")
 

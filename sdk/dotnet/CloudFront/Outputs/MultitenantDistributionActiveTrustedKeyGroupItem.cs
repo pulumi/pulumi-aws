@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionActiveTrustedKeyGroupItem
     {
-        /// <summary>
-        /// ID of the key group that contains the public keys.
-        /// </summary>
         public readonly string? KeyGroupId;
-        /// <summary>
-        /// Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
-        /// </summary>
         public readonly ImmutableArray<string> KeyPairIds;
 
         [OutputConstructor]

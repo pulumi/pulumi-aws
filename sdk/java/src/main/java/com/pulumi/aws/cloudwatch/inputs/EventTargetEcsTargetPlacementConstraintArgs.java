@@ -16,32 +16,16 @@ public final class EventTargetEcsTargetPlacementConstraintArgs extends com.pulum
 
     public static final EventTargetEcsTargetPlacementConstraintArgs Empty = new EventTargetEcsTargetPlacementConstraintArgs();
 
-    /**
-     * Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
-    /**
-     * Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,44 +55,20 @@ public final class EventTargetEcsTargetPlacementConstraintArgs extends com.pulum
             $ = new EventTargetEcsTargetPlacementConstraintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expression Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param type Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

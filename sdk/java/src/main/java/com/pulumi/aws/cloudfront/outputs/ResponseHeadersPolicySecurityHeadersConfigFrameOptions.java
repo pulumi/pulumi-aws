@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ResponseHeadersPolicySecurityHeadersConfigFrameOptions {
-    /**
-     * @return The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-     * 
-     */
     private String frameOption;
-    /**
-     * @return Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     private Boolean override;
 
     private ResponseHeadersPolicySecurityHeadersConfigFrameOptions() {}
-    /**
-     * @return The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-     * 
-     */
     public String frameOption() {
         return this.frameOption;
     }
-    /**
-     * @return Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Boolean override() {
         return this.override;
     }

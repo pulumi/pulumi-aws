@@ -13,18 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class BotClarificationPromptMessage
     {
-        /// <summary>
-        /// The text of the message.
-        /// </summary>
         public readonly string Content;
-        /// <summary>
-        /// The content type of the message string.
-        /// </summary>
         public readonly string ContentType;
-        /// <summary>
-        /// Identifies the message group that the message belongs to. When a group
-        /// is assigned to a message, Amazon Lex returns one message from each group in the response.
-        /// </summary>
         public readonly int? GroupNumber;
 
         [OutputConstructor]

@@ -11,96 +11,12 @@ namespace Pulumi.Aws.SesV2
 {
     public static class GetEmailIdentityMailFromAttributes
     {
-        /// <summary>
-        /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SesV2.GetEmailIdentity.Invoke(new()
-        ///     {
-        ///         EmailIdentity = "example.com",
-        ///     });
-        /// 
-        ///     var exampleGetEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
-        ///     {
-        ///         EmailIdentity = example.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEmailIdentityMailFromAttributesResult> InvokeAsync(GetEmailIdentityMailFromAttributesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailIdentityMailFromAttributesResult>("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args ?? new GetEmailIdentityMailFromAttributesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SesV2.GetEmailIdentity.Invoke(new()
-        ///     {
-        ///         EmailIdentity = "example.com",
-        ///     });
-        /// 
-        ///     var exampleGetEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
-        ///     {
-        ///         EmailIdentity = example.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEmailIdentityMailFromAttributesResult> Invoke(GetEmailIdentityMailFromAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityMailFromAttributesResult>("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args ?? new GetEmailIdentityMailFromAttributesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SesV2.GetEmailIdentity.Invoke(new()
-        ///     {
-        ///         EmailIdentity = "example.com",
-        ///     });
-        /// 
-        ///     var exampleGetEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
-        ///     {
-        ///         EmailIdentity = example.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEmailIdentityMailFromAttributesResult> Invoke(GetEmailIdentityMailFromAttributesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityMailFromAttributesResult>("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args ?? new GetEmailIdentityMailFromAttributesInvokeArgs(), options.WithDefaults());
     }
@@ -108,15 +24,9 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class GetEmailIdentityMailFromAttributesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the email identity.
-        /// </summary>
         [Input("emailIdentity", required: true)]
         public string EmailIdentity { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -128,15 +38,9 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class GetEmailIdentityMailFromAttributesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the email identity.
-        /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -150,18 +54,12 @@ namespace Pulumi.Aws.SesV2
     [OutputType]
     public sealed class GetEmailIdentityMailFromAttributesResult
     {
-        /// <summary>
-        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        /// </summary>
         public readonly string BehaviorOnMxFailure;
         public readonly string EmailIdentity;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use.
-        /// </summary>
         public readonly string MailFromDomain;
         public readonly string Region;
 

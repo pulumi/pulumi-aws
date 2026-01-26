@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThemeConfigurationSheet {
-    /**
-     * @return The display options for tiles. See tile.
-     * 
-     */
     private @Nullable ThemeConfigurationSheetTile tile;
-    /**
-     * @return The layout options for tiles. See tile_layout.
-     * 
-     */
     private @Nullable ThemeConfigurationSheetTileLayout tileLayout;
 
     private ThemeConfigurationSheet() {}
-    /**
-     * @return The display options for tiles. See tile.
-     * 
-     */
     public Optional<ThemeConfigurationSheetTile> tile() {
         return Optional.ofNullable(this.tile);
     }
-    /**
-     * @return The layout options for tiles. See tile_layout.
-     * 
-     */
     public Optional<ThemeConfigurationSheetTileLayout> tileLayout() {
         return Optional.ofNullable(this.tileLayout);
     }

@@ -4,54 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "testing@example.com"});
- * const exampleEmailIdentityPolicy = new aws.sesv2.EmailIdentityPolicy("example", {
- *     emailIdentity: example.emailIdentity,
- *     policyName: "example",
- *     policy: pulumi.interpolate`{
- *   \"Id\":\"ExampleAuthorizationPolicy\",
- *   \"Version\":\"2012-10-17\",
- *   \"Statement\":[
- *     {
- *       \"Sid\":\"AuthorizeIAMUser\",
- *       \"Effect\":\"Allow\",
- *       \"Resource\":\"${example.arn}\",
- *       \"Principal\":{
- *         \"AWS\":[
- *           \"arn:aws:iam::123456789012:user/John\",
- *           \"arn:aws:iam::123456789012:user/Jane\"
- *         ]
- *       },
- *       \"Action\":[
- *         \"ses:DeleteEmailIdentity\",
- *         \"ses:PutEmailIdentityDkimSigningAttributes\"
- *       ]
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `email_identity` and `policy_name` separated by `|`. For example:
- *
- * ```sh
- * $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
- * ```
- */
 export class EmailIdentityPolicy extends pulumi.CustomResource {
     /**
      * Get an existing EmailIdentityPolicy resource's state with the given name, ID, and optional extra
@@ -80,21 +32,9 @@ export class EmailIdentityPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailIdentityPolicy.__pulumiType;
     }
 
-    /**
-     * The email identity.
-     */
     declare public readonly emailIdentity: pulumi.Output<string>;
-    /**
-     * The text of the policy in JSON format.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * The name of the policy.
-     */
     declare public readonly policyName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -139,21 +79,9 @@ export class EmailIdentityPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EmailIdentityPolicy resources.
  */
 export interface EmailIdentityPolicyState {
-    /**
-     * The email identity.
-     */
     emailIdentity?: pulumi.Input<string>;
-    /**
-     * The text of the policy in JSON format.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * The name of the policy.
-     */
     policyName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -161,20 +89,8 @@ export interface EmailIdentityPolicyState {
  * The set of arguments for constructing a EmailIdentityPolicy resource.
  */
 export interface EmailIdentityPolicyArgs {
-    /**
-     * The email identity.
-     */
     emailIdentity: pulumi.Input<string>;
-    /**
-     * The text of the policy in JSON format.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * The name of the policy.
-     */
     policyName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

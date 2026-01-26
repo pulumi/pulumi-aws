@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetCloudExadataInfrastructures
     {
-        /// <summary>
-        /// Data source for exadata infrastructures in AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudExadataInfrastructures.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCloudExadataInfrastructuresResult> InvokeAsync(GetCloudExadataInfrastructuresArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudExadataInfrastructuresResult>("aws:odb/getCloudExadataInfrastructures:getCloudExadataInfrastructures", args ?? new GetCloudExadataInfrastructuresArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for exadata infrastructures in AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudExadataInfrastructures.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCloudExadataInfrastructuresResult> Invoke(GetCloudExadataInfrastructuresInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudExadataInfrastructuresResult>("aws:odb/getCloudExadataInfrastructures:getCloudExadataInfrastructures", args ?? new GetCloudExadataInfrastructuresInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for exadata infrastructures in AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudExadataInfrastructures.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCloudExadataInfrastructuresResult> Invoke(GetCloudExadataInfrastructuresInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudExadataInfrastructuresResult>("aws:odb/getCloudExadataInfrastructures:getCloudExadataInfrastructures", args ?? new GetCloudExadataInfrastructuresInvokeArgs(), options.WithDefaults());
     }
@@ -90,9 +24,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetCloudExadataInfrastructuresArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -104,9 +35,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetCloudExadataInfrastructuresInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -120,9 +48,6 @@ namespace Pulumi.Aws.Odb
     [OutputType]
     public sealed class GetCloudExadataInfrastructuresResult
     {
-        /// <summary>
-        /// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudExadataInfrastructuresCloudExadataInfrastructureResult> CloudExadataInfrastructures;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

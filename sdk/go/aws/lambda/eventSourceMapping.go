@@ -12,459 +12,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Lambda Event Source Mapping. Use this resource to connect Lambda functions to event sources like Kinesis, DynamoDB, SQS, Amazon MQ, and Managed Streaming for Apache Kafka (MSK).
-//
-// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html). For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
-//
-// ## Example Usage
-//
-// ### DynamoDB Stream
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn:   pulumi.Any(exampleAwsDynamodbTable.StreamArn),
-//				FunctionName:     pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				StartingPosition: pulumi.String("LATEST"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("dynamodb-stream-mapping"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Kinesis Stream
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn:                 pulumi.Any(exampleAwsKinesisStream.Arn),
-//				FunctionName:                   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				StartingPosition:               pulumi.String("LATEST"),
-//				BatchSize:                      pulumi.Int(100),
-//				MaximumBatchingWindowInSeconds: pulumi.Int(5),
-//				ParallelizationFactor:          pulumi.Int(2),
-//				DestinationConfig: &lambda.EventSourceMappingDestinationConfigArgs{
-//					OnFailure: &lambda.EventSourceMappingDestinationConfigOnFailureArgs{
-//						DestinationArn: pulumi.Any(dlq.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### SQS Queue
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsSqsQueue.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				BatchSize:      pulumi.Int(10),
-//				ScalingConfig: &lambda.EventSourceMappingScalingConfigArgs{
-//					MaximumConcurrency: pulumi.Int(100),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### SQS with Event Filtering
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"body": map[string]interface{}{
-//					"Temperature": []map[string]interface{}{
-//						map[string]interface{}{
-//							"numeric": []interface{}{
-//								">",
-//								0,
-//								"<=",
-//								100,
-//							},
-//						},
-//					},
-//					"Location": []string{
-//						"New York",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsSqsQueue.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				FilterCriteria: &lambda.EventSourceMappingFilterCriteriaArgs{
-//					Filters: lambda.EventSourceMappingFilterCriteriaFilterArray{
-//						&lambda.EventSourceMappingFilterCriteriaFilterArgs{
-//							Pattern: pulumi.String(json0),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Amazon MSK
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsMskCluster.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Topics: pulumi.StringArray{
-//					pulumi.String("orders"),
-//					pulumi.String("inventory"),
-//				},
-//				StartingPosition: pulumi.String("TRIM_HORIZON"),
-//				BatchSize:        pulumi.Int(100),
-//				AmazonManagedKafkaEventSourceConfig: &lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{
-//					ConsumerGroupId: pulumi.String("lambda-consumer-group"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Self-Managed Apache Kafka
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Topics: pulumi.StringArray{
-//					pulumi.String("orders"),
-//				},
-//				StartingPosition: pulumi.String("TRIM_HORIZON"),
-//				SelfManagedEventSource: &lambda.EventSourceMappingSelfManagedEventSourceArgs{
-//					Endpoints: pulumi.StringMap{
-//						"KAFKA_BOOTSTRAP_SERVERS": pulumi.String("kafka1.example.com:9092,kafka2.example.com:9092"),
-//					},
-//				},
-//				SelfManagedKafkaEventSourceConfig: &lambda.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{
-//					ConsumerGroupId: pulumi.String("lambda-consumer-group"),
-//				},
-//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VPC_SUBNET"),
-//						Uri:  pulumi.Sprintf("subnet:%v", example1.Id),
-//					},
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VPC_SUBNET"),
-//						Uri:  pulumi.Sprintf("subnet:%v", example2.Id),
-//					},
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VPC_SECURITY_GROUP"),
-//						Uri:  pulumi.Sprintf("security_group:%v", exampleAwsSecurityGroup.Id),
-//					},
-//				},
-//				ProvisionedPollerConfig: &lambda.EventSourceMappingProvisionedPollerConfigArgs{
-//					MaximumPollers:  pulumi.Int(100),
-//					MinimumPollers:  pulumi.Int(10),
-//					PollerGroupName: pulumi.String("group-123"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Amazon MQ (ActiveMQ)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Queues:         pulumi.String("orders"),
-//				BatchSize:      pulumi.Int(10),
-//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("BASIC_AUTH"),
-//						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Amazon MQ (RabbitMQ)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Queues:         pulumi.String("orders"),
-//				BatchSize:      pulumi.Int(1),
-//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VIRTUAL_HOST"),
-//						Uri:  pulumi.String("/production"),
-//					},
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("BASIC_AUTH"),
-//						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### DocumentDB Change Stream
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn:   pulumi.Any(exampleAwsDocdbCluster.Arn),
-//				FunctionName:     pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				StartingPosition: pulumi.String("LATEST"),
-//				DocumentDbEventSourceConfig: &lambda.EventSourceMappingDocumentDbEventSourceConfigArgs{
-//					DatabaseName:   pulumi.String("orders"),
-//					CollectionName: pulumi.String("transactions"),
-//					FullDocument:   pulumi.String("UpdateLookup"),
-//				},
-//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("BASIC_AUTH"),
-//						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
-//
-// ```sh
-// $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping example 12345kxodurf3443
-// ```
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
 
-	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
 	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput `pulumi:"amazonManagedKafkaEventSourceConfig"`
-	// Event source mapping ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-	BatchSize pulumi.IntPtrOutput `pulumi:"batchSize"`
-	// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-	BisectBatchOnFunctionError pulumi.BoolPtrOutput `pulumi:"bisectBatchOnFunctionError"`
-	// Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below.
-	DestinationConfig EventSourceMappingDestinationConfigPtrOutput `pulumi:"destinationConfig"`
-	// Configuration settings for a DocumentDB event source. See below.
-	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrOutput `pulumi:"documentDbEventSourceConfig"`
-	// Whether the mapping is enabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
-	EventSourceArn pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
-	// Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
-	FilterCriteria EventSourceMappingFilterCriteriaPtrOutput `pulumi:"filterCriteria"`
-	// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
-	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
-	// Name or ARN of the Lambda function that will be subscribing to events.
-	//
-	// The following arguments are optional:
-	FunctionName pulumi.StringOutput `pulumi:"functionName"`
-	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-	FunctionResponseTypes pulumi.StringArrayOutput `pulumi:"functionResponseTypes"`
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
-	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Date this resource was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// Result of the last AWS Lambda invocation of your Lambda function.
-	LastProcessingResult pulumi.StringOutput `pulumi:"lastProcessingResult"`
-	// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrOutput `pulumi:"maximumBatchingWindowInSeconds"`
-	// Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-	MaximumRecordAgeInSeconds pulumi.IntOutput `pulumi:"maximumRecordAgeInSeconds"`
-	// Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-	MaximumRetryAttempts pulumi.IntOutput `pulumi:"maximumRetryAttempts"`
-	// CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below.
-	MetricsConfig EventSourceMappingMetricsConfigPtrOutput `pulumi:"metricsConfig"`
-	// Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-	ParallelizationFactor pulumi.IntOutput `pulumi:"parallelizationFactor"`
-	// Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below.
-	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrOutput `pulumi:"provisionedPollerConfig"`
-	// Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
-	Queues pulumi.StringPtrOutput `pulumi:"queues"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Scaling configuration of the event source. Only available for SQS queues. See below.
-	ScalingConfig EventSourceMappingScalingConfigPtrOutput `pulumi:"scalingConfig"`
-	// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
-	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrOutput `pulumi:"selfManagedEventSource"`
-	// Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
-	SelfManagedKafkaEventSourceConfig EventSourceMappingSelfManagedKafkaEventSourceConfigOutput `pulumi:"selfManagedKafkaEventSourceConfig"`
-	// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
-	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayOutput `pulumi:"sourceAccessConfigurations"`
-	// Position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-	StartingPosition pulumi.StringPtrOutput `pulumi:"startingPosition"`
-	// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-	StartingPositionTimestamp pulumi.StringPtrOutput `pulumi:"startingPositionTimestamp"`
-	// State of the event source mapping.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Reason the event source mapping is in its current state.
-	StateTransitionReason pulumi.StringOutput `pulumi:"stateTransitionReason"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-	Topics pulumi.StringArrayOutput `pulumi:"topics"`
-	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-	TumblingWindowInSeconds pulumi.IntPtrOutput `pulumi:"tumblingWindowInSeconds"`
-	// UUID of the created event source mapping.
-	Uuid pulumi.StringOutput `pulumi:"uuid"`
+	Arn                                 pulumi.StringOutput                                         `pulumi:"arn"`
+	BatchSize                           pulumi.IntPtrOutput                                         `pulumi:"batchSize"`
+	BisectBatchOnFunctionError          pulumi.BoolPtrOutput                                        `pulumi:"bisectBatchOnFunctionError"`
+	DestinationConfig                   EventSourceMappingDestinationConfigPtrOutput                `pulumi:"destinationConfig"`
+	DocumentDbEventSourceConfig         EventSourceMappingDocumentDbEventSourceConfigPtrOutput      `pulumi:"documentDbEventSourceConfig"`
+	Enabled                             pulumi.BoolPtrOutput                                        `pulumi:"enabled"`
+	EventSourceArn                      pulumi.StringPtrOutput                                      `pulumi:"eventSourceArn"`
+	FilterCriteria                      EventSourceMappingFilterCriteriaPtrOutput                   `pulumi:"filterCriteria"`
+	FunctionArn                         pulumi.StringOutput                                         `pulumi:"functionArn"`
+	FunctionName                        pulumi.StringOutput                                         `pulumi:"functionName"`
+	FunctionResponseTypes               pulumi.StringArrayOutput                                    `pulumi:"functionResponseTypes"`
+	KmsKeyArn                           pulumi.StringPtrOutput                                      `pulumi:"kmsKeyArn"`
+	LastModified                        pulumi.StringOutput                                         `pulumi:"lastModified"`
+	LastProcessingResult                pulumi.StringOutput                                         `pulumi:"lastProcessingResult"`
+	MaximumBatchingWindowInSeconds      pulumi.IntPtrOutput                                         `pulumi:"maximumBatchingWindowInSeconds"`
+	MaximumRecordAgeInSeconds           pulumi.IntOutput                                            `pulumi:"maximumRecordAgeInSeconds"`
+	MaximumRetryAttempts                pulumi.IntOutput                                            `pulumi:"maximumRetryAttempts"`
+	MetricsConfig                       EventSourceMappingMetricsConfigPtrOutput                    `pulumi:"metricsConfig"`
+	ParallelizationFactor               pulumi.IntOutput                                            `pulumi:"parallelizationFactor"`
+	ProvisionedPollerConfig             EventSourceMappingProvisionedPollerConfigPtrOutput          `pulumi:"provisionedPollerConfig"`
+	Queues                              pulumi.StringPtrOutput                                      `pulumi:"queues"`
+	Region                              pulumi.StringOutput                                         `pulumi:"region"`
+	ScalingConfig                       EventSourceMappingScalingConfigPtrOutput                    `pulumi:"scalingConfig"`
+	SelfManagedEventSource              EventSourceMappingSelfManagedEventSourcePtrOutput           `pulumi:"selfManagedEventSource"`
+	SelfManagedKafkaEventSourceConfig   EventSourceMappingSelfManagedKafkaEventSourceConfigOutput   `pulumi:"selfManagedKafkaEventSourceConfig"`
+	SourceAccessConfigurations          EventSourceMappingSourceAccessConfigurationArrayOutput      `pulumi:"sourceAccessConfigurations"`
+	StartingPosition                    pulumi.StringPtrOutput                                      `pulumi:"startingPosition"`
+	StartingPositionTimestamp           pulumi.StringPtrOutput                                      `pulumi:"startingPositionTimestamp"`
+	State                               pulumi.StringOutput                                         `pulumi:"state"`
+	StateTransitionReason               pulumi.StringOutput                                         `pulumi:"stateTransitionReason"`
+	Tags                                pulumi.StringMapOutput                                      `pulumi:"tags"`
+	TagsAll                             pulumi.StringMapOutput                                      `pulumi:"tagsAll"`
+	Topics                              pulumi.StringArrayOutput                                    `pulumi:"topics"`
+	TumblingWindowInSeconds             pulumi.IntPtrOutput                                         `pulumi:"tumblingWindowInSeconds"`
+	Uuid                                pulumi.StringOutput                                         `pulumi:"uuid"`
 }
 
 // NewEventSourceMapping registers a new resource with the given unique name, arguments, and options.
@@ -500,157 +86,81 @@ func GetEventSourceMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSourceMapping resources.
 type eventSourceMappingState struct {
-	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
 	AmazonManagedKafkaEventSourceConfig *EventSourceMappingAmazonManagedKafkaEventSourceConfig `pulumi:"amazonManagedKafkaEventSourceConfig"`
-	// Event source mapping ARN.
-	Arn *string `pulumi:"arn"`
-	// Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-	BatchSize *int `pulumi:"batchSize"`
-	// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
-	// Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below.
-	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
-	// Configuration settings for a DocumentDB event source. See below.
-	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
-	// Whether the mapping is enabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
-	EventSourceArn *string `pulumi:"eventSourceArn"`
-	// Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
-	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
-	// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
-	FunctionArn *string `pulumi:"functionArn"`
-	// Name or ARN of the Lambda function that will be subscribing to events.
-	//
-	// The following arguments are optional:
-	FunctionName *string `pulumi:"functionName"`
-	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-	FunctionResponseTypes []string `pulumi:"functionResponseTypes"`
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Date this resource was last modified.
-	LastModified *string `pulumi:"lastModified"`
-	// Result of the last AWS Lambda invocation of your Lambda function.
-	LastProcessingResult *string `pulumi:"lastProcessingResult"`
-	// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
-	// Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
-	// CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below.
-	MetricsConfig *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
-	// Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below.
-	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
-	// Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
-	Queues *string `pulumi:"queues"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Scaling configuration of the event source. Only available for SQS queues. See below.
-	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
-	// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
-	SelfManagedEventSource *EventSourceMappingSelfManagedEventSource `pulumi:"selfManagedEventSource"`
-	// Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
-	SelfManagedKafkaEventSourceConfig *EventSourceMappingSelfManagedKafkaEventSourceConfig `pulumi:"selfManagedKafkaEventSourceConfig"`
-	// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
-	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
-	// Position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-	StartingPosition *string `pulumi:"startingPosition"`
-	// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-	StartingPositionTimestamp *string `pulumi:"startingPositionTimestamp"`
-	// State of the event source mapping.
-	State *string `pulumi:"state"`
-	// Reason the event source mapping is in its current state.
-	StateTransitionReason *string `pulumi:"stateTransitionReason"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-	Topics []string `pulumi:"topics"`
-	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-	TumblingWindowInSeconds *int `pulumi:"tumblingWindowInSeconds"`
-	// UUID of the created event source mapping.
-	Uuid *string `pulumi:"uuid"`
+	Arn                                 *string                                                `pulumi:"arn"`
+	BatchSize                           *int                                                   `pulumi:"batchSize"`
+	BisectBatchOnFunctionError          *bool                                                  `pulumi:"bisectBatchOnFunctionError"`
+	DestinationConfig                   *EventSourceMappingDestinationConfig                   `pulumi:"destinationConfig"`
+	DocumentDbEventSourceConfig         *EventSourceMappingDocumentDbEventSourceConfig         `pulumi:"documentDbEventSourceConfig"`
+	Enabled                             *bool                                                  `pulumi:"enabled"`
+	EventSourceArn                      *string                                                `pulumi:"eventSourceArn"`
+	FilterCriteria                      *EventSourceMappingFilterCriteria                      `pulumi:"filterCriteria"`
+	FunctionArn                         *string                                                `pulumi:"functionArn"`
+	FunctionName                        *string                                                `pulumi:"functionName"`
+	FunctionResponseTypes               []string                                               `pulumi:"functionResponseTypes"`
+	KmsKeyArn                           *string                                                `pulumi:"kmsKeyArn"`
+	LastModified                        *string                                                `pulumi:"lastModified"`
+	LastProcessingResult                *string                                                `pulumi:"lastProcessingResult"`
+	MaximumBatchingWindowInSeconds      *int                                                   `pulumi:"maximumBatchingWindowInSeconds"`
+	MaximumRecordAgeInSeconds           *int                                                   `pulumi:"maximumRecordAgeInSeconds"`
+	MaximumRetryAttempts                *int                                                   `pulumi:"maximumRetryAttempts"`
+	MetricsConfig                       *EventSourceMappingMetricsConfig                       `pulumi:"metricsConfig"`
+	ParallelizationFactor               *int                                                   `pulumi:"parallelizationFactor"`
+	ProvisionedPollerConfig             *EventSourceMappingProvisionedPollerConfig             `pulumi:"provisionedPollerConfig"`
+	Queues                              *string                                                `pulumi:"queues"`
+	Region                              *string                                                `pulumi:"region"`
+	ScalingConfig                       *EventSourceMappingScalingConfig                       `pulumi:"scalingConfig"`
+	SelfManagedEventSource              *EventSourceMappingSelfManagedEventSource              `pulumi:"selfManagedEventSource"`
+	SelfManagedKafkaEventSourceConfig   *EventSourceMappingSelfManagedKafkaEventSourceConfig   `pulumi:"selfManagedKafkaEventSourceConfig"`
+	SourceAccessConfigurations          []EventSourceMappingSourceAccessConfiguration          `pulumi:"sourceAccessConfigurations"`
+	StartingPosition                    *string                                                `pulumi:"startingPosition"`
+	StartingPositionTimestamp           *string                                                `pulumi:"startingPositionTimestamp"`
+	State                               *string                                                `pulumi:"state"`
+	StateTransitionReason               *string                                                `pulumi:"stateTransitionReason"`
+	Tags                                map[string]string                                      `pulumi:"tags"`
+	TagsAll                             map[string]string                                      `pulumi:"tagsAll"`
+	Topics                              []string                                               `pulumi:"topics"`
+	TumblingWindowInSeconds             *int                                                   `pulumi:"tumblingWindowInSeconds"`
+	Uuid                                *string                                                `pulumi:"uuid"`
 }
 
 type EventSourceMappingState struct {
-	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
 	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput
-	// Event source mapping ARN.
-	Arn pulumi.StringPtrInput
-	// Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-	BatchSize pulumi.IntPtrInput
-	// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-	BisectBatchOnFunctionError pulumi.BoolPtrInput
-	// Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below.
-	DestinationConfig EventSourceMappingDestinationConfigPtrInput
-	// Configuration settings for a DocumentDB event source. See below.
-	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
-	// Whether the mapping is enabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
-	EventSourceArn pulumi.StringPtrInput
-	// Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
-	FilterCriteria EventSourceMappingFilterCriteriaPtrInput
-	// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
-	FunctionArn pulumi.StringPtrInput
-	// Name or ARN of the Lambda function that will be subscribing to events.
-	//
-	// The following arguments are optional:
-	FunctionName pulumi.StringPtrInput
-	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-	FunctionResponseTypes pulumi.StringArrayInput
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
-	KmsKeyArn pulumi.StringPtrInput
-	// Date this resource was last modified.
-	LastModified pulumi.StringPtrInput
-	// Result of the last AWS Lambda invocation of your Lambda function.
-	LastProcessingResult pulumi.StringPtrInput
-	// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput
-	// Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-	MaximumRecordAgeInSeconds pulumi.IntPtrInput
-	// Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-	MaximumRetryAttempts pulumi.IntPtrInput
-	// CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below.
-	MetricsConfig EventSourceMappingMetricsConfigPtrInput
-	// Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-	ParallelizationFactor pulumi.IntPtrInput
-	// Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below.
-	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
-	// Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
-	Queues pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Scaling configuration of the event source. Only available for SQS queues. See below.
-	ScalingConfig EventSourceMappingScalingConfigPtrInput
-	// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
-	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrInput
-	// Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
-	SelfManagedKafkaEventSourceConfig EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput
-	// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
-	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayInput
-	// Position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-	StartingPosition pulumi.StringPtrInput
-	// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-	StartingPositionTimestamp pulumi.StringPtrInput
-	// State of the event source mapping.
-	State pulumi.StringPtrInput
-	// Reason the event source mapping is in its current state.
-	StateTransitionReason pulumi.StringPtrInput
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-	Topics pulumi.StringArrayInput
-	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-	TumblingWindowInSeconds pulumi.IntPtrInput
-	// UUID of the created event source mapping.
-	Uuid pulumi.StringPtrInput
+	Arn                                 pulumi.StringPtrInput
+	BatchSize                           pulumi.IntPtrInput
+	BisectBatchOnFunctionError          pulumi.BoolPtrInput
+	DestinationConfig                   EventSourceMappingDestinationConfigPtrInput
+	DocumentDbEventSourceConfig         EventSourceMappingDocumentDbEventSourceConfigPtrInput
+	Enabled                             pulumi.BoolPtrInput
+	EventSourceArn                      pulumi.StringPtrInput
+	FilterCriteria                      EventSourceMappingFilterCriteriaPtrInput
+	FunctionArn                         pulumi.StringPtrInput
+	FunctionName                        pulumi.StringPtrInput
+	FunctionResponseTypes               pulumi.StringArrayInput
+	KmsKeyArn                           pulumi.StringPtrInput
+	LastModified                        pulumi.StringPtrInput
+	LastProcessingResult                pulumi.StringPtrInput
+	MaximumBatchingWindowInSeconds      pulumi.IntPtrInput
+	MaximumRecordAgeInSeconds           pulumi.IntPtrInput
+	MaximumRetryAttempts                pulumi.IntPtrInput
+	MetricsConfig                       EventSourceMappingMetricsConfigPtrInput
+	ParallelizationFactor               pulumi.IntPtrInput
+	ProvisionedPollerConfig             EventSourceMappingProvisionedPollerConfigPtrInput
+	Queues                              pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
+	ScalingConfig                       EventSourceMappingScalingConfigPtrInput
+	SelfManagedEventSource              EventSourceMappingSelfManagedEventSourcePtrInput
+	SelfManagedKafkaEventSourceConfig   EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput
+	SourceAccessConfigurations          EventSourceMappingSourceAccessConfigurationArrayInput
+	StartingPosition                    pulumi.StringPtrInput
+	StartingPositionTimestamp           pulumi.StringPtrInput
+	State                               pulumi.StringPtrInput
+	StateTransitionReason               pulumi.StringPtrInput
+	Tags                                pulumi.StringMapInput
+	TagsAll                             pulumi.StringMapInput
+	Topics                              pulumi.StringArrayInput
+	TumblingWindowInSeconds             pulumi.IntPtrInput
+	Uuid                                pulumi.StringPtrInput
 }
 
 func (EventSourceMappingState) ElementType() reflect.Type {
@@ -658,126 +168,66 @@ func (EventSourceMappingState) ElementType() reflect.Type {
 }
 
 type eventSourceMappingArgs struct {
-	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
 	AmazonManagedKafkaEventSourceConfig *EventSourceMappingAmazonManagedKafkaEventSourceConfig `pulumi:"amazonManagedKafkaEventSourceConfig"`
-	// Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-	BatchSize *int `pulumi:"batchSize"`
-	// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
-	// Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below.
-	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
-	// Configuration settings for a DocumentDB event source. See below.
-	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
-	// Whether the mapping is enabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
-	EventSourceArn *string `pulumi:"eventSourceArn"`
-	// Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
-	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
-	// Name or ARN of the Lambda function that will be subscribing to events.
-	//
-	// The following arguments are optional:
-	FunctionName string `pulumi:"functionName"`
-	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-	FunctionResponseTypes []string `pulumi:"functionResponseTypes"`
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
-	// Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
-	// CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below.
-	MetricsConfig *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
-	// Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below.
-	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
-	// Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
-	Queues *string `pulumi:"queues"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Scaling configuration of the event source. Only available for SQS queues. See below.
-	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
-	// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
-	SelfManagedEventSource *EventSourceMappingSelfManagedEventSource `pulumi:"selfManagedEventSource"`
-	// Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
-	SelfManagedKafkaEventSourceConfig *EventSourceMappingSelfManagedKafkaEventSourceConfig `pulumi:"selfManagedKafkaEventSourceConfig"`
-	// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
-	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
-	// Position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-	StartingPosition *string `pulumi:"startingPosition"`
-	// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-	StartingPositionTimestamp *string `pulumi:"startingPositionTimestamp"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-	Topics []string `pulumi:"topics"`
-	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-	TumblingWindowInSeconds *int `pulumi:"tumblingWindowInSeconds"`
+	BatchSize                           *int                                                   `pulumi:"batchSize"`
+	BisectBatchOnFunctionError          *bool                                                  `pulumi:"bisectBatchOnFunctionError"`
+	DestinationConfig                   *EventSourceMappingDestinationConfig                   `pulumi:"destinationConfig"`
+	DocumentDbEventSourceConfig         *EventSourceMappingDocumentDbEventSourceConfig         `pulumi:"documentDbEventSourceConfig"`
+	Enabled                             *bool                                                  `pulumi:"enabled"`
+	EventSourceArn                      *string                                                `pulumi:"eventSourceArn"`
+	FilterCriteria                      *EventSourceMappingFilterCriteria                      `pulumi:"filterCriteria"`
+	FunctionName                        string                                                 `pulumi:"functionName"`
+	FunctionResponseTypes               []string                                               `pulumi:"functionResponseTypes"`
+	KmsKeyArn                           *string                                                `pulumi:"kmsKeyArn"`
+	MaximumBatchingWindowInSeconds      *int                                                   `pulumi:"maximumBatchingWindowInSeconds"`
+	MaximumRecordAgeInSeconds           *int                                                   `pulumi:"maximumRecordAgeInSeconds"`
+	MaximumRetryAttempts                *int                                                   `pulumi:"maximumRetryAttempts"`
+	MetricsConfig                       *EventSourceMappingMetricsConfig                       `pulumi:"metricsConfig"`
+	ParallelizationFactor               *int                                                   `pulumi:"parallelizationFactor"`
+	ProvisionedPollerConfig             *EventSourceMappingProvisionedPollerConfig             `pulumi:"provisionedPollerConfig"`
+	Queues                              *string                                                `pulumi:"queues"`
+	Region                              *string                                                `pulumi:"region"`
+	ScalingConfig                       *EventSourceMappingScalingConfig                       `pulumi:"scalingConfig"`
+	SelfManagedEventSource              *EventSourceMappingSelfManagedEventSource              `pulumi:"selfManagedEventSource"`
+	SelfManagedKafkaEventSourceConfig   *EventSourceMappingSelfManagedKafkaEventSourceConfig   `pulumi:"selfManagedKafkaEventSourceConfig"`
+	SourceAccessConfigurations          []EventSourceMappingSourceAccessConfiguration          `pulumi:"sourceAccessConfigurations"`
+	StartingPosition                    *string                                                `pulumi:"startingPosition"`
+	StartingPositionTimestamp           *string                                                `pulumi:"startingPositionTimestamp"`
+	Tags                                map[string]string                                      `pulumi:"tags"`
+	Topics                              []string                                               `pulumi:"topics"`
+	TumblingWindowInSeconds             *int                                                   `pulumi:"tumblingWindowInSeconds"`
 }
 
 // The set of arguments for constructing a EventSourceMapping resource.
 type EventSourceMappingArgs struct {
-	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
 	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput
-	// Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-	BatchSize pulumi.IntPtrInput
-	// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-	BisectBatchOnFunctionError pulumi.BoolPtrInput
-	// Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below.
-	DestinationConfig EventSourceMappingDestinationConfigPtrInput
-	// Configuration settings for a DocumentDB event source. See below.
-	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
-	// Whether the mapping is enabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
-	EventSourceArn pulumi.StringPtrInput
-	// Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
-	FilterCriteria EventSourceMappingFilterCriteriaPtrInput
-	// Name or ARN of the Lambda function that will be subscribing to events.
-	//
-	// The following arguments are optional:
-	FunctionName pulumi.StringInput
-	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-	FunctionResponseTypes pulumi.StringArrayInput
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
-	KmsKeyArn pulumi.StringPtrInput
-	// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput
-	// Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-	MaximumRecordAgeInSeconds pulumi.IntPtrInput
-	// Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-	MaximumRetryAttempts pulumi.IntPtrInput
-	// CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below.
-	MetricsConfig EventSourceMappingMetricsConfigPtrInput
-	// Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-	ParallelizationFactor pulumi.IntPtrInput
-	// Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below.
-	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
-	// Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
-	Queues pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Scaling configuration of the event source. Only available for SQS queues. See below.
-	ScalingConfig EventSourceMappingScalingConfigPtrInput
-	// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
-	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrInput
-	// Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
-	SelfManagedKafkaEventSourceConfig EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput
-	// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
-	SourceAccessConfigurations EventSourceMappingSourceAccessConfigurationArrayInput
-	// Position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-	StartingPosition pulumi.StringPtrInput
-	// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-	StartingPositionTimestamp pulumi.StringPtrInput
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-	Topics pulumi.StringArrayInput
-	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-	TumblingWindowInSeconds pulumi.IntPtrInput
+	BatchSize                           pulumi.IntPtrInput
+	BisectBatchOnFunctionError          pulumi.BoolPtrInput
+	DestinationConfig                   EventSourceMappingDestinationConfigPtrInput
+	DocumentDbEventSourceConfig         EventSourceMappingDocumentDbEventSourceConfigPtrInput
+	Enabled                             pulumi.BoolPtrInput
+	EventSourceArn                      pulumi.StringPtrInput
+	FilterCriteria                      EventSourceMappingFilterCriteriaPtrInput
+	FunctionName                        pulumi.StringInput
+	FunctionResponseTypes               pulumi.StringArrayInput
+	KmsKeyArn                           pulumi.StringPtrInput
+	MaximumBatchingWindowInSeconds      pulumi.IntPtrInput
+	MaximumRecordAgeInSeconds           pulumi.IntPtrInput
+	MaximumRetryAttempts                pulumi.IntPtrInput
+	MetricsConfig                       EventSourceMappingMetricsConfigPtrInput
+	ParallelizationFactor               pulumi.IntPtrInput
+	ProvisionedPollerConfig             EventSourceMappingProvisionedPollerConfigPtrInput
+	Queues                              pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
+	ScalingConfig                       EventSourceMappingScalingConfigPtrInput
+	SelfManagedEventSource              EventSourceMappingSelfManagedEventSourcePtrInput
+	SelfManagedKafkaEventSourceConfig   EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput
+	SourceAccessConfigurations          EventSourceMappingSourceAccessConfigurationArrayInput
+	StartingPosition                    pulumi.StringPtrInput
+	StartingPositionTimestamp           pulumi.StringPtrInput
+	Tags                                pulumi.StringMapInput
+	Topics                              pulumi.StringArrayInput
+	TumblingWindowInSeconds             pulumi.IntPtrInput
 }
 
 func (EventSourceMappingArgs) ElementType() reflect.Type {
@@ -867,196 +317,158 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx cont
 	return o
 }
 
-// Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
 func (o EventSourceMappingOutput) AmazonManagedKafkaEventSourceConfig() EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
 		return v.AmazonManagedKafkaEventSourceConfig
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput)
 }
 
-// Event source mapping ARN.
 func (o EventSourceMappingOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
 func (o EventSourceMappingOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// Whether to split the batch in two and retry if the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 func (o EventSourceMappingOutput) BisectBatchOnFunctionError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.BisectBatchOnFunctionError }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). See below.
 func (o EventSourceMappingOutput) DestinationConfig() EventSourceMappingDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDestinationConfigPtrOutput { return v.DestinationConfig }).(EventSourceMappingDestinationConfigPtrOutput)
 }
 
-// Configuration settings for a DocumentDB event source. See below.
 func (o EventSourceMappingOutput) DocumentDbEventSourceConfig() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
 		return v.DocumentDbEventSourceConfig
 	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
 }
 
-// Whether the mapping is enabled. Defaults to `true`.
 func (o EventSourceMappingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
 func (o EventSourceMappingOutput) EventSourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.EventSourceArn }).(pulumi.StringPtrOutput)
 }
 
-// Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
 func (o EventSourceMappingOutput) FilterCriteria() EventSourceMappingFilterCriteriaPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingFilterCriteriaPtrOutput { return v.FilterCriteria }).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
-// ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
 func (o EventSourceMappingOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
-// Name or ARN of the Lambda function that will be subscribing to events.
-//
-// The following arguments are optional:
 func (o EventSourceMappingOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
 func (o EventSourceMappingOutput) FunctionResponseTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.FunctionResponseTypes }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
 func (o EventSourceMappingOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Date this resource was last modified.
 func (o EventSourceMappingOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// Result of the last AWS Lambda invocation of your Lambda function.
 func (o EventSourceMappingOutput) LastProcessingResult() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.LastProcessingResult }).(pulumi.StringOutput)
 }
 
-// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 func (o EventSourceMappingOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
 func (o EventSourceMappingOutput) MaximumRecordAgeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntOutput { return v.MaximumRecordAgeInSeconds }).(pulumi.IntOutput)
 }
 
-// Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
 func (o EventSourceMappingOutput) MaximumRetryAttempts() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntOutput { return v.MaximumRetryAttempts }).(pulumi.IntOutput)
 }
 
-// CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. See below.
 func (o EventSourceMappingOutput) MetricsConfig() EventSourceMappingMetricsConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingMetricsConfigPtrOutput { return v.MetricsConfig }).(EventSourceMappingMetricsConfigPtrOutput)
 }
 
-// Number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 func (o EventSourceMappingOutput) ParallelizationFactor() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntOutput { return v.ParallelizationFactor }).(pulumi.IntOutput)
 }
 
-// Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. See below.
 func (o EventSourceMappingOutput) ProvisionedPollerConfig() EventSourceMappingProvisionedPollerConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingProvisionedPollerConfigPtrOutput {
 		return v.ProvisionedPollerConfig
 	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
-// Name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 func (o EventSourceMappingOutput) Queues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.Queues }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventSourceMappingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Scaling configuration of the event source. Only available for SQS queues. See below.
 func (o EventSourceMappingOutput) ScalingConfig() EventSourceMappingScalingConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingScalingConfigPtrOutput { return v.ScalingConfig }).(EventSourceMappingScalingConfigPtrOutput)
 }
 
-// For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
 func (o EventSourceMappingOutput) SelfManagedEventSource() EventSourceMappingSelfManagedEventSourcePtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingSelfManagedEventSourcePtrOutput {
 		return v.SelfManagedEventSource
 	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
 }
 
-// Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
 func (o EventSourceMappingOutput) SelfManagedKafkaEventSourceConfig() EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
 		return v.SelfManagedKafkaEventSourceConfig
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput)
 }
 
-// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
 func (o EventSourceMappingOutput) SourceAccessConfigurations() EventSourceMappingSourceAccessConfigurationArrayOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingSourceAccessConfigurationArrayOutput {
 		return v.SourceAccessConfigurations
 	}).(EventSourceMappingSourceAccessConfigurationArrayOutput)
 }
 
-// Position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
 func (o EventSourceMappingOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.StartingPosition }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
 func (o EventSourceMappingOutput) StartingPositionTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.StartingPositionTimestamp }).(pulumi.StringPtrOutput)
 }
 
-// State of the event source mapping.
 func (o EventSourceMappingOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Reason the event source mapping is in its current state.
 func (o EventSourceMappingOutput) StateTransitionReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.StateTransitionReason }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EventSourceMappingOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventSourceMappingOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
 func (o EventSourceMappingOutput) Topics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.Topics }).(pulumi.StringArrayOutput)
 }
 
-// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
 func (o EventSourceMappingOutput) TumblingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.TumblingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// UUID of the created event source mapping.
 func (o EventSourceMappingOutput) Uuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
 }

@@ -24,77 +24,37 @@ public final class DirectoryConnectSettingsArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.availabilityZones);
     }
 
-    /**
-     * The IP addresses of the AD Connector servers.
-     * 
-     */
     @Import(name="connectIps")
     private @Nullable Output<List<String>> connectIps;
 
-    /**
-     * @return The IP addresses of the AD Connector servers.
-     * 
-     */
     public Optional<Output<List<String>>> connectIps() {
         return Optional.ofNullable(this.connectIps);
     }
 
-    /**
-     * The DNS IP addresses of the domain to connect to.
-     * 
-     */
     @Import(name="customerDnsIps", required=true)
     private Output<List<String>> customerDnsIps;
 
-    /**
-     * @return The DNS IP addresses of the domain to connect to.
-     * 
-     */
     public Output<List<String>> customerDnsIps() {
         return this.customerDnsIps;
     }
 
-    /**
-     * The username corresponding to the password provided.
-     * 
-     */
     @Import(name="customerUsername", required=true)
     private Output<String> customerUsername;
 
-    /**
-     * @return The username corresponding to the password provided.
-     * 
-     */
     public Output<String> customerUsername() {
         return this.customerUsername;
     }
 
-    /**
-     * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * The identifier of the VPC that the directory is in.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The identifier of the VPC that the directory is in.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -141,137 +101,59 @@ public final class DirectoryConnectSettingsArgs extends com.pulumi.resources.Res
             return availabilityZones(List.of(availabilityZones));
         }
 
-        /**
-         * @param connectIps The IP addresses of the AD Connector servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectIps(@Nullable Output<List<String>> connectIps) {
             $.connectIps = connectIps;
             return this;
         }
 
-        /**
-         * @param connectIps The IP addresses of the AD Connector servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectIps(List<String> connectIps) {
             return connectIps(Output.of(connectIps));
         }
 
-        /**
-         * @param connectIps The IP addresses of the AD Connector servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectIps(String... connectIps) {
             return connectIps(List.of(connectIps));
         }
 
-        /**
-         * @param customerDnsIps The DNS IP addresses of the domain to connect to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerDnsIps(Output<List<String>> customerDnsIps) {
             $.customerDnsIps = customerDnsIps;
             return this;
         }
 
-        /**
-         * @param customerDnsIps The DNS IP addresses of the domain to connect to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerDnsIps(List<String> customerDnsIps) {
             return customerDnsIps(Output.of(customerDnsIps));
         }
 
-        /**
-         * @param customerDnsIps The DNS IP addresses of the domain to connect to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerDnsIps(String... customerDnsIps) {
             return customerDnsIps(List.of(customerDnsIps));
         }
 
-        /**
-         * @param customerUsername The username corresponding to the password provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerUsername(Output<String> customerUsername) {
             $.customerUsername = customerUsername;
             return this;
         }
 
-        /**
-         * @param customerUsername The username corresponding to the password provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerUsername(String customerUsername) {
             return customerUsername(Output.of(customerUsername));
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcId The identifier of the VPC that the directory is in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The identifier of the VPC that the directory is in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

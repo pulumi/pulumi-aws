@@ -45,9 +45,6 @@ class GetLicenseGrantsResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        List of all the license grant ARNs found.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -85,26 +82,7 @@ def get_license_grants(filters: Optional[Sequence[Union['GetLicenseGrantsFilterA
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLicenseGrantsResult:
     """
-    This resource can be used to get a set of license grant ARNs matching a filter.
-
-    ## Example Usage
-
-    The following shows getting all license grant ARNs granted to your account.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    test = aws.licensemanager.get_license_grants(filters=[{
-        "name": "GranteePrincipalARN",
-        "values": [f"arn:aws:iam::{current.account_id}:root"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -121,26 +99,7 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseGrantsResult]:
     """
-    This resource can be used to get a set of license grant ARNs matching a filter.
-
-    ## Example Usage
-
-    The following shows getting all license grant ARNs granted to your account.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    test = aws.licensemanager.get_license_grants(filters=[{
-        "name": "GranteePrincipalARN",
-        "values": [f"arn:aws:iam::{current.account_id}:root"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

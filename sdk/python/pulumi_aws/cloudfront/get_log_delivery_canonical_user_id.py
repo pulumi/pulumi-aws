@@ -61,42 +61,7 @@ class AwaitableGetLogDeliveryCanonicalUserIdResult(GetLogDeliveryCanonicalUserId
 def get_log_delivery_canonical_user_id(region: Optional[_builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogDeliveryCanonicalUserIdResult:
     """
-    The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
-    See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.s3.get_canonical_user_id()
-    example = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket = aws.s3.Bucket("example", bucket="example")
-    example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-        bucket=example_bucket.id,
-        rule={
-            "object_ownership": "BucketOwnerPreferred",
-        })
-    example_bucket_acl = aws.s3.BucketAcl("example",
-        bucket=example_bucket.id,
-        access_control_policy={
-            "grants": [{
-                "grantee": {
-                    "id": example.id,
-                    "type": "CanonicalUser",
-                },
-                "permission": "FULL_CONTROL",
-            }],
-            "owner": {
-                "id": current.id,
-            },
-        },
-        opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -109,42 +74,7 @@ def get_log_delivery_canonical_user_id(region: Optional[_builtins.str] = None,
 def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogDeliveryCanonicalUserIdResult]:
     """
-    The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
-    See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.s3.get_canonical_user_id()
-    example = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket = aws.s3.Bucket("example", bucket="example")
-    example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-        bucket=example_bucket.id,
-        rule={
-            "object_ownership": "BucketOwnerPreferred",
-        })
-    example_bucket_acl = aws.s3.BucketAcl("example",
-        bucket=example_bucket.id,
-        access_control_policy={
-            "grants": [{
-                "grantee": {
-                    "id": example.id,
-                    "type": "CanonicalUser",
-                },
-                "permission": "FULL_CONTROL",
-            }],
-            "owner": {
-                "id": current.id,
-            },
-        },
-        opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

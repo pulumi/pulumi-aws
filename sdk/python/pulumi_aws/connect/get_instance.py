@@ -82,9 +82,6 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the instance.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -95,33 +92,21 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="contactFlowLogsEnabled")
     def contact_flow_logs_enabled(self) -> _builtins.bool:
-        """
-        Whether contact flow logs are enabled.
-        """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
     @_builtins.property
     @pulumi.getter(name="contactLensEnabled")
     def contact_lens_enabled(self) -> _builtins.bool:
-        """
-        Whether contact lens is enabled.
-        """
         return pulumi.get(self, "contact_lens_enabled")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> _builtins.str:
-        """
-        When the instance was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter(name="earlyMediaEnabled")
     def early_media_enabled(self) -> _builtins.bool:
-        """
-        Whether early media for outbound calls is enabled .
-        """
         return pulumi.get(self, "early_media_enabled")
 
     @_builtins.property
@@ -135,17 +120,11 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="identityManagementType")
     def identity_management_type(self) -> _builtins.str:
-        """
-        Specifies The identity management type attached to the instance.
-        """
         return pulumi.get(self, "identity_management_type")
 
     @_builtins.property
     @pulumi.getter(name="inboundCallsEnabled")
     def inbound_calls_enabled(self) -> _builtins.bool:
-        """
-        Whether inbound calls are enabled.
-        """
         return pulumi.get(self, "inbound_calls_enabled")
 
     @_builtins.property
@@ -161,17 +140,11 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="multiPartyConferenceEnabled")
     def multi_party_conference_enabled(self) -> _builtins.bool:
-        """
-        Whether multi-party calls/conference is enabled.
-        """
         return pulumi.get(self, "multi_party_conference_enabled")
 
     @_builtins.property
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> _builtins.bool:
-        """
-        Whether outbound calls are enabled.
-        """
         return pulumi.get(self, "outbound_calls_enabled")
 
     @_builtins.property
@@ -182,25 +155,16 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> _builtins.str:
-        """
-        Service role of the instance.
-        """
         return pulumi.get(self, "service_role")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        State of the instance.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assigned to the instance.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -235,35 +199,7 @@ def get_instance(instance_alias: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
-    Provides details about a specific Amazon Connect Instance.
-
-    ## Example Usage
-
-    By instance_alias
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_alias="foo")
-    ```
-
-    By instance_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
-    ```
-
-
-    :param _builtins.str instance_alias: Returns information on a specific connect instance by alias
-           
-           > **NOTE:** One of either `instance_id` or `instance_alias` is required.
-    :param _builtins.str instance_id: Returns information on a specific connect instance by id
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assigned to the instance.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceAlias'] = instance_alias
@@ -297,35 +233,7 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[_builtins
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
-    Provides details about a specific Amazon Connect Instance.
-
-    ## Example Usage
-
-    By instance_alias
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_alias="foo")
-    ```
-
-    By instance_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
-    ```
-
-
-    :param _builtins.str instance_alias: Returns information on a specific connect instance by alias
-           
-           > **NOTE:** One of either `instance_id` or `instance_alias` is required.
-    :param _builtins.str instance_id: Returns information on a specific connect instance by id
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assigned to the instance.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceAlias'] = instance_alias

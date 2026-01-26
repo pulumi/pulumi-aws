@@ -11,81 +11,12 @@ namespace Pulumi.Aws.CloudWatch
 {
     public static class GetEventConnection
     {
-        /// <summary>
-        /// Use this data source to retrieve information about an EventBridge connection.
-        /// 
-        /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudWatch.GetEventConnection.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEventConnectionResult> InvokeAsync(GetEventConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about an EventBridge connection.
-        /// 
-        /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudWatch.GetEventConnection.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEventConnectionResult> Invoke(GetEventConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about an EventBridge connection.
-        /// 
-        /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudWatch.GetEventConnection.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEventConnectionResult> Invoke(GetEventConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetEventConnectionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the connection.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetEventConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the connection.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,27 +54,15 @@ namespace Pulumi.Aws.CloudWatch
     [OutputType]
     public sealed class GetEventConnectionResult
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the connection.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        /// </summary>
         public readonly string AuthorizationType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
-        /// </summary>
         public readonly string KmsKeyIdentifier;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// ARN of the secret created from the authorization parameters specified for the connection.
-        /// </summary>
         public readonly string SecretArn;
 
         [OutputConstructor]

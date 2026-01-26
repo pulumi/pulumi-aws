@@ -15,47 +15,23 @@ public final class VpcEndpointServiceAllowedPrincipleState extends com.pulumi.re
 
     public static final VpcEndpointServiceAllowedPrincipleState Empty = new VpcEndpointServiceAllowedPrincipleState();
 
-    /**
-     * The ARN of the principal to allow permissions.
-     * 
-     */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
-    /**
-     * @return The ARN of the principal to allow permissions.
-     * 
-     */
     public Optional<Output<String>> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC endpoint service to allow permission.
-     * 
-     */
     @Import(name="vpcEndpointServiceId")
     private @Nullable Output<String> vpcEndpointServiceId;
 
-    /**
-     * @return The ID of the VPC endpoint service to allow permission.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointServiceId() {
         return Optional.ofNullable(this.vpcEndpointServiceId);
     }
@@ -86,65 +62,29 @@ public final class VpcEndpointServiceAllowedPrincipleState extends com.pulumi.re
             $ = new VpcEndpointServiceAllowedPrincipleState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param principalArn The ARN of the principal to allow permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(@Nullable Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
-        /**
-         * @param principalArn The ARN of the principal to allow permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcEndpointServiceId The ID of the VPC endpoint service to allow permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(@Nullable Output<String> vpcEndpointServiceId) {
             $.vpcEndpointServiceId = vpcEndpointServiceId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointServiceId The ID of the VPC endpoint service to allow permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(String vpcEndpointServiceId) {
             return vpcEndpointServiceId(Output.of(vpcEndpointServiceId));
         }

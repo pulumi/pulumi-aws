@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PipelineEncryptionAtRestOptions {
-    /**
-     * @return The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-     * 
-     */
     private String kmsKeyArn;
 
     private PipelineEncryptionAtRestOptions() {}
-    /**
-     * @return The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }

@@ -12,100 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone Environment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datazone.NewEnvironment(ctx, "example", &datazone.EnvironmentArgs{
-//				Name:                pulumi.String("example"),
-//				BlueprintIdentifier: pulumi.Any(test.EnvironmentBlueprintId),
-//				ProfileIdentifier:   pulumi.Any(testAwsDatazoneEnvironmentProfile.Id),
-//				ProjectIdentifier:   pulumi.Any(testAwsDatazoneProject.Id),
-//				DomainIdentifier:    pulumi.Any(testAwsDatazoneDomain.Id),
-//				UserParameters: datazone.EnvironmentUserParameterArray{
-//					&datazone.EnvironmentUserParameterArgs{
-//						Name:  pulumi.String("consumerGlueDbName"),
-//						Value: pulumi.String("consumer"),
-//					},
-//					&datazone.EnvironmentUserParameterArgs{
-//						Name:  pulumi.String("producerGlueDbName"),
-//						Value: pulumi.String("producer"),
-//					},
-//					&datazone.EnvironmentUserParameterArgs{
-//						Name:  pulumi.String("workgroupName"),
-//						Value: pulumi.String("workgroup"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone Environment using the `domain_idntifier,id`. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
-// ```
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Amazon Web Services account where the environment exists
-	AccountIdentifier pulumi.StringOutput `pulumi:"accountIdentifier"`
-	// The Amazon Web Services region where the environment exists.
-	AccountRegion pulumi.StringOutput `pulumi:"accountRegion"`
-	// The blueprint with which the environment is created.
-	BlueprintIdentifier pulumi.StringOutput `pulumi:"blueprintIdentifier"`
-	// The time the environment was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The user who created the environment.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// The description of the environment.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the domain where the environment exists.
-	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
-	// The business glossary terms that can be used in this environment.
-	GlossaryTerms pulumi.StringArrayOutput `pulumi:"glossaryTerms"`
-	// The details of the last deployment of the environment.
-	LastDeployments EnvironmentLastDeploymentArrayOutput `pulumi:"lastDeployments"`
-	// The name of the environment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the profile with which the environment is created.
-	ProfileIdentifier pulumi.StringOutput `pulumi:"profileIdentifier"`
-	// The ID of the project where the environment exists.
-	//
-	// The following arguments are optional:
-	ProjectIdentifier pulumi.StringOutput `pulumi:"projectIdentifier"`
-	// The provider of the environment.
+	AccountIdentifier    pulumi.StringOutput                       `pulumi:"accountIdentifier"`
+	AccountRegion        pulumi.StringOutput                       `pulumi:"accountRegion"`
+	BlueprintIdentifier  pulumi.StringOutput                       `pulumi:"blueprintIdentifier"`
+	CreatedAt            pulumi.StringOutput                       `pulumi:"createdAt"`
+	CreatedBy            pulumi.StringOutput                       `pulumi:"createdBy"`
+	Description          pulumi.StringPtrOutput                    `pulumi:"description"`
+	DomainIdentifier     pulumi.StringOutput                       `pulumi:"domainIdentifier"`
+	GlossaryTerms        pulumi.StringArrayOutput                  `pulumi:"glossaryTerms"`
+	LastDeployments      EnvironmentLastDeploymentArrayOutput      `pulumi:"lastDeployments"`
+	Name                 pulumi.StringOutput                       `pulumi:"name"`
+	ProfileIdentifier    pulumi.StringOutput                       `pulumi:"profileIdentifier"`
+	ProjectIdentifier    pulumi.StringOutput                       `pulumi:"projectIdentifier"`
 	ProviderEnvironment  pulumi.StringOutput                       `pulumi:"providerEnvironment"`
 	ProvisionedResources EnvironmentProvisionedResourceArrayOutput `pulumi:"provisionedResources"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput          `pulumi:"region"`
-	Timeouts EnvironmentTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The user parameters that are used in the environment.
-	// See User Parameters for more information.
-	// Changing these values recreates the resource.
-	UserParameters EnvironmentUserParameterArrayOutput `pulumi:"userParameters"`
+	Region               pulumi.StringOutput                       `pulumi:"region"`
+	Timeouts             EnvironmentTimeoutsPtrOutput              `pulumi:"timeouts"`
+	UserParameters       EnvironmentUserParameterArrayOutput       `pulumi:"userParameters"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -147,81 +73,43 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
-	// The ID of the Amazon Web Services account where the environment exists
-	AccountIdentifier *string `pulumi:"accountIdentifier"`
-	// The Amazon Web Services region where the environment exists.
-	AccountRegion *string `pulumi:"accountRegion"`
-	// The blueprint with which the environment is created.
-	BlueprintIdentifier *string `pulumi:"blueprintIdentifier"`
-	// The time the environment was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The user who created the environment.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The description of the environment.
-	Description *string `pulumi:"description"`
-	// The ID of the domain where the environment exists.
-	DomainIdentifier *string `pulumi:"domainIdentifier"`
-	// The business glossary terms that can be used in this environment.
-	GlossaryTerms []string `pulumi:"glossaryTerms"`
-	// The details of the last deployment of the environment.
-	LastDeployments []EnvironmentLastDeployment `pulumi:"lastDeployments"`
-	// The name of the environment.
-	Name *string `pulumi:"name"`
-	// The ID of the profile with which the environment is created.
-	ProfileIdentifier *string `pulumi:"profileIdentifier"`
-	// The ID of the project where the environment exists.
-	//
-	// The following arguments are optional:
-	ProjectIdentifier *string `pulumi:"projectIdentifier"`
-	// The provider of the environment.
+	AccountIdentifier    *string                          `pulumi:"accountIdentifier"`
+	AccountRegion        *string                          `pulumi:"accountRegion"`
+	BlueprintIdentifier  *string                          `pulumi:"blueprintIdentifier"`
+	CreatedAt            *string                          `pulumi:"createdAt"`
+	CreatedBy            *string                          `pulumi:"createdBy"`
+	Description          *string                          `pulumi:"description"`
+	DomainIdentifier     *string                          `pulumi:"domainIdentifier"`
+	GlossaryTerms        []string                         `pulumi:"glossaryTerms"`
+	LastDeployments      []EnvironmentLastDeployment      `pulumi:"lastDeployments"`
+	Name                 *string                          `pulumi:"name"`
+	ProfileIdentifier    *string                          `pulumi:"profileIdentifier"`
+	ProjectIdentifier    *string                          `pulumi:"projectIdentifier"`
 	ProviderEnvironment  *string                          `pulumi:"providerEnvironment"`
 	ProvisionedResources []EnvironmentProvisionedResource `pulumi:"provisionedResources"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string              `pulumi:"region"`
-	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
-	// The user parameters that are used in the environment.
-	// See User Parameters for more information.
-	// Changing these values recreates the resource.
-	UserParameters []EnvironmentUserParameter `pulumi:"userParameters"`
+	Region               *string                          `pulumi:"region"`
+	Timeouts             *EnvironmentTimeouts             `pulumi:"timeouts"`
+	UserParameters       []EnvironmentUserParameter       `pulumi:"userParameters"`
 }
 
 type EnvironmentState struct {
-	// The ID of the Amazon Web Services account where the environment exists
-	AccountIdentifier pulumi.StringPtrInput
-	// The Amazon Web Services region where the environment exists.
-	AccountRegion pulumi.StringPtrInput
-	// The blueprint with which the environment is created.
-	BlueprintIdentifier pulumi.StringPtrInput
-	// The time the environment was created.
-	CreatedAt pulumi.StringPtrInput
-	// The user who created the environment.
-	CreatedBy pulumi.StringPtrInput
-	// The description of the environment.
-	Description pulumi.StringPtrInput
-	// The ID of the domain where the environment exists.
-	DomainIdentifier pulumi.StringPtrInput
-	// The business glossary terms that can be used in this environment.
-	GlossaryTerms pulumi.StringArrayInput
-	// The details of the last deployment of the environment.
-	LastDeployments EnvironmentLastDeploymentArrayInput
-	// The name of the environment.
-	Name pulumi.StringPtrInput
-	// The ID of the profile with which the environment is created.
-	ProfileIdentifier pulumi.StringPtrInput
-	// The ID of the project where the environment exists.
-	//
-	// The following arguments are optional:
-	ProjectIdentifier pulumi.StringPtrInput
-	// The provider of the environment.
+	AccountIdentifier    pulumi.StringPtrInput
+	AccountRegion        pulumi.StringPtrInput
+	BlueprintIdentifier  pulumi.StringPtrInput
+	CreatedAt            pulumi.StringPtrInput
+	CreatedBy            pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	DomainIdentifier     pulumi.StringPtrInput
+	GlossaryTerms        pulumi.StringArrayInput
+	LastDeployments      EnvironmentLastDeploymentArrayInput
+	Name                 pulumi.StringPtrInput
+	ProfileIdentifier    pulumi.StringPtrInput
+	ProjectIdentifier    pulumi.StringPtrInput
 	ProviderEnvironment  pulumi.StringPtrInput
 	ProvisionedResources EnvironmentProvisionedResourceArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts EnvironmentTimeoutsPtrInput
-	// The user parameters that are used in the environment.
-	// See User Parameters for more information.
-	// Changing these values recreates the resource.
-	UserParameters EnvironmentUserParameterArrayInput
+	Region               pulumi.StringPtrInput
+	Timeouts             EnvironmentTimeoutsPtrInput
+	UserParameters       EnvironmentUserParameterArrayInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -229,64 +117,34 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// The ID of the Amazon Web Services account where the environment exists
-	AccountIdentifier *string `pulumi:"accountIdentifier"`
-	// The Amazon Web Services region where the environment exists.
-	AccountRegion *string `pulumi:"accountRegion"`
-	// The blueprint with which the environment is created.
-	BlueprintIdentifier *string `pulumi:"blueprintIdentifier"`
-	// The description of the environment.
-	Description *string `pulumi:"description"`
-	// The ID of the domain where the environment exists.
-	DomainIdentifier string `pulumi:"domainIdentifier"`
-	// The business glossary terms that can be used in this environment.
-	GlossaryTerms []string `pulumi:"glossaryTerms"`
-	// The name of the environment.
-	Name *string `pulumi:"name"`
-	// The ID of the profile with which the environment is created.
-	ProfileIdentifier string `pulumi:"profileIdentifier"`
-	// The ID of the project where the environment exists.
-	//
-	// The following arguments are optional:
-	ProjectIdentifier string `pulumi:"projectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string              `pulumi:"region"`
-	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
-	// The user parameters that are used in the environment.
-	// See User Parameters for more information.
-	// Changing these values recreates the resource.
-	UserParameters []EnvironmentUserParameter `pulumi:"userParameters"`
+	AccountIdentifier   *string                    `pulumi:"accountIdentifier"`
+	AccountRegion       *string                    `pulumi:"accountRegion"`
+	BlueprintIdentifier *string                    `pulumi:"blueprintIdentifier"`
+	Description         *string                    `pulumi:"description"`
+	DomainIdentifier    string                     `pulumi:"domainIdentifier"`
+	GlossaryTerms       []string                   `pulumi:"glossaryTerms"`
+	Name                *string                    `pulumi:"name"`
+	ProfileIdentifier   string                     `pulumi:"profileIdentifier"`
+	ProjectIdentifier   string                     `pulumi:"projectIdentifier"`
+	Region              *string                    `pulumi:"region"`
+	Timeouts            *EnvironmentTimeouts       `pulumi:"timeouts"`
+	UserParameters      []EnvironmentUserParameter `pulumi:"userParameters"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// The ID of the Amazon Web Services account where the environment exists
-	AccountIdentifier pulumi.StringPtrInput
-	// The Amazon Web Services region where the environment exists.
-	AccountRegion pulumi.StringPtrInput
-	// The blueprint with which the environment is created.
+	AccountIdentifier   pulumi.StringPtrInput
+	AccountRegion       pulumi.StringPtrInput
 	BlueprintIdentifier pulumi.StringPtrInput
-	// The description of the environment.
-	Description pulumi.StringPtrInput
-	// The ID of the domain where the environment exists.
-	DomainIdentifier pulumi.StringInput
-	// The business glossary terms that can be used in this environment.
-	GlossaryTerms pulumi.StringArrayInput
-	// The name of the environment.
-	Name pulumi.StringPtrInput
-	// The ID of the profile with which the environment is created.
-	ProfileIdentifier pulumi.StringInput
-	// The ID of the project where the environment exists.
-	//
-	// The following arguments are optional:
-	ProjectIdentifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts EnvironmentTimeoutsPtrInput
-	// The user parameters that are used in the environment.
-	// See User Parameters for more information.
-	// Changing these values recreates the resource.
-	UserParameters EnvironmentUserParameterArrayInput
+	Description         pulumi.StringPtrInput
+	DomainIdentifier    pulumi.StringInput
+	GlossaryTerms       pulumi.StringArrayInput
+	Name                pulumi.StringPtrInput
+	ProfileIdentifier   pulumi.StringInput
+	ProjectIdentifier   pulumi.StringInput
+	Region              pulumi.StringPtrInput
+	Timeouts            EnvironmentTimeoutsPtrInput
+	UserParameters      EnvironmentUserParameterArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -376,69 +234,54 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// The ID of the Amazon Web Services account where the environment exists
 func (o EnvironmentOutput) AccountIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.AccountIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services region where the environment exists.
 func (o EnvironmentOutput) AccountRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.AccountRegion }).(pulumi.StringOutput)
 }
 
-// The blueprint with which the environment is created.
 func (o EnvironmentOutput) BlueprintIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.BlueprintIdentifier }).(pulumi.StringOutput)
 }
 
-// The time the environment was created.
 func (o EnvironmentOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The user who created the environment.
 func (o EnvironmentOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The description of the environment.
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the domain where the environment exists.
 func (o EnvironmentOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
-// The business glossary terms that can be used in this environment.
 func (o EnvironmentOutput) GlossaryTerms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.GlossaryTerms }).(pulumi.StringArrayOutput)
 }
 
-// The details of the last deployment of the environment.
 func (o EnvironmentOutput) LastDeployments() EnvironmentLastDeploymentArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentLastDeploymentArrayOutput { return v.LastDeployments }).(EnvironmentLastDeploymentArrayOutput)
 }
 
-// The name of the environment.
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the profile with which the environment is created.
 func (o EnvironmentOutput) ProfileIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ProfileIdentifier }).(pulumi.StringOutput)
 }
 
-// The ID of the project where the environment exists.
-//
-// The following arguments are optional:
 func (o EnvironmentOutput) ProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ProjectIdentifier }).(pulumi.StringOutput)
 }
 
-// The provider of the environment.
 func (o EnvironmentOutput) ProviderEnvironment() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ProviderEnvironment }).(pulumi.StringOutput)
 }
@@ -447,7 +290,6 @@ func (o EnvironmentOutput) ProvisionedResources() EnvironmentProvisionedResource
 	return o.ApplyT(func(v *Environment) EnvironmentProvisionedResourceArrayOutput { return v.ProvisionedResources }).(EnvironmentProvisionedResourceArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -456,9 +298,6 @@ func (o EnvironmentOutput) Timeouts() EnvironmentTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentTimeoutsPtrOutput { return v.Timeouts }).(EnvironmentTimeoutsPtrOutput)
 }
 
-// The user parameters that are used in the environment.
-// See User Parameters for more information.
-// Changing these values recreates the resource.
 func (o EnvironmentOutput) UserParameters() EnvironmentUserParameterArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentUserParameterArrayOutput { return v.UserParameters }).(EnvironmentUserParameterArrayOutput)
 }

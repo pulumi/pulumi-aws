@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataCellsFilterTableDataColumnWildcard {
-    /**
-     * @return (Optional) Excludes column names. Any column with this name will be excluded.
-     * 
-     */
     private @Nullable List<String> excludedColumnNames;
 
     private DataCellsFilterTableDataColumnWildcard() {}
-    /**
-     * @return (Optional) Excludes column names. Any column with this name will be excluded.
-     * 
-     */
     public List<String> excludedColumnNames() {
         return this.excludedColumnNames == null ? List.of() : this.excludedColumnNames;
     }

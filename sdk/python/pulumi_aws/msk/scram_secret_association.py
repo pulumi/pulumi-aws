@@ -24,9 +24,6 @@ class ScramSecretAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScramSecretAssociation resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "secret_arn_lists", secret_arn_lists)
@@ -36,9 +33,6 @@ class ScramSecretAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the MSK cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -48,9 +42,6 @@ class ScramSecretAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="secretArnLists")
     def secret_arn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of AWS Secrets Manager secret ARNs.
-        """
         return pulumi.get(self, "secret_arn_lists")
 
     @secret_arn_lists.setter
@@ -60,9 +51,6 @@ class ScramSecretAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _ScramSecretAssociationState:
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ScramSecretAssociation resources.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
@@ -92,9 +77,6 @@ class _ScramSecretAssociationState:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the MSK cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -104,9 +86,6 @@ class _ScramSecretAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _ScramSecretAssociationState:
     @_builtins.property
     @pulumi.getter(name="secretArnLists")
     def secret_arn_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of AWS Secrets Manager secret ARNs.
-        """
         return pulumi.get(self, "secret_arn_lists")
 
     @secret_arn_lists.setter
@@ -137,76 +113,9 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
-
-        !> This resource takes exclusive ownership over SCRAM secrets associated with a cluster. This includes removal of SCRAM secrets which are not explicitly configured. To prevent persistent drift, ensure any `msk.SingleScramSecretAssociation` resources managed alongside this resource are included in the `secret_arn_list` argument.
-
-        > **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
-
-        To set up username and password authentication for a cluster, create an `secretsmanager.Secret` resource and associate
-        a username and password with the secret with an `secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
-        the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
-        custom AWS KMS key for your secret with the `kms.Key` resource. It is important to note that a policy is required for the `secretsmanager.Secret`
-        resource in order for Kafka to be able to read it. This policy is attached automatically when the `msk.ScramSecretAssociation` is used,
-        however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `secretsmanager.SecretPolicy`
-        resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_cluster = aws.msk.Cluster("example",
-            cluster_name="example",
-            client_authentication={
-                "sasl": {
-                    "scram": True,
-                },
-            })
-        example_key = aws.kms.Key("example", description="Example Key for MSK Cluster Scram Secret Association")
-        example_secret = aws.secretsmanager.Secret("example",
-            name="AmazonMSK_example",
-            kms_key_id=example_key.key_id)
-        example_secret_version = aws.secretsmanager.SecretVersion("example",
-            secret_id=example_secret.id,
-            secret_string=json.dumps({
-                "username": "user",
-                "password": "pass",
-            }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "AWSKafkaResourcePolicy",
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["kafka.amazonaws.com"],
-            }],
-            "actions": ["secretsmanager:getSecretValue"],
-            "resources": [example_secret.arn],
-        }])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
-            secret_arn=example_secret.arn,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-        ```
-
+        Create a ScramSecretAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
         ...
     @overload
@@ -215,71 +124,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  args: ScramSecretAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
-
-        !> This resource takes exclusive ownership over SCRAM secrets associated with a cluster. This includes removal of SCRAM secrets which are not explicitly configured. To prevent persistent drift, ensure any `msk.SingleScramSecretAssociation` resources managed alongside this resource are included in the `secret_arn_list` argument.
-
-        > **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
-
-        To set up username and password authentication for a cluster, create an `secretsmanager.Secret` resource and associate
-        a username and password with the secret with an `secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
-        the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
-        custom AWS KMS key for your secret with the `kms.Key` resource. It is important to note that a policy is required for the `secretsmanager.Secret`
-        resource in order for Kafka to be able to read it. This policy is attached automatically when the `msk.ScramSecretAssociation` is used,
-        however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `secretsmanager.SecretPolicy`
-        resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_cluster = aws.msk.Cluster("example",
-            cluster_name="example",
-            client_authentication={
-                "sasl": {
-                    "scram": True,
-                },
-            })
-        example_key = aws.kms.Key("example", description="Example Key for MSK Cluster Scram Secret Association")
-        example_secret = aws.secretsmanager.Secret("example",
-            name="AmazonMSK_example",
-            kms_key_id=example_key.key_id)
-        example_secret_version = aws.secretsmanager.SecretVersion("example",
-            secret_id=example_secret.id,
-            secret_string=json.dumps({
-                "username": "user",
-                "password": "pass",
-            }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "AWSKafkaResourcePolicy",
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["kafka.amazonaws.com"],
-            }],
-            "actions": ["secretsmanager:getSecretValue"],
-            "resources": [example_secret.arn],
-        }])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("example",
-            secret_arn=example_secret.arn,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-        ```
-
+        Create a ScramSecretAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ScramSecretAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,9 +179,6 @@ class ScramSecretAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,24 +192,15 @@ class ScramSecretAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the MSK cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="secretArnLists")
     def secret_arn_lists(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of AWS Secrets Manager secret ARNs.
-        """
         return pulumi.get(self, "secret_arn_lists")
 

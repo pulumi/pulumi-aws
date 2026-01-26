@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardParametersDateTimeParameter {
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     private String name;
     private List<String> values;
 
     private DashboardParametersDateTimeParameter() {}
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     public String name() {
         return this.name;
     }

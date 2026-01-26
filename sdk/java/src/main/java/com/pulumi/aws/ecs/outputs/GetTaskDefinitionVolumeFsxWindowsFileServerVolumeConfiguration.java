@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
-    /**
-     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-     * 
-     */
     private List<GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig> authorizationConfigs;
-    /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
-     * 
-     */
     private String fileSystemId;
-    /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-     * 
-     */
     private String rootDirectory;
 
     private GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration() {}
-    /**
-     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-     * 
-     */
     public List<GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig> authorizationConfigs() {
         return this.authorizationConfigs;
     }
-    /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-     * 
-     */
     public String rootDirectory() {
         return this.rootDirectory;
     }

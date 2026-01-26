@@ -16,70 +16,30 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
-    /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
-     * 
-     */
     @Import(name="alternateIdentifier")
     private @Nullable GetUserAlternateIdentifier alternateIdentifier;
 
-    /**
-     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
-     * 
-     */
     public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
     }
 
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="identityStoreId", required=true)
     private String identityStoreId;
 
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String identityStoreId() {
         return this.identityStoreId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The identifier for a user in the Identity Store.
-     * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
-     * 
-     */
     @Import(name="userId")
     private @Nullable String userId;
 
-    /**
-     * @return The identifier for a user in the Identity Store.
-     * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
-     * 
-     */
     public Optional<String> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -111,49 +71,21 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateIdentifier(@Nullable GetUserAlternateIdentifier alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(String identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param userId The identifier for a user in the Identity Store.
-         * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(@Nullable String userId) {
             $.userId = userId;
             return this;

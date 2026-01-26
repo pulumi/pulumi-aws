@@ -9,104 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Provides an Amazon Connect User Hierarchy Structure resource. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
-    ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
-    ///         {
-    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
-    ///             {
-    ///                 Name = "levelone",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Five Levels
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
-    ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
-    ///         {
-    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
-    ///             {
-    ///                 Name = "levelone",
-    ///             },
-    ///             LevelTwo = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs
-    ///             {
-    ///                 Name = "leveltwo",
-    ///             },
-    ///             LevelThree = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs
-    ///             {
-    ///                 Name = "levelthree",
-    ///             },
-    ///             LevelFour = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs
-    ///             {
-    ///                 Name = "levelfour",
-    ///             },
-    ///             LevelFive = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs
-    ///             {
-    ///                 Name = "levelfive",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:connect/userHierarchyStructure:UserHierarchyStructure")]
     public partial class UserHierarchyStructure : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `HierarchyStructure` block is documented below.
-        /// </summary>
         [Output("hierarchyStructure")]
         public Output<Outputs.UserHierarchyStructureHierarchyStructure> HierarchyStructure { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -156,21 +67,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class UserHierarchyStructureArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `HierarchyStructure` block is documented below.
-        /// </summary>
         [Input("hierarchyStructure", required: true)]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureArgs> HierarchyStructure { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -182,21 +84,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class UserHierarchyStructureState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `HierarchyStructure` block is documented below.
-        /// </summary>
         [Input("hierarchyStructure")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureGetArgs>? HierarchyStructure { get; set; }
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

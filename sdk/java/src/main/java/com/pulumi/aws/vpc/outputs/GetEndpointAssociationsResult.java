@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEndpointAssociationsResult {
-    /**
-     * @return Associations for the VPC Endpoint. Association blocks are documented below.
-     * 
-     */
     private List<GetEndpointAssociationsAssociation> associations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,10 +22,6 @@ public final class GetEndpointAssociationsResult {
     private String vpcEndpointId;
 
     private GetEndpointAssociationsResult() {}
-    /**
-     * @return Associations for the VPC Endpoint. Association blocks are documented below.
-     * 
-     */
     public List<GetEndpointAssociationsAssociation> associations() {
         return this.associations;
     }

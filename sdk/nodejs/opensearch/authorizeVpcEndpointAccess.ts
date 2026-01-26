@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const test = new aws.opensearch.AuthorizeVpcEndpointAccess("test", {
- *     domainName: testAwsOpensearchDomain.domainName,
- *     account: current.then(current => current.accountId),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
- * ```
- */
 export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
     /**
      * Get an existing AuthorizeVpcEndpointAccess resource's state with the given name, ID, and optional extra
@@ -61,21 +35,9 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthorizeVpcEndpointAccess.__pulumiType;
     }
 
-    /**
-     * AWS account ID to grant access to.
-     */
     declare public readonly account: pulumi.Output<string>;
-    /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-     */
     declare public /*out*/ readonly authorizedPrincipals: pulumi.Output<outputs.opensearch.AuthorizeVpcEndpointAccessAuthorizedPrincipal[]>;
-    /**
-     * Name of OpenSearch Service domain to provide access to.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -117,21 +79,9 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AuthorizeVpcEndpointAccess resources.
  */
 export interface AuthorizeVpcEndpointAccessState {
-    /**
-     * AWS account ID to grant access to.
-     */
     account?: pulumi.Input<string>;
-    /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-     */
     authorizedPrincipals?: pulumi.Input<pulumi.Input<inputs.opensearch.AuthorizeVpcEndpointAccessAuthorizedPrincipal>[]>;
-    /**
-     * Name of OpenSearch Service domain to provide access to.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -139,16 +89,7 @@ export interface AuthorizeVpcEndpointAccessState {
  * The set of arguments for constructing a AuthorizeVpcEndpointAccess resource.
  */
 export interface AuthorizeVpcEndpointAccessArgs {
-    /**
-     * AWS account ID to grant access to.
-     */
     account: pulumi.Input<string>;
-    /**
-     * Name of OpenSearch Service domain to provide access to.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

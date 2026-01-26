@@ -12,24 +12,14 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key of a custom response body to use.
-        /// </summary>
         [Input("customResponseBodyKey")]
         public Input<string>? CustomResponseBodyKey { get; set; }
 
-        /// <summary>
-        /// HTTP response code to return (200-599).
-        /// </summary>
         [Input("responseCode", required: true)]
         public Input<int> ResponseCode { get; set; } = null!;
 
         [Input("responseHeaders")]
         private InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderGetArgs>? _responseHeaders;
-
-        /// <summary>
-        /// Headers to include in the response. See below.
-        /// </summary>
         public InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderGetArgs> ResponseHeaders
         {
             get => _responseHeaders ?? (_responseHeaders = new InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderGetArgs>());

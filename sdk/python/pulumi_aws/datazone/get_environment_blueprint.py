@@ -52,17 +52,11 @@ class GetEnvironmentBlueprintResult:
     @_builtins.property
     @pulumi.getter(name="blueprintProvider")
     def blueprint_provider(self) -> _builtins.str:
-        """
-        Provider of the blueprint
-        """
         return pulumi.get(self, "blueprint_provider")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the blueprint
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -73,9 +67,6 @@ class GetEnvironmentBlueprintResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of the environment blueprint
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -115,29 +106,7 @@ def get_environment_blueprint(domain_id: Optional[_builtins.str] = None,
                               region: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentBlueprintResult:
     """
-    Data source for managing an AWS DataZone Environment Blueprint.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_domain = aws.datazone.Domain("example",
-        name="example_domain",
-        domain_execution_role=domain_execution_role["arn"])
-    example = aws.datazone.get_environment_blueprint_output(domain_id=example_domain.id,
-        name="DefaultDataLake",
-        managed=True)
-    ```
-
-
-    :param _builtins.str domain_id: ID of the domain.
-    :param _builtins.bool managed: Whether the blueprint is managed by Amazon DataZone.
-    :param _builtins.str name: Name of the blueprint.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
@@ -161,29 +130,7 @@ def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[_builtins.
                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentBlueprintResult]:
     """
-    Data source for managing an AWS DataZone Environment Blueprint.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_domain = aws.datazone.Domain("example",
-        name="example_domain",
-        domain_execution_role=domain_execution_role["arn"])
-    example = aws.datazone.get_environment_blueprint_output(domain_id=example_domain.id,
-        name="DefaultDataLake",
-        managed=True)
-    ```
-
-
-    :param _builtins.str domain_id: ID of the domain.
-    :param _builtins.bool managed: Whether the blueprint is managed by Amazon DataZone.
-    :param _builtins.str name: Name of the blueprint.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id

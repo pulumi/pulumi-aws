@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationalUnitDescendantOrganizationalUnitsResult {
-    /**
-     * @return List of child organizational units, which have the following attributes:
-     * 
-     */
     private List<GetOrganizationalUnitDescendantOrganizationalUnitsChildren> childrens;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,10 +21,6 @@ public final class GetOrganizationalUnitDescendantOrganizationalUnitsResult {
     private String parentId;
 
     private GetOrganizationalUnitDescendantOrganizationalUnitsResult() {}
-    /**
-     * @return List of child organizational units, which have the following attributes:
-     * 
-     */
     public List<GetOrganizationalUnitDescendantOrganizationalUnitsChildren> childrens() {
         return this.childrens;
     }

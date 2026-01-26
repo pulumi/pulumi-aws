@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepDialogAction
     {
-        /// <summary>
-        /// If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
-        /// </summary>
         public readonly string? SlotToElicit;
-        /// <summary>
-        /// Whether the next message for the intent is _not_ used.
-        /// </summary>
         public readonly bool? SuppressNextMessage;
-        /// <summary>
-        /// Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

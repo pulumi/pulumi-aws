@@ -9,189 +9,63 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Drs
 {
-    /// <summary>
-    /// Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
-    /// 
-    /// &gt; **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `RetentionDuration` of `RuleId` 3.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Drs.ReplicationConfigurationTemplate("example", new()
-    ///     {
-    ///         AssociateDefaultSecurityGroup = false,
-    ///         BandwidthThrottling = 12,
-    ///         CreatePublicIp = false,
-    ///         DataPlaneRouting = "PRIVATE_IP",
-    ///         DefaultLargeStagingDiskType = "GP2",
-    ///         EbsEncryption = "DEFAULT",
-    ///         EbsEncryptionKeyArn = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-    ///         ReplicationServerInstanceType = "t3.small",
-    ///         ReplicationServersSecurityGroupsIds = exampleAwsSecurityGroup.Select(__item =&gt; __item.Id).ToList(),
-    ///         StagingAreaSubnetId = exampleAwsSubnet.Id,
-    ///         UseDedicatedReplicationServer = false,
-    ///         PitPolicies = new[]
-    ///         {
-    ///             new Aws.Drs.Inputs.ReplicationConfigurationTemplatePitPolicyArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Interval = 10,
-    ///                 RetentionDuration = 60,
-    ///                 Units = "MINUTE",
-    ///                 RuleId = 1,
-    ///             },
-    ///             new Aws.Drs.Inputs.ReplicationConfigurationTemplatePitPolicyArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Interval = 1,
-    ///                 RetentionDuration = 24,
-    ///                 Units = "HOUR",
-    ///                 RuleId = 2,
-    ///             },
-    ///             new Aws.Drs.Inputs.ReplicationConfigurationTemplatePitPolicyArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Interval = 1,
-    ///                 RetentionDuration = 3,
-    ///                 Units = "DAY",
-    ///                 RuleId = 3,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate example templateid
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate")]
     public partial class ReplicationConfigurationTemplate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Replication configuration template ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        /// </summary>
         [Output("associateDefaultSecurityGroup")]
         public Output<bool> AssociateDefaultSecurityGroup { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        /// </summary>
         [Output("autoReplicateNewDisks")]
         public Output<bool> AutoReplicateNewDisks { get; private set; } = null!;
 
-        /// <summary>
-        /// Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        /// </summary>
         [Output("bandwidthThrottling")]
         public Output<int> BandwidthThrottling { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to create a Public IP for the Recovery Instance by default.
-        /// </summary>
         [Output("createPublicIp")]
         public Output<bool> CreatePublicIp { get; private set; } = null!;
 
-        /// <summary>
-        /// Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        /// </summary>
         [Output("dataPlaneRouting")]
         public Output<string> DataPlaneRouting { get; private set; } = null!;
 
-        /// <summary>
-        /// Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        /// </summary>
         [Output("defaultLargeStagingDiskType")]
         public Output<string> DefaultLargeStagingDiskType { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        /// </summary>
         [Output("ebsEncryption")]
         public Output<string> EbsEncryption { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the EBS encryption key to be used during replication.
-        /// </summary>
         [Output("ebsEncryptionKeyArn")]
         public Output<string?> EbsEncryptionKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        /// </summary>
         [Output("pitPolicies")]
         public Output<ImmutableArray<Outputs.ReplicationConfigurationTemplatePitPolicy>> PitPolicies { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Instance type to be used for the replication server.
-        /// </summary>
         [Output("replicationServerInstanceType")]
         public Output<string> ReplicationServerInstanceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Security group IDs that will be used by the replication server.
-        /// </summary>
         [Output("replicationServersSecurityGroupsIds")]
         public Output<ImmutableArray<string>> ReplicationServersSecurityGroupsIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Subnet to be used by the replication staging area.
-        /// </summary>
         [Output("stagingAreaSubnetId")]
         public Output<string> StagingAreaSubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        /// </summary>
         [Output("stagingAreaTags")]
         public Output<ImmutableDictionary<string, string>> StagingAreaTags { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of tags to be associated with the Replication Configuration Template resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.ReplicationConfigurationTemplateTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to use a dedicated Replication Server in the replication staging area.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("useDedicatedReplicationServer")]
         public Output<bool> UseDedicatedReplicationServer { get; private set; } = null!;
 
@@ -241,102 +115,57 @@ namespace Pulumi.Aws.Drs
 
     public sealed class ReplicationConfigurationTemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        /// </summary>
         [Input("associateDefaultSecurityGroup", required: true)]
         public Input<bool> AssociateDefaultSecurityGroup { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        /// </summary>
         [Input("autoReplicateNewDisks")]
         public Input<bool>? AutoReplicateNewDisks { get; set; }
 
-        /// <summary>
-        /// Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        /// </summary>
         [Input("bandwidthThrottling", required: true)]
         public Input<int> BandwidthThrottling { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to create a Public IP for the Recovery Instance by default.
-        /// </summary>
         [Input("createPublicIp", required: true)]
         public Input<bool> CreatePublicIp { get; set; } = null!;
 
-        /// <summary>
-        /// Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        /// </summary>
         [Input("dataPlaneRouting", required: true)]
         public Input<string> DataPlaneRouting { get; set; } = null!;
 
-        /// <summary>
-        /// Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        /// </summary>
         [Input("defaultLargeStagingDiskType", required: true)]
         public Input<string> DefaultLargeStagingDiskType { get; set; } = null!;
 
-        /// <summary>
-        /// Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        /// </summary>
         [Input("ebsEncryption", required: true)]
         public Input<string> EbsEncryption { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the EBS encryption key to be used during replication.
-        /// </summary>
         [Input("ebsEncryptionKeyArn")]
         public Input<string>? EbsEncryptionKeyArn { get; set; }
 
         [Input("pitPolicies")]
         private InputList<Inputs.ReplicationConfigurationTemplatePitPolicyArgs>? _pitPolicies;
-
-        /// <summary>
-        /// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        /// </summary>
         public InputList<Inputs.ReplicationConfigurationTemplatePitPolicyArgs> PitPolicies
         {
             get => _pitPolicies ?? (_pitPolicies = new InputList<Inputs.ReplicationConfigurationTemplatePitPolicyArgs>());
             set => _pitPolicies = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Instance type to be used for the replication server.
-        /// </summary>
         [Input("replicationServerInstanceType", required: true)]
         public Input<string> ReplicationServerInstanceType { get; set; } = null!;
 
         [Input("replicationServersSecurityGroupsIds", required: true)]
         private InputList<string>? _replicationServersSecurityGroupsIds;
-
-        /// <summary>
-        /// Security group IDs that will be used by the replication server.
-        /// </summary>
         public InputList<string> ReplicationServersSecurityGroupsIds
         {
             get => _replicationServersSecurityGroupsIds ?? (_replicationServersSecurityGroupsIds = new InputList<string>());
             set => _replicationServersSecurityGroupsIds = value;
         }
 
-        /// <summary>
-        /// Subnet to be used by the replication staging area.
-        /// </summary>
         [Input("stagingAreaSubnetId", required: true)]
         public Input<string> StagingAreaSubnetId { get; set; } = null!;
 
         [Input("stagingAreaTags", required: true)]
         private InputMap<string>? _stagingAreaTags;
-
-        /// <summary>
-        /// Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        /// </summary>
         public InputMap<string> StagingAreaTags
         {
             get => _stagingAreaTags ?? (_stagingAreaTags = new InputMap<string>());
@@ -345,10 +174,6 @@ namespace Pulumi.Aws.Drs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Set of tags to be associated with the Replication Configuration Template resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -358,11 +183,6 @@ namespace Pulumi.Aws.Drs
         [Input("timeouts")]
         public Input<Inputs.ReplicationConfigurationTemplateTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Whether to use a dedicated Replication Server in the replication staging area.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("useDedicatedReplicationServer", required: true)]
         public Input<bool> UseDedicatedReplicationServer { get; set; } = null!;
 
@@ -374,108 +194,60 @@ namespace Pulumi.Aws.Drs
 
     public sealed class ReplicationConfigurationTemplateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Replication configuration template ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        /// </summary>
         [Input("associateDefaultSecurityGroup")]
         public Input<bool>? AssociateDefaultSecurityGroup { get; set; }
 
-        /// <summary>
-        /// Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        /// </summary>
         [Input("autoReplicateNewDisks")]
         public Input<bool>? AutoReplicateNewDisks { get; set; }
 
-        /// <summary>
-        /// Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        /// </summary>
         [Input("bandwidthThrottling")]
         public Input<int>? BandwidthThrottling { get; set; }
 
-        /// <summary>
-        /// Whether to create a Public IP for the Recovery Instance by default.
-        /// </summary>
         [Input("createPublicIp")]
         public Input<bool>? CreatePublicIp { get; set; }
 
-        /// <summary>
-        /// Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        /// </summary>
         [Input("dataPlaneRouting")]
         public Input<string>? DataPlaneRouting { get; set; }
 
-        /// <summary>
-        /// Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        /// </summary>
         [Input("defaultLargeStagingDiskType")]
         public Input<string>? DefaultLargeStagingDiskType { get; set; }
 
-        /// <summary>
-        /// Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        /// </summary>
         [Input("ebsEncryption")]
         public Input<string>? EbsEncryption { get; set; }
 
-        /// <summary>
-        /// ARN of the EBS encryption key to be used during replication.
-        /// </summary>
         [Input("ebsEncryptionKeyArn")]
         public Input<string>? EbsEncryptionKeyArn { get; set; }
 
         [Input("pitPolicies")]
         private InputList<Inputs.ReplicationConfigurationTemplatePitPolicyGetArgs>? _pitPolicies;
-
-        /// <summary>
-        /// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        /// </summary>
         public InputList<Inputs.ReplicationConfigurationTemplatePitPolicyGetArgs> PitPolicies
         {
             get => _pitPolicies ?? (_pitPolicies = new InputList<Inputs.ReplicationConfigurationTemplatePitPolicyGetArgs>());
             set => _pitPolicies = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Instance type to be used for the replication server.
-        /// </summary>
         [Input("replicationServerInstanceType")]
         public Input<string>? ReplicationServerInstanceType { get; set; }
 
         [Input("replicationServersSecurityGroupsIds")]
         private InputList<string>? _replicationServersSecurityGroupsIds;
-
-        /// <summary>
-        /// Security group IDs that will be used by the replication server.
-        /// </summary>
         public InputList<string> ReplicationServersSecurityGroupsIds
         {
             get => _replicationServersSecurityGroupsIds ?? (_replicationServersSecurityGroupsIds = new InputList<string>());
             set => _replicationServersSecurityGroupsIds = value;
         }
 
-        /// <summary>
-        /// Subnet to be used by the replication staging area.
-        /// </summary>
         [Input("stagingAreaSubnetId")]
         public Input<string>? StagingAreaSubnetId { get; set; }
 
         [Input("stagingAreaTags")]
         private InputMap<string>? _stagingAreaTags;
-
-        /// <summary>
-        /// Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        /// </summary>
         public InputMap<string> StagingAreaTags
         {
             get => _stagingAreaTags ?? (_stagingAreaTags = new InputMap<string>());
@@ -484,10 +256,6 @@ namespace Pulumi.Aws.Drs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Set of tags to be associated with the Replication Configuration Template resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -496,10 +264,6 @@ namespace Pulumi.Aws.Drs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -509,11 +273,6 @@ namespace Pulumi.Aws.Drs
         [Input("timeouts")]
         public Input<Inputs.ReplicationConfigurationTemplateTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Whether to use a dedicated Replication Server in the replication staging area.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("useDedicatedReplicationServer")]
         public Input<bool>? UseDedicatedReplicationServer { get; set; }
 

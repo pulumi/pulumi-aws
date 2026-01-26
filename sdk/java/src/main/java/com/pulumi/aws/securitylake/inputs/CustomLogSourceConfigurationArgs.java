@@ -16,32 +16,16 @@ public final class CustomLogSourceConfigurationArgs extends com.pulumi.resources
 
     public static final CustomLogSourceConfigurationArgs Empty = new CustomLogSourceConfigurationArgs();
 
-    /**
-     * The configuration for the Glue Crawler for the third-party custom source.
-     * 
-     */
     @Import(name="crawlerConfiguration")
     private @Nullable Output<CustomLogSourceConfigurationCrawlerConfigurationArgs> crawlerConfiguration;
 
-    /**
-     * @return The configuration for the Glue Crawler for the third-party custom source.
-     * 
-     */
     public Optional<Output<CustomLogSourceConfigurationCrawlerConfigurationArgs>> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
 
-    /**
-     * The identity of the log provider for the third-party custom source.
-     * 
-     */
     @Import(name="providerIdentity")
     private @Nullable Output<CustomLogSourceConfigurationProviderIdentityArgs> providerIdentity;
 
-    /**
-     * @return The identity of the log provider for the third-party custom source.
-     * 
-     */
     public Optional<Output<CustomLogSourceConfigurationProviderIdentityArgs>> providerIdentity() {
         return Optional.ofNullable(this.providerIdentity);
     }
@@ -71,44 +55,20 @@ public final class CustomLogSourceConfigurationArgs extends com.pulumi.resources
             $ = new CustomLogSourceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param crawlerConfiguration The configuration for the Glue Crawler for the third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerConfiguration(@Nullable Output<CustomLogSourceConfigurationCrawlerConfigurationArgs> crawlerConfiguration) {
             $.crawlerConfiguration = crawlerConfiguration;
             return this;
         }
 
-        /**
-         * @param crawlerConfiguration The configuration for the Glue Crawler for the third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfigurationArgs crawlerConfiguration) {
             return crawlerConfiguration(Output.of(crawlerConfiguration));
         }
 
-        /**
-         * @param providerIdentity The identity of the log provider for the third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerIdentity(@Nullable Output<CustomLogSourceConfigurationProviderIdentityArgs> providerIdentity) {
             $.providerIdentity = providerIdentity;
             return this;
         }
 
-        /**
-         * @param providerIdentity The identity of the log provider for the third-party custom source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerIdentity(CustomLogSourceConfigurationProviderIdentityArgs providerIdentity) {
             return providerIdentity(Output.of(providerIdentity));
         }

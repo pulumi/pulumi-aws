@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionProxyConfigurationResult
     {
-        /// <summary>
-        /// Name of the container that will serve as the App Mesh proxy.
-        /// </summary>
         public readonly string ContainerName;
-        /// <summary>
-        /// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Properties;
-        /// <summary>
-        /// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -30,10 +30,6 @@ class QuerySuggestionsBlockListArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a QuerySuggestionsBlockList resource.
-        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
-        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
-        :param pulumi.Input[_builtins.str] name: Name for the block list.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -50,9 +46,6 @@ class QuerySuggestionsBlockListArgs:
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the index for a block list.
-        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -62,9 +55,6 @@ class QuerySuggestionsBlockListArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        IAM (Identity and Access Management) role used to access the block list text file in S3.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -74,9 +64,6 @@ class QuerySuggestionsBlockListArgs:
     @_builtins.property
     @pulumi.getter(name="sourceS3Path")
     def source_s3_path(self) -> pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs']:
-        """
-        S3 path where your block list text file is located. See details below.
-        """
         return pulumi.get(self, "source_s3_path")
 
     @source_s3_path.setter
@@ -95,9 +82,6 @@ class QuerySuggestionsBlockListArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the block list.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -139,13 +123,6 @@ class _QuerySuggestionsBlockListState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering QuerySuggestionsBlockList resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the block list.
-        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
-        :param pulumi.Input[_builtins.str] name: Name for the block list.
-        :param pulumi.Input[_builtins.str] query_suggestions_block_list_id: Unique identifier of the block list.
-        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -173,9 +150,6 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the block list.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -194,9 +168,6 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the index for a block list.
-        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -206,9 +177,6 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the block list.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -218,9 +186,6 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter(name="querySuggestionsBlockListId")
     def query_suggestions_block_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the block list.
-        """
         return pulumi.get(self, "query_suggestions_block_list_id")
 
     @query_suggestions_block_list_id.setter
@@ -239,9 +204,6 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM (Identity and Access Management) role used to access the block list text file in S3.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -251,9 +213,6 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter(name="sourceS3Path")
     def source_s3_path(self) -> Optional[pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs']]:
-        """
-        S3 path where your block list text file is located. See details below.
-        """
         return pulumi.get(self, "source_s3_path")
 
     @source_s3_path.setter
@@ -281,9 +240,6 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -306,43 +262,9 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.QuerySuggestionsBlockList("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
-            source_s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": "example/suggestions.txt",
-            },
-            tags={
-                "Name": "Example Kendra Index",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
-        ```
-
+        Create a QuerySuggestionsBlockList resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
-        :param pulumi.Input[_builtins.str] name: Name for the block list.
-        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
         """
         ...
     @overload
@@ -351,37 +273,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  args: QuerySuggestionsBlockListArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.QuerySuggestionsBlockList("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
-            source_s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": "example/suggestions.txt",
-            },
-            tags={
-                "Name": "Example Kendra Index",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
-        ```
-
+        Create a QuerySuggestionsBlockList resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param QuerySuggestionsBlockListArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -458,13 +350,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the block list.
-        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
-        :param pulumi.Input[_builtins.str] name: Name for the block list.
-        :param pulumi.Input[_builtins.str] query_suggestions_block_list_id: Unique identifier of the block list.
-        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -486,9 +371,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the block list.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -499,25 +381,16 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the index for a block list.
-        """
         return pulumi.get(self, "index_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for the block list.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="querySuggestionsBlockListId")
     def query_suggestions_block_list_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the block list.
-        """
         return pulumi.get(self, "query_suggestions_block_list_id")
 
     @_builtins.property
@@ -528,17 +401,11 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        IAM (Identity and Access Management) role used to access the block list text file in S3.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="sourceS3Path")
     def source_s3_path(self) -> pulumi.Output['outputs.QuerySuggestionsBlockListSourceS3Path']:
-        """
-        S3 path where your block list text file is located. See details below.
-        """
         return pulumi.get(self, "source_s3_path")
 
     @_builtins.property
@@ -554,8 +421,5 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

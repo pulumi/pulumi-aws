@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARN of a topic in AWS Simple Notification
-// Service (SNS). By using this data source, you can reference SNS topics
-// without having to hard code the ARNs as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.LookupTopic(ctx, &sns.LookupTopicArgs{
-//				Name: "an_example_topic",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicResult
@@ -52,24 +23,19 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTopic.
 type LookupTopicArgs struct {
-	// Friendly name of the topic to match.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getTopic.
 type LookupTopicResult struct {
-	// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id     string            `pulumi:"id"`
+	Name   string            `pulumi:"name"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
@@ -83,12 +49,9 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 
 // A collection of arguments for invoking getTopic.
 type LookupTopicOutputArgs struct {
-	// Friendly name of the topic to match.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {
@@ -110,7 +73,6 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 func (o LookupTopicResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -128,7 +90,6 @@ func (o LookupTopicResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags for the resource.
 func (o LookupTopicResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupTopicResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

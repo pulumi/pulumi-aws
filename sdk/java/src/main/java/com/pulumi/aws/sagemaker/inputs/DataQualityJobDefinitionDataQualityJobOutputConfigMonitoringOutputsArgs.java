@@ -14,17 +14,9 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
 
     public static final DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs Empty = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs();
 
-    /**
-     * The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-     * 
-     */
     @Import(name="s3Output", required=true)
     private Output<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs> s3Output;
 
-    /**
-     * @return The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-     * 
-     */
     public Output<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs> s3Output() {
         return this.s3Output;
     }
@@ -53,23 +45,11 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
             $ = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Output The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Output(Output<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs> s3Output) {
             $.s3Output = s3Output;
             return this;
         }
 
-        /**
-         * @param s3Output The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Output(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs s3Output) {
             return s3Output(Output.of(s3Output));
         }

@@ -14,69 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLoadBalancer {
-    /**
-     * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-     * 
-     */
     private @Nullable ServiceLoadBalancerAdvancedConfiguration advancedConfiguration;
-    /**
-     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     private String containerName;
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     private Integer containerPort;
-    /**
-     * @return Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     private @Nullable String elbName;
-    /**
-     * @return ARN of the Load Balancer target group to associate with the service.
-     * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-     * 
-     */
     private @Nullable String targetGroupArn;
 
     private ServiceLoadBalancer() {}
-    /**
-     * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-     * 
-     */
     public Optional<ServiceLoadBalancerAdvancedConfiguration> advancedConfiguration() {
         return Optional.ofNullable(this.advancedConfiguration);
     }
-    /**
-     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     public String containerName() {
         return this.containerName;
     }
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     public Integer containerPort() {
         return this.containerPort;
     }
-    /**
-     * @return Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     public Optional<String> elbName() {
         return Optional.ofNullable(this.elbName);
     }
-    /**
-     * @return ARN of the Load Balancer target group to associate with the service.
-     * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-     * 
-     */
     public Optional<String> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }

@@ -12,56 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS RDS (Relational Database) RDS Instance State.
-//
-// > Destruction of this resource is a no-op and **will not** modify the instance state
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewInstanceDesiredState(ctx, "test", &rds.InstanceDesiredStateArgs{
-//				Identifier: pulumi.Any(testAwsDbInstance.Identifier),
-//				State:      pulumi.String("available"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
-// ```
 type InstanceDesiredState struct {
 	pulumi.CustomResourceState
 
-	// DB Instance Identifier
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
-	State    pulumi.StringOutput                   `pulumi:"state"`
-	Timeouts InstanceDesiredStateTimeoutsPtrOutput `pulumi:"timeouts"`
+	Identifier pulumi.StringOutput                   `pulumi:"identifier"`
+	Region     pulumi.StringOutput                   `pulumi:"region"`
+	State      pulumi.StringOutput                   `pulumi:"state"`
+	Timeouts   InstanceDesiredStateTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewInstanceDesiredState registers a new resource with the given unique name, arguments, and options.
@@ -100,23 +57,17 @@ func GetInstanceDesiredState(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceDesiredState resources.
 type instanceDesiredStateState struct {
-	// DB Instance Identifier
-	Identifier *string `pulumi:"identifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
-	State    *string                       `pulumi:"state"`
-	Timeouts *InstanceDesiredStateTimeouts `pulumi:"timeouts"`
+	Identifier *string                       `pulumi:"identifier"`
+	Region     *string                       `pulumi:"region"`
+	State      *string                       `pulumi:"state"`
+	Timeouts   *InstanceDesiredStateTimeouts `pulumi:"timeouts"`
 }
 
 type InstanceDesiredStateState struct {
-	// DB Instance Identifier
 	Identifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
-	State    pulumi.StringPtrInput
-	Timeouts InstanceDesiredStateTimeoutsPtrInput
+	Region     pulumi.StringPtrInput
+	State      pulumi.StringPtrInput
+	Timeouts   InstanceDesiredStateTimeoutsPtrInput
 }
 
 func (InstanceDesiredStateState) ElementType() reflect.Type {
@@ -124,24 +75,18 @@ func (InstanceDesiredStateState) ElementType() reflect.Type {
 }
 
 type instanceDesiredStateArgs struct {
-	// DB Instance Identifier
-	Identifier string `pulumi:"identifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
-	State    string                        `pulumi:"state"`
-	Timeouts *InstanceDesiredStateTimeouts `pulumi:"timeouts"`
+	Identifier string                        `pulumi:"identifier"`
+	Region     *string                       `pulumi:"region"`
+	State      string                        `pulumi:"state"`
+	Timeouts   *InstanceDesiredStateTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a InstanceDesiredState resource.
 type InstanceDesiredStateArgs struct {
-	// DB Instance Identifier
 	Identifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
-	State    pulumi.StringInput
-	Timeouts InstanceDesiredStateTimeoutsPtrInput
+	Region     pulumi.StringPtrInput
+	State      pulumi.StringInput
+	Timeouts   InstanceDesiredStateTimeoutsPtrInput
 }
 
 func (InstanceDesiredStateArgs) ElementType() reflect.Type {
@@ -231,17 +176,14 @@ func (o InstanceDesiredStateOutput) ToInstanceDesiredStateOutputWithContext(ctx 
 	return o
 }
 
-// DB Instance Identifier
 func (o InstanceDesiredStateOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceDesiredState) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceDesiredStateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceDesiredState) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configured state of the DB Instance. Valid values are `available` and `stopped`.
 func (o InstanceDesiredStateOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceDesiredState) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalyticsApplicationInputsProcessingConfiguration {
-    /**
-     * @return The Lambda function configuration. See Lambda below for more details.
-     * 
-     */
     private AnalyticsApplicationInputsProcessingConfigurationLambda lambda;
 
     private AnalyticsApplicationInputsProcessingConfiguration() {}
-    /**
-     * @return The Lambda function configuration. See Lambda below for more details.
-     * 
-     */
     public AnalyticsApplicationInputsProcessingConfigurationLambda lambda() {
         return this.lambda;
     }

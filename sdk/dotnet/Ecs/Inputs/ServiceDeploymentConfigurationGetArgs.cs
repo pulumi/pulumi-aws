@@ -12,39 +12,23 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceDeploymentConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-        /// </summary>
         [Input("bakeTimeInMinutes")]
         public Input<string>? BakeTimeInMinutes { get; set; }
 
-        /// <summary>
-        /// Configuration block for canary deployment strategy. Required when `Strategy` is set to `CANARY`. See below.
-        /// </summary>
         [Input("canaryConfiguration")]
         public Input<Inputs.ServiceDeploymentConfigurationCanaryConfigurationGetArgs>? CanaryConfiguration { get; set; }
 
         [Input("lifecycleHooks")]
         private InputList<Inputs.ServiceDeploymentConfigurationLifecycleHookGetArgs>? _lifecycleHooks;
-
-        /// <summary>
-        /// Configuration block for lifecycle hooks that are invoked during deployments. See below.
-        /// </summary>
         public InputList<Inputs.ServiceDeploymentConfigurationLifecycleHookGetArgs> LifecycleHooks
         {
             get => _lifecycleHooks ?? (_lifecycleHooks = new InputList<Inputs.ServiceDeploymentConfigurationLifecycleHookGetArgs>());
             set => _lifecycleHooks = value;
         }
 
-        /// <summary>
-        /// Configuration block for linear deployment strategy. Required when `Strategy` is set to `LINEAR`. See below.
-        /// </summary>
         [Input("linearConfiguration")]
         public Input<Inputs.ServiceDeploymentConfigurationLinearConfigurationGetArgs>? LinearConfiguration { get; set; }
 
-        /// <summary>
-        /// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-        /// </summary>
         [Input("strategy")]
         public Input<string>? Strategy { get; set; }
 

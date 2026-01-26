@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TrustAnchorSource {
-    /**
-     * @return The data denoting the source of trust, documented below
-     * 
-     */
     private TrustAnchorSourceSourceData sourceData;
-    /**
-     * @return The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-     * 
-     */
     private String sourceType;
 
     private TrustAnchorSource() {}
-    /**
-     * @return The data denoting the source of trust, documented below
-     * 
-     */
     public TrustAnchorSourceSourceData sourceData() {
         return this.sourceData;
     }
-    /**
-     * @return The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-     * 
-     */
     public String sourceType() {
         return this.sourceType;
     }

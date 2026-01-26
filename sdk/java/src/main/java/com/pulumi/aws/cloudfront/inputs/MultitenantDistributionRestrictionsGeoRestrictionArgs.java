@@ -17,32 +17,16 @@ public final class MultitenantDistributionRestrictionsGeoRestrictionArgs extends
 
     public static final MultitenantDistributionRestrictionsGeoRestrictionArgs Empty = new MultitenantDistributionRestrictionsGeoRestrictionArgs();
 
-    /**
-     * List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     @Import(name="items")
     private @Nullable Output<List<String>> items;
 
-    /**
-     * @return List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     public Optional<Output<List<String>>> items() {
         return Optional.ofNullable(this.items);
     }
 
-    /**
-     * Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-     * 
-     */
     @Import(name="restrictionType", required=true)
     private Output<String> restrictionType;
 
-    /**
-     * @return Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-     * 
-     */
     public Output<String> restrictionType() {
         return this.restrictionType;
     }
@@ -72,54 +56,24 @@ public final class MultitenantDistributionRestrictionsGeoRestrictionArgs extends
             $ = new MultitenantDistributionRestrictionsGeoRestrictionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param items List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(@Nullable Output<List<String>> items) {
             $.items = items;
             return this;
         }
 
-        /**
-         * @param items List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(List<String> items) {
             return items(Output.of(items));
         }
 
-        /**
-         * @param items List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(String... items) {
             return items(List.of(items));
         }
 
-        /**
-         * @param restrictionType Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictionType(Output<String> restrictionType) {
             $.restrictionType = restrictionType;
             return this;
         }
 
-        /**
-         * @param restrictionType Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictionType(String restrictionType) {
             return restrictionType(Output.of(restrictionType));
         }

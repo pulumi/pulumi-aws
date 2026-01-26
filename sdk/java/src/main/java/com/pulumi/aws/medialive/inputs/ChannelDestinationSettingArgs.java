@@ -15,62 +15,30 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
 
     public static final ChannelDestinationSettingArgs Empty = new ChannelDestinationSettingArgs();
 
-    /**
-     * Key used to extract the password from EC2 Parameter store.
-     * 
-     */
     @Import(name="passwordParam")
     private @Nullable Output<String> passwordParam;
 
-    /**
-     * @return Key used to extract the password from EC2 Parameter store.
-     * 
-     */
     public Optional<Output<String>> passwordParam() {
         return Optional.ofNullable(this.passwordParam);
     }
 
-    /**
-     * Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
-    /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     public Optional<Output<String>> streamName() {
         return Optional.ofNullable(this.streamName);
     }
 
-    /**
-     * A URL specifying a destination.
-     * 
-     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
-    /**
-     * @return A URL specifying a destination.
-     * 
-     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
 
-    /**
-     * Username for destination.
-     * 
-     */
     @Import(name="username")
     private @Nullable Output<String> username;
 
-    /**
-     * @return Username for destination.
-     * 
-     */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -102,86 +70,38 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
             $ = new ChannelDestinationSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passwordParam Key used to extract the password from EC2 Parameter store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordParam(@Nullable Output<String> passwordParam) {
             $.passwordParam = passwordParam;
             return this;
         }
 
-        /**
-         * @param passwordParam Key used to extract the password from EC2 Parameter store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordParam(String passwordParam) {
             return passwordParam(Output.of(passwordParam));
         }
 
-        /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(@Nullable Output<String> streamName) {
             $.streamName = streamName;
             return this;
         }
 
-        /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(String streamName) {
             return streamName(Output.of(streamName));
         }
 
-        /**
-         * @param url A URL specifying a destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url A URL specifying a destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }
 
-        /**
-         * @param username Username for destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username Username for destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

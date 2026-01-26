@@ -9,102 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Athena
 {
-    /// <summary>
-    /// Provides an Athena database.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    ///     var exampleDatabase = new Aws.Athena.Database("example", new()
-    ///     {
-    ///         Name = "database_name",
-    ///         Bucket = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Athena Databases using their name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:athena/database:Database example example
-    /// ```
-    /// Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
-    /// </summary>
     [AwsResourceType("aws:athena/database:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        /// </summary>
         [Output("aclConfiguration")]
         public Output<Outputs.DatabaseAclConfiguration?> AclConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of S3 bucket to save the results of the query execution.
-        /// </summary>
         [Output("bucket")]
         public Output<string?> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the database.
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.DatabaseEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the database to create.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of custom metadata properties for the database definition.
-        /// </summary>
         [Output("properties")]
         public Output<ImmutableDictionary<string, string>?> Properties { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Output("workgroup")]
         public Output<string?> Workgroup { get; private set; } = null!;
 
@@ -154,69 +88,38 @@ namespace Pulumi.Aws.Athena
 
     public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.DatabaseAclConfigurationArgs>? AclConfiguration { get; set; }
 
-        /// <summary>
-        /// Name of S3 bucket to save the results of the query execution.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Description of the database.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DatabaseEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// Name of the database to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
-
-        /// <summary>
-        /// Key-value map of custom metadata properties for the database definition.
-        /// </summary>
         public InputMap<string> Properties
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
 
@@ -228,69 +131,38 @@ namespace Pulumi.Aws.Athena
 
     public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.DatabaseAclConfigurationGetArgs>? AclConfiguration { get; set; }
 
-        /// <summary>
-        /// Name of S3 bucket to save the results of the query execution.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Description of the database.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DatabaseEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// Name of the database to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
-
-        /// <summary>
-        /// Key-value map of custom metadata properties for the database definition.
-        /// </summary>
         public InputMap<string> Properties
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
 

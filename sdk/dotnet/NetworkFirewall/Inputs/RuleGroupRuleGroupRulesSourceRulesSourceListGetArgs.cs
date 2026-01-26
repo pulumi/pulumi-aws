@@ -12,18 +12,11 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class RuleGroupRuleGroupRulesSourceRulesSourceListGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-        /// </summary>
         [Input("generatedRulesType", required: true)]
         public Input<string> GeneratedRulesType { get; set; } = null!;
 
         [Input("targetTypes", required: true)]
         private InputList<string>? _targetTypes;
-
-        /// <summary>
-        /// Set of types of domain specifications that are provided in the `Targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-        /// </summary>
         public InputList<string> TargetTypes
         {
             get => _targetTypes ?? (_targetTypes = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("targets", required: true)]
         private InputList<string>? _targets;
-
-        /// <summary>
-        /// Set of domains that you want to inspect for in your traffic flows.
-        /// </summary>
         public InputList<string> Targets
         {
             get => _targets ?? (_targets = new InputList<string>());

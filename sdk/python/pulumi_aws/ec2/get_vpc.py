@@ -87,17 +87,11 @@ class GetVpcResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of VPC
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> _builtins.str:
-        """
-        CIDR block for the association.
-        """
         return pulumi.get(self, "cidr_block")
 
     @_builtins.property
@@ -118,25 +112,16 @@ class GetVpcResult:
     @_builtins.property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> _builtins.bool:
-        """
-        Whether or not the VPC has DNS hostname support
-        """
         return pulumi.get(self, "enable_dns_hostnames")
 
     @_builtins.property
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> _builtins.bool:
-        """
-        Whether or not the VPC has DNS support
-        """
         return pulumi.get(self, "enable_dns_support")
 
     @_builtins.property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
     def enable_network_address_usage_metrics(self) -> _builtins.bool:
-        """
-        Whether Network Address Usage metrics are enabled for your VPC
-        """
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @_builtins.property
@@ -152,42 +137,26 @@ class GetVpcResult:
     @_builtins.property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> _builtins.str:
-        """
-        Allowed tenancy of instances launched into the
-        selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
-        """
         return pulumi.get(self, "instance_tenancy")
 
     @_builtins.property
     @pulumi.getter(name="ipv6AssociationId")
     def ipv6_association_id(self) -> _builtins.str:
-        """
-        Association ID for the IPv6 CIDR block.
-        """
         return pulumi.get(self, "ipv6_association_id")
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> _builtins.str:
-        """
-        IPv6 CIDR block.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="mainRouteTableId")
     def main_route_table_id(self) -> _builtins.str:
-        """
-        ID of the main route table associated with this VPC.
-        """
         return pulumi.get(self, "main_route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the VPC.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -198,9 +167,6 @@ class GetVpcResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        State of the association.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
@@ -245,49 +211,7 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
             tags: Optional[Mapping[str, _builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcResult:
     """
-    `ec2.Vpc` provides details about a specific VPC.
-
-    This resource can prove useful when a module accepts a vpc id as
-    an input variable and needs to, for example, determine the CIDR block of that
-    VPC.
-
-    ## Example Usage
-
-    The following example shows how one might accept a VPC id as a variable
-    and use this data source to obtain the data necessary to create a subnet
-    within it.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    config = pulumi.Config()
-    vpc_id = config.require_object("vpcId")
-    selected = aws.ec2.get_vpc(id=vpc_id)
-    example = aws.ec2.Subnet("example",
-        vpc_id=selected.id,
-        availability_zone="us-west-2a",
-        cidr_block=std.cidrsubnet(input=selected.cidr_block,
-            newbits=4,
-            netnum=1).result)
-    ```
-
-
-    :param _builtins.str cidr_block: Cidr block of the desired VPC.
-    :param _builtins.bool default: Boolean constraint on whether the desired VPC is
-           the default VPC for the region.
-    :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPC to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Current state of the desired VPC.
-           Can be either `"pending"` or `"available"`.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPC.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block
@@ -330,49 +254,7 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[_builtins.str]]] =
                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcResult]:
     """
-    `ec2.Vpc` provides details about a specific VPC.
-
-    This resource can prove useful when a module accepts a vpc id as
-    an input variable and needs to, for example, determine the CIDR block of that
-    VPC.
-
-    ## Example Usage
-
-    The following example shows how one might accept a VPC id as a variable
-    and use this data source to obtain the data necessary to create a subnet
-    within it.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    config = pulumi.Config()
-    vpc_id = config.require_object("vpcId")
-    selected = aws.ec2.get_vpc(id=vpc_id)
-    example = aws.ec2.Subnet("example",
-        vpc_id=selected.id,
-        availability_zone="us-west-2a",
-        cidr_block=std.cidrsubnet(input=selected.cidr_block,
-            newbits=4,
-            netnum=1).result)
-    ```
-
-
-    :param _builtins.str cidr_block: Cidr block of the desired VPC.
-    :param _builtins.bool default: Boolean constraint on whether the desired VPC is
-           the default VPC for the region.
-    :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPC to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Current state of the desired VPC.
-           Can be either `"pending"` or `"available"`.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPC.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ConnectionFunctionConnectionFunctionConfig
     {
-        /// <summary>
-        /// Comment to describe the function.
-        /// </summary>
         public readonly string Comment;
-        /// <summary>
-        /// Key value store associations. See `KeyValueStoreAssociation` below.
-        /// </summary>
         public readonly Outputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation? KeyValueStoreAssociation;
-        /// <summary>
-        /// Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-        /// </summary>
         public readonly string Runtime;
 
         [OutputConstructor]

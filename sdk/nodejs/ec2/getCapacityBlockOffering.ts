@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about a single EC2 Capacity Block Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getCapacityBlockOffering({
- *     capacityDurationHours: 24,
- *     endDateRange: "2024-05-30T15:04:05Z",
- *     instanceCount: 1,
- *     instanceType: "p4d.24xlarge",
- *     startDateRange: "2024-04-28T15:04:05Z",
- * });
- * ```
- */
 export function getCapacityBlockOffering(args: GetCapacityBlockOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityBlockOfferingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", {
@@ -38,29 +20,11 @@ export function getCapacityBlockOffering(args: GetCapacityBlockOfferingArgs, opt
  * A collection of arguments for invoking getCapacityBlockOffering.
  */
 export interface GetCapacityBlockOfferingArgs {
-    /**
-     * The amount of time of the Capacity Block reservation in hours.
-     */
     capacityDurationHours: number;
-    /**
-     * The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     */
     endDateRange?: string;
-    /**
-     * The number of instances for which to reserve capacity.
-     */
     instanceCount: number;
-    /**
-     * The instance type for which to reserve capacity.
-     */
     instanceType: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     */
     startDateRange?: string;
 }
 
@@ -68,18 +32,9 @@ export interface GetCapacityBlockOfferingArgs {
  * A collection of values returned by getCapacityBlockOffering.
  */
 export interface GetCapacityBlockOfferingResult {
-    /**
-     * The Availability Zone in which to create the Capacity Reservation.
-     */
     readonly availabilityZone: string;
-    /**
-     * The Capacity Block Reservation ID.
-     */
     readonly capacityBlockOfferingId: string;
     readonly capacityDurationHours: number;
-    /**
-     * The currency of the payment for the Capacity Block.
-     */
     readonly currencyCode: string;
     readonly endDateRange: string;
     /**
@@ -90,33 +45,9 @@ export interface GetCapacityBlockOfferingResult {
     readonly instanceType: string;
     readonly region: string;
     readonly startDateRange: string;
-    /**
-     * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-     */
     readonly tenancy: string;
-    /**
-     * The total price to be paid up front.
-     */
     readonly upfrontFee: string;
 }
-/**
- * Information about a single EC2 Capacity Block Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getCapacityBlockOffering({
- *     capacityDurationHours: 24,
- *     endDateRange: "2024-05-30T15:04:05Z",
- *     instanceCount: 1,
- *     instanceType: "p4d.24xlarge",
- *     startDateRange: "2024-04-28T15:04:05Z",
- * });
- * ```
- */
 export function getCapacityBlockOfferingOutput(args: GetCapacityBlockOfferingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityBlockOfferingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", {
@@ -133,28 +64,10 @@ export function getCapacityBlockOfferingOutput(args: GetCapacityBlockOfferingOut
  * A collection of arguments for invoking getCapacityBlockOffering.
  */
 export interface GetCapacityBlockOfferingOutputArgs {
-    /**
-     * The amount of time of the Capacity Block reservation in hours.
-     */
     capacityDurationHours: pulumi.Input<number>;
-    /**
-     * The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     */
     endDateRange?: pulumi.Input<string>;
-    /**
-     * The number of instances for which to reserve capacity.
-     */
     instanceCount: pulumi.Input<number>;
-    /**
-     * The instance type for which to reserve capacity.
-     */
     instanceType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     */
     startDateRange?: pulumi.Input<string>;
 }

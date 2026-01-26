@@ -17,96 +17,52 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
 
     public static final CollectionState Empty = new CollectionState();
 
-    /**
-     * ARN of the Collection.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Collection.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
     /**
-     * The name of the collection
-     * 
-     * The following arguments are optional:
+     * The name of the Rekognition collection
      * 
      */
     @Import(name="collectionId")
     private @Nullable Output<String> collectionId;
 
     /**
-     * @return The name of the collection
-     * 
-     * The following arguments are optional:
+     * @return The name of the Rekognition collection
      * 
      */
     public Optional<Output<String>> collectionId() {
         return Optional.ofNullable(this.collectionId);
     }
 
-    /**
-     * The Face Model Version that the collection was initialized with
-     * 
-     */
     @Import(name="faceModelVersion")
     private @Nullable Output<String> faceModelVersion;
 
-    /**
-     * @return The Face Model Version that the collection was initialized with
-     * 
-     */
     public Optional<Output<String>> faceModelVersion() {
         return Optional.ofNullable(this.faceModelVersion);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -148,31 +104,17 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
             $ = new CollectionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
         /**
-         * @param collectionId The name of the collection
-         * 
-         * The following arguments are optional:
+         * @param collectionId The name of the Rekognition collection
          * 
          * @return builder
          * 
@@ -183,9 +125,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collectionId The name of the collection
-         * 
-         * The following arguments are optional:
+         * @param collectionId The name of the Rekognition collection
          * 
          * @return builder
          * 
@@ -194,86 +134,38 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
             return collectionId(Output.of(collectionId));
         }
 
-        /**
-         * @param faceModelVersion The Face Model Version that the collection was initialized with
-         * 
-         * @return builder
-         * 
-         */
         public Builder faceModelVersion(@Nullable Output<String> faceModelVersion) {
             $.faceModelVersion = faceModelVersion;
             return this;
         }
 
-        /**
-         * @param faceModelVersion The Face Model Version that the collection was initialized with
-         * 
-         * @return builder
-         * 
-         */
         public Builder faceModelVersion(String faceModelVersion) {
             return faceModelVersion(Output.of(faceModelVersion));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

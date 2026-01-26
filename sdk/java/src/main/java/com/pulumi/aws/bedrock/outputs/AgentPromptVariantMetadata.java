@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentPromptVariantMetadata {
-    /**
-     * @return Key of a metadata tag for a prompt variant.
-     * 
-     */
     private String key;
-    /**
-     * @return Value of a metadata tag for a prompt variant.
-     * 
-     */
     private String value;
 
     private AgentPromptVariantMetadata() {}
-    /**
-     * @return Key of a metadata tag for a prompt variant.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Value of a metadata tag for a prompt variant.
-     * 
-     */
     public String value() {
         return this.value;
     }

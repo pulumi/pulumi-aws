@@ -15,32 +15,16 @@ public final class ApplicationInteractiveConfigurationArgs extends com.pulumi.re
 
     public static final ApplicationInteractiveConfigurationArgs Empty = new ApplicationInteractiveConfigurationArgs();
 
-    /**
-     * Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-     * 
-     */
     @Import(name="livyEndpointEnabled")
     private @Nullable Output<Boolean> livyEndpointEnabled;
 
-    /**
-     * @return Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-     * 
-     */
     public Optional<Output<Boolean>> livyEndpointEnabled() {
         return Optional.ofNullable(this.livyEndpointEnabled);
     }
 
-    /**
-     * Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-     * 
-     */
     @Import(name="studioEnabled")
     private @Nullable Output<Boolean> studioEnabled;
 
-    /**
-     * @return Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-     * 
-     */
     public Optional<Output<Boolean>> studioEnabled() {
         return Optional.ofNullable(this.studioEnabled);
     }
@@ -70,44 +54,20 @@ public final class ApplicationInteractiveConfigurationArgs extends com.pulumi.re
             $ = new ApplicationInteractiveConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param livyEndpointEnabled Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder livyEndpointEnabled(@Nullable Output<Boolean> livyEndpointEnabled) {
             $.livyEndpointEnabled = livyEndpointEnabled;
             return this;
         }
 
-        /**
-         * @param livyEndpointEnabled Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder livyEndpointEnabled(Boolean livyEndpointEnabled) {
             return livyEndpointEnabled(Output.of(livyEndpointEnabled));
         }
 
-        /**
-         * @param studioEnabled Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioEnabled(@Nullable Output<Boolean> studioEnabled) {
             $.studioEnabled = studioEnabled;
             return this;
         }
 
-        /**
-         * @param studioEnabled Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-         * 
-         * @return builder
-         * 
-         */
         public Builder studioEnabled(Boolean studioEnabled) {
             return studioEnabled(Output.of(studioEnabled));
         }

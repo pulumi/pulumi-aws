@@ -17,246 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Bedrock AgentCore Code Interpreter. Code Interpreter provides a secure environment for AI agents to execute Python code, enabling data analysis, calculations, and file processing capabilities.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreCodeInterpreter;
- * import com.pulumi.aws.bedrock.AgentcoreCodeInterpreterArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreCodeInterpreter("example", AgentcoreCodeInterpreterArgs.builder()
- *             .name("example-code-interpreter")
- *             .description("Code interpreter for data analysis")
- *             .networkConfiguration(AgentcoreCodeInterpreterNetworkConfigurationArgs.builder()
- *                 .networkMode("PUBLIC")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Code Interpreter with Execution Role
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.bedrock.AgentcoreCodeInterpreter;
- * import com.pulumi.aws.bedrock.AgentcoreCodeInterpreterArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("bedrock-agentcore.amazonaws.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var example = new Role("example", RoleArgs.builder()
- *             .name("bedrock-agentcore-code-interpreter-role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var exampleAgentcoreCodeInterpreter = new AgentcoreCodeInterpreter("exampleAgentcoreCodeInterpreter", AgentcoreCodeInterpreterArgs.builder()
- *             .name("example-code-interpreter")
- *             .description("Code interpreter with custom execution role")
- *             .executionRoleArn(example.arn())
- *             .networkConfiguration(AgentcoreCodeInterpreterNetworkConfigurationArgs.builder()
- *                 .networkMode("SANDBOX")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock AgentCore Code Interpreter using the code interpreter ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter")
 public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Code Interpreter.
-     * 
-     */
     @Export(name="codeInterpreterArn", refs={String.class}, tree="[0]")
     private Output<String> codeInterpreterArn;
 
-    /**
-     * @return ARN of the Code Interpreter.
-     * 
-     */
     public Output<String> codeInterpreterArn() {
         return this.codeInterpreterArn;
     }
-    /**
-     * Unique identifier of the Code Interpreter.
-     * 
-     */
     @Export(name="codeInterpreterId", refs={String.class}, tree="[0]")
     private Output<String> codeInterpreterId;
 
-    /**
-     * @return Unique identifier of the Code Interpreter.
-     * 
-     */
     public Output<String> codeInterpreterId() {
         return this.codeInterpreterId;
     }
-    /**
-     * Description of the code interpreter.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the code interpreter.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-     * 
-     */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionRoleArn;
 
-    /**
-     * @return ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-     * 
-     */
     public Output<Optional<String>> executionRoleArn() {
         return Codegen.optional(this.executionRoleArn);
     }
-    /**
-     * Name of the code interpreter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the code interpreter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Network configuration for the code interpreter. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="networkConfiguration", refs={AgentcoreCodeInterpreterNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreCodeInterpreterNetworkConfiguration> networkConfiguration;
 
-    /**
-     * @return Network configuration for the code interpreter. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<AgentcoreCodeInterpreterNetworkConfiguration>> networkConfiguration() {
         return Codegen.optional(this.networkConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

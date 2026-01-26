@@ -12,113 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Image Builder Image Recipe.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImageRecipe(ctx, "example", &imagebuilder.ImageRecipeArgs{
-//				BlockDeviceMappings: imagebuilder.ImageRecipeBlockDeviceMappingArray{
-//					&imagebuilder.ImageRecipeBlockDeviceMappingArgs{
-//						DeviceName: pulumi.String("/dev/xvdb"),
-//						Ebs: &imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs{
-//							DeleteOnTermination: pulumi.String("true"),
-//							VolumeSize:          pulumi.Int(100),
-//							VolumeType:          pulumi.String("gp2"),
-//						},
-//					},
-//				},
-//				Components: imagebuilder.ImageRecipeComponentArray{
-//					&imagebuilder.ImageRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
-//						Parameters: imagebuilder.ImageRecipeComponentParameterArray{
-//							&imagebuilder.ImageRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter1"),
-//								Value: pulumi.String("Value1"),
-//							},
-//							&imagebuilder.ImageRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter2"),
-//								Value: pulumi.String("Value2"),
-//							},
-//						},
-//					},
-//				},
-//				Name:        pulumi.String("example"),
-//				ParentImage: pulumi.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", current.Partition, currentAwsRegion.Region),
-//				Version:     pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
-//
-// Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
 type ImageRecipe struct {
 	pulumi.CustomResourceState
 
-	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-	AmiTags pulumi.StringMapOutput `pulumi:"amiTags"`
-	// Amazon Resource Name (ARN) of the image recipe.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
+	AmiTags             pulumi.StringMapOutput                   `pulumi:"amiTags"`
+	Arn                 pulumi.StringOutput                      `pulumi:"arn"`
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
-	// Ordered configuration block(s) with components for the image recipe. Detailed below.
-	Components ImageRecipeComponentArrayOutput `pulumi:"components"`
-	// Date the image recipe was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// Description of the image recipe.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the image recipe.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Owner of the image recipe.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
-	// Platform of the image recipe.
-	Platform pulumi.StringOutput `pulumi:"platform"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput `pulumi:"systemsManagerAgent"`
-	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
-	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringOutput `pulumi:"version"`
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
+	Components          ImageRecipeComponentArrayOutput          `pulumi:"components"`
+	DateCreated         pulumi.StringOutput                      `pulumi:"dateCreated"`
+	Description         pulumi.StringPtrOutput                   `pulumi:"description"`
+	Name                pulumi.StringOutput                      `pulumi:"name"`
+	Owner               pulumi.StringOutput                      `pulumi:"owner"`
+	ParentImage         pulumi.StringOutput                      `pulumi:"parentImage"`
+	Platform            pulumi.StringOutput                      `pulumi:"platform"`
+	Region              pulumi.StringOutput                      `pulumi:"region"`
+	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput     `pulumi:"systemsManagerAgent"`
+	Tags                pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	UserDataBase64      pulumi.StringOutput                      `pulumi:"userDataBase64"`
+	Version             pulumi.StringOutput                      `pulumi:"version"`
+	WorkingDirectory    pulumi.StringPtrOutput                   `pulumi:"workingDirectory"`
 }
 
 // NewImageRecipe registers a new resource with the given unique name, arguments, and options.
@@ -160,81 +73,43 @@ func GetImageRecipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImageRecipe resources.
 type imageRecipeState struct {
-	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-	AmiTags map[string]string `pulumi:"amiTags"`
-	// Amazon Resource Name (ARN) of the image recipe.
-	Arn *string `pulumi:"arn"`
-	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
+	AmiTags             map[string]string               `pulumi:"amiTags"`
+	Arn                 *string                         `pulumi:"arn"`
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Ordered configuration block(s) with components for the image recipe. Detailed below.
-	Components []ImageRecipeComponent `pulumi:"components"`
-	// Date the image recipe was created.
-	DateCreated *string `pulumi:"dateCreated"`
-	// Description of the image recipe.
-	Description *string `pulumi:"description"`
-	// Name of the image recipe.
-	Name *string `pulumi:"name"`
-	// Owner of the image recipe.
-	Owner *string `pulumi:"owner"`
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-	ParentImage *string `pulumi:"parentImage"`
-	// Platform of the image recipe.
-	Platform *string `pulumi:"platform"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	Components          []ImageRecipeComponent          `pulumi:"components"`
+	DateCreated         *string                         `pulumi:"dateCreated"`
+	Description         *string                         `pulumi:"description"`
+	Name                *string                         `pulumi:"name"`
+	Owner               *string                         `pulumi:"owner"`
+	ParentImage         *string                         `pulumi:"parentImage"`
+	Platform            *string                         `pulumi:"platform"`
+	Region              *string                         `pulumi:"region"`
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
-	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-	//
-	// The following arguments are optional:
-	Version *string `pulumi:"version"`
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory *string `pulumi:"workingDirectory"`
+	Tags                map[string]string               `pulumi:"tags"`
+	TagsAll             map[string]string               `pulumi:"tagsAll"`
+	UserDataBase64      *string                         `pulumi:"userDataBase64"`
+	Version             *string                         `pulumi:"version"`
+	WorkingDirectory    *string                         `pulumi:"workingDirectory"`
 }
 
 type ImageRecipeState struct {
-	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-	AmiTags pulumi.StringMapInput
-	// Amazon Resource Name (ARN) of the image recipe.
-	Arn pulumi.StringPtrInput
-	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
+	AmiTags             pulumi.StringMapInput
+	Arn                 pulumi.StringPtrInput
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
-	// Ordered configuration block(s) with components for the image recipe. Detailed below.
-	Components ImageRecipeComponentArrayInput
-	// Date the image recipe was created.
-	DateCreated pulumi.StringPtrInput
-	// Description of the image recipe.
-	Description pulumi.StringPtrInput
-	// Name of the image recipe.
-	Name pulumi.StringPtrInput
-	// Owner of the image recipe.
-	Owner pulumi.StringPtrInput
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-	ParentImage pulumi.StringPtrInput
-	// Platform of the image recipe.
-	Platform pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	Components          ImageRecipeComponentArrayInput
+	DateCreated         pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Owner               pulumi.StringPtrInput
+	ParentImage         pulumi.StringPtrInput
+	Platform            pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
-	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-	UserDataBase64 pulumi.StringPtrInput
-	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringPtrInput
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	UserDataBase64      pulumi.StringPtrInput
+	Version             pulumi.StringPtrInput
+	WorkingDirectory    pulumi.StringPtrInput
 }
 
 func (ImageRecipeState) ElementType() reflect.Type {
@@ -242,62 +117,34 @@ func (ImageRecipeState) ElementType() reflect.Type {
 }
 
 type imageRecipeArgs struct {
-	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-	AmiTags map[string]string `pulumi:"amiTags"`
-	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
+	AmiTags             map[string]string               `pulumi:"amiTags"`
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Ordered configuration block(s) with components for the image recipe. Detailed below.
-	Components []ImageRecipeComponent `pulumi:"components"`
-	// Description of the image recipe.
-	Description *string `pulumi:"description"`
-	// Name of the image recipe.
-	Name *string `pulumi:"name"`
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-	ParentImage string `pulumi:"parentImage"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	Components          []ImageRecipeComponent          `pulumi:"components"`
+	Description         *string                         `pulumi:"description"`
+	Name                *string                         `pulumi:"name"`
+	ParentImage         string                          `pulumi:"parentImage"`
+	Region              *string                         `pulumi:"region"`
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
-	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-	//
-	// The following arguments are optional:
-	Version string `pulumi:"version"`
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory *string `pulumi:"workingDirectory"`
+	Tags                map[string]string               `pulumi:"tags"`
+	UserDataBase64      *string                         `pulumi:"userDataBase64"`
+	Version             string                          `pulumi:"version"`
+	WorkingDirectory    *string                         `pulumi:"workingDirectory"`
 }
 
 // The set of arguments for constructing a ImageRecipe resource.
 type ImageRecipeArgs struct {
-	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-	AmiTags pulumi.StringMapInput
-	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
+	AmiTags             pulumi.StringMapInput
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
-	// Ordered configuration block(s) with components for the image recipe. Detailed below.
-	Components ImageRecipeComponentArrayInput
-	// Description of the image recipe.
-	Description pulumi.StringPtrInput
-	// Name of the image recipe.
-	Name pulumi.StringPtrInput
-	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-	ParentImage pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+	Components          ImageRecipeComponentArrayInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	ParentImage         pulumi.StringInput
+	Region              pulumi.StringPtrInput
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
-	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-	UserDataBase64 pulumi.StringPtrInput
-	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringInput
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	UserDataBase64      pulumi.StringPtrInput
+	Version             pulumi.StringInput
+	WorkingDirectory    pulumi.StringPtrInput
 }
 
 func (ImageRecipeArgs) ElementType() reflect.Type {
@@ -387,89 +234,70 @@ func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
 func (o ImageRecipeOutput) AmiTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.AmiTags }).(pulumi.StringMapOutput)
 }
 
-// Amazon Resource Name (ARN) of the image recipe.
 func (o ImageRecipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 func (o ImageRecipeOutput) BlockDeviceMappings() ImageRecipeBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v *ImageRecipe) ImageRecipeBlockDeviceMappingArrayOutput { return v.BlockDeviceMappings }).(ImageRecipeBlockDeviceMappingArrayOutput)
 }
 
-// Ordered configuration block(s) with components for the image recipe. Detailed below.
 func (o ImageRecipeOutput) Components() ImageRecipeComponentArrayOutput {
 	return o.ApplyT(func(v *ImageRecipe) ImageRecipeComponentArrayOutput { return v.Components }).(ImageRecipeComponentArrayOutput)
 }
 
-// Date the image recipe was created.
 func (o ImageRecipeOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Description of the image recipe.
 func (o ImageRecipeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the image recipe.
 func (o ImageRecipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Owner of the image recipe.
 func (o ImageRecipeOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
 func (o ImageRecipeOutput) ParentImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.ParentImage }).(pulumi.StringOutput)
 }
 
-// Platform of the image recipe.
 func (o ImageRecipeOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageRecipeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 func (o ImageRecipeOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentOutput {
 	return o.ApplyT(func(v *ImageRecipe) ImageRecipeSystemsManagerAgentOutput { return v.SystemsManagerAgent }).(ImageRecipeSystemsManagerAgentOutput)
 }
 
-// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ImageRecipeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ImageRecipeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 func (o ImageRecipeOutput) UserDataBase64() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.UserDataBase64 }).(pulumi.StringOutput)
 }
 
-// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-//
-// The following arguments are optional:
 func (o ImageRecipeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// The working directory to be used during build and test workflows.
 func (o ImageRecipeOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }

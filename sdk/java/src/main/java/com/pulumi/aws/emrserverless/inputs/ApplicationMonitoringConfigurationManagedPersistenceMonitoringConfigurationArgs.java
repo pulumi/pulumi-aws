@@ -16,32 +16,16 @@ public final class ApplicationMonitoringConfigurationManagedPersistenceMonitorin
 
     public static final ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs Empty = new ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs();
 
-    /**
-     * Enables managed log persistence for monitoring logs.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enables managed log persistence for monitoring logs.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The KMS key ARN to encrypt the logs stored in managed persistence.
-     * 
-     */
     @Import(name="encryptionKeyArn")
     private @Nullable Output<String> encryptionKeyArn;
 
-    /**
-     * @return The KMS key ARN to encrypt the logs stored in managed persistence.
-     * 
-     */
     public Optional<Output<String>> encryptionKeyArn() {
         return Optional.ofNullable(this.encryptionKeyArn);
     }
@@ -71,44 +55,20 @@ public final class ApplicationMonitoringConfigurationManagedPersistenceMonitorin
             $ = new ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Enables managed log persistence for monitoring logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enables managed log persistence for monitoring logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param encryptionKeyArn The KMS key ARN to encrypt the logs stored in managed persistence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKeyArn(@Nullable Output<String> encryptionKeyArn) {
             $.encryptionKeyArn = encryptionKeyArn;
             return this;
         }
 
-        /**
-         * @param encryptionKeyArn The KMS key ARN to encrypt the logs stored in managed persistence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKeyArn(String encryptionKeyArn) {
             return encryptionKeyArn(Output.of(encryptionKeyArn));
         }

@@ -15,95 +15,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regex Pattern Set Resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.waf.RegexPatternSet;
- * import com.pulumi.aws.waf.RegexPatternSetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()
- *             .name("my_waf_regex_pattern_set")
- *             .regexPatternStrings(            
- *                 "one",
- *                 "two")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS WAF Regex Pattern Set using their ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:waf/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:waf/regexPatternSet:RegexPatternSet")
 public class RegexPatternSet extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN)
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN)
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name or description of the Regex Pattern Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the Regex Pattern Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
-     * 
-     */
     @Export(name="regexPatternStrings", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> regexPatternStrings;
 
-    /**
-     * @return A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
-     * 
-     */
     public Output<Optional<List<String>>> regexPatternStrings() {
         return Codegen.optional(this.regexPatternStrings);
     }

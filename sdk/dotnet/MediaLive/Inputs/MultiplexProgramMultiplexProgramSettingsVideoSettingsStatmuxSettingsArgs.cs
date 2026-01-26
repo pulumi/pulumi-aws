@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum bitrate.
-        /// </summary>
         [Input("maximumBitrate")]
         public Input<int>? MaximumBitrate { get; set; }
 
-        /// <summary>
-        /// Minimum bitrate.
-        /// </summary>
         [Input("minimumBitrate")]
         public Input<int>? MinimumBitrate { get; set; }
 
-        /// <summary>
-        /// Priority value.
-        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 

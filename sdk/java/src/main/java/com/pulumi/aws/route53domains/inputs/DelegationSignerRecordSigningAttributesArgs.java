@@ -15,47 +15,23 @@ public final class DelegationSignerRecordSigningAttributesArgs extends com.pulum
 
     public static final DelegationSignerRecordSigningAttributesArgs Empty = new DelegationSignerRecordSigningAttributesArgs();
 
-    /**
-     * Algorithm which was used to generate the digest from the public key.
-     * 
-     */
     @Import(name="algorithm", required=true)
     private Output<Integer> algorithm;
 
-    /**
-     * @return Algorithm which was used to generate the digest from the public key.
-     * 
-     */
     public Output<Integer> algorithm() {
         return this.algorithm;
     }
 
-    /**
-     * Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-     * 
-     */
     @Import(name="flags", required=true)
     private Output<Integer> flags;
 
-    /**
-     * @return Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-     * 
-     */
     public Output<Integer> flags() {
         return this.flags;
     }
 
-    /**
-     * The base64-encoded public key part of the key pair that is passed to the registry.
-     * 
-     */
     @Import(name="publicKey", required=true)
     private Output<String> publicKey;
 
-    /**
-     * @return The base64-encoded public key part of the key pair that is passed to the registry.
-     * 
-     */
     public Output<String> publicKey() {
         return this.publicKey;
     }
@@ -86,65 +62,29 @@ public final class DelegationSignerRecordSigningAttributesArgs extends com.pulum
             $ = new DelegationSignerRecordSigningAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param algorithm Algorithm which was used to generate the digest from the public key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithm(Output<Integer> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
-        /**
-         * @param algorithm Algorithm which was used to generate the digest from the public key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithm(Integer algorithm) {
             return algorithm(Output.of(algorithm));
         }
 
-        /**
-         * @param flags Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder flags(Output<Integer> flags) {
             $.flags = flags;
             return this;
         }
 
-        /**
-         * @param flags Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder flags(Integer flags) {
             return flags(Output.of(flags));
         }
 
-        /**
-         * @param publicKey The base64-encoded public key part of the key pair that is passed to the registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicKey(Output<String> publicKey) {
             $.publicKey = publicKey;
             return this;
         }
 
-        /**
-         * @param publicKey The base64-encoded public key part of the key pair that is passed to the registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicKey(String publicKey) {
             return publicKey(Output.of(publicKey));
         }

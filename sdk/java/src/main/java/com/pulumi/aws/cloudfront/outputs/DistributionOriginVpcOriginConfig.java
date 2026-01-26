@@ -15,15 +15,7 @@ import javax.annotation.Nullable;
 public final class DistributionOriginVpcOriginConfig {
     private @Nullable Integer originKeepaliveTimeout;
     private @Nullable Integer originReadTimeout;
-    /**
-     * @return The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-     * 
-     */
     private @Nullable String ownerAccountId;
-    /**
-     * @return The VPC origin ID.
-     * 
-     */
     private String vpcOriginId;
 
     private DistributionOriginVpcOriginConfig() {}
@@ -33,17 +25,9 @@ public final class DistributionOriginVpcOriginConfig {
     public Optional<Integer> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
     }
-    /**
-     * @return The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-     * 
-     */
     public Optional<String> ownerAccountId() {
         return Optional.ofNullable(this.ownerAccountId);
     }
-    /**
-     * @return The VPC origin ID.
-     * 
-     */
     public String vpcOriginId() {
         return this.vpcOriginId;
     }

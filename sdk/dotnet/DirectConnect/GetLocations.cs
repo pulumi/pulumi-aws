@@ -11,75 +11,12 @@ namespace Pulumi.Aws.DirectConnect
 {
     public static class GetLocations
     {
-        /// <summary>
-        /// Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-        /// These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-        /// 
-        /// &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var available = Aws.DirectConnect.GetLocations.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLocationsResult> InvokeAsync(GetLocationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("aws:directconnect/getLocations:getLocations", args ?? new GetLocationsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-        /// These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-        /// 
-        /// &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var available = Aws.DirectConnect.GetLocations.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocationsResult> Invoke(GetLocationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-        /// These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-        /// 
-        /// &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var available = Aws.DirectConnect.GetLocations.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocationsResult> Invoke(GetLocationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", args ?? new GetLocationsInvokeArgs(), options.WithDefaults());
     }
@@ -87,9 +24,6 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class GetLocationsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -101,9 +35,6 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class GetLocationsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -121,9 +52,6 @@ namespace Pulumi.Aws.DirectConnect
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Code for the locations.
-        /// </summary>
         public readonly ImmutableArray<string> LocationCodes;
         public readonly string Region;
 

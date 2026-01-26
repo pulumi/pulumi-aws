@@ -14,15 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEnvironmentResult {
     private String applicationId;
-    /**
-     * @return ARN of the environment.
-     * 
-     */
     private String arn;
-    /**
-     * @return Name of the environment.
-     * 
-     */
     private String description;
     private String environmentId;
     /**
@@ -30,44 +22,19 @@ public final class GetEnvironmentResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of Amazon CloudWatch alarms to monitor during the deployment process.
-     * 
-     */
     private List<GetEnvironmentMonitor> monitors;
-    /**
-     * @return Name of the environment.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
-     * 
-     */
     private String state;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetEnvironmentResult() {}
     public String applicationId() {
         return this.applicationId;
     }
-    /**
-     * @return ARN of the environment.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Name of the environment.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -81,35 +48,18 @@ public final class GetEnvironmentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of Amazon CloudWatch alarms to monitor during the deployment process.
-     * 
-     */
     public List<GetEnvironmentMonitor> monitors() {
         return this.monitors;
     }
-    /**
-     * @return Name of the environment.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

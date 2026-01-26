@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty {
-    /**
-     * @return Description of the property.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-     * 
-     */
     private @Nullable String itemsJson;
-    /**
-     * @return Name of the property.
-     * 
-     */
     private String name;
-    /**
-     * @return JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-     * 
-     */
     private @Nullable String propertiesJson;
-    /**
-     * @return Whether this property is required. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean required;
-    /**
-     * @return Data type of the property.
-     * 
-     */
     private String type;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty() {}
-    /**
-     * @return Description of the property.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-     * 
-     */
     public Optional<String> itemsJson() {
         return Optional.ofNullable(this.itemsJson);
     }
-    /**
-     * @return Name of the property.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-     * 
-     */
     public Optional<String> propertiesJson() {
         return Optional.ofNullable(this.propertiesJson);
     }
-    /**
-     * @return Whether this property is required. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }
-    /**
-     * @return Data type of the property.
-     * 
-     */
     public String type() {
         return this.type;
     }

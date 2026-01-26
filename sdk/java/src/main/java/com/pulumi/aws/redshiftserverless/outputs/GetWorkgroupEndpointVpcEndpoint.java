@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkgroupEndpointVpcEndpoint {
-    /**
-     * @return The network interfaces of the endpoint.. See `Network Interface` below.
-     * 
-     */
     private List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces;
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     private String vpcEndpointId;
-    /**
-     * @return The port that Amazon Redshift Serverless listens on.
-     * 
-     */
     private String vpcId;
 
     private GetWorkgroupEndpointVpcEndpoint() {}
-    /**
-     * @return The network interfaces of the endpoint.. See `Network Interface` below.
-     * 
-     */
     public List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces() {
         return this.networkInterfaces;
     }
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
-    /**
-     * @return The port that Amazon Redshift Serverless listens on.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

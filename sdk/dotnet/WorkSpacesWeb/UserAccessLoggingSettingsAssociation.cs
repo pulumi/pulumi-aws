@@ -9,66 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web User Access Logging Settings Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
-    ///     {
-    ///         Name = "amazon-workspaces-web-example",
-    ///         ShardCount = 1,
-    ///     });
-    /// 
-    ///     var exampleUserAccessLoggingSettings = new Aws.WorkSpacesWeb.UserAccessLoggingSettings("example", new()
-    ///     {
-    ///         KinesisStreamArn = exampleStream.Arn,
-    ///     });
-    /// 
-    ///     var exampleUserAccessLoggingSettingsAssociation = new Aws.WorkSpacesWeb.UserAccessLoggingSettingsAssociation("example", new()
-    ///     {
-    ///         UserAccessLoggingSettingsArn = exampleUserAccessLoggingSettings.UserAccessLoggingSettingsArn,
-    ///         PortalArn = example.PortalArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/userAccessLoggingSettingsAssociation:UserAccessLoggingSettingsAssociation")]
     public partial class UserAccessLoggingSettingsAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Output("userAccessLoggingSettingsArn")]
         public Output<string> UserAccessLoggingSettingsArn { get; private set; } = null!;
 
@@ -118,23 +67,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class UserAccessLoggingSettingsAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("userAccessLoggingSettingsArn", required: true)]
         public Input<string> UserAccessLoggingSettingsArn { get; set; } = null!;
 
@@ -146,23 +84,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class UserAccessLoggingSettingsAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("userAccessLoggingSettingsArn")]
         public Input<string>? UserAccessLoggingSettingsArn { get; set; }
 

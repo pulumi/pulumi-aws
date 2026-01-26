@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RecordLatencyRoutingPolicy {
-    /**
-     * @return An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-     * 
-     */
     private String region;
 
     private RecordLatencyRoutingPolicy() {}
-    /**
-     * @return An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-     * 
-     */
     public String region() {
         return this.region;
     }

@@ -19,62 +19,30 @@ public final class IdentityPoolRoleAttachmentArgs extends com.pulumi.resources.R
 
     public static final IdentityPoolRoleAttachmentArgs Empty = new IdentityPoolRoleAttachmentArgs();
 
-    /**
-     * An identity pool ID in the format `REGION_GUID`.
-     * 
-     */
     @Import(name="identityPoolId", required=true)
     private Output<String> identityPoolId;
 
-    /**
-     * @return An identity pool ID in the format `REGION_GUID`.
-     * 
-     */
     public Output<String> identityPoolId() {
         return this.identityPoolId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A List of Role Mapping.
-     * 
-     */
     @Import(name="roleMappings")
     private @Nullable Output<List<IdentityPoolRoleAttachmentRoleMappingArgs>> roleMappings;
 
-    /**
-     * @return A List of Role Mapping.
-     * 
-     */
     public Optional<Output<List<IdentityPoolRoleAttachmentRoleMappingArgs>>> roleMappings() {
         return Optional.ofNullable(this.roleMappings);
     }
 
-    /**
-     * The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
-     * 
-     */
     @Import(name="roles", required=true)
     private Output<Map<String,String>> roles;
 
-    /**
-     * @return The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
-     * 
-     */
     public Output<Map<String,String>> roles() {
         return this.roles;
     }
@@ -106,96 +74,42 @@ public final class IdentityPoolRoleAttachmentArgs extends com.pulumi.resources.R
             $ = new IdentityPoolRoleAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identityPoolId An identity pool ID in the format `REGION_GUID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(Output<String> identityPoolId) {
             $.identityPoolId = identityPoolId;
             return this;
         }
 
-        /**
-         * @param identityPoolId An identity pool ID in the format `REGION_GUID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(String identityPoolId) {
             return identityPoolId(Output.of(identityPoolId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleMappings A List of Role Mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleMappings(@Nullable Output<List<IdentityPoolRoleAttachmentRoleMappingArgs>> roleMappings) {
             $.roleMappings = roleMappings;
             return this;
         }
 
-        /**
-         * @param roleMappings A List of Role Mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleMappings(List<IdentityPoolRoleAttachmentRoleMappingArgs> roleMappings) {
             return roleMappings(Output.of(roleMappings));
         }
 
-        /**
-         * @param roleMappings A List of Role Mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleMappings(IdentityPoolRoleAttachmentRoleMappingArgs... roleMappings) {
             return roleMappings(List.of(roleMappings));
         }
 
-        /**
-         * @param roles The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roles(Output<Map<String,String>> roles) {
             $.roles = roles;
             return this;
         }
 
-        /**
-         * @param roles The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roles(Map<String,String> roles) {
             return roles(Output.of(roles));
         }

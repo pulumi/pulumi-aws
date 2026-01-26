@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserHierarchyGroupHierarchyPath {
-    /**
-     * @return A block that defines the details of level five. The level block is documented below.
-     * 
-     */
     private @Nullable List<UserHierarchyGroupHierarchyPathLevelFife> levelFives;
-    /**
-     * @return A block that defines the details of level four. The level block is documented below.
-     * 
-     */
     private @Nullable List<UserHierarchyGroupHierarchyPathLevelFour> levelFours;
-    /**
-     * @return A block that defines the details of level one. The level block is documented below.
-     * 
-     */
     private @Nullable List<UserHierarchyGroupHierarchyPathLevelOne> levelOnes;
-    /**
-     * @return A block that defines the details of level three. The level block is documented below.
-     * 
-     */
     private @Nullable List<UserHierarchyGroupHierarchyPathLevelThree> levelThrees;
-    /**
-     * @return A block that defines the details of level two. The level block is documented below.
-     * 
-     */
     private @Nullable List<UserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
 
     private UserHierarchyGroupHierarchyPath() {}
-    /**
-     * @return A block that defines the details of level five. The level block is documented below.
-     * 
-     */
     public List<UserHierarchyGroupHierarchyPathLevelFife> levelFives() {
         return this.levelFives == null ? List.of() : this.levelFives;
     }
-    /**
-     * @return A block that defines the details of level four. The level block is documented below.
-     * 
-     */
     public List<UserHierarchyGroupHierarchyPathLevelFour> levelFours() {
         return this.levelFours == null ? List.of() : this.levelFours;
     }
-    /**
-     * @return A block that defines the details of level one. The level block is documented below.
-     * 
-     */
     public List<UserHierarchyGroupHierarchyPathLevelOne> levelOnes() {
         return this.levelOnes == null ? List.of() : this.levelOnes;
     }
-    /**
-     * @return A block that defines the details of level three. The level block is documented below.
-     * 
-     */
     public List<UserHierarchyGroupHierarchyPathLevelThree> levelThrees() {
         return this.levelThrees == null ? List.of() : this.levelThrees;
     }
-    /**
-     * @return A block that defines the details of level two. The level block is documented below.
-     * 
-     */
     public List<UserHierarchyGroupHierarchyPathLevelTwo> levelTwos() {
         return this.levelTwos == null ? List.of() : this.levelTwos;
     }

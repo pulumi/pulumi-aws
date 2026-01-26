@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailContextualGroundingPolicyConfigFiltersConfig
     {
-        /// <summary>
-        /// The threshold for this filter.
-        /// </summary>
         public readonly double Threshold;
-        /// <summary>
-        /// Type of contextual grounding filter.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GlobalSecondaryIndexOnDemandThroughput
     {
-        /// <summary>
-        /// Maximum number of read request units for this index.
-        /// </summary>
         public readonly int? MaxReadRequestUnits;
-        /// <summary>
-        /// Maximum number of write request units for this index.
-        /// </summary>
         public readonly int? MaxWriteRequestUnits;
 
         [OutputConstructor]

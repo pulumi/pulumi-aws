@@ -9,25 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Odb
 {
-    /// <summary>
-    /// Resource for managing odb Network resource in AWS for Oracle Database@AWS.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Odb Network using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:odb/network:Network example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:odb/network:Network")]
     public partial class Network : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the odb network resource.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -68,13 +52,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// The managed services configuration for the ODB network.
         /// </summary>
         [Output("managedServices")]
         public Output<ImmutableArray<Outputs.NetworkManagedService>> ManagedServices { get; private set; } = null!;
 
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
         /// </summary>
         [Output("ociDnsForwardingConfigs")]
         public Output<ImmutableArray<Outputs.NetworkOciDnsForwardingConfig>> OciDnsForwardingConfigs { get; private set; } = null!;
@@ -121,9 +105,6 @@ namespace Pulumi.Aws.Odb
         [Output("percentProgress")]
         public Output<double> PercentProgress { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -151,9 +132,6 @@ namespace Pulumi.Aws.Odb
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -165,8 +143,6 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Specifies the configuration for Zero-ETL access from the ODB network.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("zeroEtlAccess")]
         public Output<string> ZeroEtlAccess { get; private set; } = null!;
@@ -247,9 +223,6 @@ namespace Pulumi.Aws.Odb
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -267,10 +240,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -282,8 +251,6 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Specifies the configuration for Zero-ETL access from the ODB network.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("zeroEtlAccess", required: true)]
         public Input<string> ZeroEtlAccess { get; set; } = null!;
@@ -296,9 +263,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class NetworkState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the odb network resource.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -342,7 +306,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.NetworkManagedServiceGetArgs>? _managedServices;
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// The managed services configuration for the ODB network.
         /// </summary>
         public InputList<Inputs.NetworkManagedServiceGetArgs> ManagedServices
         {
@@ -354,7 +318,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.NetworkOciDnsForwardingConfigGetArgs>? _ociDnsForwardingConfigs;
 
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
         /// </summary>
         public InputList<Inputs.NetworkOciDnsForwardingConfigGetArgs> OciDnsForwardingConfigs
         {
@@ -410,9 +374,6 @@ namespace Pulumi.Aws.Odb
         [Input("percentProgress")]
         public Input<double>? PercentProgress { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -442,10 +403,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -465,8 +422,6 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Specifies the configuration for Zero-ETL access from the ODB network.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("zeroEtlAccess")]
         public Input<string>? ZeroEtlAccess { get; set; }

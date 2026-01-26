@@ -14,25 +14,15 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     {
         [Input("edgeSets")]
         private List<ImmutableArray<string>>? _edgeSets;
-
-        /// <summary>
-        /// A list of a list of strings. The list of edges associated with the network function group.
-        /// </summary>
         public List<ImmutableArray<string>> EdgeSets
         {
             get => _edgeSets ?? (_edgeSets = new List<ImmutableArray<string>>());
             set => _edgeSets = value;
         }
 
-        /// <summary>
-        /// The preferred edge to use.
-        /// </summary>
         [Input("useEdge")]
         public string? UseEdge { get; set; }
 
-        /// <summary>
-        /// The preferred edge to use.
-        /// </summary>
         [Input("useEdgeLocation")]
         public string? UseEdgeLocation { get; set; }
 

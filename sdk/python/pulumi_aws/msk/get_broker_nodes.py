@@ -81,20 +81,7 @@ def get_broker_nodes(cluster_arn: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerNodesResult:
     """
-    Get information on an Amazon MSK Broker Nodes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_broker_nodes(cluster_arn=example_aws_msk_cluster["arn"])
-    ```
-
-
-    :param _builtins.str cluster_arn: ARN of the cluster the nodes belong to.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
@@ -111,20 +98,7 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] =
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerNodesResult]:
     """
-    Get information on an Amazon MSK Broker Nodes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_broker_nodes(cluster_arn=example_aws_msk_cluster["arn"])
-    ```
-
-
-    :param _builtins.str cluster_arn: ARN of the cluster the nodes belong to.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn

@@ -13,15 +13,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class FaqS3Path
     {
-        /// <summary>
-        /// The name of the S3 bucket that contains the file.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// The name of the file.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

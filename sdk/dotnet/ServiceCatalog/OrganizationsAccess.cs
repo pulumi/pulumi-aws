@@ -9,37 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
-    /// 
-    /// &gt; **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.OrganizationsAccess("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/organizationsAccess:OrganizationsAccess")]
     public partial class OrganizationsAccess : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to enable AWS Organizations access.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
@@ -89,9 +61,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class OrganizationsAccessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable AWS Organizations access.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -103,9 +72,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class OrganizationsAccessState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable AWS Organizations access.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

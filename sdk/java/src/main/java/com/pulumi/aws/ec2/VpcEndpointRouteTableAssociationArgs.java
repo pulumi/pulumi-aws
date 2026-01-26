@@ -16,47 +16,23 @@ public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resou
 
     public static final VpcEndpointRouteTableAssociationArgs Empty = new VpcEndpointRouteTableAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     * 
-     */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
-    /**
-     * @return Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
 
-    /**
-     * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     * 
-     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -87,65 +63,29 @@ public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resou
             $ = new VpcEndpointRouteTableAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeTableId Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(Output<String> routeTableId) {
             $.routeTableId = routeTableId;
             return this;
         }
 
-        /**
-         * @param routeTableId Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(String routeTableId) {
             return routeTableId(Output.of(routeTableId));
         }
 
-        /**
-         * @param vpcEndpointId Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

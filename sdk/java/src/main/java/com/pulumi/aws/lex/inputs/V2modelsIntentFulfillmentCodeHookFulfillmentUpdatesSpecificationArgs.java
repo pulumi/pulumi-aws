@@ -19,62 +19,30 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
 
     public static final V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs Empty = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs();
 
-    /**
-     * Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
-     * 
-     */
     @Import(name="active", required=true)
     private Output<Boolean> active;
 
-    /**
-     * @return Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
-     * 
-     */
     public Output<Boolean> active() {
         return this.active;
     }
 
-    /**
-     * Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
-     * 
-     */
     @Import(name="startResponse")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs> startResponse;
 
-    /**
-     * @return Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
-     * 
-     */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs>> startResponse() {
         return Optional.ofNullable(this.startResponse);
     }
 
-    /**
-     * Length of time that the fulfillment Lambda function should run before it times out.
-     * 
-     */
     @Import(name="timeoutInSeconds")
     private @Nullable Output<Integer> timeoutInSeconds;
 
-    /**
-     * @return Length of time that the fulfillment Lambda function should run before it times out.
-     * 
-     */
     public Optional<Output<Integer>> timeoutInSeconds() {
         return Optional.ofNullable(this.timeoutInSeconds);
     }
 
-    /**
-     * Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
-     * 
-     */
     @Import(name="updateResponse")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs> updateResponse;
 
-    /**
-     * @return Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
-     * 
-     */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs>> updateResponse() {
         return Optional.ofNullable(this.updateResponse);
     }
@@ -106,86 +74,38 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
             $ = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param startResponse Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startResponse(@Nullable Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs> startResponse) {
             $.startResponse = startResponse;
             return this;
         }
 
-        /**
-         * @param startResponse Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startResponse(V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs startResponse) {
             return startResponse(Output.of(startResponse));
         }
 
-        /**
-         * @param timeoutInSeconds Length of time that the fulfillment Lambda function should run before it times out.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(@Nullable Output<Integer> timeoutInSeconds) {
             $.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
 
-        /**
-         * @param timeoutInSeconds Length of time that the fulfillment Lambda function should run before it times out.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(Integer timeoutInSeconds) {
             return timeoutInSeconds(Output.of(timeoutInSeconds));
         }
 
-        /**
-         * @param updateResponse Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updateResponse(@Nullable Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs> updateResponse) {
             $.updateResponse = updateResponse;
             return this;
         }
 
-        /**
-         * @param updateResponse Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updateResponse(V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs updateResponse) {
             return updateResponse(Output.of(updateResponse));
         }

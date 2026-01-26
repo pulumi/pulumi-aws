@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttp2RouteAction {
-    /**
-     * @return Gateway route action to rewrite.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewrite rewrite;
-    /**
-     * @return Target that traffic is routed to when a request matches the gateway route.
-     * 
-     */
     private GatewayRouteSpecHttp2RouteActionTarget target;
 
     private GatewayRouteSpecHttp2RouteAction() {}
-    /**
-     * @return Gateway route action to rewrite.
-     * 
-     */
     public Optional<GatewayRouteSpecHttp2RouteActionRewrite> rewrite() {
         return Optional.ofNullable(this.rewrite);
     }
-    /**
-     * @return Target that traffic is routed to when a request matches the gateway route.
-     * 
-     */
     public GatewayRouteSpecHttp2RouteActionTarget target() {
         return this.target;
     }

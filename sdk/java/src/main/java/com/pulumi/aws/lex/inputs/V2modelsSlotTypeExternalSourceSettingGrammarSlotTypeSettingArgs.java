@@ -16,19 +16,9 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingAr
 
     public static final V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs Empty = new V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs();
 
-    /**
-     * Source of the grammar used to create the slot type.
-     * See `source` argument reference below.
-     * 
-     */
     @Import(name="sources")
     private @Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>> sources;
 
-    /**
-     * @return Source of the grammar used to create the slot type.
-     * See `source` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>>> sources() {
         return Optional.ofNullable(this.sources);
     }
@@ -57,36 +47,15 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingAr
             $ = new V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sources Source of the grammar used to create the slot type.
-         * See `source` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(@Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>> sources) {
             $.sources = sources;
             return this;
         }
 
-        /**
-         * @param sources Source of the grammar used to create the slot type.
-         * See `source` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs> sources) {
             return sources(Output.of(sources));
         }
 
-        /**
-         * @param sources Source of the grammar used to create the slot type.
-         * See `source` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs... sources) {
             return sources(List.of(sources));
         }

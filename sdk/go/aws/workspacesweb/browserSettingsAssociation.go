@@ -12,80 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Browser Settings Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"chromePolicies": map[string]interface{}{
-//					"DefaultDownloadDirectory": map[string]interface{}{
-//						"value": "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleBrowserSettings, err := workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
-//				BrowserPolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewBrowserSettingsAssociation(ctx, "example", &workspacesweb.BrowserSettingsAssociationArgs{
-//				BrowserSettingsArn: exampleBrowserSettings.BrowserSettingsArn,
-//				PortalArn:          example.PortalArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Browser Settings Association using the `browser_settings_arn,portal_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation example arn:aws:workspaces-web:us-west-2:123456789012:browserSettings/browser_settings-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
-// ```
 type BrowserSettingsAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the browser settings to associate with the portal. Forces replacement if changed.
 	BrowserSettingsArn pulumi.StringOutput `pulumi:"browserSettingsArn"`
-	// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	PortalArn          pulumi.StringOutput `pulumi:"portalArn"`
+	Region             pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBrowserSettingsAssociation registers a new resource with the given unique name, arguments, and options.
@@ -124,25 +56,15 @@ func GetBrowserSettingsAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BrowserSettingsAssociation resources.
 type browserSettingsAssociationState struct {
-	// ARN of the browser settings to associate with the portal. Forces replacement if changed.
 	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
-	// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PortalArn          *string `pulumi:"portalArn"`
+	Region             *string `pulumi:"region"`
 }
 
 type BrowserSettingsAssociationState struct {
-	// ARN of the browser settings to associate with the portal. Forces replacement if changed.
 	BrowserSettingsArn pulumi.StringPtrInput
-	// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortalArn          pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 }
 
 func (BrowserSettingsAssociationState) ElementType() reflect.Type {
@@ -150,26 +72,16 @@ func (BrowserSettingsAssociationState) ElementType() reflect.Type {
 }
 
 type browserSettingsAssociationArgs struct {
-	// ARN of the browser settings to associate with the portal. Forces replacement if changed.
-	BrowserSettingsArn string `pulumi:"browserSettingsArn"`
-	// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	BrowserSettingsArn string  `pulumi:"browserSettingsArn"`
+	PortalArn          string  `pulumi:"portalArn"`
+	Region             *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BrowserSettingsAssociation resource.
 type BrowserSettingsAssociationArgs struct {
-	// ARN of the browser settings to associate with the portal. Forces replacement if changed.
 	BrowserSettingsArn pulumi.StringInput
-	// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortalArn          pulumi.StringInput
+	Region             pulumi.StringPtrInput
 }
 
 func (BrowserSettingsAssociationArgs) ElementType() reflect.Type {
@@ -259,19 +171,14 @@ func (o BrowserSettingsAssociationOutput) ToBrowserSettingsAssociationOutputWith
 	return o
 }
 
-// ARN of the browser settings to associate with the portal. Forces replacement if changed.
 func (o BrowserSettingsAssociationOutput) BrowserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserSettingsAssociation) pulumi.StringOutput { return v.BrowserSettingsArn }).(pulumi.StringOutput)
 }
 
-// ARN of the portal to associate with the browser settings. Forces replacement if changed.
-//
-// The following arguments are optional:
 func (o BrowserSettingsAssociationOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserSettingsAssociation) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BrowserSettingsAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserSettingsAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

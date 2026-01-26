@@ -14,18 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ExperimentTemplateAction struct {
-	// ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-	ActionId string `pulumi:"actionId"`
-	// Description of the action.
-	Description *string `pulumi:"description"`
-	// Friendly name of the action.
-	Name string `pulumi:"name"`
-	// Parameter(s) for the action, if applicable. See below.
-	Parameters []ExperimentTemplateActionParameter `pulumi:"parameters"`
-	// Set of action names that must complete before this action can be executed.
-	StartAfters []string `pulumi:"startAfters"`
-	// Action's target, if applicable. See below.
-	Target *ExperimentTemplateActionTarget `pulumi:"target"`
+	ActionId    string                              `pulumi:"actionId"`
+	Description *string                             `pulumi:"description"`
+	Name        string                              `pulumi:"name"`
+	Parameters  []ExperimentTemplateActionParameter `pulumi:"parameters"`
+	StartAfters []string                            `pulumi:"startAfters"`
+	Target      *ExperimentTemplateActionTarget     `pulumi:"target"`
 }
 
 // ExperimentTemplateActionInput is an input type that accepts ExperimentTemplateActionArgs and ExperimentTemplateActionOutput values.
@@ -40,18 +34,12 @@ type ExperimentTemplateActionInput interface {
 }
 
 type ExperimentTemplateActionArgs struct {
-	// ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-	ActionId pulumi.StringInput `pulumi:"actionId"`
-	// Description of the action.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Friendly name of the action.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Parameter(s) for the action, if applicable. See below.
-	Parameters ExperimentTemplateActionParameterArrayInput `pulumi:"parameters"`
-	// Set of action names that must complete before this action can be executed.
-	StartAfters pulumi.StringArrayInput `pulumi:"startAfters"`
-	// Action's target, if applicable. See below.
-	Target ExperimentTemplateActionTargetPtrInput `pulumi:"target"`
+	ActionId    pulumi.StringInput                          `pulumi:"actionId"`
+	Description pulumi.StringPtrInput                       `pulumi:"description"`
+	Name        pulumi.StringInput                          `pulumi:"name"`
+	Parameters  ExperimentTemplateActionParameterArrayInput `pulumi:"parameters"`
+	StartAfters pulumi.StringArrayInput                     `pulumi:"startAfters"`
+	Target      ExperimentTemplateActionTargetPtrInput      `pulumi:"target"`
 }
 
 func (ExperimentTemplateActionArgs) ElementType() reflect.Type {
@@ -105,32 +93,26 @@ func (o ExperimentTemplateActionOutput) ToExperimentTemplateActionOutputWithCont
 	return o
 }
 
-// ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
 func (o ExperimentTemplateActionOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) string { return v.ActionId }).(pulumi.StringOutput)
 }
 
-// Description of the action.
 func (o ExperimentTemplateActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the action.
 func (o ExperimentTemplateActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Parameter(s) for the action, if applicable. See below.
 func (o ExperimentTemplateActionOutput) Parameters() ExperimentTemplateActionParameterArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) []ExperimentTemplateActionParameter { return v.Parameters }).(ExperimentTemplateActionParameterArrayOutput)
 }
 
-// Set of action names that must complete before this action can be executed.
 func (o ExperimentTemplateActionOutput) StartAfters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) []string { return v.StartAfters }).(pulumi.StringArrayOutput)
 }
 
-// Action's target, if applicable. See below.
 func (o ExperimentTemplateActionOutput) Target() ExperimentTemplateActionTargetPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) *ExperimentTemplateActionTarget { return v.Target }).(ExperimentTemplateActionTargetPtrOutput)
 }
@@ -156,11 +138,7 @@ func (o ExperimentTemplateActionArrayOutput) Index(i pulumi.IntInput) Experiment
 }
 
 type ExperimentTemplateActionParameter struct {
-	// Parameter name.
-	Key string `pulumi:"key"`
-	// Parameter value.
-	//
-	// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -176,11 +154,7 @@ type ExperimentTemplateActionParameterInput interface {
 }
 
 type ExperimentTemplateActionParameterArgs struct {
-	// Parameter name.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Parameter value.
-	//
-	// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -235,14 +209,10 @@ func (o ExperimentTemplateActionParameterOutput) ToExperimentTemplateActionParam
 	return o
 }
 
-// Parameter name.
 func (o ExperimentTemplateActionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Parameter value.
-//
-// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
 func (o ExperimentTemplateActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -268,9 +238,7 @@ func (o ExperimentTemplateActionParameterArrayOutput) Index(i pulumi.IntInput) E
 }
 
 type ExperimentTemplateActionTarget struct {
-	// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-	Key string `pulumi:"key"`
-	// Target name, referencing a corresponding target.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -286,9 +254,7 @@ type ExperimentTemplateActionTargetInput interface {
 }
 
 type ExperimentTemplateActionTargetArgs struct {
-	// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Target name, referencing a corresponding target.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -369,12 +335,10 @@ func (o ExperimentTemplateActionTargetOutput) ToExperimentTemplateActionTargetPt
 	}).(ExperimentTemplateActionTargetPtrOutput)
 }
 
-// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
 func (o ExperimentTemplateActionTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Target name, referencing a corresponding target.
 func (o ExperimentTemplateActionTargetOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionTarget) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -403,7 +367,6 @@ func (o ExperimentTemplateActionTargetPtrOutput) Elem() ExperimentTemplateAction
 	}).(ExperimentTemplateActionTargetOutput)
 }
 
-// Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
 func (o ExperimentTemplateActionTargetPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateActionTarget) *string {
 		if v == nil {
@@ -413,7 +376,6 @@ func (o ExperimentTemplateActionTargetPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target name, referencing a corresponding target.
 func (o ExperimentTemplateActionTargetPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateActionTarget) *string {
 		if v == nil {
@@ -424,9 +386,7 @@ func (o ExperimentTemplateActionTargetPtrOutput) Value() pulumi.StringPtrOutput 
 }
 
 type ExperimentTemplateExperimentOptions struct {
-	// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-	AccountTargeting *string `pulumi:"accountTargeting"`
-	// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+	AccountTargeting          *string `pulumi:"accountTargeting"`
 	EmptyTargetResolutionMode *string `pulumi:"emptyTargetResolutionMode"`
 }
 
@@ -442,9 +402,7 @@ type ExperimentTemplateExperimentOptionsInput interface {
 }
 
 type ExperimentTemplateExperimentOptionsArgs struct {
-	// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-	AccountTargeting pulumi.StringPtrInput `pulumi:"accountTargeting"`
-	// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+	AccountTargeting          pulumi.StringPtrInput `pulumi:"accountTargeting"`
 	EmptyTargetResolutionMode pulumi.StringPtrInput `pulumi:"emptyTargetResolutionMode"`
 }
 
@@ -525,12 +483,10 @@ func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimen
 	}).(ExperimentTemplateExperimentOptionsPtrOutput)
 }
 
-// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
 func (o ExperimentTemplateExperimentOptionsOutput) AccountTargeting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentOptions) *string { return v.AccountTargeting }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
 func (o ExperimentTemplateExperimentOptionsOutput) EmptyTargetResolutionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentOptions) *string { return v.EmptyTargetResolutionMode }).(pulumi.StringPtrOutput)
 }
@@ -559,7 +515,6 @@ func (o ExperimentTemplateExperimentOptionsPtrOutput) Elem() ExperimentTemplateE
 	}).(ExperimentTemplateExperimentOptionsOutput)
 }
 
-// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
 func (o ExperimentTemplateExperimentOptionsPtrOutput) AccountTargeting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) *string {
 		if v == nil {
@@ -569,7 +524,6 @@ func (o ExperimentTemplateExperimentOptionsPtrOutput) AccountTargeting() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
 func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) *string {
 		if v == nil {
@@ -580,14 +534,10 @@ func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode(
 }
 
 type ExperimentTemplateExperimentReportConfiguration struct {
-	// The data sources for the experiment report. See below.
-	DataSources *ExperimentTemplateExperimentReportConfigurationDataSources `pulumi:"dataSources"`
-	// The outputs for the experiment report. See below.
-	Outputs *ExperimentTemplateExperimentReportConfigurationOutputs `pulumi:"outputs"`
-	// The duration of the post-experiment period. Defaults to `PT20M`.
-	PostExperimentDuration *string `pulumi:"postExperimentDuration"`
-	// The duration of the pre-experiment period. Defaults to `PT20M`.
-	PreExperimentDuration *string `pulumi:"preExperimentDuration"`
+	DataSources            *ExperimentTemplateExperimentReportConfigurationDataSources `pulumi:"dataSources"`
+	Outputs                *ExperimentTemplateExperimentReportConfigurationOutputs     `pulumi:"outputs"`
+	PostExperimentDuration *string                                                     `pulumi:"postExperimentDuration"`
+	PreExperimentDuration  *string                                                     `pulumi:"preExperimentDuration"`
 }
 
 // ExperimentTemplateExperimentReportConfigurationInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationArgs and ExperimentTemplateExperimentReportConfigurationOutput values.
@@ -602,14 +552,10 @@ type ExperimentTemplateExperimentReportConfigurationInput interface {
 }
 
 type ExperimentTemplateExperimentReportConfigurationArgs struct {
-	// The data sources for the experiment report. See below.
-	DataSources ExperimentTemplateExperimentReportConfigurationDataSourcesPtrInput `pulumi:"dataSources"`
-	// The outputs for the experiment report. See below.
-	Outputs ExperimentTemplateExperimentReportConfigurationOutputsPtrInput `pulumi:"outputs"`
-	// The duration of the post-experiment period. Defaults to `PT20M`.
-	PostExperimentDuration pulumi.StringPtrInput `pulumi:"postExperimentDuration"`
-	// The duration of the pre-experiment period. Defaults to `PT20M`.
-	PreExperimentDuration pulumi.StringPtrInput `pulumi:"preExperimentDuration"`
+	DataSources            ExperimentTemplateExperimentReportConfigurationDataSourcesPtrInput `pulumi:"dataSources"`
+	Outputs                ExperimentTemplateExperimentReportConfigurationOutputsPtrInput     `pulumi:"outputs"`
+	PostExperimentDuration pulumi.StringPtrInput                                              `pulumi:"postExperimentDuration"`
+	PreExperimentDuration  pulumi.StringPtrInput                                              `pulumi:"preExperimentDuration"`
 }
 
 func (ExperimentTemplateExperimentReportConfigurationArgs) ElementType() reflect.Type {
@@ -689,26 +635,22 @@ func (o ExperimentTemplateExperimentReportConfigurationOutput) ToExperimentTempl
 	}).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
 }
 
-// The data sources for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationDataSources {
 		return v.DataSources
 	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput)
 }
 
-// The outputs for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) Outputs() ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationOutputs {
 		return v.Outputs
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput)
 }
 
-// The duration of the post-experiment period. Defaults to `PT20M`.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) PostExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *string { return v.PostExperimentDuration }).(pulumi.StringPtrOutput)
 }
 
-// The duration of the pre-experiment period. Defaults to `PT20M`.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) PreExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *string { return v.PreExperimentDuration }).(pulumi.StringPtrOutput)
 }
@@ -737,7 +679,6 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Elem() Experim
 	}).(ExperimentTemplateExperimentReportConfigurationOutput)
 }
 
-// The data sources for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationDataSources {
 		if v == nil {
@@ -747,7 +688,6 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) DataSources() 
 	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput)
 }
 
-// The outputs for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Outputs() ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationOutputs {
 		if v == nil {
@@ -757,7 +697,6 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Outputs() Expe
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput)
 }
 
-// The duration of the post-experiment period. Defaults to `PT20M`.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PostExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *string {
 		if v == nil {
@@ -767,7 +706,6 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PostExperiment
 	}).(pulumi.StringPtrOutput)
 }
 
-// The duration of the pre-experiment period. Defaults to `PT20M`.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PreExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *string {
 		if v == nil {
@@ -778,7 +716,6 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PreExperimentD
 }
 
 type ExperimentTemplateExperimentReportConfigurationDataSources struct {
-	// The data sources for the experiment report. See below.
 	CloudwatchDashboards []ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard `pulumi:"cloudwatchDashboards"`
 }
 
@@ -794,7 +731,6 @@ type ExperimentTemplateExperimentReportConfigurationDataSourcesInput interface {
 }
 
 type ExperimentTemplateExperimentReportConfigurationDataSourcesArgs struct {
-	// The data sources for the experiment report. See below.
 	CloudwatchDashboards ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArrayInput `pulumi:"cloudwatchDashboards"`
 }
 
@@ -875,7 +811,6 @@ func (o ExperimentTemplateExperimentReportConfigurationDataSourcesOutput) ToExpe
 	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput)
 }
 
-// The data sources for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationDataSourcesOutput) CloudwatchDashboards() ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationDataSources) []ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard {
 		return v.CloudwatchDashboards
@@ -906,7 +841,6 @@ func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput) Ele
 	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesOutput)
 }
 
-// The data sources for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput) CloudwatchDashboards() ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArrayOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationDataSources) []ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard {
 		if v == nil {
@@ -917,7 +851,6 @@ func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPtrOutput) Clo
 }
 
 type ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard struct {
-	// The ARN of the CloudWatch dashboard.
 	DashboardArn *string `pulumi:"dashboardArn"`
 }
 
@@ -933,7 +866,6 @@ type ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboa
 }
 
 type ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs struct {
-	// The ARN of the CloudWatch dashboard.
 	DashboardArn pulumi.StringPtrInput `pulumi:"dashboardArn"`
 }
 
@@ -988,7 +920,6 @@ func (o ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDash
 	return o
 }
 
-// The ARN of the CloudWatch dashboard.
 func (o ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardOutput) DashboardArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard) *string {
 		return v.DashboardArn
@@ -1016,7 +947,6 @@ func (o ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDash
 }
 
 type ExperimentTemplateExperimentReportConfigurationOutputs struct {
-	// The data sources for the experiment report. See below.
 	S3Configuration *ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration `pulumi:"s3Configuration"`
 }
 
@@ -1032,7 +962,6 @@ type ExperimentTemplateExperimentReportConfigurationOutputsInput interface {
 }
 
 type ExperimentTemplateExperimentReportConfigurationOutputsArgs struct {
-	// The data sources for the experiment report. See below.
 	S3Configuration ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtrInput `pulumi:"s3Configuration"`
 }
 
@@ -1113,7 +1042,6 @@ func (o ExperimentTemplateExperimentReportConfigurationOutputsOutput) ToExperime
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput)
 }
 
-// The data sources for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationOutputsOutput) S3Configuration() ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationOutputs) *ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration {
 		return v.S3Configuration
@@ -1144,7 +1072,6 @@ func (o ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput) Elem() 
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsOutput)
 }
 
-// The data sources for the experiment report. See below.
 func (o ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput) S3Configuration() ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputs) *ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration {
 		if v == nil {
@@ -1155,10 +1082,8 @@ func (o ExperimentTemplateExperimentReportConfigurationOutputsPtrOutput) S3Confi
 }
 
 type ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration struct {
-	// The name of the destination bucket.
-	BucketName string `pulumi:"bucketName"`
-	// The bucket prefix.
-	Prefix *string `pulumi:"prefix"`
+	BucketName string  `pulumi:"bucketName"`
+	Prefix     *string `pulumi:"prefix"`
 }
 
 // ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs and ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationOutput values.
@@ -1173,10 +1098,8 @@ type ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationInput 
 }
 
 type ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs struct {
-	// The name of the destination bucket.
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The bucket prefix.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	BucketName pulumi.StringInput    `pulumi:"bucketName"`
+	Prefix     pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs) ElementType() reflect.Type {
@@ -1256,14 +1179,12 @@ func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationOut
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtrOutput)
 }
 
-// The name of the destination bucket.
 func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration) string {
 		return v.BucketName
 	}).(pulumi.StringOutput)
 }
 
-// The bucket prefix.
 func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -1292,7 +1213,6 @@ func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtr
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationOutput)
 }
 
-// The name of the destination bucket.
 func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration) *string {
 		if v == nil {
@@ -1302,7 +1222,6 @@ func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The bucket prefix.
 func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration) *string {
 		if v == nil {
@@ -1313,12 +1232,9 @@ func (o ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationPtr
 }
 
 type ExperimentTemplateLogConfiguration struct {
-	// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
 	CloudwatchLogsConfiguration *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration `pulumi:"cloudwatchLogsConfiguration"`
-	// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-	LogSchemaVersion int `pulumi:"logSchemaVersion"`
-	// The configuration for experiment logging to Amazon S3. See below.
-	S3Configuration *ExperimentTemplateLogConfigurationS3Configuration `pulumi:"s3Configuration"`
+	LogSchemaVersion            int                                                            `pulumi:"logSchemaVersion"`
+	S3Configuration             *ExperimentTemplateLogConfigurationS3Configuration             `pulumi:"s3Configuration"`
 }
 
 // ExperimentTemplateLogConfigurationInput is an input type that accepts ExperimentTemplateLogConfigurationArgs and ExperimentTemplateLogConfigurationOutput values.
@@ -1333,12 +1249,9 @@ type ExperimentTemplateLogConfigurationInput interface {
 }
 
 type ExperimentTemplateLogConfigurationArgs struct {
-	// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
 	CloudwatchLogsConfiguration ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrInput `pulumi:"cloudwatchLogsConfiguration"`
-	// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-	LogSchemaVersion pulumi.IntInput `pulumi:"logSchemaVersion"`
-	// The configuration for experiment logging to Amazon S3. See below.
-	S3Configuration ExperimentTemplateLogConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
+	LogSchemaVersion            pulumi.IntInput                                                       `pulumi:"logSchemaVersion"`
+	S3Configuration             ExperimentTemplateLogConfigurationS3ConfigurationPtrInput             `pulumi:"s3Configuration"`
 }
 
 func (ExperimentTemplateLogConfigurationArgs) ElementType() reflect.Type {
@@ -1418,19 +1331,16 @@ func (o ExperimentTemplateLogConfigurationOutput) ToExperimentTemplateLogConfigu
 	}).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
-// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
 func (o ExperimentTemplateLogConfigurationOutput) CloudwatchLogsConfiguration() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
 		return v.CloudwatchLogsConfiguration
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
 }
 
-// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
 func (o ExperimentTemplateLogConfigurationOutput) LogSchemaVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) int { return v.LogSchemaVersion }).(pulumi.IntOutput)
 }
 
-// The configuration for experiment logging to Amazon S3. See below.
 func (o ExperimentTemplateLogConfigurationOutput) S3Configuration() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationS3Configuration {
 		return v.S3Configuration
@@ -1461,7 +1371,6 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) Elem() ExperimentTemplateLo
 	}).(ExperimentTemplateLogConfigurationOutput)
 }
 
-// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
 func (o ExperimentTemplateLogConfigurationPtrOutput) CloudwatchLogsConfiguration() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
 		if v == nil {
@@ -1471,7 +1380,6 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) CloudwatchLogsConfiguration
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
 }
 
-// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
 func (o ExperimentTemplateLogConfigurationPtrOutput) LogSchemaVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *int {
 		if v == nil {
@@ -1481,7 +1389,6 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) LogSchemaVersion() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The configuration for experiment logging to Amazon S3. See below.
 func (o ExperimentTemplateLogConfigurationPtrOutput) S3Configuration() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationS3Configuration {
 		if v == nil {
@@ -1492,7 +1399,6 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) S3Configuration() Experimen
 }
 
 type ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration struct {
-	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -1508,7 +1414,6 @@ type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput interfac
 }
 
 type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -1589,7 +1494,6 @@ func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ToE
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -1618,7 +1522,6 @@ func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) 
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) *string {
 		if v == nil {
@@ -1629,10 +1532,8 @@ func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) 
 }
 
 type ExperimentTemplateLogConfigurationS3Configuration struct {
-	// The name of the destination bucket.
-	BucketName string `pulumi:"bucketName"`
-	// The bucket prefix.
-	Prefix *string `pulumi:"prefix"`
+	BucketName string  `pulumi:"bucketName"`
+	Prefix     *string `pulumi:"prefix"`
 }
 
 // ExperimentTemplateLogConfigurationS3ConfigurationInput is an input type that accepts ExperimentTemplateLogConfigurationS3ConfigurationArgs and ExperimentTemplateLogConfigurationS3ConfigurationOutput values.
@@ -1647,10 +1548,8 @@ type ExperimentTemplateLogConfigurationS3ConfigurationInput interface {
 }
 
 type ExperimentTemplateLogConfigurationS3ConfigurationArgs struct {
-	// The name of the destination bucket.
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The bucket prefix.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	BucketName pulumi.StringInput    `pulumi:"bucketName"`
+	Prefix     pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (ExperimentTemplateLogConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
@@ -1730,12 +1629,10 @@ func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) ToExperimentTem
 	}).(ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput)
 }
 
-// The name of the destination bucket.
 func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The bucket prefix.
 func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -1764,7 +1661,6 @@ func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) Elem() Exper
 	}).(ExperimentTemplateLogConfigurationS3ConfigurationOutput)
 }
 
-// The name of the destination bucket.
 func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationS3Configuration) *string {
 		if v == nil {
@@ -1774,7 +1670,6 @@ func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) BucketName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The bucket prefix.
 func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationS3Configuration) *string {
 		if v == nil {
@@ -1785,10 +1680,8 @@ func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) Prefix() pul
 }
 
 type ExperimentTemplateStopCondition struct {
-	// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-	Source string `pulumi:"source"`
-	// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
-	Value *string `pulumi:"value"`
+	Source string  `pulumi:"source"`
+	Value  *string `pulumi:"value"`
 }
 
 // ExperimentTemplateStopConditionInput is an input type that accepts ExperimentTemplateStopConditionArgs and ExperimentTemplateStopConditionOutput values.
@@ -1803,10 +1696,8 @@ type ExperimentTemplateStopConditionInput interface {
 }
 
 type ExperimentTemplateStopConditionArgs struct {
-	// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-	Source pulumi.StringInput `pulumi:"source"`
-	// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Source pulumi.StringInput    `pulumi:"source"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ExperimentTemplateStopConditionArgs) ElementType() reflect.Type {
@@ -1860,12 +1751,10 @@ func (o ExperimentTemplateStopConditionOutput) ToExperimentTemplateStopCondition
 	return o
 }
 
-// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
 func (o ExperimentTemplateStopConditionOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateStopCondition) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
 func (o ExperimentTemplateStopConditionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateStopCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1891,22 +1780,13 @@ func (o ExperimentTemplateStopConditionArrayOutput) Index(i pulumi.IntInput) Exp
 }
 
 type ExperimentTemplateTarget struct {
-	// Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-	Filters []ExperimentTemplateTargetFilter `pulumi:"filters"`
-	// Friendly name given to the target.
-	Name string `pulumi:"name"`
-	// The resource type parameters.
-	//
-	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
-	ResourceArns []string `pulumi:"resourceArns"`
-	// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-	ResourceTags []ExperimentTemplateTargetResourceTag `pulumi:"resourceTags"`
-	// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-	ResourceType string `pulumi:"resourceType"`
-	// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-	SelectionMode string `pulumi:"selectionMode"`
+	Filters       []ExperimentTemplateTargetFilter      `pulumi:"filters"`
+	Name          string                                `pulumi:"name"`
+	Parameters    map[string]string                     `pulumi:"parameters"`
+	ResourceArns  []string                              `pulumi:"resourceArns"`
+	ResourceTags  []ExperimentTemplateTargetResourceTag `pulumi:"resourceTags"`
+	ResourceType  string                                `pulumi:"resourceType"`
+	SelectionMode string                                `pulumi:"selectionMode"`
 }
 
 // ExperimentTemplateTargetInput is an input type that accepts ExperimentTemplateTargetArgs and ExperimentTemplateTargetOutput values.
@@ -1921,22 +1801,13 @@ type ExperimentTemplateTargetInput interface {
 }
 
 type ExperimentTemplateTargetArgs struct {
-	// Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-	Filters ExperimentTemplateTargetFilterArrayInput `pulumi:"filters"`
-	// Friendly name given to the target.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource type parameters.
-	//
-	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
-	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
-	// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-	ResourceTags ExperimentTemplateTargetResourceTagArrayInput `pulumi:"resourceTags"`
-	// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-	SelectionMode pulumi.StringInput `pulumi:"selectionMode"`
+	Filters       ExperimentTemplateTargetFilterArrayInput      `pulumi:"filters"`
+	Name          pulumi.StringInput                            `pulumi:"name"`
+	Parameters    pulumi.StringMapInput                         `pulumi:"parameters"`
+	ResourceArns  pulumi.StringArrayInput                       `pulumi:"resourceArns"`
+	ResourceTags  ExperimentTemplateTargetResourceTagArrayInput `pulumi:"resourceTags"`
+	ResourceType  pulumi.StringInput                            `pulumi:"resourceType"`
+	SelectionMode pulumi.StringInput                            `pulumi:"selectionMode"`
 }
 
 func (ExperimentTemplateTargetArgs) ElementType() reflect.Type {
@@ -1990,39 +1861,30 @@ func (o ExperimentTemplateTargetOutput) ToExperimentTemplateTargetOutputWithCont
 	return o
 }
 
-// Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
 func (o ExperimentTemplateTargetOutput) Filters() ExperimentTemplateTargetFilterArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []ExperimentTemplateTargetFilter { return v.Filters }).(ExperimentTemplateTargetFilterArrayOutput)
 }
 
-// Friendly name given to the target.
 func (o ExperimentTemplateTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource type parameters.
-//
-// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
 func (o ExperimentTemplateTargetOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
 func (o ExperimentTemplateTargetOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
 func (o ExperimentTemplateTargetOutput) ResourceTags() ExperimentTemplateTargetResourceTagArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []ExperimentTemplateTargetResourceTag { return v.ResourceTags }).(ExperimentTemplateTargetResourceTagArrayOutput)
 }
 
-// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
 func (o ExperimentTemplateTargetOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
 func (o ExperimentTemplateTargetOutput) SelectionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.SelectionMode }).(pulumi.StringOutput)
 }
@@ -2048,11 +1910,7 @@ func (o ExperimentTemplateTargetArrayOutput) Index(i pulumi.IntInput) Experiment
 }
 
 type ExperimentTemplateTargetFilter struct {
-	// Attribute path for the filter.
-	Path string `pulumi:"path"`
-	// Set of attribute values for the filter.
-	//
-	// > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
+	Path   string   `pulumi:"path"`
 	Values []string `pulumi:"values"`
 }
 
@@ -2068,11 +1926,7 @@ type ExperimentTemplateTargetFilterInput interface {
 }
 
 type ExperimentTemplateTargetFilterArgs struct {
-	// Attribute path for the filter.
-	Path pulumi.StringInput `pulumi:"path"`
-	// Set of attribute values for the filter.
-	//
-	// > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
+	Path   pulumi.StringInput      `pulumi:"path"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2127,14 +1981,10 @@ func (o ExperimentTemplateTargetFilterOutput) ToExperimentTemplateTargetFilterOu
 	return o
 }
 
-// Attribute path for the filter.
 func (o ExperimentTemplateTargetFilterOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTargetFilter) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Set of attribute values for the filter.
-//
-// > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
 func (o ExperimentTemplateTargetFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTargetFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2160,9 +2010,7 @@ func (o ExperimentTemplateTargetFilterArrayOutput) Index(i pulumi.IntInput) Expe
 }
 
 type ExperimentTemplateTargetResourceTag struct {
-	// Tag key.
-	Key string `pulumi:"key"`
-	// Tag value.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2178,9 +2026,7 @@ type ExperimentTemplateTargetResourceTagInput interface {
 }
 
 type ExperimentTemplateTargetResourceTagArgs struct {
-	// Tag key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Tag value.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2235,12 +2081,10 @@ func (o ExperimentTemplateTargetResourceTagOutput) ToExperimentTemplateTargetRes
 	return o
 }
 
-// Tag key.
 func (o ExperimentTemplateTargetResourceTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTargetResourceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Tag value.
 func (o ExperimentTemplateTargetResourceTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTargetResourceTag) string { return v.Value }).(pulumi.StringOutput)
 }

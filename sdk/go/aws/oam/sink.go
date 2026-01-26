@@ -11,60 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Observability Access Manager Sink.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.NewSink(ctx, "example", &oam.SinkArgs{
-//				Name: pulumi.String("ExampleSink"),
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-// ```
 type Sink struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Sink.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name for the sink.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID string that AWS generated as part of the sink ARN.
-	SinkId pulumi.StringOutput `pulumi:"sinkId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Arn     pulumi.StringOutput    `pulumi:"arn"`
+	Name    pulumi.StringOutput    `pulumi:"name"`
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	SinkId  pulumi.StringOutput    `pulumi:"sinkId"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -99,33 +52,19 @@ func GetSink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Sink resources.
 type sinkState struct {
-	// ARN of the Sink.
-	Arn *string `pulumi:"arn"`
-	// Name for the sink.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID string that AWS generated as part of the sink ARN.
-	SinkId *string `pulumi:"sinkId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Arn     *string           `pulumi:"arn"`
+	Name    *string           `pulumi:"name"`
+	Region  *string           `pulumi:"region"`
+	SinkId  *string           `pulumi:"sinkId"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SinkState struct {
-	// ARN of the Sink.
-	Arn pulumi.StringPtrInput
-	// Name for the sink.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID string that AWS generated as part of the sink ARN.
-	SinkId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Arn     pulumi.StringPtrInput
+	Name    pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
+	SinkId  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
@@ -135,26 +74,16 @@ func (SinkState) ElementType() reflect.Type {
 }
 
 type sinkArgs struct {
-	// Name for the sink.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name   *string           `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Sink resource.
 type SinkArgs struct {
-	// Name for the sink.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (SinkArgs) ElementType() reflect.Type {
@@ -244,29 +173,22 @@ func (o SinkOutput) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 	return o
 }
 
-// ARN of the Sink.
 func (o SinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name for the sink.
-//
-// The following arguments are optional:
 func (o SinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SinkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID string that AWS generated as part of the sink ARN.
 func (o SinkOutput) SinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.SinkId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

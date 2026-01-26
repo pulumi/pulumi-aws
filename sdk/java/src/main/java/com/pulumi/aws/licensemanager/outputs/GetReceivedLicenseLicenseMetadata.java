@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseLicenseMetadata {
-    /**
-     * @return The key name.
-     * 
-     */
     private String name;
-    /**
-     * @return The value.
-     * 
-     */
     private String value;
 
     private GetReceivedLicenseLicenseMetadata() {}
-    /**
-     * @return The key name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value.
-     * 
-     */
     public String value() {
         return this.value;
     }

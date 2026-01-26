@@ -14,32 +14,16 @@ public final class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs extend
 
     public static final AnalysisSourceEntitySourceTemplateDataSetReferenceArgs Empty = new AnalysisSourceEntitySourceTemplateDataSetReferenceArgs();
 
-    /**
-     * Dataset Amazon Resource Name (ARN).
-     * 
-     */
     @Import(name="dataSetArn", required=true)
     private Output<String> dataSetArn;
 
-    /**
-     * @return Dataset Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> dataSetArn() {
         return this.dataSetArn;
     }
 
-    /**
-     * Dataset placeholder.
-     * 
-     */
     @Import(name="dataSetPlaceholder", required=true)
     private Output<String> dataSetPlaceholder;
 
-    /**
-     * @return Dataset placeholder.
-     * 
-     */
     public Output<String> dataSetPlaceholder() {
         return this.dataSetPlaceholder;
     }
@@ -69,44 +53,20 @@ public final class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs extend
             $ = new AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataSetArn Dataset Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetArn(Output<String> dataSetArn) {
             $.dataSetArn = dataSetArn;
             return this;
         }
 
-        /**
-         * @param dataSetArn Dataset Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetArn(String dataSetArn) {
             return dataSetArn(Output.of(dataSetArn));
         }
 
-        /**
-         * @param dataSetPlaceholder Dataset placeholder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetPlaceholder(Output<String> dataSetPlaceholder) {
             $.dataSetPlaceholder = dataSetPlaceholder;
             return this;
         }
 
-        /**
-         * @param dataSetPlaceholder Dataset placeholder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetPlaceholder(String dataSetPlaceholder) {
             return dataSetPlaceholder(Output.of(dataSetPlaceholder));
         }

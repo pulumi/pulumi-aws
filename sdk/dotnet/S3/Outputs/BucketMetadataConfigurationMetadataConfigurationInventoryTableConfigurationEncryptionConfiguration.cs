@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration
     {
-        /// <summary>
-        /// KMS key ARN when `SseAlgorithm` is `aws:kms`.
-        /// </summary>
         public readonly string? KmsKeyArn;
-        /// <summary>
-        /// Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-        /// </summary>
         public readonly string SseAlgorithm;
 
         [OutputConstructor]

@@ -9,106 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Auditmanager
 {
-    /// <summary>
-    /// Resource for managing an AWS Audit Manager Framework.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Auditmanager.Framework("test", new()
-    ///     {
-    ///         Name = "example",
-    ///         ControlSets = new[]
-    ///         {
-    ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
-    ///             {
-    ///                 Name = "example",
-    ///                 Controls = new[]
-    ///                 {
-    ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
-    ///                     {
-    ///                         Id = test1.Id,
-    ///                     },
-    ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
-    ///                     {
-    ///                         Id = test2.Id,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:auditmanager/framework:Framework")]
     public partial class Framework : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the framework.
-        /// * `control_sets[*].id` - Unique identifier for the framework control set.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        /// </summary>
         [Output("complianceType")]
         public Output<string?> ComplianceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) for the control sets that are associated with the framework. See `ControlSets` Block below for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("controlSets")]
         public Output<ImmutableArray<Outputs.FrameworkControlSet>> ControlSets { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the framework.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Framework type, such as a custom framework or a standard framework.
-        /// </summary>
         [Output("frameworkType")]
         public Output<string> FrameworkType { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the framework.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the framework. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -161,50 +85,28 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class FrameworkArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        /// </summary>
         [Input("complianceType")]
         public Input<string>? ComplianceType { get; set; }
 
         [Input("controlSets")]
         private InputList<Inputs.FrameworkControlSetArgs>? _controlSets;
-
-        /// <summary>
-        /// Configuration block(s) for the control sets that are associated with the framework. See `ControlSets` Block below for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.FrameworkControlSetArgs> ControlSets
         {
             get => _controlSets ?? (_controlSets = new InputList<Inputs.FrameworkControlSetArgs>());
             set => _controlSets = value;
         }
 
-        /// <summary>
-        /// Description of the framework.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the framework.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the framework. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -219,63 +121,34 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class FrameworkState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the framework.
-        /// * `control_sets[*].id` - Unique identifier for the framework control set.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        /// </summary>
         [Input("complianceType")]
         public Input<string>? ComplianceType { get; set; }
 
         [Input("controlSets")]
         private InputList<Inputs.FrameworkControlSetGetArgs>? _controlSets;
-
-        /// <summary>
-        /// Configuration block(s) for the control sets that are associated with the framework. See `ControlSets` Block below for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.FrameworkControlSetGetArgs> ControlSets
         {
             get => _controlSets ?? (_controlSets = new InputList<Inputs.FrameworkControlSetGetArgs>());
             set => _controlSets = value;
         }
 
-        /// <summary>
-        /// Description of the framework.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Framework type, such as a custom framework or a standard framework.
-        /// </summary>
         [Input("frameworkType")]
         public Input<string>? FrameworkType { get; set; }
 
-        /// <summary>
-        /// Name of the framework.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the framework. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

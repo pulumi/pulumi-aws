@@ -12,89 +12,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationGroupNodeGroupConfiguration {
-    /**
-     * @return ID of the node group.
-     * 
-     */
     private String nodeGroupId;
-    /**
-     * @return Availability Zone for the primary node.
-     * 
-     */
     private String primaryAvailabilityZone;
-    /**
-     * @return Outpost ARN of the primary node.
-     * 
-     */
     private String primaryOutpostArn;
-    /**
-     * @return List of Availability Zones for the replica nodes.
-     * 
-     */
     private List<String> replicaAvailabilityZones;
-    /**
-     * @return Number of replica nodes in this node group.
-     * 
-     */
     private Integer replicaCount;
-    /**
-     * @return List of outpost ARNs for the replica nodes.
-     * 
-     */
     private List<String> replicaOutpostArns;
-    /**
-     * @return Keyspace for this node group (shard).
-     * 
-     */
     private String slots;
 
     private GetReplicationGroupNodeGroupConfiguration() {}
-    /**
-     * @return ID of the node group.
-     * 
-     */
     public String nodeGroupId() {
         return this.nodeGroupId;
     }
-    /**
-     * @return Availability Zone for the primary node.
-     * 
-     */
     public String primaryAvailabilityZone() {
         return this.primaryAvailabilityZone;
     }
-    /**
-     * @return Outpost ARN of the primary node.
-     * 
-     */
     public String primaryOutpostArn() {
         return this.primaryOutpostArn;
     }
-    /**
-     * @return List of Availability Zones for the replica nodes.
-     * 
-     */
     public List<String> replicaAvailabilityZones() {
         return this.replicaAvailabilityZones;
     }
-    /**
-     * @return Number of replica nodes in this node group.
-     * 
-     */
     public Integer replicaCount() {
         return this.replicaCount;
     }
-    /**
-     * @return List of outpost ARNs for the replica nodes.
-     * 
-     */
     public List<String> replicaOutpostArns() {
         return this.replicaOutpostArns;
     }
-    /**
-     * @return Keyspace for this node group (shard).
-     * 
-     */
     public String slots() {
         return this.slots;
     }

@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS FMS (Firewall Manager) Resource Set.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.fms.ResourceSet("example", {resourceSets: [{
- *     name: "testing",
- *     resourceTypeLists: ["AWS::NetworkFirewall::Firewall"],
- * }]});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import FMS (Firewall Manager) Resource Set using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
- * ```
- */
 export class ResourceSet extends pulumi.CustomResource {
     /**
      * Get an existing ResourceSet resource's state with the given name, ID, and optional extra
@@ -60,17 +35,8 @@ export class ResourceSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceSet.__pulumiType;
     }
 
-    /**
-     * ARN of the Resource Set.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     */
     declare public readonly resourceSets: pulumi.Output<outputs.fms.ResourceSetResourceSet[] | undefined>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -113,17 +79,8 @@ export class ResourceSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceSet resources.
  */
 export interface ResourceSetState {
-    /**
-     * ARN of the Resource Set.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     */
     resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -134,13 +91,7 @@ export interface ResourceSetState {
  * The set of arguments for constructing a ResourceSet resource.
  */
 export interface ResourceSetArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     */
     resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts>;

@@ -12,151 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Storage Gateway cached iSCSI volume.
-//
-// > **NOTE:** The gateway must have cache added (e.g., via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
-//
-// > **NOTE:** The gateway must have an upload buffer added (e.g., via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
-//
-// ## Example Usage
-//
-// > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = [aws_storagegateway_cache.example]`) to ensure proper ordering.
-//
-// ### Create Empty Cached iSCSI Volume
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
-//				NetworkInterfaceId: pulumi.Any(exampleAwsInstance.PrivateIp),
-//				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  pulumi.Int(5368709120),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create Cached iSCSI Volume From Snapshot
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
-//				NetworkInterfaceId: pulumi.Any(exampleAwsInstance.PrivateIp),
-//				SnapshotId:         pulumi.Any(exampleAwsEbsSnapshot.Id),
-//				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  int(exampleAwsEbsSnapshot.VolumeSize * 1024 * 1024 * 1024),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create Cached iSCSI Volume From Source Volume
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(exampleAwsStoragegatewayCache.GatewayArn),
-//				NetworkInterfaceId: pulumi.Any(exampleAwsInstance.PrivateIp),
-//				SourceVolumeArn:    pulumi.Any(existing.Arn),
-//				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  pulumi.Any(existing.VolumeSizeInBytes),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_storagegateway_cached_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
-//
-// ```sh
-// $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
-// ```
 type CachesIscsiVolume struct {
 	pulumi.CustomResourceState
 
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether mutual CHAP is enabled for the iSCSI target.
-	ChapEnabled pulumi.BoolOutput `pulumi:"chapEnabled"`
-	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
-	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-	KmsEncrypted pulumi.BoolPtrOutput `pulumi:"kmsEncrypted"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
-	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
-	// Logical disk number.
-	LunNumber pulumi.IntOutput `pulumi:"lunNumber"`
-	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	// The port used to communicate with iSCSI targets.
-	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
-	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
-	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
-	SourceVolumeArn pulumi.StringPtrOutput `pulumi:"sourceVolumeArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
-	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
-	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-	TargetName pulumi.StringOutput `pulumi:"targetName"`
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-	VolumeArn pulumi.StringOutput `pulumi:"volumeArn"`
-	// Volume ID, e.g., `vol-12345678`.
-	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
-	// The size of the volume in bytes.
-	VolumeSizeInBytes pulumi.IntOutput `pulumi:"volumeSizeInBytes"`
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	ChapEnabled          pulumi.BoolOutput      `pulumi:"chapEnabled"`
+	GatewayArn           pulumi.StringOutput    `pulumi:"gatewayArn"`
+	KmsEncrypted         pulumi.BoolPtrOutput   `pulumi:"kmsEncrypted"`
+	KmsKey               pulumi.StringPtrOutput `pulumi:"kmsKey"`
+	LunNumber            pulumi.IntOutput       `pulumi:"lunNumber"`
+	NetworkInterfaceId   pulumi.StringOutput    `pulumi:"networkInterfaceId"`
+	NetworkInterfacePort pulumi.IntOutput       `pulumi:"networkInterfacePort"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
+	SnapshotId           pulumi.StringPtrOutput `pulumi:"snapshotId"`
+	SourceVolumeArn      pulumi.StringPtrOutput `pulumi:"sourceVolumeArn"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TargetArn            pulumi.StringOutput    `pulumi:"targetArn"`
+	TargetName           pulumi.StringOutput    `pulumi:"targetName"`
+	VolumeArn            pulumi.StringOutput    `pulumi:"volumeArn"`
+	VolumeId             pulumi.StringOutput    `pulumi:"volumeId"`
+	VolumeSizeInBytes    pulumi.IntOutput       `pulumi:"volumeSizeInBytes"`
 }
 
 // NewCachesIscsiVolume registers a new resource with the given unique name, arguments, and options.
@@ -201,81 +77,45 @@ func GetCachesIscsiVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CachesIscsiVolume resources.
 type cachesIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-	Arn *string `pulumi:"arn"`
-	// Whether mutual CHAP is enabled for the iSCSI target.
-	ChapEnabled *bool `pulumi:"chapEnabled"`
-	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn *string `pulumi:"gatewayArn"`
-	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
-	KmsKey *string `pulumi:"kmsKey"`
-	// Logical disk number.
-	LunNumber *int `pulumi:"lunNumber"`
-	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
-	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The port used to communicate with iSCSI targets.
-	NetworkInterfacePort *int `pulumi:"networkInterfacePort"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
-	SourceVolumeArn *string `pulumi:"sourceVolumeArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
-	TargetArn *string `pulumi:"targetArn"`
-	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-	TargetName *string `pulumi:"targetName"`
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-	VolumeArn *string `pulumi:"volumeArn"`
-	// Volume ID, e.g., `vol-12345678`.
-	VolumeId *string `pulumi:"volumeId"`
-	// The size of the volume in bytes.
-	VolumeSizeInBytes *int `pulumi:"volumeSizeInBytes"`
+	Arn                  *string           `pulumi:"arn"`
+	ChapEnabled          *bool             `pulumi:"chapEnabled"`
+	GatewayArn           *string           `pulumi:"gatewayArn"`
+	KmsEncrypted         *bool             `pulumi:"kmsEncrypted"`
+	KmsKey               *string           `pulumi:"kmsKey"`
+	LunNumber            *int              `pulumi:"lunNumber"`
+	NetworkInterfaceId   *string           `pulumi:"networkInterfaceId"`
+	NetworkInterfacePort *int              `pulumi:"networkInterfacePort"`
+	Region               *string           `pulumi:"region"`
+	SnapshotId           *string           `pulumi:"snapshotId"`
+	SourceVolumeArn      *string           `pulumi:"sourceVolumeArn"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
+	TargetArn            *string           `pulumi:"targetArn"`
+	TargetName           *string           `pulumi:"targetName"`
+	VolumeArn            *string           `pulumi:"volumeArn"`
+	VolumeId             *string           `pulumi:"volumeId"`
+	VolumeSizeInBytes    *int              `pulumi:"volumeSizeInBytes"`
 }
 
 type CachesIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-	Arn pulumi.StringPtrInput
-	// Whether mutual CHAP is enabled for the iSCSI target.
-	ChapEnabled pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn pulumi.StringPtrInput
-	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-	KmsEncrypted pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
-	KmsKey pulumi.StringPtrInput
-	// Logical disk number.
-	LunNumber pulumi.IntPtrInput
-	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
-	NetworkInterfaceId pulumi.StringPtrInput
-	// The port used to communicate with iSCSI targets.
+	Arn                  pulumi.StringPtrInput
+	ChapEnabled          pulumi.BoolPtrInput
+	GatewayArn           pulumi.StringPtrInput
+	KmsEncrypted         pulumi.BoolPtrInput
+	KmsKey               pulumi.StringPtrInput
+	LunNumber            pulumi.IntPtrInput
+	NetworkInterfaceId   pulumi.StringPtrInput
 	NetworkInterfacePort pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
-	SnapshotId pulumi.StringPtrInput
-	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
-	SourceVolumeArn pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
-	TargetArn pulumi.StringPtrInput
-	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-	TargetName pulumi.StringPtrInput
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-	VolumeArn pulumi.StringPtrInput
-	// Volume ID, e.g., `vol-12345678`.
-	VolumeId pulumi.StringPtrInput
-	// The size of the volume in bytes.
-	VolumeSizeInBytes pulumi.IntPtrInput
+	Region               pulumi.StringPtrInput
+	SnapshotId           pulumi.StringPtrInput
+	SourceVolumeArn      pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	TargetArn            pulumi.StringPtrInput
+	TargetName           pulumi.StringPtrInput
+	VolumeArn            pulumi.StringPtrInput
+	VolumeId             pulumi.StringPtrInput
+	VolumeSizeInBytes    pulumi.IntPtrInput
 }
 
 func (CachesIscsiVolumeState) ElementType() reflect.Type {
@@ -283,50 +123,30 @@ func (CachesIscsiVolumeState) ElementType() reflect.Type {
 }
 
 type cachesIscsiVolumeArgs struct {
-	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn string `pulumi:"gatewayArn"`
-	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
-	KmsKey *string `pulumi:"kmsKey"`
-	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
-	SourceVolumeArn *string `pulumi:"sourceVolumeArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-	TargetName string `pulumi:"targetName"`
-	// The size of the volume in bytes.
-	VolumeSizeInBytes int `pulumi:"volumeSizeInBytes"`
+	GatewayArn         string            `pulumi:"gatewayArn"`
+	KmsEncrypted       *bool             `pulumi:"kmsEncrypted"`
+	KmsKey             *string           `pulumi:"kmsKey"`
+	NetworkInterfaceId string            `pulumi:"networkInterfaceId"`
+	Region             *string           `pulumi:"region"`
+	SnapshotId         *string           `pulumi:"snapshotId"`
+	SourceVolumeArn    *string           `pulumi:"sourceVolumeArn"`
+	Tags               map[string]string `pulumi:"tags"`
+	TargetName         string            `pulumi:"targetName"`
+	VolumeSizeInBytes  int               `pulumi:"volumeSizeInBytes"`
 }
 
 // The set of arguments for constructing a CachesIscsiVolume resource.
 type CachesIscsiVolumeArgs struct {
-	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn pulumi.StringInput
-	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-	KmsEncrypted pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
-	KmsKey pulumi.StringPtrInput
-	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
+	GatewayArn         pulumi.StringInput
+	KmsEncrypted       pulumi.BoolPtrInput
+	KmsKey             pulumi.StringPtrInput
 	NetworkInterfaceId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
-	SnapshotId pulumi.StringPtrInput
-	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
-	SourceVolumeArn pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-	TargetName pulumi.StringInput
-	// The size of the volume in bytes.
-	VolumeSizeInBytes pulumi.IntInput
+	Region             pulumi.StringPtrInput
+	SnapshotId         pulumi.StringPtrInput
+	SourceVolumeArn    pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TargetName         pulumi.StringInput
+	VolumeSizeInBytes  pulumi.IntInput
 }
 
 func (CachesIscsiVolumeArgs) ElementType() reflect.Type {
@@ -416,92 +236,74 @@ func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumeOutputWithContext(ctx contex
 	return o
 }
 
-// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 func (o CachesIscsiVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether mutual CHAP is enabled for the iSCSI target.
 func (o CachesIscsiVolumeOutput) ChapEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.BoolOutput { return v.ChapEnabled }).(pulumi.BoolOutput)
 }
 
-// The Amazon Resource Name (ARN) of the gateway.
 func (o CachesIscsiVolumeOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
 
-// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
 func (o CachesIscsiVolumeOutput) KmsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.BoolPtrOutput { return v.KmsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
 func (o CachesIscsiVolumeOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
-// Logical disk number.
 func (o CachesIscsiVolumeOutput) LunNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.IntOutput { return v.LunNumber }).(pulumi.IntOutput)
 }
 
-// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 func (o CachesIscsiVolumeOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// The port used to communicate with iSCSI targets.
 func (o CachesIscsiVolumeOutput) NetworkInterfacePort() pulumi.IntOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.IntOutput { return v.NetworkInterfacePort }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CachesIscsiVolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 func (o CachesIscsiVolumeOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringPtrOutput { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 func (o CachesIscsiVolumeOutput) SourceVolumeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringPtrOutput { return v.SourceVolumeArn }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CachesIscsiVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CachesIscsiVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 func (o CachesIscsiVolumeOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }
 
-// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 func (o CachesIscsiVolumeOutput) TargetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.TargetName }).(pulumi.StringOutput)
 }
 
-// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 func (o CachesIscsiVolumeOutput) VolumeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.VolumeArn }).(pulumi.StringOutput)
 }
 
-// Volume ID, e.g., `vol-12345678`.
 func (o CachesIscsiVolumeOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }
 
-// The size of the volume in bytes.
 func (o CachesIscsiVolumeOutput) VolumeSizeInBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.IntOutput { return v.VolumeSizeInBytes }).(pulumi.IntOutput)
 }

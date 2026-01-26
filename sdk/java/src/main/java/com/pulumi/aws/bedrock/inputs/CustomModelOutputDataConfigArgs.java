@@ -14,17 +14,9 @@ public final class CustomModelOutputDataConfigArgs extends com.pulumi.resources.
 
     public static final CustomModelOutputDataConfigArgs Empty = new CustomModelOutputDataConfigArgs();
 
-    /**
-     * The S3 URI where the output data is stored.
-     * 
-     */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
-    /**
-     * @return The S3 URI where the output data is stored.
-     * 
-     */
     public Output<String> s3Uri() {
         return this.s3Uri;
     }
@@ -53,23 +45,11 @@ public final class CustomModelOutputDataConfigArgs extends com.pulumi.resources.
             $ = new CustomModelOutputDataConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Uri The S3 URI where the output data is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri The S3 URI where the output data is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

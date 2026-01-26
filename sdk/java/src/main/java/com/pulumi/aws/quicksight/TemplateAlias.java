@@ -14,82 +14,17 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS QuickSight Template Alias.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.TemplateAlias;
- * import com.pulumi.aws.quicksight.TemplateAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TemplateAlias("example", TemplateAliasArgs.builder()
- *             .aliasName("example-alias")
- *             .templateId(test.templateId())
- *             .templateVersionNumber(test.versionNumber())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/templateAlias:TemplateAlias")
 public class TemplateAlias extends com.pulumi.resources.CustomResource {
-    /**
-     * Display name of the template alias.
-     * 
-     */
     @Export(name="aliasName", refs={String.class}, tree="[0]")
     private Output<String> aliasName;
 
-    /**
-     * @return Display name of the template alias.
-     * 
-     */
     public Output<String> aliasName() {
         return this.aliasName;
     }
-    /**
-     * Amazon Resource Name (ARN) of the template alias.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the template alias.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -99,49 +34,21 @@ public class TemplateAlias extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the template.
-     * 
-     */
     @Export(name="templateId", refs={String.class}, tree="[0]")
     private Output<String> templateId;
 
-    /**
-     * @return ID of the template.
-     * 
-     */
     public Output<String> templateId() {
         return this.templateId;
     }
-    /**
-     * Version number of the template.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="templateVersionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> templateVersionNumber;
 
-    /**
-     * @return Version number of the template.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> templateVersionNumber() {
         return this.templateVersionNumber;
     }

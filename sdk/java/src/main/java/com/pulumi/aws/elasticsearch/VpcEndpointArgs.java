@@ -17,47 +17,23 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcEndpointArgs Empty = new VpcEndpointArgs();
 
-    /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-     * 
-     */
     @Import(name="domainArn", required=true)
     private Output<String> domainArn;
 
-    /**
-     * @return Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-     * 
-     */
     public Output<String> domainArn() {
         return this.domainArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Options to specify the subnets and security groups for the endpoint.
-     * 
-     */
     @Import(name="vpcOptions", required=true)
     private Output<VpcEndpointVpcOptionsArgs> vpcOptions;
 
-    /**
-     * @return Options to specify the subnets and security groups for the endpoint.
-     * 
-     */
     public Output<VpcEndpointVpcOptionsArgs> vpcOptions() {
         return this.vpcOptions;
     }
@@ -88,65 +64,29 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
             $ = new VpcEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainArn Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainArn(Output<String> domainArn) {
             $.domainArn = domainArn;
             return this;
         }
 
-        /**
-         * @param domainArn Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainArn(String domainArn) {
             return domainArn(Output.of(domainArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcOptions Options to specify the subnets and security groups for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOptions(Output<VpcEndpointVpcOptionsArgs> vpcOptions) {
             $.vpcOptions = vpcOptions;
             return this;
         }
 
-        /**
-         * @param vpcOptions Options to specify the subnets and security groups for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOptions(VpcEndpointVpcOptionsArgs vpcOptions) {
             return vpcOptions(Output.of(vpcOptions));
         }

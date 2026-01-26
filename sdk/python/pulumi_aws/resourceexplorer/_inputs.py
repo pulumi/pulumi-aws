@@ -100,9 +100,6 @@ class IndexTimeoutsArgs:
 if not MYPY:
     class ViewFiltersArgsDict(TypedDict):
         filter_string: pulumi.Input[_builtins.str]
-        """
-        The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-        """
 elif False:
     ViewFiltersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -110,17 +107,11 @@ elif False:
 class ViewFiltersArgs:
     def __init__(__self__, *,
                  filter_string: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] filter_string: The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-        """
         pulumi.set(__self__, "filter_string", filter_string)
 
     @_builtins.property
     @pulumi.getter(name="filterString")
     def filter_string(self) -> pulumi.Input[_builtins.str]:
-        """
-        The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-        """
         return pulumi.get(self, "filter_string")
 
     @filter_string.setter
@@ -131,9 +122,6 @@ class ViewFiltersArgs:
 if not MYPY:
     class ViewIncludedPropertyArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the property that is included in this view. Valid values: `tags`.
-        """
 elif False:
     ViewIncludedPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -141,17 +129,11 @@ elif False:
 class ViewIncludedPropertyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the property that is included in this view. Valid values: `tags`.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the property that is included in this view. Valid values: `tags`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter

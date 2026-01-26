@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload
     {
-        /// <summary>
-        /// The inline schema payload content.
-        /// </summary>
         public readonly string Payload;
 
         [OutputConstructor]

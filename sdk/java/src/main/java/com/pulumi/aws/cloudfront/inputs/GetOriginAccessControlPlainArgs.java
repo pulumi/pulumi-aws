@@ -13,17 +13,9 @@ public final class GetOriginAccessControlPlainArgs extends com.pulumi.resources.
 
     public static final GetOriginAccessControlPlainArgs Empty = new GetOriginAccessControlPlainArgs();
 
-    /**
-     * The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-     * 
-     */
     public String id() {
         return this.id;
     }
@@ -52,12 +44,6 @@ public final class GetOriginAccessControlPlainArgs extends com.pulumi.resources.
             $ = new GetOriginAccessControlPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;

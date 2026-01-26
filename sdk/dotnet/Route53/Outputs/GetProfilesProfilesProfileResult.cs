@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetProfilesProfilesProfileResult
     {
-        /// <summary>
-        /// ARN of the Profile.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// ID of the Profile.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the Profile.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        /// </summary>
         public readonly string ShareStatus;
 
         [OutputConstructor]

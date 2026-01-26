@@ -128,17 +128,11 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Auto Scaling group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[_builtins.str]:
-        """
-        One or more Availability Zones for the group.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
@@ -149,41 +143,26 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> _builtins.int:
-        """
-        Desired size of the group.
-        """
         return pulumi.get(self, "desired_capacity")
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacityType")
     def desired_capacity_type(self) -> _builtins.str:
-        """
-        The unit of measurement for the value returned for `desired_capacity`.
-        """
         return pulumi.get(self, "desired_capacity_type")
 
     @_builtins.property
     @pulumi.getter(name="enabledMetrics")
     def enabled_metrics(self) -> Sequence[_builtins.str]:
-        """
-        List of metrics enabled for collection.
-        """
         return pulumi.get(self, "enabled_metrics")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriod")
     def health_check_grace_period(self) -> _builtins.int:
-        """
-        The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
-        """
         return pulumi.get(self, "health_check_grace_period")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckType")
     def health_check_type(self) -> _builtins.str:
-        """
-        Service to use for the health checks. The valid values are EC2 and ELB.
-        """
         return pulumi.get(self, "health_check_type")
 
     @_builtins.property
@@ -197,73 +176,46 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter(name="instanceMaintenancePolicies")
     def instance_maintenance_policies(self) -> Sequence['outputs.GetGroupInstanceMaintenancePolicyResult']:
-        """
-        Instance maintenance policy for the group.
-        """
         return pulumi.get(self, "instance_maintenance_policies")
 
     @_builtins.property
     @pulumi.getter(name="launchConfiguration")
     def launch_configuration(self) -> _builtins.str:
-        """
-        The name of the associated launch configuration.
-        """
         return pulumi.get(self, "launch_configuration")
 
     @_builtins.property
     @pulumi.getter(name="launchTemplates")
     def launch_templates(self) -> Sequence['outputs.GetGroupLaunchTemplateResult']:
-        """
-        List of launch templates along with the overrides.
-        """
         return pulumi.get(self, "launch_templates")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Sequence[_builtins.str]:
-        """
-        One or more load balancers associated with the group.
-        """
         return pulumi.get(self, "load_balancers")
 
     @_builtins.property
     @pulumi.getter(name="maxInstanceLifetime")
     def max_instance_lifetime(self) -> _builtins.int:
-        """
-        Maximum amount of time, in seconds, that an instance can be in service.
-        """
         return pulumi.get(self, "max_instance_lifetime")
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> _builtins.int:
-        """
-        Maximum size of the group.
-        """
         return pulumi.get(self, "max_size")
 
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> _builtins.int:
-        """
-        Minimum number of instances to maintain in the warm pool.
-        """
         return pulumi.get(self, "min_size")
 
     @_builtins.property
     @pulumi.getter(name="mixedInstancesPolicies")
     def mixed_instances_policies(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyResult']:
-        """
-        List of mixed instances policy objects for the group.
-        """
         return pulumi.get(self, "mixed_instances_policies")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Auto Scaling Group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -274,17 +226,11 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> _builtins.str:
-        """
-        Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
-        """
         return pulumi.get(self, "placement_group")
 
     @_builtins.property
     @pulumi.getter(name="predictedCapacity")
     def predicted_capacity(self) -> _builtins.int:
-        """
-        Predicted capacity of the group.
-        """
         return pulumi.get(self, "predicted_capacity")
 
     @_builtins.property
@@ -295,81 +241,51 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> _builtins.str:
-        """
-        ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
-        """
         return pulumi.get(self, "service_linked_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current state of the group when DeleteAutoScalingGroup is in progress.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="suspendedProcesses")
     def suspended_processes(self) -> Sequence[_builtins.str]:
-        """
-        List of processes suspended processes for the Auto Scaling Group.
-        """
         return pulumi.get(self, "suspended_processes")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetGroupTagResult']:
-        """
-        List of tags for the group.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Sequence[_builtins.str]:
-        """
-        ARNs of the target groups for your load balancer.
-        """
         return pulumi.get(self, "target_group_arns")
 
     @_builtins.property
     @pulumi.getter(name="terminationPolicies")
     def termination_policies(self) -> Sequence[_builtins.str]:
-        """
-        The termination policies for the group.
-        """
         return pulumi.get(self, "termination_policies")
 
     @_builtins.property
     @pulumi.getter(name="trafficSources")
     def traffic_sources(self) -> Sequence['outputs.GetGroupTrafficSourceResult']:
-        """
-        Traffic sources.
-        """
         return pulumi.get(self, "traffic_sources")
 
     @_builtins.property
     @pulumi.getter(name="vpcZoneIdentifier")
     def vpc_zone_identifier(self) -> _builtins.str:
-        """
-        VPC ID for the group.
-        """
         return pulumi.get(self, "vpc_zone_identifier")
 
     @_builtins.property
     @pulumi.getter(name="warmPoolSize")
     def warm_pool_size(self) -> _builtins.int:
-        """
-        Current size of the warm pool.
-        """
         return pulumi.get(self, "warm_pool_size")
 
     @_builtins.property
     @pulumi.getter(name="warmPools")
     def warm_pools(self) -> Sequence['outputs.GetGroupWarmPoolResult']:
-        """
-        List of warm pool configuration objects.
-        """
         return pulumi.get(self, "warm_pools")
 
 
@@ -417,20 +333,7 @@ def get_group(name: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to get information on an existing autoscaling group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.autoscaling.get_group(name="foo")
-    ```
-
-
-    :param _builtins.str name: Specify the exact name of the desired autoscaling group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -475,20 +378,7 @@ def get_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Use this data source to get information on an existing autoscaling group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.autoscaling.get_group(name="foo")
-    ```
-
-
-    :param _builtins.str name: Specify the exact name of the desired autoscaling group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

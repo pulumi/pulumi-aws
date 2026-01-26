@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Synthetics.Inputs
 
     public sealed class CanaryArtifactConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
-        /// </summary>
         [Input("s3Encryption")]
         public Input<Inputs.CanaryArtifactConfigS3EncryptionArgs>? S3Encryption { get; set; }
 

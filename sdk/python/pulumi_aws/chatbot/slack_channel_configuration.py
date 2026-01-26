@@ -34,18 +34,6 @@ class SlackChannelConfigurationArgs:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Slack channel configuration.
-        :param pulumi.Input[_builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
-        :param pulumi.Input[_builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -69,9 +57,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Slack channel configuration.
-        """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
@@ -81,9 +66,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -93,9 +75,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="slackChannelId")
     def slack_channel_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Slack channel. For example, `C07EZ1ABC23`.
-        """
         return pulumi.get(self, "slack_channel_id")
 
     @slack_channel_id.setter
@@ -105,11 +84,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="slackTeamId")
     def slack_team_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "slack_team_id")
 
     @slack_team_id.setter
@@ -119,9 +93,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
     def guardrail_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @guardrail_policy_arns.setter
@@ -131,9 +102,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging levels include `ERROR`, `INFO`, or `NONE`.
-        """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
@@ -143,9 +111,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -155,9 +120,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        """
         return pulumi.get(self, "sns_topic_arns")
 
     @sns_topic_arns.setter
@@ -167,9 +129,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -188,9 +147,6 @@ class SlackChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
     def user_authorization_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables use of a user role requirement in your chat configuration.
-        """
         return pulumi.get(self, "user_authorization_required")
 
     @user_authorization_required.setter
@@ -218,22 +174,6 @@ class _SlackChannelConfigurationState:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SlackChannelConfiguration resources.
-        :param pulumi.Input[_builtins.str] chat_configuration_arn: ARN of the Slack channel configuration.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Slack channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
-        :param pulumi.Input[_builtins.str] slack_channel_name: Name of the Slack channel.
-        :param pulumi.Input[_builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] slack_team_name: Name of the Slack team.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         if chat_configuration_arn is not None:
             pulumi.set(__self__, "chat_configuration_arn", chat_configuration_arn)
@@ -269,9 +209,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="chatConfigurationArn")
     def chat_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Slack channel configuration.
-        """
         return pulumi.get(self, "chat_configuration_arn")
 
     @chat_configuration_arn.setter
@@ -281,9 +218,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Slack channel configuration.
-        """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
@@ -293,9 +227,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
     def guardrail_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @guardrail_policy_arns.setter
@@ -305,9 +236,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -317,9 +245,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging levels include `ERROR`, `INFO`, or `NONE`.
-        """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
@@ -329,9 +254,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -341,9 +263,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="slackChannelId")
     def slack_channel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Slack channel. For example, `C07EZ1ABC23`.
-        """
         return pulumi.get(self, "slack_channel_id")
 
     @slack_channel_id.setter
@@ -353,9 +272,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="slackChannelName")
     def slack_channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Slack channel.
-        """
         return pulumi.get(self, "slack_channel_name")
 
     @slack_channel_name.setter
@@ -365,11 +281,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="slackTeamId")
     def slack_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "slack_team_id")
 
     @slack_team_id.setter
@@ -379,9 +290,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="slackTeamName")
     def slack_team_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Slack team.
-        """
         return pulumi.get(self, "slack_team_name")
 
     @slack_team_name.setter
@@ -391,9 +299,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        """
         return pulumi.get(self, "sns_topic_arns")
 
     @sns_topic_arns.setter
@@ -403,9 +308,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -415,9 +317,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -436,9 +335,6 @@ class _SlackChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
     def user_authorization_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables use of a user role requirement in your chat configuration.
-        """
         return pulumi.get(self, "user_authorization_required")
 
     @user_authorization_required.setter
@@ -465,48 +361,9 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Chatbot Slack Channel Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.chatbot.SlackChannelConfiguration("test",
-            configuration_name="min-slaka-kanal",
-            iam_role_arn=test_aws_iam_role["arn"],
-            slack_channel_id="C07EZ1ABC23",
-            slack_team_id="T07EA123LEP",
-            tags={
-                "Name": "min-slaka-kanal",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Chatbot Slack Channel Configuration using the `chat_configuration_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
-        ```
-
+        Create a SlackChannelConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Slack channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
-        :param pulumi.Input[_builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         ...
     @overload
@@ -515,34 +372,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  args: SlackChannelConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Chatbot Slack Channel Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.chatbot.SlackChannelConfiguration("test",
-            configuration_name="min-slaka-kanal",
-            iam_role_arn=test_aws_iam_role["arn"],
-            slack_channel_id="C07EZ1ABC23",
-            slack_team_id="T07EA123LEP",
-            tags={
-                "Name": "min-slaka-kanal",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Chatbot Slack Channel Configuration using the `chat_configuration_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
-        ```
-
+        Create a SlackChannelConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SlackChannelConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -633,22 +463,6 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] chat_configuration_arn: ARN of the Slack channel configuration.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Slack channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
-        :param pulumi.Input[_builtins.str] slack_channel_name: Name of the Slack channel.
-        :param pulumi.Input[_builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] slack_team_name: Name of the Slack team.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -674,107 +488,66 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="chatConfigurationArn")
     def chat_configuration_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Slack channel configuration.
-        """
         return pulumi.get(self, "chat_configuration_arn")
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Slack channel configuration.
-        """
         return pulumi.get(self, "configuration_name")
 
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
     def guardrail_policy_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> pulumi.Output[_builtins.str]:
-        """
-        Logging levels include `ERROR`, `INFO`, or `NONE`.
-        """
         return pulumi.get(self, "logging_level")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="slackChannelId")
     def slack_channel_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Slack channel. For example, `C07EZ1ABC23`.
-        """
         return pulumi.get(self, "slack_channel_id")
 
     @_builtins.property
     @pulumi.getter(name="slackChannelName")
     def slack_channel_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Slack channel.
-        """
         return pulumi.get(self, "slack_channel_name")
 
     @_builtins.property
     @pulumi.getter(name="slackTeamId")
     def slack_team_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "slack_team_id")
 
     @_builtins.property
     @pulumi.getter(name="slackTeamName")
     def slack_team_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Slack team.
-        """
         return pulumi.get(self, "slack_team_name")
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        """
         return pulumi.get(self, "sns_topic_arns")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -785,8 +558,5 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
     def user_authorization_required(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Enables use of a user role requirement in your chat configuration.
-        """
         return pulumi.get(self, "user_authorization_required")
 

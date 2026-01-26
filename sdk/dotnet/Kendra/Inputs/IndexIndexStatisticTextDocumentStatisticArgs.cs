@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class IndexIndexStatisticTextDocumentStatisticArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The total size, in bytes, of the indexed documents.
-        /// </summary>
         [Input("indexedTextBytes")]
         public Input<int>? IndexedTextBytes { get; set; }
 
-        /// <summary>
-        /// The number of text documents indexed.
-        /// </summary>
         [Input("indexedTextDocumentsCount")]
         public Input<int>? IndexedTextDocumentsCount { get; set; }
 

@@ -16,32 +16,16 @@ public final class GetSlackWorkspaceArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetSlackWorkspaceArgs Empty = new GetSlackWorkspaceArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Slack workspace name configured with AWS Chatbot.
-     * 
-     */
     @Import(name="slackTeamName", required=true)
     private Output<String> slackTeamName;
 
-    /**
-     * @return Slack workspace name configured with AWS Chatbot.
-     * 
-     */
     public Output<String> slackTeamName() {
         return this.slackTeamName;
     }
@@ -71,44 +55,20 @@ public final class GetSlackWorkspaceArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetSlackWorkspaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param slackTeamName Slack workspace name configured with AWS Chatbot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slackTeamName(Output<String> slackTeamName) {
             $.slackTeamName = slackTeamName;
             return this;
         }
 
-        /**
-         * @param slackTeamName Slack workspace name configured with AWS Chatbot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slackTeamName(String slackTeamName) {
             return slackTeamName(Output.of(slackTeamName));
         }

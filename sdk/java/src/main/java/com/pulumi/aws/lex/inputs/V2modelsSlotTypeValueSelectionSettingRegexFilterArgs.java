@@ -14,17 +14,9 @@ public final class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs extends 
 
     public static final V2modelsSlotTypeValueSelectionSettingRegexFilterArgs Empty = new V2modelsSlotTypeValueSelectionSettingRegexFilterArgs();
 
-    /**
-     * A regular expression used to validate the value of a slot.
-     * 
-     */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
-    /**
-     * @return A regular expression used to validate the value of a slot.
-     * 
-     */
     public Output<String> pattern() {
         return this.pattern;
     }
@@ -53,23 +45,11 @@ public final class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs extends 
             $ = new V2modelsSlotTypeValueSelectionSettingRegexFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param pattern A regular expression used to validate the value of a slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
-        /**
-         * @param pattern A regular expression used to validate the value of a slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }

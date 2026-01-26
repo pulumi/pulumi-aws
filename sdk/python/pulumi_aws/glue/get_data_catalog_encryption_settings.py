@@ -49,9 +49,6 @@ class GetDataCatalogEncryptionSettingsResult:
     @_builtins.property
     @pulumi.getter(name="dataCatalogEncryptionSettings")
     def data_catalog_encryption_settings(self) -> Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult']:
-        """
-        The security configuration to set. see Data Catalog Encryption Settings.
-        """
         return pulumi.get(self, "data_catalog_encryption_settings")
 
     @_builtins.property
@@ -84,13 +81,7 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[_builtins.str] = N
                                          region: Optional[_builtins.str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCatalogEncryptionSettingsResult:
     """
-    This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
-
-    ## Example Usage
-
-
-    :param _builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -107,13 +98,7 @@ def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Inpu
                                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCatalogEncryptionSettingsResult]:
     """
-    This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
-
-    ## Example Usage
-
-
-    :param _builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id

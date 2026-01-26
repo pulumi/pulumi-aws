@@ -12,200 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource for controlling versioning on an S3 bucket.
-// Deleting this resource will either suspend versioning on the associated S3 bucket or
-// simply remove the resource from state if the associated S3 bucket is unversioned.
-//
-// For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
-//
-// > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ### With Versioning Enabled
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioning(ctx, "versioning_example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Versioning Disabled
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioning(ctx, "versioning_example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
-//					Status: pulumi.String("Disabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Object Dependency On Versioning
-//
-// When you create an object whose `versionId` you need and an `s3.BucketVersioning` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `s3.BucketVersioning` resource.
-//
-// > **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
-//
-// This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("yotto"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketVersioning.ID(),
-//				Key:    pulumi.String("droeloe"),
-//				Source: pulumi.NewFileAsset("example.txt"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `bucket` (String) S3 bucket name.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// terraform
-//
-// import {
-//
-//	to = aws_s3_bucket_versioning.example
-//
-//	id = "bucket-name,123456789012"
-//
-// }
-//
-// **Using `pulumi import` to import** S3 bucket versioning using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-//
-// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-//
-// % pulumi import aws_s3_bucket_versioning.example bucket-name
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// % pulumi import aws_s3_bucket_versioning.example bucket-name,123456789012
 type BucketVersioning struct {
 	pulumi.CustomResourceState
 
-	// Name of the S3 bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa pulumi.StringPtrOutput `pulumi:"mfa"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for the versioning parameters. See below.
+	Bucket                  pulumi.StringOutput                           `pulumi:"bucket"`
+	ExpectedBucketOwner     pulumi.StringPtrOutput                        `pulumi:"expectedBucketOwner"`
+	Mfa                     pulumi.StringPtrOutput                        `pulumi:"mfa"`
+	Region                  pulumi.StringOutput                           `pulumi:"region"`
 	VersioningConfiguration BucketVersioningVersioningConfigurationOutput `pulumi:"versioningConfiguration"`
 }
 
@@ -251,28 +64,18 @@ func GetBucketVersioning(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketVersioning resources.
 type bucketVersioningState struct {
-	// Name of the S3 bucket.
-	Bucket *string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa *string `pulumi:"mfa"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the versioning parameters. See below.
+	Bucket                  *string                                  `pulumi:"bucket"`
+	ExpectedBucketOwner     *string                                  `pulumi:"expectedBucketOwner"`
+	Mfa                     *string                                  `pulumi:"mfa"`
+	Region                  *string                                  `pulumi:"region"`
 	VersioningConfiguration *BucketVersioningVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
 type BucketVersioningState struct {
-	// Name of the S3 bucket.
-	Bucket pulumi.StringPtrInput
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the versioning parameters. See below.
+	Bucket                  pulumi.StringPtrInput
+	ExpectedBucketOwner     pulumi.StringPtrInput
+	Mfa                     pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 	VersioningConfiguration BucketVersioningVersioningConfigurationPtrInput
 }
 
@@ -281,29 +84,19 @@ func (BucketVersioningState) ElementType() reflect.Type {
 }
 
 type bucketVersioningArgs struct {
-	// Name of the S3 bucket.
-	Bucket string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa *string `pulumi:"mfa"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the versioning parameters. See below.
+	Bucket                  string                                  `pulumi:"bucket"`
+	ExpectedBucketOwner     *string                                 `pulumi:"expectedBucketOwner"`
+	Mfa                     *string                                 `pulumi:"mfa"`
+	Region                  *string                                 `pulumi:"region"`
 	VersioningConfiguration BucketVersioningVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
 // The set of arguments for constructing a BucketVersioning resource.
 type BucketVersioningArgs struct {
-	// Name of the S3 bucket.
-	Bucket pulumi.StringInput
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the versioning parameters. See below.
+	Bucket                  pulumi.StringInput
+	ExpectedBucketOwner     pulumi.StringPtrInput
+	Mfa                     pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 	VersioningConfiguration BucketVersioningVersioningConfigurationInput
 }
 
@@ -394,27 +187,22 @@ func (o BucketVersioningOutput) ToBucketVersioningOutputWithContext(ctx context.
 	return o
 }
 
-// Name of the S3 bucket.
 func (o BucketVersioningOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketVersioning) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Account ID of the expected bucket owner.
 func (o BucketVersioningOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioning) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 func (o BucketVersioningOutput) Mfa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioning) pulumi.StringPtrOutput { return v.Mfa }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketVersioningOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketVersioning) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for the versioning parameters. See below.
 func (o BucketVersioningOutput) VersioningConfiguration() BucketVersioningVersioningConfigurationOutput {
 	return o.ApplyT(func(v *BucketVersioning) BucketVersioningVersioningConfigurationOutput {
 		return v.VersioningConfiguration

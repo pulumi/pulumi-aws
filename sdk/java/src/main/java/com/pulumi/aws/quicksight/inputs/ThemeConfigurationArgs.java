@@ -18,62 +18,30 @@ public final class ThemeConfigurationArgs extends com.pulumi.resources.ResourceA
 
     public static final ThemeConfigurationArgs Empty = new ThemeConfigurationArgs();
 
-    /**
-     * Color properties that apply to chart data colors. See data_color_palette.
-     * 
-     */
     @Import(name="dataColorPalette")
     private @Nullable Output<ThemeConfigurationDataColorPaletteArgs> dataColorPalette;
 
-    /**
-     * @return Color properties that apply to chart data colors. See data_color_palette.
-     * 
-     */
     public Optional<Output<ThemeConfigurationDataColorPaletteArgs>> dataColorPalette() {
         return Optional.ofNullable(this.dataColorPalette);
     }
 
-    /**
-     * Display options related to sheets. See sheet.
-     * 
-     */
     @Import(name="sheet")
     private @Nullable Output<ThemeConfigurationSheetArgs> sheet;
 
-    /**
-     * @return Display options related to sheets. See sheet.
-     * 
-     */
     public Optional<Output<ThemeConfigurationSheetArgs>> sheet() {
         return Optional.ofNullable(this.sheet);
     }
 
-    /**
-     * Determines the typography options. See typography.
-     * 
-     */
     @Import(name="typography")
     private @Nullable Output<ThemeConfigurationTypographyArgs> typography;
 
-    /**
-     * @return Determines the typography options. See typography.
-     * 
-     */
     public Optional<Output<ThemeConfigurationTypographyArgs>> typography() {
         return Optional.ofNullable(this.typography);
     }
 
-    /**
-     * Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-     * 
-     */
     @Import(name="uiColorPalette")
     private @Nullable Output<ThemeConfigurationUiColorPaletteArgs> uiColorPalette;
 
-    /**
-     * @return Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-     * 
-     */
     public Optional<Output<ThemeConfigurationUiColorPaletteArgs>> uiColorPalette() {
         return Optional.ofNullable(this.uiColorPalette);
     }
@@ -105,86 +73,38 @@ public final class ThemeConfigurationArgs extends com.pulumi.resources.ResourceA
             $ = new ThemeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataColorPalette Color properties that apply to chart data colors. See data_color_palette.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataColorPalette(@Nullable Output<ThemeConfigurationDataColorPaletteArgs> dataColorPalette) {
             $.dataColorPalette = dataColorPalette;
             return this;
         }
 
-        /**
-         * @param dataColorPalette Color properties that apply to chart data colors. See data_color_palette.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataColorPalette(ThemeConfigurationDataColorPaletteArgs dataColorPalette) {
             return dataColorPalette(Output.of(dataColorPalette));
         }
 
-        /**
-         * @param sheet Display options related to sheets. See sheet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sheet(@Nullable Output<ThemeConfigurationSheetArgs> sheet) {
             $.sheet = sheet;
             return this;
         }
 
-        /**
-         * @param sheet Display options related to sheets. See sheet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sheet(ThemeConfigurationSheetArgs sheet) {
             return sheet(Output.of(sheet));
         }
 
-        /**
-         * @param typography Determines the typography options. See typography.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typography(@Nullable Output<ThemeConfigurationTypographyArgs> typography) {
             $.typography = typography;
             return this;
         }
 
-        /**
-         * @param typography Determines the typography options. See typography.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typography(ThemeConfigurationTypographyArgs typography) {
             return typography(Output.of(typography));
         }
 
-        /**
-         * @param uiColorPalette Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uiColorPalette(@Nullable Output<ThemeConfigurationUiColorPaletteArgs> uiColorPalette) {
             $.uiColorPalette = uiColorPalette;
             return this;
         }
 
-        /**
-         * @param uiColorPalette Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uiColorPalette(ThemeConfigurationUiColorPaletteArgs uiColorPalette) {
             return uiColorPalette(Output.of(uiColorPalette));
         }

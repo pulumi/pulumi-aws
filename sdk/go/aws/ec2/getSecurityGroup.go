@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.SecurityGroup` provides details about a specific Security Group.
-//
-// This resource can prove useful when a module accepts a Security Group id as
-// an input variable and needs to, for example, determine the id of the
-// VPC that the security group belongs to.
-//
-// ## Example Usage
-//
-// The following example shows how one might accept a Security Group id as a variable
-// and use this data source to obtain the data necessary to create a subnet.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			securityGroupId := cfg.RequireObject("securityGroupId")
-//			selected, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
-//				Id: pulumi.StringRef(securityGroupId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSubnet(ctx, "subnet", &ec2.SubnetArgs{
-//				VpcId:     pulumi.String(selected.VpcId),
-//				CidrBlock: pulumi.String("10.0.1.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityGroupResult
@@ -67,30 +23,17 @@ func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opt
 
 // A collection of arguments for invoking getSecurityGroup.
 type LookupSecurityGroupArgs struct {
-	// Custom filter block as described below.
 	Filters []GetSecurityGroupFilter `pulumi:"filters"`
-	// Id of the specific security group to retrieve.
-	Id *string `pulumi:"id"`
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired security group.
-	Tags map[string]string `pulumi:"tags"`
-	// Id of the VPC that the desired security group belongs to.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	VpcId *string `pulumi:"vpcId"`
+	Id      *string                  `pulumi:"id"`
+	Name    *string                  `pulumi:"name"`
+	Region  *string                  `pulumi:"region"`
+	Tags    map[string]string        `pulumi:"tags"`
+	VpcId   *string                  `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getSecurityGroup.
 type LookupSecurityGroupResult struct {
-	// Computed ARN of the security group.
-	Arn string `pulumi:"arn"`
-	// Description of the security group.
+	Arn         string                   `pulumi:"arn"`
 	Description string                   `pulumi:"description"`
 	Filters     []GetSecurityGroupFilter `pulumi:"filters"`
 	Id          string                   `pulumi:"id"`
@@ -111,23 +54,12 @@ func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutp
 
 // A collection of arguments for invoking getSecurityGroup.
 type LookupSecurityGroupOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetSecurityGroupFilterArrayInput `pulumi:"filters"`
-	// Id of the specific security group to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired security group.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Id of the VPC that the desired security group belongs to.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	Id      pulumi.StringPtrInput            `pulumi:"id"`
+	Name    pulumi.StringPtrInput            `pulumi:"name"`
+	Region  pulumi.StringPtrInput            `pulumi:"region"`
+	Tags    pulumi.StringMapInput            `pulumi:"tags"`
+	VpcId   pulumi.StringPtrInput            `pulumi:"vpcId"`
 }
 
 func (LookupSecurityGroupOutputArgs) ElementType() reflect.Type {
@@ -149,12 +81,10 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithCo
 	return o
 }
 
-// Computed ARN of the security group.
 func (o LookupSecurityGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the security group.
 func (o LookupSecurityGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }

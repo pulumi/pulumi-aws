@@ -7,49 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
- * const testVpcBlockPublicAccessExclusion = new aws.ec2.VpcBlockPublicAccessExclusion("test", {
- *     vpcId: test.id,
- *     internetGatewayExclusionMode: "allow-bidirectional",
- * });
- * ```
- *
- * ### Usage with subnet id
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
- * const testSubnet = new aws.ec2.Subnet("test", {
- *     cidrBlock: "10.1.1.0/24",
- *     vpcId: test.id,
- * });
- * const testVpcBlockPublicAccessExclusion = new aws.ec2.VpcBlockPublicAccessExclusion("test", {
- *     subnetId: testSubnet.id,
- *     internetGatewayExclusionMode: "allow-egress",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
- * ```
- */
 export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
     /**
      * Get an existing VpcBlockPublicAccessExclusion resource's state with the given name, ID, and optional extra
@@ -78,36 +35,13 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcBlockPublicAccessExclusion.__pulumiType;
     }
 
-    /**
-     * Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly internetGatewayExclusionMode: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) the excluded resource.
-     */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
-    /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-     */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
-    /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.VpcBlockPublicAccessExclusionTimeouts | undefined>;
-    /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-     */
     declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
@@ -154,36 +88,13 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcBlockPublicAccessExclusion resources.
  */
 export interface VpcBlockPublicAccessExclusionState {
-    /**
-     * Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-     *
-     * The following arguments are optional:
-     */
     internetGatewayExclusionMode?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) the excluded resource.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessExclusionTimeouts>;
-    /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -191,27 +102,10 @@ export interface VpcBlockPublicAccessExclusionState {
  * The set of arguments for constructing a VpcBlockPublicAccessExclusion resource.
  */
 export interface VpcBlockPublicAccessExclusionArgs {
-    /**
-     * Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-     *
-     * The following arguments are optional:
-     */
     internetGatewayExclusionMode: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessExclusionTimeouts>;
-    /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-     */
     vpcId?: pulumi.Input<string>;
 }

@@ -14,32 +14,16 @@ public final class ContainerRecipeTargetRepositoryArgs extends com.pulumi.resour
 
     public static final ContainerRecipeTargetRepositoryArgs Empty = new ContainerRecipeTargetRepositoryArgs();
 
-    /**
-     * The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
 
-    /**
-     * The service in which this image is registered. Valid values: `ECR`.
-     * 
-     */
     @Import(name="service", required=true)
     private Output<String> service;
 
-    /**
-     * @return The service in which this image is registered. Valid values: `ECR`.
-     * 
-     */
     public Output<String> service() {
         return this.service;
     }
@@ -69,44 +53,20 @@ public final class ContainerRecipeTargetRepositoryArgs extends com.pulumi.resour
             $ = new ContainerRecipeTargetRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryName The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }
 
-        /**
-         * @param service The service in which this image is registered. Valid values: `ECR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder service(Output<String> service) {
             $.service = service;
             return this;
         }
 
-        /**
-         * @param service The service in which this image is registered. Valid values: `ECR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder service(String service) {
             return service(Output.of(service));
         }

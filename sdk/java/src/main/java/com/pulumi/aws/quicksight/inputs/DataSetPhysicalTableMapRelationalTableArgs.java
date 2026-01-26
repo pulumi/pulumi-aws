@@ -18,77 +18,37 @@ public final class DataSetPhysicalTableMapRelationalTableArgs extends com.pulumi
 
     public static final DataSetPhysicalTableMapRelationalTableArgs Empty = new DataSetPhysicalTableMapRelationalTableArgs();
 
-    /**
-     * Catalog associated with the table.
-     * 
-     */
     @Import(name="catalog")
     private @Nullable Output<String> catalog;
 
-    /**
-     * @return Catalog associated with the table.
-     * 
-     */
     public Optional<Output<String>> catalog() {
         return Optional.ofNullable(this.catalog);
     }
 
-    /**
-     * ARN of the data source.
-     * 
-     */
     @Import(name="dataSourceArn", required=true)
     private Output<String> dataSourceArn;
 
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     public Output<String> dataSourceArn() {
         return this.dataSourceArn;
     }
 
-    /**
-     * Column schema of the table. See input_columns.
-     * 
-     */
     @Import(name="inputColumns", required=true)
     private Output<List<DataSetPhysicalTableMapRelationalTableInputColumnArgs>> inputColumns;
 
-    /**
-     * @return Column schema of the table. See input_columns.
-     * 
-     */
     public Output<List<DataSetPhysicalTableMapRelationalTableInputColumnArgs>> inputColumns() {
         return this.inputColumns;
     }
 
-    /**
-     * Name of the relational table.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the relational table.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Schema name. This name applies to certain relational database engines.
-     * 
-     */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
-    /**
-     * @return Schema name. This name applies to certain relational database engines.
-     * 
-     */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
     }
@@ -121,117 +81,51 @@ public final class DataSetPhysicalTableMapRelationalTableArgs extends com.pulumi
             $ = new DataSetPhysicalTableMapRelationalTableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalog Catalog associated with the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalog(@Nullable Output<String> catalog) {
             $.catalog = catalog;
             return this;
         }
 
-        /**
-         * @param catalog Catalog associated with the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalog(String catalog) {
             return catalog(Output.of(catalog));
         }
 
-        /**
-         * @param dataSourceArn ARN of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceArn(Output<String> dataSourceArn) {
             $.dataSourceArn = dataSourceArn;
             return this;
         }
 
-        /**
-         * @param dataSourceArn ARN of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceArn(String dataSourceArn) {
             return dataSourceArn(Output.of(dataSourceArn));
         }
 
-        /**
-         * @param inputColumns Column schema of the table. See input_columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputColumns(Output<List<DataSetPhysicalTableMapRelationalTableInputColumnArgs>> inputColumns) {
             $.inputColumns = inputColumns;
             return this;
         }
 
-        /**
-         * @param inputColumns Column schema of the table. See input_columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputColumns(List<DataSetPhysicalTableMapRelationalTableInputColumnArgs> inputColumns) {
             return inputColumns(Output.of(inputColumns));
         }
 
-        /**
-         * @param inputColumns Column schema of the table. See input_columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputColumns(DataSetPhysicalTableMapRelationalTableInputColumnArgs... inputColumns) {
             return inputColumns(List.of(inputColumns));
         }
 
-        /**
-         * @param name Name of the relational table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the relational table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param schema Schema name. This name applies to certain relational database engines.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
-        /**
-         * @param schema Schema name. This name applies to certain relational database engines.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }

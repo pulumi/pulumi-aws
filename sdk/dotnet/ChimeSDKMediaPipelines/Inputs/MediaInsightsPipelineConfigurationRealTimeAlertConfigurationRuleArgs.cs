@@ -12,27 +12,15 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration for an issue detection rule.
-        /// </summary>
         [Input("issueDetectionConfiguration")]
         public Input<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs>? IssueDetectionConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration for a keyword match rule.
-        /// </summary>
         [Input("keywordMatchConfiguration")]
         public Input<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs>? KeywordMatchConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration for a sentiment rule.
-        /// </summary>
         [Input("sentimentConfiguration")]
         public Input<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs>? SentimentConfiguration { get; set; }
 
-        /// <summary>
-        /// Rule type.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

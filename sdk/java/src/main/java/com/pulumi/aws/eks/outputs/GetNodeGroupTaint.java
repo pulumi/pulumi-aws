@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNodeGroupTaint {
-    /**
-     * @return The effect of the taint.
-     * 
-     */
     private String effect;
-    /**
-     * @return The key of the taint.
-     * 
-     */
     private String key;
-    /**
-     * @return The value of the taint.
-     * 
-     */
     private String value;
 
     private GetNodeGroupTaint() {}
-    /**
-     * @return The effect of the taint.
-     * 
-     */
     public String effect() {
         return this.effect;
     }
-    /**
-     * @return The key of the taint.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value of the taint.
-     * 
-     */
     public String value() {
         return this.value;
     }

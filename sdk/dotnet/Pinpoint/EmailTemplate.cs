@@ -9,69 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Provides a Pinpoint Email Template resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Pinpoint.EmailTemplate("test", new()
-    ///     {
-    ///         TemplateName = "testing",
-    ///         EmailTemplates = new[]
-    ///         {
-    ///             new Aws.Pinpoint.Inputs.EmailTemplateEmailTemplateArgs
-    ///             {
-    ///                 Subject = "testing",
-    ///                 TextPart = "we are testing template text part",
-    ///                 Headers = new[]
-    ///                 {
-    ///                     new Aws.Pinpoint.Inputs.EmailTemplateEmailTemplateHeaderArgs
-    ///                     {
-    ///                         Name = "testingname",
-    ///                         Value = "testingvalue",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Pinpoint Email Template using the `template_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/emailTemplate:EmailTemplate")]
     public partial class EmailTemplate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the message template.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        /// </summary>
         [Output("emailTemplates")]
         public Output<ImmutableArray<Outputs.EmailTemplateEmailTemplate>> EmailTemplates { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -81,9 +27,6 @@ namespace Pulumi.Aws.Pinpoint
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-        /// </summary>
         [Output("templateName")]
         public Output<string> TemplateName { get; private set; } = null!;
 
@@ -135,19 +78,12 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("emailTemplates")]
         private InputList<Inputs.EmailTemplateEmailTemplateArgs>? _emailTemplates;
-
-        /// <summary>
-        /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        /// </summary>
         public InputList<Inputs.EmailTemplateEmailTemplateArgs> EmailTemplates
         {
             get => _emailTemplates ?? (_emailTemplates = new InputList<Inputs.EmailTemplateEmailTemplateArgs>());
             set => _emailTemplates = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -159,9 +95,6 @@ namespace Pulumi.Aws.Pinpoint
             set => _tags = value;
         }
 
-        /// <summary>
-        /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-        /// </summary>
         [Input("templateName", required: true)]
         public Input<string> TemplateName { get; set; } = null!;
 
@@ -173,27 +106,17 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class EmailTemplateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the message template.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("emailTemplates")]
         private InputList<Inputs.EmailTemplateEmailTemplateGetArgs>? _emailTemplates;
-
-        /// <summary>
-        /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        /// </summary>
         public InputList<Inputs.EmailTemplateEmailTemplateGetArgs> EmailTemplates
         {
             get => _emailTemplates ?? (_emailTemplates = new InputList<Inputs.EmailTemplateEmailTemplateGetArgs>());
             set => _emailTemplates = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -213,9 +136,6 @@ namespace Pulumi.Aws.Pinpoint
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-        /// </summary>
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }
 

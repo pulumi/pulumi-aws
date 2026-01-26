@@ -15,17 +15,9 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfigArgs ext
 
     public static final EndpointConfigurationAsyncInferenceConfigClientConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigClientConfigArgs();
 
-    /**
-     * Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
-     * 
-     */
     @Import(name="maxConcurrentInvocationsPerInstance")
     private @Nullable Output<Integer> maxConcurrentInvocationsPerInstance;
 
-    /**
-     * @return Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrentInvocationsPerInstance() {
         return Optional.ofNullable(this.maxConcurrentInvocationsPerInstance);
     }
@@ -54,23 +46,11 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfigArgs ext
             $ = new EndpointConfigurationAsyncInferenceConfigClientConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxConcurrentInvocationsPerInstance Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentInvocationsPerInstance(@Nullable Output<Integer> maxConcurrentInvocationsPerInstance) {
             $.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
             return this;
         }
 
-        /**
-         * @param maxConcurrentInvocationsPerInstance Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentInvocationsPerInstance(Integer maxConcurrentInvocationsPerInstance) {
             return maxConcurrentInvocationsPerInstance(Output.of(maxConcurrentInvocationsPerInstance));
         }

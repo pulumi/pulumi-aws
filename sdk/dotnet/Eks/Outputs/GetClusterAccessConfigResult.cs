@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterAccessConfigResult
     {
-        /// <summary>
-        /// Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        /// </summary>
         public readonly string AuthenticationMode;
-        /// <summary>
-        /// Default to `True`.
-        /// </summary>
         public readonly bool BootstrapClusterCreatorAdminPermissions;
 
         [OutputConstructor]

@@ -14,61 +14,35 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("customFileSystemConfigs")]
         private InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigGetArgs>? _customFileSystemConfigs;
-
-        /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `CustomFileSystemConfig` Block below.
-        /// </summary>
         public InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigGetArgs> CustomFileSystemConfigs
         {
             get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigGetArgs>());
             set => _customFileSystemConfigs = value;
         }
 
-        /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See `CustomPosixUserConfig` Block below.
-        /// </summary>
         [Input("customPosixUserConfig")]
         public Input<Inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigGetArgs>? CustomPosixUserConfig { get; set; }
 
-        /// <summary>
-        /// The execution role for the space.
-        /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
 
-        /// <summary>
-        /// The settings for the JupyterLab application. See `JupyterLabAppSettings` Block below.
-        /// </summary>
         [Input("jupyterLabAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsGetArgs>? JupyterLabAppSettings { get; set; }
 
-        /// <summary>
-        /// The Jupyter server's app settings. See `JupyterServerAppSettings` Block below.
-        /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsGetArgs>? JupyterServerAppSettings { get; set; }
 
-        /// <summary>
-        /// The kernel gateway app settings. See `KernelGatewayAppSettings` Block below.
-        /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsGetArgs>? KernelGatewayAppSettings { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
 
-        /// <summary>
-        /// The storage settings for a private space. See `SpaceStorageSettings` Block below.
-        /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsGetArgs>? SpaceStorageSettings { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class CustomLogSourceProviderDetail
     {
-        /// <summary>
-        /// The location of the partition in the Amazon S3 bucket for Security Lake.
-        /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

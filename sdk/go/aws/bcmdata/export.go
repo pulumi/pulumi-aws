@@ -11,107 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS BCM Data Exports Export.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bcmdata"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bcmdata.NewExport(ctx, "test", &bcmdata.ExportArgs{
-//				Export: &bcmdata.ExportExportArgs{
-//					Name: pulumi.String("testexample"),
-//					DataQueries: bcmdata.ExportExportDataQueryArray{
-//						&bcmdata.ExportExportDataQueryArgs{
-//							QueryStatement: pulumi.String("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT"),
-//							TableConfigurations: pulumi.StringMapMap{
-//								"COST_AND_USAGE_REPORT": pulumi.StringMap{
-//									"BILLING_VIEW_ARN":                      pulumi.Sprintf("arn:%v:billing::%v:billingview/primary", currentGetPartition.Partition, current.AccountId),
-//									"TIME_GRANULARITY":                      pulumi.String("HOURLY"),
-//									"INCLUDE_RESOURCES":                     pulumi.String("FALSE"),
-//									"INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": pulumi.String("FALSE"),
-//									"INCLUDE_SPLIT_COST_ALLOCATION_DATA":    pulumi.String("FALSE"),
-//								},
-//							},
-//						},
-//					},
-//					DestinationConfigurations: bcmdata.ExportExportDestinationConfigurationArray{
-//						&bcmdata.ExportExportDestinationConfigurationArgs{
-//							S3Destinations: bcmdata.ExportExportDestinationConfigurationS3DestinationArray{
-//								&bcmdata.ExportExportDestinationConfigurationS3DestinationArgs{
-//									S3Bucket: pulumi.Any(testAwsS3Bucket.Bucket),
-//									S3Prefix: pulumi.Any(testAwsS3Bucket.BucketPrefix),
-//									S3Region: pulumi.Any(testAwsS3Bucket.Region),
-//									S3OutputConfigurations: bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArray{
-//										&bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs{
-//											Overwrite:   pulumi.String("OVERWRITE_REPORT"),
-//											Format:      pulumi.String("TEXT_OR_CSV"),
-//											Compression: pulumi.String("GZIP"),
-//											OutputType:  pulumi.String("CUSTOM"),
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//					RefreshCadences: bcmdata.ExportExportRefreshCadenceArray{
-//						&bcmdata.ExportExportRefreshCadenceArgs{
-//							Frequency: pulumi.String("SYNCHRONOUS"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
-//
-// Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
-//
-// % pulumi import aws_bcmdataexports_export.example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
 type Export struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for this export.
-	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export ExportExportPtrOutput `pulumi:"export"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Arn      pulumi.StringOutput     `pulumi:"arn"`
+	Export   ExportExportPtrOutput   `pulumi:"export"`
 	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
 	Timeouts ExportTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -147,24 +51,16 @@ func GetExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
-	// Amazon Resource Name (ARN) for this export.
-	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-	Arn *string `pulumi:"arn"`
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export *ExportExport `pulumi:"export"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Arn      *string           `pulumi:"arn"`
+	Export   *ExportExport     `pulumi:"export"`
 	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
 }
 
 type ExportState struct {
-	// Amazon Resource Name (ARN) for this export.
-	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-	Arn pulumi.StringPtrInput
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export ExportExportPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Arn      pulumi.StringPtrInput
+	Export   ExportExportPtrInput
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
@@ -175,18 +71,14 @@ func (ExportState) ElementType() reflect.Type {
 }
 
 type exportArgs struct {
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export *ExportExport `pulumi:"export"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Export   *ExportExport     `pulumi:"export"`
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Export resource.
 type ExportArgs struct {
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export ExportExportPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Export   ExportExportPtrInput
 	Tags     pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
 }
@@ -278,18 +170,14 @@ func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) for this export.
-// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
 func (o ExportOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 func (o ExportOutput) Export() ExportExportPtrOutput {
 	return o.ApplyT(func(v *Export) ExportExportPtrOutput { return v.Export }).(ExportExportPtrOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ExportOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

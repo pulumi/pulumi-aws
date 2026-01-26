@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApiEventConfig {
-    /**
-     * @return List of authentication providers. See Auth Providers below.
-     * 
-     */
     private @Nullable List<ApiEventConfigAuthProvider> authProviders;
-    /**
-     * @return List of authentication modes for connections. See Auth Modes below.
-     * 
-     */
     private @Nullable List<ApiEventConfigConnectionAuthMode> connectionAuthModes;
-    /**
-     * @return List of default authentication modes for publishing. See Auth Modes below.
-     * 
-     */
     private @Nullable List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes;
-    /**
-     * @return List of default authentication modes for subscribing. See Auth Modes below.
-     * 
-     */
     private @Nullable List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes;
-    /**
-     * @return Logging configuration. See Log Config below.
-     * 
-     */
     private @Nullable ApiEventConfigLogConfig logConfig;
 
     private ApiEventConfig() {}
-    /**
-     * @return List of authentication providers. See Auth Providers below.
-     * 
-     */
     public List<ApiEventConfigAuthProvider> authProviders() {
         return this.authProviders == null ? List.of() : this.authProviders;
     }
-    /**
-     * @return List of authentication modes for connections. See Auth Modes below.
-     * 
-     */
     public List<ApiEventConfigConnectionAuthMode> connectionAuthModes() {
         return this.connectionAuthModes == null ? List.of() : this.connectionAuthModes;
     }
-    /**
-     * @return List of default authentication modes for publishing. See Auth Modes below.
-     * 
-     */
     public List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes() {
         return this.defaultPublishAuthModes == null ? List.of() : this.defaultPublishAuthModes;
     }
-    /**
-     * @return List of default authentication modes for subscribing. See Auth Modes below.
-     * 
-     */
     public List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes() {
         return this.defaultSubscribeAuthModes == null ? List.of() : this.defaultSubscribeAuthModes;
     }
-    /**
-     * @return Logging configuration. See Log Config below.
-     * 
-     */
     public Optional<ApiEventConfigLogConfig> logConfig() {
         return Optional.ofNullable(this.logConfig);
     }

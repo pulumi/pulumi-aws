@@ -18,92 +18,44 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
 
     public static final CrawlerS3TargetArgs Empty = new CrawlerS3TargetArgs();
 
-    /**
-     * The name of a connection which allows crawler to access data in S3 within a VPC.
-     * 
-     */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
-    /**
-     * @return The name of a connection which allows crawler to access data in S3 within a VPC.
-     * 
-     */
     public Optional<Output<String>> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
 
-    /**
-     * The ARN of the dead-letter SQS queue.
-     * 
-     */
     @Import(name="dlqEventQueueArn")
     private @Nullable Output<String> dlqEventQueueArn;
 
-    /**
-     * @return The ARN of the dead-letter SQS queue.
-     * 
-     */
     public Optional<Output<String>> dlqEventQueueArn() {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
 
-    /**
-     * The ARN of the SQS queue to receive S3 notifications from.
-     * 
-     */
     @Import(name="eventQueueArn")
     private @Nullable Output<String> eventQueueArn;
 
-    /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
-     * 
-     */
     public Optional<Output<String>> eventQueueArn() {
         return Optional.ofNullable(this.eventQueueArn);
     }
 
-    /**
-     * A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     @Import(name="exclusions")
     private @Nullable Output<List<String>> exclusions;
 
-    /**
-     * @return A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     public Optional<Output<List<String>>> exclusions() {
         return Optional.ofNullable(this.exclusions);
     }
 
-    /**
-     * The path to the Amazon S3 target.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return The path to the Amazon S3 target.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
 
-    /**
-     * Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-     * 
-     */
     @Import(name="sampleSize")
     private @Nullable Output<Integer> sampleSize;
 
-    /**
-     * @return Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-     * 
-     */
     public Optional<Output<Integer>> sampleSize() {
         return Optional.ofNullable(this.sampleSize);
     }
@@ -137,138 +89,60 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
             $ = new CrawlerS3TargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionName The name of a connection which allows crawler to access data in S3 within a VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(@Nullable Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
 
-        /**
-         * @param connectionName The name of a connection which allows crawler to access data in S3 within a VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
         }
 
-        /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dlqEventQueueArn(@Nullable Output<String> dlqEventQueueArn) {
             $.dlqEventQueueArn = dlqEventQueueArn;
             return this;
         }
 
-        /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dlqEventQueueArn(String dlqEventQueueArn) {
             return dlqEventQueueArn(Output.of(dlqEventQueueArn));
         }
 
-        /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventQueueArn(@Nullable Output<String> eventQueueArn) {
             $.eventQueueArn = eventQueueArn;
             return this;
         }
 
-        /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventQueueArn(String eventQueueArn) {
             return eventQueueArn(Output.of(eventQueueArn));
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(@Nullable Output<List<String>> exclusions) {
             $.exclusions = exclusions;
             return this;
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(List<String> exclusions) {
             return exclusions(Output.of(exclusions));
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(String... exclusions) {
             return exclusions(List.of(exclusions));
         }
 
-        /**
-         * @param path The path to the Amazon S3 target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The path to the Amazon S3 target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param sampleSize Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleSize(@Nullable Output<Integer> sampleSize) {
             $.sampleSize = sampleSize;
             return this;
         }
 
-        /**
-         * @param sampleSize Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleSize(Integer sampleSize) {
             return sampleSize(Output.of(sampleSize));
         }

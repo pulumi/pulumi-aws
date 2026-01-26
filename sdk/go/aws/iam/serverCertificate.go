@@ -12,138 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM Server Certificate resource to upload Server Certificates.
-// Certs uploaded to IAM can easily work with other AWS services such as:
-//
-// - AWS Elastic Beanstalk
-// - Elastic Load Balancing
-// - CloudFront
-// - AWS OpsWorks
-//
-// For information about server certificates in IAM, see [Managing Server
-// Certificates][2] in AWS Documentation.
-//
-// ## Example Usage
-//
-// **Using certs on file:**
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "self-ca-cert.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "test-key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewServerCertificate(ctx, "test_cert", &iam.ServerCertificateArgs{
-//				Name:            pulumi.String("some_test_cert"),
-//				CertificateBody: pulumi.String(invokeFile.Result),
-//				PrivateKey:      pulumi.String(invokeFile1.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// **Example with cert in-line:**
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewServerCertificate(ctx, "test_cert_alt", &iam.ServerCertificateArgs{
-//				Name:            pulumi.String("alt_test_cert"),
-//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n"),
-//				PrivateKey:      pulumi.String("-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// **Use in combination with an AWS ELB resource:**
-//
-// Some properties of an IAM Server Certificates cannot be updated while they are
-// in use. In order for the provider to effectively manage a Certificate in this situation, it is
-// recommended you utilize the `namePrefix` attribute and enable the
-// `createBeforeDestroy`. This will allow this provider
-// to create a new, updated `iam.ServerCertificate` resource and replace it in
-// dependant resources before attempting to destroy the old version.
-//
-// ## Import
-//
-// Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
-// ```
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the server certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The contents of the public key certificate in
-	// PEM-encoded format.
-	CertificateBody pulumi.StringOutput `pulumi:"certificateBody"`
-	// The contents of the certificate chain.
-	// This is typically a concatenation of the PEM-encoded public key certificates
-	// of the chain.
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	CertificateBody  pulumi.StringOutput    `pulumi:"certificateBody"`
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-	Expiration pulumi.StringOutput `pulumi:"expiration"`
-	// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The IAM path for the server certificate.  If it is not
-	// included, it defaults to a slash (/). If this certificate is for use with
-	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The contents of the private key in PEM-encoded format.
-	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
-	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
-	UploadDate pulumi.StringOutput `pulumi:"uploadDate"`
+	Expiration       pulumi.StringOutput    `pulumi:"expiration"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix       pulumi.StringOutput    `pulumi:"namePrefix"`
+	Path             pulumi.StringPtrOutput `pulumi:"path"`
+	PrivateKey       pulumi.StringOutput    `pulumi:"privateKey"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
+	UploadDate       pulumi.StringOutput    `pulumi:"uploadDate"`
 }
 
 // NewServerCertificate registers a new resource with the given unique name, arguments, and options.
@@ -189,71 +71,31 @@ func GetServerCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerCertificate resources.
 type serverCertificateState struct {
-	// The Amazon Resource Name (ARN) specifying the server certificate.
-	Arn *string `pulumi:"arn"`
-	// The contents of the public key certificate in
-	// PEM-encoded format.
-	CertificateBody *string `pulumi:"certificateBody"`
-	// The contents of the certificate chain.
-	// This is typically a concatenation of the PEM-encoded public key certificates
-	// of the chain.
-	CertificateChain *string `pulumi:"certificateChain"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-	Expiration *string `pulumi:"expiration"`
-	// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The IAM path for the server certificate.  If it is not
-	// included, it defaults to a slash (/). If this certificate is for use with
-	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-	Path *string `pulumi:"path"`
-	// The contents of the private key in PEM-encoded format.
-	PrivateKey *string `pulumi:"privateKey"`
-	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
-	UploadDate *string `pulumi:"uploadDate"`
+	Arn              *string           `pulumi:"arn"`
+	CertificateBody  *string           `pulumi:"certificateBody"`
+	CertificateChain *string           `pulumi:"certificateChain"`
+	Expiration       *string           `pulumi:"expiration"`
+	Name             *string           `pulumi:"name"`
+	NamePrefix       *string           `pulumi:"namePrefix"`
+	Path             *string           `pulumi:"path"`
+	PrivateKey       *string           `pulumi:"privateKey"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
+	UploadDate       *string           `pulumi:"uploadDate"`
 }
 
 type ServerCertificateState struct {
-	// The Amazon Resource Name (ARN) specifying the server certificate.
-	Arn pulumi.StringPtrInput
-	// The contents of the public key certificate in
-	// PEM-encoded format.
-	CertificateBody pulumi.StringPtrInput
-	// The contents of the certificate chain.
-	// This is typically a concatenation of the PEM-encoded public key certificates
-	// of the chain.
+	Arn              pulumi.StringPtrInput
+	CertificateBody  pulumi.StringPtrInput
 	CertificateChain pulumi.StringPtrInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-	Expiration pulumi.StringPtrInput
-	// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// The IAM path for the server certificate.  If it is not
-	// included, it defaults to a slash (/). If this certificate is for use with
-	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-	Path pulumi.StringPtrInput
-	// The contents of the private key in PEM-encoded format.
-	PrivateKey pulumi.StringPtrInput
-	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
-	UploadDate pulumi.StringPtrInput
+	Expiration       pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	NamePrefix       pulumi.StringPtrInput
+	Path             pulumi.StringPtrInput
+	PrivateKey       pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	UploadDate       pulumi.StringPtrInput
 }
 
 func (ServerCertificateState) ElementType() reflect.Type {
@@ -261,56 +103,24 @@ func (ServerCertificateState) ElementType() reflect.Type {
 }
 
 type serverCertificateArgs struct {
-	// The contents of the public key certificate in
-	// PEM-encoded format.
-	CertificateBody string `pulumi:"certificateBody"`
-	// The contents of the certificate chain.
-	// This is typically a concatenation of the PEM-encoded public key certificates
-	// of the chain.
-	CertificateChain *string `pulumi:"certificateChain"`
-	// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The IAM path for the server certificate.  If it is not
-	// included, it defaults to a slash (/). If this certificate is for use with
-	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-	Path *string `pulumi:"path"`
-	// The contents of the private key in PEM-encoded format.
-	PrivateKey string `pulumi:"privateKey"`
-	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-	Tags map[string]string `pulumi:"tags"`
+	CertificateBody  string            `pulumi:"certificateBody"`
+	CertificateChain *string           `pulumi:"certificateChain"`
+	Name             *string           `pulumi:"name"`
+	NamePrefix       *string           `pulumi:"namePrefix"`
+	Path             *string           `pulumi:"path"`
+	PrivateKey       string            `pulumi:"privateKey"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServerCertificate resource.
 type ServerCertificateArgs struct {
-	// The contents of the public key certificate in
-	// PEM-encoded format.
-	CertificateBody pulumi.StringInput
-	// The contents of the certificate chain.
-	// This is typically a concatenation of the PEM-encoded public key certificates
-	// of the chain.
+	CertificateBody  pulumi.StringInput
 	CertificateChain pulumi.StringPtrInput
-	// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// The IAM path for the server certificate.  If it is not
-	// included, it defaults to a slash (/). If this certificate is for use with
-	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-	Path pulumi.StringPtrInput
-	// The contents of the private key in PEM-encoded format.
-	PrivateKey pulumi.StringInput
-	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-	Tags pulumi.StringMapInput
+	Name             pulumi.StringPtrInput
+	NamePrefix       pulumi.StringPtrInput
+	Path             pulumi.StringPtrInput
+	PrivateKey       pulumi.StringInput
+	Tags             pulumi.StringMapInput
 }
 
 func (ServerCertificateArgs) ElementType() reflect.Type {
@@ -400,66 +210,46 @@ func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the server certificate.
 func (o ServerCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The contents of the public key certificate in
-// PEM-encoded format.
 func (o ServerCertificateOutput) CertificateBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.CertificateBody }).(pulumi.StringOutput)
 }
 
-// The contents of the certificate chain.
-// This is typically a concatenation of the PEM-encoded public key certificates
-// of the chain.
 func (o ServerCertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
 func (o ServerCertificateOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Expiration }).(pulumi.StringOutput)
 }
 
-// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
 func (o ServerCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified
-// prefix. Conflicts with `name`.
 func (o ServerCertificateOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The IAM path for the server certificate.  If it is not
-// included, it defaults to a slash (/). If this certificate is for use with
-// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
 func (o ServerCertificateOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The contents of the private key in PEM-encoded format.
 func (o ServerCertificateOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
 func (o ServerCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServerCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
 func (o ServerCertificateOutput) UploadDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.UploadDate }).(pulumi.StringOutput)
 }

@@ -15,111 +15,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.IndexingConfiguration;
- * import com.pulumi.aws.iot.IndexingConfigurationArgs;
- * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationArgs;
- * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new IndexingConfiguration("example", IndexingConfigurationArgs.builder()
- *             .thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs.builder()
- *                 .thingIndexingMode("REGISTRY_AND_SHADOW")
- *                 .thingConnectivityIndexingMode("STATUS")
- *                 .deviceDefenderIndexingMode("VIOLATIONS")
- *                 .namedShadowIndexingMode("ON")
- *                 .filter(IndexingConfigurationThingIndexingConfigurationFilterArgs.builder()
- *                     .namedShadowNames("thing1shadow")
- *                     .build())
- *                 .customFields(                
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name("shadow.desired.power")
- *                         .type("Boolean")
- *                         .build(),
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name("attributes.version")
- *                         .type("Number")
- *                         .build(),
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name("shadow.name.thing1shadow.desired.DefaultDesired")
- *                         .type("String")
- *                         .build(),
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name("deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number")
- *                         .type("Number")
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:iot/indexingConfiguration:IndexingConfiguration")
 public class IndexingConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Thing group indexing configuration. See below.
-     * 
-     */
     @Export(name="thingGroupIndexingConfiguration", refs={IndexingConfigurationThingGroupIndexingConfiguration.class}, tree="[0]")
     private Output<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration;
 
-    /**
-     * @return Thing group indexing configuration. See below.
-     * 
-     */
     public Output<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration() {
         return this.thingGroupIndexingConfiguration;
     }
-    /**
-     * Thing indexing configuration. See below.
-     * 
-     */
     @Export(name="thingIndexingConfiguration", refs={IndexingConfigurationThingIndexingConfiguration.class}, tree="[0]")
     private Output<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration;
 
-    /**
-     * @return Thing indexing configuration. See below.
-     * 
-     */
     public Output<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration() {
         return this.thingIndexingConfiguration;
     }

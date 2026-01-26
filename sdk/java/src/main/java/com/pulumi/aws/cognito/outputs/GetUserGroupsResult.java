@@ -12,31 +12,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserGroupsResult {
-    /**
-     * @return List of groups. See `groups` below.
-     * 
-     */
     private List<GetUserGroupsGroup> groups;
-    /**
-     * @return User pool identifier.
-     * 
-     */
     private String id;
     private String region;
     private String userPoolId;
 
     private GetUserGroupsResult() {}
-    /**
-     * @return List of groups. See `groups` below.
-     * 
-     */
     public List<GetUserGroupsGroup> groups() {
         return this.groups;
     }
-    /**
-     * @return User pool identifier.
-     * 
-     */
     public String id() {
         return this.id;
     }

@@ -36,19 +36,6 @@ class MaintenanceWindowTaskArgs:
                  task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTask resource.
-        :param pulumi.Input[_builtins.str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[_builtins.str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        :param pulumi.Input[_builtins.str] window_id: The Id of the maintenance window to register the task with.
-        :param pulumi.Input[_builtins.str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        :param pulumi.Input[_builtins.str] description: The description of the maintenance window task.
-        :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets this task can be run for in parallel.
-        :param pulumi.Input[_builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
-        :param pulumi.Input[_builtins.str] name: The name of the maintenance window task.
-        :param pulumi.Input[_builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs'] task_invocation_parameters: Configuration block with parameters for task execution.
         """
         pulumi.set(__self__, "task_arn", task_arn)
         pulumi.set(__self__, "task_type", task_type)
@@ -77,9 +64,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="taskArn")
     def task_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the task to execute.
-        """
         return pulumi.get(self, "task_arn")
 
     @task_arn.setter
@@ -89,9 +73,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
@@ -101,9 +82,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="windowId")
     def window_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Id of the maintenance window to register the task with.
-        """
         return pulumi.get(self, "window_id")
 
     @window_id.setter
@@ -113,9 +91,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="cutoffBehavior")
     def cutoff_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        """
         return pulumi.get(self, "cutoff_behavior")
 
     @cutoff_behavior.setter
@@ -125,9 +100,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the maintenance window task.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -137,9 +109,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum number of targets this task can be run for in parallel.
-        """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
@@ -149,9 +118,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum number of errors allowed before this task stops being scheduled.
-        """
         return pulumi.get(self, "max_errors")
 
     @max_errors.setter
@@ -161,9 +127,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the maintenance window task.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -173,9 +136,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -185,9 +145,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -197,9 +154,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -209,9 +163,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]:
-        """
-        The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -221,9 +172,6 @@ class MaintenanceWindowTaskArgs:
     @_builtins.property
     @pulumi.getter(name="taskInvocationParameters")
     def task_invocation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]:
-        """
-        Configuration block with parameters for task execution.
-        """
         return pulumi.get(self, "task_invocation_parameters")
 
     @task_invocation_parameters.setter
@@ -251,21 +199,6 @@ class _MaintenanceWindowTaskState:
                  window_task_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindowTask resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the maintenance window task.
-        :param pulumi.Input[_builtins.str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        :param pulumi.Input[_builtins.str] description: The description of the maintenance window task.
-        :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets this task can be run for in parallel.
-        :param pulumi.Input[_builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
-        :param pulumi.Input[_builtins.str] name: The name of the maintenance window task.
-        :param pulumi.Input[_builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        :param pulumi.Input[_builtins.str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs'] task_invocation_parameters: Configuration block with parameters for task execution.
-        :param pulumi.Input[_builtins.str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        :param pulumi.Input[_builtins.str] window_id: The Id of the maintenance window to register the task with.
-        :param pulumi.Input[_builtins.str] window_task_id: The ID of the maintenance window task.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -301,9 +234,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the maintenance window task.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -313,9 +243,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="cutoffBehavior")
     def cutoff_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        """
         return pulumi.get(self, "cutoff_behavior")
 
     @cutoff_behavior.setter
@@ -325,9 +252,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the maintenance window task.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -337,9 +261,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum number of targets this task can be run for in parallel.
-        """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
@@ -349,9 +270,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum number of errors allowed before this task stops being scheduled.
-        """
         return pulumi.get(self, "max_errors")
 
     @max_errors.setter
@@ -361,9 +279,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the maintenance window task.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -373,9 +288,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -385,9 +297,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -397,9 +306,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -409,9 +315,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]:
-        """
-        The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -421,9 +324,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="taskArn")
     def task_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the task to execute.
-        """
         return pulumi.get(self, "task_arn")
 
     @task_arn.setter
@@ -433,9 +333,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="taskInvocationParameters")
     def task_invocation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]:
-        """
-        Configuration block with parameters for task execution.
-        """
         return pulumi.get(self, "task_invocation_parameters")
 
     @task_invocation_parameters.setter
@@ -445,9 +342,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="taskType")
     def task_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
@@ -457,9 +351,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="windowId")
     def window_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Id of the maintenance window to register the task with.
-        """
         return pulumi.get(self, "window_id")
 
     @window_id.setter
@@ -469,9 +360,6 @@ class _MaintenanceWindowTaskState:
     @_builtins.property
     @pulumi.getter(name="windowTaskId")
     def window_task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the maintenance window task.
-        """
         return pulumi.get(self, "window_task_id")
 
     @window_task_id.setter
@@ -500,160 +388,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  window_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an SSM Maintenance Window Task resource
-
-        ## Example Usage
-
-        ### Automation Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn="AWS-RestartEC2Instance",
-            task_type="AUTOMATION",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "automation_parameters": {
-                    "document_version": "$LATEST",
-                    "parameters": [{
-                        "name": "InstanceId",
-                        "values": [example_aws_instance["id"]],
-                    }],
-                },
-            })
-        ```
-
-        ### Lambda Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_lambda_function["arn"],
-            task_type="LAMBDA",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "lambda_parameters": {
-                    "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
-                    "payload": "{\\"key1\\":\\"value1\\"}",
-                },
-            })
-        ```
-
-        ### Run Command Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn="AWS-RunShellScript",
-            task_type="RUN_COMMAND",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "run_command_parameters": {
-                    "output_s3_bucket": example_aws_s3_bucket["id"],
-                    "output_s3_key_prefix": "output",
-                    "service_role_arn": example_aws_iam_role["arn"],
-                    "timeout_seconds": 600,
-                    "notification_config": {
-                        "notification_arn": example_aws_sns_topic["arn"],
-                        "notification_events": ["All"],
-                        "notification_type": "Command",
-                    },
-                    "parameters": [{
-                        "name": "commands",
-                        "values": ["date"],
-                    }],
-                },
-            })
-        ```
-
-        ### Step Function Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_sfn_activity["id"],
-            task_type="STEP_FUNCTIONS",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "step_functions_parameters": {
-                    "input": "{\\"key1\\":\\"value1\\"}",
-                    "name": "example",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `window_id` - (String) ID of the maintenance window.
-
-        * `id` - (String) ID of the maintenance window task.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
-
-        % pulumi import aws_ssm_maintenance_window_task.example <window_id>/<window_task_id>
-
+        Create a MaintenanceWindowTask resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        :param pulumi.Input[_builtins.str] description: The description of the maintenance window task.
-        :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets this task can be run for in parallel.
-        :param pulumi.Input[_builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
-        :param pulumi.Input[_builtins.str] name: The name of the maintenance window task.
-        :param pulumi.Input[_builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        :param pulumi.Input[_builtins.str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']] task_invocation_parameters: Configuration block with parameters for task execution.
-        :param pulumi.Input[_builtins.str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        :param pulumi.Input[_builtins.str] window_id: The Id of the maintenance window to register the task with.
         """
         ...
     @overload
@@ -662,145 +399,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  args: MaintenanceWindowTaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SSM Maintenance Window Task resource
-
-        ## Example Usage
-
-        ### Automation Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn="AWS-RestartEC2Instance",
-            task_type="AUTOMATION",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "automation_parameters": {
-                    "document_version": "$LATEST",
-                    "parameters": [{
-                        "name": "InstanceId",
-                        "values": [example_aws_instance["id"]],
-                    }],
-                },
-            })
-        ```
-
-        ### Lambda Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_lambda_function["arn"],
-            task_type="LAMBDA",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "lambda_parameters": {
-                    "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
-                    "payload": "{\\"key1\\":\\"value1\\"}",
-                },
-            })
-        ```
-
-        ### Run Command Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn="AWS-RunShellScript",
-            task_type="RUN_COMMAND",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "run_command_parameters": {
-                    "output_s3_bucket": example_aws_s3_bucket["id"],
-                    "output_s3_key_prefix": "output",
-                    "service_role_arn": example_aws_iam_role["arn"],
-                    "timeout_seconds": 600,
-                    "notification_config": {
-                        "notification_arn": example_aws_sns_topic["arn"],
-                        "notification_events": ["All"],
-                        "notification_type": "Command",
-                    },
-                    "parameters": [{
-                        "name": "commands",
-                        "values": ["date"],
-                    }],
-                },
-            })
-        ```
-
-        ### Step Function Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_sfn_activity["id"],
-            task_type="STEP_FUNCTIONS",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "step_functions_parameters": {
-                    "input": "{\\"key1\\":\\"value1\\"}",
-                    "name": "example",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `window_id` - (String) ID of the maintenance window.
-
-        * `id` - (String) ID of the maintenance window task.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
-
-        % pulumi import aws_ssm_maintenance_window_task.example <window_id>/<window_task_id>
-
+        Create a MaintenanceWindowTask resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowTaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -891,21 +490,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the maintenance window task.
-        :param pulumi.Input[_builtins.str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        :param pulumi.Input[_builtins.str] description: The description of the maintenance window task.
-        :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets this task can be run for in parallel.
-        :param pulumi.Input[_builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
-        :param pulumi.Input[_builtins.str] name: The name of the maintenance window task.
-        :param pulumi.Input[_builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        :param pulumi.Input[_builtins.str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']] task_invocation_parameters: Configuration block with parameters for task execution.
-        :param pulumi.Input[_builtins.str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        :param pulumi.Input[_builtins.str] window_id: The Id of the maintenance window to register the task with.
-        :param pulumi.Input[_builtins.str] window_task_id: The ID of the maintenance window task.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -931,120 +515,75 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the maintenance window task.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cutoffBehavior")
     def cutoff_behavior(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-        """
         return pulumi.get(self, "cutoff_behavior")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the maintenance window task.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> pulumi.Output[_builtins.str]:
-        """
-        The maximum number of targets this task can be run for in parallel.
-        """
         return pulumi.get(self, "max_concurrency")
 
     @_builtins.property
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> pulumi.Output[_builtins.str]:
-        """
-        The maximum number of errors allowed before this task stops being scheduled.
-        """
         return pulumi.get(self, "max_errors")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the maintenance window task.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Optional[Sequence['outputs.MaintenanceWindowTaskTarget']]]:
-        """
-        The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        """
         return pulumi.get(self, "targets")
 
     @_builtins.property
     @pulumi.getter(name="taskArn")
     def task_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the task to execute.
-        """
         return pulumi.get(self, "task_arn")
 
     @_builtins.property
     @pulumi.getter(name="taskInvocationParameters")
     def task_invocation_parameters(self) -> pulumi.Output[Optional['outputs.MaintenanceWindowTaskTaskInvocationParameters']]:
-        """
-        Configuration block with parameters for task execution.
-        """
         return pulumi.get(self, "task_invocation_parameters")
 
     @_builtins.property
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-        """
         return pulumi.get(self, "task_type")
 
     @_builtins.property
     @pulumi.getter(name="windowId")
     def window_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Id of the maintenance window to register the task with.
-        """
         return pulumi.get(self, "window_id")
 
     @_builtins.property
     @pulumi.getter(name="windowTaskId")
     def window_task_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the maintenance window task.
-        """
         return pulumi.get(self, "window_task_id")
 

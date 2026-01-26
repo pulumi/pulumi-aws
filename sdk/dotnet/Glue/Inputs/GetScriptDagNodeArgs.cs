@@ -14,31 +14,18 @@ namespace Pulumi.Aws.Glue.Inputs
     {
         [Input("args", required: true)]
         private InputList<Inputs.GetScriptDagNodeArgInputArgs>? _args;
-
-        /// <summary>
-        /// Nested configuration an argument or property of a node. Defined below.
-        /// </summary>
         public InputList<Inputs.GetScriptDagNodeArgInputArgs> Args
         {
             get => _args ?? (_args = new InputList<Inputs.GetScriptDagNodeArgInputArgs>());
             set => _args = value;
         }
 
-        /// <summary>
-        /// Node identifier that is unique within the node's graph.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Line number of the node.
-        /// </summary>
         [Input("lineNumber")]
         public Input<int>? LineNumber { get; set; }
 
-        /// <summary>
-        /// Type of node this is.
-        /// </summary>
         [Input("nodeType", required: true)]
         public Input<string> NodeType { get; set; } = null!;
 

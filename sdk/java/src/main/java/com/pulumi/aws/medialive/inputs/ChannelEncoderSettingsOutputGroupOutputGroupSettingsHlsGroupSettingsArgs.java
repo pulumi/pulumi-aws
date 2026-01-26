@@ -22,17 +22,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs();
 
-    /**
-     * The ad marker type for this output group.
-     * 
-     */
     @Import(name="adMarkers")
     private @Nullable Output<List<String>> adMarkers;
 
-    /**
-     * @return The ad marker type for this output group.
-     * 
-     */
     public Optional<Output<List<String>>> adMarkers() {
         return Optional.ofNullable(this.adMarkers);
     }
@@ -296,17 +288,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.streamInfResolution);
     }
 
-    /**
-     * Indicates ID3 frame that has the timecode.
-     * 
-     */
     @Import(name="timedMetadataId3Frame")
     private @Nullable Output<String> timedMetadataId3Frame;
 
-    /**
-     * @return Indicates ID3 frame that has the timecode.
-     * 
-     */
     public Optional<Output<String>> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }
@@ -397,33 +381,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adMarkers The ad marker type for this output group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adMarkers(@Nullable Output<List<String>> adMarkers) {
             $.adMarkers = adMarkers;
             return this;
         }
 
-        /**
-         * @param adMarkers The ad marker type for this output group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adMarkers(List<String> adMarkers) {
             return adMarkers(Output.of(adMarkers));
         }
 
-        /**
-         * @param adMarkers The ad marker type for this output group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adMarkers(String... adMarkers) {
             return adMarkers(List.of(adMarkers));
         }
@@ -769,23 +735,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return streamInfResolution(Output.of(streamInfResolution));
         }
 
-        /**
-         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timedMetadataId3Frame(@Nullable Output<String> timedMetadataId3Frame) {
             $.timedMetadataId3Frame = timedMetadataId3Frame;
             return this;
         }
 
-        /**
-         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timedMetadataId3Frame(String timedMetadataId3Frame) {
             return timedMetadataId3Frame(Output.of(timedMetadataId3Frame));
         }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ApiEventConfigLogConfig {
-    /**
-     * @return ARN of the IAM role for CloudWatch logs.
-     * 
-     */
     private String cloudwatchLogsRoleArn;
-    /**
-     * @return Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-     * 
-     */
     private String logLevel;
 
     private ApiEventConfigLogConfig() {}
-    /**
-     * @return ARN of the IAM role for CloudWatch logs.
-     * 
-     */
     public String cloudwatchLogsRoleArn() {
         return this.cloudwatchLogsRoleArn;
     }
-    /**
-     * @return Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-     * 
-     */
     public String logLevel() {
         return this.logLevel;
     }

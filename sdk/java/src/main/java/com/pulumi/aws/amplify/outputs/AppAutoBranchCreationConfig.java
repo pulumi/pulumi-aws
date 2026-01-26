@@ -13,125 +13,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppAutoBranchCreationConfig {
-    /**
-     * @return Basic authorization credentials for the autocreated branch.
-     * 
-     */
     private @Nullable String basicAuthCredentials;
-    /**
-     * @return Build specification (build spec) for the autocreated branch.
-     * 
-     */
     private @Nullable String buildSpec;
-    /**
-     * @return Enables auto building for the autocreated branch.
-     * 
-     */
     private @Nullable Boolean enableAutoBuild;
-    /**
-     * @return Enables basic authorization for the autocreated branch.
-     * 
-     */
     private @Nullable Boolean enableBasicAuth;
-    /**
-     * @return Enables performance mode for the branch.
-     * 
-     */
     private @Nullable Boolean enablePerformanceMode;
-    /**
-     * @return Enables pull request previews for the autocreated branch.
-     * 
-     */
     private @Nullable Boolean enablePullRequestPreview;
-    /**
-     * @return Environment variables for the autocreated branch.
-     * 
-     */
     private @Nullable Map<String,String> environmentVariables;
-    /**
-     * @return Framework for the autocreated branch.
-     * 
-     */
     private @Nullable String framework;
-    /**
-     * @return Amplify environment name for the pull request.
-     * 
-     */
     private @Nullable String pullRequestEnvironmentName;
-    /**
-     * @return Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-     * 
-     */
     private @Nullable String stage;
 
     private AppAutoBranchCreationConfig() {}
-    /**
-     * @return Basic authorization credentials for the autocreated branch.
-     * 
-     */
     public Optional<String> basicAuthCredentials() {
         return Optional.ofNullable(this.basicAuthCredentials);
     }
-    /**
-     * @return Build specification (build spec) for the autocreated branch.
-     * 
-     */
     public Optional<String> buildSpec() {
         return Optional.ofNullable(this.buildSpec);
     }
-    /**
-     * @return Enables auto building for the autocreated branch.
-     * 
-     */
     public Optional<Boolean> enableAutoBuild() {
         return Optional.ofNullable(this.enableAutoBuild);
     }
-    /**
-     * @return Enables basic authorization for the autocreated branch.
-     * 
-     */
     public Optional<Boolean> enableBasicAuth() {
         return Optional.ofNullable(this.enableBasicAuth);
     }
-    /**
-     * @return Enables performance mode for the branch.
-     * 
-     */
     public Optional<Boolean> enablePerformanceMode() {
         return Optional.ofNullable(this.enablePerformanceMode);
     }
-    /**
-     * @return Enables pull request previews for the autocreated branch.
-     * 
-     */
     public Optional<Boolean> enablePullRequestPreview() {
         return Optional.ofNullable(this.enablePullRequestPreview);
     }
-    /**
-     * @return Environment variables for the autocreated branch.
-     * 
-     */
     public Map<String,String> environmentVariables() {
         return this.environmentVariables == null ? Map.of() : this.environmentVariables;
     }
-    /**
-     * @return Framework for the autocreated branch.
-     * 
-     */
     public Optional<String> framework() {
         return Optional.ofNullable(this.framework);
     }
-    /**
-     * @return Amplify environment name for the pull request.
-     * 
-     */
     public Optional<String> pullRequestEnvironmentName() {
         return Optional.ofNullable(this.pullRequestEnvironmentName);
     }
-    /**
-     * @return Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-     * 
-     */
     public Optional<String> stage() {
         return Optional.ofNullable(this.stage);
     }

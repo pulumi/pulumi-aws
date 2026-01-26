@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv {
-    /**
-     * @return Indicates if the CSV data has a header.
-     * 
-     */
     private @Nullable Boolean header;
 
     private DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv() {}
-    /**
-     * @return Indicates if the CSV data has a header.
-     * 
-     */
     public Optional<Boolean> header() {
         return Optional.ofNullable(this.header);
     }

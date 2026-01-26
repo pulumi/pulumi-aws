@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppLimits {
-    /**
-     * @return The maximum number of messages that the campaign can send daily.
-     * 
-     */
     private @Nullable Integer daily;
-    /**
-     * @return The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-     * 
-     */
     private @Nullable Integer maximumDuration;
-    /**
-     * @return The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-     * 
-     */
     private @Nullable Integer messagesPerSecond;
-    /**
-     * @return The maximum total number of messages that the campaign can send.
-     * 
-     */
     private @Nullable Integer total;
 
     private AppLimits() {}
-    /**
-     * @return The maximum number of messages that the campaign can send daily.
-     * 
-     */
     public Optional<Integer> daily() {
         return Optional.ofNullable(this.daily);
     }
-    /**
-     * @return The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-     * 
-     */
     public Optional<Integer> maximumDuration() {
         return Optional.ofNullable(this.maximumDuration);
     }
-    /**
-     * @return The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-     * 
-     */
     public Optional<Integer> messagesPerSecond() {
         return Optional.ofNullable(this.messagesPerSecond);
     }
-    /**
-     * @return The maximum total number of messages that the campaign can send.
-     * 
-     */
     public Optional<Integer> total() {
         return Optional.ofNullable(this.total);
     }

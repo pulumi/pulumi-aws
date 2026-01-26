@@ -16,47 +16,23 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
 
     public static final TableSchemaCompositePartitionKeyArgs Empty = new TableSchemaCompositePartitionKeyArgs();
 
-    /**
-     * The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-     * 
-     */
     @Import(name="enforcementInRecord")
     private @Nullable Output<String> enforcementInRecord;
 
-    /**
-     * @return The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-     * 
-     */
     public Optional<Output<String>> enforcementInRecord() {
         return Optional.ofNullable(this.enforcementInRecord);
     }
 
-    /**
-     * The name of the attribute used for a dimension key.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the attribute used for a dimension key.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -87,65 +63,29 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
             $ = new TableSchemaCompositePartitionKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enforcementInRecord The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforcementInRecord(@Nullable Output<String> enforcementInRecord) {
             $.enforcementInRecord = enforcementInRecord;
             return this;
         }
 
-        /**
-         * @param enforcementInRecord The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforcementInRecord(String enforcementInRecord) {
             return enforcementInRecord(Output.of(enforcementInRecord));
         }
 
-        /**
-         * @param name The name of the attribute used for a dimension key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the attribute used for a dimension key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

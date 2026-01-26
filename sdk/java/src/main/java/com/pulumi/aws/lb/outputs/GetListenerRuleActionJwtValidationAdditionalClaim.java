@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleActionJwtValidationAdditionalClaim {
-    /**
-     * @return Format of the claim value.
-     * 
-     */
     private String format;
-    /**
-     * @return Name of the claim to validate.
-     * 
-     */
     private String name;
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     private List<String> values;
 
     private GetListenerRuleActionJwtValidationAdditionalClaim() {}
-    /**
-     * @return Format of the claim value.
-     * 
-     */
     public String format() {
         return this.format;
     }
-    /**
-     * @return Name of the claim to validate.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

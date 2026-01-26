@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize
     {
-        /// <summary>
-        /// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Defines the capacity size, either as a number of instances or a capacity percentage.
-        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

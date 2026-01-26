@@ -15,47 +15,23 @@ public final class OrganizationAdminAccountRegistrationState extends com.pulumi.
 
     public static final OrganizationAdminAccountRegistrationState Empty = new OrganizationAdminAccountRegistrationState();
 
-    /**
-     * Identifier for the organization administrator account.
-     * 
-     */
     @Import(name="adminAccountId")
     private @Nullable Output<String> adminAccountId;
 
-    /**
-     * @return Identifier for the organization administrator account.
-     * 
-     */
     public Optional<Output<String>> adminAccountId() {
         return Optional.ofNullable(this.adminAccountId);
     }
 
-    /**
-     * Identifier for the organization.
-     * 
-     */
     @Import(name="organizationId")
     private @Nullable Output<String> organizationId;
 
-    /**
-     * @return Identifier for the organization.
-     * 
-     */
     public Optional<Output<String>> organizationId() {
         return Optional.ofNullable(this.organizationId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class OrganizationAdminAccountRegistrationState extends com.pulumi.
             $ = new OrganizationAdminAccountRegistrationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adminAccountId Identifier for the organization administrator account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminAccountId(@Nullable Output<String> adminAccountId) {
             $.adminAccountId = adminAccountId;
             return this;
         }
 
-        /**
-         * @param adminAccountId Identifier for the organization administrator account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminAccountId(String adminAccountId) {
             return adminAccountId(Output.of(adminAccountId));
         }
 
-        /**
-         * @param organizationId Identifier for the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationId(@Nullable Output<String> organizationId) {
             $.organizationId = organizationId;
             return this;
         }
 
-        /**
-         * @param organizationId Identifier for the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationId(String organizationId) {
             return organizationId(Output.of(organizationId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxEnvironmentCustomDnsConfiguration
     {
-        /// <summary>
-        /// IP address of the DNS server.
-        /// </summary>
         public readonly string CustomDnsServerIp;
-        /// <summary>
-        /// Name of the DNS server.
-        /// </summary>
         public readonly string CustomDnsServerName;
 
         [OutputConstructor]

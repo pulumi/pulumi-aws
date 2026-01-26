@@ -17,203 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup Report Plan resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.ReportPlan;
- * import com.pulumi.aws.backup.ReportPlanArgs;
- * import com.pulumi.aws.backup.inputs.ReportPlanReportDeliveryChannelArgs;
- * import com.pulumi.aws.backup.inputs.ReportPlanReportSettingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ReportPlan("example", ReportPlanArgs.builder()
- *             .name("example_name")
- *             .description("example description")
- *             .reportDeliveryChannel(ReportPlanReportDeliveryChannelArgs.builder()
- *                 .formats(                
- *                     "CSV",
- *                     "JSON")
- *                 .s3BucketName("example-bucket-name")
- *                 .build())
- *             .reportSetting(ReportPlanReportSettingArgs.builder()
- *                 .reportTemplate("RESTORE_JOB_REPORT")
- *                 .build())
- *             .tags(Map.of("Name", "Example Report Plan"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/reportPlan:ReportPlan test &lt;id&gt;
- * ```
- * 
- */
 @ResourceType(type="aws:backup/reportPlan:ReportPlan")
 public class ReportPlan extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the backup report plan.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the backup report plan.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-     * 
-     */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
-    /**
-     * @return The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-     * 
-     */
     public Output<String> creationTime() {
         return this.creationTime;
     }
-    /**
-     * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-     * 
-     */
     @Export(name="deploymentStatus", refs={String.class}, tree="[0]")
     private Output<String> deploymentStatus;
 
-    /**
-     * @return The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-     * 
-     */
     public Output<String> deploymentStatus() {
         return this.deploymentStatus;
     }
-    /**
-     * The description of the report plan with a maximum of 1,024 characters
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the report plan with a maximum of 1,024 characters
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-     * 
-     */
     @Export(name="reportDeliveryChannel", refs={ReportPlanReportDeliveryChannel.class}, tree="[0]")
     private Output<ReportPlanReportDeliveryChannel> reportDeliveryChannel;
 
-    /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-     * 
-     */
     public Output<ReportPlanReportDeliveryChannel> reportDeliveryChannel() {
         return this.reportDeliveryChannel;
     }
-    /**
-     * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-     * 
-     */
     @Export(name="reportSetting", refs={ReportPlanReportSetting.class}, tree="[0]")
     private Output<ReportPlanReportSetting> reportSetting;
 
-    /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-     * 
-     */
     public Output<ReportPlanReportSetting> reportSetting() {
         return this.reportSetting;
     }
-    /**
-     * Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

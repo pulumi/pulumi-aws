@@ -11,122 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SES configuration set resource.
-//
-// ## Example Usage
-//
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String("some-configuration-set-test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Require TLS Connections
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String("some-configuration-set-test"),
-//				DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
-//					TlsPolicy: pulumi.String("Require"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Tracking Options
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String("some-configuration-set-test"),
-//				TrackingOptions: &ses.ConfigurationSetTrackingOptionsArgs{
-//					CustomRedirectDomain: pulumi.String("sub.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
-// ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
-	// SES configuration set ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether messages that use the configuration set are required to use TLS. See below.
-	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
-	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-	LastFreshStart pulumi.StringOutput `pulumi:"lastFreshStart"`
-	// Name of the configuration set.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
-	ReputationMetricsEnabled pulumi.BoolPtrOutput `pulumi:"reputationMetricsEnabled"`
-	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-	SendingEnabled pulumi.BoolPtrOutput `pulumi:"sendingEnabled"`
-	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
+	Arn                      pulumi.StringOutput                      `pulumi:"arn"`
+	DeliveryOptions          ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
+	LastFreshStart           pulumi.StringOutput                      `pulumi:"lastFreshStart"`
+	Name                     pulumi.StringOutput                      `pulumi:"name"`
+	Region                   pulumi.StringOutput                      `pulumi:"region"`
+	ReputationMetricsEnabled pulumi.BoolPtrOutput                     `pulumi:"reputationMetricsEnabled"`
+	SendingEnabled           pulumi.BoolPtrOutput                     `pulumi:"sendingEnabled"`
+	TrackingOptions          ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
 }
 
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
@@ -165,45 +60,25 @@ func GetConfigurationSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationSet resources.
 type configurationSetState struct {
-	// SES configuration set ARN.
-	Arn *string `pulumi:"arn"`
-	// Whether messages that use the configuration set are required to use TLS. See below.
-	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
-	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-	LastFreshStart *string `pulumi:"lastFreshStart"`
-	// Name of the configuration set.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
-	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
-	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-	SendingEnabled *bool `pulumi:"sendingEnabled"`
-	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
+	Arn                      *string                          `pulumi:"arn"`
+	DeliveryOptions          *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	LastFreshStart           *string                          `pulumi:"lastFreshStart"`
+	Name                     *string                          `pulumi:"name"`
+	Region                   *string                          `pulumi:"region"`
+	ReputationMetricsEnabled *bool                            `pulumi:"reputationMetricsEnabled"`
+	SendingEnabled           *bool                            `pulumi:"sendingEnabled"`
+	TrackingOptions          *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
 
 type ConfigurationSetState struct {
-	// SES configuration set ARN.
-	Arn pulumi.StringPtrInput
-	// Whether messages that use the configuration set are required to use TLS. See below.
-	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
-	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-	LastFreshStart pulumi.StringPtrInput
-	// Name of the configuration set.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+	Arn                      pulumi.StringPtrInput
+	DeliveryOptions          ConfigurationSetDeliveryOptionsPtrInput
+	LastFreshStart           pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
 	ReputationMetricsEnabled pulumi.BoolPtrInput
-	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-	SendingEnabled pulumi.BoolPtrInput
-	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
+	SendingEnabled           pulumi.BoolPtrInput
+	TrackingOptions          ConfigurationSetTrackingOptionsPtrInput
 }
 
 func (ConfigurationSetState) ElementType() reflect.Type {
@@ -211,38 +86,22 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 }
 
 type configurationSetArgs struct {
-	// Whether messages that use the configuration set are required to use TLS. See below.
-	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
-	// Name of the configuration set.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
-	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
-	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-	SendingEnabled *bool `pulumi:"sendingEnabled"`
-	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
+	DeliveryOptions          *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	Name                     *string                          `pulumi:"name"`
+	Region                   *string                          `pulumi:"region"`
+	ReputationMetricsEnabled *bool                            `pulumi:"reputationMetricsEnabled"`
+	SendingEnabled           *bool                            `pulumi:"sendingEnabled"`
+	TrackingOptions          *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
 
 // The set of arguments for constructing a ConfigurationSet resource.
 type ConfigurationSetArgs struct {
-	// Whether messages that use the configuration set are required to use TLS. See below.
-	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
-	// Name of the configuration set.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+	DeliveryOptions          ConfigurationSetDeliveryOptionsPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
 	ReputationMetricsEnabled pulumi.BoolPtrInput
-	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-	SendingEnabled pulumi.BoolPtrInput
-	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
+	SendingEnabled           pulumi.BoolPtrInput
+	TrackingOptions          ConfigurationSetTrackingOptionsPtrInput
 }
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
@@ -332,44 +191,34 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
-// SES configuration set ARN.
 func (o ConfigurationSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether messages that use the configuration set are required to use TLS. See below.
 func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 func (o ConfigurationSetOutput) LastFreshStart() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.LastFreshStart }).(pulumi.StringOutput)
 }
 
-// Name of the configuration set.
-//
-// The following arguments are optional:
 func (o ConfigurationSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 func (o ConfigurationSetOutput) ReputationMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.BoolPtrOutput { return v.ReputationMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
 func (o ConfigurationSetOutput) SendingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.BoolPtrOutput { return v.SendingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
 func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
 }

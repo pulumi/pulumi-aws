@@ -11,81 +11,12 @@ namespace Pulumi.Aws.SsmContacts
 {
     public static class GetPlan
     {
-        /// <summary>
-        /// Data source for managing a Plan of an AWS SSM Contact.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.SsmContacts.GetPlan.Invoke(new()
-        ///     {
-        ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("aws:ssmcontacts/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing a Plan of an AWS SSM Contact.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.SsmContacts.GetPlan.Invoke(new()
-        ///     {
-        ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:ssmcontacts/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing a Plan of an AWS SSM Contact.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.SsmContacts.GetPlan.Invoke(new()
-        ///     {
-        ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:ssmcontacts/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.SsmContacts
 
     public sealed class GetPlanArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
-        /// </summary>
         [Input("contactId", required: true)]
         public string ContactId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.SsmContacts
 
     public sealed class GetPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
-        /// </summary>
         [Input("contactId", required: true)]
         public Input<string> ContactId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,9 +60,6 @@ namespace Pulumi.Aws.SsmContacts
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanStageResult> Stages;
 
         [OutputConstructor]

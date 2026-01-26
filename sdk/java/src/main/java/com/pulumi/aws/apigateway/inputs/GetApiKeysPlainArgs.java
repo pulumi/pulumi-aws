@@ -15,47 +15,23 @@ public final class GetApiKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetApiKeysPlainArgs Empty = new GetApiKeysPlainArgs();
 
-    /**
-     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     @Import(name="customerId")
     private @Nullable String customerId;
 
-    /**
-     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     public Optional<String> customerId() {
         return Optional.ofNullable(this.customerId);
     }
 
-    /**
-     * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-     * 
-     */
     @Import(name="includeValues")
     private @Nullable Boolean includeValues;
 
-    /**
-     * @return Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> includeValues() {
         return Optional.ofNullable(this.includeValues);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,34 +62,16 @@ public final class GetApiKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetApiKeysPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customerId Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerId(@Nullable String customerId) {
             $.customerId = customerId;
             return this;
         }
 
-        /**
-         * @param includeValues Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeValues(@Nullable Boolean includeValues) {
             $.includeValues = includeValues;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

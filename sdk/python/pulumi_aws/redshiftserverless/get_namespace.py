@@ -64,41 +64,26 @@ class GetNamespaceResult:
     @_builtins.property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> _builtins.str:
-        """
-        The username of the administrator for the first database created in the namespace.
-        """
         return pulumi.get(self, "admin_username")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dbName")
     def db_name(self) -> _builtins.str:
-        """
-        The name of the first database created in the namespace.
-        """
         return pulumi.get(self, "db_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Sequence[_builtins.str]:
-        """
-        A list of IAM roles to associate with the namespace.
-        """
         return pulumi.get(self, "iam_roles")
 
     @_builtins.property
@@ -112,25 +97,16 @@ class GetNamespaceResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Sequence[_builtins.str]:
-        """
-        The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        """
         return pulumi.get(self, "log_exports")
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> _builtins.str:
-        """
-        The Redshift Namespace ID.
-        """
         return pulumi.get(self, "namespace_id")
 
     @_builtins.property
@@ -167,20 +143,7 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
-    Data source for managing an AWS Redshift Serverless Namespace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_namespace(namespace_name="example-namespace")
-    ```
-
-
-    :param _builtins.str namespace_name: The name of the namespace.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
@@ -204,20 +167,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[_builtins.str]] =
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
-    Data source for managing an AWS Redshift Serverless Namespace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_namespace(namespace_name="example-namespace")
-    ```
-
-
-    :param _builtins.str namespace_name: The name of the namespace.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name

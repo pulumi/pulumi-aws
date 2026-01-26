@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFormation.Inputs
 
     public sealed class StackSetManagedExecutionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 

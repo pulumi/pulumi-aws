@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Quicksight
 {
     public static class GetQuicksightAnalysis
     {
-        /// <summary>
-        /// Data source for managing an AWS QuickSight Analysis.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightAnalysis.Invoke(new()
-        ///     {
-        ///         AnalysisId = "example-id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetQuicksightAnalysisResult> InvokeAsync(GetQuicksightAnalysisArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightAnalysisResult>("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args ?? new GetQuicksightAnalysisArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS QuickSight Analysis.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightAnalysis.Invoke(new()
-        ///     {
-        ///         AnalysisId = "example-id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuicksightAnalysisResult> Invoke(GetQuicksightAnalysisInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightAnalysisResult>("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args ?? new GetQuicksightAnalysisInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS QuickSight Analysis.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightAnalysis.Invoke(new()
-        ///     {
-        ///         AnalysisId = "example-id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuicksightAnalysisResult> Invoke(GetQuicksightAnalysisInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightAnalysisResult>("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args ?? new GetQuicksightAnalysisInvokeArgs(), options.WithDefaults());
     }
@@ -93,18 +24,12 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetQuicksightAnalysisArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the analysis.
-        /// </summary>
         [Input("analysisId", required: true)]
         public string AnalysisId { get; set; } = null!;
 
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -124,18 +49,12 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GetQuicksightAnalysisInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the analysis.
-        /// </summary>
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

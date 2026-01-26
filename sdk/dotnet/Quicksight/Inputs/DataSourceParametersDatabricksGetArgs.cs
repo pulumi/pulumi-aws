@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceParametersDatabricksGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The host name of the Databricks data source.
-        /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
-        /// <summary>
-        /// The port for the Databricks data source.
-        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
-        /// <summary>
-        /// The HTTP path of the Databricks data source.
-        /// </summary>
         [Input("sqlEndpointPath", required: true)]
         public Input<string> SqlEndpointPath { get; set; } = null!;
 

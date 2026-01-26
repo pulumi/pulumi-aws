@@ -7,59 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.devopsguru.ServiceIntegration("example", {
- *     kmsServerSideEncryption: {
- *         optInStatus: "ENABLED",
- *         type: "AWS_OWNED_KMS_KEY",
- *     },
- *     logsAnomalyDetection: {
- *         optInStatus: "ENABLED",
- *     },
- *     opsCenter: {
- *         optInStatus: "ENABLED",
- *     },
- * });
- * ```
- *
- * ### Customer Managed KMS Key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {});
- * const exampleServiceIntegration = new aws.devopsguru.ServiceIntegration("example", {
- *     kmsServerSideEncryption: {
- *         kmsKeyId: test.arn,
- *         optInStatus: "ENABLED",
- *         type: "CUSTOMER_MANAGED_KEY",
- *     },
- *     logsAnomalyDetection: {
- *         optInStatus: "DISABLED",
- *     },
- *     opsCenter: {
- *         optInStatus: "DISABLED",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
- *
- * ```sh
- * $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
- * ```
- */
 export class ServiceIntegration extends pulumi.CustomResource {
     /**
      * Get an existing ServiceIntegration resource's state with the given name, ID, and optional extra
@@ -88,21 +35,9 @@ export class ServiceIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceIntegration.__pulumiType;
     }
 
-    /**
-     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-     */
     declare public readonly kmsServerSideEncryption: pulumi.Output<outputs.devopsguru.ServiceIntegrationKmsServerSideEncryption | undefined>;
-    /**
-     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-     */
     declare public readonly logsAnomalyDetection: pulumi.Output<outputs.devopsguru.ServiceIntegrationLogsAnomalyDetection | undefined>;
-    /**
-     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-     */
     declare public readonly opsCenter: pulumi.Output<outputs.devopsguru.ServiceIntegrationOpsCenter | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -138,21 +73,9 @@ export class ServiceIntegration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceIntegration resources.
  */
 export interface ServiceIntegrationState {
-    /**
-     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-     */
     kmsServerSideEncryption?: pulumi.Input<inputs.devopsguru.ServiceIntegrationKmsServerSideEncryption>;
-    /**
-     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-     */
     logsAnomalyDetection?: pulumi.Input<inputs.devopsguru.ServiceIntegrationLogsAnomalyDetection>;
-    /**
-     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-     */
     opsCenter?: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -160,20 +83,8 @@ export interface ServiceIntegrationState {
  * The set of arguments for constructing a ServiceIntegration resource.
  */
 export interface ServiceIntegrationArgs {
-    /**
-     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-     */
     kmsServerSideEncryption?: pulumi.Input<inputs.devopsguru.ServiceIntegrationKmsServerSideEncryption>;
-    /**
-     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-     */
     logsAnomalyDetection?: pulumi.Input<inputs.devopsguru.ServiceIntegrationLogsAnomalyDetection>;
-    /**
-     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-     */
     opsCenter?: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

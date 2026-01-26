@@ -17,47 +17,23 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
 
     public static final GetScriptDagNodeArgArgs Empty = new GetScriptDagNodeArgArgs();
 
-    /**
-     * Name of the argument or property.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the argument or property.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Boolean if the value is used as a parameter. Defaults to `false`.
-     * 
-     */
     @Import(name="param")
     private @Nullable Output<Boolean> param;
 
-    /**
-     * @return Boolean if the value is used as a parameter. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> param() {
         return Optional.ofNullable(this.param);
     }
 
-    /**
-     * Value of the argument or property.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value of the argument or property.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -88,65 +64,29 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
             $ = new GetScriptDagNodeArgArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the argument or property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the argument or property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param param Boolean if the value is used as a parameter. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder param(@Nullable Output<Boolean> param) {
             $.param = param;
             return this;
         }
 
-        /**
-         * @param param Boolean if the value is used as a parameter. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder param(Boolean param) {
             return param(Output.of(param));
         }
 
-        /**
-         * @param value Value of the argument or property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of the argument or property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

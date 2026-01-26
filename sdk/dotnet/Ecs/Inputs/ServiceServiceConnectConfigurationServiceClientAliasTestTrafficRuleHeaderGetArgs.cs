@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the HTTP header to match.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for header value matching criteria. See below.
-        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueGetArgs> Value { get; set; } = null!;
 

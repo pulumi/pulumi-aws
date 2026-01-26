@@ -19,81 +19,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS IoT Thing Group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.ThingGroup;
- * import com.pulumi.aws.iot.ThingGroupArgs;
- * import com.pulumi.aws.iot.inputs.ThingGroupPropertiesArgs;
- * import com.pulumi.aws.iot.inputs.ThingGroupPropertiesAttributePayloadArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var parent = new ThingGroup("parent", ThingGroupArgs.builder()
- *             .name("parent")
- *             .build());
- * 
- *         var example = new ThingGroup("example", ThingGroupArgs.builder()
- *             .name("example")
- *             .parentGroupName(parent.name())
- *             .properties(ThingGroupPropertiesArgs.builder()
- *                 .attributePayload(ThingGroupPropertiesAttributePayloadArgs.builder()
- *                     .attributes(Map.ofEntries(
- *                         Map.entry("One", "11111"),
- *                         Map.entry("Two", "TwoTwo")
- *                     ))
- *                     .build())
- *                 .description("This is my thing group")
- *                 .build())
- *             .tags(Map.of("managed", "true"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IoT Things Groups using the name. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/thingGroup:ThingGroup example example
- * ```
- * 
- */
 @ResourceType(type="aws:iot/thingGroup:ThingGroup")
 public class ThingGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the Thing Group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Thing Group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -103,73 +33,33 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
     public Output<List<ThingGroupMetadata>> metadatas() {
         return this.metadatas;
     }
-    /**
-     * The name of the Thing Group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Thing Group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The name of the parent Thing Group.
-     * 
-     */
     @Export(name="parentGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentGroupName;
 
-    /**
-     * @return The name of the parent Thing Group.
-     * 
-     */
     public Output<Optional<String>> parentGroupName() {
         return Codegen.optional(this.parentGroupName);
     }
-    /**
-     * The Thing Group properties. Defined below.
-     * 
-     */
     @Export(name="properties", refs={ThingGroupProperties.class}, tree="[0]")
     private Output</* @Nullable */ ThingGroupProperties> properties;
 
-    /**
-     * @return The Thing Group properties. Defined below.
-     * 
-     */
     public Output<Optional<ThingGroupProperties>> properties() {
         return Codegen.optional(this.properties);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -179,17 +69,9 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The current version of the Thing Group record in the registry.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The current version of the Thing Group record in the registry.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

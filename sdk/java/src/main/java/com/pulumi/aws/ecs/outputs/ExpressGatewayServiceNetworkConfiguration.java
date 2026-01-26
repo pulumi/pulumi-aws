@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExpressGatewayServiceNetworkConfiguration {
-    /**
-     * @return Security groups associated with the task. If not specified, the default security group for the VPC is used.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-     * 
-     */
     private List<String> subnets;
 
     private ExpressGatewayServiceNetworkConfiguration() {}
-    /**
-     * @return Security groups associated with the task. If not specified, the default security group for the VPC is used.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

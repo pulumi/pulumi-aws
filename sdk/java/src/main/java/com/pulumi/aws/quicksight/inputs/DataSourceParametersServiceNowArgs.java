@@ -14,17 +14,9 @@ public final class DataSourceParametersServiceNowArgs extends com.pulumi.resourc
 
     public static final DataSourceParametersServiceNowArgs Empty = new DataSourceParametersServiceNowArgs();
 
-    /**
-     * The base URL of the Jira instance&#39;s site to which to connect.
-     * 
-     */
     @Import(name="siteBaseUrl", required=true)
     private Output<String> siteBaseUrl;
 
-    /**
-     * @return The base URL of the Jira instance&#39;s site to which to connect.
-     * 
-     */
     public Output<String> siteBaseUrl() {
         return this.siteBaseUrl;
     }
@@ -53,23 +45,11 @@ public final class DataSourceParametersServiceNowArgs extends com.pulumi.resourc
             $ = new DataSourceParametersServiceNowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param siteBaseUrl The base URL of the Jira instance&#39;s site to which to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteBaseUrl(Output<String> siteBaseUrl) {
             $.siteBaseUrl = siteBaseUrl;
             return this;
         }
 
-        /**
-         * @param siteBaseUrl The base URL of the Jira instance&#39;s site to which to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteBaseUrl(String siteBaseUrl) {
             return siteBaseUrl(Output.of(siteBaseUrl));
         }

@@ -13,32 +13,16 @@ public final class GetPoliciesForTargetPlainArgs extends com.pulumi.resources.In
 
     public static final GetPoliciesForTargetPlainArgs Empty = new GetPoliciesForTargetPlainArgs();
 
-    /**
-     * Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
-     * 
-     */
     @Import(name="filter", required=true)
     private String filter;
 
-    /**
-     * @return Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
-     * 
-     */
     public String filter() {
         return this.filter;
     }
 
-    /**
-     * The root (string that begins with &#34;r-&#34; followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with &#34;ou-&#34; followed by 4-32 lowercase letters or digits. This string is followed by a second &#34;-&#34; dash and from 8-32 additional lowercase letters or digits.)
-     * 
-     */
     @Import(name="targetId", required=true)
     private String targetId;
 
-    /**
-     * @return The root (string that begins with &#34;r-&#34; followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with &#34;ou-&#34; followed by 4-32 lowercase letters or digits. This string is followed by a second &#34;-&#34; dash and from 8-32 additional lowercase letters or digits.)
-     * 
-     */
     public String targetId() {
         return this.targetId;
     }
@@ -68,23 +52,11 @@ public final class GetPoliciesForTargetPlainArgs extends com.pulumi.resources.In
             $ = new GetPoliciesForTargetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filter Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(String filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param targetId The root (string that begins with &#34;r-&#34; followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with &#34;ou-&#34; followed by 4-32 lowercase letters or digits. This string is followed by a second &#34;-&#34; dash and from 8-32 additional lowercase letters or digits.)
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetId(String targetId) {
             $.targetId = targetId;
             return this;

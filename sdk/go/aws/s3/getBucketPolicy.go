@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The bucket policy data source returns IAM policy of an S3 bucket.
-//
-// ## Example Usage
-//
-// The following example retrieves IAM policy of a specified S3 bucket.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.LookupBucketPolicy(ctx, &s3.LookupBucketPolicyArgs{
-//				Bucket: "example-bucket-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("foo", example.Policy)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBucketPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBucketPolicyResult
@@ -53,9 +23,7 @@ func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts 
 
 // A collection of arguments for invoking getBucketPolicy.
 type LookupBucketPolicyArgs struct {
-	// Bucket name.
-	Bucket string `pulumi:"bucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Bucket string  `pulumi:"bucket"`
 	Region *string `pulumi:"region"`
 }
 
@@ -63,8 +31,7 @@ type LookupBucketPolicyArgs struct {
 type LookupBucketPolicyResult struct {
 	Bucket string `pulumi:"bucket"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IAM bucket policy.
+	Id     string `pulumi:"id"`
 	Policy string `pulumi:"policy"`
 	Region string `pulumi:"region"`
 }
@@ -80,9 +47,7 @@ func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutput
 
 // A collection of arguments for invoking getBucketPolicy.
 type LookupBucketPolicyOutputArgs struct {
-	// Bucket name.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Bucket pulumi.StringInput    `pulumi:"bucket"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -114,7 +79,6 @@ func (o LookupBucketPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IAM bucket policy.
 func (o LookupBucketPolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
 }

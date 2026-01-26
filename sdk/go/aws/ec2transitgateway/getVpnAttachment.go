@@ -11,71 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an EC2 Transit Gateway VPN Attachment.
-//
-// > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `ec2.Tag` resource.
-//
-// ## Example Usage
-//
-// ### By Transit Gateway and VPN Connection Identifiers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetVpnAttachment(ctx, &ec2transitgateway.GetVpnAttachmentArgs{
-//				TransitGatewayId: pulumi.StringRef(exampleAwsEc2TransitGateway.Id),
-//				VpnConnectionId:  pulumi.StringRef(exampleAwsVpnConnection.Id),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetVpnAttachment(ctx, &ec2transitgateway.GetVpnAttachmentArgs{
-//				Filters: []ec2transitgateway.GetVpnAttachmentFilter{
-//					{
-//						Name: "resource-id",
-//						Values: []string{
-//							"some-resource",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...pulumi.InvokeOption) (*GetVpnAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpnAttachmentResult
@@ -88,25 +23,19 @@ func GetVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...p
 
 // A collection of arguments for invoking getVpnAttachment.
 type GetVpnAttachmentArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	Filters []GetVpnAttachmentFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// Identifier of the EC2 VPN Connection.
-	VpnConnectionId *string `pulumi:"vpnConnectionId"`
+	Filters          []GetVpnAttachmentFilter `pulumi:"filters"`
+	Region           *string                  `pulumi:"region"`
+	Tags             map[string]string        `pulumi:"tags"`
+	TransitGatewayId *string                  `pulumi:"transitGatewayId"`
+	VpnConnectionId  *string                  `pulumi:"vpnConnectionId"`
 }
 
 // A collection of values returned by getVpnAttachment.
 type GetVpnAttachmentResult struct {
 	Filters []GetVpnAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway VPN Attachment
+	Id               string            `pulumi:"id"`
+	Region           string            `pulumi:"region"`
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
 	VpnConnectionId  *string           `pulumi:"vpnConnectionId"`
@@ -123,16 +52,11 @@ func GetVpnAttachmentOutput(ctx *pulumi.Context, args GetVpnAttachmentOutputArgs
 
 // A collection of arguments for invoking getVpnAttachment.
 type GetVpnAttachmentOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	Filters GetVpnAttachmentFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
-	// Identifier of the EC2 VPN Connection.
-	VpnConnectionId pulumi.StringPtrInput `pulumi:"vpnConnectionId"`
+	Filters          GetVpnAttachmentFilterArrayInput `pulumi:"filters"`
+	Region           pulumi.StringPtrInput            `pulumi:"region"`
+	Tags             pulumi.StringMapInput            `pulumi:"tags"`
+	TransitGatewayId pulumi.StringPtrInput            `pulumi:"transitGatewayId"`
+	VpnConnectionId  pulumi.StringPtrInput            `pulumi:"vpnConnectionId"`
 }
 
 func (GetVpnAttachmentOutputArgs) ElementType() reflect.Type {
@@ -167,7 +91,6 @@ func (o GetVpnAttachmentResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway VPN Attachment
 func (o GetVpnAttachmentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetVpnAttachmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

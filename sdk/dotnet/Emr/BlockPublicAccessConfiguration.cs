@@ -9,140 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Emr
 {
-    /// <summary>
-    /// Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
-    ///     {
-    ///         BlockPublicSecurityGroupRules = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Default Configuration
-    /// 
-    /// By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
-    ///     {
-    ///         BlockPublicSecurityGroupRules = true,
-    ///         PermittedPublicSecurityGroupRuleRanges = new[]
-    ///         {
-    ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
-    ///             {
-    ///                 MinRange = 22,
-    ///                 MaxRange = 22,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **NOTE:** If an `aws.emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
-    /// 
-    /// ### Multiple Permitted Public Security Group Rule Ranges
-    /// 
-    /// The resource permits specification of multiple `PermittedPublicSecurityGroupRuleRange` blocks.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
-    ///     {
-    ///         BlockPublicSecurityGroupRules = true,
-    ///         PermittedPublicSecurityGroupRuleRanges = new[]
-    ///         {
-    ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
-    ///             {
-    ///                 MinRange = 22,
-    ///                 MaxRange = 22,
-    ///             },
-    ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
-    ///             {
-    ///                 MinRange = 100,
-    ///                 MaxRange = 101,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Disabling Block Public Access
-    /// 
-    /// To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
-    ///     {
-    ///         BlockPublicSecurityGroupRules = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")]
     public partial class BlockPublicAccessConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Enable or disable EMR Block Public Access.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("blockPublicSecurityGroupRules")]
         public Output<bool> BlockPublicSecurityGroupRules { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `BlockPublicSecurityGroupRules` is set to `True`.
-        /// </summary>
         [Output("permittedPublicSecurityGroupRuleRanges")]
         public Output<ImmutableArray<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> PermittedPublicSecurityGroupRuleRanges { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -192,29 +67,17 @@ namespace Pulumi.Aws.Emr
 
     public sealed class BlockPublicAccessConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enable or disable EMR Block Public Access.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("blockPublicSecurityGroupRules", required: true)]
         public Input<bool> BlockPublicSecurityGroupRules { get; set; } = null!;
 
         [Input("permittedPublicSecurityGroupRuleRanges")]
         private InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>? _permittedPublicSecurityGroupRuleRanges;
-
-        /// <summary>
-        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `BlockPublicSecurityGroupRules` is set to `True`.
-        /// </summary>
         public InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs> PermittedPublicSecurityGroupRuleRanges
         {
             get => _permittedPublicSecurityGroupRuleRanges ?? (_permittedPublicSecurityGroupRuleRanges = new InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>());
             set => _permittedPublicSecurityGroupRuleRanges = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -226,29 +89,17 @@ namespace Pulumi.Aws.Emr
 
     public sealed class BlockPublicAccessConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enable or disable EMR Block Public Access.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("blockPublicSecurityGroupRules")]
         public Input<bool>? BlockPublicSecurityGroupRules { get; set; }
 
         [Input("permittedPublicSecurityGroupRuleRanges")]
         private InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeGetArgs>? _permittedPublicSecurityGroupRuleRanges;
-
-        /// <summary>
-        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `BlockPublicSecurityGroupRules` is set to `True`.
-        /// </summary>
         public InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeGetArgs> PermittedPublicSecurityGroupRuleRanges
         {
             get => _permittedPublicSecurityGroupRuleRanges ?? (_permittedPublicSecurityGroupRuleRanges = new InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeGetArgs>());
             set => _permittedPublicSecurityGroupRuleRanges = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

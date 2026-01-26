@@ -15,32 +15,16 @@ public final class TableGlobalSecondaryIndexOnDemandThroughputArgs extends com.p
 
     public static final TableGlobalSecondaryIndexOnDemandThroughputArgs Empty = new TableGlobalSecondaryIndexOnDemandThroughputArgs();
 
-    /**
-     * Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     @Import(name="maxReadRequestUnits")
     private @Nullable Output<Integer> maxReadRequestUnits;
 
-    /**
-     * @return Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     public Optional<Output<Integer>> maxReadRequestUnits() {
         return Optional.ofNullable(this.maxReadRequestUnits);
     }
 
-    /**
-     * Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     @Import(name="maxWriteRequestUnits")
     private @Nullable Output<Integer> maxWriteRequestUnits;
 
-    /**
-     * @return Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     public Optional<Output<Integer>> maxWriteRequestUnits() {
         return Optional.ofNullable(this.maxWriteRequestUnits);
     }
@@ -70,44 +54,20 @@ public final class TableGlobalSecondaryIndexOnDemandThroughputArgs extends com.p
             $ = new TableGlobalSecondaryIndexOnDemandThroughputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxReadRequestUnits Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxReadRequestUnits(@Nullable Output<Integer> maxReadRequestUnits) {
             $.maxReadRequestUnits = maxReadRequestUnits;
             return this;
         }
 
-        /**
-         * @param maxReadRequestUnits Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxReadRequestUnits(Integer maxReadRequestUnits) {
             return maxReadRequestUnits(Output.of(maxReadRequestUnits));
         }
 
-        /**
-         * @param maxWriteRequestUnits Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxWriteRequestUnits(@Nullable Output<Integer> maxWriteRequestUnits) {
             $.maxWriteRequestUnits = maxWriteRequestUnits;
             return this;
         }
 
-        /**
-         * @param maxWriteRequestUnits Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxWriteRequestUnits(Integer maxWriteRequestUnits) {
             return maxWriteRequestUnits(Output.of(maxWriteRequestUnits));
         }

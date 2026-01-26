@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Selects a specific PID from within a source.
-        /// </summary>
         [Input("pid", required: true)]
         public Input<int> Pid { get; set; } = null!;
 

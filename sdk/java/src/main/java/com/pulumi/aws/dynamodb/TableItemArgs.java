@@ -16,81 +16,37 @@ public final class TableItemArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableItemArgs Empty = new TableItemArgs();
 
-    /**
-     * Hash key to use for lookups and identification of the item
-     * 
-     */
     @Import(name="hashKey", required=true)
     private Output<String> hashKey;
 
-    /**
-     * @return Hash key to use for lookups and identification of the item
-     * 
-     */
     public Output<String> hashKey() {
         return this.hashKey;
     }
 
-    /**
-     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-     * 
-     */
     @Import(name="item", required=true)
     private Output<String> item;
 
-    /**
-     * @return JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-     * 
-     */
     public Output<String> item() {
         return this.item;
     }
 
-    /**
-     * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-     * 
-     */
     @Import(name="rangeKey")
     private @Nullable Output<String> rangeKey;
 
-    /**
-     * @return Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-     * 
-     */
     public Optional<Output<String>> rangeKey() {
         return Optional.ofNullable(this.rangeKey);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the table to contain the item.
-     * 
-     * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return Name of the table to contain the item.
-     * 
-     * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -123,111 +79,47 @@ public final class TableItemArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableItemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hashKey Hash key to use for lookups and identification of the item
-         * 
-         * @return builder
-         * 
-         */
         public Builder hashKey(Output<String> hashKey) {
             $.hashKey = hashKey;
             return this;
         }
 
-        /**
-         * @param hashKey Hash key to use for lookups and identification of the item
-         * 
-         * @return builder
-         * 
-         */
         public Builder hashKey(String hashKey) {
             return hashKey(Output.of(hashKey));
         }
 
-        /**
-         * @param item JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-         * 
-         * @return builder
-         * 
-         */
         public Builder item(Output<String> item) {
             $.item = item;
             return this;
         }
 
-        /**
-         * @param item JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-         * 
-         * @return builder
-         * 
-         */
         public Builder item(String item) {
             return item(Output.of(item));
         }
 
-        /**
-         * @param rangeKey Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rangeKey(@Nullable Output<String> rangeKey) {
             $.rangeKey = rangeKey;
             return this;
         }
 
-        /**
-         * @param rangeKey Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rangeKey(String rangeKey) {
             return rangeKey(Output.of(rangeKey));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableName Name of the table to contain the item.
-         * 
-         * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Name of the table to contain the item.
-         * 
-         * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

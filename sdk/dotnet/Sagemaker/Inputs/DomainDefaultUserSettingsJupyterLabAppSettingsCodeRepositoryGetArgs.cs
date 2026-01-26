@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL of the Git repository.
-        /// </summary>
         [Input("repositoryUrl", required: true)]
         public Input<string> RepositoryUrl { get; set; } = null!;
 

@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.m2.Deployment("test", {
- *     environmentId: "01234567890abcdef012345678",
- *     applicationId: "34567890abcdef012345678012",
- *     applicationVersion: 1,
- *     start: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Mainframe Modernization Deployment using the `APPLICATION-ID,DEPLOYMENT-ID`. For example:
- *
- * ```sh
- * $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
- * ```
- */
 export class Deployment extends pulumi.CustomResource {
     /**
      * Get an existing Deployment resource's state with the given name, ID, and optional extra
@@ -62,27 +35,12 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
-    /**
-     * Application to deploy.
-     */
     declare public readonly applicationId: pulumi.Output<string>;
-    /**
-     * Version to application to deploy
-     */
     declare public readonly applicationVersion: pulumi.Output<number>;
     declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
-    /**
-     * Environment to deploy application to.
-     */
     declare public readonly environmentId: pulumi.Output<string>;
     declare public readonly forceStop: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Start the application once deployed.
-     */
     declare public readonly start: pulumi.Output<boolean>;
     declare public readonly timeouts: pulumi.Output<outputs.m2.DeploymentTimeouts | undefined>;
 
@@ -139,27 +97,12 @@ export class Deployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Deployment resources.
  */
 export interface DeploymentState {
-    /**
-     * Application to deploy.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * Version to application to deploy
-     */
     applicationVersion?: pulumi.Input<number>;
     deploymentId?: pulumi.Input<string>;
-    /**
-     * Environment to deploy application to.
-     */
     environmentId?: pulumi.Input<string>;
     forceStop?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Start the application once deployed.
-     */
     start?: pulumi.Input<boolean>;
     timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts>;
 }
@@ -168,26 +111,11 @@ export interface DeploymentState {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
-    /**
-     * Application to deploy.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * Version to application to deploy
-     */
     applicationVersion: pulumi.Input<number>;
-    /**
-     * Environment to deploy application to.
-     */
     environmentId: pulumi.Input<string>;
     forceStop?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Start the application once deployed.
-     */
     start: pulumi.Input<boolean>;
     timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts>;
 }

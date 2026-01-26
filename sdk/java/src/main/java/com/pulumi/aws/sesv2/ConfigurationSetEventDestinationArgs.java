@@ -17,62 +17,30 @@ public final class ConfigurationSetEventDestinationArgs extends com.pulumi.resou
 
     public static final ConfigurationSetEventDestinationArgs Empty = new ConfigurationSetEventDestinationArgs();
 
-    /**
-     * The name of the configuration set.
-     * 
-     */
     @Import(name="configurationSetName", required=true)
     private Output<String> configurationSetName;
 
-    /**
-     * @return The name of the configuration set.
-     * 
-     */
     public Output<String> configurationSetName() {
         return this.configurationSetName;
     }
 
-    /**
-     * A name that identifies the event destination within the configuration set.
-     * 
-     */
     @Import(name="eventDestination", required=true)
     private Output<ConfigurationSetEventDestinationEventDestinationArgs> eventDestination;
 
-    /**
-     * @return A name that identifies the event destination within the configuration set.
-     * 
-     */
     public Output<ConfigurationSetEventDestinationEventDestinationArgs> eventDestination() {
         return this.eventDestination;
     }
 
-    /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
-     * 
-     */
     @Import(name="eventDestinationName", required=true)
     private Output<String> eventDestinationName;
 
-    /**
-     * @return An object that defines the event destination. See `eventDestination` Block for details.
-     * 
-     */
     public Output<String> eventDestinationName() {
         return this.eventDestinationName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,86 +72,38 @@ public final class ConfigurationSetEventDestinationArgs extends com.pulumi.resou
             $ = new ConfigurationSetEventDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationSetName The name of the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(Output<String> configurationSetName) {
             $.configurationSetName = configurationSetName;
             return this;
         }
 
-        /**
-         * @param configurationSetName The name of the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(String configurationSetName) {
             return configurationSetName(Output.of(configurationSetName));
         }
 
-        /**
-         * @param eventDestination A name that identifies the event destination within the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventDestination(Output<ConfigurationSetEventDestinationEventDestinationArgs> eventDestination) {
             $.eventDestination = eventDestination;
             return this;
         }
 
-        /**
-         * @param eventDestination A name that identifies the event destination within the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventDestination(ConfigurationSetEventDestinationEventDestinationArgs eventDestination) {
             return eventDestination(Output.of(eventDestination));
         }
 
-        /**
-         * @param eventDestinationName An object that defines the event destination. See `eventDestination` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventDestinationName(Output<String> eventDestinationName) {
             $.eventDestinationName = eventDestinationName;
             return this;
         }
 
-        /**
-         * @param eventDestinationName An object that defines the event destination. See `eventDestination` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventDestinationName(String eventDestinationName) {
             return eventDestinationName(Output.of(eventDestinationName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

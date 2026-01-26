@@ -27,9 +27,6 @@ class BucketPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketPolicy resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to which to apply the policy.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "policy", policy)
@@ -39,9 +36,6 @@ class BucketPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the bucket to which to apply the policy.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -51,9 +45,6 @@ class BucketPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
-        """
-        Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -63,9 +54,6 @@ class BucketPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +69,6 @@ class _BucketPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketPolicy resources.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to which to apply the policy.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -95,9 +80,6 @@ class _BucketPolicyState:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket to which to apply the policy.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -107,9 +89,6 @@ class _BucketPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
-        """
-        Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -119,9 +98,6 @@ class _BucketPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -140,63 +116,9 @@ class BucketPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches a policy to an S3 bucket resource.
-
-        > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="my-tf-test-bucket")
-        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[{
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": [
-                "s3:GetObject",
-                "s3:ListBucket",
-            ],
-            "resources": [
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        }])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
-            bucket=example.id,
-            policy=allow_access_from_another_account.json)
-        ```
-
-        > Only one `s3.BucketPolicy` resource should be defined per S3 bucket. Defining multiple `s3.BucketPolicy` resources with different Pulumi names but the same `bucket` value may result in unexpected policy overwrites. Each resource uses the `PutBucketPolicy` API, which replaces the entire existing policy without error or warning. Because Pulumi treats each resource independently, the policy applied last will silently override any previously applied policy.
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) Name of the S3 bucket.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
-
-        % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
-
+        Create a BucketPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to which to apply the policy.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -205,58 +127,7 @@ class BucketPolicy(pulumi.CustomResource):
                  args: BucketPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a policy to an S3 bucket resource.
-
-        > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="my-tf-test-bucket")
-        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[{
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": [
-                "s3:GetObject",
-                "s3:ListBucket",
-            ],
-            "resources": [
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        }])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
-            bucket=example.id,
-            policy=allow_access_from_another_account.json)
-        ```
-
-        > Only one `s3.BucketPolicy` resource should be defined per S3 bucket. Defining multiple `s3.BucketPolicy` resources with different Pulumi names but the same `bucket` value may result in unexpected policy overwrites. Each resource uses the `PutBucketPolicy` API, which replaces the entire existing policy without error or warning. Because Pulumi treats each resource independently, the policy applied last will silently override any previously applied policy.
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) Name of the S3 bucket.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
-
-        % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
-
+        Create a BucketPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,9 +182,6 @@ class BucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to which to apply the policy.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -327,24 +195,15 @@ class BucketPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket to which to apply the policy.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

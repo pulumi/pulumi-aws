@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
- * [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const example = aws.organizations.getOrganization({});
- * const exampleGetOrganizationalUnits = example.then(example => aws.organizations.getOrganizationalUnits({
- *     parentId: example.roots?.[0]?.id,
- * }));
- * const exampleControlTowerControl = new aws.controltower.ControlTowerControl("example", {
- *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.region}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
- *     targetIdentifier: exampleGetOrganizationalUnits.then(exampleGetOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
- *     parameters: [{
- *         key: "AllowedRegions",
- *         value: JSON.stringify(["us-east-1"]),
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
- *
- * ```sh
- * $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
- * ```
- */
 export class ControlTowerControl extends pulumi.CustomResource {
     /**
      * Get an existing ControlTowerControl resource's state with the given name, ID, and optional extra
@@ -68,27 +35,10 @@ export class ControlTowerControl extends pulumi.CustomResource {
         return obj['__pulumiType'] === ControlTowerControl.__pulumiType;
     }
 
-    /**
-     * The ARN of the EnabledControl resource.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     */
     declare public readonly controlIdentifier: pulumi.Output<string>;
-    /**
-     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-     */
     declare public readonly parameters: pulumi.Output<outputs.controltower.ControlTowerControlParameter[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the organizational unit.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targetIdentifier: pulumi.Output<string>;
 
     /**
@@ -132,27 +82,10 @@ export class ControlTowerControl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ControlTowerControl resources.
  */
 export interface ControlTowerControlState {
-    /**
-     * The ARN of the EnabledControl resource.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     */
     controlIdentifier?: pulumi.Input<string>;
-    /**
-     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the organizational unit.
-     *
-     * The following arguments are optional:
-     */
     targetIdentifier?: pulumi.Input<string>;
 }
 
@@ -160,22 +93,8 @@ export interface ControlTowerControlState {
  * The set of arguments for constructing a ControlTowerControl resource.
  */
 export interface ControlTowerControlArgs {
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     */
     controlIdentifier: pulumi.Input<string>;
-    /**
-     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the organizational unit.
-     *
-     * The following arguments are optional:
-     */
     targetIdentifier: pulumi.Input<string>;
 }

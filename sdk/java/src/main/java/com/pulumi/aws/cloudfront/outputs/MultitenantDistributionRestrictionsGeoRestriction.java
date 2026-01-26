@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionRestrictionsGeoRestriction {
-    /**
-     * @return List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     private @Nullable List<String> items;
-    /**
-     * @return Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-     * 
-     */
     private String restrictionType;
 
     private MultitenantDistributionRestrictionsGeoRestriction() {}
-    /**
-     * @return List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     public List<String> items() {
         return this.items == null ? List.of() : this.items;
     }
-    /**
-     * @return Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-     * 
-     */
     public String restrictionType() {
         return this.restrictionType;
     }

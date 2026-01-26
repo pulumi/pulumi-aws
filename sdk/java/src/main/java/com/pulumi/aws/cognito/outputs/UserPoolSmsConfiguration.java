@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolSmsConfiguration {
-    /**
-     * @return External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-     * 
-     */
     private String externalId;
-    /**
-     * @return ARN of the Amazon SNS caller. This is usually the IAM role that you&#39;ve given Cognito permission to assume.
-     * 
-     */
     private String snsCallerArn;
-    /**
-     * @return The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
-     * 
-     */
     private @Nullable String snsRegion;
 
     private UserPoolSmsConfiguration() {}
-    /**
-     * @return External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
-     * 
-     */
     public String externalId() {
         return this.externalId;
     }
-    /**
-     * @return ARN of the Amazon SNS caller. This is usually the IAM role that you&#39;ve given Cognito permission to assume.
-     * 
-     */
     public String snsCallerArn() {
         return this.snsCallerArn;
     }
-    /**
-     * @return The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
-     * 
-     */
     public Optional<String> snsRegion() {
         return Optional.ofNullable(this.snsRegion);
     }

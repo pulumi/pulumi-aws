@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpcIpamPoolCidrCidrAuthorizationContext
     {
-        /// <summary>
-        /// The plain-text authorization message for the prefix and account.
-        /// </summary>
         public readonly string? Message;
-        /// <summary>
-        /// The signed authorization message for the prefix and account.
-        /// </summary>
         public readonly string? Signature;
 
         [OutputConstructor]

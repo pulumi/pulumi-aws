@@ -17,10 +17,6 @@ public final class GetPoliciesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the policy ids found.
-     * 
-     */
     private List<String> ids;
 
     private GetPoliciesResult() {}
@@ -34,10 +30,6 @@ public final class GetPoliciesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the policy ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

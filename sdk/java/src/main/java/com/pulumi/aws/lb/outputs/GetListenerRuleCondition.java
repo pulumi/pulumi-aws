@@ -16,85 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerRuleCondition {
-    /**
-     * @return Host header patterns to match.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleConditionHostHeader> hostHeaders;
-    /**
-     * @return HTTP header and values to match.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleConditionHttpHeader> httpHeaders;
-    /**
-     * @return Contains a single attribute `values`, which contains a set of HTTP request methods.
-     * 
-     */
     private @Nullable List<GetListenerRuleConditionHttpRequestMethod> httpRequestMethods;
-    /**
-     * @return Path patterns to compare against the request URL.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleConditionPathPattern> pathPatterns;
-    /**
-     * @return Query string parameters to match.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleConditionQueryString> queryStrings;
-    /**
-     * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
-     * 
-     */
     private @Nullable List<GetListenerRuleConditionSourceIp> sourceIps;
 
     private GetListenerRuleCondition() {}
-    /**
-     * @return Host header patterns to match.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleConditionHostHeader> hostHeaders() {
         return this.hostHeaders == null ? List.of() : this.hostHeaders;
     }
-    /**
-     * @return HTTP header and values to match.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleConditionHttpHeader> httpHeaders() {
         return this.httpHeaders == null ? List.of() : this.httpHeaders;
     }
-    /**
-     * @return Contains a single attribute `values`, which contains a set of HTTP request methods.
-     * 
-     */
     public List<GetListenerRuleConditionHttpRequestMethod> httpRequestMethods() {
         return this.httpRequestMethods == null ? List.of() : this.httpRequestMethods;
     }
-    /**
-     * @return Path patterns to compare against the request URL.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleConditionPathPattern> pathPatterns() {
         return this.pathPatterns == null ? List.of() : this.pathPatterns;
     }
-    /**
-     * @return Query string parameters to match.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleConditionQueryString> queryStrings() {
         return this.queryStrings == null ? List.of() : this.queryStrings;
     }
-    /**
-     * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
-     * 
-     */
     public List<GetListenerRuleConditionSourceIp> sourceIps() {
         return this.sourceIps == null ? List.of() : this.sourceIps;
     }

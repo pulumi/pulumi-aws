@@ -17,32 +17,16 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
 
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs();
 
-    /**
-     * The ARN of the model used to parse documents
-     * 
-     */
     @Import(name="modelArn", required=true)
     private Output<String> modelArn;
 
-    /**
-     * @return The ARN of the model used to parse documents
-     * 
-     */
     public Output<String> modelArn() {
         return this.modelArn;
     }
 
-    /**
-     * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
-     * 
-     */
     @Import(name="parsingPrompt")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs> parsingPrompt;
 
-    /**
-     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs>> parsingPrompt() {
         return Optional.ofNullable(this.parsingPrompt);
     }
@@ -72,44 +56,20 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
             $ = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param modelArn The ARN of the model used to parse documents
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelArn(Output<String> modelArn) {
             $.modelArn = modelArn;
             return this;
         }
 
-        /**
-         * @param modelArn The ARN of the model used to parse documents
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelArn(String modelArn) {
             return modelArn(Output.of(modelArn));
         }
 
-        /**
-         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingPrompt(@Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs> parsingPrompt) {
             $.parsingPrompt = parsingPrompt;
             return this;
         }
 
-        /**
-         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingPrompt(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs parsingPrompt) {
             return parsingPrompt(Output.of(parsingPrompt));
         }

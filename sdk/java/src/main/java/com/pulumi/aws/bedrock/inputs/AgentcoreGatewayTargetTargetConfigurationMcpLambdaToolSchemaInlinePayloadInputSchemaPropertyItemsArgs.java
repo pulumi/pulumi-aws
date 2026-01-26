@@ -19,62 +19,30 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs();
 
-    /**
-     * Description of the array items.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the array items.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Nested items definition for arrays of arrays.
-     * 
-     */
     @Import(name="items")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs> items;
 
-    /**
-     * @return Nested items definition for arrays of arrays.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs>> items() {
         return Optional.ofNullable(this.items);
     }
 
-    /**
-     * Set of property definitions for arrays of objects. See `property` below.
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs>> properties;
 
-    /**
-     * @return Set of property definitions for arrays of objects. See `property` below.
-     * 
-     */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs>>> properties() {
         return Optional.ofNullable(this.properties);
     }
 
-    /**
-     * Data type of the array items.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Data type of the array items.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -106,96 +74,42 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param items Nested items definition for arrays of arrays.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs> items) {
             $.items = items;
             return this;
         }
 
-        /**
-         * @param items Nested items definition for arrays of arrays.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs items) {
             return items(Output.of(items));
         }
 
-        /**
-         * @param properties Set of property definitions for arrays of objects. See `property` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs>> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties Set of property definitions for arrays of objects. See `property` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs> properties) {
             return properties(Output.of(properties));
         }
 
-        /**
-         * @param properties Set of property definitions for arrays of objects. See `property` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs... properties) {
             return properties(List.of(properties));
         }
 
-        /**
-         * @param type Data type of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Data type of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

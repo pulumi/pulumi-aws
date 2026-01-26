@@ -90,33 +90,21 @@ class GetVolumeResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability zone where the EBS volume exists.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> _builtins.str:
-        """
-        Timestamp when volume creation was initiated.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> _builtins.bool:
-        """
-        Whether the disk is encrypted.
-        """
         return pulumi.get(self, "encrypted")
 
     @_builtins.property
@@ -135,17 +123,11 @@ class GetVolumeResult:
     @_builtins.property
     @pulumi.getter
     def iops(self) -> _builtins.int:
-        """
-        Amount of IOPS for the disk.
-        """
         return pulumi.get(self, "iops")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        ARN for the KMS encryption key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
@@ -156,17 +138,11 @@ class GetVolumeResult:
     @_builtins.property
     @pulumi.getter(name="multiAttachEnabled")
     def multi_attach_enabled(self) -> _builtins.bool:
-        """
-        (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
-        """
         return pulumi.get(self, "multi_attach_enabled")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> _builtins.str:
-        """
-        ARN of the Outpost.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
@@ -177,57 +153,36 @@ class GetVolumeResult:
     @_builtins.property
     @pulumi.getter
     def size(self) -> _builtins.int:
-        """
-        Size of the drive in GiBs.
-        """
         return pulumi.get(self, "size")
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> _builtins.str:
-        """
-        Snapshot_id the EBS volume is based off.
-        """
         return pulumi.get(self, "snapshot_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> _builtins.int:
-        """
-        Throughput that the volume supports, in MiB/s.
-        """
         return pulumi.get(self, "throughput")
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> _builtins.str:
-        """
-        Volume ID (e.g., vol-59fcb34e).
-        """
         return pulumi.get(self, "volume_id")
 
     @_builtins.property
     @pulumi.getter(name="volumeInitializationRate")
     def volume_initialization_rate(self) -> _builtins.int:
-        """
-        EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume.
-        """
         return pulumi.get(self, "volume_initialization_rate")
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> _builtins.str:
-        """
-        Type of EBS volume.
-        """
         return pulumi.get(self, "volume_type")
 
 
@@ -264,36 +219,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
                tags: Optional[Mapping[str, _builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    Use this data source to get information about an EBS volume for use in other
-    resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ebs_volume = aws.ebs.get_volume(most_recent=True,
-        filters=[
-            {
-                "name": "volume-type",
-                "values": ["gp2"],
-            },
-            {
-                "name": "tag:Name",
-                "values": ["Example"],
-            },
-        ])
-    ```
-
-
-    :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
-    :param _builtins.bool most_recent: If more than one result is returned, use the most
-           recent volume.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -329,36 +255,7 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
-    Use this data source to get information about an EBS volume for use in other
-    resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ebs_volume = aws.ebs.get_volume(most_recent=True,
-        filters=[
-            {
-                "name": "volume-type",
-                "values": ["gp2"],
-            },
-            {
-                "name": "tag:Name",
-                "values": ["Example"],
-            },
-        ])
-    ```
-
-
-    :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
-    :param _builtins.bool most_recent: If more than one result is returned, use the most
-           recent volume.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

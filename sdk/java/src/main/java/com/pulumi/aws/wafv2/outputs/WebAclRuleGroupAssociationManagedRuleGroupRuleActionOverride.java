@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride {
     /**
-     * @return Action to use instead of the rule&#39;s original action. See below.
+     * @return Action to use in place of the rule action.
      * 
      */
     private @Nullable WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUse actionToUse;
     /**
-     * @return Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
+     * @return Name of the rule to override.
      * 
      */
     private String name;
 
     private WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride() {}
     /**
-     * @return Action to use instead of the rule&#39;s original action. See below.
+     * @return Action to use in place of the rule action.
      * 
      */
     public Optional<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUse> actionToUse() {
         return Optional.ofNullable(this.actionToUse);
     }
     /**
-     * @return Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
+     * @return Name of the rule to override.
      * 
      */
     public String name() {

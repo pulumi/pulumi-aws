@@ -15,69 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserHierarchyStructureHierarchyStructure {
-    /**
-     * @return A block that defines the details of level five. The level block is documented below.
-     * 
-     * Each level block supports the following arguments:
-     * 
-     */
     private @Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive;
-    /**
-     * @return A block that defines the details of level four. The level block is documented below.
-     * 
-     */
     private @Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour;
-    /**
-     * @return A block that defines the details of level one. The level block is documented below.
-     * 
-     */
     private @Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne;
-    /**
-     * @return A block that defines the details of level three. The level block is documented below.
-     * 
-     */
     private @Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree;
-    /**
-     * @return A block that defines the details of level two. The level block is documented below.
-     * 
-     */
     private @Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo;
 
     private UserHierarchyStructureHierarchyStructure() {}
-    /**
-     * @return A block that defines the details of level five. The level block is documented below.
-     * 
-     * Each level block supports the following arguments:
-     * 
-     */
     public Optional<UserHierarchyStructureHierarchyStructureLevelFive> levelFive() {
         return Optional.ofNullable(this.levelFive);
     }
-    /**
-     * @return A block that defines the details of level four. The level block is documented below.
-     * 
-     */
     public Optional<UserHierarchyStructureHierarchyStructureLevelFour> levelFour() {
         return Optional.ofNullable(this.levelFour);
     }
-    /**
-     * @return A block that defines the details of level one. The level block is documented below.
-     * 
-     */
     public Optional<UserHierarchyStructureHierarchyStructureLevelOne> levelOne() {
         return Optional.ofNullable(this.levelOne);
     }
-    /**
-     * @return A block that defines the details of level three. The level block is documented below.
-     * 
-     */
     public Optional<UserHierarchyStructureHierarchyStructureLevelThree> levelThree() {
         return Optional.ofNullable(this.levelThree);
     }
-    /**
-     * @return A block that defines the details of level two. The level block is documented below.
-     * 
-     */
     public Optional<UserHierarchyStructureHierarchyStructureLevelTwo> levelTwo() {
         return Optional.ofNullable(this.levelTwo);
     }

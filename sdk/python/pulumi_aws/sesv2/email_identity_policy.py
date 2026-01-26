@@ -25,10 +25,6 @@ class EmailIdentityPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailIdentityPolicy resource.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         pulumi.set(__self__, "policy", policy)
@@ -39,9 +35,6 @@ class EmailIdentityPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[_builtins.str]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -51,9 +44,6 @@ class EmailIdentityPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The text of the policy in JSON format.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -63,9 +53,6 @@ class EmailIdentityPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -75,9 +62,6 @@ class EmailIdentityPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _EmailIdentityPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityPolicy resources.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if email_identity is not None:
             pulumi.set(__self__, "email_identity", email_identity)
@@ -111,9 +91,6 @@ class _EmailIdentityPolicyState:
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -123,9 +100,6 @@ class _EmailIdentityPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The text of the policy in JSON format.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -135,9 +109,6 @@ class _EmailIdentityPolicyState:
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -147,9 +118,6 @@ class _EmailIdentityPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -169,58 +137,9 @@ class EmailIdentityPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
-        example_email_identity_policy = aws.sesv2.EmailIdentityPolicy("example",
-            email_identity=example.email_identity,
-            policy_name="example",
-            policy=example.arn.apply(lambda arn: f\"\"\"{{
-          \\"Id\\":\\"ExampleAuthorizationPolicy\\",
-          \\"Version\\":\\"2012-10-17\\",
-          \\"Statement\\":[
-            {{
-              \\"Sid\\":\\"AuthorizeIAMUser\\",
-              \\"Effect\\":\\"Allow\\",
-              \\"Resource\\":\\"{arn}\\",
-              \\"Principal\\":{{
-                \\"AWS\\":[
-                  \\"arn:aws:iam::123456789012:user/John\\",
-                  \\"arn:aws:iam::123456789012:user/Jane\\"
-                ]
-              }},
-              \\"Action\\":[
-                \\"ses:DeleteEmailIdentity\\",
-                \\"ses:PutEmailIdentityDkimSigningAttributes\\"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `email_identity` and `policy_name` separated by `|`. For example:
-
-        ```sh
-        $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
-        ```
-
+        Create a EmailIdentityPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -229,52 +148,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
                  args: EmailIdentityPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
-        example_email_identity_policy = aws.sesv2.EmailIdentityPolicy("example",
-            email_identity=example.email_identity,
-            policy_name="example",
-            policy=example.arn.apply(lambda arn: f\"\"\"{{
-          \\"Id\\":\\"ExampleAuthorizationPolicy\\",
-          \\"Version\\":\\"2012-10-17\\",
-          \\"Statement\\":[
-            {{
-              \\"Sid\\":\\"AuthorizeIAMUser\\",
-              \\"Effect\\":\\"Allow\\",
-              \\"Resource\\":\\"{arn}\\",
-              \\"Principal\\":{{
-                \\"AWS\\":[
-                  \\"arn:aws:iam::123456789012:user/John\\",
-                  \\"arn:aws:iam::123456789012:user/Jane\\"
-                ]
-              }},
-              \\"Action\\":[
-                \\"ses:DeleteEmailIdentity\\",
-                \\"ses:PutEmailIdentityDkimSigningAttributes\\"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `email_identity` and `policy_name` separated by `|`. For example:
-
-        ```sh
-        $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
-        ```
-
+        Create a EmailIdentityPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailIdentityPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,10 +208,6 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -352,32 +222,20 @@ class EmailIdentityPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[_builtins.str]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The text of the policy in JSON format.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

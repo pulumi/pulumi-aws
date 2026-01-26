@@ -30,13 +30,7 @@ MYPY = False
 if not MYPY:
     class ClusterEncryptionDetailArgsDict(TypedDict):
         encryption_status: pulumi.Input[_builtins.str]
-        """
-        The status of encryption for the DSQL Cluster.
-        """
         encryption_type: pulumi.Input[_builtins.str]
-        """
-        The type of encryption that protects the data on the DSQL Cluster.
-        """
 elif False:
     ClusterEncryptionDetailArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -45,19 +39,12 @@ class ClusterEncryptionDetailArgs:
     def __init__(__self__, *,
                  encryption_status: pulumi.Input[_builtins.str],
                  encryption_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] encryption_status: The status of encryption for the DSQL Cluster.
-        :param pulumi.Input[_builtins.str] encryption_type: The type of encryption that protects the data on the DSQL Cluster.
-        """
         pulumi.set(__self__, "encryption_status", encryption_status)
         pulumi.set(__self__, "encryption_type", encryption_type)
 
     @_builtins.property
     @pulumi.getter(name="encryptionStatus")
     def encryption_status(self) -> pulumi.Input[_builtins.str]:
-        """
-        The status of encryption for the DSQL Cluster.
-        """
         return pulumi.get(self, "encryption_status")
 
     @encryption_status.setter
@@ -67,9 +54,6 @@ class ClusterEncryptionDetailArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of encryption that protects the data on the DSQL Cluster.
-        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -80,13 +64,7 @@ class ClusterEncryptionDetailArgs:
 if not MYPY:
     class ClusterMultiRegionPropertiesArgsDict(TypedDict):
         clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of DSQL Cluster ARNs peered to this cluster.
-        """
         witness_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        """
 elif False:
     ClusterMultiRegionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -95,10 +73,6 @@ class ClusterMultiRegionPropertiesArgs:
     def __init__(__self__, *,
                  clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  witness_region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs peered to this cluster.
-        :param pulumi.Input[_builtins.str] witness_region: Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        """
         if clusters is not None:
             pulumi.set(__self__, "clusters", clusters)
         if witness_region is not None:
@@ -107,9 +81,6 @@ class ClusterMultiRegionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DSQL Cluster ARNs peered to this cluster.
-        """
         return pulumi.get(self, "clusters")
 
     @clusters.setter
@@ -119,9 +90,6 @@ class ClusterMultiRegionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="witnessRegion")
     def witness_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        """
         return pulumi.get(self, "witness_region")
 
     @witness_region.setter

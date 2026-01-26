@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.GetDbServers(ctx, &odb.GetDbServersArgs{
-//				CloudExadataInfrastructureId: "exadata_infra_id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDbServers(ctx *pulumi.Context, args *GetDbServersArgs, opts ...pulumi.InvokeOption) (*GetDbServersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDbServersResult
@@ -54,19 +23,14 @@ func GetDbServers(ctx *pulumi.Context, args *GetDbServersArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getDbServers.
 type GetDbServersArgs struct {
-	// The unique identifier of the cloud vm cluster.
-	//
-	// The following arguments are optional:
-	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CloudExadataInfrastructureId string  `pulumi:"cloudExadataInfrastructureId"`
+	Region                       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDbServers.
 type GetDbServersResult struct {
-	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
-	// the list of DB servers along with their properties.
-	DbServers []GetDbServersDbServer `pulumi:"dbServers"`
+	CloudExadataInfrastructureId string                 `pulumi:"cloudExadataInfrastructureId"`
+	DbServers                    []GetDbServersDbServer `pulumi:"dbServers"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
@@ -83,12 +47,8 @@ func GetDbServersOutput(ctx *pulumi.Context, args GetDbServersOutputArgs, opts .
 
 // A collection of arguments for invoking getDbServers.
 type GetDbServersOutputArgs struct {
-	// The unique identifier of the cloud vm cluster.
-	//
-	// The following arguments are optional:
-	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	CloudExadataInfrastructureId pulumi.StringInput    `pulumi:"cloudExadataInfrastructureId"`
+	Region                       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetDbServersOutputArgs) ElementType() reflect.Type {
@@ -114,7 +74,6 @@ func (o GetDbServersResultOutput) CloudExadataInfrastructureId() pulumi.StringOu
 	return o.ApplyT(func(v GetDbServersResult) string { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }
 
-// the list of DB servers along with their properties.
 func (o GetDbServersResultOutput) DbServers() GetDbServersDbServerArrayOutput {
 	return o.ApplyT(func(v GetDbServersResult) []GetDbServersDbServer { return v.DbServers }).(GetDbServersDbServerArrayOutput)
 }

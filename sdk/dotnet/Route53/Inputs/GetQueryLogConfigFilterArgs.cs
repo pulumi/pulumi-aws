@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class GetQueryLogConfigFilterInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the query logging configuration.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

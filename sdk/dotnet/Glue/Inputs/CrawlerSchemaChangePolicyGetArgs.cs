@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CrawlerSchemaChangePolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
-        /// </summary>
         [Input("deleteBehavior")]
         public Input<string>? DeleteBehavior { get; set; }
 
-        /// <summary>
-        /// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
-        /// </summary>
         [Input("updateBehavior")]
         public Input<string>? UpdateBehavior { get; set; }
 

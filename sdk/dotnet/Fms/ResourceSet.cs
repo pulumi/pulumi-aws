@@ -9,65 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fms
 {
-    /// <summary>
-    /// Resource for managing an AWS FMS (Firewall Manager) Resource Set.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Fms.ResourceSet("example", new()
-    ///     {
-    ///         ResourceSets = new[]
-    ///         {
-    ///             new Aws.Fms.Inputs.ResourceSetResourceSetArgs
-    ///             {
-    ///                 Name = "testing",
-    ///                 ResourceTypeLists = new[]
-    ///                 {
-    ///                     "AWS::NetworkFirewall::Firewall",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import FMS (Firewall Manager) Resource Set using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:fms/resourceSet:ResourceSet")]
     public partial class ResourceSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Resource Set.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the resource set to be created or updated. See `ResourceSet` Attribute Reference below.
-        /// </summary>
         [Output("resourceSets")]
         public Output<ImmutableArray<Outputs.ResourceSetResourceSet>> ResourceSets { get; private set; } = null!;
 
@@ -126,18 +76,11 @@ namespace Pulumi.Aws.Fms
 
     public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceSets")]
         private InputList<Inputs.ResourceSetResourceSetArgs>? _resourceSets;
-
-        /// <summary>
-        /// Details about the resource set to be created or updated. See `ResourceSet` Attribute Reference below.
-        /// </summary>
         public InputList<Inputs.ResourceSetResourceSetArgs> ResourceSets
         {
             get => _resourceSets ?? (_resourceSets = new InputList<Inputs.ResourceSetResourceSetArgs>());
@@ -163,24 +106,14 @@ namespace Pulumi.Aws.Fms
 
     public sealed class ResourceSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Resource Set.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceSets")]
         private InputList<Inputs.ResourceSetResourceSetGetArgs>? _resourceSets;
-
-        /// <summary>
-        /// Details about the resource set to be created or updated. See `ResourceSet` Attribute Reference below.
-        /// </summary>
         public InputList<Inputs.ResourceSetResourceSetGetArgs> ResourceSets
         {
             get => _resourceSets ?? (_resourceSets = new InputList<Inputs.ResourceSetResourceSetGetArgs>());

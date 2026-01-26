@@ -16,32 +16,16 @@ public final class DomainClusterConfigNodeOptionArgs extends com.pulumi.resource
 
     public static final DomainClusterConfigNodeOptionArgs Empty = new DomainClusterConfigNodeOptionArgs();
 
-    /**
-     * Container to specify sizing of a node type.
-     * 
-     */
     @Import(name="nodeConfig")
     private @Nullable Output<DomainClusterConfigNodeOptionNodeConfigArgs> nodeConfig;
 
-    /**
-     * @return Container to specify sizing of a node type.
-     * 
-     */
     public Optional<Output<DomainClusterConfigNodeOptionNodeConfigArgs>> nodeConfig() {
         return Optional.ofNullable(this.nodeConfig);
     }
 
-    /**
-     * Type of node this configuration describes. Valid values: `coordinator`.
-     * 
-     */
     @Import(name="nodeType")
     private @Nullable Output<String> nodeType;
 
-    /**
-     * @return Type of node this configuration describes. Valid values: `coordinator`.
-     * 
-     */
     public Optional<Output<String>> nodeType() {
         return Optional.ofNullable(this.nodeType);
     }
@@ -71,44 +55,20 @@ public final class DomainClusterConfigNodeOptionArgs extends com.pulumi.resource
             $ = new DomainClusterConfigNodeOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nodeConfig Container to specify sizing of a node type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeConfig(@Nullable Output<DomainClusterConfigNodeOptionNodeConfigArgs> nodeConfig) {
             $.nodeConfig = nodeConfig;
             return this;
         }
 
-        /**
-         * @param nodeConfig Container to specify sizing of a node type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeConfig(DomainClusterConfigNodeOptionNodeConfigArgs nodeConfig) {
             return nodeConfig(Output.of(nodeConfig));
         }
 
-        /**
-         * @param nodeType Type of node this configuration describes. Valid values: `coordinator`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeType(@Nullable Output<String> nodeType) {
             $.nodeType = nodeType;
             return this;
         }
 
-        /**
-         * @param nodeType Type of node this configuration describes. Valid values: `coordinator`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeType(String nodeType) {
             return nodeType(Output.of(nodeType));
         }

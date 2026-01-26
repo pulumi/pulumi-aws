@@ -9,79 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Attach an Elastic network interface (ENI) resource with EC2 instance.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ec2.NetworkInterfaceAttachment("test", new()
-    ///     {
-    ///         InstanceId = testAwsInstance.Id,
-    ///         NetworkInterfaceId = testAwsNetworkInterface.Id,
-    ///         DeviceIndex = 0,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")]
     public partial class NetworkInterfaceAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ENI Attachment ID.
-        /// </summary>
         [Output("attachmentId")]
         public Output<string> AttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Network interface index (int).
-        /// </summary>
         [Output("deviceIndex")]
         public Output<int> DeviceIndex { get; private set; } = null!;
 
-        /// <summary>
-        /// Instance ID to attach.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        /// </summary>
         [Output("networkCardIndex")]
         public Output<int> NetworkCardIndex { get; private set; } = null!;
 
-        /// <summary>
-        /// ENI ID to attach.
-        /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the Network Interface Attachment.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -131,33 +79,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkInterfaceAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Network interface index (int).
-        /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<int> DeviceIndex { get; set; } = null!;
 
-        /// <summary>
-        /// Instance ID to attach.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        /// </summary>
         [Input("networkCardIndex")]
         public Input<int>? NetworkCardIndex { get; set; }
 
-        /// <summary>
-        /// ENI ID to attach.
-        /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -169,45 +102,24 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkInterfaceAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ENI Attachment ID.
-        /// </summary>
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 
-        /// <summary>
-        /// Network interface index (int).
-        /// </summary>
         [Input("deviceIndex")]
         public Input<int>? DeviceIndex { get; set; }
 
-        /// <summary>
-        /// Instance ID to attach.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        /// </summary>
         [Input("networkCardIndex")]
         public Input<int>? NetworkCardIndex { get; set; }
 
-        /// <summary>
-        /// ENI ID to attach.
-        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The status of the Network Interface Attachment.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

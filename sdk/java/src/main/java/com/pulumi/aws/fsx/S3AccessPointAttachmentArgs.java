@@ -19,62 +19,30 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
 
     public static final S3AccessPointAttachmentArgs Empty = new S3AccessPointAttachmentArgs();
 
-    /**
-     * Name of the S3 access point.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the S3 access point.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     * 
-     */
     @Import(name="openzfsConfiguration")
     private @Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration;
 
-    /**
-     * @return Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<S3AccessPointAttachmentOpenzfsConfigurationArgs>> openzfsConfiguration() {
         return Optional.ofNullable(this.openzfsConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * S3 access point configuration. See `s3AccessPoint` Block for details.
-     * 
-     */
     @Import(name="s3AccessPoint")
     private @Nullable Output<S3AccessPointAttachmentS3AccessPointArgs> s3AccessPoint;
 
-    /**
-     * @return S3 access point configuration. See `s3AccessPoint` Block for details.
-     * 
-     */
     public Optional<Output<S3AccessPointAttachmentS3AccessPointArgs>> s3AccessPoint() {
         return Optional.ofNullable(this.s3AccessPoint);
     }
@@ -86,21 +54,9 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Type of S3 access point. Valid values: `OpenZFS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of S3 access point. Valid values: `OpenZFS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -134,86 +90,38 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
             $ = new S3AccessPointAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the S3 access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the S3 access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openzfsConfiguration(@Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration) {
             $.openzfsConfiguration = openzfsConfiguration;
             return this;
         }
 
-        /**
-         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openzfsConfiguration(S3AccessPointAttachmentOpenzfsConfigurationArgs openzfsConfiguration) {
             return openzfsConfiguration(Output.of(openzfsConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3AccessPoint S3 access point configuration. See `s3AccessPoint` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPoint(@Nullable Output<S3AccessPointAttachmentS3AccessPointArgs> s3AccessPoint) {
             $.s3AccessPoint = s3AccessPoint;
             return this;
         }
 
-        /**
-         * @param s3AccessPoint S3 access point configuration. See `s3AccessPoint` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPoint(S3AccessPointAttachmentS3AccessPointArgs s3AccessPoint) {
             return s3AccessPoint(Output.of(s3AccessPoint));
         }
@@ -227,27 +135,11 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param type Type of S3 access point. Valid values: `OpenZFS`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of S3 access point. Valid values: `OpenZFS`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

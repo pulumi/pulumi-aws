@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Acm.Inputs
 
     public sealed class CertificateRenewalSummaryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The status of ACM's managed renewal of the certificate
-        /// </summary>
         [Input("renewalStatus")]
         public Input<string>? RenewalStatus { get; set; }
 
-        /// <summary>
-        /// The reason that a renewal request was unsuccessful or is pending
-        /// </summary>
         [Input("renewalStatusReason")]
         public Input<string>? RenewalStatusReason { get; set; }
 

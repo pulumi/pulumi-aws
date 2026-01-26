@@ -12,141 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Evidently Segment resource.
-//
-// > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Name:    pulumi.String("example"),
-//				Pattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Segment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With JSON object in pattern
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Name: pulumi.String("example"),
-//				Pattern: pulumi.String(`  {
-//	    \"Price\": [
-//	      {
-//	        \"numeric\": [\">\",10,\"<=\",20]
-//	      }
-//	    ]
-//	  }
-//
-// `),
-//
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Segment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Description
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Name:        pulumi.String("example"),
-//				Pattern:     pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
-// ```
 type Segment struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the segment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date and time that the segment is created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Specifies the description of the segment.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-	ExperimentCount pulumi.IntOutput `pulumi:"experimentCount"`
-	// The date and time that this segment was most recently updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-	LaunchCount pulumi.IntOutput `pulumi:"launchCount"`
-	// A name for the segment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-	Pattern pulumi.StringOutput `pulumi:"pattern"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tags to apply to the segment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	CreatedTime     pulumi.StringOutput    `pulumi:"createdTime"`
+	Description     pulumi.StringPtrOutput `pulumi:"description"`
+	ExperimentCount pulumi.IntOutput       `pulumi:"experimentCount"`
+	LastUpdatedTime pulumi.StringOutput    `pulumi:"lastUpdatedTime"`
+	LaunchCount     pulumi.IntOutput       `pulumi:"launchCount"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	Pattern         pulumi.StringOutput    `pulumi:"pattern"`
+	Region          pulumi.StringOutput    `pulumi:"region"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSegment registers a new resource with the given unique name, arguments, and options.
@@ -182,53 +61,31 @@ func GetSegment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Segment resources.
 type segmentState struct {
-	// The ARN of the segment.
-	Arn *string `pulumi:"arn"`
-	// The date and time that the segment is created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Specifies the description of the segment.
-	Description *string `pulumi:"description"`
-	// The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-	ExperimentCount *int `pulumi:"experimentCount"`
-	// The date and time that this segment was most recently updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-	LaunchCount *int `pulumi:"launchCount"`
-	// A name for the segment.
-	Name *string `pulumi:"name"`
-	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-	Pattern *string `pulumi:"pattern"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the segment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string           `pulumi:"arn"`
+	CreatedTime     *string           `pulumi:"createdTime"`
+	Description     *string           `pulumi:"description"`
+	ExperimentCount *int              `pulumi:"experimentCount"`
+	LastUpdatedTime *string           `pulumi:"lastUpdatedTime"`
+	LaunchCount     *int              `pulumi:"launchCount"`
+	Name            *string           `pulumi:"name"`
+	Pattern         *string           `pulumi:"pattern"`
+	Region          *string           `pulumi:"region"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 type SegmentState struct {
-	// The ARN of the segment.
-	Arn pulumi.StringPtrInput
-	// The date and time that the segment is created.
-	CreatedTime pulumi.StringPtrInput
-	// Specifies the description of the segment.
-	Description pulumi.StringPtrInput
-	// The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
+	Arn             pulumi.StringPtrInput
+	CreatedTime     pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
 	ExperimentCount pulumi.IntPtrInput
-	// The date and time that this segment was most recently updated.
 	LastUpdatedTime pulumi.StringPtrInput
-	// The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-	LaunchCount pulumi.IntPtrInput
-	// A name for the segment.
-	Name pulumi.StringPtrInput
-	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-	Pattern pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the segment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	LaunchCount     pulumi.IntPtrInput
+	Name            pulumi.StringPtrInput
+	Pattern         pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (SegmentState) ElementType() reflect.Type {
@@ -236,30 +93,20 @@ func (SegmentState) ElementType() reflect.Type {
 }
 
 type segmentArgs struct {
-	// Specifies the description of the segment.
-	Description *string `pulumi:"description"`
-	// A name for the segment.
-	Name *string `pulumi:"name"`
-	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-	Pattern string `pulumi:"pattern"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the segment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Pattern     string            `pulumi:"pattern"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Segment resource.
 type SegmentArgs struct {
-	// Specifies the description of the segment.
 	Description pulumi.StringPtrInput
-	// A name for the segment.
-	Name pulumi.StringPtrInput
-	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-	Pattern pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the segment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Pattern     pulumi.StringInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (SegmentArgs) ElementType() reflect.Type {
@@ -349,57 +196,46 @@ func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOu
 	return o
 }
 
-// The ARN of the segment.
 func (o SegmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that the segment is created.
 func (o SegmentOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the segment.
 func (o SegmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
 func (o SegmentOutput) ExperimentCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Segment) pulumi.IntOutput { return v.ExperimentCount }).(pulumi.IntOutput)
 }
 
-// The date and time that this segment was most recently updated.
 func (o SegmentOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
 func (o SegmentOutput) LaunchCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Segment) pulumi.IntOutput { return v.LaunchCount }).(pulumi.IntOutput)
 }
 
-// A name for the segment.
 func (o SegmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
 func (o SegmentOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SegmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the segment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SegmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SegmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

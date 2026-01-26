@@ -28,13 +28,6 @@ class AccountAssignmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountAssignment resource.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        :param pulumi.Input[_builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        :param pulumi.Input[_builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
-        :param pulumi.Input[_builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "permission_set_arn", permission_set_arn)
@@ -48,9 +41,6 @@ class AccountAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -60,9 +50,6 @@ class AccountAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -72,9 +59,6 @@ class AccountAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -84,9 +68,6 @@ class AccountAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
@@ -96,9 +77,6 @@ class AccountAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        An AWS account identifier, typically a 10-12 digit string.
-        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -108,9 +86,6 @@ class AccountAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -120,9 +95,6 @@ class AccountAssignmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -142,13 +114,6 @@ class _AccountAssignmentState:
                  target_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountAssignment resources.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        :param pulumi.Input[_builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
-        :param pulumi.Input[_builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
         if instance_arn is not None:
             pulumi.set(__self__, "instance_arn", instance_arn)
@@ -168,9 +133,6 @@ class _AccountAssignmentState:
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -180,9 +142,6 @@ class _AccountAssignmentState:
     @_builtins.property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -192,9 +151,6 @@ class _AccountAssignmentState:
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -204,9 +160,6 @@ class _AccountAssignmentState:
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
@@ -216,9 +169,6 @@ class _AccountAssignmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -228,9 +178,6 @@ class _AccountAssignmentState:
     @_builtins.property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An AWS account identifier, typically a 10-12 digit string.
-        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -240,9 +187,6 @@ class _AccountAssignmentState:
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -265,82 +209,9 @@ class AccountAssignment(pulumi.CustomResource):
                  target_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Single Sign-On (SSO) Account Assignment resource
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=example.arns[0],
-            name="AWSReadOnlyAccess")
-        example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-            alternate_identifier={
-                "unique_attribute": {
-                    "attribute_path": "DisplayName",
-                    "attribute_value": "ExampleGroup",
-                },
-            })
-        example_account_assignment = aws.ssoadmin.AccountAssignment("example",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_get_permission_set.arn,
-            principal_id=example_get_group.group_id,
-            principal_type="GROUP",
-            target_id="123456789012",
-            target_type="AWS_ACCOUNT")
-        ```
-
-        ### With Managed Policy Attachment
-
-        > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=example.arns[0])
-        example_group = aws.identitystore.Group("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="Admin",
-            description="Admin Group")
-        example_account_assignment = aws.ssoadmin.AccountAssignment("example",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_permission_set.arn,
-            principal_id=example_group.group_id,
-            principal_type="GROUP",
-            target_id="123456789012",
-            target_type="AWS_ACCOUNT")
-        example_managed_policy_attachment = aws.ssoadmin.ManagedPolicyAttachment("example",
-            instance_arn=example.arns[0],
-            managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-            permission_set_arn=example_permission_set.arn,
-            opts = pulumi.ResourceOptions(depends_on=[example_account_assignment]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
-        ```
-
+        Create a AccountAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        :param pulumi.Input[_builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
-        :param pulumi.Input[_builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
         ...
     @overload
@@ -349,73 +220,7 @@ class AccountAssignment(pulumi.CustomResource):
                  args: AccountAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Single Sign-On (SSO) Account Assignment resource
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=example.arns[0],
-            name="AWSReadOnlyAccess")
-        example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-            alternate_identifier={
-                "unique_attribute": {
-                    "attribute_path": "DisplayName",
-                    "attribute_value": "ExampleGroup",
-                },
-            })
-        example_account_assignment = aws.ssoadmin.AccountAssignment("example",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_get_permission_set.arn,
-            principal_id=example_get_group.group_id,
-            principal_type="GROUP",
-            target_id="123456789012",
-            target_type="AWS_ACCOUNT")
-        ```
-
-        ### With Managed Policy Attachment
-
-        > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=example.arns[0])
-        example_group = aws.identitystore.Group("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="Admin",
-            description="Admin Group")
-        example_account_assignment = aws.ssoadmin.AccountAssignment("example",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_permission_set.arn,
-            principal_id=example_group.group_id,
-            principal_type="GROUP",
-            target_id="123456789012",
-            target_type="AWS_ACCOUNT")
-        example_managed_policy_attachment = aws.ssoadmin.ManagedPolicyAttachment("example",
-            instance_arn=example.arns[0],
-            managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-            permission_set_arn=example_permission_set.arn,
-            opts = pulumi.ResourceOptions(depends_on=[example_account_assignment]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
-        ```
-
+        Create a AccountAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -490,13 +295,6 @@ class AccountAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        :param pulumi.Input[_builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
-        :param pulumi.Input[_builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -514,56 +312,35 @@ class AccountAssignment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance.
-        """
         return pulumi.get(self, "instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        """
         return pulumi.get(self, "permission_set_arn")
 
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        """
         return pulumi.get(self, "principal_id")
 
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        An AWS account identifier, typically a 10-12 digit string.
-        """
         return pulumi.get(self, "target_id")
 
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        """
         return pulumi.get(self, "target_type")
 

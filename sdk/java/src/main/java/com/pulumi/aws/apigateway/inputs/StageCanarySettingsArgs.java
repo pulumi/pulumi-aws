@@ -19,62 +19,30 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
 
     public static final StageCanarySettingsArgs Empty = new StageCanarySettingsArgs();
 
-    /**
-     * ID of the deployment that the canary points to.
-     * 
-     */
     @Import(name="deploymentId", required=true)
     private Output<String> deploymentId;
 
-    /**
-     * @return ID of the deployment that the canary points to.
-     * 
-     */
     public Output<String> deploymentId() {
         return this.deploymentId;
     }
 
-    /**
-     * Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-     * 
-     */
     @Import(name="percentTraffic")
     private @Nullable Output<Double> percentTraffic;
 
-    /**
-     * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-     * 
-     */
     public Optional<Output<Double>> percentTraffic() {
         return Optional.ofNullable(this.percentTraffic);
     }
 
-    /**
-     * Map of overridden stage `variables` (including new variables) for the canary deployment.
-     * 
-     */
     @Import(name="stageVariableOverrides")
     private @Nullable Output<Map<String,String>> stageVariableOverrides;
 
-    /**
-     * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
-     * 
-     */
     public Optional<Output<Map<String,String>>> stageVariableOverrides() {
         return Optional.ofNullable(this.stageVariableOverrides);
     }
 
-    /**
-     * Whether the canary deployment uses the stage cache. Defaults to false.
-     * 
-     */
     @Import(name="useStageCache")
     private @Nullable Output<Boolean> useStageCache;
 
-    /**
-     * @return Whether the canary deployment uses the stage cache. Defaults to false.
-     * 
-     */
     public Optional<Output<Boolean>> useStageCache() {
         return Optional.ofNullable(this.useStageCache);
     }
@@ -106,86 +74,38 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
             $ = new StageCanarySettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deploymentId ID of the deployment that the canary points to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentId(Output<String> deploymentId) {
             $.deploymentId = deploymentId;
             return this;
         }
 
-        /**
-         * @param deploymentId ID of the deployment that the canary points to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentId(String deploymentId) {
             return deploymentId(Output.of(deploymentId));
         }
 
-        /**
-         * @param percentTraffic Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder percentTraffic(@Nullable Output<Double> percentTraffic) {
             $.percentTraffic = percentTraffic;
             return this;
         }
 
-        /**
-         * @param percentTraffic Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder percentTraffic(Double percentTraffic) {
             return percentTraffic(Output.of(percentTraffic));
         }
 
-        /**
-         * @param stageVariableOverrides Map of overridden stage `variables` (including new variables) for the canary deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageVariableOverrides(@Nullable Output<Map<String,String>> stageVariableOverrides) {
             $.stageVariableOverrides = stageVariableOverrides;
             return this;
         }
 
-        /**
-         * @param stageVariableOverrides Map of overridden stage `variables` (including new variables) for the canary deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageVariableOverrides(Map<String,String> stageVariableOverrides) {
             return stageVariableOverrides(Output.of(stageVariableOverrides));
         }
 
-        /**
-         * @param useStageCache Whether the canary deployment uses the stage cache. Defaults to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useStageCache(@Nullable Output<Boolean> useStageCache) {
             $.useStageCache = useStageCache;
             return this;
         }
 
-        /**
-         * @param useStageCache Whether the canary deployment uses the stage cache. Defaults to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useStageCache(Boolean useStageCache) {
             return useStageCache(Output.of(useStageCache));
         }

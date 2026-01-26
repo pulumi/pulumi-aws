@@ -16,47 +16,23 @@ public final class DataSetLogicalTableMapSourceArgs extends com.pulumi.resources
 
     public static final DataSetLogicalTableMapSourceArgs Empty = new DataSetLogicalTableMapSourceArgs();
 
-    /**
-     * ARN of the parent data set.
-     * 
-     */
     @Import(name="dataSetArn")
     private @Nullable Output<String> dataSetArn;
 
-    /**
-     * @return ARN of the parent data set.
-     * 
-     */
     public Optional<Output<String>> dataSetArn() {
         return Optional.ofNullable(this.dataSetArn);
     }
 
-    /**
-     * Specifies the result of a join of two logical tables. See join_instruction.
-     * 
-     */
     @Import(name="joinInstruction")
     private @Nullable Output<DataSetLogicalTableMapSourceJoinInstructionArgs> joinInstruction;
 
-    /**
-     * @return Specifies the result of a join of two logical tables. See join_instruction.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapSourceJoinInstructionArgs>> joinInstruction() {
         return Optional.ofNullable(this.joinInstruction);
     }
 
-    /**
-     * Physical table ID.
-     * 
-     */
     @Import(name="physicalTableId")
     private @Nullable Output<String> physicalTableId;
 
-    /**
-     * @return Physical table ID.
-     * 
-     */
     public Optional<Output<String>> physicalTableId() {
         return Optional.ofNullable(this.physicalTableId);
     }
@@ -87,65 +63,29 @@ public final class DataSetLogicalTableMapSourceArgs extends com.pulumi.resources
             $ = new DataSetLogicalTableMapSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataSetArn ARN of the parent data set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetArn(@Nullable Output<String> dataSetArn) {
             $.dataSetArn = dataSetArn;
             return this;
         }
 
-        /**
-         * @param dataSetArn ARN of the parent data set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetArn(String dataSetArn) {
             return dataSetArn(Output.of(dataSetArn));
         }
 
-        /**
-         * @param joinInstruction Specifies the result of a join of two logical tables. See join_instruction.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinInstruction(@Nullable Output<DataSetLogicalTableMapSourceJoinInstructionArgs> joinInstruction) {
             $.joinInstruction = joinInstruction;
             return this;
         }
 
-        /**
-         * @param joinInstruction Specifies the result of a join of two logical tables. See join_instruction.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinInstruction(DataSetLogicalTableMapSourceJoinInstructionArgs joinInstruction) {
             return joinInstruction(Output.of(joinInstruction));
         }
 
-        /**
-         * @param physicalTableId Physical table ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder physicalTableId(@Nullable Output<String> physicalTableId) {
             $.physicalTableId = physicalTableId;
             return this;
         }
 
-        /**
-         * @param physicalTableId Physical table ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder physicalTableId(String physicalTableId) {
             return physicalTableId(Output.of(physicalTableId));
         }

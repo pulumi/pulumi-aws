@@ -4,58 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates and manages an AWS XRay Encryption Config.
- *
- * > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.xray.EncryptionConfig("example", {type: "NONE"});
- * ```
- *
- * ### With KMS Key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "Enable IAM User Permissions",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [`arn:aws:iam::${current.accountId}:root`],
- *         }],
- *         actions: ["kms:*"],
- *         resources: ["*"],
- *     }],
- * }));
- * const exampleKey = new aws.kms.Key("example", {
- *     description: "Some Key",
- *     deletionWindowInDays: 7,
- *     policy: example.then(example => example.json),
- * });
- * const exampleEncryptionConfig = new aws.xray.EncryptionConfig("example", {
- *     type: "KMS",
- *     keyId: exampleKey.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import XRay Encryption Config using the region name. For example:
- *
- * ```sh
- * $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
- * ```
- */
 export class EncryptionConfig extends pulumi.CustomResource {
     /**
      * Get an existing EncryptionConfig resource's state with the given name, ID, and optional extra
@@ -84,17 +32,8 @@ export class EncryptionConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === EncryptionConfig.__pulumiType;
     }
 
-    /**
-     * An AWS KMS customer master key (CMK) ARN.
-     */
     declare public readonly keyId: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -131,17 +70,8 @@ export class EncryptionConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EncryptionConfig resources.
  */
 export interface EncryptionConfigState {
-    /**
-     * An AWS KMS customer master key (CMK) ARN.
-     */
     keyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -149,16 +79,7 @@ export interface EncryptionConfigState {
  * The set of arguments for constructing a EncryptionConfig resource.
  */
 export interface EncryptionConfigArgs {
-    /**
-     * An AWS KMS customer master key (CMK) ARN.
-     */
     keyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-     */
     type: pulumi.Input<string>;
 }

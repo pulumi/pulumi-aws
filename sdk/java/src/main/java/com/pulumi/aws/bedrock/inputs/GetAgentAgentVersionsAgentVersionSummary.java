@@ -17,79 +17,37 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
 
     public static final GetAgentAgentVersionsAgentVersionSummary Empty = new GetAgentAgentVersionsAgentVersionSummary();
 
-    /**
-     * Name of agent to which the version belongs.
-     * 
-     */
     @Import(name="agentName", required=true)
     private String agentName;
 
-    /**
-     * @return Name of agent to which the version belongs.
-     * 
-     */
     public String agentName() {
         return this.agentName;
     }
 
-    /**
-     * Status of the agent to which the version belongs.
-     * 
-     */
     @Import(name="agentStatus", required=true)
     private String agentStatus;
 
-    /**
-     * @return Status of the agent to which the version belongs.
-     * 
-     */
     public String agentStatus() {
         return this.agentStatus;
     }
 
-    /**
-     * Version of the agent.
-     * 
-     */
     @Import(name="agentVersion", required=true)
     private String agentVersion;
 
-    /**
-     * @return Version of the agent.
-     * 
-     */
     public String agentVersion() {
         return this.agentVersion;
     }
 
-    /**
-     * Time at which the version was created.
-     * 
-     */
     @Import(name="createdAt", required=true)
     private String createdAt;
 
-    /**
-     * @return Time at which the version was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
 
-    /**
-     * Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-     * 
-     */
     @Import(name="description", required=true)
     private String description;
 
-    /**
-     * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -101,17 +59,9 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
         return Optional.ofNullable(this.guardrailConfigurations);
     }
 
-    /**
-     * Time at which the version was last updated.
-     * 
-     */
     @Import(name="updatedAt", required=true)
     private String updatedAt;
 
-    /**
-     * @return Time at which the version was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }
@@ -146,57 +96,26 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
             $ = new GetAgentAgentVersionsAgentVersionSummary(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentName Name of agent to which the version belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentName(String agentName) {
             $.agentName = agentName;
             return this;
         }
 
-        /**
-         * @param agentStatus Status of the agent to which the version belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentStatus(String agentStatus) {
             $.agentStatus = agentStatus;
             return this;
         }
 
-        /**
-         * @param agentVersion Version of the agent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersion(String agentVersion) {
             $.agentVersion = agentVersion;
             return this;
         }
 
-        /**
-         * @param createdAt Time at which the version was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param description Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             $.description = description;
             return this;
@@ -211,12 +130,6 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
             return guardrailConfigurations(List.of(guardrailConfigurations));
         }
 
-        /**
-         * @param updatedAt Time at which the version was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             $.updatedAt = updatedAt;
             return this;

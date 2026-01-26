@@ -9,169 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Creates and manages an AWS IoT CA Certificate.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Tls = Pulumi.Tls;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var caPrivateKey = new Tls.PrivateKey("ca", new()
-    ///     {
-    ///         Algorithm = "RSA",
-    ///     });
-    /// 
-    ///     var ca = new Tls.SelfSignedCert("ca", new()
-    ///     {
-    ///         PrivateKeyPem = caPrivateKey.PrivateKeyPem,
-    ///         Subject = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "commonName", "example.com" },
-    ///                 { "organization", "ACME Examples, Inc" },
-    ///             },
-    ///         },
-    ///         ValidityPeriodHours = 12,
-    ///         AllowedUses = new[]
-    ///         {
-    ///             "key_encipherment",
-    ///             "digital_signature",
-    ///             "server_auth",
-    ///         },
-    ///         IsCaCertificate = true,
-    ///     });
-    /// 
-    ///     var verificationPrivateKey = new Tls.PrivateKey("verification", new()
-    ///     {
-    ///         Algorithm = "RSA",
-    ///     });
-    /// 
-    ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
-    /// 
-    ///     var verification = new Tls.CertRequest("verification", new()
-    ///     {
-    ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
-    ///         Subject = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var verificationLocallySignedCert = new Tls.LocallySignedCert("verification", new()
-    ///     {
-    ///         CertRequestPem = verification.CertRequestPem,
-    ///         CaPrivateKeyPem = caPrivateKey.PrivateKeyPem,
-    ///         CaCertPem = ca.CertPem,
-    ///         ValidityPeriodHours = 12,
-    ///         AllowedUses = new[]
-    ///         {
-    ///             "key_encipherment",
-    ///             "digital_signature",
-    ///             "server_auth",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCaCertificate = new Aws.Iot.CaCertificate("example", new()
-    ///     {
-    ///         Active = true,
-    ///         CaCertificatePem = ca.CertPem,
-    ///         VerificationCertificatePem = verificationLocallySignedCert.CertPem,
-    ///         AllowAutoRegistration = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/caCertificate:CaCertificate")]
     public partial class CaCertificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device authentication.
-        /// </summary>
         [Output("active")]
         public Output<bool> Active { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device regisration.
-        /// </summary>
         [Output("allowAutoRegistration")]
         public Output<bool> AllowAutoRegistration { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the created CA certificate.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// PEM encoded CA certificate.
-        /// </summary>
         [Output("caCertificatePem")]
         public Output<string> CaCertificatePem { get; private set; } = null!;
 
-        /// <summary>
-        /// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        /// </summary>
         [Output("certificateMode")]
         public Output<string?> CertificateMode { get; private set; } = null!;
 
-        /// <summary>
-        /// The customer version of the CA certificate.
-        /// </summary>
         [Output("customerVersion")]
         public Output<int> CustomerVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The generation ID of the CA certificate.
-        /// </summary>
         [Output("generationId")]
         public Output<string> GenerationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the registration configuration. See below.
-        /// </summary>
         [Output("registrationConfig")]
         public Output<Outputs.CaCertificateRegistrationConfig?> RegistrationConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// When the CA certificate is valid.
-        /// </summary>
         [Output("validities")]
         public Output<ImmutableArray<Outputs.CaCertificateValidity>> Validities { get; private set; } = null!;
 
-        /// <summary>
-        /// PEM encoded verification certificate containing the common name of a registration code. Review
-        /// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `CertificateMode` is `DEFAULT`.
-        /// </summary>
         [Output("verificationCertificatePem")]
         public Output<string?> VerificationCertificatePem { get; private set; } = null!;
 
@@ -226,24 +102,14 @@ namespace Pulumi.Aws.Iot
 
     public sealed class CaCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device authentication.
-        /// </summary>
         [Input("active", required: true)]
         public Input<bool> Active { get; set; } = null!;
 
-        /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device regisration.
-        /// </summary>
         [Input("allowAutoRegistration", required: true)]
         public Input<bool> AllowAutoRegistration { get; set; } = null!;
 
         [Input("caCertificatePem", required: true)]
         private Input<string>? _caCertificatePem;
-
-        /// <summary>
-        /// PEM encoded CA certificate.
-        /// </summary>
         public Input<string>? CaCertificatePem
         {
             get => _caCertificatePem;
@@ -254,30 +120,17 @@ namespace Pulumi.Aws.Iot
             }
         }
 
-        /// <summary>
-        /// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        /// </summary>
         [Input("certificateMode")]
         public Input<string>? CertificateMode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Information about the registration configuration. See below.
-        /// </summary>
         [Input("registrationConfig")]
         public Input<Inputs.CaCertificateRegistrationConfigArgs>? RegistrationConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -286,11 +139,6 @@ namespace Pulumi.Aws.Iot
 
         [Input("verificationCertificatePem")]
         private Input<string>? _verificationCertificatePem;
-
-        /// <summary>
-        /// PEM encoded verification certificate containing the common name of a registration code. Review
-        /// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `CertificateMode` is `DEFAULT`.
-        /// </summary>
         public Input<string>? VerificationCertificatePem
         {
             get => _verificationCertificatePem;
@@ -309,30 +157,17 @@ namespace Pulumi.Aws.Iot
 
     public sealed class CaCertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device authentication.
-        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
-        /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device regisration.
-        /// </summary>
         [Input("allowAutoRegistration")]
         public Input<bool>? AllowAutoRegistration { get; set; }
 
-        /// <summary>
-        /// The ARN of the created CA certificate.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("caCertificatePem")]
         private Input<string>? _caCertificatePem;
-
-        /// <summary>
-        /// PEM encoded CA certificate.
-        /// </summary>
         public Input<string>? CaCertificatePem
         {
             get => _caCertificatePem;
@@ -343,42 +178,23 @@ namespace Pulumi.Aws.Iot
             }
         }
 
-        /// <summary>
-        /// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        /// </summary>
         [Input("certificateMode")]
         public Input<string>? CertificateMode { get; set; }
 
-        /// <summary>
-        /// The customer version of the CA certificate.
-        /// </summary>
         [Input("customerVersion")]
         public Input<int>? CustomerVersion { get; set; }
 
-        /// <summary>
-        /// The generation ID of the CA certificate.
-        /// </summary>
         [Input("generationId")]
         public Input<string>? GenerationId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Information about the registration configuration. See below.
-        /// </summary>
         [Input("registrationConfig")]
         public Input<Inputs.CaCertificateRegistrationConfigGetArgs>? RegistrationConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -387,10 +203,6 @@ namespace Pulumi.Aws.Iot
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -399,10 +211,6 @@ namespace Pulumi.Aws.Iot
 
         [Input("validities")]
         private InputList<Inputs.CaCertificateValidityGetArgs>? _validities;
-
-        /// <summary>
-        /// When the CA certificate is valid.
-        /// </summary>
         public InputList<Inputs.CaCertificateValidityGetArgs> Validities
         {
             get => _validities ?? (_validities = new InputList<Inputs.CaCertificateValidityGetArgs>());
@@ -411,11 +219,6 @@ namespace Pulumi.Aws.Iot
 
         [Input("verificationCertificatePem")]
         private Input<string>? _verificationCertificatePem;
-
-        /// <summary>
-        /// PEM encoded verification certificate containing the common name of a registration code. Review
-        /// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `CertificateMode` is `DEFAULT`.
-        /// </summary>
         public Input<string>? VerificationCertificatePem
         {
             get => _verificationCertificatePem;

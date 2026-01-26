@@ -12,20 +12,11 @@ namespace Pulumi.Aws.Fis.Inputs
 
     public sealed class ExperimentTemplateTargetFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Attribute path for the filter.
-        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// Set of attribute values for the filter.
-        /// 
-        /// &gt; **NOTE:** Values specified in a `Filter` are joined with an `OR` clause, while values across multiple `Filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

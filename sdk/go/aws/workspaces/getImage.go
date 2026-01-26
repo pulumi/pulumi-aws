@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a Workspaces image.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.GetImage(ctx, &workspaces.GetImageArgs{
-//				ImageId: "wsi-ten5h0y19",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult
@@ -50,27 +23,21 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
-	// ID of the image.
-	ImageId string `pulumi:"imageId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ImageId string  `pulumi:"imageId"`
+	Region  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	// The description of the image.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string `pulumi:"id"`
-	ImageId string `pulumi:"imageId"`
-	// The name of the image.
+	Id                  string `pulumi:"id"`
+	ImageId             string `pulumi:"imageId"`
 	Name                string `pulumi:"name"`
 	OperatingSystemType string `pulumi:"operatingSystemType"`
 	Region              string `pulumi:"region"`
-	// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
-	RequiredTenancy string `pulumi:"requiredTenancy"`
-	// The status of the image.
-	State string `pulumi:"state"`
+	RequiredTenancy     string `pulumi:"requiredTenancy"`
+	State               string `pulumi:"state"`
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
@@ -84,10 +51,8 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getImage.
 type GetImageOutputArgs struct {
-	// ID of the image.
-	ImageId pulumi.StringInput `pulumi:"imageId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ImageId pulumi.StringInput    `pulumi:"imageId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetImageOutputArgs) ElementType() reflect.Type {
@@ -109,7 +74,6 @@ func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The description of the image.
 func (o GetImageResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -123,7 +87,6 @@ func (o GetImageResultOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.ImageId }).(pulumi.StringOutput)
 }
 
-// The name of the image.
 func (o GetImageResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -136,12 +99,10 @@ func (o GetImageResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
 func (o GetImageResultOutput) RequiredTenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.RequiredTenancy }).(pulumi.StringOutput)
 }
 
-// The status of the image.
 func (o GetImageResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.State }).(pulumi.StringOutput)
 }

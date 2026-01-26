@@ -16,55 +16,6 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages the content and status of IP rules.
- * 
- * &gt; Deletion of this resource clears all IP restrictions from a QuickSight account.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.IpRestriction;
- * import com.pulumi.aws.quicksight.IpRestrictionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new IpRestriction("example", IpRestrictionArgs.builder()
- *             .enabled(true)
- *             .ipRestrictionRuleMap(Map.of("108.56.166.202/32", "Allow self"))
- *             .vpcIdRestrictionRuleMap(Map.of(exampleAwsVpc.id(), "Main VPC"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight IP restriction using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/ipRestriction:IpRestriction example &#34;012345678901&#34;
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/ipRestriction:IpRestriction")
 public class IpRestriction extends com.pulumi.resources.CustomResource {
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
@@ -73,73 +24,33 @@ public class IpRestriction extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * Whether IP rules are turned on.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether IP rules are turned on.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * Map of allowed IPv4 CIDR ranges and descriptions.
-     * 
-     */
     @Export(name="ipRestrictionRuleMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> ipRestrictionRuleMap;
 
-    /**
-     * @return Map of allowed IPv4 CIDR ranges and descriptions.
-     * 
-     */
     public Output<Optional<Map<String,String>>> ipRestrictionRuleMap() {
         return Codegen.optional(this.ipRestrictionRuleMap);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of allowed VPC endpoint IDs and descriptions.
-     * 
-     */
     @Export(name="vpcEndpointIdRestrictionRuleMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> vpcEndpointIdRestrictionRuleMap;
 
-    /**
-     * @return Map of allowed VPC endpoint IDs and descriptions.
-     * 
-     */
     public Output<Optional<Map<String,String>>> vpcEndpointIdRestrictionRuleMap() {
         return Codegen.optional(this.vpcEndpointIdRestrictionRuleMap);
     }
-    /**
-     * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-     * 
-     */
     @Export(name="vpcIdRestrictionRuleMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> vpcIdRestrictionRuleMap;
 
-    /**
-     * @return Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-     * 
-     */
     public Output<Optional<Map<String,String>>> vpcIdRestrictionRuleMap() {
         return Codegen.optional(this.vpcIdRestrictionRuleMap);
     }

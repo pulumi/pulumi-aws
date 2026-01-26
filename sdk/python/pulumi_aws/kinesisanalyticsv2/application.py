@@ -34,17 +34,6 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
-        :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "runtime_environment", runtime_environment)
         pulumi.set(__self__, "service_execution_role", service_execution_role)
@@ -70,9 +59,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Input[_builtins.str]:
-        """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
-        """
         return pulumi.get(self, "runtime_environment")
 
     @runtime_environment.setter
@@ -82,9 +68,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        """
         return pulumi.get(self, "service_execution_role")
 
     @service_execution_role.setter
@@ -94,9 +77,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]:
-        """
-        The application's configuration
-        """
         return pulumi.get(self, "application_configuration")
 
     @application_configuration.setter
@@ -106,9 +86,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        """
         return pulumi.get(self, "application_mode")
 
     @application_mode.setter
@@ -118,9 +95,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']]:
-        """
-        A CloudWatch log stream to monitor application configuration errors.
-        """
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @cloudwatch_logging_options.setter
@@ -130,9 +104,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A summary description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -142,9 +113,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="forceStop")
     def force_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to force stop an unresponsive Flink-based application.
-        """
         return pulumi.get(self, "force_stop")
 
     @force_stop.setter
@@ -154,9 +122,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -166,9 +131,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -178,9 +140,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="startApplication")
     def start_application(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to start or stop the application.
-        """
         return pulumi.get(self, "start_application")
 
     @start_application.setter
@@ -190,9 +149,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -222,23 +178,6 @@ class _ApplicationState:
                  version_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the application.
-        :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] create_timestamp: The current timestamp when the application was created.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
-        :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[_builtins.str] status: The status of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         if application_configuration is not None:
             pulumi.set(__self__, "application_configuration", application_configuration)
@@ -278,9 +217,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]:
-        """
-        The application's configuration
-        """
         return pulumi.get(self, "application_configuration")
 
     @application_configuration.setter
@@ -290,9 +226,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        """
         return pulumi.get(self, "application_mode")
 
     @application_mode.setter
@@ -302,9 +235,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the application.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -314,9 +244,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']]:
-        """
-        A CloudWatch log stream to monitor application configuration errors.
-        """
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @cloudwatch_logging_options.setter
@@ -326,9 +253,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="createTimestamp")
     def create_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current timestamp when the application was created.
-        """
         return pulumi.get(self, "create_timestamp")
 
     @create_timestamp.setter
@@ -338,9 +262,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A summary description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -350,9 +271,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="forceStop")
     def force_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to force stop an unresponsive Flink-based application.
-        """
         return pulumi.get(self, "force_stop")
 
     @force_stop.setter
@@ -362,9 +280,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current timestamp when the application was last updated.
-        """
         return pulumi.get(self, "last_update_timestamp")
 
     @last_update_timestamp.setter
@@ -374,9 +289,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -386,9 +298,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -398,9 +307,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
-        """
         return pulumi.get(self, "runtime_environment")
 
     @runtime_environment.setter
@@ -410,9 +316,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        """
         return pulumi.get(self, "service_execution_role")
 
     @service_execution_role.setter
@@ -422,9 +325,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="startApplication")
     def start_application(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to start or stop the application.
-        """
         return pulumi.get(self, "start_application")
 
     @start_application.setter
@@ -434,9 +334,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the application.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -446,9 +343,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -458,9 +352,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -470,9 +361,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
-        """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
@@ -499,235 +387,9 @@ class Application(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Kinesis Analytics v2 Application.
-        This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
-
-        > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
-
-        ## Example Usage
-
-        ### Apache Flink Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example-flink-application")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("example",
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"],
-            application_configuration={
-                "application_code_configuration": {
-                    "code_content": {
-                        "s3_content_location": {
-                            "bucket_arn": example.arn,
-                            "file_key": example_bucket_objectv2.key,
-                        },
-                    },
-                    "code_content_type": "ZIPFILE",
-                },
-                "environment_properties": {
-                    "property_groups": [
-                        {
-                            "property_group_id": "PROPERTY-GROUP-1",
-                            "property_map": {
-                                "Key1": "Value1",
-                            },
-                        },
-                        {
-                            "property_group_id": "PROPERTY-GROUP-2",
-                            "property_map": {
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
-                            },
-                        },
-                    ],
-                },
-                "flink_application_configuration": {
-                    "checkpoint_configuration": {
-                        "configuration_type": "DEFAULT",
-                    },
-                    "monitoring_configuration": {
-                        "configuration_type": "CUSTOM",
-                        "log_level": "DEBUG",
-                        "metrics_level": "TASK",
-                    },
-                    "parallelism_configuration": {
-                        "auto_scaling_enabled": True,
-                        "configuration_type": "CUSTOM",
-                        "parallelism": 10,
-                        "parallelism_per_kpu": 4,
-                    },
-                },
-            },
-            tags={
-                "Environment": "test",
-            })
-        ```
-
-        ### SQL Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogGroup("example", name="example-sql-application")
-        example_log_stream = aws.cloudwatch.LogStream("example",
-            name="example-sql-application",
-            log_group_name=example.name)
-        example_application = aws.kinesisanalyticsv2.Application("example",
-            name="example-sql-application",
-            runtime_environment="SQL-1_0",
-            service_execution_role=example_aws_iam_role["arn"],
-            application_configuration={
-                "application_code_configuration": {
-                    "code_content": {
-                        "text_content": "SELECT 1;\\n",
-                    },
-                    "code_content_type": "PLAINTEXT",
-                },
-                "sql_application_configuration": {
-                    "input": {
-                        "name_prefix": "PREFIX_1",
-                        "input_parallelism": {
-                            "count": 3,
-                        },
-                        "input_schema": {
-                            "record_columns": [
-                                {
-                                    "name": "COLUMN_1",
-                                    "sql_type": "VARCHAR(8)",
-                                    "mapping": "MAPPING-1",
-                                },
-                                {
-                                    "name": "COLUMN_2",
-                                    "sql_type": "DOUBLE",
-                                },
-                            ],
-                            "record_encoding": "UTF-8",
-                            "record_format": {
-                                "record_format_type": "CSV",
-                                "mapping_parameters": {
-                                    "csv_mapping_parameters": {
-                                        "record_column_delimiter": ",",
-                                        "record_row_delimiter": "\\n",
-                                    },
-                                },
-                            },
-                        },
-                        "kinesis_streams_input": {
-                            "resource_arn": example_aws_kinesis_stream["arn"],
-                        },
-                    },
-                    "outputs": [
-                        {
-                            "name": "OUTPUT_1",
-                            "destination_schema": {
-                                "record_format_type": "JSON",
-                            },
-                            "lambda_output": {
-                                "resource_arn": example_aws_lambda_function["arn"],
-                            },
-                        },
-                        {
-                            "name": "OUTPUT_2",
-                            "destination_schema": {
-                                "record_format_type": "CSV",
-                            },
-                            "kinesis_firehose_output": {
-                                "resource_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
-                            },
-                        },
-                    ],
-                    "reference_data_source": {
-                        "table_name": "TABLE-1",
-                        "reference_schema": {
-                            "record_columns": [{
-                                "name": "COLUMN_1",
-                                "sql_type": "INTEGER",
-                            }],
-                            "record_format": {
-                                "record_format_type": "JSON",
-                                "mapping_parameters": {
-                                    "json_mapping_parameters": {
-                                        "record_row_path": "$",
-                                    },
-                                },
-                            },
-                        },
-                        "s3_reference_data_source": {
-                            "bucket_arn": example_aws_s3_bucket["arn"],
-                            "file_key": "KEY-1",
-                        },
-                    },
-                },
-            },
-            cloudwatch_logging_options={
-                "log_stream_arn": example_log_stream.arn,
-            })
-        ```
-
-        ### VPC Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example-flink-application")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("example",
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"],
-            application_configuration={
-                "application_code_configuration": {
-                    "code_content": {
-                        "s3_content_location": {
-                            "bucket_arn": example.arn,
-                            "file_key": example_bucket_objectv2.key,
-                        },
-                    },
-                    "code_content_type": "ZIPFILE",
-                },
-                "vpc_configuration": {
-                    "security_group_ids": [
-                        example_aws_security_group[0]["id"],
-                        example_aws_security_group[1]["id"],
-                    ],
-                    "subnet_ids": [example_aws_subnet["id"]],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
-
-        ```sh
-        $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
-        :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
     @overload
@@ -736,222 +398,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Kinesis Analytics v2 Application.
-        This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
-
-        > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
-
-        ## Example Usage
-
-        ### Apache Flink Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example-flink-application")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("example",
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"],
-            application_configuration={
-                "application_code_configuration": {
-                    "code_content": {
-                        "s3_content_location": {
-                            "bucket_arn": example.arn,
-                            "file_key": example_bucket_objectv2.key,
-                        },
-                    },
-                    "code_content_type": "ZIPFILE",
-                },
-                "environment_properties": {
-                    "property_groups": [
-                        {
-                            "property_group_id": "PROPERTY-GROUP-1",
-                            "property_map": {
-                                "Key1": "Value1",
-                            },
-                        },
-                        {
-                            "property_group_id": "PROPERTY-GROUP-2",
-                            "property_map": {
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
-                            },
-                        },
-                    ],
-                },
-                "flink_application_configuration": {
-                    "checkpoint_configuration": {
-                        "configuration_type": "DEFAULT",
-                    },
-                    "monitoring_configuration": {
-                        "configuration_type": "CUSTOM",
-                        "log_level": "DEBUG",
-                        "metrics_level": "TASK",
-                    },
-                    "parallelism_configuration": {
-                        "auto_scaling_enabled": True,
-                        "configuration_type": "CUSTOM",
-                        "parallelism": 10,
-                        "parallelism_per_kpu": 4,
-                    },
-                },
-            },
-            tags={
-                "Environment": "test",
-            })
-        ```
-
-        ### SQL Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogGroup("example", name="example-sql-application")
-        example_log_stream = aws.cloudwatch.LogStream("example",
-            name="example-sql-application",
-            log_group_name=example.name)
-        example_application = aws.kinesisanalyticsv2.Application("example",
-            name="example-sql-application",
-            runtime_environment="SQL-1_0",
-            service_execution_role=example_aws_iam_role["arn"],
-            application_configuration={
-                "application_code_configuration": {
-                    "code_content": {
-                        "text_content": "SELECT 1;\\n",
-                    },
-                    "code_content_type": "PLAINTEXT",
-                },
-                "sql_application_configuration": {
-                    "input": {
-                        "name_prefix": "PREFIX_1",
-                        "input_parallelism": {
-                            "count": 3,
-                        },
-                        "input_schema": {
-                            "record_columns": [
-                                {
-                                    "name": "COLUMN_1",
-                                    "sql_type": "VARCHAR(8)",
-                                    "mapping": "MAPPING-1",
-                                },
-                                {
-                                    "name": "COLUMN_2",
-                                    "sql_type": "DOUBLE",
-                                },
-                            ],
-                            "record_encoding": "UTF-8",
-                            "record_format": {
-                                "record_format_type": "CSV",
-                                "mapping_parameters": {
-                                    "csv_mapping_parameters": {
-                                        "record_column_delimiter": ",",
-                                        "record_row_delimiter": "\\n",
-                                    },
-                                },
-                            },
-                        },
-                        "kinesis_streams_input": {
-                            "resource_arn": example_aws_kinesis_stream["arn"],
-                        },
-                    },
-                    "outputs": [
-                        {
-                            "name": "OUTPUT_1",
-                            "destination_schema": {
-                                "record_format_type": "JSON",
-                            },
-                            "lambda_output": {
-                                "resource_arn": example_aws_lambda_function["arn"],
-                            },
-                        },
-                        {
-                            "name": "OUTPUT_2",
-                            "destination_schema": {
-                                "record_format_type": "CSV",
-                            },
-                            "kinesis_firehose_output": {
-                                "resource_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
-                            },
-                        },
-                    ],
-                    "reference_data_source": {
-                        "table_name": "TABLE-1",
-                        "reference_schema": {
-                            "record_columns": [{
-                                "name": "COLUMN_1",
-                                "sql_type": "INTEGER",
-                            }],
-                            "record_format": {
-                                "record_format_type": "JSON",
-                                "mapping_parameters": {
-                                    "json_mapping_parameters": {
-                                        "record_row_path": "$",
-                                    },
-                                },
-                            },
-                        },
-                        "s3_reference_data_source": {
-                            "bucket_arn": example_aws_s3_bucket["arn"],
-                            "file_key": "KEY-1",
-                        },
-                    },
-                },
-            },
-            cloudwatch_logging_options={
-                "log_stream_arn": example_log_stream.arn,
-            })
-        ```
-
-        ### VPC Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example-flink-application")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("example",
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"],
-            application_configuration={
-                "application_code_configuration": {
-                    "code_content": {
-                        "s3_content_location": {
-                            "bucket_arn": example.arn,
-                            "file_key": example_bucket_objectv2.key,
-                        },
-                    },
-                    "code_content_type": "ZIPFILE",
-                },
-                "vpc_configuration": {
-                    "security_group_ids": [
-                        example_aws_security_group[0]["id"],
-                        example_aws_security_group[1]["id"],
-                    ],
-                    "subnet_ids": [example_aws_subnet["id"]],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
-
-        ```sh
-        $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1042,23 +489,6 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the application.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] create_timestamp: The current timestamp when the application was created.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
-        :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[_builtins.str] status: The status of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1086,136 +516,85 @@ class Application(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> pulumi.Output['outputs.ApplicationApplicationConfiguration']:
-        """
-        The application's configuration
-        """
         return pulumi.get(self, "application_configuration")
 
     @_builtins.property
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        """
         return pulumi.get(self, "application_mode")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> pulumi.Output[Optional['outputs.ApplicationCloudwatchLoggingOptions']]:
-        """
-        A CloudWatch log stream to monitor application configuration errors.
-        """
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @_builtins.property
     @pulumi.getter(name="createTimestamp")
     def create_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current timestamp when the application was created.
-        """
         return pulumi.get(self, "create_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A summary description of the application.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="forceStop")
     def force_stop(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to force stop an unresponsive Flink-based application.
-        """
         return pulumi.get(self, "force_stop")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current timestamp when the application was last updated.
-        """
         return pulumi.get(self, "last_update_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Output[_builtins.str]:
-        """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`.
-        """
         return pulumi.get(self, "runtime_environment")
 
     @_builtins.property
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        """
         return pulumi.get(self, "service_execution_role")
 
     @_builtins.property
     @pulumi.getter(name="startApplication")
     def start_application(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to start or stop the application.
-        """
         return pulumi.get(self, "start_application")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the application.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[_builtins.int]:
-        """
-        The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
-        """
         return pulumi.get(self, "version_id")
 

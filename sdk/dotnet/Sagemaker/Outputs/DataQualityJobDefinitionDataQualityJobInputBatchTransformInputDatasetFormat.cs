@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat
     {
-        /// <summary>
-        /// The CSV dataset used in the monitoring job. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv? Csv;
-        /// <summary>
-        /// The JSON dataset used in the monitoring job. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson? Json;
 
         [OutputConstructor]

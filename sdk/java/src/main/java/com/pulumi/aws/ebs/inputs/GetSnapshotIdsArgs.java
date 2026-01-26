@@ -17,62 +17,30 @@ public final class GetSnapshotIdsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSnapshotIdsArgs Empty = new GetSnapshotIdsArgs();
 
-    /**
-     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetSnapshotIdsFilterArgs>> filters;
 
-    /**
-     * @return One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
-     * 
-     */
     public Optional<Output<List<GetSnapshotIdsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-     * 
-     */
     @Import(name="owners")
     private @Nullable Output<List<String>> owners;
 
-    /**
-     * @return Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-     * 
-     */
     public Optional<Output<List<String>>> owners() {
         return Optional.ofNullable(this.owners);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * One or more AWS accounts IDs that can create volumes from the snapshot.
-     * 
-     */
     @Import(name="restorableByUserIds")
     private @Nullable Output<List<String>> restorableByUserIds;
 
-    /**
-     * @return One or more AWS accounts IDs that can create volumes from the snapshot.
-     * 
-     */
     public Optional<Output<List<String>>> restorableByUserIds() {
         return Optional.ofNullable(this.restorableByUserIds);
     }
@@ -104,116 +72,50 @@ public final class GetSnapshotIdsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSnapshotIdsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetSnapshotIdsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetSnapshotIdsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSnapshotIdsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param owners Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owners(@Nullable Output<List<String>> owners) {
             $.owners = owners;
             return this;
         }
 
-        /**
-         * @param owners Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owners(List<String> owners) {
             return owners(Output.of(owners));
         }
 
-        /**
-         * @param owners Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owners(String... owners) {
             return owners(List.of(owners));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restorableByUserIds One or more AWS accounts IDs that can create volumes from the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restorableByUserIds(@Nullable Output<List<String>> restorableByUserIds) {
             $.restorableByUserIds = restorableByUserIds;
             return this;
         }
 
-        /**
-         * @param restorableByUserIds One or more AWS accounts IDs that can create volumes from the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restorableByUserIds(List<String> restorableByUserIds) {
             return restorableByUserIds(Output.of(restorableByUserIds));
         }
 
-        /**
-         * @param restorableByUserIds One or more AWS accounts IDs that can create volumes from the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restorableByUserIds(String... restorableByUserIds) {
             return restorableByUserIds(List.of(restorableByUserIds));
         }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the column that helps the query engine understand the contents of the column.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        /// </summary>
         [Input("inclusion")]
         public Input<string>? Inclusion { get; set; }
 
-        /// <summary>
-        /// Name of the column for which the other fields in this object apply.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

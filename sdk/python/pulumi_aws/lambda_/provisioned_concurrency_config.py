@@ -26,13 +26,6 @@ class ProvisionedConcurrencyConfigArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
-        :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
-        :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
@@ -45,9 +38,6 @@ class ProvisionedConcurrencyConfigArgs:
     @_builtins.property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name or Amazon Resource Name (ARN) of the Lambda Function.
-        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -57,9 +47,6 @@ class ProvisionedConcurrencyConfigArgs:
     @_builtins.property
     @pulumi.getter(name="provisionedConcurrentExecutions")
     def provisioned_concurrent_executions(self) -> pulumi.Input[_builtins.int]:
-        """
-        Amount of capacity to allocate. Must be greater than or equal to 1.
-        """
         return pulumi.get(self, "provisioned_concurrent_executions")
 
     @provisioned_concurrent_executions.setter
@@ -69,11 +56,6 @@ class ProvisionedConcurrencyConfigArgs:
     @_builtins.property
     @pulumi.getter
     def qualifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Lambda Function version or Lambda Alias name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -83,9 +65,6 @@ class ProvisionedConcurrencyConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,9 +74,6 @@ class ProvisionedConcurrencyConfigArgs:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -115,13 +91,6 @@ class _ProvisionedConcurrencyConfigState:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
-        :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
-        :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         """
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
@@ -137,9 +106,6 @@ class _ProvisionedConcurrencyConfigState:
     @_builtins.property
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name or Amazon Resource Name (ARN) of the Lambda Function.
-        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -149,9 +115,6 @@ class _ProvisionedConcurrencyConfigState:
     @_builtins.property
     @pulumi.getter(name="provisionedConcurrentExecutions")
     def provisioned_concurrent_executions(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of capacity to allocate. Must be greater than or equal to 1.
-        """
         return pulumi.get(self, "provisioned_concurrent_executions")
 
     @provisioned_concurrent_executions.setter
@@ -161,11 +124,6 @@ class _ProvisionedConcurrencyConfigState:
     @_builtins.property
     @pulumi.getter
     def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Lambda Function version or Lambda Alias name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -175,9 +133,6 @@ class _ProvisionedConcurrencyConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -187,9 +142,6 @@ class _ProvisionedConcurrencyConfigState:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -210,53 +162,9 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
-
-        > **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
-
-        ## Example Usage
-
-        ### Alias Name
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
-            provisioned_concurrent_executions=1,
-            qualifier=example_aws_lambda_alias["name"])
-        ```
-
-        ### Function Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            provisioned_concurrent_executions=1,
-            qualifier=example_aws_lambda_function["version"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
-        ```
-
+        Create a ProvisionedConcurrencyConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
-        :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
-        :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         """
         ...
     @overload
@@ -265,44 +173,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
                  args: ProvisionedConcurrencyConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
-
-        > **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
-
-        ## Example Usage
-
-        ### Alias Name
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
-            provisioned_concurrent_executions=1,
-            qualifier=example_aws_lambda_alias["name"])
-        ```
-
-        ### Function Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            provisioned_concurrent_executions=1,
-            qualifier=example_aws_lambda_function["version"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
-        ```
-
+        Create a ProvisionedConcurrencyConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProvisionedConcurrencyConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -365,13 +236,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
-        :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
-        :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -387,42 +251,25 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name or Amazon Resource Name (ARN) of the Lambda Function.
-        """
         return pulumi.get(self, "function_name")
 
     @_builtins.property
     @pulumi.getter(name="provisionedConcurrentExecutions")
     def provisioned_concurrent_executions(self) -> pulumi.Output[_builtins.int]:
-        """
-        Amount of capacity to allocate. Must be greater than or equal to 1.
-        """
         return pulumi.get(self, "provisioned_concurrent_executions")
 
     @_builtins.property
     @pulumi.getter
     def qualifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Lambda Function version or Lambda Alias name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "qualifier")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-        """
         return pulumi.get(self, "skip_destroy")
 

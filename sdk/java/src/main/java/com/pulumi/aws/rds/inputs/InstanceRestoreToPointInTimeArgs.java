@@ -16,77 +16,37 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
 
     public static final InstanceRestoreToPointInTimeArgs Empty = new InstanceRestoreToPointInTimeArgs();
 
-    /**
-     * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-     * 
-     */
     @Import(name="restoreTime")
     private @Nullable Output<String> restoreTime;
 
-    /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-     * 
-     */
     public Optional<Output<String>> restoreTime() {
         return Optional.ofNullable(this.restoreTime);
     }
 
-    /**
-     * The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
-     * 
-     */
     @Import(name="sourceDbInstanceAutomatedBackupsArn")
     private @Nullable Output<String> sourceDbInstanceAutomatedBackupsArn;
 
-    /**
-     * @return The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
-     * 
-     */
     public Optional<Output<String>> sourceDbInstanceAutomatedBackupsArn() {
         return Optional.ofNullable(this.sourceDbInstanceAutomatedBackupsArn);
     }
 
-    /**
-     * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
-     * 
-     */
     @Import(name="sourceDbInstanceIdentifier")
     private @Nullable Output<String> sourceDbInstanceIdentifier;
 
-    /**
-     * @return The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
-     * 
-     */
     public Optional<Output<String>> sourceDbInstanceIdentifier() {
         return Optional.ofNullable(this.sourceDbInstanceIdentifier);
     }
 
-    /**
-     * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
-     * 
-     */
     @Import(name="sourceDbiResourceId")
     private @Nullable Output<String> sourceDbiResourceId;
 
-    /**
-     * @return The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
-     * 
-     */
     public Optional<Output<String>> sourceDbiResourceId() {
         return Optional.ofNullable(this.sourceDbiResourceId);
     }
 
-    /**
-     * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
-     * 
-     */
     @Import(name="useLatestRestorableTime")
     private @Nullable Output<Boolean> useLatestRestorableTime;
 
-    /**
-     * @return A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
-     * 
-     */
     public Optional<Output<Boolean>> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }
@@ -119,107 +79,47 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
             $ = new InstanceRestoreToPointInTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param restoreTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreTime(@Nullable Output<String> restoreTime) {
             $.restoreTime = restoreTime;
             return this;
         }
 
-        /**
-         * @param restoreTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreTime(String restoreTime) {
             return restoreTime(Output.of(restoreTime));
         }
 
-        /**
-         * @param sourceDbInstanceAutomatedBackupsArn The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbInstanceAutomatedBackupsArn(@Nullable Output<String> sourceDbInstanceAutomatedBackupsArn) {
             $.sourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
             return this;
         }
 
-        /**
-         * @param sourceDbInstanceAutomatedBackupsArn The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbInstanceAutomatedBackupsArn(String sourceDbInstanceAutomatedBackupsArn) {
             return sourceDbInstanceAutomatedBackupsArn(Output.of(sourceDbInstanceAutomatedBackupsArn));
         }
 
-        /**
-         * @param sourceDbInstanceIdentifier The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbInstanceIdentifier(@Nullable Output<String> sourceDbInstanceIdentifier) {
             $.sourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param sourceDbInstanceIdentifier The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbInstanceIdentifier(String sourceDbInstanceIdentifier) {
             return sourceDbInstanceIdentifier(Output.of(sourceDbInstanceIdentifier));
         }
 
-        /**
-         * @param sourceDbiResourceId The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbiResourceId(@Nullable Output<String> sourceDbiResourceId) {
             $.sourceDbiResourceId = sourceDbiResourceId;
             return this;
         }
 
-        /**
-         * @param sourceDbiResourceId The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbiResourceId(String sourceDbiResourceId) {
             return sourceDbiResourceId(Output.of(sourceDbiResourceId));
         }
 
-        /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLatestRestorableTime(@Nullable Output<Boolean> useLatestRestorableTime) {
             $.useLatestRestorableTime = useLatestRestorableTime;
             return this;
         }
 
-        /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLatestRestorableTime(Boolean useLatestRestorableTime) {
             return useLatestRestorableTime(Output.of(useLatestRestorableTime));
         }

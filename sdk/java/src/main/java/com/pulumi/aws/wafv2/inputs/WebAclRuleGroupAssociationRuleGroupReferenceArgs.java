@@ -34,14 +34,14 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceArgs extends com.
     }
 
     /**
-     * Override actions for specific rules within the rule group. See below.
+     * Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     @Import(name="ruleActionOverrides")
     private @Nullable Output<List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs>> ruleActionOverrides;
 
     /**
-     * @return Override actions for specific rules within the rule group. See below.
+     * @return Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     public Optional<Output<List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs>>> ruleActionOverrides() {
@@ -95,7 +95,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceArgs extends com.
         }
 
         /**
-         * @param ruleActionOverrides Override actions for specific rules within the rule group. See below.
+         * @param ruleActionOverrides Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceArgs extends com.
         }
 
         /**
-         * @param ruleActionOverrides Override actions for specific rules within the rule group. See below.
+         * @param ruleActionOverrides Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceArgs extends com.
         }
 
         /**
-         * @param ruleActionOverrides Override actions for specific rules within the rule group. See below.
+         * @param ruleActionOverrides Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
          * 
          * @return builder
          * 

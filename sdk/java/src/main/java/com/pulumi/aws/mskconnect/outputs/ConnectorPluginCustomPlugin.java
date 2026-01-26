@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorPluginCustomPlugin {
-    /**
-     * @return The Amazon Resource Name (ARN) of the custom plugin.
-     * 
-     */
     private String arn;
-    /**
-     * @return The revision of the custom plugin.
-     * 
-     */
     private Integer revision;
 
     private ConnectorPluginCustomPlugin() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the custom plugin.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The revision of the custom plugin.
-     * 
-     */
     public Integer revision() {
         return this.revision;
     }

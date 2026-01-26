@@ -29,11 +29,6 @@ class MembershipArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Membership resource.
-        :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
-        :param pulumi.Input[_builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input['MembershipDefaultResultConfigurationArgs'] default_result_configuration: The default configuration for a query result.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the membership.
         """
         pulumi.set(__self__, "collaboration_id", collaboration_id)
         pulumi.set(__self__, "query_log_status", query_log_status)
@@ -49,9 +44,6 @@ class MembershipArgs:
     @_builtins.property
     @pulumi.getter(name="collaborationId")
     def collaboration_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the collaboration to which the member was invited.
-        """
         return pulumi.get(self, "collaboration_id")
 
     @collaboration_id.setter
@@ -61,9 +53,6 @@ class MembershipArgs:
     @_builtins.property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Input[_builtins.str]:
-        """
-        An indicator as to whether query logging has been enabled or disabled for the membership.
-        """
         return pulumi.get(self, "query_log_status")
 
     @query_log_status.setter
@@ -73,9 +62,6 @@ class MembershipArgs:
     @_builtins.property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> Optional[pulumi.Input['MembershipDefaultResultConfigurationArgs']]:
-        """
-        The default configuration for a query result.
-        """
         return pulumi.get(self, "default_result_configuration")
 
     @default_result_configuration.setter
@@ -94,9 +80,6 @@ class MembershipArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -106,9 +89,6 @@ class MembershipArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key value pairs which tag the membership.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,20 +117,6 @@ class _MembershipState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Membership resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the membership.
-        :param pulumi.Input[_builtins.str] collaboration_arn: The ARN of the joined collaboration.
-        :param pulumi.Input[_builtins.str] collaboration_creator_account_id: The account ID of the collaboration's creator.
-        :param pulumi.Input[_builtins.str] collaboration_creator_display_name: The display name of the collaboration's creator.
-        :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
-        :param pulumi.Input[_builtins.str] collaboration_name: The name of the joined collaboration.
-        :param pulumi.Input[_builtins.str] create_time: The date and time the membership was created.
-        :param pulumi.Input['MembershipDefaultResultConfigurationArgs'] default_result_configuration: The default configuration for a query result.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] member_abilities: The list of abilities for the invited member.
-        :param pulumi.Input[_builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the membership.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the membership.
-        :param pulumi.Input[_builtins.str] update_time: The date and time the membership was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -188,9 +154,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the membership.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -200,9 +163,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the joined collaboration.
-        """
         return pulumi.get(self, "collaboration_arn")
 
     @collaboration_arn.setter
@@ -212,9 +172,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="collaborationCreatorAccountId")
     def collaboration_creator_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account ID of the collaboration's creator.
-        """
         return pulumi.get(self, "collaboration_creator_account_id")
 
     @collaboration_creator_account_id.setter
@@ -224,9 +181,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="collaborationCreatorDisplayName")
     def collaboration_creator_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the collaboration's creator.
-        """
         return pulumi.get(self, "collaboration_creator_display_name")
 
     @collaboration_creator_display_name.setter
@@ -236,9 +190,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="collaborationId")
     def collaboration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the collaboration to which the member was invited.
-        """
         return pulumi.get(self, "collaboration_id")
 
     @collaboration_id.setter
@@ -248,9 +199,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="collaborationName")
     def collaboration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the joined collaboration.
-        """
         return pulumi.get(self, "collaboration_name")
 
     @collaboration_name.setter
@@ -260,9 +208,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time the membership was created.
-        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -272,9 +217,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> Optional[pulumi.Input['MembershipDefaultResultConfigurationArgs']]:
-        """
-        The default configuration for a query result.
-        """
         return pulumi.get(self, "default_result_configuration")
 
     @default_result_configuration.setter
@@ -284,9 +226,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="memberAbilities")
     def member_abilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of abilities for the invited member.
-        """
         return pulumi.get(self, "member_abilities")
 
     @member_abilities.setter
@@ -305,9 +244,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An indicator as to whether query logging has been enabled or disabled for the membership.
-        """
         return pulumi.get(self, "query_log_status")
 
     @query_log_status.setter
@@ -317,9 +253,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -329,9 +262,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the membership.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -341,9 +271,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key value pairs which tag the membership.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -362,9 +289,6 @@ class _MembershipState:
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time the membership was last updated.
-        """
         return pulumi.get(self, "update_time")
 
     @update_time.setter
@@ -386,49 +310,9 @@ class Membership(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a AWS Clean Rooms membership. Memberships are used to join a Clean Rooms collaboration by the invited member.
-
-        ## Example Usage
-
-        ### Membership with tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_membership = aws.cleanrooms.Membership("test_membership",
-            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            query_log_status="DISABLED",
-            default_result_configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/role-name",
-                "output_configuration": {
-                    "s3": {
-                        "bucket": "test-bucket",
-                        "result_format": "PARQUET",
-                        "key_prefix": "test-prefix",
-                    },
-                },
-            },
-            tags={
-                "Project": "Terraform",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_cleanrooms_membership` using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cleanrooms/membership:Membership membership 1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
-
+        Create a Membership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
-        :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
-        :param pulumi.Input[_builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the membership.
         """
         ...
     @overload
@@ -437,42 +321,7 @@ class Membership(pulumi.CustomResource):
                  args: MembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a AWS Clean Rooms membership. Memberships are used to join a Clean Rooms collaboration by the invited member.
-
-        ## Example Usage
-
-        ### Membership with tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_membership = aws.cleanrooms.Membership("test_membership",
-            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            query_log_status="DISABLED",
-            default_result_configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/role-name",
-                "output_configuration": {
-                    "s3": {
-                        "bucket": "test-bucket",
-                        "result_format": "PARQUET",
-                        "key_prefix": "test-prefix",
-                    },
-                },
-            },
-            tags={
-                "Project": "Terraform",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_cleanrooms_membership` using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cleanrooms/membership:Membership membership 1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
-
+        Create a Membership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -556,20 +405,6 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the membership.
-        :param pulumi.Input[_builtins.str] collaboration_arn: The ARN of the joined collaboration.
-        :param pulumi.Input[_builtins.str] collaboration_creator_account_id: The account ID of the collaboration's creator.
-        :param pulumi.Input[_builtins.str] collaboration_creator_display_name: The display name of the collaboration's creator.
-        :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
-        :param pulumi.Input[_builtins.str] collaboration_name: The name of the joined collaboration.
-        :param pulumi.Input[_builtins.str] create_time: The date and time the membership was created.
-        :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] member_abilities: The list of abilities for the invited member.
-        :param pulumi.Input[_builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the membership.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the membership.
-        :param pulumi.Input[_builtins.str] update_time: The date and time the membership was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -596,73 +431,46 @@ class Membership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the membership.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the joined collaboration.
-        """
         return pulumi.get(self, "collaboration_arn")
 
     @_builtins.property
     @pulumi.getter(name="collaborationCreatorAccountId")
     def collaboration_creator_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The account ID of the collaboration's creator.
-        """
         return pulumi.get(self, "collaboration_creator_account_id")
 
     @_builtins.property
     @pulumi.getter(name="collaborationCreatorDisplayName")
     def collaboration_creator_display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The display name of the collaboration's creator.
-        """
         return pulumi.get(self, "collaboration_creator_display_name")
 
     @_builtins.property
     @pulumi.getter(name="collaborationId")
     def collaboration_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the collaboration to which the member was invited.
-        """
         return pulumi.get(self, "collaboration_id")
 
     @_builtins.property
     @pulumi.getter(name="collaborationName")
     def collaboration_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the joined collaboration.
-        """
         return pulumi.get(self, "collaboration_name")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time the membership was created.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> pulumi.Output[Optional['outputs.MembershipDefaultResultConfiguration']]:
-        """
-        The default configuration for a query result.
-        """
         return pulumi.get(self, "default_result_configuration")
 
     @_builtins.property
     @pulumi.getter(name="memberAbilities")
     def member_abilities(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The list of abilities for the invited member.
-        """
         return pulumi.get(self, "member_abilities")
 
     @_builtins.property
@@ -673,33 +481,21 @@ class Membership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        An indicator as to whether query logging has been enabled or disabled for the membership.
-        """
         return pulumi.get(self, "query_log_status")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the membership.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key value pairs which tag the membership.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -710,8 +506,5 @@ class Membership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time the membership was last updated.
-        """
         return pulumi.get(self, "update_time")
 

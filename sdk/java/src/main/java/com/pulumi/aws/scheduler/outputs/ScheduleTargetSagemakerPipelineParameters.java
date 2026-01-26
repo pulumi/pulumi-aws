@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTargetSagemakerPipelineParameters {
-    /**
-     * @return Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
-     * 
-     */
     private @Nullable List<ScheduleTargetSagemakerPipelineParametersPipelineParameter> pipelineParameters;
 
     private ScheduleTargetSagemakerPipelineParameters() {}
-    /**
-     * @return Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
-     * 
-     */
     public List<ScheduleTargetSagemakerPipelineParametersPipelineParameter> pipelineParameters() {
         return this.pipelineParameters == null ? List.of() : this.pipelineParameters;
     }

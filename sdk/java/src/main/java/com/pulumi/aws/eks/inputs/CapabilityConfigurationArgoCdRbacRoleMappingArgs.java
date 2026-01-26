@@ -18,32 +18,16 @@ public final class CapabilityConfigurationArgoCdRbacRoleMappingArgs extends com.
 
     public static final CapabilityConfigurationArgoCdRbacRoleMappingArgs Empty = new CapabilityConfigurationArgoCdRbacRoleMappingArgs();
 
-    /**
-     * List of identities. See `identity` below.
-     * 
-     */
     @Import(name="identities")
     private @Nullable Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>> identities;
 
-    /**
-     * @return List of identities. See `identity` below.
-     * 
-     */
     public Optional<Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>>> identities() {
         return Optional.ofNullable(this.identities);
     }
 
-    /**
-     * ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-     * 
-     */
     @Import(name="role", required=true)
     private Output<String> role;
 
-    /**
-     * @return ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }
@@ -73,54 +57,24 @@ public final class CapabilityConfigurationArgoCdRbacRoleMappingArgs extends com.
             $ = new CapabilityConfigurationArgoCdRbacRoleMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identities List of identities. See `identity` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identities(@Nullable Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>> identities) {
             $.identities = identities;
             return this;
         }
 
-        /**
-         * @param identities List of identities. See `identity` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identities(List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs> identities) {
             return identities(Output.of(identities));
         }
 
-        /**
-         * @param identities List of identities. See `identity` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identities(CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs... identities) {
             return identities(List.of(identities));
         }
 
-        /**
-         * @param role ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }

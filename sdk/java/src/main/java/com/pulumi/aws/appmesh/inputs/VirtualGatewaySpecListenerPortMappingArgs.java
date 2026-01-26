@@ -15,32 +15,16 @@ public final class VirtualGatewaySpecListenerPortMappingArgs extends com.pulumi.
 
     public static final VirtualGatewaySpecListenerPortMappingArgs Empty = new VirtualGatewaySpecListenerPortMappingArgs();
 
-    /**
-     * Port used for the port mapping.
-     * 
-     */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
-    /**
-     * @return Port used for the port mapping.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
 
-    /**
-     * Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-     * 
-     */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
-    /**
-     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
@@ -70,44 +54,20 @@ public final class VirtualGatewaySpecListenerPortMappingArgs extends com.pulumi.
             $ = new VirtualGatewaySpecListenerPortMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param port Port used for the port mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port Port used for the port mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

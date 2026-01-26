@@ -15,17 +15,9 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
 
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs();
 
-    /**
-     * Configuration block for intermedia S3 storage.
-     * 
-     */
     @Import(name="s3Location")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs> s3Location;
 
-    /**
-     * @return Configuration block for intermedia S3 storage.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs>> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }
@@ -54,23 +46,11 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
             $ = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Location Configuration block for intermedia S3 storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(@Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs> s3Location) {
             $.s3Location = s3Location;
             return this;
         }
 
-        /**
-         * @param s3Location Configuration block for intermedia S3 storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs s3Location) {
             return s3Location(Output.of(s3Location));
         }

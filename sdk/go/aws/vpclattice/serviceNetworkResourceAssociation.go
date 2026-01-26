@@ -12,69 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Service Network Resource Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewServiceNetworkResourceAssociation(ctx, "example", &vpclattice.ServiceNetworkResourceAssociationArgs{
-//				ResourceConfigurationIdentifier: pulumi.Any(exampleAwsVpclatticeResourceConfiguration.Id),
-//				ServiceNetworkIdentifier:        pulumi.Any(exampleAwsVpclatticeServiceNetwork.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
-// ```
 type ServiceNetworkResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Service Network Resource Association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// DNS entry of the association in the service network.
-	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
-	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-	PrivateDnsEnabled pulumi.BoolOutput `pulumi:"privateDnsEnabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of Resource Configuration to associate to the Service Network.
-	ResourceConfigurationIdentifier pulumi.StringOutput `pulumi:"resourceConfigurationIdentifier"`
-	// Identifier of the Service Network to associate the Resource to.
-	//
-	// The following arguments are optional:
-	ServiceNetworkIdentifier pulumi.StringOutput `pulumi:"serviceNetworkIdentifier"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                             `pulumi:"tagsAll"`
-	Timeouts ServiceNetworkResourceAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn                             pulumi.StringOutput                                  `pulumi:"arn"`
+	DnsEntries                      ServiceNetworkResourceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	PrivateDnsEnabled               pulumi.BoolOutput                                    `pulumi:"privateDnsEnabled"`
+	Region                          pulumi.StringOutput                                  `pulumi:"region"`
+	ResourceConfigurationIdentifier pulumi.StringOutput                                  `pulumi:"resourceConfigurationIdentifier"`
+	ServiceNetworkIdentifier        pulumi.StringOutput                                  `pulumi:"serviceNetworkIdentifier"`
+	Tags                            pulumi.StringMapOutput                               `pulumi:"tags"`
+	TagsAll                         pulumi.StringMapOutput                               `pulumi:"tagsAll"`
+	Timeouts                        ServiceNetworkResourceAssociationTimeoutsPtrOutput   `pulumi:"timeouts"`
 }
 
 // NewServiceNetworkResourceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -113,47 +62,27 @@ func GetServiceNetworkResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
 type serviceNetworkResourceAssociationState struct {
-	// ARN of the Service Network Resource Association.
-	Arn *string `pulumi:"arn"`
-	// DNS entry of the association in the service network.
-	DnsEntries []ServiceNetworkResourceAssociationDnsEntry `pulumi:"dnsEntries"`
-	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of Resource Configuration to associate to the Service Network.
-	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
-	// Identifier of the Service Network to associate the Resource to.
-	//
-	// The following arguments are optional:
-	ServiceNetworkIdentifier *string `pulumi:"serviceNetworkIdentifier"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                          `pulumi:"tagsAll"`
-	Timeouts *ServiceNetworkResourceAssociationTimeouts `pulumi:"timeouts"`
+	Arn                             *string                                     `pulumi:"arn"`
+	DnsEntries                      []ServiceNetworkResourceAssociationDnsEntry `pulumi:"dnsEntries"`
+	PrivateDnsEnabled               *bool                                       `pulumi:"privateDnsEnabled"`
+	Region                          *string                                     `pulumi:"region"`
+	ResourceConfigurationIdentifier *string                                     `pulumi:"resourceConfigurationIdentifier"`
+	ServiceNetworkIdentifier        *string                                     `pulumi:"serviceNetworkIdentifier"`
+	Tags                            map[string]string                           `pulumi:"tags"`
+	TagsAll                         map[string]string                           `pulumi:"tagsAll"`
+	Timeouts                        *ServiceNetworkResourceAssociationTimeouts  `pulumi:"timeouts"`
 }
 
 type ServiceNetworkResourceAssociationState struct {
-	// ARN of the Service Network Resource Association.
-	Arn pulumi.StringPtrInput
-	// DNS entry of the association in the service network.
-	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayInput
-	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-	PrivateDnsEnabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of Resource Configuration to associate to the Service Network.
+	Arn                             pulumi.StringPtrInput
+	DnsEntries                      ServiceNetworkResourceAssociationDnsEntryArrayInput
+	PrivateDnsEnabled               pulumi.BoolPtrInput
+	Region                          pulumi.StringPtrInput
 	ResourceConfigurationIdentifier pulumi.StringPtrInput
-	// Identifier of the Service Network to associate the Resource to.
-	//
-	// The following arguments are optional:
-	ServiceNetworkIdentifier pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ServiceNetworkResourceAssociationTimeoutsPtrInput
+	ServiceNetworkIdentifier        pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
+	Timeouts                        ServiceNetworkResourceAssociationTimeoutsPtrInput
 }
 
 func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
@@ -161,36 +90,22 @@ func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkResourceAssociationArgs struct {
-	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of Resource Configuration to associate to the Service Network.
-	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
-	// Identifier of the Service Network to associate the Resource to.
-	//
-	// The following arguments are optional:
-	ServiceNetworkIdentifier string `pulumi:"serviceNetworkIdentifier"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                          `pulumi:"tags"`
-	Timeouts *ServiceNetworkResourceAssociationTimeouts `pulumi:"timeouts"`
+	PrivateDnsEnabled               *bool                                      `pulumi:"privateDnsEnabled"`
+	Region                          *string                                    `pulumi:"region"`
+	ResourceConfigurationIdentifier string                                     `pulumi:"resourceConfigurationIdentifier"`
+	ServiceNetworkIdentifier        string                                     `pulumi:"serviceNetworkIdentifier"`
+	Tags                            map[string]string                          `pulumi:"tags"`
+	Timeouts                        *ServiceNetworkResourceAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 type ServiceNetworkResourceAssociationArgs struct {
-	// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-	PrivateDnsEnabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of Resource Configuration to associate to the Service Network.
+	PrivateDnsEnabled               pulumi.BoolPtrInput
+	Region                          pulumi.StringPtrInput
 	ResourceConfigurationIdentifier pulumi.StringInput
-	// Identifier of the Service Network to associate the Resource to.
-	//
-	// The following arguments are optional:
-	ServiceNetworkIdentifier pulumi.StringInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ServiceNetworkResourceAssociationTimeoutsPtrInput
+	ServiceNetworkIdentifier        pulumi.StringInput
+	Tags                            pulumi.StringMapInput
+	Timeouts                        ServiceNetworkResourceAssociationTimeoutsPtrInput
 }
 
 func (ServiceNetworkResourceAssociationArgs) ElementType() reflect.Type {
@@ -280,48 +195,38 @@ func (o ServiceNetworkResourceAssociationOutput) ToServiceNetworkResourceAssocia
 	return o
 }
 
-// ARN of the Service Network Resource Association.
 func (o ServiceNetworkResourceAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// DNS entry of the association in the service network.
 func (o ServiceNetworkResourceAssociationOutput) DnsEntries() ServiceNetworkResourceAssociationDnsEntryArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) ServiceNetworkResourceAssociationDnsEntryArrayOutput {
 		return v.DnsEntries
 	}).(ServiceNetworkResourceAssociationDnsEntryArrayOutput)
 }
 
-// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
 func (o ServiceNetworkResourceAssociationOutput) PrivateDnsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.BoolOutput { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceNetworkResourceAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of Resource Configuration to associate to the Service Network.
 func (o ServiceNetworkResourceAssociationOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput {
 		return v.ResourceConfigurationIdentifier
 	}).(pulumi.StringOutput)
 }
 
-// Identifier of the Service Network to associate the Resource to.
-//
-// The following arguments are optional:
 func (o ServiceNetworkResourceAssociationOutput) ServiceNetworkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.ServiceNetworkIdentifier }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceNetworkResourceAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceNetworkResourceAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

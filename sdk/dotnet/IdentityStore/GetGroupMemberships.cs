@@ -11,129 +11,12 @@ namespace Pulumi.Aws.IdentityStore
 {
     public static class GetGroupMemberships
     {
-        /// <summary>
-        /// Use this data source to get a list of members in an Identity Store Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "DisplayName",
-        ///                 AttributeValue = "ExampleGroup",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetGroupMemberships = Aws.IdentityStore.GetGroupMemberships.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         GroupId = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.GroupId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetGroupMembershipsResult> InvokeAsync(GetGroupMembershipsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupMembershipsResult>("aws:identitystore/getGroupMemberships:getGroupMemberships", args ?? new GetGroupMembershipsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of members in an Identity Store Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "DisplayName",
-        ///                 AttributeValue = "ExampleGroup",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetGroupMemberships = Aws.IdentityStore.GetGroupMemberships.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         GroupId = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.GroupId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGroupMembershipsResult> Invoke(GetGroupMembershipsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupMembershipsResult>("aws:identitystore/getGroupMemberships:getGroupMemberships", args ?? new GetGroupMembershipsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of members in an Identity Store Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "DisplayName",
-        ///                 AttributeValue = "ExampleGroup",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetGroupMemberships = Aws.IdentityStore.GetGroupMemberships.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         GroupId = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.GroupId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGroupMembershipsResult> Invoke(GetGroupMembershipsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupMembershipsResult>("aws:identitystore/getGroupMemberships:getGroupMemberships", args ?? new GetGroupMembershipsInvokeArgs(), options.WithDefaults());
     }
@@ -141,21 +24,12 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetGroupMembershipsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         [Input("groupId", required: true)]
         public string GroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -167,21 +41,12 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetGroupMembershipsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -195,21 +60,12 @@ namespace Pulumi.Aws.IdentityStore
     [OutputType]
     public sealed class GetGroupMembershipsResult
     {
-        /// <summary>
-        /// Group identifier.
-        /// </summary>
         public readonly string GroupId;
-        /// <summary>
-        /// A list of group membership objects. See `GroupMemberships` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMembershipsGroupMembershipResult> GroupMemberships;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Identity store identifier.
-        /// </summary>
         public readonly string IdentityStoreId;
         public readonly string Region;
 

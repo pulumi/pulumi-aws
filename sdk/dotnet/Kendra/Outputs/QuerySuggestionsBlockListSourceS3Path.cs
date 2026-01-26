@@ -13,15 +13,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class QuerySuggestionsBlockListSourceS3Path
     {
-        /// <summary>
-        /// Name of the S3 bucket that contains the file.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// Name of the file.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Macie.Outputs
     [OutputType]
     public sealed class FindingsFilterFindingCriteria
     {
-        /// <summary>
-        /// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        /// </summary>
         public readonly ImmutableArray<Outputs.FindingsFilterFindingCriteriaCriterion> Criterions;
 
         [OutputConstructor]

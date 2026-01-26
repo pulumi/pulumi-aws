@@ -17,151 +17,55 @@ import java.util.Objects;
 @CustomType
 public final class GetImagePipelineResult {
     private String arn;
-    /**
-     * @return ARN of the container recipe.
-     * 
-     */
     private String containerRecipeArn;
-    /**
-     * @return Date the image pipeline was created.
-     * 
-     */
     private String dateCreated;
-    /**
-     * @return Date the image pipeline was last run.
-     * 
-     */
     private String dateLastRun;
-    /**
-     * @return Date the image pipeline will run next.
-     * 
-     */
     private String dateNextRun;
-    /**
-     * @return Date the image pipeline was updated.
-     * 
-     */
     private String dateUpdated;
-    /**
-     * @return Description of the image pipeline.
-     * 
-     */
     private String description;
-    /**
-     * @return ARN of the Image Builder Distribution Configuration.
-     * 
-     */
     private String distributionConfigurationArn;
-    /**
-     * @return Whether additional information about the image being created is collected.
-     * 
-     */
     private Boolean enhancedImageMetadataEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN of the image recipe.
-     * 
-     */
     private String imageRecipeArn;
     private List<GetImagePipelineImageScanningConfiguration> imageScanningConfigurations;
-    /**
-     * @return List of an object with image tests configuration.
-     * 
-     */
     private List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations;
-    /**
-     * @return ARN of the Image Builder Infrastructure Configuration.
-     * 
-     */
     private String infrastructureConfigurationArn;
-    /**
-     * @return Name of the image pipeline.
-     * 
-     */
     private String name;
-    /**
-     * @return Platform of the image pipeline.
-     * 
-     */
     private String platform;
     private String region;
-    /**
-     * @return List of an object with schedule settings.
-     * 
-     */
     private List<GetImagePipelineSchedule> schedules;
-    /**
-     * @return Status of the image pipeline.
-     * 
-     */
     private String status;
-    /**
-     * @return Key-value map of resource tags for the image pipeline.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetImagePipelineResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ARN of the container recipe.
-     * 
-     */
     public String containerRecipeArn() {
         return this.containerRecipeArn;
     }
-    /**
-     * @return Date the image pipeline was created.
-     * 
-     */
     public String dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * @return Date the image pipeline was last run.
-     * 
-     */
     public String dateLastRun() {
         return this.dateLastRun;
     }
-    /**
-     * @return Date the image pipeline will run next.
-     * 
-     */
     public String dateNextRun() {
         return this.dateNextRun;
     }
-    /**
-     * @return Date the image pipeline was updated.
-     * 
-     */
     public String dateUpdated() {
         return this.dateUpdated;
     }
-    /**
-     * @return Description of the image pipeline.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return ARN of the Image Builder Distribution Configuration.
-     * 
-     */
     public String distributionConfigurationArn() {
         return this.distributionConfigurationArn;
     }
-    /**
-     * @return Whether additional information about the image being created is collected.
-     * 
-     */
     public Boolean enhancedImageMetadataEnabled() {
         return this.enhancedImageMetadataEnabled;
     }
@@ -172,65 +76,33 @@ public final class GetImagePipelineResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the image recipe.
-     * 
-     */
     public String imageRecipeArn() {
         return this.imageRecipeArn;
     }
     public List<GetImagePipelineImageScanningConfiguration> imageScanningConfigurations() {
         return this.imageScanningConfigurations;
     }
-    /**
-     * @return List of an object with image tests configuration.
-     * 
-     */
     public List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations() {
         return this.imageTestsConfigurations;
     }
-    /**
-     * @return ARN of the Image Builder Infrastructure Configuration.
-     * 
-     */
     public String infrastructureConfigurationArn() {
         return this.infrastructureConfigurationArn;
     }
-    /**
-     * @return Name of the image pipeline.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Platform of the image pipeline.
-     * 
-     */
     public String platform() {
         return this.platform;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of an object with schedule settings.
-     * 
-     */
     public List<GetImagePipelineSchedule> schedules() {
         return this.schedules;
     }
-    /**
-     * @return Status of the image pipeline.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Key-value map of resource tags for the image pipeline.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

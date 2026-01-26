@@ -14,127 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Service Catalog Product Portfolio Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.ProductPortfolioAssociation;
- * import com.pulumi.aws.servicecatalog.ProductPortfolioAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProductPortfolioAssociation("example", ProductPortfolioAssociationArgs.builder()
- *             .portfolioId("port-68656c6c6f")
- *             .productId("prod-dnigbtea24ste")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
- * ```
- * 
- */
 @ResourceType(type="aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")
 public class ProductPortfolioAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Output<Optional<String>> acceptLanguage() {
         return Codegen.optional(this.acceptLanguage);
     }
-    /**
-     * Portfolio identifier.
-     * 
-     */
     @Export(name="portfolioId", refs={String.class}, tree="[0]")
     private Output<String> portfolioId;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public Output<String> portfolioId() {
         return this.portfolioId;
     }
-    /**
-     * Product identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
-    /**
-     * @return Product identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> productId() {
         return this.productId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Identifier of the source portfolio.
-     * 
-     */
     @Export(name="sourcePortfolioId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourcePortfolioId;
 
-    /**
-     * @return Identifier of the source portfolio.
-     * 
-     */
     public Output<Optional<String>> sourcePortfolioId() {
         return Codegen.optional(this.sourcePortfolioId);
     }

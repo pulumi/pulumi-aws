@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineVpcOptions {
-    /**
-     * @return A list of security groups associated with the VPC endpoint.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return A list of subnet IDs associated with the VPC endpoint.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-     * 
-     */
     private @Nullable String vpcEndpointManagement;
 
     private PipelineVpcOptions() {}
-    /**
-     * @return A list of security groups associated with the VPC endpoint.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return A list of subnet IDs associated with the VPC endpoint.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-     * 
-     */
     public Optional<String> vpcEndpointManagement() {
         return Optional.ofNullable(this.vpcEndpointManagement);
     }

@@ -27,9 +27,6 @@ class EmailTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EmailTemplate resource.
-        :param pulumi.Input[_builtins.str] template_name: name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-        :param pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "template_name", template_name)
         if email_templates is not None:
@@ -42,9 +39,6 @@ class EmailTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-        """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
@@ -54,9 +48,6 @@ class EmailTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
     def email_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
-        """
-        Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        """
         return pulumi.get(self, "email_templates")
 
     @email_templates.setter
@@ -66,9 +57,6 @@ class EmailTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,10 +84,6 @@ class _EmailTemplateState:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailTemplate resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the message template.
-        :param pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_name: name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -117,9 +101,6 @@ class _EmailTemplateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the message template.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -129,9 +110,6 @@ class _EmailTemplateState:
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
     def email_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
-        """
-        Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        """
         return pulumi.get(self, "email_templates")
 
     @email_templates.setter
@@ -141,9 +119,6 @@ class _EmailTemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -171,9 +146,6 @@ class _EmailTemplateState:
     @_builtins.property
     @pulumi.getter(name="templateName")
     def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-        """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
@@ -193,39 +165,9 @@ class EmailTemplate(pulumi.CustomResource):
                  template_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Pinpoint Email Template resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.pinpoint.EmailTemplate("test",
-            template_name="testing",
-            email_templates=[{
-                "subject": "testing",
-                "text_part": "we are testing template text part",
-                "headers": [{
-                    "name": "testingname",
-                    "value": "testingvalue",
-                }],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Pinpoint Email Template using the `template_name`. For example:
-
-        ```sh
-        $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
-        ```
-
+        Create a EmailTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_name: name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         """
         ...
     @overload
@@ -234,34 +176,7 @@ class EmailTemplate(pulumi.CustomResource):
                  args: EmailTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Pinpoint Email Template resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.pinpoint.EmailTemplate("test",
-            template_name="testing",
-            email_templates=[{
-                "subject": "testing",
-                "text_part": "we are testing template text part",
-                "headers": [{
-                    "name": "testingname",
-                    "value": "testingvalue",
-                }],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Pinpoint Email Template using the `template_name`. For example:
-
-        ```sh
-        $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
-        ```
-
+        Create a EmailTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,10 +236,6 @@ class EmailTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the message template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_name: name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -341,25 +252,16 @@ class EmailTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the message template.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
     def email_templates(self) -> pulumi.Output[Optional[Sequence['outputs.EmailTemplateEmailTemplate']]]:
-        """
-        Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-        """
         return pulumi.get(self, "email_templates")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -375,8 +277,5 @@ class EmailTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-        """
         return pulumi.get(self, "template_name")
 

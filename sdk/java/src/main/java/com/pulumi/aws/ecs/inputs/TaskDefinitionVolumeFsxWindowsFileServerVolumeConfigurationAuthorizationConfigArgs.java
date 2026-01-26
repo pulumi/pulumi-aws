@@ -14,32 +14,16 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
 
     public static final TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs Empty = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs();
 
-    /**
-     * The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
-     * 
-     */
     @Import(name="credentialsParameter", required=true)
     private Output<String> credentialsParameter;
 
-    /**
-     * @return The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
-     * 
-     */
     public Output<String> credentialsParameter() {
         return this.credentialsParameter;
     }
 
-    /**
-     * A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
@@ -69,44 +53,20 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
             $ = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param credentialsParameter The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsParameter(Output<String> credentialsParameter) {
             $.credentialsParameter = credentialsParameter;
             return this;
         }
 
-        /**
-         * @param credentialsParameter The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsParameter(String credentialsParameter) {
             return credentialsParameter(Output.of(credentialsParameter));
         }
 
-        /**
-         * @param domain A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }

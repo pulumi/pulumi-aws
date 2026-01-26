@@ -7,69 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Timestream table resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
- *     tableName: "example",
- * });
- * ```
- *
- * ### Full usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
- *     tableName: "example",
- *     retentionProperties: {
- *         magneticStoreRetentionPeriodInDays: 30,
- *         memoryStoreRetentionPeriodInHours: 8,
- *     },
- *     tags: {
- *         Name: "example-timestream-table",
- *     },
- * });
- * ```
- *
- * ### Customer-defined Partition Key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: exampleAwsTimestreamwriteDatabase.databaseName,
- *     tableName: "example",
- *     schema: {
- *         compositePartitionKey: {
- *             enforcementInRecord: "REQUIRED",
- *             name: "attr1",
- *             type: "DIMENSION",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
- *
- * ```sh
- * $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
- * ```
- */
 export class Table extends pulumi.CustomResource {
     /**
      * Get an existing Table resource's state with the given name, ID, and optional extra
@@ -98,41 +35,14 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
-    /**
-     * The ARN that uniquely identifies this table.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the Timestream database.
-     */
     declare public readonly databaseName: pulumi.Output<string>;
-    /**
-     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-     */
     declare public readonly magneticStoreWriteProperties: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
-     */
     declare public readonly retentionProperties: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
-    /**
-     * The schema of the table. See Schema below for more details.
-     */
     declare public readonly schema: pulumi.Output<outputs.timestreamwrite.TableSchema>;
-    /**
-     * The name of the Timestream table.
-     */
     declare public readonly tableName: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -184,41 +94,14 @@ export class Table extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Table resources.
  */
 export interface TableState {
-    /**
-     * The ARN that uniquely identifies this table.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the Timestream database.
-     */
     databaseName?: pulumi.Input<string>;
-    /**
-     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-     */
     magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
-     */
     retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
-    /**
-     * The schema of the table. See Schema below for more details.
-     */
     schema?: pulumi.Input<inputs.timestreamwrite.TableSchema>;
-    /**
-     * The name of the Timestream table.
-     */
     tableName?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -226,32 +109,11 @@ export interface TableState {
  * The set of arguments for constructing a Table resource.
  */
 export interface TableArgs {
-    /**
-     * The name of the Timestream database.
-     */
     databaseName: pulumi.Input<string>;
-    /**
-     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-     */
     magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
-     */
     retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
-    /**
-     * The schema of the table. See Schema below for more details.
-     */
     schema?: pulumi.Input<inputs.timestreamwrite.TableSchema>;
-    /**
-     * The name of the Timestream table.
-     */
     tableName: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

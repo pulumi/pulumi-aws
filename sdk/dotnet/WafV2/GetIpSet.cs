@@ -11,78 +11,12 @@ namespace Pulumi.Aws.WafV2
 {
     public static class GetIpSet
     {
-        /// <summary>
-        /// Retrieves the summary of a WAFv2 IP Set.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafV2.GetIpSet.Invoke(new()
-        ///     {
-        ///         Name = "some-ip-set",
-        ///         Scope = "REGIONAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetIpSetResult> InvokeAsync(GetIpSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves the summary of a WAFv2 IP Set.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafV2.GetIpSet.Invoke(new()
-        ///     {
-        ///         Name = "some-ip-set",
-        ///         Scope = "REGIONAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves the summary of a WAFv2 IP Set.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafV2.GetIpSet.Invoke(new()
-        ///     {
-        ///         Name = "some-ip-set",
-        ///         Scope = "REGIONAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());
     }
@@ -90,21 +24,12 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class GetIpSetArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the WAFv2 IP Set.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
 
@@ -116,21 +41,12 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class GetIpSetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the WAFv2 IP Set.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
@@ -144,25 +60,13 @@ namespace Pulumi.Aws.WafV2
     [OutputType]
     public sealed class GetIpSetResult
     {
-        /// <summary>
-        /// An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
-        /// </summary>
         public readonly ImmutableArray<string> Addresses;
-        /// <summary>
-        /// ARN of the entity.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the set that helps with identification.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IP address version of the set.
-        /// </summary>
         public readonly string IpAddressVersion;
         public readonly string Name;
         public readonly string Region;

@@ -17,32 +17,16 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesArgs extends 
 
     public static final JobTemplateJobTemplateDataConfigurationOverridesArgs Empty = new JobTemplateJobTemplateDataConfigurationOverridesArgs();
 
-    /**
-     * The configurations for the application running by the job run.
-     * 
-     */
     @Import(name="applicationConfigurations")
     private @Nullable Output<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>> applicationConfigurations;
 
-    /**
-     * @return The configurations for the application running by the job run.
-     * 
-     */
     public Optional<Output<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>>> applicationConfigurations() {
         return Optional.ofNullable(this.applicationConfigurations);
     }
 
-    /**
-     * The configurations for monitoring.
-     * 
-     */
     @Import(name="monitoringConfiguration")
     private @Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs> monitoringConfiguration;
 
-    /**
-     * @return The configurations for monitoring.
-     * 
-     */
     public Optional<Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs>> monitoringConfiguration() {
         return Optional.ofNullable(this.monitoringConfiguration);
     }
@@ -72,54 +56,24 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesArgs extends 
             $ = new JobTemplateJobTemplateDataConfigurationOverridesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationConfigurations The configurations for the application running by the job run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationConfigurations(@Nullable Output<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>> applicationConfigurations) {
             $.applicationConfigurations = applicationConfigurations;
             return this;
         }
 
-        /**
-         * @param applicationConfigurations The configurations for the application running by the job run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationConfigurations(List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs> applicationConfigurations) {
             return applicationConfigurations(Output.of(applicationConfigurations));
         }
 
-        /**
-         * @param applicationConfigurations The configurations for the application running by the job run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationConfigurations(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs... applicationConfigurations) {
             return applicationConfigurations(List.of(applicationConfigurations));
         }
 
-        /**
-         * @param monitoringConfiguration The configurations for monitoring.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringConfiguration(@Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs> monitoringConfiguration) {
             $.monitoringConfiguration = monitoringConfiguration;
             return this;
         }
 
-        /**
-         * @param monitoringConfiguration The configurations for monitoring.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringConfiguration(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs monitoringConfiguration) {
             return monitoringConfiguration(Output.of(monitoringConfiguration));
         }

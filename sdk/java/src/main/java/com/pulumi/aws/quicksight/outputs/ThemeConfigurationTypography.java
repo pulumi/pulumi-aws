@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThemeConfigurationTypography {
-    /**
-     * @return Determines the list of font families. Maximum number of 5 items. See font_families.
-     * 
-     */
     private @Nullable List<ThemeConfigurationTypographyFontFamily> fontFamilies;
 
     private ThemeConfigurationTypography() {}
-    /**
-     * @return Determines the list of font families. Maximum number of 5 items. See font_families.
-     * 
-     */
     public List<ThemeConfigurationTypographyFontFamily> fontFamilies() {
         return this.fontFamilies == null ? List.of() : this.fontFamilies;
     }

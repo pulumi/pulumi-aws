@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn
     {
-        /// <summary>
-        /// The Mapping reference to the data element.
-        /// </summary>
         public readonly string? Mapping;
-        /// <summary>
-        /// Name of the column.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The SQL Type of the column.
-        /// </summary>
         public readonly string SqlType;
 
         [OutputConstructor]

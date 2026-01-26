@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventEndpointEventBus
     {
-        /// <summary>
-        /// The ARN of the event bus the endpoint is associated with.
-        /// </summary>
         public readonly string EventBusArn;
 
         [OutputConstructor]

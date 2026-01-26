@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing QuickSight Group
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Group("example", {groupName: "tf-example"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
- * ```
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -52,26 +32,11 @@ export class Group extends pulumi.CustomResource {
         return obj['__pulumiType'] === Group.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of group
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * A description for the group.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * A name for the group.
-     */
     declare public readonly groupName: pulumi.Output<string>;
-    /**
-     * The namespace. Currently, you should set this to `default`.
-     */
     declare public readonly namespace: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -114,26 +79,11 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
-    /**
-     * Amazon Resource Name (ARN) of group
-     */
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * A description for the group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A name for the group.
-     */
     groupName?: pulumi.Input<string>;
-    /**
-     * The namespace. Currently, you should set this to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -142,20 +92,8 @@ export interface GroupState {
  */
 export interface GroupArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * A description for the group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A name for the group.
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * The namespace. Currently, you should set this to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Backup Global Settings resource.
- *
- * > **Note:** This resource will show perpetual differences for any supported settings not explicitly configured in the `globalSettings` configuration block. To avoid this, specify all supported options with their default values (typically `"false"`, but check the plan diff for the actual value). See [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide for available settings.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.backup.GlobalSettings("test", {globalSettings: {
- *     isCrossAccountBackupEnabled: "true",
- *     isMpaEnabled: "false",
- *     isDelegatedAdministratorEnabled: "false",
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup Global Settings using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
- * ```
- */
 export class GlobalSettings extends pulumi.CustomResource {
     /**
      * Get an existing GlobalSettings resource's state with the given name, ID, and optional extra
@@ -58,9 +32,6 @@ export class GlobalSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === GlobalSettings.__pulumiType;
     }
 
-    /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-     */
     declare public readonly globalSettings: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -93,9 +64,6 @@ export class GlobalSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GlobalSettings resources.
  */
 export interface GlobalSettingsState {
-    /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-     */
     globalSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -103,8 +71,5 @@ export interface GlobalSettingsState {
  * The set of arguments for constructing a GlobalSettings resource.
  */
 export interface GlobalSettingsArgs {
-    /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-     */
     globalSettings: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

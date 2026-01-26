@@ -22,16 +22,12 @@ class OrganizationsFeaturesArgs:
                  enabled_features: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a OrganizationsFeatures resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_features: List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         """
         pulumi.set(__self__, "enabled_features", enabled_features)
 
     @_builtins.property
     @pulumi.getter(name="enabledFeatures")
     def enabled_features(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-        """
         return pulumi.get(self, "enabled_features")
 
     @enabled_features.setter
@@ -45,7 +41,6 @@ class _OrganizationsFeaturesState:
                  enabled_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationsFeatures resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_features: List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         """
         if enabled_features is not None:
             pulumi.set(__self__, "enabled_features", enabled_features)
@@ -53,9 +48,6 @@ class _OrganizationsFeaturesState:
     @_builtins.property
     @pulumi.getter(name="enabledFeatures")
     def enabled_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-        """
         return pulumi.get(self, "enabled_features")
 
     @enabled_features.setter
@@ -72,36 +64,9 @@ class OrganizationsFeatures(pulumi.CustomResource):
                  enabled_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages centralized root access features across AWS member accounts managed using AWS Organizations. More information about managing root access in IAM can be found in the [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
-
-        > **NOTE:** The AWS account utilizing this resource must be an Organizations management account. Also, you must enable trusted access for AWS Identity and Access Management in AWS Organizations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.Organization("example",
-            aws_service_access_principals=["iam.amazonaws.com"],
-            feature_set="ALL")
-        example_organizations_features = aws.iam.OrganizationsFeatures("example", enabled_features=[
-            "RootCredentialsManagement",
-            "RootSessions",
-        ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import root access features using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
-        ```
-
+        Create a OrganizationsFeatures resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_features: List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         """
         ...
     @overload
@@ -110,33 +75,7 @@ class OrganizationsFeatures(pulumi.CustomResource):
                  args: OrganizationsFeaturesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages centralized root access features across AWS member accounts managed using AWS Organizations. More information about managing root access in IAM can be found in the [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
-
-        > **NOTE:** The AWS account utilizing this resource must be an Organizations management account. Also, you must enable trusted access for AWS Identity and Access Management in AWS Organizations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.Organization("example",
-            aws_service_access_principals=["iam.amazonaws.com"],
-            feature_set="ALL")
-        example_organizations_features = aws.iam.OrganizationsFeatures("example", enabled_features=[
-            "RootCredentialsManagement",
-            "RootSessions",
-        ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import root access features using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
-        ```
-
+        Create a OrganizationsFeatures resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationsFeaturesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +122,6 @@ class OrganizationsFeatures(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_features: List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -195,8 +133,5 @@ class OrganizationsFeatures(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="enabledFeatures")
     def enabled_features(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-        """
         return pulumi.get(self, "enabled_features")
 

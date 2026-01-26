@@ -15,17 +15,9 @@ public final class DomainMatchingAutoMergingConsolidationArgs extends com.pulumi
 
     public static final DomainMatchingAutoMergingConsolidationArgs Empty = new DomainMatchingAutoMergingConsolidationArgs();
 
-    /**
-     * A list of matching criteria.
-     * 
-     */
     @Import(name="matchingAttributesLists", required=true)
     private Output<List<List<String>>> matchingAttributesLists;
 
-    /**
-     * @return A list of matching criteria.
-     * 
-     */
     public Output<List<List<String>>> matchingAttributesLists() {
         return this.matchingAttributesLists;
     }
@@ -54,33 +46,15 @@ public final class DomainMatchingAutoMergingConsolidationArgs extends com.pulumi
             $ = new DomainMatchingAutoMergingConsolidationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param matchingAttributesLists A list of matching criteria.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchingAttributesLists(Output<List<List<String>>> matchingAttributesLists) {
             $.matchingAttributesLists = matchingAttributesLists;
             return this;
         }
 
-        /**
-         * @param matchingAttributesLists A list of matching criteria.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchingAttributesLists(List<List<String>> matchingAttributesLists) {
             return matchingAttributesLists(Output.of(matchingAttributesLists));
         }
 
-        /**
-         * @param matchingAttributesLists A list of matching criteria.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchingAttributesLists(List<String>... matchingAttributesLists) {
             return matchingAttributesLists(List.of(matchingAttributesLists));
         }

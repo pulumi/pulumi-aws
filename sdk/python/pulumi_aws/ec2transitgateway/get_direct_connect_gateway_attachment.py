@@ -54,9 +54,6 @@ class GetDirectConnectGatewayAttachmentResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -85,9 +82,6 @@ class GetDirectConnectGatewayAttachmentResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the EC2 Transit Gateway Attachment.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -118,28 +112,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[_builtins.str]
                                           transit_gateway_id: Optional[_builtins.str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectConnectGatewayAttachmentResult:
     """
-    Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
-
-    !> **Warning:** Using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource. For example, `transit_gateway_attachment_id  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
-
-    ## Example Usage
-
-    ### By Transit Gateway and Direct Connect Gateway Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-        dx_gateway_id=example_aws_dx_gateway["id"])
-    ```
-
-
-    :param _builtins.str dx_gateway_id: Identifier of the Direct Connect Gateway.
-    :param Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
-    :param _builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dxGatewayId'] = dx_gateway_id
@@ -165,28 +138,7 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
                                                  transit_gateway_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
     """
-    Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
-
-    !> **Warning:** Using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource. For example, `transit_gateway_attachment_id  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
-
-    ## Example Usage
-
-    ### By Transit Gateway and Direct Connect Gateway Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-        dx_gateway_id=example_aws_dx_gateway["id"])
-    ```
-
-
-    :param _builtins.str dx_gateway_id: Identifier of the Direct Connect Gateway.
-    :param Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
-    :param _builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dxGatewayId'] = dx_gateway_id

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange
     {
-        /// <summary>
-        /// A date range unit for the date filter. Valid values: `DAYS`.
-        /// </summary>
         public readonly string Unit;
-        /// <summary>
-        /// A date range value for the date filter, provided as an Integer.
-        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

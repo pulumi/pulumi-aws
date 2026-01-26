@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
-    /**
-     * @return Set of AWS Organization ARNs.
-     * 
-     */
     private List<String> organizationArns;
-    /**
-     * @return Set of AWS Organizational Unit ARNs.
-     * 
-     */
     private List<String> organizationalUnitArns;
-    /**
-     * @return Set of EC2 launch permission user groups.
-     * 
-     */
     private List<String> userGroups;
-    /**
-     * @return Set of AWS Account identifiers.
-     * 
-     */
     private List<String> userIds;
 
     private GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission() {}
-    /**
-     * @return Set of AWS Organization ARNs.
-     * 
-     */
     public List<String> organizationArns() {
         return this.organizationArns;
     }
-    /**
-     * @return Set of AWS Organizational Unit ARNs.
-     * 
-     */
     public List<String> organizationalUnitArns() {
         return this.organizationalUnitArns;
     }
-    /**
-     * @return Set of EC2 launch permission user groups.
-     * 
-     */
     public List<String> userGroups() {
         return this.userGroups;
     }
-    /**
-     * @return Set of AWS Account identifiers.
-     * 
-     */
     public List<String> userIds() {
         return this.userIds;
     }

@@ -9,101 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppFabric
 {
-    /// <summary>
-    /// Resource for managing an AWS AppFabric App Authorization.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppFabric.AppAuthorization("example", new()
-    ///     {
-    ///         App = "TERRAFORMCLOUD",
-    ///         AppBundleArn = arn,
-    ///         AuthType = "apiKey",
-    ///         Credential = new Aws.AppFabric.Inputs.AppAuthorizationCredentialArgs
-    ///         {
-    ///             ApiKeyCredentials = new[]
-    ///             {
-    ///                 new Aws.AppFabric.Inputs.AppAuthorizationCredentialApiKeyCredentialArgs
-    ///                 {
-    ///                     ApiKey = "exampleapikeytoken",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tenants = new[]
-    ///         {
-    ///             new Aws.AppFabric.Inputs.AppAuthorizationTenantArgs
-    ///             {
-    ///                 TenantDisplayName = "example",
-    ///                 TenantIdentifier = "example",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appfabric/appAuthorization:AppAuthorization")]
     public partial class AppAuthorization : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-        /// </summary>
         [Output("app")]
         public Output<string> App { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The authorization type for the app authorization valid values are oauth2 and apiKey.
-        /// </summary>
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
 
-        /// <summary>
-        /// The application URL for the OAuth flow.
-        /// </summary>
         [Output("authUrl")]
         public Output<string> AuthUrl { get; private set; } = null!;
 
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-        /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-        /// </summary>
         [Output("credential")]
         public Output<Outputs.AppAuthorizationCredential?> Credential { get; private set; } = null!;
 
-        /// <summary>
-        /// The user persona of the app authorization.
-        /// </summary>
         [Output("persona")]
         public Output<string> Persona { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -113,9 +45,6 @@ namespace Pulumi.Aws.AppFabric
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
-        /// </summary>
         [Output("tenants")]
         public Output<ImmutableArray<Outputs.AppAuthorizationTenant>> Tenants { get; private set; } = null!;
 
@@ -171,34 +100,18 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class AppAuthorizationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-        /// </summary>
         [Input("app", required: true)]
         public Input<string> App { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The authorization type for the app authorization valid values are oauth2 and apiKey.
-        /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
 
-        /// <summary>
-        /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-        /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-        /// </summary>
         [Input("credential")]
         public Input<Inputs.AppAuthorizationCredentialArgs>? Credential { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -212,10 +125,6 @@ namespace Pulumi.Aws.AppFabric
 
         [Input("tenants")]
         private InputList<Inputs.AppAuthorizationTenantArgs>? _tenants;
-
-        /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
-        /// </summary>
         public InputList<Inputs.AppAuthorizationTenantArgs> Tenants
         {
             get => _tenants ?? (_tenants = new InputList<Inputs.AppAuthorizationTenantArgs>());
@@ -233,55 +142,30 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class AppAuthorizationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-        /// </summary>
         [Input("app")]
         public Input<string>? App { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }
 
-        /// <summary>
-        /// ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The authorization type for the app authorization valid values are oauth2 and apiKey.
-        /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
-        /// <summary>
-        /// The application URL for the OAuth flow.
-        /// </summary>
         [Input("authUrl")]
         public Input<string>? AuthUrl { get; set; }
 
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-        /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-        /// </summary>
         [Input("credential")]
         public Input<Inputs.AppAuthorizationCredentialGetArgs>? Credential { get; set; }
 
-        /// <summary>
-        /// The user persona of the app authorization.
-        /// </summary>
         [Input("persona")]
         public Input<string>? Persona { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -303,10 +187,6 @@ namespace Pulumi.Aws.AppFabric
 
         [Input("tenants")]
         private InputList<Inputs.AppAuthorizationTenantGetArgs>? _tenants;
-
-        /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
-        /// </summary>
         public InputList<Inputs.AppAuthorizationTenantGetArgs> Tenants
         {
             get => _tenants ?? (_tenants = new InputList<Inputs.AppAuthorizationTenantGetArgs>());

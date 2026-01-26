@@ -9,122 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.BcmData
 {
-    /// <summary>
-    /// Resource for managing an AWS BCM Data Exports Export.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var test = new Aws.BcmData.Export("test", new()
-    ///     {
-    ///         ExportDetails = new Aws.BcmData.Inputs.ExportExportArgs
-    ///         {
-    ///             Name = "testexample",
-    ///             DataQueries = new[]
-    ///             {
-    ///                 new Aws.BcmData.Inputs.ExportExportDataQueryArgs
-    ///                 {
-    ///                     QueryStatement = "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
-    ///                     TableConfigurations = 
-    ///                     {
-    ///                         { "COST_AND_USAGE_REPORT", 
-    ///                         {
-    ///                             { "BILLING_VIEW_ARN", Output.Tuple(currentGetPartition, current).Apply(values =&gt;
-    ///                             {
-    ///                                 var currentGetPartition = values.Item1;
-    ///                                 var current = values.Item2;
-    ///                                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:billing::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:billingview/primary";
-    ///                             }) },
-    ///                             { "TIME_GRANULARITY", "HOURLY" },
-    ///                             { "INCLUDE_RESOURCES", "FALSE" },
-    ///                             { "INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY", "FALSE" },
-    ///                             { "INCLUDE_SPLIT_COST_ALLOCATION_DATA", "FALSE" },
-    ///                         } },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             DestinationConfigurations = new[]
-    ///             {
-    ///                 new Aws.BcmData.Inputs.ExportExportDestinationConfigurationArgs
-    ///                 {
-    ///                     S3Destinations = new[]
-    ///                     {
-    ///                         new Aws.BcmData.Inputs.ExportExportDestinationConfigurationS3DestinationArgs
-    ///                         {
-    ///                             S3Bucket = testAwsS3Bucket.Bucket,
-    ///                             S3Prefix = testAwsS3Bucket.BucketPrefix,
-    ///                             S3Region = testAwsS3Bucket.Region,
-    ///                             S3OutputConfigurations = new[]
-    ///                             {
-    ///                                 new Aws.BcmData.Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
-    ///                                 {
-    ///                                     Overwrite = "OVERWRITE_REPORT",
-    ///                                     Format = "TEXT_OR_CSV",
-    ///                                     Compression = "GZIP",
-    ///                                     OutputType = "CUSTOM",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             RefreshCadences = new[]
-    ///             {
-    ///                 new Aws.BcmData.Inputs.ExportExportRefreshCadenceArgs
-    ///                 {
-    ///                     Frequency = "SYNCHRONOUS",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
-    /// 
-    /// Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
-    /// 
-    /// % pulumi import aws_bcmdataexports_export.example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
-    /// </summary>
     [AwsResourceType("aws:bcmdata/export:Export")]
     public partial class Export : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) for this export.
-        /// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The details of the export, including data query, name, description, and destination configuration.  See the `Export` argument reference below.
-        /// </summary>
         [Output("export")]
         public Output<Outputs.ExportExport?> ExportDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -180,18 +73,11 @@ namespace Pulumi.Aws.BcmData
 
     public sealed class ExportArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The details of the export, including data query, name, description, and destination configuration.  See the `Export` argument reference below.
-        /// </summary>
         [Input("export")]
         public Input<Inputs.ExportExportArgs>? ExportDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -209,25 +95,14 @@ namespace Pulumi.Aws.BcmData
 
     public sealed class ExportState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) for this export.
-        /// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The details of the export, including data query, name, description, and destination configuration.  See the `Export` argument reference below.
-        /// </summary>
         [Input("export")]
         public Input<Inputs.ExportExportGetArgs>? ExportDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

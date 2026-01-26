@@ -17,47 +17,23 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
 
     public static final DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs();
 
-    /**
-     * A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-     * 
-     */
     @Import(name="dateValue")
     private @Nullable Output<String> dateValue;
 
-    /**
-     * @return A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-     * 
-     */
     public Optional<Output<String>> dateValue() {
         return Optional.ofNullable(this.dateValue);
     }
 
-    /**
-     * A long integer value.
-     * 
-     */
     @Import(name="longValue")
     private @Nullable Output<Integer> longValue;
 
-    /**
-     * @return A long integer value.
-     * 
-     */
     public Optional<Output<Integer>> longValue() {
         return Optional.ofNullable(this.longValue);
     }
 
-    /**
-     * A list of strings.
-     * 
-     */
     @Import(name="stringListValues")
     private @Nullable Output<List<String>> stringListValues;
 
-    /**
-     * @return A list of strings.
-     * 
-     */
     public Optional<Output<List<String>>> stringListValues() {
         return Optional.ofNullable(this.stringListValues);
     }
@@ -96,75 +72,33 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
             $ = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dateValue A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dateValue(@Nullable Output<String> dateValue) {
             $.dateValue = dateValue;
             return this;
         }
 
-        /**
-         * @param dateValue A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dateValue(String dateValue) {
             return dateValue(Output.of(dateValue));
         }
 
-        /**
-         * @param longValue A long integer value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longValue(@Nullable Output<Integer> longValue) {
             $.longValue = longValue;
             return this;
         }
 
-        /**
-         * @param longValue A long integer value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longValue(Integer longValue) {
             return longValue(Output.of(longValue));
         }
 
-        /**
-         * @param stringListValues A list of strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringListValues(@Nullable Output<List<String>> stringListValues) {
             $.stringListValues = stringListValues;
             return this;
         }
 
-        /**
-         * @param stringListValues A list of strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringListValues(List<String> stringListValues) {
             return stringListValues(Output.of(stringListValues));
         }
 
-        /**
-         * @param stringListValues A list of strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringListValues(String... stringListValues) {
             return stringListValues(List.of(stringListValues));
         }

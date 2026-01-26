@@ -13,15 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailAction
     {
-        /// <summary>
-        /// Specifies the resources that the lifecycle policy applies to. Detailed below.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailActionIncludeResources? IncludeResources;
-        /// <summary>
-        /// Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

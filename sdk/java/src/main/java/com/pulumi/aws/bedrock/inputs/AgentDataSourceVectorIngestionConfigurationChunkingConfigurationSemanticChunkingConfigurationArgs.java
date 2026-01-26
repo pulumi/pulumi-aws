@@ -14,47 +14,23 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
 
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs();
 
-    /**
-     * The dissimilarity threshold for splitting chunks.
-     * 
-     */
     @Import(name="breakpointPercentileThreshold", required=true)
     private Output<Integer> breakpointPercentileThreshold;
 
-    /**
-     * @return The dissimilarity threshold for splitting chunks.
-     * 
-     */
     public Output<Integer> breakpointPercentileThreshold() {
         return this.breakpointPercentileThreshold;
     }
 
-    /**
-     * The buffer size.
-     * 
-     */
     @Import(name="bufferSize", required=true)
     private Output<Integer> bufferSize;
 
-    /**
-     * @return The buffer size.
-     * 
-     */
     public Output<Integer> bufferSize() {
         return this.bufferSize;
     }
 
-    /**
-     * The maximum number of tokens a chunk can contain.
-     * 
-     */
     @Import(name="maxToken", required=true)
     private Output<Integer> maxToken;
 
-    /**
-     * @return The maximum number of tokens a chunk can contain.
-     * 
-     */
     public Output<Integer> maxToken() {
         return this.maxToken;
     }
@@ -85,65 +61,29 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             $ = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param breakpointPercentileThreshold The dissimilarity threshold for splitting chunks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder breakpointPercentileThreshold(Output<Integer> breakpointPercentileThreshold) {
             $.breakpointPercentileThreshold = breakpointPercentileThreshold;
             return this;
         }
 
-        /**
-         * @param breakpointPercentileThreshold The dissimilarity threshold for splitting chunks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder breakpointPercentileThreshold(Integer breakpointPercentileThreshold) {
             return breakpointPercentileThreshold(Output.of(breakpointPercentileThreshold));
         }
 
-        /**
-         * @param bufferSize The buffer size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferSize(Output<Integer> bufferSize) {
             $.bufferSize = bufferSize;
             return this;
         }
 
-        /**
-         * @param bufferSize The buffer size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferSize(Integer bufferSize) {
             return bufferSize(Output.of(bufferSize));
         }
 
-        /**
-         * @param maxToken The maximum number of tokens a chunk can contain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxToken(Output<Integer> maxToken) {
             $.maxToken = maxToken;
             return this;
         }
 
-        /**
-         * @param maxToken The maximum number of tokens a chunk can contain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxToken(Integer maxToken) {
             return maxToken(Output.of(maxToken));
         }

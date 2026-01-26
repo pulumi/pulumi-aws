@@ -9,93 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    /// <summary>
-    /// Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
-    /// 
-    /// &gt; **Note:** Setting `SkipDestroy` to `True` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Alias Name
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
-    ///         ProvisionedConcurrentExecutions = 1,
-    ///         Qualifier = exampleAwsLambdaAlias.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Function Version
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         ProvisionedConcurrentExecutions = 1,
-    ///         Qualifier = exampleAwsLambdaFunction.Version,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
     public partial class ProvisionedConcurrencyConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
-        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
-        /// <summary>
-        /// Amount of capacity to allocate. Must be greater than or equal to 1.
-        /// </summary>
         [Output("provisionedConcurrentExecutions")]
         public Output<int> ProvisionedConcurrentExecutions { get; private set; } = null!;
 
-        /// <summary>
-        /// Lambda Function version or Lambda Alias name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("qualifier")]
         public Output<string> Qualifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `False`. If set to `True`, the resource is simply removed from state instead.
-        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
@@ -145,35 +73,18 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class ProvisionedConcurrencyConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
-        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// Amount of capacity to allocate. Must be greater than or equal to 1.
-        /// </summary>
         [Input("provisionedConcurrentExecutions", required: true)]
         public Input<int> ProvisionedConcurrentExecutions { get; set; } = null!;
 
-        /// <summary>
-        /// Lambda Function version or Lambda Alias name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("qualifier", required: true)]
         public Input<string> Qualifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `False`. If set to `True`, the resource is simply removed from state instead.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
@@ -185,35 +96,18 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class ProvisionedConcurrencyConfigState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
-        /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
-        /// <summary>
-        /// Amount of capacity to allocate. Must be greater than or equal to 1.
-        /// </summary>
         [Input("provisionedConcurrentExecutions")]
         public Input<int>? ProvisionedConcurrentExecutions { get; set; }
 
-        /// <summary>
-        /// Lambda Function version or Lambda Alias name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `False`. If set to `True`, the resource is simply removed from state instead.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 

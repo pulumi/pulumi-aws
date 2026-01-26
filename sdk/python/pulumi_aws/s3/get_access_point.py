@@ -82,57 +82,36 @@ class GetAccessPointResult:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> _builtins.str:
-        """
-        Access point alias.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Access point ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        Name of the bucket associated with the access point.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> _builtins.str:
-        """
-        AWS account ID associated with the S3 bucket associated with the access point.
-        """
         return pulumi.get(self, "bucket_account_id")
 
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> _builtins.str:
-        """
-        Unique identifier for the data source of the access point.
-        """
         return pulumi.get(self, "data_source_id")
 
     @_builtins.property
     @pulumi.getter(name="dataSourceType")
     def data_source_type(self) -> _builtins.str:
-        """
-        Type of the data source that the access point is attached to.
-        """
         return pulumi.get(self, "data_source_type")
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Mapping[str, _builtins.str]:
-        """
-        VPC endpoint for the access point.
-        """
         return pulumi.get(self, "endpoints")
 
     @_builtins.property
@@ -151,17 +130,11 @@ class GetAccessPointResult:
     @_builtins.property
     @pulumi.getter(name="networkOrigin")
     def network_origin(self) -> _builtins.str:
-        """
-        Indicates whether the access point allows access from the public Internet.
-        """
         return pulumi.get(self, "network_origin")
 
     @_builtins.property
     @pulumi.getter(name="publicAccessBlockConfigurations")
     def public_access_block_configurations(self) -> Sequence['outputs.GetAccessPointPublicAccessBlockConfigurationResult']:
-        """
-        `PublicAccessBlock` configuration for the access point.
-        """
         return pulumi.get(self, "public_access_block_configurations")
 
     @_builtins.property
@@ -172,17 +145,11 @@ class GetAccessPointResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the access point.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfigurations")
     def vpc_configurations(self) -> Sequence['outputs.GetAccessPointVpcConfigurationResult']:
-        """
-        VPC configuration for the access point.
-        """
         return pulumi.get(self, "vpc_configurations")
 
 
@@ -214,21 +181,7 @@ def get_access_point(account_id: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointResult:
     """
-    Provides details about a specific S3 access point.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_access_point(name="example-access-point")
-    ```
-
-
-    :param _builtins.str account_id: AWS account ID for the account that owns the specified access point.
-    :param _builtins.str name: Name of the access point.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -258,21 +211,7 @@ def get_access_point_output(account_id: Optional[pulumi.Input[Optional[_builtins
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
-    Provides details about a specific S3 access point.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_access_point(name="example-access-point")
-    ```
-
-
-    :param _builtins.str account_id: AWS account ID for the account that owns the specified access point.
-    :param _builtins.str name: Name of the access point.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class LaunchExecutionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The date and time that the launch ended.
-        /// </summary>
         [Input("endedTime")]
         public Input<string>? EndedTime { get; set; }
 
-        /// <summary>
-        /// The date and time that the launch started.
-        /// </summary>
         [Input("startedTime")]
         public Input<string>? StartedTime { get; set; }
 

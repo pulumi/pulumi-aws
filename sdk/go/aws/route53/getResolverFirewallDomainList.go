@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
-//
-// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-//
-// ## Example Usage
-//
-// The following example shows how to get a firewall domain list from its ID.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverFirewallDomainList(ctx, &route53.LookupResolverFirewallDomainListArgs{
-//				FirewallDomainListId: "rslvr-fdl-example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverFirewallDomainListArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallDomainListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallDomainListResult
@@ -54,36 +23,25 @@ func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverF
 
 // A collection of arguments for invoking getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListArgs struct {
-	// The ID of the domain list.
-	FirewallDomainListId string `pulumi:"firewallDomainListId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FirewallDomainListId string  `pulumi:"firewallDomainListId"`
+	Region               *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListResult struct {
-	// The Amazon Resource Name (ARN) of the firewall domain list.
-	Arn string `pulumi:"arn"`
-	// The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
-	CreationTime string `pulumi:"creationTime"`
-	// A unique string defined by you to identify the request.
-	CreatorRequestId string `pulumi:"creatorRequestId"`
-	// The number of domain names that are specified in the domain list.
+	Arn                  string `pulumi:"arn"`
+	CreationTime         string `pulumi:"creationTime"`
+	CreatorRequestId     string `pulumi:"creatorRequestId"`
 	DomainCount          int    `pulumi:"domainCount"`
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The owner of the list, used only for lists that are not managed by you.
+	Id               string `pulumi:"id"`
 	ManagedOwnerName string `pulumi:"managedOwnerName"`
-	// The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
 	ModificationTime string `pulumi:"modificationTime"`
-	// The name of the domain list.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// The status of the domain list.
-	Status string `pulumi:"status"`
-	// Additional information about the status of the list, if available.
-	StatusMessage string `pulumi:"statusMessage"`
+	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
+	Status           string `pulumi:"status"`
+	StatusMessage    string `pulumi:"statusMessage"`
 }
 
 func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupResolverFirewallDomainListOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallDomainListResultOutput {
@@ -97,10 +55,8 @@ func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupReso
 
 // A collection of arguments for invoking getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListOutputArgs struct {
-	// The ID of the domain list.
-	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	FirewallDomainListId pulumi.StringInput    `pulumi:"firewallDomainListId"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResolverFirewallDomainListOutputArgs) ElementType() reflect.Type {
@@ -122,22 +78,18 @@ func (o LookupResolverFirewallDomainListResultOutput) ToLookupResolverFirewallDo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the firewall domain list.
 func (o LookupResolverFirewallDomainListResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
 func (o LookupResolverFirewallDomainListResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// A unique string defined by you to identify the request.
 func (o LookupResolverFirewallDomainListResultOutput) CreatorRequestId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.CreatorRequestId }).(pulumi.StringOutput)
 }
 
-// The number of domain names that are specified in the domain list.
 func (o LookupResolverFirewallDomainListResultOutput) DomainCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) int { return v.DomainCount }).(pulumi.IntOutput)
 }
@@ -151,17 +103,14 @@ func (o LookupResolverFirewallDomainListResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The owner of the list, used only for lists that are not managed by you.
 func (o LookupResolverFirewallDomainListResultOutput) ManagedOwnerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.ManagedOwnerName }).(pulumi.StringOutput)
 }
 
-// The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
 func (o LookupResolverFirewallDomainListResultOutput) ModificationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.ModificationTime }).(pulumi.StringOutput)
 }
 
-// The name of the domain list.
 func (o LookupResolverFirewallDomainListResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -170,12 +119,10 @@ func (o LookupResolverFirewallDomainListResultOutput) Region() pulumi.StringOutp
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the domain list.
 func (o LookupResolverFirewallDomainListResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Additional information about the status of the list, if available.
 func (o LookupResolverFirewallDomainListResultOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.StatusMessage }).(pulumi.StringOutput)
 }

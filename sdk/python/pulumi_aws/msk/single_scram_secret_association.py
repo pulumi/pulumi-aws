@@ -24,9 +24,6 @@ class SingleScramSecretAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleScramSecretAssociation resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -36,9 +33,6 @@ class SingleScramSecretAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the MSK cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -48,9 +42,6 @@ class SingleScramSecretAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS Secrets Manager secret ARN.
-        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -60,9 +51,6 @@ class SingleScramSecretAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _SingleScramSecretAssociationState:
                  secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SingleScramSecretAssociation resources.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
@@ -92,9 +77,6 @@ class _SingleScramSecretAssociationState:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the MSK cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -104,9 +86,6 @@ class _SingleScramSecretAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _SingleScramSecretAssociationState:
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Secrets Manager secret ARN.
-        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -137,32 +113,9 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
                  secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Associates a single SCRAM secret with a Managed Streaming for Kafka (MSK) cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.msk.SingleScramSecretAssociation("example",
-            cluster_arn=example_aws_msk_cluster["arn"],
-            secret_arn=example_aws_secretsmanager_secret["arn"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an MSK SCRAM Secret Association using the `cluster_arn` and `secret_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3,arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
-        ```
-
+        Create a SingleScramSecretAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
         ...
     @overload
@@ -171,27 +124,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
                  args: SingleScramSecretAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associates a single SCRAM secret with a Managed Streaming for Kafka (MSK) cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.msk.SingleScramSecretAssociation("example",
-            cluster_arn=example_aws_msk_cluster["arn"],
-            secret_arn=example_aws_secretsmanager_secret["arn"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an MSK SCRAM Secret Association using the `cluster_arn` and `secret_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3,arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
-        ```
-
+        Create a SingleScramSecretAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SingleScramSecretAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,9 +179,6 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -262,24 +192,15 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the MSK cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS Secrets Manager secret ARN.
-        """
         return pulumi.get(self, "secret_arn")
 

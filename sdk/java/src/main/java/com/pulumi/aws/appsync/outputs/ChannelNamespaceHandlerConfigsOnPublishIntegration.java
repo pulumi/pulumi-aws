@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelNamespaceHandlerConfigsOnPublishIntegration {
-    /**
-     * @return Unique name of the data source that has been configured on the API.
-     * 
-     */
     private String dataSourceName;
-    /**
-     * @return Configuration for a Lambda data source. See Lambda Config below.
-     * 
-     */
     private @Nullable ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig lambdaConfig;
 
     private ChannelNamespaceHandlerConfigsOnPublishIntegration() {}
-    /**
-     * @return Unique name of the data source that has been configured on the API.
-     * 
-     */
     public String dataSourceName() {
         return this.dataSourceName;
     }
-    /**
-     * @return Configuration for a Lambda data source. See Lambda Config below.
-     * 
-     */
     public Optional<ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig> lambdaConfig() {
         return Optional.ofNullable(this.lambdaConfig);
     }

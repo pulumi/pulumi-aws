@@ -9,149 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI Image Version resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.ImageVersion("example", new()
-    ///     {
-    ///         ImageName = test.Id,
-    ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Aliases
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Sagemaker.ImageVersion("test", new()
-    ///     {
-    ///         ImageName = testAwsSagemakerImage.Id,
-    ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
-    ///         Aliases = new[]
-    ///         {
-    ///             "latest",
-    ///             "stable",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/imageVersion:ImageVersion")]
     public partial class ImageVersion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of aliases for the image version.
-        /// </summary>
         [Output("aliases")]
         public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry path of the container image on which this image version is based.
-        /// </summary>
         [Output("baseImage")]
         public Output<string> BaseImage { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry path of the container image that contains this image version.
-        /// </summary>
         [Output("containerImage")]
         public Output<string> ContainerImage { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates Horovod compatibility.
-        /// </summary>
         [Output("horovod")]
         public Output<bool?> Horovod { get; private set; } = null!;
 
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the image. Must be unique to your account.
-        /// </summary>
         [Output("imageName")]
         public Output<string> ImageName { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
-        /// </summary>
         [Output("jobType")]
         public Output<string?> JobType { get; private set; } = null!;
 
-        /// <summary>
-        /// The machine learning framework vended in the image version.
-        /// </summary>
         [Output("mlFramework")]
         public Output<string?> MlFramework { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
-        /// </summary>
         [Output("processor")]
         public Output<string?> Processor { get; private set; } = null!;
 
-        /// <summary>
-        /// The supported programming language and its version.
-        /// </summary>
         [Output("programmingLang")]
         public Output<string?> ProgrammingLang { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The maintainer description of the image version.
-        /// </summary>
         [Output("releaseNotes")]
         public Output<string?> ReleaseNotes { get; private set; } = null!;
 
-        /// <summary>
-        /// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
-        /// </summary>
         [Output("vendorGuidance")]
         public Output<string?> VendorGuidance { get; private set; } = null!;
 
-        /// <summary>
-        /// The version of the image. If not specified, the latest version is described.
-        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -203,73 +105,39 @@ namespace Pulumi.Aws.Sagemaker
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
-
-        /// <summary>
-        /// A list of aliases for the image version.
-        /// </summary>
         public InputList<string> Aliases
         {
             get => _aliases ?? (_aliases = new InputList<string>());
             set => _aliases = value;
         }
 
-        /// <summary>
-        /// The registry path of the container image on which this image version is based.
-        /// </summary>
         [Input("baseImage", required: true)]
         public Input<string> BaseImage { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates Horovod compatibility.
-        /// </summary>
         [Input("horovod")]
         public Input<bool>? Horovod { get; set; }
 
-        /// <summary>
-        /// The name of the image. Must be unique to your account.
-        /// </summary>
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
-        /// </summary>
         [Input("jobType")]
         public Input<string>? JobType { get; set; }
 
-        /// <summary>
-        /// The machine learning framework vended in the image version.
-        /// </summary>
         [Input("mlFramework")]
         public Input<string>? MlFramework { get; set; }
 
-        /// <summary>
-        /// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
-        /// </summary>
         [Input("processor")]
         public Input<string>? Processor { get; set; }
 
-        /// <summary>
-        /// The supported programming language and its version.
-        /// </summary>
         [Input("programmingLang")]
         public Input<string>? ProgrammingLang { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The maintainer description of the image version.
-        /// </summary>
         [Input("releaseNotes")]
         public Input<string>? ReleaseNotes { get; set; }
 
-        /// <summary>
-        /// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
-        /// </summary>
         [Input("vendorGuidance")]
         public Input<string>? VendorGuidance { get; set; }
 
@@ -283,94 +151,51 @@ namespace Pulumi.Aws.Sagemaker
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
-
-        /// <summary>
-        /// A list of aliases for the image version.
-        /// </summary>
         public InputList<string> Aliases
         {
             get => _aliases ?? (_aliases = new InputList<string>());
             set => _aliases = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The registry path of the container image on which this image version is based.
-        /// </summary>
         [Input("baseImage")]
         public Input<string>? BaseImage { get; set; }
 
-        /// <summary>
-        /// The registry path of the container image that contains this image version.
-        /// </summary>
         [Input("containerImage")]
         public Input<string>? ContainerImage { get; set; }
 
-        /// <summary>
-        /// Indicates Horovod compatibility.
-        /// </summary>
         [Input("horovod")]
         public Input<bool>? Horovod { get; set; }
 
         [Input("imageArn")]
         public Input<string>? ImageArn { get; set; }
 
-        /// <summary>
-        /// The name of the image. Must be unique to your account.
-        /// </summary>
         [Input("imageName")]
         public Input<string>? ImageName { get; set; }
 
-        /// <summary>
-        /// Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
-        /// </summary>
         [Input("jobType")]
         public Input<string>? JobType { get; set; }
 
-        /// <summary>
-        /// The machine learning framework vended in the image version.
-        /// </summary>
         [Input("mlFramework")]
         public Input<string>? MlFramework { get; set; }
 
-        /// <summary>
-        /// Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
-        /// </summary>
         [Input("processor")]
         public Input<string>? Processor { get; set; }
 
-        /// <summary>
-        /// The supported programming language and its version.
-        /// </summary>
         [Input("programmingLang")]
         public Input<string>? ProgrammingLang { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The maintainer description of the image version.
-        /// </summary>
         [Input("releaseNotes")]
         public Input<string>? ReleaseNotes { get; set; }
 
-        /// <summary>
-        /// The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
-        /// </summary>
         [Input("vendorGuidance")]
         public Input<string>? VendorGuidance { get; set; }
 
-        /// <summary>
-        /// The version of the image. If not specified, the latest version is described.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

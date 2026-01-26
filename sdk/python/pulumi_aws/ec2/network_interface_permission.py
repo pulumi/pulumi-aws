@@ -28,10 +28,6 @@ class NetworkInterfacePermissionArgs:
                  timeouts: Optional[pulumi.Input['NetworkInterfacePermissionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfacePermission resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The Amazon Web Services account ID.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface.
-        :param pulumi.Input[_builtins.str] permission: The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
@@ -44,9 +40,6 @@ class NetworkInterfacePermissionArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Web Services account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -56,9 +49,6 @@ class NetworkInterfacePermissionArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -68,9 +58,6 @@ class NetworkInterfacePermissionArgs:
     @_builtins.property
     @pulumi.getter
     def permission(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -80,9 +67,6 @@ class NetworkInterfacePermissionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -110,11 +94,6 @@ class _NetworkInterfacePermissionState:
                  timeouts: Optional[pulumi.Input['NetworkInterfacePermissionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NetworkInterfacePermission resources.
-        :param pulumi.Input[_builtins.str] aws_account_id: The Amazon Web Services account ID.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface.
-        :param pulumi.Input[_builtins.str] network_interface_permission_id: ENI permission ID.
-        :param pulumi.Input[_builtins.str] permission: The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -132,9 +111,6 @@ class _NetworkInterfacePermissionState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Web Services account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -144,9 +120,6 @@ class _NetworkInterfacePermissionState:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -156,9 +129,6 @@ class _NetworkInterfacePermissionState:
     @_builtins.property
     @pulumi.getter(name="networkInterfacePermissionId")
     def network_interface_permission_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ENI permission ID.
-        """
         return pulumi.get(self, "network_interface_permission_id")
 
     @network_interface_permission_id.setter
@@ -168,9 +138,6 @@ class _NetworkInterfacePermissionState:
     @_builtins.property
     @pulumi.getter
     def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -180,9 +147,6 @@ class _NetworkInterfacePermissionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -212,42 +176,9 @@ class NetworkInterfacePermission(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Grant cross-account access to an Elastic network interface (ENI).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NetworkInterface("example",
-            subnet_id=example_aws_subnet["id"],
-            private_ips=["10.0.0.50"],
-            security_groups=[example_aws_security_group["id"]],
-            attachments=[{
-                "instance": example_aws_instance["id"],
-                "device_index": 1,
-            }])
-        example_network_interface_permission = aws.ec2.NetworkInterfacePermission("example",
-            network_interface_id=example.id,
-            aws_account_id="123456789012",
-            permission="INSTANCE-ATTACH")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Interface Permissions using the `network_interface_permission_id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed
-        ```
-
+        Create a NetworkInterfacePermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The Amazon Web Services account ID.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface.
-        :param pulumi.Input[_builtins.str] permission: The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -256,36 +187,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
                  args: NetworkInterfacePermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Grant cross-account access to an Elastic network interface (ENI).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NetworkInterface("example",
-            subnet_id=example_aws_subnet["id"],
-            private_ips=["10.0.0.50"],
-            security_groups=[example_aws_security_group["id"]],
-            attachments=[{
-                "instance": example_aws_instance["id"],
-                "device_index": 1,
-            }])
-        example_network_interface_permission = aws.ec2.NetworkInterfacePermission("example",
-            network_interface_id=example.id,
-            aws_account_id="123456789012",
-            permission="INSTANCE-ATTACH")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Interface Permissions using the `network_interface_permission_id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed
-        ```
-
+        Create a NetworkInterfacePermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkInterfacePermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -350,11 +252,6 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The Amazon Web Services account ID.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface.
-        :param pulumi.Input[_builtins.str] network_interface_permission_id: ENI permission ID.
-        :param pulumi.Input[_builtins.str] permission: The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -371,41 +268,26 @@ class NetworkInterfacePermission(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Web Services account ID.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfacePermissionId")
     def network_interface_permission_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ENI permission ID.
-        """
         return pulumi.get(self, "network_interface_permission_id")
 
     @_builtins.property
     @pulumi.getter
     def permission(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-        """
         return pulumi.get(self, "permission")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

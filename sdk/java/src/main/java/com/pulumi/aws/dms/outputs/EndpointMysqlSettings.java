@@ -13,125 +13,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointMysqlSettings {
-    /**
-     * @return Script to run immediately after AWS DMS connects to the endpoint.
-     * 
-     */
     private @Nullable String afterConnectScript;
-    /**
-     * @return Authentication method to use. Valid values: `password`, `iam`.
-     * 
-     */
     private @Nullable String authenticationMethod;
-    /**
-     * @return Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
-     * 
-     */
     private @Nullable Boolean cleanSourceMetadataOnMismatch;
-    /**
-     * @return Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
-     * 
-     */
     private @Nullable Integer eventsPollInterval;
-    /**
-     * @return Client statement timeout (in seconds) for a MySQL source endpoint.
-     * 
-     */
     private @Nullable Integer executeTimeout;
-    /**
-     * @return Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
-     * 
-     */
     private @Nullable Integer maxFileSize;
-    /**
-     * @return Number of threads to use to load the data into the MySQL-compatible target database.
-     * 
-     */
     private @Nullable Integer parallelLoadThreads;
-    /**
-     * @return Time zone for the source MySQL database.
-     * 
-     */
     private @Nullable String serverTimezone;
-    /**
-     * @return ARN of the IAM role to authenticate when connecting to the endpoint.
-     * 
-     */
     private @Nullable String serviceAccessRoleArn;
-    /**
-     * @return Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
-     * 
-     */
     private @Nullable String targetDbType;
 
     private EndpointMysqlSettings() {}
-    /**
-     * @return Script to run immediately after AWS DMS connects to the endpoint.
-     * 
-     */
     public Optional<String> afterConnectScript() {
         return Optional.ofNullable(this.afterConnectScript);
     }
-    /**
-     * @return Authentication method to use. Valid values: `password`, `iam`.
-     * 
-     */
     public Optional<String> authenticationMethod() {
         return Optional.ofNullable(this.authenticationMethod);
     }
-    /**
-     * @return Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
-     * 
-     */
     public Optional<Boolean> cleanSourceMetadataOnMismatch() {
         return Optional.ofNullable(this.cleanSourceMetadataOnMismatch);
     }
-    /**
-     * @return Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
-     * 
-     */
     public Optional<Integer> eventsPollInterval() {
         return Optional.ofNullable(this.eventsPollInterval);
     }
-    /**
-     * @return Client statement timeout (in seconds) for a MySQL source endpoint.
-     * 
-     */
     public Optional<Integer> executeTimeout() {
         return Optional.ofNullable(this.executeTimeout);
     }
-    /**
-     * @return Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
-     * 
-     */
     public Optional<Integer> maxFileSize() {
         return Optional.ofNullable(this.maxFileSize);
     }
-    /**
-     * @return Number of threads to use to load the data into the MySQL-compatible target database.
-     * 
-     */
     public Optional<Integer> parallelLoadThreads() {
         return Optional.ofNullable(this.parallelLoadThreads);
     }
-    /**
-     * @return Time zone for the source MySQL database.
-     * 
-     */
     public Optional<String> serverTimezone() {
         return Optional.ofNullable(this.serverTimezone);
     }
-    /**
-     * @return ARN of the IAM role to authenticate when connecting to the endpoint.
-     * 
-     */
     public Optional<String> serviceAccessRoleArn() {
         return Optional.ofNullable(this.serviceAccessRoleArn);
     }
-    /**
-     * @return Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
-     * 
-     */
     public Optional<String> targetDbType() {
         return Optional.ofNullable(this.targetDbType);
     }

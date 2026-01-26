@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
-    /**
-     * @return Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
-     * 
-     */
     private String type;
-    /**
-     * @return Defines the capacity size, either as a number of instances or a capacity percentage.
-     * 
-     */
     private Integer value;
 
     private EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize() {}
-    /**
-     * @return Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Defines the capacity size, either as a number of instances or a capacity percentage.
-     * 
-     */
     public Integer value() {
         return this.value;
     }

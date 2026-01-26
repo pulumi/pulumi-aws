@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to retrieve information about a CloudFront connection group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getConnectionGroup({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
- */
 export function getConnectionGroup(args?: GetConnectionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionGroupResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,13 +17,7 @@ export function getConnectionGroup(args?: GetConnectionGroupArgs, opts?: pulumi.
  * A collection of arguments for invoking getConnectionGroup.
  */
 export interface GetConnectionGroupArgs {
-    /**
-     * Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-     */
     id?: string;
-    /**
-     * Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-     */
     routingEndpoint?: string;
 }
 
@@ -45,60 +25,19 @@ export interface GetConnectionGroupArgs {
  * A collection of values returned by getConnectionGroup.
  */
 export interface GetConnectionGroupResult {
-    /**
-     * ID of the anycast IP list associated with this connection group, if any.
-     */
     readonly anycastIpListId: string;
-    /**
-     * ARN (Amazon Resource Name) for the connection group.
-     */
     readonly arn: string;
-    /**
-     * Whether the connection group is enabled.
-     */
     readonly enabled: boolean;
-    /**
-     * Current version of the connection group's information. For example:
-     * `E2QWRUHAPOMQZL`.
-     */
     readonly etag: string;
     readonly id: string;
     readonly ipv6Enabled: boolean;
-    /**
-     * Whether the connection group is the default connection group for the distribution tenants.
-     */
     readonly isDefault: boolean;
-    /**
-     * Date and time the connection group was last modified.
-     */
     readonly lastModifiedTime: string;
-    /**
-     * name of the connection group.
-     */
     readonly name: string;
     readonly routingEndpoint: string;
-    /**
-     * Current status of the connection group. `Deployed` if the
-     * connection group's information is fully propagated throughout the Amazon
-     * CloudFront system.
-     */
     readonly status: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to retrieve information about a CloudFront connection group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getConnectionGroup({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
- */
 export function getConnectionGroupOutput(args?: GetConnectionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionGroupResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -112,12 +51,6 @@ export function getConnectionGroupOutput(args?: GetConnectionGroupOutputArgs, op
  * A collection of arguments for invoking getConnectionGroup.
  */
 export interface GetConnectionGroupOutputArgs {
-    /**
-     * Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-     */
     routingEndpoint?: pulumi.Input<string>;
 }

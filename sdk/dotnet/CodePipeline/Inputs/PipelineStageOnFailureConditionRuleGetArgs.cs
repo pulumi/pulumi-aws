@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     {
         [Input("commands")]
         private InputList<string>? _commands;
-
-        /// <summary>
-        /// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("configuration")]
         private InputMap<string>? _configuration;
-
-        /// <summary>
-        /// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-        /// </summary>
         public InputMap<string> Configuration
         {
             get => _configuration ?? (_configuration = new InputMap<string>());
@@ -38,43 +30,24 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("inputArtifacts")]
         private InputList<string>? _inputArtifacts;
-
-        /// <summary>
-        /// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-        /// </summary>
         public InputList<string> InputArtifacts
         {
             get => _inputArtifacts ?? (_inputArtifacts = new InputList<string>());
             set => _inputArtifacts = value;
         }
 
-        /// <summary>
-        /// The name of the rule that is created for the condition, such as `VariableCheck`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The Region for the condition associated with the rule.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The pipeline role ARN associated with the rule.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// The ID for the rule type, which is made up of the combined values for `Category`, `Owner`, `Provider`, and `Version`. Defined as an `RuleTypeId` block below.
-        /// </summary>
         [Input("ruleTypeId", required: true)]
         public Input<Inputs.PipelineStageOnFailureConditionRuleRuleTypeIdGetArgs> RuleTypeId { get; set; } = null!;
 
-        /// <summary>
-        /// The action timeout for the rule.
-        /// </summary>
         [Input("timeoutInMinutes")]
         public Input<int>? TimeoutInMinutes { get; set; }
 

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice {
-    /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
-     * 
-     */
     private String containerPath;
-    /**
-     * @return The path for the device on the host container instance.
-     * 
-     */
     private String hostPath;
-    /**
-     * @return The explicit permissions to provide to the container for the device.
-     * 
-     */
     private List<String> permissions;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice() {}
-    /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
-     * 
-     */
     public String containerPath() {
         return this.containerPath;
     }
-    /**
-     * @return The path for the device on the host container instance.
-     * 
-     */
     public String hostPath() {
         return this.hostPath;
     }
-    /**
-     * @return The explicit permissions to provide to the container for the device.
-     * 
-     */
     public List<String> permissions() {
         return this.permissions;
     }

@@ -17,220 +17,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.BlockPublicAccessConfiguration;
- * import com.pulumi.aws.emr.BlockPublicAccessConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
- *             .blockPublicSecurityGroupRules(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Default Configuration
- * 
- * By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.BlockPublicAccessConfiguration;
- * import com.pulumi.aws.emr.BlockPublicAccessConfigurationArgs;
- * import com.pulumi.aws.emr.inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
- *             .blockPublicSecurityGroupRules(true)
- *             .permittedPublicSecurityGroupRuleRanges(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
- *                 .minRange(22)
- *                 .maxRange(22)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * &gt; **NOTE:** If an `aws.emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
- * 
- * ### Multiple Permitted Public Security Group Rule Ranges
- * 
- * The resource permits specification of multiple `permittedPublicSecurityGroupRuleRange` blocks.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.BlockPublicAccessConfiguration;
- * import com.pulumi.aws.emr.BlockPublicAccessConfigurationArgs;
- * import com.pulumi.aws.emr.inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
- *             .blockPublicSecurityGroupRules(true)
- *             .permittedPublicSecurityGroupRuleRanges(            
- *                 BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
- *                     .minRange(22)
- *                     .maxRange(22)
- *                     .build(),
- *                 BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
- *                     .minRange(100)
- *                     .maxRange(101)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Disabling Block Public Access
- * 
- * To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.BlockPublicAccessConfiguration;
- * import com.pulumi.aws.emr.BlockPublicAccessConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
- *             .blockPublicSecurityGroupRules(false)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
- * 
- * ```sh
- * $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
- * ```
- * 
- */
 @ResourceType(type="aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")
 public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Enable or disable EMR Block Public Access.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="blockPublicSecurityGroupRules", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> blockPublicSecurityGroupRules;
 
-    /**
-     * @return Enable or disable EMR Block Public Access.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Boolean> blockPublicSecurityGroupRules() {
         return this.blockPublicSecurityGroupRules;
     }
-    /**
-     * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
-     * 
-     */
     @Export(name="permittedPublicSecurityGroupRuleRanges", refs={List.class,BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> permittedPublicSecurityGroupRuleRanges;
 
-    /**
-     * @return Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
-     * 
-     */
     public Output<Optional<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>>> permittedPublicSecurityGroupRuleRanges() {
         return Codegen.optional(this.permittedPublicSecurityGroupRuleRanges);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

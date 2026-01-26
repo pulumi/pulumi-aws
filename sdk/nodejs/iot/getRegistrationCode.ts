@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Gets a registration code used to register a CA certificate with AWS IoT.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const example = aws.iot.getRegistrationCode({});
- * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.CertRequest("verification", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: verification.privateKeyPem,
- *     subject: [{
- *         commonName: example.then(example => example.registrationCode),
- *     }],
- * });
- * ```
- */
 export function getRegistrationCode(args?: GetRegistrationCodeArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationCodeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,9 +16,6 @@ export function getRegistrationCode(args?: GetRegistrationCodeArgs, opts?: pulum
  * A collection of arguments for invoking getRegistrationCode.
  */
 export interface GetRegistrationCodeArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -52,32 +28,8 @@ export interface GetRegistrationCodeResult {
      */
     readonly id: string;
     readonly region: string;
-    /**
-     * The CA certificate registration code.
-     */
     readonly registrationCode: string;
 }
-/**
- * Gets a registration code used to register a CA certificate with AWS IoT.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const example = aws.iot.getRegistrationCode({});
- * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.CertRequest("verification", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: verification.privateKeyPem,
- *     subject: [{
- *         commonName: example.then(example => example.registrationCode),
- *     }],
- * });
- * ```
- */
 export function getRegistrationCodeOutput(args?: GetRegistrationCodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationCodeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,8 +42,5 @@ export function getRegistrationCodeOutput(args?: GetRegistrationCodeOutputArgs, 
  * A collection of arguments for invoking getRegistrationCode.
  */
 export interface GetRegistrationCodeOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

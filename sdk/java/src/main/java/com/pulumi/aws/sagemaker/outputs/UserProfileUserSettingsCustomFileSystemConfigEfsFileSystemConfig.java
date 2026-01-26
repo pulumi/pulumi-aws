@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     private String fileSystemId;
-    /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-     * 
-     */
     private @Nullable String fileSystemPath;
 
     private UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig() {}
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-     * 
-     */
     public Optional<String> fileSystemPath() {
         return Optional.ofNullable(this.fileSystemPath);
     }

@@ -13,46 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateBlockDeviceMappingEbs
     {
-        /// <summary>
-        /// Whether the volume should be destroyed on instance termination.
-        /// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
-        /// </summary>
         public readonly string? DeleteOnTermination;
-        /// <summary>
-        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
-        /// Cannot be used with `SnapshotId`.
-        /// </summary>
         public readonly string? Encrypted;
-        /// <summary>
-        /// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `VolumeType` of `"io1/io2/gp3"`.
-        /// </summary>
         public readonly int? Iops;
-        /// <summary>
-        /// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
-        /// `Encrypted` must be set to `True` when this is set.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
         public readonly string? SnapshotId;
-        /// <summary>
-        /// The throughput to provision for a `Gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
-        /// </summary>
         public readonly int? Throughput;
-        /// <summary>
-        /// The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
-        /// </summary>
         public readonly int? VolumeInitializationRate;
-        /// <summary>
-        /// The size of the volume in gigabytes.
-        /// </summary>
         public readonly int? VolumeSize;
-        /// <summary>
-        /// The volume type.
-        /// Can be one of `Standard`, `Gp2`, `Gp3`, `Io1`, `Io2`, `Sc1` or `St1`.
-        /// </summary>
         public readonly string? VolumeType;
 
         [OutputConstructor]

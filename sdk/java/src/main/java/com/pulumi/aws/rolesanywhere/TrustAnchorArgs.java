@@ -21,32 +21,16 @@ public final class TrustAnchorArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TrustAnchorArgs Empty = new TrustAnchorArgs();
 
-    /**
-     * Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The name of the Trust Anchor.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Trust Anchor.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -58,32 +42,16 @@ public final class TrustAnchorArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.notificationSettings);
     }
 
-    /**
-     * The source of trust, documented below
-     * 
-     */
     @Import(name="source", required=true)
     private Output<TrustAnchorSourceArgs> source;
 
-    /**
-     * @return The source of trust, documented below
-     * 
-     */
     public Output<TrustAnchorSourceArgs> source() {
         return this.source;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -116,44 +84,20 @@ public final class TrustAnchorArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TrustAnchorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether or not the Trust Anchor should be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether or not the Trust Anchor should be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param name The name of the Trust Anchor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Trust Anchor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -171,44 +115,20 @@ public final class TrustAnchorArgs extends com.pulumi.resources.ResourceArgs {
             return notificationSettings(List.of(notificationSettings));
         }
 
-        /**
-         * @param source The source of trust, documented below
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<TrustAnchorSourceArgs> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source The source of trust, documented below
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(TrustAnchorSourceArgs source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventConnectionAuthParametersOauthClientParametersArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
-
-        /// <summary>
-        /// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;

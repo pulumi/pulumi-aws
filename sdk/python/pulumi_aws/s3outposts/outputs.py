@@ -39,18 +39,12 @@ class EndpointNetworkInterface(dict):
 
     def __init__(__self__, *,
                  network_interface_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str network_interface_id: Identifier of the Elastic Network Interface (ENI).
-        """
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[_builtins.str]:
-        """
-        Identifier of the Elastic Network Interface (ENI).
-        """
         return pulumi.get(self, "network_interface_id")
 
 

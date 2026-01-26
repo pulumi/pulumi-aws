@@ -15,17 +15,9 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
 
     public static final FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs Empty = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs();
 
-    /**
-     * Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-     * 
-     */
     @Import(name="dimensions", required=true)
     private Output<List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>> dimensions;
 
-    /**
-     * @return Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-     * 
-     */
     public Output<List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>> dimensions() {
         return this.dimensions;
     }
@@ -54,33 +46,15 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
             $ = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensions Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(Output<List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param dimensions Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
         }

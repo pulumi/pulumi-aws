@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Eks.Inputs
     {
         [Input("identities")]
         private InputList<Inputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentityGetArgs>? _identities;
-
-        /// <summary>
-        /// List of identities. See `Identity` below.
-        /// </summary>
         public InputList<Inputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentityGetArgs> Identities
         {
             get => _identities ?? (_identities = new InputList<Inputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentityGetArgs>());
             set => _identities = value;
         }
 
-        /// <summary>
-        /// ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-        /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 

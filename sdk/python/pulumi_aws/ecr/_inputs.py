@@ -388,13 +388,7 @@ class PolicyDocumentArgs:
 if not MYPY:
     class RegistryScanningConfigurationRuleArgsDict(TypedDict):
         repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgsDict']]]
-        """
-        One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
-        """
         scan_frequency: pulumi.Input[_builtins.str]
-        """
-        The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-        """
 elif False:
     RegistryScanningConfigurationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -403,19 +397,12 @@ class RegistryScanningConfigurationRuleArgs:
     def __init__(__self__, *,
                  repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]],
                  scan_frequency: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
-        :param pulumi.Input[_builtins.str] scan_frequency: The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-        """
         pulumi.set(__self__, "repository_filters", repository_filters)
         pulumi.set(__self__, "scan_frequency", scan_frequency)
 
     @_builtins.property
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]]:
-        """
-        One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
-        """
         return pulumi.get(self, "repository_filters")
 
     @repository_filters.setter
@@ -425,9 +412,6 @@ class RegistryScanningConfigurationRuleArgs:
     @_builtins.property
     @pulumi.getter(name="scanFrequency")
     def scan_frequency(self) -> pulumi.Input[_builtins.str]:
-        """
-        The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-        """
         return pulumi.get(self, "scan_frequency")
 
     @scan_frequency.setter
@@ -472,9 +456,6 @@ class RegistryScanningConfigurationRuleRepositoryFilterArgs:
 if not MYPY:
     class ReplicationConfigurationReplicationConfigurationArgsDict(TypedDict):
         rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgsDict']]]
-        """
-        The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-        """
 elif False:
     ReplicationConfigurationReplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -482,17 +463,11 @@ elif False:
 class ReplicationConfigurationReplicationConfigurationArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-        """
         pulumi.set(__self__, "rules", rules)
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]]:
-        """
-        The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -503,13 +478,7 @@ class ReplicationConfigurationReplicationConfigurationArgs:
 if not MYPY:
     class ReplicationConfigurationReplicationConfigurationRuleArgsDict(TypedDict):
         destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgsDict']]]
-        """
-        the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-        """
         repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgsDict']]]]
-        """
-        filters for a replication rule. See Repository Filter.
-        """
 elif False:
     ReplicationConfigurationReplicationConfigurationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -518,10 +487,6 @@ class ReplicationConfigurationReplicationConfigurationRuleArgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]],
                  repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]] repository_filters: filters for a replication rule. See Repository Filter.
-        """
         pulumi.set(__self__, "destinations", destinations)
         if repository_filters is not None:
             pulumi.set(__self__, "repository_filters", repository_filters)
@@ -529,9 +494,6 @@ class ReplicationConfigurationReplicationConfigurationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]:
-        """
-        the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -541,9 +503,6 @@ class ReplicationConfigurationReplicationConfigurationRuleArgs:
     @_builtins.property
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]]:
-        """
-        filters for a replication rule. See Repository Filter.
-        """
         return pulumi.get(self, "repository_filters")
 
     @repository_filters.setter
@@ -554,13 +513,7 @@ class ReplicationConfigurationReplicationConfigurationRuleArgs:
 if not MYPY:
     class ReplicationConfigurationReplicationConfigurationRuleDestinationArgsDict(TypedDict):
         region: pulumi.Input[_builtins.str]
-        """
-        A Region to replicate to.
-        """
         registry_id: pulumi.Input[_builtins.str]
-        """
-        The account ID of the destination registry to replicate to.
-        """
 elif False:
     ReplicationConfigurationReplicationConfigurationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -569,19 +522,12 @@ class ReplicationConfigurationReplicationConfigurationRuleDestinationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
                  registry_id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] region: A Region to replicate to.
-        :param pulumi.Input[_builtins.str] registry_id: The account ID of the destination registry to replicate to.
-        """
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "registry_id", registry_id)
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[_builtins.str]:
-        """
-        A Region to replicate to.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -591,9 +537,6 @@ class ReplicationConfigurationReplicationConfigurationRuleDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The account ID of the destination registry to replicate to.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -604,13 +547,7 @@ class ReplicationConfigurationReplicationConfigurationRuleDestinationArgs:
 if not MYPY:
     class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgsDict(TypedDict):
         filter: pulumi.Input[_builtins.str]
-        """
-        The repository filter details.
-        """
         filter_type: pulumi.Input[_builtins.str]
-        """
-        The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-        """
 elif False:
     ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -619,19 +556,12 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[_builtins.str],
                  filter_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] filter: The repository filter details.
-        :param pulumi.Input[_builtins.str] filter_type: The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-        """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The repository filter details.
-        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -641,9 +571,6 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs:
     @_builtins.property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-        """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
@@ -654,13 +581,7 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs:
 if not MYPY:
     class RepositoryCreationTemplateEncryptionConfigurationArgsDict(TypedDict):
         encryption_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        """
         kms_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
 elif False:
     RepositoryCreationTemplateEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -669,10 +590,6 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        :param pulumi.Input[_builtins.str] kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -681,9 +598,6 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -693,9 +607,6 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -706,13 +617,7 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
 if not MYPY:
     class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict(TypedDict):
         filter: pulumi.Input[_builtins.str]
-        """
-        The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-        """
         filter_type: pulumi.Input[_builtins.str]
-        """
-        The type of filter to use. Must be `WILDCARD`.
-        """
 elif False:
     RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -721,19 +626,12 @@ class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[_builtins.str],
                  filter_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] filter: The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-        :param pulumi.Input[_builtins.str] filter_type: The type of filter to use. Must be `WILDCARD`.
-        """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -743,9 +641,6 @@ class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
     @_builtins.property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of filter to use. Must be `WILDCARD`.
-        """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
@@ -756,13 +651,7 @@ class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
 if not MYPY:
     class RepositoryEncryptionConfigurationArgsDict(TypedDict):
         encryption_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        """
         kms_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
 elif False:
     RepositoryEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -771,10 +660,6 @@ class RepositoryEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        :param pulumi.Input[_builtins.str] kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -783,9 +668,6 @@ class RepositoryEncryptionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -795,9 +677,6 @@ class RepositoryEncryptionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -808,9 +687,6 @@ class RepositoryEncryptionConfigurationArgs:
 if not MYPY:
     class RepositoryImageScanningConfigurationArgsDict(TypedDict):
         scan_on_push: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        """
 elif False:
     RepositoryImageScanningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -818,17 +694,11 @@ elif False:
 class RepositoryImageScanningConfigurationArgs:
     def __init__(__self__, *,
                  scan_on_push: pulumi.Input[_builtins.bool]):
-        """
-        :param pulumi.Input[_builtins.bool] scan_on_push: Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        """
         pulumi.set(__self__, "scan_on_push", scan_on_push)
 
     @_builtins.property
     @pulumi.getter(name="scanOnPush")
     def scan_on_push(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        """
         return pulumi.get(self, "scan_on_push")
 
     @scan_on_push.setter
@@ -839,13 +709,7 @@ class RepositoryImageScanningConfigurationArgs:
 if not MYPY:
     class RepositoryImageTagMutabilityExclusionFilterArgsDict(TypedDict):
         filter: pulumi.Input[_builtins.str]
-        """
-        The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-        """
         filter_type: pulumi.Input[_builtins.str]
-        """
-        The type of filter to use. Must be `WILDCARD`.
-        """
 elif False:
     RepositoryImageTagMutabilityExclusionFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -854,19 +718,12 @@ class RepositoryImageTagMutabilityExclusionFilterArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[_builtins.str],
                  filter_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] filter: The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-        :param pulumi.Input[_builtins.str] filter_type: The type of filter to use. Must be `WILDCARD`.
-        """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -876,9 +733,6 @@ class RepositoryImageTagMutabilityExclusionFilterArgs:
     @_builtins.property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of filter to use. Must be `WILDCARD`.
-        """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
@@ -889,21 +743,9 @@ class RepositoryImageTagMutabilityExclusionFilterArgs:
 if not MYPY:
     class GetLifecyclePolicyDocumentRuleArgsDict(TypedDict):
         priority: _builtins.int
-        """
-        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of `any` must have the highest value for `priority` and be evaluated last.
-        """
         action: NotRequired['GetLifecyclePolicyDocumentRuleActionArgsDict']
-        """
-        Specifies the action to take.
-        """
         description: NotRequired[_builtins.str]
-        """
-        Describes the purpose of a rule within a lifecycle policy.
-        """
         selection: NotRequired['GetLifecyclePolicyDocumentRuleSelectionArgsDict']
-        """
-        Collects parameters describing the selection criteria for the ECR lifecycle policy:
-        """
 elif False:
     GetLifecyclePolicyDocumentRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -914,12 +756,6 @@ class GetLifecyclePolicyDocumentRuleArgs:
                  action: Optional['GetLifecyclePolicyDocumentRuleActionArgs'] = None,
                  description: Optional[_builtins.str] = None,
                  selection: Optional['GetLifecyclePolicyDocumentRuleSelectionArgs'] = None):
-        """
-        :param _builtins.int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of `any` must have the highest value for `priority` and be evaluated last.
-        :param 'GetLifecyclePolicyDocumentRuleActionArgs' action: Specifies the action to take.
-        :param _builtins.str description: Describes the purpose of a rule within a lifecycle policy.
-        :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
-        """
         pulumi.set(__self__, "priority", priority)
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -931,9 +767,6 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of `any` must have the highest value for `priority` and be evaluated last.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -943,9 +776,6 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional['GetLifecyclePolicyDocumentRuleActionArgs']:
-        """
-        Specifies the action to take.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -955,9 +785,6 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Describes the purpose of a rule within a lifecycle policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -967,9 +794,6 @@ class GetLifecyclePolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def selection(self) -> Optional['GetLifecyclePolicyDocumentRuleSelectionArgs']:
-        """
-        Collects parameters describing the selection criteria for the ECR lifecycle policy:
-        """
         return pulumi.get(self, "selection")
 
     @selection.setter
@@ -980,10 +804,6 @@ class GetLifecyclePolicyDocumentRuleArgs:
 if not MYPY:
     class GetLifecyclePolicyDocumentRuleActionArgsDict(TypedDict):
         type: _builtins.str
-        """
-        Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-        * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-        """
         target_storage_class: NotRequired[_builtins.str]
 elif False:
     GetLifecyclePolicyDocumentRuleActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -993,10 +813,6 @@ class GetLifecyclePolicyDocumentRuleActionArgs:
     def __init__(__self__, *,
                  type: _builtins.str,
                  target_storage_class: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-               * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-        """
         pulumi.set(__self__, "type", type)
         if target_storage_class is not None:
             pulumi.set(__self__, "target_storage_class", target_storage_class)
@@ -1004,10 +820,6 @@ class GetLifecyclePolicyDocumentRuleActionArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-        * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1027,33 +839,12 @@ class GetLifecyclePolicyDocumentRuleActionArgs:
 if not MYPY:
     class GetLifecyclePolicyDocumentRuleSelectionArgsDict(TypedDict):
         count_number: _builtins.int
-        """
-        Specify a count number. If the `count_type` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `count_type` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `count_type` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-        """
         count_type: _builtins.str
-        """
-        Specify a count type to apply to the images. If `count_type` is set to `imageCountMoreThan`, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
-        """
         tag_status: _builtins.str
-        """
-        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tag_prefix_list` value or a `tag_pattern_list` value. If you specify `untagged`, then you must omit both `tag_prefix_list` and `tag_pattern_list`.
-        """
         count_unit: NotRequired[_builtins.str]
-        """
-        Specify a count unit of `days` to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
-        """
         storage_class: NotRequired[_builtins.str]
-        """
-        The rule will only select images of this storage class. When using a `count_type` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `count_type` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-        """
         tag_pattern_lists: NotRequired[Sequence[_builtins.str]]
-        """
-        You must specify a comma-separated list of image tag patterns that may contain wildcards (\\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
-        """
         tag_prefix_lists: NotRequired[Sequence[_builtins.str]]
-        """
-        You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-        """
 elif False:
     GetLifecyclePolicyDocumentRuleSelectionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1067,15 +858,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
                  storage_class: Optional[_builtins.str] = None,
                  tag_pattern_lists: Optional[Sequence[_builtins.str]] = None,
                  tag_prefix_lists: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.int count_number: Specify a count number. If the `count_type` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `count_type` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `count_type` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-        :param _builtins.str count_type: Specify a count type to apply to the images. If `count_type` is set to `imageCountMoreThan`, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
-        :param _builtins.str tag_status: Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tag_prefix_list` value or a `tag_pattern_list` value. If you specify `untagged`, then you must omit both `tag_prefix_list` and `tag_pattern_list`.
-        :param _builtins.str count_unit: Specify a count unit of `days` to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
-        :param _builtins.str storage_class: The rule will only select images of this storage class. When using a `count_type` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `count_type` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-        :param Sequence[_builtins.str] tag_pattern_lists: You must specify a comma-separated list of image tag patterns that may contain wildcards (\\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
-        :param Sequence[_builtins.str] tag_prefix_lists: You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-        """
         pulumi.set(__self__, "count_number", count_number)
         pulumi.set(__self__, "count_type", count_type)
         pulumi.set(__self__, "tag_status", tag_status)
@@ -1091,9 +873,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @_builtins.property
     @pulumi.getter(name="countNumber")
     def count_number(self) -> _builtins.int:
-        """
-        Specify a count number. If the `count_type` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `count_type` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `count_type` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-        """
         return pulumi.get(self, "count_number")
 
     @count_number.setter
@@ -1103,9 +882,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @_builtins.property
     @pulumi.getter(name="countType")
     def count_type(self) -> _builtins.str:
-        """
-        Specify a count type to apply to the images. If `count_type` is set to `imageCountMoreThan`, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
-        """
         return pulumi.get(self, "count_type")
 
     @count_type.setter
@@ -1115,9 +891,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @_builtins.property
     @pulumi.getter(name="tagStatus")
     def tag_status(self) -> _builtins.str:
-        """
-        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tag_prefix_list` value or a `tag_pattern_list` value. If you specify `untagged`, then you must omit both `tag_prefix_list` and `tag_pattern_list`.
-        """
         return pulumi.get(self, "tag_status")
 
     @tag_status.setter
@@ -1127,9 +900,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @_builtins.property
     @pulumi.getter(name="countUnit")
     def count_unit(self) -> Optional[_builtins.str]:
-        """
-        Specify a count unit of `days` to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
-        """
         return pulumi.get(self, "count_unit")
 
     @count_unit.setter
@@ -1139,9 +909,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @_builtins.property
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[_builtins.str]:
-        """
-        The rule will only select images of this storage class. When using a `count_type` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `count_type` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-        """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
@@ -1151,9 +918,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @_builtins.property
     @pulumi.getter(name="tagPatternLists")
     def tag_pattern_lists(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        You must specify a comma-separated list of image tag patterns that may contain wildcards (\\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
-        """
         return pulumi.get(self, "tag_pattern_lists")
 
     @tag_pattern_lists.setter
@@ -1163,9 +927,6 @@ class GetLifecyclePolicyDocumentRuleSelectionArgs:
     @_builtins.property
     @pulumi.getter(name="tagPrefixLists")
     def tag_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-        """
         return pulumi.get(self, "tag_prefix_lists")
 
     @tag_prefix_lists.setter

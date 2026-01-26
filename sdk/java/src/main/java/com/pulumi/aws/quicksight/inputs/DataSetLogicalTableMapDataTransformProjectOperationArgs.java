@@ -15,17 +15,9 @@ public final class DataSetLogicalTableMapDataTransformProjectOperationArgs exten
 
     public static final DataSetLogicalTableMapDataTransformProjectOperationArgs Empty = new DataSetLogicalTableMapDataTransformProjectOperationArgs();
 
-    /**
-     * Projected columns.
-     * 
-     */
     @Import(name="projectedColumns", required=true)
     private Output<List<String>> projectedColumns;
 
-    /**
-     * @return Projected columns.
-     * 
-     */
     public Output<List<String>> projectedColumns() {
         return this.projectedColumns;
     }
@@ -54,33 +46,15 @@ public final class DataSetLogicalTableMapDataTransformProjectOperationArgs exten
             $ = new DataSetLogicalTableMapDataTransformProjectOperationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param projectedColumns Projected columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectedColumns(Output<List<String>> projectedColumns) {
             $.projectedColumns = projectedColumns;
             return this;
         }
 
-        /**
-         * @param projectedColumns Projected columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectedColumns(List<String> projectedColumns) {
             return projectedColumns(Output.of(projectedColumns));
         }
 
-        /**
-         * @param projectedColumns Projected columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectedColumns(String... projectedColumns) {
             return projectedColumns(List.of(projectedColumns));
         }

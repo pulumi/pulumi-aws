@@ -62,36 +62,21 @@ class GetSlotTypeResult:
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> _builtins.str:
-        """
-        Checksum identifying the version of the slot type that was created. The checksum is
-        not included as an argument because the resource will add it automatically when updating the slot type.
-        """
         return pulumi.get(self, "checksum")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Date when the slot type version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the slot type.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="enumerationValues")
     def enumeration_values(self) -> Sequence['outputs.GetSlotTypeEnumerationValueResult']:
-        """
-        Set of EnumerationValue objects that defines the values that
-        the slot type can take. Each value can have a set of synonyms, which are additional values that help
-        train the machine learning model about the values that it resolves for a slot.
-        """
         return pulumi.get(self, "enumeration_values")
 
     @_builtins.property
@@ -105,17 +90,11 @@ class GetSlotTypeResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Date when the $LATEST version of this slot type was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the slot type. The name is not case sensitive.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -126,20 +105,11 @@ class GetSlotTypeResult:
     @_builtins.property
     @pulumi.getter(name="valueSelectionStrategy")
     def value_selection_strategy(self) -> _builtins.str:
-        """
-        Determines the slot resolution strategy that Amazon Lex
-        uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-        value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-        if there is a resolution list for the slot, otherwise null is returned.
-        """
         return pulumi.get(self, "value_selection_strategy")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
-        """
-        Version of the slot type.
-        """
         return pulumi.get(self, "version")
 
 
@@ -166,22 +136,7 @@ def get_slot_type(name: Optional[_builtins.str] = None,
                   version: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSlotTypeResult:
     """
-    Provides details about a specific Amazon Lex Slot Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    flower_types = aws.lex.get_slot_type(name="FlowerTypes",
-        version="1")
-    ```
-
-
-    :param _builtins.str name: Name of the slot type. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the slot type.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -206,22 +161,7 @@ def get_slot_type_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                          version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlotTypeResult]:
     """
-    Provides details about a specific Amazon Lex Slot Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    flower_types = aws.lex.get_slot_type(name="FlowerTypes",
-        version="1")
-    ```
-
-
-    :param _builtins.str name: Name of the slot type. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the slot type.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

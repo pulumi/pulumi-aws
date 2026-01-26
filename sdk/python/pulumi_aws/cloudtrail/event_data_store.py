@@ -34,17 +34,6 @@ class EventDataStoreArgs:
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EventDataStore resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        :param pulumi.Input[_builtins.str] billing_mode: The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        :param pulumi.Input[_builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        :param pulumi.Input[_builtins.str] name: The name of the event data store.
-        :param pulumi.Input[_builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        :param pulumi.Input[_builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         if advanced_event_selectors is not None:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -72,9 +61,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter(name="advancedEventSelectors")
     def advanced_event_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]:
-        """
-        The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        """
         return pulumi.get(self, "advanced_event_selectors")
 
     @advanced_event_selectors.setter
@@ -84,9 +70,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
@@ -96,9 +79,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -108,9 +88,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter(name="multiRegionEnabled")
     def multi_region_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        """
         return pulumi.get(self, "multi_region_enabled")
 
     @multi_region_enabled.setter
@@ -120,9 +97,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the event data store.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -132,9 +106,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter(name="organizationEnabled")
     def organization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        """
         return pulumi.get(self, "organization_enabled")
 
     @organization_enabled.setter
@@ -144,9 +115,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -156,9 +124,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -168,9 +133,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter
     def suspend(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
-        """
         return pulumi.get(self, "suspend")
 
     @suspend.setter
@@ -180,9 +142,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -192,9 +151,6 @@ class EventDataStoreArgs:
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
     def termination_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
-        """
         return pulumi.get(self, "termination_protection_enabled")
 
     @termination_protection_enabled.setter
@@ -220,19 +176,6 @@ class _EventDataStoreState:
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EventDataStore resources.
-        :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        :param pulumi.Input[_builtins.str] arn: ARN of the event data store.
-        :param pulumi.Input[_builtins.str] billing_mode: The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        :param pulumi.Input[_builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        :param pulumi.Input[_builtins.str] name: The name of the event data store.
-        :param pulumi.Input[_builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        :param pulumi.Input[_builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         if advanced_event_selectors is not None:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -264,9 +207,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="advancedEventSelectors")
     def advanced_event_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]:
-        """
-        The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        """
         return pulumi.get(self, "advanced_event_selectors")
 
     @advanced_event_selectors.setter
@@ -276,9 +216,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the event data store.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -288,9 +225,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
@@ -300,9 +234,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -312,9 +243,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="multiRegionEnabled")
     def multi_region_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        """
         return pulumi.get(self, "multi_region_enabled")
 
     @multi_region_enabled.setter
@@ -324,9 +252,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the event data store.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -336,9 +261,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="organizationEnabled")
     def organization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        """
         return pulumi.get(self, "organization_enabled")
 
     @organization_enabled.setter
@@ -348,9 +270,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -360,9 +279,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -372,9 +288,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter
     def suspend(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
-        """
         return pulumi.get(self, "suspend")
 
     @suspend.setter
@@ -384,9 +297,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -396,9 +306,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -408,9 +315,6 @@ class _EventDataStoreState:
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
     def termination_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
-        """
         return pulumi.get(self, "termination_protection_enabled")
 
     @termination_protection_enabled.setter
@@ -437,86 +341,9 @@ class EventDataStore(pulumi.CustomResource):
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides a CloudTrail Event Data Store.
-
-        More information about event data stores can be found in the [Event Data Store User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html).
-
-        > **Tip:** For an organization event data store you must create this resource in the management account.
-
-        ## Example Usage
-
-        ### Basic
-
-        The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
-        ```
-
-        ### Data Event Logging
-
-        CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
-
-        - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
-
-        ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[{
-            "name": "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
-            "field_selectors": [
-                {
-                    "field": "eventCategory",
-                    "equals": ["Data"],
-                },
-                {
-                    "field": "resources.type",
-                    "equals": ["AWS::DynamoDB::Table"],
-                },
-                {
-                    "field": "eventName",
-                    "equals": ["PutItem"],
-                },
-                {
-                    "field": "resources.ARN",
-                    "equals": [table.arn],
-                },
-            ],
-        }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail event data store.
-
-        Using `pulumi import`, import event data stores using their `arn`. For example:
-
-        % pulumi import aws_cloudtrail_event_data_store.example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
-
+        Create a EventDataStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        :param pulumi.Input[_builtins.str] billing_mode: The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        :param pulumi.Input[_builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        :param pulumi.Input[_builtins.str] name: The name of the event data store.
-        :param pulumi.Input[_builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        :param pulumi.Input[_builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         ...
     @overload
@@ -525,73 +352,7 @@ class EventDataStore(pulumi.CustomResource):
                  args: Optional[EventDataStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudTrail Event Data Store.
-
-        More information about event data stores can be found in the [Event Data Store User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html).
-
-        > **Tip:** For an organization event data store you must create this resource in the management account.
-
-        ## Example Usage
-
-        ### Basic
-
-        The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
-        ```
-
-        ### Data Event Logging
-
-        CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
-
-        - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
-
-        ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[{
-            "name": "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
-            "field_selectors": [
-                {
-                    "field": "eventCategory",
-                    "equals": ["Data"],
-                },
-                {
-                    "field": "resources.type",
-                    "equals": ["AWS::DynamoDB::Table"],
-                },
-                {
-                    "field": "eventName",
-                    "equals": ["PutItem"],
-                },
-                {
-                    "field": "resources.ARN",
-                    "equals": [table.arn],
-                },
-            ],
-        }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail event data store.
-
-        Using `pulumi import`, import event data stores using their `arn`. For example:
-
-        % pulumi import aws_cloudtrail_event_data_store.example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
-
+        Create a EventDataStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventDataStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -670,19 +431,6 @@ class EventDataStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        :param pulumi.Input[_builtins.str] arn: ARN of the event data store.
-        :param pulumi.Input[_builtins.str] billing_mode: The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        :param pulumi.Input[_builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        :param pulumi.Input[_builtins.str] name: The name of the event data store.
-        :param pulumi.Input[_builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        :param pulumi.Input[_builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -706,104 +454,65 @@ class EventDataStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="advancedEventSelectors")
     def advanced_event_selectors(self) -> pulumi.Output[Sequence['outputs.EventDataStoreAdvancedEventSelector']]:
-        """
-        The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        """
         return pulumi.get(self, "advanced_event_selectors")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the event data store.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        """
         return pulumi.get(self, "billing_mode")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionEnabled")
     def multi_region_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        """
         return pulumi.get(self, "multi_region_enabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the event data store.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="organizationEnabled")
     def organization_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        """
         return pulumi.get(self, "organization_enabled")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        """
         return pulumi.get(self, "retention_period")
 
     @_builtins.property
     @pulumi.getter
     def suspend(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
-        """
         return pulumi.get(self, "suspend")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
     def termination_protection_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
-        """
         return pulumi.get(self, "termination_protection_enabled")
 

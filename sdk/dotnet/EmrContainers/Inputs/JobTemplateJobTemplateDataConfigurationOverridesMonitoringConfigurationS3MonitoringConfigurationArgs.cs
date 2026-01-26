@@ -12,9 +12,6 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon S3 destination URI for log publishing.
-        /// </summary>
         [Input("logUri", required: true)]
         public Input<string> LogUri { get; set; } = null!;
 

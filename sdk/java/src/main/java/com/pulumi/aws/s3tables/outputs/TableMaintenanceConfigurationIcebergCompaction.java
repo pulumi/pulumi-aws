@@ -11,33 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TableMaintenanceConfigurationIcebergCompaction {
-    /**
-     * @return Settings object for compaction.
-     * See `iceberg_compaction.settings` below.
-     * 
-     */
     private TableMaintenanceConfigurationIcebergCompactionSettings settings;
-    /**
-     * @return Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
-     * 
-     */
     private String status;
 
     private TableMaintenanceConfigurationIcebergCompaction() {}
-    /**
-     * @return Settings object for compaction.
-     * See `iceberg_compaction.settings` below.
-     * 
-     */
     public TableMaintenanceConfigurationIcebergCompactionSettings settings() {
         return this.settings;
     }
-    /**
-     * @return Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
-     * 
-     */
     public String status() {
         return this.status;
     }

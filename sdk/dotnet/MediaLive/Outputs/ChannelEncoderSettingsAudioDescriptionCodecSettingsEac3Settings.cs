@@ -13,44 +13,20 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings
     {
-        /// <summary>
-        /// Sets the attenuation control.
-        /// </summary>
         public readonly string? AttenuationControl;
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         public readonly double? Bitrate;
-        /// <summary>
-        /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-        /// </summary>
         public readonly string? BitstreamMode;
-        /// <summary>
-        /// Dolby Digital Plus coding mode.
-        /// </summary>
         public readonly string? CodingMode;
         public readonly string? DcFilter;
         public readonly int? Dialnorm;
-        /// <summary>
-        /// Sets the Dolby dynamic range compression profile.
-        /// </summary>
         public readonly string? DrcLine;
-        /// <summary>
-        /// Sets the profile for heavy Dolby dynamic range compression.
-        /// </summary>
         public readonly string? DrcRf;
         public readonly string? LfeControl;
-        /// <summary>
-        /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-        /// </summary>
         public readonly string? LfeFilter;
         public readonly double? LoRoCenterMixLevel;
         public readonly double? LoRoSurroundMixLevel;
         public readonly double? LtRtCenterMixLevel;
         public readonly double? LtRtSurroundMixLevel;
-        /// <summary>
-        /// Metadata control.
-        /// </summary>
         public readonly string? MetadataControl;
         public readonly string? PassthroughControl;
         public readonly string? PhaseControl;

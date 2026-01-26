@@ -20,77 +20,37 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
 
     public static final PipeLogConfigurationArgs Empty = new PipeLogConfigurationArgs();
 
-    /**
-     * Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     @Import(name="cloudwatchLogsLogDestination")
     private @Nullable Output<PipeLogConfigurationCloudwatchLogsLogDestinationArgs> cloudwatchLogsLogDestination;
 
-    /**
-     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     public Optional<Output<PipeLogConfigurationCloudwatchLogsLogDestinationArgs>> cloudwatchLogsLogDestination() {
         return Optional.ofNullable(this.cloudwatchLogsLogDestination);
     }
 
-    /**
-     * Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     @Import(name="firehoseLogDestination")
     private @Nullable Output<PipeLogConfigurationFirehoseLogDestinationArgs> firehoseLogDestination;
 
-    /**
-     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     public Optional<Output<PipeLogConfigurationFirehoseLogDestinationArgs>> firehoseLogDestination() {
         return Optional.ofNullable(this.firehoseLogDestination);
     }
 
-    /**
-     * String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-     * 
-     */
     @Import(name="includeExecutionDatas")
     private @Nullable Output<List<String>> includeExecutionDatas;
 
-    /**
-     * @return String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-     * 
-     */
     public Optional<Output<List<String>>> includeExecutionDatas() {
         return Optional.ofNullable(this.includeExecutionDatas);
     }
 
-    /**
-     * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-     * 
-     */
     @Import(name="level", required=true)
     private Output<String> level;
 
-    /**
-     * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-     * 
-     */
     public Output<String> level() {
         return this.level;
     }
 
-    /**
-     * Amazon S3 logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     @Import(name="s3LogDestination")
     private @Nullable Output<PipeLogConfigurationS3LogDestinationArgs> s3LogDestination;
 
-    /**
-     * @return Amazon S3 logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     public Optional<Output<PipeLogConfigurationS3LogDestinationArgs>> s3LogDestination() {
         return Optional.ofNullable(this.s3LogDestination);
     }
@@ -123,117 +83,51 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
             $ = new PipeLogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogsLogDestination Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsLogDestination(@Nullable Output<PipeLogConfigurationCloudwatchLogsLogDestinationArgs> cloudwatchLogsLogDestination) {
             $.cloudwatchLogsLogDestination = cloudwatchLogsLogDestination;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogsLogDestination Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsLogDestination(PipeLogConfigurationCloudwatchLogsLogDestinationArgs cloudwatchLogsLogDestination) {
             return cloudwatchLogsLogDestination(Output.of(cloudwatchLogsLogDestination));
         }
 
-        /**
-         * @param firehoseLogDestination Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseLogDestination(@Nullable Output<PipeLogConfigurationFirehoseLogDestinationArgs> firehoseLogDestination) {
             $.firehoseLogDestination = firehoseLogDestination;
             return this;
         }
 
-        /**
-         * @param firehoseLogDestination Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseLogDestination(PipeLogConfigurationFirehoseLogDestinationArgs firehoseLogDestination) {
             return firehoseLogDestination(Output.of(firehoseLogDestination));
         }
 
-        /**
-         * @param includeExecutionDatas String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeExecutionDatas(@Nullable Output<List<String>> includeExecutionDatas) {
             $.includeExecutionDatas = includeExecutionDatas;
             return this;
         }
 
-        /**
-         * @param includeExecutionDatas String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeExecutionDatas(List<String> includeExecutionDatas) {
             return includeExecutionDatas(Output.of(includeExecutionDatas));
         }
 
-        /**
-         * @param includeExecutionDatas String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeExecutionDatas(String... includeExecutionDatas) {
             return includeExecutionDatas(List.of(includeExecutionDatas));
         }
 
-        /**
-         * @param level The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder level(Output<String> level) {
             $.level = level;
             return this;
         }
 
-        /**
-         * @param level The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder level(String level) {
             return level(Output.of(level));
         }
 
-        /**
-         * @param s3LogDestination Amazon S3 logging configuration settings for the pipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3LogDestination(@Nullable Output<PipeLogConfigurationS3LogDestinationArgs> s3LogDestination) {
             $.s3LogDestination = s3LogDestination;
             return this;
         }
 
-        /**
-         * @param s3LogDestination Amazon S3 logging configuration settings for the pipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3LogDestination(PipeLogConfigurationS3LogDestinationArgs s3LogDestination) {
             return s3LogDestination(Output.of(s3LogDestination));
         }

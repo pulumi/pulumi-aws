@@ -18,156 +18,72 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceState Empty = new ServiceState();
 
-    /**
-     * ARN of the service.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the service.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Type of IAM policy. Either `NONE` or `AWS_IAM`.
-     * 
-     */
     @Import(name="authType")
     private @Nullable Output<String> authType;
 
-    /**
-     * @return Type of IAM policy. Either `NONE` or `AWS_IAM`.
-     * 
-     */
     public Optional<Output<String>> authType() {
         return Optional.ofNullable(this.authType);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the certificate.
-     * 
-     */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the certificate.
-     * 
-     */
     public Optional<Output<String>> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
 
-    /**
-     * Custom domain name of the service.
-     * 
-     */
     @Import(name="customDomainName")
     private @Nullable Output<String> customDomainName;
 
-    /**
-     * @return Custom domain name of the service.
-     * 
-     */
     public Optional<Output<String>> customDomainName() {
         return Optional.ofNullable(this.customDomainName);
     }
 
-    /**
-     * DNS name of the service.
-     * 
-     */
     @Import(name="dnsEntries")
     private @Nullable Output<List<ServiceDnsEntryArgs>> dnsEntries;
 
-    /**
-     * @return DNS name of the service.
-     * 
-     */
     public Optional<Output<List<ServiceDnsEntryArgs>>> dnsEntries() {
         return Optional.ofNullable(this.dnsEntries);
     }
 
-    /**
-     * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Status of the service.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the service.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -205,226 +121,96 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param authType Type of IAM policy. Either `NONE` or `AWS_IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(@Nullable Output<String> authType) {
             $.authType = authType;
             return this;
         }
 
-        /**
-         * @param authType Type of IAM policy. Either `NONE` or `AWS_IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
         }
 
-        /**
-         * @param certificateArn Amazon Resource Name (ARN) of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(@Nullable Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn Amazon Resource Name (ARN) of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
-        /**
-         * @param customDomainName Custom domain name of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainName(@Nullable Output<String> customDomainName) {
             $.customDomainName = customDomainName;
             return this;
         }
 
-        /**
-         * @param customDomainName Custom domain name of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainName(String customDomainName) {
             return customDomainName(Output.of(customDomainName));
         }
 
-        /**
-         * @param dnsEntries DNS name of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsEntries(@Nullable Output<List<ServiceDnsEntryArgs>> dnsEntries) {
             $.dnsEntries = dnsEntries;
             return this;
         }
 
-        /**
-         * @param dnsEntries DNS name of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsEntries(List<ServiceDnsEntryArgs> dnsEntries) {
             return dnsEntries(Output.of(dnsEntries));
         }
 
-        /**
-         * @param dnsEntries DNS name of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsEntries(ServiceDnsEntryArgs... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
         }
 
-        /**
-         * @param name Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status Status of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

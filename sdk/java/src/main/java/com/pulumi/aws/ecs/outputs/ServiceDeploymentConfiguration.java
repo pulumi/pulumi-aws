@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceDeploymentConfiguration {
-    /**
-     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-     * 
-     */
     private @Nullable String bakeTimeInMinutes;
-    /**
-     * @return Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
-     * 
-     */
     private @Nullable ServiceDeploymentConfigurationCanaryConfiguration canaryConfiguration;
-    /**
-     * @return Configuration block for lifecycle hooks that are invoked during deployments. See below.
-     * 
-     */
     private @Nullable List<ServiceDeploymentConfigurationLifecycleHook> lifecycleHooks;
-    /**
-     * @return Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
-     * 
-     */
     private @Nullable ServiceDeploymentConfigurationLinearConfiguration linearConfiguration;
-    /**
-     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-     * 
-     */
     private @Nullable String strategy;
 
     private ServiceDeploymentConfiguration() {}
-    /**
-     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-     * 
-     */
     public Optional<String> bakeTimeInMinutes() {
         return Optional.ofNullable(this.bakeTimeInMinutes);
     }
-    /**
-     * @return Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
-     * 
-     */
     public Optional<ServiceDeploymentConfigurationCanaryConfiguration> canaryConfiguration() {
         return Optional.ofNullable(this.canaryConfiguration);
     }
-    /**
-     * @return Configuration block for lifecycle hooks that are invoked during deployments. See below.
-     * 
-     */
     public List<ServiceDeploymentConfigurationLifecycleHook> lifecycleHooks() {
         return this.lifecycleHooks == null ? List.of() : this.lifecycleHooks;
     }
-    /**
-     * @return Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
-     * 
-     */
     public Optional<ServiceDeploymentConfigurationLinearConfiguration> linearConfiguration() {
         return Optional.ofNullable(this.linearConfiguration);
     }
-    /**
-     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-     * 
-     */
     public Optional<String> strategy() {
         return Optional.ofNullable(this.strategy);
     }

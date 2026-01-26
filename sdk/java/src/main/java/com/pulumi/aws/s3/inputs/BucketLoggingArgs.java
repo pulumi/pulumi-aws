@@ -16,32 +16,16 @@ public final class BucketLoggingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketLoggingArgs Empty = new BucketLoggingArgs();
 
-    /**
-     * Name of the bucket that will receive the log objects.
-     * 
-     */
     @Import(name="targetBucket", required=true)
     private Output<String> targetBucket;
 
-    /**
-     * @return Name of the bucket that will receive the log objects.
-     * 
-     */
     public Output<String> targetBucket() {
         return this.targetBucket;
     }
 
-    /**
-     * To specify a key prefix for log objects.
-     * 
-     */
     @Import(name="targetPrefix")
     private @Nullable Output<String> targetPrefix;
 
-    /**
-     * @return To specify a key prefix for log objects.
-     * 
-     */
     public Optional<Output<String>> targetPrefix() {
         return Optional.ofNullable(this.targetPrefix);
     }
@@ -71,44 +55,20 @@ public final class BucketLoggingArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BucketLoggingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetBucket Name of the bucket that will receive the log objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetBucket(Output<String> targetBucket) {
             $.targetBucket = targetBucket;
             return this;
         }
 
-        /**
-         * @param targetBucket Name of the bucket that will receive the log objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetBucket(String targetBucket) {
             return targetBucket(Output.of(targetBucket));
         }
 
-        /**
-         * @param targetPrefix To specify a key prefix for log objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetPrefix(@Nullable Output<String> targetPrefix) {
             $.targetPrefix = targetPrefix;
             return this;
         }
 
-        /**
-         * @param targetPrefix To specify a key prefix for log objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetPrefix(String targetPrefix) {
             return targetPrefix(Output.of(targetPrefix));
         }

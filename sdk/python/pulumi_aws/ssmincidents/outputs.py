@@ -60,13 +60,6 @@ class ReplicationSetRegion(dict):
                  kms_key_arn: Optional[_builtins.str] = None,
                  status: Optional[_builtins.str] = None,
                  status_message: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the Region, such as `ap-southeast-2`.
-        :param _builtins.str kms_key_arn: The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-        :param _builtins.str status: The current status of the Region.
-               * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        :param _builtins.str status_message: More information about the status of a Region.
-        """
         pulumi.set(__self__, "name", name)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -78,34 +71,21 @@ class ReplicationSetRegion(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the Region, such as `ap-southeast-2`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
-        """
-        The current status of the Region.
-        * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[_builtins.str]:
-        """
-        More information about the status of a Region.
-        """
         return pulumi.get(self, "status_message")
 
 
@@ -130,18 +110,12 @@ class ResponsePlanAction(dict):
 
     def __init__(__self__, *,
                  ssm_automations: Optional[Sequence['outputs.ResponsePlanActionSsmAutomation']] = None):
-        """
-        :param Sequence['ResponsePlanActionSsmAutomationArgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        """
         if ssm_automations is not None:
             pulumi.set(__self__, "ssm_automations", ssm_automations)
 
     @_builtins.property
     @pulumi.getter(name="ssmAutomations")
     def ssm_automations(self) -> Optional[Sequence['outputs.ResponsePlanActionSsmAutomation']]:
-        """
-        The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        """
         return pulumi.get(self, "ssm_automations")
 
 
@@ -179,14 +153,6 @@ class ResponsePlanActionSsmAutomation(dict):
                  dynamic_parameters: Optional[Mapping[str, _builtins.str]] = None,
                  parameters: Optional[Sequence['outputs.ResponsePlanActionSsmAutomationParameter']] = None,
                  target_account: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str document_name: The automation document's name.
-        :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        :param _builtins.str document_version: The version of the automation document to use at runtime.
-        :param Mapping[str, _builtins.str] dynamic_parameters: The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        :param Sequence['ResponsePlanActionSsmAutomationParameterArgs'] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
-        :param _builtins.str target_account: The account that the automation document runs in. This can be in either the management account or an application account.
-        """
         pulumi.set(__self__, "document_name", document_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if document_version is not None:
@@ -201,49 +167,31 @@ class ResponsePlanActionSsmAutomation(dict):
     @_builtins.property
     @pulumi.getter(name="documentName")
     def document_name(self) -> _builtins.str:
-        """
-        The automation document's name.
-        """
         return pulumi.get(self, "document_name")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[_builtins.str]:
-        """
-        The version of the automation document to use at runtime.
-        """
         return pulumi.get(self, "document_version")
 
     @_builtins.property
     @pulumi.getter(name="dynamicParameters")
     def dynamic_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        """
         return pulumi.get(self, "dynamic_parameters")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.ResponsePlanActionSsmAutomationParameter']]:
-        """
-        The key-value pair parameters to use when the automation document runs. The following values are supported:
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="targetAccount")
     def target_account(self) -> Optional[_builtins.str]:
-        """
-        The account that the automation document runs in. This can be in either the management account or an application account.
-        """
         return pulumi.get(self, "target_account")
 
 
@@ -252,27 +200,17 @@ class ResponsePlanActionSsmAutomationParameter(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: The name of parameter.
-        :param Sequence[_builtins.str] values: The values for the associated parameter name.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        The values for the associated parameter name.
-        """
         return pulumi.get(self, "values")
 
 
@@ -306,14 +244,6 @@ class ResponsePlanIncidentTemplate(dict):
                  incident_tags: Optional[Mapping[str, _builtins.str]] = None,
                  notification_targets: Optional[Sequence['outputs.ResponsePlanIncidentTemplateNotificationTarget']] = None,
                  summary: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int impact: The impact value of a generated incident. The following values are supported:
-        :param _builtins.str title: The title of a generated incident.
-        :param _builtins.str dedupe_string: A string used to stop Incident Manager from creating multiple incident records for the same incident.
-        :param Mapping[str, _builtins.str] incident_tags: The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        :param Sequence['ResponsePlanIncidentTemplateNotificationTargetArgs'] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
-        :param _builtins.str summary: The summary of an incident.
-        """
         pulumi.set(__self__, "impact", impact)
         pulumi.set(__self__, "title", title)
         if dedupe_string is not None:
@@ -328,49 +258,31 @@ class ResponsePlanIncidentTemplate(dict):
     @_builtins.property
     @pulumi.getter
     def impact(self) -> _builtins.int:
-        """
-        The impact value of a generated incident. The following values are supported:
-        """
         return pulumi.get(self, "impact")
 
     @_builtins.property
     @pulumi.getter
     def title(self) -> _builtins.str:
-        """
-        The title of a generated incident.
-        """
         return pulumi.get(self, "title")
 
     @_builtins.property
     @pulumi.getter(name="dedupeString")
     def dedupe_string(self) -> Optional[_builtins.str]:
-        """
-        A string used to stop Incident Manager from creating multiple incident records for the same incident.
-        """
         return pulumi.get(self, "dedupe_string")
 
     @_builtins.property
     @pulumi.getter(name="incidentTags")
     def incident_tags(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        """
         return pulumi.get(self, "incident_tags")
 
     @_builtins.property
     @pulumi.getter(name="notificationTargets")
     def notification_targets(self) -> Optional[Sequence['outputs.ResponsePlanIncidentTemplateNotificationTarget']]:
-        """
-        The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
-        """
         return pulumi.get(self, "notification_targets")
 
     @_builtins.property
     @pulumi.getter
     def summary(self) -> Optional[_builtins.str]:
-        """
-        The summary of an incident.
-        """
         return pulumi.get(self, "summary")
 
 
@@ -395,17 +307,11 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
 
     def __init__(__self__, *,
                  sns_topic_arn: _builtins.str):
-        """
-        :param _builtins.str sns_topic_arn: The ARN of the Amazon SNS topic.
-        """
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> _builtins.str:
-        """
-        The ARN of the Amazon SNS topic.
-        """
         return pulumi.get(self, "sns_topic_arn")
 
 
@@ -413,18 +319,12 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
 class ResponsePlanIntegration(dict):
     def __init__(__self__, *,
                  pagerduties: Optional[Sequence['outputs.ResponsePlanIntegrationPagerduty']] = None):
-        """
-        :param Sequence['ResponsePlanIntegrationPagerdutyArgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
-        """
         if pagerduties is not None:
             pulumi.set(__self__, "pagerduties", pagerduties)
 
     @_builtins.property
     @pulumi.getter
     def pagerduties(self) -> Optional[Sequence['outputs.ResponsePlanIntegrationPagerduty']]:
-        """
-        Details about the PagerDuty configuration for a response plan. The following values are supported:
-        """
         return pulumi.get(self, "pagerduties")
 
 
@@ -453,13 +353,6 @@ class ResponsePlanIntegrationPagerduty(dict):
                  name: _builtins.str,
                  secret_id: _builtins.str,
                  service_id: _builtins.str):
-        """
-        :param _builtins.str name: The name of the PagerDuty configuration.
-        :param _builtins.str secret_id: The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
-               
-               For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
-        :param _builtins.str service_id: The ID of the PagerDuty service that the response plan associated with the incident at launch.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "secret_id", secret_id)
         pulumi.set(__self__, "service_id", service_id)
@@ -467,27 +360,16 @@ class ResponsePlanIntegrationPagerduty(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the PagerDuty configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="secretId")
     def secret_id(self) -> _builtins.str:
-        """
-        The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
-
-        For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
-        """
         return pulumi.get(self, "secret_id")
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> _builtins.str:
-        """
-        The ID of the PagerDuty service that the response plan associated with the incident at launch.
-        """
         return pulumi.get(self, "service_id")
 
 
@@ -498,13 +380,6 @@ class GetReplicationSetRegionResult(dict):
                  name: _builtins.str,
                  status: _builtins.str,
                  status_message: _builtins.str):
-        """
-        :param _builtins.str kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) encryption key.
-        :param _builtins.str name: The name of the Region.
-        :param _builtins.str status: The current status of the Region.
-               * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        :param _builtins.str status_message: More information about the status of a Region.
-        """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "status", status)
@@ -513,34 +388,21 @@ class GetReplicationSetRegionResult(dict):
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        The ARN of the AWS Key Management Service (AWS KMS) encryption key.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the Region.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the Region.
-        * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        More information about the status of a Region.
-        """
         return pulumi.get(self, "status_message")
 
 
@@ -548,17 +410,11 @@ class GetReplicationSetRegionResult(dict):
 class GetResponsePlanActionResult(dict):
     def __init__(__self__, *,
                  ssm_automations: Sequence['outputs.GetResponsePlanActionSsmAutomationResult']):
-        """
-        :param Sequence['GetResponsePlanActionSsmAutomationArgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        """
         pulumi.set(__self__, "ssm_automations", ssm_automations)
 
     @_builtins.property
     @pulumi.getter(name="ssmAutomations")
     def ssm_automations(self) -> Sequence['outputs.GetResponsePlanActionSsmAutomationResult']:
-        """
-        The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        """
         return pulumi.get(self, "ssm_automations")
 
 
@@ -571,14 +427,6 @@ class GetResponsePlanActionSsmAutomationResult(dict):
                  parameters: Sequence['outputs.GetResponsePlanActionSsmAutomationParameterResult'],
                  role_arn: _builtins.str,
                  target_account: _builtins.str):
-        """
-        :param _builtins.str document_name: The automation document's name.
-        :param _builtins.str document_version: The version of the automation document to use at runtime.
-        :param Mapping[str, _builtins.str] dynamic_parameters: The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        :param Sequence['GetResponsePlanActionSsmAutomationParameterArgs'] parameters: The key-value pair parameters used when the automation document runs. The following values are supported:
-        :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        :param _builtins.str target_account: The account that runs the automation document. This can be in either the management account or an application account.
-        """
         pulumi.set(__self__, "document_name", document_name)
         pulumi.set(__self__, "document_version", document_version)
         pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
@@ -589,49 +437,31 @@ class GetResponsePlanActionSsmAutomationResult(dict):
     @_builtins.property
     @pulumi.getter(name="documentName")
     def document_name(self) -> _builtins.str:
-        """
-        The automation document's name.
-        """
         return pulumi.get(self, "document_name")
 
     @_builtins.property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> _builtins.str:
-        """
-        The version of the automation document to use at runtime.
-        """
         return pulumi.get(self, "document_version")
 
     @_builtins.property
     @pulumi.getter(name="dynamicParameters")
     def dynamic_parameters(self) -> Mapping[str, _builtins.str]:
-        """
-        The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        """
         return pulumi.get(self, "dynamic_parameters")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetResponsePlanActionSsmAutomationParameterResult']:
-        """
-        The key-value pair parameters used when the automation document runs. The following values are supported:
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetAccount")
     def target_account(self) -> _builtins.str:
-        """
-        The account that runs the automation document. This can be in either the management account or an application account.
-        """
         return pulumi.get(self, "target_account")
 
 
@@ -640,27 +470,17 @@ class GetResponsePlanActionSsmAutomationParameterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: The name of the PagerDuty configuration.
-        :param Sequence[_builtins.str] values: The values for the associated parameter name.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the PagerDuty configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        The values for the associated parameter name.
-        """
         return pulumi.get(self, "values")
 
 
@@ -673,14 +493,6 @@ class GetResponsePlanIncidentTemplateResult(dict):
                  notification_targets: Sequence['outputs.GetResponsePlanIncidentTemplateNotificationTargetResult'],
                  summary: _builtins.str,
                  title: _builtins.str):
-        """
-        :param _builtins.str dedupe_string: A string used to stop Incident Manager from creating multiple incident records for the same incident.
-        :param _builtins.int impact: The impact value of a generated incident. The following values are supported:
-        :param Mapping[str, _builtins.str] incident_tags: The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        :param Sequence['GetResponsePlanIncidentTemplateNotificationTargetArgs'] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
-        :param _builtins.str summary: The summary of an incident.
-        :param _builtins.str title: The title of a generated incident.
-        """
         pulumi.set(__self__, "dedupe_string", dedupe_string)
         pulumi.set(__self__, "impact", impact)
         pulumi.set(__self__, "incident_tags", incident_tags)
@@ -691,49 +503,31 @@ class GetResponsePlanIncidentTemplateResult(dict):
     @_builtins.property
     @pulumi.getter(name="dedupeString")
     def dedupe_string(self) -> _builtins.str:
-        """
-        A string used to stop Incident Manager from creating multiple incident records for the same incident.
-        """
         return pulumi.get(self, "dedupe_string")
 
     @_builtins.property
     @pulumi.getter
     def impact(self) -> _builtins.int:
-        """
-        The impact value of a generated incident. The following values are supported:
-        """
         return pulumi.get(self, "impact")
 
     @_builtins.property
     @pulumi.getter(name="incidentTags")
     def incident_tags(self) -> Mapping[str, _builtins.str]:
-        """
-        The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        """
         return pulumi.get(self, "incident_tags")
 
     @_builtins.property
     @pulumi.getter(name="notificationTargets")
     def notification_targets(self) -> Sequence['outputs.GetResponsePlanIncidentTemplateNotificationTargetResult']:
-        """
-        The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
-        """
         return pulumi.get(self, "notification_targets")
 
     @_builtins.property
     @pulumi.getter
     def summary(self) -> _builtins.str:
-        """
-        The summary of an incident.
-        """
         return pulumi.get(self, "summary")
 
     @_builtins.property
     @pulumi.getter
     def title(self) -> _builtins.str:
-        """
-        The title of a generated incident.
-        """
         return pulumi.get(self, "title")
 
 
@@ -741,17 +535,11 @@ class GetResponsePlanIncidentTemplateResult(dict):
 class GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
     def __init__(__self__, *,
                  sns_topic_arn: _builtins.str):
-        """
-        :param _builtins.str sns_topic_arn: The ARN of the Amazon SNS topic.
-        """
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> _builtins.str:
-        """
-        The ARN of the Amazon SNS topic.
-        """
         return pulumi.get(self, "sns_topic_arn")
 
 
@@ -759,17 +547,11 @@ class GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
 class GetResponsePlanIntegrationResult(dict):
     def __init__(__self__, *,
                  pagerduties: Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult']):
-        """
-        :param Sequence['GetResponsePlanIntegrationPagerdutyArgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
-        """
         pulumi.set(__self__, "pagerduties", pagerduties)
 
     @_builtins.property
     @pulumi.getter
     def pagerduties(self) -> Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult']:
-        """
-        Details about the PagerDuty configuration for a response plan. The following values are supported:
-        """
         return pulumi.get(self, "pagerduties")
 
 
@@ -779,11 +561,6 @@ class GetResponsePlanIntegrationPagerdutyResult(dict):
                  name: _builtins.str,
                  secret_id: _builtins.str,
                  service_id: _builtins.str):
-        """
-        :param _builtins.str name: The name of the PagerDuty configuration.
-        :param _builtins.str secret_id: The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
-        :param _builtins.str service_id: The ID of the PagerDuty service that the response plan associates with an incident when it launches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "secret_id", secret_id)
         pulumi.set(__self__, "service_id", service_id)
@@ -791,25 +568,16 @@ class GetResponsePlanIntegrationPagerdutyResult(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the PagerDuty configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="secretId")
     def secret_id(self) -> _builtins.str:
-        """
-        The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
-        """
         return pulumi.get(self, "secret_id")
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> _builtins.str:
-        """
-        The ID of the PagerDuty service that the response plan associates with an incident when it launches.
-        """
         return pulumi.get(self, "service_id")
 
 

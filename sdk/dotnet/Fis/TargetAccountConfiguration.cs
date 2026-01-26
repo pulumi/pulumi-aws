@@ -9,72 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fis
 {
-    /// <summary>
-    /// Manages an AWS FIS (Fault Injection Simulator) Target Account Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Fis.TargetAccountConfiguration("example", new()
-    ///     {
-    ///         ExperimentTemplateId = exampleAwsFisExperimentTemplate.Id,
-    ///         AccountId = current.AccountId,
-    ///         RoleArn = fisRole.Arn,
-    ///         Description = "Example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import FIS (Fault Injection Simulator) Target Account Configuration using the `account_id,experiment_template_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:fis/targetAccountConfiguration:TargetAccountConfiguration")]
     public partial class TargetAccountConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Account ID of the target account.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the target account.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Experiment Template ID.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("experimentTemplateId")]
         public Output<string> ExperimentTemplateId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM Role for the target account.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -124,35 +73,18 @@ namespace Pulumi.Aws.Fis
 
     public sealed class TargetAccountConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Account ID of the target account.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the target account.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Experiment Template ID.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("experimentTemplateId", required: true)]
         public Input<string> ExperimentTemplateId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM Role for the target account.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
@@ -164,35 +96,18 @@ namespace Pulumi.Aws.Fis
 
     public sealed class TargetAccountConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Account ID of the target account.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Description of the target account.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Experiment Template ID.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("experimentTemplateId")]
         public Input<string>? ExperimentTemplateId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM Role for the target account.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

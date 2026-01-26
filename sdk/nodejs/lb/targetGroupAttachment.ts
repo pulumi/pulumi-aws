@@ -4,78 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `aws.elb.Attachment` resource.
- *
- * > **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTargetGroup = new aws.lb.TargetGroup("test", {});
- * const testInstance = new aws.ec2.Instance("test", {});
- * const test = new aws.lb.TargetGroupAttachment("test", {
- *     targetGroupArn: testTargetGroup.arn,
- *     targetId: testInstance.id,
- *     port: 80,
- * });
- * ```
- *
- * ### Lambda Target
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lb.TargetGroup("test", {
- *     name: "test",
- *     targetType: "lambda",
- * });
- * const testFunction = new aws.lambda.Function("test", {});
- * const withLb = new aws.lambda.Permission("with_lb", {
- *     statementId: "AllowExecutionFromlb",
- *     action: "lambda:InvokeFunction",
- *     "function": testFunction.name,
- *     principal: "elasticloadbalancing.amazonaws.com",
- *     sourceArn: test.arn,
- * });
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
- *     targetGroupArn: test.arn,
- *     targetId: testFunction.arn,
- * }, {
- *     dependsOn: [withLb],
- * });
- * ```
- *
- * ### Target using QUIC
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lb.TargetGroup("test", {
- *     name: "test",
- *     port: 443,
- *     protocol: "QUIC",
- * });
- * const testInstance = new aws.ec2.Instance("test", {});
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
- *     targetGroupArn: test.arn,
- *     targetId: testInstance.id,
- *     port: 443,
- *     quicServerId: "0x1a2b3c4d5e6f7a8b",
- * });
- * ```
- *
- * ## Import
- *
- * You cannot import Target Group Attachments.
- */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * Get an existing TargetGroupAttachment resource's state with the given name, ID, and optional extra
@@ -104,31 +32,11 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TargetGroupAttachment.__pulumiType;
     }
 
-    /**
-     * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
-     */
     declare public readonly availabilityZone: pulumi.Output<string | undefined>;
-    /**
-     * The port on which targets receive traffic.
-     */
     declare public readonly port: pulumi.Output<number | undefined>;
-    /**
-     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-     */
     declare public readonly quicServerId: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the target group with which to register targets.
-     */
     declare public readonly targetGroupArn: pulumi.Output<string>;
-    /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targetId: pulumi.Output<string>;
 
     /**
@@ -176,31 +84,11 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TargetGroupAttachment resources.
  */
 export interface TargetGroupAttachmentState {
-    /**
-     * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
-     */
     availabilityZone?: pulumi.Input<string>;
-    /**
-     * The port on which targets receive traffic.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-     */
     quicServerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the target group with which to register targets.
-     */
     targetGroupArn?: pulumi.Input<string>;
-    /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-     *
-     * The following arguments are optional:
-     */
     targetId?: pulumi.Input<string>;
 }
 
@@ -208,30 +96,10 @@ export interface TargetGroupAttachmentState {
  * The set of arguments for constructing a TargetGroupAttachment resource.
  */
 export interface TargetGroupAttachmentArgs {
-    /**
-     * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
-     */
     availabilityZone?: pulumi.Input<string>;
-    /**
-     * The port on which targets receive traffic.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-     */
     quicServerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the target group with which to register targets.
-     */
     targetGroupArn: pulumi.Input<string>;
-    /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-     *
-     * The following arguments are optional:
-     */
     targetId: pulumi.Input<string>;
 }

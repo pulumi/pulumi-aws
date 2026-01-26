@@ -9,27 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive")]
     public partial class GroupPolicyAttachmentsExclusive : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// IAM group name.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-        /// </summary>
         [Output("policyArns")]
         public Output<ImmutableArray<string>> PolicyArns { get; private set; } = null!;
 
@@ -79,18 +64,11 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupPolicyAttachmentsExclusiveArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM group name.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
         [Input("policyArns", required: true)]
         private InputList<string>? _policyArns;
-
-        /// <summary>
-        /// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyArns
         {
             get => _policyArns ?? (_policyArns = new InputList<string>());
@@ -105,18 +83,11 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupPolicyAttachmentsExclusiveState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM group name.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         [Input("policyArns")]
         private InputList<string>? _policyArns;
-
-        /// <summary>
-        /// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyArns
         {
             get => _policyArns ?? (_policyArns = new InputList<string>());

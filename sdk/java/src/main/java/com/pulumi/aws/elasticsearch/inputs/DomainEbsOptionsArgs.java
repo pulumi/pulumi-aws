@@ -18,77 +18,37 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
 
     public static final DomainEbsOptionsArgs Empty = new DomainEbsOptionsArgs();
 
-    /**
-     * Whether EBS volumes are attached to data nodes in the domain.
-     * 
-     */
     @Import(name="ebsEnabled", required=true)
     private Output<Boolean> ebsEnabled;
 
-    /**
-     * @return Whether EBS volumes are attached to data nodes in the domain.
-     * 
-     */
     public Output<Boolean> ebsEnabled() {
         return this.ebsEnabled;
     }
 
-    /**
-     * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-     * 
-     */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
-    /**
-     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-     * 
-     */
     public Optional<Output<Integer>> iops() {
         return Optional.ofNullable(this.iops);
     }
 
-    /**
-     * Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
-     * 
-     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
-    /**
-     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
-     * 
-     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
 
-    /**
-     * Size of EBS volumes attached to data nodes (in GiB).
-     * 
-     */
     @Import(name="volumeSize")
     private @Nullable Output<Integer> volumeSize;
 
-    /**
-     * @return Size of EBS volumes attached to data nodes (in GiB).
-     * 
-     */
     public Optional<Output<Integer>> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
 
-    /**
-     * Type of EBS volumes attached to data nodes.
-     * 
-     */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
-    /**
-     * @return Type of EBS volumes attached to data nodes.
-     * 
-     */
     public Optional<Output<String>> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }
@@ -121,107 +81,47 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
             $ = new DomainEbsOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ebsEnabled Whether EBS volumes are attached to data nodes in the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ebsEnabled(Output<Boolean> ebsEnabled) {
             $.ebsEnabled = ebsEnabled;
             return this;
         }
 
-        /**
-         * @param ebsEnabled Whether EBS volumes are attached to data nodes in the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ebsEnabled(Boolean ebsEnabled) {
             return ebsEnabled(Output.of(ebsEnabled));
         }
 
-        /**
-         * @param iops Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iops(@Nullable Output<Integer> iops) {
             $.iops = iops;
             return this;
         }
 
-        /**
-         * @param iops Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iops(Integer iops) {
             return iops(Output.of(iops));
         }
 
-        /**
-         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
-        /**
-         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }
 
-        /**
-         * @param volumeSize Size of EBS volumes attached to data nodes (in GiB).
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeSize(@Nullable Output<Integer> volumeSize) {
             $.volumeSize = volumeSize;
             return this;
         }
 
-        /**
-         * @param volumeSize Size of EBS volumes attached to data nodes (in GiB).
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeSize(Integer volumeSize) {
             return volumeSize(Output.of(volumeSize));
         }
 
-        /**
-         * @param volumeType Type of EBS volumes attached to data nodes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeType(@Nullable Output<String> volumeType) {
             $.volumeType = volumeType;
             return this;
         }
 
-        /**
-         * @param volumeType Type of EBS volumes attached to data nodes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeType(String volumeType) {
             return volumeType(Output.of(volumeType));
         }

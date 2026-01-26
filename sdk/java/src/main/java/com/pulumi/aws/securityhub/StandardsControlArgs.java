@@ -16,62 +16,30 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
 
     public static final StandardsControlArgs Empty = new StandardsControlArgs();
 
-    /**
-     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-     * 
-     */
     @Import(name="controlStatus", required=true)
     private Output<String> controlStatus;
 
-    /**
-     * @return The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-     * 
-     */
     public Output<String> controlStatus() {
         return this.controlStatus;
     }
 
-    /**
-     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-     * 
-     */
     @Import(name="disabledReason")
     private @Nullable Output<String> disabledReason;
 
-    /**
-     * @return A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-     * 
-     */
     public Optional<Output<String>> disabledReason() {
         return Optional.ofNullable(this.disabledReason);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-     * 
-     */
     @Import(name="standardsControlArn", required=true)
     private Output<String> standardsControlArn;
 
-    /**
-     * @return The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-     * 
-     */
     public Output<String> standardsControlArn() {
         return this.standardsControlArn;
     }
@@ -103,86 +71,38 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
             $ = new StandardsControlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param controlStatus The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlStatus(Output<String> controlStatus) {
             $.controlStatus = controlStatus;
             return this;
         }
 
-        /**
-         * @param controlStatus The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlStatus(String controlStatus) {
             return controlStatus(Output.of(controlStatus));
         }
 
-        /**
-         * @param disabledReason A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabledReason(@Nullable Output<String> disabledReason) {
             $.disabledReason = disabledReason;
             return this;
         }
 
-        /**
-         * @param disabledReason A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabledReason(String disabledReason) {
             return disabledReason(Output.of(disabledReason));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param standardsControlArn The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder standardsControlArn(Output<String> standardsControlArn) {
             $.standardsControlArn = standardsControlArn;
             return this;
         }
 
-        /**
-         * @param standardsControlArn The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder standardsControlArn(String standardsControlArn) {
             return standardsControlArn(Output.of(standardsControlArn));
         }

@@ -12,68 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
-// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2clientvpn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2clientvpn.NewAuthorizationRule(ctx, "example", &ec2clientvpn.AuthorizationRuleArgs{
-//				ClientVpnEndpointId: pulumi.Any(exampleAwsEc2ClientVpnEndpoint.Id),
-//				TargetNetworkCidr:   pulumi.Any(exampleAwsSubnet.CidrBlock),
-//				AuthorizeAllGroups:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using the endpoint ID, target network CIDR, and group name:
-//
-// __Using `pulumi import` to import__ AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
-//
-// Using the endpoint ID and target network CIDR:
-//
-// ```sh
-// $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
-// ```
-// Using the endpoint ID, target network CIDR, and group name:
-//
-// ```sh
-// $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
-// ```
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AccessGroupId pulumi.StringPtrOutput `pulumi:"accessGroupId"`
-	// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AuthorizeAllGroups pulumi.BoolPtrOutput `pulumi:"authorizeAllGroups"`
-	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
-	// A brief description of the authorization rule.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-	TargetNetworkCidr pulumi.StringOutput `pulumi:"targetNetworkCidr"`
+	AccessGroupId       pulumi.StringPtrOutput `pulumi:"accessGroupId"`
+	AuthorizeAllGroups  pulumi.BoolPtrOutput   `pulumi:"authorizeAllGroups"`
+	ClientVpnEndpointId pulumi.StringOutput    `pulumi:"clientVpnEndpointId"`
+	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	Region              pulumi.StringOutput    `pulumi:"region"`
+	TargetNetworkCidr   pulumi.StringOutput    `pulumi:"targetNetworkCidr"`
 }
 
 // NewAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -112,33 +59,21 @@ func GetAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AuthorizationRule resources.
 type authorizationRuleState struct {
-	// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AccessGroupId *string `pulumi:"accessGroupId"`
-	// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AuthorizeAllGroups *bool `pulumi:"authorizeAllGroups"`
-	// The ID of the Client VPN endpoint.
+	AccessGroupId       *string `pulumi:"accessGroupId"`
+	AuthorizeAllGroups  *bool   `pulumi:"authorizeAllGroups"`
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
-	// A brief description of the authorization rule.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-	TargetNetworkCidr *string `pulumi:"targetNetworkCidr"`
+	Description         *string `pulumi:"description"`
+	Region              *string `pulumi:"region"`
+	TargetNetworkCidr   *string `pulumi:"targetNetworkCidr"`
 }
 
 type AuthorizationRuleState struct {
-	// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AccessGroupId pulumi.StringPtrInput
-	// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AuthorizeAllGroups pulumi.BoolPtrInput
-	// The ID of the Client VPN endpoint.
+	AccessGroupId       pulumi.StringPtrInput
+	AuthorizeAllGroups  pulumi.BoolPtrInput
 	ClientVpnEndpointId pulumi.StringPtrInput
-	// A brief description of the authorization rule.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-	TargetNetworkCidr pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	TargetNetworkCidr   pulumi.StringPtrInput
 }
 
 func (AuthorizationRuleState) ElementType() reflect.Type {
@@ -146,34 +81,22 @@ func (AuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type authorizationRuleArgs struct {
-	// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AccessGroupId *string `pulumi:"accessGroupId"`
-	// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AuthorizeAllGroups *bool `pulumi:"authorizeAllGroups"`
-	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
-	// A brief description of the authorization rule.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-	TargetNetworkCidr string `pulumi:"targetNetworkCidr"`
+	AccessGroupId       *string `pulumi:"accessGroupId"`
+	AuthorizeAllGroups  *bool   `pulumi:"authorizeAllGroups"`
+	ClientVpnEndpointId string  `pulumi:"clientVpnEndpointId"`
+	Description         *string `pulumi:"description"`
+	Region              *string `pulumi:"region"`
+	TargetNetworkCidr   string  `pulumi:"targetNetworkCidr"`
 }
 
 // The set of arguments for constructing a AuthorizationRule resource.
 type AuthorizationRuleArgs struct {
-	// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AccessGroupId pulumi.StringPtrInput
-	// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-	AuthorizeAllGroups pulumi.BoolPtrInput
-	// The ID of the Client VPN endpoint.
+	AccessGroupId       pulumi.StringPtrInput
+	AuthorizeAllGroups  pulumi.BoolPtrInput
 	ClientVpnEndpointId pulumi.StringInput
-	// A brief description of the authorization rule.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-	TargetNetworkCidr pulumi.StringInput
+	Description         pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	TargetNetworkCidr   pulumi.StringInput
 }
 
 func (AuthorizationRuleArgs) ElementType() reflect.Type {
@@ -263,32 +186,26 @@ func (o AuthorizationRuleOutput) ToAuthorizationRuleOutputWithContext(ctx contex
 	return o
 }
 
-// The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
 func (o AuthorizationRuleOutput) AccessGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringPtrOutput { return v.AccessGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
 func (o AuthorizationRuleOutput) AuthorizeAllGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.BoolPtrOutput { return v.AuthorizeAllGroups }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the Client VPN endpoint.
 func (o AuthorizationRuleOutput) ClientVpnEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
 }
 
-// A brief description of the authorization rule.
 func (o AuthorizationRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthorizationRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
 func (o AuthorizationRuleOutput) TargetNetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.TargetNetworkCidr }).(pulumi.StringOutput)
 }

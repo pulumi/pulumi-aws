@@ -24,27 +24,15 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class GetParametersByPathArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-        /// </summary>
         [Input("path", required: true)]
         public string Path { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to retrieve all parameters within the hirerachy. Defaults to `False`.
-        /// </summary>
         [Input("recursive")]
         public bool? Recursive { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `True`.
-        /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
 
@@ -56,27 +44,15 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class GetParametersByPathInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to retrieve all parameters within the hirerachy. Defaults to `False`.
-        /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `True`.
-        /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }
 
@@ -90,28 +66,16 @@ namespace Pulumi.Aws.Ssm
     [OutputType]
     public sealed class GetParametersByPathResult
     {
-        /// <summary>
-        /// A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A list that contains the names of the retrieved parameters.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Path;
         public readonly bool? Recursive;
         public readonly string Region;
-        /// <summary>
-        /// A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
-        /// </summary>
         public readonly ImmutableArray<string> Types;
-        /// <summary>
-        /// A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `Nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
         public readonly bool? WithDecryption;
 

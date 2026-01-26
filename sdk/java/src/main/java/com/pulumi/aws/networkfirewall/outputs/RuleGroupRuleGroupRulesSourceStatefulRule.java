@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceStatefulRule {
-    /**
-     * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
-     * 
-     */
     private String action;
-    /**
-     * @return A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
-     * 
-     */
     private RuleGroupRuleGroupRulesSourceStatefulRuleHeader header;
-    /**
-     * @return Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
-     * 
-     */
     private List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions;
 
     private RuleGroupRuleGroupRulesSourceStatefulRule() {}
-    /**
-     * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
-     * 
-     */
     public RuleGroupRuleGroupRulesSourceStatefulRuleHeader header() {
         return this.header;
     }
-    /**
-     * @return Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
-     * 
-     */
     public List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions() {
         return this.ruleOptions;
     }

@@ -14,32 +14,16 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
 
     public static final OrganizationConfigurationFeatureAdditionalConfigurationArgs Empty = new OrganizationConfigurationFeatureAdditionalConfigurationArgs();
 
-    /**
-     * The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-     * 
-     */
     @Import(name="autoEnable", required=true)
     private Output<String> autoEnable;
 
-    /**
-     * @return The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-     * 
-     */
     public Output<String> autoEnable() {
         return this.autoEnable;
     }
 
-    /**
-     * The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,44 +53,20 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
             $ = new OrganizationConfigurationFeatureAdditionalConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnable The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Output<String> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
-        /**
-         * @param autoEnable The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(String autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }
 
-        /**
-         * @param name The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

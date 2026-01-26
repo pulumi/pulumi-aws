@@ -371,38 +371,7 @@ def get_load_balancer(arn: Optional[_builtins.str] = None,
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-
-    Provides information about a Load Balancer.
-
-    This data source can prove useful when a module accepts an LB as an input
-    variable and needs to, for example, determine the security groups associated
-    with it, etc.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_arn = config.get("lbArn")
-    if lb_arn is None:
-        lb_arn = ""
-    lb_name = config.get("lbName")
-    if lb_name is None:
-        lb_name = ""
-    test = aws.lb.get_load_balancer(arn=lb_arn,
-        name=lb_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the load balancer.
-    :param _builtins.str name: Unique name of the load balancer.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -455,38 +424,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
-    > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-
-    Provides information about a Load Balancer.
-
-    This data source can prove useful when a module accepts an LB as an input
-    variable and needs to, for example, determine the security groups associated
-    with it, etc.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_arn = config.get("lbArn")
-    if lb_arn is None:
-        lb_arn = ""
-    lb_name = config.get("lbName")
-    if lb_name is None:
-        lb_name = ""
-    test = aws.lb.get_load_balancer(arn=lb_arn,
-        name=lb_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the load balancer.
-    :param _builtins.str name: Unique name of the load balancer.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

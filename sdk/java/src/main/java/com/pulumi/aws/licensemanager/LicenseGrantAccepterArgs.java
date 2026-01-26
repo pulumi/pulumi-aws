@@ -17,31 +17,23 @@ public final class LicenseGrantAccepterArgs extends com.pulumi.resources.Resourc
     public static final LicenseGrantAccepterArgs Empty = new LicenseGrantAccepterArgs();
 
     /**
-     * The ARN of the grant to accept.
+     * Amazon Resource Name (ARN) of the grant.
      * 
      */
     @Import(name="grantArn", required=true)
     private Output<String> grantArn;
 
     /**
-     * @return The ARN of the grant to accept.
+     * @return Amazon Resource Name (ARN) of the grant.
      * 
      */
     public Output<String> grantArn() {
         return this.grantArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -72,7 +64,7 @@ public final class LicenseGrantAccepterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param grantArn The ARN of the grant to accept.
+         * @param grantArn Amazon Resource Name (ARN) of the grant.
          * 
          * @return builder
          * 
@@ -83,7 +75,7 @@ public final class LicenseGrantAccepterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param grantArn The ARN of the grant to accept.
+         * @param grantArn Amazon Resource Name (ARN) of the grant.
          * 
          * @return builder
          * 
@@ -92,23 +84,11 @@ public final class LicenseGrantAccepterArgs extends com.pulumi.resources.Resourc
             return grantArn(Output.of(grantArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

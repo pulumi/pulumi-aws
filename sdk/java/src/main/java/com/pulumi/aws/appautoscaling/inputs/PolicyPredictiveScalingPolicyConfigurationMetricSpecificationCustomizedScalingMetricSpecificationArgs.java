@@ -15,17 +15,9 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
 
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs();
 
-    /**
-     * One or more metric data queries to provide data points for a metric specification. See supported fields below.
-     * 
-     */
     @Import(name="metricDataQueries", required=true)
     private Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries;
 
-    /**
-     * @return One or more metric data queries to provide data points for a metric specification. See supported fields below.
-     * 
-     */
     public Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries() {
         return this.metricDataQueries;
     }
@@ -54,33 +46,15 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             $ = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDataQueries(Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries) {
             $.metricDataQueries = metricDataQueries;
             return this;
         }
 
-        /**
-         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDataQueries(List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs> metricDataQueries) {
             return metricDataQueries(Output.of(metricDataQueries));
         }
 
-        /**
-         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDataQueries(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs... metricDataQueries) {
             return metricDataQueries(List.of(metricDataQueries));
         }

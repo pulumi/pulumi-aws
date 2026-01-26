@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to retrieve information about a CloudFront distribution.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getDistribution({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
- */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getDistribution:getDistribution", {
@@ -30,9 +16,6 @@ export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getDistribution.
  */
 export interface GetDistributionArgs {
-    /**
-     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     */
     id: string;
     tags?: {[key: string]: string};
 }
@@ -41,74 +24,20 @@ export interface GetDistributionArgs {
  * A collection of values returned by getDistribution.
  */
 export interface GetDistributionResult {
-    /**
-     * List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
-     */
     readonly aliases: string[];
-    /**
-     * ID of the Anycast static IP list that is associated with the distribution, if any.
-     */
     readonly anycastIpListId: string;
-    /**
-     * ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-     */
     readonly arn: string;
-    /**
-     * Domain name corresponding to the distribution. For
-     * example: `d604721fxaaqy9.cloudfront.net`.
-     */
     readonly domainName: string;
     readonly enabled: boolean;
-    /**
-     * Current version of the distribution's information. For example:
-     * `E2QWRUHAPOMQZL`.
-     */
     readonly etag: string;
-    /**
-     * CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][7] to. This attribute is simply an
-     * alias for the zone ID `Z2FDTNDATAQYW2`.
-     */
     readonly hostedZoneId: string;
-    /**
-     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     */
     readonly id: string;
-    /**
-     * The number of invalidation batches
-     * currently in progress.
-     */
     readonly inProgressValidationBatches: number;
-    /**
-     * Date and time the distribution was last modified.
-     */
     readonly lastModifiedTime: string;
-    /**
-     * Current status of the distribution. `Deployed` if the
-     * distribution's information is fully propagated throughout the Amazon
-     * CloudFront system.
-     */
     readonly status: string;
     readonly tags: {[key: string]: string};
-    /**
-     * AWS WAF web ACL associated with this distribution.
-     */
     readonly webAclId: string;
 }
-/**
- * Use this data source to retrieve information about a CloudFront distribution.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getDistribution({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
- */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getDistribution:getDistribution", {
@@ -121,9 +50,6 @@ export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pu
  * A collection of arguments for invoking getDistribution.
  */
 export interface GetDistributionOutputArgs {
-    /**
-     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     */
     id: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

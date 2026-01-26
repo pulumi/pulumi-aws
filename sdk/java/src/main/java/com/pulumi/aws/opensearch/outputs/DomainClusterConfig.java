@@ -17,161 +17,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainClusterConfig {
-    /**
-     * @return Configuration block containing cold storage configuration. Detailed below.
-     * 
-     */
     private @Nullable DomainClusterConfigColdStorageOptions coldStorageOptions;
-    /**
-     * @return Number of dedicated main nodes in the cluster.
-     * 
-     */
     private @Nullable Integer dedicatedMasterCount;
-    /**
-     * @return Whether dedicated main nodes are enabled for the cluster.
-     * 
-     */
     private @Nullable Boolean dedicatedMasterEnabled;
-    /**
-     * @return Instance type of the dedicated main nodes in the cluster.
-     * 
-     */
     private @Nullable String dedicatedMasterType;
-    /**
-     * @return Number of instances in the cluster.
-     * 
-     */
     private @Nullable Integer instanceCount;
-    /**
-     * @return Instance type of data nodes in the cluster.
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
-     * 
-     */
     private @Nullable Boolean multiAzWithStandbyEnabled;
-    /**
-     * @return List of node options for the domain.
-     * 
-     */
     private @Nullable List<DomainClusterConfigNodeOption> nodeOptions;
-    /**
-     * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
-     * 
-     */
     private @Nullable Integer warmCount;
-    /**
-     * @return Whether to enable warm storage.
-     * 
-     */
     private @Nullable Boolean warmEnabled;
-    /**
-     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
-     * 
-     */
     private @Nullable String warmType;
-    /**
-     * @return Configuration block containing zone awareness settings. Detailed below.
-     * 
-     */
     private @Nullable DomainClusterConfigZoneAwarenessConfig zoneAwarenessConfig;
-    /**
-     * @return Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
-     * 
-     */
     private @Nullable Boolean zoneAwarenessEnabled;
 
     private DomainClusterConfig() {}
-    /**
-     * @return Configuration block containing cold storage configuration. Detailed below.
-     * 
-     */
     public Optional<DomainClusterConfigColdStorageOptions> coldStorageOptions() {
         return Optional.ofNullable(this.coldStorageOptions);
     }
-    /**
-     * @return Number of dedicated main nodes in the cluster.
-     * 
-     */
     public Optional<Integer> dedicatedMasterCount() {
         return Optional.ofNullable(this.dedicatedMasterCount);
     }
-    /**
-     * @return Whether dedicated main nodes are enabled for the cluster.
-     * 
-     */
     public Optional<Boolean> dedicatedMasterEnabled() {
         return Optional.ofNullable(this.dedicatedMasterEnabled);
     }
-    /**
-     * @return Instance type of the dedicated main nodes in the cluster.
-     * 
-     */
     public Optional<String> dedicatedMasterType() {
         return Optional.ofNullable(this.dedicatedMasterType);
     }
-    /**
-     * @return Number of instances in the cluster.
-     * 
-     */
     public Optional<Integer> instanceCount() {
         return Optional.ofNullable(this.instanceCount);
     }
-    /**
-     * @return Instance type of data nodes in the cluster.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
-     * 
-     */
     public Optional<Boolean> multiAzWithStandbyEnabled() {
         return Optional.ofNullable(this.multiAzWithStandbyEnabled);
     }
-    /**
-     * @return List of node options for the domain.
-     * 
-     */
     public List<DomainClusterConfigNodeOption> nodeOptions() {
         return this.nodeOptions == null ? List.of() : this.nodeOptions;
     }
-    /**
-     * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
-     * 
-     */
     public Optional<Integer> warmCount() {
         return Optional.ofNullable(this.warmCount);
     }
-    /**
-     * @return Whether to enable warm storage.
-     * 
-     */
     public Optional<Boolean> warmEnabled() {
         return Optional.ofNullable(this.warmEnabled);
     }
-    /**
-     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
-     * 
-     */
     public Optional<String> warmType() {
         return Optional.ofNullable(this.warmType);
     }
-    /**
-     * @return Configuration block containing zone awareness settings. Detailed below.
-     * 
-     */
     public Optional<DomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfig() {
         return Optional.ofNullable(this.zoneAwarenessConfig);
     }
-    /**
-     * @return Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
-     * 
-     */
     public Optional<Boolean> zoneAwarenessEnabled() {
         return Optional.ofNullable(this.zoneAwarenessEnabled);
     }

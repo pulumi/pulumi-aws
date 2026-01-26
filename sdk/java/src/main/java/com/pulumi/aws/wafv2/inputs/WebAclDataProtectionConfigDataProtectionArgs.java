@@ -18,62 +18,30 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
 
     public static final WebAclDataProtectionConfigDataProtectionArgs Empty = new WebAclDataProtectionConfigDataProtectionArgs();
 
-    /**
-     * Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<String> action;
 
-    /**
-     * @return Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
 
-    /**
-     * Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
-     * 
-     */
     @Import(name="excludeRateBasedDetails")
     private @Nullable Output<Boolean> excludeRateBasedDetails;
 
-    /**
-     * @return Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
-     * 
-     */
     public Optional<Output<Boolean>> excludeRateBasedDetails() {
         return Optional.ofNullable(this.excludeRateBasedDetails);
     }
 
-    /**
-     * Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
-     * 
-     */
     @Import(name="excludeRuleMatchDetails")
     private @Nullable Output<Boolean> excludeRuleMatchDetails;
 
-    /**
-     * @return Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
-     * 
-     */
     public Optional<Output<Boolean>> excludeRuleMatchDetails() {
         return Optional.ofNullable(this.excludeRuleMatchDetails);
     }
 
-    /**
-     * Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
-     * 
-     */
     @Import(name="field", required=true)
     private Output<WebAclDataProtectionConfigDataProtectionFieldArgs> field;
 
-    /**
-     * @return Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
-     * 
-     */
     public Output<WebAclDataProtectionConfigDataProtectionFieldArgs> field() {
         return this.field;
     }
@@ -105,86 +73,38 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
             $ = new WebAclDataProtectionConfigDataProtectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param excludeRateBasedDetails Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeRateBasedDetails(@Nullable Output<Boolean> excludeRateBasedDetails) {
             $.excludeRateBasedDetails = excludeRateBasedDetails;
             return this;
         }
 
-        /**
-         * @param excludeRateBasedDetails Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeRateBasedDetails(Boolean excludeRateBasedDetails) {
             return excludeRateBasedDetails(Output.of(excludeRateBasedDetails));
         }
 
-        /**
-         * @param excludeRuleMatchDetails Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeRuleMatchDetails(@Nullable Output<Boolean> excludeRuleMatchDetails) {
             $.excludeRuleMatchDetails = excludeRuleMatchDetails;
             return this;
         }
 
-        /**
-         * @param excludeRuleMatchDetails Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeRuleMatchDetails(Boolean excludeRuleMatchDetails) {
             return excludeRuleMatchDetails(Output.of(excludeRuleMatchDetails));
         }
 
-        /**
-         * @param field Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(Output<WebAclDataProtectionConfigDataProtectionFieldArgs> field) {
             $.field = field;
             return this;
         }
 
-        /**
-         * @param field Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(WebAclDataProtectionConfigDataProtectionFieldArgs field) {
             return field(Output.of(field));
         }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogDatabaseFederatedDatabase {
-    /**
-     * @return Name of the connection to the external metastore.
-     * 
-     */
     private @Nullable String connectionName;
-    /**
-     * @return Unique identifier for the federated database.
-     * 
-     */
     private @Nullable String identifier;
 
     private CatalogDatabaseFederatedDatabase() {}
-    /**
-     * @return Name of the connection to the external metastore.
-     * 
-     */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
-    /**
-     * @return Unique identifier for the federated database.
-     * 
-     */
     public Optional<String> identifier() {
         return Optional.ofNullable(this.identifier);
     }

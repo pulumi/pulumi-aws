@@ -16,100 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF SQL Injection Match Set Resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.waf.SqlInjectionMatchSet;
- * import com.pulumi.aws.waf.SqlInjectionMatchSetArgs;
- * import com.pulumi.aws.waf.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs;
- * import com.pulumi.aws.waf.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sqlInjectionMatchSet = new SqlInjectionMatchSet("sqlInjectionMatchSet", SqlInjectionMatchSetArgs.builder()
- *             .name("tf-sql_injection_match_set")
- *             .sqlInjectionMatchTuples(SqlInjectionMatchSetSqlInjectionMatchTupleArgs.builder()
- *                 .textTransformation("URL_DECODE")
- *                 .fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs.builder()
- *                     .type("QUERY_STRING")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet")
 public class SqlInjectionMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the SQL injection match set.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the SQL injection match set.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name or description of the SQL Injection Match Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the SQL Injection Match Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-     * 
-     */
     @Export(name="sqlInjectionMatchTuples", refs={List.class,SqlInjectionMatchSetSqlInjectionMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SqlInjectionMatchSetSqlInjectionMatchTuple>> sqlInjectionMatchTuples;
 
-    /**
-     * @return The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-     * 
-     */
     public Output<Optional<List<SqlInjectionMatchSetSqlInjectionMatchTuple>>> sqlInjectionMatchTuples() {
         return Codegen.optional(this.sqlInjectionMatchTuples);
     }

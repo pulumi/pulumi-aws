@@ -15,32 +15,16 @@ public final class GetServicePrincipalPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetServicePrincipalPlainArgs Empty = new GetServicePrincipalPlainArgs();
 
-    /**
-     * Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the service you want to generate a Service Principal Name for.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private String serviceName;
 
-    /**
-     * @return Name of the service you want to generate a Service Principal Name for.
-     * 
-     */
     public String serviceName() {
         return this.serviceName;
     }
@@ -70,23 +54,11 @@ public final class GetServicePrincipalPlainArgs extends com.pulumi.resources.Inv
             $ = new GetServicePrincipalPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the service you want to generate a Service Principal Name for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             $.serviceName = serviceName;
             return this;

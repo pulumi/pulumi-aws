@@ -12,125 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Transcoder preset resource.
-//
-// > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elastictranscoder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elastictranscoder.NewPreset(ctx, "bar", &elastictranscoder.PresetArgs{
-//				Container:   pulumi.String("mp4"),
-//				Description: pulumi.String("Sample Preset"),
-//				Name:        pulumi.String("sample_preset"),
-//				Audio: &elastictranscoder.PresetAudioArgs{
-//					AudioPackingMode: pulumi.String("SingleTrack"),
-//					BitRate:          pulumi.String("96"),
-//					Channels:         pulumi.String("2"),
-//					Codec:            pulumi.String("AAC"),
-//					SampleRate:       pulumi.String("44100"),
-//				},
-//				AudioCodecOptions: &elastictranscoder.PresetAudioCodecOptionsArgs{
-//					Profile: pulumi.String("AAC-LC"),
-//				},
-//				Video: &elastictranscoder.PresetVideoArgs{
-//					BitRate:            pulumi.String("1600"),
-//					Codec:              pulumi.String("H.264"),
-//					DisplayAspectRatio: pulumi.String("16:9"),
-//					FixedGop:           pulumi.String("false"),
-//					FrameRate:          pulumi.String("auto"),
-//					MaxFrameRate:       pulumi.String("60"),
-//					KeyframesMaxDist:   pulumi.String("240"),
-//					MaxHeight:          pulumi.String("auto"),
-//					MaxWidth:           pulumi.String("auto"),
-//					PaddingPolicy:      pulumi.String("Pad"),
-//					SizingPolicy:       pulumi.String("Fit"),
-//				},
-//				VideoCodecOptions: pulumi.StringMap{
-//					"Profile":                  pulumi.String("main"),
-//					"Level":                    pulumi.String("2.2"),
-//					"MaxReferenceFrames":       pulumi.String("3"),
-//					"InterlacedMode":           pulumi.String("Progressive"),
-//					"ColorSpaceConversionMode": pulumi.String("None"),
-//				},
-//				VideoWatermarks: elastictranscoder.PresetVideoWatermarkArray{
-//					&elastictranscoder.PresetVideoWatermarkArgs{
-//						Id:               pulumi.String("Test"),
-//						MaxWidth:         pulumi.String("20%"),
-//						MaxHeight:        pulumi.String("20%"),
-//						SizingPolicy:     pulumi.String("ShrinkToFit"),
-//						HorizontalAlign:  pulumi.String("Right"),
-//						HorizontalOffset: pulumi.String("10px"),
-//						VerticalAlign:    pulumi.String("Bottom"),
-//						VerticalOffset:   pulumi.String("10px"),
-//						Opacity:          pulumi.String("55.5"),
-//						Target:           pulumi.String("Content"),
-//					},
-//				},
-//				Thumbnails: &elastictranscoder.PresetThumbnailsArgs{
-//					Format:        pulumi.String("png"),
-//					Interval:      pulumi.String("120"),
-//					MaxWidth:      pulumi.String("auto"),
-//					MaxHeight:     pulumi.String("auto"),
-//					PaddingPolicy: pulumi.String("Pad"),
-//					SizingPolicy:  pulumi.String("Fit"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
-// ```
 type Preset struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Audio parameters object (documented below).
-	Audio PresetAudioPtrOutput `pulumi:"audio"`
-	// Codec options for the audio parameters (documented below)
-	AudioCodecOptions PresetAudioCodecOptionsOutput `pulumi:"audioCodecOptions"`
-	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-	Container pulumi.StringOutput `pulumi:"container"`
-	// A description of the preset (maximum 255 characters)
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the preset. (maximum 40 characters)
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Thumbnail parameters object (documented below)
-	Thumbnails PresetThumbnailsPtrOutput `pulumi:"thumbnails"`
-	Type       pulumi.StringOutput       `pulumi:"type"`
-	// Video parameters object (documented below)
-	Video PresetVideoPtrOutput `pulumi:"video"`
-	// Codec options for the video parameters
-	//
-	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
-	VideoCodecOptions pulumi.StringMapOutput `pulumi:"videoCodecOptions"`
-	// Watermark parameters for the video parameters (documented below)
-	VideoWatermarks PresetVideoWatermarkArrayOutput `pulumi:"videoWatermarks"`
+	Arn               pulumi.StringOutput             `pulumi:"arn"`
+	Audio             PresetAudioPtrOutput            `pulumi:"audio"`
+	AudioCodecOptions PresetAudioCodecOptionsOutput   `pulumi:"audioCodecOptions"`
+	Container         pulumi.StringOutput             `pulumi:"container"`
+	Description       pulumi.StringPtrOutput          `pulumi:"description"`
+	Name              pulumi.StringOutput             `pulumi:"name"`
+	Region            pulumi.StringOutput             `pulumi:"region"`
+	Thumbnails        PresetThumbnailsPtrOutput       `pulumi:"thumbnails"`
+	Type              pulumi.StringOutput             `pulumi:"type"`
+	Video             PresetVideoPtrOutput            `pulumi:"video"`
+	VideoCodecOptions pulumi.StringMapOutput          `pulumi:"videoCodecOptions"`
+	VideoWatermarks   PresetVideoWatermarkArrayOutput `pulumi:"videoWatermarks"`
 }
 
 // NewPreset registers a new resource with the given unique name, arguments, and options.
@@ -166,59 +62,33 @@ func GetPreset(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Preset resources.
 type presetState struct {
-	// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-	Arn *string `pulumi:"arn"`
-	// Audio parameters object (documented below).
-	Audio *PresetAudio `pulumi:"audio"`
-	// Codec options for the audio parameters (documented below)
+	Arn               *string                  `pulumi:"arn"`
+	Audio             *PresetAudio             `pulumi:"audio"`
 	AudioCodecOptions *PresetAudioCodecOptions `pulumi:"audioCodecOptions"`
-	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-	Container *string `pulumi:"container"`
-	// A description of the preset (maximum 255 characters)
-	Description *string `pulumi:"description"`
-	// The name of the preset. (maximum 40 characters)
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Thumbnail parameters object (documented below)
-	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
-	Type       *string           `pulumi:"type"`
-	// Video parameters object (documented below)
-	Video *PresetVideo `pulumi:"video"`
-	// Codec options for the video parameters
-	//
-	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
-	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
-	// Watermark parameters for the video parameters (documented below)
-	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
+	Container         *string                  `pulumi:"container"`
+	Description       *string                  `pulumi:"description"`
+	Name              *string                  `pulumi:"name"`
+	Region            *string                  `pulumi:"region"`
+	Thumbnails        *PresetThumbnails        `pulumi:"thumbnails"`
+	Type              *string                  `pulumi:"type"`
+	Video             *PresetVideo             `pulumi:"video"`
+	VideoCodecOptions map[string]string        `pulumi:"videoCodecOptions"`
+	VideoWatermarks   []PresetVideoWatermark   `pulumi:"videoWatermarks"`
 }
 
 type PresetState struct {
-	// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-	Arn pulumi.StringPtrInput
-	// Audio parameters object (documented below).
-	Audio PresetAudioPtrInput
-	// Codec options for the audio parameters (documented below)
+	Arn               pulumi.StringPtrInput
+	Audio             PresetAudioPtrInput
 	AudioCodecOptions PresetAudioCodecOptionsPtrInput
-	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-	Container pulumi.StringPtrInput
-	// A description of the preset (maximum 255 characters)
-	Description pulumi.StringPtrInput
-	// The name of the preset. (maximum 40 characters)
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Thumbnail parameters object (documented below)
-	Thumbnails PresetThumbnailsPtrInput
-	Type       pulumi.StringPtrInput
-	// Video parameters object (documented below)
-	Video PresetVideoPtrInput
-	// Codec options for the video parameters
-	//
-	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+	Container         pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Thumbnails        PresetThumbnailsPtrInput
+	Type              pulumi.StringPtrInput
+	Video             PresetVideoPtrInput
 	VideoCodecOptions pulumi.StringMapInput
-	// Watermark parameters for the video parameters (documented below)
-	VideoWatermarks PresetVideoWatermarkArrayInput
+	VideoWatermarks   PresetVideoWatermarkArrayInput
 }
 
 func (PresetState) ElementType() reflect.Type {
@@ -226,56 +96,32 @@ func (PresetState) ElementType() reflect.Type {
 }
 
 type presetArgs struct {
-	// Audio parameters object (documented below).
-	Audio *PresetAudio `pulumi:"audio"`
-	// Codec options for the audio parameters (documented below)
+	Audio             *PresetAudio             `pulumi:"audio"`
 	AudioCodecOptions *PresetAudioCodecOptions `pulumi:"audioCodecOptions"`
-	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-	Container string `pulumi:"container"`
-	// A description of the preset (maximum 255 characters)
-	Description *string `pulumi:"description"`
-	// The name of the preset. (maximum 40 characters)
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Thumbnail parameters object (documented below)
-	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
-	Type       *string           `pulumi:"type"`
-	// Video parameters object (documented below)
-	Video *PresetVideo `pulumi:"video"`
-	// Codec options for the video parameters
-	//
-	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
-	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
-	// Watermark parameters for the video parameters (documented below)
-	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
+	Container         string                   `pulumi:"container"`
+	Description       *string                  `pulumi:"description"`
+	Name              *string                  `pulumi:"name"`
+	Region            *string                  `pulumi:"region"`
+	Thumbnails        *PresetThumbnails        `pulumi:"thumbnails"`
+	Type              *string                  `pulumi:"type"`
+	Video             *PresetVideo             `pulumi:"video"`
+	VideoCodecOptions map[string]string        `pulumi:"videoCodecOptions"`
+	VideoWatermarks   []PresetVideoWatermark   `pulumi:"videoWatermarks"`
 }
 
 // The set of arguments for constructing a Preset resource.
 type PresetArgs struct {
-	// Audio parameters object (documented below).
-	Audio PresetAudioPtrInput
-	// Codec options for the audio parameters (documented below)
+	Audio             PresetAudioPtrInput
 	AudioCodecOptions PresetAudioCodecOptionsPtrInput
-	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-	Container pulumi.StringInput
-	// A description of the preset (maximum 255 characters)
-	Description pulumi.StringPtrInput
-	// The name of the preset. (maximum 40 characters)
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Thumbnail parameters object (documented below)
-	Thumbnails PresetThumbnailsPtrInput
-	Type       pulumi.StringPtrInput
-	// Video parameters object (documented below)
-	Video PresetVideoPtrInput
-	// Codec options for the video parameters
-	//
-	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+	Container         pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Thumbnails        PresetThumbnailsPtrInput
+	Type              pulumi.StringPtrInput
+	Video             PresetVideoPtrInput
 	VideoCodecOptions pulumi.StringMapInput
-	// Watermark parameters for the video parameters (documented below)
-	VideoWatermarks PresetVideoWatermarkArrayInput
+	VideoWatermarks   PresetVideoWatermarkArrayInput
 }
 
 func (PresetArgs) ElementType() reflect.Type {
@@ -365,42 +211,34 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
 func (o PresetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Audio parameters object (documented below).
 func (o PresetOutput) Audio() PresetAudioPtrOutput {
 	return o.ApplyT(func(v *Preset) PresetAudioPtrOutput { return v.Audio }).(PresetAudioPtrOutput)
 }
 
-// Codec options for the audio parameters (documented below)
 func (o PresetOutput) AudioCodecOptions() PresetAudioCodecOptionsOutput {
 	return o.ApplyT(func(v *Preset) PresetAudioCodecOptionsOutput { return v.AudioCodecOptions }).(PresetAudioCodecOptionsOutput)
 }
 
-// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
 func (o PresetOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Container }).(pulumi.StringOutput)
 }
 
-// A description of the preset (maximum 255 characters)
 func (o PresetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the preset. (maximum 40 characters)
 func (o PresetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PresetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Thumbnail parameters object (documented below)
 func (o PresetOutput) Thumbnails() PresetThumbnailsPtrOutput {
 	return o.ApplyT(func(v *Preset) PresetThumbnailsPtrOutput { return v.Thumbnails }).(PresetThumbnailsPtrOutput)
 }
@@ -409,19 +247,14 @@ func (o PresetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Video parameters object (documented below)
 func (o PresetOutput) Video() PresetVideoPtrOutput {
 	return o.ApplyT(func(v *Preset) PresetVideoPtrOutput { return v.Video }).(PresetVideoPtrOutput)
 }
 
-// Codec options for the video parameters
-//
-// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 func (o PresetOutput) VideoCodecOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringMapOutput { return v.VideoCodecOptions }).(pulumi.StringMapOutput)
 }
 
-// Watermark parameters for the video parameters (documented below)
 func (o PresetOutput) VideoWatermarks() PresetVideoWatermarkArrayOutput {
 	return o.ApplyT(func(v *Preset) PresetVideoWatermarkArrayOutput { return v.VideoWatermarks }).(PresetVideoWatermarkArrayOutput)
 }

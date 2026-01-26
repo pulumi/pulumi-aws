@@ -26,11 +26,6 @@ class VpcIpv4CidrBlockAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcIpv4CidrBlockAssociation resource.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
-        :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[_builtins.int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if cidr_block is not None:
@@ -45,9 +40,6 @@ class VpcIpv4CidrBlockAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the VPC to make the association with.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -57,9 +49,6 @@ class VpcIpv4CidrBlockAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -69,9 +58,6 @@ class VpcIpv4CidrBlockAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
@@ -81,9 +67,6 @@ class VpcIpv4CidrBlockAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="ipv4NetmaskLength")
     def ipv4_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @ipv4_netmask_length.setter
@@ -93,9 +76,6 @@ class VpcIpv4CidrBlockAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,11 +93,6 @@ class _VpcIpv4CidrBlockAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpv4CidrBlockAssociation resources.
-        :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[_builtins.int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
@@ -133,9 +108,6 @@ class _VpcIpv4CidrBlockAssociationState:
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -145,9 +117,6 @@ class _VpcIpv4CidrBlockAssociationState:
     @_builtins.property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
@@ -157,9 +126,6 @@ class _VpcIpv4CidrBlockAssociationState:
     @_builtins.property
     @pulumi.getter(name="ipv4NetmaskLength")
     def ipv4_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @ipv4_netmask_length.setter
@@ -169,9 +135,6 @@ class _VpcIpv4CidrBlockAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -181,9 +144,6 @@ class _VpcIpv4CidrBlockAssociationState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the VPC to make the association with.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -204,52 +164,9 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
-
-        When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
-        The `ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr",
-            vpc_id=main.id,
-            cidr_block="172.20.0.0/16")
-        ```
-
-        ## Import
-
-        or
-
-        or
-
-        Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR association ID and optionally the IPv4 IPAM pool ID and netmask length. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be
-        ```
-        or
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463
-        ```
-        or
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463,28
-        ```
-
+        Create a VpcIpv4CidrBlockAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[_builtins.int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
         """
         ...
     @overload
@@ -258,45 +175,7 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
                  args: VpcIpv4CidrBlockAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
-
-        When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
-        The `ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr",
-            vpc_id=main.id,
-            cidr_block="172.20.0.0/16")
-        ```
-
-        ## Import
-
-        or
-
-        or
-
-        Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR association ID and optionally the IPv4 IPAM pool ID and netmask length. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be
-        ```
-        or
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463
-        ```
-        or
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463,28
-        ```
-
+        Create a VpcIpv4CidrBlockAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcIpv4CidrBlockAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,11 +234,6 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[_builtins.int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -375,40 +249,25 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        """
         return pulumi.get(self, "cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @_builtins.property
     @pulumi.getter(name="ipv4NetmaskLength")
     def ipv4_netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the VPC to make the association with.
-        """
         return pulumi.get(self, "vpc_id")
 

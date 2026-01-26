@@ -11,69 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyInstancesDistribution {
-    /**
-     * @return Strategy used when launching on-demand instances.
-     * 
-     */
     private String onDemandAllocationStrategy;
-    /**
-     * @return Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-     * 
-     */
     private Integer onDemandBaseCapacity;
     private Integer onDemandPercentageAboveBaseCapacity;
-    /**
-     * @return Strategy used when launching Spot instances.
-     * 
-     */
     private String spotAllocationStrategy;
-    /**
-     * @return Number of Spot pools per availability zone to allocate capacity.
-     * 
-     */
     private Integer spotInstancePools;
-    /**
-     * @return Maximum price per unit hour that the user is willing to pay for the Spot instances.
-     * 
-     */
     private String spotMaxPrice;
 
     private GetGroupMixedInstancesPolicyInstancesDistribution() {}
-    /**
-     * @return Strategy used when launching on-demand instances.
-     * 
-     */
     public String onDemandAllocationStrategy() {
         return this.onDemandAllocationStrategy;
     }
-    /**
-     * @return Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-     * 
-     */
     public Integer onDemandBaseCapacity() {
         return this.onDemandBaseCapacity;
     }
     public Integer onDemandPercentageAboveBaseCapacity() {
         return this.onDemandPercentageAboveBaseCapacity;
     }
-    /**
-     * @return Strategy used when launching Spot instances.
-     * 
-     */
     public String spotAllocationStrategy() {
         return this.spotAllocationStrategy;
     }
-    /**
-     * @return Number of Spot pools per availability zone to allocate capacity.
-     * 
-     */
     public Integer spotInstancePools() {
         return this.spotInstancePools;
     }
-    /**
-     * @return Maximum price per unit hour that the user is willing to pay for the Spot instances.
-     * 
-     */
     public String spotMaxPrice() {
         return this.spotMaxPrice;
     }

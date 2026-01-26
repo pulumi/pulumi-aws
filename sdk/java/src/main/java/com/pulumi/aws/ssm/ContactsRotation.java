@@ -17,332 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.ContactsRotation;
- * import com.pulumi.aws.ssm.ContactsRotationArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
- *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name("rotation")
- *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
- *                 .dailySettings(ContactsRotationRecurrenceDailySettingArgs.builder()
- *                     .hourOfDay(9)
- *                     .minuteOfHour(0)
- *                     .build())
- *                 .build())
- *             .timeZoneId("Australia/Sydney")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with Weekly Settings and Shift Coverages Fields
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.ContactsRotation;
- * import com.pulumi.aws.ssm.ContactsRotationArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
- *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name("rotation")
- *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
- *                 .weeklySettings(                
- *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek("WED")
- *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(4)
- *                             .minuteOfHour(25)
- *                             .build())
- *                         .build(),
- *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek("FRI")
- *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(15)
- *                             .minuteOfHour(57)
- *                             .build())
- *                         .build())
- *                 .shiftCoverages(ContactsRotationRecurrenceShiftCoverageArgs.builder()
- *                     .mapBlockKey("MON")
- *                     .coverageTimes(ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs.builder()
- *                         .start(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs.builder()
- *                             .hourOfDay(1)
- *                             .minuteOfHour(0)
- *                             .build())
- *                         .end(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs.builder()
- *                             .hourOfDay(23)
- *                             .minuteOfHour(0)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .startTime("2023-07-20T02:21:49+00:00")
- *             .timeZoneId("Australia/Sydney")
- *             .tags(Map.ofEntries(
- *                 Map.entry("key1", "tag1"),
- *                 Map.entry("key2", "tag2")
- *             ))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with Monthly Settings Fields
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.ContactsRotation;
- * import com.pulumi.aws.ssm.ContactsRotationArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
- *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name("rotation")
- *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
- *                 .monthlySettings(                
- *                     ContactsRotationRecurrenceMonthlySettingArgs.builder()
- *                         .dayOfMonth(20)
- *                         .handOffTime(ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(8)
- *                             .minuteOfHour(0)
- *                             .build())
- *                         .build(),
- *                     ContactsRotationRecurrenceMonthlySettingArgs.builder()
- *                         .dayOfMonth(13)
- *                         .handOffTime(ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(12)
- *                             .minuteOfHour(34)
- *                             .build())
- *                         .build())
- *                 .build())
- *             .timeZoneId("Australia/Sydney")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
- * 
- * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
- * 
- * % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
- * 
- */
 @ResourceType(type="aws:ssm/contactsRotation:ContactsRotation")
 public class ContactsRotation extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the rotation.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the rotation.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-     * 
-     */
     @Export(name="contactIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> contactIds;
 
-    /**
-     * @return Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-     * 
-     */
     public Output<List<String>> contactIds() {
         return this.contactIds;
     }
-    /**
-     * The name for the rotation.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name for the rotation.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="recurrence", refs={ContactsRotationRecurrence.class}, tree="[0]")
     private Output</* @Nullable */ ContactsRotationRecurrence> recurrence;
 
-    /**
-     * @return Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<ContactsRotationRecurrence>> recurrence() {
         return Codegen.optional(this.recurrence);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The date and time, in RFC 3339 format, that the rotation goes into effect.
-     * 
-     */
     @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startTime;
 
-    /**
-     * @return The date and time, in RFC 3339 format, that the rotation goes into effect.
-     * 
-     */
     public Output<Optional<String>> startTime() {
         return Codegen.optional(this.startTime);
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-     * 
-     */
     @Export(name="timeZoneId", refs={String.class}, tree="[0]")
     private Output<String> timeZoneId;
 
-    /**
-     * @return The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-     * 
-     */
     public Output<String> timeZoneId() {
         return this.timeZoneId;
     }

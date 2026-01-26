@@ -15,17 +15,9 @@ public final class WorkteamWorkerAccessConfigurationArgs extends com.pulumi.reso
 
     public static final WorkteamWorkerAccessConfigurationArgs Empty = new WorkteamWorkerAccessConfigurationArgs();
 
-    /**
-     * Defines any Amazon S3 resource constraints. see S3 Presign details below.
-     * 
-     */
     @Import(name="s3Presign")
     private @Nullable Output<WorkteamWorkerAccessConfigurationS3PresignArgs> s3Presign;
 
-    /**
-     * @return Defines any Amazon S3 resource constraints. see S3 Presign details below.
-     * 
-     */
     public Optional<Output<WorkteamWorkerAccessConfigurationS3PresignArgs>> s3Presign() {
         return Optional.ofNullable(this.s3Presign);
     }
@@ -54,23 +46,11 @@ public final class WorkteamWorkerAccessConfigurationArgs extends com.pulumi.reso
             $ = new WorkteamWorkerAccessConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Presign Defines any Amazon S3 resource constraints. see S3 Presign details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Presign(@Nullable Output<WorkteamWorkerAccessConfigurationS3PresignArgs> s3Presign) {
             $.s3Presign = s3Presign;
             return this;
         }
 
-        /**
-         * @param s3Presign Defines any Amazon S3 resource constraints. see S3 Presign details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Presign(WorkteamWorkerAccessConfigurationS3PresignArgs s3Presign) {
             return s3Presign(Output.of(s3Presign));
         }

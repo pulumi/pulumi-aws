@@ -9,86 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Chime.SdkvoiceSipRule("example", new()
-    ///     {
-    ///         Name = "example-sip-rule",
-    ///         TriggerType = "RequestUriHostname",
-    ///         TriggerValue = example_voice_connector.OutboundHostName,
-    ///         TargetApplications = new[]
-    ///         {
-    ///             new Aws.Chime.Inputs.SdkvoiceSipRuleTargetApplicationArgs
-    ///             {
-    ///                 Priority = 1,
-    ///                 SipMediaApplicationId = example_sma.Id,
-    ///                 AwsRegion = "us-east-1",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule")]
     public partial class SdkvoiceSipRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Enables or disables a rule. You must disable rules before you can delete them.
-        /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the SIP rule.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `TargetApplications`.
-        /// </summary>
         [Output("targetApplications")]
         public Output<ImmutableArray<Outputs.SdkvoiceSipRuleTargetApplication>> TargetApplications { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of trigger assigned to the SIP rule in `TriggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
-        /// </summary>
         [Output("triggerType")]
         public Output<string> TriggerType { get; private set; } = null!;
 
-        /// <summary>
-        /// If `TriggerType` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `TriggerType` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("triggerValue")]
         public Output<string> TriggerValue { get; private set; } = null!;
 
@@ -138,47 +76,26 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceSipRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables or disables a rule. You must disable rules before you can delete them.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
-        /// <summary>
-        /// The name of the SIP rule.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("targetApplications", required: true)]
         private InputList<Inputs.SdkvoiceSipRuleTargetApplicationArgs>? _targetApplications;
-
-        /// <summary>
-        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `TargetApplications`.
-        /// </summary>
         public InputList<Inputs.SdkvoiceSipRuleTargetApplicationArgs> TargetApplications
         {
             get => _targetApplications ?? (_targetApplications = new InputList<Inputs.SdkvoiceSipRuleTargetApplicationArgs>());
             set => _targetApplications = value;
         }
 
-        /// <summary>
-        /// The type of trigger assigned to the SIP rule in `TriggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
-        /// </summary>
         [Input("triggerType", required: true)]
         public Input<string> TriggerType { get; set; } = null!;
 
-        /// <summary>
-        /// If `TriggerType` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `TriggerType` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("triggerValue", required: true)]
         public Input<string> TriggerValue { get; set; } = null!;
 
@@ -190,47 +107,26 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceSipRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables or disables a rule. You must disable rules before you can delete them.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
-        /// <summary>
-        /// The name of the SIP rule.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("targetApplications")]
         private InputList<Inputs.SdkvoiceSipRuleTargetApplicationGetArgs>? _targetApplications;
-
-        /// <summary>
-        /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `TargetApplications`.
-        /// </summary>
         public InputList<Inputs.SdkvoiceSipRuleTargetApplicationGetArgs> TargetApplications
         {
             get => _targetApplications ?? (_targetApplications = new InputList<Inputs.SdkvoiceSipRuleTargetApplicationGetArgs>());
             set => _targetApplications = value;
         }
 
-        /// <summary>
-        /// The type of trigger assigned to the SIP rule in `TriggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
-        /// </summary>
         [Input("triggerType")]
         public Input<string>? TriggerType { get; set; }
 
-        /// <summary>
-        /// If `TriggerType` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `TriggerType` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("triggerValue")]
         public Input<string>? TriggerValue { get; set; }
 

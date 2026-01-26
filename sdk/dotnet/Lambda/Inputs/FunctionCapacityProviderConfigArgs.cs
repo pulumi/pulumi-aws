@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionCapacityProviderConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for Lambda Managed Instances Capacity Provider. See below.
-        /// </summary>
         [Input("lambdaManagedInstancesCapacityProviderConfig", required: true)]
         public Input<Inputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs> LambdaManagedInstancesCapacityProviderConfig { get; set; } = null!;
 

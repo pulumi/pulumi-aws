@@ -16,62 +16,30 @@ public final class UserSettingsToolbarConfigurationArgs extends com.pulumi.resou
 
     public static final UserSettingsToolbarConfigurationArgs Empty = new UserSettingsToolbarConfigurationArgs();
 
-    /**
-     * List of toolbar items to be hidden.
-     * 
-     */
     @Import(name="hiddenToolbarItems")
     private @Nullable Output<List<String>> hiddenToolbarItems;
 
-    /**
-     * @return List of toolbar items to be hidden.
-     * 
-     */
     public Optional<Output<List<String>>> hiddenToolbarItems() {
         return Optional.ofNullable(this.hiddenToolbarItems);
     }
 
-    /**
-     * Maximum display resolution that is allowed for the session.
-     * 
-     */
     @Import(name="maxDisplayResolution")
     private @Nullable Output<String> maxDisplayResolution;
 
-    /**
-     * @return Maximum display resolution that is allowed for the session.
-     * 
-     */
     public Optional<Output<String>> maxDisplayResolution() {
         return Optional.ofNullable(this.maxDisplayResolution);
     }
 
-    /**
-     * Type of toolbar displayed during the session.
-     * 
-     */
     @Import(name="toolbarType")
     private @Nullable Output<String> toolbarType;
 
-    /**
-     * @return Type of toolbar displayed during the session.
-     * 
-     */
     public Optional<Output<String>> toolbarType() {
         return Optional.ofNullable(this.toolbarType);
     }
 
-    /**
-     * Visual mode of the toolbar.
-     * 
-     */
     @Import(name="visualMode")
     private @Nullable Output<String> visualMode;
 
-    /**
-     * @return Visual mode of the toolbar.
-     * 
-     */
     public Optional<Output<String>> visualMode() {
         return Optional.ofNullable(this.visualMode);
     }
@@ -103,96 +71,42 @@ public final class UserSettingsToolbarConfigurationArgs extends com.pulumi.resou
             $ = new UserSettingsToolbarConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hiddenToolbarItems List of toolbar items to be hidden.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenToolbarItems(@Nullable Output<List<String>> hiddenToolbarItems) {
             $.hiddenToolbarItems = hiddenToolbarItems;
             return this;
         }
 
-        /**
-         * @param hiddenToolbarItems List of toolbar items to be hidden.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenToolbarItems(List<String> hiddenToolbarItems) {
             return hiddenToolbarItems(Output.of(hiddenToolbarItems));
         }
 
-        /**
-         * @param hiddenToolbarItems List of toolbar items to be hidden.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenToolbarItems(String... hiddenToolbarItems) {
             return hiddenToolbarItems(List.of(hiddenToolbarItems));
         }
 
-        /**
-         * @param maxDisplayResolution Maximum display resolution that is allowed for the session.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxDisplayResolution(@Nullable Output<String> maxDisplayResolution) {
             $.maxDisplayResolution = maxDisplayResolution;
             return this;
         }
 
-        /**
-         * @param maxDisplayResolution Maximum display resolution that is allowed for the session.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxDisplayResolution(String maxDisplayResolution) {
             return maxDisplayResolution(Output.of(maxDisplayResolution));
         }
 
-        /**
-         * @param toolbarType Type of toolbar displayed during the session.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolbarType(@Nullable Output<String> toolbarType) {
             $.toolbarType = toolbarType;
             return this;
         }
 
-        /**
-         * @param toolbarType Type of toolbar displayed during the session.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolbarType(String toolbarType) {
             return toolbarType(Output.of(toolbarType));
         }
 
-        /**
-         * @param visualMode Visual mode of the toolbar.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visualMode(@Nullable Output<String> visualMode) {
             $.visualMode = visualMode;
             return this;
         }
 
-        /**
-         * @param visualMode Visual mode of the toolbar.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visualMode(String visualMode) {
             return visualMode(Output.of(visualMode));
         }

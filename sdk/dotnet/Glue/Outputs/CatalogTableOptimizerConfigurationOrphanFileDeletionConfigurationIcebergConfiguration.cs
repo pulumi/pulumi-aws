@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration
     {
-        /// <summary>
-        /// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
-        /// </summary>
         public readonly string? Location;
-        /// <summary>
-        /// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-        /// </summary>
         public readonly int? OrphanFileRetentionPeriodInDays;
-        /// <summary>
-        /// interval in hours between orphan file deletion job runs. Defaults to `24`.
-        /// </summary>
         public readonly int? RunRateInHours;
 
         [OutputConstructor]

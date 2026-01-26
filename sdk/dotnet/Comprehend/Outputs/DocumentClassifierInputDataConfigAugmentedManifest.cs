@@ -13,31 +13,11 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class DocumentClassifierInputDataConfigAugmentedManifest
     {
-        /// <summary>
-        /// Location of annotation files.
-        /// </summary>
         public readonly string? AnnotationDataS3Uri;
-        /// <summary>
-        /// The JSON attribute that contains the annotations for the training documents.
-        /// </summary>
         public readonly ImmutableArray<string> AttributeNames;
-        /// <summary>
-        /// Type of augmented manifest.
-        /// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-        /// </summary>
         public readonly string? DocumentType;
-        /// <summary>
-        /// Location of augmented manifest file.
-        /// </summary>
         public readonly string S3Uri;
-        /// <summary>
-        /// Location of source PDF files.
-        /// </summary>
         public readonly string? SourceDocumentsS3Uri;
-        /// <summary>
-        /// Purpose of data in augmented manifest.
-        /// One of `TRAIN` or `TEST`.
-        /// </summary>
         public readonly string? Split;
 
         [OutputConstructor]

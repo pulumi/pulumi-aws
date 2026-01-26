@@ -17,47 +17,23 @@ public final class GetPipelineDefinitionPlainArgs extends com.pulumi.resources.I
 
     public static final GetPipelineDefinitionPlainArgs Empty = new GetPipelineDefinitionPlainArgs();
 
-    /**
-     * Parameter values used in the pipeline definition. See below
-     * 
-     */
     @Import(name="parameterValues")
     private @Nullable List<GetPipelineDefinitionParameterValue> parameterValues;
 
-    /**
-     * @return Parameter values used in the pipeline definition. See below
-     * 
-     */
     public Optional<List<GetPipelineDefinitionParameterValue>> parameterValues() {
         return Optional.ofNullable(this.parameterValues);
     }
 
-    /**
-     * ID of the pipeline.
-     * 
-     */
     @Import(name="pipelineId", required=true)
     private String pipelineId;
 
-    /**
-     * @return ID of the pipeline.
-     * 
-     */
     public String pipelineId() {
         return this.pipelineId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,44 +64,20 @@ public final class GetPipelineDefinitionPlainArgs extends com.pulumi.resources.I
             $ = new GetPipelineDefinitionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameterValues Parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(@Nullable List<GetPipelineDefinitionParameterValue> parameterValues) {
             $.parameterValues = parameterValues;
             return this;
         }
 
-        /**
-         * @param parameterValues Parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(GetPipelineDefinitionParameterValue... parameterValues) {
             return parameterValues(List.of(parameterValues));
         }
 
-        /**
-         * @param pipelineId ID of the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineId(String pipelineId) {
             $.pipelineId = pipelineId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -12,68 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a Kinesis Stream Consumer.
-//
-// > **Note:** You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time.
-//
-// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("example-stream"),
-//				ShardCount: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesis.NewStreamConsumer(ctx, "example", &kinesis.StreamConsumerArgs{
-//				Name:      pulumi.String("example-consumer"),
-//				StreamArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-// $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
-// ```
 type StreamConsumer struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the stream consumer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-	CreationTimestamp pulumi.StringOutput `pulumi:"creationTimestamp"`
-	// Name of the stream consumer.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-	StreamArn pulumi.StringOutput    `pulumi:"streamArn"`
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn               pulumi.StringOutput    `pulumi:"arn"`
+	CreationTimestamp pulumi.StringOutput    `pulumi:"creationTimestamp"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	StreamArn         pulumi.StringOutput    `pulumi:"streamArn"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewStreamConsumer registers a new resource with the given unique name, arguments, and options.
@@ -109,33 +57,23 @@ func GetStreamConsumer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamConsumer resources.
 type streamConsumerState struct {
-	// Amazon Resource Name (ARN) of the stream consumer.
-	Arn *string `pulumi:"arn"`
-	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-	CreationTimestamp *string `pulumi:"creationTimestamp"`
-	// Name of the stream consumer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-	StreamArn *string           `pulumi:"streamArn"`
-	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	Arn               *string           `pulumi:"arn"`
+	CreationTimestamp *string           `pulumi:"creationTimestamp"`
+	Name              *string           `pulumi:"name"`
+	Region            *string           `pulumi:"region"`
+	StreamArn         *string           `pulumi:"streamArn"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 type StreamConsumerState struct {
-	// Amazon Resource Name (ARN) of the stream consumer.
-	Arn pulumi.StringPtrInput
-	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+	Arn               pulumi.StringPtrInput
 	CreationTimestamp pulumi.StringPtrInput
-	// Name of the stream consumer.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-	StreamArn pulumi.StringPtrInput
-	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	StreamArn         pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (StreamConsumerState) ElementType() reflect.Type {
@@ -143,22 +81,16 @@ func (StreamConsumerState) ElementType() reflect.Type {
 }
 
 type streamConsumerArgs struct {
-	// Name of the stream consumer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	Name      *string           `pulumi:"name"`
+	Region    *string           `pulumi:"region"`
 	StreamArn string            `pulumi:"streamArn"`
 	Tags      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamConsumer resource.
 type StreamConsumerArgs struct {
-	// Name of the stream consumer.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 	StreamArn pulumi.StringInput
 	Tags      pulumi.StringMapInput
 }
@@ -250,27 +182,22 @@ func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the stream consumer.
 func (o StreamConsumerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 func (o StreamConsumerOutput) CreationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.CreationTimestamp }).(pulumi.StringOutput)
 }
 
-// Name of the stream consumer.
 func (o StreamConsumerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StreamConsumerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 func (o StreamConsumerOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }

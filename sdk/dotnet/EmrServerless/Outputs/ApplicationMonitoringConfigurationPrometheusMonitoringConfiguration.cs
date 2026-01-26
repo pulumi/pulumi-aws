@@ -13,9 +13,6 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration
     {
-        /// <summary>
-        /// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-        /// </summary>
         public readonly string? RemoteWriteUrl;
 
         [OutputConstructor]

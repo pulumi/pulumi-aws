@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformCastColumnTypeOperation
     {
-        /// <summary>
-        /// Column name.
-        /// </summary>
         public readonly string ColumnName;
-        /// <summary>
-        /// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
-        /// </summary>
         public readonly string? Format;
-        /// <summary>
-        /// New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
-        /// </summary>
         public readonly string NewColumnType;
 
         [OutputConstructor]

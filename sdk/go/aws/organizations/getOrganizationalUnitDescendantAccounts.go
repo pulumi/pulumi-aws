@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get all direct child accounts under a parent organizational unit. This provides all children.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			org, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = organizations.GetOrganizationalUnitDescendantAccounts(ctx, &organizations.GetOrganizationalUnitDescendantAccountsArgs{
-//				ParentId: org.Roots[0].Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrganizationalUnitDescendantAccounts(ctx *pulumi.Context, args *GetOrganizationalUnitDescendantAccountsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitDescendantAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationalUnitDescendantAccountsResult
@@ -54,13 +23,11 @@ func GetOrganizationalUnitDescendantAccounts(ctx *pulumi.Context, args *GetOrgan
 
 // A collection of arguments for invoking getOrganizationalUnitDescendantAccounts.
 type GetOrganizationalUnitDescendantAccountsArgs struct {
-	// The parent ID of the accounts.
 	ParentId string `pulumi:"parentId"`
 }
 
 // A collection of values returned by getOrganizationalUnitDescendantAccounts.
 type GetOrganizationalUnitDescendantAccountsResult struct {
-	// List of child accounts, which have the following attributes:
 	Accounts []GetOrganizationalUnitDescendantAccountsAccount `pulumi:"accounts"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
@@ -78,7 +45,6 @@ func GetOrganizationalUnitDescendantAccountsOutput(ctx *pulumi.Context, args Get
 
 // A collection of arguments for invoking getOrganizationalUnitDescendantAccounts.
 type GetOrganizationalUnitDescendantAccountsOutputArgs struct {
-	// The parent ID of the accounts.
 	ParentId pulumi.StringInput `pulumi:"parentId"`
 }
 
@@ -101,7 +67,6 @@ func (o GetOrganizationalUnitDescendantAccountsResultOutput) ToGetOrganizational
 	return o
 }
 
-// List of child accounts, which have the following attributes:
 func (o GetOrganizationalUnitDescendantAccountsResultOutput) Accounts() GetOrganizationalUnitDescendantAccountsAccountArrayOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsResult) []GetOrganizationalUnitDescendantAccountsAccount {
 		return v.Accounts

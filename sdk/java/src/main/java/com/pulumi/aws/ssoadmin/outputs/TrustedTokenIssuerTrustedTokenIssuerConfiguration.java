@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustedTokenIssuerTrustedTokenIssuerConfiguration {
-    /**
-     * @return A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-     * 
-     */
     private @Nullable TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration;
 
     private TrustedTokenIssuerTrustedTokenIssuerConfiguration() {}
-    /**
-     * @return A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-     * 
-     */
     public Optional<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration> oidcJwtConfiguration() {
         return Optional.ofNullable(this.oidcJwtConfiguration);
     }

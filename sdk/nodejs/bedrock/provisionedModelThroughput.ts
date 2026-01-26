@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html) for an Amazon Bedrock model.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.ProvisionedModelThroughput("example", {
- *     provisionedModelName: "example-model",
- *     modelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
- *     commitmentDuration: "SixMonths",
- *     modelUnits: 1,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
- *
- * Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
- *
- * % pulumi import aws_bedrock_provisioned_model_throughput.example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
- */
 export class ProvisionedModelThroughput extends pulumi.CustomResource {
     /**
      * Get an existing ProvisionedModelThroughput resource's state with the given name, ID, and optional extra
@@ -64,37 +35,13 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProvisionedModelThroughput.__pulumiType;
     }
 
-    /**
-     * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-     */
     declare public readonly commitmentDuration: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the model to associate with this Provisioned Throughput.
-     */
     declare public readonly modelArn: pulumi.Output<string>;
-    /**
-     * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-     */
     declare public readonly modelUnits: pulumi.Output<number>;
-    /**
-     * The ARN of the Provisioned Throughput.
-     */
     declare public /*out*/ readonly provisionedModelArn: pulumi.Output<string>;
-    /**
-     * Unique name for this Provisioned Throughput.
-     */
     declare public readonly provisionedModelName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.ProvisionedModelThroughputTimeouts | undefined>;
 
@@ -150,37 +97,13 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProvisionedModelThroughput resources.
  */
 export interface ProvisionedModelThroughputState {
-    /**
-     * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-     */
     commitmentDuration?: pulumi.Input<string>;
-    /**
-     * ARN of the model to associate with this Provisioned Throughput.
-     */
     modelArn?: pulumi.Input<string>;
-    /**
-     * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-     */
     modelUnits?: pulumi.Input<number>;
-    /**
-     * The ARN of the Provisioned Throughput.
-     */
     provisionedModelArn?: pulumi.Input<string>;
-    /**
-     * Unique name for this Provisioned Throughput.
-     */
     provisionedModelName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.ProvisionedModelThroughputTimeouts>;
 }
@@ -189,29 +112,11 @@ export interface ProvisionedModelThroughputState {
  * The set of arguments for constructing a ProvisionedModelThroughput resource.
  */
 export interface ProvisionedModelThroughputArgs {
-    /**
-     * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-     */
     commitmentDuration?: pulumi.Input<string>;
-    /**
-     * ARN of the model to associate with this Provisioned Throughput.
-     */
     modelArn: pulumi.Input<string>;
-    /**
-     * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-     */
     modelUnits: pulumi.Input<number>;
-    /**
-     * Unique name for this Provisioned Throughput.
-     */
     provisionedModelName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.ProvisionedModelThroughputTimeouts>;
 }

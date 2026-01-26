@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionEksPropertyPodPropertyVolumeResult
     {
-        /// <summary>
-        /// Specifies the configuration of a Kubernetes emptyDir volume.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirResult> EmptyDirs;
-        /// <summary>
-        /// The path for the device on the host container instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeHostPathResult> HostPaths;
-        /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Specifies the configuration of a Kubernetes secret volume.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeSecretResult> Secrets;
 
         [OutputConstructor]

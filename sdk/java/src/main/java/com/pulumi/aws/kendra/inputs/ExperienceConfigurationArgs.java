@@ -16,32 +16,16 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
 
     public static final ExperienceConfigurationArgs Empty = new ExperienceConfigurationArgs();
 
-    /**
-     * The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     * 
-     */
     @Import(name="contentSourceConfiguration")
     private @Nullable Output<ExperienceConfigurationContentSourceConfigurationArgs> contentSourceConfiguration;
 
-    /**
-     * @return The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     * 
-     */
     public Optional<Output<ExperienceConfigurationContentSourceConfigurationArgs>> contentSourceConfiguration() {
         return Optional.ofNullable(this.contentSourceConfiguration);
     }
 
-    /**
-     * The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-     * 
-     */
     @Import(name="userIdentityConfiguration")
     private @Nullable Output<ExperienceConfigurationUserIdentityConfigurationArgs> userIdentityConfiguration;
 
-    /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-     * 
-     */
     public Optional<Output<ExperienceConfigurationUserIdentityConfigurationArgs>> userIdentityConfiguration() {
         return Optional.ofNullable(this.userIdentityConfiguration);
     }
@@ -71,44 +55,20 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
             $ = new ExperienceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentSourceConfiguration The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentSourceConfiguration(@Nullable Output<ExperienceConfigurationContentSourceConfigurationArgs> contentSourceConfiguration) {
             $.contentSourceConfiguration = contentSourceConfiguration;
             return this;
         }
 
-        /**
-         * @param contentSourceConfiguration The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentSourceConfiguration(ExperienceConfigurationContentSourceConfigurationArgs contentSourceConfiguration) {
             return contentSourceConfiguration(Output.of(contentSourceConfiguration));
         }
 
-        /**
-         * @param userIdentityConfiguration The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIdentityConfiguration(@Nullable Output<ExperienceConfigurationUserIdentityConfigurationArgs> userIdentityConfiguration) {
             $.userIdentityConfiguration = userIdentityConfiguration;
             return this;
         }
 
-        /**
-         * @param userIdentityConfiguration The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIdentityConfiguration(ExperienceConfigurationUserIdentityConfigurationArgs userIdentityConfiguration) {
             return userIdentityConfiguration(Output.of(userIdentityConfiguration));
         }

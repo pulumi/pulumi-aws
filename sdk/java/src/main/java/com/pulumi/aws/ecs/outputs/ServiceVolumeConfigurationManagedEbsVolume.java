@@ -16,137 +16,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceVolumeConfigurationManagedEbsVolume {
-    /**
-     * @return Whether the volume should be encrypted. Default value is `true`.
-     * 
-     */
     private @Nullable Boolean encrypted;
-    /**
-     * @return Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
-     * 
-     */
     private @Nullable String fileSystemType;
-    /**
-     * @return Number of I/O operations per second (IOPS).
-     * 
-     */
     private @Nullable Integer iops;
-    /**
-     * @return Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
-     * 
-     */
     private @Nullable Integer sizeInGb;
-    /**
-     * @return Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
-     * 
-     */
     private @Nullable String snapshotId;
-    /**
-     * @return The tags to apply to the volume. See below.
-     * 
-     */
     private @Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications;
-    /**
-     * @return Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
-     * 
-     */
     private @Nullable Integer throughput;
-    /**
-     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
-     * 
-     */
     private @Nullable Integer volumeInitializationRate;
-    /**
-     * @return Volume type.
-     * 
-     */
     private @Nullable String volumeType;
 
     private ServiceVolumeConfigurationManagedEbsVolume() {}
-    /**
-     * @return Whether the volume should be encrypted. Default value is `true`.
-     * 
-     */
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
-    /**
-     * @return Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
-     * 
-     */
     public Optional<String> fileSystemType() {
         return Optional.ofNullable(this.fileSystemType);
     }
-    /**
-     * @return Number of I/O operations per second (IOPS).
-     * 
-     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
-    /**
-     * @return Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
-     * 
-     */
     public Optional<Integer> sizeInGb() {
         return Optional.ofNullable(this.sizeInGb);
     }
-    /**
-     * @return Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
-     * 
-     */
     public Optional<String> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
-    /**
-     * @return The tags to apply to the volume. See below.
-     * 
-     */
     public List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications() {
         return this.tagSpecifications == null ? List.of() : this.tagSpecifications;
     }
-    /**
-     * @return Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
-     * 
-     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
-    /**
-     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
-     * 
-     */
     public Optional<Integer> volumeInitializationRate() {
         return Optional.ofNullable(this.volumeInitializationRate);
     }
-    /**
-     * @return Volume type.
-     * 
-     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

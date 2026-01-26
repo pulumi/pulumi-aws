@@ -12,68 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewServiceLinkedRole(ctx, "elasticbeanstalk", &iam.ServiceLinkedRoleArgs{
-//				AwsServiceName: pulumi.String("elasticbeanstalk.amazonaws.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the IAM service-linked role.
-//
-// Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
-//
-// % pulumi import aws_iam_service_linked_role.elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
 type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the role.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-	AwsServiceName pulumi.StringOutput `pulumi:"awsServiceName"`
-	// The creation date of the IAM role.
-	CreateDate pulumi.StringOutput `pulumi:"createDate"`
-	// Additional string appended to the role name. Not all AWS services support custom suffixes.
-	CustomSuffix pulumi.StringPtrOutput `pulumi:"customSuffix"`
-	// The description of the role.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the role.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The path of the role.
-	Path pulumi.StringOutput `pulumi:"path"`
-	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The stable and unique string identifying the role.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	AwsServiceName pulumi.StringOutput    `pulumi:"awsServiceName"`
+	CreateDate     pulumi.StringOutput    `pulumi:"createDate"`
+	CustomSuffix   pulumi.StringPtrOutput `pulumi:"customSuffix"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	Path           pulumi.StringOutput    `pulumi:"path"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	UniqueId       pulumi.StringOutput    `pulumi:"uniqueId"`
 }
 
 // NewServiceLinkedRole registers a new resource with the given unique name, arguments, and options.
@@ -109,49 +60,29 @@ func GetServiceLinkedRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceLinkedRole resources.
 type serviceLinkedRoleState struct {
-	// The Amazon Resource Name (ARN) specifying the role.
-	Arn *string `pulumi:"arn"`
-	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-	AwsServiceName *string `pulumi:"awsServiceName"`
-	// The creation date of the IAM role.
-	CreateDate *string `pulumi:"createDate"`
-	// Additional string appended to the role name. Not all AWS services support custom suffixes.
-	CustomSuffix *string `pulumi:"customSuffix"`
-	// The description of the role.
-	Description *string `pulumi:"description"`
-	// The name of the role.
-	Name *string `pulumi:"name"`
-	// The path of the role.
-	Path *string `pulumi:"path"`
-	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The stable and unique string identifying the role.
-	UniqueId *string `pulumi:"uniqueId"`
+	Arn            *string           `pulumi:"arn"`
+	AwsServiceName *string           `pulumi:"awsServiceName"`
+	CreateDate     *string           `pulumi:"createDate"`
+	CustomSuffix   *string           `pulumi:"customSuffix"`
+	Description    *string           `pulumi:"description"`
+	Name           *string           `pulumi:"name"`
+	Path           *string           `pulumi:"path"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
+	UniqueId       *string           `pulumi:"uniqueId"`
 }
 
 type ServiceLinkedRoleState struct {
-	// The Amazon Resource Name (ARN) specifying the role.
-	Arn pulumi.StringPtrInput
-	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
+	Arn            pulumi.StringPtrInput
 	AwsServiceName pulumi.StringPtrInput
-	// The creation date of the IAM role.
-	CreateDate pulumi.StringPtrInput
-	// Additional string appended to the role name. Not all AWS services support custom suffixes.
-	CustomSuffix pulumi.StringPtrInput
-	// The description of the role.
-	Description pulumi.StringPtrInput
-	// The name of the role.
-	Name pulumi.StringPtrInput
-	// The path of the role.
-	Path pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The stable and unique string identifying the role.
-	UniqueId pulumi.StringPtrInput
+	CreateDate     pulumi.StringPtrInput
+	CustomSuffix   pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Path           pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
+	UniqueId       pulumi.StringPtrInput
 }
 
 func (ServiceLinkedRoleState) ElementType() reflect.Type {
@@ -159,26 +90,18 @@ func (ServiceLinkedRoleState) ElementType() reflect.Type {
 }
 
 type serviceLinkedRoleArgs struct {
-	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-	AwsServiceName string `pulumi:"awsServiceName"`
-	// Additional string appended to the role name. Not all AWS services support custom suffixes.
-	CustomSuffix *string `pulumi:"customSuffix"`
-	// The description of the role.
-	Description *string `pulumi:"description"`
-	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AwsServiceName string            `pulumi:"awsServiceName"`
+	CustomSuffix   *string           `pulumi:"customSuffix"`
+	Description    *string           `pulumi:"description"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceLinkedRole resource.
 type ServiceLinkedRoleArgs struct {
-	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
 	AwsServiceName pulumi.StringInput
-	// Additional string appended to the role name. Not all AWS services support custom suffixes.
-	CustomSuffix pulumi.StringPtrInput
-	// The description of the role.
-	Description pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	CustomSuffix   pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
 }
 
 func (ServiceLinkedRoleArgs) ElementType() reflect.Type {
@@ -268,52 +191,42 @@ func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the role.
 func (o ServiceLinkedRoleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
 func (o ServiceLinkedRoleOutput) AwsServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.AwsServiceName }).(pulumi.StringOutput)
 }
 
-// The creation date of the IAM role.
 func (o ServiceLinkedRoleOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
 }
 
-// Additional string appended to the role name. Not all AWS services support custom suffixes.
 func (o ServiceLinkedRoleOutput) CustomSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.CustomSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The description of the role.
 func (o ServiceLinkedRoleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the role.
 func (o ServiceLinkedRoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The path of the role.
 func (o ServiceLinkedRoleOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceLinkedRoleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceLinkedRoleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The stable and unique string identifying the role.
 func (o ServiceLinkedRoleOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }

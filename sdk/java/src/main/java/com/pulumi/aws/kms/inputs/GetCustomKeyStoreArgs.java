@@ -15,47 +15,23 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetCustomKeyStoreArgs Empty = new GetCustomKeyStoreArgs();
 
-    /**
-     * The ID for the custom key store.
-     * 
-     */
     @Import(name="customKeyStoreId")
     private @Nullable Output<String> customKeyStoreId;
 
-    /**
-     * @return The ID for the custom key store.
-     * 
-     */
     public Optional<Output<String>> customKeyStoreId() {
         return Optional.ofNullable(this.customKeyStoreId);
     }
 
-    /**
-     * The user-specified friendly name for the custom key store.
-     * 
-     */
     @Import(name="customKeyStoreName")
     private @Nullable Output<String> customKeyStoreName;
 
-    /**
-     * @return The user-specified friendly name for the custom key store.
-     * 
-     */
     public Optional<Output<String>> customKeyStoreName() {
         return Optional.ofNullable(this.customKeyStoreName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetCustomKeyStoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customKeyStoreId The ID for the custom key store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreId(@Nullable Output<String> customKeyStoreId) {
             $.customKeyStoreId = customKeyStoreId;
             return this;
         }
 
-        /**
-         * @param customKeyStoreId The ID for the custom key store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreId(String customKeyStoreId) {
             return customKeyStoreId(Output.of(customKeyStoreId));
         }
 
-        /**
-         * @param customKeyStoreName The user-specified friendly name for the custom key store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreName(@Nullable Output<String> customKeyStoreName) {
             $.customKeyStoreName = customKeyStoreName;
             return this;
         }
 
-        /**
-         * @param customKeyStoreName The user-specified friendly name for the custom key store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreName(String customKeyStoreName) {
             return customKeyStoreName(Output.of(customKeyStoreName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

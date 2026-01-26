@@ -19,47 +19,23 @@ public final class LogAnomalyDetectorState extends com.pulumi.resources.Resource
 
     public static final LogAnomalyDetectorState Empty = new LogAnomalyDetectorState();
 
-    /**
-     * Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-     * 
-     */
     @Import(name="anomalyVisibilityTime")
     private @Nullable Output<Integer> anomalyVisibilityTime;
 
-    /**
-     * @return Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-     * 
-     */
     public Optional<Output<Integer>> anomalyVisibilityTime() {
         return Optional.ofNullable(this.anomalyVisibilityTime);
     }
 
-    /**
-     * ARN of the log anomaly detector that you just created.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the log anomaly detector that you just created.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Name for this anomaly detector.
-     * 
-     */
     @Import(name="detectorName")
     private @Nullable Output<String> detectorName;
 
-    /**
-     * @return Name for this anomaly detector.
-     * 
-     */
     public Optional<Output<String>> detectorName() {
         return Optional.ofNullable(this.detectorName);
     }
@@ -71,81 +47,37 @@ public final class LogAnomalyDetectorState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-     * 
-     */
     @Import(name="evaluationFrequency")
     private @Nullable Output<String> evaluationFrequency;
 
-    /**
-     * @return Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-     * 
-     */
     public Optional<Output<String>> evaluationFrequency() {
         return Optional.ofNullable(this.evaluationFrequency);
     }
 
-    /**
-     * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-     * 
-     */
     @Import(name="filterPattern")
     private @Nullable Output<String> filterPattern;
 
-    /**
-     * @return You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-     * 
-     */
     public Optional<Output<String>> filterPattern() {
         return Optional.ofNullable(this.filterPattern);
     }
 
-    /**
-     * Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="logGroupArnLists")
     private @Nullable Output<List<String>> logGroupArnLists;
 
-    /**
-     * @return Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<String>>> logGroupArnLists() {
         return Optional.ofNullable(this.logGroupArnLists);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -198,65 +130,29 @@ public final class LogAnomalyDetectorState extends com.pulumi.resources.Resource
             $ = new LogAnomalyDetectorState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param anomalyVisibilityTime Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-         * 
-         * @return builder
-         * 
-         */
         public Builder anomalyVisibilityTime(@Nullable Output<Integer> anomalyVisibilityTime) {
             $.anomalyVisibilityTime = anomalyVisibilityTime;
             return this;
         }
 
-        /**
-         * @param anomalyVisibilityTime Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-         * 
-         * @return builder
-         * 
-         */
         public Builder anomalyVisibilityTime(Integer anomalyVisibilityTime) {
             return anomalyVisibilityTime(Output.of(anomalyVisibilityTime));
         }
 
-        /**
-         * @param arn ARN of the log anomaly detector that you just created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the log anomaly detector that you just created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param detectorName Name for this anomaly detector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorName(@Nullable Output<String> detectorName) {
             $.detectorName = detectorName;
             return this;
         }
 
-        /**
-         * @param detectorName Name for this anomaly detector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorName(String detectorName) {
             return detectorName(Output.of(detectorName));
         }
@@ -270,123 +166,51 @@ public final class LogAnomalyDetectorState extends com.pulumi.resources.Resource
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param evaluationFrequency Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluationFrequency(@Nullable Output<String> evaluationFrequency) {
             $.evaluationFrequency = evaluationFrequency;
             return this;
         }
 
-        /**
-         * @param evaluationFrequency Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluationFrequency(String evaluationFrequency) {
             return evaluationFrequency(Output.of(evaluationFrequency));
         }
 
-        /**
-         * @param filterPattern You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPattern(@Nullable Output<String> filterPattern) {
             $.filterPattern = filterPattern;
             return this;
         }
 
-        /**
-         * @param filterPattern You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPattern(String filterPattern) {
             return filterPattern(Output.of(filterPattern));
         }
 
-        /**
-         * @param kmsKeyId Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param logGroupArnLists Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArnLists(@Nullable Output<List<String>> logGroupArnLists) {
             $.logGroupArnLists = logGroupArnLists;
             return this;
         }
 
-        /**
-         * @param logGroupArnLists Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArnLists(List<String> logGroupArnLists) {
             return logGroupArnLists(Output.of(logGroupArnLists));
         }
 
-        /**
-         * @param logGroupArnLists Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArnLists(String... logGroupArnLists) {
             return logGroupArnLists(List.of(logGroupArnLists));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

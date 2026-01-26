@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Returns a list of all AWS DynamoDB table names in a region.
-//
-// ## Example Usage
-//
-// The following example retrieves a list of all DynamoDB table names in a region.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			all, err := dynamodb.GetTables(ctx, &dynamodb.GetTablesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("tableNames", all.Names)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOption) (*GetTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTablesResult
@@ -51,15 +23,13 @@ func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getTables.
 type GetTablesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getTables.
 type GetTablesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// A list of all the DynamoDB table names found.
+	Id     string   `pulumi:"id"`
 	Names  []string `pulumi:"names"`
 	Region string   `pulumi:"region"`
 }
@@ -75,7 +45,6 @@ func GetTablesOutput(ctx *pulumi.Context, args GetTablesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getTables.
 type GetTablesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -103,7 +72,6 @@ func (o GetTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the DynamoDB table names found.
 func (o GetTablesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTablesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

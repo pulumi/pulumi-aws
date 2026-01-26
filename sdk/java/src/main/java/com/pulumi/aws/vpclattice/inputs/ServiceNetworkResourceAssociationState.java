@@ -20,126 +20,58 @@ public final class ServiceNetworkResourceAssociationState extends com.pulumi.res
 
     public static final ServiceNetworkResourceAssociationState Empty = new ServiceNetworkResourceAssociationState();
 
-    /**
-     * ARN of the Service Network Resource Association.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Service Network Resource Association.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * DNS entry of the association in the service network.
-     * 
-     */
     @Import(name="dnsEntries")
     private @Nullable Output<List<ServiceNetworkResourceAssociationDnsEntryArgs>> dnsEntries;
 
-    /**
-     * @return DNS entry of the association in the service network.
-     * 
-     */
     public Optional<Output<List<ServiceNetworkResourceAssociationDnsEntryArgs>>> dnsEntries() {
         return Optional.ofNullable(this.dnsEntries);
     }
 
-    /**
-     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     * 
-     */
     @Import(name="privateDnsEnabled")
     private @Nullable Output<Boolean> privateDnsEnabled;
 
-    /**
-     * @return Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     * 
-     */
     public Optional<Output<Boolean>> privateDnsEnabled() {
         return Optional.ofNullable(this.privateDnsEnabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of Resource Configuration to associate to the Service Network.
-     * 
-     */
     @Import(name="resourceConfigurationIdentifier")
     private @Nullable Output<String> resourceConfigurationIdentifier;
 
-    /**
-     * @return Identifier of Resource Configuration to associate to the Service Network.
-     * 
-     */
     public Optional<Output<String>> resourceConfigurationIdentifier() {
         return Optional.ofNullable(this.resourceConfigurationIdentifier);
     }
 
-    /**
-     * Identifier of the Service Network to associate the Resource to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="serviceNetworkIdentifier")
     private @Nullable Output<String> serviceNetworkIdentifier;
 
-    /**
-     * @return Identifier of the Service Network to associate the Resource to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> serviceNetworkIdentifier() {
         return Optional.ofNullable(this.serviceNetworkIdentifier);
     }
 
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -183,184 +115,78 @@ public final class ServiceNetworkResourceAssociationState extends com.pulumi.res
             $ = new ServiceNetworkResourceAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Service Network Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Service Network Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param dnsEntries DNS entry of the association in the service network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsEntries(@Nullable Output<List<ServiceNetworkResourceAssociationDnsEntryArgs>> dnsEntries) {
             $.dnsEntries = dnsEntries;
             return this;
         }
 
-        /**
-         * @param dnsEntries DNS entry of the association in the service network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsEntries(List<ServiceNetworkResourceAssociationDnsEntryArgs> dnsEntries) {
             return dnsEntries(Output.of(dnsEntries));
         }
 
-        /**
-         * @param dnsEntries DNS entry of the association in the service network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsEntries(ServiceNetworkResourceAssociationDnsEntryArgs... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
         }
 
-        /**
-         * @param privateDnsEnabled Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsEnabled(@Nullable Output<Boolean> privateDnsEnabled) {
             $.privateDnsEnabled = privateDnsEnabled;
             return this;
         }
 
-        /**
-         * @param privateDnsEnabled Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
             return privateDnsEnabled(Output.of(privateDnsEnabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceConfigurationIdentifier Identifier of Resource Configuration to associate to the Service Network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationIdentifier(@Nullable Output<String> resourceConfigurationIdentifier) {
             $.resourceConfigurationIdentifier = resourceConfigurationIdentifier;
             return this;
         }
 
-        /**
-         * @param resourceConfigurationIdentifier Identifier of Resource Configuration to associate to the Service Network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationIdentifier(String resourceConfigurationIdentifier) {
             return resourceConfigurationIdentifier(Output.of(resourceConfigurationIdentifier));
         }
 
-        /**
-         * @param serviceNetworkIdentifier Identifier of the Service Network to associate the Resource to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkIdentifier(@Nullable Output<String> serviceNetworkIdentifier) {
             $.serviceNetworkIdentifier = serviceNetworkIdentifier;
             return this;
         }
 
-        /**
-         * @param serviceNetworkIdentifier Identifier of the Service Network to associate the Resource to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkIdentifier(String serviceNetworkIdentifier) {
             return serviceNetworkIdentifier(Output.of(serviceNetworkIdentifier));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -29,12 +29,6 @@ class DeploymentConfigArgs:
                  zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
         """
         The set of arguments for constructing a DeploymentConfig resource.
-        :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
-        :param pulumi.Input['DeploymentConfigZonalConfigArgs'] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
@@ -52,9 +46,6 @@ class DeploymentConfigArgs:
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -64,9 +55,6 @@ class DeploymentConfigArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the deployment config.
-        """
         return pulumi.get(self, "deployment_config_name")
 
     @deployment_config_name.setter
@@ -76,9 +64,6 @@ class DeploymentConfigArgs:
     @_builtins.property
     @pulumi.getter(name="minimumHealthyHosts")
     def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]:
-        """
-        A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @minimum_healthy_hosts.setter
@@ -88,9 +73,6 @@ class DeploymentConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,9 +82,6 @@ class DeploymentConfigArgs:
     @_builtins.property
     @pulumi.getter(name="trafficRoutingConfig")
     def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
-        """
-        A traffic_routing_config block. Traffic Routing Config is documented below.
-        """
         return pulumi.get(self, "traffic_routing_config")
 
     @traffic_routing_config.setter
@@ -112,9 +91,6 @@ class DeploymentConfigArgs:
     @_builtins.property
     @pulumi.getter(name="zonalConfig")
     def zonal_config(self) -> Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']]:
-        """
-        A zonal_config block. Zonal Config is documented below.
-        """
         return pulumi.get(self, "zonal_config")
 
     @zonal_config.setter
@@ -135,14 +111,6 @@ class _DeploymentConfigState:
                  zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
         """
         Input properties used for looking up and filtering DeploymentConfig resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the deployment config.
-        :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        :param pulumi.Input[_builtins.str] deployment_config_id: The AWS Assigned deployment config id
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
-        :param pulumi.Input['DeploymentConfigZonalConfigArgs'] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -164,9 +132,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the deployment config.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -176,9 +141,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -188,9 +150,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter(name="deploymentConfigId")
     def deployment_config_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS Assigned deployment config id
-        """
         return pulumi.get(self, "deployment_config_id")
 
     @deployment_config_id.setter
@@ -200,9 +159,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the deployment config.
-        """
         return pulumi.get(self, "deployment_config_name")
 
     @deployment_config_name.setter
@@ -212,9 +168,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter(name="minimumHealthyHosts")
     def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]:
-        """
-        A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @minimum_healthy_hosts.setter
@@ -224,9 +177,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -236,9 +186,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter(name="trafficRoutingConfig")
     def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
-        """
-        A traffic_routing_config block. Traffic Routing Config is documented below.
-        """
         return pulumi.get(self, "traffic_routing_config")
 
     @traffic_routing_config.setter
@@ -248,9 +195,6 @@ class _DeploymentConfigState:
     @_builtins.property
     @pulumi.getter(name="zonalConfig")
     def zonal_config(self) -> Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']]:
-        """
-        A zonal_config block. Zonal Config is documented below.
-        """
         return pulumi.get(self, "zonal_config")
 
     @zonal_config.setter
@@ -272,94 +216,9 @@ class DeploymentConfig(pulumi.CustomResource):
                  zonal_config: Optional[pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a CodeDeploy deployment config for an application
-
-        ## Example Usage
-
-        ### Server Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.codedeploy.DeploymentConfig("foo",
-            deployment_config_name="test-deployment-config",
-            minimum_healthy_hosts={
-                "type": "HOST_COUNT",
-                "value": 2,
-            })
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
-            app_name=foo_app["name"],
-            deployment_group_name="bar",
-            service_role_arn=foo_role["arn"],
-            deployment_config_name=foo.id,
-            ec2_tag_filters=[{
-                "key": "filterkey",
-                "type": "KEY_AND_VALUE",
-                "value": "filtervalue",
-            }],
-            trigger_configurations=[{
-                "trigger_events": ["DeploymentFailure"],
-                "trigger_name": "foo-trigger",
-                "trigger_target_arn": "foo-topic-arn",
-            }],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            })
-        ```
-
-        ### Lambda Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.codedeploy.DeploymentConfig("foo",
-            deployment_config_name="test-deployment-config",
-            compute_platform="Lambda",
-            traffic_routing_config={
-                "type": "TimeBasedLinear",
-                "time_based_linear": {
-                    "interval": 10,
-                    "percentage": 10,
-                },
-            })
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
-            app_name=foo_app["name"],
-            deployment_group_name="bar",
-            service_role_arn=foo_role["arn"],
-            deployment_config_name=foo.id,
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_STOP_ON_ALARM"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
-
-        ```sh
-        $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
-        ```
-
+        Create a DeploymentConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
-        :param pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
         ...
     @overload
@@ -368,86 +227,7 @@ class DeploymentConfig(pulumi.CustomResource):
                  args: Optional[DeploymentConfigArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeDeploy deployment config for an application
-
-        ## Example Usage
-
-        ### Server Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.codedeploy.DeploymentConfig("foo",
-            deployment_config_name="test-deployment-config",
-            minimum_healthy_hosts={
-                "type": "HOST_COUNT",
-                "value": 2,
-            })
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
-            app_name=foo_app["name"],
-            deployment_group_name="bar",
-            service_role_arn=foo_role["arn"],
-            deployment_config_name=foo.id,
-            ec2_tag_filters=[{
-                "key": "filterkey",
-                "type": "KEY_AND_VALUE",
-                "value": "filtervalue",
-            }],
-            trigger_configurations=[{
-                "trigger_events": ["DeploymentFailure"],
-                "trigger_name": "foo-trigger",
-                "trigger_target_arn": "foo-topic-arn",
-            }],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            })
-        ```
-
-        ### Lambda Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.codedeploy.DeploymentConfig("foo",
-            deployment_config_name="test-deployment-config",
-            compute_platform="Lambda",
-            traffic_routing_config={
-                "type": "TimeBasedLinear",
-                "time_based_linear": {
-                    "interval": 10,
-                    "percentage": 10,
-                },
-            })
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("foo",
-            app_name=foo_app["name"],
-            deployment_group_name="bar",
-            service_role_arn=foo_role["arn"],
-            deployment_config_name=foo.id,
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_STOP_ON_ALARM"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
-
-        ```sh
-        $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
-        ```
-
+        Create a DeploymentConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -511,14 +291,6 @@ class DeploymentConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the deployment config.
-        :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        :param pulumi.Input[_builtins.str] deployment_config_id: The AWS Assigned deployment config id
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
-        :param pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -537,64 +309,40 @@ class DeploymentConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the deployment config.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        """
         return pulumi.get(self, "compute_platform")
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfigId")
     def deployment_config_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS Assigned deployment config id
-        """
         return pulumi.get(self, "deployment_config_id")
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the deployment config.
-        """
         return pulumi.get(self, "deployment_config_name")
 
     @_builtins.property
     @pulumi.getter(name="minimumHealthyHosts")
     def minimum_healthy_hosts(self) -> pulumi.Output[Optional['outputs.DeploymentConfigMinimumHealthyHosts']]:
-        """
-        A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="trafficRoutingConfig")
     def traffic_routing_config(self) -> pulumi.Output[Optional['outputs.DeploymentConfigTrafficRoutingConfig']]:
-        """
-        A traffic_routing_config block. Traffic Routing Config is documented below.
-        """
         return pulumi.get(self, "traffic_routing_config")
 
     @_builtins.property
     @pulumi.getter(name="zonalConfig")
     def zonal_config(self) -> pulumi.Output[Optional['outputs.DeploymentConfigZonalConfig']]:
-        """
-        A zonal_config block. Zonal Config is documented below.
-        """
         return pulumi.get(self, "zonal_config")
 

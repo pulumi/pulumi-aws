@@ -17,32 +17,16 @@ public final class ApplicationLayerAutomaticResponseArgs extends com.pulumi.reso
 
     public static final ApplicationLayerAutomaticResponseArgs Empty = new ApplicationLayerAutomaticResponseArgs();
 
-    /**
-     * One of `COUNT` or `BLOCK`
-     * 
-     */
     @Import(name="action", required=true)
     private Output<String> action;
 
-    /**
-     * @return One of `COUNT` or `BLOCK`
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
 
-    /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -80,44 +64,20 @@ public final class ApplicationLayerAutomaticResponseArgs extends com.pulumi.reso
             $ = new ApplicationLayerAutomaticResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action One of `COUNT` or `BLOCK`
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action One of `COUNT` or `BLOCK`
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param resourceArn ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

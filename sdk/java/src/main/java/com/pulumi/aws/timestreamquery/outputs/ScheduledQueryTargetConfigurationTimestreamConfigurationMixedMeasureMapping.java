@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping {
-    /**
-     * @return Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-     * 
-     */
     private @Nullable String measureName;
-    /**
-     * @return Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-     * 
-     */
     private String measureValueType;
-    /**
-     * @return Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
-     * 
-     */
     private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping> multiMeasureAttributeMappings;
-    /**
-     * @return Source column from which measure-value is to be read for result materialization.
-     * 
-     */
     private @Nullable String sourceColumn;
-    /**
-     * @return Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-     * 
-     */
     private @Nullable String targetMeasureName;
 
     private ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping() {}
-    /**
-     * @return Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-     * 
-     */
     public Optional<String> measureName() {
         return Optional.ofNullable(this.measureName);
     }
-    /**
-     * @return Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-     * 
-     */
     public String measureValueType() {
         return this.measureValueType;
     }
-    /**
-     * @return Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
-     * 
-     */
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping> multiMeasureAttributeMappings() {
         return this.multiMeasureAttributeMappings == null ? List.of() : this.multiMeasureAttributeMappings;
     }
-    /**
-     * @return Source column from which measure-value is to be read for result materialization.
-     * 
-     */
     public Optional<String> sourceColumn() {
         return Optional.ofNullable(this.sourceColumn);
     }
-    /**
-     * @return Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-     * 
-     */
     public Optional<String> targetMeasureName() {
         return Optional.ofNullable(this.targetMeasureName);
     }

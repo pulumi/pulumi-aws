@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AssessmentScopeAwsService {
-    /**
-     * @return Name of the Amazon Web Service.
-     * 
-     */
     private String serviceName;
 
     private AssessmentScopeAwsService() {}
-    /**
-     * @return Name of the Amazon Web Service.
-     * 
-     */
     public String serviceName() {
         return this.serviceName;
     }

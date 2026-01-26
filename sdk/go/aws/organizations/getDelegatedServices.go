@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a list the AWS services for which the specified account is a delegated administrator
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.GetDelegatedServices(ctx, &organizations.GetDelegatedServicesArgs{
-//				AccountId: "AWS ACCOUNT ID",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDelegatedServices(ctx *pulumi.Context, args *GetDelegatedServicesArgs, opts ...pulumi.InvokeOption) (*GetDelegatedServicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDelegatedServicesResult
@@ -50,14 +23,12 @@ func GetDelegatedServices(ctx *pulumi.Context, args *GetDelegatedServicesArgs, o
 
 // A collection of arguments for invoking getDelegatedServices.
 type GetDelegatedServicesArgs struct {
-	// Account ID number of a delegated administrator account in the organization.
 	AccountId string `pulumi:"accountId"`
 }
 
 // A collection of values returned by getDelegatedServices.
 type GetDelegatedServicesResult struct {
-	AccountId string `pulumi:"accountId"`
-	// Services for which the account is a delegated administrator, which have the following attributes:
+	AccountId         string                                 `pulumi:"accountId"`
 	DelegatedServices []GetDelegatedServicesDelegatedService `pulumi:"delegatedServices"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -74,7 +45,6 @@ func GetDelegatedServicesOutput(ctx *pulumi.Context, args GetDelegatedServicesOu
 
 // A collection of arguments for invoking getDelegatedServices.
 type GetDelegatedServicesOutputArgs struct {
-	// Account ID number of a delegated administrator account in the organization.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -101,7 +71,6 @@ func (o GetDelegatedServicesResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDelegatedServicesResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Services for which the account is a delegated administrator, which have the following attributes:
 func (o GetDelegatedServicesResultOutput) DelegatedServices() GetDelegatedServicesDelegatedServiceArrayOutput {
 	return o.ApplyT(func(v GetDelegatedServicesResult) []GetDelegatedServicesDelegatedService { return v.DelegatedServices }).(GetDelegatedServicesDelegatedServiceArrayOutput)
 }

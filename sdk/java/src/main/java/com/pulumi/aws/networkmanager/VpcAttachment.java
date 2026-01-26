@@ -18,324 +18,101 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager VPC attachment.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.VpcAttachment;
- * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.arn())
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with Options
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.VpcAttachment;
- * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
- * import com.pulumi.aws.networkmanager.inputs.VpcAttachmentOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.arn())
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
- *             .options(VpcAttachmentOptionsArgs.builder()
- *                 .applianceModeSupport(false)
- *                 .dnsSupport(true)
- *                 .ipv6Support(false)
- *                 .securityGroupReferencingSupport(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/vpcAttachment:VpcAttachment")
 public class VpcAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the attachment.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Policy rule number associated with the attachment.
-     * 
-     */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
-    /**
-     * @return Policy rule number associated with the attachment.
-     * 
-     */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
-    /**
-     * Type of attachment.
-     * 
-     */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
-    /**
-     * @return Type of attachment.
-     * 
-     */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
-    /**
-     * ARN of a core network.
-     * 
-     */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
-    /**
-     * @return ARN of a core network.
-     * 
-     */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
-    /**
-     * ID of a core network for the VPC attachment.
-     * 
-     */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of a core network for the VPC attachment.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
-    /**
-     * Region where the edge is located.
-     * 
-     */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
-    /**
-     * @return Region where the edge is located.
-     * 
-     */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
-    /**
-     * Options for the VPC attachment. See below.
-     * 
-     */
     @Export(name="options", refs={VpcAttachmentOptions.class}, tree="[0]")
     private Output<VpcAttachmentOptions> options;
 
-    /**
-     * @return Options for the VPC attachment. See below.
-     * 
-     */
     public Output<VpcAttachmentOptions> options() {
         return this.options;
     }
-    /**
-     * ID of the attachment account owner.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return ID of the attachment account owner.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * Attachment resource ARN.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Attachment resource ARN.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-     * 
-     */
     @Export(name="routingPolicyLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-     * 
-     */
     public Output<Optional<String>> routingPolicyLabel() {
         return Codegen.optional(this.routingPolicyLabel);
     }
-    /**
-     * Name of the segment attachment.
-     * 
-     */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
-    /**
-     * @return Name of the segment attachment.
-     * 
-     */
     public Output<String> segmentName() {
         return this.segmentName;
     }
-    /**
-     * State of the attachment.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the attachment.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Subnet ARNs of the VPC attachment.
-     * 
-     */
     @Export(name="subnetArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetArns;
 
-    /**
-     * @return Subnet ARNs of the VPC attachment.
-     * 
-     */
     public Output<List<String>> subnetArns() {
         return this.subnetArns;
     }
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the VPC.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vpcArn", refs={String.class}, tree="[0]")
     private Output<String> vpcArn;
 
-    /**
-     * @return ARN of the VPC.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpcArn() {
         return this.vpcArn;
     }

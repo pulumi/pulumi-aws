@@ -15,125 +15,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupInstanceRefreshPreferences {
-    /**
-     * @return Alarm Specification for Instance Refresh.
-     * 
-     */
     private @Nullable GroupInstanceRefreshPreferencesAlarmSpecification alarmSpecification;
-    /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
-     * 
-     */
     private @Nullable Boolean autoRollback;
-    /**
-     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
-     * 
-     */
     private @Nullable String checkpointDelay;
-    /**
-     * @return List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
-     * 
-     */
     private @Nullable List<Integer> checkpointPercentages;
-    /**
-     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
-     * 
-     */
     private @Nullable String instanceWarmup;
-    /**
-     * @return Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
-     * 
-     */
     private @Nullable Integer maxHealthyPercentage;
-    /**
-     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-     * 
-     */
     private @Nullable Integer minHealthyPercentage;
-    /**
-     * @return Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
-     * 
-     */
     private @Nullable String scaleInProtectedInstances;
-    /**
-     * @return Skip replacing instances that already have your desired configuration. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean skipMatching;
-    /**
-     * @return Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
-     * 
-     */
     private @Nullable String standbyInstances;
 
     private GroupInstanceRefreshPreferences() {}
-    /**
-     * @return Alarm Specification for Instance Refresh.
-     * 
-     */
     public Optional<GroupInstanceRefreshPreferencesAlarmSpecification> alarmSpecification() {
         return Optional.ofNullable(this.alarmSpecification);
     }
-    /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
-     * 
-     */
     public Optional<Boolean> autoRollback() {
         return Optional.ofNullable(this.autoRollback);
     }
-    /**
-     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
-     * 
-     */
     public Optional<String> checkpointDelay() {
         return Optional.ofNullable(this.checkpointDelay);
     }
-    /**
-     * @return List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
-     * 
-     */
     public List<Integer> checkpointPercentages() {
         return this.checkpointPercentages == null ? List.of() : this.checkpointPercentages;
     }
-    /**
-     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
-     * 
-     */
     public Optional<String> instanceWarmup() {
         return Optional.ofNullable(this.instanceWarmup);
     }
-    /**
-     * @return Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
-     * 
-     */
     public Optional<Integer> maxHealthyPercentage() {
         return Optional.ofNullable(this.maxHealthyPercentage);
     }
-    /**
-     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-     * 
-     */
     public Optional<Integer> minHealthyPercentage() {
         return Optional.ofNullable(this.minHealthyPercentage);
     }
-    /**
-     * @return Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
-     * 
-     */
     public Optional<String> scaleInProtectedInstances() {
         return Optional.ofNullable(this.scaleInProtectedInstances);
     }
-    /**
-     * @return Skip replacing instances that already have your desired configuration. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> skipMatching() {
         return Optional.ofNullable(this.skipMatching);
     }
-    /**
-     * @return Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
-     * 
-     */
     public Optional<String> standbyInstances() {
         return Optional.ofNullable(this.standbyInstances);
     }

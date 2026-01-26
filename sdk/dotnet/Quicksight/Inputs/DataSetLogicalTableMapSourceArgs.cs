@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the parent data set.
-        /// </summary>
         [Input("dataSetArn")]
         public Input<string>? DataSetArn { get; set; }
 
-        /// <summary>
-        /// Specifies the result of a join of two logical tables. See join_instruction.
-        /// </summary>
         [Input("joinInstruction")]
         public Input<Inputs.DataSetLogicalTableMapSourceJoinInstructionArgs>? JoinInstruction { get; set; }
 
-        /// <summary>
-        /// Physical table ID.
-        /// </summary>
         [Input("physicalTableId")]
         public Input<string>? PhysicalTableId { get; set; }
 

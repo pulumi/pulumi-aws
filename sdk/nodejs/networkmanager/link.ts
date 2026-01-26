@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Manager link. Use this resource to create a link for a site.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.Link("example", {
- *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
- *     siteId: exampleAwsNetworkmanagerSite.id,
- *     bandwidth: {
- *         uploadSpeed: 10,
- *         downloadSpeed: 50,
- *     },
- *     providerName: "MegaCorp",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
- * ```
- */
 export class Link extends pulumi.CustomResource {
     /**
      * Get an existing Link resource's state with the given name, ID, and optional extra
@@ -63,43 +35,14 @@ export class Link extends pulumi.CustomResource {
         return obj['__pulumiType'] === Link.__pulumiType;
     }
 
-    /**
-     * Link ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Upload speed and download speed in Mbps. See below.
-     */
     declare public readonly bandwidth: pulumi.Output<outputs.networkmanager.LinkBandwidth>;
-    /**
-     * Description of the link.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * ID of the global network.
-     */
     declare public readonly globalNetworkId: pulumi.Output<string>;
-    /**
-     * Provider of the link.
-     */
     declare public readonly providerName: pulumi.Output<string | undefined>;
-    /**
-     * ID of the site.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly siteId: pulumi.Output<string>;
-    /**
-     * Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Type of the link.
-     */
     declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
@@ -154,43 +97,14 @@ export class Link extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Link resources.
  */
 export interface LinkState {
-    /**
-     * Link ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Upload speed and download speed in Mbps. See below.
-     */
     bandwidth?: pulumi.Input<inputs.networkmanager.LinkBandwidth>;
-    /**
-     * Description of the link.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ID of the global network.
-     */
     globalNetworkId?: pulumi.Input<string>;
-    /**
-     * Provider of the link.
-     */
     providerName?: pulumi.Input<string>;
-    /**
-     * ID of the site.
-     *
-     * The following arguments are optional:
-     */
     siteId?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of the link.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -198,34 +112,11 @@ export interface LinkState {
  * The set of arguments for constructing a Link resource.
  */
 export interface LinkArgs {
-    /**
-     * Upload speed and download speed in Mbps. See below.
-     */
     bandwidth: pulumi.Input<inputs.networkmanager.LinkBandwidth>;
-    /**
-     * Description of the link.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ID of the global network.
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * Provider of the link.
-     */
     providerName?: pulumi.Input<string>;
-    /**
-     * ID of the site.
-     *
-     * The following arguments are optional:
-     */
     siteId: pulumi.Input<string>;
-    /**
-     * Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of the link.
-     */
     type?: pulumi.Input<string>;
 }

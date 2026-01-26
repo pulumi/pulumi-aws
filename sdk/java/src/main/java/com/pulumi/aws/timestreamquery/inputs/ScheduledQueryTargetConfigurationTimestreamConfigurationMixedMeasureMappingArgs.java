@@ -18,77 +18,37 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMixed
 
     public static final ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs Empty = new ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs();
 
-    /**
-     * Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-     * 
-     */
     @Import(name="measureName")
     private @Nullable Output<String> measureName;
 
-    /**
-     * @return Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-     * 
-     */
     public Optional<Output<String>> measureName() {
         return Optional.ofNullable(this.measureName);
     }
 
-    /**
-     * Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-     * 
-     */
     @Import(name="measureValueType", required=true)
     private Output<String> measureValueType;
 
-    /**
-     * @return Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-     * 
-     */
     public Output<String> measureValueType() {
         return this.measureValueType;
     }
 
-    /**
-     * Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
-     * 
-     */
     @Import(name="multiMeasureAttributeMappings")
     private @Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings;
 
-    /**
-     * @return Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
-     * 
-     */
     public Optional<Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs>>> multiMeasureAttributeMappings() {
         return Optional.ofNullable(this.multiMeasureAttributeMappings);
     }
 
-    /**
-     * Source column from which measure-value is to be read for result materialization.
-     * 
-     */
     @Import(name="sourceColumn")
     private @Nullable Output<String> sourceColumn;
 
-    /**
-     * @return Source column from which measure-value is to be read for result materialization.
-     * 
-     */
     public Optional<Output<String>> sourceColumn() {
         return Optional.ofNullable(this.sourceColumn);
     }
 
-    /**
-     * Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-     * 
-     */
     @Import(name="targetMeasureName")
     private @Nullable Output<String> targetMeasureName;
 
-    /**
-     * @return Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-     * 
-     */
     public Optional<Output<String>> targetMeasureName() {
         return Optional.ofNullable(this.targetMeasureName);
     }
@@ -121,117 +81,51 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMixed
             $ = new ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param measureName Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder measureName(@Nullable Output<String> measureName) {
             $.measureName = measureName;
             return this;
         }
 
-        /**
-         * @param measureName Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder measureName(String measureName) {
             return measureName(Output.of(measureName));
         }
 
-        /**
-         * @param measureValueType Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder measureValueType(Output<String> measureValueType) {
             $.measureValueType = measureValueType;
             return this;
         }
 
-        /**
-         * @param measureValueType Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder measureValueType(String measureValueType) {
             return measureValueType(Output.of(measureValueType));
         }
 
-        /**
-         * @param multiMeasureAttributeMappings Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiMeasureAttributeMappings(@Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings) {
             $.multiMeasureAttributeMappings = multiMeasureAttributeMappings;
             return this;
         }
 
-        /**
-         * @param multiMeasureAttributeMappings Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiMeasureAttributeMappings(List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs> multiMeasureAttributeMappings) {
             return multiMeasureAttributeMappings(Output.of(multiMeasureAttributeMappings));
         }
 
-        /**
-         * @param multiMeasureAttributeMappings Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiMeasureAttributeMappings(ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs... multiMeasureAttributeMappings) {
             return multiMeasureAttributeMappings(List.of(multiMeasureAttributeMappings));
         }
 
-        /**
-         * @param sourceColumn Source column from which measure-value is to be read for result materialization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceColumn(@Nullable Output<String> sourceColumn) {
             $.sourceColumn = sourceColumn;
             return this;
         }
 
-        /**
-         * @param sourceColumn Source column from which measure-value is to be read for result materialization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceColumn(String sourceColumn) {
             return sourceColumn(Output.of(sourceColumn));
         }
 
-        /**
-         * @param targetMeasureName Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetMeasureName(@Nullable Output<String> targetMeasureName) {
             $.targetMeasureName = targetMeasureName;
             return this;
         }
 
-        /**
-         * @param targetMeasureName Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetMeasureName(String targetMeasureName) {
             return targetMeasureName(Output.of(targetMeasureName));
         }

@@ -18,149 +18,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionDefaultCacheBehavior {
-    /**
-     * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-     * 
-     */
     private @Nullable MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods;
-    /**
-     * @return Unique identifier of the cache policy that is attached to the cache behavior.
-     * 
-     */
     private @Nullable String cachePolicyId;
-    /**
-     * @return Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
-     * 
-     */
     private @Nullable Boolean compress;
-    /**
-     * @return Field level encryption configuration ID.
-     * 
-     */
     private @Nullable String fieldLevelEncryptionId;
-    /**
-     * @return Configuration block for CloudFront Functions associations. See Function Association below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations;
-    /**
-     * @return Configuration block for Lambda{@literal @}Edge associations. See Lambda Function Association below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations;
-    /**
-     * @return Unique identifier of the origin request policy that is attached to the behavior.
-     * 
-     */
     private @Nullable String originRequestPolicyId;
-    /**
-     * @return ARN of the real-time log configuration that is attached to this cache behavior.
-     * 
-     */
     private @Nullable String realtimeLogConfigArn;
-    /**
-     * @return Identifier for a response headers policy.
-     * 
-     */
     private @Nullable String responseHeadersPolicyId;
-    /**
-     * @return Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-     * 
-     */
     private String targetOriginId;
-    /**
-     * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-     * 
-     */
     private @Nullable MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups trustedKeyGroups;
-    /**
-     * @return Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-     * 
-     */
     private String viewerProtocolPolicy;
 
     private MultitenantDistributionDefaultCacheBehavior() {}
-    /**
-     * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-     * 
-     */
     public Optional<MultitenantDistributionDefaultCacheBehaviorAllowedMethods> allowedMethods() {
         return Optional.ofNullable(this.allowedMethods);
     }
-    /**
-     * @return Unique identifier of the cache policy that is attached to the cache behavior.
-     * 
-     */
     public Optional<String> cachePolicyId() {
         return Optional.ofNullable(this.cachePolicyId);
     }
-    /**
-     * @return Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
-     * 
-     */
     public Optional<Boolean> compress() {
         return Optional.ofNullable(this.compress);
     }
-    /**
-     * @return Field level encryption configuration ID.
-     * 
-     */
     public Optional<String> fieldLevelEncryptionId() {
         return Optional.ofNullable(this.fieldLevelEncryptionId);
     }
-    /**
-     * @return Configuration block for CloudFront Functions associations. See Function Association below.
-     * 
-     */
     public List<MultitenantDistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations() {
         return this.functionAssociations == null ? List.of() : this.functionAssociations;
     }
-    /**
-     * @return Configuration block for Lambda{@literal @}Edge associations. See Lambda Function Association below.
-     * 
-     */
     public List<MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations() {
         return this.lambdaFunctionAssociations == null ? List.of() : this.lambdaFunctionAssociations;
     }
-    /**
-     * @return Unique identifier of the origin request policy that is attached to the behavior.
-     * 
-     */
     public Optional<String> originRequestPolicyId() {
         return Optional.ofNullable(this.originRequestPolicyId);
     }
-    /**
-     * @return ARN of the real-time log configuration that is attached to this cache behavior.
-     * 
-     */
     public Optional<String> realtimeLogConfigArn() {
         return Optional.ofNullable(this.realtimeLogConfigArn);
     }
-    /**
-     * @return Identifier for a response headers policy.
-     * 
-     */
     public Optional<String> responseHeadersPolicyId() {
         return Optional.ofNullable(this.responseHeadersPolicyId);
     }
-    /**
-     * @return Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-     * 
-     */
     public String targetOriginId() {
         return this.targetOriginId;
     }
-    /**
-     * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-     * 
-     */
     public Optional<MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups> trustedKeyGroups() {
         return Optional.ofNullable(this.trustedKeyGroups);
     }
-    /**
-     * @return Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-     * 
-     */
     public String viewerProtocolPolicy() {
         return this.viewerProtocolPolicy;
     }

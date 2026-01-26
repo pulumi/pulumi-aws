@@ -22,7 +22,6 @@ class AdminAccountArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AdminAccount resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -30,9 +29,6 @@ class AdminAccountArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -46,7 +42,6 @@ class _AdminAccountState:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdminAccount resources.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -54,9 +49,6 @@ class _AdminAccountState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -73,28 +65,9 @@ class AdminAccount(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fms.AdminAccount("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
-
-        ```sh
-        $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-        ```
-
+        Create a AdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
         ...
     @overload
@@ -103,25 +76,7 @@ class AdminAccount(pulumi.CustomResource):
                  args: Optional[AdminAccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fms.AdminAccount("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
-
-        ```sh
-        $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-        ```
-
+        Create a AdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +121,6 @@ class AdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -178,8 +132,5 @@ class AdminAccount(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
-        """
         return pulumi.get(self, "account_id")
 

@@ -12,180 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon Customer Profiles Domain.
-// See the [Create Domain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/customerprofiles"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := customerprofiles.NewDomain(ctx, "example", &customerprofiles.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With SQS DLQ and KMS set
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/customerprofiles"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "Customer Profiles SQS policy",
-//						"Effect": "Allow",
-//						"Action": []string{
-//							"sqs:SendMessage",
-//						},
-//						"Resource": "*",
-//						"Principal": map[string]interface{}{
-//							"Service": "profile.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			example, err := sqs.NewQueue(ctx, "example", &sqs.QueueArgs{
-//				Name:   pulumi.String("example"),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("example"),
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket:       pulumi.String("example"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID(),
-//				Policy: pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketArn := _args[0].(string)
-//					exampleBucketArn1 := _args[1].(string)
-//					var _zero string
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Sid":    "Customer Profiles S3 policy",
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"s3:GetObject",
-//									"s3:PutObject",
-//									"s3:ListBucket",
-//								},
-//								"Resource": []string{
-//									exampleBucketArn,
-//									fmt.Sprintf("%v/*", exampleBucketArn1),
-//								},
-//								"Principal": map[string]interface{}{
-//									"Service": "profile.amazonaws.com",
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return json1, nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = customerprofiles.NewDomain(ctx, "test", &customerprofiles.DomainArgs{
-//				DomainName:            example,
-//				DeadLetterQueueUrl:    example.ID(),
-//				DefaultEncryptionKey:  exampleKey.Arn,
-//				DefaultExpirationDays: pulumi.Int(365),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-	DeadLetterQueueUrl pulumi.StringPtrOutput `pulumi:"deadLetterQueueUrl"`
-	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-	DefaultEncryptionKey pulumi.StringPtrOutput `pulumi:"defaultEncryptionKey"`
-	// The default number of days until the data within the domain expires.
-	//
-	// The following arguments are optional:
-	DefaultExpirationDays pulumi.IntOutput `pulumi:"defaultExpirationDays"`
-	// The name for your Customer Profile domain. It must be unique for your AWS account.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// A block that specifies the process of matching duplicate profiles. Documented below.
-	Matching DomainMatchingPtrOutput `pulumi:"matching"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-	RuleBasedMatching DomainRuleBasedMatchingPtrOutput `pulumi:"ruleBasedMatching"`
-	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                   pulumi.StringOutput              `pulumi:"arn"`
+	DeadLetterQueueUrl    pulumi.StringPtrOutput           `pulumi:"deadLetterQueueUrl"`
+	DefaultEncryptionKey  pulumi.StringPtrOutput           `pulumi:"defaultEncryptionKey"`
+	DefaultExpirationDays pulumi.IntOutput                 `pulumi:"defaultExpirationDays"`
+	DomainName            pulumi.StringOutput              `pulumi:"domainName"`
+	Matching              DomainMatchingPtrOutput          `pulumi:"matching"`
+	Region                pulumi.StringOutput              `pulumi:"region"`
+	RuleBasedMatching     DomainRuleBasedMatchingPtrOutput `pulumi:"ruleBasedMatching"`
+	Tags                  pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput           `pulumi:"tagsAll"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -224,53 +63,29 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-	Arn *string `pulumi:"arn"`
-	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-	DeadLetterQueueUrl *string `pulumi:"deadLetterQueueUrl"`
-	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-	DefaultEncryptionKey *string `pulumi:"defaultEncryptionKey"`
-	// The default number of days until the data within the domain expires.
-	//
-	// The following arguments are optional:
-	DefaultExpirationDays *int `pulumi:"defaultExpirationDays"`
-	// The name for your Customer Profile domain. It must be unique for your AWS account.
-	DomainName *string `pulumi:"domainName"`
-	// A block that specifies the process of matching duplicate profiles. Documented below.
-	Matching *DomainMatching `pulumi:"matching"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
-	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                   *string                  `pulumi:"arn"`
+	DeadLetterQueueUrl    *string                  `pulumi:"deadLetterQueueUrl"`
+	DefaultEncryptionKey  *string                  `pulumi:"defaultEncryptionKey"`
+	DefaultExpirationDays *int                     `pulumi:"defaultExpirationDays"`
+	DomainName            *string                  `pulumi:"domainName"`
+	Matching              *DomainMatching          `pulumi:"matching"`
+	Region                *string                  `pulumi:"region"`
+	RuleBasedMatching     *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
+	Tags                  map[string]string        `pulumi:"tags"`
+	TagsAll               map[string]string        `pulumi:"tagsAll"`
 }
 
 type DomainState struct {
-	// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-	Arn pulumi.StringPtrInput
-	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-	DeadLetterQueueUrl pulumi.StringPtrInput
-	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-	DefaultEncryptionKey pulumi.StringPtrInput
-	// The default number of days until the data within the domain expires.
-	//
-	// The following arguments are optional:
+	Arn                   pulumi.StringPtrInput
+	DeadLetterQueueUrl    pulumi.StringPtrInput
+	DefaultEncryptionKey  pulumi.StringPtrInput
 	DefaultExpirationDays pulumi.IntPtrInput
-	// The name for your Customer Profile domain. It must be unique for your AWS account.
-	DomainName pulumi.StringPtrInput
-	// A block that specifies the process of matching duplicate profiles. Documented below.
-	Matching DomainMatchingPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-	RuleBasedMatching DomainRuleBasedMatchingPtrInput
-	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	DomainName            pulumi.StringPtrInput
+	Matching              DomainMatchingPtrInput
+	Region                pulumi.StringPtrInput
+	RuleBasedMatching     DomainRuleBasedMatchingPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -278,46 +93,26 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-	DeadLetterQueueUrl *string `pulumi:"deadLetterQueueUrl"`
-	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-	DefaultEncryptionKey *string `pulumi:"defaultEncryptionKey"`
-	// The default number of days until the data within the domain expires.
-	//
-	// The following arguments are optional:
-	DefaultExpirationDays int `pulumi:"defaultExpirationDays"`
-	// The name for your Customer Profile domain. It must be unique for your AWS account.
-	DomainName string `pulumi:"domainName"`
-	// A block that specifies the process of matching duplicate profiles. Documented below.
-	Matching *DomainMatching `pulumi:"matching"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
-	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DeadLetterQueueUrl    *string                  `pulumi:"deadLetterQueueUrl"`
+	DefaultEncryptionKey  *string                  `pulumi:"defaultEncryptionKey"`
+	DefaultExpirationDays int                      `pulumi:"defaultExpirationDays"`
+	DomainName            string                   `pulumi:"domainName"`
+	Matching              *DomainMatching          `pulumi:"matching"`
+	Region                *string                  `pulumi:"region"`
+	RuleBasedMatching     *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
+	Tags                  map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-	DeadLetterQueueUrl pulumi.StringPtrInput
-	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-	DefaultEncryptionKey pulumi.StringPtrInput
-	// The default number of days until the data within the domain expires.
-	//
-	// The following arguments are optional:
+	DeadLetterQueueUrl    pulumi.StringPtrInput
+	DefaultEncryptionKey  pulumi.StringPtrInput
 	DefaultExpirationDays pulumi.IntInput
-	// The name for your Customer Profile domain. It must be unique for your AWS account.
-	DomainName pulumi.StringInput
-	// A block that specifies the process of matching duplicate profiles. Documented below.
-	Matching DomainMatchingPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-	RuleBasedMatching DomainRuleBasedMatchingPtrInput
-	// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	DomainName            pulumi.StringInput
+	Matching              DomainMatchingPtrInput
+	Region                pulumi.StringPtrInput
+	RuleBasedMatching     DomainRuleBasedMatchingPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -407,54 +202,42 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 func (o DomainOutput) DeadLetterQueueUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DeadLetterQueueUrl }).(pulumi.StringPtrOutput)
 }
 
-// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
 func (o DomainOutput) DefaultEncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DefaultEncryptionKey }).(pulumi.StringPtrOutput)
 }
 
-// The default number of days until the data within the domain expires.
-//
-// The following arguments are optional:
 func (o DomainOutput) DefaultExpirationDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Domain) pulumi.IntOutput { return v.DefaultExpirationDays }).(pulumi.IntOutput)
 }
 
-// The name for your Customer Profile domain. It must be unique for your AWS account.
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// A block that specifies the process of matching duplicate profiles. Documented below.
 func (o DomainOutput) Matching() DomainMatchingPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainMatchingPtrOutput { return v.Matching }).(DomainMatchingPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
 func (o DomainOutput) RuleBasedMatching() DomainRuleBasedMatchingPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainRuleBasedMatchingPtrOutput { return v.RuleBasedMatching }).(DomainRuleBasedMatchingPtrOutput)
 }
 
-// Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

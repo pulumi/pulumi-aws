@@ -14,111 +14,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **WARNING:** Multiple aws.iam.GroupMembership resources with the same group name will produce inconsistent behavior!
- * 
- * Provides a top level resource to manage IAM Group membership for IAM Users. For
- * more information on managing IAM Groups or IAM Users, see IAM Groups or
- * IAM Users
- * 
- * &gt; **Note:** `aws.iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
- * `aws.iam.UserGroupMembership` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Group;
- * import com.pulumi.aws.iam.GroupArgs;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.GroupMembership;
- * import com.pulumi.aws.iam.GroupMembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var group = new Group("group", GroupArgs.builder()
- *             .name("test-group")
- *             .build());
- * 
- *         var userOne = new User("userOne", UserArgs.builder()
- *             .name("test-user")
- *             .build());
- * 
- *         var userTwo = new User("userTwo", UserArgs.builder()
- *             .name("test-user-two")
- *             .build());
- * 
- *         var team = new GroupMembership("team", GroupMembershipArgs.builder()
- *             .name("tf-testing-group-membership")
- *             .users(            
- *                 userOne.name(),
- *                 userTwo.name())
- *             .group(group.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:iam/groupMembership:GroupMembership")
 public class GroupMembership extends com.pulumi.resources.CustomResource {
-    /**
-     * The IAM Group name to attach the list of `users` to
-     * 
-     */
     @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
-    /**
-     * @return The IAM Group name to attach the list of `users` to
-     * 
-     */
     public Output<String> group() {
         return this.group;
     }
-    /**
-     * The name to identify the Group Membership
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name to identify the Group Membership
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A list of IAM User names to associate with the Group
-     * 
-     */
     @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> users;
 
-    /**
-     * @return A list of IAM User names to associate with the Group
-     * 
-     */
     public Output<List<String>> users() {
         return this.users;
     }

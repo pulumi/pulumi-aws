@@ -15,17 +15,9 @@ public final class GetReplicationSetPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetReplicationSetPlainArgs Empty = new GetReplicationSetPlainArgs();
 
-    /**
-     * All tags applied to the replication set.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return All tags applied to the replication set.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,12 +46,6 @@ public final class GetReplicationSetPlainArgs extends com.pulumi.resources.Invok
             $ = new GetReplicationSetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags All tags applied to the replication set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

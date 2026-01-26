@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterBrokerNodeGroupInfo {
-    /**
-     * @return The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
-     * 
-     */
     private @Nullable String azDistribution;
-    /**
-     * @return A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-     * 
-     */
     private List<String> clientSubnets;
-    /**
-     * @return Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-     * 
-     */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfo connectivityInfo;
-    /**
-     * @return Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-     * 
-     */
     private String instanceType;
-    /**
-     * @return A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
-     * 
-     */
     private @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo;
 
     private ClusterBrokerNodeGroupInfo() {}
-    /**
-     * @return The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
-     * 
-     */
     public Optional<String> azDistribution() {
         return Optional.ofNullable(this.azDistribution);
     }
-    /**
-     * @return A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-     * 
-     */
     public List<String> clientSubnets() {
         return this.clientSubnets;
     }
-    /**
-     * @return Information about the cluster access configuration. See brokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-     * 
-     */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfo> connectivityInfo() {
         return Optional.ofNullable(this.connectivityInfo);
     }
-    /**
-     * @return Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
-     * 
-     */
     public Optional<ClusterBrokerNodeGroupInfoStorageInfo> storageInfo() {
         return Optional.ofNullable(this.storageInfo);
     }

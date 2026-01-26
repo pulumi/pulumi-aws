@@ -9,74 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog self-service action.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.ServiceAction("example", new()
-    ///     {
-    ///         Description = "Motor generator unit",
-    ///         Name = "MGU",
-    ///         Definition = new Aws.ServiceCatalog.Inputs.ServiceActionDefinitionArgs
-    ///         {
-    ///             Name = "AWS-RestartEC2Instance",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/serviceAction:ServiceAction")]
     public partial class ServiceAction : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Language code. Valid values are `En` (English), `Jp` (Japanese), and `Zh` (Chinese). Default is `En`.
-        /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
-        /// <summary>
-        /// Self-service action definition configuration block. Detailed below.
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.ServiceActionDefinition> Definition { get; private set; } = null!;
 
-        /// <summary>
-        /// Self-service action description.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Self-service action name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -126,35 +73,18 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ServiceActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values are `En` (English), `Jp` (Japanese), and `Zh` (Chinese). Default is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Self-service action definition configuration block. Detailed below.
-        /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.ServiceActionDefinitionArgs> Definition { get; set; } = null!;
 
-        /// <summary>
-        /// Self-service action description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Self-service action name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -166,35 +96,18 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ServiceActionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values are `En` (English), `Jp` (Japanese), and `Zh` (Chinese). Default is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Self-service action definition configuration block. Detailed below.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.ServiceActionDefinitionGetArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// Self-service action description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Self-service action name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

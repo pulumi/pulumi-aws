@@ -66,17 +66,11 @@ class GetAccountResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the organization.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
-        """
-        Email address of the owner assigned to the new member account.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
@@ -90,49 +84,31 @@ class GetAccountResult:
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
     def joined_method(self) -> _builtins.str:
-        """
-        Method by which the account joined the organization.
-        """
         return pulumi.get(self, "joined_method")
 
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
     def joined_timestamp(self) -> _builtins.str:
-        """
-        Date the account became a part of the organization.
-        """
         return pulumi.get(self, "joined_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Friendly name for the member account.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> _builtins.str:
-        """
-        Parent Organizational Unit ID or Root ID for the account.
-        """
         return pulumi.get(self, "parent_id")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        State of the account in the organization.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -158,22 +134,7 @@ def get_account(account_id: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Get information about an account in an organization.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_account(account_id="AWS ACCOUNT ID")
-    ```
-
-
-    :param _builtins.str account_id: Account ID number of a delegated administrator account in the organization.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -196,22 +157,7 @@ def get_account_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Get information about an account in an organization.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_account(account_id="AWS ACCOUNT ID")
-    ```
-
-
-    :param _builtins.str account_id: Account ID number of a delegated administrator account in the organization.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

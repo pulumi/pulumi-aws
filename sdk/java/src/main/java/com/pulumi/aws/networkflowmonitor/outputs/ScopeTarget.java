@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScopeTarget {
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private String region;
-    /**
-     * @return A target identifier is a pair of identifying information for a scope.
-     * 
-     */
     private @Nullable ScopeTargetTargetIdentifier targetIdentifier;
 
     private ScopeTarget() {}
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return A target identifier is a pair of identifying information for a scope.
-     * 
-     */
     public Optional<ScopeTargetTargetIdentifier> targetIdentifier() {
         return Optional.ofNullable(this.targetIdentifier);
     }

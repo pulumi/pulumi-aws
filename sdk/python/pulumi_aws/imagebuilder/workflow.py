@@ -31,18 +31,6 @@ class WorkflowArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
-        :param pulumi.Input[_builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
-        :param pulumi.Input[_builtins.str] version: Version of the workflow.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] change_description: Change description of the workflow.
-        :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[_builtins.str] description: Description of the workflow.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        :param pulumi.Input[_builtins.str] name: Name of the workflow.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "version", version)
@@ -66,9 +54,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of the workflow. Valid values: `BUILD`, `TEST`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -78,11 +63,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the workflow.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -92,9 +72,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Change description of the workflow.
-        """
         return pulumi.get(self, "change_description")
 
     @change_description.setter
@@ -104,9 +81,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -116,9 +90,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the workflow.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -128,9 +99,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -140,9 +108,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the workflow.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -152,9 +117,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -164,9 +126,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -176,9 +135,6 @@ class WorkflowArgs:
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -205,21 +161,6 @@ class _WorkflowState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the workflow.
-        :param pulumi.Input[_builtins.str] change_description: Change description of the workflow.
-        :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[_builtins.str] date_created: Date the workflow was created.
-        :param pulumi.Input[_builtins.str] description: Description of the workflow.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        :param pulumi.Input[_builtins.str] name: Name of the workflow.
-        :param pulumi.Input[_builtins.str] owner: Owner of the workflow.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
-        :param pulumi.Input[_builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[_builtins.str] version: Version of the workflow.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -253,9 +194,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the workflow.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -265,9 +203,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Change description of the workflow.
-        """
         return pulumi.get(self, "change_description")
 
     @change_description.setter
@@ -277,9 +212,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -289,9 +221,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the workflow was created.
-        """
         return pulumi.get(self, "date_created")
 
     @date_created.setter
@@ -301,9 +230,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the workflow.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -313,9 +239,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -325,9 +248,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the workflow.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -337,9 +257,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Owner of the workflow.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -349,9 +266,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -361,9 +275,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -382,9 +293,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of the workflow. Valid values: `BUILD`, `TEST`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -394,9 +302,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -406,11 +311,6 @@ class _WorkflowState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the workflow.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -436,79 +336,9 @@ class Workflow(pulumi.CustomResource):
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 Image Builder Workflow.
-
-        > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.Workflow("example",
-            name="example",
-            version="1.0.0",
-            type="TEST",
-            data=\"\"\"name: example
-        description: Workflow to test an image
-        schemaVersion: 1.0
-
-        parameters:
-          - name: waitForActionAtEnd
-            type: boolean
-
-        steps:
-          - name: LaunchTestInstance
-            action: LaunchInstance
-            onFailure: Abort
-            inputs:
-              waitFor: \\"ssmAgent\\"
-
-          - name: TerminateTestInstance
-            action: TerminateInstance
-            onFailure: Continue
-            inputs:
-              instanceId.$: \\"$.stepOutputs.LaunchTestInstance.instanceId\\"
-
-          - name: WaitForActionAtEnd
-            action: WaitForAction
-            if:
-              booleanEquals: true
-              value: \\"$.parameters.waitForActionAtEnd\\"
-        \"\"\")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
-
-        Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
-
-        % pulumi import aws_imagebuilder_workflow.example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
-
-        Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
-
+        Create a Workflow resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] change_description: Change description of the workflow.
-        :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[_builtins.str] description: Description of the workflow.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        :param pulumi.Input[_builtins.str] name: Name of the workflow.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
-        :param pulumi.Input[_builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[_builtins.str] version: Version of the workflow.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -517,65 +347,7 @@ class Workflow(pulumi.CustomResource):
                  args: WorkflowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 Image Builder Workflow.
-
-        > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.Workflow("example",
-            name="example",
-            version="1.0.0",
-            type="TEST",
-            data=\"\"\"name: example
-        description: Workflow to test an image
-        schemaVersion: 1.0
-
-        parameters:
-          - name: waitForActionAtEnd
-            type: boolean
-
-        steps:
-          - name: LaunchTestInstance
-            action: LaunchInstance
-            onFailure: Abort
-            inputs:
-              waitFor: \\"ssmAgent\\"
-
-          - name: TerminateTestInstance
-            action: TerminateInstance
-            onFailure: Continue
-            inputs:
-              instanceId.$: \\"$.stepOutputs.LaunchTestInstance.instanceId\\"
-
-          - name: WaitForActionAtEnd
-            action: WaitForAction
-            if:
-              booleanEquals: true
-              value: \\"$.parameters.waitForActionAtEnd\\"
-        \"\"\")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
-
-        Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
-
-        % pulumi import aws_imagebuilder_workflow.example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
-
-        Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
-
+        Create a Workflow resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -659,21 +431,6 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the workflow.
-        :param pulumi.Input[_builtins.str] change_description: Change description of the workflow.
-        :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[_builtins.str] date_created: Date the workflow was created.
-        :param pulumi.Input[_builtins.str] description: Description of the workflow.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        :param pulumi.Input[_builtins.str] name: Name of the workflow.
-        :param pulumi.Input[_builtins.str] owner: Owner of the workflow.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
-        :param pulumi.Input[_builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[_builtins.str] version: Version of the workflow.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -698,81 +455,51 @@ class Workflow(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the workflow.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Change description of the workflow.
-        """
         return pulumi.get(self, "change_description")
 
     @_builtins.property
     @pulumi.getter
     def data(self) -> pulumi.Output[_builtins.str]:
-        """
-        Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "data")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the workflow was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the workflow.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the workflow.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        Owner of the workflow.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -783,26 +510,15 @@ class Workflow(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of the workflow. Valid values: `BUILD`, `TEST`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "uri")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the workflow.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 

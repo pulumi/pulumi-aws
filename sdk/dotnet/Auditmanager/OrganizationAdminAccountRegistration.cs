@@ -9,55 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Auditmanager
 {
-    /// <summary>
-    /// Resource for managing AWS Audit Manager Organization Admin Account Registration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Auditmanager.OrganizationAdminAccountRegistration("example", new()
-    ///     {
-    ///         AdminAccountId = "123456789012",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration")]
     public partial class OrganizationAdminAccountRegistration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier for the organization administrator account.
-        /// </summary>
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier for the organization.
-        /// </summary>
         [Output("organizationId")]
         public Output<string> OrganizationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -107,15 +67,9 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class OrganizationAdminAccountRegistrationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the organization administrator account.
-        /// </summary>
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -127,21 +81,12 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class OrganizationAdminAccountRegistrationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the organization administrator account.
-        /// </summary>
         [Input("adminAccountId")]
         public Input<string>? AdminAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier for the organization.
-        /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

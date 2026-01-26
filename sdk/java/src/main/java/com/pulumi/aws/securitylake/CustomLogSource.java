@@ -18,173 +18,47 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Security Lake Custom Log Source.
- * 
- * &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `dependsOn` statement.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securitylake.CustomLogSource;
- * import com.pulumi.aws.securitylake.CustomLogSourceArgs;
- * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationProviderIdentityArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CustomLogSource("example", CustomLogSourceArgs.builder()
- *             .sourceName("example-name")
- *             .sourceVersion("1.0")
- *             .eventClasses("FILE_ACTIVITY")
- *             .configuration(CustomLogSourceConfigurationArgs.builder()
- *                 .crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfigurationArgs.builder()
- *                     .roleArn(customLog.arn())
- *                     .build())
- *                 .providerIdentity(CustomLogSourceConfigurationProviderIdentityArgs.builder()
- *                     .externalId("example-id")
- *                     .principal("123456789012")
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSecuritylakeDataLake)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Custom log sources using the source name. For example:
- * 
- * ```sh
- * $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
- * ```
- * 
- */
 @ResourceType(type="aws:securitylake/customLogSource:CustomLogSource")
 public class CustomLogSource extends com.pulumi.resources.CustomResource {
-    /**
-     * The attributes of a third-party custom source.
-     * 
-     */
     @Export(name="attributes", refs={List.class,CustomLogSourceAttribute.class}, tree="[0,1]")
     private Output<List<CustomLogSourceAttribute>> attributes;
 
-    /**
-     * @return The attributes of a third-party custom source.
-     * 
-     */
     public Output<List<CustomLogSourceAttribute>> attributes() {
         return this.attributes;
     }
-    /**
-     * The configuration for the third-party custom source.
-     * 
-     */
     @Export(name="configuration", refs={CustomLogSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CustomLogSourceConfiguration> configuration;
 
-    /**
-     * @return The configuration for the third-party custom source.
-     * 
-     */
     public Output<Optional<CustomLogSourceConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    /**
-     * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-     * 
-     */
     @Export(name="eventClasses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> eventClasses;
 
-    /**
-     * @return The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-     * 
-     */
     public Output<Optional<List<String>>> eventClasses() {
         return Codegen.optional(this.eventClasses);
     }
-    /**
-     * The details of the log provider for a third-party custom source.
-     * 
-     */
     @Export(name="providerDetails", refs={List.class,CustomLogSourceProviderDetail.class}, tree="[0,1]")
     private Output<List<CustomLogSourceProviderDetail>> providerDetails;
 
-    /**
-     * @return The details of the log provider for a third-party custom source.
-     * 
-     */
     public Output<List<CustomLogSourceProviderDetail>> providerDetails() {
         return this.providerDetails;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specify the name for a third-party custom source.
-     * This must be a Regionally unique value.
-     * Has a maximum length of 20.
-     * 
-     */
     @Export(name="sourceName", refs={String.class}, tree="[0]")
     private Output<String> sourceName;
 
-    /**
-     * @return Specify the name for a third-party custom source.
-     * This must be a Regionally unique value.
-     * Has a maximum length of 20.
-     * 
-     */
     public Output<String> sourceName() {
         return this.sourceName;
     }
-    /**
-     * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-     * 
-     */
     @Export(name="sourceVersion", refs={String.class}, tree="[0]")
     private Output<String> sourceVersion;
 
-    /**
-     * @return Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-     * 
-     */
     public Output<String> sourceVersion() {
         return this.sourceVersion;
     }

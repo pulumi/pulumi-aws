@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupRuleVariablesIpSet {
-    /**
-     * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     private RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet;
-    /**
-     * @return A unique alphanumeric string to identify the `ipSet`.
-     * 
-     */
     private String key;
 
     private RuleGroupRuleGroupRuleVariablesIpSet() {}
-    /**
-     * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     public RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet() {
         return this.ipSet;
     }
-    /**
-     * @return A unique alphanumeric string to identify the `ipSet`.
-     * 
-     */
     public String key() {
         return this.key;
     }

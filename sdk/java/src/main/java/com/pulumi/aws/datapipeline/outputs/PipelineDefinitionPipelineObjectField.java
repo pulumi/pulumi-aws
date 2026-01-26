@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineDefinitionPipelineObjectField {
-    /**
-     * @return Field identifier.
-     * 
-     */
     private String key;
-    /**
-     * @return Field value, expressed as the identifier of another object
-     * 
-     */
     private @Nullable String refValue;
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     private @Nullable String stringValue;
 
     private PipelineDefinitionPipelineObjectField() {}
-    /**
-     * @return Field identifier.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Field value, expressed as the identifier of another object
-     * 
-     */
     public Optional<String> refValue() {
         return Optional.ofNullable(this.refValue);
     }
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     public Optional<String> stringValue() {
         return Optional.ofNullable(this.stringValue);
     }

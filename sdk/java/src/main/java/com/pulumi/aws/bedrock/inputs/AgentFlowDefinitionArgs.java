@@ -17,32 +17,16 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
 
     public static final AgentFlowDefinitionArgs Empty = new AgentFlowDefinitionArgs();
 
-    /**
-     * A list of connection definitions in the flow. See Connection for more information.
-     * 
-     */
     @Import(name="connections")
     private @Nullable Output<List<AgentFlowDefinitionConnectionArgs>> connections;
 
-    /**
-     * @return A list of connection definitions in the flow. See Connection for more information.
-     * 
-     */
     public Optional<Output<List<AgentFlowDefinitionConnectionArgs>>> connections() {
         return Optional.ofNullable(this.connections);
     }
 
-    /**
-     * A list of node definitions in the flow. See Node for more information.
-     * 
-     */
     @Import(name="nodes")
     private @Nullable Output<List<AgentFlowDefinitionNodeArgs>> nodes;
 
-    /**
-     * @return A list of node definitions in the flow. See Node for more information.
-     * 
-     */
     public Optional<Output<List<AgentFlowDefinitionNodeArgs>>> nodes() {
         return Optional.ofNullable(this.nodes);
     }
@@ -72,64 +56,28 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
             $ = new AgentFlowDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connections A list of connection definitions in the flow. See Connection for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connections(@Nullable Output<List<AgentFlowDefinitionConnectionArgs>> connections) {
             $.connections = connections;
             return this;
         }
 
-        /**
-         * @param connections A list of connection definitions in the flow. See Connection for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connections(List<AgentFlowDefinitionConnectionArgs> connections) {
             return connections(Output.of(connections));
         }
 
-        /**
-         * @param connections A list of connection definitions in the flow. See Connection for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connections(AgentFlowDefinitionConnectionArgs... connections) {
             return connections(List.of(connections));
         }
 
-        /**
-         * @param nodes A list of node definitions in the flow. See Node for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodes(@Nullable Output<List<AgentFlowDefinitionNodeArgs>> nodes) {
             $.nodes = nodes;
             return this;
         }
 
-        /**
-         * @param nodes A list of node definitions in the flow. See Node for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodes(List<AgentFlowDefinitionNodeArgs> nodes) {
             return nodes(Output.of(nodes));
         }
 
-        /**
-         * @param nodes A list of node definitions in the flow. See Node for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodes(AgentFlowDefinitionNodeArgs... nodes) {
             return nodes(List.of(nodes));
         }

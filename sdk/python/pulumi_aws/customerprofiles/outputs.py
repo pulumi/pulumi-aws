@@ -63,12 +63,6 @@ class DomainMatching(dict):
                  auto_merging: Optional['outputs.DomainMatchingAutoMerging'] = None,
                  exporting_config: Optional['outputs.DomainMatchingExportingConfig'] = None,
                  job_schedule: Optional['outputs.DomainMatchingJobSchedule'] = None):
-        """
-        :param _builtins.bool enabled: The flag that enables the matching process of duplicate profiles.
-        :param 'DomainMatchingAutoMergingArgs' auto_merging: A block that specifies the configuration about the auto-merging process. Documented below.
-        :param 'DomainMatchingExportingConfigArgs' exporting_config: A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        :param 'DomainMatchingJobScheduleArgs' job_schedule: A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if auto_merging is not None:
             pulumi.set(__self__, "auto_merging", auto_merging)
@@ -80,33 +74,21 @@ class DomainMatching(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        The flag that enables the matching process of duplicate profiles.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="autoMerging")
     def auto_merging(self) -> Optional['outputs.DomainMatchingAutoMerging']:
-        """
-        A block that specifies the configuration about the auto-merging process. Documented below.
-        """
         return pulumi.get(self, "auto_merging")
 
     @_builtins.property
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional['outputs.DomainMatchingExportingConfig']:
-        """
-        A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        """
         return pulumi.get(self, "exporting_config")
 
     @_builtins.property
     @pulumi.getter(name="jobSchedule")
     def job_schedule(self) -> Optional['outputs.DomainMatchingJobSchedule']:
-        """
-        A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-        """
         return pulumi.get(self, "job_schedule")
 
 
@@ -136,12 +118,6 @@ class DomainMatchingAutoMerging(dict):
                  conflict_resolution: Optional['outputs.DomainMatchingAutoMergingConflictResolution'] = None,
                  consolidation: Optional['outputs.DomainMatchingAutoMergingConsolidation'] = None,
                  min_allowed_confidence_score_for_merging: Optional[_builtins.float] = None):
-        """
-        :param _builtins.bool enabled: The flag that enables the auto-merging of duplicate profiles.
-        :param 'DomainMatchingAutoMergingConflictResolutionArgs' conflict_resolution: A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        :param 'DomainMatchingAutoMergingConsolidationArgs' consolidation: A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-               * `min_allowed_confidence_score_for_merging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if conflict_resolution is not None:
             pulumi.set(__self__, "conflict_resolution", conflict_resolution)
@@ -153,26 +129,16 @@ class DomainMatchingAutoMerging(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        The flag that enables the auto-merging of duplicate profiles.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="conflictResolution")
     def conflict_resolution(self) -> Optional['outputs.DomainMatchingAutoMergingConflictResolution']:
-        """
-        A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        """
         return pulumi.get(self, "conflict_resolution")
 
     @_builtins.property
     @pulumi.getter
     def consolidation(self) -> Optional['outputs.DomainMatchingAutoMergingConsolidation']:
-        """
-        A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-        * `min_allowed_confidence_score_for_merging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-        """
         return pulumi.get(self, "consolidation")
 
     @_builtins.property
@@ -205,10 +171,6 @@ class DomainMatchingAutoMergingConflictResolution(dict):
     def __init__(__self__, *,
                  conflict_resolving_model: _builtins.str,
                  source_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        :param _builtins.str source_name: The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         pulumi.set(__self__, "conflict_resolving_model", conflict_resolving_model)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
@@ -216,17 +178,11 @@ class DomainMatchingAutoMergingConflictResolution(dict):
     @_builtins.property
     @pulumi.getter(name="conflictResolvingModel")
     def conflict_resolving_model(self) -> _builtins.str:
-        """
-        How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        """
         return pulumi.get(self, "conflict_resolving_model")
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[_builtins.str]:
-        """
-        The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         return pulumi.get(self, "source_name")
 
 
@@ -251,17 +207,11 @@ class DomainMatchingAutoMergingConsolidation(dict):
 
     def __init__(__self__, *,
                  matching_attributes_lists: Sequence[Sequence[_builtins.str]]):
-        """
-        :param Sequence[Sequence[_builtins.str]] matching_attributes_lists: A list of matching criteria.
-        """
         pulumi.set(__self__, "matching_attributes_lists", matching_attributes_lists)
 
     @_builtins.property
     @pulumi.getter(name="matchingAttributesLists")
     def matching_attributes_lists(self) -> Sequence[Sequence[_builtins.str]]:
-        """
-        A list of matching criteria.
-        """
         return pulumi.get(self, "matching_attributes_lists")
 
 
@@ -319,10 +269,6 @@ class DomainMatchingExportingConfigS3Exporting(dict):
     def __init__(__self__, *,
                  s3_bucket_name: _builtins.str,
                  s3_key_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
-        :param _builtins.str s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -330,17 +276,11 @@ class DomainMatchingExportingConfigS3Exporting(dict):
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> _builtins.str:
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[_builtins.str]:
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_key_name")
 
 
@@ -366,27 +306,17 @@ class DomainMatchingJobSchedule(dict):
     def __init__(__self__, *,
                  day_of_the_week: _builtins.str,
                  time: _builtins.str):
-        """
-        :param _builtins.str day_of_the_week: The day when the Identity Resolution Job should run every week.
-        :param _builtins.str time: The time when the Identity Resolution Job should run every week.
-        """
         pulumi.set(__self__, "day_of_the_week", day_of_the_week)
         pulumi.set(__self__, "time", time)
 
     @_builtins.property
     @pulumi.getter(name="dayOfTheWeek")
     def day_of_the_week(self) -> _builtins.str:
-        """
-        The day when the Identity Resolution Job should run every week.
-        """
         return pulumi.get(self, "day_of_the_week")
 
     @_builtins.property
     @pulumi.getter
     def time(self) -> _builtins.str:
-        """
-        The time when the Identity Resolution Job should run every week.
-        """
         return pulumi.get(self, "time")
 
 
@@ -428,15 +358,6 @@ class DomainRuleBasedMatching(dict):
                  max_allowed_rule_level_for_matching: Optional[_builtins.int] = None,
                  max_allowed_rule_level_for_merging: Optional[_builtins.int] = None,
                  status: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: The flag that enables the rule-based matching process of duplicate profiles.
-        :param 'DomainRuleBasedMatchingAttributeTypesSelectorArgs' attribute_types_selector: A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-        :param 'DomainRuleBasedMatchingConflictResolutionArgs' conflict_resolution: A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        :param 'DomainRuleBasedMatchingExportingConfigArgs' exporting_config: A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        :param Sequence['DomainRuleBasedMatchingMatchingRuleArgs'] matching_rules: A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
-        :param _builtins.int max_allowed_rule_level_for_matching: Indicates the maximum allowed rule level for matching.
-        :param _builtins.int max_allowed_rule_level_for_merging: Indicates the maximum allowed rule level for merging.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if attribute_types_selector is not None:
             pulumi.set(__self__, "attribute_types_selector", attribute_types_selector)
@@ -456,57 +377,36 @@ class DomainRuleBasedMatching(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        The flag that enables the rule-based matching process of duplicate profiles.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="attributeTypesSelector")
     def attribute_types_selector(self) -> Optional['outputs.DomainRuleBasedMatchingAttributeTypesSelector']:
-        """
-        A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-        """
         return pulumi.get(self, "attribute_types_selector")
 
     @_builtins.property
     @pulumi.getter(name="conflictResolution")
     def conflict_resolution(self) -> Optional['outputs.DomainRuleBasedMatchingConflictResolution']:
-        """
-        A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        """
         return pulumi.get(self, "conflict_resolution")
 
     @_builtins.property
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional['outputs.DomainRuleBasedMatchingExportingConfig']:
-        """
-        A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        """
         return pulumi.get(self, "exporting_config")
 
     @_builtins.property
     @pulumi.getter(name="matchingRules")
     def matching_rules(self) -> Optional[Sequence['outputs.DomainRuleBasedMatchingMatchingRule']]:
-        """
-        A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
-        """
         return pulumi.get(self, "matching_rules")
 
     @_builtins.property
     @pulumi.getter(name="maxAllowedRuleLevelForMatching")
     def max_allowed_rule_level_for_matching(self) -> Optional[_builtins.int]:
-        """
-        Indicates the maximum allowed rule level for matching.
-        """
         return pulumi.get(self, "max_allowed_rule_level_for_matching")
 
     @_builtins.property
     @pulumi.getter(name="maxAllowedRuleLevelForMerging")
     def max_allowed_rule_level_for_merging(self) -> Optional[_builtins.int]:
-        """
-        Indicates the maximum allowed rule level for merging.
-        """
         return pulumi.get(self, "max_allowed_rule_level_for_merging")
 
     @_builtins.property
@@ -543,12 +443,6 @@ class DomainRuleBasedMatchingAttributeTypesSelector(dict):
                  addresses: Optional[Sequence[_builtins.str]] = None,
                  email_addresses: Optional[Sequence[_builtins.str]] = None,
                  phone_numbers: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str attribute_matching_model: Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-        :param Sequence[_builtins.str] addresses: The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-        :param Sequence[_builtins.str] email_addresses: The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-        :param Sequence[_builtins.str] phone_numbers: The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-        """
         pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -560,33 +454,21 @@ class DomainRuleBasedMatchingAttributeTypesSelector(dict):
     @_builtins.property
     @pulumi.getter(name="attributeMatchingModel")
     def attribute_matching_model(self) -> _builtins.str:
-        """
-        Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-        """
         return pulumi.get(self, "attribute_matching_model")
 
     @_builtins.property
     @pulumi.getter
     def addresses(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-        """
         return pulumi.get(self, "addresses")
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
     def email_addresses(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-        """
         return pulumi.get(self, "email_addresses")
 
     @_builtins.property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-        """
         return pulumi.get(self, "phone_numbers")
 
 
@@ -614,10 +496,6 @@ class DomainRuleBasedMatchingConflictResolution(dict):
     def __init__(__self__, *,
                  conflict_resolving_model: _builtins.str,
                  source_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        :param _builtins.str source_name: The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         pulumi.set(__self__, "conflict_resolving_model", conflict_resolving_model)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
@@ -625,17 +503,11 @@ class DomainRuleBasedMatchingConflictResolution(dict):
     @_builtins.property
     @pulumi.getter(name="conflictResolvingModel")
     def conflict_resolving_model(self) -> _builtins.str:
-        """
-        How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        """
         return pulumi.get(self, "conflict_resolving_model")
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[_builtins.str]:
-        """
-        The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         return pulumi.get(self, "source_name")
 
 
@@ -693,10 +565,6 @@ class DomainRuleBasedMatchingExportingConfigS3Exporting(dict):
     def __init__(__self__, *,
                  s3_bucket_name: _builtins.str,
                  s3_key_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
-        :param _builtins.str s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -704,17 +572,11 @@ class DomainRuleBasedMatchingExportingConfigS3Exporting(dict):
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> _builtins.str:
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[_builtins.str]:
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_key_name")
 
 
@@ -722,17 +584,11 @@ class DomainRuleBasedMatchingExportingConfigS3Exporting(dict):
 class DomainRuleBasedMatchingMatchingRule(dict):
     def __init__(__self__, *,
                  rules: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] rules: A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
-        """
         pulumi.set(__self__, "rules", rules)
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Sequence[_builtins.str]:
-        """
-        A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
-        """
         return pulumi.get(self, "rules")
 
 
@@ -766,18 +622,6 @@ class ProfileAddress(dict):
                  postal_code: Optional[_builtins.str] = None,
                  province: Optional[_builtins.str] = None,
                  state: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str address1: The first line of a customer address.
-        :param _builtins.str address2: The second line of a customer address.
-        :param _builtins.str address3: The third line of a customer address.
-        :param _builtins.str address4: The fourth line of a customer address.
-        :param _builtins.str city: The city in which a customer lives.
-        :param _builtins.str country: The country in which a customer lives.
-        :param _builtins.str county: The county in which a customer lives.
-        :param _builtins.str postal_code: The postal code of a customer address.
-        :param _builtins.str province: The province in which a customer lives.
-        :param _builtins.str state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -802,81 +646,51 @@ class ProfileAddress(dict):
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[_builtins.str]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[_builtins.str]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[_builtins.str]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[_builtins.str]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[_builtins.str]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[_builtins.str]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[_builtins.str]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[_builtins.str]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
 
@@ -910,18 +724,6 @@ class ProfileBillingAddress(dict):
                  postal_code: Optional[_builtins.str] = None,
                  province: Optional[_builtins.str] = None,
                  state: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str address1: The first line of a customer address.
-        :param _builtins.str address2: The second line of a customer address.
-        :param _builtins.str address3: The third line of a customer address.
-        :param _builtins.str address4: The fourth line of a customer address.
-        :param _builtins.str city: The city in which a customer lives.
-        :param _builtins.str country: The country in which a customer lives.
-        :param _builtins.str county: The county in which a customer lives.
-        :param _builtins.str postal_code: The postal code of a customer address.
-        :param _builtins.str province: The province in which a customer lives.
-        :param _builtins.str state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -946,81 +748,51 @@ class ProfileBillingAddress(dict):
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[_builtins.str]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[_builtins.str]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[_builtins.str]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[_builtins.str]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[_builtins.str]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[_builtins.str]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[_builtins.str]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[_builtins.str]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
 
@@ -1054,18 +826,6 @@ class ProfileMailingAddress(dict):
                  postal_code: Optional[_builtins.str] = None,
                  province: Optional[_builtins.str] = None,
                  state: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str address1: The first line of a customer address.
-        :param _builtins.str address2: The second line of a customer address.
-        :param _builtins.str address3: The third line of a customer address.
-        :param _builtins.str address4: The fourth line of a customer address.
-        :param _builtins.str city: The city in which a customer lives.
-        :param _builtins.str country: The country in which a customer lives.
-        :param _builtins.str county: The county in which a customer lives.
-        :param _builtins.str postal_code: The postal code of a customer address.
-        :param _builtins.str province: The province in which a customer lives.
-        :param _builtins.str state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1090,81 +850,51 @@ class ProfileMailingAddress(dict):
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[_builtins.str]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[_builtins.str]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[_builtins.str]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[_builtins.str]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[_builtins.str]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[_builtins.str]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[_builtins.str]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[_builtins.str]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
 
@@ -1198,18 +928,6 @@ class ProfileShippingAddress(dict):
                  postal_code: Optional[_builtins.str] = None,
                  province: Optional[_builtins.str] = None,
                  state: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str address1: The first line of a customer address.
-        :param _builtins.str address2: The second line of a customer address.
-        :param _builtins.str address3: The third line of a customer address.
-        :param _builtins.str address4: The fourth line of a customer address.
-        :param _builtins.str city: The city in which a customer lives.
-        :param _builtins.str country: The country in which a customer lives.
-        :param _builtins.str county: The county in which a customer lives.
-        :param _builtins.str postal_code: The postal code of a customer address.
-        :param _builtins.str province: The province in which a customer lives.
-        :param _builtins.str state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1234,81 +952,51 @@ class ProfileShippingAddress(dict):
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[_builtins.str]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[_builtins.str]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[_builtins.str]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[_builtins.str]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[_builtins.str]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[_builtins.str]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[_builtins.str]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[_builtins.str]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
 

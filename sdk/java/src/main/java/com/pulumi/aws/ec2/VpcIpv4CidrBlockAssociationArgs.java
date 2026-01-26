@@ -17,77 +17,37 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
 
     public static final VpcIpv4CidrBlockAssociationArgs Empty = new VpcIpv4CidrBlockAssociationArgs();
 
-    /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
-     * 
-     */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
-    /**
-     * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
-     * 
-     */
     public Optional<Output<String>> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
 
-    /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-     * 
-     */
     @Import(name="ipv4IpamPoolId")
     private @Nullable Output<String> ipv4IpamPoolId;
 
-    /**
-     * @return The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-     * 
-     */
     public Optional<Output<String>> ipv4IpamPoolId() {
         return Optional.ofNullable(this.ipv4IpamPoolId);
     }
 
-    /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
-     * 
-     */
     @Import(name="ipv4NetmaskLength")
     private @Nullable Output<Integer> ipv4NetmaskLength;
 
-    /**
-     * @return The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
-     * 
-     */
     public Optional<Output<Integer>> ipv4NetmaskLength() {
         return Optional.ofNullable(this.ipv4NetmaskLength);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC to make the association with.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to make the association with.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -120,107 +80,47 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
             $ = new VpcIpv4CidrBlockAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidrBlock The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
-        /**
-         * @param cidrBlock The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
 
-        /**
-         * @param ipv4IpamPoolId The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4IpamPoolId(@Nullable Output<String> ipv4IpamPoolId) {
             $.ipv4IpamPoolId = ipv4IpamPoolId;
             return this;
         }
 
-        /**
-         * @param ipv4IpamPoolId The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4IpamPoolId(String ipv4IpamPoolId) {
             return ipv4IpamPoolId(Output.of(ipv4IpamPoolId));
         }
 
-        /**
-         * @param ipv4NetmaskLength The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4NetmaskLength(@Nullable Output<Integer> ipv4NetmaskLength) {
             $.ipv4NetmaskLength = ipv4NetmaskLength;
             return this;
         }
 
-        /**
-         * @param ipv4NetmaskLength The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4NetmaskLength(Integer ipv4NetmaskLength) {
             return ipv4NetmaskLength(Output.of(ipv4NetmaskLength));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcId The ID of the VPC to make the association with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC to make the association with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

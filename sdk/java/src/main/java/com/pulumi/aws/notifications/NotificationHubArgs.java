@@ -17,17 +17,9 @@ public final class NotificationHubArgs extends com.pulumi.resources.ResourceArgs
 
     public static final NotificationHubArgs Empty = new NotificationHubArgs();
 
-    /**
-     * Notification Hub region.
-     * 
-     */
     @Import(name="notificationHubRegion", required=true)
     private Output<String> notificationHubRegion;
 
-    /**
-     * @return Notification Hub region.
-     * 
-     */
     public Output<String> notificationHubRegion() {
         return this.notificationHubRegion;
     }
@@ -64,23 +56,11 @@ public final class NotificationHubArgs extends com.pulumi.resources.ResourceArgs
             $ = new NotificationHubArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param notificationHubRegion Notification Hub region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationHubRegion(Output<String> notificationHubRegion) {
             $.notificationHubRegion = notificationHubRegion;
             return this;
         }
 
-        /**
-         * @param notificationHubRegion Notification Hub region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationHubRegion(String notificationHubRegion) {
             return notificationHubRegion(Output.of(notificationHubRegion));
         }

@@ -13,20 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetPipelineDefinitionParameterObject {
     private List<GetPipelineDefinitionParameterObjectAttribute> attributes;
-    /**
-     * @return ID of the object.
-     * 
-     */
     private String id;
 
     private GetPipelineDefinitionParameterObject() {}
     public List<GetPipelineDefinitionParameterObjectAttribute> attributes() {
         return this.attributes;
     }
-    /**
-     * @return ID of the object.
-     * 
-     */
     public String id() {
         return this.id;
     }

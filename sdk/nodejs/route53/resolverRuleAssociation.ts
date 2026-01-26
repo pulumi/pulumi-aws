@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route53 Resolver rule association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ResolverRuleAssociation("example", {
- *     resolverRuleId: sys.id,
- *     vpcId: foo.id,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `id` - (String) ID of the Route53 Resolver rule association.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
- *
- * % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
- */
 export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ResolverRuleAssociation resource's state with the given name, ID, and optional extra
@@ -65,21 +32,9 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverRuleAssociation.__pulumiType;
     }
 
-    /**
-     * A name for the association that you're creating between a resolver rule and a VPC.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the resolver rule that you want to associate with the VPC.
-     */
     declare public readonly resolverRuleId: pulumi.Output<string>;
-    /**
-     * The ID of the VPC that you want to associate the resolver rule with.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -121,21 +76,9 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverRuleAssociation resources.
  */
 export interface ResolverRuleAssociationState {
-    /**
-     * A name for the association that you're creating between a resolver rule and a VPC.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the resolver rule that you want to associate with the VPC.
-     */
     resolverRuleId?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC that you want to associate the resolver rule with.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -143,20 +86,8 @@ export interface ResolverRuleAssociationState {
  * The set of arguments for constructing a ResolverRuleAssociation resource.
  */
 export interface ResolverRuleAssociationArgs {
-    /**
-     * A name for the association that you're creating between a resolver rule and a VPC.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the resolver rule that you want to associate with the VPC.
-     */
     resolverRuleId: pulumi.Input<string>;
-    /**
-     * The ID of the VPC that you want to associate the resolver rule with.
-     */
     vpcId: pulumi.Input<string>;
 }

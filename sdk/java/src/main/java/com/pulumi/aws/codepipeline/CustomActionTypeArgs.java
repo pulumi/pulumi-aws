@@ -22,32 +22,16 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.ResourceArg
 
     public static final CustomActionTypeArgs Empty = new CustomActionTypeArgs();
 
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     * 
-     */
     @Import(name="category", required=true)
     private Output<String> category;
 
-    /**
-     * @return The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     * 
-     */
     public Output<String> category() {
         return this.category;
     }
 
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     * 
-     */
     @Import(name="configurationProperties")
     private @Nullable Output<List<CustomActionTypeConfigurationPropertyArgs>> configurationProperties;
 
-    /**
-     * @return The configuration properties for the custom action. Max 10 items.
-     * 
-     */
     public Optional<Output<List<CustomActionTypeConfigurationPropertyArgs>>> configurationProperties() {
         return Optional.ofNullable(this.configurationProperties);
     }
@@ -73,17 +57,9 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.ResourceArg
         return this.providerName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -141,54 +117,24 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.ResourceArg
             $ = new CustomActionTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param category The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(Output<String> category) {
             $.category = category;
             return this;
         }
 
-        /**
-         * @param category The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(String category) {
             return category(Output.of(category));
         }
 
-        /**
-         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProperties(@Nullable Output<List<CustomActionTypeConfigurationPropertyArgs>> configurationProperties) {
             $.configurationProperties = configurationProperties;
             return this;
         }
 
-        /**
-         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProperties(List<CustomActionTypeConfigurationPropertyArgs> configurationProperties) {
             return configurationProperties(Output.of(configurationProperties));
         }
 
-        /**
-         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProperties(CustomActionTypeConfigurationPropertyArgs... configurationProperties) {
             return configurationProperties(List.of(configurationProperties));
         }
@@ -220,23 +166,11 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.ResourceArg
             return providerName(Output.of(providerName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

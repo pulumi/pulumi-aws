@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkforceWorkforceVpcConfig {
-    /**
-     * @return The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return The ID of the subnets in the VPC that you want to connect.
-     * 
-     */
     private @Nullable List<String> subnets;
-    /**
-     * @return The IDs for the VPC service endpoints of your VPC workforce.
-     * 
-     */
     private @Nullable String vpcEndpointId;
-    /**
-     * @return The ID of the VPC that the workforce uses for communication.
-     * 
-     */
     private @Nullable String vpcId;
 
     private WorkforceWorkforceVpcConfig() {}
-    /**
-     * @return The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return The ID of the subnets in the VPC that you want to connect.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets == null ? List.of() : this.subnets;
     }
-    /**
-     * @return The IDs for the VPC service endpoints of your VPC workforce.
-     * 
-     */
     public Optional<String> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
-    /**
-     * @return The ID of the VPC that the workforce uses for communication.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }

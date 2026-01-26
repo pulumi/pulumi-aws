@@ -13,15 +13,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretVersionResult {
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     private String arn;
-    /**
-     * @return Created date of the secret in UTC.
-     * 
-     */
     private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,37 +21,17 @@ public final class GetSecretVersionResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Decrypted part of the protected secret information that was originally provided as a binary.
-     * 
-     */
     private String secretBinary;
     private String secretId;
-    /**
-     * @return Decrypted part of the protected secret information that was originally provided as a string.
-     * 
-     */
     private String secretString;
-    /**
-     * @return Unique identifier of this version of the secret.
-     * 
-     */
     private String versionId;
     private @Nullable String versionStage;
     private List<String> versionStages;
 
     private GetSecretVersionResult() {}
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Created date of the secret in UTC.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
@@ -73,27 +45,15 @@ public final class GetSecretVersionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Decrypted part of the protected secret information that was originally provided as a binary.
-     * 
-     */
     public String secretBinary() {
         return this.secretBinary;
     }
     public String secretId() {
         return this.secretId;
     }
-    /**
-     * @return Decrypted part of the protected secret information that was originally provided as a string.
-     * 
-     */
     public String secretString() {
         return this.secretString;
     }
-    /**
-     * @return Unique identifier of this version of the secret.
-     * 
-     */
     public String versionId() {
         return this.versionId;
     }

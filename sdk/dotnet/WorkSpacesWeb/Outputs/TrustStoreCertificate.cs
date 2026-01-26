@@ -13,29 +13,11 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class TrustStoreCertificate
     {
-        /// <summary>
-        /// Certificate body in PEM format.
-        /// </summary>
         public readonly string Body;
-        /// <summary>
-        /// Certificate issuer.
-        /// </summary>
         public readonly string? Issuer;
-        /// <summary>
-        /// Date and time when the certificate expires in RFC3339 format.
-        /// </summary>
         public readonly string? NotValidAfter;
-        /// <summary>
-        /// Date and time when the certificate becomes valid in RFC3339 format.
-        /// </summary>
         public readonly string? NotValidBefore;
-        /// <summary>
-        /// Certificate subject.
-        /// </summary>
         public readonly string? Subject;
-        /// <summary>
-        /// Certificate thumbprint.
-        /// </summary>
         public readonly string? Thumbprint;
 
         [OutputConstructor]

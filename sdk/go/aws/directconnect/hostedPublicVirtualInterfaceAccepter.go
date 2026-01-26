@@ -12,82 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
-// This resource accepts ownership of a public virtual interface created by another AWS account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			accepter, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Creator's side of the VIF
-//			creator, err := directconnect.NewHostedPublicVirtualInterface(ctx, "creator", &directconnect.HostedPublicVirtualInterfaceArgs{
-//				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId:  pulumi.String(accepter.AccountId),
-//				Name:            pulumi.String("vif-foo"),
-//				Vlan:            pulumi.Int(4094),
-//				AddressFamily:   pulumi.String("ipv4"),
-//				BgpAsn:          pulumi.Int(65352),
-//				CustomerAddress: pulumi.String("175.45.176.1/30"),
-//				AmazonAddress:   pulumi.String("175.45.176.2/30"),
-//				RouteFilterPrefixes: pulumi.StringArray{
-//					pulumi.String("210.52.109.0/24"),
-//					pulumi.String("175.45.176.0/22"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Accepter's side of the VIF.
-//			_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
-//				VirtualInterfaceId: creator.ID(),
-//				Tags: pulumi.StringMap{
-//					"Side": pulumi.String("Accepter"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
-// ```
 type HostedPublicVirtualInterfaceAccepter struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
+	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	Region             pulumi.StringOutput    `pulumi:"region"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VirtualInterfaceId pulumi.StringOutput    `pulumi:"virtualInterfaceId"`
 }
 
 // NewHostedPublicVirtualInterfaceAccepter registers a new resource with the given unique name, arguments, and options.
@@ -123,28 +55,18 @@ func GetHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostedPublicVirtualInterfaceAccepter resources.
 type hostedPublicVirtualInterfaceAccepterState struct {
-	// The ARN of the virtual interface.
-	Arn *string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
+	Arn                *string           `pulumi:"arn"`
+	Region             *string           `pulumi:"region"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
+	VirtualInterfaceId *string           `pulumi:"virtualInterfaceId"`
 }
 
 type HostedPublicVirtualInterfaceAccepterState struct {
-	// The ARN of the virtual interface.
-	Arn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ID of the Direct Connect virtual interface to accept.
+	Arn                pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 	VirtualInterfaceId pulumi.StringPtrInput
 }
 
@@ -153,21 +75,15 @@ func (HostedPublicVirtualInterfaceAccepterState) ElementType() reflect.Type {
 }
 
 type hostedPublicVirtualInterfaceAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
+	Region             *string           `pulumi:"region"`
+	Tags               map[string]string `pulumi:"tags"`
+	VirtualInterfaceId string            `pulumi:"virtualInterfaceId"`
 }
 
 // The set of arguments for constructing a HostedPublicVirtualInterfaceAccepter resource.
 type HostedPublicVirtualInterfaceAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of the Direct Connect virtual interface to accept.
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
 	VirtualInterfaceId pulumi.StringInput
 }
 
@@ -258,27 +174,22 @@ func (o HostedPublicVirtualInterfaceAccepterOutput) ToHostedPublicVirtualInterfa
 	return o
 }
 
-// The ARN of the virtual interface.
 func (o HostedPublicVirtualInterfaceAccepterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostedPublicVirtualInterfaceAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HostedPublicVirtualInterfaceAccepterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HostedPublicVirtualInterfaceAccepterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the Direct Connect virtual interface to accept.
 func (o HostedPublicVirtualInterfaceAccepterOutput) VirtualInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.VirtualInterfaceId }).(pulumi.StringOutput)
 }

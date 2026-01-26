@@ -4,74 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
- *
- * > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- * });
- * const exampleManagedPolicyAttachment = new aws.ssoadmin.ManagedPolicyAttachment("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
- *     permissionSetArn: examplePermissionSet.arn,
- * });
- * ```
- *
- * ### With Account Assignment
- *
- * > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- * });
- * const exampleGroup = new aws.identitystore.Group("example", {
- *     identityStoreId: example.then(example => example.identityStoreIds?.[0]),
- *     displayName: "Admin",
- *     description: "Admin Group",
- * });
- * const exampleAccountAssignment = new aws.ssoadmin.AccountAssignment("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     permissionSetArn: examplePermissionSet.arn,
- *     principalId: exampleGroup.groupId,
- *     principalType: "GROUP",
- *     targetId: "123456789012",
- *     targetType: "AWS_ACCOUNT",
- * });
- * const exampleManagedPolicyAttachment = new aws.ssoadmin.ManagedPolicyAttachment("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
- *     permissionSetArn: examplePermissionSet.arn,
- * }, {
- *     dependsOn: [exampleAccountAssignment],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SSO Managed Policy Attachments using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- */
 export class ManagedPolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing ManagedPolicyAttachment resource's state with the given name, ID, and optional extra
@@ -100,25 +32,10 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedPolicyAttachment.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     declare public readonly instanceArn: pulumi.Output<string>;
-    /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-     */
     declare public readonly managedPolicyArn: pulumi.Output<string>;
-    /**
-     * The name of the IAM Managed Policy.
-     */
     declare public /*out*/ readonly managedPolicyName: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     declare public readonly permissionSetArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -165,25 +82,10 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ManagedPolicyAttachment resources.
  */
 export interface ManagedPolicyAttachmentState {
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     instanceArn?: pulumi.Input<string>;
-    /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-     */
     managedPolicyArn?: pulumi.Input<string>;
-    /**
-     * The name of the IAM Managed Policy.
-     */
     managedPolicyName?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     permissionSetArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -191,20 +93,8 @@ export interface ManagedPolicyAttachmentState {
  * The set of arguments for constructing a ManagedPolicyAttachment resource.
  */
 export interface ManagedPolicyAttachmentArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     instanceArn: pulumi.Input<string>;
-    /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-     */
     managedPolicyArn: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     permissionSetArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

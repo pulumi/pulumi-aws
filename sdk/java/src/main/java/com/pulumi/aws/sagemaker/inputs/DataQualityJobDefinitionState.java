@@ -23,197 +23,93 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
 
     public static final DataQualityJobDefinitionState Empty = new DataQualityJobDefinitionState();
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Specifies the container that runs the monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="dataQualityAppSpecification")
     private @Nullable Output<DataQualityJobDefinitionDataQualityAppSpecificationArgs> dataQualityAppSpecification;
 
-    /**
-     * @return Specifies the container that runs the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityAppSpecificationArgs>> dataQualityAppSpecification() {
         return Optional.ofNullable(this.dataQualityAppSpecification);
     }
 
-    /**
-     * Configures the constraints and baselines for the monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="dataQualityBaselineConfig")
     private @Nullable Output<DataQualityJobDefinitionDataQualityBaselineConfigArgs> dataQualityBaselineConfig;
 
-    /**
-     * @return Configures the constraints and baselines for the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityBaselineConfigArgs>> dataQualityBaselineConfig() {
         return Optional.ofNullable(this.dataQualityBaselineConfig);
     }
 
-    /**
-     * A list of inputs for the monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="dataQualityJobInput")
     private @Nullable Output<DataQualityJobDefinitionDataQualityJobInputArgs> dataQualityJobInput;
 
-    /**
-     * @return A list of inputs for the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityJobInputArgs>> dataQualityJobInput() {
         return Optional.ofNullable(this.dataQualityJobInput);
     }
 
-    /**
-     * The output configuration for monitoring jobs. Fields are documented below.
-     * 
-     */
     @Import(name="dataQualityJobOutputConfig")
     private @Nullable Output<DataQualityJobDefinitionDataQualityJobOutputConfigArgs> dataQualityJobOutputConfig;
 
-    /**
-     * @return The output configuration for monitoring jobs. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityJobOutputConfigArgs>> dataQualityJobOutputConfig() {
         return Optional.ofNullable(this.dataQualityJobOutputConfig);
     }
 
-    /**
-     * Identifies the resources to deploy for a monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="jobResources")
     private @Nullable Output<DataQualityJobDefinitionJobResourcesArgs> jobResources;
 
-    /**
-     * @return Identifies the resources to deploy for a monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionJobResourcesArgs>> jobResources() {
         return Optional.ofNullable(this.jobResources);
     }
 
-    /**
-     * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Specifies networking configuration for the monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="networkConfig")
     private @Nullable Output<DataQualityJobDefinitionNetworkConfigArgs> networkConfig;
 
-    /**
-     * @return Specifies networking configuration for the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionNetworkConfigArgs>> networkConfig() {
         return Optional.ofNullable(this.networkConfig);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-     * 
-     */
     @Import(name="stoppingCondition")
     private @Nullable Output<DataQualityJobDefinitionStoppingConditionArgs> stoppingCondition;
 
-    /**
-     * @return A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionStoppingConditionArgs>> stoppingCondition() {
         return Optional.ofNullable(this.stoppingCondition);
     }
 
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -254,275 +150,119 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
             $ = new DataQualityJobDefinitionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param dataQualityAppSpecification Specifies the container that runs the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityAppSpecification(@Nullable Output<DataQualityJobDefinitionDataQualityAppSpecificationArgs> dataQualityAppSpecification) {
             $.dataQualityAppSpecification = dataQualityAppSpecification;
             return this;
         }
 
-        /**
-         * @param dataQualityAppSpecification Specifies the container that runs the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityAppSpecification(DataQualityJobDefinitionDataQualityAppSpecificationArgs dataQualityAppSpecification) {
             return dataQualityAppSpecification(Output.of(dataQualityAppSpecification));
         }
 
-        /**
-         * @param dataQualityBaselineConfig Configures the constraints and baselines for the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityBaselineConfig(@Nullable Output<DataQualityJobDefinitionDataQualityBaselineConfigArgs> dataQualityBaselineConfig) {
             $.dataQualityBaselineConfig = dataQualityBaselineConfig;
             return this;
         }
 
-        /**
-         * @param dataQualityBaselineConfig Configures the constraints and baselines for the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityBaselineConfig(DataQualityJobDefinitionDataQualityBaselineConfigArgs dataQualityBaselineConfig) {
             return dataQualityBaselineConfig(Output.of(dataQualityBaselineConfig));
         }
 
-        /**
-         * @param dataQualityJobInput A list of inputs for the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityJobInput(@Nullable Output<DataQualityJobDefinitionDataQualityJobInputArgs> dataQualityJobInput) {
             $.dataQualityJobInput = dataQualityJobInput;
             return this;
         }
 
-        /**
-         * @param dataQualityJobInput A list of inputs for the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityJobInput(DataQualityJobDefinitionDataQualityJobInputArgs dataQualityJobInput) {
             return dataQualityJobInput(Output.of(dataQualityJobInput));
         }
 
-        /**
-         * @param dataQualityJobOutputConfig The output configuration for monitoring jobs. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityJobOutputConfig(@Nullable Output<DataQualityJobDefinitionDataQualityJobOutputConfigArgs> dataQualityJobOutputConfig) {
             $.dataQualityJobOutputConfig = dataQualityJobOutputConfig;
             return this;
         }
 
-        /**
-         * @param dataQualityJobOutputConfig The output configuration for monitoring jobs. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQualityJobOutputConfig(DataQualityJobDefinitionDataQualityJobOutputConfigArgs dataQualityJobOutputConfig) {
             return dataQualityJobOutputConfig(Output.of(dataQualityJobOutputConfig));
         }
 
-        /**
-         * @param jobResources Identifies the resources to deploy for a monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobResources(@Nullable Output<DataQualityJobDefinitionJobResourcesArgs> jobResources) {
             $.jobResources = jobResources;
             return this;
         }
 
-        /**
-         * @param jobResources Identifies the resources to deploy for a monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobResources(DataQualityJobDefinitionJobResourcesArgs jobResources) {
             return jobResources(Output.of(jobResources));
         }
 
-        /**
-         * @param name The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param networkConfig Specifies networking configuration for the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkConfig(@Nullable Output<DataQualityJobDefinitionNetworkConfigArgs> networkConfig) {
             $.networkConfig = networkConfig;
             return this;
         }
 
-        /**
-         * @param networkConfig Specifies networking configuration for the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkConfig(DataQualityJobDefinitionNetworkConfigArgs networkConfig) {
             return networkConfig(Output.of(networkConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param stoppingCondition A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stoppingCondition(@Nullable Output<DataQualityJobDefinitionStoppingConditionArgs> stoppingCondition) {
             $.stoppingCondition = stoppingCondition;
             return this;
         }
 
-        /**
-         * @param stoppingCondition A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stoppingCondition(DataQualityJobDefinitionStoppingConditionArgs stoppingCondition) {
             return stoppingCondition(Output.of(stoppingCondition));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

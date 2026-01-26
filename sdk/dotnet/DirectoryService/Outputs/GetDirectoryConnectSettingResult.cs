@@ -14,25 +14,10 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     public sealed class GetDirectoryConnectSettingResult
     {
         public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// IP addresses of the AD Connector servers.
-        /// </summary>
         public readonly ImmutableArray<string> ConnectIps;
-        /// <summary>
-        /// DNS IP addresses of the domain to connect to.
-        /// </summary>
         public readonly ImmutableArray<string> CustomerDnsIps;
-        /// <summary>
-        /// Username corresponding to the password provided.
-        /// </summary>
         public readonly string CustomerUsername;
-        /// <summary>
-        /// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// ID of the VPC that the connector is in.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

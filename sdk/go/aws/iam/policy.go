@@ -12,93 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM policy.
-//
-// > **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"ec2:Describe*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-//				Name:        pulumi.String("test_policy"),
-//				Path:        pulumi.String("/"),
-//				Description: pulumi.String("My test policy"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
-//
-// Using `pulumi import`, import IAM Policies using the `arn`. For example:
-//
-// % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// ARN assigned by AWS to this policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Number of entities (users, groups, and roles) that the policy is attached to.
-	AttachmentCount pulumi.IntOutput `pulumi:"attachmentCount"`
-	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-	DelayAfterPolicyCreationInMs pulumi.IntPtrOutput `pulumi:"delayAfterPolicyCreationInMs"`
-	// Description of the IAM policy.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the policy. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Policy's ID.
-	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                          pulumi.StringOutput    `pulumi:"arn"`
+	AttachmentCount              pulumi.IntOutput       `pulumi:"attachmentCount"`
+	DelayAfterPolicyCreationInMs pulumi.IntPtrOutput    `pulumi:"delayAfterPolicyCreationInMs"`
+	Description                  pulumi.StringPtrOutput `pulumi:"description"`
+	Name                         pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix                   pulumi.StringOutput    `pulumi:"namePrefix"`
+	Path                         pulumi.StringPtrOutput `pulumi:"path"`
+	Policy                       pulumi.StringOutput    `pulumi:"policy"`
+	PolicyId                     pulumi.StringOutput    `pulumi:"policyId"`
+	Tags                         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -134,53 +61,31 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// ARN assigned by AWS to this policy.
-	Arn *string `pulumi:"arn"`
-	// Number of entities (users, groups, and roles) that the policy is attached to.
-	AttachmentCount *int `pulumi:"attachmentCount"`
-	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-	DelayAfterPolicyCreationInMs *int `pulumi:"delayAfterPolicyCreationInMs"`
-	// Description of the IAM policy.
-	Description *string `pulumi:"description"`
-	// Name of the policy. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-	Path *string `pulumi:"path"`
-	// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-	Policy interface{} `pulumi:"policy"`
-	// Policy's ID.
-	PolicyId *string `pulumi:"policyId"`
-	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                          *string           `pulumi:"arn"`
+	AttachmentCount              *int              `pulumi:"attachmentCount"`
+	DelayAfterPolicyCreationInMs *int              `pulumi:"delayAfterPolicyCreationInMs"`
+	Description                  *string           `pulumi:"description"`
+	Name                         *string           `pulumi:"name"`
+	NamePrefix                   *string           `pulumi:"namePrefix"`
+	Path                         *string           `pulumi:"path"`
+	Policy                       interface{}       `pulumi:"policy"`
+	PolicyId                     *string           `pulumi:"policyId"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TagsAll                      map[string]string `pulumi:"tagsAll"`
 }
 
 type PolicyState struct {
-	// ARN assigned by AWS to this policy.
-	Arn pulumi.StringPtrInput
-	// Number of entities (users, groups, and roles) that the policy is attached to.
-	AttachmentCount pulumi.IntPtrInput
-	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+	Arn                          pulumi.StringPtrInput
+	AttachmentCount              pulumi.IntPtrInput
 	DelayAfterPolicyCreationInMs pulumi.IntPtrInput
-	// Description of the IAM policy.
-	Description pulumi.StringPtrInput
-	// Name of the policy. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-	Path pulumi.StringPtrInput
-	// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-	Policy pulumi.Input
-	// Policy's ID.
-	PolicyId pulumi.StringPtrInput
-	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Description                  pulumi.StringPtrInput
+	Name                         pulumi.StringPtrInput
+	NamePrefix                   pulumi.StringPtrInput
+	Path                         pulumi.StringPtrInput
+	Policy                       pulumi.Input
+	PolicyId                     pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
 }
 
 func (PolicyState) ElementType() reflect.Type {
@@ -188,38 +93,24 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-	DelayAfterPolicyCreationInMs *int `pulumi:"delayAfterPolicyCreationInMs"`
-	// Description of the IAM policy.
-	Description *string `pulumi:"description"`
-	// Name of the policy. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-	Path *string `pulumi:"path"`
-	// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-	Policy interface{} `pulumi:"policy"`
-	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DelayAfterPolicyCreationInMs *int              `pulumi:"delayAfterPolicyCreationInMs"`
+	Description                  *string           `pulumi:"description"`
+	Name                         *string           `pulumi:"name"`
+	NamePrefix                   *string           `pulumi:"namePrefix"`
+	Path                         *string           `pulumi:"path"`
+	Policy                       interface{}       `pulumi:"policy"`
+	Tags                         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
 	DelayAfterPolicyCreationInMs pulumi.IntPtrInput
-	// Description of the IAM policy.
-	Description pulumi.StringPtrInput
-	// Name of the policy. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-	Path pulumi.StringPtrInput
-	// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-	Policy pulumi.Input
-	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description                  pulumi.StringPtrInput
+	Name                         pulumi.StringPtrInput
+	NamePrefix                   pulumi.StringPtrInput
+	Path                         pulumi.StringPtrInput
+	Policy                       pulumi.Input
+	Tags                         pulumi.StringMapInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -309,57 +200,46 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// ARN assigned by AWS to this policy.
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Number of entities (users, groups, and roles) that the policy is attached to.
 func (o PolicyOutput) AttachmentCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntOutput { return v.AttachmentCount }).(pulumi.IntOutput)
 }
 
-// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
 func (o PolicyOutput) DelayAfterPolicyCreationInMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.DelayAfterPolicyCreationInMs }).(pulumi.IntPtrOutput)
 }
 
-// Description of the IAM policy.
 func (o PolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the policy. If omitted, the provider will assign a random, unique name.
 func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o PolicyOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 func (o PolicyOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
 func (o PolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Policy's ID.
 func (o PolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

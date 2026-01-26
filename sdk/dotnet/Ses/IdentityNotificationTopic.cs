@@ -9,68 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
-    /// <summary>
-    /// Resource for managing SES Identity Notification Topics
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ses.IdentityNotificationTopic("test", new()
-    ///     {
-    ///         TopicArn = exampleAwsSnsTopic.Arn,
-    ///         NotificationType = "Bounce",
-    ///         Identity = example.Domain,
-    ///         IncludeOriginalHeaders = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ses/identityNotificationTopic:IdentityNotificationTopic")]
     public partial class IdentityNotificationTopic : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-        /// </summary>
         [Output("identity")]
         public Output<string> Identity { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. `False` by default.
-        /// </summary>
         [Output("includeOriginalHeaders")]
         public Output<bool?> IncludeOriginalHeaders { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
-        /// </summary>
         [Output("notificationType")]
         public Output<string> NotificationType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
-        /// </summary>
         [Output("topicArn")]
         public Output<string?> TopicArn { get; private set; } = null!;
 
@@ -120,33 +73,18 @@ namespace Pulumi.Aws.Ses
 
     public sealed class IdentityNotificationTopicArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-        /// </summary>
         [Input("identity", required: true)]
         public Input<string> Identity { get; set; } = null!;
 
-        /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. `False` by default.
-        /// </summary>
         [Input("includeOriginalHeaders")]
         public Input<bool>? IncludeOriginalHeaders { get; set; }
 
-        /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
-        /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
-        /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }
 
@@ -158,33 +96,18 @@ namespace Pulumi.Aws.Ses
 
     public sealed class IdentityNotificationTopicState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-        /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }
 
-        /// <summary>
-        /// Whether SES should include original email headers in SNS notifications of this type. `False` by default.
-        /// </summary>
         [Input("includeOriginalHeaders")]
         public Input<bool>? IncludeOriginalHeaders { get; set; }
 
-        /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
-        /// </summary>
         [Input("notificationType")]
         public Input<string>? NotificationType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
-        /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }
 

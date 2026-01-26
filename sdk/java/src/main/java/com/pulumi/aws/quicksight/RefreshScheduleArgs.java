@@ -24,66 +24,30 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * The ID of the dataset.
-     * 
-     */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
-    /**
-     * @return The ID of the dataset.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="schedule")
     private @Nullable Output<RefreshScheduleScheduleArgs> schedule;
 
-    /**
-     * @return The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<RefreshScheduleScheduleArgs>> schedule() {
         return Optional.ofNullable(this.schedule);
     }
 
-    /**
-     * The ID of the refresh schedule.
-     * 
-     */
     @Import(name="scheduleId", required=true)
     private Output<String> scheduleId;
 
-    /**
-     * @return The ID of the refresh schedule.
-     * 
-     */
     public Output<String> scheduleId() {
         return this.scheduleId;
     }
@@ -125,90 +89,38 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.ResourceArgs
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param dataSetId The ID of the dataset.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(Output<String> dataSetId) {
             $.dataSetId = dataSetId;
             return this;
         }
 
-        /**
-         * @param dataSetId The ID of the dataset.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param schedule The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder schedule(@Nullable Output<RefreshScheduleScheduleArgs> schedule) {
             $.schedule = schedule;
             return this;
         }
 
-        /**
-         * @param schedule The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder schedule(RefreshScheduleScheduleArgs schedule) {
             return schedule(Output.of(schedule));
         }
 
-        /**
-         * @param scheduleId The ID of the refresh schedule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleId(Output<String> scheduleId) {
             $.scheduleId = scheduleId;
             return this;
         }
 
-        /**
-         * @param scheduleId The ID of the refresh schedule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleId(String scheduleId) {
             return scheduleId(Output.of(scheduleId));
         }

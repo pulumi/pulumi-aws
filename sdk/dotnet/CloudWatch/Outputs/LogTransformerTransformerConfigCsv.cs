@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigCsv
     {
-        /// <summary>
-        /// Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, Column2 ...]`) are used.
-        /// </summary>
         public readonly ImmutableArray<string> Columns;
-        /// <summary>
-        /// Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-        /// </summary>
         public readonly string? Delimiter;
-        /// <summary>
-        /// Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
-        /// </summary>
         public readonly string? QuoteCharacter;
-        /// <summary>
-        /// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]

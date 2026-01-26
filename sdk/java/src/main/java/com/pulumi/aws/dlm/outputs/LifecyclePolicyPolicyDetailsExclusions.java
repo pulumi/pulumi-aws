@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsExclusions {
-    /**
-     * @return Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-     * 
-     */
     private @Nullable Boolean excludeBootVolumes;
-    /**
-     * @return Map specifies whether to exclude volumes that have specific tags.
-     * 
-     */
     private @Nullable Map<String,String> excludeTags;
-    /**
-     * @return List specifies the volume types to exclude.
-     * 
-     */
     private @Nullable List<String> excludeVolumeTypes;
 
     private LifecyclePolicyPolicyDetailsExclusions() {}
-    /**
-     * @return Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-     * 
-     */
     public Optional<Boolean> excludeBootVolumes() {
         return Optional.ofNullable(this.excludeBootVolumes);
     }
-    /**
-     * @return Map specifies whether to exclude volumes that have specific tags.
-     * 
-     */
     public Map<String,String> excludeTags() {
         return this.excludeTags == null ? Map.of() : this.excludeTags;
     }
-    /**
-     * @return List specifies the volume types to exclude.
-     * 
-     */
     public List<String> excludeVolumeTypes() {
         return this.excludeVolumeTypes == null ? List.of() : this.excludeVolumeTypes;
     }

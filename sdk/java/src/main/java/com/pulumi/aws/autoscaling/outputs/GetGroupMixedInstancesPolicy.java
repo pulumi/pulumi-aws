@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicy {
-    /**
-     * @return List of instances distribution objects.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions;
-    /**
-     * @return List of launch templates along with the overrides.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates;
 
     private GetGroupMixedInstancesPolicy() {}
-    /**
-     * @return List of instances distribution objects.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyInstancesDistribution> instancesDistributions() {
         return this.instancesDistributions;
     }
-    /**
-     * @return List of launch templates along with the overrides.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplate> launchTemplates() {
         return this.launchTemplates;
     }

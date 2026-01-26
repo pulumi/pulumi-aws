@@ -16,32 +16,16 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPrede
 
     public static final ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs Empty = new ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs();
 
-    /**
-     * Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
-     * 
-     */
     @Import(name="predefinedScalingMetricType", required=true)
     private Output<String> predefinedScalingMetricType;
 
-    /**
-     * @return Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
-     * 
-     */
     public Output<String> predefinedScalingMetricType() {
         return this.predefinedScalingMetricType;
     }
 
-    /**
-     * Identifies the resource associated with the metric type.
-     * 
-     */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     public Optional<Output<String>> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }
@@ -71,44 +55,20 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPrede
             $ = new ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param predefinedScalingMetricType Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedScalingMetricType(Output<String> predefinedScalingMetricType) {
             $.predefinedScalingMetricType = predefinedScalingMetricType;
             return this;
         }
 
-        /**
-         * @param predefinedScalingMetricType Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedScalingMetricType(String predefinedScalingMetricType) {
             return predefinedScalingMetricType(Output.of(predefinedScalingMetricType));
         }
 
-        /**
-         * @param resourceLabel Identifies the resource associated with the metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(@Nullable Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
 
-        /**
-         * @param resourceLabel Identifies the resource associated with the metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(String resourceLabel) {
             return resourceLabel(Output.of(resourceLabel));
         }

@@ -11,87 +11,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNamespaceResult {
-    /**
-     * @return The username of the administrator for the first database created in the namespace.
-     * 
-     */
     private String adminUsername;
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-     * 
-     */
     private String arn;
-    /**
-     * @return The name of the first database created in the namespace.
-     * 
-     */
     private String dbName;
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
-     * 
-     */
     private String defaultIamRoleArn;
-    /**
-     * @return A list of IAM roles to associate with the namespace.
-     * 
-     */
     private List<String> iamRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-     * 
-     */
     private List<String> logExports;
-    /**
-     * @return The Redshift Namespace ID.
-     * 
-     */
     private String namespaceId;
     private String namespaceName;
     private String region;
 
     private GetNamespaceResult() {}
-    /**
-     * @return The username of the administrator for the first database created in the namespace.
-     * 
-     */
     public String adminUsername() {
         return this.adminUsername;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The name of the first database created in the namespace.
-     * 
-     */
     public String dbName() {
         return this.dbName;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
-     * 
-     */
     public String defaultIamRoleArn() {
         return this.defaultIamRoleArn;
     }
-    /**
-     * @return A list of IAM roles to associate with the namespace.
-     * 
-     */
     public List<String> iamRoles() {
         return this.iamRoles;
     }
@@ -102,24 +50,12 @@ public final class GetNamespaceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-     * 
-     */
     public List<String> logExports() {
         return this.logExports;
     }
-    /**
-     * @return The Redshift Namespace ID.
-     * 
-     */
     public String namespaceId() {
         return this.namespaceId;
     }

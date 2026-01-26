@@ -12,99 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides EC2 allowed images settings for an AWS account. This feature allows you to control which AMIs can be used to launch EC2 instances in your account based on specified criteria.
-//
-// For more information about the image criteria that can be set, see the [AWS documentation on Allowed AMIs JSON configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration).
-//
-// > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
-//
-// > **NOTE:** There is only one allowed images settings configuration per AWS account and region. Creating this resource will configure the account-level settings.
-//
-// ## Example Usage
-//
-// ### Enable with Amazon AMIs only
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAllowedImagesSettings(ctx, "example", &ec2.AllowedImagesSettingsArgs{
-//				State: pulumi.String("enabled"),
-//				ImageCriterions: ec2.AllowedImagesSettingsImageCriterionArray{
-//					&ec2.AllowedImagesSettingsImageCriterionArgs{
-//						ImageProviders: pulumi.StringArray{
-//							pulumi.String("amazon"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Enable audit mode with specific account IDs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAllowedImagesSettings(ctx, "example", &ec2.AllowedImagesSettingsArgs{
-//				State: pulumi.String("audit-mode"),
-//				ImageCriterions: ec2.AllowedImagesSettingsImageCriterionArray{
-//					&ec2.AllowedImagesSettingsImageCriterionArgs{
-//						ImageProviders: pulumi.StringArray{
-//							pulumi.String("amazon"),
-//							pulumi.String("123456789012"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EC2 allowed images settings. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
-// ```
 type AllowedImagesSettings struct {
 	pulumi.CustomResourceState
 
-	// List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
 	ImageCriterions AllowedImagesSettingsImageCriterionArrayOutput `pulumi:"imageCriterions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-	State pulumi.StringOutput `pulumi:"state"`
+	Region          pulumi.StringOutput                            `pulumi:"region"`
+	State           pulumi.StringOutput                            `pulumi:"state"`
 }
 
 // NewAllowedImagesSettings registers a new resource with the given unique name, arguments, and options.
@@ -140,21 +53,15 @@ func GetAllowedImagesSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AllowedImagesSettings resources.
 type allowedImagesSettingsState struct {
-	// List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
 	ImageCriterions []AllowedImagesSettingsImageCriterion `pulumi:"imageCriterions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-	State *string `pulumi:"state"`
+	Region          *string                               `pulumi:"region"`
+	State           *string                               `pulumi:"state"`
 }
 
 type AllowedImagesSettingsState struct {
-	// List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
 	ImageCriterions AllowedImagesSettingsImageCriterionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-	State pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	State           pulumi.StringPtrInput
 }
 
 func (AllowedImagesSettingsState) ElementType() reflect.Type {
@@ -162,22 +69,16 @@ func (AllowedImagesSettingsState) ElementType() reflect.Type {
 }
 
 type allowedImagesSettingsArgs struct {
-	// List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
 	ImageCriterions []AllowedImagesSettingsImageCriterion `pulumi:"imageCriterions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-	State string `pulumi:"state"`
+	Region          *string                               `pulumi:"region"`
+	State           string                                `pulumi:"state"`
 }
 
 // The set of arguments for constructing a AllowedImagesSettings resource.
 type AllowedImagesSettingsArgs struct {
-	// List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
 	ImageCriterions AllowedImagesSettingsImageCriterionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-	State pulumi.StringInput
+	Region          pulumi.StringPtrInput
+	State           pulumi.StringInput
 }
 
 func (AllowedImagesSettingsArgs) ElementType() reflect.Type {
@@ -267,19 +168,16 @@ func (o AllowedImagesSettingsOutput) ToAllowedImagesSettingsOutputWithContext(ct
 	return o
 }
 
-// List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
 func (o AllowedImagesSettingsOutput) ImageCriterions() AllowedImagesSettingsImageCriterionArrayOutput {
 	return o.ApplyT(func(v *AllowedImagesSettings) AllowedImagesSettingsImageCriterionArrayOutput {
 		return v.ImageCriterions
 	}).(AllowedImagesSettingsImageCriterionArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AllowedImagesSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AllowedImagesSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
 func (o AllowedImagesSettingsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *AllowedImagesSettings) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionTenantConfigParameterDefinition
     {
-        /// <summary>
-        /// Definition of the parameter schema. See Parameter Definition Schema below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinition> Definitions;
-        /// <summary>
-        /// Name of the parameter.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

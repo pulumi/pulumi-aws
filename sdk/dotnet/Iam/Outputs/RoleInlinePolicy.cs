@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iam.Outputs
     [OutputType]
     public sealed class RoleInlinePolicy
     {
-        /// <summary>
-        /// Name of the role policy.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Policy document as a JSON formatted string.
-        /// </summary>
         public readonly string? Policy;
 
         [OutputConstructor]

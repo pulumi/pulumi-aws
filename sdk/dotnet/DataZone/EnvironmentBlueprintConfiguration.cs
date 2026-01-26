@@ -9,106 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataZone
 {
-    /// <summary>
-    /// Resource for managing an AWS DataZone Environment Blueprint Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataZone.Domain("example", new()
-    ///     {
-    ///         Name = "example_domain",
-    ///         DomainExecutionRole = domainExecutionRole.Arn,
-    ///     });
-    /// 
-    ///     var defaultDataLake = Aws.DataZone.GetEnvironmentBlueprint.Invoke(new()
-    ///     {
-    ///         DomainId = example.Id,
-    ///         Name = "DefaultDataLake",
-    ///         Managed = true,
-    ///     });
-    /// 
-    ///     var exampleEnvironmentBlueprintConfiguration = new Aws.DataZone.EnvironmentBlueprintConfiguration("example", new()
-    ///     {
-    ///         DomainId = example.Id,
-    ///         EnvironmentBlueprintId = defaultDataLake.Apply(getEnvironmentBlueprintResult =&gt; getEnvironmentBlueprintResult.Id),
-    ///         EnabledRegions = new[]
-    ///         {
-    ///             "us-east-1",
-    ///         },
-    ///         RegionalParameters = 
-    ///         {
-    ///             { "us-east-1", 
-    ///             {
-    ///                 { "s3Location", "s3://my-amazon-datazone-bucket" },
-    ///             } },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domain_id` and `environment_blueprint_id`, separated by a `/`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration example domain-id-12345/environment-blueprint-id-54321
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration")]
     public partial class EnvironmentBlueprintConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the Domain.
-        /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
-        /// <summary>
-        /// Regions in which the blueprint is enabled
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("enabledRegions")]
         public Output<ImmutableArray<string>> EnabledRegions { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Environment Blueprint
-        /// </summary>
         [Output("environmentBlueprintId")]
         public Output<string> EnvironmentBlueprintId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the manage access role with which this blueprint is created.
-        /// </summary>
         [Output("manageAccessRoleArn")]
         public Output<string?> ManageAccessRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the provisioning role with which this blueprint is created.
-        /// </summary>
         [Output("provisioningRoleArn")]
         public Output<string?> ProvisioningRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Parameters for each region in which the blueprint is enabled
-        /// </summary>
         [Output("regionalParameters")]
         public Output<ImmutableDictionary<string, ImmutableDictionary<string, string>>?> RegionalParameters { get; private set; } = null!;
 
@@ -158,56 +79,31 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class EnvironmentBlueprintConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Domain.
-        /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
         [Input("enabledRegions", required: true)]
         private InputList<string>? _enabledRegions;
-
-        /// <summary>
-        /// Regions in which the blueprint is enabled
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<string> EnabledRegions
         {
             get => _enabledRegions ?? (_enabledRegions = new InputList<string>());
             set => _enabledRegions = value;
         }
 
-        /// <summary>
-        /// ID of the Environment Blueprint
-        /// </summary>
         [Input("environmentBlueprintId", required: true)]
         public Input<string> EnvironmentBlueprintId { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the manage access role with which this blueprint is created.
-        /// </summary>
         [Input("manageAccessRoleArn")]
         public Input<string>? ManageAccessRoleArn { get; set; }
 
-        /// <summary>
-        /// ARN of the provisioning role with which this blueprint is created.
-        /// </summary>
         [Input("provisioningRoleArn")]
         public Input<string>? ProvisioningRoleArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("regionalParameters")]
         private InputMap<ImmutableDictionary<string, string>>? _regionalParameters;
-
-        /// <summary>
-        /// Parameters for each region in which the blueprint is enabled
-        /// </summary>
         public InputMap<ImmutableDictionary<string, string>> RegionalParameters
         {
             get => _regionalParameters ?? (_regionalParameters = new InputMap<ImmutableDictionary<string, string>>());
@@ -222,56 +118,31 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class EnvironmentBlueprintConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Domain.
-        /// </summary>
         [Input("domainId")]
         public Input<string>? DomainId { get; set; }
 
         [Input("enabledRegions")]
         private InputList<string>? _enabledRegions;
-
-        /// <summary>
-        /// Regions in which the blueprint is enabled
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<string> EnabledRegions
         {
             get => _enabledRegions ?? (_enabledRegions = new InputList<string>());
             set => _enabledRegions = value;
         }
 
-        /// <summary>
-        /// ID of the Environment Blueprint
-        /// </summary>
         [Input("environmentBlueprintId")]
         public Input<string>? EnvironmentBlueprintId { get; set; }
 
-        /// <summary>
-        /// ARN of the manage access role with which this blueprint is created.
-        /// </summary>
         [Input("manageAccessRoleArn")]
         public Input<string>? ManageAccessRoleArn { get; set; }
 
-        /// <summary>
-        /// ARN of the provisioning role with which this blueprint is created.
-        /// </summary>
         [Input("provisioningRoleArn")]
         public Input<string>? ProvisioningRoleArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("regionalParameters")]
         private InputMap<ImmutableDictionary<string, string>>? _regionalParameters;
-
-        /// <summary>
-        /// Parameters for each region in which the blueprint is enabled
-        /// </summary>
         public InputMap<ImmutableDictionary<string, string>> RegionalParameters
         {
             get => _regionalParameters ?? (_regionalParameters = new InputMap<ImmutableDictionary<string, string>>());

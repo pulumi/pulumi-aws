@@ -14,77 +14,37 @@ public final class V2modelsBotMemberArgs extends com.pulumi.resources.ResourceAr
 
     public static final V2modelsBotMemberArgs Empty = new V2modelsBotMemberArgs();
 
-    /**
-     * (Required) - Alias ID of a bot that is a member of this network of bots.
-     * 
-     */
     @Import(name="aliasId", required=true)
     private Output<String> aliasId;
 
-    /**
-     * @return (Required) - Alias ID of a bot that is a member of this network of bots.
-     * 
-     */
     public Output<String> aliasId() {
         return this.aliasId;
     }
 
-    /**
-     * (Required) - Alias name of a bot that is a member of this network of bots.
-     * 
-     */
     @Import(name="aliasName", required=true)
     private Output<String> aliasName;
 
-    /**
-     * @return (Required) - Alias name of a bot that is a member of this network of bots.
-     * 
-     */
     public Output<String> aliasName() {
         return this.aliasName;
     }
 
-    /**
-     * (Required) - Unique ID of a bot that is a member of this network of bots.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return (Required) - Unique ID of a bot that is a member of this network of bots.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * (Required) - Version of a bot that is a member of this network of bots.
-     * 
-     */
     @Import(name="version", required=true)
     private Output<String> version;
 
-    /**
-     * @return (Required) - Version of a bot that is a member of this network of bots.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
@@ -117,107 +77,47 @@ public final class V2modelsBotMemberArgs extends com.pulumi.resources.ResourceAr
             $ = new V2modelsBotMemberArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliasId (Required) - Alias ID of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasId(Output<String> aliasId) {
             $.aliasId = aliasId;
             return this;
         }
 
-        /**
-         * @param aliasId (Required) - Alias ID of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasId(String aliasId) {
             return aliasId(Output.of(aliasId));
         }
 
-        /**
-         * @param aliasName (Required) - Alias name of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasName(Output<String> aliasName) {
             $.aliasName = aliasName;
             return this;
         }
 
-        /**
-         * @param aliasName (Required) - Alias name of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasName(String aliasName) {
             return aliasName(Output.of(aliasName));
         }
 
-        /**
-         * @param id (Required) - Unique ID of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id (Required) - Unique ID of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param version (Required) - Version of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version (Required) - Version of a bot that is a member of this network of bots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

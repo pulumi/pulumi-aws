@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThemeConfigurationSheetTile {
-    /**
-     * @return The border around a tile. See border.
-     * 
-     */
     private @Nullable ThemeConfigurationSheetTileBorder border;
 
     private ThemeConfigurationSheetTile() {}
-    /**
-     * @return The border around a tile. See border.
-     * 
-     */
     public Optional<ThemeConfigurationSheetTileBorder> border() {
         return Optional.ofNullable(this.border);
     }

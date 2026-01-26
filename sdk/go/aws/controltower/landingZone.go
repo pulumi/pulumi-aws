@@ -12,35 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new landing zone using Control Tower. For more information on usage, please see the
-// [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
-//
-// ## Import
-//
-// Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
-// ```
 type LandingZone struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the landing zone.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The drift status summary of the landing zone.
-	DriftStatuses LandingZoneDriftStatusArrayOutput `pulumi:"driftStatuses"`
-	// The latest available version of the landing zone.
-	LatestAvailableVersion pulumi.StringOutput `pulumi:"latestAvailableVersion"`
-	// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-	ManifestJson pulumi.StringOutput `pulumi:"manifestJson"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The landing zone version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Arn                    pulumi.StringOutput               `pulumi:"arn"`
+	DriftStatuses          LandingZoneDriftStatusArrayOutput `pulumi:"driftStatuses"`
+	LatestAvailableVersion pulumi.StringOutput               `pulumi:"latestAvailableVersion"`
+	ManifestJson           pulumi.StringOutput               `pulumi:"manifestJson"`
+	Region                 pulumi.StringOutput               `pulumi:"region"`
+	Tags                   pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	Version                pulumi.StringOutput               `pulumi:"version"`
 }
 
 // NewLandingZone registers a new resource with the given unique name, arguments, and options.
@@ -79,41 +61,25 @@ func GetLandingZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LandingZone resources.
 type landingZoneState struct {
-	// The ARN of the landing zone.
-	Arn *string `pulumi:"arn"`
-	// The drift status summary of the landing zone.
-	DriftStatuses []LandingZoneDriftStatus `pulumi:"driftStatuses"`
-	// The latest available version of the landing zone.
-	LatestAvailableVersion *string `pulumi:"latestAvailableVersion"`
-	// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-	ManifestJson *string `pulumi:"manifestJson"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The landing zone version.
-	Version *string `pulumi:"version"`
+	Arn                    *string                  `pulumi:"arn"`
+	DriftStatuses          []LandingZoneDriftStatus `pulumi:"driftStatuses"`
+	LatestAvailableVersion *string                  `pulumi:"latestAvailableVersion"`
+	ManifestJson           *string                  `pulumi:"manifestJson"`
+	Region                 *string                  `pulumi:"region"`
+	Tags                   map[string]string        `pulumi:"tags"`
+	TagsAll                map[string]string        `pulumi:"tagsAll"`
+	Version                *string                  `pulumi:"version"`
 }
 
 type LandingZoneState struct {
-	// The ARN of the landing zone.
-	Arn pulumi.StringPtrInput
-	// The drift status summary of the landing zone.
-	DriftStatuses LandingZoneDriftStatusArrayInput
-	// The latest available version of the landing zone.
+	Arn                    pulumi.StringPtrInput
+	DriftStatuses          LandingZoneDriftStatusArrayInput
 	LatestAvailableVersion pulumi.StringPtrInput
-	// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-	ManifestJson pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The landing zone version.
-	Version pulumi.StringPtrInput
+	ManifestJson           pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	Version                pulumi.StringPtrInput
 }
 
 func (LandingZoneState) ElementType() reflect.Type {
@@ -121,26 +87,18 @@ func (LandingZoneState) ElementType() reflect.Type {
 }
 
 type landingZoneArgs struct {
-	// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-	ManifestJson string `pulumi:"manifestJson"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The landing zone version.
-	Version string `pulumi:"version"`
+	ManifestJson string            `pulumi:"manifestJson"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
+	Version      string            `pulumi:"version"`
 }
 
 // The set of arguments for constructing a LandingZone resource.
 type LandingZoneArgs struct {
-	// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
 	ManifestJson pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The landing zone version.
-	Version pulumi.StringInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	Version      pulumi.StringInput
 }
 
 func (LandingZoneArgs) ElementType() reflect.Type {
@@ -230,42 +188,34 @@ func (o LandingZoneOutput) ToLandingZoneOutputWithContext(ctx context.Context) L
 	return o
 }
 
-// The ARN of the landing zone.
 func (o LandingZoneOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The drift status summary of the landing zone.
 func (o LandingZoneOutput) DriftStatuses() LandingZoneDriftStatusArrayOutput {
 	return o.ApplyT(func(v *LandingZone) LandingZoneDriftStatusArrayOutput { return v.DriftStatuses }).(LandingZoneDriftStatusArrayOutput)
 }
 
-// The latest available version of the landing zone.
 func (o LandingZoneOutput) LatestAvailableVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringOutput { return v.LatestAvailableVersion }).(pulumi.StringOutput)
 }
 
-// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
 func (o LandingZoneOutput) ManifestJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringOutput { return v.ManifestJson }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LandingZoneOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LandingZoneOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
 func (o LandingZoneOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The landing zone version.
 func (o LandingZoneOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

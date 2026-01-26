@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS DataZone Asset Type.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.datazone.AssetType("test", {
- *     description: "example",
- *     domainIdentifier: testAwsDatazoneDomain.id,
- *     name: "example",
- *     owningProjectIdentifier: testAwsDatazoneProject.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DataZone Asset Type using the `domain_identifier,name`. For example:
- *
- * ```sh
- * $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
- * ```
- */
 export class AssetType extends pulumi.CustomResource {
     /**
      * Get an existing AssetType resource's state with the given name, ID, and optional extra
@@ -62,43 +35,14 @@ export class AssetType extends pulumi.CustomResource {
         return obj['__pulumiType'] === AssetType.__pulumiType;
     }
 
-    /**
-     * The timestamp when the custom asset type was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * The user who created the custom asset type.
-     */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
-    /**
-     * The description of the custom asset type.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-     */
     declare public readonly domainIdentifier: pulumi.Output<string>;
-    /**
-     * The metadata forms that are to be attached to the custom asset type.
-     */
     declare public readonly formsInputs: pulumi.Output<outputs.datazone.AssetTypeFormsInput[] | undefined>;
-    /**
-     * The name of the custom asset type.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The unique identifier of the Amazon DataZone project that owns the custom asset type.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly owningProjectIdentifier: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The revision of the asset type.
-     */
     declare public /*out*/ readonly revision: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.datazone.AssetTypeTimeouts | undefined>;
 
@@ -153,43 +97,14 @@ export class AssetType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AssetType resources.
  */
 export interface AssetTypeState {
-    /**
-     * The timestamp when the custom asset type was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * The user who created the custom asset type.
-     */
     createdBy?: pulumi.Input<string>;
-    /**
-     * The description of the custom asset type.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-     */
     domainIdentifier?: pulumi.Input<string>;
-    /**
-     * The metadata forms that are to be attached to the custom asset type.
-     */
     formsInputs?: pulumi.Input<pulumi.Input<inputs.datazone.AssetTypeFormsInput>[]>;
-    /**
-     * The name of the custom asset type.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the Amazon DataZone project that owns the custom asset type.
-     *
-     * The following arguments are optional:
-     */
     owningProjectIdentifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The revision of the asset type.
-     */
     revision?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.AssetTypeTimeouts>;
 }
@@ -198,31 +113,11 @@ export interface AssetTypeState {
  * The set of arguments for constructing a AssetType resource.
  */
 export interface AssetTypeArgs {
-    /**
-     * The description of the custom asset type.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-     */
     domainIdentifier: pulumi.Input<string>;
-    /**
-     * The metadata forms that are to be attached to the custom asset type.
-     */
     formsInputs?: pulumi.Input<pulumi.Input<inputs.datazone.AssetTypeFormsInput>[]>;
-    /**
-     * The name of the custom asset type.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the Amazon DataZone project that owns the custom asset type.
-     *
-     * The following arguments are optional:
-     */
     owningProjectIdentifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.AssetTypeTimeouts>;
 }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AllowedImagesSettingsImageCriterionDeprecationTimeCondition {
-    /**
-     * @return Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
-     * 
-     */
     private @Nullable Integer maximumDaysSinceDeprecated;
 
     private AllowedImagesSettingsImageCriterionDeprecationTimeCondition() {}
-    /**
-     * @return Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
-     * 
-     */
     public Optional<Integer> maximumDaysSinceDeprecated() {
         return Optional.ofNullable(this.maximumDaysSinceDeprecated);
     }

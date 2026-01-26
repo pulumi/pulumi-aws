@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType
     {
-        /// <summary>
-        /// Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

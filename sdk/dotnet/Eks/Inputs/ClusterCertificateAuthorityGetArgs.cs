@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterCertificateAuthorityGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `Kubeconfig` file for your cluster.
-        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 

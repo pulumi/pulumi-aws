@@ -15,32 +15,16 @@ public final class ModelPackageGroupPolicyState extends com.pulumi.resources.Res
 
     public static final ModelPackageGroupPolicyState Empty = new ModelPackageGroupPolicyState();
 
-    /**
-     * The name of the model package group.
-     * 
-     */
     @Import(name="modelPackageGroupName")
     private @Nullable Output<String> modelPackageGroupName;
 
-    /**
-     * @return The name of the model package group.
-     * 
-     */
     public Optional<Output<String>> modelPackageGroupName() {
         return Optional.ofNullable(this.modelPackageGroupName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -78,44 +62,20 @@ public final class ModelPackageGroupPolicyState extends com.pulumi.resources.Res
             $ = new ModelPackageGroupPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param modelPackageGroupName The name of the model package group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelPackageGroupName(@Nullable Output<String> modelPackageGroupName) {
             $.modelPackageGroupName = modelPackageGroupName;
             return this;
         }
 
-        /**
-         * @param modelPackageGroupName The name of the model package group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelPackageGroupName(String modelPackageGroupName) {
             return modelPackageGroupName(Output.of(modelPackageGroupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

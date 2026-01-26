@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
-    /**
-     * @return Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
-     * 
-     */
     private @Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery> curatedQueries;
-    /**
-     * @return Information about a table in the database. See `table` block for details.
-     * 
-     */
     private @Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable> tables;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext() {}
-    /**
-     * @return Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
-     * 
-     */
     public List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery> curatedQueries() {
         return this.curatedQueries == null ? List.of() : this.curatedQueries;
     }
-    /**
-     * @return Information about a table in the database. See `table` block for details.
-     * 
-     */
     public List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable> tables() {
         return this.tables == null ? List.of() : this.tables;
     }

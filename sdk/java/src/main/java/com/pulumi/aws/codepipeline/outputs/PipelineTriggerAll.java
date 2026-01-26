@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineTriggerAll {
-    /**
-     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-     * 
-     */
     private @Nullable List<PipelineTriggerAllGitConfiguration> gitConfigurations;
-    /**
-     * @return The source provider for the event. Possible value is `CodeStarSourceConnection`.
-     * 
-     */
     private @Nullable String providerType;
 
     private PipelineTriggerAll() {}
-    /**
-     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-     * 
-     */
     public List<PipelineTriggerAllGitConfiguration> gitConfigurations() {
         return this.gitConfigurations == null ? List.of() : this.gitConfigurations;
     }
-    /**
-     * @return The source provider for the event. Possible value is `CodeStarSourceConnection`.
-     * 
-     */
     public Optional<String> providerType() {
         return Optional.ofNullable(this.providerType);
     }

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionVpcConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `False`.
-        /// </summary>
         [Input("ipv6AllowedForDualStack")]
         public Input<bool>? Ipv6AllowedForDualStack { get; set; }
 
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of security group IDs associated with the Lambda function.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -32,19 +25,12 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet IDs associated with the Lambda function.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// ID of the VPC.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

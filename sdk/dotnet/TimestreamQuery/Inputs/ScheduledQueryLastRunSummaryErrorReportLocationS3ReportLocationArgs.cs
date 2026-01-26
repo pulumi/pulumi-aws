@@ -12,15 +12,9 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 bucket name.
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// S3 key.
-        /// </summary>
         [Input("objectKey")]
         public Input<string>? ObjectKey { get; set; }
 

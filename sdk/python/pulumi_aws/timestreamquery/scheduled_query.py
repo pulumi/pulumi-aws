@@ -36,20 +36,6 @@ class ScheduledQueryArgs:
                  timeouts: Optional[pulumi.Input['ScheduledQueryTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ScheduledQuery resource.
-        :param pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'] error_report_configuration: Configuration block for error reporting configuration. See below.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN for the IAM role that Timestream will assume when running the scheduled query.
-        :param pulumi.Input['ScheduledQueryNotificationConfigurationArgs'] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
-        :param pulumi.Input[_builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input['ScheduledQueryScheduleConfigurationArgs'] schedule_configuration: Configuration block for schedule configuration for the query. See below.
-        :param pulumi.Input['ScheduledQueryTargetConfigurationArgs'] target_configuration: Configuration block for writing the result of a query. See below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryArgs']]] last_run_summaries: Runtime summary for the last scheduled query run.
-        :param pulumi.Input[_builtins.str] name: Name of the scheduled query.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "error_report_configuration", error_report_configuration)
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -75,9 +61,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="errorReportConfiguration")
     def error_report_configuration(self) -> pulumi.Input['ScheduledQueryErrorReportConfigurationArgs']:
-        """
-        Configuration block for error reporting configuration. See below.
-        """
         return pulumi.get(self, "error_report_configuration")
 
     @error_report_configuration.setter
@@ -87,9 +70,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN for the IAM role that Timestream will assume when running the scheduled query.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -99,9 +79,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> pulumi.Input['ScheduledQueryNotificationConfigurationArgs']:
-        """
-        Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
-        """
         return pulumi.get(self, "notification_configuration")
 
     @notification_configuration.setter
@@ -111,9 +88,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Input[_builtins.str]:
-        """
-        Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
@@ -123,9 +97,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleConfiguration")
     def schedule_configuration(self) -> pulumi.Input['ScheduledQueryScheduleConfigurationArgs']:
-        """
-        Configuration block for schedule configuration for the query. See below.
-        """
         return pulumi.get(self, "schedule_configuration")
 
     @schedule_configuration.setter
@@ -135,11 +106,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> pulumi.Input['ScheduledQueryTargetConfigurationArgs']:
-        """
-        Configuration block for writing the result of a query. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_configuration")
 
     @target_configuration.setter
@@ -149,9 +115,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -161,9 +124,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="lastRunSummaries")
     def last_run_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryArgs']]]]:
-        """
-        Runtime summary for the last scheduled query run.
-        """
         return pulumi.get(self, "last_run_summaries")
 
     @last_run_summaries.setter
@@ -173,9 +133,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the scheduled query.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -185,9 +142,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter(name="recentlyFailedRuns")
     def recently_failed_runs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]]]:
-        """
-        Runtime summary for the last five failed scheduled query runs.
-        """
         return pulumi.get(self, "recently_failed_runs")
 
     @recently_failed_runs.setter
@@ -197,9 +151,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -209,9 +160,6 @@ class ScheduledQueryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -252,26 +200,6 @@ class _ScheduledQueryState:
                  timeouts: Optional[pulumi.Input['ScheduledQueryTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ScheduledQuery resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Scheduled Query.
-        :param pulumi.Input[_builtins.str] creation_time: Creation time for the scheduled query.
-        :param pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'] error_report_configuration: Configuration block for error reporting configuration. See below.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN for the IAM role that Timestream will assume when running the scheduled query.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryArgs']]] last_run_summaries: Runtime summary for the last scheduled query run.
-        :param pulumi.Input[_builtins.str] name: Name of the scheduled query.
-        :param pulumi.Input[_builtins.str] next_invocation_time: Next time the scheduled query is scheduled to run.
-        :param pulumi.Input['ScheduledQueryNotificationConfigurationArgs'] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
-        :param pulumi.Input[_builtins.str] previous_invocation_time: Last time the scheduled query was run.
-        :param pulumi.Input[_builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ScheduledQueryScheduleConfigurationArgs'] schedule_configuration: Configuration block for schedule configuration for the query. See below.
-        :param pulumi.Input[_builtins.str] state: State of the scheduled query, either `ENABLED` or `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ScheduledQueryTargetConfigurationArgs'] target_configuration: Configuration block for writing the result of a query. See below.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -315,9 +243,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Scheduled Query.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -327,9 +252,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creation time for the scheduled query.
-        """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
@@ -339,9 +261,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="errorReportConfiguration")
     def error_report_configuration(self) -> Optional[pulumi.Input['ScheduledQueryErrorReportConfigurationArgs']]:
-        """
-        Configuration block for error reporting configuration. See below.
-        """
         return pulumi.get(self, "error_report_configuration")
 
     @error_report_configuration.setter
@@ -351,9 +270,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the IAM role that Timestream will assume when running the scheduled query.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -363,9 +279,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -375,9 +288,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="lastRunSummaries")
     def last_run_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryArgs']]]]:
-        """
-        Runtime summary for the last scheduled query run.
-        """
         return pulumi.get(self, "last_run_summaries")
 
     @last_run_summaries.setter
@@ -387,9 +297,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the scheduled query.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -399,9 +306,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="nextInvocationTime")
     def next_invocation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Next time the scheduled query is scheduled to run.
-        """
         return pulumi.get(self, "next_invocation_time")
 
     @next_invocation_time.setter
@@ -411,9 +315,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> Optional[pulumi.Input['ScheduledQueryNotificationConfigurationArgs']]:
-        """
-        Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
-        """
         return pulumi.get(self, "notification_configuration")
 
     @notification_configuration.setter
@@ -423,9 +324,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="previousInvocationTime")
     def previous_invocation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last time the scheduled query was run.
-        """
         return pulumi.get(self, "previous_invocation_time")
 
     @previous_invocation_time.setter
@@ -435,9 +333,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
@@ -447,9 +342,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="recentlyFailedRuns")
     def recently_failed_runs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]]]:
-        """
-        Runtime summary for the last five failed scheduled query runs.
-        """
         return pulumi.get(self, "recently_failed_runs")
 
     @recently_failed_runs.setter
@@ -459,9 +351,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -471,9 +360,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="scheduleConfiguration")
     def schedule_configuration(self) -> Optional[pulumi.Input['ScheduledQueryScheduleConfigurationArgs']]:
-        """
-        Configuration block for schedule configuration for the query. See below.
-        """
         return pulumi.get(self, "schedule_configuration")
 
     @schedule_configuration.setter
@@ -483,9 +369,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the scheduled query, either `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -495,9 +378,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -507,9 +387,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -519,11 +396,6 @@ class _ScheduledQueryState:
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']]:
-        """
-        Configuration block for writing the result of a query. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_configuration")
 
     @target_configuration.setter
@@ -561,298 +433,9 @@ class ScheduledQuery(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Timestream Query Scheduled Query.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        Before creating a scheduled query, you must have a source database and table with ingested data. Below is a multi-step example, providing an opportunity for data ingestion.
-
-        If your infrastructure is already set up—including the source database and table with data, results database and table, error report S3 bucket, SNS topic, and IAM role—you can create a scheduled query as follows:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
-            error_report_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_aws_s3_bucket["bucket"],
-                },
-            },
-            notification_configuration={
-                "sns_configuration": {
-                    "topic_arn": example_aws_sns_topic["arn"],
-                },
-            },
-            schedule_configuration={
-                "schedule_expression": "rate(1 hour)",
-            },
-            target_configuration={
-                "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
-                    "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
-                        "multi_measure_attribute_mappings": [
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "avg_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p90_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p95_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p99_cpu_utilization",
-                            },
-                        ],
-                    },
-                },
-            })
-        ```
-
-        ### Multi-step Example
-
-        To ingest data before creating a scheduled query, this example provides multiple steps:
-
-        1. Create the prerequisite infrastructure
-        2. Ingest data
-        3. Create the scheduled query
-
-        ### Step 1. Create the prerequisite infrastructure
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.s3.Bucket("test",
-            bucket="example",
-            force_destroy=True)
-        test_topic = aws.sns.Topic("test", name="example")
-        test_queue = aws.sqs.Queue("test",
-            name="example",
-            sqs_managed_sse_enabled=True)
-        test_topic_subscription = aws.sns.TopicSubscription("test",
-            topic=test_topic.arn,
-            protocol="sqs",
-            endpoint=test_queue.arn)
-        test_queue_policy = aws.sqs.QueuePolicy("test",
-            queue_url=test_queue.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": test_queue.arn,
-                    "Condition": {
-                        "ArnEquals": {
-                            "aws:SourceArn": test_topic.arn,
-                        },
-                    },
-                }],
-            }))
-        test_role = aws.iam.Role("test",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "timestream.amazonaws.com",
-                    },
-                    "Action": "sts:AssumeRole",
-                }],
-            }),
-            tags={
-                "Name": "example",
-            })
-        test_role_policy = aws.iam.RolePolicy("test",
-            name="example",
-            role=test_role.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "kms:Decrypt",
-                        "sns:Publish",
-                        "timestream:describeEndpoints",
-                        "timestream:Select",
-                        "timestream:SelectValues",
-                        "timestream:WriteRecords",
-                        "s3:PutObject",
-                    ],
-                    "Resource": "*",
-                    "Effect": "Allow",
-                }],
-            }))
-        test_database = aws.timestreamwrite.Database("test", database_name="exampledatabase")
-        test_table = aws.timestreamwrite.Table("test",
-            database_name=test_database.database_name,
-            table_name="exampletable",
-            magnetic_store_write_properties={
-                "enable_magnetic_store_writes": True,
-            },
-            retention_properties={
-                "magnetic_store_retention_period_in_days": 1,
-                "memory_store_retention_period_in_hours": 1,
-            })
-        results = aws.timestreamwrite.Database("results", database_name="exampledatabase-results")
-        results_table = aws.timestreamwrite.Table("results",
-            database_name=results.database_name,
-            table_name="exampletable-results",
-            magnetic_store_write_properties={
-                "enable_magnetic_store_writes": True,
-            },
-            retention_properties={
-                "magnetic_store_retention_period_in_days": 1,
-                "memory_store_retention_period_in_hours": 1,
-            })
-        ```
-
-        #### Step 2. Ingest data
-
-        This is done with Amazon Timestream Write [WriteRecords](https://docs.aws.amazon.com/timestream/latest/developerguide/API_WriteRecords.html).
-
-        ### Step 3. Create the scheduled query
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
-            error_report_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_aws_s3_bucket["bucket"],
-                },
-            },
-            notification_configuration={
-                "sns_configuration": {
-                    "topic_arn": example_aws_sns_topic["arn"],
-                },
-            },
-            schedule_configuration={
-                "schedule_expression": "rate(1 hour)",
-            },
-            target_configuration={
-                "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
-                    "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
-                        "multi_measure_attribute_mappings": [
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "avg_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p90_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p95_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p99_cpu_utilization",
-                            },
-                        ],
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Timestream Query Scheduled Query using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:timestreamquery/scheduledQuery:ScheduledQuery example arn:aws:timestream:us-west-2:012345678901:scheduled-query/tf-acc-test-7774188528604787105-e13659544fe66c8d
-        ```
-
+        Create a ScheduledQuery resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']] error_report_configuration: Configuration block for error reporting configuration. See below.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN for the IAM role that Timestream will assume when running the scheduled query.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict']]]] last_run_summaries: Runtime summary for the last scheduled query run.
-        :param pulumi.Input[_builtins.str] name: Name of the scheduled query.
-        :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
-        :param pulumi.Input[_builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']] target_configuration: Configuration block for writing the result of a query. See below.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -861,282 +444,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  args: ScheduledQueryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Timestream Query Scheduled Query.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        Before creating a scheduled query, you must have a source database and table with ingested data. Below is a multi-step example, providing an opportunity for data ingestion.
-
-        If your infrastructure is already set up—including the source database and table with data, results database and table, error report S3 bucket, SNS topic, and IAM role—you can create a scheduled query as follows:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
-            error_report_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_aws_s3_bucket["bucket"],
-                },
-            },
-            notification_configuration={
-                "sns_configuration": {
-                    "topic_arn": example_aws_sns_topic["arn"],
-                },
-            },
-            schedule_configuration={
-                "schedule_expression": "rate(1 hour)",
-            },
-            target_configuration={
-                "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
-                    "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
-                        "multi_measure_attribute_mappings": [
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "avg_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p90_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p95_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p99_cpu_utilization",
-                            },
-                        ],
-                    },
-                },
-            })
-        ```
-
-        ### Multi-step Example
-
-        To ingest data before creating a scheduled query, this example provides multiple steps:
-
-        1. Create the prerequisite infrastructure
-        2. Ingest data
-        3. Create the scheduled query
-
-        ### Step 1. Create the prerequisite infrastructure
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.s3.Bucket("test",
-            bucket="example",
-            force_destroy=True)
-        test_topic = aws.sns.Topic("test", name="example")
-        test_queue = aws.sqs.Queue("test",
-            name="example",
-            sqs_managed_sse_enabled=True)
-        test_topic_subscription = aws.sns.TopicSubscription("test",
-            topic=test_topic.arn,
-            protocol="sqs",
-            endpoint=test_queue.arn)
-        test_queue_policy = aws.sqs.QueuePolicy("test",
-            queue_url=test_queue.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": test_queue.arn,
-                    "Condition": {
-                        "ArnEquals": {
-                            "aws:SourceArn": test_topic.arn,
-                        },
-                    },
-                }],
-            }))
-        test_role = aws.iam.Role("test",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "timestream.amazonaws.com",
-                    },
-                    "Action": "sts:AssumeRole",
-                }],
-            }),
-            tags={
-                "Name": "example",
-            })
-        test_role_policy = aws.iam.RolePolicy("test",
-            name="example",
-            role=test_role.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "kms:Decrypt",
-                        "sns:Publish",
-                        "timestream:describeEndpoints",
-                        "timestream:Select",
-                        "timestream:SelectValues",
-                        "timestream:WriteRecords",
-                        "s3:PutObject",
-                    ],
-                    "Resource": "*",
-                    "Effect": "Allow",
-                }],
-            }))
-        test_database = aws.timestreamwrite.Database("test", database_name="exampledatabase")
-        test_table = aws.timestreamwrite.Table("test",
-            database_name=test_database.database_name,
-            table_name="exampletable",
-            magnetic_store_write_properties={
-                "enable_magnetic_store_writes": True,
-            },
-            retention_properties={
-                "magnetic_store_retention_period_in_days": 1,
-                "memory_store_retention_period_in_hours": 1,
-            })
-        results = aws.timestreamwrite.Database("results", database_name="exampledatabase-results")
-        results_table = aws.timestreamwrite.Table("results",
-            database_name=results.database_name,
-            table_name="exampletable-results",
-            magnetic_store_write_properties={
-                "enable_magnetic_store_writes": True,
-            },
-            retention_properties={
-                "magnetic_store_retention_period_in_days": 1,
-                "memory_store_retention_period_in_hours": 1,
-            })
-        ```
-
-        #### Step 2. Ingest data
-
-        This is done with Amazon Timestream Write [WriteRecords](https://docs.aws.amazon.com/timestream/latest/developerguide/API_WriteRecords.html).
-
-        ### Step 3. Create the scheduled query
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
-            error_report_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_aws_s3_bucket["bucket"],
-                },
-            },
-            notification_configuration={
-                "sns_configuration": {
-                    "topic_arn": example_aws_sns_topic["arn"],
-                },
-            },
-            schedule_configuration={
-                "schedule_expression": "rate(1 hour)",
-            },
-            target_configuration={
-                "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
-                    "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
-                        "multi_measure_attribute_mappings": [
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "avg_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p90_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p95_cpu_utilization",
-                            },
-                            {
-                                "measure_value_type": "DOUBLE",
-                                "source_column": "p99_cpu_utilization",
-                            },
-                        ],
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Timestream Query Scheduled Query using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:timestreamquery/scheduledQuery:ScheduledQuery example arn:aws:timestream:us-west-2:012345678901:scheduled-query/tf-acc-test-7774188528604787105-e13659544fe66c8d
-        ```
-
+        Create a ScheduledQuery resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ScheduledQueryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1241,26 +549,6 @@ class ScheduledQuery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Scheduled Query.
-        :param pulumi.Input[_builtins.str] creation_time: Creation time for the scheduled query.
-        :param pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']] error_report_configuration: Configuration block for error reporting configuration. See below.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN for the IAM role that Timestream will assume when running the scheduled query.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict']]]] last_run_summaries: Runtime summary for the last scheduled query run.
-        :param pulumi.Input[_builtins.str] name: Name of the scheduled query.
-        :param pulumi.Input[_builtins.str] next_invocation_time: Next time the scheduled query is scheduled to run.
-        :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
-        :param pulumi.Input[_builtins.str] previous_invocation_time: Last time the scheduled query was run.
-        :param pulumi.Input[_builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
-        :param pulumi.Input[_builtins.str] state: State of the scheduled query, either `ENABLED` or `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']] target_configuration: Configuration block for writing the result of a query. See below.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1290,147 +578,91 @@ class ScheduledQuery(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Scheduled Query.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creation time for the scheduled query.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="errorReportConfiguration")
     def error_report_configuration(self) -> pulumi.Output['outputs.ScheduledQueryErrorReportConfiguration']:
-        """
-        Configuration block for error reporting configuration. See below.
-        """
         return pulumi.get(self, "error_report_configuration")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the IAM role that Timestream will assume when running the scheduled query.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="lastRunSummaries")
     def last_run_summaries(self) -> pulumi.Output[Optional[Sequence['outputs.ScheduledQueryLastRunSummary']]]:
-        """
-        Runtime summary for the last scheduled query run.
-        """
         return pulumi.get(self, "last_run_summaries")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the scheduled query.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nextInvocationTime")
     def next_invocation_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Next time the scheduled query is scheduled to run.
-        """
         return pulumi.get(self, "next_invocation_time")
 
     @_builtins.property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> pulumi.Output['outputs.ScheduledQueryNotificationConfiguration']:
-        """
-        Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
-        """
         return pulumi.get(self, "notification_configuration")
 
     @_builtins.property
     @pulumi.getter(name="previousInvocationTime")
     def previous_invocation_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last time the scheduled query was run.
-        """
         return pulumi.get(self, "previous_invocation_time")
 
     @_builtins.property
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Output[_builtins.str]:
-        """
-        Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        """
         return pulumi.get(self, "query_string")
 
     @_builtins.property
     @pulumi.getter(name="recentlyFailedRuns")
     def recently_failed_runs(self) -> pulumi.Output[Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRun']]]:
-        """
-        Runtime summary for the last five failed scheduled query runs.
-        """
         return pulumi.get(self, "recently_failed_runs")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="scheduleConfiguration")
     def schedule_configuration(self) -> pulumi.Output['outputs.ScheduledQueryScheduleConfiguration']:
-        """
-        Configuration block for schedule configuration for the query. See below.
-        """
         return pulumi.get(self, "schedule_configuration")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the scheduled query, either `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> pulumi.Output['outputs.ScheduledQueryTargetConfiguration']:
-        """
-        Configuration block for writing the result of a query. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_configuration")
 
     @_builtins.property

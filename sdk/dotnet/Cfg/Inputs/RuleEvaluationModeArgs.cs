@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Cfg.Inputs
 
     public sealed class RuleEvaluationModeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The mode of an evaluation.
-        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 

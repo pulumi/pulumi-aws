@@ -9,60 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Data Protection Settings Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleDataProtectionSettings = new Aws.WorkSpacesWeb.DataProtectionSettings("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleDataProtectionSettingsAssociation = new Aws.WorkSpacesWeb.DataProtectionSettingsAssociation("example", new()
-    ///     {
-    ///         DataProtectionSettingsArn = exampleDataProtectionSettings.DataProtectionSettingsArn,
-    ///         PortalArn = example.PortalArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/dataProtectionSettingsAssociation:DataProtectionSettingsAssociation")]
     public partial class DataProtectionSettingsAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Output("dataProtectionSettingsArn")]
         public Output<string> DataProtectionSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -112,23 +67,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class DataProtectionSettingsAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("dataProtectionSettingsArn", required: true)]
         public Input<string> DataProtectionSettingsArn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -140,23 +84,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class DataProtectionSettingsAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("dataProtectionSettingsArn")]
         public Input<string>? DataProtectionSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -17,62 +17,30 @@ public final class ServiceLinkedRoleArgs extends com.pulumi.resources.ResourceAr
 
     public static final ServiceLinkedRoleArgs Empty = new ServiceLinkedRoleArgs();
 
-    /**
-     * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-     * 
-     */
     @Import(name="awsServiceName", required=true)
     private Output<String> awsServiceName;
 
-    /**
-     * @return The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-     * 
-     */
     public Output<String> awsServiceName() {
         return this.awsServiceName;
     }
 
-    /**
-     * Additional string appended to the role name. Not all AWS services support custom suffixes.
-     * 
-     */
     @Import(name="customSuffix")
     private @Nullable Output<String> customSuffix;
 
-    /**
-     * @return Additional string appended to the role name. Not all AWS services support custom suffixes.
-     * 
-     */
     public Optional<Output<String>> customSuffix() {
         return Optional.ofNullable(this.customSuffix);
     }
 
-    /**
-     * The description of the role.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the role.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class ServiceLinkedRoleArgs extends com.pulumi.resources.ResourceAr
             $ = new ServiceLinkedRoleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsServiceName The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsServiceName(Output<String> awsServiceName) {
             $.awsServiceName = awsServiceName;
             return this;
         }
 
-        /**
-         * @param awsServiceName The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsServiceName(String awsServiceName) {
             return awsServiceName(Output.of(awsServiceName));
         }
 
-        /**
-         * @param customSuffix Additional string appended to the role name. Not all AWS services support custom suffixes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customSuffix(@Nullable Output<String> customSuffix) {
             $.customSuffix = customSuffix;
             return this;
         }
 
-        /**
-         * @param customSuffix Additional string appended to the role name. Not all AWS services support custom suffixes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customSuffix(String customSuffix) {
             return customSuffix(Output.of(customSuffix));
         }
 
-        /**
-         * @param description The description of the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param tags Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

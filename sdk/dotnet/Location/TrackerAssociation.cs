@@ -9,64 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Location
 {
-    /// <summary>
-    /// Resource for managing an AWS Location Tracker Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Location.GeofenceCollection("example", new()
-    ///     {
-    ///         CollectionName = "example",
-    ///     });
-    /// 
-    ///     var exampleTracker = new Aws.Location.Tracker("example", new()
-    ///     {
-    ///         TrackerName = "example",
-    ///     });
-    /// 
-    ///     var exampleTrackerAssociation = new Aws.Location.TrackerAssociation("example", new()
-    ///     {
-    ///         ConsumerArn = example.CollectionArn,
-    ///         TrackerName = exampleTracker.TrackerName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:location/trackerAssociation:TrackerAssociation")]
     public partial class TrackerAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-        /// </summary>
         [Output("consumerArn")]
         public Output<string> ConsumerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the tracker resource to be associated with a geofence collection.
-        /// </summary>
         [Output("trackerName")]
         public Output<string> TrackerName { get; private set; } = null!;
 
@@ -116,21 +67,12 @@ namespace Pulumi.Aws.Location
 
     public sealed class TrackerAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-        /// </summary>
         [Input("consumerArn", required: true)]
         public Input<string> ConsumerArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the tracker resource to be associated with a geofence collection.
-        /// </summary>
         [Input("trackerName", required: true)]
         public Input<string> TrackerName { get; set; } = null!;
 
@@ -142,21 +84,12 @@ namespace Pulumi.Aws.Location
 
     public sealed class TrackerAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-        /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the tracker resource to be associated with a geofence collection.
-        /// </summary>
         [Input("trackerName")]
         public Input<string>? TrackerName { get; set; }
 

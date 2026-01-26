@@ -9,90 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectConnect
 {
-    /// <summary>
-    /// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `aws.directconnect.GatewayAssociation` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectConnect.GatewayAssociationProposal("example", new()
-    ///     {
-    ///         DxGatewayId = exampleAwsDxGateway.Id,
-    ///         DxGatewayOwnerAccountId = exampleAwsDxGateway.OwnerAccountId,
-    ///         AssociatedGatewayId = exampleAwsVpnGateway.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
-    /// 
-    /// __With `pulumi import`__, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:
-    /// 
-    /// Using a proposal ID:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
-    /// ```
-    /// Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
-    /// ```
-    /// The latter case is useful when a previous proposal has been accepted and deleted by AWS.
-    /// The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
-    /// </summary>
     [AwsResourceType("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal")]
     public partial class GatewayAssociationProposal : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-        /// </summary>
         [Output("allowedPrefixes")]
         public Output<ImmutableArray<string>> AllowedPrefixes { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-        /// </summary>
         [Output("associatedGatewayId")]
         public Output<string> AssociatedGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-        /// </summary>
         [Output("associatedGatewayOwnerAccountId")]
         public Output<string> AssociatedGatewayOwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-        /// </summary>
         [Output("associatedGatewayType")]
         public Output<string> AssociatedGatewayType { get; private set; } = null!;
 
-        /// <summary>
-        /// Direct Connect Gateway identifier.
-        /// </summary>
         [Output("dxGatewayId")]
         public Output<string> DxGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Account identifier of the Direct Connect Gateway's owner.
-        /// </summary>
         [Output("dxGatewayOwnerAccountId")]
         public Output<string> DxGatewayOwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -144,37 +81,21 @@ namespace Pulumi.Aws.DirectConnect
     {
         [Input("allowedPrefixes")]
         private InputList<string>? _allowedPrefixes;
-
-        /// <summary>
-        /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-        /// </summary>
         public InputList<string> AllowedPrefixes
         {
             get => _allowedPrefixes ?? (_allowedPrefixes = new InputList<string>());
             set => _allowedPrefixes = value;
         }
 
-        /// <summary>
-        /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-        /// </summary>
         [Input("associatedGatewayId", required: true)]
         public Input<string> AssociatedGatewayId { get; set; } = null!;
 
-        /// <summary>
-        /// Direct Connect Gateway identifier.
-        /// </summary>
         [Input("dxGatewayId", required: true)]
         public Input<string> DxGatewayId { get; set; } = null!;
 
-        /// <summary>
-        /// AWS Account identifier of the Direct Connect Gateway's owner.
-        /// </summary>
         [Input("dxGatewayOwnerAccountId", required: true)]
         public Input<string> DxGatewayOwnerAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -188,49 +109,27 @@ namespace Pulumi.Aws.DirectConnect
     {
         [Input("allowedPrefixes")]
         private InputList<string>? _allowedPrefixes;
-
-        /// <summary>
-        /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-        /// </summary>
         public InputList<string> AllowedPrefixes
         {
             get => _allowedPrefixes ?? (_allowedPrefixes = new InputList<string>());
             set => _allowedPrefixes = value;
         }
 
-        /// <summary>
-        /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-        /// </summary>
         [Input("associatedGatewayId")]
         public Input<string>? AssociatedGatewayId { get; set; }
 
-        /// <summary>
-        /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-        /// </summary>
         [Input("associatedGatewayOwnerAccountId")]
         public Input<string>? AssociatedGatewayOwnerAccountId { get; set; }
 
-        /// <summary>
-        /// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-        /// </summary>
         [Input("associatedGatewayType")]
         public Input<string>? AssociatedGatewayType { get; set; }
 
-        /// <summary>
-        /// Direct Connect Gateway identifier.
-        /// </summary>
         [Input("dxGatewayId")]
         public Input<string>? DxGatewayId { get; set; }
 
-        /// <summary>
-        /// AWS Account identifier of the Direct Connect Gateway's owner.
-        /// </summary>
         [Input("dxGatewayOwnerAccountId")]
         public Input<string>? DxGatewayOwnerAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

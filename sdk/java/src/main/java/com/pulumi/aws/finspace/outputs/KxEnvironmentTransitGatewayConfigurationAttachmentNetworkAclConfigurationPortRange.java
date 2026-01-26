@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange {
-    /**
-     * @return First port in the range.
-     * 
-     */
     private Integer from;
-    /**
-     * @return Last port in the range.
-     * 
-     */
     private Integer to;
 
     private KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange() {}
-    /**
-     * @return First port in the range.
-     * 
-     */
     public Integer from() {
         return this.from;
     }
-    /**
-     * @return Last port in the range.
-     * 
-     */
     public Integer to() {
         return this.to;
     }

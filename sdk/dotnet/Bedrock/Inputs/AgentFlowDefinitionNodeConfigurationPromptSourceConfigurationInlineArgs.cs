@@ -12,30 +12,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Additional fields to be included in the model request for the Prompt node.
-        /// </summary>
         [Input("additionalModelRequestFields")]
         public Input<string>? AdditionalModelRequestFields { get; set; }
 
-        /// <summary>
-        /// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-        /// </summary>
         [Input("inferenceConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs>? InferenceConfiguration { get; set; }
 
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 
-        /// <summary>
-        /// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-        /// </summary>
         [Input("templateConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs>? TemplateConfiguration { get; set; }
 
-        /// <summary>
-        /// The type of prompt template. Valid values: `TEXT`, `CHAT`.
-        /// </summary>
         [Input("templateType", required: true)]
         public Input<string> TemplateType { get; set; } = null!;
 

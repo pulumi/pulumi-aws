@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RefreshScheduleScheduleScheduleFrequency {
-    /**
-     * @return The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
-     * 
-     */
     private String interval;
-    /**
-     * @return The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
-     * 
-     */
     private @Nullable RefreshScheduleScheduleScheduleFrequencyRefreshOnDay refreshOnDay;
-    /**
-     * @return The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
-     * 
-     */
     private @Nullable String timeOfTheDay;
-    /**
-     * @return The timezone that you want the refresh schedule to use.
-     * 
-     */
     private @Nullable String timezone;
 
     private RefreshScheduleScheduleScheduleFrequency() {}
-    /**
-     * @return The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
-     * 
-     */
     public String interval() {
         return this.interval;
     }
-    /**
-     * @return The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
-     * 
-     */
     public Optional<RefreshScheduleScheduleScheduleFrequencyRefreshOnDay> refreshOnDay() {
         return Optional.ofNullable(this.refreshOnDay);
     }
-    /**
-     * @return The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
-     * 
-     */
     public Optional<String> timeOfTheDay() {
         return Optional.ofNullable(this.timeOfTheDay);
     }
-    /**
-     * @return The timezone that you want the refresh schedule to use.
-     * 
-     */
     public Optional<String> timezone() {
         return Optional.ofNullable(this.timezone);
     }

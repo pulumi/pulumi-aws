@@ -9,85 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Manages an AWS IoT Billing Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.BillingGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Properties = new Aws.Iot.Inputs.BillingGroupPropertiesArgs
-    ///         {
-    ///             Description = "This is my billing group",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "terraform", "true" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IoT Billing Groups using the name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iot/billingGroup:BillingGroup example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/billingGroup:BillingGroup")]
     public partial class BillingGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Billing Group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("metadatas")]
         public Output<ImmutableArray<Outputs.BillingGroupMetadata>> Metadatas { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Billing Group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The Billing Group properties. Defined below.
-        /// </summary>
         [Output("properties")]
         public Output<Outputs.BillingGroupProperties?> Properties { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The current version of the Billing Group record in the registry.
-        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -137,30 +82,17 @@ namespace Pulumi.Aws.Iot
 
     public sealed class BillingGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Billing Group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Billing Group properties. Defined below.
-        /// </summary>
         [Input("properties")]
         public Input<Inputs.BillingGroupPropertiesArgs>? Properties { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -175,9 +107,6 @@ namespace Pulumi.Aws.Iot
 
     public sealed class BillingGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Billing Group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -189,30 +118,17 @@ namespace Pulumi.Aws.Iot
             set => _metadatas = value;
         }
 
-        /// <summary>
-        /// The name of the Billing Group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Billing Group properties. Defined below.
-        /// </summary>
         [Input("properties")]
         public Input<Inputs.BillingGroupPropertiesGetArgs>? Properties { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -227,9 +143,6 @@ namespace Pulumi.Aws.Iot
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The current version of the Billing Group record in the registry.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

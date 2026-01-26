@@ -11,97 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// The following shows outputting all network ACL ids in a vpc.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-//				VpcId: pulumi.StringRef(vpcId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("example", example.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// The following example retrieves a list of all network ACL ids in a VPC with a custom
-// tag of `Tier` set to a value of "Private".
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-//				VpcId: pulumi.StringRef(vpcId),
-//				Tags: map[string]interface{}{
-//					"Tier": "Private",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// The following example retrieves a network ACL id in a VPC which associated
-// with specific subnet.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-// VpcId: pulumi.StringRef(vpcId),
-// Filters: []ec2.GetNetworkAclsFilter{
-// {
-// Name: "association.subnet-id",
-// Values: interface{}{
-// test.Id,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulumi.InvokeOption) (*GetNetworkAclsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkAclsResult
@@ -114,23 +23,17 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired network ACLs.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC ID that you want to filter from.
-	VpcId *string `pulumi:"vpcId"`
+	Region  *string                `pulumi:"region"`
+	Tags    map[string]string      `pulumi:"tags"`
+	VpcId   *string                `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getNetworkAcls.
 type GetNetworkAclsResult struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the network ACL ids found.
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -148,15 +51,10 @@ func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, op
 
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetNetworkAclsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired network ACLs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// VPC ID that you want to filter from.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	Region  pulumi.StringPtrInput          `pulumi:"region"`
+	Tags    pulumi.StringMapInput          `pulumi:"tags"`
+	VpcId   pulumi.StringPtrInput          `pulumi:"vpcId"`
 }
 
 func (GetNetworkAclsOutputArgs) ElementType() reflect.Type {
@@ -187,7 +85,6 @@ func (o GetNetworkAclsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the network ACL ids found.
 func (o GetNetworkAclsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MemoryDb.Outputs
     [OutputType]
     public sealed class UserAuthenticationMode
     {
-        /// <summary>
-        /// Number of passwords belonging to the user if `Type` is set to `Password`.
-        /// </summary>
         public readonly int? PasswordCount;
-        /// <summary>
-        /// Set of passwords used for authentication if `Type` is set to `Password`. You can create up to two passwords for each user.
-        /// </summary>
         public readonly ImmutableArray<string> Passwords;
-        /// <summary>
-        /// Specifies the authentication type. Valid values are: `Password` or `Iam`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

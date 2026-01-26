@@ -11,81 +11,12 @@ namespace Pulumi.Aws.ServiceCatalog
 {
     public static class GetProvisioningArtifacts
     {
-        /// <summary>
-        /// Lists the provisioning artifacts for the specified product.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetProvisioningArtifacts.Invoke(new()
-        ///     {
-        ///         ProductId = "prod-yakog5pdriver",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetProvisioningArtifactsResult> InvokeAsync(GetProvisioningArtifactsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProvisioningArtifactsResult>("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args ?? new GetProvisioningArtifactsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Lists the provisioning artifacts for the specified product.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetProvisioningArtifacts.Invoke(new()
-        ///     {
-        ///         ProductId = "prod-yakog5pdriver",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProvisioningArtifactsResult> Invoke(GetProvisioningArtifactsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningArtifactsResult>("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args ?? new GetProvisioningArtifactsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Lists the provisioning artifacts for the specified product.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetProvisioningArtifacts.Invoke(new()
-        ///     {
-        ///         ProductId = "prod-yakog5pdriver",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProvisioningArtifactsResult> Invoke(GetProvisioningArtifactsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningArtifactsResult>("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args ?? new GetProvisioningArtifactsInvokeArgs(), options.WithDefaults());
     }
@@ -93,23 +24,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetProvisioningArtifactsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Product identifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("productId", required: true)]
         public string ProductId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -121,23 +41,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetProvisioningArtifactsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Product identifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -157,9 +66,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public readonly string Id;
         public readonly string ProductId;
-        /// <summary>
-        /// List with information about the provisioning artifacts. See details below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetProvisioningArtifactsProvisioningArtifactDetailResult> ProvisioningArtifactDetails;
         public readonly string Region;
 

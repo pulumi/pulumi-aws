@@ -17,167 +17,79 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
 
     public static final AttachmentAccepterState Empty = new AttachmentAccepterState();
 
-    /**
-     * ID of the attachment.
-     * 
-     */
     @Import(name="attachmentId")
     private @Nullable Output<String> attachmentId;
 
-    /**
-     * @return ID of the attachment.
-     * 
-     */
     public Optional<Output<String>> attachmentId() {
         return Optional.ofNullable(this.attachmentId);
     }
 
-    /**
-     * Policy rule number associated with the attachment.
-     * 
-     */
     @Import(name="attachmentPolicyRuleNumber")
     private @Nullable Output<Integer> attachmentPolicyRuleNumber;
 
-    /**
-     * @return Policy rule number associated with the attachment.
-     * 
-     */
     public Optional<Output<Integer>> attachmentPolicyRuleNumber() {
         return Optional.ofNullable(this.attachmentPolicyRuleNumber);
     }
 
-    /**
-     * Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-     * 
-     */
     @Import(name="attachmentType")
     private @Nullable Output<String> attachmentType;
 
-    /**
-     * @return Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-     * 
-     */
     public Optional<Output<String>> attachmentType() {
         return Optional.ofNullable(this.attachmentType);
     }
 
-    /**
-     * ARN of the core network.
-     * 
-     */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
-    /**
-     * @return ARN of the core network.
-     * 
-     */
     public Optional<Output<String>> coreNetworkArn() {
         return Optional.ofNullable(this.coreNetworkArn);
     }
 
-    /**
-     * ID of the core network.
-     * 
-     */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
-    /**
-     * @return ID of the core network.
-     * 
-     */
     public Optional<Output<String>> coreNetworkId() {
         return Optional.ofNullable(this.coreNetworkId);
     }
 
-    /**
-     * Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
-     * 
-     */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
-    /**
-     * @return Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
-     * 
-     */
     public Optional<Output<String>> edgeLocation() {
         return Optional.ofNullable(this.edgeLocation);
     }
 
-    /**
-     * Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-     * 
-     */
     @Import(name="edgeLocations")
     private @Nullable Output<List<String>> edgeLocations;
 
-    /**
-     * @return Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-     * 
-     */
     public Optional<Output<List<String>>> edgeLocations() {
         return Optional.ofNullable(this.edgeLocations);
     }
 
-    /**
-     * ID of the attachment account owner.
-     * 
-     */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
-    /**
-     * @return ID of the attachment account owner.
-     * 
-     */
     public Optional<Output<String>> ownerAccountId() {
         return Optional.ofNullable(this.ownerAccountId);
     }
 
-    /**
-     * Attachment resource ARN.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return Attachment resource ARN.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
-    /**
-     * Name of the segment attachment.
-     * 
-     */
     @Import(name="segmentName")
     private @Nullable Output<String> segmentName;
 
-    /**
-     * @return Name of the segment attachment.
-     * 
-     */
     public Optional<Output<String>> segmentName() {
         return Optional.ofNullable(this.segmentName);
     }
 
-    /**
-     * State of the attachment.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return State of the attachment.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -216,243 +128,105 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
             $ = new AttachmentAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attachmentId ID of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentId(@Nullable Output<String> attachmentId) {
             $.attachmentId = attachmentId;
             return this;
         }
 
-        /**
-         * @param attachmentId ID of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentId(String attachmentId) {
             return attachmentId(Output.of(attachmentId));
         }
 
-        /**
-         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentPolicyRuleNumber(@Nullable Output<Integer> attachmentPolicyRuleNumber) {
             $.attachmentPolicyRuleNumber = attachmentPolicyRuleNumber;
             return this;
         }
 
-        /**
-         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentPolicyRuleNumber(Integer attachmentPolicyRuleNumber) {
             return attachmentPolicyRuleNumber(Output.of(attachmentPolicyRuleNumber));
         }
 
-        /**
-         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(@Nullable Output<String> attachmentType) {
             $.attachmentType = attachmentType;
             return this;
         }
 
-        /**
-         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(String attachmentType) {
             return attachmentType(Output.of(attachmentType));
         }
 
-        /**
-         * @param coreNetworkArn ARN of the core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkArn(@Nullable Output<String> coreNetworkArn) {
             $.coreNetworkArn = coreNetworkArn;
             return this;
         }
 
-        /**
-         * @param coreNetworkArn ARN of the core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkArn(String coreNetworkArn) {
             return coreNetworkArn(Output.of(coreNetworkArn));
         }
 
-        /**
-         * @param coreNetworkId ID of the core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(@Nullable Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
-        /**
-         * @param coreNetworkId ID of the core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
-        /**
-         * @param edgeLocation Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(@Nullable Output<String> edgeLocation) {
             $.edgeLocation = edgeLocation;
             return this;
         }
 
-        /**
-         * @param edgeLocation Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(String edgeLocation) {
             return edgeLocation(Output.of(edgeLocation));
         }
 
-        /**
-         * @param edgeLocations Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(@Nullable Output<List<String>> edgeLocations) {
             $.edgeLocations = edgeLocations;
             return this;
         }
 
-        /**
-         * @param edgeLocations Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(List<String> edgeLocations) {
             return edgeLocations(Output.of(edgeLocations));
         }
 
-        /**
-         * @param edgeLocations Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(String... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
         }
 
-        /**
-         * @param ownerAccountId ID of the attachment account owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(@Nullable Output<String> ownerAccountId) {
             $.ownerAccountId = ownerAccountId;
             return this;
         }
 
-        /**
-         * @param ownerAccountId ID of the attachment account owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
         }
 
-        /**
-         * @param resourceArn Attachment resource ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn Attachment resource ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param segmentName Name of the segment attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segmentName(@Nullable Output<String> segmentName) {
             $.segmentName = segmentName;
             return this;
         }
 
-        /**
-         * @param segmentName Name of the segment attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segmentName(String segmentName) {
             return segmentName(Output.of(segmentName));
         }
 
-        /**
-         * @param state State of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state State of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

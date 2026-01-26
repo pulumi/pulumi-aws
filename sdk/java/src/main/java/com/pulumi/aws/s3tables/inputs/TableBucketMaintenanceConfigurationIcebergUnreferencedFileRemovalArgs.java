@@ -15,36 +15,16 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
 
     public static final TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs Empty = new TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs();
 
-    /**
-     * Settings object for unreferenced file removal.
-     * See `iceberg_unreferenced_file_removal.settings` below.
-     * 
-     */
     @Import(name="settings", required=true)
     private Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs> settings;
 
-    /**
-     * @return Settings object for unreferenced file removal.
-     * See `iceberg_unreferenced_file_removal.settings` below.
-     * 
-     */
     public Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs> settings() {
         return this.settings;
     }
 
-    /**
-     * Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -74,48 +54,20 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
             $ = new TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param settings Settings object for unreferenced file removal.
-         * See `iceberg_unreferenced_file_removal.settings` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs> settings) {
             $.settings = settings;
             return this;
         }
 
-        /**
-         * @param settings Settings object for unreferenced file removal.
-         * See `iceberg_unreferenced_file_removal.settings` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs settings) {
             return settings(Output.of(settings));
         }
 
-        /**
-         * @param status Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

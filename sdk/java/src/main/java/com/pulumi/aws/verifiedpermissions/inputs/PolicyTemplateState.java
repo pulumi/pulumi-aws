@@ -15,96 +15,44 @@ public final class PolicyTemplateState extends com.pulumi.resources.ResourceArgs
 
     public static final PolicyTemplateState Empty = new PolicyTemplateState();
 
-    /**
-     * The date the Policy Store was created.
-     * 
-     */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
-    /**
-     * @return The date the Policy Store was created.
-     * 
-     */
     public Optional<Output<String>> createdDate() {
         return Optional.ofNullable(this.createdDate);
     }
 
-    /**
-     * Provides a description for the policy template.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Provides a description for the policy template.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public Optional<Output<String>> policyStoreId() {
         return Optional.ofNullable(this.policyStoreId);
     }
 
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Import(name="policyTemplateId")
     private @Nullable Output<String> policyTemplateId;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public Optional<Output<String>> policyTemplateId() {
         return Optional.ofNullable(this.policyTemplateId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Defines the content of the statement, written in Cedar policy language.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="statement")
     private @Nullable Output<String> statement;
 
-    /**
-     * @return Defines the content of the statement, written in Cedar policy language.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> statement() {
         return Optional.ofNullable(this.statement);
     }
@@ -138,132 +86,56 @@ public final class PolicyTemplateState extends com.pulumi.resources.ResourceArgs
             $ = new PolicyTemplateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdDate The date the Policy Store was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdDate(@Nullable Output<String> createdDate) {
             $.createdDate = createdDate;
             return this;
         }
 
-        /**
-         * @param createdDate The date the Policy Store was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdDate(String createdDate) {
             return createdDate(Output.of(createdDate));
         }
 
-        /**
-         * @param description Provides a description for the policy template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Provides a description for the policy template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param policyStoreId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(@Nullable Output<String> policyStoreId) {
             $.policyStoreId = policyStoreId;
             return this;
         }
 
-        /**
-         * @param policyStoreId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
         }
 
-        /**
-         * @param policyTemplateId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyTemplateId(@Nullable Output<String> policyTemplateId) {
             $.policyTemplateId = policyTemplateId;
             return this;
         }
 
-        /**
-         * @param policyTemplateId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyTemplateId(String policyTemplateId) {
             return policyTemplateId(Output.of(policyTemplateId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param statement Defines the content of the statement, written in Cedar policy language.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(@Nullable Output<String> statement) {
             $.statement = statement;
             return this;
         }
 
-        /**
-         * @param statement Defines the content of the statement, written in Cedar policy language.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(String statement) {
             return statement(Output.of(statement));
         }

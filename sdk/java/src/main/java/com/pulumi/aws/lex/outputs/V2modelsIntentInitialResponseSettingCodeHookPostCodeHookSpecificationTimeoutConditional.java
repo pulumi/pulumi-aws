@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditional {
-    /**
-     * @return Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-     * 
-     */
     private Boolean active;
-    /**
-     * @return Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
-     * 
-     */
     private @Nullable List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch> conditionalBranches;
-    /**
-     * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
-     * 
-     */
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch defaultBranch;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditional() {}
-    /**
-     * @return Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-     * 
-     */
     public Boolean active() {
         return this.active;
     }
-    /**
-     * @return Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
-     * 
-     */
     public List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch> conditionalBranches() {
         return this.conditionalBranches == null ? List.of() : this.conditionalBranches;
     }
-    /**
-     * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
-     * 
-     */
     public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch defaultBranch() {
         return this.defaultBranch;
     }

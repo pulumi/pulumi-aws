@@ -18,122 +18,58 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
 
     public static final DeploymentConfigState Empty = new DeploymentConfigState();
 
-    /**
-     * The ARN of the deployment config.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the deployment config.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-     * 
-     */
     @Import(name="computePlatform")
     private @Nullable Output<String> computePlatform;
 
-    /**
-     * @return The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-     * 
-     */
     public Optional<Output<String>> computePlatform() {
         return Optional.ofNullable(this.computePlatform);
     }
 
-    /**
-     * The AWS Assigned deployment config id
-     * 
-     */
     @Import(name="deploymentConfigId")
     private @Nullable Output<String> deploymentConfigId;
 
-    /**
-     * @return The AWS Assigned deployment config id
-     * 
-     */
     public Optional<Output<String>> deploymentConfigId() {
         return Optional.ofNullable(this.deploymentConfigId);
     }
 
-    /**
-     * The name of the deployment config.
-     * 
-     */
     @Import(name="deploymentConfigName")
     private @Nullable Output<String> deploymentConfigName;
 
-    /**
-     * @return The name of the deployment config.
-     * 
-     */
     public Optional<Output<String>> deploymentConfigName() {
         return Optional.ofNullable(this.deploymentConfigName);
     }
 
-    /**
-     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-     * 
-     */
     @Import(name="minimumHealthyHosts")
     private @Nullable Output<DeploymentConfigMinimumHealthyHostsArgs> minimumHealthyHosts;
 
-    /**
-     * @return A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-     * 
-     */
     public Optional<Output<DeploymentConfigMinimumHealthyHostsArgs>> minimumHealthyHosts() {
         return Optional.ofNullable(this.minimumHealthyHosts);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A trafficRoutingConfig block. Traffic Routing Config is documented below.
-     * 
-     */
     @Import(name="trafficRoutingConfig")
     private @Nullable Output<DeploymentConfigTrafficRoutingConfigArgs> trafficRoutingConfig;
 
-    /**
-     * @return A trafficRoutingConfig block. Traffic Routing Config is documented below.
-     * 
-     */
     public Optional<Output<DeploymentConfigTrafficRoutingConfigArgs>> trafficRoutingConfig() {
         return Optional.ofNullable(this.trafficRoutingConfig);
     }
 
-    /**
-     * A zonalConfig block. Zonal Config is documented below.
-     * 
-     */
     @Import(name="zonalConfig")
     private @Nullable Output<DeploymentConfigZonalConfigArgs> zonalConfig;
 
-    /**
-     * @return A zonalConfig block. Zonal Config is documented below.
-     * 
-     */
     public Optional<Output<DeploymentConfigZonalConfigArgs>> zonalConfig() {
         return Optional.ofNullable(this.zonalConfig);
     }
@@ -169,170 +105,74 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
             $ = new DeploymentConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the deployment config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the deployment config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param computePlatform The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computePlatform(@Nullable Output<String> computePlatform) {
             $.computePlatform = computePlatform;
             return this;
         }
 
-        /**
-         * @param computePlatform The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computePlatform(String computePlatform) {
             return computePlatform(Output.of(computePlatform));
         }
 
-        /**
-         * @param deploymentConfigId The AWS Assigned deployment config id
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentConfigId(@Nullable Output<String> deploymentConfigId) {
             $.deploymentConfigId = deploymentConfigId;
             return this;
         }
 
-        /**
-         * @param deploymentConfigId The AWS Assigned deployment config id
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentConfigId(String deploymentConfigId) {
             return deploymentConfigId(Output.of(deploymentConfigId));
         }
 
-        /**
-         * @param deploymentConfigName The name of the deployment config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentConfigName(@Nullable Output<String> deploymentConfigName) {
             $.deploymentConfigName = deploymentConfigName;
             return this;
         }
 
-        /**
-         * @param deploymentConfigName The name of the deployment config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentConfigName(String deploymentConfigName) {
             return deploymentConfigName(Output.of(deploymentConfigName));
         }
 
-        /**
-         * @param minimumHealthyHosts A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyHosts(@Nullable Output<DeploymentConfigMinimumHealthyHostsArgs> minimumHealthyHosts) {
             $.minimumHealthyHosts = minimumHealthyHosts;
             return this;
         }
 
-        /**
-         * @param minimumHealthyHosts A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs minimumHealthyHosts) {
             return minimumHealthyHosts(Output.of(minimumHealthyHosts));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param trafficRoutingConfig A trafficRoutingConfig block. Traffic Routing Config is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficRoutingConfig(@Nullable Output<DeploymentConfigTrafficRoutingConfigArgs> trafficRoutingConfig) {
             $.trafficRoutingConfig = trafficRoutingConfig;
             return this;
         }
 
-        /**
-         * @param trafficRoutingConfig A trafficRoutingConfig block. Traffic Routing Config is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs trafficRoutingConfig) {
             return trafficRoutingConfig(Output.of(trafficRoutingConfig));
         }
 
-        /**
-         * @param zonalConfig A zonalConfig block. Zonal Config is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zonalConfig(@Nullable Output<DeploymentConfigZonalConfigArgs> zonalConfig) {
             $.zonalConfig = zonalConfig;
             return this;
         }
 
-        /**
-         * @param zonalConfig A zonalConfig block. Zonal Config is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zonalConfig(DeploymentConfigZonalConfigArgs zonalConfig) {
             return zonalConfig(Output.of(zonalConfig));
         }

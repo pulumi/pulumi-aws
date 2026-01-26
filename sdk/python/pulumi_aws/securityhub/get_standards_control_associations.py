@@ -54,18 +54,11 @@ class GetStandardsControlAssociationsResult:
     @_builtins.property
     @pulumi.getter(name="securityControlId")
     def security_control_id(self) -> _builtins.str:
-        """
-        ID of the security control.
-        """
         return pulumi.get(self, "security_control_id")
 
     @_builtins.property
     @pulumi.getter(name="standardsControlAssociations")
     def standards_control_associations(self) -> Sequence['outputs.GetStandardsControlAssociationsStandardsControlAssociationResult']:
-        """
-        A list that provides the status and other details for each security control that applies to each enabled standard.
-        See `standards_control_associations` below.
-        """
         return pulumi.get(self, "standards_control_associations")
 
 
@@ -85,23 +78,7 @@ def get_standards_control_associations(region: Optional[_builtins.str] = None,
                                        security_control_id: Optional[_builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardsControlAssociationsResult:
     """
-    Data source for managing an AWS Security Hub Standards Control Associations.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_account = aws.securityhub.Account("test")
-    test = aws.securityhub.get_standards_control_associations(security_control_id="IAM.1")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -118,23 +95,7 @@ def get_standards_control_associations_output(region: Optional[pulumi.Input[Opti
                                               security_control_id: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardsControlAssociationsResult]:
     """
-    Data source for managing an AWS Security Hub Standards Control Associations.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_account = aws.securityhub.Account("test")
-    test = aws.securityhub.get_standards_control_associations(security_control_id="IAM.1")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

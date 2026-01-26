@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeploymentConfigurationCanaryConfiguration {
-    /**
-     * @return Time to wait before shifting remaining traffic
-     * 
-     */
     private String canaryBakeTimeInMinutes;
-    /**
-     * @return Percentage of traffic to route to canary deployment
-     * 
-     */
     private Double canaryPercent;
 
     private GetServiceDeploymentConfigurationCanaryConfiguration() {}
-    /**
-     * @return Time to wait before shifting remaining traffic
-     * 
-     */
     public String canaryBakeTimeInMinutes() {
         return this.canaryBakeTimeInMinutes;
     }
-    /**
-     * @return Percentage of traffic to route to canary deployment
-     * 
-     */
     public Double canaryPercent() {
         return this.canaryPercent;
     }

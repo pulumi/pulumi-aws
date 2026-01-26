@@ -14,17 +14,9 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs();
 
-    /**
-     * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
-     * 
-     */
     @Import(name="programSelection", required=true)
     private Output<String> programSelection;
 
-    /**
-     * @return Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
-     * 
-     */
     public Output<String> programSelection() {
         return this.programSelection;
     }
@@ -53,23 +45,11 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param programSelection Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder programSelection(Output<String> programSelection) {
             $.programSelection = programSelection;
             return this;
         }
 
-        /**
-         * @param programSelection Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder programSelection(String programSelection) {
             return programSelection(Output.of(programSelection));
         }

@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Service Discovery Public DNS Namespace resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicediscovery.PublicDnsNamespace("example", {
- *     name: "hoge.example.com",
- *     description: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
- *
- * ```sh
- * $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
- * ```
- */
 export class PublicDnsNamespace extends pulumi.CustomResource {
     /**
      * Get an existing PublicDnsNamespace resource's state with the given name, ID, and optional extra
@@ -55,33 +32,12 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === PublicDnsNamespace.__pulumiType;
     }
 
-    /**
-     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The description that you specify for the namespace when you create it.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-     */
     declare public /*out*/ readonly hostedZone: pulumi.Output<string>;
-    /**
-     * The name of the namespace.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -123,33 +79,12 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PublicDnsNamespace resources.
  */
 export interface PublicDnsNamespaceState {
-    /**
-     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description that you specify for the namespace when you create it.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-     */
     hostedZone?: pulumi.Input<string>;
-    /**
-     * The name of the namespace.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -157,20 +92,8 @@ export interface PublicDnsNamespaceState {
  * The set of arguments for constructing a PublicDnsNamespace resource.
  */
 export interface PublicDnsNamespaceArgs {
-    /**
-     * The description that you specify for the namespace when you create it.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the namespace.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

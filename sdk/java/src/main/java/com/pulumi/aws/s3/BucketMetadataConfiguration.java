@@ -16,90 +16,11 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages Amazon S3 Metadata for a bucket.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketMetadataConfiguration;
- * import com.pulumi.aws.s3.BucketMetadataConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BucketMetadataConfiguration("example", BucketMetadataConfigurationArgs.builder()
- *             .bucket(exampleAwsS3Bucket.bucket())
- *             .metadataConfiguration(BucketMetadataConfigurationMetadataConfigurationArgs.builder()
- *                 .inventoryTableConfiguration(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs.builder()
- *                     .configurationState("ENABLED")
- *                     .build())
- *                 .journalTableConfiguration(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs.builder()
- *                     .recordExpiration(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs.builder()
- *                         .days(7)
- *                         .expiration("ENABLED")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * __Using `pulumi import` to import__ S3 bucket metadata configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
- * 
- * If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, import using the `bucket`:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name
- * ```
- * If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name,123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration")
 public class BucketMetadataConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
@@ -109,35 +30,15 @@ public class BucketMetadataConfiguration extends com.pulumi.resources.CustomReso
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Metadata configuration. See `metadataConfiguration` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="metadataConfiguration", refs={BucketMetadataConfigurationMetadataConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ BucketMetadataConfigurationMetadataConfiguration> metadataConfiguration;
 
-    /**
-     * @return Metadata configuration. See `metadataConfiguration` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<BucketMetadataConfigurationMetadataConfiguration>> metadataConfiguration() {
         return Codegen.optional(this.metadataConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

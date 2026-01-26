@@ -18,32 +18,16 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs 
 
     public static final RiskConfigurationCompromisedCredentialsRiskConfigurationArgs Empty = new RiskConfigurationCompromisedCredentialsRiskConfigurationArgs();
 
-    /**
-     * The compromised credentials risk configuration actions. See details below.
-     * 
-     */
     @Import(name="actions", required=true)
     private Output<RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs> actions;
 
-    /**
-     * @return The compromised credentials risk configuration actions. See details below.
-     * 
-     */
     public Output<RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs> actions() {
         return this.actions;
     }
 
-    /**
-     * Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-     * 
-     */
     @Import(name="eventFilters")
     private @Nullable Output<List<String>> eventFilters;
 
-    /**
-     * @return Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-     * 
-     */
     public Optional<Output<List<String>>> eventFilters() {
         return Optional.ofNullable(this.eventFilters);
     }
@@ -73,54 +57,24 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs 
             $ = new RiskConfigurationCompromisedCredentialsRiskConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions The compromised credentials risk configuration actions. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(Output<RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions The compromised credentials risk configuration actions. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param eventFilters Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventFilters(@Nullable Output<List<String>> eventFilters) {
             $.eventFilters = eventFilters;
             return this;
         }
 
-        /**
-         * @param eventFilters Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventFilters(List<String> eventFilters) {
             return eventFilters(Output.of(eventFilters));
         }
 
-        /**
-         * @param eventFilters Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventFilters(String... eventFilters) {
             return eventFilters(List.of(eventFilters));
         }

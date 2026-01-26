@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint {
-    /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
-     * 
-     */
     private String containerPath;
-    /**
-     * @return If this value is true, the container has read-only access to the volume.
-     * 
-     */
     private Boolean readOnly;
-    /**
-     * @return The name of the volume to mount.
-     * 
-     */
     private String sourceVolume;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint() {}
-    /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
-     * 
-     */
     public String containerPath() {
         return this.containerPath;
     }
-    /**
-     * @return If this value is true, the container has read-only access to the volume.
-     * 
-     */
     public Boolean readOnly() {
         return this.readOnly;
     }
-    /**
-     * @return The name of the volume to mount.
-     * 
-     */
     public String sourceVolume() {
         return this.sourceVolume;
     }

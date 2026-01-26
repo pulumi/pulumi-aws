@@ -15,32 +15,16 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRul
 
     public static final GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction Empty = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction();
 
-    /**
-     * Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-     * 
-     */
     public String type() {
         return this.type;
     }
 
-    /**
-     * Value for the action, required for certain action types.
-     * 
-     */
     @Import(name="value")
     private @Nullable String value;
 
-    /**
-     * @return Value for the action, required for certain action types.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
@@ -70,23 +54,11 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRul
             $ = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param value Value for the action, required for certain action types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable String value) {
             $.value = value;
             return this;

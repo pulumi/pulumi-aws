@@ -11,74 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS EMR Supported Instance Types.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.GetSupportedInstanceTypes(ctx, &emr.GetSupportedInstanceTypesArgs{
-//				ReleaseLabel: "ebs-6.15.0",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With a Lifecycle Pre-Condition
-//
-// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			instanceType := "r7g.large"
-//			releaseLabel := "emr-6.15.0"
-//			_, err := emr.GetSupportedInstanceTypes(ctx, &emr.GetSupportedInstanceTypesArgs{
-//				ReleaseLabel: releaseLabel,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = emr.NewCluster(ctx, "test", &emr.ClusterArgs{
-//				ReleaseLabel: pulumi.String(releaseLabel),
-//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-//					InstanceType: pulumi.String(instanceType),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetSupportedInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSupportedInstanceTypesResult
@@ -91,18 +23,15 @@ func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTy
 
 // A collection of arguments for invoking getSupportedInstanceTypes.
 type GetSupportedInstanceTypesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-	ReleaseLabel string `pulumi:"releaseLabel"`
+	Region       *string `pulumi:"region"`
+	ReleaseLabel string  `pulumi:"releaseLabel"`
 }
 
 // A collection of values returned by getSupportedInstanceTypes.
 type GetSupportedInstanceTypesResult struct {
-	Id           string `pulumi:"id"`
-	Region       string `pulumi:"region"`
-	ReleaseLabel string `pulumi:"releaseLabel"`
-	// List of supported instance types. See `supportedInstanceTypes` below.
+	Id                     string                                           `pulumi:"id"`
+	Region                 string                                           `pulumi:"region"`
+	ReleaseLabel           string                                           `pulumi:"releaseLabel"`
 	SupportedInstanceTypes []GetSupportedInstanceTypesSupportedInstanceType `pulumi:"supportedInstanceTypes"`
 }
 
@@ -117,10 +46,8 @@ func GetSupportedInstanceTypesOutput(ctx *pulumi.Context, args GetSupportedInsta
 
 // A collection of arguments for invoking getSupportedInstanceTypes.
 type GetSupportedInstanceTypesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
+	ReleaseLabel pulumi.StringInput    `pulumi:"releaseLabel"`
 }
 
 func (GetSupportedInstanceTypesOutputArgs) ElementType() reflect.Type {
@@ -154,7 +81,6 @@ func (o GetSupportedInstanceTypesResultOutput) ReleaseLabel() pulumi.StringOutpu
 	return o.ApplyT(func(v GetSupportedInstanceTypesResult) string { return v.ReleaseLabel }).(pulumi.StringOutput)
 }
 
-// List of supported instance types. See `supportedInstanceTypes` below.
 func (o GetSupportedInstanceTypesResultOutput) SupportedInstanceTypes() GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
 	return o.ApplyT(func(v GetSupportedInstanceTypesResult) []GetSupportedInstanceTypesSupportedInstanceType {
 		return v.SupportedInstanceTypes

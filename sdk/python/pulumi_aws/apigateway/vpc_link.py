@@ -26,11 +26,6 @@ class VpcLinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
-        :param pulumi.Input[_builtins.str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-        :param pulumi.Input[_builtins.str] description: Description of the VPC link.
-        :param pulumi.Input[_builtins.str] name: Name used to label and identify the VPC link.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "target_arn", target_arn)
         if description is not None:
@@ -45,9 +40,6 @@ class VpcLinkArgs:
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -57,9 +49,6 @@ class VpcLinkArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the VPC link.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,9 +58,6 @@ class VpcLinkArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name used to label and identify the VPC link.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -81,9 +67,6 @@ class VpcLinkArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -93,9 +76,6 @@ class VpcLinkArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,12 +95,6 @@ class _VpcLinkState:
                  target_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcLink resources.
-        :param pulumi.Input[_builtins.str] description: Description of the VPC link.
-        :param pulumi.Input[_builtins.str] name: Name used to label and identify the VPC link.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -149,9 +123,6 @@ class _VpcLinkState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the VPC link.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -161,9 +132,6 @@ class _VpcLinkState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name used to label and identify the VPC link.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -173,9 +141,6 @@ class _VpcLinkState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -185,9 +150,6 @@ class _VpcLinkState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -197,9 +159,6 @@ class _VpcLinkState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -209,9 +168,6 @@ class _VpcLinkState:
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -232,45 +188,9 @@ class VpcLink(pulumi.CustomResource):
                  target_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an API Gateway VPC Link.
-
-        > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
-        To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lb.LoadBalancer("example",
-            name="example",
-            internal=True,
-            load_balancer_type="network",
-            subnet_mappings=[{
-                "subnet_id": "12345",
-            }])
-        example_vpc_link = aws.apigateway.VpcLink("example",
-            name="example",
-            description="example description",
-            target_arn=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
-        ```
-
+        Create a VpcLink resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the VPC link.
-        :param pulumi.Input[_builtins.str] name: Name used to label and identify the VPC link.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         ...
     @overload
@@ -279,38 +199,7 @@ class VpcLink(pulumi.CustomResource):
                  args: VpcLinkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an API Gateway VPC Link.
-
-        > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
-        To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lb.LoadBalancer("example",
-            name="example",
-            internal=True,
-            load_balancer_type="network",
-            subnet_mappings=[{
-                "subnet_id": "12345",
-            }])
-        example_vpc_link = aws.apigateway.VpcLink("example",
-            name="example",
-            description="example description",
-            target_arn=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
-        ```
-
+        Create a VpcLink resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcLinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,12 +262,6 @@ class VpcLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the VPC link.
-        :param pulumi.Input[_builtins.str] name: Name used to label and identify the VPC link.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,48 +284,30 @@ class VpcLink(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the VPC link.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name used to label and identify the VPC link.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-        """
         return pulumi.get(self, "target_arn")
 

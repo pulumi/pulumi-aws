@@ -101,66 +101,41 @@ class GetTaskDefinitionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the task definition.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="arnWithoutRevision")
     def arn_without_revision(self) -> _builtins.str:
-        """
-        ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
-        """
         return pulumi.get(self, "arn_without_revision")
 
     @_builtins.property
     @pulumi.getter(name="containerDefinitions")
     def container_definitions(self) -> _builtins.str:
-        """
-        A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-        """
         return pulumi.get(self, "container_definitions")
 
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> _builtins.str:
-        """
-        Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        """
         return pulumi.get(self, "cpu")
 
     @_builtins.property
     @pulumi.getter(name="enableFaultInjection")
     def enable_fault_injection(self) -> _builtins.bool:
-        """
-        Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-        """
         return pulumi.get(self, "enable_fault_injection")
 
     @_builtins.property
     @pulumi.getter(name="ephemeralStorages")
     def ephemeral_storages(self) -> Sequence['outputs.GetTaskDefinitionEphemeralStorageResult']:
-        """
-        The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-        """
         return pulumi.get(self, "ephemeral_storages")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> _builtins.str:
-        """
-        ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def family(self) -> _builtins.str:
-        """
-        A unique name for your task definition.
-        The following arguments are optional:
-        """
         return pulumi.get(self, "family")
 
     @_builtins.property
@@ -174,49 +149,31 @@ class GetTaskDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> _builtins.str:
-        """
-        IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-        """
         return pulumi.get(self, "ipc_mode")
 
     @_builtins.property
     @pulumi.getter
     def memory(self) -> _builtins.str:
-        """
-        Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        """
         return pulumi.get(self, "memory")
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> _builtins.str:
-        """
-        Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        """
         return pulumi.get(self, "network_mode")
 
     @_builtins.property
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> _builtins.str:
-        """
-        Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-        """
         return pulumi.get(self, "pid_mode")
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Sequence['outputs.GetTaskDefinitionPlacementConstraintResult']:
-        """
-        Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
-        """
         return pulumi.get(self, "placement_constraints")
 
     @_builtins.property
     @pulumi.getter(name="proxyConfigurations")
     def proxy_configurations(self) -> Sequence['outputs.GetTaskDefinitionProxyConfigurationResult']:
-        """
-        Configuration block for the App Mesh proxy. Detailed below.
-        """
         return pulumi.get(self, "proxy_configurations")
 
     @_builtins.property
@@ -227,33 +184,21 @@ class GetTaskDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> Sequence[_builtins.str]:
-        """
-        Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-        """
         return pulumi.get(self, "requires_compatibilities")
 
     @_builtins.property
     @pulumi.getter
     def revision(self) -> _builtins.int:
-        """
-        Revision of the task in a particular family.
-        """
         return pulumi.get(self, "revision")
 
     @_builtins.property
     @pulumi.getter(name="runtimePlatforms")
     def runtime_platforms(self) -> Sequence['outputs.GetTaskDefinitionRuntimePlatformResult']:
-        """
-        Configuration block for runtime_platform that containers in your task may use.
-        """
         return pulumi.get(self, "runtime_platforms")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the task definition.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -264,17 +209,11 @@ class GetTaskDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> _builtins.str:
-        """
-        ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        """
         return pulumi.get(self, "task_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def volumes(self) -> Sequence['outputs.GetTaskDefinitionVolumeResult']:
-        """
-        Configuration block for volumes that containers in your task may use. Detailed below.
-        """
         return pulumi.get(self, "volumes")
 
 
@@ -313,45 +252,7 @@ def get_task_definition(region: Optional[_builtins.str] = None,
                         task_definition: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskDefinitionResult:
     """
-    The ECS task definition data source allows access to details of
-    a specific AWS ECS task definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    mongo_task_definition = aws.ecs.TaskDefinition("mongo",
-        family="mongodb",
-        container_definitions=\"\"\"[
-      {
-        \\"cpu\\": 128,
-        \\"environment\\": [{
-          \\"name\\": \\"SECRET\\",
-          \\"value\\": \\"KEY\\"
-        }],
-        \\"essential\\": true,
-        \\"image\\": \\"mongo:latest\\",
-        \\"memory\\": 128,
-        \\"memoryReservation\\": 64,
-        \\"name\\": \\"mongodb\\"
-      }
-    ]
-    \"\"\")
-    # Simply specify the family to find the latest ACTIVE revision in that family.
-    mongo = aws.ecs.get_task_definition_output(task_definition=mongo_task_definition.family)
-    foo = aws.ecs.Cluster("foo", name="foo")
-    mongo_service = aws.ecs.Service("mongo",
-        name="mongo",
-        cluster=foo.id,
-        desired_count=2,
-        task_definition=mongo.arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -387,45 +288,7 @@ def get_task_definition_output(region: Optional[pulumi.Input[Optional[_builtins.
                                task_definition: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
-    The ECS task definition data source allows access to details of
-    a specific AWS ECS task definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    mongo_task_definition = aws.ecs.TaskDefinition("mongo",
-        family="mongodb",
-        container_definitions=\"\"\"[
-      {
-        \\"cpu\\": 128,
-        \\"environment\\": [{
-          \\"name\\": \\"SECRET\\",
-          \\"value\\": \\"KEY\\"
-        }],
-        \\"essential\\": true,
-        \\"image\\": \\"mongo:latest\\",
-        \\"memory\\": 128,
-        \\"memoryReservation\\": 64,
-        \\"name\\": \\"mongodb\\"
-      }
-    ]
-    \"\"\")
-    # Simply specify the family to find the latest ACTIVE revision in that family.
-    mongo = aws.ecs.get_task_definition_output(task_definition=mongo_task_definition.family)
-    foo = aws.ecs.Cluster("foo", name="foo")
-    mongo_service = aws.ecs.Service("mongo",
-        name="mongo",
-        cluster=foo.id,
-        desired_count=2,
-        task_definition=mongo.arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

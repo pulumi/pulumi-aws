@@ -15,47 +15,23 @@ public final class GetDistributionTenantArgs extends com.pulumi.resources.Invoke
 
     public static final GetDistributionTenantArgs Empty = new GetDistributionTenantArgs();
 
-    /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
-    /**
-     * @return An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
     }
 
-    /**
-     * Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -94,65 +70,29 @@ public final class GetDistributionTenantArgs extends com.pulumi.resources.Invoke
             $ = new GetDistributionTenantArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN (Amazon Resource Name) for the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN (Amazon Resource Name) for the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param domain An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(@Nullable Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param id Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

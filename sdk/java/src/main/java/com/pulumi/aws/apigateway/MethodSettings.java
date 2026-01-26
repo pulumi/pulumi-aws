@@ -14,255 +14,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
- * 
- * &gt; **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
- * 
- * ## Example Usage
- * 
- * ### End-to-end
- * 
- * ### Off
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.MethodSettings;
- * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath("path1/GET")
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel("OFF")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Errors Only
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.MethodSettings;
- * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath("path1/GET")
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel("ERROR")
- *                 .metricsEnabled(true)
- *                 .dataTraceEnabled(false)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Errors and Info Logs
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.MethodSettings;
- * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath("path1/GET")
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel("INFO")
- *                 .metricsEnabled(true)
- *                 .dataTraceEnabled(false)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Full Request and Response Logs
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.MethodSettings;
- * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
- *             .restApi(example.id())
- *             .stageName(exampleAwsApiGatewayStage.stageName())
- *             .methodPath("path1/GET")
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel("INFO")
- *                 .metricsEnabled(true)
- *                 .dataTraceEnabled(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/methodSettings:MethodSettings")
 public class MethodSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-     * 
-     */
     @Export(name="methodPath", refs={String.class}, tree="[0]")
     private Output<String> methodPath;
 
-    /**
-     * @return Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-     * 
-     */
     public Output<String> methodPath() {
         return this.methodPath;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the REST API
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the REST API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
-    /**
-     * Settings block, see below.
-     * 
-     */
     @Export(name="settings", refs={MethodSettingsSettings.class}, tree="[0]")
     private Output<MethodSettingsSettings> settings;
 
-    /**
-     * @return Settings block, see below.
-     * 
-     */
     public Output<MethodSettingsSettings> settings() {
         return this.settings;
     }
-    /**
-     * Name of the stage
-     * 
-     */
     @Export(name="stageName", refs={String.class}, tree="[0]")
     private Output<String> stageName;
 
-    /**
-     * @return Name of the stage
-     * 
-     */
     public Output<String> stageName() {
         return this.stageName;
     }

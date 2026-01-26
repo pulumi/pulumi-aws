@@ -48,9 +48,6 @@ class GetImagePipelinesResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of ARNs of the matched Image Builder Image Pipelines.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -69,9 +66,6 @@ class GetImagePipelinesResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        Set of names of the matched Image Builder Image Pipelines.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -97,23 +91,7 @@ def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilte
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagePipelinesResult:
     """
-    Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipelines(filters=[{
-        "name": "name",
-        "values": ["example"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -131,23 +109,7 @@ def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelinesResult]:
     """
-    Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipelines(filters=[{
-        "name": "name",
-        "values": ["example"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

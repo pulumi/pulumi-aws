@@ -16,124 +16,58 @@ public final class IngestionState extends com.pulumi.resources.ResourceArgs {
 
     public static final IngestionState Empty = new IngestionState();
 
-    /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-     * 
-     */
     @Import(name="app")
     private @Nullable Output<String> app;
 
-    /**
-     * @return Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-     * 
-     */
     public Optional<Output<String>> app() {
         return Optional.ofNullable(this.app);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     @Import(name="appBundleArn")
     private @Nullable Output<String> appBundleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     public Optional<Output<String>> appBundleArn() {
         return Optional.ofNullable(this.appBundleArn);
     }
 
-    /**
-     * ARN of the Ingestion.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Ingestion.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Ingestion type. Valid values are `auditLog`.
-     * 
-     */
     @Import(name="ingestionType")
     private @Nullable Output<String> ingestionType;
 
-    /**
-     * @return Ingestion type. Valid values are `auditLog`.
-     * 
-     */
     public Optional<Output<String>> ingestionType() {
         return Optional.ofNullable(this.ingestionType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * ID of the application tenant.
-     * 
-     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
-    /**
-     * @return ID of the application tenant.
-     * 
-     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
@@ -169,172 +103,74 @@ public final class IngestionState extends com.pulumi.resources.ResourceArgs {
             $ = new IngestionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param app Name of the application.
-         * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-         * 
-         * @return builder
-         * 
-         */
         public Builder app(@Nullable Output<String> app) {
             $.app = app;
             return this;
         }
 
-        /**
-         * @param app Name of the application.
-         * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-         * 
-         * @return builder
-         * 
-         */
         public Builder app(String app) {
             return app(Output.of(app));
         }
 
-        /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(@Nullable Output<String> appBundleArn) {
             $.appBundleArn = appBundleArn;
             return this;
         }
 
-        /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(String appBundleArn) {
             return appBundleArn(Output.of(appBundleArn));
         }
 
-        /**
-         * @param arn ARN of the Ingestion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Ingestion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param ingestionType Ingestion type. Valid values are `auditLog`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionType(@Nullable Output<String> ingestionType) {
             $.ingestionType = ingestionType;
             return this;
         }
 
-        /**
-         * @param ingestionType Ingestion type. Valid values are `auditLog`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionType(String ingestionType) {
             return ingestionType(Output.of(ingestionType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param tenantId ID of the application tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
-        /**
-         * @param tenantId ID of the application tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }

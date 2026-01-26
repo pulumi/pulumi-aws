@@ -13,33 +13,12 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     [OutputType]
     public sealed class GetDirectoryRadiusSettingResult
     {
-        /// <summary>
-        /// The protocol specified for your RADIUS endpoints.
-        /// </summary>
         public readonly string AuthenticationProtocol;
-        /// <summary>
-        /// Display label.
-        /// </summary>
         public readonly string DisplayLabel;
-        /// <summary>
-        /// Port that your RADIUS server is using for communications.
-        /// </summary>
         public readonly int RadiusPort;
-        /// <summary>
-        /// Maximum number of times that communication with the RADIUS server is attempted.
-        /// </summary>
         public readonly int RadiusRetries;
-        /// <summary>
-        /// Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        /// </summary>
         public readonly ImmutableArray<string> RadiusServers;
-        /// <summary>
-        /// Amount of time, in seconds, to wait for the RADIUS server to respond.
-        /// </summary>
         public readonly int RadiusTimeout;
-        /// <summary>
-        /// Not currently used.
-        /// </summary>
         public readonly bool UseSameUsername;
 
         [OutputConstructor]

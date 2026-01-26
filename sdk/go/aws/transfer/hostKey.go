@@ -12,67 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a host key for a server. This is an [_additional server host key_](https://docs.aws.amazon.com/transfer/latest/userguide/server-host-key-add.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewHostKey(ctx, "example", &transfer.HostKeyArgs{
-//				ServerId:      pulumi.Any(exampleAwsTransferServer.Id),
-//				Description:   pulumi.String("example additional host key"),
-//				HostKeyBodyWo: pulumi.String("# Private key PEM.\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
-//
-// ```sh
-// $ pulumi import aws:transfer/hostKey:HostKey example s-12345678,key-12345
-// ```
 type HostKey struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of host key.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Text description.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Private key portion of an SSH key pair.
 	HostKeyBody pulumi.StringPtrOutput `pulumi:"hostKeyBody"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
-	HostKeyBodyWo pulumi.StringPtrOutput `pulumi:"hostKeyBodyWo"`
-	// Public key fingerprint.
-	HostKeyFingerprint pulumi.StringOutput `pulumi:"hostKeyFingerprint"`
-	// ID of the host key.
-	HostKeyId pulumi.StringOutput `pulumi:"hostKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Server ID.
-	ServerId pulumi.StringOutput `pulumi:"serverId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	HostKeyBodyWo      pulumi.StringPtrOutput `pulumi:"hostKeyBodyWo"`
+	HostKeyFingerprint pulumi.StringOutput    `pulumi:"hostKeyFingerprint"`
+	HostKeyId          pulumi.StringOutput    `pulumi:"hostKeyId"`
+	Region             pulumi.StringOutput    `pulumi:"region"`
+	ServerId           pulumi.StringOutput    `pulumi:"serverId"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewHostKey registers a new resource with the given unique name, arguments, and options.
@@ -119,51 +72,31 @@ func GetHostKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostKey resources.
 type hostKeyState struct {
-	// Amazon Resource Name (ARN) of host key.
-	Arn *string `pulumi:"arn"`
-	// Text description.
+	Arn         *string `pulumi:"arn"`
 	Description *string `pulumi:"description"`
-	// Private key portion of an SSH key pair.
 	HostKeyBody *string `pulumi:"hostKeyBody"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
-	HostKeyBodyWo *string `pulumi:"hostKeyBodyWo"`
-	// Public key fingerprint.
-	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
-	// ID of the host key.
-	HostKeyId *string `pulumi:"hostKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Server ID.
-	ServerId *string `pulumi:"serverId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	HostKeyBodyWo      *string           `pulumi:"hostKeyBodyWo"`
+	HostKeyFingerprint *string           `pulumi:"hostKeyFingerprint"`
+	HostKeyId          *string           `pulumi:"hostKeyId"`
+	Region             *string           `pulumi:"region"`
+	ServerId           *string           `pulumi:"serverId"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 }
 
 type HostKeyState struct {
-	// Amazon Resource Name (ARN) of host key.
-	Arn pulumi.StringPtrInput
-	// Text description.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// Private key portion of an SSH key pair.
 	HostKeyBody pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
-	HostKeyBodyWo pulumi.StringPtrInput
-	// Public key fingerprint.
+	HostKeyBodyWo      pulumi.StringPtrInput
 	HostKeyFingerprint pulumi.StringPtrInput
-	// ID of the host key.
-	HostKeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Server ID.
-	ServerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	HostKeyId          pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	ServerId           pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (HostKeyState) ElementType() reflect.Type {
@@ -171,36 +104,24 @@ func (HostKeyState) ElementType() reflect.Type {
 }
 
 type hostKeyArgs struct {
-	// Text description.
 	Description *string `pulumi:"description"`
-	// Private key portion of an SSH key pair.
 	HostKeyBody *string `pulumi:"hostKeyBody"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
-	HostKeyBodyWo *string `pulumi:"hostKeyBodyWo"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Server ID.
-	ServerId string `pulumi:"serverId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	HostKeyBodyWo *string           `pulumi:"hostKeyBodyWo"`
+	Region        *string           `pulumi:"region"`
+	ServerId      string            `pulumi:"serverId"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HostKey resource.
 type HostKeyArgs struct {
-	// Text description.
 	Description pulumi.StringPtrInput
-	// Private key portion of an SSH key pair.
 	HostKeyBody pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
 	HostKeyBodyWo pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Server ID.
-	ServerId pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region        pulumi.StringPtrInput
+	ServerId      pulumi.StringInput
+	Tags          pulumi.StringMapInput
 }
 
 func (HostKeyArgs) ElementType() reflect.Type {
@@ -290,53 +211,43 @@ func (o HostKeyOutput) ToHostKeyOutputWithContext(ctx context.Context) HostKeyOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of host key.
 func (o HostKeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Text description.
 func (o HostKeyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Private key portion of an SSH key pair.
 func (o HostKeyOutput) HostKeyBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringPtrOutput { return v.HostKeyBody }).(pulumi.StringPtrOutput)
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
 func (o HostKeyOutput) HostKeyBodyWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringPtrOutput { return v.HostKeyBodyWo }).(pulumi.StringPtrOutput)
 }
 
-// Public key fingerprint.
 func (o HostKeyOutput) HostKeyFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.HostKeyFingerprint }).(pulumi.StringOutput)
 }
 
-// ID of the host key.
 func (o HostKeyOutput) HostKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.HostKeyId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Server ID.
 func (o HostKeyOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HostKeyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HostKeyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

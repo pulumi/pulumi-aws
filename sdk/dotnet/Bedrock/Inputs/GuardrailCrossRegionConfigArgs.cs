@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class GuardrailCrossRegionConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Guardrail profile ARN.
-        /// </summary>
         [Input("guardrailProfileIdentifier", required: true)]
         public Input<string> GuardrailProfileIdentifier { get; set; } = null!;
 

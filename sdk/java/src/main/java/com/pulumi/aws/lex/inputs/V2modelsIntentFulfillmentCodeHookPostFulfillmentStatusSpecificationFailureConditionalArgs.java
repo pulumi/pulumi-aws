@@ -19,47 +19,23 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
 
     public static final V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalArgs Empty = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalArgs();
 
-    /**
-     * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-     * 
-     */
     @Import(name="active", required=true)
     private Output<Boolean> active;
 
-    /**
-     * @return Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-     * 
-     */
     public Output<Boolean> active() {
         return this.active;
     }
 
-    /**
-     * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
-     * 
-     */
     @Import(name="conditionalBranches")
     private @Nullable Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgs>> conditionalBranches;
 
-    /**
-     * @return Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgs>>> conditionalBranches() {
         return Optional.ofNullable(this.conditionalBranches);
     }
 
-    /**
-     * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
-     * 
-     */
     @Import(name="defaultBranch", required=true)
     private Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgs> defaultBranch;
 
-    /**
-     * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
-     * 
-     */
     public Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgs> defaultBranch() {
         return this.defaultBranch;
     }
@@ -90,75 +66,33 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
             $ = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param conditionalBranches Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionalBranches(@Nullable Output<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgs>> conditionalBranches) {
             $.conditionalBranches = conditionalBranches;
             return this;
         }
 
-        /**
-         * @param conditionalBranches Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionalBranches(List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgs> conditionalBranches) {
             return conditionalBranches(Output.of(conditionalBranches));
         }
 
-        /**
-         * @param conditionalBranches Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionalBranches(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgs... conditionalBranches) {
             return conditionalBranches(List.of(conditionalBranches));
         }
 
-        /**
-         * @param defaultBranch Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultBranch(Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgs> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
         }
 
-        /**
-         * @param defaultBranch Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultBranch(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgs defaultBranch) {
             return defaultBranch(Output.of(defaultBranch));
         }

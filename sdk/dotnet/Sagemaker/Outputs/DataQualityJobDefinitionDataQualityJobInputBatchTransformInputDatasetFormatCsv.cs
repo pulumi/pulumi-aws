@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv
     {
-        /// <summary>
-        /// Indicates if the CSV data has a header.
-        /// </summary>
         public readonly bool? Header;
 
         [OutputConstructor]

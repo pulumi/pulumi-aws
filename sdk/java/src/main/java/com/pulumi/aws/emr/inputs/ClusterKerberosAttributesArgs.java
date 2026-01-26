@@ -16,77 +16,37 @@ public final class ClusterKerberosAttributesArgs extends com.pulumi.resources.Re
 
     public static final ClusterKerberosAttributesArgs Empty = new ClusterKerberosAttributesArgs();
 
-    /**
-     * Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     @Import(name="adDomainJoinPassword")
     private @Nullable Output<String> adDomainJoinPassword;
 
-    /**
-     * @return Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Optional<Output<String>> adDomainJoinPassword() {
         return Optional.ofNullable(this.adDomainJoinPassword);
     }
 
-    /**
-     * Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     @Import(name="adDomainJoinUser")
     private @Nullable Output<String> adDomainJoinUser;
 
-    /**
-     * @return Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Optional<Output<String>> adDomainJoinUser() {
         return Optional.ofNullable(this.adDomainJoinUser);
     }
 
-    /**
-     * Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     @Import(name="crossRealmTrustPrincipalPassword")
     private @Nullable Output<String> crossRealmTrustPrincipalPassword;
 
-    /**
-     * @return Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Optional<Output<String>> crossRealmTrustPrincipalPassword() {
         return Optional.ofNullable(this.crossRealmTrustPrincipalPassword);
     }
 
-    /**
-     * Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     @Import(name="kdcAdminPassword", required=true)
     private Output<String> kdcAdminPassword;
 
-    /**
-     * @return Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Output<String> kdcAdminPassword() {
         return this.kdcAdminPassword;
     }
 
-    /**
-     * Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-     * 
-     */
     @Import(name="realm", required=true)
     private Output<String> realm;
 
-    /**
-     * @return Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-     * 
-     */
     public Output<String> realm() {
         return this.realm;
     }
@@ -119,107 +79,47 @@ public final class ClusterKerberosAttributesArgs extends com.pulumi.resources.Re
             $ = new ClusterKerberosAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adDomainJoinPassword Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adDomainJoinPassword(@Nullable Output<String> adDomainJoinPassword) {
             $.adDomainJoinPassword = adDomainJoinPassword;
             return this;
         }
 
-        /**
-         * @param adDomainJoinPassword Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adDomainJoinPassword(String adDomainJoinPassword) {
             return adDomainJoinPassword(Output.of(adDomainJoinPassword));
         }
 
-        /**
-         * @param adDomainJoinUser Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adDomainJoinUser(@Nullable Output<String> adDomainJoinUser) {
             $.adDomainJoinUser = adDomainJoinUser;
             return this;
         }
 
-        /**
-         * @param adDomainJoinUser Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adDomainJoinUser(String adDomainJoinUser) {
             return adDomainJoinUser(Output.of(adDomainJoinUser));
         }
 
-        /**
-         * @param crossRealmTrustPrincipalPassword Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crossRealmTrustPrincipalPassword(@Nullable Output<String> crossRealmTrustPrincipalPassword) {
             $.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
             return this;
         }
 
-        /**
-         * @param crossRealmTrustPrincipalPassword Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crossRealmTrustPrincipalPassword(String crossRealmTrustPrincipalPassword) {
             return crossRealmTrustPrincipalPassword(Output.of(crossRealmTrustPrincipalPassword));
         }
 
-        /**
-         * @param kdcAdminPassword Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kdcAdminPassword(Output<String> kdcAdminPassword) {
             $.kdcAdminPassword = kdcAdminPassword;
             return this;
         }
 
-        /**
-         * @param kdcAdminPassword Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kdcAdminPassword(String kdcAdminPassword) {
             return kdcAdminPassword(Output.of(kdcAdminPassword));
         }
 
-        /**
-         * @param realm Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-         * 
-         * @return builder
-         * 
-         */
         public Builder realm(Output<String> realm) {
             $.realm = realm;
             return this;
         }
 
-        /**
-         * @param realm Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-         * 
-         * @return builder
-         * 
-         */
         public Builder realm(String realm) {
             return realm(Output.of(realm));
         }

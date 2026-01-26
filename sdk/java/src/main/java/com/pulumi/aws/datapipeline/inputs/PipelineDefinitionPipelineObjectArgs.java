@@ -18,47 +18,23 @@ public final class PipelineDefinitionPipelineObjectArgs extends com.pulumi.resou
 
     public static final PipelineDefinitionPipelineObjectArgs Empty = new PipelineDefinitionPipelineObjectArgs();
 
-    /**
-     * Configuration block for Key-value pairs that define the properties of the object. See below
-     * 
-     */
     @Import(name="fields")
     private @Nullable Output<List<PipelineDefinitionPipelineObjectFieldArgs>> fields;
 
-    /**
-     * @return Configuration block for Key-value pairs that define the properties of the object. See below
-     * 
-     */
     public Optional<Output<List<PipelineDefinitionPipelineObjectFieldArgs>>> fields() {
         return Optional.ofNullable(this.fields);
     }
 
-    /**
-     * ID of the object.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return ID of the object.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * ARN of the storage connector.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return ARN of the storage connector.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -89,75 +65,33 @@ public final class PipelineDefinitionPipelineObjectArgs extends com.pulumi.resou
             $ = new PipelineDefinitionPipelineObjectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fields Configuration block for Key-value pairs that define the properties of the object. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder fields(@Nullable Output<List<PipelineDefinitionPipelineObjectFieldArgs>> fields) {
             $.fields = fields;
             return this;
         }
 
-        /**
-         * @param fields Configuration block for Key-value pairs that define the properties of the object. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder fields(List<PipelineDefinitionPipelineObjectFieldArgs> fields) {
             return fields(Output.of(fields));
         }
 
-        /**
-         * @param fields Configuration block for Key-value pairs that define the properties of the object. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder fields(PipelineDefinitionPipelineObjectFieldArgs... fields) {
             return fields(List.of(fields));
         }
 
-        /**
-         * @param id ID of the object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name ARN of the storage connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name ARN of the storage connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

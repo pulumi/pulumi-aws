@@ -12,61 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Network Monitor Monitor.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmonitor"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmonitor.NewMonitor(ctx, "example", &networkmonitor.MonitorArgs{
-//				AggregationPeriod: pulumi.Int(30),
-//				MonitorName:       pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmonitor_monitor` using the monitor name. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmonitor/monitor:Monitor example monitor-7786087912324693644
-// ```
 type Monitor struct {
 	pulumi.CustomResourceState
 
-	// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-	AggregationPeriod pulumi.IntOutput `pulumi:"aggregationPeriod"`
-	// The ARN of the monitor.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AggregationPeriod pulumi.IntOutput       `pulumi:"aggregationPeriod"`
+	Arn               pulumi.StringOutput    `pulumi:"arn"`
+	MonitorName       pulumi.StringOutput    `pulumi:"monitorName"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
@@ -102,37 +56,21 @@ func GetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
-	// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-	AggregationPeriod *int `pulumi:"aggregationPeriod"`
-	// The ARN of the monitor.
-	Arn *string `pulumi:"arn"`
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName *string `pulumi:"monitorName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AggregationPeriod *int              `pulumi:"aggregationPeriod"`
+	Arn               *string           `pulumi:"arn"`
+	MonitorName       *string           `pulumi:"monitorName"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 type MonitorState struct {
-	// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
 	AggregationPeriod pulumi.IntPtrInput
-	// The ARN of the monitor.
-	Arn pulumi.StringPtrInput
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn               pulumi.StringPtrInput
+	MonitorName       pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (MonitorState) ElementType() reflect.Type {
@@ -140,30 +78,18 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
-	// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-	AggregationPeriod *int `pulumi:"aggregationPeriod"`
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName string `pulumi:"monitorName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AggregationPeriod *int              `pulumi:"aggregationPeriod"`
+	MonitorName       string            `pulumi:"monitorName"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
-	// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
 	AggregationPeriod pulumi.IntPtrInput
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	MonitorName       pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (MonitorArgs) ElementType() reflect.Type {
@@ -253,34 +179,26 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 	return o
 }
 
-// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
 func (o MonitorOutput) AggregationPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.AggregationPeriod }).(pulumi.IntOutput)
 }
 
-// The ARN of the monitor.
 func (o MonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the monitor.
-//
-// The following arguments are optional:
 func (o MonitorOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MonitorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MonitorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Synthetics.Outputs
     [OutputType]
     public sealed class CanaryVpcConfig
     {
-        /// <summary>
-        /// If `True`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `False`.
-        /// </summary>
         public readonly bool? Ipv6AllowedForDualStack;
-        /// <summary>
-        /// IDs of the security groups for this canary.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// IDs of the subnets where this canary is to run.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// ID of the VPC where this canary is to run.
-        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

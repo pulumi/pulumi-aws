@@ -18,47 +18,23 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
 
     public static final V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs Empty = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs();
 
-    /**
-     * Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     @Import(name="allowInterrupt")
     private @Nullable Output<Boolean> allowInterrupt;
 
-    /**
-     * @return Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     public Optional<Output<Boolean>> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
 
-    /**
-     * Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn&#39;t played.
-     * 
-     */
     @Import(name="delayInSeconds")
     private @Nullable Output<Integer> delayInSeconds;
 
-    /**
-     * @return Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn&#39;t played.
-     * 
-     */
     public Optional<Output<Integer>> delayInSeconds() {
         return Optional.ofNullable(this.delayInSeconds);
     }
 
-    /**
-     * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     @Import(name="messageGroups")
     private @Nullable Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgs>> messageGroups;
 
-    /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgs>>> messageGroups() {
         return Optional.ofNullable(this.messageGroups);
     }
@@ -89,75 +65,33 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
             $ = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowInterrupt Whether the user can interrupt the start message while it is playing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowInterrupt(@Nullable Output<Boolean> allowInterrupt) {
             $.allowInterrupt = allowInterrupt;
             return this;
         }
 
-        /**
-         * @param allowInterrupt Whether the user can interrupt the start message while it is playing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowInterrupt(Boolean allowInterrupt) {
             return allowInterrupt(Output.of(allowInterrupt));
         }
 
-        /**
-         * @param delayInSeconds Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn&#39;t played.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delayInSeconds(@Nullable Output<Integer> delayInSeconds) {
             $.delayInSeconds = delayInSeconds;
             return this;
         }
 
-        /**
-         * @param delayInSeconds Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn&#39;t played.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delayInSeconds(Integer delayInSeconds) {
             return delayInSeconds(Output.of(delayInSeconds));
         }
 
-        /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroups(@Nullable Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgs>> messageGroups) {
             $.messageGroups = messageGroups;
             return this;
         }
 
-        /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroups(List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgs> messageGroups) {
             return messageGroups(Output.of(messageGroups));
         }
 
-        /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroups(V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgs... messageGroups) {
             return messageGroups(List.of(messageGroups));
         }

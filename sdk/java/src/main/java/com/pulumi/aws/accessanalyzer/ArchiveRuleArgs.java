@@ -18,62 +18,30 @@ public final class ArchiveRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ArchiveRuleArgs Empty = new ArchiveRuleArgs();
 
-    /**
-     * Analyzer name.
-     * 
-     */
     @Import(name="analyzerName", required=true)
     private Output<String> analyzerName;
 
-    /**
-     * @return Analyzer name.
-     * 
-     */
     public Output<String> analyzerName() {
         return this.analyzerName;
     }
 
-    /**
-     * Filter criteria for the archive rule. See Filter for more details.
-     * 
-     */
     @Import(name="filters", required=true)
     private Output<List<ArchiveRuleFilterArgs>> filters;
 
-    /**
-     * @return Filter criteria for the archive rule. See Filter for more details.
-     * 
-     */
     public Output<List<ArchiveRuleFilterArgs>> filters() {
         return this.filters;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Rule name.
-     * 
-     */
     @Import(name="ruleName", required=true)
     private Output<String> ruleName;
 
-    /**
-     * @return Rule name.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
@@ -105,96 +73,42 @@ public final class ArchiveRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ArchiveRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param analyzerName Analyzer name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analyzerName(Output<String> analyzerName) {
             $.analyzerName = analyzerName;
             return this;
         }
 
-        /**
-         * @param analyzerName Analyzer name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analyzerName(String analyzerName) {
             return analyzerName(Output.of(analyzerName));
         }
 
-        /**
-         * @param filters Filter criteria for the archive rule. See Filter for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(Output<List<ArchiveRuleFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter criteria for the archive rule. See Filter for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<ArchiveRuleFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Filter criteria for the archive rule. See Filter for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(ArchiveRuleFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param ruleName Rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
-        /**
-         * @param ruleName Rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }

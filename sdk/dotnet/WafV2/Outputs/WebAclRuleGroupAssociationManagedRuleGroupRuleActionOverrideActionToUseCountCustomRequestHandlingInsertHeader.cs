@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader
     {
-        /// <summary>
-        /// Name of the header to insert.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value of the header to insert.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

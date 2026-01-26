@@ -15,17 +15,9 @@ public final class AllowedImagesSettingsImageCriterionDeprecationTimeConditionAr
 
     public static final AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs Empty = new AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs();
 
-    /**
-     * Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
-     * 
-     */
     @Import(name="maximumDaysSinceDeprecated")
     private @Nullable Output<Integer> maximumDaysSinceDeprecated;
 
-    /**
-     * @return Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
-     * 
-     */
     public Optional<Output<Integer>> maximumDaysSinceDeprecated() {
         return Optional.ofNullable(this.maximumDaysSinceDeprecated);
     }
@@ -54,23 +46,11 @@ public final class AllowedImagesSettingsImageCriterionDeprecationTimeConditionAr
             $ = new AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumDaysSinceDeprecated Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumDaysSinceDeprecated(@Nullable Output<Integer> maximumDaysSinceDeprecated) {
             $.maximumDaysSinceDeprecated = maximumDaysSinceDeprecated;
             return this;
         }
 
-        /**
-         * @param maximumDaysSinceDeprecated Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumDaysSinceDeprecated(Integer maximumDaysSinceDeprecated) {
             return maximumDaysSinceDeprecated(Output.of(maximumDaysSinceDeprecated));
         }

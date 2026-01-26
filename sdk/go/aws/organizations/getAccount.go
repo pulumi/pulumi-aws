@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information about an account in an organization.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.LookupAccount(ctx, &organizations.LookupAccountArgs{
-//				AccountId: "AWS ACCOUNT ID",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountResult
@@ -52,33 +23,23 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountArgs struct {
-	// Account ID number of a delegated administrator account in the organization.
-	AccountId string `pulumi:"accountId"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AccountId string            `pulumi:"accountId"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	AccountId string `pulumi:"accountId"`
-	// ARN of the organization.
-	Arn string `pulumi:"arn"`
-	// Email address of the owner assigned to the new member account.
-	Email string `pulumi:"email"`
+	Arn       string `pulumi:"arn"`
+	Email     string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Method by which the account joined the organization.
-	JoinedMethod string `pulumi:"joinedMethod"`
-	// Date the account became a part of the organization.
-	JoinedTimestamp string `pulumi:"joinedTimestamp"`
-	// Friendly name for the member account.
-	Name string `pulumi:"name"`
-	// Parent Organizational Unit ID or Root ID for the account.
-	ParentId string `pulumi:"parentId"`
-	// State of the account in the organization.
-	State string `pulumi:"state"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id              string            `pulumi:"id"`
+	JoinedMethod    string            `pulumi:"joinedMethod"`
+	JoinedTimestamp string            `pulumi:"joinedTimestamp"`
+	Name            string            `pulumi:"name"`
+	ParentId        string            `pulumi:"parentId"`
+	State           string            `pulumi:"state"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -92,10 +53,8 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountOutputArgs struct {
-	// Account ID number of a delegated administrator account in the organization.
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// Map of tags for the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	AccountId pulumi.StringInput    `pulumi:"accountId"`
+	Tags      pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupAccountOutputArgs) ElementType() reflect.Type {
@@ -121,12 +80,10 @@ func (o LookupAccountResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// ARN of the organization.
 func (o LookupAccountResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Email address of the owner assigned to the new member account.
 func (o LookupAccountResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -136,32 +93,26 @@ func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Method by which the account joined the organization.
 func (o LookupAccountResultOutput) JoinedMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.JoinedMethod }).(pulumi.StringOutput)
 }
 
-// Date the account became a part of the organization.
 func (o LookupAccountResultOutput) JoinedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.JoinedTimestamp }).(pulumi.StringOutput)
 }
 
-// Friendly name for the member account.
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Parent Organizational Unit ID or Root ID for the account.
 func (o LookupAccountResultOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.ParentId }).(pulumi.StringOutput)
 }
 
-// State of the account in the organization.
 func (o LookupAccountResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Map of tags for the resource.
 func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleEvaluationMode {
-    /**
-     * @return The mode of an evaluation.
-     * 
-     */
     private @Nullable String mode;
 
     private RuleEvaluationMode() {}
-    /**
-     * @return The mode of an evaluation.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }

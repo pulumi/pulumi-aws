@@ -14,21 +14,9 @@ public final class DatabaseAclConfigurationArgs extends com.pulumi.resources.Res
 
     public static final DatabaseAclConfigurationArgs Empty = new DatabaseAclConfigurationArgs();
 
-    /**
-     * Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-     * 
-     * &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
-     * 
-     */
     @Import(name="s3AclOption", required=true)
     private Output<String> s3AclOption;
 
-    /**
-     * @return Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-     * 
-     * &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
-     * 
-     */
     public Output<String> s3AclOption() {
         return this.s3AclOption;
     }
@@ -57,27 +45,11 @@ public final class DatabaseAclConfigurationArgs extends com.pulumi.resources.Res
             $ = new DatabaseAclConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3AclOption Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-         * 
-         * &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AclOption(Output<String> s3AclOption) {
             $.s3AclOption = s3AclOption;
             return this;
         }
 
-        /**
-         * @param s3AclOption Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-         * 
-         * &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AclOption(String s3AclOption) {
             return s3AclOption(Output.of(s3AclOption));
         }

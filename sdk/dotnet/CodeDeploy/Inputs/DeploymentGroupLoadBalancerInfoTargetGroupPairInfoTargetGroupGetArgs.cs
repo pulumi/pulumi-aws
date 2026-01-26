@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the target group.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

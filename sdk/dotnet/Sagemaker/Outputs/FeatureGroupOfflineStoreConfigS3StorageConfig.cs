@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FeatureGroupOfflineStoreConfigS3StorageConfig
     {
-        /// <summary>
-        /// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// The S3 path where offline records are written.
-        /// </summary>
         public readonly string? ResolvedOutputS3Uri;
-        /// <summary>
-        /// The S3 URI, or location in Amazon S3, of OfflineStore.
-        /// </summary>
         public readonly string S3Uri;
 
         [OutputConstructor]

@@ -17,32 +17,16 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
 
     public static final ChannelEncoderSettingsTimecodeConfigArgs Empty = new ChannelEncoderSettingsTimecodeConfigArgs();
 
-    /**
-     * The source for the timecode that will be associated with the events outputs.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return The source for the timecode that will be associated with the events outputs.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * Threshold in frames beyond which output timecode is resynchronized to the input timecode.
-     * 
-     */
     @Import(name="syncThreshold")
     private @Nullable Output<Integer> syncThreshold;
 
-    /**
-     * @return Threshold in frames beyond which output timecode is resynchronized to the input timecode.
-     * 
-     */
     public Optional<Output<Integer>> syncThreshold() {
         return Optional.ofNullable(this.syncThreshold);
     }
@@ -72,44 +56,20 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
             $ = new ChannelEncoderSettingsTimecodeConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param source The source for the timecode that will be associated with the events outputs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source The source for the timecode that will be associated with the events outputs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param syncThreshold Threshold in frames beyond which output timecode is resynchronized to the input timecode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncThreshold(@Nullable Output<Integer> syncThreshold) {
             $.syncThreshold = syncThreshold;
             return this;
         }
 
-        /**
-         * @param syncThreshold Threshold in frames beyond which output timecode is resynchronized to the input timecode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncThreshold(Integer syncThreshold) {
             return syncThreshold(Output.of(syncThreshold));
         }

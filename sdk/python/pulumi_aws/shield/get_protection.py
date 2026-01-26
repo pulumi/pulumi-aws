@@ -51,17 +51,11 @@ class GetProtectionResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the protection.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="protectionArn")
     def protection_arn(self) -> _builtins.str:
-        """
-        ARN of the protection.
-        """
         return pulumi.get(self, "protection_arn")
 
     @_builtins.property
@@ -92,33 +86,7 @@ def get_protection(protection_id: Optional[_builtins.str] = None,
                    resource_arn: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionResult:
     """
-    Data source for managing an AWS Shield Protection.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.shield.get_protection(protection_id="abc123")
-    ```
-
-    ### By Resource ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.shield.get_protection(resource_arn="arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
-    ```
-
-
-    :param _builtins.str protection_id: Unique identifier for the protection.
-    :param _builtins.str resource_arn: ARN (Amazon Resource Name) of the resource being protected.
-           
-           > Exactly one of `protection_id` or `resource_arn` is required.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['protectionId'] = protection_id
@@ -136,33 +104,7 @@ def get_protection_output(protection_id: Optional[pulumi.Input[Optional[_builtin
                           resource_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionResult]:
     """
-    Data source for managing an AWS Shield Protection.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.shield.get_protection(protection_id="abc123")
-    ```
-
-    ### By Resource ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.shield.get_protection(resource_arn="arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
-    ```
-
-
-    :param _builtins.str protection_id: Unique identifier for the protection.
-    :param _builtins.str resource_arn: ARN (Amazon Resource Name) of the resource being protected.
-           
-           > Exactly one of `protection_id` or `resource_arn` is required.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['protectionId'] = protection_id

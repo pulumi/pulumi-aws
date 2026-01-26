@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Evidently.Outputs
     [OutputType]
     public sealed class LaunchMetricMonitor
     {
-        /// <summary>
-        /// A block that defines the metric. Detailed below.
-        /// </summary>
         public readonly Outputs.LaunchMetricMonitorMetricDefinition MetricDefinition;
 
         [OutputConstructor]

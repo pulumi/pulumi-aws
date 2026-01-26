@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomActionTypeSettings {
-    /**
-     * @return The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-     * 
-     */
     private @Nullable String entityUrlTemplate;
-    /**
-     * @return The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-     * 
-     */
     private @Nullable String executionUrlTemplate;
-    /**
-     * @return The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-     * 
-     */
     private @Nullable String revisionUrlTemplate;
-    /**
-     * @return The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-     * 
-     */
     private @Nullable String thirdPartyConfigurationUrl;
 
     private CustomActionTypeSettings() {}
-    /**
-     * @return The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-     * 
-     */
     public Optional<String> entityUrlTemplate() {
         return Optional.ofNullable(this.entityUrlTemplate);
     }
-    /**
-     * @return The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-     * 
-     */
     public Optional<String> executionUrlTemplate() {
         return Optional.ofNullable(this.executionUrlTemplate);
     }
-    /**
-     * @return The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-     * 
-     */
     public Optional<String> revisionUrlTemplate() {
         return Optional.ofNullable(this.revisionUrlTemplate);
     }
-    /**
-     * @return The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-     * 
-     */
     public Optional<String> thirdPartyConfigurationUrl() {
         return Optional.ofNullable(this.thirdPartyConfigurationUrl);
     }

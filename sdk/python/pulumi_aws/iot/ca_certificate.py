@@ -31,15 +31,6 @@ class CaCertificateArgs:
                  verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
-        :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
-        :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
-        :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['CaCertificateRegistrationConfigArgs'] registration_config: Information about the registration configuration. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
-               [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "allow_auto_registration", allow_auto_registration)
@@ -58,9 +49,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Boolean flag to indicate if the certificate should be active for device authentication.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -70,9 +58,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="allowAutoRegistration")
     def allow_auto_registration(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Boolean flag to indicate if the certificate should be active for device regisration.
-        """
         return pulumi.get(self, "allow_auto_registration")
 
     @allow_auto_registration.setter
@@ -82,9 +67,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="caCertificatePem")
     def ca_certificate_pem(self) -> pulumi.Input[_builtins.str]:
-        """
-        PEM encoded CA certificate.
-        """
         return pulumi.get(self, "ca_certificate_pem")
 
     @ca_certificate_pem.setter
@@ -94,9 +76,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        """
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
@@ -106,9 +85,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,9 +94,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
-        """
-        Information about the registration configuration. See below.
-        """
         return pulumi.get(self, "registration_config")
 
     @registration_config.setter
@@ -130,9 +103,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -142,10 +112,6 @@ class CaCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="verificationCertificatePem")
     def verification_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM encoded verification certificate containing the common name of a registration code. Review
-        [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
-        """
         return pulumi.get(self, "verification_certificate_pem")
 
     @verification_certificate_pem.setter
@@ -171,20 +137,6 @@ class _CaCertificateState:
                  verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CaCertificate resources.
-        :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the created CA certificate.
-        :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
-        :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        :param pulumi.Input[_builtins.int] customer_version: The customer version of the CA certificate.
-        :param pulumi.Input[_builtins.str] generation_id: The generation ID of the CA certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['CaCertificateRegistrationConfigArgs'] registration_config: Information about the registration configuration. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['CaCertificateValidityArgs']]] validities: When the CA certificate is valid.
-        :param pulumi.Input[_builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
-               [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -216,9 +168,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean flag to indicate if the certificate should be active for device authentication.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -228,9 +177,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="allowAutoRegistration")
     def allow_auto_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean flag to indicate if the certificate should be active for device regisration.
-        """
         return pulumi.get(self, "allow_auto_registration")
 
     @allow_auto_registration.setter
@@ -240,9 +186,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the created CA certificate.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -252,9 +195,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="caCertificatePem")
     def ca_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM encoded CA certificate.
-        """
         return pulumi.get(self, "ca_certificate_pem")
 
     @ca_certificate_pem.setter
@@ -264,9 +204,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        """
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
@@ -276,9 +213,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="customerVersion")
     def customer_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The customer version of the CA certificate.
-        """
         return pulumi.get(self, "customer_version")
 
     @customer_version.setter
@@ -288,9 +222,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="generationId")
     def generation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The generation ID of the CA certificate.
-        """
         return pulumi.get(self, "generation_id")
 
     @generation_id.setter
@@ -300,9 +231,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -312,9 +240,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
-        """
-        Information about the registration configuration. See below.
-        """
         return pulumi.get(self, "registration_config")
 
     @registration_config.setter
@@ -324,9 +249,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -336,9 +258,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -348,9 +267,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter
     def validities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateValidityArgs']]]]:
-        """
-        When the CA certificate is valid.
-        """
         return pulumi.get(self, "validities")
 
     @validities.setter
@@ -360,10 +276,6 @@ class _CaCertificateState:
     @_builtins.property
     @pulumi.getter(name="verificationCertificatePem")
     def verification_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM encoded verification certificate containing the common name of a registration code. Review
-        [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
-        """
         return pulumi.get(self, "verification_certificate_pem")
 
     @verification_certificate_pem.setter
@@ -387,64 +299,9 @@ class CaCertificate(pulumi.CustomResource):
                  verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates and manages an AWS IoT CA Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_tls as tls
-
-        ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
-        ca = tls.SelfSignedCert("ca",
-            private_key_pem=ca_private_key.private_key_pem,
-            subject=[{
-                "commonName": "example.com",
-                "organization": "ACME Examples, Inc",
-            }],
-            validity_period_hours=12,
-            allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
-            ],
-            is_ca_certificate=True)
-        verification_private_key = tls.PrivateKey("verification", algorithm="RSA")
-        example = aws.iot.get_registration_code()
-        verification = tls.CertRequest("verification",
-            private_key_pem=verification_private_key.private_key_pem,
-            subject=[{
-                "commonName": example.registration_code,
-            }])
-        verification_locally_signed_cert = tls.LocallySignedCert("verification",
-            cert_request_pem=verification.cert_request_pem,
-            ca_private_key_pem=ca_private_key.private_key_pem,
-            ca_cert_pem=ca.cert_pem,
-            validity_period_hours=12,
-            allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
-            ])
-        example_ca_certificate = aws.iot.CaCertificate("example",
-            active=True,
-            ca_certificate_pem=ca.cert_pem,
-            verification_certificate_pem=verification_locally_signed_cert.cert_pem,
-            allow_auto_registration=True)
-        ```
-
+        Create a CaCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
-        :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
-        :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
-               [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
         """
         ...
     @overload
@@ -453,53 +310,7 @@ class CaCertificate(pulumi.CustomResource):
                  args: CaCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages an AWS IoT CA Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_tls as tls
-
-        ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
-        ca = tls.SelfSignedCert("ca",
-            private_key_pem=ca_private_key.private_key_pem,
-            subject=[{
-                "commonName": "example.com",
-                "organization": "ACME Examples, Inc",
-            }],
-            validity_period_hours=12,
-            allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
-            ],
-            is_ca_certificate=True)
-        verification_private_key = tls.PrivateKey("verification", algorithm="RSA")
-        example = aws.iot.get_registration_code()
-        verification = tls.CertRequest("verification",
-            private_key_pem=verification_private_key.private_key_pem,
-            subject=[{
-                "commonName": example.registration_code,
-            }])
-        verification_locally_signed_cert = tls.LocallySignedCert("verification",
-            cert_request_pem=verification.cert_request_pem,
-            ca_private_key_pem=ca_private_key.private_key_pem,
-            ca_cert_pem=ca.cert_pem,
-            validity_period_hours=12,
-            allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
-            ])
-        example_ca_certificate = aws.iot.CaCertificate("example",
-            active=True,
-            ca_certificate_pem=ca.cert_pem,
-            verification_certificate_pem=verification_locally_signed_cert.cert_pem,
-            allow_auto_registration=True)
-        ```
-
+        Create a CaCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CaCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -583,20 +394,6 @@ class CaCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the created CA certificate.
-        :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
-        :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        :param pulumi.Input[_builtins.int] customer_version: The customer version of the CA certificate.
-        :param pulumi.Input[_builtins.str] generation_id: The generation ID of the CA certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CaCertificateValidityArgs', 'CaCertificateValidityArgsDict']]]] validities: When the CA certificate is valid.
-        :param pulumi.Input[_builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
-               [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -620,105 +417,65 @@ class CaCertificate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean flag to indicate if the certificate should be active for device authentication.
-        """
         return pulumi.get(self, "active")
 
     @_builtins.property
     @pulumi.getter(name="allowAutoRegistration")
     def allow_auto_registration(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean flag to indicate if the certificate should be active for device regisration.
-        """
         return pulumi.get(self, "allow_auto_registration")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the created CA certificate.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="caCertificatePem")
     def ca_certificate_pem(self) -> pulumi.Output[_builtins.str]:
-        """
-        PEM encoded CA certificate.
-        """
         return pulumi.get(self, "ca_certificate_pem")
 
     @_builtins.property
     @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        """
         return pulumi.get(self, "certificate_mode")
 
     @_builtins.property
     @pulumi.getter(name="customerVersion")
     def customer_version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The customer version of the CA certificate.
-        """
         return pulumi.get(self, "customer_version")
 
     @_builtins.property
     @pulumi.getter(name="generationId")
     def generation_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The generation ID of the CA certificate.
-        """
         return pulumi.get(self, "generation_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> pulumi.Output[Optional['outputs.CaCertificateRegistrationConfig']]:
-        """
-        Information about the registration configuration. See below.
-        """
         return pulumi.get(self, "registration_config")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def validities(self) -> pulumi.Output[Sequence['outputs.CaCertificateValidity']]:
-        """
-        When the CA certificate is valid.
-        """
         return pulumi.get(self, "validities")
 
     @_builtins.property
     @pulumi.getter(name="verificationCertificatePem")
     def verification_certificate_pem(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        PEM encoded verification certificate containing the common name of a registration code. Review
-        [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
-        """
         return pulumi.get(self, "verification_certificate_pem")
 

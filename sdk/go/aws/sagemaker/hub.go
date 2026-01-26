@@ -12,65 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI Hub resource.
-//
-// ## Example Usage
-//
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewHub(ctx, "example", &sagemaker.HubArgs{
-//				HubName:        pulumi.String("example"),
-//				HubDescription: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
-// ```
 type Hub struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the hub.
-	HubDescription pulumi.StringOutput `pulumi:"hubDescription"`
-	// The display name of the hub.
-	HubDisplayName pulumi.StringPtrOutput `pulumi:"hubDisplayName"`
-	// The name of the hub.
-	HubName pulumi.StringOutput `pulumi:"hubName"`
-	// The searchable keywords for the hub.
-	HubSearchKeywords pulumi.StringArrayOutput `pulumi:"hubSearchKeywords"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-	S3StorageConfig HubS3StorageConfigPtrOutput `pulumi:"s3StorageConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn               pulumi.StringOutput         `pulumi:"arn"`
+	HubDescription    pulumi.StringOutput         `pulumi:"hubDescription"`
+	HubDisplayName    pulumi.StringPtrOutput      `pulumi:"hubDisplayName"`
+	HubName           pulumi.StringOutput         `pulumi:"hubName"`
+	HubSearchKeywords pulumi.StringArrayOutput    `pulumi:"hubSearchKeywords"`
+	Region            pulumi.StringOutput         `pulumi:"region"`
+	S3StorageConfig   HubS3StorageConfigPtrOutput `pulumi:"s3StorageConfig"`
+	Tags              pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput      `pulumi:"tagsAll"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -109,45 +62,27 @@ func GetHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Hub resources.
 type hubState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-	Arn *string `pulumi:"arn"`
-	// A description of the hub.
-	HubDescription *string `pulumi:"hubDescription"`
-	// The display name of the hub.
-	HubDisplayName *string `pulumi:"hubDisplayName"`
-	// The name of the hub.
-	HubName *string `pulumi:"hubName"`
-	// The searchable keywords for the hub.
-	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn               *string             `pulumi:"arn"`
+	HubDescription    *string             `pulumi:"hubDescription"`
+	HubDisplayName    *string             `pulumi:"hubDisplayName"`
+	HubName           *string             `pulumi:"hubName"`
+	HubSearchKeywords []string            `pulumi:"hubSearchKeywords"`
+	Region            *string             `pulumi:"region"`
+	S3StorageConfig   *HubS3StorageConfig `pulumi:"s3StorageConfig"`
+	Tags              map[string]string   `pulumi:"tags"`
+	TagsAll           map[string]string   `pulumi:"tagsAll"`
 }
 
 type HubState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-	Arn pulumi.StringPtrInput
-	// A description of the hub.
-	HubDescription pulumi.StringPtrInput
-	// The display name of the hub.
-	HubDisplayName pulumi.StringPtrInput
-	// The name of the hub.
-	HubName pulumi.StringPtrInput
-	// The searchable keywords for the hub.
+	Arn               pulumi.StringPtrInput
+	HubDescription    pulumi.StringPtrInput
+	HubDisplayName    pulumi.StringPtrInput
+	HubName           pulumi.StringPtrInput
 	HubSearchKeywords pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-	S3StorageConfig HubS3StorageConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region            pulumi.StringPtrInput
+	S3StorageConfig   HubS3StorageConfigPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (HubState) ElementType() reflect.Type {
@@ -155,38 +90,24 @@ func (HubState) ElementType() reflect.Type {
 }
 
 type hubArgs struct {
-	// A description of the hub.
-	HubDescription string `pulumi:"hubDescription"`
-	// The display name of the hub.
-	HubDisplayName *string `pulumi:"hubDisplayName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The searchable keywords for the hub.
-	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	HubDescription    string              `pulumi:"hubDescription"`
+	HubDisplayName    *string             `pulumi:"hubDisplayName"`
+	HubName           string              `pulumi:"hubName"`
+	HubSearchKeywords []string            `pulumi:"hubSearchKeywords"`
+	Region            *string             `pulumi:"region"`
+	S3StorageConfig   *HubS3StorageConfig `pulumi:"s3StorageConfig"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Hub resource.
 type HubArgs struct {
-	// A description of the hub.
-	HubDescription pulumi.StringInput
-	// The display name of the hub.
-	HubDisplayName pulumi.StringPtrInput
-	// The name of the hub.
-	HubName pulumi.StringInput
-	// The searchable keywords for the hub.
+	HubDescription    pulumi.StringInput
+	HubDisplayName    pulumi.StringPtrInput
+	HubName           pulumi.StringInput
 	HubSearchKeywords pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-	S3StorageConfig HubS3StorageConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region            pulumi.StringPtrInput
+	S3StorageConfig   HubS3StorageConfigPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (HubArgs) ElementType() reflect.Type {
@@ -276,47 +197,38 @@ func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
 func (o HubOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the hub.
 func (o HubOutput) HubDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.HubDescription }).(pulumi.StringOutput)
 }
 
-// The display name of the hub.
 func (o HubOutput) HubDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringPtrOutput { return v.HubDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the hub.
 func (o HubOutput) HubName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.HubName }).(pulumi.StringOutput)
 }
 
-// The searchable keywords for the hub.
 func (o HubOutput) HubSearchKeywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringArrayOutput { return v.HubSearchKeywords }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HubOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 func (o HubOutput) S3StorageConfig() HubS3StorageConfigPtrOutput {
 	return o.ApplyT(func(v *Hub) HubS3StorageConfigPtrOutput { return v.S3StorageConfig }).(HubS3StorageConfigPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HubOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HubOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -14,47 +14,23 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InputSourceArgs Empty = new InputSourceArgs();
 
-    /**
-     * The key used to extract the password from EC2 Parameter store.
-     * 
-     */
     @Import(name="passwordParam", required=true)
     private Output<String> passwordParam;
 
-    /**
-     * @return The key used to extract the password from EC2 Parameter store.
-     * 
-     */
     public Output<String> passwordParam() {
         return this.passwordParam;
     }
 
-    /**
-     * The URL where the stream is pulled from.
-     * 
-     */
     @Import(name="url", required=true)
     private Output<String> url;
 
-    /**
-     * @return The URL where the stream is pulled from.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }
 
-    /**
-     * The username for the input source.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return The username for the input source.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -85,65 +61,29 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new InputSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passwordParam The key used to extract the password from EC2 Parameter store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordParam(Output<String> passwordParam) {
             $.passwordParam = passwordParam;
             return this;
         }
 
-        /**
-         * @param passwordParam The key used to extract the password from EC2 Parameter store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordParam(String passwordParam) {
             return passwordParam(Output.of(passwordParam));
         }
 
-        /**
-         * @param url The URL where the stream is pulled from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url The URL where the stream is pulled from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }
 
-        /**
-         * @param username The username for the input source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username The username for the input source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

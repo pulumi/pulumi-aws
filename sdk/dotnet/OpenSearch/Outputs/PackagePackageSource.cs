@@ -13,13 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class PackagePackageSource
     {
-        /// <summary>
-        /// The name of the Amazon S3 bucket containing the package.
-        /// </summary>
         public readonly string S3BucketName;
-        /// <summary>
-        /// Key (file name) of the package.
-        /// </summary>
         public readonly string S3Key;
 
         [OutputConstructor]

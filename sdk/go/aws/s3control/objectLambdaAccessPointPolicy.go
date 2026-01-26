@@ -12,112 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Object Lambda Access Point resource policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleObjectLambdaAccessPoint, err := s3control.NewObjectLambdaAccessPoint(ctx, "example", &s3control.ObjectLambdaAccessPointArgs{
-//				Name: pulumi.String("example"),
-//				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
-//					SupportingAccessPoint: exampleAccessPoint.Arn,
-//					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
-//						&s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{
-//							Actions: pulumi.StringArray{
-//								pulumi.String("GetObject"),
-//							},
-//							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
-//								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
-//									FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewObjectLambdaAccessPointPolicy(ctx, "example", &s3control.ObjectLambdaAccessPointPolicyArgs{
-//				Name: exampleObjectLambdaAccessPoint.Name,
-//				Policy: exampleObjectLambdaAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2008-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": "s3-object-lambda:GetObject",
-//								"Principal": map[string]interface{}{
-//									"AWS": current.AccountId,
-//								},
-//								"Resource": arn,
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
-// ```
 type ObjectLambdaAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Indicates whether this access point currently has a policy that allows public access.
-	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
-	// The name of the Object Lambda Access Point.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Object Lambda Access Point resource policy document.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AccountId             pulumi.StringOutput `pulumi:"accountId"`
+	HasPublicAccessPolicy pulumi.BoolOutput   `pulumi:"hasPublicAccessPolicy"`
+	Name                  pulumi.StringOutput `pulumi:"name"`
+	Policy                pulumi.StringOutput `pulumi:"policy"`
+	Region                pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewObjectLambdaAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -153,29 +55,19 @@ func GetObjectLambdaAccessPointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectLambdaAccessPointPolicy resources.
 type objectLambdaAccessPointPolicyState struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId *string `pulumi:"accountId"`
-	// Indicates whether this access point currently has a policy that allows public access.
-	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
-	// The name of the Object Lambda Access Point.
-	Name *string `pulumi:"name"`
-	// The Object Lambda Access Point resource policy document.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccountId             *string `pulumi:"accountId"`
+	HasPublicAccessPolicy *bool   `pulumi:"hasPublicAccessPolicy"`
+	Name                  *string `pulumi:"name"`
+	Policy                *string `pulumi:"policy"`
+	Region                *string `pulumi:"region"`
 }
 
 type ObjectLambdaAccessPointPolicyState struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringPtrInput
-	// Indicates whether this access point currently has a policy that allows public access.
+	AccountId             pulumi.StringPtrInput
 	HasPublicAccessPolicy pulumi.BoolPtrInput
-	// The name of the Object Lambda Access Point.
-	Name pulumi.StringPtrInput
-	// The Object Lambda Access Point resource policy document.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	Policy                pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointPolicyState) ElementType() reflect.Type {
@@ -183,26 +75,18 @@ func (ObjectLambdaAccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type objectLambdaAccessPointPolicyArgs struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The name of the Object Lambda Access Point.
-	Name *string `pulumi:"name"`
-	// The Object Lambda Access Point resource policy document.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name      *string `pulumi:"name"`
+	Policy    string  `pulumi:"policy"`
+	Region    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ObjectLambdaAccessPointPolicy resource.
 type ObjectLambdaAccessPointPolicyArgs struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The name of the Object Lambda Access Point.
-	Name pulumi.StringPtrInput
-	// The Object Lambda Access Point resource policy document.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name      pulumi.StringPtrInput
+	Policy    pulumi.StringInput
+	Region    pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointPolicyArgs) ElementType() reflect.Type {
@@ -292,27 +176,22 @@ func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutp
 	return o
 }
 
-// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o ObjectLambdaAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this access point currently has a policy that allows public access.
 func (o ObjectLambdaAccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.BoolOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolOutput)
 }
 
-// The name of the Object Lambda Access Point.
 func (o ObjectLambdaAccessPointPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Object Lambda Access Point resource policy document.
 func (o ObjectLambdaAccessPointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ObjectLambdaAccessPointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

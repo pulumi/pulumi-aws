@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping {
-    /**
-     * @return Type for the dimension. Valid value: `VARCHAR`.
-     * 
-     */
     private String dimensionValueType;
-    /**
-     * @return Column name from query result.
-     * 
-     */
     private String name;
 
     private ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping() {}
-    /**
-     * @return Type for the dimension. Valid value: `VARCHAR`.
-     * 
-     */
     public String dimensionValueType() {
         return this.dimensionValueType;
     }
-    /**
-     * @return Column name from query result.
-     * 
-     */
     public String name() {
         return this.name;
     }

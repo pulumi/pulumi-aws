@@ -359,13 +359,7 @@ class EnvironmentLastDeploymentFailureReasonArgs:
 if not MYPY:
     class EnvironmentProfileUserParameterArgsDict(TypedDict):
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the environment profile parameter.
-        """
         value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of the environment profile parameter.
-        """
 elif False:
     EnvironmentProfileUserParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -374,10 +368,6 @@ class EnvironmentProfileUserParameterArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the environment profile parameter.
-        :param pulumi.Input[_builtins.str] value: Value of the environment profile parameter.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -386,9 +376,6 @@ class EnvironmentProfileUserParameterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the environment profile parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -398,9 +385,6 @@ class EnvironmentProfileUserParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value of the environment profile parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -411,15 +395,9 @@ class EnvironmentProfileUserParameterArgs:
 if not MYPY:
     class EnvironmentProvisionedResourceArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment.
-        """
         provider: pulumi.Input[_builtins.str]
         type: pulumi.Input[_builtins.str]
         value: pulumi.Input[_builtins.str]
-        """
-        The value of an environment profile parameter.
-        """
 elif False:
     EnvironmentProvisionedResourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -430,10 +408,6 @@ class EnvironmentProvisionedResourceArgs:
                  provider: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] value: The value of an environment profile parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "type", type)
@@ -442,9 +416,6 @@ class EnvironmentProvisionedResourceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -472,9 +443,6 @@ class EnvironmentProvisionedResourceArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of an environment profile parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -557,13 +525,7 @@ class EnvironmentTimeoutsArgs:
 if not MYPY:
     class EnvironmentUserParameterArgsDict(TypedDict):
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an environment profile parameter.
-        """
         value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of an environment profile parameter.
-        """
 elif False:
     EnvironmentUserParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -572,10 +534,6 @@ class EnvironmentUserParameterArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of an environment profile parameter.
-        :param pulumi.Input[_builtins.str] value: The value of an environment profile parameter.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -584,9 +542,6 @@ class EnvironmentUserParameterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of an environment profile parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -596,9 +551,6 @@ class EnvironmentUserParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value of an environment profile parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -609,13 +561,7 @@ class EnvironmentUserParameterArgs:
 if not MYPY:
     class FormTypeImportArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of the form type. Must be the name of the structure in smithy document.
-        """
         revision: pulumi.Input[_builtins.str]
-        """
-        Revision of the Form Type.
-        """
 elif False:
     FormTypeImportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -624,19 +570,12 @@ class FormTypeImportArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  revision: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
-        :param pulumi.Input[_builtins.str] revision: Revision of the Form Type.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "revision", revision)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the form type. Must be the name of the structure in smithy document.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -646,9 +585,6 @@ class FormTypeImportArgs:
     @_builtins.property
     @pulumi.getter
     def revision(self) -> pulumi.Input[_builtins.str]:
-        """
-        Revision of the Form Type.
-        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -659,11 +595,6 @@ class FormTypeImportArgs:
 if not MYPY:
     class FormTypeModelArgsDict(TypedDict):
         smithy: pulumi.Input[_builtins.str]
-        """
-        Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-
-        The following arguments are optional:
-        """
 elif False:
     FormTypeModelArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -671,21 +602,11 @@ elif False:
 class FormTypeModelArgs:
     def __init__(__self__, *,
                  smithy: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] smithy: Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "smithy", smithy)
 
     @_builtins.property
     @pulumi.getter
     def smithy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "smithy")
 
     @smithy.setter
@@ -728,9 +649,6 @@ class FormTypeTimeoutsArgs:
 if not MYPY:
     class GlossaryTermTermRelationsArgsDict(TypedDict):
         classifies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        String array that calssifies the term relations.
-        """
         is_as: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 elif False:
     GlossaryTermTermRelationsArgsDict: TypeAlias = Mapping[str, Any]
@@ -740,9 +658,6 @@ class GlossaryTermTermRelationsArgs:
     def __init__(__self__, *,
                  classifies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_as: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifies: String array that calssifies the term relations.
-        """
         if classifies is not None:
             pulumi.set(__self__, "classifies", classifies)
         if is_as is not None:
@@ -751,9 +666,6 @@ class GlossaryTermTermRelationsArgs:
     @_builtins.property
     @pulumi.getter
     def classifies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        String array that calssifies the term relations.
-        """
         return pulumi.get(self, "classifies")
 
     @classifies.setter

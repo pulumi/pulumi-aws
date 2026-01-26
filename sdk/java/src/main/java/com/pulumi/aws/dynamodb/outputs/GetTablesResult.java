@@ -16,10 +16,6 @@ public final class GetTablesResult {
      * 
      */
     private String id;
-    /**
-     * @return A list of all the DynamoDB table names found.
-     * 
-     */
     private List<String> names;
     private String region;
 
@@ -31,10 +27,6 @@ public final class GetTablesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return A list of all the DynamoDB table names found.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

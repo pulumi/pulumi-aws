@@ -55,9 +55,6 @@ class GetQuicksightGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -68,9 +65,6 @@ class GetQuicksightGroupResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The group description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -94,9 +88,6 @@ class GetQuicksightGroupResult:
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of the group.
-        """
         return pulumi.get(self, "principal_id")
 
     @_builtins.property
@@ -127,27 +118,7 @@ def get_quicksight_group(aws_account_id: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuicksightGroupResult:
     """
-    This data source can be used to fetch information about a specific
-    QuickSight group. By using this data source, you can reference QuickSight group
-    properties without having to hard code ARNs or unique IDs as input.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_quicksight_group(group_name="example")
-    ```
-
-
-    :param _builtins.str group_name: The name of the group that you want to match.
-           
-           The following arguments are optional:
-    :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -172,27 +143,7 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[_
                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightGroupResult]:
     """
-    This data source can be used to fetch information about a specific
-    QuickSight group. By using this data source, you can reference QuickSight group
-    properties without having to hard code ARNs or unique IDs as input.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_quicksight_group(group_name="example")
-    ```
-
-
-    :param _builtins.str group_name: The name of the group that you want to match.
-           
-           The following arguments are optional:
-    :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id

@@ -15,17 +15,9 @@ public final class DashboardDashboardPublishOptionsSheetControlsOptionArgs exten
 
     public static final DashboardDashboardPublishOptionsSheetControlsOptionArgs Empty = new DashboardDashboardPublishOptionsSheetControlsOptionArgs();
 
-    /**
-     * Visibility state. Possibles values: EXPANDED, COLLAPSED.
-     * 
-     */
     @Import(name="visibilityState")
     private @Nullable Output<String> visibilityState;
 
-    /**
-     * @return Visibility state. Possibles values: EXPANDED, COLLAPSED.
-     * 
-     */
     public Optional<Output<String>> visibilityState() {
         return Optional.ofNullable(this.visibilityState);
     }
@@ -54,23 +46,11 @@ public final class DashboardDashboardPublishOptionsSheetControlsOptionArgs exten
             $ = new DashboardDashboardPublishOptionsSheetControlsOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param visibilityState Visibility state. Possibles values: EXPANDED, COLLAPSED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibilityState(@Nullable Output<String> visibilityState) {
             $.visibilityState = visibilityState;
             return this;
         }
 
-        /**
-         * @param visibilityState Visibility state. Possibles values: EXPANDED, COLLAPSED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibilityState(String visibilityState) {
             return visibilityState(Output.of(visibilityState));
         }

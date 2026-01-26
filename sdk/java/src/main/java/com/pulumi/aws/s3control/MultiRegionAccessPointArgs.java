@@ -17,47 +17,23 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
 
     public static final MultiRegionAccessPointArgs Empty = new MultiRegionAccessPointArgs();
 
-    /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-     * 
-     */
     @Import(name="details", required=true)
     private Output<MultiRegionAccessPointDetailsArgs> details;
 
-    /**
-     * @return A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-     * 
-     */
     public Output<MultiRegionAccessPointDetailsArgs> details() {
         return this.details;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,65 +64,29 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
             $ = new MultiRegionAccessPointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param details A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-         * 
-         * @return builder
-         * 
-         */
         public Builder details(Output<MultiRegionAccessPointDetailsArgs> details) {
             $.details = details;
             return this;
         }
 
-        /**
-         * @param details A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-         * 
-         * @return builder
-         * 
-         */
         public Builder details(MultiRegionAccessPointDetailsArgs details) {
             return details(Output.of(details));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

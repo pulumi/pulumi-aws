@@ -9,74 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amp
 {
-    /// <summary>
-    /// Manages an Amazon Managed Service for Prometheus (AMP) Query Logging Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amp.Workspace("example", new()
-    ///     {
-    ///         Alias = "example",
-    ///     });
-    /// 
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
-    ///     {
-    ///         Name = "/aws/prometheus/query-logs/example",
-    ///     });
-    /// 
-    ///     var exampleQueryLoggingConfiguration = new Aws.Amp.QueryLoggingConfiguration("example", new()
-    ///     {
-    ///         WorkspaceId = example.Id,
-    ///         Destinations = new[]
-    ///         {
-    ///             new Aws.Amp.Inputs.QueryLoggingConfigurationDestinationArgs
-    ///             {
-    ///                 CloudwatchLogs = new Aws.Amp.Inputs.QueryLoggingConfigurationDestinationCloudwatchLogsArgs
-    ///                 {
-    ///                     LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
-    ///                 },
-    ///                 Filters = new Aws.Amp.Inputs.QueryLoggingConfigurationDestinationFiltersArgs
-    ///                 {
-    ///                     QspThreshold = 1000,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration")]
     public partial class QueryLoggingConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block for the logging destinations. See `Destinations`.
-        /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.QueryLoggingConfigurationDestination>> Destinations { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.QueryLoggingConfigurationTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the AMP workspace for which to configure query logging.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -128,30 +72,18 @@ namespace Pulumi.Aws.Amp
     {
         [Input("destinations")]
         private InputList<Inputs.QueryLoggingConfigurationDestinationArgs>? _destinations;
-
-        /// <summary>
-        /// Configuration block for the logging destinations. See `Destinations`.
-        /// </summary>
         public InputList<Inputs.QueryLoggingConfigurationDestinationArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.QueryLoggingConfigurationDestinationArgs>());
             set => _destinations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.QueryLoggingConfigurationTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the AMP workspace for which to configure query logging.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -165,30 +97,18 @@ namespace Pulumi.Aws.Amp
     {
         [Input("destinations")]
         private InputList<Inputs.QueryLoggingConfigurationDestinationGetArgs>? _destinations;
-
-        /// <summary>
-        /// Configuration block for the logging destinations. See `Destinations`.
-        /// </summary>
         public InputList<Inputs.QueryLoggingConfigurationDestinationGetArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.QueryLoggingConfigurationDestinationGetArgs>());
             set => _destinations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.QueryLoggingConfigurationTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the AMP workspace for which to configure query logging.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

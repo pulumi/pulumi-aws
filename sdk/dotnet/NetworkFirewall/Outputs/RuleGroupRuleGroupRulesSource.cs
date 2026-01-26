@@ -13,21 +13,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRulesSource
     {
-        /// <summary>
-        /// A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleGroupRulesSourceRulesSourceList? RulesSourceList;
-        /// <summary>
-        /// Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-        /// </summary>
         public readonly string? RulesString;
-        /// <summary>
-        /// Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatefulRule> StatefulRules;
-        /// <summary>
-        /// A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions? StatelessRulesAndCustomActions;
 
         [OutputConstructor]

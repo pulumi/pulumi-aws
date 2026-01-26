@@ -14,17 +14,9 @@ public final class LocationFsxOntapFileSystemProtocolNfsArgs extends com.pulumi.
 
     public static final LocationFsxOntapFileSystemProtocolNfsArgs Empty = new LocationFsxOntapFileSystemProtocolNfsArgs();
 
-    /**
-     * Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-     * 
-     */
     @Import(name="mountOptions", required=true)
     private Output<LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs> mountOptions;
 
-    /**
-     * @return Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-     * 
-     */
     public Output<LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs> mountOptions() {
         return this.mountOptions;
     }
@@ -53,23 +45,11 @@ public final class LocationFsxOntapFileSystemProtocolNfsArgs extends com.pulumi.
             $ = new LocationFsxOntapFileSystemProtocolNfsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mountOptions Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(Output<LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs> mountOptions) {
             $.mountOptions = mountOptions;
             return this;
         }
 
-        /**
-         * @param mountOptions Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs mountOptions) {
             return mountOptions(Output.of(mountOptions));
         }

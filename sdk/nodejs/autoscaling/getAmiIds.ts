@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * The Autoscaling Groups data source allows access to the list of AWS
- * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const groups = aws.autoscaling.getAmiIds({
- *     filters: [
- *         {
- *             name: "tag:Team",
- *             values: ["Pets"],
- *         },
- *         {
- *             name: "tag-key",
- *             values: ["Environment"],
- *         },
- *     ],
- * });
- * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
- *     groupNames: groups.then(groups => groups.names),
- *     notifications: [
- *         aws.autoscaling.NotificationType.InstanceLaunch,
- *         aws.autoscaling.NotificationType.InstanceTerminate,
- *         aws.autoscaling.NotificationType.InstanceLaunchError,
- *         aws.autoscaling.NotificationType.InstanceTerminateError,
- *     ],
- *     topicArn: "TOPIC ARN",
- * });
- * ```
- */
 export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,17 +21,8 @@ export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getAmiIds.
  */
 export interface GetAmiIdsArgs {
-    /**
-     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-     */
     filters?: inputs.autoscaling.GetAmiIdsFilter[];
-    /**
-     * List of autoscaling group names
-     */
     names?: string[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -73,55 +30,15 @@ export interface GetAmiIdsArgs {
  * A collection of values returned by getAmiIds.
  */
 export interface GetAmiIdsResult {
-    /**
-     * List of the Autoscaling Groups Arns in the current region.
-     */
     readonly arns: string[];
     readonly filters?: outputs.autoscaling.GetAmiIdsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of the Autoscaling Groups in the current region.
-     */
     readonly names: string[];
     readonly region: string;
 }
-/**
- * The Autoscaling Groups data source allows access to the list of AWS
- * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const groups = aws.autoscaling.getAmiIds({
- *     filters: [
- *         {
- *             name: "tag:Team",
- *             values: ["Pets"],
- *         },
- *         {
- *             name: "tag-key",
- *             values: ["Environment"],
- *         },
- *     ],
- * });
- * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
- *     groupNames: groups.then(groups => groups.names),
- *     notifications: [
- *         aws.autoscaling.NotificationType.InstanceLaunch,
- *         aws.autoscaling.NotificationType.InstanceTerminate,
- *         aws.autoscaling.NotificationType.InstanceLaunchError,
- *         aws.autoscaling.NotificationType.InstanceTerminateError,
- *     ],
- *     topicArn: "TOPIC ARN",
- * });
- * ```
- */
 export function getAmiIdsOutput(args?: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAmiIdsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -136,16 +53,7 @@ export function getAmiIdsOutput(args?: GetAmiIdsOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getAmiIds.
  */
 export interface GetAmiIdsOutputArgs {
-    /**
-     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[]>;
-    /**
-     * List of autoscaling group names
-     */
     names?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -17,322 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Lambda Code Signing Config. Use this resource to define allowed signing profiles and code-signing validation policies for Lambda functions to ensure code integrity and authenticity.
- * 
- * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.signer.SigningProfile;
- * import com.pulumi.aws.signer.SigningProfileArgs;
- * import com.pulumi.aws.lambda.CodeSigningConfig;
- * import com.pulumi.aws.lambda.CodeSigningConfigArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigAllowedPublishersArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigPoliciesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create signing profiles for different environments
- *         var prod = new SigningProfile("prod", SigningProfileArgs.builder()
- *             .platformId("AWSLambda-SHA384-ECDSA")
- *             .namePrefix("prod_lambda_")
- *             .tags(Map.of("Environment", "production"))
- *             .build());
- * 
- *         var dev = new SigningProfile("dev", SigningProfileArgs.builder()
- *             .platformId("AWSLambda-SHA384-ECDSA")
- *             .namePrefix("dev_lambda_")
- *             .tags(Map.of("Environment", "development"))
- *             .build());
- * 
- *         // Code signing configuration with enforcement
- *         var example = new CodeSigningConfig("example", CodeSigningConfigArgs.builder()
- *             .description("Code signing configuration for Lambda functions")
- *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
- *                 .signingProfileVersionArns(                
- *                     prod.versionArn(),
- *                     dev.versionArn())
- *                 .build())
- *             .policies(CodeSigningConfigPoliciesArgs.builder()
- *                 .untrustedArtifactOnDeployment("Enforce")
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Environment", "production"),
- *                 Map.entry("Purpose", "code-signing")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Warning Only Configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.CodeSigningConfig;
- * import com.pulumi.aws.lambda.CodeSigningConfigArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigAllowedPublishersArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigPoliciesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CodeSigningConfig("example", CodeSigningConfigArgs.builder()
- *             .description("Development code signing configuration")
- *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
- *                 .signingProfileVersionArns(dev.versionArn())
- *                 .build())
- *             .policies(CodeSigningConfigPoliciesArgs.builder()
- *                 .untrustedArtifactOnDeployment("Warn")
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Environment", "development"),
- *                 Map.entry("Purpose", "code-signing")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Multiple Environment Configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.CodeSigningConfig;
- * import com.pulumi.aws.lambda.CodeSigningConfigArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigAllowedPublishersArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigPoliciesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Production signing configuration
- *         var prod = new CodeSigningConfig("prod", CodeSigningConfigArgs.builder()
- *             .description("Production code signing configuration with strict enforcement")
- *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
- *                 .signingProfileVersionArns(prodAwsSignerSigningProfile.versionArn())
- *                 .build())
- *             .policies(CodeSigningConfigPoliciesArgs.builder()
- *                 .untrustedArtifactOnDeployment("Enforce")
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Environment", "production"),
- *                 Map.entry("Security", "strict")
- *             ))
- *             .build());
- * 
- *         // Development signing configuration
- *         var dev = new CodeSigningConfig("dev", CodeSigningConfigArgs.builder()
- *             .description("Development code signing configuration with warnings")
- *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
- *                 .signingProfileVersionArns(                
- *                     devAwsSignerSigningProfile.versionArn(),
- *                     test.versionArn())
- *                 .build())
- *             .policies(CodeSigningConfigPoliciesArgs.builder()
- *                 .untrustedArtifactOnDeployment("Warn")
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Environment", "development"),
- *                 Map.entry("Security", "flexible")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * For backwards compatibility, the following legacy `pulumi import` command is also supported:
- * 
- * ```sh
- * $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/codeSigningConfig:CodeSigningConfig")
 public class CodeSigningConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="allowedPublishers", refs={CodeSigningConfigAllowedPublishers.class}, tree="[0]")
     private Output<CodeSigningConfigAllowedPublishers> allowedPublishers;
 
-    /**
-     * @return Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<CodeSigningConfigAllowedPublishers> allowedPublishers() {
         return this.allowedPublishers;
     }
-    /**
-     * ARN of the code signing configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the code signing configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Unique identifier for the code signing configuration.
-     * 
-     */
     @Export(name="configId", refs={String.class}, tree="[0]")
     private Output<String> configId;
 
-    /**
-     * @return Unique identifier for the code signing configuration.
-     * 
-     */
     public Output<String> configId() {
         return this.configId;
     }
-    /**
-     * Descriptive name for this code signing configuration.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Descriptive name for this code signing configuration.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Date and time that the code signing configuration was last modified.
-     * 
-     */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
-    /**
-     * @return Date and time that the code signing configuration was last modified.
-     * 
-     */
     public Output<String> lastModified() {
         return this.lastModified;
     }
-    /**
-     * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-     * 
-     */
     @Export(name="policies", refs={CodeSigningConfigPolicies.class}, tree="[0]")
     private Output<CodeSigningConfigPolicies> policies;
 
-    /**
-     * @return Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-     * 
-     */
     public Output<CodeSigningConfigPolicies> policies() {
         return this.policies;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

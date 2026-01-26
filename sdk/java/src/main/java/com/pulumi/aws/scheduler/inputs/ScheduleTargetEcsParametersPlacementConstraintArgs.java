@@ -16,32 +16,16 @@ public final class ScheduleTargetEcsParametersPlacementConstraintArgs extends co
 
     public static final ScheduleTargetEcsParametersPlacementConstraintArgs Empty = new ScheduleTargetEcsParametersPlacementConstraintArgs();
 
-    /**
-     * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
-    /**
-     * @return A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
-    /**
-     * The type of constraint. One of: `distinctInstance`, `memberOf`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of constraint. One of: `distinctInstance`, `memberOf`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,44 +55,20 @@ public final class ScheduleTargetEcsParametersPlacementConstraintArgs extends co
             $ = new ScheduleTargetEcsParametersPlacementConstraintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expression A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param type The type of constraint. One of: `distinctInstance`, `memberOf`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of constraint. One of: `distinctInstance`, `memberOf`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

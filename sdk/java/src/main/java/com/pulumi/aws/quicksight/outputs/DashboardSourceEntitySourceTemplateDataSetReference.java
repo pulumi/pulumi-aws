@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardSourceEntitySourceTemplateDataSetReference {
-    /**
-     * @return Dataset Amazon Resource Name (ARN).
-     * 
-     */
     private String dataSetArn;
-    /**
-     * @return Dataset placeholder.
-     * 
-     */
     private String dataSetPlaceholder;
 
     private DashboardSourceEntitySourceTemplateDataSetReference() {}
-    /**
-     * @return Dataset Amazon Resource Name (ARN).
-     * 
-     */
     public String dataSetArn() {
         return this.dataSetArn;
     }
-    /**
-     * @return Dataset placeholder.
-     * 
-     */
     public String dataSetPlaceholder() {
         return this.dataSetPlaceholder;
     }

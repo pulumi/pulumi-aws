@@ -11,93 +11,12 @@ namespace Pulumi.Aws
 {
     public static class GetServicePrincipal
     {
-        /// <summary>
-        /// Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetServicePrincipal.Invoke(new()
-        ///     {
-        ///         ServiceName = "s3",
-        ///     });
-        /// 
-        ///     var test = Aws.GetServicePrincipal.Invoke(new()
-        ///     {
-        ///         ServiceName = "s3",
-        ///         Region = "us-iso-east-1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServicePrincipalResult> InvokeAsync(GetServicePrincipalArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServicePrincipalResult>("aws:index/getServicePrincipal:getServicePrincipal", args ?? new GetServicePrincipalArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetServicePrincipal.Invoke(new()
-        ///     {
-        ///         ServiceName = "s3",
-        ///     });
-        /// 
-        ///     var test = Aws.GetServicePrincipal.Invoke(new()
-        ///     {
-        ///         ServiceName = "s3",
-        ///         Region = "us-iso-east-1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServicePrincipalResult> Invoke(GetServicePrincipalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServicePrincipalResult>("aws:index/getServicePrincipal:getServicePrincipal", args ?? new GetServicePrincipalInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetServicePrincipal.Invoke(new()
-        ///     {
-        ///         ServiceName = "s3",
-        ///     });
-        /// 
-        ///     var test = Aws.GetServicePrincipal.Invoke(new()
-        ///     {
-        ///         ServiceName = "s3",
-        ///         Region = "us-iso-east-1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServicePrincipalResult> Invoke(GetServicePrincipalInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServicePrincipalResult>("aws:index/getServicePrincipal:getServicePrincipal", args ?? new GetServicePrincipalInvokeArgs(), options.WithDefaults());
     }
@@ -105,15 +24,9 @@ namespace Pulumi.Aws
 
     public sealed class GetServicePrincipalArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Name of the service you want to generate a Service Principal Name for.
-        /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
 
@@ -125,15 +38,9 @@ namespace Pulumi.Aws
 
     public sealed class GetServicePrincipalInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the service you want to generate a Service Principal Name for.
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
@@ -147,19 +54,10 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetServicePrincipalResult
     {
-        /// <summary>
-        /// Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
         public readonly string ServiceName;
-        /// <summary>
-        /// Suffix of the SPN (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-        /// </summary>
         public readonly string Suffix;
 
         [OutputConstructor]

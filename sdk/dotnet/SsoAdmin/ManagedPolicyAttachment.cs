@@ -9,132 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
-    /// 
-    /// &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///     });
-    /// 
-    ///     var exampleManagedPolicyAttachment = new Aws.SsoAdmin.ManagedPolicyAttachment("example", new()
-    ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         ManagedPolicyArn = "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-    ///         PermissionSetArn = examplePermissionSet.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Account Assignment
-    /// 
-    /// &gt; Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `DependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///     });
-    /// 
-    ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()
-    ///     {
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-    ///         DisplayName = "Admin",
-    ///         Description = "Admin Group",
-    ///     });
-    /// 
-    ///     var exampleAccountAssignment = new Aws.SsoAdmin.AccountAssignment("example", new()
-    ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         PermissionSetArn = examplePermissionSet.Arn,
-    ///         PrincipalId = exampleGroup.GroupId,
-    ///         PrincipalType = "GROUP",
-    ///         TargetId = "123456789012",
-    ///         TargetType = "AWS_ACCOUNT",
-    ///     });
-    /// 
-    ///     var exampleManagedPolicyAttachment = new Aws.SsoAdmin.ManagedPolicyAttachment("example", new()
-    ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         ManagedPolicyArn = "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-    ///         PermissionSetArn = examplePermissionSet.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAccountAssignment,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSO Managed Policy Attachments using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")]
     public partial class ManagedPolicyAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-        /// </summary>
         [Output("managedPolicyArn")]
         public Output<string> ManagedPolicyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the IAM Managed Policy.
-        /// </summary>
         [Output("managedPolicyName")]
         public Output<string> ManagedPolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -184,27 +73,15 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ManagedPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-        /// </summary>
         [Input("managedPolicyArn", required: true)]
         public Input<string> ManagedPolicyArn { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -216,33 +93,18 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ManagedPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
-        /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-        /// </summary>
         [Input("managedPolicyArn")]
         public Input<string>? ManagedPolicyArn { get; set; }
 
-        /// <summary>
-        /// The name of the IAM Managed Policy.
-        /// </summary>
         [Input("managedPolicyName")]
         public Input<string>? ManagedPolicyName { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

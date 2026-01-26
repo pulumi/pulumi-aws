@@ -35,18 +35,6 @@ class TriggerArgs:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
-        :param pulumi.Input[_builtins.str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        :param pulumi.Input[_builtins.str] description: A description of the new trigger.
-        :param pulumi.Input[_builtins.bool] enabled: Start the trigger. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        :param pulumi.Input[_builtins.str] name: The name of the trigger.
-        :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        :param pulumi.Input[_builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "type", type)
@@ -74,9 +62,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]]:
-        """
-        List of actions initiated by this trigger when it fires. See Actions Below.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -86,9 +71,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -98,9 +80,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the new trigger.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -110,9 +89,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Start the trigger. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -122,9 +98,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter(name="eventBatchingConditions")
     def event_batching_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]]:
-        """
-        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        """
         return pulumi.get(self, "event_batching_conditions")
 
     @event_batching_conditions.setter
@@ -134,9 +107,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the trigger.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -146,9 +116,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def predicate(self) -> Optional[pulumi.Input['TriggerPredicateArgs']]:
-        """
-        A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        """
         return pulumi.get(self, "predicate")
 
     @predicate.setter
@@ -158,9 +125,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -170,9 +134,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -182,9 +143,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter(name="startOnCreation")
     def start_on_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        """
         return pulumi.get(self, "start_on_creation")
 
     @start_on_creation.setter
@@ -194,9 +152,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -206,9 +161,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter(name="workflowName")
     def workflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-        """
         return pulumi.get(self, "workflow_name")
 
     @workflow_name.setter
@@ -236,21 +188,6 @@ class _TriggerState:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Trigger resources.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue Trigger
-        :param pulumi.Input[_builtins.str] description: A description of the new trigger.
-        :param pulumi.Input[_builtins.bool] enabled: Start the trigger. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        :param pulumi.Input[_builtins.str] name: The name of the trigger.
-        :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        :param pulumi.Input[_builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        :param pulumi.Input[_builtins.str] state: The current state of the trigger.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        :param pulumi.Input[_builtins.str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -286,9 +223,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]]]:
-        """
-        List of actions initiated by this trigger when it fires. See Actions Below.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -298,9 +232,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of Glue Trigger
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -310,9 +241,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the new trigger.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -322,9 +250,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Start the trigger. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -334,9 +259,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter(name="eventBatchingConditions")
     def event_batching_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]]:
-        """
-        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        """
         return pulumi.get(self, "event_batching_conditions")
 
     @event_batching_conditions.setter
@@ -346,9 +268,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the trigger.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -358,9 +277,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def predicate(self) -> Optional[pulumi.Input['TriggerPredicateArgs']]:
-        """
-        A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        """
         return pulumi.get(self, "predicate")
 
     @predicate.setter
@@ -370,9 +286,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -382,9 +295,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -394,9 +304,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter(name="startOnCreation")
     def start_on_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        """
         return pulumi.get(self, "start_on_creation")
 
     @start_on_creation.setter
@@ -406,9 +313,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current state of the trigger.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -418,9 +322,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -430,9 +331,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -442,9 +340,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -454,9 +349,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter(name="workflowName")
     def workflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-        """
         return pulumi.get(self, "workflow_name")
 
     @workflow_name.setter
@@ -484,125 +376,9 @@ class Trigger(pulumi.CustomResource):
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Glue Trigger resource.
-
-        ## Example Usage
-
-        ### Conditional Trigger
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
-            predicate={
-                "conditions": [{
-                    "job_name": example2["name"],
-                    "state": "SUCCEEDED",
-                }],
-            })
-        ```
-
-        ### On-Demand Trigger
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="ON_DEMAND",
-            actions=[{
-                "job_name": example_aws_glue_job["name"],
-            }])
-        ```
-
-        ### Scheduled Trigger
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            schedule="cron(15 12 * * ? *)",
-            type="SCHEDULED",
-            actions=[{
-                "job_name": example_aws_glue_job["name"],
-            }])
-        ```
-
-        ### Conditional Trigger with Crawler Action
-
-        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "crawler_name": example1["name"],
-            }],
-            predicate={
-                "conditions": [{
-                    "job_name": example2["name"],
-                    "state": "SUCCEEDED",
-                }],
-            })
-        ```
-
-        ### Conditional Trigger with Crawler Condition
-
-        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
-            predicate={
-                "conditions": [{
-                    "crawler_name": example2["name"],
-                    "crawl_state": "SUCCEEDED",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Triggers using `name`. For example:
-
-        ```sh
-        $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
-        ```
-
+        Create a Trigger resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
-        :param pulumi.Input[_builtins.str] description: A description of the new trigger.
-        :param pulumi.Input[_builtins.bool] enabled: Start the trigger. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        :param pulumi.Input[_builtins.str] name: The name of the trigger.
-        :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        :param pulumi.Input[_builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        :param pulumi.Input[_builtins.str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
         ...
     @overload
@@ -611,111 +387,7 @@ class Trigger(pulumi.CustomResource):
                  args: TriggerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Glue Trigger resource.
-
-        ## Example Usage
-
-        ### Conditional Trigger
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
-            predicate={
-                "conditions": [{
-                    "job_name": example2["name"],
-                    "state": "SUCCEEDED",
-                }],
-            })
-        ```
-
-        ### On-Demand Trigger
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="ON_DEMAND",
-            actions=[{
-                "job_name": example_aws_glue_job["name"],
-            }])
-        ```
-
-        ### Scheduled Trigger
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            schedule="cron(15 12 * * ? *)",
-            type="SCHEDULED",
-            actions=[{
-                "job_name": example_aws_glue_job["name"],
-            }])
-        ```
-
-        ### Conditional Trigger with Crawler Action
-
-        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "crawler_name": example1["name"],
-            }],
-            predicate={
-                "conditions": [{
-                    "job_name": example2["name"],
-                    "state": "SUCCEEDED",
-                }],
-            })
-        ```
-
-        ### Conditional Trigger with Crawler Condition
-
-        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
-            predicate={
-                "conditions": [{
-                    "crawler_name": example2["name"],
-                    "crawl_state": "SUCCEEDED",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Triggers using `name`. For example:
-
-        ```sh
-        $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
-        ```
-
+        Create a Trigger resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -803,21 +475,6 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue Trigger
-        :param pulumi.Input[_builtins.str] description: A description of the new trigger.
-        :param pulumi.Input[_builtins.bool] enabled: Start the trigger. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        :param pulumi.Input[_builtins.str] name: The name of the trigger.
-        :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        :param pulumi.Input[_builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        :param pulumi.Input[_builtins.str] state: The current state of the trigger.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        :param pulumi.Input[_builtins.str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -843,120 +500,75 @@ class Trigger(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.TriggerAction']]:
-        """
-        List of actions initiated by this trigger when it fires. See Actions Below.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of Glue Trigger
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the new trigger.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Start the trigger. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="eventBatchingConditions")
     def event_batching_conditions(self) -> pulumi.Output[Optional[Sequence['outputs.TriggerEventBatchingCondition']]]:
-        """
-        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        """
         return pulumi.get(self, "event_batching_conditions")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the trigger.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def predicate(self) -> pulumi.Output[Optional['outputs.TriggerPredicate']]:
-        """
-        A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        """
         return pulumi.get(self, "predicate")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        """
         return pulumi.get(self, "schedule")
 
     @_builtins.property
     @pulumi.getter(name="startOnCreation")
     def start_on_creation(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        """
         return pulumi.get(self, "start_on_creation")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current state of the trigger.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="workflowName")
     def workflow_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-        """
         return pulumi.get(self, "workflow_name")
 

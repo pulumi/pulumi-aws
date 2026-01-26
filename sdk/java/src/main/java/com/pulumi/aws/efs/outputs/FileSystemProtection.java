@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FileSystemProtection {
-    /**
-     * @return Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     private @Nullable String replicationOverwrite;
 
     private FileSystemProtection() {}
-    /**
-     * @return Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     public Optional<String> replicationOverwrite() {
         return Optional.ofNullable(this.replicationOverwrite);
     }

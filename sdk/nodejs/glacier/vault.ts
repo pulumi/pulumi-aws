@@ -7,57 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
- *
- * > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const awsSnsTopic = new aws.sns.Topic("aws_sns_topic", {name: "glacier-sns-topic"});
- * const myArchive = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "add-read-only-perm",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "glacier:InitiateJob",
- *             "glacier:GetJobOutput",
- *         ],
- *         resources: ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
- *     }],
- * });
- * const myArchiveVault = new aws.glacier.Vault("my_archive", {
- *     name: "MyArchive",
- *     notification: {
- *         snsTopic: awsSnsTopic.arn,
- *         events: [
- *             "ArchiveRetrievalCompleted",
- *             "InventoryRetrievalCompleted",
- *         ],
- *     },
- *     accessPolicy: myArchive.then(myArchive => myArchive.json),
- *     tags: {
- *         Test: "MyArchive",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Glacier Vaults using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:glacier/vault:Vault archive my_archive
- * ```
- */
 export class Vault extends pulumi.CustomResource {
     /**
      * Get an existing Vault resource's state with the given name, ID, and optional extra
@@ -86,38 +35,13 @@ export class Vault extends pulumi.CustomResource {
         return obj['__pulumiType'] === Vault.__pulumiType;
     }
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-     */
     declare public readonly accessPolicy: pulumi.Output<string | undefined>;
-    /**
-     * The ARN of the vault.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The URI of the vault that was created.
-     */
     declare public /*out*/ readonly location: pulumi.Output<string>;
-    /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The notifications for the Vault. Fields documented below.
-     */
     declare public readonly notification: pulumi.Output<outputs.glacier.VaultNotification | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -161,38 +85,13 @@ export class Vault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Vault resources.
  */
 export interface VaultState {
-    /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-     */
     accessPolicy?: pulumi.Input<string>;
-    /**
-     * The ARN of the vault.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The URI of the vault that was created.
-     */
     location?: pulumi.Input<string>;
-    /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The notifications for the Vault. Fields documented below.
-     */
     notification?: pulumi.Input<inputs.glacier.VaultNotification>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -200,25 +99,9 @@ export interface VaultState {
  * The set of arguments for constructing a Vault resource.
  */
 export interface VaultArgs {
-    /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-     */
     accessPolicy?: pulumi.Input<string>;
-    /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The notifications for the Vault. Fields documented below.
-     */
     notification?: pulumi.Input<inputs.glacier.VaultNotification>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

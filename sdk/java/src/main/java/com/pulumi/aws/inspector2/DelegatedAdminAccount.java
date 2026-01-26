@@ -13,99 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon Inspector Delegated Admin Account.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inspector2.DelegatedAdminAccount;
- * import com.pulumi.aws.inspector2.DelegatedAdminAccountArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new DelegatedAdminAccount("example", DelegatedAdminAccountArgs.builder()
- *             .accountId(current.accountId())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")
 public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
-    /**
-     * Account to enable as delegated admin account.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return Account to enable as delegated admin account.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Status of this delegated admin account.
-     * 
-     */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
-    /**
-     * @return Status of this delegated admin account.
-     * 
-     */
     public Output<String> relationshipStatus() {
         return this.relationshipStatus;
     }

@@ -17,130 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new landing zone using Control Tower. For more information on usage, please see the
- * [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
- * ```
- * 
- */
 @ResourceType(type="aws:controltower/landingZone:LandingZone")
 public class LandingZone extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the landing zone.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the landing zone.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The drift status summary of the landing zone.
-     * 
-     */
     @Export(name="driftStatuses", refs={List.class,LandingZoneDriftStatus.class}, tree="[0,1]")
     private Output<List<LandingZoneDriftStatus>> driftStatuses;
 
-    /**
-     * @return The drift status summary of the landing zone.
-     * 
-     */
     public Output<List<LandingZoneDriftStatus>> driftStatuses() {
         return this.driftStatuses;
     }
-    /**
-     * The latest available version of the landing zone.
-     * 
-     */
     @Export(name="latestAvailableVersion", refs={String.class}, tree="[0]")
     private Output<String> latestAvailableVersion;
 
-    /**
-     * @return The latest available version of the landing zone.
-     * 
-     */
     public Output<String> latestAvailableVersion() {
         return this.latestAvailableVersion;
     }
-    /**
-     * The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-     * 
-     */
     @Export(name="manifestJson", refs={String.class}, tree="[0]")
     private Output<String> manifestJson;
 
-    /**
-     * @return The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-     * 
-     */
     public Output<String> manifestJson() {
         return this.manifestJson;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The landing zone version.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The landing zone version.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

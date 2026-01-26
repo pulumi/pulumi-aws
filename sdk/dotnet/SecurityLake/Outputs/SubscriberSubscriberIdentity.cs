@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class SubscriberSubscriberIdentity
     {
-        /// <summary>
-        /// The AWS Regions where Security Lake is automatically enabled.
-        /// </summary>
         public readonly string ExternalId;
-        /// <summary>
-        /// Provides encryption details of Amazon Security Lake object.
-        /// </summary>
         public readonly string Principal;
 
         [OutputConstructor]

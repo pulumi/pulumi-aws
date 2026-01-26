@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LogDeliveryS3DeliveryConfiguration {
-    /**
-     * @return This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-     * 
-     */
     private Boolean enableHiveCompatiblePath;
-    /**
-     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-     * 
-     */
     private String suffixPath;
 
     private LogDeliveryS3DeliveryConfiguration() {}
-    /**
-     * @return This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-     * 
-     */
     public Boolean enableHiveCompatiblePath() {
         return this.enableHiveCompatiblePath;
     }
-    /**
-     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-     * 
-     */
     public String suffixPath() {
         return this.suffixPath;
     }

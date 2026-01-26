@@ -14,17 +14,9 @@ public final class ResponsePlanIncidentTemplateNotificationTargetArgs extends co
 
     public static final ResponsePlanIncidentTemplateNotificationTargetArgs Empty = new ResponsePlanIncidentTemplateNotificationTargetArgs();
 
-    /**
-     * The ARN of the Amazon SNS topic.
-     * 
-     */
     @Import(name="snsTopicArn", required=true)
     private Output<String> snsTopicArn;
 
-    /**
-     * @return The ARN of the Amazon SNS topic.
-     * 
-     */
     public Output<String> snsTopicArn() {
         return this.snsTopicArn;
     }
@@ -53,23 +45,11 @@ public final class ResponsePlanIncidentTemplateNotificationTargetArgs extends co
             $ = new ResponsePlanIncidentTemplateNotificationTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param snsTopicArn The ARN of the Amazon SNS topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsTopicArn(Output<String> snsTopicArn) {
             $.snsTopicArn = snsTopicArn;
             return this;
         }
 
-        /**
-         * @param snsTopicArn The ARN of the Amazon SNS topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsTopicArn(String snsTopicArn) {
             return snsTopicArn(Output.of(snsTopicArn));
         }

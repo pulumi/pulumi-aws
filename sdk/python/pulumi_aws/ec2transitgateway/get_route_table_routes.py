@@ -66,9 +66,6 @@ class GetRouteTableRoutesResult:
     @_builtins.property
     @pulumi.getter
     def routes(self) -> Sequence['outputs.GetRouteTableRoutesRouteResult']:
-        """
-        List of Transit Gateway Routes.
-        """
         return pulumi.get(self, "routes")
 
     @_builtins.property
@@ -95,28 +92,7 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
                            transit_gateway_route_table_id: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableRoutesResult:
     """
-    Provides informations for routes of a specific transit gateway, such as state, type, cidr
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_route_table_routes(filters=[{
-            "name": "type",
-            "values": ["propagated"],
-        }],
-        transit_gateway_route_table_id=example["id"])
-    ```
-
-
-    :param Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -136,28 +112,7 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union[
                                   transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
     """
-    Provides informations for routes of a specific transit gateway, such as state, type, cidr
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_route_table_routes(filters=[{
-            "name": "type",
-            "values": ["propagated"],
-        }],
-        transit_gateway_route_table_id=example["id"])
-    ```
-
-
-    :param Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

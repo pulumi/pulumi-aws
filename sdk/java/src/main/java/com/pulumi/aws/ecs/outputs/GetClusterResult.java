@@ -15,10 +15,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterResult {
-    /**
-     * @return ARN of the ECS Cluster
-     * 
-     */
     private String arn;
     private String clusterName;
     /**
@@ -26,48 +22,16 @@ public final class GetClusterResult {
      * 
      */
     private String id;
-    /**
-     * @return Number of pending tasks for the ECS Cluster
-     * 
-     */
     private Integer pendingTasksCount;
     private String region;
-    /**
-     * @return The number of registered container instances for the ECS Cluster
-     * 
-     */
     private Integer registeredContainerInstancesCount;
-    /**
-     * @return Number of running tasks for the ECS Cluster
-     * 
-     */
     private Integer runningTasksCount;
-    /**
-     * @return The default Service Connect namespace
-     * 
-     */
     private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
-    /**
-     * @return Settings associated with the ECS Cluster
-     * 
-     */
     private List<GetClusterSetting> settings;
-    /**
-     * @return Status of the ECS Cluster
-     * 
-     */
     private String status;
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     private Map<String,String> tags;
 
     private GetClusterResult() {}
-    /**
-     * @return ARN of the ECS Cluster
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -81,55 +45,27 @@ public final class GetClusterResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Number of pending tasks for the ECS Cluster
-     * 
-     */
     public Integer pendingTasksCount() {
         return this.pendingTasksCount;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The number of registered container instances for the ECS Cluster
-     * 
-     */
     public Integer registeredContainerInstancesCount() {
         return this.registeredContainerInstancesCount;
     }
-    /**
-     * @return Number of running tasks for the ECS Cluster
-     * 
-     */
     public Integer runningTasksCount() {
         return this.runningTasksCount;
     }
-    /**
-     * @return The default Service Connect namespace
-     * 
-     */
     public List<GetClusterServiceConnectDefault> serviceConnectDefaults() {
         return this.serviceConnectDefaults;
     }
-    /**
-     * @return Settings associated with the ECS Cluster
-     * 
-     */
     public List<GetClusterSetting> settings() {
         return this.settings;
     }
-    /**
-     * @return Status of the ECS Cluster
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

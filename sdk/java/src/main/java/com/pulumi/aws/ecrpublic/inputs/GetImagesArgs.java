@@ -18,62 +18,30 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetImagesArgs Empty = new GetImagesArgs();
 
-    /**
-     * One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-     * 
-     */
     @Import(name="imageIds")
     private @Nullable Output<List<GetImagesImageIdArgs>> imageIds;
 
-    /**
-     * @return One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-     * 
-     */
     public Optional<Output<List<GetImagesImageIdArgs>>> imageIds() {
         return Optional.ofNullable(this.imageIds);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
-    /**
-     * @return AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-     * 
-     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Name of the public repository.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return Name of the public repository.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -105,96 +73,42 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetImagesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageIds One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIds(@Nullable Output<List<GetImagesImageIdArgs>> imageIds) {
             $.imageIds = imageIds;
             return this;
         }
 
-        /**
-         * @param imageIds One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIds(List<GetImagesImageIdArgs> imageIds) {
             return imageIds(Output.of(imageIds));
         }
 
-        /**
-         * @param imageIds One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIds(GetImagesImageIdArgs... imageIds) {
             return imageIds(List.of(imageIds));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param registryId AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }
 
-        /**
-         * @param repositoryName Name of the public repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName Name of the public repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

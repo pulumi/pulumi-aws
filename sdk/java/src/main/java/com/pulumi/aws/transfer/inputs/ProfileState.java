@@ -17,107 +17,51 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
 
     public static final ProfileState Empty = new ProfileState();
 
-    /**
-     * The ARN of the profile.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the profile.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     * 
-     */
     @Import(name="as2Id")
     private @Nullable Output<String> as2Id;
 
-    /**
-     * @return The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     * 
-     */
     public Optional<Output<String>> as2Id() {
         return Optional.ofNullable(this.as2Id);
     }
 
-    /**
-     * The list of certificate Ids from the imported certificate operation.
-     * 
-     */
     @Import(name="certificateIds")
     private @Nullable Output<List<String>> certificateIds;
 
-    /**
-     * @return The list of certificate Ids from the imported certificate operation.
-     * 
-     */
     public Optional<Output<List<String>>> certificateIds() {
         return Optional.ofNullable(this.certificateIds);
     }
 
-    /**
-     * The unique identifier for the AS2 profile.
-     * 
-     */
     @Import(name="profileId")
     private @Nullable Output<String> profileId;
 
-    /**
-     * @return The unique identifier for the AS2 profile.
-     * 
-     */
     public Optional<Output<String>> profileId() {
         return Optional.ofNullable(this.profileId);
     }
 
-    /**
-     * The profile type should be LOCAL or PARTNER.
-     * 
-     */
     @Import(name="profileType")
     private @Nullable Output<String> profileType;
 
-    /**
-     * @return The profile type should be LOCAL or PARTNER.
-     * 
-     */
     public Optional<Output<String>> profileType() {
         return Optional.ofNullable(this.profileType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -160,159 +104,69 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
             $ = new ProfileState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param as2Id The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder as2Id(@Nullable Output<String> as2Id) {
             $.as2Id = as2Id;
             return this;
         }
 
-        /**
-         * @param as2Id The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder as2Id(String as2Id) {
             return as2Id(Output.of(as2Id));
         }
 
-        /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateIds(@Nullable Output<List<String>> certificateIds) {
             $.certificateIds = certificateIds;
             return this;
         }
 
-        /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateIds(List<String> certificateIds) {
             return certificateIds(Output.of(certificateIds));
         }
 
-        /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateIds(String... certificateIds) {
             return certificateIds(List.of(certificateIds));
         }
 
-        /**
-         * @param profileId The unique identifier for the AS2 profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(@Nullable Output<String> profileId) {
             $.profileId = profileId;
             return this;
         }
 
-        /**
-         * @param profileId The unique identifier for the AS2 profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(String profileId) {
             return profileId(Output.of(profileId));
         }
 
-        /**
-         * @param profileType The profile type should be LOCAL or PARTNER.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileType(@Nullable Output<String> profileType) {
             $.profileType = profileType;
             return this;
         }
 
-        /**
-         * @param profileType The profile type should be LOCAL or PARTNER.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileType(String profileType) {
             return profileType(Output.of(profileType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOrderedCacheBehaviorGrpcConfig
     {
-        /// <summary>
-        /// Whether the distribution is enabled to accept end user requests for content.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

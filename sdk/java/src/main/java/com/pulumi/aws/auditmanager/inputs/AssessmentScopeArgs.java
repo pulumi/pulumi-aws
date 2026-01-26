@@ -17,32 +17,16 @@ public final class AssessmentScopeArgs extends com.pulumi.resources.ResourceArgs
 
     public static final AssessmentScopeArgs Empty = new AssessmentScopeArgs();
 
-    /**
-     * Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
-     * 
-     */
     @Import(name="awsAccounts")
     private @Nullable Output<List<AssessmentScopeAwsAccountArgs>> awsAccounts;
 
-    /**
-     * @return Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
-     * 
-     */
     public Optional<Output<List<AssessmentScopeAwsAccountArgs>>> awsAccounts() {
         return Optional.ofNullable(this.awsAccounts);
     }
 
-    /**
-     * Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
-     * 
-     */
     @Import(name="awsServices")
     private @Nullable Output<List<AssessmentScopeAwsServiceArgs>> awsServices;
 
-    /**
-     * @return Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
-     * 
-     */
     public Optional<Output<List<AssessmentScopeAwsServiceArgs>>> awsServices() {
         return Optional.ofNullable(this.awsServices);
     }
@@ -72,64 +56,28 @@ public final class AssessmentScopeArgs extends com.pulumi.resources.ResourceArgs
             $ = new AssessmentScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccounts Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccounts(@Nullable Output<List<AssessmentScopeAwsAccountArgs>> awsAccounts) {
             $.awsAccounts = awsAccounts;
             return this;
         }
 
-        /**
-         * @param awsAccounts Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccounts(List<AssessmentScopeAwsAccountArgs> awsAccounts) {
             return awsAccounts(Output.of(awsAccounts));
         }
 
-        /**
-         * @param awsAccounts Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccounts(AssessmentScopeAwsAccountArgs... awsAccounts) {
             return awsAccounts(List.of(awsAccounts));
         }
 
-        /**
-         * @param awsServices Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsServices(@Nullable Output<List<AssessmentScopeAwsServiceArgs>> awsServices) {
             $.awsServices = awsServices;
             return this;
         }
 
-        /**
-         * @param awsServices Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsServices(List<AssessmentScopeAwsServiceArgs> awsServices) {
             return awsServices(Output.of(awsServices));
         }
 
-        /**
-         * @param awsServices Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsServices(AssessmentScopeAwsServiceArgs... awsServices) {
             return awsServices(List.of(awsServices));
         }

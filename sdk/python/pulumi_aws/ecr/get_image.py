@@ -77,17 +77,11 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter(name="imagePushedAt")
     def image_pushed_at(self) -> _builtins.int:
-        """
-        Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
-        """
         return pulumi.get(self, "image_pushed_at")
 
     @_builtins.property
     @pulumi.getter(name="imageSizeInBytes")
     def image_size_in_bytes(self) -> _builtins.int:
-        """
-        Size, in bytes, of the image in the repository.
-        """
         return pulumi.get(self, "image_size_in_bytes")
 
     @_builtins.property
@@ -98,17 +92,11 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter(name="imageTags")
     def image_tags(self) -> Sequence[_builtins.str]:
-        """
-        List of tags associated with this image.
-        """
         return pulumi.get(self, "image_tags")
 
     @_builtins.property
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> _builtins.str:
-        """
-        The URI for the specific image version specified by `image_tag` or `image_digest`.
-        """
         return pulumi.get(self, "image_uri")
 
     @_builtins.property
@@ -159,25 +147,7 @@ def get_image(image_digest: Optional[_builtins.str] = None,
               repository_name: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    service_image = aws.ecr.get_image(repository_name="my/service",
-        image_tag="latest")
-    ```
-
-
-    :param _builtins.str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
-    :param _builtins.str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
-    :param _builtins.bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: ID of the Registry where the repository resides.
-    :param _builtins.str repository_name: Name of the ECR Repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['imageDigest'] = image_digest
@@ -209,25 +179,7 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[_builtins.str]
                      repository_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
-    The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    service_image = aws.ecr.get_image(repository_name="my/service",
-        image_tag="latest")
-    ```
-
-
-    :param _builtins.str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
-    :param _builtins.str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
-    :param _builtins.bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: ID of the Registry where the repository resides.
-    :param _builtins.str repository_name: Name of the ECR Repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['imageDigest'] = image_digest

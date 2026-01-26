@@ -13,45 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetail {
-    /**
-     * @return Configuration details for the policy action.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailAction action;
-    /**
-     * @return Additional rules to specify resources that should be exempt from policy actions.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailExclusionRules exclusionRules;
-    /**
-     * @return Specifies the resources that the lifecycle policy applies to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailFilter filter;
 
     private LifecyclePolicyPolicyDetail() {}
-    /**
-     * @return Configuration details for the policy action.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailAction> action() {
         return Optional.ofNullable(this.action);
     }
-    /**
-     * @return Additional rules to specify resources that should be exempt from policy actions.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailExclusionRules> exclusionRules() {
         return Optional.ofNullable(this.exclusionRules);
     }
-    /**
-     * @return Specifies the resources that the lifecycle policy applies to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailFilter> filter() {
         return Optional.ofNullable(this.filter);
     }

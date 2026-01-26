@@ -11,43 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceMasterUserSecret {
-    /**
-     * @return The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return The Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     private @Nullable String secretArn;
-    /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     private @Nullable String secretStatus;
 
     private InstanceMasterUserSecret() {}
-    /**
-     * @return The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     public Optional<String> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
-    /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     public Optional<String> secretStatus() {
         return Optional.ofNullable(this.secretStatus);
     }

@@ -9,65 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Provides a Redshift Cluster IAM Roles resource.
-    /// 
-    /// &gt; **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `DefaultIamRoleArn` argument and the `aws.redshift.Cluster` resource's `DefaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.ClusterIamRoles("example", new()
-    ///     {
-    ///         ClusterIdentifier = exampleAwsRedshiftCluster.ClusterIdentifier,
-    ///         IamRoleArns = new[]
-    ///         {
-    ///             exampleAwsIamRole.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/clusterIamRoles:ClusterIamRoles")]
     public partial class ClusterIamRoles : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the Redshift Cluster IAM Roles.
-        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string> DefaultIamRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        /// </summary>
         [Output("iamRoleArns")]
         public Output<ImmutableArray<string>> IamRoleArns { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -117,33 +70,20 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class ClusterIamRolesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Redshift Cluster IAM Roles.
-        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
 
         [Input("iamRoleArns")]
         private InputList<string>? _iamRoleArns;
-
-        /// <summary>
-        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        /// </summary>
         public InputList<string> IamRoleArns
         {
             get => _iamRoleArns ?? (_iamRoleArns = new InputList<string>());
             set => _iamRoleArns = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -155,33 +95,20 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class ClusterIamRolesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Redshift Cluster IAM Roles.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
 
         [Input("iamRoleArns")]
         private InputList<string>? _iamRoleArns;
-
-        /// <summary>
-        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        /// </summary>
         public InputList<string> IamRoleArns
         {
             get => _iamRoleArns ?? (_iamRoleArns = new InputList<string>());
             set => _iamRoleArns = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -48,44 +48,6 @@ class TargetGroupArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
-        :param pulumi.Input[_builtins.bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        :param pulumi.Input[_builtins.bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[_builtins.str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        :param pulumi.Input[_builtins.str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        :param pulumi.Input[_builtins.str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        :param pulumi.Input[_builtins.str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
-               Required when `target_type` is `instance`, `ip`, or `alb`.
-               Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        :param pulumi.Input[_builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.int] target_control_port: Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `target_type` is `instance` or `ip`.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input['TargetGroupTargetGroupHealthArgs'] target_group_health: Target health requirements block. See target_group_health for more information.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        :param pulumi.Input[_builtins.str] target_type: Type of target that you must specify when registering targets with this target group.
-               See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
-               The default is `instance`.
-               
-               Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-               
-               If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-               
-               Network Load Balancers do not support the `lambda` target type.
-               
-               Application Load Balancers do not support the `alb` target type.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         """
         if connection_termination is not None:
             pulumi.set(__self__, "connection_termination", connection_termination)
@@ -141,9 +103,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="connectionTermination")
     def connection_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        """
         return pulumi.get(self, "connection_termination")
 
     @connection_termination.setter
@@ -153,9 +112,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="deregistrationDelay")
     def deregistration_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        """
         return pulumi.get(self, "deregistration_delay")
 
     @deregistration_delay.setter
@@ -165,9 +121,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckArgs']]:
-        """
-        Health Check configuration block. Detailed below.
-        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -177,9 +130,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -189,9 +139,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
     def lambda_multi_value_headers_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        """
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
 
     @lambda_multi_value_headers_enabled.setter
@@ -201,9 +148,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancingAlgorithmType")
     def load_balancing_algorithm_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        """
         return pulumi.get(self, "load_balancing_algorithm_type")
 
     @load_balancing_algorithm_type.setter
@@ -213,9 +157,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancingAnomalyMitigation")
     def load_balancing_anomaly_mitigation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        """
         return pulumi.get(self, "load_balancing_anomaly_mitigation")
 
     @load_balancing_anomaly_mitigation.setter
@@ -225,9 +166,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
     def load_balancing_cross_zone_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        """
         return pulumi.get(self, "load_balancing_cross_zone_enabled")
 
     @load_balancing_cross_zone_enabled.setter
@@ -237,9 +175,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -249,9 +184,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -261,9 +193,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -273,9 +202,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="preserveClientIp")
     def preserve_client_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        """
         return pulumi.get(self, "preserve_client_ip")
 
     @preserve_client_ip.setter
@@ -285,12 +211,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Protocol to use for routing traffic to the targets.
-        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
-        Required when `target_type` is `instance`, `ip`, or `alb`.
-        Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -300,9 +220,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        """
         return pulumi.get(self, "protocol_version")
 
     @protocol_version.setter
@@ -312,9 +229,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="proxyProtocolV2")
     def proxy_protocol_v2(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        """
         return pulumi.get(self, "proxy_protocol_v2")
 
     @proxy_protocol_v2.setter
@@ -324,9 +238,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -336,9 +247,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="slowStart")
     def slow_start(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        """
         return pulumi.get(self, "slow_start")
 
     @slow_start.setter
@@ -348,9 +256,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def stickiness(self) -> Optional[pulumi.Input['TargetGroupStickinessArgs']]:
-        """
-        Stickiness configuration block. Detailed below.
-        """
         return pulumi.get(self, "stickiness")
 
     @stickiness.setter
@@ -360,9 +265,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -372,9 +274,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="targetControlPort")
     def target_control_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `target_type` is `instance` or `ip`.
-        """
         return pulumi.get(self, "target_control_port")
 
     @target_control_port.setter
@@ -384,9 +283,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="targetFailovers")
     def target_failovers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]]:
-        """
-        Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        """
         return pulumi.get(self, "target_failovers")
 
     @target_failovers.setter
@@ -396,9 +292,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="targetGroupHealth")
     def target_group_health(self) -> Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']]:
-        """
-        Target health requirements block. See target_group_health for more information.
-        """
         return pulumi.get(self, "target_group_health")
 
     @target_group_health.setter
@@ -408,9 +301,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="targetHealthStates")
     def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]:
-        """
-        Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        """
         return pulumi.get(self, "target_health_states")
 
     @target_health_states.setter
@@ -420,19 +310,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of target that you must specify when registering targets with this target group.
-        See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
-        The default is `instance`.
-
-        Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-
-        If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-
-        Network Load Balancers do not support the `lambda` target type.
-
-        Application Load Balancers do not support the `alb` target type.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -442,9 +319,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -486,48 +360,6 @@ class _TargetGroupState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroup resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Target Group (matches `id`).
-        :param pulumi.Input[_builtins.str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
-        :param pulumi.Input[_builtins.bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        :param pulumi.Input[_builtins.bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_arns: ARNs of the Load Balancers associated with the Target Group.
-        :param pulumi.Input[_builtins.str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        :param pulumi.Input[_builtins.str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        :param pulumi.Input[_builtins.str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        :param pulumi.Input[_builtins.str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
-               Required when `target_type` is `instance`, `ip`, or `alb`.
-               Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        :param pulumi.Input[_builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] target_control_port: Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `target_type` is `instance` or `ip`.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input['TargetGroupTargetGroupHealthArgs'] target_group_health: Target health requirements block. See target_group_health for more information.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        :param pulumi.Input[_builtins.str] target_type: Type of target that you must specify when registering targets with this target group.
-               See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
-               The default is `instance`.
-               
-               Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-               
-               If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-               
-               Network Load Balancers do not support the `lambda` target type.
-               
-               Application Load Balancers do not support the `alb` target type.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -591,9 +423,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Target Group (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -603,9 +432,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN suffix for use with CloudWatch Metrics.
-        """
         return pulumi.get(self, "arn_suffix")
 
     @arn_suffix.setter
@@ -615,9 +441,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="connectionTermination")
     def connection_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        """
         return pulumi.get(self, "connection_termination")
 
     @connection_termination.setter
@@ -627,9 +450,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="deregistrationDelay")
     def deregistration_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        """
         return pulumi.get(self, "deregistration_delay")
 
     @deregistration_delay.setter
@@ -639,9 +459,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckArgs']]:
-        """
-        Health Check configuration block. Detailed below.
-        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -651,9 +468,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -663,9 +477,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
     def lambda_multi_value_headers_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        """
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
 
     @lambda_multi_value_headers_enabled.setter
@@ -675,9 +486,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="loadBalancerArns")
     def load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ARNs of the Load Balancers associated with the Target Group.
-        """
         return pulumi.get(self, "load_balancer_arns")
 
     @load_balancer_arns.setter
@@ -687,9 +495,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="loadBalancingAlgorithmType")
     def load_balancing_algorithm_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        """
         return pulumi.get(self, "load_balancing_algorithm_type")
 
     @load_balancing_algorithm_type.setter
@@ -699,9 +504,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="loadBalancingAnomalyMitigation")
     def load_balancing_anomaly_mitigation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        """
         return pulumi.get(self, "load_balancing_anomaly_mitigation")
 
     @load_balancing_anomaly_mitigation.setter
@@ -711,9 +513,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
     def load_balancing_cross_zone_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        """
         return pulumi.get(self, "load_balancing_cross_zone_enabled")
 
     @load_balancing_cross_zone_enabled.setter
@@ -723,9 +522,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -735,9 +531,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -747,9 +540,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -759,9 +549,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="preserveClientIp")
     def preserve_client_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        """
         return pulumi.get(self, "preserve_client_ip")
 
     @preserve_client_ip.setter
@@ -771,12 +558,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Protocol to use for routing traffic to the targets.
-        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
-        Required when `target_type` is `instance`, `ip`, or `alb`.
-        Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -786,9 +567,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        """
         return pulumi.get(self, "protocol_version")
 
     @protocol_version.setter
@@ -798,9 +576,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="proxyProtocolV2")
     def proxy_protocol_v2(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        """
         return pulumi.get(self, "proxy_protocol_v2")
 
     @proxy_protocol_v2.setter
@@ -810,9 +585,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -822,9 +594,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="slowStart")
     def slow_start(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        """
         return pulumi.get(self, "slow_start")
 
     @slow_start.setter
@@ -834,9 +603,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def stickiness(self) -> Optional[pulumi.Input['TargetGroupStickinessArgs']]:
-        """
-        Stickiness configuration block. Detailed below.
-        """
         return pulumi.get(self, "stickiness")
 
     @stickiness.setter
@@ -846,9 +612,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -858,9 +621,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -870,9 +630,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="targetControlPort")
     def target_control_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `target_type` is `instance` or `ip`.
-        """
         return pulumi.get(self, "target_control_port")
 
     @target_control_port.setter
@@ -882,9 +639,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="targetFailovers")
     def target_failovers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]]:
-        """
-        Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        """
         return pulumi.get(self, "target_failovers")
 
     @target_failovers.setter
@@ -894,9 +648,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="targetGroupHealth")
     def target_group_health(self) -> Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']]:
-        """
-        Target health requirements block. See target_group_health for more information.
-        """
         return pulumi.get(self, "target_group_health")
 
     @target_group_health.setter
@@ -906,9 +657,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="targetHealthStates")
     def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]:
-        """
-        Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        """
         return pulumi.get(self, "target_health_states")
 
     @target_health_states.setter
@@ -918,19 +666,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of target that you must specify when registering targets with this target group.
-        See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
-        The default is `instance`.
-
-        Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-
-        If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-
-        Network Load Balancers do not support the `lambda` target type.
-
-        Application Load Balancers do not support the `alb` target type.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -940,9 +675,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -983,157 +715,9 @@ class TargetGroup(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Target Group resource for use with Load Balancer resources.
-
-        > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
-
-        ## Example Usage
-
-        ### Instance Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        test = aws.lb.TargetGroup("test",
-            name="tf-example-lb-tg",
-            port=80,
-            protocol="HTTP",
-            vpc_id=main.id)
-        ```
-
-        ### IP Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ip_example = aws.lb.TargetGroup("ip-example",
-            name="tf-example-lb-tg",
-            port=80,
-            protocol="HTTP",
-            target_type="ip",
-            vpc_id=main.id)
-        ```
-
-        ### Lambda Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lambda_example = aws.lb.TargetGroup("lambda-example",
-            name="tf-example-lb-tg",
-            target_type="lambda")
-        ```
-
-        ### ALB Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alb_example = aws.lb.TargetGroup("alb-example",
-            name="tf-example-lb-alb-tg",
-            target_type="alb",
-            port=80,
-            protocol="TCP",
-            vpc_id=main["id"])
-        ```
-
-        ### Target group with unhealthy connection termination disabled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tcp_example = aws.lb.TargetGroup("tcp-example",
-            name="tf-example-lb-nlb-tg",
-            port=25,
-            protocol="TCP",
-            vpc_id=main["id"],
-            target_health_states=[{
-                "enable_unhealthy_connection_termination": False,
-            }])
-        ```
-
-        ### Target group with health requirements
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tcp_example = aws.lb.TargetGroup("tcp-example",
-            name="tf-example-lb-nlb-tg",
-            port=80,
-            protocol="TCP",
-            vpc_id=main["id"],
-            target_group_health={
-                "dns_failover": {
-                    "minimum_healthy_targets_count": "1",
-                    "minimum_healthy_targets_percentage": "off",
-                },
-                "unhealthy_state_routing": {
-                    "minimum_healthy_targets_count": 1,
-                    "minimum_healthy_targets_percentage": "off",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the target group.
-
-        Using `pulumi import`, import Target Groups using their ARN. For example:
-
-        % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
-
+        Create a TargetGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input[Union['TargetGroupHealthCheckArgs', 'TargetGroupHealthCheckArgsDict']] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        :param pulumi.Input[_builtins.bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[_builtins.str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        :param pulumi.Input[_builtins.str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        :param pulumi.Input[_builtins.str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        :param pulumi.Input[_builtins.str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
-               Required when `target_type` is `instance`, `ip`, or `alb`.
-               Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        :param pulumi.Input[_builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']] stickiness: Stickiness configuration block. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.int] target_control_port: Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `target_type` is `instance` or `ip`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']] target_group_health: Target health requirements block. See target_group_health for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        :param pulumi.Input[_builtins.str] target_type: Type of target that you must specify when registering targets with this target group.
-               See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
-               The default is `instance`.
-               
-               Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-               
-               If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-               
-               Network Load Balancers do not support the `lambda` target type.
-               
-               Application Load Balancers do not support the `alb` target type.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         """
         ...
     @overload
@@ -1142,117 +726,7 @@ class TargetGroup(pulumi.CustomResource):
                  args: Optional[TargetGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Target Group resource for use with Load Balancer resources.
-
-        > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
-
-        ## Example Usage
-
-        ### Instance Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        test = aws.lb.TargetGroup("test",
-            name="tf-example-lb-tg",
-            port=80,
-            protocol="HTTP",
-            vpc_id=main.id)
-        ```
-
-        ### IP Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ip_example = aws.lb.TargetGroup("ip-example",
-            name="tf-example-lb-tg",
-            port=80,
-            protocol="HTTP",
-            target_type="ip",
-            vpc_id=main.id)
-        ```
-
-        ### Lambda Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lambda_example = aws.lb.TargetGroup("lambda-example",
-            name="tf-example-lb-tg",
-            target_type="lambda")
-        ```
-
-        ### ALB Target Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alb_example = aws.lb.TargetGroup("alb-example",
-            name="tf-example-lb-alb-tg",
-            target_type="alb",
-            port=80,
-            protocol="TCP",
-            vpc_id=main["id"])
-        ```
-
-        ### Target group with unhealthy connection termination disabled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tcp_example = aws.lb.TargetGroup("tcp-example",
-            name="tf-example-lb-nlb-tg",
-            port=25,
-            protocol="TCP",
-            vpc_id=main["id"],
-            target_health_states=[{
-                "enable_unhealthy_connection_termination": False,
-            }])
-        ```
-
-        ### Target group with health requirements
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tcp_example = aws.lb.TargetGroup("tcp-example",
-            name="tf-example-lb-nlb-tg",
-            port=80,
-            protocol="TCP",
-            vpc_id=main["id"],
-            target_group_health={
-                "dns_failover": {
-                    "minimum_healthy_targets_count": "1",
-                    "minimum_healthy_targets_percentage": "off",
-                },
-                "unhealthy_state_routing": {
-                    "minimum_healthy_targets_count": 1,
-                    "minimum_healthy_targets_percentage": "off",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the target group.
-
-        Using `pulumi import`, import Target Groups using their ARN. For example:
-
-        % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
-
+        Create a TargetGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1379,48 +853,6 @@ class TargetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Target Group (matches `id`).
-        :param pulumi.Input[_builtins.str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
-        :param pulumi.Input[_builtins.bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input[Union['TargetGroupHealthCheckArgs', 'TargetGroupHealthCheckArgsDict']] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        :param pulumi.Input[_builtins.bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_arns: ARNs of the Load Balancers associated with the Target Group.
-        :param pulumi.Input[_builtins.str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        :param pulumi.Input[_builtins.str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        :param pulumi.Input[_builtins.str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        :param pulumi.Input[_builtins.str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[_builtins.int] port: Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        :param pulumi.Input[_builtins.str] protocol: Protocol to use for routing traffic to the targets.
-               Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
-               Required when `target_type` is `instance`, `ip`, or `alb`.
-               Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[_builtins.str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        :param pulumi.Input[_builtins.bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']] stickiness: Stickiness configuration block. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] target_control_port: Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `target_type` is `instance` or `ip`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']] target_group_health: Target health requirements block. See target_group_health for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        :param pulumi.Input[_builtins.str] target_type: Type of target that you must specify when registering targets with this target group.
-               See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
-               The default is `instance`.
-               
-               Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-               
-               If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-               
-               Network Load Balancers do not support the `lambda` target type.
-               
-               Application Load Balancers do not support the `alb` target type.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1460,245 +892,145 @@ class TargetGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Target Group (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN suffix for use with CloudWatch Metrics.
-        """
         return pulumi.get(self, "arn_suffix")
 
     @_builtins.property
     @pulumi.getter(name="connectionTermination")
     def connection_termination(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        """
         return pulumi.get(self, "connection_termination")
 
     @_builtins.property
     @pulumi.getter(name="deregistrationDelay")
     def deregistration_delay(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        """
         return pulumi.get(self, "deregistration_delay")
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> pulumi.Output['outputs.TargetGroupHealthCheck']:
-        """
-        Health Check configuration block. Detailed below.
-        """
         return pulumi.get(self, "health_check")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
     def lambda_multi_value_headers_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        """
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerArns")
     def load_balancer_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        ARNs of the Load Balancers associated with the Target Group.
-        """
         return pulumi.get(self, "load_balancer_arns")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingAlgorithmType")
     def load_balancing_algorithm_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        """
         return pulumi.get(self, "load_balancing_algorithm_type")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingAnomalyMitigation")
     def load_balancing_anomaly_mitigation(self) -> pulumi.Output[_builtins.str]:
-        """
-        Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        """
         return pulumi.get(self, "load_balancing_anomaly_mitigation")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
     def load_balancing_cross_zone_enabled(self) -> pulumi.Output[_builtins.str]:
-        """
-        Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        """
         return pulumi.get(self, "load_balancing_cross_zone_enabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preserveClientIp")
     def preserve_client_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        """
         return pulumi.get(self, "preserve_client_ip")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Protocol to use for routing traffic to the targets.
-        Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `QUIC`, or `TCP_QUIC`.
-        Required when `target_type` is `instance`, `ip`, or `alb`.
-        Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        """
         return pulumi.get(self, "protocol_version")
 
     @_builtins.property
     @pulumi.getter(name="proxyProtocolV2")
     def proxy_protocol_v2(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        """
         return pulumi.get(self, "proxy_protocol_v2")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="slowStart")
     def slow_start(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        """
         return pulumi.get(self, "slow_start")
 
     @_builtins.property
     @pulumi.getter
     def stickiness(self) -> pulumi.Output['outputs.TargetGroupStickiness']:
-        """
-        Stickiness configuration block. Detailed below.
-        """
         return pulumi.get(self, "stickiness")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetControlPort")
     def target_control_port(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature. Only applicable for Application Load Balancer target groups when `target_type` is `instance` or `ip`.
-        """
         return pulumi.get(self, "target_control_port")
 
     @_builtins.property
     @pulumi.getter(name="targetFailovers")
     def target_failovers(self) -> pulumi.Output[Sequence['outputs.TargetGroupTargetFailover']]:
-        """
-        Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        """
         return pulumi.get(self, "target_failovers")
 
     @_builtins.property
     @pulumi.getter(name="targetGroupHealth")
     def target_group_health(self) -> pulumi.Output['outputs.TargetGroupTargetGroupHealth']:
-        """
-        Target health requirements block. See target_group_health for more information.
-        """
         return pulumi.get(self, "target_group_health")
 
     @_builtins.property
     @pulumi.getter(name="targetHealthStates")
     def target_health_states(self) -> pulumi.Output[Sequence['outputs.TargetGroupTargetHealthState']]:
-        """
-        Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        """
         return pulumi.get(self, "target_health_states")
 
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Type of target that you must specify when registering targets with this target group.
-        See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
-        The default is `instance`.
-
-        Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-
-        If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
-
-        Network Load Balancers do not support the `lambda` target type.
-
-        Application Load Balancers do not support the `alb` target type.
-        """
         return pulumi.get(self, "target_type")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        """
         return pulumi.get(self, "vpc_id")
 

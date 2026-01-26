@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CapacityProviderInstanceRequirement {
-    /**
-     * @return List of allowed instance types.
-     * 
-     */
     private List<String> allowedInstanceTypes;
-    /**
-     * @return List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-     * 
-     */
     private List<String> architectures;
-    /**
-     * @return List of excluded instance types.
-     * 
-     */
     private List<String> excludedInstanceTypes;
 
     private CapacityProviderInstanceRequirement() {}
-    /**
-     * @return List of allowed instance types.
-     * 
-     */
     public List<String> allowedInstanceTypes() {
         return this.allowedInstanceTypes;
     }
-    /**
-     * @return List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-     * 
-     */
     public List<String> architectures() {
         return this.architectures;
     }
-    /**
-     * @return List of excluded instance types.
-     * 
-     */
     public List<String> excludedInstanceTypes() {
         return this.excludedInstanceTypes;
     }

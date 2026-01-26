@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantCustomizationsCertificate
     {
-        /// <summary>
-        /// ARN of the distribution tenant.
-        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

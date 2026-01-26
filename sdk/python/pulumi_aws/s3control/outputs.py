@@ -79,18 +79,12 @@ class AccessGrantAccessGrantsLocationConfiguration(dict):
 
     def __init__(__self__, *,
                  s3_sub_prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str s3_sub_prefix: Sub-prefix.
-        """
         if s3_sub_prefix is not None:
             pulumi.set(__self__, "s3_sub_prefix", s3_sub_prefix)
 
     @_builtins.property
     @pulumi.getter(name="s3SubPrefix")
     def s3_sub_prefix(self) -> Optional[_builtins.str]:
-        """
-        Sub-prefix.
-        """
         return pulumi.get(self, "s3_sub_prefix")
 
 
@@ -118,27 +112,17 @@ class AccessGrantGrantee(dict):
     def __init__(__self__, *,
                  grantee_identifier: _builtins.str,
                  grantee_type: _builtins.str):
-        """
-        :param _builtins.str grantee_identifier: Grantee identifier.
-        :param _builtins.str grantee_type: Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-        """
         pulumi.set(__self__, "grantee_identifier", grantee_identifier)
         pulumi.set(__self__, "grantee_type", grantee_type)
 
     @_builtins.property
     @pulumi.getter(name="granteeIdentifier")
     def grantee_identifier(self) -> _builtins.str:
-        """
-        Grantee identifier.
-        """
         return pulumi.get(self, "grantee_identifier")
 
     @_builtins.property
     @pulumi.getter(name="granteeType")
     def grantee_type(self) -> _builtins.str:
-        """
-        Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-        """
         return pulumi.get(self, "grantee_type")
 
 
@@ -167,13 +151,6 @@ class BucketLifecycleConfigurationRule(dict):
                  expiration: Optional['outputs.BucketLifecycleConfigurationRuleExpiration'] = None,
                  filter: Optional['outputs.BucketLifecycleConfigurationRuleFilter'] = None,
                  status: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str id: Unique identifier for the rule.
-        :param 'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs' abort_incomplete_multipart_upload: Configuration block containing settings for abort incomplete multipart upload.
-        :param 'BucketLifecycleConfigurationRuleExpirationArgs' expiration: Configuration block containing settings for expiration of objects.
-        :param 'BucketLifecycleConfigurationRuleFilterArgs' filter: Configuration block containing settings for filtering.
-        :param _builtins.str status: Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-        """
         pulumi.set(__self__, "id", id)
         if abort_incomplete_multipart_upload is not None:
             pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
@@ -187,41 +164,26 @@ class BucketLifecycleConfigurationRule(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Unique identifier for the rule.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="abortIncompleteMultipartUpload")
     def abort_incomplete_multipart_upload(self) -> Optional['outputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload']:
-        """
-        Configuration block containing settings for abort incomplete multipart upload.
-        """
         return pulumi.get(self, "abort_incomplete_multipart_upload")
 
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> Optional['outputs.BucketLifecycleConfigurationRuleExpiration']:
-        """
-        Configuration block containing settings for expiration of objects.
-        """
         return pulumi.get(self, "expiration")
 
     @_builtins.property
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketLifecycleConfigurationRuleFilter']:
-        """
-        Configuration block containing settings for filtering.
-        """
         return pulumi.get(self, "filter")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
-        """
-        Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-        """
         return pulumi.get(self, "status")
 
 
@@ -246,17 +208,11 @@ class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
 
     def __init__(__self__, *,
                  days_after_initiation: _builtins.int):
-        """
-        :param _builtins.int days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @_builtins.property
     @pulumi.getter(name="daysAfterInitiation")
     def days_after_initiation(self) -> _builtins.int:
-        """
-        Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
         return pulumi.get(self, "days_after_initiation")
 
 
@@ -283,11 +239,6 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
                  date: Optional[_builtins.str] = None,
                  days: Optional[_builtins.int] = None,
                  expired_object_delete_marker: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str date: Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-        :param _builtins.int days: Number of days before the object is to be deleted.
-        :param _builtins.bool expired_object_delete_marker: Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-        """
         if date is not None:
             pulumi.set(__self__, "date", date)
         if days is not None:
@@ -298,25 +249,16 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
     @_builtins.property
     @pulumi.getter
     def date(self) -> Optional[_builtins.str]:
-        """
-        Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-        """
         return pulumi.get(self, "date")
 
     @_builtins.property
     @pulumi.getter
     def days(self) -> Optional[_builtins.int]:
-        """
-        Number of days before the object is to be deleted.
-        """
         return pulumi.get(self, "days")
 
     @_builtins.property
     @pulumi.getter(name="expiredObjectDeleteMarker")
     def expired_object_delete_marker(self) -> Optional[_builtins.bool]:
-        """
-        Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-        """
         return pulumi.get(self, "expired_object_delete_marker")
 
 
@@ -325,10 +267,6 @@ class BucketLifecycleConfigurationRuleFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str prefix: Object prefix for rule filtering.
-        :param Mapping[str, _builtins.str] tags: Key-value map of object tags for rule filtering.
-        """
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
@@ -337,17 +275,11 @@ class BucketLifecycleConfigurationRuleFilter(dict):
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
-        """
-        Object prefix for rule filtering.
-        """
         return pulumi.get(self, "prefix")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Key-value map of object tags for rule filtering.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -356,12 +288,6 @@ class DirectoryBucketAccessPointScopeScope(dict):
     def __init__(__self__, *,
                  permissions: Optional[Sequence[_builtins.str]] = None,
                  prefixes: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] permissions: You can specify a list of API operations as permissions for the access point.
-        :param Sequence[_builtins.str] prefixes: You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-               
-               * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-        """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if prefixes is not None:
@@ -370,19 +296,11 @@ class DirectoryBucketAccessPointScopeScope(dict):
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        You can specify a list of API operations as permissions for the access point.
-        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property
     @pulumi.getter
     def prefixes(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-
-        * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-        """
         return pulumi.get(self, "prefixes")
 
 
@@ -409,9 +327,6 @@ class MultiRegionAccessPointDetails(dict):
                  name: _builtins.str,
                  regions: Sequence['outputs.MultiRegionAccessPointDetailsRegion'],
                  public_access_block: Optional['outputs.MultiRegionAccessPointDetailsPublicAccessBlock'] = None):
-        """
-        :param Sequence['MultiRegionAccessPointDetailsRegionArgs'] regions: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regions", regions)
         if public_access_block is not None:
@@ -425,9 +340,6 @@ class MultiRegionAccessPointDetails(dict):
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Sequence['outputs.MultiRegionAccessPointDetailsRegion']:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
@@ -519,9 +431,6 @@ class MultiRegionAccessPointDetailsRegion(dict):
                  bucket: _builtins.str,
                  bucket_account_id: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_account_id is not None:
             pulumi.set(__self__, "bucket_account_id", bucket_account_id)
@@ -541,9 +450,6 @@ class MultiRegionAccessPointDetailsRegion(dict):
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
 
@@ -552,31 +458,17 @@ class MultiRegionAccessPointPolicyDetails(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  policy: _builtins.str):
-        """
-        :param _builtins.str name: The name of the Multi-Region Access Point.
-        :param _builtins.str policy: A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
-               
-               > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy", policy)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the Multi-Region Access Point.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
-
-        > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
-        """
         return pulumi.get(self, "policy")
 
 
@@ -610,12 +502,6 @@ class ObjectLambdaAccessPointConfiguration(dict):
                  transformation_configurations: Sequence['outputs.ObjectLambdaAccessPointConfigurationTransformationConfiguration'],
                  allowed_features: Optional[Sequence[_builtins.str]] = None,
                  cloud_watch_metrics_enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str supporting_access_point: Standard access point associated with the Object Lambda Access Point.
-        :param Sequence['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs'] transformation_configurations: List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
-        :param Sequence[_builtins.str] allowed_features: Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-        :param _builtins.bool cloud_watch_metrics_enabled: Whether or not the CloudWatch metrics configuration is enabled.
-        """
         pulumi.set(__self__, "supporting_access_point", supporting_access_point)
         pulumi.set(__self__, "transformation_configurations", transformation_configurations)
         if allowed_features is not None:
@@ -626,33 +512,21 @@ class ObjectLambdaAccessPointConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="supportingAccessPoint")
     def supporting_access_point(self) -> _builtins.str:
-        """
-        Standard access point associated with the Object Lambda Access Point.
-        """
         return pulumi.get(self, "supporting_access_point")
 
     @_builtins.property
     @pulumi.getter(name="transformationConfigurations")
     def transformation_configurations(self) -> Sequence['outputs.ObjectLambdaAccessPointConfigurationTransformationConfiguration']:
-        """
-        List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
-        """
         return pulumi.get(self, "transformation_configurations")
 
     @_builtins.property
     @pulumi.getter(name="allowedFeatures")
     def allowed_features(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-        """
         return pulumi.get(self, "allowed_features")
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
     def cloud_watch_metrics_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether or not the CloudWatch metrics configuration is enabled.
-        """
         return pulumi.get(self, "cloud_watch_metrics_enabled")
 
 
@@ -678,27 +552,17 @@ class ObjectLambdaAccessPointConfigurationTransformationConfiguration(dict):
     def __init__(__self__, *,
                  actions: Sequence[_builtins.str],
                  content_transformation: 'outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation'):
-        """
-        :param Sequence[_builtins.str] actions: The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-        :param 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs' content_transformation: The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
-        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "content_transformation", content_transformation)
 
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Sequence[_builtins.str]:
-        """
-        The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter(name="contentTransformation")
     def content_transformation(self) -> 'outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation':
-        """
-        The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
-        """
         return pulumi.get(self, "content_transformation")
 
 
@@ -723,17 +587,11 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
 
     def __init__(__self__, *,
                  aws_lambda: 'outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda'):
-        """
-        :param 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs' aws_lambda: Configuration for an AWS Lambda function. See AWS Lambda below for more details.
-        """
         pulumi.set(__self__, "aws_lambda", aws_lambda)
 
     @_builtins.property
     @pulumi.getter(name="awsLambda")
     def aws_lambda(self) -> 'outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda':
-        """
-        Configuration for an AWS Lambda function. See AWS Lambda below for more details.
-        """
         return pulumi.get(self, "aws_lambda")
 
 
@@ -761,10 +619,6 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
     def __init__(__self__, *,
                  function_arn: _builtins.str,
                  function_payload: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str function_arn: The Amazon Resource Name (ARN) of the AWS Lambda function.
-        :param _builtins.str function_payload: Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-        """
         pulumi.set(__self__, "function_arn", function_arn)
         if function_payload is not None:
             pulumi.set(__self__, "function_payload", function_payload)
@@ -772,17 +626,11 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
     @_builtins.property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the AWS Lambda function.
-        """
         return pulumi.get(self, "function_arn")
 
     @_builtins.property
     @pulumi.getter(name="functionPayload")
     def function_payload(self) -> Optional[_builtins.str]:
-        """
-        Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-        """
         return pulumi.get(self, "function_payload")
 
 
@@ -816,14 +664,6 @@ class StorageLensConfigurationStorageLensConfiguration(dict):
                  data_export: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExport'] = None,
                  exclude: Optional['outputs.StorageLensConfigurationStorageLensConfigurationExclude'] = None,
                  include: Optional['outputs.StorageLensConfigurationStorageLensConfigurationInclude'] = None):
-        """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelArgs' account_level: The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-        :param _builtins.bool enabled: Whether the S3 Storage Lens configuration is enabled.
-        :param 'StorageLensConfigurationStorageLensConfigurationAwsOrgArgs' aws_org: The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportArgs' data_export: Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationExcludeArgs' exclude: What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationIncludeArgs' include: What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-        """
         pulumi.set(__self__, "account_level", account_level)
         pulumi.set(__self__, "enabled", enabled)
         if aws_org is not None:
@@ -838,49 +678,31 @@ class StorageLensConfigurationStorageLensConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="accountLevel")
     def account_level(self) -> 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel':
-        """
-        The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-        """
         return pulumi.get(self, "account_level")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether the S3 Storage Lens configuration is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="awsOrg")
     def aws_org(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg']:
-        """
-        The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-        """
         return pulumi.get(self, "aws_org")
 
     @_builtins.property
     @pulumi.getter(name="dataExport")
     def data_export(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExport']:
-        """
-        Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-        """
         return pulumi.get(self, "data_export")
 
     @_builtins.property
     @pulumi.getter
     def exclude(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationExclude']:
-        """
-        What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-        """
         return pulumi.get(self, "exclude")
 
     @_builtins.property
     @pulumi.getter
     def include(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationInclude']:
-        """
-        What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-        """
         return pulumi.get(self, "include")
 
 
@@ -917,13 +739,6 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
                  advanced_cost_optimization_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics'] = None,
                  advanced_data_protection_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics'] = None,
                  detailed_status_code_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics'] = None):
-        """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs' bucket_level: S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs' advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs' advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs' detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-        """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
@@ -937,41 +752,26 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
     @_builtins.property
     @pulumi.getter(name="bucketLevel")
     def bucket_level(self) -> 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel':
-        """
-        S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-        """
         return pulumi.get(self, "bucket_level")
 
     @_builtins.property
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics']:
-        """
-        S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-        """
         return pulumi.get(self, "activity_metrics")
 
     @_builtins.property
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics']:
-        """
-        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-        """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
     @_builtins.property
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics']:
-        """
-        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-        """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
     @_builtins.property
     @pulumi.getter(name="detailedStatusCodeMetrics")
     def detailed_status_code_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics']:
-        """
-        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-        """
         return pulumi.get(self, "detailed_status_code_metrics")
 
 
@@ -979,18 +779,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
 class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether the activity metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the activity metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -998,18 +792,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetric
 class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether advanced cost-optimization metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether advanced cost-optimization metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1017,18 +805,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOp
 class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether advanced data-protection metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether advanced data-protection metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1065,13 +847,6 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(di
                  advanced_data_protection_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics'] = None,
                  detailed_status_code_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics'] = None,
                  prefix_level: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel'] = None):
-        """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs' advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs' advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs' detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs' prefix_level: Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
-        """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
         if advanced_cost_optimization_metrics is not None:
@@ -1086,41 +861,26 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(di
     @_builtins.property
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics']:
-        """
-        S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-        """
         return pulumi.get(self, "activity_metrics")
 
     @_builtins.property
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics']:
-        """
-        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
-        """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
     @_builtins.property
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics']:
-        """
-        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-        """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
     @_builtins.property
     @pulumi.getter(name="detailedStatusCodeMetrics")
     def detailed_status_code_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics']:
-        """
-        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-        """
         return pulumi.get(self, "detailed_status_code_metrics")
 
     @_builtins.property
     @pulumi.getter(name="prefixLevel")
     def prefix_level(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel']:
-        """
-        Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
-        """
         return pulumi.get(self, "prefix_level")
 
 
@@ -1128,18 +888,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(di
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether the activity metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the activity metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1147,18 +901,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAct
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether advanced cost-optimization metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether advanced cost-optimization metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1166,18 +914,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdv
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether advanced data-protection metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether advanced data-protection metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1185,18 +927,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdv
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether detailed status code metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether detailed status code metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1221,17 +957,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
 
     def __init__(__self__, *,
                  storage_metrics: 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics'):
-        """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs' storage_metrics: Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-        """
         pulumi.set(__self__, "storage_metrics", storage_metrics)
 
     @_builtins.property
     @pulumi.getter(name="storageMetrics")
     def storage_metrics(self) -> 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics':
-        """
-        Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-        """
         return pulumi.get(self, "storage_metrics")
 
 
@@ -1257,10 +987,6 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  selection_criteria: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria'] = None):
-        """
-        :param _builtins.bool enabled: Whether prefix-level storage metrics are enabled.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs' selection_criteria: Selection criteria. See Selection Criteria below for more details.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if selection_criteria is not None:
@@ -1269,17 +995,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether prefix-level storage metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria']:
-        """
-        Selection criteria. See Selection Criteria below for more details.
-        """
         return pulumi.get(self, "selection_criteria")
 
 
@@ -1308,11 +1028,6 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
                  delimiter: Optional[_builtins.str] = None,
                  max_depth: Optional[_builtins.int] = None,
                  min_storage_bytes_percentage: Optional[_builtins.float] = None):
-        """
-        :param _builtins.str delimiter: The delimiter of the selection criteria being used.
-        :param _builtins.int max_depth: The max depth of the selection criteria.
-        :param _builtins.float min_storage_bytes_percentage: The minimum number of storage bytes percentage whose metrics will be selected.
-        """
         if delimiter is not None:
             pulumi.set(__self__, "delimiter", delimiter)
         if max_depth is not None:
@@ -1323,25 +1038,16 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @_builtins.property
     @pulumi.getter
     def delimiter(self) -> Optional[_builtins.str]:
-        """
-        The delimiter of the selection criteria being used.
-        """
         return pulumi.get(self, "delimiter")
 
     @_builtins.property
     @pulumi.getter(name="maxDepth")
     def max_depth(self) -> Optional[_builtins.int]:
-        """
-        The max depth of the selection criteria.
-        """
         return pulumi.get(self, "max_depth")
 
     @_builtins.property
     @pulumi.getter(name="minStorageBytesPercentage")
     def min_storage_bytes_percentage(self) -> Optional[_builtins.float]:
-        """
-        The minimum number of storage bytes percentage whose metrics will be selected.
-        """
         return pulumi.get(self, "min_storage_bytes_percentage")
 
 
@@ -1349,18 +1055,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
 class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether detailed status code metrics are enabled.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether detailed status code metrics are enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1368,17 +1068,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatus
 class StorageLensConfigurationStorageLensConfigurationAwsOrg(dict):
     def __init__(__self__, *,
                  arn: _builtins.str):
-        """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
-        """
         pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -1406,10 +1100,6 @@ class StorageLensConfigurationStorageLensConfigurationDataExport(dict):
     def __init__(__self__, *,
                  cloud_watch_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics'] = None,
                  s3_bucket_destination: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination'] = None):
-        """
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs' cloud_watch_metrics: Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs' s3_bucket_destination: The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-        """
         if cloud_watch_metrics is not None:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
         if s3_bucket_destination is not None:
@@ -1418,17 +1108,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExport(dict):
     @_builtins.property
     @pulumi.getter(name="cloudWatchMetrics")
     def cloud_watch_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics']:
-        """
-        Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-        """
         return pulumi.get(self, "cloud_watch_metrics")
 
     @_builtins.property
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination']:
-        """
-        The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-        """
         return pulumi.get(self, "s3_bucket_destination")
 
 
@@ -1436,17 +1120,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExport(dict):
 class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool):
-        """
-        :param _builtins.bool enabled: Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1478,14 +1156,6 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  output_schema_version: _builtins.str,
                  encryption: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption'] = None,
                  prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the bucket.
-        :param _builtins.str format: The export format. Valid values: `CSV`, `Parquet`.
-        :param _builtins.str output_schema_version: The schema version of the export file. Valid values: `V_1`.
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs' encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
-        :param _builtins.str prefix: The prefix of the destination bucket where the metrics export will be delivered.
-        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "format", format)
@@ -1498,49 +1168,31 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> _builtins.str:
-        """
-        The account ID of the owner of the S3 Storage Lens metrics export bucket.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the bucket.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def format(self) -> _builtins.str:
-        """
-        The export format. Valid values: `CSV`, `Parquet`.
-        """
         return pulumi.get(self, "format")
 
     @_builtins.property
     @pulumi.getter(name="outputSchemaVersion")
     def output_schema_version(self) -> _builtins.str:
-        """
-        The schema version of the export file. Valid values: `V_1`.
-        """
         return pulumi.get(self, "output_schema_version")
 
     @_builtins.property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption']:
-        """
-        Encryption of the metrics exports in this bucket. See Encryption below for more details.
-        """
         return pulumi.get(self, "encryption")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
-        """
-        The prefix of the destination bucket where the metrics export will be delivered.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -1568,10 +1220,6 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     def __init__(__self__, *,
                  sse_kms: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms'] = None,
                  sse_s3s: Optional[Sequence['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3']] = None):
-        """
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs' sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
-        :param Sequence['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args'] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
-        """
         if sse_kms is not None:
             pulumi.set(__self__, "sse_kms", sse_kms)
         if sse_s3s is not None:
@@ -1580,17 +1228,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @_builtins.property
     @pulumi.getter(name="sseKms")
     def sse_kms(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms']:
-        """
-        SSE-KMS encryption. See SSE KMS below for more details.
-        """
         return pulumi.get(self, "sse_kms")
 
     @_builtins.property
     @pulumi.getter(name="sseS3s")
     def sse_s3s(self) -> Optional[Sequence['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3']]:
-        """
-        SSE-S3 encryption. An empty configuration block `{}` should be used.
-        """
         return pulumi.get(self, "sse_s3s")
 
 
@@ -1615,17 +1257,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
 
     def __init__(__self__, *,
                  key_id: _builtins.str):
-        """
-        :param _builtins.str key_id: KMS key ARN.
-        """
         pulumi.set(__self__, "key_id", key_id)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> _builtins.str:
-        """
-        KMS key ARN.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -1640,10 +1276,6 @@ class StorageLensConfigurationStorageLensConfigurationExclude(dict):
     def __init__(__self__, *,
                  buckets: Optional[Sequence[_builtins.str]] = None,
                  regions: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] buckets: List of S3 bucket ARNs.
-        :param Sequence[_builtins.str] regions: List of AWS Regions.
-        """
         if buckets is not None:
             pulumi.set(__self__, "buckets", buckets)
         if regions is not None:
@@ -1652,17 +1284,11 @@ class StorageLensConfigurationStorageLensConfigurationExclude(dict):
     @_builtins.property
     @pulumi.getter
     def buckets(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of S3 bucket ARNs.
-        """
         return pulumi.get(self, "buckets")
 
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of AWS Regions.
-        """
         return pulumi.get(self, "regions")
 
 
@@ -1671,10 +1297,6 @@ class StorageLensConfigurationStorageLensConfigurationInclude(dict):
     def __init__(__self__, *,
                  buckets: Optional[Sequence[_builtins.str]] = None,
                  regions: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] buckets: List of S3 bucket ARNs.
-        :param Sequence[_builtins.str] regions: List of AWS Regions.
-        """
         if buckets is not None:
             pulumi.set(__self__, "buckets", buckets)
         if regions is not None:
@@ -1683,17 +1305,11 @@ class StorageLensConfigurationStorageLensConfigurationInclude(dict):
     @_builtins.property
     @pulumi.getter
     def buckets(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of S3 bucket ARNs.
-        """
         return pulumi.get(self, "buckets")
 
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of AWS Regions.
-        """
         return pulumi.get(self, "regions")
 
 
@@ -1704,18 +1320,6 @@ class GetMultiRegionAccessPointPublicAccessBlockResult(dict):
                  block_public_policy: _builtins.bool,
                  ignore_public_acls: _builtins.bool,
                  restrict_public_buckets: _builtins.bool):
-        """
-        :param _builtins.bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-               * PUT Object calls fail if the request includes a public ACL.
-               * PUT Bucket calls fail if the request includes a public ACL.
-        :param _builtins.bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
-               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        :param _builtins.bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
-               * Ignore all public ACLs on buckets in this account and any objects that they contain.
-        :param _builtins.bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
-               * Only the bucket owner and AWS Services can access buckets with public policies.
-        """
         pulumi.set(__self__, "block_public_acls", block_public_acls)
         pulumi.set(__self__, "block_public_policy", block_public_policy)
         pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
@@ -1724,39 +1328,21 @@ class GetMultiRegionAccessPointPublicAccessBlockResult(dict):
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> _builtins.bool:
-        """
-        Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-        * PUT Object calls fail if the request includes a public ACL.
-        * PUT Bucket calls fail if the request includes a public ACL.
-        """
         return pulumi.get(self, "block_public_acls")
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> _builtins.bool:
-        """
-        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
-        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        """
         return pulumi.get(self, "block_public_policy")
 
     @_builtins.property
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> _builtins.bool:
-        """
-        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
-        * Ignore all public ACLs on buckets in this account and any objects that they contain.
-        """
         return pulumi.get(self, "ignore_public_acls")
 
     @_builtins.property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> _builtins.bool:
-        """
-        Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
-        * Only the bucket owner and AWS Services can access buckets with public policies.
-        """
         return pulumi.get(self, "restrict_public_buckets")
 
 
@@ -1766,11 +1352,6 @@ class GetMultiRegionAccessPointRegionResult(dict):
                  bucket: _builtins.str,
                  bucket_account_id: _builtins.str,
                  region: _builtins.str):
-        """
-        :param _builtins.str bucket: The name of the bucket.
-        :param _builtins.str bucket_account_id: The AWS account ID that owns the bucket.
-        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "bucket_account_id", bucket_account_id)
         pulumi.set(__self__, "region", region)
@@ -1778,25 +1359,16 @@ class GetMultiRegionAccessPointRegionResult(dict):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        The name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> _builtins.str:
-        """
-        The AWS account ID that owns the bucket.
-        """
         return pulumi.get(self, "bucket_account_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
 

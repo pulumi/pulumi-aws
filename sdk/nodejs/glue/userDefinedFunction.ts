@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Glue User Defined Function Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.CatalogDatabase("example", {name: "my_database"});
- * const exampleUserDefinedFunction = new aws.glue.UserDefinedFunction("example", {
- *     name: "my_func",
- *     catalogId: example.catalogId,
- *     databaseName: example.name,
- *     className: "class",
- *     ownerName: "owner",
- *     ownerType: "GROUP",
- *     resourceUris: [{
- *         resourceType: "ARCHIVE",
- *         uri: "uri",
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
- *
- * ```sh
- * $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
- * ```
- */
 export class UserDefinedFunction extends pulumi.CustomResource {
     /**
      * Get an existing UserDefinedFunction resource's state with the given name, ID, and optional extra
@@ -67,45 +35,15 @@ export class UserDefinedFunction extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserDefinedFunction.__pulumiType;
     }
 
-    /**
-     * The ARN of the Glue User Defined Function.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-     */
     declare public readonly catalogId: pulumi.Output<string | undefined>;
-    /**
-     * The Java class that contains the function code.
-     */
     declare public readonly className: pulumi.Output<string>;
-    /**
-     * The time at which the function was created.
-     */
     declare public /*out*/ readonly createTime: pulumi.Output<string>;
-    /**
-     * The name of the Database to create the Function.
-     */
     declare public readonly databaseName: pulumi.Output<string>;
-    /**
-     * The name of the function.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The owner of the function.
-     */
     declare public readonly ownerName: pulumi.Output<string>;
-    /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-     */
     declare public readonly ownerType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
-     */
     declare public readonly resourceUris: pulumi.Output<outputs.glue.UserDefinedFunctionResourceUri[] | undefined>;
 
     /**
@@ -165,45 +103,15 @@ export class UserDefinedFunction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserDefinedFunction resources.
  */
 export interface UserDefinedFunctionState {
-    /**
-     * The ARN of the Glue User Defined Function.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * The Java class that contains the function code.
-     */
     className?: pulumi.Input<string>;
-    /**
-     * The time at which the function was created.
-     */
     createTime?: pulumi.Input<string>;
-    /**
-     * The name of the Database to create the Function.
-     */
     databaseName?: pulumi.Input<string>;
-    /**
-     * The name of the function.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The owner of the function.
-     */
     ownerName?: pulumi.Input<string>;
-    /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-     */
     ownerType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
-     */
     resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[]>;
 }
 
@@ -211,36 +119,12 @@ export interface UserDefinedFunctionState {
  * The set of arguments for constructing a UserDefinedFunction resource.
  */
 export interface UserDefinedFunctionArgs {
-    /**
-     * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * The Java class that contains the function code.
-     */
     className: pulumi.Input<string>;
-    /**
-     * The name of the Database to create the Function.
-     */
     databaseName: pulumi.Input<string>;
-    /**
-     * The name of the function.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The owner of the function.
-     */
     ownerName: pulumi.Input<string>;
-    /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-     */
     ownerType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
-     */
     resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[]>;
 }

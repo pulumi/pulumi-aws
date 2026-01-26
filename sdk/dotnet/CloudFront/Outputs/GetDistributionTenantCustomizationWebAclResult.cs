@@ -14,9 +14,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class GetDistributionTenantCustomizationWebAclResult
     {
         public readonly string Action;
-        /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution tenant.
-        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

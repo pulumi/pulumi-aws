@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Lex
 {
     public static class GetSlotType
     {
-        /// <summary>
-        /// Provides details about a specific Amazon Lex Slot Type.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var flowerTypes = Aws.Lex.GetSlotType.Invoke(new()
-        ///     {
-        ///         Name = "FlowerTypes",
-        ///         Version = "1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSlotTypeResult> InvokeAsync(GetSlotTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSlotTypeResult>("aws:lex/getSlotType:getSlotType", args ?? new GetSlotTypeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Lex Slot Type.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var flowerTypes = Aws.Lex.GetSlotType.Invoke(new()
-        ///     {
-        ///         Name = "FlowerTypes",
-        ///         Version = "1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSlotTypeResult> Invoke(GetSlotTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSlotTypeResult>("aws:lex/getSlotType:getSlotType", args ?? new GetSlotTypeInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Lex Slot Type.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var flowerTypes = Aws.Lex.GetSlotType.Invoke(new()
-        ///     {
-        ///         Name = "FlowerTypes",
-        ///         Version = "1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSlotTypeResult> Invoke(GetSlotTypeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSlotTypeResult>("aws:lex/getSlotType:getSlotType", args ?? new GetSlotTypeInvokeArgs(), options.WithDefaults());
     }
@@ -90,21 +24,12 @@ namespace Pulumi.Aws.Lex
 
     public sealed class GetSlotTypeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the slot type. The name is case sensitive.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Version of the slot type.
-        /// </summary>
         [Input("version")]
         public string? Version { get; set; }
 
@@ -116,21 +41,12 @@ namespace Pulumi.Aws.Lex
 
     public sealed class GetSlotTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the slot type. The name is case sensitive.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Version of the slot type.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -144,48 +60,18 @@ namespace Pulumi.Aws.Lex
     [OutputType]
     public sealed class GetSlotTypeResult
     {
-        /// <summary>
-        /// Checksum identifying the version of the slot type that was created. The checksum is
-        /// not included as an argument because the resource will add it automatically when updating the slot type.
-        /// </summary>
         public readonly string Checksum;
-        /// <summary>
-        /// Date when the slot type version was created.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Description of the slot type.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Set of EnumerationValue objects that defines the values that
-        /// the slot type can take. Each value can have a set of synonyms, which are additional values that help
-        /// train the machine learning model about the values that it resolves for a slot.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSlotTypeEnumerationValueResult> EnumerationValues;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Date when the $LATEST version of this slot type was updated.
-        /// </summary>
         public readonly string LastUpdatedDate;
-        /// <summary>
-        /// Name of the slot type. The name is not case sensitive.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Determines the slot resolution strategy that Amazon Lex
-        /// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-        /// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-        /// if there is a resolution list for the slot, otherwise null is returned.
-        /// </summary>
         public readonly string ValueSelectionStrategy;
-        /// <summary>
-        /// Version of the slot type.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

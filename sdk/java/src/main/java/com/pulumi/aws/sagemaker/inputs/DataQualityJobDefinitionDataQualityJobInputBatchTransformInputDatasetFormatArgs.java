@@ -16,32 +16,16 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
     public static final DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs Empty = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs();
 
-    /**
-     * The CSV dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="csv")
     private @Nullable Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs> csv;
 
-    /**
-     * @return The CSV dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs>> csv() {
         return Optional.ofNullable(this.csv);
     }
 
-    /**
-     * The JSON dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="json")
     private @Nullable Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs> json;
 
-    /**
-     * @return The JSON dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs>> json() {
         return Optional.ofNullable(this.json);
     }
@@ -71,44 +55,20 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
             $ = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param csv The CSV dataset used in the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csv(@Nullable Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs> csv) {
             $.csv = csv;
             return this;
         }
 
-        /**
-         * @param csv The CSV dataset used in the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csv(DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs csv) {
             return csv(Output.of(csv));
         }
 
-        /**
-         * @param json The JSON dataset used in the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder json(@Nullable Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs> json) {
             $.json = json;
             return this;
         }
 
-        /**
-         * @param json The JSON dataset used in the monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder json(DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs json) {
             return json(Output.of(json));
         }

@@ -12,62 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Audit Manager Framework Share.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewFrameworkShare(ctx, "example", &auditmanager.FrameworkShareArgs{
-//				DestinationAccount: pulumi.String("123456789012"),
-//				DestinationRegion:  pulumi.String("us-east-1"),
-//				FrameworkId:        pulumi.Any(exampleAwsAuditmanagerFramework.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
-// ```
 type FrameworkShare struct {
 	pulumi.CustomResourceState
 
-	// Comment from the sender about the share request.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Amazon Web Services account of the recipient.
-	DestinationAccount pulumi.StringOutput `pulumi:"destinationAccount"`
-	// Amazon Web Services region of the recipient.
-	DestinationRegion pulumi.StringOutput `pulumi:"destinationRegion"`
-	// Unique identifier for the shared custom framework.
-	//
-	// The following arguments are optional:
-	FrameworkId pulumi.StringOutput `pulumi:"frameworkId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of the share request.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Comment            pulumi.StringPtrOutput `pulumi:"comment"`
+	DestinationAccount pulumi.StringOutput    `pulumi:"destinationAccount"`
+	DestinationRegion  pulumi.StringOutput    `pulumi:"destinationRegion"`
+	FrameworkId        pulumi.StringOutput    `pulumi:"frameworkId"`
+	Region             pulumi.StringOutput    `pulumi:"region"`
+	Status             pulumi.StringOutput    `pulumi:"status"`
 }
 
 // NewFrameworkShare registers a new resource with the given unique name, arguments, and options.
@@ -109,37 +62,21 @@ func GetFrameworkShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrameworkShare resources.
 type frameworkShareState struct {
-	// Comment from the sender about the share request.
-	Comment *string `pulumi:"comment"`
-	// Amazon Web Services account of the recipient.
+	Comment            *string `pulumi:"comment"`
 	DestinationAccount *string `pulumi:"destinationAccount"`
-	// Amazon Web Services region of the recipient.
-	DestinationRegion *string `pulumi:"destinationRegion"`
-	// Unique identifier for the shared custom framework.
-	//
-	// The following arguments are optional:
-	FrameworkId *string `pulumi:"frameworkId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the share request.
-	Status *string `pulumi:"status"`
+	DestinationRegion  *string `pulumi:"destinationRegion"`
+	FrameworkId        *string `pulumi:"frameworkId"`
+	Region             *string `pulumi:"region"`
+	Status             *string `pulumi:"status"`
 }
 
 type FrameworkShareState struct {
-	// Comment from the sender about the share request.
-	Comment pulumi.StringPtrInput
-	// Amazon Web Services account of the recipient.
+	Comment            pulumi.StringPtrInput
 	DestinationAccount pulumi.StringPtrInput
-	// Amazon Web Services region of the recipient.
-	DestinationRegion pulumi.StringPtrInput
-	// Unique identifier for the shared custom framework.
-	//
-	// The following arguments are optional:
-	FrameworkId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the share request.
-	Status pulumi.StringPtrInput
+	DestinationRegion  pulumi.StringPtrInput
+	FrameworkId        pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
 }
 
 func (FrameworkShareState) ElementType() reflect.Type {
@@ -147,34 +84,20 @@ func (FrameworkShareState) ElementType() reflect.Type {
 }
 
 type frameworkShareArgs struct {
-	// Comment from the sender about the share request.
-	Comment *string `pulumi:"comment"`
-	// Amazon Web Services account of the recipient.
-	DestinationAccount string `pulumi:"destinationAccount"`
-	// Amazon Web Services region of the recipient.
-	DestinationRegion string `pulumi:"destinationRegion"`
-	// Unique identifier for the shared custom framework.
-	//
-	// The following arguments are optional:
-	FrameworkId string `pulumi:"frameworkId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Comment            *string `pulumi:"comment"`
+	DestinationAccount string  `pulumi:"destinationAccount"`
+	DestinationRegion  string  `pulumi:"destinationRegion"`
+	FrameworkId        string  `pulumi:"frameworkId"`
+	Region             *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FrameworkShare resource.
 type FrameworkShareArgs struct {
-	// Comment from the sender about the share request.
-	Comment pulumi.StringPtrInput
-	// Amazon Web Services account of the recipient.
+	Comment            pulumi.StringPtrInput
 	DestinationAccount pulumi.StringInput
-	// Amazon Web Services region of the recipient.
-	DestinationRegion pulumi.StringInput
-	// Unique identifier for the shared custom framework.
-	//
-	// The following arguments are optional:
-	FrameworkId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DestinationRegion  pulumi.StringInput
+	FrameworkId        pulumi.StringInput
+	Region             pulumi.StringPtrInput
 }
 
 func (FrameworkShareArgs) ElementType() reflect.Type {
@@ -264,34 +187,26 @@ func (o FrameworkShareOutput) ToFrameworkShareOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Comment from the sender about the share request.
 func (o FrameworkShareOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Web Services account of the recipient.
 func (o FrameworkShareOutput) DestinationAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.DestinationAccount }).(pulumi.StringOutput)
 }
 
-// Amazon Web Services region of the recipient.
 func (o FrameworkShareOutput) DestinationRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.DestinationRegion }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the shared custom framework.
-//
-// The following arguments are optional:
 func (o FrameworkShareOutput) FrameworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.FrameworkId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FrameworkShareOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the share request.
 func (o FrameworkShareOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

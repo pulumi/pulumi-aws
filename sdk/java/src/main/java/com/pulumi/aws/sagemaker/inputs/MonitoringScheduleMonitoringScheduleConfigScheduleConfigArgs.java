@@ -14,17 +14,9 @@ public final class MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs 
 
     public static final MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs Empty = new MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs();
 
-    /**
-     * A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
-     * 
-     */
     @Import(name="scheduleExpression", required=true)
     private Output<String> scheduleExpression;
 
-    /**
-     * @return A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
-     * 
-     */
     public Output<String> scheduleExpression() {
         return this.scheduleExpression;
     }
@@ -53,23 +45,11 @@ public final class MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs 
             $ = new MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param scheduleExpression A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(Output<String> scheduleExpression) {
             $.scheduleExpression = scheduleExpression;
             return this;
         }
 
-        /**
-         * @param scheduleExpression A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
         }

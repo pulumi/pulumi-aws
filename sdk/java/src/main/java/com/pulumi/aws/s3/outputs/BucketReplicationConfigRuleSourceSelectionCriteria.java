@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketReplicationConfigRuleSourceSelectionCriteria {
-    /**
-     * @return Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications;
-    /**
-     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects;
 
     private BucketReplicationConfigRuleSourceSelectionCriteria() {}
-    /**
-     * @return Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications> replicaModifications() {
         return Optional.ofNullable(this.replicaModifications);
     }
-    /**
-     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects> sseKmsEncryptedObjects() {
         return Optional.ofNullable(this.sseKmsEncryptedObjects);
     }

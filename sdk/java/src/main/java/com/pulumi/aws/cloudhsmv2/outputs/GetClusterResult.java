@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterResult {
-    /**
-     * @return The list of cluster certificates.
-     * 
-     */
     private List<GetClusterClusterCertificate> clusterCertificates;
     private String clusterId;
     private String clusterState;
@@ -25,27 +21,11 @@ public final class GetClusterResult {
      */
     private String id;
     private String region;
-    /**
-     * @return ID of the security group associated with the CloudHSM cluster.
-     * 
-     */
     private String securityGroupId;
-    /**
-     * @return IDs of subnets in which cluster operates.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return ID of the VPC that the CloudHSM cluster resides in.
-     * 
-     */
     private String vpcId;
 
     private GetClusterResult() {}
-    /**
-     * @return The list of cluster certificates.
-     * 
-     */
     public List<GetClusterClusterCertificate> clusterCertificates() {
         return this.clusterCertificates;
     }
@@ -65,24 +45,12 @@ public final class GetClusterResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return ID of the security group associated with the CloudHSM cluster.
-     * 
-     */
     public String securityGroupId() {
         return this.securityGroupId;
     }
-    /**
-     * @return IDs of subnets in which cluster operates.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return ID of the VPC that the CloudHSM cluster resides in.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GlobalSecondaryIndexWarmThroughput
     {
-        /// <summary>
-        /// Number of read operations this index can instantaneously support.
-        /// </summary>
         public readonly int ReadUnitsPerSecond;
-        /// <summary>
-        /// Number of write operations this index can instantaneously support.
-        /// </summary>
         public readonly int WriteUnitsPerSecond;
 
         [OutputConstructor]

@@ -15,17 +15,9 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationArgs exte
 
     public static final TlsInspectionConfigurationTlsInspectionConfigurationArgs Empty = new TlsInspectionConfigurationTlsInspectionConfigurationArgs();
 
-    /**
-     * Server certificate configurations that are associated with the TLS configuration. Detailed below.
-     * 
-     */
     @Import(name="serverCertificateConfiguration")
     private @Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> serverCertificateConfiguration;
 
-    /**
-     * @return Server certificate configurations that are associated with the TLS configuration. Detailed below.
-     * 
-     */
     public Optional<Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs>> serverCertificateConfiguration() {
         return Optional.ofNullable(this.serverCertificateConfiguration);
     }
@@ -54,23 +46,11 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationArgs exte
             $ = new TlsInspectionConfigurationTlsInspectionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param serverCertificateConfiguration Server certificate configurations that are associated with the TLS configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverCertificateConfiguration(@Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> serverCertificateConfiguration) {
             $.serverCertificateConfiguration = serverCertificateConfiguration;
             return this;
         }
 
-        /**
-         * @param serverCertificateConfiguration Server certificate configurations that are associated with the TLS configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs serverCertificateConfiguration) {
             return serverCertificateConfiguration(Output.of(serverCertificateConfiguration));
         }

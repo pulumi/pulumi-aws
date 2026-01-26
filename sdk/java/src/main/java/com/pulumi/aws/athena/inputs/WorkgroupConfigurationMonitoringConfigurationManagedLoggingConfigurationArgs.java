@@ -17,17 +17,9 @@ public final class WorkgroupConfigurationMonitoringConfigurationManagedLoggingCo
 
     public static final WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs Empty = new WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs();
 
-    /**
-     * Boolean whether managed log persistence is enabled for the workgroup.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Boolean whether managed log persistence is enabled for the workgroup.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -64,23 +56,11 @@ public final class WorkgroupConfigurationMonitoringConfigurationManagedLoggingCo
             $ = new WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Boolean whether managed log persistence is enabled for the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean whether managed log persistence is enabled for the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

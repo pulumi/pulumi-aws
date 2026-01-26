@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BudgetActionDefinitionIamActionDefinition {
-    /**
-     * @return A list of groups to be attached. There must be at least one group.
-     * 
-     */
     private @Nullable List<String> groups;
-    /**
-     * @return The Amazon Resource Name (ARN) of the policy to be attached.
-     * 
-     */
     private String policyArn;
-    /**
-     * @return A list of roles to be attached. There must be at least one role.
-     * 
-     */
     private @Nullable List<String> roles;
-    /**
-     * @return A list of users to be attached. There must be at least one user.
-     * 
-     */
     private @Nullable List<String> users;
 
     private BudgetActionDefinitionIamActionDefinition() {}
-    /**
-     * @return A list of groups to be attached. There must be at least one group.
-     * 
-     */
     public List<String> groups() {
         return this.groups == null ? List.of() : this.groups;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the policy to be attached.
-     * 
-     */
     public String policyArn() {
         return this.policyArn;
     }
-    /**
-     * @return A list of roles to be attached. There must be at least one role.
-     * 
-     */
     public List<String> roles() {
         return this.roles == null ? List.of() : this.roles;
     }
-    /**
-     * @return A list of users to be attached. There must be at least one user.
-     * 
-     */
     public List<String> users() {
         return this.users == null ? List.of() : this.users;
     }

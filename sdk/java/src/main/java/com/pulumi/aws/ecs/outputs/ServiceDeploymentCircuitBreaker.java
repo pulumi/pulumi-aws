@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceDeploymentCircuitBreaker {
-    /**
-     * @return Whether to enable the deployment circuit breaker logic for the service.
-     * 
-     */
     private Boolean enable;
-    /**
-     * @return Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     private Boolean rollback;
 
     private ServiceDeploymentCircuitBreaker() {}
-    /**
-     * @return Whether to enable the deployment circuit breaker logic for the service.
-     * 
-     */
     public Boolean enable() {
         return this.enable;
     }
-    /**
-     * @return Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     public Boolean rollback() {
         return this.rollback;
     }

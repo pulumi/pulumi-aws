@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS AppFabric App Authorization Connection.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appfabric.AppAuthorizationConnection("example", {
- *     appAuthorizationArn: test.arn,
- *     appBundleArn: arn,
- * });
- * ```
- */
 export class AppAuthorizationConnection extends pulumi.CustomResource {
     /**
      * Get an existing AppAuthorizationConnection resource's state with the given name, ID, and optional extra
@@ -52,29 +35,11 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppAuthorizationConnection.__pulumiType;
     }
 
-    /**
-     * The name of the application.
-     */
     declare public /*out*/ readonly app: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-     */
     declare public readonly appAuthorizationArn: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     declare public readonly appBundleArn: pulumi.Output<string>;
-    /**
-     * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-     */
     declare public readonly authRequest: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionAuthRequest | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Contains information about an application tenant, such as the application display name and identifier.
-     */
     declare public /*out*/ readonly tenants: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTenant[]>;
     declare public readonly timeouts: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTimeouts | undefined>;
 
@@ -123,29 +88,11 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppAuthorizationConnection resources.
  */
 export interface AppAuthorizationConnectionState {
-    /**
-     * The name of the application.
-     */
     app?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-     */
     appAuthorizationArn?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     appBundleArn?: pulumi.Input<string>;
-    /**
-     * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-     */
     authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Contains information about an application tenant, such as the application display name and identifier.
-     */
     tenants?: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTenant>[]>;
     timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts>;
 }
@@ -154,21 +101,9 @@ export interface AppAuthorizationConnectionState {
  * The set of arguments for constructing a AppAuthorizationConnection resource.
  */
 export interface AppAuthorizationConnectionArgs {
-    /**
-     * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-     */
     appAuthorizationArn: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     appBundleArn: pulumi.Input<string>;
-    /**
-     * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-     */
     authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts>;
 }

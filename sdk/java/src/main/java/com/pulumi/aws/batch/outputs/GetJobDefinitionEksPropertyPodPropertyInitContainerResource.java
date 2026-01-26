@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyInitContainerResource {
-    /**
-     * @return The type and quantity of the resources to reserve for the container.
-     * 
-     */
     private Map<String,String> limits;
-    /**
-     * @return The type and quantity of the resources to request for the container.
-     * 
-     */
     private Map<String,String> requests;
 
     private GetJobDefinitionEksPropertyPodPropertyInitContainerResource() {}
-    /**
-     * @return The type and quantity of the resources to reserve for the container.
-     * 
-     */
     public Map<String,String> limits() {
         return this.limits;
     }
-    /**
-     * @return The type and quantity of the resources to request for the container.
-     * 
-     */
     public Map<String,String> requests() {
         return this.requests;
     }

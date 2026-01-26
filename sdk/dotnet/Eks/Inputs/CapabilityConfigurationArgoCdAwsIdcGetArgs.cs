@@ -12,18 +12,12 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class CapabilityConfigurationArgoCdAwsIdcGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IAM Identity Center instance.
-        /// </summary>
         [Input("idcInstanceArn", required: true)]
         public Input<string> IdcInstanceArn { get; set; } = null!;
 
         [Input("idcManagedApplicationArn")]
         public Input<string>? IdcManagedApplicationArn { get; set; }
 
-        /// <summary>
-        /// Region of the IAM Identity Center instance.
-        /// </summary>
         [Input("idcRegion")]
         public Input<string>? IdcRegion { get; set; }
 

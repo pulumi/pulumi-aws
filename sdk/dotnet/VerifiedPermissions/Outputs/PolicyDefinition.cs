@@ -13,13 +13,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class PolicyDefinition
     {
-        /// <summary>
-        /// The static policy statement. See Static below.
-        /// </summary>
         public readonly Outputs.PolicyDefinitionStatic? Static;
-        /// <summary>
-        /// The template linked policy. See Template Linked below.
-        /// </summary>
         public readonly Outputs.PolicyDefinitionTemplateLinked? TemplateLinked;
 
         [OutputConstructor]

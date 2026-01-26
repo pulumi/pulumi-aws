@@ -12,72 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon FSx S3 Access Point attachment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewS3AccessPointAttachment(ctx, "example", &fsx.S3AccessPointAttachmentArgs{
-//				Name: pulumi.String("example-attachment"),
-//				Type: pulumi.String("OPENZFS"),
-//				OpenzfsConfiguration: &fsx.S3AccessPointAttachmentOpenzfsConfigurationArgs{
-//					VolumeId: pulumi.Any(exampleAwsFsxOpenzfsVolume.Id),
-//					FileSystemIdentity: &fsx.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs{
-//						Type: pulumi.String("POSIX"),
-//						PosixUser: &fsx.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs{
-//							Uid: pulumi.Int(1001),
-//							Gid: pulumi.Int(1001),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import FSx S3 Access Point attachments using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment
-// ```
 type S3AccessPointAttachment struct {
 	pulumi.CustomResourceState
 
-	// Name of the S3 access point.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
+	Name                 pulumi.StringOutput                                  `pulumi:"name"`
 	OpenzfsConfiguration S3AccessPointAttachmentOpenzfsConfigurationPtrOutput `pulumi:"openzfsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// S3 access point configuration. See `s3AccessPoint` Block for details.
-	S3AccessPoint S3AccessPointAttachmentS3AccessPointPtrOutput `pulumi:"s3AccessPoint"`
-	// S3 access point's alias.
-	S3AccessPointAlias pulumi.StringOutput `pulumi:"s3AccessPointAlias"`
-	// S3 access point's ARN.
-	S3AccessPointArn pulumi.StringOutput                      `pulumi:"s3AccessPointArn"`
-	Timeouts         S3AccessPointAttachmentTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Type of S3 access point. Valid values: `OpenZFS`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringOutput `pulumi:"type"`
+	Region               pulumi.StringOutput                                  `pulumi:"region"`
+	S3AccessPoint        S3AccessPointAttachmentS3AccessPointPtrOutput        `pulumi:"s3AccessPoint"`
+	S3AccessPointAlias   pulumi.StringOutput                                  `pulumi:"s3AccessPointAlias"`
+	S3AccessPointArn     pulumi.StringOutput                                  `pulumi:"s3AccessPointArn"`
+	Timeouts             S3AccessPointAttachmentTimeoutsPtrOutput             `pulumi:"timeouts"`
+	Type                 pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewS3AccessPointAttachment registers a new resource with the given unique name, arguments, and options.
@@ -113,43 +58,25 @@ func GetS3AccessPointAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering S3AccessPointAttachment resources.
 type s3accessPointAttachmentState struct {
-	// Name of the S3 access point.
-	Name *string `pulumi:"name"`
-	// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
+	Name                 *string                                      `pulumi:"name"`
 	OpenzfsConfiguration *S3AccessPointAttachmentOpenzfsConfiguration `pulumi:"openzfsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// S3 access point configuration. See `s3AccessPoint` Block for details.
-	S3AccessPoint *S3AccessPointAttachmentS3AccessPoint `pulumi:"s3AccessPoint"`
-	// S3 access point's alias.
-	S3AccessPointAlias *string `pulumi:"s3AccessPointAlias"`
-	// S3 access point's ARN.
-	S3AccessPointArn *string                          `pulumi:"s3AccessPointArn"`
-	Timeouts         *S3AccessPointAttachmentTimeouts `pulumi:"timeouts"`
-	// Type of S3 access point. Valid values: `OpenZFS`.
-	//
-	// The following arguments are optional:
-	Type *string `pulumi:"type"`
+	Region               *string                                      `pulumi:"region"`
+	S3AccessPoint        *S3AccessPointAttachmentS3AccessPoint        `pulumi:"s3AccessPoint"`
+	S3AccessPointAlias   *string                                      `pulumi:"s3AccessPointAlias"`
+	S3AccessPointArn     *string                                      `pulumi:"s3AccessPointArn"`
+	Timeouts             *S3AccessPointAttachmentTimeouts             `pulumi:"timeouts"`
+	Type                 *string                                      `pulumi:"type"`
 }
 
 type S3AccessPointAttachmentState struct {
-	// Name of the S3 access point.
-	Name pulumi.StringPtrInput
-	// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
+	Name                 pulumi.StringPtrInput
 	OpenzfsConfiguration S3AccessPointAttachmentOpenzfsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// S3 access point configuration. See `s3AccessPoint` Block for details.
-	S3AccessPoint S3AccessPointAttachmentS3AccessPointPtrInput
-	// S3 access point's alias.
-	S3AccessPointAlias pulumi.StringPtrInput
-	// S3 access point's ARN.
-	S3AccessPointArn pulumi.StringPtrInput
-	Timeouts         S3AccessPointAttachmentTimeoutsPtrInput
-	// Type of S3 access point. Valid values: `OpenZFS`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	S3AccessPoint        S3AccessPointAttachmentS3AccessPointPtrInput
+	S3AccessPointAlias   pulumi.StringPtrInput
+	S3AccessPointArn     pulumi.StringPtrInput
+	Timeouts             S3AccessPointAttachmentTimeoutsPtrInput
+	Type                 pulumi.StringPtrInput
 }
 
 func (S3AccessPointAttachmentState) ElementType() reflect.Type {
@@ -157,36 +84,22 @@ func (S3AccessPointAttachmentState) ElementType() reflect.Type {
 }
 
 type s3accessPointAttachmentArgs struct {
-	// Name of the S3 access point.
-	Name *string `pulumi:"name"`
-	// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
+	Name                 *string                                      `pulumi:"name"`
 	OpenzfsConfiguration *S3AccessPointAttachmentOpenzfsConfiguration `pulumi:"openzfsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// S3 access point configuration. See `s3AccessPoint` Block for details.
-	S3AccessPoint *S3AccessPointAttachmentS3AccessPoint `pulumi:"s3AccessPoint"`
-	Timeouts      *S3AccessPointAttachmentTimeouts      `pulumi:"timeouts"`
-	// Type of S3 access point. Valid values: `OpenZFS`.
-	//
-	// The following arguments are optional:
-	Type string `pulumi:"type"`
+	Region               *string                                      `pulumi:"region"`
+	S3AccessPoint        *S3AccessPointAttachmentS3AccessPoint        `pulumi:"s3AccessPoint"`
+	Timeouts             *S3AccessPointAttachmentTimeouts             `pulumi:"timeouts"`
+	Type                 string                                       `pulumi:"type"`
 }
 
 // The set of arguments for constructing a S3AccessPointAttachment resource.
 type S3AccessPointAttachmentArgs struct {
-	// Name of the S3 access point.
-	Name pulumi.StringPtrInput
-	// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
+	Name                 pulumi.StringPtrInput
 	OpenzfsConfiguration S3AccessPointAttachmentOpenzfsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// S3 access point configuration. See `s3AccessPoint` Block for details.
-	S3AccessPoint S3AccessPointAttachmentS3AccessPointPtrInput
-	Timeouts      S3AccessPointAttachmentTimeoutsPtrInput
-	// Type of S3 access point. Valid values: `OpenZFS`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringInput
+	Region               pulumi.StringPtrInput
+	S3AccessPoint        S3AccessPointAttachmentS3AccessPointPtrInput
+	Timeouts             S3AccessPointAttachmentTimeoutsPtrInput
+	Type                 pulumi.StringInput
 }
 
 func (S3AccessPointAttachmentArgs) ElementType() reflect.Type {
@@ -276,34 +189,28 @@ func (o S3AccessPointAttachmentOutput) ToS3AccessPointAttachmentOutputWithContex
 	return o
 }
 
-// Name of the S3 access point.
 func (o S3AccessPointAttachmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
 func (o S3AccessPointAttachmentOutput) OpenzfsConfiguration() S3AccessPointAttachmentOpenzfsConfigurationPtrOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) S3AccessPointAttachmentOpenzfsConfigurationPtrOutput {
 		return v.OpenzfsConfiguration
 	}).(S3AccessPointAttachmentOpenzfsConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o S3AccessPointAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// S3 access point configuration. See `s3AccessPoint` Block for details.
 func (o S3AccessPointAttachmentOutput) S3AccessPoint() S3AccessPointAttachmentS3AccessPointPtrOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) S3AccessPointAttachmentS3AccessPointPtrOutput { return v.S3AccessPoint }).(S3AccessPointAttachmentS3AccessPointPtrOutput)
 }
 
-// S3 access point's alias.
 func (o S3AccessPointAttachmentOutput) S3AccessPointAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) pulumi.StringOutput { return v.S3AccessPointAlias }).(pulumi.StringOutput)
 }
 
-// S3 access point's ARN.
 func (o S3AccessPointAttachmentOutput) S3AccessPointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) pulumi.StringOutput { return v.S3AccessPointArn }).(pulumi.StringOutput)
 }
@@ -312,9 +219,6 @@ func (o S3AccessPointAttachmentOutput) Timeouts() S3AccessPointAttachmentTimeout
 	return o.ApplyT(func(v *S3AccessPointAttachment) S3AccessPointAttachmentTimeoutsPtrOutput { return v.Timeouts }).(S3AccessPointAttachmentTimeoutsPtrOutput)
 }
 
-// Type of S3 access point. Valid values: `OpenZFS`.
-//
-// The following arguments are optional:
 func (o S3AccessPointAttachmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

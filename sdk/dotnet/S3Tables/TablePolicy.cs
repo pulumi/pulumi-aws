@@ -9,55 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Tables
 {
-    /// <summary>
-    /// Resource for managing an Amazon S3 Tables Table Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Tables Table Policy using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3tables/tablePolicy:TablePolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3tables/tablePolicy:TablePolicy")]
     public partial class TablePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the namespace for this table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Web Services resource-based policy document in JSON format.
-        /// </summary>
         [Output("resourcePolicy")]
         public Output<string> ResourcePolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN referencing the Table Bucket that contains this Namespace.
-        /// </summary>
         [Output("tableBucketArn")]
         public Output<string> TableBucketArn { get; private set; } = null!;
 
@@ -107,37 +73,18 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class TablePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Name of the namespace for this table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Web Services resource-based policy document in JSON format.
-        /// </summary>
         [Input("resourcePolicy", required: true)]
         public Input<string> ResourcePolicy { get; set; } = null!;
 
-        /// <summary>
-        /// ARN referencing the Table Bucket that contains this Namespace.
-        /// </summary>
         [Input("tableBucketArn", required: true)]
         public Input<string> TableBucketArn { get; set; } = null!;
 
@@ -149,37 +96,18 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class TablePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Name of the namespace for this table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Web Services resource-based policy document in JSON format.
-        /// </summary>
         [Input("resourcePolicy")]
         public Input<string>? ResourcePolicy { get; set; }
 
-        /// <summary>
-        /// ARN referencing the Table Bucket that contains this Namespace.
-        /// </summary>
         [Input("tableBucketArn")]
         public Input<string>? TableBucketArn { get; set; }
 

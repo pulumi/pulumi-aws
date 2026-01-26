@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceNetworkInterface {
-    /**
-     * @return Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-     * 
-     */
     private @Nullable Boolean deleteOnTermination;
-    /**
-     * @return Integer index of the network interface attachment. Limited by instance type.
-     * 
-     */
     private Integer deviceIndex;
-    /**
-     * @return Integer index of the network card. Limited by instance type. The default index is `0`.
-     * 
-     */
     private @Nullable Integer networkCardIndex;
-    /**
-     * @return ID of the network interface to attach.
-     * 
-     */
     private String networkInterfaceId;
 
     private InstanceNetworkInterface() {}
-    /**
-     * @return Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-     * 
-     */
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
-    /**
-     * @return Integer index of the network interface attachment. Limited by instance type.
-     * 
-     */
     public Integer deviceIndex() {
         return this.deviceIndex;
     }
-    /**
-     * @return Integer index of the network card. Limited by instance type. The default index is `0`.
-     * 
-     */
     public Optional<Integer> networkCardIndex() {
         return Optional.ofNullable(this.networkCardIndex);
     }
-    /**
-     * @return ID of the network interface to attach.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }

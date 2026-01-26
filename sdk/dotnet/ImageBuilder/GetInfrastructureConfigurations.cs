@@ -11,105 +11,12 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetInfrastructureConfigurations
     {
-        /// <summary>
-        /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetInfrastructureConfigurations.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetInfrastructureConfigurationsResult> InvokeAsync(GetInfrastructureConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetInfrastructureConfigurations.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInfrastructureConfigurationsResult> Invoke(GetInfrastructureConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetInfrastructureConfigurations.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInfrastructureConfigurationsResult> Invoke(GetInfrastructureConfigurationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsInvokeArgs(), options.WithDefaults());
     }
@@ -119,19 +26,12 @@ namespace Pulumi.Aws.ImageBuilder
     {
         [Input("filters")]
         private List<Inputs.GetInfrastructureConfigurationsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public List<Inputs.GetInfrastructureConfigurationsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetInfrastructureConfigurationsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -145,19 +45,12 @@ namespace Pulumi.Aws.ImageBuilder
     {
         [Input("filters")]
         private InputList<Inputs.GetInfrastructureConfigurationsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetInfrastructureConfigurationsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetInfrastructureConfigurationsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -171,18 +64,12 @@ namespace Pulumi.Aws.ImageBuilder
     [OutputType]
     public sealed class GetInfrastructureConfigurationsResult
     {
-        /// <summary>
-        /// Set of ARNs of the matched Image Builder Infrastructure Configurations.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of names of the matched Image Builder Infrastructure Configurations.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Region;
 

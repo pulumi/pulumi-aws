@@ -28,21 +28,9 @@ MYPY = False
 if not MYPY:
     class KeyKeyAttributeArgsDict(TypedDict):
         key_algorithm: pulumi.Input[_builtins.str]
-        """
-        Key algorithm to be use during creation of an AWS Payment Cryptography key.
-        """
         key_class: pulumi.Input[_builtins.str]
-        """
-        Type of AWS Payment Cryptography key to create.
-        """
         key_usage: pulumi.Input[_builtins.str]
-        """
-        Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-        """
         key_modes_of_uses: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgsDict']]]]
-        """
-        List of cryptographic operations that you can perform using the key.
-        """
 elif False:
     KeyKeyAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53,12 +41,6 @@ class KeyKeyAttributeArgs:
                  key_class: pulumi.Input[_builtins.str],
                  key_usage: pulumi.Input[_builtins.str],
                  key_modes_of_uses: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key_algorithm: Key algorithm to be use during creation of an AWS Payment Cryptography key.
-        :param pulumi.Input[_builtins.str] key_class: Type of AWS Payment Cryptography key to create.
-        :param pulumi.Input[_builtins.str] key_usage: Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-        :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]] key_modes_of_uses: List of cryptographic operations that you can perform using the key.
-        """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "key_class", key_class)
         pulumi.set(__self__, "key_usage", key_usage)
@@ -68,9 +50,6 @@ class KeyKeyAttributeArgs:
     @_builtins.property
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> pulumi.Input[_builtins.str]:
-        """
-        Key algorithm to be use during creation of an AWS Payment Cryptography key.
-        """
         return pulumi.get(self, "key_algorithm")
 
     @key_algorithm.setter
@@ -80,9 +59,6 @@ class KeyKeyAttributeArgs:
     @_builtins.property
     @pulumi.getter(name="keyClass")
     def key_class(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of AWS Payment Cryptography key to create.
-        """
         return pulumi.get(self, "key_class")
 
     @key_class.setter
@@ -92,9 +68,6 @@ class KeyKeyAttributeArgs:
     @_builtins.property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-        """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
@@ -104,9 +77,6 @@ class KeyKeyAttributeArgs:
     @_builtins.property
     @pulumi.getter(name="keyModesOfUses")
     def key_modes_of_uses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]:
-        """
-        List of cryptographic operations that you can perform using the key.
-        """
         return pulumi.get(self, "key_modes_of_uses")
 
     @key_modes_of_uses.setter
@@ -117,41 +87,14 @@ class KeyKeyAttributeArgs:
 if not MYPY:
     class KeyKeyAttributeKeyModesOfUseArgsDict(TypedDict):
         decrypt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used to decrypt data.
-        """
         derive_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used to derive new keys.
-        """
         encrypt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used to encrypt data.
-        """
         generate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-        """
         no_restrictions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-        """
         sign: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used for signing.
-        """
         unwrap: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-        """
         verify: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used to verify signatures.
-        """
         wrap: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether an AWS Payment Cryptography key can be used to wrap other keys.
-        """
 elif False:
     KeyKeyAttributeKeyModesOfUseArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -167,17 +110,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
                  unwrap: Optional[pulumi.Input[_builtins.bool]] = None,
                  verify: Optional[pulumi.Input[_builtins.bool]] = None,
                  wrap: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] decrypt: Whether an AWS Payment Cryptography key can be used to decrypt data.
-        :param pulumi.Input[_builtins.bool] derive_key: Whether an AWS Payment Cryptography key can be used to derive new keys.
-        :param pulumi.Input[_builtins.bool] encrypt: Whether an AWS Payment Cryptography key can be used to encrypt data.
-        :param pulumi.Input[_builtins.bool] generate: Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-        :param pulumi.Input[_builtins.bool] no_restrictions: Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-        :param pulumi.Input[_builtins.bool] sign: Whether an AWS Payment Cryptography key can be used for signing.
-        :param pulumi.Input[_builtins.bool] unwrap: Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-        :param pulumi.Input[_builtins.bool] verify: Whether an AWS Payment Cryptography key can be used to verify signatures.
-        :param pulumi.Input[_builtins.bool] wrap: Whether an AWS Payment Cryptography key can be used to wrap other keys.
-        """
         if decrypt is not None:
             pulumi.set(__self__, "decrypt", decrypt)
         if derive_key is not None:
@@ -200,9 +132,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter
     def decrypt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used to decrypt data.
-        """
         return pulumi.get(self, "decrypt")
 
     @decrypt.setter
@@ -212,9 +141,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter(name="deriveKey")
     def derive_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used to derive new keys.
-        """
         return pulumi.get(self, "derive_key")
 
     @derive_key.setter
@@ -224,9 +150,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter
     def encrypt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used to encrypt data.
-        """
         return pulumi.get(self, "encrypt")
 
     @encrypt.setter
@@ -236,9 +159,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter
     def generate(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-        """
         return pulumi.get(self, "generate")
 
     @generate.setter
@@ -248,9 +168,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter(name="noRestrictions")
     def no_restrictions(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-        """
         return pulumi.get(self, "no_restrictions")
 
     @no_restrictions.setter
@@ -260,9 +177,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter
     def sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used for signing.
-        """
         return pulumi.get(self, "sign")
 
     @sign.setter
@@ -272,9 +186,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter
     def unwrap(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-        """
         return pulumi.get(self, "unwrap")
 
     @unwrap.setter
@@ -284,9 +195,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter
     def verify(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used to verify signatures.
-        """
         return pulumi.get(self, "verify")
 
     @verify.setter
@@ -296,9 +204,6 @@ class KeyKeyAttributeKeyModesOfUseArgs:
     @_builtins.property
     @pulumi.getter
     def wrap(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether an AWS Payment Cryptography key can be used to wrap other keys.
-        """
         return pulumi.get(self, "wrap")
 
     @wrap.setter

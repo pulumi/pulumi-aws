@@ -7,85 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["ec2:Describe*"],
- *         resources: ["*"],
- *     }],
- * });
- * const examplePolicy = new aws.iam.Policy("example", {
- *     name: "example",
- *     description: "My example policy",
- *     policy: example.then(example => example.json),
- * });
- * const current = aws.getPartition({});
- * const assumeRole = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: [`budgets.${current.dnsSuffix}`],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * }));
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "example",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const exampleBudget = new aws.budgets.Budget("example", {
- *     name: "example",
- *     budgetType: "USAGE",
- *     limitAmount: "10.0",
- *     limitUnit: "dollars",
- *     timePeriodStart: "2006-01-02_15:04",
- *     timeUnit: "MONTHLY",
- * });
- * const exampleBudgetAction = new aws.budgets.BudgetAction("example", {
- *     budgetName: exampleBudget.name,
- *     actionType: "APPLY_IAM_POLICY",
- *     approvalModel: "AUTOMATIC",
- *     notificationType: "ACTUAL",
- *     executionRoleArn: exampleRole.arn,
- *     actionThreshold: {
- *         actionThresholdType: "ABSOLUTE_VALUE",
- *         actionThresholdValue: 100,
- *     },
- *     definition: {
- *         iamActionDefinition: {
- *             policyArn: examplePolicy.arn,
- *             roles: [exampleRole.name],
- *         },
- *     },
- *     subscribers: [{
- *         address: "example@example.example",
- *         subscriptionType: "EMAIL",
- *     }],
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
- *
- * ```sh
- * $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
- * ```
- */
 export class BudgetAction extends pulumi.CustomResource {
     /**
      * Get an existing BudgetAction resource's state with the given name, ID, and optional extra
@@ -114,61 +35,19 @@ export class BudgetAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === BudgetAction.__pulumiType;
     }
 
-    /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The id of the budget action.
-     */
     declare public /*out*/ readonly actionId: pulumi.Output<string>;
-    /**
-     * The trigger threshold of the action. See Action Threshold.
-     */
     declare public readonly actionThreshold: pulumi.Output<outputs.budgets.BudgetActionActionThreshold>;
-    /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-     */
     declare public readonly actionType: pulumi.Output<string>;
-    /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-     */
     declare public readonly approvalModel: pulumi.Output<string>;
-    /**
-     * The ARN of the budget action.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of a budget.
-     */
     declare public readonly budgetName: pulumi.Output<string>;
-    /**
-     * Specifies all of the type-specific parameters. See Definition.
-     */
     declare public readonly definition: pulumi.Output<outputs.budgets.BudgetActionDefinition>;
-    /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
-     */
     declare public readonly executionRoleArn: pulumi.Output<string>;
-    /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-     */
     declare public readonly notificationType: pulumi.Output<string>;
-    /**
-     * The status of the budget action.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * A list of subscribers. See Subscriber.
-     */
     declare public readonly subscribers: pulumi.Output<outputs.budgets.BudgetActionSubscriber[]>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -248,61 +127,19 @@ export class BudgetAction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BudgetAction resources.
  */
 export interface BudgetActionState {
-    /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The id of the budget action.
-     */
     actionId?: pulumi.Input<string>;
-    /**
-     * The trigger threshold of the action. See Action Threshold.
-     */
     actionThreshold?: pulumi.Input<inputs.budgets.BudgetActionActionThreshold>;
-    /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-     */
     actionType?: pulumi.Input<string>;
-    /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-     */
     approvalModel?: pulumi.Input<string>;
-    /**
-     * The ARN of the budget action.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of a budget.
-     */
     budgetName?: pulumi.Input<string>;
-    /**
-     * Specifies all of the type-specific parameters. See Definition.
-     */
     definition?: pulumi.Input<inputs.budgets.BudgetActionDefinition>;
-    /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
-     */
     executionRoleArn?: pulumi.Input<string>;
-    /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-     */
     notificationType?: pulumi.Input<string>;
-    /**
-     * The status of the budget action.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A list of subscribers. See Subscriber.
-     */
     subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[]>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -310,44 +147,14 @@ export interface BudgetActionState {
  * The set of arguments for constructing a BudgetAction resource.
  */
 export interface BudgetActionArgs {
-    /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The trigger threshold of the action. See Action Threshold.
-     */
     actionThreshold: pulumi.Input<inputs.budgets.BudgetActionActionThreshold>;
-    /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-     */
     actionType: pulumi.Input<string>;
-    /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-     */
     approvalModel: pulumi.Input<string>;
-    /**
-     * The name of a budget.
-     */
     budgetName: pulumi.Input<string>;
-    /**
-     * Specifies all of the type-specific parameters. See Definition.
-     */
     definition: pulumi.Input<inputs.budgets.BudgetActionDefinition>;
-    /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
-     */
     executionRoleArn: pulumi.Input<string>;
-    /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-     */
     notificationType: pulumi.Input<string>;
-    /**
-     * A list of subscribers. See Subscriber.
-     */
     subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[]>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

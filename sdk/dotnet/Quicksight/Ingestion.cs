@@ -9,80 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing an AWS QuickSight Ingestion.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Ingestion("example", new()
-    ///     {
-    ///         DataSetId = exampleAwsQuicksightDataSet.DataSetId,
-    ///         IngestionId = "example-id",
-    ///         IngestionType = "FULL_REFRESH",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/ingestion:Ingestion")]
     public partial class Ingestion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Ingestion.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the dataset used in the ingestion.
-        /// </summary>
         [Output("dataSetId")]
         public Output<string> DataSetId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID for the ingestion.
-        /// </summary>
         [Output("ingestionId")]
         public Output<string> IngestionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Ingestion status.
-        /// </summary>
         [Output("ingestionStatus")]
         public Output<string> IngestionStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("ingestionType")]
         public Output<string> IngestionType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -135,29 +82,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// ID of the dataset used in the ingestion.
-        /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 
-        /// <summary>
-        /// ID for the ingestion.
-        /// </summary>
         [Input("ingestionId", required: true)]
         public Input<string> IngestionId { get; set; } = null!;
 
-        /// <summary>
-        /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("ingestionType", required: true)]
         public Input<string> IngestionType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -169,44 +102,24 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class IngestionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Ingestion.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// ID of the dataset used in the ingestion.
-        /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
 
-        /// <summary>
-        /// ID for the ingestion.
-        /// </summary>
         [Input("ingestionId")]
         public Input<string>? IngestionId { get; set; }
 
-        /// <summary>
-        /// Ingestion status.
-        /// </summary>
         [Input("ingestionStatus")]
         public Input<string>? IngestionStatus { get; set; }
 
-        /// <summary>
-        /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("ingestionType")]
         public Input<string>? IngestionType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

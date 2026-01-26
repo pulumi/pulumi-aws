@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class RealtimeLogConfigEndpoint
     {
-        /// <summary>
-        /// The Amazon Kinesis data stream configuration.
-        /// </summary>
         public readonly Outputs.RealtimeLogConfigEndpointKinesisStreamConfig KinesisStreamConfig;
-        /// <summary>
-        /// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
-        /// </summary>
         public readonly string StreamType;
 
         [OutputConstructor]

@@ -16,77 +16,37 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
 
     public static final NotebookInstanceLifecycleConfigurationArgs Empty = new NotebookInstanceLifecycleConfigurationArgs();
 
-    /**
-     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-     * 
-     */
     @Import(name="onCreate")
     private @Nullable Output<String> onCreate;
 
-    /**
-     * @return A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-     * 
-     */
     public Optional<Output<String>> onCreate() {
         return Optional.ofNullable(this.onCreate);
     }
 
-    /**
-     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
-     * 
-     */
     @Import(name="onStart")
     private @Nullable Output<String> onStart;
 
-    /**
-     * @return A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
-     * 
-     */
     public Optional<Output<String>> onStart() {
         return Optional.ofNullable(this.onStart);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -119,107 +79,47 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
             $ = new NotebookInstanceLifecycleConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param onCreate A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onCreate(@Nullable Output<String> onCreate) {
             $.onCreate = onCreate;
             return this;
         }
 
-        /**
-         * @param onCreate A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onCreate(String onCreate) {
             return onCreate(Output.of(onCreate));
         }
 
-        /**
-         * @param onStart A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onStart(@Nullable Output<String> onStart) {
             $.onStart = onStart;
             return this;
         }
 
-        /**
-         * @param onStart A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onStart(String onStart) {
             return onStart(Output.of(onStart));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

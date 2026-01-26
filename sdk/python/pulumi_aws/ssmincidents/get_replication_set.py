@@ -59,25 +59,16 @@ class GetReplicationSetResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the replication set.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> _builtins.str:
-        """
-        The ARN of the user who created the replication set.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> _builtins.bool:
-        """
-        If `true`, the last remaining Region in a replication set can’t be deleted.
-        """
         return pulumi.get(self, "deletion_protected")
 
     @_builtins.property
@@ -91,43 +82,27 @@ class GetReplicationSetResult:
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> _builtins.str:
-        """
-        The ARN of the user who last modified the replication set.
-        """
         return pulumi.get(self, "last_modified_by")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use regions instead.""")
     def region(self) -> Sequence['outputs.GetReplicationSetRegionResult']:
-        """
-        (**Deprecated**) The replication set's Regions. Use `regions` instead.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Sequence['outputs.GetReplicationSetRegionResult']:
-        """
-        The replication set's Regions.
-        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the Region.
-        * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        All tags applied to the replication set.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -151,23 +126,7 @@ class AwaitableGetReplicationSetResult(GetReplicationSetResult):
 def get_replication_set(tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationSetResult:
     """
-    > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
-
-    Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmincidents.get_replication_set()
-    ```
-
-
-    :param Mapping[str, _builtins.str] tags: All tags applied to the replication set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -187,23 +146,7 @@ def get_replication_set(tags: Optional[Mapping[str, _builtins.str]] = None,
 def get_replication_set_output(tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationSetResult]:
     """
-    > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
-
-    Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmincidents.get_replication_set()
-    ```
-
-
-    :param Mapping[str, _builtins.str] tags: All tags applied to the replication set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags

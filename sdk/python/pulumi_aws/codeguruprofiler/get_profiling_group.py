@@ -62,33 +62,21 @@ class GetProfilingGroupResult:
     @_builtins.property
     @pulumi.getter(name="agentOrchestrationConfigs")
     def agent_orchestration_configs(self) -> Sequence['outputs.GetProfilingGroupAgentOrchestrationConfigResult']:
-        """
-        Profiling Group agent orchestration config
-        """
         return pulumi.get(self, "agent_orchestration_configs")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Profiling Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> _builtins.str:
-        """
-        The compute platform of the profiling group.
-        """
         return pulumi.get(self, "compute_platform")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Timestamp when Profiling Group was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -104,9 +92,6 @@ class GetProfilingGroupResult:
     @_builtins.property
     @pulumi.getter(name="profilingStatuses")
     def profiling_statuses(self) -> Sequence['outputs.GetProfilingGroupProfilingStatusResult']:
-        """
-        The status of the Profiling Group.
-        """
         return pulumi.get(self, "profiling_statuses")
 
     @_builtins.property
@@ -117,17 +102,11 @@ class GetProfilingGroupResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Mapping of Key-Value tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> _builtins.str:
-        """
-        Timestamp when Profiling Group was updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -153,22 +132,7 @@ def get_profiling_group(name: Optional[_builtins.str] = None,
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfilingGroupResult:
     """
-    Data source for managing an AWS CodeGuru Profiler Profiling Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codeguruprofiler.get_profiling_group(name="example")
-    ```
-
-
-    :param _builtins.str name: The name of the profiling group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -191,22 +155,7 @@ def get_profiling_group_output(name: Optional[pulumi.Input[_builtins.str]] = Non
                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilingGroupResult]:
     """
-    Data source for managing an AWS CodeGuru Profiler Profiling Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codeguruprofiler.get_profiling_group(name="example")
-    ```
-
-
-    :param _builtins.str name: The name of the profiling group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolLambdaConfigCustomEmailSenderResult
     {
-        /// <summary>
-        /// - ARN of the Lambda function.
-        /// </summary>
         public readonly string LambdaArn;
-        /// <summary>
-        /// - Version of the Lambda function.
-        /// </summary>
         public readonly string LambdaVersion;
 
         [OutputConstructor]

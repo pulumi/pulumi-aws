@@ -30,14 +30,6 @@ class CertificateArgs:
                  template_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the certificate authority.
-        :param pulumi.Input[_builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
-        :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
-        :param pulumi.Input[_builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_arn: Template to use when issuing a certificate.
-               See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         """
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
@@ -53,9 +45,6 @@ class CertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the certificate authority.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -65,9 +54,6 @@ class CertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Input[_builtins.str]:
-        """
-        Certificate Signing Request in PEM format.
-        """
         return pulumi.get(self, "certificate_signing_request")
 
     @certificate_signing_request.setter
@@ -77,9 +63,6 @@ class CertificateArgs:
     @_builtins.property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Input[_builtins.str]:
-        """
-        Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        """
         return pulumi.get(self, "signing_algorithm")
 
     @signing_algorithm.setter
@@ -89,9 +72,6 @@ class CertificateArgs:
     @_builtins.property
     @pulumi.getter
     def validity(self) -> pulumi.Input['CertificateValidityArgs']:
-        """
-        Configures end of the validity period for the certificate. See validity block below.
-        """
         return pulumi.get(self, "validity")
 
     @validity.setter
@@ -101,9 +81,6 @@ class CertificateArgs:
     @_builtins.property
     @pulumi.getter(name="apiPassthrough")
     def api_passthrough(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        """
         return pulumi.get(self, "api_passthrough")
 
     @api_passthrough.setter
@@ -113,9 +90,6 @@ class CertificateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -125,10 +99,6 @@ class CertificateArgs:
     @_builtins.property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Template to use when issuing a certificate.
-        See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        """
         return pulumi.get(self, "template_arn")
 
     @template_arn.setter
@@ -151,17 +121,6 @@ class _CertificateState:
                  validity: Optional[pulumi.Input['CertificateValidityArgs']] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[_builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        :param pulumi.Input[_builtins.str] arn: ARN of the certificate.
-        :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate value.
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the certificate authority.
-        :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        :param pulumi.Input[_builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        :param pulumi.Input[_builtins.str] template_arn: Template to use when issuing a certificate.
-               See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         if api_passthrough is not None:
             pulumi.set(__self__, "api_passthrough", api_passthrough)
@@ -187,9 +146,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter(name="apiPassthrough")
     def api_passthrough(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        """
         return pulumi.get(self, "api_passthrough")
 
     @api_passthrough.setter
@@ -199,9 +155,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the certificate.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -211,9 +164,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM-encoded certificate value.
-        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -223,9 +173,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the certificate authority.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -235,9 +182,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -247,9 +191,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Certificate Signing Request in PEM format.
-        """
         return pulumi.get(self, "certificate_signing_request")
 
     @certificate_signing_request.setter
@@ -259,9 +200,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -271,9 +209,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        """
         return pulumi.get(self, "signing_algorithm")
 
     @signing_algorithm.setter
@@ -283,10 +218,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Template to use when issuing a certificate.
-        See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        """
         return pulumi.get(self, "template_arn")
 
     @template_arn.setter
@@ -296,9 +227,6 @@ class _CertificateState:
     @_builtins.property
     @pulumi.getter
     def validity(self) -> Optional[pulumi.Input['CertificateValidityArgs']]:
-        """
-        Configures end of the validity period for the certificate. See validity block below.
-        """
         return pulumi.get(self, "validity")
 
     @validity.setter
@@ -321,69 +249,9 @@ class Certificate(pulumi.CustomResource):
                  validity: Optional[pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
-
-        Certificates created using `acmpca.Certificate` are not eligible for automatic renewal,
-        and must be replaced instead.
-        To issue a renewable certificate using an ACM PCA, create a `acm.Certificate`
-        with the parameter `certificate_authority_arn`.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_tls as tls
-
-        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "example.com",
-                },
-            },
-            permanent_deletion_time_in_days=7)
-        key = tls.PrivateKey("key", algorithm="RSA")
-        csr = tls.CertRequest("csr",
-            private_key_pem=key.private_key_pem,
-            subject=[{
-                "commonName": "example",
-            }])
-        example = aws.acmpca.Certificate("example",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=csr.cert_request_pem,
-            signing_algorithm="SHA256WITHRSA",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate.
-
-        Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
-
-        % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
-
+        Create a Certificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the certificate authority.
-        :param pulumi.Input[_builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        :param pulumi.Input[_builtins.str] template_arn: Template to use when issuing a certificate.
-               See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         ...
     @overload
@@ -392,59 +260,7 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
-
-        Certificates created using `acmpca.Certificate` are not eligible for automatic renewal,
-        and must be replaced instead.
-        To issue a renewable certificate using an ACM PCA, create a `acm.Certificate`
-        with the parameter `certificate_authority_arn`.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_tls as tls
-
-        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "example.com",
-                },
-            },
-            permanent_deletion_time_in_days=7)
-        key = tls.PrivateKey("key", algorithm="RSA")
-        csr = tls.CertRequest("csr",
-            private_key_pem=key.private_key_pem,
-            subject=[{
-                "commonName": "example",
-            }])
-        example = aws.acmpca.Certificate("example",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=csr.cert_request_pem,
-            signing_algorithm="SHA256WITHRSA",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate.
-
-        Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
-
-        % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
-
+        Create a Certificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -521,17 +337,6 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        :param pulumi.Input[_builtins.str] arn: ARN of the certificate.
-        :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate value.
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the certificate authority.
-        :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        :param pulumi.Input[_builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        :param pulumi.Input[_builtins.str] template_arn: Template to use when issuing a certificate.
-               See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -552,81 +357,50 @@ class Certificate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiPassthrough")
     def api_passthrough(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        """
         return pulumi.get(self, "api_passthrough")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the certificate.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[_builtins.str]:
-        """
-        PEM-encoded certificate value.
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the certificate authority.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[_builtins.str]:
-        """
-        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
     @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Output[_builtins.str]:
-        """
-        Certificate Signing Request in PEM format.
-        """
         return pulumi.get(self, "certificate_signing_request")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Output[_builtins.str]:
-        """
-        Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        """
         return pulumi.get(self, "signing_algorithm")
 
     @_builtins.property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Template to use when issuing a certificate.
-        See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        """
         return pulumi.get(self, "template_arn")
 
     @_builtins.property
     @pulumi.getter
     def validity(self) -> pulumi.Output['outputs.CertificateValidity']:
-        """
-        Configures end of the validity period for the certificate. See validity block below.
-        """
         return pulumi.get(self, "validity")
 

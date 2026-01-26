@@ -4,50 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a License Manager license configuration resource.
- *
- * > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.licensemanager.LicenseConfiguration("example", {
- *     name: "Example",
- *     description: "Example",
- *     licenseCount: 10,
- *     licenseCountHardLimit: true,
- *     licenseCountingType: "Socket",
- *     licenseRules: ["#minimumSockets=2"],
- *     tags: {
- *         foo: "barr",
- *     },
- * });
- * ```
- *
- * ## Rules
- *
- * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
- *
- * * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
- * * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
- * * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
- * * `maximumCores` - Resource must have maximum core count in order to use the license. Default: unbounded, limit: 10000
- * * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
- * * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
- * * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
- *
- * ## Import
- *
- * Using `pulumi import`, import license configurations using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
- * ```
- */
 export class LicenseConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing LicenseConfiguration resource's state with the given name, ID, and optional extra
@@ -76,49 +32,16 @@ export class LicenseConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LicenseConfiguration.__pulumiType;
     }
 
-    /**
-     * The license configuration ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of the license configuration.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Number of licenses managed by the license configuration.
-     */
     declare public readonly licenseCount: pulumi.Output<number | undefined>;
-    /**
-     * Sets the number of available licenses as a hard limit.
-     */
     declare public readonly licenseCountHardLimit: pulumi.Output<boolean | undefined>;
-    /**
-     * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-     */
     declare public readonly licenseCountingType: pulumi.Output<string>;
-    /**
-     * Array of configured License Manager rules.
-     */
     declare public readonly licenseRules: pulumi.Output<string[] | undefined>;
-    /**
-     * Name of the license configuration.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Account ID of the owner of the license configuration.
-     */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -171,49 +94,16 @@ export class LicenseConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LicenseConfiguration resources.
  */
 export interface LicenseConfigurationState {
-    /**
-     * The license configuration ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the license configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Number of licenses managed by the license configuration.
-     */
     licenseCount?: pulumi.Input<number>;
-    /**
-     * Sets the number of available licenses as a hard limit.
-     */
     licenseCountHardLimit?: pulumi.Input<boolean>;
-    /**
-     * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-     */
     licenseCountingType?: pulumi.Input<string>;
-    /**
-     * Array of configured License Manager rules.
-     */
     licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the license configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Account ID of the owner of the license configuration.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -221,36 +111,12 @@ export interface LicenseConfigurationState {
  * The set of arguments for constructing a LicenseConfiguration resource.
  */
 export interface LicenseConfigurationArgs {
-    /**
-     * Description of the license configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Number of licenses managed by the license configuration.
-     */
     licenseCount?: pulumi.Input<number>;
-    /**
-     * Sets the number of available licenses as a hard limit.
-     */
     licenseCountHardLimit?: pulumi.Input<boolean>;
-    /**
-     * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-     */
     licenseCountingType: pulumi.Input<string>;
-    /**
-     * Array of configured License Manager rules.
-     */
     licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the license configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

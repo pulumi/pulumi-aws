@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultUserSettingsCustomPosixUserConfig
     {
-        /// <summary>
-        /// The POSIX group ID.
-        /// </summary>
         public readonly int Gid;
-        /// <summary>
-        /// The POSIX user ID.
-        /// </summary>
         public readonly int Uid;
 
         [OutputConstructor]

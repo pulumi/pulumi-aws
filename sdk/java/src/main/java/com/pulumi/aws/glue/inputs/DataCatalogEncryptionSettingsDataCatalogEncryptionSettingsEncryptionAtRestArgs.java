@@ -16,47 +16,23 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
 
     public static final DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs Empty = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs();
 
-    /**
-     * The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
-     * 
-     */
     @Import(name="catalogEncryptionMode", required=true)
     private Output<String> catalogEncryptionMode;
 
-    /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
-     * 
-     */
     public Output<String> catalogEncryptionMode() {
         return this.catalogEncryptionMode;
     }
 
-    /**
-     * The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
-     * 
-     */
     @Import(name="catalogEncryptionServiceRole")
     private @Nullable Output<String> catalogEncryptionServiceRole;
 
-    /**
-     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
-     * 
-     */
     public Optional<Output<String>> catalogEncryptionServiceRole() {
         return Optional.ofNullable(this.catalogEncryptionServiceRole);
     }
 
-    /**
-     * The ARN of the AWS KMS key to use for encryption at rest.
-     * 
-     */
     @Import(name="sseAwsKmsKeyId")
     private @Nullable Output<String> sseAwsKmsKeyId;
 
-    /**
-     * @return The ARN of the AWS KMS key to use for encryption at rest.
-     * 
-     */
     public Optional<Output<String>> sseAwsKmsKeyId() {
         return Optional.ofNullable(this.sseAwsKmsKeyId);
     }
@@ -87,65 +63,29 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
             $ = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogEncryptionMode(Output<String> catalogEncryptionMode) {
             $.catalogEncryptionMode = catalogEncryptionMode;
             return this;
         }
 
-        /**
-         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogEncryptionMode(String catalogEncryptionMode) {
             return catalogEncryptionMode(Output.of(catalogEncryptionMode));
         }
 
-        /**
-         * @param catalogEncryptionServiceRole The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogEncryptionServiceRole(@Nullable Output<String> catalogEncryptionServiceRole) {
             $.catalogEncryptionServiceRole = catalogEncryptionServiceRole;
             return this;
         }
 
-        /**
-         * @param catalogEncryptionServiceRole The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogEncryptionServiceRole(String catalogEncryptionServiceRole) {
             return catalogEncryptionServiceRole(Output.of(catalogEncryptionServiceRole));
         }
 
-        /**
-         * @param sseAwsKmsKeyId The ARN of the AWS KMS key to use for encryption at rest.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAwsKmsKeyId(@Nullable Output<String> sseAwsKmsKeyId) {
             $.sseAwsKmsKeyId = sseAwsKmsKeyId;
             return this;
         }
 
-        /**
-         * @param sseAwsKmsKeyId The ARN of the AWS KMS key to use for encryption at rest.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAwsKmsKeyId(String sseAwsKmsKeyId) {
             return sseAwsKmsKeyId(Output.of(sseAwsKmsKeyId));
         }

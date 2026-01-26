@@ -18,137 +18,65 @@ public final class MlflowTrackingServerArgs extends com.pulumi.resources.Resourc
 
     public static final MlflowTrackingServerArgs Empty = new MlflowTrackingServerArgs();
 
-    /**
-     * The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-     * 
-     */
     @Import(name="artifactStoreUri", required=true)
     private Output<String> artifactStoreUri;
 
-    /**
-     * @return The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-     * 
-     */
     public Output<String> artifactStoreUri() {
         return this.artifactStoreUri;
     }
 
-    /**
-     * A list of Member Definitions that contains objects that identify the workers that make up the work team.
-     * 
-     */
     @Import(name="automaticModelRegistration")
     private @Nullable Output<Boolean> automaticModelRegistration;
 
-    /**
-     * @return A list of Member Definitions that contains objects that identify the workers that make up the work team.
-     * 
-     */
     public Optional<Output<Boolean>> automaticModelRegistration() {
         return Optional.ofNullable(this.automaticModelRegistration);
     }
 
-    /**
-     * The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-     * 
-     */
     @Import(name="mlflowVersion")
     private @Nullable Output<String> mlflowVersion;
 
-    /**
-     * @return The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-     * 
-     */
     public Optional<Output<String>> mlflowVersion() {
         return Optional.ofNullable(this.mlflowVersion);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-     * 
-     */
     @Import(name="trackingServerName", required=true)
     private Output<String> trackingServerName;
 
-    /**
-     * @return A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-     * 
-     */
     public Output<String> trackingServerName() {
         return this.trackingServerName;
     }
 
-    /**
-     * The size of the tracking server you want to create. You can choose between &#34;Small&#34;, &#34;Medium&#34;, and &#34;Large&#34;. The default MLflow Tracking Server configuration size is &#34;Small&#34;. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-     * 
-     */
     @Import(name="trackingServerSize")
     private @Nullable Output<String> trackingServerSize;
 
-    /**
-     * @return The size of the tracking server you want to create. You can choose between &#34;Small&#34;, &#34;Medium&#34;, and &#34;Large&#34;. The default MLflow Tracking Server configuration size is &#34;Small&#34;. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-     * 
-     */
     public Optional<Output<String>> trackingServerSize() {
         return Optional.ofNullable(this.trackingServerSize);
     }
 
-    /**
-     * The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-     * 
-     */
     @Import(name="weeklyMaintenanceWindowStart")
     private @Nullable Output<String> weeklyMaintenanceWindowStart;
 
-    /**
-     * @return The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-     * 
-     */
     public Optional<Output<String>> weeklyMaintenanceWindowStart() {
         return Optional.ofNullable(this.weeklyMaintenanceWindowStart);
     }
@@ -185,191 +113,83 @@ public final class MlflowTrackingServerArgs extends com.pulumi.resources.Resourc
             $ = new MlflowTrackingServerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param artifactStoreUri The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder artifactStoreUri(Output<String> artifactStoreUri) {
             $.artifactStoreUri = artifactStoreUri;
             return this;
         }
 
-        /**
-         * @param artifactStoreUri The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder artifactStoreUri(String artifactStoreUri) {
             return artifactStoreUri(Output.of(artifactStoreUri));
         }
 
-        /**
-         * @param automaticModelRegistration A list of Member Definitions that contains objects that identify the workers that make up the work team.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticModelRegistration(@Nullable Output<Boolean> automaticModelRegistration) {
             $.automaticModelRegistration = automaticModelRegistration;
             return this;
         }
 
-        /**
-         * @param automaticModelRegistration A list of Member Definitions that contains objects that identify the workers that make up the work team.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticModelRegistration(Boolean automaticModelRegistration) {
             return automaticModelRegistration(Output.of(automaticModelRegistration));
         }
 
-        /**
-         * @param mlflowVersion The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-         * 
-         * @return builder
-         * 
-         */
         public Builder mlflowVersion(@Nullable Output<String> mlflowVersion) {
             $.mlflowVersion = mlflowVersion;
             return this;
         }
 
-        /**
-         * @param mlflowVersion The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-         * 
-         * @return builder
-         * 
-         */
         public Builder mlflowVersion(String mlflowVersion) {
             return mlflowVersion(Output.of(mlflowVersion));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param trackingServerName A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackingServerName(Output<String> trackingServerName) {
             $.trackingServerName = trackingServerName;
             return this;
         }
 
-        /**
-         * @param trackingServerName A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackingServerName(String trackingServerName) {
             return trackingServerName(Output.of(trackingServerName));
         }
 
-        /**
-         * @param trackingServerSize The size of the tracking server you want to create. You can choose between &#34;Small&#34;, &#34;Medium&#34;, and &#34;Large&#34;. The default MLflow Tracking Server configuration size is &#34;Small&#34;. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackingServerSize(@Nullable Output<String> trackingServerSize) {
             $.trackingServerSize = trackingServerSize;
             return this;
         }
 
-        /**
-         * @param trackingServerSize The size of the tracking server you want to create. You can choose between &#34;Small&#34;, &#34;Medium&#34;, and &#34;Large&#34;. The default MLflow Tracking Server configuration size is &#34;Small&#34;. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackingServerSize(String trackingServerSize) {
             return trackingServerSize(Output.of(trackingServerSize));
         }
 
-        /**
-         * @param weeklyMaintenanceWindowStart The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeklyMaintenanceWindowStart(@Nullable Output<String> weeklyMaintenanceWindowStart) {
             $.weeklyMaintenanceWindowStart = weeklyMaintenanceWindowStart;
             return this;
         }
 
-        /**
-         * @param weeklyMaintenanceWindowStart The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeklyMaintenanceWindowStart(String weeklyMaintenanceWindowStart) {
             return weeklyMaintenanceWindowStart(Output.of(weeklyMaintenanceWindowStart));
         }

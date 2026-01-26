@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetHttpTarget {
-    /**
-     * @return Enables you to specify HTTP headers to add to the request.
-     * 
-     */
     private @Nullable Map<String,String> headerParameters;
-    /**
-     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
-     * 
-     */
     private @Nullable List<String> pathParameterValues;
-    /**
-     * @return Represents keys/values of query string parameters that are appended to the invoked endpoint.
-     * 
-     */
     private @Nullable Map<String,String> queryStringParameters;
 
     private EventTargetHttpTarget() {}
-    /**
-     * @return Enables you to specify HTTP headers to add to the request.
-     * 
-     */
     public Map<String,String> headerParameters() {
         return this.headerParameters == null ? Map.of() : this.headerParameters;
     }
-    /**
-     * @return The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
-     * 
-     */
     public List<String> pathParameterValues() {
         return this.pathParameterValues == null ? List.of() : this.pathParameterValues;
     }
-    /**
-     * @return Represents keys/values of query string parameters that are appended to the invoked endpoint.
-     * 
-     */
     public Map<String,String> queryStringParameters() {
         return this.queryStringParameters == null ? Map.of() : this.queryStringParameters;
     }

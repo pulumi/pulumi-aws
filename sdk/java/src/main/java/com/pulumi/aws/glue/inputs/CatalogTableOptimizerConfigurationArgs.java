@@ -19,62 +19,30 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
 
     public static final CatalogTableOptimizerConfigurationArgs Empty = new CatalogTableOptimizerConfigurationArgs();
 
-    /**
-     * Indicates whether the table optimizer is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether the table optimizer is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
-     * 
-     */
     @Import(name="orphanFileDeletionConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs> orphanFileDeletionConfiguration;
 
-    /**
-     * @return The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
-     * 
-     */
     public Optional<Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs>> orphanFileDeletionConfiguration() {
         return Optional.ofNullable(this.orphanFileDeletionConfiguration);
     }
 
-    /**
-     * The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
-     * 
-     */
     @Import(name="retentionConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs> retentionConfiguration;
 
-    /**
-     * @return The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
-     * 
-     */
     public Optional<Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs>> retentionConfiguration() {
         return Optional.ofNullable(this.retentionConfiguration);
     }
 
-    /**
-     * The ARN of the IAM role to use for the table optimizer.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role to use for the table optimizer.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -106,86 +74,38 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
             $ = new CatalogTableOptimizerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Indicates whether the table optimizer is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether the table optimizer is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param orphanFileDeletionConfiguration The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orphanFileDeletionConfiguration(@Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs> orphanFileDeletionConfiguration) {
             $.orphanFileDeletionConfiguration = orphanFileDeletionConfiguration;
             return this;
         }
 
-        /**
-         * @param orphanFileDeletionConfiguration The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orphanFileDeletionConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs orphanFileDeletionConfiguration) {
             return orphanFileDeletionConfiguration(Output.of(orphanFileDeletionConfiguration));
         }
 
-        /**
-         * @param retentionConfiguration The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionConfiguration(@Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs> retentionConfiguration) {
             $.retentionConfiguration = retentionConfiguration;
             return this;
         }
 
-        /**
-         * @param retentionConfiguration The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationArgs retentionConfiguration) {
             return retentionConfiguration(Output.of(retentionConfiguration));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to use for the table optimizer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to use for the table optimizer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

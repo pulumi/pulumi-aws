@@ -14,17 +14,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
 
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs();
 
-    /**
-     * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-     * 
-     */
     @Import(name="oversizeHandling", required=true)
     private Output<String> oversizeHandling;
 
-    /**
-     * @return Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-     * 
-     */
     public Output<String> oversizeHandling() {
         return this.oversizeHandling;
     }
@@ -53,23 +45,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
             $ = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oversizeHandling(Output<String> oversizeHandling) {
             $.oversizeHandling = oversizeHandling;
             return this;
         }
 
-        /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oversizeHandling(String oversizeHandling) {
             return oversizeHandling(Output.of(oversizeHandling));
         }

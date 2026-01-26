@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterServerlessv2ScalingConfiguration {
-    /**
-     * @return Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     private Double maxCapacity;
-    /**
-     * @return Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     private Double minCapacity;
-    /**
-     * @return Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
-     * 
-     */
     private @Nullable Integer secondsUntilAutoPause;
 
     private ClusterServerlessv2ScalingConfiguration() {}
-    /**
-     * @return Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     public Double maxCapacity() {
         return this.maxCapacity;
     }
-    /**
-     * @return Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     public Double minCapacity() {
         return this.minCapacity;
     }
-    /**
-     * @return Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
-     * 
-     */
     public Optional<Integer> secondsUntilAutoPause() {
         return Optional.ofNullable(this.secondsUntilAutoPause);
     }

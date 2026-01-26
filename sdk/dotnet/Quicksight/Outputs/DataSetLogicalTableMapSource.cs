@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapSource
     {
-        /// <summary>
-        /// ARN of the parent data set.
-        /// </summary>
         public readonly string? DataSetArn;
-        /// <summary>
-        /// Specifies the result of a join of two logical tables. See join_instruction.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapSourceJoinInstruction? JoinInstruction;
-        /// <summary>
-        /// Physical table ID.
-        /// </summary>
         public readonly string? PhysicalTableId;
 
         [OutputConstructor]

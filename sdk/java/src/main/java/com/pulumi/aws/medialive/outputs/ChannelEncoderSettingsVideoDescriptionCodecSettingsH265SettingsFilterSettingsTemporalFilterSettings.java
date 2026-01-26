@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings {
-    /**
-     * @return Post filter sharpening.
-     * 
-     */
     private @Nullable String postFilterSharpening;
-    /**
-     * @return Filter strength.
-     * 
-     */
     private @Nullable String strength;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings() {}
-    /**
-     * @return Post filter sharpening.
-     * 
-     */
     public Optional<String> postFilterSharpening() {
         return Optional.ofNullable(this.postFilterSharpening);
     }
-    /**
-     * @return Filter strength.
-     * 
-     */
     public Optional<String> strength() {
         return Optional.ofNullable(this.strength);
     }

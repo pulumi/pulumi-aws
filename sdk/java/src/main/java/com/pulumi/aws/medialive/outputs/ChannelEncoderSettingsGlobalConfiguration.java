@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsGlobalConfiguration {
-    /**
-     * @return Value to set the initial audio gain for the Live Event.
-     * 
-     */
     private @Nullable Integer initialAudioGain;
-    /**
-     * @return Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-     * 
-     */
     private @Nullable String inputEndAction;
-    /**
-     * @return Settings for system actions when input is lost. See Input Loss Behavior for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsGlobalConfigurationInputLossBehavior inputLossBehavior;
-    /**
-     * @return Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-     * 
-     */
     private @Nullable String outputLockingMode;
-    /**
-     * @return Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-     * 
-     */
     private @Nullable String outputTimingSource;
-    /**
-     * @return Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-     * 
-     */
     private @Nullable String supportLowFramerateInputs;
 
     private ChannelEncoderSettingsGlobalConfiguration() {}
-    /**
-     * @return Value to set the initial audio gain for the Live Event.
-     * 
-     */
     public Optional<Integer> initialAudioGain() {
         return Optional.ofNullable(this.initialAudioGain);
     }
-    /**
-     * @return Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-     * 
-     */
     public Optional<String> inputEndAction() {
         return Optional.ofNullable(this.inputEndAction);
     }
-    /**
-     * @return Settings for system actions when input is lost. See Input Loss Behavior for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsGlobalConfigurationInputLossBehavior> inputLossBehavior() {
         return Optional.ofNullable(this.inputLossBehavior);
     }
-    /**
-     * @return Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-     * 
-     */
     public Optional<String> outputLockingMode() {
         return Optional.ofNullable(this.outputLockingMode);
     }
-    /**
-     * @return Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-     * 
-     */
     public Optional<String> outputTimingSource() {
         return Optional.ofNullable(this.outputTimingSource);
     }
-    /**
-     * @return Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-     * 
-     */
     public Optional<String> supportLowFramerateInputs() {
         return Optional.ofNullable(this.supportLowFramerateInputs);
     }

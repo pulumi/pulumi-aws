@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityRulesetTargetTable {
-    /**
-     * @return The catalog id where the AWS Glue table exists.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return Name of the database where the AWS Glue table exists.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Name of the AWS Glue table.
-     * 
-     */
     private String tableName;
 
     private DataQualityRulesetTargetTable() {}
-    /**
-     * @return The catalog id where the AWS Glue table exists.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return Name of the database where the AWS Glue table exists.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Name of the AWS Glue table.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }

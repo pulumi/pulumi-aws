@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreBrowserNetworkConfiguration
     {
-        /// <summary>
-        /// Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-        /// </summary>
         public readonly string NetworkMode;
-        /// <summary>
-        /// VPC configuration when `NetworkMode` is `VPC`. See `VpcConfig` below.
-        /// </summary>
         public readonly Outputs.AgentcoreBrowserNetworkConfigurationVpcConfig? VpcConfig;
 
         [OutputConstructor]

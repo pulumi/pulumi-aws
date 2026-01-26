@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const accounts = org.then(org => aws.organizations.getOrganizationalUnitChildAccounts({
- *     parentId: org.roots?.[0]?.id,
- * }));
- * ```
- */
 export function getOrganizationalUnitChildAccounts(args: GetOrganizationalUnitChildAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitChildAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", {
@@ -33,9 +18,6 @@ export function getOrganizationalUnitChildAccounts(args: GetOrganizationalUnitCh
  * A collection of arguments for invoking getOrganizationalUnitChildAccounts.
  */
 export interface GetOrganizationalUnitChildAccountsArgs {
-    /**
-     * The parent ID of the accounts.
-     */
     parentId: string;
 }
 
@@ -43,9 +25,6 @@ export interface GetOrganizationalUnitChildAccountsArgs {
  * A collection of values returned by getOrganizationalUnitChildAccounts.
  */
 export interface GetOrganizationalUnitChildAccountsResult {
-    /**
-     * List of child accounts, which have the following attributes:
-     */
     readonly accounts: outputs.organizations.GetOrganizationalUnitChildAccountsAccount[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -53,21 +32,6 @@ export interface GetOrganizationalUnitChildAccountsResult {
     readonly id: string;
     readonly parentId: string;
 }
-/**
- * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const accounts = org.then(org => aws.organizations.getOrganizationalUnitChildAccounts({
- *     parentId: org.roots?.[0]?.id,
- * }));
- * ```
- */
 export function getOrganizationalUnitChildAccountsOutput(args: GetOrganizationalUnitChildAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationalUnitChildAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", {
@@ -79,8 +43,5 @@ export function getOrganizationalUnitChildAccountsOutput(args: GetOrganizational
  * A collection of arguments for invoking getOrganizationalUnitChildAccounts.
  */
 export interface GetOrganizationalUnitChildAccountsOutputArgs {
-    /**
-     * The parent ID of the accounts.
-     */
     parentId: pulumi.Input<string>;
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateCapacityReservationSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates the instance's Capacity Reservation preferences. Can be `capacity-reservations-only`, `Open` or `None`. If `CapacityReservationId` or `CapacityReservationResourceGroupArn` is specified in `CapacityReservationTarget` block, either omit `CapacityReservationPreference` or set it to `capacity-reservations-only`.
-        /// </summary>
         [Input("capacityReservationPreference")]
         public Input<string>? CapacityReservationPreference { get; set; }
 
-        /// <summary>
-        /// Used to target a specific Capacity Reservation:
-        /// </summary>
         [Input("capacityReservationTarget")]
         public Input<Inputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetGetArgs>? CapacityReservationTarget { get; set; }
 

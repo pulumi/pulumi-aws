@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
-//
-// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.LookupFirehoseDeliveryStream(ctx, &kinesis.LookupFirehoseDeliveryStreamArgs{
-//				Name: "stream-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFirehoseDeliveryStream(ctx *pulumi.Context, args *LookupFirehoseDeliveryStreamArgs, opts ...pulumi.InvokeOption) (*LookupFirehoseDeliveryStreamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirehoseDeliveryStreamResult
@@ -52,15 +23,12 @@ func LookupFirehoseDeliveryStream(ctx *pulumi.Context, args *LookupFirehoseDeliv
 
 // A collection of arguments for invoking getFirehoseDeliveryStream.
 type LookupFirehoseDeliveryStreamArgs struct {
-	// Name of the Kinesis Firehose Delivery Stream.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFirehoseDeliveryStream.
 type LookupFirehoseDeliveryStreamResult struct {
-	// ARN of the Kinesis Firehose Delivery Stream (same as `id`).
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -79,9 +47,7 @@ func LookupFirehoseDeliveryStreamOutput(ctx *pulumi.Context, args LookupFirehose
 
 // A collection of arguments for invoking getFirehoseDeliveryStream.
 type LookupFirehoseDeliveryStreamOutputArgs struct {
-	// Name of the Kinesis Firehose Delivery Stream.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -104,7 +70,6 @@ func (o LookupFirehoseDeliveryStreamResultOutput) ToLookupFirehoseDeliveryStream
 	return o
 }
 
-// ARN of the Kinesis Firehose Delivery Stream (same as `id`).
 func (o LookupFirehoseDeliveryStreamResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -12,52 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS AppFabric App Authorization Connection.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appfabric"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appfabric.NewAppAuthorizationConnection(ctx, "example", &appfabric.AppAuthorizationConnectionArgs{
-//				AppAuthorizationArn: pulumi.Any(test.Arn),
-//				AppBundleArn:        pulumi.Any(arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type AppAuthorizationConnection struct {
 	pulumi.CustomResourceState
 
-	// The name of the application.
-	App pulumi.StringOutput `pulumi:"app"`
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-	AppAuthorizationArn pulumi.StringOutput `pulumi:"appAuthorizationArn"`
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-	AuthRequest AppAuthorizationConnectionAuthRequestPtrOutput `pulumi:"authRequest"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Contains information about an application tenant, such as the application display name and identifier.
-	Tenants  AppAuthorizationConnectionTenantArrayOutput `pulumi:"tenants"`
-	Timeouts AppAuthorizationConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
+	App                 pulumi.StringOutput                            `pulumi:"app"`
+	AppAuthorizationArn pulumi.StringOutput                            `pulumi:"appAuthorizationArn"`
+	AppBundleArn        pulumi.StringOutput                            `pulumi:"appBundleArn"`
+	AuthRequest         AppAuthorizationConnectionAuthRequestPtrOutput `pulumi:"authRequest"`
+	Region              pulumi.StringOutput                            `pulumi:"region"`
+	Tenants             AppAuthorizationConnectionTenantArrayOutput    `pulumi:"tenants"`
+	Timeouts            AppAuthorizationConnectionTimeoutsPtrOutput    `pulumi:"timeouts"`
 }
 
 // NewAppAuthorizationConnection registers a new resource with the given unique name, arguments, and options.
@@ -96,35 +60,23 @@ func GetAppAuthorizationConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppAuthorizationConnection resources.
 type appAuthorizationConnectionState struct {
-	// The name of the application.
-	App *string `pulumi:"app"`
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-	AppAuthorizationArn *string `pulumi:"appAuthorizationArn"`
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn *string `pulumi:"appBundleArn"`
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Contains information about an application tenant, such as the application display name and identifier.
-	Tenants  []AppAuthorizationConnectionTenant  `pulumi:"tenants"`
-	Timeouts *AppAuthorizationConnectionTimeouts `pulumi:"timeouts"`
+	App                 *string                                `pulumi:"app"`
+	AppAuthorizationArn *string                                `pulumi:"appAuthorizationArn"`
+	AppBundleArn        *string                                `pulumi:"appBundleArn"`
+	AuthRequest         *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
+	Region              *string                                `pulumi:"region"`
+	Tenants             []AppAuthorizationConnectionTenant     `pulumi:"tenants"`
+	Timeouts            *AppAuthorizationConnectionTimeouts    `pulumi:"timeouts"`
 }
 
 type AppAuthorizationConnectionState struct {
-	// The name of the application.
-	App pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	App                 pulumi.StringPtrInput
 	AppAuthorizationArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringPtrInput
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Contains information about an application tenant, such as the application display name and identifier.
-	Tenants  AppAuthorizationConnectionTenantArrayInput
-	Timeouts AppAuthorizationConnectionTimeoutsPtrInput
+	AppBundleArn        pulumi.StringPtrInput
+	AuthRequest         AppAuthorizationConnectionAuthRequestPtrInput
+	Region              pulumi.StringPtrInput
+	Tenants             AppAuthorizationConnectionTenantArrayInput
+	Timeouts            AppAuthorizationConnectionTimeoutsPtrInput
 }
 
 func (AppAuthorizationConnectionState) ElementType() reflect.Type {
@@ -132,28 +84,20 @@ func (AppAuthorizationConnectionState) ElementType() reflect.Type {
 }
 
 type appAuthorizationConnectionArgs struct {
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-	AppAuthorizationArn string `pulumi:"appAuthorizationArn"`
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn string `pulumi:"appBundleArn"`
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                             `pulumi:"region"`
-	Timeouts *AppAuthorizationConnectionTimeouts `pulumi:"timeouts"`
+	AppAuthorizationArn string                                 `pulumi:"appAuthorizationArn"`
+	AppBundleArn        string                                 `pulumi:"appBundleArn"`
+	AuthRequest         *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
+	Region              *string                                `pulumi:"region"`
+	Timeouts            *AppAuthorizationConnectionTimeouts    `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AppAuthorizationConnection resource.
 type AppAuthorizationConnectionArgs struct {
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringInput
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts AppAuthorizationConnectionTimeoutsPtrInput
+	AppBundleArn        pulumi.StringInput
+	AuthRequest         AppAuthorizationConnectionAuthRequestPtrInput
+	Region              pulumi.StringPtrInput
+	Timeouts            AppAuthorizationConnectionTimeoutsPtrInput
 }
 
 func (AppAuthorizationConnectionArgs) ElementType() reflect.Type {
@@ -243,34 +187,28 @@ func (o AppAuthorizationConnectionOutput) ToAppAuthorizationConnectionOutputWith
 	return o
 }
 
-// The name of the application.
 func (o AppAuthorizationConnectionOutput) App() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.App }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 func (o AppAuthorizationConnectionOutput) AppAuthorizationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.AppAuthorizationArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the app bundle to use for the request.
 func (o AppAuthorizationConnectionOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }
 
-// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 func (o AppAuthorizationConnectionOutput) AuthRequest() AppAuthorizationConnectionAuthRequestPtrOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) AppAuthorizationConnectionAuthRequestPtrOutput {
 		return v.AuthRequest
 	}).(AppAuthorizationConnectionAuthRequestPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppAuthorizationConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Contains information about an application tenant, such as the application display name and identifier.
 func (o AppAuthorizationConnectionOutput) Tenants() AppAuthorizationConnectionTenantArrayOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) AppAuthorizationConnectionTenantArrayOutput { return v.Tenants }).(AppAuthorizationConnectionTenantArrayOutput)
 }

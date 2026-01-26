@@ -18,243 +18,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
- * It also sets the retention period, in hours, for the Amazon Kinesis data.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorStreaming;
- * import com.pulumi.aws.chime.VoiceConnectorStreamingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
- *             .name("vc-name-test")
- *             .requireEncryption(true)
- *             .build());
- * 
- *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()
- *             .disabled(false)
- *             .voiceConnectorId(default_.id())
- *             .dataRetention(7)
- *             .streamingNotificationTargets("SQS")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Example Usage With Media Insights
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.kinesis.Stream;
- * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
- * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs;
- * import com.pulumi.aws.chime.VoiceConnectorStreaming;
- * import com.pulumi.aws.chime.VoiceConnectorStreamingArgs;
- * import com.pulumi.aws.chime.inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
- *             .name("vc-name-test")
- *             .requireEncryption(true)
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("mediapipelines.chime.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("ExampleResourceAccessRole")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
- *             .name("ExampleStream")
- *             .shardCount(2)
- *             .build());
- * 
- *         var example = new MediaInsightsPipelineConfiguration("example", MediaInsightsPipelineConfigurationArgs.builder()
- *             .name("ExampleConfig")
- *             .resourceAccessRoleArn(exampleRole.arn())
- *             .elements(            
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type("AmazonTranscribeCallAnalyticsProcessor")
- *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
- *                         .languageCode("en-US")
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type("KinesisDataStreamSink")
- *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(exampleStream.arn())
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()
- *             .disabled(false)
- *             .voiceConnectorId(default_.id())
- *             .dataRetention(7)
- *             .streamingNotificationTargets("SQS")
- *             .mediaInsightsConfiguration(VoiceConnectorStreamingMediaInsightsConfigurationArgs.builder()
- *                 .disabled(false)
- *                 .configurationArn(example.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
- * ```
- * 
- */
 @ResourceType(type="aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")
 public class VoiceConnectorStreaming extends com.pulumi.resources.CustomResource {
-    /**
-     * The retention period, in hours, for the Amazon Kinesis data.
-     * 
-     */
     @Export(name="dataRetention", refs={Integer.class}, tree="[0]")
     private Output<Integer> dataRetention;
 
-    /**
-     * @return The retention period, in hours, for the Amazon Kinesis data.
-     * 
-     */
     public Output<Integer> dataRetention() {
         return this.dataRetention;
     }
-    /**
-     * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-     * 
-     */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
-    /**
-     * @return When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-     * 
-     */
     public Output<Optional<Boolean>> disabled() {
         return Codegen.optional(this.disabled);
     }
-    /**
-     * The media insights configuration. See `mediaInsightsConfiguration`.
-     * 
-     */
     @Export(name="mediaInsightsConfiguration", refs={VoiceConnectorStreamingMediaInsightsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VoiceConnectorStreamingMediaInsightsConfiguration> mediaInsightsConfiguration;
 
-    /**
-     * @return The media insights configuration. See `mediaInsightsConfiguration`.
-     * 
-     */
     public Output<Optional<VoiceConnectorStreamingMediaInsightsConfiguration>> mediaInsightsConfiguration() {
         return Codegen.optional(this.mediaInsightsConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-     * 
-     */
     @Export(name="streamingNotificationTargets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> streamingNotificationTargets;
 
-    /**
-     * @return The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-     * 
-     */
     public Output<Optional<List<String>>> streamingNotificationTargets() {
         return Codegen.optional(this.streamingNotificationTargets);
     }
-    /**
-     * The Amazon Chime Voice Connector ID.
-     * 
-     */
     @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
-    /**
-     * @return The Amazon Chime Voice Connector ID.
-     * 
-     */
     public Output<String> voiceConnectorId() {
         return this.voiceConnectorId;
     }

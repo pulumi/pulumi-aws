@@ -16,32 +16,16 @@ public final class VirtualNodeSpecListenerConnectionPoolHttpArgs extends com.pul
 
     public static final VirtualNodeSpecListenerConnectionPoolHttpArgs Empty = new VirtualNodeSpecListenerConnectionPoolHttpArgs();
 
-    /**
-     * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     @Import(name="maxConnections", required=true)
     private Output<Integer> maxConnections;
 
-    /**
-     * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     public Output<Integer> maxConnections() {
         return this.maxConnections;
     }
 
-    /**
-     * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-     * 
-     */
     @Import(name="maxPendingRequests")
     private @Nullable Output<Integer> maxPendingRequests;
 
-    /**
-     * @return Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-     * 
-     */
     public Optional<Output<Integer>> maxPendingRequests() {
         return Optional.ofNullable(this.maxPendingRequests);
     }
@@ -71,44 +55,20 @@ public final class VirtualNodeSpecListenerConnectionPoolHttpArgs extends com.pul
             $ = new VirtualNodeSpecListenerConnectionPoolHttpArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxConnections Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConnections(Output<Integer> maxConnections) {
             $.maxConnections = maxConnections;
             return this;
         }
 
-        /**
-         * @param maxConnections Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConnections(Integer maxConnections) {
             return maxConnections(Output.of(maxConnections));
         }
 
-        /**
-         * @param maxPendingRequests Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPendingRequests(@Nullable Output<Integer> maxPendingRequests) {
             $.maxPendingRequests = maxPendingRequests;
             return this;
         }
 
-        /**
-         * @param maxPendingRequests Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPendingRequests(Integer maxPendingRequests) {
             return maxPendingRequests(Output.of(maxPendingRequests));
         }

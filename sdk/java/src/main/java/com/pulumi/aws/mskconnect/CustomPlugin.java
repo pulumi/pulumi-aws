@@ -17,216 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon MSK Connect Custom Plugin Resource.
- * 
- * ## Example Usage
- * 
- * ### Basic configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketObjectv2;
- * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.aws.mskconnect.CustomPlugin;
- * import com.pulumi.aws.mskconnect.CustomPluginArgs;
- * import com.pulumi.aws.mskconnect.inputs.CustomPluginLocationArgs;
- * import com.pulumi.aws.mskconnect.inputs.CustomPluginLocationS3Args;
- * import com.pulumi.asset.FileAsset;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("example")
- *             .build());
- * 
- *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
- *             .bucket(example.id())
- *             .key("debezium.zip")
- *             .source(new FileAsset("debezium.zip"))
- *             .build());
- * 
- *         var exampleCustomPlugin = new CustomPlugin("exampleCustomPlugin", CustomPluginArgs.builder()
- *             .name("debezium-example")
- *             .contentType("ZIP")
- *             .location(CustomPluginLocationArgs.builder()
- *                 .s3(CustomPluginLocationS3Args.builder()
- *                     .bucketArn(example.arn())
- *                     .fileKey(exampleBucketObjectv2.key())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import MSK Connect Custom Plugin using the plugin&#39;s `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#39;
- * ```
- * 
- */
 @ResourceType(type="aws:mskconnect/customPlugin:CustomPlugin")
 public class CustomPlugin extends com.pulumi.resources.CustomResource {
-    /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return the Amazon Resource Name (ARN) of the custom plugin.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-     * 
-     */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
-    /**
-     * @return The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
-    /**
-     * A summary description of the custom plugin.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A summary description of the custom plugin.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * an ID of the latest successfully created revision of the custom plugin.
-     * 
-     */
     @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestRevision;
 
-    /**
-     * @return an ID of the latest successfully created revision of the custom plugin.
-     * 
-     */
     public Output<Integer> latestRevision() {
         return this.latestRevision;
     }
-    /**
-     * Information about the location of a custom plugin. See `location` Block for details.
-     * 
-     */
     @Export(name="location", refs={CustomPluginLocation.class}, tree="[0]")
     private Output<CustomPluginLocation> location;
 
-    /**
-     * @return Information about the location of a custom plugin. See `location` Block for details.
-     * 
-     */
     public Output<CustomPluginLocation> location() {
         return this.location;
     }
-    /**
-     * The name of the custom plugin..
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the custom plugin..
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * the state of the custom plugin.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return the state of the custom plugin.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -30,15 +30,6 @@ class DataProtectionSettingsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataProtectionSettings resource.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the data protection settings.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] description: The description of the data protection settings.
-        :param pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationArgs'] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "display_name", display_name)
         if additional_encryption_context is not None:
@@ -57,11 +48,6 @@ class DataProtectionSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The display name of the data protection settings.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -71,9 +57,6 @@ class DataProtectionSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the data protection settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -83,9 +66,6 @@ class DataProtectionSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -95,9 +75,6 @@ class DataProtectionSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the data protection settings.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -107,9 +84,6 @@ class DataProtectionSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="inlineRedactionConfiguration")
     def inline_redaction_configuration(self) -> Optional[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationArgs']]:
-        """
-        The inline redaction configuration of the data protection settings. Detailed below.
-        """
         return pulumi.get(self, "inline_redaction_configuration")
 
     @inline_redaction_configuration.setter
@@ -119,9 +93,6 @@ class DataProtectionSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -131,9 +102,6 @@ class DataProtectionSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -156,18 +124,6 @@ class _DataProtectionSettingsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataProtectionSettings resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the data protection settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs that this data protection settings resource is associated with.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] data_protection_settings_arn: ARN of the data protection settings resource.
-        :param pulumi.Input[_builtins.str] description: The description of the data protection settings.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
-               
-               The following arguments are optional:
-        :param pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationArgs'] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -193,9 +149,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the data protection settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -205,9 +158,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of web portal ARNs that this data protection settings resource is associated with.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @associated_portal_arns.setter
@@ -217,9 +167,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -229,9 +176,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the data protection settings resource.
-        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @data_protection_settings_arn.setter
@@ -241,9 +185,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the data protection settings.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -253,11 +194,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the data protection settings.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -267,9 +203,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter(name="inlineRedactionConfiguration")
     def inline_redaction_configuration(self) -> Optional[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationArgs']]:
-        """
-        The inline redaction configuration of the data protection settings. Detailed below.
-        """
         return pulumi.get(self, "inline_redaction_configuration")
 
     @inline_redaction_configuration.setter
@@ -279,9 +212,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -291,9 +221,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -303,9 +230,6 @@ class _DataProtectionSettingsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -328,114 +252,9 @@ class DataProtectionSettings(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Data Protection Settings resource. Once associated with a web portal, data protection settings control how sensitive information is redacted in streaming sessions.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.DataProtectionSettings("example", display_name="example")
-        ```
-
-        ### With Inline Redaction Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example",
-            description="Example data protection settings",
-            inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": ["https://example.com"],
-                "inline_redaction_patterns": [{
-                    "built_in_pattern_id": "ssn",
-                    "confidence_level": 3,
-                    "redaction_place_holders": [{
-                        "redaction_place_holder_type": "CustomText",
-                        "redaction_place_holder_text": "REDACTED",
-                    }],
-                }],
-            })
-        ```
-
-        ### Complete Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Data Protection Settings",
-            deletion_window_in_days=7)
-        example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example-complete",
-            description="Complete example data protection settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": [
-                    "https://example.com",
-                    "https://test.example.com",
-                ],
-                "global_exempt_urls": ["https://exempt.example.com"],
-                "inline_redaction_patterns": [
-                    {
-                        "built_in_pattern_id": "ssn",
-                        "confidence_level": 3,
-                        "enforced_urls": ["https://pattern1.example.com"],
-                        "exempt_urls": ["https://exempt-pattern1.example.com"],
-                        "redaction_place_holders": [{
-                            "redaction_place_holder_type": "CustomText",
-                            "redaction_place_holder_text": "REDACTED-SSN",
-                        }],
-                    },
-                    {
-                        "custom_pattern": {
-                            "pattern_name": "CustomPattern",
-                            "pattern_regex": "/\\\\d{3}-\\\\d{2}-\\\\d{4}/g",
-                            "keyword_regex": "/SSN|Social Security/gi",
-                            "pattern_description": "Custom SSN pattern",
-                        },
-                        "redaction_place_holders": [{
-                            "redaction_place_holder_type": "CustomText",
-                            "redaction_place_holder_text": "REDACTED-CUSTOM",
-                        }],
-                    },
-                ],
-            },
-            tags={
-                "Name": "example-data-protection-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Data Protection Settings using the `data_protection_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/dataProtectionSettings:DataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
-        ```
-
+        Create a DataProtectionSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the data protection settings.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] description: The description of the data protection settings.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -444,103 +263,7 @@ class DataProtectionSettings(pulumi.CustomResource):
                  args: DataProtectionSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Data Protection Settings resource. Once associated with a web portal, data protection settings control how sensitive information is redacted in streaming sessions.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.DataProtectionSettings("example", display_name="example")
-        ```
-
-        ### With Inline Redaction Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example",
-            description="Example data protection settings",
-            inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": ["https://example.com"],
-                "inline_redaction_patterns": [{
-                    "built_in_pattern_id": "ssn",
-                    "confidence_level": 3,
-                    "redaction_place_holders": [{
-                        "redaction_place_holder_type": "CustomText",
-                        "redaction_place_holder_text": "REDACTED",
-                    }],
-                }],
-            })
-        ```
-
-        ### Complete Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Data Protection Settings",
-            deletion_window_in_days=7)
-        example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example-complete",
-            description="Complete example data protection settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": [
-                    "https://example.com",
-                    "https://test.example.com",
-                ],
-                "global_exempt_urls": ["https://exempt.example.com"],
-                "inline_redaction_patterns": [
-                    {
-                        "built_in_pattern_id": "ssn",
-                        "confidence_level": 3,
-                        "enforced_urls": ["https://pattern1.example.com"],
-                        "exempt_urls": ["https://exempt-pattern1.example.com"],
-                        "redaction_place_holders": [{
-                            "redaction_place_holder_type": "CustomText",
-                            "redaction_place_holder_text": "REDACTED-SSN",
-                        }],
-                    },
-                    {
-                        "custom_pattern": {
-                            "pattern_name": "CustomPattern",
-                            "pattern_regex": "/\\\\d{3}-\\\\d{2}-\\\\d{4}/g",
-                            "keyword_regex": "/SSN|Social Security/gi",
-                            "pattern_description": "Custom SSN pattern",
-                        },
-                        "redaction_place_holders": [{
-                            "redaction_place_holder_type": "CustomText",
-                            "redaction_place_holder_text": "REDACTED-CUSTOM",
-                        }],
-                    },
-                ],
-            },
-            tags={
-                "Name": "example-data-protection-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Data Protection Settings using the `data_protection_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/dataProtectionSettings:DataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
-        ```
-
+        Create a DataProtectionSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DataProtectionSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -611,18 +334,6 @@ class DataProtectionSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the data protection settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs that this data protection settings resource is associated with.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] data_protection_settings_arn: ARN of the data protection settings resource.
-        :param pulumi.Input[_builtins.str] description: The description of the data protection settings.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -643,82 +354,50 @@ class DataProtectionSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Additional encryption context for the data protection settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of web portal ARNs that this data protection settings resource is associated with.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the data protection settings resource.
-        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the data protection settings.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The display name of the data protection settings.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="inlineRedactionConfiguration")
     def inline_redaction_configuration(self) -> pulumi.Output[Optional['outputs.DataProtectionSettingsInlineRedactionConfiguration']]:
-        """
-        The inline redaction configuration of the data protection settings. Detailed below.
-        """
         return pulumi.get(self, "inline_redaction_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

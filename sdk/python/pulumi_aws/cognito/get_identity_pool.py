@@ -68,41 +68,26 @@ class GetIdentityPoolResult:
     @_builtins.property
     @pulumi.getter(name="allowClassicFlow")
     def allow_classic_flow(self) -> _builtins.bool:
-        """
-        Whether the classic / basic authentication flow is enabled.
-        """
         return pulumi.get(self, "allow_classic_flow")
 
     @_builtins.property
     @pulumi.getter(name="allowUnauthenticatedIdentities")
     def allow_unauthenticated_identities(self) -> _builtins.bool:
-        """
-        Whether the identity pool supports unauthenticated logins or not.
-        """
         return pulumi.get(self, "allow_unauthenticated_identities")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Pool.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cognitoIdentityProviders")
     def cognito_identity_providers(self) -> Sequence['outputs.GetIdentityPoolCognitoIdentityProviderResult']:
-        """
-        An array of Amazon Cognito Identity user pools and their client IDs.
-        """
         return pulumi.get(self, "cognito_identity_providers")
 
     @_builtins.property
     @pulumi.getter(name="developerProviderName")
     def developer_provider_name(self) -> _builtins.str:
-        """
-        The "domain" by which Cognito will refer to your users.
-        """
         return pulumi.get(self, "developer_provider_name")
 
     @_builtins.property
@@ -121,9 +106,6 @@ class GetIdentityPoolResult:
     @_builtins.property
     @pulumi.getter(name="openidConnectProviderArns")
     def openid_connect_provider_arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of OpendID Connect provider ARNs.
-        """
         return pulumi.get(self, "openid_connect_provider_arns")
 
     @_builtins.property
@@ -134,25 +116,16 @@ class GetIdentityPoolResult:
     @_builtins.property
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Sequence[_builtins.str]:
-        """
-        An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
-        """
         return pulumi.get(self, "saml_provider_arns")
 
     @_builtins.property
     @pulumi.getter(name="supportedLoginProviders")
     def supported_login_providers(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-Value pairs mapping provider names to provider app IDs.
-        """
         return pulumi.get(self, "supported_login_providers")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assigned to the Identity Pool.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -181,23 +154,7 @@ def get_identity_pool(identity_pool_name: Optional[_builtins.str] = None,
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityPoolResult:
     """
-    Data source for managing an AWS Cognito Identity Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_identity_pool(identity_pool_name="test pool")
-    ```
-
-
-    :param _builtins.str identity_pool_name: The Cognito Identity Pool name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assigned to the Identity Pool.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identityPoolName'] = identity_pool_name
@@ -224,23 +181,7 @@ def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[_builtins
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
-    Data source for managing an AWS Cognito Identity Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_identity_pool(identity_pool_name="test pool")
-    ```
-
-
-    :param _builtins.str identity_pool_name: The Cognito Identity Pool name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assigned to the Identity Pool.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identityPoolName'] = identity_pool_name

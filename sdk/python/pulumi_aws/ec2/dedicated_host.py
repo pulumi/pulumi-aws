@@ -30,15 +30,6 @@ class DedicatedHostArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DedicatedHost resource.
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-        :param pulumi.Input[_builtins.str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-        :param pulumi.Input[_builtins.str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-        :param pulumi.Input[_builtins.str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if asset_id is not None:
@@ -61,9 +52,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Availability Zone in which to allocate the Dedicated Host.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -73,9 +61,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter(name="assetId")
     def asset_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-        """
         return pulumi.get(self, "asset_id")
 
     @asset_id.setter
@@ -85,9 +70,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter(name="autoPlacement")
     def auto_placement(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-        """
         return pulumi.get(self, "auto_placement")
 
     @auto_placement.setter
@@ -97,9 +79,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-        """
         return pulumi.get(self, "host_recovery")
 
     @host_recovery.setter
@@ -109,9 +88,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-        """
         return pulumi.get(self, "instance_family")
 
     @instance_family.setter
@@ -121,9 +97,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -133,9 +106,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
@@ -145,9 +115,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -157,9 +124,6 @@ class DedicatedHostArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -184,18 +148,6 @@ class _DedicatedHostState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DedicatedHost resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Dedicated Host.
-        :param pulumi.Input[_builtins.str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-        :param pulumi.Input[_builtins.str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-        :param pulumi.Input[_builtins.str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the Dedicated Host.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -225,9 +177,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Dedicated Host.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -237,9 +186,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="assetId")
     def asset_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-        """
         return pulumi.get(self, "asset_id")
 
     @asset_id.setter
@@ -249,9 +195,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="autoPlacement")
     def auto_placement(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-        """
         return pulumi.get(self, "auto_placement")
 
     @auto_placement.setter
@@ -261,9 +204,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Availability Zone in which to allocate the Dedicated Host.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -273,9 +213,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-        """
         return pulumi.get(self, "host_recovery")
 
     @host_recovery.setter
@@ -285,9 +222,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-        """
         return pulumi.get(self, "instance_family")
 
     @instance_family.setter
@@ -297,9 +231,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -309,9 +240,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
@@ -321,9 +249,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AWS account that owns the Dedicated Host.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -333,9 +258,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -345,9 +267,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -357,9 +276,6 @@ class _DedicatedHostState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -384,42 +300,9 @@ class DedicatedHost(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new host with instance type of c5.18xlarge with Auto Placement
-        # and Host Recovery enabled.
-        test = aws.ec2.DedicatedHost("test",
-            instance_type="c5.18xlarge",
-            availability_zone="us-west-2a",
-            host_recovery="on",
-            auto_placement="on")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import hosts using the host `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
-        ```
-
+        Create a DedicatedHost resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-        :param pulumi.Input[_builtins.str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-        :param pulumi.Input[_builtins.str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -428,31 +311,7 @@ class DedicatedHost(pulumi.CustomResource):
                  args: DedicatedHostArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new host with instance type of c5.18xlarge with Auto Placement
-        # and Host Recovery enabled.
-        test = aws.ec2.DedicatedHost("test",
-            instance_type="c5.18xlarge",
-            availability_zone="us-west-2a",
-            host_recovery="on",
-            auto_placement="on")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import hosts using the host `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
-        ```
-
+        Create a DedicatedHost resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -529,18 +388,6 @@ class DedicatedHost(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Dedicated Host.
-        :param pulumi.Input[_builtins.str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-        :param pulumi.Input[_builtins.str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-        :param pulumi.Input[_builtins.str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the Dedicated Host.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -563,96 +410,60 @@ class DedicatedHost(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Dedicated Host.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="assetId")
     def asset_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
-        """
         return pulumi.get(self, "asset_id")
 
     @_builtins.property
     @pulumi.getter(name="autoPlacement")
     def auto_placement(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-        """
         return pulumi.get(self, "auto_placement")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Availability Zone in which to allocate the Dedicated Host.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-        """
         return pulumi.get(self, "host_recovery")
 
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-        """
         return pulumi.get(self, "instance_family")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the AWS account that owns the Dedicated Host.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

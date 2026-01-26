@@ -11,21 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCapacityBlockOfferingResult {
-    /**
-     * @return The Availability Zone in which to create the Capacity Reservation.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return The Capacity Block Reservation ID.
-     * 
-     */
     private String capacityBlockOfferingId;
     private Integer capacityDurationHours;
-    /**
-     * @return The currency of the payment for the Capacity Block.
-     * 
-     */
     private String currencyCode;
     private String endDateRange;
     /**
@@ -37,39 +25,19 @@ public final class GetCapacityBlockOfferingResult {
     private String instanceType;
     private String region;
     private String startDateRange;
-    /**
-     * @return Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-     * 
-     */
     private String tenancy;
-    /**
-     * @return The total price to be paid up front.
-     * 
-     */
     private String upfrontFee;
 
     private GetCapacityBlockOfferingResult() {}
-    /**
-     * @return The Availability Zone in which to create the Capacity Reservation.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return The Capacity Block Reservation ID.
-     * 
-     */
     public String capacityBlockOfferingId() {
         return this.capacityBlockOfferingId;
     }
     public Integer capacityDurationHours() {
         return this.capacityDurationHours;
     }
-    /**
-     * @return The currency of the payment for the Capacity Block.
-     * 
-     */
     public String currencyCode() {
         return this.currencyCode;
     }
@@ -95,17 +63,9 @@ public final class GetCapacityBlockOfferingResult {
     public String startDateRange() {
         return this.startDateRange;
     }
-    /**
-     * @return Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-     * 
-     */
     public String tenancy() {
         return this.tenancy;
     }
-    /**
-     * @return The total price to be paid up front.
-     * 
-     */
     public String upfrontFee() {
         return this.upfrontFee;
     }

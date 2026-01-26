@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The final port in the range of TCP ports.
-        /// </summary>
         [Input("maxRange", required: true)]
         public Input<int> MaxRange { get; set; } = null!;
 
-        /// <summary>
-        /// The first port in the range of TCP ports.
-        /// </summary>
         [Input("minRange", required: true)]
         public Input<int> MinRange { get; set; } = null!;
 

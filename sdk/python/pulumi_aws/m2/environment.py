@@ -40,20 +40,6 @@ class EnvironmentArgs:
                  timeouts: Optional[pulumi.Input['EnvironmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
-        :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
-        :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
-        :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -91,9 +77,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Engine type must be `microfocus` or `bluage`.
-        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -103,11 +86,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        M2 Instance Type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -135,9 +113,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The specific version of the engine for the Environment.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -147,9 +122,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Force update the environment even if applications are running.
-        """
         return pulumi.get(self, "force_update")
 
     @force_update.setter
@@ -168,9 +140,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the KMS key to use for the Environment.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -180,9 +149,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the runtime environment. Must be unique within the account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -192,9 +158,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -204,9 +167,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Allow applications deployed to this environment to be publicly accessible.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -216,9 +176,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -228,9 +185,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of security group ids.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -249,9 +203,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of subnet ids to deploy environment to.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -261,9 +212,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -306,23 +254,6 @@ class _EnvironmentState:
                  timeouts: Optional[pulumi.Input['EnvironmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Environment resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Environment.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
-        :param pulumi.Input[_builtins.str] environment_id: The id of the Environment.
-        :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
-        :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
-        :param pulumi.Input[_builtins.str] load_balancer_arn: ARN of the load balancer created by the Environment.
-        :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if apply_changes_during_maintenance_window is not None:
             pulumi.set(__self__, "apply_changes_during_maintenance_window", apply_changes_during_maintenance_window)
@@ -379,9 +310,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Environment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -400,9 +328,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Engine type must be `microfocus` or `bluage`.
-        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -412,9 +337,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The specific version of the engine for the Environment.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -424,9 +346,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The id of the Environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -436,9 +355,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Force update the environment even if applications are running.
-        """
         return pulumi.get(self, "force_update")
 
     @force_update.setter
@@ -457,11 +373,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        M2 Instance Type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -471,9 +382,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the KMS key to use for the Environment.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -483,9 +391,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the load balancer created by the Environment.
-        """
         return pulumi.get(self, "load_balancer_arn")
 
     @load_balancer_arn.setter
@@ -495,9 +400,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the runtime environment. Must be unique within the account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -507,9 +409,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -519,9 +418,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Allow applications deployed to this environment to be publicly accessible.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -531,9 +427,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -543,9 +436,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of security group ids.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -564,9 +454,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of subnet ids to deploy environment to.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -576,9 +463,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -629,117 +513,9 @@ class Environment(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an [AWS Mainframe Modernization Environment](https://docs.aws.amazon.com/m2/latest/userguide/environments-m2.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ])
-        ```
-
-        ### High Availability
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ],
-            high_availability_config={
-                "desired_capacity": 2,
-            })
-        ```
-
-        ### EFS Filesystem
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ],
-            storage_configuration={
-                "efs": {
-                    "file_system_id": "fs-01234567890abcdef",
-                    "mount_point": "/m2/mount/example",
-                },
-            })
-        ```
-
-        ### FSX Filesystem
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ],
-            storage_configuration={
-                "fsx": {
-                    "file_system_id": "fs-01234567890abcdef",
-                    "mount_point": "/m2/mount/example",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
-
-        ```sh
-        $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
-        :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
-        :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
-        :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -748,101 +524,7 @@ class Environment(pulumi.CustomResource):
                  args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an [AWS Mainframe Modernization Environment](https://docs.aws.amazon.com/m2/latest/userguide/environments-m2.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ])
-        ```
-
-        ### High Availability
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ],
-            high_availability_config={
-                "desired_capacity": 2,
-            })
-        ```
-
-        ### EFS Filesystem
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ],
-            storage_configuration={
-                "efs": {
-                    "file_system_id": "fs-01234567890abcdef",
-                    "mount_point": "/m2/mount/example",
-                },
-            })
-        ```
-
-        ### FSX Filesystem
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Environment("test",
-            name="test-env",
-            engine_type="bluage",
-            instance_type="M2.m5.large",
-            security_groups=["sg-01234567890abcdef"],
-            subnet_ids=[
-                "subnet-01234567890abcdef",
-                "subnet-01234567890abcdea",
-            ],
-            storage_configuration={
-                "fsx": {
-                    "file_system_id": "fs-01234567890abcdef",
-                    "mount_point": "/m2/mount/example",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
-
-        ```sh
-        $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -947,23 +629,6 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Environment.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
-        :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
-        :param pulumi.Input[_builtins.str] environment_id: The id of the Environment.
-        :param pulumi.Input[_builtins.bool] force_update: Force update the environment even if applications are running.
-        :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS key to use for the Environment.
-        :param pulumi.Input[_builtins.str] load_balancer_arn: ARN of the load balancer created by the Environment.
-        :param pulumi.Input[_builtins.str] name: Name of the runtime environment. Must be unique within the account.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Allow applications deployed to this environment to be publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet ids to deploy environment to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1000,9 +665,6 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Environment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -1013,33 +675,21 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Engine type must be `microfocus` or `bluage`.
-        """
         return pulumi.get(self, "engine_type")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The specific version of the engine for the Environment.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The id of the Environment.
-        """
         return pulumi.get(self, "environment_id")
 
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Force update the environment even if applications are running.
-        """
         return pulumi.get(self, "force_update")
 
     @_builtins.property
@@ -1050,67 +700,41 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        M2 Instance Type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the KMS key to use for the Environment.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the load balancer created by the Environment.
-        """
         return pulumi.get(self, "load_balancer_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the runtime environment. Must be unique within the account.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Allow applications deployed to this environment to be publicly accessible.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of security group ids.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
@@ -1121,17 +745,11 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of subnet ids to deploy environment to.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

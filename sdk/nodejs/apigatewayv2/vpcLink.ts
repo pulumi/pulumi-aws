@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon API Gateway Version 2 VPC Link.
- *
- * > **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
- * To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.VpcLink("example", {
- *     name: "example",
- *     securityGroupIds: [exampleAwsSecurityGroup.id],
- *     subnetIds: exampleAwsSubnets.ids,
- *     tags: {
- *         Usage: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
- * ```
- */
 export class VpcLink extends pulumi.CustomResource {
     /**
      * Get an existing VpcLink resource's state with the given name, ID, and optional extra
@@ -62,33 +32,12 @@ export class VpcLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcLink.__pulumiType;
     }
 
-    /**
-     * VPC Link ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the VPC Link. Must be between 1 and 128 characters in length.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Security group IDs for the VPC Link.
-     */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
-    /**
-     * Subnet IDs for the VPC Link.
-     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
-    /**
-     * Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -136,33 +85,12 @@ export class VpcLink extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcLink resources.
  */
 export interface VpcLinkState {
-    /**
-     * VPC Link ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the VPC Link. Must be between 1 and 128 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Security group IDs for the VPC Link.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Subnet IDs for the VPC Link.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -170,24 +98,9 @@ export interface VpcLinkState {
  * The set of arguments for constructing a VpcLink resource.
  */
 export interface VpcLinkArgs {
-    /**
-     * Name of the VPC Link. Must be between 1 and 128 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Security group IDs for the VPC Link.
-     */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Subnet IDs for the VPC Link.
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

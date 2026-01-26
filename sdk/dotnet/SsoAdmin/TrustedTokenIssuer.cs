@@ -9,107 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// Resource for managing an AWS SSO Admin Trusted Token Issuer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleTrustedTokenIssuer = new Aws.SsoAdmin.TrustedTokenIssuer("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         TrustedTokenIssuerType = "OIDC_JWT",
-    ///         TrustedTokenIssuerConfiguration = new Aws.SsoAdmin.Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs
-    ///         {
-    ///             OidcJwtConfiguration = new Aws.SsoAdmin.Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs
-    ///             {
-    ///                 ClaimAttributePath = "email",
-    ///                 IdentityStoreAttributePath = "emails.value",
-    ///                 IssuerUrl = "https://example.com",
-    ///                 JwksRetrievalOption = "OPEN_ID_DISCOVERY",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::123456789012:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer")]
     public partial class TrustedTokenIssuer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the trusted token issuer.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        /// </summary>
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the instance of IAM Identity Center.
-        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the trusted token issuer.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `TrustedTokenIssuerType`. Documented below.
-        /// </summary>
         [Output("trustedTokenIssuerConfiguration")]
         public Output<Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration?> TrustedTokenIssuerConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("trustedTokenIssuerType")]
         public Output<string> TrustedTokenIssuerType { get; private set; } = null!;
 
@@ -159,53 +85,29 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class TrustedTokenIssuerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
-        /// <summary>
-        /// ARN of the instance of IAM Identity Center.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the trusted token issuer.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `TrustedTokenIssuerType`. Documented below.
-        /// </summary>
         [Input("trustedTokenIssuerConfiguration")]
         public Input<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs>? TrustedTokenIssuerConfiguration { get; set; }
 
-        /// <summary>
-        /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("trustedTokenIssuerType", required: true)]
         public Input<string> TrustedTokenIssuerType { get; set; } = null!;
 
@@ -217,42 +119,23 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class TrustedTokenIssuerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the trusted token issuer.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
-        /// <summary>
-        /// ARN of the instance of IAM Identity Center.
-        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
-        /// <summary>
-        /// Name of the trusted token issuer.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -261,27 +144,15 @@ namespace Pulumi.Aws.SsoAdmin
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `TrustedTokenIssuerType`. Documented below.
-        /// </summary>
         [Input("trustedTokenIssuerConfiguration")]
         public Input<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationGetArgs>? TrustedTokenIssuerConfiguration { get; set; }
 
-        /// <summary>
-        /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("trustedTokenIssuerType")]
         public Input<string>? TrustedTokenIssuerType { get; set; }
 

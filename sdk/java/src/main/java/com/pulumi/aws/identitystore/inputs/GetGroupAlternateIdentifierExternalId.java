@@ -13,32 +13,16 @@ public final class GetGroupAlternateIdentifierExternalId extends com.pulumi.reso
 
     public static final GetGroupAlternateIdentifierExternalId Empty = new GetGroupAlternateIdentifierExternalId();
 
-    /**
-     * The identifier issued to this resource by an external identity provider.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return The identifier issued to this resource by an external identity provider.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * The issuer for an external identifier.
-     * 
-     */
     @Import(name="issuer", required=true)
     private String issuer;
 
-    /**
-     * @return The issuer for an external identifier.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
@@ -68,23 +52,11 @@ public final class GetGroupAlternateIdentifierExternalId extends com.pulumi.reso
             $ = new GetGroupAlternateIdentifierExternalId(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The identifier issued to this resource by an external identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param issuer The issuer for an external identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             $.issuer = issuer;
             return this;

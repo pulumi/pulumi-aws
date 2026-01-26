@@ -16,32 +16,16 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
 
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs();
 
-    /**
-     * The intermediate storage for custom transformation.
-     * 
-     */
     @Import(name="intermediateStorage")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs> intermediateStorage;
 
-    /**
-     * @return The intermediate storage for custom transformation.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs>> intermediateStorage() {
         return Optional.ofNullable(this.intermediateStorage);
     }
 
-    /**
-     * A custom processing step for documents moving through the data source ingestion pipeline.
-     * 
-     */
     @Import(name="transformation")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs> transformation;
 
-    /**
-     * @return A custom processing step for documents moving through the data source ingestion pipeline.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs>> transformation() {
         return Optional.ofNullable(this.transformation);
     }
@@ -71,44 +55,20 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
             $ = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param intermediateStorage The intermediate storage for custom transformation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intermediateStorage(@Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs> intermediateStorage) {
             $.intermediateStorage = intermediateStorage;
             return this;
         }
 
-        /**
-         * @param intermediateStorage The intermediate storage for custom transformation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intermediateStorage(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs intermediateStorage) {
             return intermediateStorage(Output.of(intermediateStorage));
         }
 
-        /**
-         * @param transformation A custom processing step for documents moving through the data source ingestion pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformation(@Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs> transformation) {
             $.transformation = transformation;
             return this;
         }
 
-        /**
-         * @param transformation A custom processing step for documents moving through the data source ingestion pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformation(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs transformation) {
             return transformation(Output.of(transformation));
         }

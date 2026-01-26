@@ -17,47 +17,23 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
 
     public static final OrganizationConfigurationArgs Empty = new OrganizationConfigurationArgs();
 
-    /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-     * 
-     */
     @Import(name="autoEnable", required=true)
     private Output<Boolean> autoEnable;
 
-    /**
-     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-     * 
-     */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
     }
 
-    /**
-     * ARN of the behavior graph.
-     * 
-     */
     @Import(name="graphArn", required=true)
     private Output<String> graphArn;
 
-    /**
-     * @return ARN of the behavior graph.
-     * 
-     */
     public Output<String> graphArn() {
         return this.graphArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,65 +64,29 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
             $ = new OrganizationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnable When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Output<Boolean> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
-        /**
-         * @param autoEnable When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Boolean autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }
 
-        /**
-         * @param graphArn ARN of the behavior graph.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(Output<String> graphArn) {
             $.graphArn = graphArn;
             return this;
         }
 
-        /**
-         * @param graphArn ARN of the behavior graph.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(String graphArn) {
             return graphArn(Output.of(graphArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -14,47 +14,23 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
 
     public static final AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs Empty = new AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs();
 
-    /**
-     * Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     @Import(name="metadataField", required=true)
     private Output<String> metadataField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     public Output<String> metadataField() {
         return this.metadataField;
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     @Import(name="textField", required=true)
     private Output<String> textField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     public Output<String> textField() {
         return this.textField;
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     @Import(name="vectorField", required=true)
     private Output<String> vectorField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     public Output<String> vectorField() {
         return this.vectorField;
     }
@@ -85,65 +61,29 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
             $ = new AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataField(Output<String> metadataField) {
             $.metadataField = metadataField;
             return this;
         }
 
-        /**
-         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataField(String metadataField) {
             return metadataField(Output.of(metadataField));
         }
 
-        /**
-         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textField(Output<String> textField) {
             $.textField = textField;
             return this;
         }
 
-        /**
-         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textField(String textField) {
             return textField(Output.of(textField));
         }
 
-        /**
-         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorField(Output<String> vectorField) {
             $.vectorField = vectorField;
             return this;
         }
 
-        /**
-         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorField(String vectorField) {
             return vectorField(Output.of(vectorField));
         }

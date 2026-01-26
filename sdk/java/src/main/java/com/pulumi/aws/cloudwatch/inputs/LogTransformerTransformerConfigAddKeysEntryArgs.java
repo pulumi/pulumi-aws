@@ -17,49 +17,23 @@ public final class LogTransformerTransformerConfigAddKeysEntryArgs extends com.p
 
     public static final LogTransformerTransformerConfigAddKeysEntryArgs Empty = new LogTransformerTransformerConfigAddKeysEntryArgs();
 
-    /**
-     * Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     @Import(name="overwriteIfExists")
     private @Nullable Output<Boolean> overwriteIfExists;
 
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     public Optional<Output<Boolean>> overwriteIfExists() {
         return Optional.ofNullable(this.overwriteIfExists);
     }
 
-    /**
-     * Specifies the value of the new entry to be added to the log event.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Specifies the value of the new entry to be added to the log event.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -90,67 +64,29 @@ public final class LogTransformerTransformerConfigAddKeysEntryArgs extends com.p
             $ = new LogTransformerTransformerConfigAddKeysEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Specifies the key with the value that will be converted to a different type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Specifies the key with the value that will be converted to a different type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * * `renameTo` - (Required) Specifies the new name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(@Nullable Output<Boolean> overwriteIfExists) {
             $.overwriteIfExists = overwriteIfExists;
             return this;
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * * `renameTo` - (Required) Specifies the new name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(Boolean overwriteIfExists) {
             return overwriteIfExists(Output.of(overwriteIfExists));
         }
 
-        /**
-         * @param value Specifies the value of the new entry to be added to the log event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Specifies the value of the new entry to be added to the log event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

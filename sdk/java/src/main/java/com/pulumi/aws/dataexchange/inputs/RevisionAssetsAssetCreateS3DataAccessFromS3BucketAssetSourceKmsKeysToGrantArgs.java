@@ -14,17 +14,9 @@ public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceK
 
     public static final RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs Empty = new RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs();
 
-    /**
-     * The ARN of the KMS key.
-     * 
-     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return The ARN of the KMS key.
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
@@ -53,23 +45,11 @@ public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceK
             $ = new RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

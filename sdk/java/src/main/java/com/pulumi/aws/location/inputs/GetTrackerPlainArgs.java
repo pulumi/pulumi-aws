@@ -16,47 +16,23 @@ public final class GetTrackerPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTrackerPlainArgs Empty = new GetTrackerPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the tracker.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags for the tracker.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Name of the tracker resource.
-     * 
-     */
     @Import(name="trackerName", required=true)
     private String trackerName;
 
-    /**
-     * @return Name of the tracker resource.
-     * 
-     */
     public String trackerName() {
         return this.trackerName;
     }
@@ -87,34 +63,16 @@ public final class GetTrackerPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTrackerPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the tracker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param trackerName Name of the tracker resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(String trackerName) {
             $.trackerName = trackerName;
             return this;

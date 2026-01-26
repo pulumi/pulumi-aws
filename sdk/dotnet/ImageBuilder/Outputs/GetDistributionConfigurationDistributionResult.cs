@@ -13,37 +13,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetDistributionConfigurationDistributionResult
     {
-        /// <summary>
-        /// Nested list of AMI distribution configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult> AmiDistributionConfigurations;
-        /// <summary>
-        /// Nested list of container distribution configurations.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult> ContainerDistributionConfigurations;
-        /// <summary>
-        /// Nested list of Windows faster-launching configurations to use for AMI distribution.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult> FastLaunchConfigurations;
-        /// <summary>
-        /// Nested list of launch template configurations.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult> LaunchTemplateConfigurations;
-        /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-        /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Nested list of S3 export configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult> S3ExportConfigurations;
-        /// <summary>
-        /// Nested list of SSM parameter configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionSsmParameterConfigurationResult> SsmParameterConfigurations;
 
         [OutputConstructor]

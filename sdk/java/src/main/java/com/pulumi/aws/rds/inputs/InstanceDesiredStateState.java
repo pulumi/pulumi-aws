@@ -16,47 +16,23 @@ public final class InstanceDesiredStateState extends com.pulumi.resources.Resour
 
     public static final InstanceDesiredStateState Empty = new InstanceDesiredStateState();
 
-    /**
-     * DB Instance Identifier
-     * 
-     */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
-    /**
-     * @return DB Instance Identifier
-     * 
-     */
     public Optional<Output<String>> identifier() {
         return Optional.ofNullable(this.identifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configured state of the DB Instance. Valid values are `available` and `stopped`.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return Configured state of the DB Instance. Valid values are `available` and `stopped`.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -95,65 +71,29 @@ public final class InstanceDesiredStateState extends com.pulumi.resources.Resour
             $ = new InstanceDesiredStateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identifier DB Instance Identifier
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(@Nullable Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
-        /**
-         * @param identifier DB Instance Identifier
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param state Configured state of the DB Instance. Valid values are `available` and `stopped`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state Configured state of the DB Instance. Valid values are `available` and `stopped`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

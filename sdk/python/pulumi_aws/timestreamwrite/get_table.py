@@ -65,25 +65,16 @@ class GetTableResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN that uniquely identifies the table.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        Time that table was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
-        """
-        Name of database.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
@@ -97,25 +88,16 @@ class GetTableResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> _builtins.str:
-        """
-        Last time table was updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter(name="magneticStoreWriteProperties")
     def magnetic_store_write_properties(self) -> Sequence['outputs.GetTableMagneticStoreWritePropertyResult']:
-        """
-        Object containing the following attributes to desribe magnetic store writes.
-        """
         return pulumi.get(self, "magnetic_store_write_properties")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the table.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -126,25 +108,16 @@ class GetTableResult:
     @_builtins.property
     @pulumi.getter(name="retentionProperties")
     def retention_properties(self) -> Sequence['outputs.GetTableRetentionPropertyResult']:
-        """
-        Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
-        """
         return pulumi.get(self, "retention_properties")
 
     @_builtins.property
     @pulumi.getter
     def schemas(self) -> Sequence['outputs.GetTableSchemaResult']:
-        """
-        Object containing the following attributes to describe the schema of the table.
-        """
         return pulumi.get(self, "schemas")
 
     @_builtins.property
     @pulumi.getter(name="tableStatus")
     def table_status(self) -> _builtins.str:
-        """
-        Current state of table.
-        """
         return pulumi.get(self, "table_status")
 
 
@@ -172,24 +145,7 @@ def get_table(database_name: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Data source for managing an AWS Timestream Write Table.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.timestreamwrite.get_table(database_name=test_aws_timestreamwrite_database["databaseName"],
-        name=test_aws_timestreamwrite_table["tableName"])
-    ```
-
-
-    :param _builtins.str database_name: Name of the Timestream database.
-    :param _builtins.str name: Name of the Timestream table.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name
@@ -215,24 +171,7 @@ def get_table_output(database_name: Optional[pulumi.Input[_builtins.str]] = None
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
-    Data source for managing an AWS Timestream Write Table.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.timestreamwrite.get_table(database_name=test_aws_timestreamwrite_database["databaseName"],
-        name=test_aws_timestreamwrite_table["tableName"])
-    ```
-
-
-    :param _builtins.str database_name: Name of the Timestream database.
-    :param _builtins.str name: Name of the Timestream table.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
-    /**
-     * @return Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-     * 
-     */
     private Boolean snapshotsEnabled;
 
     private ApplicationApplicationConfigurationApplicationSnapshotConfiguration() {}
-    /**
-     * @return Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-     * 
-     */
     public Boolean snapshotsEnabled() {
         return this.snapshotsEnabled;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorWorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the worker configuration.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// The revision of the worker configuration.
-        /// </summary>
         [Input("revision", required: true)]
         public Input<int> Revision { get; set; } = null!;
 

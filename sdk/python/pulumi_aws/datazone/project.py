@@ -30,14 +30,6 @@ class ProjectArgs:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[_builtins.str] description: Description of project.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[_builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         if description is not None:
@@ -56,9 +48,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -68,9 +57,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of project.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -80,9 +66,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        """
         return pulumi.get(self, "glossary_terms")
 
     @glossary_terms.setter
@@ -92,11 +75,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -106,9 +84,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,9 +93,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter(name="skipDeletionCheck")
     def skip_deletion_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Optional flag to delete all child entities within the project.
-        """
         return pulumi.get(self, "skip_deletion_check")
 
     @skip_deletion_check.setter
@@ -154,19 +126,6 @@ class _ProjectState:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
-        :param pulumi.Input[_builtins.str] created_at: Timestamp of when the project was made.
-        :param pulumi.Input[_builtins.str] created_by: Creator of the project.
-        :param pulumi.Input[_builtins.str] description: Description of project.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectFailureReasonArgs']]] failure_reasons: List of error messages if operation cannot be completed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[_builtins.str] last_updated_at: Timestamp of when the project was last updated.
-        :param pulumi.Input[_builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -196,9 +155,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp of when the project was made.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -208,9 +164,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creator of the project.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -220,9 +173,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of project.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -232,9 +182,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -244,9 +191,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="failureReasons")
     def failure_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFailureReasonArgs']]]]:
-        """
-        List of error messages if operation cannot be completed.
-        """
         return pulumi.get(self, "failure_reasons")
 
     @failure_reasons.setter
@@ -256,9 +200,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        """
         return pulumi.get(self, "glossary_terms")
 
     @glossary_terms.setter
@@ -268,9 +209,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp of when the project was last updated.
-        """
         return pulumi.get(self, "last_updated_at")
 
     @last_updated_at.setter
@@ -280,11 +218,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -294,9 +227,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="projectStatus")
     def project_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        """
         return pulumi.get(self, "project_status")
 
     @project_status.setter
@@ -306,9 +236,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -318,9 +245,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="skipDeletionCheck")
     def skip_deletion_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Optional flag to delete all child entities within the project.
-        """
         return pulumi.get(self, "skip_deletion_check")
 
     @skip_deletion_check.setter
@@ -352,51 +276,9 @@ class Project(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DataZone Project.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datazone.Project("test",
-            domain_id=test_aws_datazone_domain["id"],
-            glossary_terms=["2N8w6XJCwZf"],
-            name="name",
-            description="desc",
-            skip_deletion_check=True)
-        ```
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datazone.Project("test",
-            domain_identifier=test_aws_datazone_domain["id"],
-            name="name")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of project.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[_builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         ...
     @overload
@@ -405,41 +287,7 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DataZone Project.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datazone.Project("test",
-            domain_id=test_aws_datazone_domain["id"],
-            glossary_terms=["2N8w6XJCwZf"],
-            name="name",
-            description="desc",
-            skip_deletion_check=True)
-        ```
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datazone.Project("test",
-            domain_identifier=test_aws_datazone_domain["id"],
-            name="name")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -514,19 +362,6 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Timestamp of when the project was made.
-        :param pulumi.Input[_builtins.str] created_by: Creator of the project.
-        :param pulumi.Input[_builtins.str] description: Description of project.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFailureReasonArgs', 'ProjectFailureReasonArgsDict']]]] failure_reasons: List of error messages if operation cannot be completed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[_builtins.str] last_updated_at: Timestamp of when the project was last updated.
-        :param pulumi.Input[_builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -549,91 +384,56 @@ class Project(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp of when the project was made.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creator of the project.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of project.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @_builtins.property
     @pulumi.getter(name="failureReasons")
     def failure_reasons(self) -> pulumi.Output[Sequence['outputs.ProjectFailureReason']]:
-        """
-        List of error messages if operation cannot be completed.
-        """
         return pulumi.get(self, "failure_reasons")
 
     @_builtins.property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        """
         return pulumi.get(self, "glossary_terms")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp of when the project was last updated.
-        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="projectStatus")
     def project_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        """
         return pulumi.get(self, "project_status")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="skipDeletionCheck")
     def skip_deletion_check(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Optional flag to delete all child entities within the project.
-        """
         return pulumi.get(self, "skip_deletion_check")
 
     @_builtins.property

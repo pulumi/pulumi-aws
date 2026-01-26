@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class CapacityProviderInstanceRequirement
     {
-        /// <summary>
-        /// List of allowed instance types.
-        /// </summary>
         public readonly ImmutableArray<string> AllowedInstanceTypes;
-        /// <summary>
-        /// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        /// </summary>
         public readonly ImmutableArray<string> Architectures;
-        /// <summary>
-        /// List of excluded instance types.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
 
         [OutputConstructor]

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceParametersRedshift {
-    /**
-     * @return The ID of the cluster to which to connect.
-     * 
-     */
     private @Nullable String clusterId;
-    /**
-     * @return The database to which to connect.
-     * 
-     */
     private String database;
-    /**
-     * @return The host to which to connect.
-     * 
-     */
     private @Nullable String host;
-    /**
-     * @return The port to which to connect.
-     * 
-     */
     private @Nullable Integer port;
 
     private DataSourceParametersRedshift() {}
-    /**
-     * @return The ID of the cluster to which to connect.
-     * 
-     */
     public Optional<String> clusterId() {
         return Optional.ofNullable(this.clusterId);
     }
-    /**
-     * @return The database to which to connect.
-     * 
-     */
     public String database() {
         return this.database;
     }
-    /**
-     * @return The host to which to connect.
-     * 
-     */
     public Optional<String> host() {
         return Optional.ofNullable(this.host);
     }
-    /**
-     * @return The port to which to connect.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }

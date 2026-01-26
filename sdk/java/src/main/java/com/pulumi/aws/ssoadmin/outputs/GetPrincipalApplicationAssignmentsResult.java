@@ -13,30 +13,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrincipalApplicationAssignmentsResult {
-    /**
-     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     private @Nullable List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments;
     private String id;
     private String instanceArn;
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     private String principalId;
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     private String principalType;
     private String region;
 
     private GetPrincipalApplicationAssignmentsResult() {}
-    /**
-     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     public List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments() {
         return this.applicationAssignments == null ? List.of() : this.applicationAssignments;
     }
@@ -46,17 +30,9 @@ public final class GetPrincipalApplicationAssignmentsResult {
     public String instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public String principalId() {
         return this.principalId;
     }
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public String principalType() {
         return this.principalType;
     }

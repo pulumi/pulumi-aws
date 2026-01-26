@@ -16,47 +16,23 @@ public final class GetSinkPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSinkPlainArgs Empty = new GetSinkPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the sink.
-     * 
-     */
     @Import(name="sinkIdentifier", required=true)
     private String sinkIdentifier;
 
-    /**
-     * @return ARN of the sink.
-     * 
-     */
     public String sinkIdentifier() {
         return this.sinkIdentifier;
     }
 
-    /**
-     * Tags assigned to the sink.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags assigned to the sink.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetSinkPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSinkPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param sinkIdentifier ARN of the sink.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkIdentifier(String sinkIdentifier) {
             $.sinkIdentifier = sinkIdentifier;
             return this;
         }
 
-        /**
-         * @param tags Tags assigned to the sink.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

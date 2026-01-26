@@ -13,15 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GlobalSecondaryIndexProjection
     {
-        /// <summary>
-        /// Specifies which additional attributes to include in the index.
-        /// Only valid when `ProjectionType` is `INCLUDE`.`
-        /// </summary>
         public readonly ImmutableArray<string> NonKeyAttributes;
-        /// <summary>
-        /// The set of attributes represented in the index.
-        /// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-        /// </summary>
         public readonly string ProjectionType;
 
         [OutputConstructor]

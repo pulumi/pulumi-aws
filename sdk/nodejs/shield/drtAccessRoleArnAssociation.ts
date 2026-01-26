@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
- * For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "example-role",
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "",
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "drt.shield.amazonaws.com",
- *             },
- *             Action: "sts:AssumeRole",
- *         }],
- *     }),
- * });
- * const example = new aws.shield.DrtAccessRoleArnAssociation("example", {roleArn: exampleRole.arn});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     role: exampleRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
- * ```
- */
 export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
     /**
      * Get an existing DrtAccessRoleArnAssociation resource's state with the given name, ID, and optional extra
@@ -76,9 +35,6 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DrtAccessRoleArnAssociation.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
 
@@ -114,9 +70,6 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DrtAccessRoleArnAssociation resources.
  */
 export interface DrtAccessRoleArnAssociationState {
-    /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-     */
     roleArn?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts>;
 }
@@ -125,9 +78,6 @@ export interface DrtAccessRoleArnAssociationState {
  * The set of arguments for constructing a DrtAccessRoleArnAssociation resource.
  */
 export interface DrtAccessRoleArnAssociationArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-     */
     roleArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts>;
 }

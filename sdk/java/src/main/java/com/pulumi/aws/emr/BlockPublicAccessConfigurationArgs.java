@@ -19,51 +19,23 @@ public final class BlockPublicAccessConfigurationArgs extends com.pulumi.resourc
 
     public static final BlockPublicAccessConfigurationArgs Empty = new BlockPublicAccessConfigurationArgs();
 
-    /**
-     * Enable or disable EMR Block Public Access.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="blockPublicSecurityGroupRules", required=true)
     private Output<Boolean> blockPublicSecurityGroupRules;
 
-    /**
-     * @return Enable or disable EMR Block Public Access.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Boolean> blockPublicSecurityGroupRules() {
         return this.blockPublicSecurityGroupRules;
     }
 
-    /**
-     * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
-     * 
-     */
     @Import(name="permittedPublicSecurityGroupRuleRanges")
     private @Nullable Output<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>> permittedPublicSecurityGroupRuleRanges;
 
-    /**
-     * @return Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
-     * 
-     */
     public Optional<Output<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>>> permittedPublicSecurityGroupRuleRanges() {
         return Optional.ofNullable(this.permittedPublicSecurityGroupRuleRanges);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -94,79 +66,33 @@ public final class BlockPublicAccessConfigurationArgs extends com.pulumi.resourc
             $ = new BlockPublicAccessConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param blockPublicSecurityGroupRules Enable or disable EMR Block Public Access.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPublicSecurityGroupRules(Output<Boolean> blockPublicSecurityGroupRules) {
             $.blockPublicSecurityGroupRules = blockPublicSecurityGroupRules;
             return this;
         }
 
-        /**
-         * @param blockPublicSecurityGroupRules Enable or disable EMR Block Public Access.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPublicSecurityGroupRules(Boolean blockPublicSecurityGroupRules) {
             return blockPublicSecurityGroupRules(Output.of(blockPublicSecurityGroupRules));
         }
 
-        /**
-         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permittedPublicSecurityGroupRuleRanges(@Nullable Output<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>> permittedPublicSecurityGroupRuleRanges) {
             $.permittedPublicSecurityGroupRuleRanges = permittedPublicSecurityGroupRuleRanges;
             return this;
         }
 
-        /**
-         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permittedPublicSecurityGroupRuleRanges(List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs> permittedPublicSecurityGroupRuleRanges) {
             return permittedPublicSecurityGroupRuleRanges(Output.of(permittedPublicSecurityGroupRuleRanges));
         }
 
-        /**
-         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permittedPublicSecurityGroupRuleRanges(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs... permittedPublicSecurityGroupRuleRanges) {
             return permittedPublicSecurityGroupRuleRanges(List.of(permittedPublicSecurityGroupRuleRanges));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

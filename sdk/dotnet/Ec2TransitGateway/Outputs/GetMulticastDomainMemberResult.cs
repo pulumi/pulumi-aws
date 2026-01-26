@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
     [OutputType]
     public sealed class GetMulticastDomainMemberResult
     {
-        /// <summary>
-        /// The IP address assigned to the transit gateway multicast group.
-        /// </summary>
         public readonly string GroupIpAddress;
-        /// <summary>
-        /// The group members' network interface ID.
-        /// </summary>
         public readonly string NetworkInterfaceId;
 
         [OutputConstructor]

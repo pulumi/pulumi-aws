@@ -15,64 +15,30 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBrokerPlainArgs Empty = new GetBrokerPlainArgs();
 
-    /**
-     * Unique ID of the MQ broker.
-     * 
-     */
     @Import(name="brokerId")
     private @Nullable String brokerId;
 
-    /**
-     * @return Unique ID of the MQ broker.
-     * 
-     */
     public Optional<String> brokerId() {
         return Optional.ofNullable(this.brokerId);
     }
 
-    /**
-     * Unique name of the MQ broker.
-     * 
-     */
     @Import(name="brokerName")
     private @Nullable String brokerName;
 
-    /**
-     * @return Unique name of the MQ broker.
-     * 
-     */
     public Optional<String> brokerName() {
         return Optional.ofNullable(this.brokerName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the broker.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the broker.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,46 +70,21 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBrokerPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param brokerId Unique ID of the MQ broker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder brokerId(@Nullable String brokerId) {
             $.brokerId = brokerId;
             return this;
         }
 
-        /**
-         * @param brokerName Unique name of the MQ broker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder brokerName(@Nullable String brokerName) {
             $.brokerName = brokerName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the broker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

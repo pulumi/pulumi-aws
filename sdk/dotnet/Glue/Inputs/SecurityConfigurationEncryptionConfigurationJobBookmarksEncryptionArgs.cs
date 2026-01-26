@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
-        /// </summary>
         [Input("jobBookmarksEncryptionMode")]
         public Input<string>? JobBookmarksEncryptionMode { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

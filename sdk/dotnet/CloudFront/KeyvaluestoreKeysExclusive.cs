@@ -9,36 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive")]
     public partial class KeyvaluestoreKeysExclusive : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
-        /// 
-        /// The following arguments are optional:
+        /// The Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
         [Output("keyValueStoreArn")]
         public Output<string> KeyValueStoreArn { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+        /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
         /// </summary>
         [Output("maxBatchSize")]
         public Output<int> MaxBatchSize { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of all resource key value pairs associated with the KeyValueStore.
-        /// See `ResourceKeyValuePair` below.
-        /// </summary>
         [Output("resourceKeyValuePairs")]
         public Output<ImmutableArray<Outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair>> ResourceKeyValuePairs { get; private set; } = null!;
 
@@ -95,26 +80,19 @@ namespace Pulumi.Aws.CloudFront
     public sealed class KeyvaluestoreKeysExclusiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
-        /// 
-        /// The following arguments are optional:
+        /// The Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
         [Input("keyValueStoreArn", required: true)]
         public Input<string> KeyValueStoreArn { get; set; } = null!;
 
         /// <summary>
-        /// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+        /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
         /// </summary>
         [Input("maxBatchSize")]
         public Input<int>? MaxBatchSize { get; set; }
 
         [Input("resourceKeyValuePairs")]
         private InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs>? _resourceKeyValuePairs;
-
-        /// <summary>
-        /// A list of all resource key value pairs associated with the KeyValueStore.
-        /// See `ResourceKeyValuePair` below.
-        /// </summary>
         public InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs> ResourceKeyValuePairs
         {
             get => _resourceKeyValuePairs ?? (_resourceKeyValuePairs = new InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs>());
@@ -130,26 +108,19 @@ namespace Pulumi.Aws.CloudFront
     public sealed class KeyvaluestoreKeysExclusiveState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
-        /// 
-        /// The following arguments are optional:
+        /// The Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
         [Input("keyValueStoreArn")]
         public Input<string>? KeyValueStoreArn { get; set; }
 
         /// <summary>
-        /// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+        /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
         /// </summary>
         [Input("maxBatchSize")]
         public Input<int>? MaxBatchSize { get; set; }
 
         [Input("resourceKeyValuePairs")]
         private InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairGetArgs>? _resourceKeyValuePairs;
-
-        /// <summary>
-        /// A list of all resource key value pairs associated with the KeyValueStore.
-        /// See `ResourceKeyValuePair` below.
-        /// </summary>
         public InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairGetArgs> ResourceKeyValuePairs
         {
             get => _resourceKeyValuePairs ?? (_resourceKeyValuePairs = new InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairGetArgs>());

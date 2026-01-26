@@ -17,77 +17,37 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
 
     public static final ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs Empty = new ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs();
 
-    /**
-     * Dimensions of the metric.
-     * 
-     */
     @Import(name="dimensions")
     private @Nullable Output<Map<String,String>> dimensions;
 
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public Optional<Output<Map<String,String>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * Name of the metric.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
 
-    /**
-     * Namespace of the metric.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
 
-    /**
-     * Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
-     * 
-     */
     @Import(name="statistic", required=true)
     private Output<String> statistic;
 
-    /**
-     * @return Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
-     * 
-     */
     public Output<String> statistic() {
         return this.statistic;
     }
 
-    /**
-     * Unit of the metric.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return Unit of the metric.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
@@ -120,107 +80,47 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
             $ = new ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(@Nullable Output<Map<String,String>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(Map<String,String> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param statistic Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(Output<String> statistic) {
             $.statistic = statistic;
             return this;
         }
 
-        /**
-         * @param statistic Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(String statistic) {
             return statistic(Output.of(statistic));
         }
 
-        /**
-         * @param unit Unit of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Unit of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

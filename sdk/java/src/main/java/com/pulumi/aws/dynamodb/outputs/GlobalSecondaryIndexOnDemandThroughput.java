@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GlobalSecondaryIndexOnDemandThroughput {
-    /**
-     * @return Maximum number of read request units for this index.
-     * 
-     */
     private @Nullable Integer maxReadRequestUnits;
-    /**
-     * @return Maximum number of write request units for this index.
-     * 
-     */
     private @Nullable Integer maxWriteRequestUnits;
 
     private GlobalSecondaryIndexOnDemandThroughput() {}
-    /**
-     * @return Maximum number of read request units for this index.
-     * 
-     */
     public Optional<Integer> maxReadRequestUnits() {
         return Optional.ofNullable(this.maxReadRequestUnits);
     }
-    /**
-     * @return Maximum number of write request units for this index.
-     * 
-     */
     public Optional<Integer> maxWriteRequestUnits() {
         return Optional.ofNullable(this.maxWriteRequestUnits);
     }

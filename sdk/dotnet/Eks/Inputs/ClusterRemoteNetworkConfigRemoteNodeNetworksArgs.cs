@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Eks.Inputs
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
-
-        /// <summary>
-        /// List of network CIDRs that can contain hybrid nodes.
-        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());

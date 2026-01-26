@@ -18,32 +18,16 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
 
     public static final RoutingProfileMediaConcurrencyArgs Empty = new RoutingProfileMediaConcurrencyArgs();
 
-    /**
-     * Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     @Import(name="channel", required=true)
     private Output<String> channel;
 
-    /**
-     * @return Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     public Output<String> channel() {
         return this.channel;
     }
 
-    /**
-     * Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-     * 
-     */
     @Import(name="concurrency", required=true)
     private Output<Integer> concurrency;
 
-    /**
-     * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-     * 
-     */
     public Output<Integer> concurrency() {
         return this.concurrency;
     }
@@ -81,44 +65,20 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
             $ = new RoutingProfileMediaConcurrencyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param channel Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(Output<String> channel) {
             $.channel = channel;
             return this;
         }
 
-        /**
-         * @param channel Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(String channel) {
             return channel(Output.of(channel));
         }
 
-        /**
-         * @param concurrency Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrency(Output<Integer> concurrency) {
             $.concurrency = concurrency;
             return this;
         }
 
-        /**
-         * @param concurrency Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrency(Integer concurrency) {
             return concurrency(Output.of(concurrency));
         }

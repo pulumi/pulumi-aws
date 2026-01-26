@@ -14,32 +14,16 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
 
     public static final AppAuthorizationConnectionAuthRequestArgs Empty = new AppAuthorizationConnectionAuthRequestArgs();
 
-    /**
-     * The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-     * 
-     */
     @Import(name="code", required=true)
     private Output<String> code;
 
-    /**
-     * @return The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-     * 
-     */
     public Output<String> code() {
         return this.code;
     }
 
-    /**
-     * The redirect URL that is specified in the AuthURL and the application client.
-     * 
-     */
     @Import(name="redirectUri", required=true)
     private Output<String> redirectUri;
 
-    /**
-     * @return The redirect URL that is specified in the AuthURL and the application client.
-     * 
-     */
     public Output<String> redirectUri() {
         return this.redirectUri;
     }
@@ -69,44 +53,20 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
             $ = new AppAuthorizationConnectionAuthRequestArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param code The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(Output<String> code) {
             $.code = code;
             return this;
         }
 
-        /**
-         * @param code The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(String code) {
             return code(Output.of(code));
         }
 
-        /**
-         * @param redirectUri The redirect URL that is specified in the AuthURL and the application client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirectUri(Output<String> redirectUri) {
             $.redirectUri = redirectUri;
             return this;
         }
 
-        /**
-         * @param redirectUri The redirect URL that is specified in the AuthURL and the application client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirectUri(String redirectUri) {
             return redirectUri(Output.of(redirectUri));
         }

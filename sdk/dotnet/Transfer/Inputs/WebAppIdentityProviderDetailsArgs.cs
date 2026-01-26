@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WebAppIdentityProviderDetailsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
-        /// </summary>
         [Input("identityCenterConfig")]
         public Input<Inputs.WebAppIdentityProviderDetailsIdentityCenterConfigArgs>? IdentityCenterConfig { get; set; }
 

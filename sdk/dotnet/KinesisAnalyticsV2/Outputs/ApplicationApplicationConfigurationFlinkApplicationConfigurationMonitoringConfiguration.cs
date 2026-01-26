@@ -13,17 +13,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration
     {
-        /// <summary>
-        /// Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `LogLevel` or `MetricsLevel` attribute values to be effective.
-        /// </summary>
         public readonly string ConfigurationType;
-        /// <summary>
-        /// Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
-        /// </summary>
         public readonly string? LogLevel;
-        /// <summary>
-        /// Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
-        /// </summary>
         public readonly string? MetricsLevel;
 
         [OutputConstructor]

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImageRecipeComponentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Component to associate.
-        /// </summary>
         [Input("componentArn", required: true)]
         public Input<string> ComponentArn { get; set; } = null!;
 
         [Input("parameters")]
         private InputList<Inputs.ImageRecipeComponentParameterArgs>? _parameters;
-
-        /// <summary>
-        /// Configuration block(s) for parameters to configure the component. Detailed below.
-        /// </summary>
         public InputList<Inputs.ImageRecipeComponentParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ImageRecipeComponentParameterArgs>());

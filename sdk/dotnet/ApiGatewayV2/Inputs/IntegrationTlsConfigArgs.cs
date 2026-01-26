@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
 
     public sealed class IntegrationTlsConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-        /// </summary>
         [Input("serverNameToVerify")]
         public Input<string>? ServerNameToVerify { get; set; }
 

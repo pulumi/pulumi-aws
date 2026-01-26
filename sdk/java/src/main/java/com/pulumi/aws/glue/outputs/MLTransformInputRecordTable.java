@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MLTransformInputRecordTable {
-    /**
-     * @return A unique identifier for the AWS Glue Data Catalog.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return The name of the connection to the AWS Glue Data Catalog.
-     * 
-     */
     private @Nullable String connectionName;
-    /**
-     * @return A database name in the AWS Glue Data Catalog.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return A table name in the AWS Glue Data Catalog.
-     * 
-     */
     private String tableName;
 
     private MLTransformInputRecordTable() {}
-    /**
-     * @return A unique identifier for the AWS Glue Data Catalog.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return The name of the connection to the AWS Glue Data Catalog.
-     * 
-     */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
-    /**
-     * @return A database name in the AWS Glue Data Catalog.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return A table name in the AWS Glue Data Catalog.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }

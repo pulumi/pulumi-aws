@@ -14,32 +14,16 @@ public final class GetNotificationChannelFilter extends com.pulumi.resources.Inv
 
     public static final GetNotificationChannelFilter Empty = new GetNotificationChannelFilter();
 
-    /**
-     * Events to receive notifications for.
-     * 
-     */
     @Import(name="messageTypes", required=true)
     private List<String> messageTypes;
 
-    /**
-     * @return Events to receive notifications for.
-     * 
-     */
     public List<String> messageTypes() {
         return this.messageTypes;
     }
 
-    /**
-     * Severity levels to receive notifications for.
-     * 
-     */
     @Import(name="severities", required=true)
     private List<String> severities;
 
-    /**
-     * @return Severity levels to receive notifications for.
-     * 
-     */
     public List<String> severities() {
         return this.severities;
     }
@@ -69,44 +53,20 @@ public final class GetNotificationChannelFilter extends com.pulumi.resources.Inv
             $ = new GetNotificationChannelFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(List<String> messageTypes) {
             $.messageTypes = messageTypes;
             return this;
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(String... messageTypes) {
             return messageTypes(List.of(messageTypes));
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(List<String> severities) {
             $.severities = severities;
             return this;
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(String... severities) {
             return severities(List.of(severities));
         }

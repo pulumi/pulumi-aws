@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about a specific
-// IAM group. By using this data source, you can reference IAM group
-// properties without having to hard code ARNs as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.LookupGroup(ctx, &iam.LookupGroupArgs{
-//				GroupName: "an_example_group_name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult
@@ -52,22 +23,17 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// Friendly IAM group name to match.
 	GroupName string `pulumi:"groupName"`
 }
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
-	// User ARN.
-	Arn string `pulumi:"arn"`
-	// Stable and unique string identifying the group.
+	Arn       string `pulumi:"arn"`
 	GroupId   string `pulumi:"groupId"`
 	GroupName string `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Path to the IAM user.
-	Path string `pulumi:"path"`
-	// List of objects containing group member information. See below.
+	Id    string         `pulumi:"id"`
+	Path  string         `pulumi:"path"`
 	Users []GetGroupUser `pulumi:"users"`
 }
 
@@ -82,7 +48,6 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
-	// Friendly IAM group name to match.
 	GroupName pulumi.StringInput `pulumi:"groupName"`
 }
 
@@ -105,12 +70,10 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 	return o
 }
 
-// User ARN.
 func (o LookupGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Stable and unique string identifying the group.
 func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.GroupId }).(pulumi.StringOutput)
 }
@@ -124,12 +87,10 @@ func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Path to the IAM user.
 func (o LookupGroupResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// List of objects containing group member information. See below.
 func (o LookupGroupResultOutput) Users() GetGroupUserArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupUser { return v.Users }).(GetGroupUserArrayOutput)
 }

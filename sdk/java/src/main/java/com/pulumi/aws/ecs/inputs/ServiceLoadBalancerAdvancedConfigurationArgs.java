@@ -16,62 +16,30 @@ public final class ServiceLoadBalancerAdvancedConfigurationArgs extends com.pulu
 
     public static final ServiceLoadBalancerAdvancedConfigurationArgs Empty = new ServiceLoadBalancerAdvancedConfigurationArgs();
 
-    /**
-     * ARN of the alternate target group to use for Blue/Green deployments.
-     * 
-     */
     @Import(name="alternateTargetGroupArn", required=true)
     private Output<String> alternateTargetGroupArn;
 
-    /**
-     * @return ARN of the alternate target group to use for Blue/Green deployments.
-     * 
-     */
     public Output<String> alternateTargetGroupArn() {
         return this.alternateTargetGroupArn;
     }
 
-    /**
-     * ARN of the listener rule that routes production traffic.
-     * 
-     */
     @Import(name="productionListenerRule", required=true)
     private Output<String> productionListenerRule;
 
-    /**
-     * @return ARN of the listener rule that routes production traffic.
-     * 
-     */
     public Output<String> productionListenerRule() {
         return this.productionListenerRule;
     }
 
-    /**
-     * ARN of the IAM role that allows ECS to manage the target groups.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM role that allows ECS to manage the target groups.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * ARN of the listener rule that routes test traffic.
-     * 
-     */
     @Import(name="testListenerRule")
     private @Nullable Output<String> testListenerRule;
 
-    /**
-     * @return ARN of the listener rule that routes test traffic.
-     * 
-     */
     public Optional<Output<String>> testListenerRule() {
         return Optional.ofNullable(this.testListenerRule);
     }
@@ -103,86 +71,38 @@ public final class ServiceLoadBalancerAdvancedConfigurationArgs extends com.pulu
             $ = new ServiceLoadBalancerAdvancedConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alternateTargetGroupArn ARN of the alternate target group to use for Blue/Green deployments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateTargetGroupArn(Output<String> alternateTargetGroupArn) {
             $.alternateTargetGroupArn = alternateTargetGroupArn;
             return this;
         }
 
-        /**
-         * @param alternateTargetGroupArn ARN of the alternate target group to use for Blue/Green deployments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateTargetGroupArn(String alternateTargetGroupArn) {
             return alternateTargetGroupArn(Output.of(alternateTargetGroupArn));
         }
 
-        /**
-         * @param productionListenerRule ARN of the listener rule that routes production traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productionListenerRule(Output<String> productionListenerRule) {
             $.productionListenerRule = productionListenerRule;
             return this;
         }
 
-        /**
-         * @param productionListenerRule ARN of the listener rule that routes production traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productionListenerRule(String productionListenerRule) {
             return productionListenerRule(Output.of(productionListenerRule));
         }
 
-        /**
-         * @param roleArn ARN of the IAM role that allows ECS to manage the target groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of the IAM role that allows ECS to manage the target groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param testListenerRule ARN of the listener rule that routes test traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder testListenerRule(@Nullable Output<String> testListenerRule) {
             $.testListenerRule = testListenerRule;
             return this;
         }
 
-        /**
-         * @param testListenerRule ARN of the listener rule that routes test traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder testListenerRule(String testListenerRule) {
             return testListenerRule(Output.of(testListenerRule));
         }

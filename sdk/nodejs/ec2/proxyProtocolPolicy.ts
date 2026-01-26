@@ -4,42 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const lb = new aws.elb.LoadBalancer("lb", {
- *     name: "test-lb",
- *     availabilityZones: ["us-east-1a"],
- *     listeners: [
- *         {
- *             instancePort: 25,
- *             instanceProtocol: "tcp",
- *             lbPort: 25,
- *             lbProtocol: "tcp",
- *         },
- *         {
- *             instancePort: 587,
- *             instanceProtocol: "tcp",
- *             lbPort: 587,
- *             lbProtocol: "tcp",
- *         },
- *     ],
- * });
- * const smtp = new aws.ec2.ProxyProtocolPolicy("smtp", {
- *     loadBalancer: lb.name,
- *     instancePorts: [
- *         "25",
- *         "587",
- *     ],
- * });
- * ```
- */
 export class ProxyProtocolPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ProxyProtocolPolicy resource's state with the given name, ID, and optional extra
@@ -68,19 +32,8 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProxyProtocolPolicy.__pulumiType;
     }
 
-    /**
-     * List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
-     */
     declare public readonly instancePorts: pulumi.Output<string[]>;
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     */
     declare public readonly loadBalancer: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -120,19 +73,8 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProxyProtocolPolicy resources.
  */
 export interface ProxyProtocolPolicyState {
-    /**
-     * List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
-     */
     instancePorts?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     */
     loadBalancer?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -140,18 +82,7 @@ export interface ProxyProtocolPolicyState {
  * The set of arguments for constructing a ProxyProtocolPolicy resource.
  */
 export interface ProxyProtocolPolicyArgs {
-    /**
-     * List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
-     */
     instancePorts: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     */
     loadBalancer: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

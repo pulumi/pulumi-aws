@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GetCustomModelTrainingMetricResult
     {
-        /// <summary>
-        /// Loss metric associated with the customization job.
-        /// </summary>
         public readonly double TrainingLoss;
 
         [OutputConstructor]

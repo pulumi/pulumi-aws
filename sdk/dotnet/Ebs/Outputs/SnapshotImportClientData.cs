@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ebs.Outputs
     [OutputType]
     public sealed class SnapshotImportClientData
     {
-        /// <summary>
-        /// A user-defined comment about the disk upload.
-        /// </summary>
         public readonly string? Comment;
-        /// <summary>
-        /// The time that the disk upload ends.
-        /// </summary>
         public readonly string? UploadEnd;
-        /// <summary>
-        /// The size of the uploaded disk image, in GiB.
-        /// </summary>
         public readonly double? UploadSize;
-        /// <summary>
-        /// The time that the disk upload starts.
-        /// </summary>
         public readonly string? UploadStart;
 
         [OutputConstructor]

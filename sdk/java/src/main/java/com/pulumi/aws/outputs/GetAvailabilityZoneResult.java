@@ -17,15 +17,7 @@ import javax.annotation.Nullable;
 public final class GetAvailabilityZoneResult {
     private @Nullable Boolean allAvailabilityZones;
     private @Nullable List<GetAvailabilityZoneFilter> filters;
-    /**
-     * @return The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
-     * 
-     */
     private String groupLongName;
-    /**
-     * @return The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
-     * 
-     */
     private String groupName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -33,40 +25,14 @@ public final class GetAvailabilityZoneResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-     * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-     * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
-     * 
-     */
     private String nameSuffix;
-    /**
-     * @return The name of the location from which the address is advertised.
-     * 
-     */
     private String networkBorderGroup;
-    /**
-     * @return For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
-     * 
-     */
     private String optInStatus;
-    /**
-     * @return ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-     * 
-     */
     private String parentZoneId;
-    /**
-     * @return Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-     * 
-     */
     private String parentZoneName;
     private String region;
     private String state;
     private String zoneId;
-    /**
-     * @return Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
-     * 
-     */
     private String zoneType;
 
     private GetAvailabilityZoneResult() {}
@@ -76,17 +42,9 @@ public final class GetAvailabilityZoneResult {
     public List<GetAvailabilityZoneFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
-     * 
-     */
     public String groupLongName() {
         return this.groupLongName;
     }
-    /**
-     * @return The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
-     * 
-     */
     public String groupName() {
         return this.groupName;
     }
@@ -100,40 +58,18 @@ public final class GetAvailabilityZoneResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-     * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-     * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
-     * 
-     */
     public String nameSuffix() {
         return this.nameSuffix;
     }
-    /**
-     * @return The name of the location from which the address is advertised.
-     * 
-     */
     public String networkBorderGroup() {
         return this.networkBorderGroup;
     }
-    /**
-     * @return For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
-     * 
-     */
     public String optInStatus() {
         return this.optInStatus;
     }
-    /**
-     * @return ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-     * 
-     */
     public String parentZoneId() {
         return this.parentZoneId;
     }
-    /**
-     * @return Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-     * 
-     */
     public String parentZoneName() {
         return this.parentZoneName;
     }
@@ -146,10 +82,6 @@ public final class GetAvailabilityZoneResult {
     public String zoneId() {
         return this.zoneId;
     }
-    /**
-     * @return Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
-     * 
-     */
     public String zoneType() {
         return this.zoneType;
     }

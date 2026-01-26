@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionTenantParameter {
-    /**
-     * @return Name of the distribution tenant.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the parameter.
-     * 
-     */
     private String value;
 
     private DistributionTenantParameter() {}
-    /**
-     * @return Name of the distribution tenant.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

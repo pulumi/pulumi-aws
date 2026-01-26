@@ -14,17 +14,9 @@ public final class ProfilingGroupAgentOrchestrationConfigArgs extends com.pulumi
 
     public static final ProfilingGroupAgentOrchestrationConfigArgs Empty = new ProfilingGroupAgentOrchestrationConfigArgs();
 
-    /**
-     * (Required) Boolean that specifies whether the profiling agent collects profiling data or
-     * 
-     */
     @Import(name="profilingEnabled", required=true)
     private Output<Boolean> profilingEnabled;
 
-    /**
-     * @return (Required) Boolean that specifies whether the profiling agent collects profiling data or
-     * 
-     */
     public Output<Boolean> profilingEnabled() {
         return this.profilingEnabled;
     }
@@ -53,23 +45,11 @@ public final class ProfilingGroupAgentOrchestrationConfigArgs extends com.pulumi
             $ = new ProfilingGroupAgentOrchestrationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param profilingEnabled (Required) Boolean that specifies whether the profiling agent collects profiling data or
-         * 
-         * @return builder
-         * 
-         */
         public Builder profilingEnabled(Output<Boolean> profilingEnabled) {
             $.profilingEnabled = profilingEnabled;
             return this;
         }
 
-        /**
-         * @param profilingEnabled (Required) Boolean that specifies whether the profiling agent collects profiling data or
-         * 
-         * @return builder
-         * 
-         */
         public Builder profilingEnabled(Boolean profilingEnabled) {
             return profilingEnabled(Output.of(profilingEnabled));
         }

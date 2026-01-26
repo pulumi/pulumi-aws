@@ -19,47 +19,23 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationArgs exte
 
     public static final IndexingConfigurationThingGroupIndexingConfigurationArgs Empty = new IndexingConfigurationThingGroupIndexingConfigurationArgs();
 
-    /**
-     * A list of thing group fields to index. This list cannot contain any managed fields. See below.
-     * 
-     */
     @Import(name="customFields")
     private @Nullable Output<List<IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>> customFields;
 
-    /**
-     * @return A list of thing group fields to index. This list cannot contain any managed fields. See below.
-     * 
-     */
     public Optional<Output<List<IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
-    /**
-     * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-     * 
-     */
     @Import(name="managedFields")
     private @Nullable Output<List<IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>> managedFields;
 
-    /**
-     * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-     * 
-     */
     public Optional<Output<List<IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>>> managedFields() {
         return Optional.ofNullable(this.managedFields);
     }
 
-    /**
-     * Thing group indexing mode. Valid values: `OFF`, `ON`.
-     * 
-     */
     @Import(name="thingGroupIndexingMode", required=true)
     private Output<String> thingGroupIndexingMode;
 
-    /**
-     * @return Thing group indexing mode. Valid values: `OFF`, `ON`.
-     * 
-     */
     public Output<String> thingGroupIndexingMode() {
         return this.thingGroupIndexingMode;
     }
@@ -90,85 +66,37 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationArgs exte
             $ = new IndexingConfigurationThingGroupIndexingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customFields A list of thing group fields to index. This list cannot contain any managed fields. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customFields(@Nullable Output<List<IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>> customFields) {
             $.customFields = customFields;
             return this;
         }
 
-        /**
-         * @param customFields A list of thing group fields to index. This list cannot contain any managed fields. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customFields(List<IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs> customFields) {
             return customFields(Output.of(customFields));
         }
 
-        /**
-         * @param customFields A list of thing group fields to index. This list cannot contain any managed fields. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customFields(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs... customFields) {
             return customFields(List.of(customFields));
         }
 
-        /**
-         * @param managedFields Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedFields(@Nullable Output<List<IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>> managedFields) {
             $.managedFields = managedFields;
             return this;
         }
 
-        /**
-         * @param managedFields Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedFields(List<IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs> managedFields) {
             return managedFields(Output.of(managedFields));
         }
 
-        /**
-         * @param managedFields Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedFields(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs... managedFields) {
             return managedFields(List.of(managedFields));
         }
 
-        /**
-         * @param thingGroupIndexingMode Thing group indexing mode. Valid values: `OFF`, `ON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingGroupIndexingMode(Output<String> thingGroupIndexingMode) {
             $.thingGroupIndexingMode = thingGroupIndexingMode;
             return this;
         }
 
-        /**
-         * @param thingGroupIndexingMode Thing group indexing mode. Valid values: `OFF`, `ON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingGroupIndexingMode(String thingGroupIndexingMode) {
             return thingGroupIndexingMode(Output.of(thingGroupIndexingMode));
         }

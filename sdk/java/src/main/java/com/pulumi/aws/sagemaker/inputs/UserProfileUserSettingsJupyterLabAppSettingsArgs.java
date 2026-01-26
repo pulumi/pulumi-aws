@@ -21,47 +21,23 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
 
     public static final UserProfileUserSettingsJupyterLabAppSettingsArgs Empty = new UserProfileUserSettingsJupyterLabAppSettingsArgs();
 
-    /**
-     * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-     * 
-     */
     @Import(name="appLifecycleManagement")
     private @Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
 
-    /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
 
-    /**
-     * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-     * 
-     */
     @Import(name="builtInLifecycleConfigArn")
     private @Nullable Output<String> builtInLifecycleConfigArn;
 
-    /**
-     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-     * 
-     */
     public Optional<Output<String>> builtInLifecycleConfigArn() {
         return Optional.ofNullable(this.builtInLifecycleConfigArn);
     }
 
-    /**
-     * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-     * 
-     */
     @Import(name="codeRepositories")
     private @Nullable Output<List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs>> codeRepositories;
 
-    /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-     * 
-     */
     public Optional<Output<List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs>>> codeRepositories() {
         return Optional.ofNullable(this.codeRepositories);
     }
@@ -73,47 +49,23 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         return Optional.ofNullable(this.customImages);
     }
 
-    /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
 
-    /**
-     * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
-     * 
-     */
     @Import(name="emrSettings")
     private @Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs> emrSettings;
 
-    /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs>> emrSettings() {
         return Optional.ofNullable(this.emrSettings);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     @Import(name="lifecycleConfigArns")
     private @Nullable Output<List<String>> lifecycleConfigArns;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     public Optional<Output<List<String>>> lifecycleConfigArns() {
         return Optional.ofNullable(this.lifecycleConfigArns);
     }
@@ -148,75 +100,33 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
             $ = new UserProfileUserSettingsJupyterLabAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appLifecycleManagement(@Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement) {
             $.appLifecycleManagement = appLifecycleManagement;
             return this;
         }
 
-        /**
-         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appLifecycleManagement(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs appLifecycleManagement) {
             return appLifecycleManagement(Output.of(appLifecycleManagement));
         }
 
-        /**
-         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder builtInLifecycleConfigArn(@Nullable Output<String> builtInLifecycleConfigArn) {
             $.builtInLifecycleConfigArn = builtInLifecycleConfigArn;
             return this;
         }
 
-        /**
-         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder builtInLifecycleConfigArn(String builtInLifecycleConfigArn) {
             return builtInLifecycleConfigArn(Output.of(builtInLifecycleConfigArn));
         }
 
-        /**
-         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeRepositories(@Nullable Output<List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs>> codeRepositories) {
             $.codeRepositories = codeRepositories;
             return this;
         }
 
-        /**
-         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeRepositories(List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs> codeRepositories) {
             return codeRepositories(Output.of(codeRepositories));
         }
 
-        /**
-         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeRepositories(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs... codeRepositories) {
             return codeRepositories(List.of(codeRepositories));
         }
@@ -234,75 +144,33 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
             return customImages(List.of(customImages));
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(@Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }
 
-        /**
-         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emrSettings(@Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs> emrSettings) {
             $.emrSettings = emrSettings;
             return this;
         }
 
-        /**
-         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emrSettings(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs emrSettings) {
             return emrSettings(Output.of(emrSettings));
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(@Nullable Output<List<String>> lifecycleConfigArns) {
             $.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(List<String> lifecycleConfigArns) {
             return lifecycleConfigArns(Output.of(lifecycleConfigArns));
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(String... lifecycleConfigArns) {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }

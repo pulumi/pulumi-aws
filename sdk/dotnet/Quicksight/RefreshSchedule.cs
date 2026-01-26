@@ -9,147 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing a QuickSight Refresh Schedule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
-    ///     {
-    ///         DataSetId = "dataset-id",
-    ///         ScheduleId = "schedule-id",
-    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
-    ///         {
-    ///             RefreshType = "FULL_REFRESH",
-    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
-    ///             {
-    ///                 Interval = "HOURLY",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Weekly Refresh
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
-    ///     {
-    ///         DataSetId = "dataset-id",
-    ///         ScheduleId = "schedule-id",
-    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
-    ///         {
-    ///             RefreshType = "INCREMENTAL_REFRESH",
-    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
-    ///             {
-    ///                 Interval = "WEEKLY",
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
-    ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
-    ///                 {
-    ///                     DayOfWeek = "MONDAY",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Monthly Refresh
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
-    ///     {
-    ///         DataSetId = "dataset-id",
-    ///         ScheduleId = "schedule-id",
-    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
-    ///         {
-    ///             RefreshType = "INCREMENTAL_REFRESH",
-    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
-    ///             {
-    ///                 Interval = "MONTHLY",
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
-    ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
-    ///                 {
-    ///                     DayOfMonth = "1",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/refreshSchedule:RefreshSchedule")]
     public partial class RefreshSchedule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the refresh schedule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the dataset.
-        /// </summary>
         [Output("dataSetId")]
         public Output<string> DataSetId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("schedule")]
         public Output<Outputs.RefreshScheduleSchedule?> Schedule { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the refresh schedule.
-        /// </summary>
         [Output("scheduleId")]
         public Output<string> ScheduleId { get; private set; } = null!;
 
@@ -202,29 +79,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The ID of the dataset.
-        /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("schedule")]
         public Input<Inputs.RefreshScheduleScheduleArgs>? Schedule { get; set; }
 
-        /// <summary>
-        /// The ID of the refresh schedule.
-        /// </summary>
         [Input("scheduleId", required: true)]
         public Input<string> ScheduleId { get; set; } = null!;
 
@@ -236,38 +99,21 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class RefreshScheduleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the refresh schedule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The ID of the dataset.
-        /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("schedule")]
         public Input<Inputs.RefreshScheduleScheduleGetArgs>? Schedule { get; set; }
 
-        /// <summary>
-        /// The ID of the refresh schedule.
-        /// </summary>
         [Input("scheduleId")]
         public Input<string>? ScheduleId { get; set; }
 

@@ -15,47 +15,23 @@ public final class CaCertificateRegistrationConfigArgs extends com.pulumi.resour
 
     public static final CaCertificateRegistrationConfigArgs Empty = new CaCertificateRegistrationConfigArgs();
 
-    /**
-     * The ARN of the role.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The ARN of the role.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * The template body.
-     * 
-     */
     @Import(name="templateBody")
     private @Nullable Output<String> templateBody;
 
-    /**
-     * @return The template body.
-     * 
-     */
     public Optional<Output<String>> templateBody() {
         return Optional.ofNullable(this.templateBody);
     }
 
-    /**
-     * The name of the provisioning template.
-     * 
-     */
     @Import(name="templateName")
     private @Nullable Output<String> templateName;
 
-    /**
-     * @return The name of the provisioning template.
-     * 
-     */
     public Optional<Output<String>> templateName() {
         return Optional.ofNullable(this.templateName);
     }
@@ -86,65 +62,29 @@ public final class CaCertificateRegistrationConfigArgs extends com.pulumi.resour
             $ = new CaCertificateRegistrationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param roleArn The ARN of the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param templateBody The template body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateBody(@Nullable Output<String> templateBody) {
             $.templateBody = templateBody;
             return this;
         }
 
-        /**
-         * @param templateBody The template body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateBody(String templateBody) {
             return templateBody(Output.of(templateBody));
         }
 
-        /**
-         * @param templateName The name of the provisioning template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateName(@Nullable Output<String> templateName) {
             $.templateName = templateName;
             return this;
         }
 
-        /**
-         * @param templateName The name of the provisioning template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateName(String templateName) {
             return templateName(Output.of(templateName));
         }

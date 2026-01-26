@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerConfigurationUnusedAccess
     {
-        /// <summary>
-        /// Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `AnalysisRule` Block for Unused Access Analyzer for details.
-        /// </summary>
         public readonly Outputs.AnalyzerConfigurationUnusedAccessAnalysisRule? AnalysisRule;
-        /// <summary>
-        /// Specified access age in days for which to generate findings for unused access.
-        /// </summary>
         public readonly int? UnusedAccessAge;
 
         [OutputConstructor]

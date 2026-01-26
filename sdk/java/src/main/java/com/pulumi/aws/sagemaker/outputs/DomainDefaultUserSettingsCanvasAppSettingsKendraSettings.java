@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
-    /**
-     * @return Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private DomainDefaultUserSettingsCanvasAppSettingsKendraSettings() {}
-    /**
-     * @return Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

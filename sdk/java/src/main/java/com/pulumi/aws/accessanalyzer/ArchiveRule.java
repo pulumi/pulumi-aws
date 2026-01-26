@@ -15,123 +15,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS AccessAnalyzer Archive Rule.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.accessanalyzer.ArchiveRule;
- * import com.pulumi.aws.accessanalyzer.ArchiveRuleArgs;
- * import com.pulumi.aws.accessanalyzer.inputs.ArchiveRuleFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ArchiveRule("example", ArchiveRuleArgs.builder()
- *             .analyzerName("example-analyzer")
- *             .ruleName("example-rule")
- *             .filters(            
- *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria("condition.aws:UserId")
- *                     .eqs("userid")
- *                     .build(),
- *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria("error")
- *                     .exists("true")
- *                     .build(),
- *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria("isPublic")
- *                     .eqs("false")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
- * ```
- * 
- */
 @ResourceType(type="aws:accessanalyzer/archiveRule:ArchiveRule")
 public class ArchiveRule extends com.pulumi.resources.CustomResource {
-    /**
-     * Analyzer name.
-     * 
-     */
     @Export(name="analyzerName", refs={String.class}, tree="[0]")
     private Output<String> analyzerName;
 
-    /**
-     * @return Analyzer name.
-     * 
-     */
     public Output<String> analyzerName() {
         return this.analyzerName;
     }
-    /**
-     * Filter criteria for the archive rule. See Filter for more details.
-     * 
-     */
     @Export(name="filters", refs={List.class,ArchiveRuleFilter.class}, tree="[0,1]")
     private Output<List<ArchiveRuleFilter>> filters;
 
-    /**
-     * @return Filter criteria for the archive rule. See Filter for more details.
-     * 
-     */
     public Output<List<ArchiveRuleFilter>> filters() {
         return this.filters;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Rule name.
-     * 
-     */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
-    /**
-     * @return Rule name.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }

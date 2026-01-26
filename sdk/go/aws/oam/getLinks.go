@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS CloudWatch Observability Access Manager Links.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.GetLinks(ctx, &oam.GetLinksArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult
@@ -50,13 +23,11 @@ func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getLinks.
 type GetLinksArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLinks.
 type GetLinksResult struct {
-	// Set of ARN of the Links.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -74,7 +45,6 @@ func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getLinks.
 type GetLinksOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -97,7 +67,6 @@ func (o GetLinksResultOutput) ToGetLinksResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Set of ARN of the Links.
 func (o GetLinksResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinksResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

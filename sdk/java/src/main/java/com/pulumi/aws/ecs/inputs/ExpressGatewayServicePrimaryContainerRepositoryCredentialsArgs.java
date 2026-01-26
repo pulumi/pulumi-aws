@@ -14,17 +14,9 @@ public final class ExpressGatewayServicePrimaryContainerRepositoryCredentialsArg
 
     public static final ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs Empty = new ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs();
 
-    /**
-     * ARN of the AWS Systems Manager parameter containing the repository credentials.
-     * 
-     */
     @Import(name="credentialsParameter", required=true)
     private Output<String> credentialsParameter;
 
-    /**
-     * @return ARN of the AWS Systems Manager parameter containing the repository credentials.
-     * 
-     */
     public Output<String> credentialsParameter() {
         return this.credentialsParameter;
     }
@@ -53,23 +45,11 @@ public final class ExpressGatewayServicePrimaryContainerRepositoryCredentialsArg
             $ = new ExpressGatewayServicePrimaryContainerRepositoryCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param credentialsParameter ARN of the AWS Systems Manager parameter containing the repository credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsParameter(Output<String> credentialsParameter) {
             $.credentialsParameter = credentialsParameter;
             return this;
         }
 
-        /**
-         * @param credentialsParameter ARN of the AWS Systems Manager parameter containing the repository credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsParameter(String credentialsParameter) {
             return credentialsParameter(Output.of(credentialsParameter));
         }

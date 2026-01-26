@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpnAttachmentFilter {
-    /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-     * 
-     */
     private String name;
-    /**
-     * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-     * 
-     */
     private List<String> values;
 
     private GetVpnAttachmentFilter() {}
-    /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

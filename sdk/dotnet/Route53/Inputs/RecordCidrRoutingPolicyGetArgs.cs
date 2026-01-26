@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class RecordCidrRoutingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CIDR collection ID. See the `aws.route53.CidrCollection` resource for more details.
-        /// </summary>
         [Input("collectionId", required: true)]
         public Input<string> CollectionId { get; set; } = null!;
 
-        /// <summary>
-        /// The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `LocationName` with an asterisk `"*"` can be used to create a default CIDR record. `CollectionId` is still required for default record.
-        /// </summary>
         [Input("locationName", required: true)]
         public Input<string> LocationName { get; set; } = null!;
 

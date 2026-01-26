@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDomainSettingsRStudioServerProDomainSettings
     {
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block above.
-        /// </summary>
         public readonly Outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec? DefaultResourceSpec;
-        /// <summary>
-        /// The ARN of the execution role for the RStudioServerPro Domain-level app.
-        /// </summary>
         public readonly string DomainExecutionRoleArn;
-        /// <summary>
-        /// A URL pointing to an RStudio Connect server.
-        /// </summary>
         public readonly string? RStudioConnectUrl;
-        /// <summary>
-        /// A URL pointing to an RStudio Package Manager server.
-        /// </summary>
         public readonly string? RStudioPackageManagerUrl;
 
         [OutputConstructor]

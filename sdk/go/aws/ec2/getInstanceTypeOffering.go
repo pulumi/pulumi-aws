@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about single EC2 Instance Type Offering.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetInstanceTypeOffering(ctx, &ec2.GetInstanceTypeOfferingArgs{
-//				Filters: []ec2.GetInstanceTypeOfferingFilter{
-//					{
-//						Name: "instance-type",
-//						Values: []string{
-//							"t2.micro",
-//							"t3.micro",
-//						},
-//					},
-//				},
-//				PreferredInstanceTypes: []string{
-//					"t3.micro",
-//					"t2.micro",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstanceTypeOffering(ctx *pulumi.Context, args *GetInstanceTypeOfferingArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeOfferingResult
@@ -62,24 +23,18 @@ func GetInstanceTypeOffering(ctx *pulumi.Context, args *GetInstanceTypeOfferingA
 
 // A collection of arguments for invoking getInstanceTypeOffering.
 type GetInstanceTypeOfferingArgs struct {
-	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-	Filters []GetInstanceTypeOfferingFilter `pulumi:"filters"`
-	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-	LocationType *string `pulumi:"locationType"`
-	// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Filters                []GetInstanceTypeOfferingFilter `pulumi:"filters"`
+	LocationType           *string                         `pulumi:"locationType"`
+	PreferredInstanceTypes []string                        `pulumi:"preferredInstanceTypes"`
+	Region                 *string                         `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceTypeOffering.
 type GetInstanceTypeOfferingResult struct {
 	Filters []GetInstanceTypeOfferingFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// EC2 Instance Type.
-	InstanceType string `pulumi:"instanceType"`
-	// Identifier for the location.
+	Id                     string   `pulumi:"id"`
+	InstanceType           string   `pulumi:"instanceType"`
 	Location               string   `pulumi:"location"`
 	LocationType           *string  `pulumi:"locationType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
@@ -97,14 +52,10 @@ func GetInstanceTypeOfferingOutput(ctx *pulumi.Context, args GetInstanceTypeOffe
 
 // A collection of arguments for invoking getInstanceTypeOffering.
 type GetInstanceTypeOfferingOutputArgs struct {
-	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-	Filters GetInstanceTypeOfferingFilterArrayInput `pulumi:"filters"`
-	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-	LocationType pulumi.StringPtrInput `pulumi:"locationType"`
-	// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-	PreferredInstanceTypes pulumi.StringArrayInput `pulumi:"preferredInstanceTypes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Filters                GetInstanceTypeOfferingFilterArrayInput `pulumi:"filters"`
+	LocationType           pulumi.StringPtrInput                   `pulumi:"locationType"`
+	PreferredInstanceTypes pulumi.StringArrayInput                 `pulumi:"preferredInstanceTypes"`
+	Region                 pulumi.StringPtrInput                   `pulumi:"region"`
 }
 
 func (GetInstanceTypeOfferingOutputArgs) ElementType() reflect.Type {
@@ -135,12 +86,10 @@ func (o GetInstanceTypeOfferingResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// EC2 Instance Type.
 func (o GetInstanceTypeOfferingResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Identifier for the location.
 func (o GetInstanceTypeOfferingResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.Location }).(pulumi.StringOutput)
 }

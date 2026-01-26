@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Amp.Inputs
 
     public sealed class WorkspaceConfigurationLimitsPerLabelSetLimitsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of active time series that can be ingested for metrics matching the label set.
-        /// </summary>
         [Input("maxSeries", required: true)]
         public Input<int> MaxSeries { get; set; } = null!;
 

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
-    /**
-     * @return Tags that are added to the output containers that are scanned
-     * 
-     */
     private List<String> containerTags;
-    /**
-     * @return The name of the container repository that Amazon Inspector scans
-     * 
-     */
     private String repositoryName;
 
     private GetImagePipelineImageScanningConfigurationEcrConfiguration() {}
-    /**
-     * @return Tags that are added to the output containers that are scanned
-     * 
-     */
     public List<String> containerTags() {
         return this.containerTags;
     }
-    /**
-     * @return The name of the container repository that Amazon Inspector scans
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }

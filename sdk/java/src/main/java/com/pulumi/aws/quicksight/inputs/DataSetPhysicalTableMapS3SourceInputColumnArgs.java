@@ -14,32 +14,16 @@ public final class DataSetPhysicalTableMapS3SourceInputColumnArgs extends com.pu
 
     public static final DataSetPhysicalTableMapS3SourceInputColumnArgs Empty = new DataSetPhysicalTableMapS3SourceInputColumnArgs();
 
-    /**
-     * Name of this column in the underlying data source.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of this column in the underlying data source.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Data type of the column.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Data type of the column.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class DataSetPhysicalTableMapS3SourceInputColumnArgs extends com.pu
             $ = new DataSetPhysicalTableMapS3SourceInputColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of this column in the underlying data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of this column in the underlying data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type Data type of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Data type of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

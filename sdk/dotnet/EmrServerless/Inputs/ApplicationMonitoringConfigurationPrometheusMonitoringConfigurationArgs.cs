@@ -12,9 +12,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-        /// </summary>
         [Input("remoteWriteUrl")]
         public Input<string>? RemoteWriteUrl { get; set; }
 

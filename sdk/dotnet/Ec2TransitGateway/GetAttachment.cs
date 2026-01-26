@@ -11,129 +11,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetAttachment
     {
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway's attachment to a resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "transit-gateway-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     exampleAwsEc2TransitGateway.Id,
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "peering",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAttachmentResult> InvokeAsync(GetAttachmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway's attachment to a resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "transit-gateway-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     exampleAwsEc2TransitGateway.Id,
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "peering",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAttachmentResult> Invoke(GetAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway's attachment to a resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "transit-gateway-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     exampleAwsEc2TransitGateway.Id,
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "peering",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAttachmentResult> Invoke(GetAttachmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentInvokeArgs(), options.WithDefaults());
     }
@@ -143,37 +26,23 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetAttachmentFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetAttachmentFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetAttachmentFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public string? TransitGatewayAttachmentId { get; set; }
 
@@ -187,37 +56,23 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetAttachmentFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetAttachmentFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetAttachmentFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
@@ -231,17 +86,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
     [OutputType]
     public sealed class GetAttachmentResult
     {
-        /// <summary>
-        /// ARN of the attachment.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
-        /// </summary>
         public readonly string AssociationState;
-        /// <summary>
-        /// The ID of the route table for the transit gateway.
-        /// </summary>
         public readonly string AssociationTransitGatewayRouteTableId;
         public readonly ImmutableArray<Outputs.GetAttachmentFilterResult> Filters;
         /// <summary>
@@ -249,34 +95,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// ID of the resource.
-        /// </summary>
         public readonly string ResourceId;
-        /// <summary>
-        /// ID of the AWS account that owns the resource.
-        /// </summary>
         public readonly string ResourceOwnerId;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
         public readonly string ResourceType;
-        /// <summary>
-        /// Attachment state.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// Key-value tags for the attachment.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string TransitGatewayAttachmentId;
-        /// <summary>
-        /// ID of the transit gateway.
-        /// </summary>
         public readonly string TransitGatewayId;
-        /// <summary>
-        /// The ID of the AWS account that owns the transit gateway.
-        /// </summary>
         public readonly string TransitGatewayOwnerId;
 
         [OutputConstructor]

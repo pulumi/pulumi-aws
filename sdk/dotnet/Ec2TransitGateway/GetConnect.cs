@@ -11,165 +11,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetConnect
     {
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway Connect.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectFilterInputArgs
-        ///             {
-        ///                 Name = "transport-transit-gateway-attachment-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "tgw-attach-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
-        ///     {
-        ///         TransitGatewayConnectId = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetConnectResult> InvokeAsync(GetConnectArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway Connect.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectFilterInputArgs
-        ///             {
-        ///                 Name = "transport-transit-gateway-attachment-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "tgw-attach-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
-        ///     {
-        ///         TransitGatewayConnectId = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectResult> Invoke(GetConnectInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway Connect.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectFilterInputArgs
-        ///             {
-        ///                 Name = "transport-transit-gateway-attachment-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "tgw-attach-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
-        ///     {
-        ///         TransitGatewayConnectId = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectResult> Invoke(GetConnectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectInvokeArgs(), options.WithDefaults());
     }
@@ -179,37 +26,23 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetConnectFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetConnectFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetConnectFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway Connect.
-        /// </summary>
         [Input("transitGatewayConnectId")]
         public string? TransitGatewayConnectId { get; set; }
 
@@ -223,37 +56,23 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetConnectFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetConnectFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetConnectFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway Connect.
-        /// </summary>
         [Input("transitGatewayConnectId")]
         public Input<string>? TransitGatewayConnectId { get; set; }
 
@@ -272,23 +91,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Tunnel protocol
-        /// </summary>
         public readonly string Protocol;
         public readonly string Region;
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string TransitGatewayConnectId;
-        /// <summary>
-        /// EC2 Transit Gateway identifier
-        /// </summary>
         public readonly string TransitGatewayId;
-        /// <summary>
-        /// The underlaying VPC attachment
-        /// </summary>
         public readonly string TransportAttachmentId;
 
         [OutputConstructor]

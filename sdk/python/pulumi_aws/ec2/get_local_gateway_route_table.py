@@ -123,36 +123,7 @@ def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGate
                                   tags: Optional[Mapping[str, _builtins.str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTableResult:
     """
-    Provides details about an EC2 Local Gateway Route Table.
-
-    This data source can prove useful when a module accepts a local gateway route table id as
-    an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-
-    ## Example Usage
-
-    The following example returns a specific local gateway route table ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
-    selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
-    ```
-
-
-    :param _builtins.str local_gateway_id: ID of the specific local gateway route table to retrieve.
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
-    :param _builtins.str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State of the local gateway route table.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired local gateway route table.
-           
-           The arguments of this data source act as filters for querying the available
-           Local Gateway Route Tables in the current region. The given filters must match exactly one
-           Local Gateway Route Table whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -183,36 +154,7 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
-    Provides details about an EC2 Local Gateway Route Table.
-
-    This data source can prove useful when a module accepts a local gateway route table id as
-    an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-
-    ## Example Usage
-
-    The following example returns a specific local gateway route table ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
-    selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
-    ```
-
-
-    :param _builtins.str local_gateway_id: ID of the specific local gateway route table to retrieve.
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
-    :param _builtins.str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State of the local gateway route table.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired local gateway route table.
-           
-           The arguments of this data source act as filters for querying the available
-           Local Gateway Route Tables in the current region. The given filters must match exactly one
-           Local Gateway Route Table whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

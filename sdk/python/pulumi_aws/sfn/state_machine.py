@@ -34,17 +34,6 @@ class StateMachineArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StateMachine resource.
-        :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        :param pulumi.Input['StateMachineEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-        :param pulumi.Input[_builtins.str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
-        :param pulumi.Input[_builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -70,9 +59,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter
     def definition(self) -> pulumi.Input[_builtins.str]:
-        """
-        The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -82,9 +68,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -94,9 +77,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]:
-        """
-        Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -106,9 +86,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
-        """
-        Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -118,9 +95,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -130,9 +104,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -142,9 +113,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter
     def publish(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to true to publish a version of the state machine during creation. Default: false.
-        """
         return pulumi.get(self, "publish")
 
     @publish.setter
@@ -154,9 +122,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -166,9 +131,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -178,9 +140,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
-        """
-        Selects whether AWS X-Ray tracing is enabled.
-        """
         return pulumi.get(self, "tracing_configuration")
 
     @tracing_configuration.setter
@@ -190,9 +149,6 @@ class StateMachineArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -224,22 +180,6 @@ class _StateMachineState:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StateMachine resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the state machine.
-        :param pulumi.Input[_builtins.str] creation_date: The date the state machine was created.
-        :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input['StateMachineEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-        :param pulumi.Input[_builtins.str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        :param pulumi.Input[_builtins.str] state_machine_version_arn: The ARN of the state machine version.
-        :param pulumi.Input[_builtins.str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
-        :param pulumi.Input[_builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -283,9 +223,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the state machine.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -295,9 +232,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date the state machine was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
@@ -307,9 +241,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -328,9 +259,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]:
-        """
-        Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -340,9 +268,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
-        """
-        Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -352,9 +277,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -364,9 +286,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -376,9 +295,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def publish(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to true to publish a version of the state machine during creation. Default: false.
-        """
         return pulumi.get(self, "publish")
 
     @publish.setter
@@ -388,9 +304,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -409,9 +322,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -421,9 +331,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the state machine version.
-        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @state_machine_version_arn.setter
@@ -433,9 +340,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current status of the state machine. Either `ACTIVE` or `DELETING`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -445,9 +349,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -457,9 +358,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -469,9 +367,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
-        """
-        Selects whether AWS X-Ray tracing is enabled.
-        """
         return pulumi.get(self, "tracing_configuration")
 
     @tracing_configuration.setter
@@ -481,9 +376,6 @@ class _StateMachineState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -519,172 +411,9 @@ class StateMachine(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Step Function State Machine resource
-
-        ## Example Usage
-
-        ### Basic (Standard Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-
-        ### Basic (Express Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-
-        ### Publish (Publish SFN version)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            publish=True,
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-
-        ### Logging
-
-        > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\",
-            logging_configuration={
-                "log_destination": f"{log_group_for_sfn['arn']}:*",
-                "include_execution_data": True,
-                "level": "ERROR",
-            })
-        ```
-
-        ### Encryption
-
-        > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\",
-            encryption_configuration={
-                "kms_key_id": kms_key_for_sfn["arn"],
-                "type": "CUSTOMER_MANAGED_KMS_KEY",
-                "kms_data_key_reuse_period_seconds": 900,
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) ARN of the state machine.
-
-        Using `pulumi import`, import State Machines using the `arn`. For example:
-
-        % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
-
+        Create a StateMachine resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-        :param pulumi.Input[_builtins.str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
-        :param pulumi.Input[_builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         ...
     @overload
@@ -693,159 +422,7 @@ class StateMachine(pulumi.CustomResource):
                  args: StateMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Step Function State Machine resource
-
-        ## Example Usage
-
-        ### Basic (Standard Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-
-        ### Basic (Express Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-
-        ### Publish (Publish SFN version)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            publish=True,
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-
-        ### Logging
-
-        > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\",
-            logging_configuration={
-                "log_destination": f"{log_group_for_sfn['arn']}:*",
-                "include_execution_data": True,
-                "level": "ERROR",
-            })
-        ```
-
-        ### Encryption
-
-        > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            name="my-state-machine",
-            role_arn=iam_for_sfn["arn"],
-            definition=f\"\"\"{{
-          \\"Comment\\": \\"A Hello World example of the Amazon States Language using an AWS Lambda Function\\",
-          \\"StartAt\\": \\"HelloWorld\\",
-          \\"States\\": {{
-            \\"HelloWorld\\": {{
-              \\"Type\\": \\"Task\\",
-              \\"Resource\\": \\"{lambda_["arn"]}\\",
-              \\"End\\": true
-            }}
-          }}
-        }}
-        \"\"\",
-            encryption_configuration={
-                "kms_key_id": kms_key_for_sfn["arn"],
-                "type": "CUSTOMER_MANAGED_KMS_KEY",
-                "kms_data_key_reuse_period_seconds": 900,
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) ARN of the state machine.
-
-        Using `pulumi import`, import State Machines using the `arn`. For example:
-
-        % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
-
+        Create a StateMachine resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param StateMachineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -940,22 +517,6 @@ class StateMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the state machine.
-        :param pulumi.Input[_builtins.str] creation_date: The date the state machine was created.
-        :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-        :param pulumi.Input[_builtins.str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        :param pulumi.Input[_builtins.str] state_machine_version_arn: The ARN of the state machine version.
-        :param pulumi.Input[_builtins.str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
-        :param pulumi.Input[_builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -985,25 +546,16 @@ class StateMachine(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the state machine.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date the state machine was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter
     def definition(self) -> pulumi.Output[_builtins.str]:
-        """
-        The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        """
         return pulumi.get(self, "definition")
 
     @_builtins.property
@@ -1014,49 +566,31 @@ class StateMachine(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output['outputs.StateMachineEncryptionConfiguration']:
-        """
-        Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.StateMachineLoggingConfiguration']:
-        """
-        Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def publish(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set to true to publish a version of the state machine during creation. Default: false.
-        """
         return pulumi.get(self, "publish")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -1067,57 +601,36 @@ class StateMachine(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the state machine version.
-        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current status of the state machine. Either `ACTIVE` or `DELETING`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> pulumi.Output['outputs.StateMachineTracingConfiguration']:
-        """
-        Selects whether AWS X-Ray tracing is enabled.
-        """
         return pulumi.get(self, "tracing_configuration")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property

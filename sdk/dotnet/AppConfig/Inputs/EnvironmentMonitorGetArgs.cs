@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppConfig.Inputs
 
     public sealed class EnvironmentMonitorGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Amazon CloudWatch alarm.
-        /// </summary>
         [Input("alarmArn", required: true)]
         public Input<string> AlarmArn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of an IAM role for AWS AppConfig to monitor `AlarmArn`.
-        /// </summary>
         [Input("alarmRoleArn")]
         public Input<string>? AlarmRoleArn { get; set; }
 

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.MediaLive
 {
     public static class GetInput
     {
-        /// <summary>
-        /// Data source for managing an AWS Elemental MediaLive Input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MediaLive.GetInput.Invoke(new()
-        ///     {
-        ///         Id = exampleAwsMedialiveInput.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("aws:medialive/getInput:getInput", args ?? new GetInputArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Elemental MediaLive Input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MediaLive.GetInput.Invoke(new()
-        ///     {
-        ///         Id = exampleAwsMedialiveInput.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws:medialive/getInput:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Elemental MediaLive Input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MediaLive.GetInput.Invoke(new()
-        ///     {
-        ///         Id = exampleAwsMedialiveInput.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws:medialive/getInput:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.MediaLive
 
     public sealed class GetInputArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the Input.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.MediaLive
 
     public sealed class GetInputInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the Input.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,64 +54,22 @@ namespace Pulumi.Aws.MediaLive
     [OutputType]
     public sealed class GetInputResult
     {
-        /// <summary>
-        /// ARN of the Input.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Channels attached to Input.
-        /// </summary>
         public readonly ImmutableArray<string> AttachedChannels;
         public readonly ImmutableArray<Outputs.GetInputDestinationResult> Destinations;
         public readonly string Id;
-        /// <summary>
-        /// The input class.
-        /// </summary>
         public readonly string InputClass;
-        /// <summary>
-        /// Settings for the devices.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInputInputDeviceResult> InputDevices;
-        /// <summary>
-        /// A list of IDs for all Inputs which are partners of this one.
-        /// </summary>
         public readonly ImmutableArray<string> InputPartnerIds;
-        /// <summary>
-        /// Source type of the input.
-        /// </summary>
         public readonly string InputSourceType;
-        /// <summary>
-        /// A list of the MediaConnect Flows.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInputMediaConnectFlowResult> MediaConnectFlows;
-        /// <summary>
-        /// Name of the input.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// The ARN of the role this input assumes during and after creation.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// List of input security groups.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// The source URLs for a PULL-type input.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInputSourceResult> Sources;
-        /// <summary>
-        /// The state of the input.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// A map of tags assigned to the Input.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The type of the input.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

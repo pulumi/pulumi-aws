@@ -15,47 +15,23 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
 
     public static final CrossAccountAttachmentResourceArgs Empty = new CrossAccountAttachmentResourceArgs();
 
-    /**
-     * IP address range, in CIDR format, that is specified as resource.
-     * 
-     */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
-    /**
-     * @return IP address range, in CIDR format, that is specified as resource.
-     * 
-     */
     public Optional<Output<String>> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
 
-    /**
-     * The endpoint ID for the endpoint that is specified as a AWS resource.
-     * 
-     */
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
-    /**
-     * @return The endpoint ID for the endpoint that is specified as a AWS resource.
-     * 
-     */
     public Optional<Output<String>> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }
 
-    /**
-     * The AWS Region where a shared endpoint resource is located.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return The AWS Region where a shared endpoint resource is located.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
             $ = new CrossAccountAttachmentResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidrBlock IP address range, in CIDR format, that is specified as resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
-        /**
-         * @param cidrBlock IP address range, in CIDR format, that is specified as resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
 
-        /**
-         * @param endpointId The endpoint ID for the endpoint that is specified as a AWS resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointId(@Nullable Output<String> endpointId) {
             $.endpointId = endpointId;
             return this;
         }
 
-        /**
-         * @param endpointId The endpoint ID for the endpoint that is specified as a AWS resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
         }
 
-        /**
-         * @param region The AWS Region where a shared endpoint resource is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region The AWS Region where a shared endpoint resource is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

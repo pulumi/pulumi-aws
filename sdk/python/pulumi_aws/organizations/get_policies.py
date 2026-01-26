@@ -53,9 +53,6 @@ class GetPoliciesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the policy ids found.
-        """
         return pulumi.get(self, "ids")
 
 
@@ -73,23 +70,7 @@ class AwaitableGetPoliciesResult(GetPoliciesResult):
 def get_policies(filter: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoliciesResult:
     """
-    Data source for managing an AWS Organizations Policies.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in std.toset(input=example.ids).result}
-    ```
-
-
-    :param _builtins.str filter: The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -103,23 +84,7 @@ def get_policies(filter: Optional[_builtins.str] = None,
 def get_policies_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoliciesResult]:
     """
-    Data source for managing an AWS Organizations Policies.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in std.toset(input=example.ids).result}
-    ```
-
-
-    :param _builtins.str filter: The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filter'] = filter

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class IndexServerSideEncryptionConfiguration
     {
-        /// <summary>
-        /// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
-        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

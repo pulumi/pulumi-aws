@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigSubstituteStringArgs extends c
 
     public static final LogTransformerTransformerConfigSubstituteStringArgs Empty = new LogTransformerTransformerConfigSubstituteStringArgs();
 
-    /**
-     * Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
-     * 
-     */
     @Import(name="entries", required=true)
     private Output<List<LogTransformerTransformerConfigSubstituteStringEntryArgs>> entries;
 
-    /**
-     * @return Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
-     * 
-     */
     public Output<List<LogTransformerTransformerConfigSubstituteStringEntryArgs>> entries() {
         return this.entries;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigSubstituteStringArgs extends c
             $ = new LogTransformerTransformerConfigSubstituteStringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(Output<List<LogTransformerTransformerConfigSubstituteStringEntryArgs>> entries) {
             $.entries = entries;
             return this;
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(List<LogTransformerTransformerConfigSubstituteStringEntryArgs> entries) {
             return entries(Output.of(entries));
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(LogTransformerTransformerConfigSubstituteStringEntryArgs... entries) {
             return entries(List.of(entries));
         }

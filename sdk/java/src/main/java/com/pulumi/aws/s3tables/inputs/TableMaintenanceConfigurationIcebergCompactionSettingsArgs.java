@@ -14,19 +14,9 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
 
     public static final TableMaintenanceConfigurationIcebergCompactionSettingsArgs Empty = new TableMaintenanceConfigurationIcebergCompactionSettingsArgs();
 
-    /**
-     * Data objects smaller than this size may be combined with others to improve query performance.
-     * Must be between `64` and `512`.
-     * 
-     */
     @Import(name="targetFileSizeMb", required=true)
     private Output<Integer> targetFileSizeMb;
 
-    /**
-     * @return Data objects smaller than this size may be combined with others to improve query performance.
-     * Must be between `64` and `512`.
-     * 
-     */
     public Output<Integer> targetFileSizeMb() {
         return this.targetFileSizeMb;
     }
@@ -55,25 +45,11 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
             $ = new TableMaintenanceConfigurationIcebergCompactionSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetFileSizeMb Data objects smaller than this size may be combined with others to improve query performance.
-         * Must be between `64` and `512`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetFileSizeMb(Output<Integer> targetFileSizeMb) {
             $.targetFileSizeMb = targetFileSizeMb;
             return this;
         }
 
-        /**
-         * @param targetFileSizeMb Data objects smaller than this size may be combined with others to improve query performance.
-         * Must be between `64` and `512`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetFileSizeMb(Integer targetFileSizeMb) {
             return targetFileSizeMb(Output.of(targetFileSizeMb));
         }

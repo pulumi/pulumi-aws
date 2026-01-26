@@ -15,17 +15,9 @@ public final class AccessGrantAccessGrantsLocationConfigurationArgs extends com.
 
     public static final AccessGrantAccessGrantsLocationConfigurationArgs Empty = new AccessGrantAccessGrantsLocationConfigurationArgs();
 
-    /**
-     * Sub-prefix.
-     * 
-     */
     @Import(name="s3SubPrefix")
     private @Nullable Output<String> s3SubPrefix;
 
-    /**
-     * @return Sub-prefix.
-     * 
-     */
     public Optional<Output<String>> s3SubPrefix() {
         return Optional.ofNullable(this.s3SubPrefix);
     }
@@ -54,23 +46,11 @@ public final class AccessGrantAccessGrantsLocationConfigurationArgs extends com.
             $ = new AccessGrantAccessGrantsLocationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3SubPrefix Sub-prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3SubPrefix(@Nullable Output<String> s3SubPrefix) {
             $.s3SubPrefix = s3SubPrefix;
             return this;
         }
 
-        /**
-         * @param s3SubPrefix Sub-prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3SubPrefix(String s3SubPrefix) {
             return s3SubPrefix(Output.of(s3SubPrefix));
         }

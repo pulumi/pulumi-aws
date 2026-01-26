@@ -11,41 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS DataZone Environment Blueprint.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := datazone.NewDomain(ctx, "example", &datazone.DomainArgs{
-//				Name:                pulumi.String("example_domain"),
-//				DomainExecutionRole: pulumi.Any(domainExecutionRole.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_ = datazone.GetEnvironmentBlueprintOutput(ctx, datazone.GetEnvironmentBlueprintOutputArgs{
-//				DomainId: exampleDomain.ID(),
-//				Name:     pulumi.String("DefaultDataLake"),
-//				Managed:  pulumi.Bool(true),
-//			}, nil)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEnvironmentBlueprint(ctx *pulumi.Context, args *GetEnvironmentBlueprintArgs, opts ...pulumi.InvokeOption) (*GetEnvironmentBlueprintResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEnvironmentBlueprintResult
@@ -58,28 +23,21 @@ func GetEnvironmentBlueprint(ctx *pulumi.Context, args *GetEnvironmentBlueprintA
 
 // A collection of arguments for invoking getEnvironmentBlueprint.
 type GetEnvironmentBlueprintArgs struct {
-	// ID of the domain.
-	DomainId string `pulumi:"domainId"`
-	// Whether the blueprint is managed by Amazon DataZone.
-	Managed bool `pulumi:"managed"`
-	// Name of the blueprint.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DomainId string  `pulumi:"domainId"`
+	Managed  bool    `pulumi:"managed"`
+	Name     string  `pulumi:"name"`
+	Region   *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEnvironmentBlueprint.
 type GetEnvironmentBlueprintResult struct {
-	// Provider of the blueprint
 	BlueprintProvider string `pulumi:"blueprintProvider"`
-	// Description of the blueprint
-	Description string `pulumi:"description"`
-	DomainId    string `pulumi:"domainId"`
-	// ID of the environment blueprint
-	Id      string `pulumi:"id"`
-	Managed bool   `pulumi:"managed"`
-	Name    string `pulumi:"name"`
-	Region  string `pulumi:"region"`
+	Description       string `pulumi:"description"`
+	DomainId          string `pulumi:"domainId"`
+	Id                string `pulumi:"id"`
+	Managed           bool   `pulumi:"managed"`
+	Name              string `pulumi:"name"`
+	Region            string `pulumi:"region"`
 }
 
 func GetEnvironmentBlueprintOutput(ctx *pulumi.Context, args GetEnvironmentBlueprintOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentBlueprintResultOutput {
@@ -93,14 +51,10 @@ func GetEnvironmentBlueprintOutput(ctx *pulumi.Context, args GetEnvironmentBluep
 
 // A collection of arguments for invoking getEnvironmentBlueprint.
 type GetEnvironmentBlueprintOutputArgs struct {
-	// ID of the domain.
-	DomainId pulumi.StringInput `pulumi:"domainId"`
-	// Whether the blueprint is managed by Amazon DataZone.
-	Managed pulumi.BoolInput `pulumi:"managed"`
-	// Name of the blueprint.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	DomainId pulumi.StringInput    `pulumi:"domainId"`
+	Managed  pulumi.BoolInput      `pulumi:"managed"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEnvironmentBlueprintOutputArgs) ElementType() reflect.Type {
@@ -122,12 +76,10 @@ func (o GetEnvironmentBlueprintResultOutput) ToGetEnvironmentBlueprintResultOutp
 	return o
 }
 
-// Provider of the blueprint
 func (o GetEnvironmentBlueprintResultOutput) BlueprintProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.BlueprintProvider }).(pulumi.StringOutput)
 }
 
-// Description of the blueprint
 func (o GetEnvironmentBlueprintResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -136,7 +88,6 @@ func (o GetEnvironmentBlueprintResultOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// ID of the environment blueprint
 func (o GetEnvironmentBlueprintResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.Id }).(pulumi.StringOutput)
 }

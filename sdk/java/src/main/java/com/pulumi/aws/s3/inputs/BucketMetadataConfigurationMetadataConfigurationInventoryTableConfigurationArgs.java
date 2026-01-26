@@ -17,62 +17,30 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
 
     public static final BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs();
 
-    /**
-     * Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="configurationState", required=true)
     private Output<String> configurationState;
 
-    /**
-     * @return Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Output<String> configurationState() {
         return this.configurationState;
     }
 
-    /**
-     * Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs>> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
 
-    /**
-     * Inventory table ARN.
-     * 
-     */
     @Import(name="tableArn")
     private @Nullable Output<String> tableArn;
 
-    /**
-     * @return Inventory table ARN.
-     * 
-     */
     public Optional<Output<String>> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
 
-    /**
-     * Inventory table name.
-     * 
-     */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
-    /**
-     * @return Inventory table name.
-     * 
-     */
     public Optional<Output<String>> tableName() {
         return Optional.ofNullable(this.tableName);
     }
@@ -104,86 +72,38 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
             $ = new BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationState Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationState(Output<String> configurationState) {
             $.configurationState = configurationState;
             return this;
         }
 
-        /**
-         * @param configurationState Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationState(String configurationState) {
             return configurationState(Output.of(configurationState));
         }
 
-        /**
-         * @param encryptionConfiguration Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
-        /**
-         * @param tableArn Inventory table ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(@Nullable Output<String> tableArn) {
             $.tableArn = tableArn;
             return this;
         }
 
-        /**
-         * @param tableArn Inventory table ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(String tableArn) {
             return tableArn(Output.of(tableArn));
         }
 
-        /**
-         * @param tableName Inventory table name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Inventory table name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

@@ -15,87 +15,11 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Global Accelerator custom routing listener.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.globalaccelerator.CustomRoutingAccelerator;
- * import com.pulumi.aws.globalaccelerator.CustomRoutingAcceleratorArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingAcceleratorAttributesArgs;
- * import com.pulumi.aws.globalaccelerator.CustomRoutingListener;
- * import com.pulumi.aws.globalaccelerator.CustomRoutingListenerArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingListenerPortRangeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CustomRoutingAccelerator("example", CustomRoutingAcceleratorArgs.builder()
- *             .name("Example")
- *             .ipAddressType("IPV4")
- *             .enabled(true)
- *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
- *                 .flowLogsEnabled(true)
- *                 .flowLogsS3Bucket("example-bucket")
- *                 .flowLogsS3Prefix("flow-logs/")
- *                 .build())
- *             .build());
- * 
- *         var exampleCustomRoutingListener = new CustomRoutingListener("exampleCustomRoutingListener", CustomRoutingListenerArgs.builder()
- *             .acceleratorArn(example.arn())
- *             .portRanges(CustomRoutingListenerPortRangeArgs.builder()
- *                 .fromPort(80)
- *                 .toPort(80)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
- * 
- * Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
- * 
- * % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
- * 
- */
 @ResourceType(type="aws:globalaccelerator/customRoutingListener:CustomRoutingListener")
 public class CustomRoutingListener extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
-     * 
-     */
     @Export(name="acceleratorArn", refs={String.class}, tree="[0]")
     private Output<String> acceleratorArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a custom routing accelerator.
-     * 
-     */
     public Output<String> acceleratorArn() {
         return this.acceleratorArn;
     }
@@ -105,17 +29,9 @@ public class CustomRoutingListener extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     @Export(name="portRanges", refs={List.class,CustomRoutingListenerPortRange.class}, tree="[0,1]")
     private Output<List<CustomRoutingListenerPortRange>> portRanges;
 
-    /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     public Output<List<CustomRoutingListenerPortRange>> portRanges() {
         return this.portRanges;
     }

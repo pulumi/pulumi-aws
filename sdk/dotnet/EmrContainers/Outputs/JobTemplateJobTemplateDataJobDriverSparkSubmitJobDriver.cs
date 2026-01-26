@@ -13,17 +13,8 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver
     {
-        /// <summary>
-        /// The entry point of job application.
-        /// </summary>
         public readonly string EntryPoint;
-        /// <summary>
-        /// The arguments for job application.
-        /// </summary>
         public readonly ImmutableArray<string> EntryPointArguments;
-        /// <summary>
-        /// The Spark submit parameters that are used for job runs.
-        /// </summary>
         public readonly string? SparkSubmitParameters;
 
         [OutputConstructor]

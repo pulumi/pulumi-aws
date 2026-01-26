@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Alb.Outputs
     [OutputType]
     public sealed class ListenerRuleTransform
     {
-        /// <summary>
-        /// Configuration block for host header rewrite. Required if `Type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-        /// </summary>
         public readonly Outputs.ListenerRuleTransformHostHeaderRewriteConfig? HostHeaderRewriteConfig;
-        /// <summary>
-        /// Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Configuration block for URL rewrite. Required if `Type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-        /// </summary>
         public readonly Outputs.ListenerRuleTransformUrlRewriteConfig? UrlRewriteConfig;
 
         [OutputConstructor]

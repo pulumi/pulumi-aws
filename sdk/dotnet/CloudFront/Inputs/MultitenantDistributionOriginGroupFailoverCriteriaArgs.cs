@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("statusCodes", required: true)]
         private InputList<int>? _statusCodes;
-
-        /// <summary>
-        /// List of HTTP status codes that trigger a failover to the secondary origin.
-        /// </summary>
         public InputList<int> StatusCodes
         {
             get => _statusCodes ?? (_statusCodes = new InputList<int>());

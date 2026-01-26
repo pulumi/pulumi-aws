@@ -9,66 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppFabric
 {
-    /// <summary>
-    /// Resource for managing an AWS AppFabric App Authorization Connection.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppFabric.AppAuthorizationConnection("example", new()
-    ///     {
-    ///         AppAuthorizationArn = test.Arn,
-    ///         AppBundleArn = arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection")]
     public partial class AppAuthorizationConnection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Output("app")]
         public Output<string> App { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        /// </summary>
         [Output("appAuthorizationArn")]
         public Output<string> AppAuthorizationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        /// </summary>
         [Output("authRequest")]
         public Output<Outputs.AppAuthorizationConnectionAuthRequest?> AuthRequest { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
-        /// </summary>
         [Output("tenants")]
         public Output<ImmutableArray<Outputs.AppAuthorizationConnectionTenant>> Tenants { get; private set; } = null!;
 
@@ -121,27 +79,15 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class AppAuthorizationConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        /// </summary>
         [Input("appAuthorizationArn", required: true)]
         public Input<string> AppAuthorizationArn { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        /// </summary>
         [Input("authRequest")]
         public Input<Inputs.AppAuthorizationConnectionAuthRequestArgs>? AuthRequest { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -156,42 +102,23 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class AppAuthorizationConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Input("app")]
         public Input<string>? App { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        /// </summary>
         [Input("appAuthorizationArn")]
         public Input<string>? AppAuthorizationArn { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }
 
-        /// <summary>
-        /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        /// </summary>
         [Input("authRequest")]
         public Input<Inputs.AppAuthorizationConnectionAuthRequestGetArgs>? AuthRequest { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tenants")]
         private InputList<Inputs.AppAuthorizationConnectionTenantGetArgs>? _tenants;
-
-        /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
-        /// </summary>
         public InputList<Inputs.AppAuthorizationConnectionTenantGetArgs> Tenants
         {
             get => _tenants ?? (_tenants = new InputList<Inputs.AppAuthorizationConnectionTenantGetArgs>());

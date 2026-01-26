@@ -9,67 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.KinesisAnalyticsV2
 {
-    /// <summary>
-    /// Manages a Kinesis Analytics v2 Application Snapshot.
-    /// Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.KinesisAnalyticsV2.ApplicationSnapshot("example", new()
-    ///     {
-    ///         ApplicationName = exampleAwsKinesisanalyticsv2Application.Name,
-    ///         SnapshotName = "example-snapshot",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")]
     public partial class ApplicationSnapshot : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
 
-        /// <summary>
-        /// The current application version ID when the snapshot was created.
-        /// </summary>
         [Output("applicationVersionId")]
         public Output<int> ApplicationVersionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The timestamp of the application snapshot.
-        /// </summary>
         [Output("snapshotCreationTimestamp")]
         public Output<string> SnapshotCreationTimestamp { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the application snapshot.
-        /// </summary>
         [Output("snapshotName")]
         public Output<string> SnapshotName { get; private set; } = null!;
 
@@ -119,21 +73,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
 
     public sealed class ApplicationSnapshotArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the application snapshot.
-        /// </summary>
         [Input("snapshotName", required: true)]
         public Input<string> SnapshotName { get; set; } = null!;
 
@@ -145,33 +90,18 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
 
     public sealed class ApplicationSnapshotState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        /// </summary>
         [Input("applicationName")]
         public Input<string>? ApplicationName { get; set; }
 
-        /// <summary>
-        /// The current application version ID when the snapshot was created.
-        /// </summary>
         [Input("applicationVersionId")]
         public Input<int>? ApplicationVersionId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The timestamp of the application snapshot.
-        /// </summary>
         [Input("snapshotCreationTimestamp")]
         public Input<string>? SnapshotCreationTimestamp { get; set; }
 
-        /// <summary>
-        /// The name of the application snapshot.
-        /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 

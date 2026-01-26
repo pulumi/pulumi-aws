@@ -18,77 +18,37 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicy extends com.pulumi.
 
     public static final GetCoreNetworkPolicyDocumentRoutingPolicy Empty = new GetCoreNetworkPolicyDocumentRoutingPolicy();
 
-    /**
-     * Description of the routing policy.
-     * 
-     */
     @Import(name="routingPolicyDescription")
     private @Nullable String routingPolicyDescription;
 
-    /**
-     * @return Description of the routing policy.
-     * 
-     */
     public Optional<String> routingPolicyDescription() {
         return Optional.ofNullable(this.routingPolicyDescription);
     }
 
-    /**
-     * Direction of the routing policy. Valid values: `inbound`, `outbound`.
-     * 
-     */
     @Import(name="routingPolicyDirection", required=true)
     private String routingPolicyDirection;
 
-    /**
-     * @return Direction of the routing policy. Valid values: `inbound`, `outbound`.
-     * 
-     */
     public String routingPolicyDirection() {
         return this.routingPolicyDirection;
     }
 
-    /**
-     * Name of the routing policy. Must be 1-100 alphanumeric characters.
-     * 
-     */
     @Import(name="routingPolicyName", required=true)
     private String routingPolicyName;
 
-    /**
-     * @return Name of the routing policy. Must be 1-100 alphanumeric characters.
-     * 
-     */
     public String routingPolicyName() {
         return this.routingPolicyName;
     }
 
-    /**
-     * Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     @Import(name="routingPolicyNumber", required=true)
     private Integer routingPolicyNumber;
 
-    /**
-     * @return Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     public Integer routingPolicyNumber() {
         return this.routingPolicyNumber;
     }
 
-    /**
-     * List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-     * 
-     */
     @Import(name="routingPolicyRules", required=true)
     private List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule> routingPolicyRules;
 
-    /**
-     * @return List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule> routingPolicyRules() {
         return this.routingPolicyRules;
     }
@@ -121,67 +81,31 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicy extends com.pulumi.
             $ = new GetCoreNetworkPolicyDocumentRoutingPolicy(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param routingPolicyDescription Description of the routing policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyDescription(@Nullable String routingPolicyDescription) {
             $.routingPolicyDescription = routingPolicyDescription;
             return this;
         }
 
-        /**
-         * @param routingPolicyDirection Direction of the routing policy. Valid values: `inbound`, `outbound`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyDirection(String routingPolicyDirection) {
             $.routingPolicyDirection = routingPolicyDirection;
             return this;
         }
 
-        /**
-         * @param routingPolicyName Name of the routing policy. Must be 1-100 alphanumeric characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyName(String routingPolicyName) {
             $.routingPolicyName = routingPolicyName;
             return this;
         }
 
-        /**
-         * @param routingPolicyNumber Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyNumber(Integer routingPolicyNumber) {
             $.routingPolicyNumber = routingPolicyNumber;
             return this;
         }
 
-        /**
-         * @param routingPolicyRules List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyRules(List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule> routingPolicyRules) {
             $.routingPolicyRules = routingPolicyRules;
             return this;
         }
 
-        /**
-         * @param routingPolicyRules List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyRules(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule... routingPolicyRules) {
             return routingPolicyRules(List.of(routingPolicyRules));
         }

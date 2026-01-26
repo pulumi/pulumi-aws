@@ -15,17 +15,9 @@ public final class EventEndpointReplicationConfigArgs extends com.pulumi.resourc
 
     public static final EventEndpointReplicationConfigArgs Empty = new EventEndpointReplicationConfigArgs();
 
-    /**
-     * The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don&#39;t have a `roleArn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don&#39;t have a `roleArn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -54,23 +46,11 @@ public final class EventEndpointReplicationConfigArgs extends com.pulumi.resourc
             $ = new EventEndpointReplicationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param state The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don&#39;t have a `roleArn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don&#39;t have a `roleArn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

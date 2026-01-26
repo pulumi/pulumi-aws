@@ -15,17 +15,9 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
     public static final DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs Empty = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs();
 
-    /**
-     * Indicates if the CSV data has a header.
-     * 
-     */
     @Import(name="header")
     private @Nullable Output<Boolean> header;
 
-    /**
-     * @return Indicates if the CSV data has a header.
-     * 
-     */
     public Optional<Output<Boolean>> header() {
         return Optional.ofNullable(this.header);
     }
@@ -54,23 +46,11 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
             $ = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param header Indicates if the CSV data has a header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(@Nullable Output<Boolean> header) {
             $.header = header;
             return this;
         }
 
-        /**
-         * @param header Indicates if the CSV data has a header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(Boolean header) {
             return header(Output.of(header));
         }

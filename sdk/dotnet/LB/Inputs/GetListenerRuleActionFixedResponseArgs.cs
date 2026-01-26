@@ -12,21 +12,12 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleActionFixedResponseInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Content type of the response.
-        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        /// <summary>
-        /// Message body of the response.
-        /// </summary>
         [Input("messageBody", required: true)]
         public Input<string> MessageBody { get; set; } = null!;
 
-        /// <summary>
-        /// The HTTP redirect code.
-        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 

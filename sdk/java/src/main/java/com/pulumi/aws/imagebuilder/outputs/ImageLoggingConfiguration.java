@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ImageLoggingConfiguration {
-    /**
-     * @return Name of the CloudWatch Log Group to send logs to.
-     * 
-     */
     private String logGroupName;
 
     private ImageLoggingConfiguration() {}
-    /**
-     * @return Name of the CloudWatch Log Group to send logs to.
-     * 
-     */
     public String logGroupName() {
         return this.logGroupName;
     }

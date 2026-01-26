@@ -9,57 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Detective
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Detective.Graph("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var exampleOrganizationConfiguration = new Aws.Detective.OrganizationConfiguration("example", new()
-    ///     {
-    ///         AutoEnable = true,
-    ///         GraphArn = example.GraphArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_detective_organization_admin_account` using the behavior graph ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:123456789012:graph:00b00fd5aecc0ab60a708659477e9617
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:detective/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-        /// </summary>
         [Output("autoEnable")]
         public Output<bool> AutoEnable { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the behavior graph.
-        /// </summary>
         [Output("graphArn")]
         public Output<string> GraphArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -109,21 +67,12 @@ namespace Pulumi.Aws.Detective
 
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-        /// </summary>
         [Input("autoEnable", required: true)]
         public Input<bool> AutoEnable { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the behavior graph.
-        /// </summary>
         [Input("graphArn", required: true)]
         public Input<string> GraphArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,21 +84,12 @@ namespace Pulumi.Aws.Detective
 
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-        /// </summary>
         [Input("autoEnable")]
         public Input<bool>? AutoEnable { get; set; }
 
-        /// <summary>
-        /// ARN of the behavior graph.
-        /// </summary>
         [Input("graphArn")]
         public Input<string>? GraphArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

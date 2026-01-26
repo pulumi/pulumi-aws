@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetThemeConfigurationSheetTileLayoutResult
     {
-        /// <summary>
-        /// The gutter settings that apply between tiles. See gutter.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationSheetTileLayoutGutterResult> Gutters;
-        /// <summary>
-        /// The margin settings that apply around the outside edge of sheets. See margin.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationSheetTileLayoutMarginResult> Margins;
 
         [OutputConstructor]

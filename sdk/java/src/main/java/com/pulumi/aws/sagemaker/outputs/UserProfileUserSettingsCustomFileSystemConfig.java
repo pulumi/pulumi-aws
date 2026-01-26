@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsCustomFileSystemConfig {
-    /**
-     * @return The default EBS storage settings for a private space. See EFS File System Config below.
-     * 
-     */
     private @Nullable List<UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig> efsFileSystemConfigs;
 
     private UserProfileUserSettingsCustomFileSystemConfig() {}
-    /**
-     * @return The default EBS storage settings for a private space. See EFS File System Config below.
-     * 
-     */
     public List<UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig> efsFileSystemConfigs() {
         return this.efsFileSystemConfigs == null ? List.of() : this.efsFileSystemConfigs;
     }

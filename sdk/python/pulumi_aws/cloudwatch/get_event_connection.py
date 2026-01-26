@@ -52,17 +52,11 @@ class GetEventConnectionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) of the connection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> _builtins.str:
-        """
-        Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        """
         return pulumi.get(self, "authorization_type")
 
     @_builtins.property
@@ -76,9 +70,6 @@ class GetEventConnectionResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> _builtins.str:
-        """
-        (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @_builtins.property
@@ -94,9 +85,6 @@ class GetEventConnectionResult:
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> _builtins.str:
-        """
-        ARN of the secret created from the authorization parameters specified for the connection.
-        """
         return pulumi.get(self, "secret_arn")
 
 
@@ -119,22 +107,7 @@ def get_event_connection(name: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventConnectionResult:
     """
-    Use this data source to retrieve information about an EventBridge connection.
-
-    > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudwatch.get_event_connection(name="test")
-    ```
-
-
-    :param _builtins.str name: Name of the connection.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -154,22 +127,7 @@ def get_event_connection_output(name: Optional[pulumi.Input[_builtins.str]] = No
                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventConnectionResult]:
     """
-    Use this data source to retrieve information about an EventBridge connection.
-
-    > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudwatch.get_event_connection(name="test")
-    ```
-
-
-    :param _builtins.str name: Name of the connection.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

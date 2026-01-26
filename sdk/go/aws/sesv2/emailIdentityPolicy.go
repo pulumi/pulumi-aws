@@ -12,89 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("testing@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewEmailIdentityPolicy(ctx, "example", &sesv2.EmailIdentityPolicyArgs{
-//				EmailIdentity: example.EmailIdentity,
-//				PolicyName:    pulumi.String("example"),
-//				Policy: example.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  \"Id\":\"ExampleAuthorizationPolicy\",
-//	  \"Version\":\"2012-10-17\",
-//	  \"Statement\":[
-//	    {
-//	      \"Sid\":\"AuthorizeIAMUser\",
-//	      \"Effect\":\"Allow\",
-//	      \"Resource\":\"%v\",
-//	      \"Principal\":{
-//	        \"AWS\":[
-//	          \"arn:aws:iam::123456789012:user/John\",
-//	          \"arn:aws:iam::123456789012:user/Jane\"
-//	        ]
-//	      },
-//	      \"Action\":[
-//	        \"ses:DeleteEmailIdentity\",
-//	        \"ses:PutEmailIdentityDkimSigningAttributes\"
-//	      ]
-//	    }
-//	  ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `email_identity` and `policy_name` separated by `|`. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
-// ```
 type EmailIdentityPolicy struct {
 	pulumi.CustomResourceState
 
-	// The email identity.
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
-	// The text of the policy in JSON format.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The name of the policy.
-	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Policy        pulumi.StringOutput `pulumi:"policy"`
+	PolicyName    pulumi.StringOutput `pulumi:"policyName"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEmailIdentityPolicy registers a new resource with the given unique name, arguments, and options.
@@ -136,25 +60,17 @@ func GetEmailIdentityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentityPolicy resources.
 type emailIdentityPolicyState struct {
-	// The email identity.
 	EmailIdentity *string `pulumi:"emailIdentity"`
-	// The text of the policy in JSON format.
-	Policy *string `pulumi:"policy"`
-	// The name of the policy.
-	PolicyName *string `pulumi:"policyName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy        *string `pulumi:"policy"`
+	PolicyName    *string `pulumi:"policyName"`
+	Region        *string `pulumi:"region"`
 }
 
 type EmailIdentityPolicyState struct {
-	// The email identity.
 	EmailIdentity pulumi.StringPtrInput
-	// The text of the policy in JSON format.
-	Policy pulumi.StringPtrInput
-	// The name of the policy.
-	PolicyName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy        pulumi.StringPtrInput
+	PolicyName    pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (EmailIdentityPolicyState) ElementType() reflect.Type {
@@ -162,26 +78,18 @@ func (EmailIdentityPolicyState) ElementType() reflect.Type {
 }
 
 type emailIdentityPolicyArgs struct {
-	// The email identity.
-	EmailIdentity string `pulumi:"emailIdentity"`
-	// The text of the policy in JSON format.
-	Policy string `pulumi:"policy"`
-	// The name of the policy.
-	PolicyName string `pulumi:"policyName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	EmailIdentity string  `pulumi:"emailIdentity"`
+	Policy        string  `pulumi:"policy"`
+	PolicyName    string  `pulumi:"policyName"`
+	Region        *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EmailIdentityPolicy resource.
 type EmailIdentityPolicyArgs struct {
-	// The email identity.
 	EmailIdentity pulumi.StringInput
-	// The text of the policy in JSON format.
-	Policy pulumi.StringInput
-	// The name of the policy.
-	PolicyName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy        pulumi.StringInput
+	PolicyName    pulumi.StringInput
+	Region        pulumi.StringPtrInput
 }
 
 func (EmailIdentityPolicyArgs) ElementType() reflect.Type {
@@ -271,22 +179,18 @@ func (o EmailIdentityPolicyOutput) ToEmailIdentityPolicyOutputWithContext(ctx co
 	return o
 }
 
-// The email identity.
 func (o EmailIdentityPolicyOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }
 
-// The text of the policy in JSON format.
 func (o EmailIdentityPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The name of the policy.
 func (o EmailIdentityPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

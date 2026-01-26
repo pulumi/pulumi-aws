@@ -18,47 +18,23 @@ public final class PipelineTriggerAllGitConfigurationArgs extends com.pulumi.res
 
     public static final PipelineTriggerAllGitConfigurationArgs Empty = new PipelineTriggerAllGitConfigurationArgs();
 
-    /**
-     * The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-     * 
-     */
     @Import(name="pullRequests")
     private @Nullable Output<List<PipelineTriggerAllGitConfigurationPullRequestArgs>> pullRequests;
 
-    /**
-     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-     * 
-     */
     public Optional<Output<List<PipelineTriggerAllGitConfigurationPullRequestArgs>>> pullRequests() {
         return Optional.ofNullable(this.pullRequests);
     }
 
-    /**
-     * The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-     * 
-     */
     @Import(name="pushes")
     private @Nullable Output<List<PipelineTriggerAllGitConfigurationPushArgs>> pushes;
 
-    /**
-     * @return The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-     * 
-     */
     public Optional<Output<List<PipelineTriggerAllGitConfigurationPushArgs>>> pushes() {
         return Optional.ofNullable(this.pushes);
     }
 
-    /**
-     * The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-     * 
-     */
     @Import(name="sourceActionName")
     private @Nullable Output<String> sourceActionName;
 
-    /**
-     * @return The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-     * 
-     */
     public Optional<Output<String>> sourceActionName() {
         return Optional.ofNullable(this.sourceActionName);
     }
@@ -89,85 +65,37 @@ public final class PipelineTriggerAllGitConfigurationArgs extends com.pulumi.res
             $ = new PipelineTriggerAllGitConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pullRequests(@Nullable Output<List<PipelineTriggerAllGitConfigurationPullRequestArgs>> pullRequests) {
             $.pullRequests = pullRequests;
             return this;
         }
 
-        /**
-         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pullRequests(List<PipelineTriggerAllGitConfigurationPullRequestArgs> pullRequests) {
             return pullRequests(Output.of(pullRequests));
         }
 
-        /**
-         * @param pullRequests The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pullRequests(PipelineTriggerAllGitConfigurationPullRequestArgs... pullRequests) {
             return pullRequests(List.of(pullRequests));
         }
 
-        /**
-         * @param pushes The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pushes(@Nullable Output<List<PipelineTriggerAllGitConfigurationPushArgs>> pushes) {
             $.pushes = pushes;
             return this;
         }
 
-        /**
-         * @param pushes The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pushes(List<PipelineTriggerAllGitConfigurationPushArgs> pushes) {
             return pushes(Output.of(pushes));
         }
 
-        /**
-         * @param pushes The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pushes(PipelineTriggerAllGitConfigurationPushArgs... pushes) {
             return pushes(List.of(pushes));
         }
 
-        /**
-         * @param sourceActionName The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceActionName(@Nullable Output<String> sourceActionName) {
             $.sourceActionName = sourceActionName;
             return this;
         }
 
-        /**
-         * @param sourceActionName The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceActionName(String sourceActionName) {
             return sourceActionName(Output.of(sourceActionName));
         }

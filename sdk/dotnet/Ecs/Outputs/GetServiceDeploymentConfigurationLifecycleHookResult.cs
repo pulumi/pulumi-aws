@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentConfigurationLifecycleHookResult
     {
-        /// <summary>
-        /// Additional details for the hook
-        /// </summary>
         public readonly string HookDetails;
-        /// <summary>
-        /// ARN of the Lambda function to invoke
-        /// </summary>
         public readonly string HookTargetArn;
-        /// <summary>
-        /// Deployment stages when hook is invoked
-        /// </summary>
         public readonly ImmutableArray<string> LifecycleStages;
-        /// <summary>
-        /// ARN of the IAM role that allows ECS to manage the target groups.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

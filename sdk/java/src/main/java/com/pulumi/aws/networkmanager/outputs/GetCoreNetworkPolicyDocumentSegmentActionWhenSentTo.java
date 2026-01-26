@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
-    /**
-     * @return A list of strings. The list of segments that the `send-via` `action` uses.
-     * 
-     */
     private @Nullable List<String> segments;
 
     private GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo() {}
-    /**
-     * @return A list of strings. The list of segments that the `send-via` `action` uses.
-     * 
-     */
     public List<String> segments() {
         return this.segments == null ? List.of() : this.segments;
     }

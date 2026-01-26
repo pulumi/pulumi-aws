@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard
     {
-        /// <summary>
-        /// The ARN of the CloudWatch dashboard.
-        /// </summary>
         public readonly string? DashboardArn;
 
         [OutputConstructor]

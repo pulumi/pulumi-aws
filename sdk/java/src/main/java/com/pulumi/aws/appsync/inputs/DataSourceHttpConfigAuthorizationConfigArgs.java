@@ -16,32 +16,16 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
 
     public static final DataSourceHttpConfigAuthorizationConfigArgs Empty = new DataSourceHttpConfigAuthorizationConfigArgs();
 
-    /**
-     * Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-     * 
-     */
     @Import(name="authorizationType")
     private @Nullable Output<String> authorizationType;
 
-    /**
-     * @return Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-     * 
-     */
     public Optional<Output<String>> authorizationType() {
         return Optional.ofNullable(this.authorizationType);
     }
 
-    /**
-     * Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-     * 
-     */
     @Import(name="awsIamConfig")
     private @Nullable Output<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs> awsIamConfig;
 
-    /**
-     * @return Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-     * 
-     */
     public Optional<Output<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs>> awsIamConfig() {
         return Optional.ofNullable(this.awsIamConfig);
     }
@@ -71,44 +55,20 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
             $ = new DataSourceHttpConfigAuthorizationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationType Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(@Nullable Output<String> authorizationType) {
             $.authorizationType = authorizationType;
             return this;
         }
 
-        /**
-         * @param authorizationType Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(String authorizationType) {
             return authorizationType(Output.of(authorizationType));
         }
 
-        /**
-         * @param awsIamConfig Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsIamConfig(@Nullable Output<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs> awsIamConfig) {
             $.awsIamConfig = awsIamConfig;
             return this;
         }
 
-        /**
-         * @param awsIamConfig Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsIamConfig(DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs awsIamConfig) {
             return awsIamConfig(Output.of(awsIamConfig));
         }

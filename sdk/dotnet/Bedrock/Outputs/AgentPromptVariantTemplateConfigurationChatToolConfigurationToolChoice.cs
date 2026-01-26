@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice
     {
-        /// <summary>
-        /// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny? Any;
-        /// <summary>
-        /// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto? Auto;
-        /// <summary>
-        /// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool? Tool;
 
         [OutputConstructor]

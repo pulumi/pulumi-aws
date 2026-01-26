@@ -43,9 +43,6 @@ class GetOrganizationalUnitResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the organizational unit
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -83,24 +80,7 @@ def get_organizational_unit(name: Optional[_builtins.str] = None,
                             parent_id: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationalUnitResult:
     """
-    Data source for getting an AWS Organizations Organizational Unit.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ou = aws.organizations.get_organizational_unit(parent_id=org.roots[0].id,
-        name="dev")
-    ```
-
-
-    :param _builtins.str name: Name of the organizational unit
-    :param _builtins.str parent_id: Parent ID of the organizational unit.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -117,24 +97,7 @@ def get_organizational_unit_output(name: Optional[pulumi.Input[_builtins.str]] =
                                    parent_id: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitResult]:
     """
-    Data source for getting an AWS Organizations Organizational Unit.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ou = aws.organizations.get_organizational_unit(parent_id=org.roots[0].id,
-        name="dev")
-    ```
-
-
-    :param _builtins.str name: Name of the organizational unit
-    :param _builtins.str parent_id: Parent ID of the organizational unit.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -14,181 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.StandardsSubscription;
- * import com.pulumi.aws.securityhub.StandardsSubscriptionArgs;
- * import com.pulumi.aws.securityhub.StandardsControlAssociation;
- * import com.pulumi.aws.securityhub.StandardsControlAssociationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account("example");
- * 
- *         var cisAwsFoundationsBenchmark = new StandardsSubscription("cisAwsFoundationsBenchmark", StandardsSubscriptionArgs.builder()
- *             .standardsArn("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *         var cisAwsFoundationsBenchmarkDisableIam1 = new StandardsControlAssociation("cisAwsFoundationsBenchmarkDisableIam1", StandardsControlAssociationArgs.builder()
- *             .standardsArn(cisAwsFoundationsBenchmark.standardsArn())
- *             .securityControlId("IAM.1")
- *             .associationStatus("DISABLED")
- *             .updatedReason("Not needed")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Disabling security control in all standards
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.SecurityhubFunctions;
- * import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
- * import com.pulumi.aws.securityhub.StandardsControlAssociation;
- * import com.pulumi.aws.securityhub.StandardsControlAssociationArgs;
- * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account("example");
- * 
- *         final var iam1 = SecurityhubFunctions.getStandardsControlAssociations(GetStandardsControlAssociationsArgs.builder()
- *             .securityControlId("IAM.1")
- *             .build());
- * 
- *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
- *             .input(iam1.standardsControlAssociations().stream().map(element -> element.standardsArn()).collect(toList()))
- *             .build()).result())) {
- *             new StandardsControlAssociation("iam1StandardsControlAssociation-" + range.key(), StandardsControlAssociationArgs.builder()
- *                 .standardsArn(range.key())
- *                 .securityControlId(iam1.securityControlId())
- *                 .associationStatus("DISABLED")
- *                 .updatedReason("Not needed")
- *                 .build());
- *         }
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:securityhub/standardsControlAssociation:StandardsControlAssociation")
 public class StandardsControlAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Export(name="associationStatus", refs={String.class}, tree="[0]")
     private Output<String> associationStatus;
 
-    /**
-     * @return The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Output<String> associationStatus() {
         return this.associationStatus;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The unique identifier for the security control whose enablement status you want to update.
-     * 
-     */
     @Export(name="securityControlId", refs={String.class}, tree="[0]")
     private Output<String> securityControlId;
 
-    /**
-     * @return The unique identifier for the security control whose enablement status you want to update.
-     * 
-     */
     public Output<String> securityControlId() {
         return this.securityControlId;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="standardsArn", refs={String.class}, tree="[0]")
     private Output<String> standardsArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> standardsArn() {
         return this.standardsArn;
     }
-    /**
-     * The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-     * 
-     */
     @Export(name="updatedReason", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> updatedReason;
 
-    /**
-     * @return The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-     * 
-     */
     public Output<Optional<String>> updatedReason() {
         return Codegen.optional(this.updatedReason);
     }

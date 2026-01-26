@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Iot.Inputs
     {
         [Input("namedShadowNames")]
         private InputList<string>? _namedShadowNames;
-
-        /// <summary>
-        /// List of shadow names that you select to index.
-        /// </summary>
         public InputList<string> NamedShadowNames
         {
             get => _namedShadowNames ?? (_namedShadowNames = new InputList<string>());

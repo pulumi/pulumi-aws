@@ -7,77 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Connect Queue resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Queue("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example Name",
- *     description: "Example Description",
- *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     tags: {
- *         Name: "Example Queue",
- *     },
- * });
- * ```
- *
- * ### With Quick Connect IDs
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Queue("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example Name",
- *     description: "Example Description",
- *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     quickConnectIds: ["12345678-abcd-1234-abcd-123456789012"],
- *     tags: {
- *         Name: "Example Queue with Quick Connect IDs",
- *     },
- * });
- * ```
- *
- * ### With Outbound Caller Config
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Queue("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example Name",
- *     description: "Example Description",
- *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     outboundCallerConfig: {
- *         outboundCallerIdName: "example",
- *         outboundCallerIdNumberId: "12345678-abcd-1234-abcd-123456789012",
- *         outboundFlowId: "87654321-defg-1234-defg-987654321234",
- *     },
- *     tags: {
- *         Name: "Example Queue with Outbound Caller Config",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For example:
- *
- * ```sh
- * $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
- * ```
- */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra
@@ -106,57 +35,18 @@ export class Queue extends pulumi.CustomResource {
         return obj['__pulumiType'] === Queue.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Queue.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Specifies the description of the Queue.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the identifier of the Hours of Operation.
-     */
     declare public readonly hoursOfOperationId: pulumi.Output<string>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     declare public readonly instanceId: pulumi.Output<string>;
-    /**
-     * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-     */
     declare public readonly maxContacts: pulumi.Output<number | undefined>;
-    /**
-     * Specifies the name of the Queue.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-     */
     declare public readonly outboundCallerConfig: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
-    /**
-     * The identifier for the Queue.
-     */
     declare public /*out*/ readonly queueId: pulumi.Output<string>;
-    /**
-     * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-     */
     declare public readonly quickConnectIds: pulumi.Output<string[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-     */
     declare public readonly status: pulumi.Output<string>;
-    /**
-     * Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -216,57 +106,18 @@ export class Queue extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Queue resources.
  */
 export interface QueueState {
-    /**
-     * The Amazon Resource Name (ARN) of the Queue.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies the description of the Queue.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specifies the identifier of the Hours of Operation.
-     */
     hoursOfOperationId?: pulumi.Input<string>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-     */
     maxContacts?: pulumi.Input<number>;
-    /**
-     * Specifies the name of the Queue.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-     */
     outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfig>;
-    /**
-     * The identifier for the Queue.
-     */
     queueId?: pulumi.Input<string>;
-    /**
-     * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-     */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -274,44 +125,14 @@ export interface QueueState {
  * The set of arguments for constructing a Queue resource.
  */
 export interface QueueArgs {
-    /**
-     * Specifies the description of the Queue.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specifies the identifier of the Hours of Operation.
-     */
     hoursOfOperationId: pulumi.Input<string>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-     */
     maxContacts?: pulumi.Input<number>;
-    /**
-     * Specifies the name of the Queue.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-     */
     outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfig>;
-    /**
-     * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-     */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

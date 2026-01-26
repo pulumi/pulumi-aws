@@ -13,17 +13,8 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfigurationMetadataConfiguration
     {
-        /// <summary>
-        /// Destination information for the S3 Metadata configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketMetadataConfigurationMetadataConfigurationDestination> Destinations;
-        /// <summary>
-        /// Inventory table configuration. See `InventoryTableConfiguration` Block for details.
-        /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration? InventoryTableConfiguration;
-        /// <summary>
-        /// Journal table configuration. See `JournalTableConfiguration` Block for details.
-        /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration? JournalTableConfiguration;
 
         [OutputConstructor]

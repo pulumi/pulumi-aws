@@ -11,66 +11,12 @@ namespace Pulumi.Aws.S3
 {
     public static class GetDirectoryBuckets
     {
-        /// <summary>
-        /// Lists Amazon S3 Express directory buckets.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetDirectoryBuckets.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDirectoryBucketsResult> InvokeAsync(GetDirectoryBucketsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args ?? new GetDirectoryBucketsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Lists Amazon S3 Express directory buckets.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetDirectoryBuckets.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDirectoryBucketsResult> Invoke(GetDirectoryBucketsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args ?? new GetDirectoryBucketsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Lists Amazon S3 Express directory buckets.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetDirectoryBuckets.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDirectoryBucketsResult> Invoke(GetDirectoryBucketsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args ?? new GetDirectoryBucketsInvokeArgs(), options.WithDefaults());
     }
@@ -78,9 +24,6 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetDirectoryBucketsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -92,9 +35,6 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetDirectoryBucketsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -108,13 +48,7 @@ namespace Pulumi.Aws.S3
     [OutputType]
     public sealed class GetDirectoryBucketsResult
     {
-        /// <summary>
-        /// Bucket ARNs.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
-        /// <summary>
-        /// Buckets names.
-        /// </summary>
         public readonly ImmutableArray<string> Buckets;
         public readonly string Id;
         public readonly string Region;

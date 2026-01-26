@@ -17,160 +17,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker AI Image Version resource.
- * 
- * ## Example Usage
- * 
- * ### Basic usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.ImageVersion;
- * import com.pulumi.aws.sagemaker.ImageVersionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ImageVersion("example", ImageVersionArgs.builder()
- *             .imageName(test.id())
- *             .baseImage("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Aliases
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.ImageVersion;
- * import com.pulumi.aws.sagemaker.ImageVersionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ImageVersion("test", ImageVersionArgs.builder()
- *             .imageName(testAwsSagemakerImage.id())
- *             .baseImage("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
- *             .aliases(            
- *                 "latest",
- *                 "stable")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/imageVersion:ImageVersion")
 public class ImageVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of aliases for the image version.
-     * 
-     */
     @Export(name="aliases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> aliases;
 
-    /**
-     * @return A list of aliases for the image version.
-     * 
-     */
     public Output<Optional<List<String>>> aliases() {
         return Codegen.optional(this.aliases);
     }
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The registry path of the container image on which this image version is based.
-     * 
-     */
     @Export(name="baseImage", refs={String.class}, tree="[0]")
     private Output<String> baseImage;
 
-    /**
-     * @return The registry path of the container image on which this image version is based.
-     * 
-     */
     public Output<String> baseImage() {
         return this.baseImage;
     }
-    /**
-     * The registry path of the container image that contains this image version.
-     * 
-     */
     @Export(name="containerImage", refs={String.class}, tree="[0]")
     private Output<String> containerImage;
 
-    /**
-     * @return The registry path of the container image that contains this image version.
-     * 
-     */
     public Output<String> containerImage() {
         return this.containerImage;
     }
-    /**
-     * Indicates Horovod compatibility.
-     * 
-     */
     @Export(name="horovod", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> horovod;
 
-    /**
-     * @return Indicates Horovod compatibility.
-     * 
-     */
     public Output<Optional<Boolean>> horovod() {
         return Codegen.optional(this.horovod);
     }
@@ -180,129 +55,57 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
     public Output<String> imageArn() {
         return this.imageArn;
     }
-    /**
-     * The name of the image. Must be unique to your account.
-     * 
-     */
     @Export(name="imageName", refs={String.class}, tree="[0]")
     private Output<String> imageName;
 
-    /**
-     * @return The name of the image. Must be unique to your account.
-     * 
-     */
     public Output<String> imageName() {
         return this.imageName;
     }
-    /**
-     * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
-     * 
-     */
     @Export(name="jobType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> jobType;
 
-    /**
-     * @return Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
-     * 
-     */
     public Output<Optional<String>> jobType() {
         return Codegen.optional(this.jobType);
     }
-    /**
-     * The machine learning framework vended in the image version.
-     * 
-     */
     @Export(name="mlFramework", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mlFramework;
 
-    /**
-     * @return The machine learning framework vended in the image version.
-     * 
-     */
     public Output<Optional<String>> mlFramework() {
         return Codegen.optional(this.mlFramework);
     }
-    /**
-     * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
-     * 
-     */
     @Export(name="processor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> processor;
 
-    /**
-     * @return Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
-     * 
-     */
     public Output<Optional<String>> processor() {
         return Codegen.optional(this.processor);
     }
-    /**
-     * The supported programming language and its version.
-     * 
-     */
     @Export(name="programmingLang", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> programmingLang;
 
-    /**
-     * @return The supported programming language and its version.
-     * 
-     */
     public Output<Optional<String>> programmingLang() {
         return Codegen.optional(this.programmingLang);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The maintainer description of the image version.
-     * 
-     */
     @Export(name="releaseNotes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> releaseNotes;
 
-    /**
-     * @return The maintainer description of the image version.
-     * 
-     */
     public Output<Optional<String>> releaseNotes() {
         return Codegen.optional(this.releaseNotes);
     }
-    /**
-     * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
-     * 
-     */
     @Export(name="vendorGuidance", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vendorGuidance;
 
-    /**
-     * @return The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
-     * 
-     */
     public Output<Optional<String>> vendorGuidance() {
         return Codegen.optional(this.vendorGuidance);
     }
-    /**
-     * The version of the image. If not specified, the latest version is described.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The version of the image. If not specified, the latest version is described.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

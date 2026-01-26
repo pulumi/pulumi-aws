@@ -15,17 +15,9 @@ public final class LogDeliveryDestinationDeliveryDestinationConfigurationArgs ex
 
     public static final LogDeliveryDestinationDeliveryDestinationConfigurationArgs Empty = new LogDeliveryDestinationDeliveryDestinationConfigurationArgs();
 
-    /**
-     * The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
-     * 
-     */
     @Import(name="destinationResourceArn")
     private @Nullable Output<String> destinationResourceArn;
 
-    /**
-     * @return The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
-     * 
-     */
     public Optional<Output<String>> destinationResourceArn() {
         return Optional.ofNullable(this.destinationResourceArn);
     }
@@ -54,23 +46,11 @@ public final class LogDeliveryDestinationDeliveryDestinationConfigurationArgs ex
             $ = new LogDeliveryDestinationDeliveryDestinationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationResourceArn The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationResourceArn(@Nullable Output<String> destinationResourceArn) {
             $.destinationResourceArn = destinationResourceArn;
             return this;
         }
 
-        /**
-         * @param destinationResourceArn The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationResourceArn(String destinationResourceArn) {
             return destinationResourceArn(Output.of(destinationResourceArn));
         }

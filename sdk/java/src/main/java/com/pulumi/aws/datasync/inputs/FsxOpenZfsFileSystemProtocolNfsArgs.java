@@ -14,17 +14,9 @@ public final class FsxOpenZfsFileSystemProtocolNfsArgs extends com.pulumi.resour
 
     public static final FsxOpenZfsFileSystemProtocolNfsArgs Empty = new FsxOpenZfsFileSystemProtocolNfsArgs();
 
-    /**
-     * Represents the mount options that are available for DataSync to access an NFS location. See below.
-     * 
-     */
     @Import(name="mountOptions", required=true)
     private Output<FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs> mountOptions;
 
-    /**
-     * @return Represents the mount options that are available for DataSync to access an NFS location. See below.
-     * 
-     */
     public Output<FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs> mountOptions() {
         return this.mountOptions;
     }
@@ -53,23 +45,11 @@ public final class FsxOpenZfsFileSystemProtocolNfsArgs extends com.pulumi.resour
             $ = new FsxOpenZfsFileSystemProtocolNfsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mountOptions Represents the mount options that are available for DataSync to access an NFS location. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(Output<FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs> mountOptions) {
             $.mountOptions = mountOptions;
             return this;
         }
 
-        /**
-         * @param mountOptions Represents the mount options that are available for DataSync to access an NFS location. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs mountOptions) {
             return mountOptions(Output.of(mountOptions));
         }

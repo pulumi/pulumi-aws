@@ -17,77 +17,37 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final AnomalyMonitorArgs Empty = new AnomalyMonitorArgs();
 
-    /**
-     * The dimensions to evaluate. Valid values: `SERVICE`.
-     * 
-     */
     @Import(name="monitorDimension")
     private @Nullable Output<String> monitorDimension;
 
-    /**
-     * @return The dimensions to evaluate. Valid values: `SERVICE`.
-     * 
-     */
     public Optional<Output<String>> monitorDimension() {
         return Optional.ofNullable(this.monitorDimension);
     }
 
-    /**
-     * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-     * 
-     */
     @Import(name="monitorSpecification")
     private @Nullable Output<String> monitorSpecification;
 
-    /**
-     * @return A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-     * 
-     */
     public Optional<Output<String>> monitorSpecification() {
         return Optional.ofNullable(this.monitorSpecification);
     }
 
-    /**
-     * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-     * 
-     */
     @Import(name="monitorType", required=true)
     private Output<String> monitorType;
 
-    /**
-     * @return The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-     * 
-     */
     public Output<String> monitorType() {
         return this.monitorType;
     }
 
-    /**
-     * The name of the monitor.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the monitor.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,107 +80,47 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.ResourceArgs 
             $ = new AnomalyMonitorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param monitorDimension The dimensions to evaluate. Valid values: `SERVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorDimension(@Nullable Output<String> monitorDimension) {
             $.monitorDimension = monitorDimension;
             return this;
         }
 
-        /**
-         * @param monitorDimension The dimensions to evaluate. Valid values: `SERVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorDimension(String monitorDimension) {
             return monitorDimension(Output.of(monitorDimension));
         }
 
-        /**
-         * @param monitorSpecification A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorSpecification(@Nullable Output<String> monitorSpecification) {
             $.monitorSpecification = monitorSpecification;
             return this;
         }
 
-        /**
-         * @param monitorSpecification A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorSpecification(String monitorSpecification) {
             return monitorSpecification(Output.of(monitorSpecification));
         }
 
-        /**
-         * @param monitorType The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorType(Output<String> monitorType) {
             $.monitorType = monitorType;
             return this;
         }
 
-        /**
-         * @param monitorType The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorType(String monitorType) {
             return monitorType(Output.of(monitorType));
         }
 
-        /**
-         * @param name The name of the monitor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the monitor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

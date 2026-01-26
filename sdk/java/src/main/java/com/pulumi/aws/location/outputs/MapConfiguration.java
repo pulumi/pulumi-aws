@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MapConfiguration {
-    /**
-     * @return Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-     * 
-     */
     private String style;
 
     private MapConfiguration() {}
-    /**
-     * @return Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-     * 
-     */
     public String style() {
         return this.style;
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayProtocolConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Model Context Protocol (MCP) configuration block. See `Mcp` below.
-        /// </summary>
         [Input("mcp")]
         public Input<Inputs.AgentcoreGatewayProtocolConfigurationMcpGetArgs>? Mcp { get; set; }
 

@@ -9,101 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudSearch
 {
-    /// <summary>
-    /// Provides an CloudSearch domain service access policy resource.
-    /// 
-    /// The provider waits for the domain service access policy to become `Active` when applying a configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDomain = new Aws.CloudSearch.Domain("example", new()
-    ///     {
-    ///         Name = "example-domain",
-    ///     });
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "search_only",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "*",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "cloudsearch:search",
-    ///                     "cloudsearch:document",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "IpAddress",
-    ///                         Variable = "aws:SourceIp",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "192.0.2.0/32",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("example", new()
-    ///     {
-    ///         DomainName = exampleDomain.Id,
-    ///         AccessPolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")]
     public partial class DomainServiceAccessPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        /// </summary>
         [Output("accessPolicy")]
         public Output<string> AccessPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// The CloudSearch domain name the policy applies to.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -153,21 +67,12 @@ namespace Pulumi.Aws.CloudSearch
 
     public sealed class DomainServiceAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        /// </summary>
         [Input("accessPolicy", required: true)]
         public Input<string> AccessPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// The CloudSearch domain name the policy applies to.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -179,21 +84,12 @@ namespace Pulumi.Aws.CloudSearch
 
     public sealed class DomainServiceAccessPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        /// </summary>
         [Input("accessPolicy")]
         public Input<string>? AccessPolicy { get; set; }
 
-        /// <summary>
-        /// The CloudSearch domain name the policy applies to.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

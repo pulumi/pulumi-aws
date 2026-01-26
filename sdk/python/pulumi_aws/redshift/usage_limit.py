@@ -29,14 +29,6 @@ class UsageLimitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UsageLimit resource.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster that you want to limit usage.
-        :param pulumi.Input[_builtins.str] feature_type: The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
-        :param pulumi.Input[_builtins.str] limit_type: The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -54,9 +46,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter
     def amount(self) -> pulumi.Input[_builtins.int]:
-        """
-        The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        """
         return pulumi.get(self, "amount")
 
     @amount.setter
@@ -66,9 +55,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the cluster that you want to limit usage.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -78,9 +64,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter(name="featureType")
     def feature_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
-        """
         return pulumi.get(self, "feature_type")
 
     @feature_type.setter
@@ -90,9 +73,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter(name="limitType")
     def limit_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
-        """
         return pulumi.get(self, "limit_type")
 
     @limit_type.setter
@@ -102,9 +82,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter(name="breachAction")
     def breach_action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
-        """
         return pulumi.get(self, "breach_action")
 
     @breach_action.setter
@@ -114,9 +91,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
-        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -126,9 +100,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,9 +109,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -163,16 +131,6 @@ class _UsageLimitState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering UsageLimit resources.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Usage Limit.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster that you want to limit usage.
-        :param pulumi.Input[_builtins.str] feature_type: The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
-        :param pulumi.Input[_builtins.str] limit_type: The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if amount is not None:
             pulumi.set(__self__, "amount", amount)
@@ -198,9 +156,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def amount(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        """
         return pulumi.get(self, "amount")
 
     @amount.setter
@@ -210,9 +165,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Usage Limit.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -222,9 +174,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="breachAction")
     def breach_action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
-        """
         return pulumi.get(self, "breach_action")
 
     @breach_action.setter
@@ -234,9 +183,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the cluster that you want to limit usage.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -246,9 +192,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="featureType")
     def feature_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
-        """
         return pulumi.get(self, "feature_type")
 
     @feature_type.setter
@@ -258,9 +201,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="limitType")
     def limit_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
-        """
         return pulumi.get(self, "limit_type")
 
     @limit_type.setter
@@ -270,9 +210,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
-        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -282,9 +219,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -294,9 +228,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -306,9 +237,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -332,39 +260,9 @@ class UsageLimit(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift Usage Limit.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.UsageLimit("example",
-            cluster_identifier=example_aws_redshift_cluster["id"],
-            feature_type="concurrency-scaling",
-            limit_type="time",
-            amount=60)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift usage limits using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
-        ```
-
+        Create a UsageLimit resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster that you want to limit usage.
-        :param pulumi.Input[_builtins.str] feature_type: The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
-        :param pulumi.Input[_builtins.str] limit_type: The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -373,29 +271,7 @@ class UsageLimit(pulumi.CustomResource):
                  args: UsageLimitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift Usage Limit.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.UsageLimit("example",
-            cluster_identifier=example_aws_redshift_cluster["id"],
-            feature_type="concurrency-scaling",
-            limit_type="time",
-            amount=60)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift usage limits using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
-        ```
-
+        Create a UsageLimit resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UsageLimitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -473,16 +349,6 @@ class UsageLimit(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Usage Limit.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster that you want to limit usage.
-        :param pulumi.Input[_builtins.str] feature_type: The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
-        :param pulumi.Input[_builtins.str] limit_type: The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -503,80 +369,50 @@ class UsageLimit(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def amount(self) -> pulumi.Output[_builtins.int]:
-        """
-        The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        """
         return pulumi.get(self, "amount")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Usage Limit.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="breachAction")
     def breach_action(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
-        """
         return pulumi.get(self, "breach_action")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the cluster that you want to limit usage.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="featureType")
     def feature_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
-        """
         return pulumi.get(self, "feature_type")
 
     @_builtins.property
     @pulumi.getter(name="limitType")
     def limit_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
-        """
         return pulumi.get(self, "limit_type")
 
     @_builtins.property
     @pulumi.getter
     def period(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
-        """
         return pulumi.get(self, "period")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

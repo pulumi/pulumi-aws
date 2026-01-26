@@ -15,342 +15,95 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SNS platform application resource
- * 
- * ## Example Usage
- * 
- * ### Apple Push Notification Service (APNS) using certificate-based authentication
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.PlatformApplication;
- * import com.pulumi.aws.sns.PlatformApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var apnsApplication = new PlatformApplication("apnsApplication", PlatformApplicationArgs.builder()
- *             .name("apns_application")
- *             .platform("APNS")
- *             .platformCredential("<APNS PRIVATE KEY>")
- *             .platformPrincipal("<APNS CERTIFICATE>")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Apple Push Notification Service (APNS) using token-based authentication
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.PlatformApplication;
- * import com.pulumi.aws.sns.PlatformApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var apnsApplication = new PlatformApplication("apnsApplication", PlatformApplicationArgs.builder()
- *             .name("apns_application")
- *             .platform("APNS")
- *             .platformCredential("<APNS SIGNING KEY>")
- *             .platformPrincipal("<APNS SIGNING KEY ID>")
- *             .applePlatformTeamId("<APPLE TEAM ID>")
- *             .applePlatformBundleId("<APPLE BUNDLE ID>")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Google Cloud Messaging (GCM)
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.PlatformApplication;
- * import com.pulumi.aws.sns.PlatformApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var gcmApplication = new PlatformApplication("gcmApplication", PlatformApplicationArgs.builder()
- *             .name("gcm_application")
- *             .platform("GCM")
- *             .platformCredential("<GCM API KEY>")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SNS platform applications using the ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
- * ```
- * 
- */
 @ResourceType(type="aws:sns/platformApplication:PlatformApplication")
 public class PlatformApplication extends com.pulumi.resources.CustomResource {
-    /**
-     * The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-     * 
-     */
     @Export(name="applePlatformBundleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applePlatformBundleId;
 
-    /**
-     * @return The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-     * 
-     */
     public Output<Optional<String>> applePlatformBundleId() {
         return Codegen.optional(this.applePlatformBundleId);
     }
-    /**
-     * The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-     * 
-     */
     @Export(name="applePlatformTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applePlatformTeamId;
 
-    /**
-     * @return The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-     * 
-     */
     public Output<Optional<String>> applePlatformTeamId() {
         return Codegen.optional(this.applePlatformTeamId);
     }
-    /**
-     * The ARN of the SNS platform application
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the SNS platform application
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-     * 
-     */
     @Export(name="eventDeliveryFailureTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventDeliveryFailureTopicArn;
 
-    /**
-     * @return The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-     * 
-     */
     public Output<Optional<String>> eventDeliveryFailureTopicArn() {
         return Codegen.optional(this.eventDeliveryFailureTopicArn);
     }
-    /**
-     * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-     * 
-     */
     @Export(name="eventEndpointCreatedTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventEndpointCreatedTopicArn;
 
-    /**
-     * @return The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-     * 
-     */
     public Output<Optional<String>> eventEndpointCreatedTopicArn() {
         return Codegen.optional(this.eventEndpointCreatedTopicArn);
     }
-    /**
-     * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-     * 
-     */
     @Export(name="eventEndpointDeletedTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventEndpointDeletedTopicArn;
 
-    /**
-     * @return The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-     * 
-     */
     public Output<Optional<String>> eventEndpointDeletedTopicArn() {
         return Codegen.optional(this.eventEndpointDeletedTopicArn);
     }
-    /**
-     * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-     * 
-     */
     @Export(name="eventEndpointUpdatedTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventEndpointUpdatedTopicArn;
 
-    /**
-     * @return The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-     * 
-     */
     public Output<Optional<String>> eventEndpointUpdatedTopicArn() {
         return Codegen.optional(this.eventEndpointUpdatedTopicArn);
     }
-    /**
-     * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-     * 
-     */
     @Export(name="failureFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> failureFeedbackRoleArn;
 
-    /**
-     * @return The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-     * 
-     */
     public Output<Optional<String>> failureFeedbackRoleArn() {
         return Codegen.optional(this.failureFeedbackRoleArn);
     }
-    /**
-     * The friendly name for the SNS platform application
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The friendly name for the SNS platform application
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-     * 
-     */
     @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
-    /**
-     * @return The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-     * 
-     */
     public Output<String> platform() {
         return this.platform;
     }
-    /**
-     * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-     * 
-     */
     @Export(name="platformCredential", refs={String.class}, tree="[0]")
     private Output<String> platformCredential;
 
-    /**
-     * @return Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-     * 
-     */
     public Output<String> platformCredential() {
         return this.platformCredential;
     }
-    /**
-     * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-     * 
-     */
     @Export(name="platformPrincipal", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> platformPrincipal;
 
-    /**
-     * @return Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-     * 
-     */
     public Output<Optional<String>> platformPrincipal() {
         return Codegen.optional(this.platformPrincipal);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-     * 
-     */
     @Export(name="successFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> successFeedbackRoleArn;
 
-    /**
-     * @return The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-     * 
-     */
     public Output<Optional<String>> successFeedbackRoleArn() {
         return Codegen.optional(this.successFeedbackRoleArn);
     }
-    /**
-     * The sample rate percentage (0-100) of successfully delivered messages.
-     * 
-     * The following attributes are needed only when using APNS token credentials:
-     * 
-     */
     @Export(name="successFeedbackSampleRate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> successFeedbackSampleRate;
 
-    /**
-     * @return The sample rate percentage (0-100) of successfully delivered messages.
-     * 
-     * The following attributes are needed only when using APNS token credentials:
-     * 
-     */
     public Output<Optional<String>> successFeedbackSampleRate() {
         return Codegen.optional(this.successFeedbackSampleRate);
     }

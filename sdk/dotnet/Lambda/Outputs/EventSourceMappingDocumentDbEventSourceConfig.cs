@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingDocumentDbEventSourceConfig
     {
-        /// <summary>
-        /// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        /// </summary>
         public readonly string? CollectionName;
-        /// <summary>
-        /// Name of the database to consume within the DocumentDB cluster.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-        /// </summary>
         public readonly string? FullDocument;
 
         [OutputConstructor]

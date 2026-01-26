@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceVpcLatticeConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the port for a target group associated with the VPC Lattice configuration.
-        /// </summary>
         [Input("portName", required: true)]
         public Input<string> PortName { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The full ARN of the target group or groups associated with the VPC Lattice configuration.
-        /// </summary>
         [Input("targetGroupArn", required: true)]
         public Input<string> TargetGroupArn { get; set; } = null!;
 

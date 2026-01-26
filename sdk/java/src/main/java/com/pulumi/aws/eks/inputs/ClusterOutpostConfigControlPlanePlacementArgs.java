@@ -14,17 +14,9 @@ public final class ClusterOutpostConfigControlPlanePlacementArgs extends com.pul
 
     public static final ClusterOutpostConfigControlPlanePlacementArgs Empty = new ClusterOutpostConfigControlPlanePlacementArgs();
 
-    /**
-     * The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
-     * 
-     */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
-    /**
-     * @return The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
@@ -53,23 +45,11 @@ public final class ClusterOutpostConfigControlPlanePlacementArgs extends com.pul
             $ = new ClusterOutpostConfigControlPlanePlacementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }

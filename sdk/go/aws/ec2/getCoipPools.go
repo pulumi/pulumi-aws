@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
-//
-// ## Example Usage
-//
-// The following shows outputting all COIP Pool Ids.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ec2.GetCoipPools(ctx, &ec2.GetCoipPoolsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("foo", foo.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoipPoolsResult
@@ -51,24 +23,16 @@ func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getCoipPools.
 type GetCoipPoolsArgs struct {
-	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired aws_ec2_coip_pools.
-	Tags map[string]string `pulumi:"tags"`
+	Region  *string              `pulumi:"region"`
+	Tags    map[string]string    `pulumi:"tags"`
 }
 
 // A collection of values returned by getCoipPools.
 type GetCoipPoolsResult struct {
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of COIP Pool Identifiers
+	Id      string            `pulumi:"id"`
 	PoolIds []string          `pulumi:"poolIds"`
 	Region  string            `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -85,16 +49,9 @@ func GetCoipPoolsOutput(ctx *pulumi.Context, args GetCoipPoolsOutputArgs, opts .
 
 // A collection of arguments for invoking getCoipPools.
 type GetCoipPoolsOutputArgs struct {
-	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetCoipPoolsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired aws_ec2_coip_pools.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput        `pulumi:"region"`
+	Tags    pulumi.StringMapInput        `pulumi:"tags"`
 }
 
 func (GetCoipPoolsOutputArgs) ElementType() reflect.Type {
@@ -125,7 +82,6 @@ func (o GetCoipPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of COIP Pool Identifiers
 func (o GetCoipPoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
 }

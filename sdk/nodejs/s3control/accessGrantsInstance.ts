@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Access Grants instance, which serves as a logical grouping for access grants.
- * You can have one S3 Access Grants instance per Region in your account.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.AccessGrantsInstance("example", {});
- * ```
- *
- * ### AWS IAM Identity Center
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.AccessGrantsInstance("example", {identityCenterArn: "arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
- * ```
- */
 export class AccessGrantsInstance extends pulumi.CustomResource {
     /**
      * Get an existing AccessGrantsInstance resource's state with the given name, ID, and optional extra
@@ -64,34 +32,13 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessGrantsInstance.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants instance.
-     */
     declare public /*out*/ readonly accessGrantsInstanceArn: pulumi.Output<string>;
-    /**
-     * Unique ID of the S3 Access Grants instance.
-     */
     declare public /*out*/ readonly accessGrantsInstanceId: pulumi.Output<string>;
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-     */
     declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
-    /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-     */
     declare public readonly identityCenterArn: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -135,34 +82,13 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessGrantsInstance resources.
  */
 export interface AccessGrantsInstanceState {
-    /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants instance.
-     */
     accessGrantsInstanceArn?: pulumi.Input<string>;
-    /**
-     * Unique ID of the S3 Access Grants instance.
-     */
     accessGrantsInstanceId?: pulumi.Input<string>;
     accountId?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-     */
     identityCenterApplicationArn?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-     */
     identityCenterArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -171,16 +97,7 @@ export interface AccessGrantsInstanceState {
  */
 export interface AccessGrantsInstanceArgs {
     accountId?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-     */
     identityCenterArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

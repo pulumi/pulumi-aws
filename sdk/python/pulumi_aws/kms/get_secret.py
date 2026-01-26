@@ -73,7 +73,7 @@ def get_secret(region: Optional[_builtins.str] = None,
                secrets: Optional[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    !> **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `kms_get_secrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -89,7 +89,7 @@ def get_secret_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = 
                       secrets: Optional[pulumi.Input[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
-    !> **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `kms_get_secrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

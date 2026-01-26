@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogDeliveryConfigurationLogConfigurationS3Configuration {
-    /**
-     * @return The ARN of the S3 bucket to which the logs should be delivered.
-     * 
-     */
     private @Nullable String bucketArn;
 
     private LogDeliveryConfigurationLogConfigurationS3Configuration() {}
-    /**
-     * @return The ARN of the S3 bucket to which the logs should be delivered.
-     * 
-     */
     public Optional<String> bucketArn() {
         return Optional.ofNullable(this.bucketArn);
     }

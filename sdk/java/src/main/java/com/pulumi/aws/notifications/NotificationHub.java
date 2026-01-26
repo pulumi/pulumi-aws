@@ -15,66 +15,11 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS User Notifications Notification Hub.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.notifications.NotificationHub;
- * import com.pulumi.aws.notifications.NotificationHubArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NotificationHub("example", NotificationHubArgs.builder()
- *             .notificationHubRegion("us-west-2")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
- * 
- * ```sh
- * $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
- * ```
- * 
- */
 @ResourceType(type="aws:notifications/notificationHub:NotificationHub")
 public class NotificationHub extends com.pulumi.resources.CustomResource {
-    /**
-     * Notification Hub region.
-     * 
-     */
     @Export(name="notificationHubRegion", refs={String.class}, tree="[0]")
     private Output<String> notificationHubRegion;
 
-    /**
-     * @return Notification Hub region.
-     * 
-     */
     public Output<String> notificationHubRegion() {
         return this.notificationHubRegion;
     }

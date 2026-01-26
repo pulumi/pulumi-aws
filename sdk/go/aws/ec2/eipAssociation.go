@@ -11,87 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS EIP Association as a top level resource, to associate and disassociate Elastic IPs from AWS Instances and Network Interfaces.
-//
-// > **NOTE:** Do not use this resource to associate an EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
-//
-// > **NOTE:** `ec2.EipAssociation` is useful in scenarios where EIPs are either pre-existing or distributed to customers or users and therefore cannot be changed.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:              pulumi.String("ami-21f78e11"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				InstanceType:     pulumi.String(ec2.InstanceType_T2_Micro),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
-//				Domain: pulumi.String("vpc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewEipAssociation(ctx, "eip_assoc", &ec2.EipAssociationArgs{
-//				InstanceId:   web.ID(),
-//				AllocationId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EIP Assocations using their association IDs. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
-// ```
 type EipAssociation struct {
 	pulumi.CustomResourceState
 
-	// ID of the associated Elastic IP.
-	// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
-	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
-	// Whether to allow an Elastic IP address to be re-associated.
-	// Defaults to `true`.
+	AllocationId       pulumi.StringOutput  `pulumi:"allocationId"`
 	AllowReassociation pulumi.BoolPtrOutput `pulumi:"allowReassociation"`
-	// ID of the instance.
-	// The instance must have exactly one attached network interface.
-	// You can specify either the instance ID or the network interface ID, but not both.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// ID of the network interface.
-	// If the instance has more than one network interface, you must specify a network interface ID.
-	// You can specify either the instance ID or the network interface ID, but not both.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	// Primary or secondary private IP address to associate with the Elastic IP address.
-	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
-	// ) Address of the associated Elastic IP.
-	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	InstanceId         pulumi.StringOutput  `pulumi:"instanceId"`
+	NetworkInterfaceId pulumi.StringOutput  `pulumi:"networkInterfaceId"`
+	PrivateIpAddress   pulumi.StringOutput  `pulumi:"privateIpAddress"`
+	PublicIp           pulumi.StringOutput  `pulumi:"publicIp"`
+	Region             pulumi.StringOutput  `pulumi:"region"`
 }
 
 // NewEipAssociation registers a new resource with the given unique name, arguments, and options.
@@ -124,51 +53,23 @@ func GetEipAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EipAssociation resources.
 type eipAssociationState struct {
-	// ID of the associated Elastic IP.
-	// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
-	AllocationId *string `pulumi:"allocationId"`
-	// Whether to allow an Elastic IP address to be re-associated.
-	// Defaults to `true`.
-	AllowReassociation *bool `pulumi:"allowReassociation"`
-	// ID of the instance.
-	// The instance must have exactly one attached network interface.
-	// You can specify either the instance ID or the network interface ID, but not both.
-	InstanceId *string `pulumi:"instanceId"`
-	// ID of the network interface.
-	// If the instance has more than one network interface, you must specify a network interface ID.
-	// You can specify either the instance ID or the network interface ID, but not both.
+	AllocationId       *string `pulumi:"allocationId"`
+	AllowReassociation *bool   `pulumi:"allowReassociation"`
+	InstanceId         *string `pulumi:"instanceId"`
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// Primary or secondary private IP address to associate with the Elastic IP address.
-	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// ) Address of the associated Elastic IP.
-	PublicIp *string `pulumi:"publicIp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
+	PublicIp           *string `pulumi:"publicIp"`
+	Region             *string `pulumi:"region"`
 }
 
 type EipAssociationState struct {
-	// ID of the associated Elastic IP.
-	// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
-	AllocationId pulumi.StringPtrInput
-	// Whether to allow an Elastic IP address to be re-associated.
-	// Defaults to `true`.
+	AllocationId       pulumi.StringPtrInput
 	AllowReassociation pulumi.BoolPtrInput
-	// ID of the instance.
-	// The instance must have exactly one attached network interface.
-	// You can specify either the instance ID or the network interface ID, but not both.
-	InstanceId pulumi.StringPtrInput
-	// ID of the network interface.
-	// If the instance has more than one network interface, you must specify a network interface ID.
-	// You can specify either the instance ID or the network interface ID, but not both.
+	InstanceId         pulumi.StringPtrInput
 	NetworkInterfaceId pulumi.StringPtrInput
-	// Primary or secondary private IP address to associate with the Elastic IP address.
-	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-	PrivateIpAddress pulumi.StringPtrInput
-	// ) Address of the associated Elastic IP.
-	PublicIp pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PrivateIpAddress   pulumi.StringPtrInput
+	PublicIp           pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 }
 
 func (EipAssociationState) ElementType() reflect.Type {
@@ -176,52 +77,24 @@ func (EipAssociationState) ElementType() reflect.Type {
 }
 
 type eipAssociationArgs struct {
-	// ID of the associated Elastic IP.
-	// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
-	AllocationId *string `pulumi:"allocationId"`
-	// Whether to allow an Elastic IP address to be re-associated.
-	// Defaults to `true`.
-	AllowReassociation *bool `pulumi:"allowReassociation"`
-	// ID of the instance.
-	// The instance must have exactly one attached network interface.
-	// You can specify either the instance ID or the network interface ID, but not both.
-	InstanceId *string `pulumi:"instanceId"`
-	// ID of the network interface.
-	// If the instance has more than one network interface, you must specify a network interface ID.
-	// You can specify either the instance ID or the network interface ID, but not both.
+	AllocationId       *string `pulumi:"allocationId"`
+	AllowReassociation *bool   `pulumi:"allowReassociation"`
+	InstanceId         *string `pulumi:"instanceId"`
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// Primary or secondary private IP address to associate with the Elastic IP address.
-	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// ) Address of the associated Elastic IP.
-	PublicIp *string `pulumi:"publicIp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
+	PublicIp           *string `pulumi:"publicIp"`
+	Region             *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EipAssociation resource.
 type EipAssociationArgs struct {
-	// ID of the associated Elastic IP.
-	// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
-	AllocationId pulumi.StringPtrInput
-	// Whether to allow an Elastic IP address to be re-associated.
-	// Defaults to `true`.
+	AllocationId       pulumi.StringPtrInput
 	AllowReassociation pulumi.BoolPtrInput
-	// ID of the instance.
-	// The instance must have exactly one attached network interface.
-	// You can specify either the instance ID or the network interface ID, but not both.
-	InstanceId pulumi.StringPtrInput
-	// ID of the network interface.
-	// If the instance has more than one network interface, you must specify a network interface ID.
-	// You can specify either the instance ID or the network interface ID, but not both.
+	InstanceId         pulumi.StringPtrInput
 	NetworkInterfaceId pulumi.StringPtrInput
-	// Primary or secondary private IP address to associate with the Elastic IP address.
-	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-	PrivateIpAddress pulumi.StringPtrInput
-	// ) Address of the associated Elastic IP.
-	PublicIp pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PrivateIpAddress   pulumi.StringPtrInput
+	PublicIp           pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 }
 
 func (EipAssociationArgs) ElementType() reflect.Type {
@@ -311,44 +184,30 @@ func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ID of the associated Elastic IP.
-// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
 func (o EipAssociationOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
 }
 
-// Whether to allow an Elastic IP address to be re-associated.
-// Defaults to `true`.
 func (o EipAssociationOutput) AllowReassociation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.BoolPtrOutput { return v.AllowReassociation }).(pulumi.BoolPtrOutput)
 }
 
-// ID of the instance.
-// The instance must have exactly one attached network interface.
-// You can specify either the instance ID or the network interface ID, but not both.
 func (o EipAssociationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// ID of the network interface.
-// If the instance has more than one network interface, you must specify a network interface ID.
-// You can specify either the instance ID or the network interface ID, but not both.
 func (o EipAssociationOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// Primary or secondary private IP address to associate with the Elastic IP address.
-// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 func (o EipAssociationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
-// ) Address of the associated Elastic IP.
 func (o EipAssociationOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EipAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

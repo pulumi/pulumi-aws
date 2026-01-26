@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn {
-    /**
-     * @return Description of the column that helps the query engine understand the contents of the column.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-     * 
-     */
     private @Nullable String inclusion;
-    /**
-     * @return Name of the column for which the other fields in this object apply.
-     * 
-     */
     private @Nullable String name;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn() {}
-    /**
-     * @return Description of the column that helps the query engine understand the contents of the column.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-     * 
-     */
     public Optional<String> inclusion() {
         return Optional.ofNullable(this.inclusion);
     }
-    /**
-     * @return Name of the column for which the other fields in this object apply.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

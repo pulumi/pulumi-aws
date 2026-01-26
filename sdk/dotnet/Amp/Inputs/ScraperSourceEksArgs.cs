@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Amp.Inputs
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -29,10 +25,6 @@ namespace Pulumi.Aws.Amp.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

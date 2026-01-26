@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformTagColumnOperationTag {
-    /**
-     * @return A description for a column. See column_description.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription columnDescription;
-    /**
-     * @return A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-     * 
-     */
     private @Nullable String columnGeographicRole;
 
     private DataSetLogicalTableMapDataTransformTagColumnOperationTag() {}
-    /**
-     * @return A description for a column. See column_description.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescription() {
         return Optional.ofNullable(this.columnDescription);
     }
-    /**
-     * @return A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-     * 
-     */
     public Optional<String> columnGeographicRole() {
         return Optional.ofNullable(this.columnGeographicRole);
     }

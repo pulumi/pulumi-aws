@@ -12,233 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock AgentCore Gateway. With Gateway, developers can convert APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools.
-//
-// ## Example Usage
-//
-// ### Gateway with JWT Authorization
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"bedrock-agentcore.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("bedrock-agentcore-gateway-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
-//				Name:           pulumi.String("example-gateway"),
-//				RoleArn:        example.Arn,
-//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
-//				AuthorizerConfiguration: &bedrock.AgentcoreGatewayAuthorizerConfigurationArgs{
-//					CustomJwtAuthorizer: &bedrock.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{
-//						DiscoveryUrl: pulumi.String("https://accounts.google.com/.well-known/openid-configuration"),
-//						AllowedAudiences: pulumi.StringArray{
-//							pulumi.String("test1"),
-//							pulumi.String("test2"),
-//						},
-//					},
-//				},
-//				ProtocolType: pulumi.String("MCP"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Gateway with advanced JWT Authorization and MCP Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
-//				Name:           pulumi.String("mcp-gateway"),
-//				Description:    pulumi.String("Gateway for MCP communication"),
-//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
-//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
-//				AuthorizerConfiguration: &bedrock.AgentcoreGatewayAuthorizerConfigurationArgs{
-//					CustomJwtAuthorizer: &bedrock.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{
-//						DiscoveryUrl: pulumi.String("https://auth.example.com/.well-known/openid-configuration"),
-//						AllowedAudiences: pulumi.StringArray{
-//							pulumi.String("app-client"),
-//							pulumi.String("web-client"),
-//						},
-//						AllowedClients: pulumi.StringArray{
-//							pulumi.String("client-123"),
-//							pulumi.String("client-456"),
-//						},
-//					},
-//				},
-//				ProtocolType: pulumi.String("MCP"),
-//				ProtocolConfiguration: &bedrock.AgentcoreGatewayProtocolConfigurationArgs{
-//					Mcp: &bedrock.AgentcoreGatewayProtocolConfigurationMcpArgs{
-//						Instructions: pulumi.String("Gateway for handling MCP requests"),
-//						SearchType:   pulumi.String("HYBRID"),
-//						SupportedVersions: pulumi.StringArray{
-//							pulumi.String("2025-03-26"),
-//							pulumi.String("2025-06-18"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Gateway with Interceptor Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			interceptor, err := lambda.NewFunction(ctx, "interceptor", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("interceptor.zip"),
-//				Name:    pulumi.String("gateway-interceptor"),
-//				Role:    pulumi.Any(lambda.Arn),
-//				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimePython3d12),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
-//				Name:           pulumi.String("gateway-with-interceptor"),
-//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
-//				AuthorizerType: pulumi.String("AWS_IAM"),
-//				ProtocolType:   pulumi.String("MCP"),
-//				InterceptorConfigurations: bedrock.AgentcoreGatewayInterceptorConfigurationArray{
-//					&bedrock.AgentcoreGatewayInterceptorConfigurationArgs{
-//						InterceptionPoints: pulumi.StringArray{
-//							pulumi.String("REQUEST"),
-//							pulumi.String("RESPONSE"),
-//						},
-//						Interceptor: &bedrock.AgentcoreGatewayInterceptorConfigurationInterceptorArgs{
-//							Lambda: &bedrock.AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs{
-//								Arn: interceptor.Arn,
-//							},
-//						},
-//						InputConfiguration: &bedrock.AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs{
-//							PassRequestHeaders: pulumi.Bool(true),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore Gateway using the gateway ID. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreGateway:AgentcoreGateway example GATEWAY1234567890
-// ```
 type AgentcoreGateway struct {
 	pulumi.CustomResourceState
 
-	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
-	AuthorizerConfiguration AgentcoreGatewayAuthorizerConfigurationPtrOutput `pulumi:"authorizerConfiguration"`
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
-	AuthorizerType pulumi.StringOutput `pulumi:"authorizerType"`
-	// Description of the gateway.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
-	ExceptionLevel pulumi.StringPtrOutput `pulumi:"exceptionLevel"`
-	// ARN of the Gateway.
-	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
-	// Unique identifier of the Gateway.
-	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
-	// URL endpoint for the gateway.
-	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
-	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	AuthorizerConfiguration   AgentcoreGatewayAuthorizerConfigurationPtrOutput    `pulumi:"authorizerConfiguration"`
+	AuthorizerType            pulumi.StringOutput                                 `pulumi:"authorizerType"`
+	Description               pulumi.StringPtrOutput                              `pulumi:"description"`
+	ExceptionLevel            pulumi.StringPtrOutput                              `pulumi:"exceptionLevel"`
+	GatewayArn                pulumi.StringOutput                                 `pulumi:"gatewayArn"`
+	GatewayId                 pulumi.StringOutput                                 `pulumi:"gatewayId"`
+	GatewayUrl                pulumi.StringOutput                                 `pulumi:"gatewayUrl"`
 	InterceptorConfigurations AgentcoreGatewayInterceptorConfigurationArrayOutput `pulumi:"interceptorConfigurations"`
-	// ARN of the KMS key used to encrypt the gateway data.
-	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Name of the gateway.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
-	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType pulumi.StringOutput `pulumi:"protocolType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the IAM role that the gateway assumes to access AWS services.
-	//
-	// The following arguments are optional:
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
-	Timeouts AgentcoreGatewayTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Workload identity details for the gateway. See `workloadIdentityDetails` below.
-	WorkloadIdentityDetails AgentcoreGatewayWorkloadIdentityDetailArrayOutput `pulumi:"workloadIdentityDetails"`
+	KmsKeyArn                 pulumi.StringPtrOutput                              `pulumi:"kmsKeyArn"`
+	Name                      pulumi.StringOutput                                 `pulumi:"name"`
+	ProtocolConfiguration     AgentcoreGatewayProtocolConfigurationPtrOutput      `pulumi:"protocolConfiguration"`
+	ProtocolType              pulumi.StringOutput                                 `pulumi:"protocolType"`
+	Region                    pulumi.StringOutput                                 `pulumi:"region"`
+	RoleArn                   pulumi.StringOutput                                 `pulumi:"roleArn"`
+	Tags                      pulumi.StringMapOutput                              `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                              `pulumi:"tagsAll"`
+	Timeouts                  AgentcoreGatewayTimeoutsPtrOutput                   `pulumi:"timeouts"`
+	WorkloadIdentityDetails   AgentcoreGatewayWorkloadIdentityDetailArrayOutput   `pulumi:"workloadIdentityDetails"`
 }
 
 // NewAgentcoreGateway registers a new resource with the given unique name, arguments, and options.
@@ -283,83 +77,45 @@ func GetAgentcoreGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreGateway resources.
 type agentcoreGatewayState struct {
-	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
-	AuthorizerConfiguration *AgentcoreGatewayAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
-	AuthorizerType *string `pulumi:"authorizerType"`
-	// Description of the gateway.
-	Description *string `pulumi:"description"`
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
-	ExceptionLevel *string `pulumi:"exceptionLevel"`
-	// ARN of the Gateway.
-	GatewayArn *string `pulumi:"gatewayArn"`
-	// Unique identifier of the Gateway.
-	GatewayId *string `pulumi:"gatewayId"`
-	// URL endpoint for the gateway.
-	GatewayUrl *string `pulumi:"gatewayUrl"`
-	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	AuthorizerConfiguration   *AgentcoreGatewayAuthorizerConfiguration   `pulumi:"authorizerConfiguration"`
+	AuthorizerType            *string                                    `pulumi:"authorizerType"`
+	Description               *string                                    `pulumi:"description"`
+	ExceptionLevel            *string                                    `pulumi:"exceptionLevel"`
+	GatewayArn                *string                                    `pulumi:"gatewayArn"`
+	GatewayId                 *string                                    `pulumi:"gatewayId"`
+	GatewayUrl                *string                                    `pulumi:"gatewayUrl"`
 	InterceptorConfigurations []AgentcoreGatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
-	// ARN of the KMS key used to encrypt the gateway data.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the gateway.
-	Name *string `pulumi:"name"`
-	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
-	ProtocolConfiguration *AgentcoreGatewayProtocolConfiguration `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType *string `pulumi:"protocolType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the IAM role that the gateway assumes to access AWS services.
-	//
-	// The following arguments are optional:
-	RoleArn *string `pulumi:"roleArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string         `pulumi:"tagsAll"`
-	Timeouts *AgentcoreGatewayTimeouts `pulumi:"timeouts"`
-	// Workload identity details for the gateway. See `workloadIdentityDetails` below.
-	WorkloadIdentityDetails []AgentcoreGatewayWorkloadIdentityDetail `pulumi:"workloadIdentityDetails"`
+	KmsKeyArn                 *string                                    `pulumi:"kmsKeyArn"`
+	Name                      *string                                    `pulumi:"name"`
+	ProtocolConfiguration     *AgentcoreGatewayProtocolConfiguration     `pulumi:"protocolConfiguration"`
+	ProtocolType              *string                                    `pulumi:"protocolType"`
+	Region                    *string                                    `pulumi:"region"`
+	RoleArn                   *string                                    `pulumi:"roleArn"`
+	Tags                      map[string]string                          `pulumi:"tags"`
+	TagsAll                   map[string]string                          `pulumi:"tagsAll"`
+	Timeouts                  *AgentcoreGatewayTimeouts                  `pulumi:"timeouts"`
+	WorkloadIdentityDetails   []AgentcoreGatewayWorkloadIdentityDetail   `pulumi:"workloadIdentityDetails"`
 }
 
 type AgentcoreGatewayState struct {
-	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
-	AuthorizerConfiguration AgentcoreGatewayAuthorizerConfigurationPtrInput
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
-	AuthorizerType pulumi.StringPtrInput
-	// Description of the gateway.
-	Description pulumi.StringPtrInput
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
-	ExceptionLevel pulumi.StringPtrInput
-	// ARN of the Gateway.
-	GatewayArn pulumi.StringPtrInput
-	// Unique identifier of the Gateway.
-	GatewayId pulumi.StringPtrInput
-	// URL endpoint for the gateway.
-	GatewayUrl pulumi.StringPtrInput
-	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	AuthorizerConfiguration   AgentcoreGatewayAuthorizerConfigurationPtrInput
+	AuthorizerType            pulumi.StringPtrInput
+	Description               pulumi.StringPtrInput
+	ExceptionLevel            pulumi.StringPtrInput
+	GatewayArn                pulumi.StringPtrInput
+	GatewayId                 pulumi.StringPtrInput
+	GatewayUrl                pulumi.StringPtrInput
 	InterceptorConfigurations AgentcoreGatewayInterceptorConfigurationArrayInput
-	// ARN of the KMS key used to encrypt the gateway data.
-	KmsKeyArn pulumi.StringPtrInput
-	// Name of the gateway.
-	Name pulumi.StringPtrInput
-	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
-	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrInput
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the IAM role that the gateway assumes to access AWS services.
-	//
-	// The following arguments are optional:
-	RoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts AgentcoreGatewayTimeoutsPtrInput
-	// Workload identity details for the gateway. See `workloadIdentityDetails` below.
-	WorkloadIdentityDetails AgentcoreGatewayWorkloadIdentityDetailArrayInput
+	KmsKeyArn                 pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	ProtocolConfiguration     AgentcoreGatewayProtocolConfigurationPtrInput
+	ProtocolType              pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	RoleArn                   pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	Timeouts                  AgentcoreGatewayTimeoutsPtrInput
+	WorkloadIdentityDetails   AgentcoreGatewayWorkloadIdentityDetailArrayInput
 }
 
 func (AgentcoreGatewayState) ElementType() reflect.Type {
@@ -367,64 +123,36 @@ func (AgentcoreGatewayState) ElementType() reflect.Type {
 }
 
 type agentcoreGatewayArgs struct {
-	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
-	AuthorizerConfiguration *AgentcoreGatewayAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
-	AuthorizerType string `pulumi:"authorizerType"`
-	// Description of the gateway.
-	Description *string `pulumi:"description"`
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
-	ExceptionLevel *string `pulumi:"exceptionLevel"`
-	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	AuthorizerConfiguration   *AgentcoreGatewayAuthorizerConfiguration   `pulumi:"authorizerConfiguration"`
+	AuthorizerType            string                                     `pulumi:"authorizerType"`
+	Description               *string                                    `pulumi:"description"`
+	ExceptionLevel            *string                                    `pulumi:"exceptionLevel"`
 	InterceptorConfigurations []AgentcoreGatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
-	// ARN of the KMS key used to encrypt the gateway data.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the gateway.
-	Name *string `pulumi:"name"`
-	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
-	ProtocolConfiguration *AgentcoreGatewayProtocolConfiguration `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType string `pulumi:"protocolType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the IAM role that the gateway assumes to access AWS services.
-	//
-	// The following arguments are optional:
-	RoleArn string `pulumi:"roleArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string         `pulumi:"tags"`
-	Timeouts *AgentcoreGatewayTimeouts `pulumi:"timeouts"`
+	KmsKeyArn                 *string                                    `pulumi:"kmsKeyArn"`
+	Name                      *string                                    `pulumi:"name"`
+	ProtocolConfiguration     *AgentcoreGatewayProtocolConfiguration     `pulumi:"protocolConfiguration"`
+	ProtocolType              string                                     `pulumi:"protocolType"`
+	Region                    *string                                    `pulumi:"region"`
+	RoleArn                   string                                     `pulumi:"roleArn"`
+	Tags                      map[string]string                          `pulumi:"tags"`
+	Timeouts                  *AgentcoreGatewayTimeouts                  `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentcoreGateway resource.
 type AgentcoreGatewayArgs struct {
-	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
-	AuthorizerConfiguration AgentcoreGatewayAuthorizerConfigurationPtrInput
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
-	AuthorizerType pulumi.StringInput
-	// Description of the gateway.
-	Description pulumi.StringPtrInput
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
-	ExceptionLevel pulumi.StringPtrInput
-	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
+	AuthorizerConfiguration   AgentcoreGatewayAuthorizerConfigurationPtrInput
+	AuthorizerType            pulumi.StringInput
+	Description               pulumi.StringPtrInput
+	ExceptionLevel            pulumi.StringPtrInput
 	InterceptorConfigurations AgentcoreGatewayInterceptorConfigurationArrayInput
-	// ARN of the KMS key used to encrypt the gateway data.
-	KmsKeyArn pulumi.StringPtrInput
-	// Name of the gateway.
-	Name pulumi.StringPtrInput
-	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
-	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrInput
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the IAM role that the gateway assumes to access AWS services.
-	//
-	// The following arguments are optional:
-	RoleArn pulumi.StringInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts AgentcoreGatewayTimeoutsPtrInput
+	KmsKeyArn                 pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	ProtocolConfiguration     AgentcoreGatewayProtocolConfigurationPtrInput
+	ProtocolType              pulumi.StringInput
+	Region                    pulumi.StringPtrInput
+	RoleArn                   pulumi.StringInput
+	Tags                      pulumi.StringMapInput
+	Timeouts                  AgentcoreGatewayTimeoutsPtrInput
 }
 
 func (AgentcoreGatewayArgs) ElementType() reflect.Type {
@@ -514,90 +242,72 @@ func (o AgentcoreGatewayOutput) ToAgentcoreGatewayOutputWithContext(ctx context.
 	return o
 }
 
-// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
 func (o AgentcoreGatewayOutput) AuthorizerConfiguration() AgentcoreGatewayAuthorizerConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayAuthorizerConfigurationPtrOutput {
 		return v.AuthorizerConfiguration
 	}).(AgentcoreGatewayAuthorizerConfigurationPtrOutput)
 }
 
-// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
 func (o AgentcoreGatewayOutput) AuthorizerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.AuthorizerType }).(pulumi.StringOutput)
 }
 
-// Description of the gateway.
 func (o AgentcoreGatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
 func (o AgentcoreGatewayOutput) ExceptionLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringPtrOutput { return v.ExceptionLevel }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Gateway.
 func (o AgentcoreGatewayOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the Gateway.
 func (o AgentcoreGatewayOutput) GatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.GatewayId }).(pulumi.StringOutput)
 }
 
-// URL endpoint for the gateway.
 func (o AgentcoreGatewayOutput) GatewayUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.GatewayUrl }).(pulumi.StringOutput)
 }
 
-// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
 func (o AgentcoreGatewayOutput) InterceptorConfigurations() AgentcoreGatewayInterceptorConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayInterceptorConfigurationArrayOutput {
 		return v.InterceptorConfigurations
 	}).(AgentcoreGatewayInterceptorConfigurationArrayOutput)
 }
 
-// ARN of the KMS key used to encrypt the gateway data.
 func (o AgentcoreGatewayOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the gateway.
 func (o AgentcoreGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 func (o AgentcoreGatewayOutput) ProtocolConfiguration() AgentcoreGatewayProtocolConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayProtocolConfigurationPtrOutput {
 		return v.ProtocolConfiguration
 	}).(AgentcoreGatewayProtocolConfigurationPtrOutput)
 }
 
-// Protocol type for the gateway. Valid values: `MCP`.
 func (o AgentcoreGatewayOutput) ProtocolType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.ProtocolType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that the gateway assumes to access AWS services.
-//
-// The following arguments are optional:
 func (o AgentcoreGatewayOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentcoreGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -606,7 +316,6 @@ func (o AgentcoreGatewayOutput) Timeouts() AgentcoreGatewayTimeoutsPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayTimeoutsPtrOutput { return v.Timeouts }).(AgentcoreGatewayTimeoutsPtrOutput)
 }
 
-// Workload identity details for the gateway. See `workloadIdentityDetails` below.
 func (o AgentcoreGatewayOutput) WorkloadIdentityDetails() AgentcoreGatewayWorkloadIdentityDetailArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayWorkloadIdentityDetailArrayOutput {
 		return v.WorkloadIdentityDetails

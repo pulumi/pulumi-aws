@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceDeploymentConfigurationLinearConfiguration
     {
-        /// <summary>
-        /// Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
-        /// </summary>
         public readonly string? StepBakeTimeInMinutes;
-        /// <summary>
-        /// Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
-        /// </summary>
         public readonly double? StepPercent;
 
         [OutputConstructor]

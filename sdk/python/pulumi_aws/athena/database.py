@@ -33,16 +33,6 @@ class DatabaseArgs:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Database resource.
-        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        :param pulumi.Input[_builtins.str] bucket: Name of S3 bucket to save the results of the query execution.
-        :param pulumi.Input[_builtins.str] comment: Description of the database.
-        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        :param pulumi.Input[_builtins.str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -68,9 +58,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
-        """
-        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
@@ -80,9 +67,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of S3 bucket to save the results of the query execution.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -92,9 +76,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -104,9 +85,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
-        """
-        Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -116,9 +94,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -128,9 +103,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -140,9 +112,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the database to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -152,9 +121,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of custom metadata properties for the database definition.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -164,9 +130,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -176,9 +139,6 @@ class DatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def workgroup(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the workgroup.
-        """
         return pulumi.get(self, "workgroup")
 
     @workgroup.setter
@@ -201,16 +161,6 @@ class _DatabaseState:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Database resources.
-        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        :param pulumi.Input[_builtins.str] bucket: Name of S3 bucket to save the results of the query execution.
-        :param pulumi.Input[_builtins.str] comment: Description of the database.
-        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        :param pulumi.Input[_builtins.str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -236,9 +186,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
-        """
-        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
@@ -248,9 +195,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of S3 bucket to save the results of the query execution.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -260,9 +204,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -272,9 +213,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
-        """
-        Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -284,9 +222,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -296,9 +231,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -308,9 +240,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the database to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -320,9 +249,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of custom metadata properties for the database definition.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -332,9 +258,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -344,9 +267,6 @@ class _DatabaseState:
     @_builtins.property
     @pulumi.getter
     def workgroup(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the workgroup.
-        """
         return pulumi.get(self, "workgroup")
 
     @workgroup.setter
@@ -372,41 +292,9 @@ class Database(pulumi.CustomResource):
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Athena database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_database = aws.athena.Database("example",
-            name="database_name",
-            bucket=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Athena Databases using their name. For example:
-
-        ```sh
-        $ pulumi import aws:athena/database:Database example example
-        ```
-        Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
-
+        Create a Database resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        :param pulumi.Input[_builtins.str] bucket: Name of S3 bucket to save the results of the query execution.
-        :param pulumi.Input[_builtins.str] comment: Description of the database.
-        :param pulumi.Input[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        :param pulumi.Input[_builtins.str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         ...
     @overload
@@ -415,29 +303,7 @@ class Database(pulumi.CustomResource):
                  args: Optional[DatabaseArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Athena database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_database = aws.athena.Database("example",
-            name="database_name",
-            bucket=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Athena Databases using their name. For example:
-
-        ```sh
-        $ pulumi import aws:athena/database:Database example example
-        ```
-        Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
-
+        Create a Database resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -509,16 +375,6 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        :param pulumi.Input[_builtins.str] bucket: Name of S3 bucket to save the results of the query execution.
-        :param pulumi.Input[_builtins.str] comment: Description of the database.
-        :param pulumi.Input[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        :param pulumi.Input[_builtins.str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value map of custom metadata properties for the database definition.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workgroup: Name of the workgroup.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,80 +395,50 @@ class Database(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> pulumi.Output[Optional['outputs.DatabaseAclConfiguration']]:
-        """
-        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        """
         return pulumi.get(self, "acl_configuration")
 
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of S3 bucket to save the results of the query execution.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.DatabaseEncryptionConfiguration']]:
-        """
-        Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-        """
         return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the database to create.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of custom metadata properties for the database definition.
-        """
         return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def workgroup(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of the workgroup.
-        """
         return pulumi.get(self, "workgroup")
 

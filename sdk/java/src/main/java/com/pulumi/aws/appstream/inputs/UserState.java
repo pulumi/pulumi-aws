@@ -16,141 +16,65 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserState Empty = new UserState();
 
-    /**
-     * ARN of the appstream user.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the appstream user.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-     * 
-     */
     @Import(name="authenticationType")
     private @Nullable Output<String> authenticationType;
 
-    /**
-     * @return Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-     * 
-     */
     public Optional<Output<String>> authenticationType() {
         return Optional.ofNullable(this.authenticationType);
     }
 
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the user was created.
-     * 
-     */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
-    /**
-     * @return Date and time, in UTC and extended RFC 3339 format, when the user was created.
-     * 
-     */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
     }
 
-    /**
-     * Whether the user in the user pool is enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the user in the user pool is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * First name, or given name, of the user.
-     * 
-     */
     @Import(name="firstName")
     private @Nullable Output<String> firstName;
 
-    /**
-     * @return First name, or given name, of the user.
-     * 
-     */
     public Optional<Output<String>> firstName() {
         return Optional.ofNullable(this.firstName);
     }
 
-    /**
-     * Last name, or surname, of the user.
-     * 
-     */
     @Import(name="lastName")
     private @Nullable Output<String> lastName;
 
-    /**
-     * @return Last name, or surname, of the user.
-     * 
-     */
     public Optional<Output<String>> lastName() {
         return Optional.ofNullable(this.lastName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Send an email notification.
-     * 
-     */
     @Import(name="sendEmailNotification")
     private @Nullable Output<Boolean> sendEmailNotification;
 
-    /**
-     * @return Send an email notification.
-     * 
-     */
     public Optional<Output<Boolean>> sendEmailNotification() {
         return Optional.ofNullable(this.sendEmailNotification);
     }
 
-    /**
-     * Email address of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return Email address of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -187,195 +111,83 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
             $ = new UserState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the appstream user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the appstream user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param authenticationType Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationType(@Nullable Output<String> authenticationType) {
             $.authenticationType = authenticationType;
             return this;
         }
 
-        /**
-         * @param authenticationType Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationType(String authenticationType) {
             return authenticationType(Output.of(authenticationType));
         }
 
-        /**
-         * @param createdTime Date and time, in UTC and extended RFC 3339 format, when the user was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
             return this;
         }
 
-        /**
-         * @param createdTime Date and time, in UTC and extended RFC 3339 format, when the user was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
         }
 
-        /**
-         * @param enabled Whether the user in the user pool is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the user in the user pool is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param firstName First name, or given name, of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firstName(@Nullable Output<String> firstName) {
             $.firstName = firstName;
             return this;
         }
 
-        /**
-         * @param firstName First name, or given name, of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firstName(String firstName) {
             return firstName(Output.of(firstName));
         }
 
-        /**
-         * @param lastName Last name, or surname, of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastName(@Nullable Output<String> lastName) {
             $.lastName = lastName;
             return this;
         }
 
-        /**
-         * @param lastName Last name, or surname, of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastName(String lastName) {
             return lastName(Output.of(lastName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sendEmailNotification Send an email notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendEmailNotification(@Nullable Output<Boolean> sendEmailNotification) {
             $.sendEmailNotification = sendEmailNotification;
             return this;
         }
 
-        /**
-         * @param sendEmailNotification Send an email notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendEmailNotification(Boolean sendEmailNotification) {
             return sendEmailNotification(Output.of(sendEmailNotification));
         }
 
-        /**
-         * @param userName Email address of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName Email address of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

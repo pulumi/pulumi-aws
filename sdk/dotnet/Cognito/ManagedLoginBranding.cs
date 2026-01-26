@@ -9,126 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Manages branding settings for a user pool style and associates it with an app client.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Default Branding Style
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var client = new Aws.Cognito.ManagedLoginBranding("client", new()
-    ///     {
-    ///         ClientId = example.Id,
-    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
-    ///         UseCognitoProvidedValues = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Custom Branding Style
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var client = new Aws.Cognito.ManagedLoginBranding("client", new()
-    ///     {
-    ///         ClientId = example.Id,
-    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
-    ///         Assets = new[]
-    ///         {
-    ///             new Aws.Cognito.Inputs.ManagedLoginBrandingAssetArgs
-    ///             {
-    ///                 Bytes = Std.Filebase64.Invoke(new()
-    ///                 {
-    ///                     Input = "login_branding_asset.svg",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///                 Category = "PAGE_HEADER_BACKGROUND",
-    ///                 ColorMode = "DARK",
-    ///                 Extension = "SVG",
-    ///             },
-    ///         },
-    ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cognito branding settings using `user_pool_id` and `managed_login_branding_id` separated by `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/managedLoginBranding:ManagedLoginBranding")]
     public partial class ManagedLoginBranding : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        /// </summary>
         [Output("assets")]
         public Output<ImmutableArray<Outputs.ManagedLoginBrandingAsset>> Assets { get; private set; } = null!;
 
-        /// <summary>
-        /// App client that the branding style is for.
-        /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the managed login branding style.
-        /// </summary>
         [Output("managedLoginBrandingId")]
         public Output<string> ManagedLoginBrandingId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON document with the the settings to apply to the style.
-        /// </summary>
         [Output("settings")]
         public Output<string?> Settings { get; private set; } = null!;
 
-        /// <summary>
-        /// Settings including Amazon Cognito defaults.
-        /// </summary>
         [Output("settingsAll")]
         public Output<string> SettingsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// When `True`, applies the default branding style options.
-        /// </summary>
         [Output("useCognitoProvidedValues")]
         public Output<bool> UseCognitoProvidedValues { get; private set; } = null!;
 
-        /// <summary>
-        /// User pool the client belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -180,45 +84,24 @@ namespace Pulumi.Aws.Cognito
     {
         [Input("assets")]
         private InputList<Inputs.ManagedLoginBrandingAssetArgs>? _assets;
-
-        /// <summary>
-        /// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        /// </summary>
         public InputList<Inputs.ManagedLoginBrandingAssetArgs> Assets
         {
             get => _assets ?? (_assets = new InputList<Inputs.ManagedLoginBrandingAssetArgs>());
             set => _assets = value;
         }
 
-        /// <summary>
-        /// App client that the branding style is for.
-        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// JSON document with the the settings to apply to the style.
-        /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
 
-        /// <summary>
-        /// When `True`, applies the default branding style options.
-        /// </summary>
         [Input("useCognitoProvidedValues")]
         public Input<bool>? UseCognitoProvidedValues { get; set; }
 
-        /// <summary>
-        /// User pool the client belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -232,57 +115,30 @@ namespace Pulumi.Aws.Cognito
     {
         [Input("assets")]
         private InputList<Inputs.ManagedLoginBrandingAssetGetArgs>? _assets;
-
-        /// <summary>
-        /// Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        /// </summary>
         public InputList<Inputs.ManagedLoginBrandingAssetGetArgs> Assets
         {
             get => _assets ?? (_assets = new InputList<Inputs.ManagedLoginBrandingAssetGetArgs>());
             set => _assets = value;
         }
 
-        /// <summary>
-        /// App client that the branding style is for.
-        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// ID of the managed login branding style.
-        /// </summary>
         [Input("managedLoginBrandingId")]
         public Input<string>? ManagedLoginBrandingId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// JSON document with the the settings to apply to the style.
-        /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
 
-        /// <summary>
-        /// Settings including Amazon Cognito defaults.
-        /// </summary>
         [Input("settingsAll")]
         public Input<string>? SettingsAll { get; set; }
 
-        /// <summary>
-        /// When `True`, applies the default branding style options.
-        /// </summary>
         [Input("useCognitoProvidedValues")]
         public Input<bool>? UseCognitoProvidedValues { get; set; }
 
-        /// <summary>
-        /// User pool the client belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 

@@ -18,295 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon Customer Profiles Domain.
- * See the [Create Domain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) for more information.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.customerprofiles.Domain;
- * import com.pulumi.aws.customerprofiles.DomainArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With SQS DLQ and KMS set
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.sqs.QueueArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.customerprofiles.Domain;
- * import com.pulumi.aws.customerprofiles.DomainArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Queue("example", QueueArgs.builder()
- *             .name("example")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Sid", "Customer Profiles SQS policy"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Action", jsonArray("sqs:SendMessage")),
- *                         jsonProperty("Resource", "*"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("Service", "profile.amazonaws.com")
- *                         ))
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
- *             .description("example")
- *             .deletionWindowInDays(10)
- *             .build());
- * 
- *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
- *             .bucket("example")
- *             .forceDestroy(true)
- *             .build());
- * 
- *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleBucket.id())
- *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
- *                 var exampleBucketArn = values.t1;
- *                 var exampleBucketArn1 = values.t2;
- *                 return serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Sid", "Customer Profiles S3 policy"),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Action", jsonArray(
- *                                 "s3:GetObject", 
- *                                 "s3:PutObject", 
- *                                 "s3:ListBucket"
- *                             )),
- *                             jsonProperty("Resource", jsonArray(
- *                                 exampleBucketArn, 
- *                                 String.format("%s/*", exampleBucketArn1)
- *                             )),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "profile.amazonaws.com")
- *                             ))
- *                         )))
- *                     ));
- *             }))
- *             .build());
- * 
- *         var test = new Domain("test", DomainArgs.builder()
- *             .domainName(example)
- *             .deadLetterQueueUrl(example.id())
- *             .defaultEncryptionKey(exampleKey.arn())
- *             .defaultExpirationDays(365)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
- * ```
- * 
- */
 @ResourceType(type="aws:customerprofiles/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-     * 
-     */
     @Export(name="deadLetterQueueUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deadLetterQueueUrl;
 
-    /**
-     * @return The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-     * 
-     */
     public Output<Optional<String>> deadLetterQueueUrl() {
         return Codegen.optional(this.deadLetterQueueUrl);
     }
-    /**
-     * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-     * 
-     */
     @Export(name="defaultEncryptionKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultEncryptionKey;
 
-    /**
-     * @return The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-     * 
-     */
     public Output<Optional<String>> defaultEncryptionKey() {
         return Codegen.optional(this.defaultEncryptionKey);
     }
-    /**
-     * The default number of days until the data within the domain expires.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="defaultExpirationDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> defaultExpirationDays;
 
-    /**
-     * @return The default number of days until the data within the domain expires.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> defaultExpirationDays() {
         return this.defaultExpirationDays;
     }
-    /**
-     * The name for your Customer Profile domain. It must be unique for your AWS account.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The name for your Customer Profile domain. It must be unique for your AWS account.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * A block that specifies the process of matching duplicate profiles. Documented below.
-     * 
-     */
     @Export(name="matching", refs={DomainMatching.class}, tree="[0]")
     private Output</* @Nullable */ DomainMatching> matching;
 
-    /**
-     * @return A block that specifies the process of matching duplicate profiles. Documented below.
-     * 
-     */
     public Output<Optional<DomainMatching>> matching() {
         return Codegen.optional(this.matching);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-     * 
-     */
     @Export(name="ruleBasedMatching", refs={DomainRuleBasedMatching.class}, tree="[0]")
     private Output</* @Nullable */ DomainRuleBasedMatching> ruleBasedMatching;
 
-    /**
-     * @return A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-     * 
-     */
     public Output<Optional<DomainRuleBasedMatching>> ruleBasedMatching() {
         return Codegen.optional(this.ruleBasedMatching);
     }
-    /**
-     * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

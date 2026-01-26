@@ -14,32 +14,16 @@ public final class AgentPromptVariantMetadataArgs extends com.pulumi.resources.R
 
     public static final AgentPromptVariantMetadataArgs Empty = new AgentPromptVariantMetadataArgs();
 
-    /**
-     * Key of a metadata tag for a prompt variant.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key of a metadata tag for a prompt variant.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Value of a metadata tag for a prompt variant.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value of a metadata tag for a prompt variant.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class AgentPromptVariantMetadataArgs extends com.pulumi.resources.R
             $ = new AgentPromptVariantMetadataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key of a metadata tag for a prompt variant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key of a metadata tag for a prompt variant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Value of a metadata tag for a prompt variant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of a metadata tag for a prompt variant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

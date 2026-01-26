@@ -13,13 +13,7 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
     [OutputType]
     public sealed class WorkgroupConfigParameter
     {
-        /// <summary>
-        /// The key of the parameter. The options are `AutoMv`, `Datestyle`, `EnableCaseSensitiveIdentifier`, `EnableUserActivityLogging`, `QueryGroup`, `SearchPath`, `RequireSsl`, `UseFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `MaxQueryCpuTime`, `MaxQueryBlocksRead`, `MaxScanRowCount`, `MaxQueryExecutionTime`, `MaxQueryQueueTime`, `MaxQueryCpuUsagePercent`, `MaxQueryTempBlocksToDisk`, `MaxJoinRowCount` and `MaxNestedLoopJoinRowCount`.
-        /// </summary>
         public readonly string ParameterKey;
-        /// <summary>
-        /// The value of the parameter to set.
-        /// </summary>
         public readonly string ParameterValue;
 
         [OutputConstructor]

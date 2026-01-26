@@ -16,96 +16,44 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
 
     public static final DataShareAuthorizationState Empty = new DataShareAuthorizationState();
 
-    /**
-     * Whether to allow write operations for a datashare.
-     * 
-     */
     @Import(name="allowWrites")
     private @Nullable Output<Boolean> allowWrites;
 
-    /**
-     * @return Whether to allow write operations for a datashare.
-     * 
-     */
     public Optional<Output<Boolean>> allowWrites() {
         return Optional.ofNullable(this.allowWrites);
     }
 
-    /**
-     * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-     * 
-     */
     @Import(name="consumerIdentifier")
     private @Nullable Output<String> consumerIdentifier;
 
-    /**
-     * @return Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-     * 
-     */
     public Optional<Output<String>> consumerIdentifier() {
         return Optional.ofNullable(this.consumerIdentifier);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="dataShareArn")
     private @Nullable Output<String> dataShareArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> dataShareArn() {
         return Optional.ofNullable(this.dataShareArn);
     }
 
-    /**
-     * Identifier of a datashare to show its managing entity.
-     * 
-     */
     @Import(name="managedBy")
     private @Nullable Output<String> managedBy;
 
-    /**
-     * @return Identifier of a datashare to show its managing entity.
-     * 
-     */
     public Optional<Output<String>> managedBy() {
         return Optional.ofNullable(this.managedBy);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the producer.
-     * 
-     */
     @Import(name="producerArn")
     private @Nullable Output<String> producerArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the producer.
-     * 
-     */
     public Optional<Output<String>> producerArn() {
         return Optional.ofNullable(this.producerArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -139,132 +87,56 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
             $ = new DataShareAuthorizationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowWrites Whether to allow write operations for a datashare.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowWrites(@Nullable Output<Boolean> allowWrites) {
             $.allowWrites = allowWrites;
             return this;
         }
 
-        /**
-         * @param allowWrites Whether to allow write operations for a datashare.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowWrites(Boolean allowWrites) {
             return allowWrites(Output.of(allowWrites));
         }
 
-        /**
-         * @param consumerIdentifier Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerIdentifier(@Nullable Output<String> consumerIdentifier) {
             $.consumerIdentifier = consumerIdentifier;
             return this;
         }
 
-        /**
-         * @param consumerIdentifier Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerIdentifier(String consumerIdentifier) {
             return consumerIdentifier(Output.of(consumerIdentifier));
         }
 
-        /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataShareArn(@Nullable Output<String> dataShareArn) {
             $.dataShareArn = dataShareArn;
             return this;
         }
 
-        /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataShareArn(String dataShareArn) {
             return dataShareArn(Output.of(dataShareArn));
         }
 
-        /**
-         * @param managedBy Identifier of a datashare to show its managing entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedBy(@Nullable Output<String> managedBy) {
             $.managedBy = managedBy;
             return this;
         }
 
-        /**
-         * @param managedBy Identifier of a datashare to show its managing entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedBy(String managedBy) {
             return managedBy(Output.of(managedBy));
         }
 
-        /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder producerArn(@Nullable Output<String> producerArn) {
             $.producerArn = producerArn;
             return this;
         }
 
-        /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder producerArn(String producerArn) {
             return producerArn(Output.of(producerArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

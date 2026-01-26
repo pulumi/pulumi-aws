@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Evidently.Inputs
     {
         [Input("steps", required: true)]
         private InputList<Inputs.LaunchScheduledSplitsConfigStepArgs>? _steps;
-
-        /// <summary>
-        /// One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-        /// </summary>
         public InputList<Inputs.LaunchScheduledSplitsConfigStepArgs> Steps
         {
             get => _steps ?? (_steps = new InputList<Inputs.LaunchScheduledSplitsConfigStepArgs>());

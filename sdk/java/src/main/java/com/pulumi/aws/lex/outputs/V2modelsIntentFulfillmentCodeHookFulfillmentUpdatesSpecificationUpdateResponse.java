@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse {
-    /**
-     * @return Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     private @Nullable Boolean allowInterrupt;
-    /**
-     * @return Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-     * 
-     */
     private Integer frequencyInSeconds;
-    /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     private @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> messageGroups;
 
     private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse() {}
-    /**
-     * @return Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     public Optional<Boolean> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
-    /**
-     * @return Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-     * 
-     */
     public Integer frequencyInSeconds() {
         return this.frequencyInSeconds;
     }
-    /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     public List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> messageGroups() {
         return this.messageGroups == null ? List.of() : this.messageGroups;
     }

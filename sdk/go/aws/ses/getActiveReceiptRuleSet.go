@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve the active SES receipt rule set
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupActiveReceiptRuleSet(ctx, &ses.LookupActiveReceiptRuleSetArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupActiveReceiptRuleSet(ctx *pulumi.Context, args *LookupActiveReceiptRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActiveReceiptRuleSetResult
@@ -48,18 +23,15 @@ func LookupActiveReceiptRuleSet(ctx *pulumi.Context, args *LookupActiveReceiptRu
 
 // A collection of arguments for invoking getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetResult struct {
-	// SES receipt rule set ARN.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Name of the rule set
+	Id          string `pulumi:"id"`
+	Region      string `pulumi:"region"`
 	RuleSetName string `pulumi:"ruleSetName"`
 }
 
@@ -74,7 +46,6 @@ func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, args LookupActiveRece
 
 // A collection of arguments for invoking getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -97,7 +68,6 @@ func (o LookupActiveReceiptRuleSetResultOutput) ToLookupActiveReceiptRuleSetResu
 	return o
 }
 
-// SES receipt rule set ARN.
 func (o LookupActiveReceiptRuleSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -111,7 +81,6 @@ func (o LookupActiveReceiptRuleSetResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the rule set
 func (o LookupActiveReceiptRuleSetResultOutput) RuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.RuleSetName }).(pulumi.StringOutput)
 }

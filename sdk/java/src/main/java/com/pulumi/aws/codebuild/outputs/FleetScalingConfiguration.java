@@ -15,44 +15,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetScalingConfiguration {
     private @Nullable Integer desiredCapacity;
-    /**
-     * @return Maximum number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     private @Nullable Integer maxCapacity;
-    /**
-     * @return Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-     * 
-     */
     private @Nullable String scalingType;
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable List<FleetScalingConfigurationTargetTrackingScalingConfig> targetTrackingScalingConfigs;
 
     private FleetScalingConfiguration() {}
     public Optional<Integer> desiredCapacity() {
         return Optional.ofNullable(this.desiredCapacity);
     }
-    /**
-     * @return Maximum number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     public Optional<Integer> maxCapacity() {
         return Optional.ofNullable(this.maxCapacity);
     }
-    /**
-     * @return Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-     * 
-     */
     public Optional<String> scalingType() {
         return Optional.ofNullable(this.scalingType);
     }
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public List<FleetScalingConfigurationTargetTrackingScalingConfig> targetTrackingScalingConfigs() {
         return this.targetTrackingScalingConfigs == null ? List.of() : this.targetTrackingScalingConfigs;
     }

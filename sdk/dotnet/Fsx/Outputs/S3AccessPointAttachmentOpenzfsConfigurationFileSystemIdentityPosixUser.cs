@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUser
     {
-        /// <summary>
-        /// GID of the file system user.
-        /// </summary>
         public readonly int Gid;
-        /// <summary>
-        /// List of secondary GIDs for the file system user..
-        /// </summary>
         public readonly ImmutableArray<int> SecondaryGids;
-        /// <summary>
-        /// UID of the file system user.
-        /// </summary>
         public readonly int Uid;
 
         [OutputConstructor]

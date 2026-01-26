@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon MSK Connect Worker Configuration Resource.
- *
- * ## Example Usage
- *
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.mskconnect.WorkerConfiguration("example", {
- *     name: "example",
- *     propertiesFileContent: `key.converter=org.apache.kafka.connect.storage.StringConverter
- * value.converter=org.apache.kafka.connect.storage.StringConverter
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
- * ```
- */
 export class WorkerConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing WorkerConfiguration resource's state with the given name, ID, and optional extra
@@ -59,39 +32,13 @@ export class WorkerConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkerConfiguration.__pulumiType;
     }
 
-    /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A summary description of the worker configuration.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * an ID of the latest successfully created revision of the worker configuration.
-     */
     declare public /*out*/ readonly latestRevision: pulumi.Output<number>;
-    /**
-     * The name of the worker configuration.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly propertiesFileContent: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -138,39 +85,13 @@ export class WorkerConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkerConfiguration resources.
  */
 export interface WorkerConfigurationState {
-    /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A summary description of the worker configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * an ID of the latest successfully created revision of the worker configuration.
-     */
     latestRevision?: pulumi.Input<number>;
-    /**
-     * The name of the worker configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     *
-     * The following arguments are optional:
-     */
     propertiesFileContent?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -178,26 +99,9 @@ export interface WorkerConfigurationState {
  * The set of arguments for constructing a WorkerConfiguration resource.
  */
 export interface WorkerConfigurationArgs {
-    /**
-     * A summary description of the worker configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the worker configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     *
-     * The following arguments are optional:
-     */
     propertiesFileContent: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

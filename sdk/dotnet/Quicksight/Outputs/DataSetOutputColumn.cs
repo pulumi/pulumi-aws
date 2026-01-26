@@ -13,19 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetOutputColumn
     {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Display name for the dataset.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The data type of the column.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

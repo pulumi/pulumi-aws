@@ -23,137 +23,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfiguration {
-    /**
-     * @return Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationAgent agent;
-    /**
-     * @return Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationCollector collector;
     private @Nullable AgentFlowDefinitionNodeConfigurationCondition condition;
-    /**
-     * @return Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationInlineCode inlineCode;
     private @Nullable AgentFlowDefinitionNodeConfigurationInput input;
-    /**
-     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationIterator iterator;
-    /**
-     * @return Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBase knowledgeBase;
-    /**
-     * @return Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationLambdaFunction lambdaFunction;
-    /**
-     * @return Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationLex lex;
     private @Nullable AgentFlowDefinitionNodeConfigurationOutput output;
-    /**
-     * @return Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPrompt prompt;
-    /**
-     * @return Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationRetrieval retrieval;
-    /**
-     * @return Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationStorage storage;
 
     private AgentFlowDefinitionNodeConfiguration() {}
-    /**
-     * @return Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationAgent> agent() {
         return Optional.ofNullable(this.agent);
     }
-    /**
-     * @return Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationCollector> collector() {
         return Optional.ofNullable(this.collector);
     }
     public Optional<AgentFlowDefinitionNodeConfigurationCondition> condition() {
         return Optional.ofNullable(this.condition);
     }
-    /**
-     * @return Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationInlineCode> inlineCode() {
         return Optional.ofNullable(this.inlineCode);
     }
     public Optional<AgentFlowDefinitionNodeConfigurationInput> input() {
         return Optional.ofNullable(this.input);
     }
-    /**
-     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationIterator> iterator() {
         return Optional.ofNullable(this.iterator);
     }
-    /**
-     * @return Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBase> knowledgeBase() {
         return Optional.ofNullable(this.knowledgeBase);
     }
-    /**
-     * @return Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationLambdaFunction> lambdaFunction() {
         return Optional.ofNullable(this.lambdaFunction);
     }
-    /**
-     * @return Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationLex> lex() {
         return Optional.ofNullable(this.lex);
     }
     public Optional<AgentFlowDefinitionNodeConfigurationOutput> output() {
         return Optional.ofNullable(this.output);
     }
-    /**
-     * @return Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPrompt> prompt() {
         return Optional.ofNullable(this.prompt);
     }
-    /**
-     * @return Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationRetrieval> retrieval() {
         return Optional.ofNullable(this.retrieval);
     }
-    /**
-     * @return Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationStorage> storage() {
         return Optional.ofNullable(this.storage);
     }

@@ -18,137 +18,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionOrigin {
-    /**
-     * @return Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
-     * 
-     */
     private @Nullable Integer connectionAttempts;
-    /**
-     * @return Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
-     * 
-     */
     private @Nullable Integer connectionTimeout;
-    /**
-     * @return One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionOriginCustomHeader> customHeaders;
-    /**
-     * @return CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionOriginCustomOriginConfig> customOriginConfigs;
-    /**
-     * @return DNS domain name of either the S3 bucket, or web site of your custom origin.
-     * 
-     */
     private String domainName;
-    /**
-     * @return Identifier for the distribution.
-     * 
-     */
     private String id;
-    /**
-     * @return CloudFront origin access control identifier to associate with the origin.
-     * 
-     */
     private @Nullable String originAccessControlId;
-    /**
-     * @return Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-     * 
-     */
     private @Nullable String originPath;
-    /**
-     * @return CloudFront Origin Shield configuration information. See Origin Shield below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionOriginOriginShield> originShields;
-    /**
-     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
-     * 
-     */
     private @Nullable Integer responseCompletionTimeout;
-    /**
-     * @return CloudFront VPC origin configuration. See VPC Origin Config below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionOriginVpcOriginConfig> vpcOriginConfigs;
 
     private MultitenantDistributionOrigin() {}
-    /**
-     * @return Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
-     * 
-     */
     public Optional<Integer> connectionAttempts() {
         return Optional.ofNullable(this.connectionAttempts);
     }
-    /**
-     * @return Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
-     * 
-     */
     public Optional<Integer> connectionTimeout() {
         return Optional.ofNullable(this.connectionTimeout);
     }
-    /**
-     * @return One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
-     * 
-     */
     public List<MultitenantDistributionOriginCustomHeader> customHeaders() {
         return this.customHeaders == null ? List.of() : this.customHeaders;
     }
-    /**
-     * @return CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
-     * 
-     */
     public List<MultitenantDistributionOriginCustomOriginConfig> customOriginConfigs() {
         return this.customOriginConfigs == null ? List.of() : this.customOriginConfigs;
     }
-    /**
-     * @return DNS domain name of either the S3 bucket, or web site of your custom origin.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return Identifier for the distribution.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return CloudFront origin access control identifier to associate with the origin.
-     * 
-     */
     public Optional<String> originAccessControlId() {
         return Optional.ofNullable(this.originAccessControlId);
     }
-    /**
-     * @return Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-     * 
-     */
     public Optional<String> originPath() {
         return Optional.ofNullable(this.originPath);
     }
-    /**
-     * @return CloudFront Origin Shield configuration information. See Origin Shield below.
-     * 
-     */
     public List<MultitenantDistributionOriginOriginShield> originShields() {
         return this.originShields == null ? List.of() : this.originShields;
     }
-    /**
-     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
-     * 
-     */
     public Optional<Integer> responseCompletionTimeout() {
         return Optional.ofNullable(this.responseCompletionTimeout);
     }
-    /**
-     * @return CloudFront VPC origin configuration. See VPC Origin Config below.
-     * 
-     */
     public List<MultitenantDistributionOriginVpcOriginConfig> vpcOriginConfigs() {
         return this.vpcOriginConfigs == null ? List.of() : this.vpcOriginConfigs;
     }

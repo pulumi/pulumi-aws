@@ -32,26 +32,6 @@ class GlobalSecondaryIndexArgs:
                  warm_throughput: Optional[pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a GlobalSecondaryIndex resource.
-        :param pulumi.Input[_builtins.str] index_name: Name of the index.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table this index belongs to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]] key_schemas: Set of nested attribute definitions.
-               At least 1 element defining a `HASH` is required.
-               All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-               Changing any values in `key_schema` will re-create the resource.
-               See `key_schema` below.
-        :param pulumi.Input['GlobalSecondaryIndexOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the index.
-               See `on_demand_throughput` below.
-               Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
-        :param pulumi.Input['GlobalSecondaryIndexProjectionArgs'] projection: Describes which attributes from the table are represented in the index.
-               See `projection` below.
-        :param pulumi.Input['GlobalSecondaryIndexProvisionedThroughputArgs'] provisioned_throughput: Provisioned throughput for the index.
-               See `provisioned_throughput` below.
-               Required if the table's `billing_mode` is `PROVISIONED`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs'] warm_throughput: Sets the number of warm read and write units for this index.
-               See `warm_throughput` below.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -73,9 +53,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the index.
-        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -85,11 +62,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the table this index belongs to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -99,13 +71,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter(name="keySchemas")
     def key_schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]]]:
-        """
-        Set of nested attribute definitions.
-        At least 1 element defining a `HASH` is required.
-        All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-        Changing any values in `key_schema` will re-create the resource.
-        See `key_schema` below.
-        """
         return pulumi.get(self, "key_schemas")
 
     @key_schemas.setter
@@ -115,11 +80,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter(name="onDemandThroughput")
     def on_demand_throughput(self) -> Optional[pulumi.Input['GlobalSecondaryIndexOnDemandThroughputArgs']]:
-        """
-        Sets the maximum number of read and write units for the index.
-        See `on_demand_throughput` below.
-        Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
-        """
         return pulumi.get(self, "on_demand_throughput")
 
     @on_demand_throughput.setter
@@ -129,10 +89,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter
     def projection(self) -> Optional[pulumi.Input['GlobalSecondaryIndexProjectionArgs']]:
-        """
-        Describes which attributes from the table are represented in the index.
-        See `projection` below.
-        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -142,11 +98,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional[pulumi.Input['GlobalSecondaryIndexProvisionedThroughputArgs']]:
-        """
-        Provisioned throughput for the index.
-        See `provisioned_throughput` below.
-        Required if the table's `billing_mode` is `PROVISIONED`.
-        """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
@@ -156,9 +107,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -177,10 +125,6 @@ class GlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional[pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs']]:
-        """
-        Sets the number of warm read and write units for this index.
-        See `warm_throughput` below.
-        """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
@@ -203,27 +147,6 @@ class _GlobalSecondaryIndexState:
                  warm_throughput: Optional[pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs']] = None):
         """
         Input properties used for looking up and filtering GlobalSecondaryIndex resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the GSI.
-        :param pulumi.Input[_builtins.str] index_name: Name of the index.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]] key_schemas: Set of nested attribute definitions.
-               At least 1 element defining a `HASH` is required.
-               All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-               Changing any values in `key_schema` will re-create the resource.
-               See `key_schema` below.
-        :param pulumi.Input['GlobalSecondaryIndexOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the index.
-               See `on_demand_throughput` below.
-               Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
-        :param pulumi.Input['GlobalSecondaryIndexProjectionArgs'] projection: Describes which attributes from the table are represented in the index.
-               See `projection` below.
-        :param pulumi.Input['GlobalSecondaryIndexProvisionedThroughputArgs'] provisioned_throughput: Provisioned throughput for the index.
-               See `provisioned_throughput` below.
-               Required if the table's `billing_mode` is `PROVISIONED`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table this index belongs to.
-               
-               The following arguments are optional:
-        :param pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs'] warm_throughput: Sets the number of warm read and write units for this index.
-               See `warm_throughput` below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -249,9 +172,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the GSI.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -261,9 +181,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the index.
-        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -273,13 +190,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter(name="keySchemas")
     def key_schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]]]:
-        """
-        Set of nested attribute definitions.
-        At least 1 element defining a `HASH` is required.
-        All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-        Changing any values in `key_schema` will re-create the resource.
-        See `key_schema` below.
-        """
         return pulumi.get(self, "key_schemas")
 
     @key_schemas.setter
@@ -289,11 +199,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter(name="onDemandThroughput")
     def on_demand_throughput(self) -> Optional[pulumi.Input['GlobalSecondaryIndexOnDemandThroughputArgs']]:
-        """
-        Sets the maximum number of read and write units for the index.
-        See `on_demand_throughput` below.
-        Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
-        """
         return pulumi.get(self, "on_demand_throughput")
 
     @on_demand_throughput.setter
@@ -303,10 +208,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter
     def projection(self) -> Optional[pulumi.Input['GlobalSecondaryIndexProjectionArgs']]:
-        """
-        Describes which attributes from the table are represented in the index.
-        See `projection` below.
-        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -316,11 +217,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional[pulumi.Input['GlobalSecondaryIndexProvisionedThroughputArgs']]:
-        """
-        Provisioned throughput for the index.
-        See `provisioned_throughput` below.
-        Required if the table's `billing_mode` is `PROVISIONED`.
-        """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
@@ -330,9 +226,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -342,11 +235,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the table this index belongs to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -365,10 +253,6 @@ class _GlobalSecondaryIndexState:
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional[pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs']]:
-        """
-        Sets the number of warm read and write units for this index.
-        See `warm_throughput` below.
-        """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
@@ -393,48 +277,9 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                  warm_throughput: Optional[pulumi.Input[Union['GlobalSecondaryIndexWarmThroughputArgs', 'GlobalSecondaryIndexWarmThroughputArgsDict']]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `index_name` (String) Name of the index.
-
-        * `table_name` (String) Name of the table this index belongs to.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
-
-        % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
-
+        Create a GlobalSecondaryIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] index_name: Name of the index.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalSecondaryIndexKeySchemaArgs', 'GlobalSecondaryIndexKeySchemaArgsDict']]]] key_schemas: Set of nested attribute definitions.
-               At least 1 element defining a `HASH` is required.
-               All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-               Changing any values in `key_schema` will re-create the resource.
-               See `key_schema` below.
-        :param pulumi.Input[Union['GlobalSecondaryIndexOnDemandThroughputArgs', 'GlobalSecondaryIndexOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the index.
-               See `on_demand_throughput` below.
-               Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
-        :param pulumi.Input[Union['GlobalSecondaryIndexProjectionArgs', 'GlobalSecondaryIndexProjectionArgsDict']] projection: Describes which attributes from the table are represented in the index.
-               See `projection` below.
-        :param pulumi.Input[Union['GlobalSecondaryIndexProvisionedThroughputArgs', 'GlobalSecondaryIndexProvisionedThroughputArgsDict']] provisioned_throughput: Provisioned throughput for the index.
-               See `provisioned_throughput` below.
-               Required if the table's `billing_mode` is `PROVISIONED`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table this index belongs to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['GlobalSecondaryIndexWarmThroughputArgs', 'GlobalSecondaryIndexWarmThroughputArgsDict']] warm_throughput: Sets the number of warm read and write units for this index.
-               See `warm_throughput` below.
         """
         ...
     @overload
@@ -443,26 +288,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                  args: GlobalSecondaryIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `index_name` (String) Name of the index.
-
-        * `table_name` (String) Name of the table this index belongs to.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
-
-        % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
-
+        Create a GlobalSecondaryIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GlobalSecondaryIndexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -537,27 +363,6 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the GSI.
-        :param pulumi.Input[_builtins.str] index_name: Name of the index.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalSecondaryIndexKeySchemaArgs', 'GlobalSecondaryIndexKeySchemaArgsDict']]]] key_schemas: Set of nested attribute definitions.
-               At least 1 element defining a `HASH` is required.
-               All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-               Changing any values in `key_schema` will re-create the resource.
-               See `key_schema` below.
-        :param pulumi.Input[Union['GlobalSecondaryIndexOnDemandThroughputArgs', 'GlobalSecondaryIndexOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the index.
-               See `on_demand_throughput` below.
-               Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
-        :param pulumi.Input[Union['GlobalSecondaryIndexProjectionArgs', 'GlobalSecondaryIndexProjectionArgsDict']] projection: Describes which attributes from the table are represented in the index.
-               See `projection` below.
-        :param pulumi.Input[Union['GlobalSecondaryIndexProvisionedThroughputArgs', 'GlobalSecondaryIndexProvisionedThroughputArgsDict']] provisioned_throughput: Provisioned throughput for the index.
-               See `provisioned_throughput` below.
-               Required if the table's `billing_mode` is `PROVISIONED`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table this index belongs to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['GlobalSecondaryIndexWarmThroughputArgs', 'GlobalSecondaryIndexWarmThroughputArgsDict']] warm_throughput: Sets the number of warm read and write units for this index.
-               See `warm_throughput` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -578,76 +383,41 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the GSI.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the index.
-        """
         return pulumi.get(self, "index_name")
 
     @_builtins.property
     @pulumi.getter(name="keySchemas")
     def key_schemas(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalSecondaryIndexKeySchema']]]:
-        """
-        Set of nested attribute definitions.
-        At least 1 element defining a `HASH` is required.
-        All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-        Changing any values in `key_schema` will re-create the resource.
-        See `key_schema` below.
-        """
         return pulumi.get(self, "key_schemas")
 
     @_builtins.property
     @pulumi.getter(name="onDemandThroughput")
     def on_demand_throughput(self) -> pulumi.Output[Optional['outputs.GlobalSecondaryIndexOnDemandThroughput']]:
-        """
-        Sets the maximum number of read and write units for the index.
-        See `on_demand_throughput` below.
-        Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
-        """
         return pulumi.get(self, "on_demand_throughput")
 
     @_builtins.property
     @pulumi.getter
     def projection(self) -> pulumi.Output[Optional['outputs.GlobalSecondaryIndexProjection']]:
-        """
-        Describes which attributes from the table are represented in the index.
-        See `projection` below.
-        """
         return pulumi.get(self, "projection")
 
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> pulumi.Output[Optional['outputs.GlobalSecondaryIndexProvisionedThroughput']]:
-        """
-        Provisioned throughput for the index.
-        See `provisioned_throughput` below.
-        Required if the table's `billing_mode` is `PROVISIONED`.
-        """
         return pulumi.get(self, "provisioned_throughput")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the table this index belongs to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_name")
 
     @_builtins.property
@@ -658,9 +428,5 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> pulumi.Output['outputs.GlobalSecondaryIndexWarmThroughput']:
-        """
-        Sets the number of warm read and write units for this index.
-        See `warm_throughput` below.
-        """
         return pulumi.get(self, "warm_throughput")
 

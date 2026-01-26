@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleActionForwardStickinessArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target group.
-        /// </summary>
         [Input("duration", required: true)]
         public int Duration { get; set; }
 
-        /// <summary>
-        /// Indicates whether target group stickiness is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public bool Enabled { get; set; }
 

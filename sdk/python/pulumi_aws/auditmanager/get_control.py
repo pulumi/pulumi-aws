@@ -142,52 +142,7 @@ def get_control(name: Optional[_builtins.str] = None,
                 type: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControlResult:
     """
-    Data source for managing an AWS Audit Manager Control.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    ```
-
-    ### With Framework Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    example2 = aws.auditmanager.get_control(name="2. Personnel",
-        type="Standard")
-    example_framework = aws.auditmanager.Framework("example",
-        name="example",
-        control_sets=[
-            {
-                "name": "example",
-                "controls": [{
-                    "id": example.id,
-                }],
-            },
-            {
-                "name": "example2",
-                "controls": [{
-                    "id": example2.id,
-                }],
-            },
-        ])
-    ```
-
-
-    :param _builtins.str name: Name of the control.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of control. Valid values are `Custom` and `Standard`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -213,52 +168,7 @@ def get_control_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                        type: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlResult]:
     """
-    Data source for managing an AWS Audit Manager Control.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    ```
-
-    ### With Framework Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    example2 = aws.auditmanager.get_control(name="2. Personnel",
-        type="Standard")
-    example_framework = aws.auditmanager.Framework("example",
-        name="example",
-        control_sets=[
-            {
-                "name": "example",
-                "controls": [{
-                    "id": example.id,
-                }],
-            },
-            {
-                "name": "example2",
-                "controls": [{
-                    "id": example2.id,
-                }],
-            },
-        ])
-    ```
-
-
-    :param _builtins.str name: Name of the control.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of control. Valid values are `Custom` and `Standard`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

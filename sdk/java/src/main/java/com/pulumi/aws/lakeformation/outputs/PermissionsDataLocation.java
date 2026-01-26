@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionsDataLocation {
-    /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private String arn;
-    /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
 
     private PermissionsDataLocation() {}
-    /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }

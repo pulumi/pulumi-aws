@@ -29,13 +29,6 @@ class InferenceProfileArgs:
                  timeouts: Optional[pulumi.Input['InferenceProfileTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InferenceProfile resource.
-        :param pulumi.Input[_builtins.str] description: The description of the inference profile.
-        :param pulumi.Input['InferenceProfileModelSourceArgs'] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -53,9 +46,6 @@ class InferenceProfileArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the inference profile.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -65,11 +55,6 @@ class InferenceProfileArgs:
     @_builtins.property
     @pulumi.getter(name="modelSource")
     def model_source(self) -> Optional[pulumi.Input['InferenceProfileModelSourceArgs']]:
-        """
-        The source of the model this inference profile will track metrics and cost for. See `model_source`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "model_source")
 
     @model_source.setter
@@ -79,9 +64,6 @@ class InferenceProfileArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the inference profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,9 +73,6 @@ class InferenceProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -103,9 +82,6 @@ class InferenceProfileArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags for the inference profile.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -140,19 +116,6 @@ class _InferenceProfileState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InferenceProfile resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the inference profile.
-        :param pulumi.Input[_builtins.str] created_at: The time at which the inference profile was created.
-        :param pulumi.Input[_builtins.str] description: The description of the inference profile.
-        :param pulumi.Input['InferenceProfileModelSourceArgs'] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['InferenceProfileModelArgs']]] models: A list of information about each model in the inference profile. See `models`.
-        :param pulumi.Input[_builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
-        :param pulumi.Input[_builtins.str] type: The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-        :param pulumi.Input[_builtins.str] updated_at: The time at which the inference profile was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,9 +147,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the inference profile.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -196,9 +156,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time at which the inference profile was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -208,9 +165,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the inference profile.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -220,11 +174,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter(name="modelSource")
     def model_source(self) -> Optional[pulumi.Input['InferenceProfileModelSourceArgs']]:
-        """
-        The source of the model this inference profile will track metrics and cost for. See `model_source`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "model_source")
 
     @model_source.setter
@@ -234,9 +183,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def models(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InferenceProfileModelArgs']]]]:
-        """
-        A list of information about each model in the inference profile. See `models`.
-        """
         return pulumi.get(self, "models")
 
     @models.setter
@@ -246,9 +192,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the inference profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -258,9 +201,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -270,9 +210,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -282,9 +219,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags for the inference profile.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -312,9 +246,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -324,9 +255,6 @@ class _InferenceProfileState:
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time at which the inference profile was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -348,45 +276,9 @@ class InferenceProfile(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Inference Profile.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.bedrock.InferenceProfile("example",
-            name="Claude Sonnet for Project 123",
-            description="Profile with tag for cost allocation tracking",
-            model_source={
-                "copy_from": "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
-            },
-            tags={
-                "ProjectID": "123",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
-        ```
-
+        Create a InferenceProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the inference profile.
-        :param pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         """
         ...
     @overload
@@ -395,36 +287,7 @@ class InferenceProfile(pulumi.CustomResource):
                  args: Optional[InferenceProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Inference Profile.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.bedrock.InferenceProfile("example",
-            name="Claude Sonnet for Project 123",
-            description="Profile with tag for cost allocation tracking",
-            model_source={
-                "copy_from": "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
-            },
-            tags={
-                "ProjectID": "123",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
-        ```
-
+        Create a InferenceProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InferenceProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -498,19 +361,6 @@ class InferenceProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the inference profile.
-        :param pulumi.Input[_builtins.str] created_at: The time at which the inference profile was created.
-        :param pulumi.Input[_builtins.str] description: The description of the inference profile.
-        :param pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict']]]] models: A list of information about each model in the inference profile. See `models`.
-        :param pulumi.Input[_builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
-        :param pulumi.Input[_builtins.str] type: The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-        :param pulumi.Input[_builtins.str] updated_at: The time at which the inference profile was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,75 +384,46 @@ class InferenceProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the inference profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time at which the inference profile was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the inference profile.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="modelSource")
     def model_source(self) -> pulumi.Output[Optional['outputs.InferenceProfileModelSource']]:
-        """
-        The source of the model this inference profile will track metrics and cost for. See `model_source`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "model_source")
 
     @_builtins.property
     @pulumi.getter
     def models(self) -> pulumi.Output[Sequence['outputs.InferenceProfileModel']]:
-        """
-        A list of information about each model in the inference profile. See `models`.
-        """
         return pulumi.get(self, "models")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the inference profile.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags for the inference profile.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -618,16 +439,10 @@ class InferenceProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time at which the inference profile was last updated.
-        """
         return pulumi.get(self, "updated_at")
 

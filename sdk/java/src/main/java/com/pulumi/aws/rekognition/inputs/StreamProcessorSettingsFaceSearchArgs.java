@@ -18,14 +18,14 @@ public final class StreamProcessorSettingsFaceSearchArgs extends com.pulumi.reso
     public static final StreamProcessorSettingsFaceSearchArgs Empty = new StreamProcessorSettingsFaceSearchArgs();
 
     /**
-     * ID of a collection that contains faces that you want to search for.
+     * The ID of a collection that contains faces that you want to search for.
      * 
      */
     @Import(name="collectionId", required=true)
     private Output<String> collectionId;
 
     /**
-     * @return ID of a collection that contains faces that you want to search for.
+     * @return The ID of a collection that contains faces that you want to search for.
      * 
      */
     public Output<String> collectionId() {
@@ -73,7 +73,7 @@ public final class StreamProcessorSettingsFaceSearchArgs extends com.pulumi.reso
         }
 
         /**
-         * @param collectionId ID of a collection that contains faces that you want to search for.
+         * @param collectionId The ID of a collection that contains faces that you want to search for.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class StreamProcessorSettingsFaceSearchArgs extends com.pulumi.reso
         }
 
         /**
-         * @param collectionId ID of a collection that contains faces that you want to search for.
+         * @param collectionId The ID of a collection that contains faces that you want to search for.
          * 
          * @return builder
          * 

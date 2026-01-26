@@ -17,262 +17,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeDeploy deployment config for an application
- * 
- * ## Example Usage
- * 
- * ### Server Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codedeploy.DeploymentConfig;
- * import com.pulumi.aws.codedeploy.DeploymentConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigMinimumHealthyHostsArgs;
- * import com.pulumi.aws.codedeploy.DeploymentGroup;
- * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagFilterArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()
- *             .deploymentConfigName("test-deployment-config")
- *             .minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs.builder()
- *                 .type("HOST_COUNT")
- *                 .value(2)
- *                 .build())
- *             .build());
- * 
- *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()
- *             .appName(fooApp.name())
- *             .deploymentGroupName("bar")
- *             .serviceRoleArn(fooRole.arn())
- *             .deploymentConfigName(foo.id())
- *             .ec2TagFilters(DeploymentGroupEc2TagFilterArgs.builder()
- *                 .key("filterkey")
- *                 .type("KEY_AND_VALUE")
- *                 .value("filtervalue")
- *                 .build())
- *             .triggerConfigurations(DeploymentGroupTriggerConfigurationArgs.builder()
- *                 .triggerEvents("DeploymentFailure")
- *                 .triggerName("foo-trigger")
- *                 .triggerTargetArn("foo-topic-arn")
- *                 .build())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events("DEPLOYMENT_FAILURE")
- *                 .build())
- *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms("my-alarm-name")
- *                 .enabled(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Lambda Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codedeploy.DeploymentConfig;
- * import com.pulumi.aws.codedeploy.DeploymentConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs;
- * import com.pulumi.aws.codedeploy.DeploymentGroup;
- * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()
- *             .deploymentConfigName("test-deployment-config")
- *             .computePlatform("Lambda")
- *             .trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs.builder()
- *                 .type("TimeBasedLinear")
- *                 .timeBasedLinear(DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs.builder()
- *                     .interval(10)
- *                     .percentage(10)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()
- *             .appName(fooApp.name())
- *             .deploymentGroupName("bar")
- *             .serviceRoleArn(fooRole.arn())
- *             .deploymentConfigName(foo.id())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events("DEPLOYMENT_STOP_ON_ALARM")
- *                 .build())
- *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms("my-alarm-name")
- *                 .enabled(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
- * ```
- * 
- */
 @ResourceType(type="aws:codedeploy/deploymentConfig:DeploymentConfig")
 public class DeploymentConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the deployment config.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the deployment config.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-     * 
-     */
     @Export(name="computePlatform", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> computePlatform;
 
-    /**
-     * @return The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-     * 
-     */
     public Output<Optional<String>> computePlatform() {
         return Codegen.optional(this.computePlatform);
     }
-    /**
-     * The AWS Assigned deployment config id
-     * 
-     */
     @Export(name="deploymentConfigId", refs={String.class}, tree="[0]")
     private Output<String> deploymentConfigId;
 
-    /**
-     * @return The AWS Assigned deployment config id
-     * 
-     */
     public Output<String> deploymentConfigId() {
         return this.deploymentConfigId;
     }
-    /**
-     * The name of the deployment config.
-     * 
-     */
     @Export(name="deploymentConfigName", refs={String.class}, tree="[0]")
     private Output<String> deploymentConfigName;
 
-    /**
-     * @return The name of the deployment config.
-     * 
-     */
     public Output<String> deploymentConfigName() {
         return this.deploymentConfigName;
     }
-    /**
-     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-     * 
-     */
     @Export(name="minimumHealthyHosts", refs={DeploymentConfigMinimumHealthyHosts.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigMinimumHealthyHosts> minimumHealthyHosts;
 
-    /**
-     * @return A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-     * 
-     */
     public Output<Optional<DeploymentConfigMinimumHealthyHosts>> minimumHealthyHosts() {
         return Codegen.optional(this.minimumHealthyHosts);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A trafficRoutingConfig block. Traffic Routing Config is documented below.
-     * 
-     */
     @Export(name="trafficRoutingConfig", refs={DeploymentConfigTrafficRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigTrafficRoutingConfig> trafficRoutingConfig;
 
-    /**
-     * @return A trafficRoutingConfig block. Traffic Routing Config is documented below.
-     * 
-     */
     public Output<Optional<DeploymentConfigTrafficRoutingConfig>> trafficRoutingConfig() {
         return Codegen.optional(this.trafficRoutingConfig);
     }
-    /**
-     * A zonalConfig block. Zonal Config is documented below.
-     * 
-     */
     @Export(name="zonalConfig", refs={DeploymentConfigZonalConfig.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigZonalConfig> zonalConfig;
 
-    /**
-     * @return A zonalConfig block. Zonal Config is documented below.
-     * 
-     */
     public Output<Optional<DeploymentConfigZonalConfig>> zonalConfig() {
         return Codegen.optional(this.zonalConfig);
     }

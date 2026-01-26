@@ -65,17 +65,11 @@ class GetVirtualNodeResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the virtual node.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Creation date of the virtual node.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -89,9 +83,6 @@ class GetVirtualNodeResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Last update date of the virtual node.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
@@ -117,25 +108,16 @@ class GetVirtualNodeResult:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> _builtins.str:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @_builtins.property
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualNodeSpecResult']:
-        """
-        Virtual node specification. See the `appmesh.VirtualNode` resource for details.
-        """
         return pulumi.get(self, "specs")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -165,24 +147,7 @@ def get_virtual_node(mesh_name: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNodeResult:
     """
-    Data source for managing an AWS App Mesh Virtual Node.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_node(name="serviceBv1",
-        mesh_name="example-mesh")
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual node exists.
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the virtual node.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name
@@ -212,24 +177,7 @@ def get_virtual_node_output(mesh_name: Optional[pulumi.Input[_builtins.str]] = N
                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNodeResult]:
     """
-    Data source for managing an AWS App Mesh Virtual Node.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_node(name="serviceBv1",
-        mesh_name="example-mesh")
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual node exists.
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the virtual node.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name

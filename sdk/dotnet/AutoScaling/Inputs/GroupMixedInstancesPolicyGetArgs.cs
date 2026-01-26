@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupMixedInstancesPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
-        /// </summary>
         [Input("instancesDistribution")]
         public Input<Inputs.GroupMixedInstancesPolicyInstancesDistributionGetArgs>? InstancesDistribution { get; set; }
 
-        /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-        /// </summary>
         [Input("launchTemplate", required: true)]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateGetArgs> LaunchTemplate { get; set; } = null!;
 

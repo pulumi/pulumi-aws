@@ -15,17 +15,9 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
     public static final DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs Empty = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs();
 
-    /**
-     * Indicates if the file should be read as a json object per line.
-     * 
-     */
     @Import(name="line")
     private @Nullable Output<Boolean> line;
 
-    /**
-     * @return Indicates if the file should be read as a json object per line.
-     * 
-     */
     public Optional<Output<Boolean>> line() {
         return Optional.ofNullable(this.line);
     }
@@ -54,23 +46,11 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
             $ = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param line Indicates if the file should be read as a json object per line.
-         * 
-         * @return builder
-         * 
-         */
         public Builder line(@Nullable Output<Boolean> line) {
             $.line = line;
             return this;
         }
 
-        /**
-         * @param line Indicates if the file should be read as a json object per line.
-         * 
-         * @return builder
-         * 
-         */
         public Builder line(Boolean line) {
             return line(Output.of(line));
         }

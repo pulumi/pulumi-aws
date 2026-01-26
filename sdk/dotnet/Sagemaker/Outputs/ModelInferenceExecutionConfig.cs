@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ModelInferenceExecutionConfig
     {
-        /// <summary>
-        /// How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

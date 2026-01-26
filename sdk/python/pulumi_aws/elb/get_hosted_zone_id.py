@@ -61,29 +61,7 @@ class AwaitableGetHostedZoneIdResult(GetHostedZoneIdResult):
 def get_hosted_zone_id(region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostedZoneIdResult:
     """
-    Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
-    in a given region for the purpose of using in an AWS Route53 Alias.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.elb.get_hosted_zone_id()
-    www = aws.route53.Record("www",
-        zone_id=primary["zoneId"],
-        name="example.com",
-        type=aws.route53.RecordType.A,
-        aliases=[{
-            "name": main_aws_elb["dnsName"],
-            "zone_id": main.id,
-            "evaluate_target_health": True,
-        }])
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -96,29 +74,7 @@ def get_hosted_zone_id(region: Optional[_builtins.str] = None,
 def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedZoneIdResult]:
     """
-    Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
-    in a given region for the purpose of using in an AWS Route53 Alias.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.elb.get_hosted_zone_id()
-    www = aws.route53.Record("www",
-        zone_id=primary["zoneId"],
-        name="example.com",
-        type=aws.route53.RecordType.A,
-        aliases=[{
-            "name": main_aws_elb["dnsName"],
-            "zone_id": main.id,
-            "evaluate_target_health": True,
-        }])
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

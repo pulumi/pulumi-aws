@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppImageConfigCodeEditorAppImageConfigContainerConfig {
-    /**
-     * @return The arguments for the container when you&#39;re running the application.
-     * 
-     */
     private @Nullable List<String> containerArguments;
-    /**
-     * @return The entrypoint used to run the application in the container.
-     * 
-     */
     private @Nullable List<String> containerEntrypoints;
-    /**
-     * @return The environment variables to set in the container.
-     * 
-     */
     private @Nullable Map<String,String> containerEnvironmentVariables;
 
     private AppImageConfigCodeEditorAppImageConfigContainerConfig() {}
-    /**
-     * @return The arguments for the container when you&#39;re running the application.
-     * 
-     */
     public List<String> containerArguments() {
         return this.containerArguments == null ? List.of() : this.containerArguments;
     }
-    /**
-     * @return The entrypoint used to run the application in the container.
-     * 
-     */
     public List<String> containerEntrypoints() {
         return this.containerEntrypoints == null ? List.of() : this.containerEntrypoints;
     }
-    /**
-     * @return The environment variables to set in the container.
-     * 
-     */
     public Map<String,String> containerEnvironmentVariables() {
         return this.containerEnvironmentVariables == null ? Map.of() : this.containerEnvironmentVariables;
     }

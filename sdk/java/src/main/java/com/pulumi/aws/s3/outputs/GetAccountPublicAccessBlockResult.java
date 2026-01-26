@@ -14,47 +14,23 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAccountPublicAccessBlockResult {
     private @Nullable String accountId;
-    /**
-     * @return Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     private Boolean blockPublicAcls;
-    /**
-     * @return Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     private Boolean blockPublicPolicy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     private Boolean ignorePublicAcls;
-    /**
-     * @return Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     private Boolean restrictPublicBuckets;
 
     private GetAccountPublicAccessBlockResult() {}
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     public Boolean blockPublicAcls() {
         return this.blockPublicAcls;
     }
-    /**
-     * @return Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     public Boolean blockPublicPolicy() {
         return this.blockPublicPolicy;
     }
@@ -65,17 +41,9 @@ public final class GetAccountPublicAccessBlockResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     public Boolean ignorePublicAcls() {
         return this.ignorePublicAcls;
     }
-    /**
-     * @return Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
-     * 
-     */
     public Boolean restrictPublicBuckets() {
         return this.restrictPublicBuckets;
     }

@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetRowLevelPermissionTagConfigurationTagRule {
-    /**
-     * @return Column name that a tag key is assigned to.
-     * 
-     */
     private String columnName;
-    /**
-     * @return A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-     * 
-     */
     private @Nullable String matchAllValue;
-    /**
-     * @return Unique key for a tag.
-     * 
-     */
     private String tagKey;
-    /**
-     * @return A string that you want to use to delimit the values when you pass the values at run time.
-     * 
-     */
     private @Nullable String tagMultiValueDelimiter;
 
     private DataSetRowLevelPermissionTagConfigurationTagRule() {}
-    /**
-     * @return Column name that a tag key is assigned to.
-     * 
-     */
     public String columnName() {
         return this.columnName;
     }
-    /**
-     * @return A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-     * 
-     */
     public Optional<String> matchAllValue() {
         return Optional.ofNullable(this.matchAllValue);
     }
-    /**
-     * @return Unique key for a tag.
-     * 
-     */
     public String tagKey() {
         return this.tagKey;
     }
-    /**
-     * @return A string that you want to use to delimit the values when you pass the values at run time.
-     * 
-     */
     public Optional<String> tagMultiValueDelimiter() {
         return Optional.ofNullable(this.tagMultiValueDelimiter);
     }

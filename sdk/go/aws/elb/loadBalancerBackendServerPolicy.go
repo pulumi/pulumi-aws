@@ -12,104 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a load balancer policy to an ELB backend server.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			wu_tang, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("wu-tang"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(443),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::000000000000:server-certificate/wu-tang.net"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("wu-tang"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "wu-tang-pubkey",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ca-pubkey-policy", &elb.LoadBalancerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-ca-pubkey-policy"),
-//				PolicyTypeName:   pulumi.String("PublicKeyPolicyType"),
-//				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("PublicKey"),
-//						Value: pulumi.String(invokeFile.Result),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			wu_tang_root_ca_backend_auth_policy, err := elb.NewLoadBalancerPolicy(ctx, "wu-tang-root-ca-backend-auth-policy", &elb.LoadBalancerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-root-ca-backend-auth-policy"),
-//				PolicyTypeName:   pulumi.String("BackendServerAuthenticationPolicyType"),
-//				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("PublicKeyPolicyName"),
-//						Value: pulumi.Any(wu_tang_root_ca_pubkey_policy.PolicyName),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancerBackendServerPolicy(ctx, "wu-tang-backend-auth-policies-443", &elb.LoadBalancerBackendServerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				InstancePort:     pulumi.Int(443),
-//				PolicyNames: pulumi.StringArray{
-//					wu_tang_root_ca_backend_auth_policy.PolicyName,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type LoadBalancerBackendServerPolicy struct {
 	pulumi.CustomResourceState
 
-	// The instance port to apply the policy to.
-	InstancePort pulumi.IntOutput `pulumi:"instancePort"`
-	// The load balancer to attach the policy to.
-	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
-	// List of Policy Names to apply to the backend server.
-	PolicyNames pulumi.StringArrayOutput `pulumi:"policyNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	InstancePort     pulumi.IntOutput         `pulumi:"instancePort"`
+	LoadBalancerName pulumi.StringOutput      `pulumi:"loadBalancerName"`
+	PolicyNames      pulumi.StringArrayOutput `pulumi:"policyNames"`
+	Region           pulumi.StringOutput      `pulumi:"region"`
 }
 
 // NewLoadBalancerBackendServerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -154,25 +63,17 @@ func GetLoadBalancerBackendServerPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancerBackendServerPolicy resources.
 type loadBalancerBackendServerPolicyState struct {
-	// The instance port to apply the policy to.
-	InstancePort *int `pulumi:"instancePort"`
-	// The load balancer to attach the policy to.
-	LoadBalancerName *string `pulumi:"loadBalancerName"`
-	// List of Policy Names to apply to the backend server.
-	PolicyNames []string `pulumi:"policyNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstancePort     *int     `pulumi:"instancePort"`
+	LoadBalancerName *string  `pulumi:"loadBalancerName"`
+	PolicyNames      []string `pulumi:"policyNames"`
+	Region           *string  `pulumi:"region"`
 }
 
 type LoadBalancerBackendServerPolicyState struct {
-	// The instance port to apply the policy to.
-	InstancePort pulumi.IntPtrInput
-	// The load balancer to attach the policy to.
+	InstancePort     pulumi.IntPtrInput
 	LoadBalancerName pulumi.StringPtrInput
-	// List of Policy Names to apply to the backend server.
-	PolicyNames pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PolicyNames      pulumi.StringArrayInput
+	Region           pulumi.StringPtrInput
 }
 
 func (LoadBalancerBackendServerPolicyState) ElementType() reflect.Type {
@@ -180,26 +81,18 @@ func (LoadBalancerBackendServerPolicyState) ElementType() reflect.Type {
 }
 
 type loadBalancerBackendServerPolicyArgs struct {
-	// The instance port to apply the policy to.
-	InstancePort int `pulumi:"instancePort"`
-	// The load balancer to attach the policy to.
-	LoadBalancerName string `pulumi:"loadBalancerName"`
-	// List of Policy Names to apply to the backend server.
-	PolicyNames []string `pulumi:"policyNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstancePort     int      `pulumi:"instancePort"`
+	LoadBalancerName string   `pulumi:"loadBalancerName"`
+	PolicyNames      []string `pulumi:"policyNames"`
+	Region           *string  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LoadBalancerBackendServerPolicy resource.
 type LoadBalancerBackendServerPolicyArgs struct {
-	// The instance port to apply the policy to.
-	InstancePort pulumi.IntInput
-	// The load balancer to attach the policy to.
+	InstancePort     pulumi.IntInput
 	LoadBalancerName pulumi.StringInput
-	// List of Policy Names to apply to the backend server.
-	PolicyNames pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PolicyNames      pulumi.StringArrayInput
+	Region           pulumi.StringPtrInput
 }
 
 func (LoadBalancerBackendServerPolicyArgs) ElementType() reflect.Type {
@@ -289,22 +182,18 @@ func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicy
 	return o
 }
 
-// The instance port to apply the policy to.
 func (o LoadBalancerBackendServerPolicyOutput) InstancePort() pulumi.IntOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendServerPolicy) pulumi.IntOutput { return v.InstancePort }).(pulumi.IntOutput)
 }
 
-// The load balancer to attach the policy to.
 func (o LoadBalancerBackendServerPolicyOutput) LoadBalancerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendServerPolicy) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
 }
 
-// List of Policy Names to apply to the backend server.
 func (o LoadBalancerBackendServerPolicyOutput) PolicyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendServerPolicy) pulumi.StringArrayOutput { return v.PolicyNames }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LoadBalancerBackendServerPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendServerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

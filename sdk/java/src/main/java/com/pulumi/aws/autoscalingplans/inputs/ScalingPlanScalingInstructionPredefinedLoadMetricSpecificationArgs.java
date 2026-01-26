@@ -16,32 +16,16 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
 
     public static final ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs Empty = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs();
 
-    /**
-     * Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-     * 
-     */
     @Import(name="predefinedLoadMetricType", required=true)
     private Output<String> predefinedLoadMetricType;
 
-    /**
-     * @return Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-     * 
-     */
     public Output<String> predefinedLoadMetricType() {
         return this.predefinedLoadMetricType;
     }
 
-    /**
-     * Identifies the resource associated with the metric type.
-     * 
-     */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     public Optional<Output<String>> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }
@@ -71,44 +55,20 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
             $ = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param predefinedLoadMetricType Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedLoadMetricType(Output<String> predefinedLoadMetricType) {
             $.predefinedLoadMetricType = predefinedLoadMetricType;
             return this;
         }
 
-        /**
-         * @param predefinedLoadMetricType Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedLoadMetricType(String predefinedLoadMetricType) {
             return predefinedLoadMetricType(Output.of(predefinedLoadMetricType));
         }
 
-        /**
-         * @param resourceLabel Identifies the resource associated with the metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(@Nullable Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
 
-        /**
-         * @param resourceLabel Identifies the resource associated with the metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(String resourceLabel) {
             return resourceLabel(Output.of(resourceLabel));
         }

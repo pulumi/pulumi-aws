@@ -11,81 +11,12 @@ namespace Pulumi.Aws.SsoAdmin
 {
     public static class GetApplication
     {
-        /// <summary>
-        /// Data source for managing an AWS SSO Admin Application.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplication.Invoke(new()
-        ///     {
-        ///         ApplicationArn = "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:ssoadmin/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SSO Admin Application.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplication.Invoke(new()
-        ///     {
-        ///         ApplicationArn = "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:ssoadmin/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SSO Admin Application.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplication.Invoke(new()
-        ///     {
-        ///         ApplicationArn = "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:ssoadmin/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,39 +54,15 @@ namespace Pulumi.Aws.SsoAdmin
     [OutputType]
     public sealed class GetApplicationResult
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         public readonly string ApplicationAccount;
         public readonly string ApplicationArn;
-        /// <summary>
-        /// ARN of the application provider.
-        /// </summary>
         public readonly string ApplicationProviderArn;
-        /// <summary>
-        /// Description of the application.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN of the instance of IAM Identity Center.
-        /// </summary>
         public readonly string InstanceArn;
-        /// <summary>
-        /// Name of the application.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationPortalOptionResult> PortalOptions;
         public readonly string Region;
-        /// <summary>
-        /// Status of the application.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

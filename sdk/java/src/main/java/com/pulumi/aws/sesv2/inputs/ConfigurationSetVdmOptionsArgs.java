@@ -16,32 +16,16 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
 
     public static final ConfigurationSetVdmOptionsArgs Empty = new ConfigurationSetVdmOptionsArgs();
 
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
-     * 
-     */
     @Import(name="dashboardOptions")
     private @Nullable Output<ConfigurationSetVdmOptionsDashboardOptionsArgs> dashboardOptions;
 
-    /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
-     * 
-     */
     public Optional<Output<ConfigurationSetVdmOptionsDashboardOptionsArgs>> dashboardOptions() {
         return Optional.ofNullable(this.dashboardOptions);
     }
 
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
-     * 
-     */
     @Import(name="guardianOptions")
     private @Nullable Output<ConfigurationSetVdmOptionsGuardianOptionsArgs> guardianOptions;
 
-    /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
-     * 
-     */
     public Optional<Output<ConfigurationSetVdmOptionsGuardianOptionsArgs>> guardianOptions() {
         return Optional.ofNullable(this.guardianOptions);
     }
@@ -71,44 +55,20 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
             $ = new ConfigurationSetVdmOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dashboardOptions Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardOptions(@Nullable Output<ConfigurationSetVdmOptionsDashboardOptionsArgs> dashboardOptions) {
             $.dashboardOptions = dashboardOptions;
             return this;
         }
 
-        /**
-         * @param dashboardOptions Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardOptions(ConfigurationSetVdmOptionsDashboardOptionsArgs dashboardOptions) {
             return dashboardOptions(Output.of(dashboardOptions));
         }
 
-        /**
-         * @param guardianOptions Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardianOptions(@Nullable Output<ConfigurationSetVdmOptionsGuardianOptionsArgs> guardianOptions) {
             $.guardianOptions = guardianOptions;
             return this;
         }
 
-        /**
-         * @param guardianOptions Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardianOptions(ConfigurationSetVdmOptionsGuardianOptionsArgs guardianOptions) {
             return guardianOptions(Output.of(guardianOptions));
         }

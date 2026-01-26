@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type RepositoryAssociationKmsKeyDetails struct {
-	// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 	EncryptionOption *string `pulumi:"encryptionOption"`
-	// The ID of the AWS KMS key that is associated with a repository association.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
+	KmsKeyId         *string `pulumi:"kmsKeyId"`
 }
 
 // RepositoryAssociationKmsKeyDetailsInput is an input type that accepts RepositoryAssociationKmsKeyDetailsArgs and RepositoryAssociationKmsKeyDetailsOutput values.
@@ -32,10 +30,8 @@ type RepositoryAssociationKmsKeyDetailsInput interface {
 }
 
 type RepositoryAssociationKmsKeyDetailsArgs struct {
-	// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 	EncryptionOption pulumi.StringPtrInput `pulumi:"encryptionOption"`
-	// The ID of the AWS KMS key that is associated with a repository association.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	KmsKeyId         pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
 func (RepositoryAssociationKmsKeyDetailsArgs) ElementType() reflect.Type {
@@ -115,12 +111,10 @@ func (o RepositoryAssociationKmsKeyDetailsOutput) ToRepositoryAssociationKmsKeyD
 	}).(RepositoryAssociationKmsKeyDetailsPtrOutput)
 }
 
-// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 func (o RepositoryAssociationKmsKeyDetailsOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryAssociationKmsKeyDetails) *string { return v.EncryptionOption }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS KMS key that is associated with a repository association.
 func (o RepositoryAssociationKmsKeyDetailsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryAssociationKmsKeyDetails) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +143,6 @@ func (o RepositoryAssociationKmsKeyDetailsPtrOutput) Elem() RepositoryAssociatio
 	}).(RepositoryAssociationKmsKeyDetailsOutput)
 }
 
-// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 func (o RepositoryAssociationKmsKeyDetailsPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationKmsKeyDetails) *string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o RepositoryAssociationKmsKeyDetailsPtrOutput) EncryptionOption() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS KMS key that is associated with a repository association.
 func (o RepositoryAssociationKmsKeyDetailsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationKmsKeyDetails) *string {
 		if v == nil {
@@ -352,12 +344,9 @@ func (o RepositoryAssociationRepositoryPtrOutput) S3Bucket() RepositoryAssociati
 }
 
 type RepositoryAssociationRepositoryBitbucket struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn string `pulumi:"connectionArn"`
-	// The name of the third party source repository.
-	Name string `pulumi:"name"`
-	// The username for the account that owns the repository.
-	Owner string `pulumi:"owner"`
+	Name          string `pulumi:"name"`
+	Owner         string `pulumi:"owner"`
 }
 
 // RepositoryAssociationRepositoryBitbucketInput is an input type that accepts RepositoryAssociationRepositoryBitbucketArgs and RepositoryAssociationRepositoryBitbucketOutput values.
@@ -372,12 +361,9 @@ type RepositoryAssociationRepositoryBitbucketInput interface {
 }
 
 type RepositoryAssociationRepositoryBitbucketArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringInput `pulumi:"connectionArn"`
-	// The name of the third party source repository.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The username for the account that owns the repository.
-	Owner pulumi.StringInput `pulumi:"owner"`
+	Name          pulumi.StringInput `pulumi:"name"`
+	Owner         pulumi.StringInput `pulumi:"owner"`
 }
 
 func (RepositoryAssociationRepositoryBitbucketArgs) ElementType() reflect.Type {
@@ -457,17 +443,14 @@ func (o RepositoryAssociationRepositoryBitbucketOutput) ToRepositoryAssociationR
 	}).(RepositoryAssociationRepositoryBitbucketPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryBitbucketOutput) ConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryBitbucket) string { return v.ConnectionArn }).(pulumi.StringOutput)
 }
 
-// The name of the third party source repository.
 func (o RepositoryAssociationRepositoryBitbucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryBitbucket) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The username for the account that owns the repository.
 func (o RepositoryAssociationRepositoryBitbucketOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryBitbucket) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -496,7 +479,6 @@ func (o RepositoryAssociationRepositoryBitbucketPtrOutput) Elem() RepositoryAsso
 	}).(RepositoryAssociationRepositoryBitbucketOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryBitbucketPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryBitbucket) *string {
 		if v == nil {
@@ -506,7 +488,6 @@ func (o RepositoryAssociationRepositoryBitbucketPtrOutput) ConnectionArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the third party source repository.
 func (o RepositoryAssociationRepositoryBitbucketPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryBitbucket) *string {
 		if v == nil {
@@ -516,7 +497,6 @@ func (o RepositoryAssociationRepositoryBitbucketPtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username for the account that owns the repository.
 func (o RepositoryAssociationRepositoryBitbucketPtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryBitbucket) *string {
 		if v == nil {
@@ -527,7 +507,6 @@ func (o RepositoryAssociationRepositoryBitbucketPtrOutput) Owner() pulumi.String
 }
 
 type RepositoryAssociationRepositoryCodecommit struct {
-	// The name of the AWS CodeCommit repository.
 	Name string `pulumi:"name"`
 }
 
@@ -543,7 +522,6 @@ type RepositoryAssociationRepositoryCodecommitInput interface {
 }
 
 type RepositoryAssociationRepositoryCodecommitArgs struct {
-	// The name of the AWS CodeCommit repository.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -624,7 +602,6 @@ func (o RepositoryAssociationRepositoryCodecommitOutput) ToRepositoryAssociation
 	}).(RepositoryAssociationRepositoryCodecommitPtrOutput)
 }
 
-// The name of the AWS CodeCommit repository.
 func (o RepositoryAssociationRepositoryCodecommitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryCodecommit) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -653,7 +630,6 @@ func (o RepositoryAssociationRepositoryCodecommitPtrOutput) Elem() RepositoryAss
 	}).(RepositoryAssociationRepositoryCodecommitOutput)
 }
 
-// The name of the AWS CodeCommit repository.
 func (o RepositoryAssociationRepositoryCodecommitPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryCodecommit) *string {
 		if v == nil {
@@ -664,12 +640,9 @@ func (o RepositoryAssociationRepositoryCodecommitPtrOutput) Name() pulumi.String
 }
 
 type RepositoryAssociationRepositoryGithubEnterpriseServer struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn string `pulumi:"connectionArn"`
-	// The name of the third party source repository.
-	Name string `pulumi:"name"`
-	// The username for the account that owns the repository.
-	Owner string `pulumi:"owner"`
+	Name          string `pulumi:"name"`
+	Owner         string `pulumi:"owner"`
 }
 
 // RepositoryAssociationRepositoryGithubEnterpriseServerInput is an input type that accepts RepositoryAssociationRepositoryGithubEnterpriseServerArgs and RepositoryAssociationRepositoryGithubEnterpriseServerOutput values.
@@ -684,12 +657,9 @@ type RepositoryAssociationRepositoryGithubEnterpriseServerInput interface {
 }
 
 type RepositoryAssociationRepositoryGithubEnterpriseServerArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringInput `pulumi:"connectionArn"`
-	// The name of the third party source repository.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The username for the account that owns the repository.
-	Owner pulumi.StringInput `pulumi:"owner"`
+	Name          pulumi.StringInput `pulumi:"name"`
+	Owner         pulumi.StringInput `pulumi:"owner"`
 }
 
 func (RepositoryAssociationRepositoryGithubEnterpriseServerArgs) ElementType() reflect.Type {
@@ -769,17 +739,14 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) ToRepositor
 	}).(RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) ConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryGithubEnterpriseServer) string { return v.ConnectionArn }).(pulumi.StringOutput)
 }
 
-// The name of the third party source repository.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryGithubEnterpriseServer) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The username for the account that owns the repository.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryGithubEnterpriseServer) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -808,7 +775,6 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Elem() R
 	}).(RepositoryAssociationRepositoryGithubEnterpriseServerOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryGithubEnterpriseServer) *string {
 		if v == nil {
@@ -818,7 +784,6 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Connecti
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the third party source repository.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryGithubEnterpriseServer) *string {
 		if v == nil {
@@ -828,7 +793,6 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Name() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username for the account that owns the repository.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryGithubEnterpriseServer) *string {
 		if v == nil {
@@ -839,10 +803,8 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Owner() 
 }
 
 type RepositoryAssociationRepositoryS3Bucket struct {
-	// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 	BucketName string `pulumi:"bucketName"`
-	// The name of the repository in the S3 bucket.
-	Name string `pulumi:"name"`
+	Name       string `pulumi:"name"`
 }
 
 // RepositoryAssociationRepositoryS3BucketInput is an input type that accepts RepositoryAssociationRepositoryS3BucketArgs and RepositoryAssociationRepositoryS3BucketOutput values.
@@ -857,10 +819,8 @@ type RepositoryAssociationRepositoryS3BucketInput interface {
 }
 
 type RepositoryAssociationRepositoryS3BucketArgs struct {
-	// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The name of the repository in the S3 bucket.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput `pulumi:"name"`
 }
 
 func (RepositoryAssociationRepositoryS3BucketArgs) ElementType() reflect.Type {
@@ -940,12 +900,10 @@ func (o RepositoryAssociationRepositoryS3BucketOutput) ToRepositoryAssociationRe
 	}).(RepositoryAssociationRepositoryS3BucketPtrOutput)
 }
 
-// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 func (o RepositoryAssociationRepositoryS3BucketOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryS3Bucket) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The name of the repository in the S3 bucket.
 func (o RepositoryAssociationRepositoryS3BucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryS3Bucket) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -974,7 +932,6 @@ func (o RepositoryAssociationRepositoryS3BucketPtrOutput) Elem() RepositoryAssoc
 	}).(RepositoryAssociationRepositoryS3BucketOutput)
 }
 
-// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 func (o RepositoryAssociationRepositoryS3BucketPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryS3Bucket) *string {
 		if v == nil {
@@ -984,7 +941,6 @@ func (o RepositoryAssociationRepositoryS3BucketPtrOutput) BucketName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the repository in the S3 bucket.
 func (o RepositoryAssociationRepositoryS3BucketPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryS3Bucket) *string {
 		if v == nil {
@@ -995,7 +951,6 @@ func (o RepositoryAssociationRepositoryS3BucketPtrOutput) Name() pulumi.StringPt
 }
 
 type RepositoryAssociationS3RepositoryDetail struct {
-	// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 	BucketName    *string                                               `pulumi:"bucketName"`
 	CodeArtifacts []RepositoryAssociationS3RepositoryDetailCodeArtifact `pulumi:"codeArtifacts"`
 }
@@ -1012,7 +967,6 @@ type RepositoryAssociationS3RepositoryDetailInput interface {
 }
 
 type RepositoryAssociationS3RepositoryDetailArgs struct {
-	// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 	BucketName    pulumi.StringPtrInput                                         `pulumi:"bucketName"`
 	CodeArtifacts RepositoryAssociationS3RepositoryDetailCodeArtifactArrayInput `pulumi:"codeArtifacts"`
 }
@@ -1068,7 +1022,6 @@ func (o RepositoryAssociationS3RepositoryDetailOutput) ToRepositoryAssociationS3
 	return o
 }
 
-// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 func (o RepositoryAssociationS3RepositoryDetailOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryAssociationS3RepositoryDetail) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }

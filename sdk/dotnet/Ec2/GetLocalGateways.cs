@@ -11,102 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetLocalGateways
     {
-        /// <summary>
-        /// Provides information for multiple EC2 Local Gateways, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example retrieves Local Gateways with a resource tag of `Service` set to `Production`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ec2.GetLocalGateways.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "service", "production" },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLocalGatewaysResult> InvokeAsync(GetLocalGatewaysArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for multiple EC2 Local Gateways, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example retrieves Local Gateways with a resource tag of `Service` set to `Production`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ec2.GetLocalGateways.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "service", "production" },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocalGatewaysResult> Invoke(GetLocalGatewaysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for multiple EC2 Local Gateways, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example retrieves Local Gateways with a resource tag of `Service` set to `Production`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ec2.GetLocalGateways.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "service", "production" },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocalGatewaysResult> Invoke(GetLocalGatewaysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysInvokeArgs(), options.WithDefaults());
     }
@@ -116,32 +26,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewaysFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public List<Inputs.GetLocalGatewaysFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetLocalGatewaysFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired local_gateways.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -158,32 +53,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewaysFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public InputList<Inputs.GetLocalGatewaysFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetLocalGatewaysFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired local_gateways.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -205,9 +85,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of all the Local Gateway identifiers
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;

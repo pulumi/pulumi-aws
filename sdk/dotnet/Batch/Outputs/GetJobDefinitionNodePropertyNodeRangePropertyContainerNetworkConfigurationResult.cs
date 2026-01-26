@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationResult
     {
-        /// <summary>
-        /// Indicates whether the job has a public IP address.
-        /// </summary>
         public readonly bool AssignPublicIp;
 
         [OutputConstructor]

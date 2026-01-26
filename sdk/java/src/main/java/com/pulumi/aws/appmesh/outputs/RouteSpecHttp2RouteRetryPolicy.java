@@ -14,59 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttp2RouteRetryPolicy {
-    /**
-     * @return List of HTTP retry events.
-     * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-     * 
-     */
     private @Nullable List<String> httpRetryEvents;
-    /**
-     * @return Maximum number of retries.
-     * 
-     */
     private Integer maxRetries;
-    /**
-     * @return Per-retry timeout.
-     * 
-     */
     private RouteSpecHttp2RouteRetryPolicyPerRetryTimeout perRetryTimeout;
-    /**
-     * @return List of TCP retry events. The only valid value is `connection-error`.
-     * 
-     * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
-     * 
-     */
     private @Nullable List<String> tcpRetryEvents;
 
     private RouteSpecHttp2RouteRetryPolicy() {}
-    /**
-     * @return List of HTTP retry events.
-     * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-     * 
-     */
     public List<String> httpRetryEvents() {
         return this.httpRetryEvents == null ? List.of() : this.httpRetryEvents;
     }
-    /**
-     * @return Maximum number of retries.
-     * 
-     */
     public Integer maxRetries() {
         return this.maxRetries;
     }
-    /**
-     * @return Per-retry timeout.
-     * 
-     */
     public RouteSpecHttp2RouteRetryPolicyPerRetryTimeout perRetryTimeout() {
         return this.perRetryTimeout;
     }
-    /**
-     * @return List of TCP retry events. The only valid value is `connection-error`.
-     * 
-     * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
-     * 
-     */
     public List<String> tcpRetryEvents() {
         return this.tcpRetryEvents == null ? List.of() : this.tcpRetryEvents;
     }

@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LoadBalancerAccessLogs {
-    /**
-     * @return The S3 bucket name to store the logs in.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     private @Nullable String bucketPrefix;
-    /**
-     * @return Boolean to enable / disable `accessLogs`. Default is `true`
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-     * 
-     */
     private @Nullable Integer interval;
 
     private LoadBalancerAccessLogs() {}
-    /**
-     * @return The S3 bucket name to store the logs in.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
-    /**
-     * @return Boolean to enable / disable `accessLogs`. Default is `true`
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-     * 
-     */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }

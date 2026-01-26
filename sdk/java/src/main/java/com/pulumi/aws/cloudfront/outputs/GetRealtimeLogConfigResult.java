@@ -13,20 +13,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRealtimeLogConfigResult {
-    /**
-     * @return ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-     * 
-     */
     private String arn;
-    /**
-     * @return (Required) Amazon Kinesis data streams where real-time log data is sent.
-     * 
-     */
     private List<GetRealtimeLogConfigEndpoint> endpoints;
-    /**
-     * @return (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     * 
-     */
     private List<String> fields;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -34,31 +22,15 @@ public final class GetRealtimeLogConfigResult {
      */
     private String id;
     private String name;
-    /**
-     * @return (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     * 
-     */
     private Integer samplingRate;
 
     private GetRealtimeLogConfigResult() {}
-    /**
-     * @return ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return (Required) Amazon Kinesis data streams where real-time log data is sent.
-     * 
-     */
     public List<GetRealtimeLogConfigEndpoint> endpoints() {
         return this.endpoints;
     }
-    /**
-     * @return (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     * 
-     */
     public List<String> fields() {
         return this.fields;
     }
@@ -72,10 +44,6 @@ public final class GetRealtimeLogConfigResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     * 
-     */
     public Integer samplingRate() {
         return this.samplingRate;
     }

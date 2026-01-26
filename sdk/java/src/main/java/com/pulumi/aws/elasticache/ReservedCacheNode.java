@@ -20,269 +20,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an ElastiCache Reserved Cache Node.
- * 
- * &gt; **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offeringId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [ElastiCache Reserved Nodes Documentation](https://aws.amazon.com/elasticache/reserved-cache-nodes/) and [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html).
- * 
- * &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.ElasticacheFunctions;
- * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
- * import com.pulumi.aws.elasticache.ReservedCacheNode;
- * import com.pulumi.aws.elasticache.ReservedCacheNodeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ElasticacheFunctions.getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs.builder()
- *             .cacheNodeType("cache.t4g.small")
- *             .duration("P1Y")
- *             .offeringType("No Upfront")
- *             .productDescription("redis")
- *             .build());
- * 
- *         var exampleReservedCacheNode = new ReservedCacheNode("exampleReservedCacheNode", ReservedCacheNodeArgs.builder()
- *             .reservedCacheNodesOfferingId(example.offeringId())
- *             .id("optionalCustomReservationID")
- *             .cacheNodeCount(3)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
- * ```
- * 
- */
 @ResourceType(type="aws:elasticache/reservedCacheNode:ReservedCacheNode")
 public class ReservedCacheNode extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN for the reserved cache node.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN for the reserved cache node.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Number of cache node instances to reserve.
-     * Default value is `1`.
-     * 
-     */
     @Export(name="cacheNodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheNodeCount;
 
-    /**
-     * @return Number of cache node instances to reserve.
-     * Default value is `1`.
-     * 
-     */
     public Output<Integer> cacheNodeCount() {
         return this.cacheNodeCount;
     }
-    /**
-     * Node type for the reserved cache nodes.
-     * 
-     */
     @Export(name="cacheNodeType", refs={String.class}, tree="[0]")
     private Output<String> cacheNodeType;
 
-    /**
-     * @return Node type for the reserved cache nodes.
-     * 
-     */
     public Output<String> cacheNodeType() {
         return this.cacheNodeType;
     }
-    /**
-     * Duration of the reservation as an RFC3339 duration.
-     * 
-     */
     @Export(name="duration", refs={String.class}, tree="[0]")
     private Output<String> duration;
 
-    /**
-     * @return Duration of the reservation as an RFC3339 duration.
-     * 
-     */
     public Output<String> duration() {
         return this.duration;
     }
-    /**
-     * Fixed price charged for this reserved cache node.
-     * 
-     */
     @Export(name="fixedPrice", refs={Double.class}, tree="[0]")
     private Output<Double> fixedPrice;
 
-    /**
-     * @return Fixed price charged for this reserved cache node.
-     * 
-     */
     public Output<Double> fixedPrice() {
         return this.fixedPrice;
     }
-    /**
-     * Offering type of this reserved cache node.
-     * 
-     */
     @Export(name="offeringType", refs={String.class}, tree="[0]")
     private Output<String> offeringType;
 
-    /**
-     * @return Offering type of this reserved cache node.
-     * 
-     */
     public Output<String> offeringType() {
         return this.offeringType;
     }
-    /**
-     * Engine type for the reserved cache node.
-     * 
-     */
     @Export(name="productDescription", refs={String.class}, tree="[0]")
     private Output<String> productDescription;
 
-    /**
-     * @return Engine type for the reserved cache node.
-     * 
-     */
     public Output<String> productDescription() {
         return this.productDescription;
     }
-    /**
-     * Recurring price charged to run this reserved cache node.
-     * 
-     */
     @Export(name="recurringCharges", refs={List.class,ReservedCacheNodeRecurringCharge.class}, tree="[0,1]")
     private Output<List<ReservedCacheNodeRecurringCharge>> recurringCharges;
 
-    /**
-     * @return Recurring price charged to run this reserved cache node.
-     * 
-     */
     public Output<List<ReservedCacheNodeRecurringCharge>> recurringCharges() {
         return this.recurringCharges;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the reserved cache node offering to purchase.
-     * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="reservedCacheNodesOfferingId", refs={String.class}, tree="[0]")
     private Output<String> reservedCacheNodesOfferingId;
 
-    /**
-     * @return ID of the reserved cache node offering to purchase.
-     * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> reservedCacheNodesOfferingId() {
         return this.reservedCacheNodesOfferingId;
     }
-    /**
-     * Time the reservation started.
-     * 
-     */
     @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
-    /**
-     * @return Time the reservation started.
-     * 
-     */
     public Output<String> startTime() {
         return this.startTime;
     }
-    /**
-     * State of the reserved cache node.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the reserved cache node.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -292,17 +112,9 @@ public class ReservedCacheNode extends com.pulumi.resources.CustomResource {
     public Output<Optional<ReservedCacheNodeTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Hourly price charged for this reserved cache node.
-     * 
-     */
     @Export(name="usagePrice", refs={Double.class}, tree="[0]")
     private Output<Double> usagePrice;
 
-    /**
-     * @return Hourly price charged for this reserved cache node.
-     * 
-     */
     public Output<Double> usagePrice() {
         return this.usagePrice;
     }

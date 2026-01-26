@@ -17,81 +17,37 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
 
     public static final ProvisionedConcurrencyConfigState Empty = new ProvisionedConcurrencyConfigState();
 
-    /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
-     * 
-     */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
-    /**
-     * @return Name or Amazon Resource Name (ARN) of the Lambda Function.
-     * 
-     */
     public Optional<Output<String>> functionName() {
         return Optional.ofNullable(this.functionName);
     }
 
-    /**
-     * Amount of capacity to allocate. Must be greater than or equal to 1.
-     * 
-     */
     @Import(name="provisionedConcurrentExecutions")
     private @Nullable Output<Integer> provisionedConcurrentExecutions;
 
-    /**
-     * @return Amount of capacity to allocate. Must be greater than or equal to 1.
-     * 
-     */
     public Optional<Output<Integer>> provisionedConcurrentExecutions() {
         return Optional.ofNullable(this.provisionedConcurrentExecutions);
     }
 
-    /**
-     * Lambda Function version or Lambda Alias name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
-    /**
-     * @return Lambda Function version or Lambda Alias name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-     * 
-     */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
-    /**
-     * @return Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-     * 
-     */
     public Optional<Output<Boolean>> skipDestroy() {
         return Optional.ofNullable(this.skipDestroy);
     }
@@ -124,111 +80,47 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
             $ = new ProvisionedConcurrencyConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(@Nullable Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConcurrentExecutions(@Nullable Output<Integer> provisionedConcurrentExecutions) {
             $.provisionedConcurrentExecutions = provisionedConcurrentExecutions;
             return this;
         }
 
-        /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConcurrentExecutions(Integer provisionedConcurrentExecutions) {
             return provisionedConcurrentExecutions(Output.of(provisionedConcurrentExecutions));
         }
 
-        /**
-         * @param qualifier Lambda Function version or Lambda Alias name.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier Lambda Function version or Lambda Alias name.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param skipDestroy Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
             $.skipDestroy = skipDestroy;
             return this;
         }
 
-        /**
-         * @param skipDestroy Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDestroy(Boolean skipDestroy) {
             return skipDestroy(Output.of(skipDestroy));
         }

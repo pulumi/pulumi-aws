@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataZone.Inputs
 
     public sealed class EnvironmentProvisionedResourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -24,9 +21,6 @@ namespace Pulumi.Aws.DataZone.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// The value of an environment profile parameter.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

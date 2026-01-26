@@ -11,55 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketWebsite {
-    /**
-     * @return Absolute path to the document to return in case of a 4XX error.
-     * 
-     */
     private @Nullable String errorDocument;
-    /**
-     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-     * 
-     */
     private @Nullable String indexDocument;
-    /**
-     * @return Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-     * 
-     */
     private @Nullable String redirectAllRequestsTo;
-    /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
-     * 
-     */
     private @Nullable String routingRules;
 
     private BucketWebsite() {}
-    /**
-     * @return Absolute path to the document to return in case of a 4XX error.
-     * 
-     */
     public Optional<String> errorDocument() {
         return Optional.ofNullable(this.errorDocument);
     }
-    /**
-     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-     * 
-     */
     public Optional<String> indexDocument() {
         return Optional.ofNullable(this.indexDocument);
     }
-    /**
-     * @return Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-     * 
-     */
     public Optional<String> redirectAllRequestsTo() {
         return Optional.ofNullable(this.redirectAllRequestsTo);
     }
-    /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
-     * 
-     */
     public Optional<String> routingRules() {
         return Optional.ofNullable(this.routingRules);
     }

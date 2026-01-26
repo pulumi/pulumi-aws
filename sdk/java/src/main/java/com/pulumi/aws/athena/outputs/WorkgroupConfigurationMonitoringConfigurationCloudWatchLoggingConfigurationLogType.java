@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType {
-    /**
-     * @return Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-     * 
-     */
     private String key;
-    /**
-     * @return List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-     * 
-     */
     private List<String> values;
 
     private WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType() {}
-    /**
-     * @return Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

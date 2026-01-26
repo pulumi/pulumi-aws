@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
- *
- * Note that the grant must exist in the destination region, and not in the region of the cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.redshift.SnapshotCopyGrant("test", {snapshotCopyGrantName: "my-grant"});
- * const testCluster = new aws.redshift.Cluster("test", {snapshotCopy: [{
- *     destinationRegion: "us-east-2",
- *     grantName: test.snapshotCopyGrantName,
- * }]});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
- * ```
- */
 export class SnapshotCopyGrant extends pulumi.CustomResource {
     /**
      * Get an existing SnapshotCopyGrant resource's state with the given name, ID, and optional extra
@@ -58,29 +32,11 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
         return obj['__pulumiType'] === SnapshotCopyGrant.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of snapshot copy grant
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A friendly name for identifying the grant.
-     */
     declare public readonly snapshotCopyGrantName: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -123,29 +79,11 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SnapshotCopyGrant resources.
  */
 export interface SnapshotCopyGrantState {
-    /**
-     * Amazon Resource Name (ARN) of snapshot copy grant
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A friendly name for identifying the grant.
-     */
     snapshotCopyGrantName?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -153,20 +91,8 @@ export interface SnapshotCopyGrantState {
  * The set of arguments for constructing a SnapshotCopyGrant resource.
  */
 export interface SnapshotCopyGrantArgs {
-    /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A friendly name for identifying the grant.
-     */
     snapshotCopyGrantName: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

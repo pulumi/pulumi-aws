@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualNodeSpecListenerTlsCertificateAcm {
-    /**
-     * @return ARN for the certificate.
-     * 
-     */
     private String certificateArn;
 
     private VirtualNodeSpecListenerTlsCertificateAcm() {}
-    /**
-     * @return ARN for the certificate.
-     * 
-     */
     public String certificateArn() {
         return this.certificateArn;
     }

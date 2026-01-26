@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainAutoTuneOptionsMaintenanceScheduleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
-        /// </summary>
         [Input("cronExpressionForRecurrence", required: true)]
         public Input<string> CronExpressionForRecurrence { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
-        /// </summary>
         [Input("duration", required: true)]
         public Input<Inputs.DomainAutoTuneOptionsMaintenanceScheduleDurationArgs> Duration { get; set; } = null!;
 
-        /// <summary>
-        /// Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Input("startAt", required: true)]
         public Input<string> StartAt { get; set; } = null!;
 

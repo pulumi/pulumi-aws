@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
-    /**
-     * @return Database username for authentication to an Amazon Redshift provisioned data warehouse.
-     * 
-     */
     private @Nullable String databaseUser;
-    /**
-     * @return Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-     * 
-     */
     private String type;
-    /**
-     * @return ARN of a Secrets Manager secret for authentication.
-     * 
-     */
     private @Nullable String usernamePasswordSecretArn;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration() {}
-    /**
-     * @return Database username for authentication to an Amazon Redshift provisioned data warehouse.
-     * 
-     */
     public Optional<String> databaseUser() {
         return Optional.ofNullable(this.databaseUser);
     }
-    /**
-     * @return Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return ARN of a Secrets Manager secret for authentication.
-     * 
-     */
     public Optional<String> usernamePasswordSecretArn() {
         return Optional.ofNullable(this.usernamePasswordSecretArn);
     }

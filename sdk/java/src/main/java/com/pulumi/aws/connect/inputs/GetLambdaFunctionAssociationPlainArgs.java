@@ -15,47 +15,23 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
 
     public static final GetLambdaFunctionAssociationPlainArgs Empty = new GetLambdaFunctionAssociationPlainArgs();
 
-    /**
-     * ARN of the Lambda Function, omitting any version or alias qualifier.
-     * 
-     */
     @Import(name="functionArn", required=true)
     private String functionArn;
 
-    /**
-     * @return ARN of the Lambda Function, omitting any version or alias qualifier.
-     * 
-     */
     public String functionArn() {
         return this.functionArn;
     }
 
-    /**
-     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-     * 
-     */
     @Import(name="instanceId", required=true)
     private String instanceId;
 
-    /**
-     * @return Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,34 +62,16 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
             $ = new GetLambdaFunctionAssociationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionArn ARN of the Lambda Function, omitting any version or alias qualifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(String functionArn) {
             $.functionArn = functionArn;
             return this;
         }
 
-        /**
-         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

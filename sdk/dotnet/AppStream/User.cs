@@ -9,94 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppStream
 {
-    /// <summary>
-    /// Provides an AppStream user.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppStream.User("example", new()
-    ///     {
-    ///         AuthenticationType = "USERPOOL",
-    ///         UserName = "EMAIL",
-    ///         FirstName = "FIRST NAME",
-    ///         LastName = "LAST NAME",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appstream/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the appstream user.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        /// </summary>
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the user in the user pool is enabled.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// First name, or given name, of the user.
-        /// </summary>
         [Output("firstName")]
         public Output<string?> FirstName { get; private set; } = null!;
 
-        /// <summary>
-        /// Last name, or surname, of the user.
-        /// </summary>
         [Output("lastName")]
         public Output<string?> LastName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Send an email notification.
-        /// </summary>
         [Output("sendEmailNotification")]
         public Output<bool?> SendEmailNotification { get; private set; } = null!;
 
-        /// <summary>
-        /// Email address of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -146,47 +85,24 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the user in the user pool is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// First name, or given name, of the user.
-        /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
 
-        /// <summary>
-        /// Last name, or surname, of the user.
-        /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Send an email notification.
-        /// </summary>
         [Input("sendEmailNotification")]
         public Input<bool>? SendEmailNotification { get; set; }
 
-        /// <summary>
-        /// Email address of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -198,59 +114,30 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the appstream user.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
-        /// <summary>
-        /// Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
-        /// <summary>
-        /// Whether the user in the user pool is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// First name, or given name, of the user.
-        /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
 
-        /// <summary>
-        /// Last name, or surname, of the user.
-        /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Send an email notification.
-        /// </summary>
         [Input("sendEmailNotification")]
         public Input<bool>? SendEmailNotification { get; set; }
 
-        /// <summary>
-        /// Email address of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

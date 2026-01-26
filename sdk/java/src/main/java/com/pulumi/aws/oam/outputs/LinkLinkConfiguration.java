@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LinkLinkConfiguration {
-    /**
-     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
-     * 
-     */
     private @Nullable LinkLinkConfigurationLogGroupConfiguration logGroupConfiguration;
-    /**
-     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-     * 
-     */
     private @Nullable LinkLinkConfigurationMetricConfiguration metricConfiguration;
 
     private LinkLinkConfiguration() {}
-    /**
-     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
-     * 
-     */
     public Optional<LinkLinkConfigurationLogGroupConfiguration> logGroupConfiguration() {
         return Optional.ofNullable(this.logGroupConfiguration);
     }
-    /**
-     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-     * 
-     */
     public Optional<LinkLinkConfigurationMetricConfiguration> metricConfiguration() {
         return Optional.ofNullable(this.metricConfiguration);
     }

@@ -17,62 +17,30 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
 
     public static final CustomDomainAssociationArgs Empty = new CustomDomainAssociationArgs();
 
-    /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-     * 
-     */
     @Import(name="enableWwwSubdomain")
     private @Nullable Output<Boolean> enableWwwSubdomain;
 
-    /**
-     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enableWwwSubdomain() {
         return Optional.ofNullable(this.enableWwwSubdomain);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the App Runner service.
-     * 
-     */
     @Import(name="serviceArn", required=true)
     private Output<String> serviceArn;
 
-    /**
-     * @return ARN of the App Runner service.
-     * 
-     */
     public Output<String> serviceArn() {
         return this.serviceArn;
     }
@@ -104,86 +72,38 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
             $ = new CustomDomainAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableWwwSubdomain(@Nullable Output<Boolean> enableWwwSubdomain) {
             $.enableWwwSubdomain = enableWwwSubdomain;
             return this;
         }
 
-        /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableWwwSubdomain(Boolean enableWwwSubdomain) {
             return enableWwwSubdomain(Output.of(enableWwwSubdomain));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceArn ARN of the App Runner service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceArn(Output<String> serviceArn) {
             $.serviceArn = serviceArn;
             return this;
         }
 
-        /**
-         * @param serviceArn ARN of the App Runner service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceArn(String serviceArn) {
             return serviceArn(Output.of(serviceArn));
         }

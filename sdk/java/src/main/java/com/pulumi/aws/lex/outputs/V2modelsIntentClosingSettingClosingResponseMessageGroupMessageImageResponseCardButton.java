@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardButton {
-    /**
-     * @return Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
-     * 
-     */
     private String text;
-    /**
-     * @return Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
-     * 
-     */
     private String value;
 
     private V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardButton() {}
-    /**
-     * @return Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
-     * 
-     */
     public String text() {
         return this.text;
     }
-    /**
-     * @return Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
-     * 
-     */
     public String value() {
         return this.value;
     }

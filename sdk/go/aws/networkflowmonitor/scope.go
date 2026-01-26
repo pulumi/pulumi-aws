@@ -11,77 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Flow Monitor Scope.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkflowmonitor"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkflowmonitor.NewScope(ctx, "example", &networkflowmonitor.ScopeArgs{
-//				Targets: networkflowmonitor.ScopeTargetArray{
-//					&networkflowmonitor.ScopeTargetArgs{
-//						Region: pulumi.String("us-east-1"),
-//						TargetIdentifier: &networkflowmonitor.ScopeTargetTargetIdentifierArgs{
-//							TargetType: pulumi.String("ACCOUNT"),
-//							TargetId: &networkflowmonitor.ScopeTargetTargetIdentifierTargetIdArgs{
-//								AccountId: pulumi.String(current.AccountId),
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Flow Monitor Scope using the scope ID. For example:
-//
-// ```sh
-// $ pulumi import aws:networkflowmonitor/scope:Scope example example-scope-id
-// ```
 type Scope struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the scope.
-	ScopeArn pulumi.StringOutput `pulumi:"scopeArn"`
-	// The identifier for the scope that includes the resources you want to get data results for.
-	ScopeId pulumi.StringOutput `pulumi:"scopeId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-	//
-	// The following arguments are optional:
+	Region   pulumi.StringOutput    `pulumi:"region"`
+	ScopeArn pulumi.StringOutput    `pulumi:"scopeArn"`
+	ScopeId  pulumi.StringOutput    `pulumi:"scopeId"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Targets  ScopeTargetArrayOutput `pulumi:"targets"`
 	Timeouts ScopeTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -116,37 +53,21 @@ func GetScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Scope resources.
 type scopeState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the scope.
-	ScopeArn *string `pulumi:"scopeArn"`
-	// The identifier for the scope that includes the resources you want to get data results for.
-	ScopeId *string `pulumi:"scopeId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-	//
-	// The following arguments are optional:
-	Targets  []ScopeTarget  `pulumi:"targets"`
-	Timeouts *ScopeTimeouts `pulumi:"timeouts"`
+	Region   *string           `pulumi:"region"`
+	ScopeArn *string           `pulumi:"scopeArn"`
+	ScopeId  *string           `pulumi:"scopeId"`
+	Tags     map[string]string `pulumi:"tags"`
+	TagsAll  map[string]string `pulumi:"tagsAll"`
+	Targets  []ScopeTarget     `pulumi:"targets"`
+	Timeouts *ScopeTimeouts    `pulumi:"timeouts"`
 }
 
 type ScopeState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the scope.
+	Region   pulumi.StringPtrInput
 	ScopeArn pulumi.StringPtrInput
-	// The identifier for the scope that includes the resources you want to get data results for.
-	ScopeId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-	//
-	// The following arguments are optional:
+	ScopeId  pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
 	Targets  ScopeTargetArrayInput
 	Timeouts ScopeTimeoutsPtrInput
 }
@@ -156,26 +77,16 @@ func (ScopeState) ElementType() reflect.Type {
 }
 
 type scopeArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-	//
-	// The following arguments are optional:
-	Targets  []ScopeTarget  `pulumi:"targets"`
-	Timeouts *ScopeTimeouts `pulumi:"timeouts"`
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
+	Targets  []ScopeTarget     `pulumi:"targets"`
+	Timeouts *ScopeTimeouts    `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Scope resource.
 type ScopeArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-	//
-	// The following arguments are optional:
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
 	Targets  ScopeTargetArrayInput
 	Timeouts ScopeTimeoutsPtrInput
 }
@@ -267,34 +178,26 @@ func (o ScopeOutput) ToScopeOutputWithContext(ctx context.Context) ScopeOutput {
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScopeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the scope.
 func (o ScopeOutput) ScopeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringOutput { return v.ScopeArn }).(pulumi.StringOutput)
 }
 
-// The identifier for the scope that includes the resources you want to get data results for.
 func (o ScopeOutput) ScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringOutput { return v.ScopeId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ScopeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ScopeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-//
-// The following arguments are optional:
 func (o ScopeOutput) Targets() ScopeTargetArrayOutput {
 	return o.ApplyT(func(v *Scope) ScopeTargetArrayOutput { return v.Targets }).(ScopeTargetArrayOutput)
 }

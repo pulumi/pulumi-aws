@@ -9,61 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
-    ///     {
-    ///         EmailIdentityDetails = "example.com",
-    ///     });
-    /// 
-    ///     var exampleEmailIdentityFeedbackAttributes = new Aws.SesV2.EmailIdentityFeedbackAttributes("example", new()
-    ///     {
-    ///         EmailIdentity = example.EmailIdentityDetails,
-    ///         EmailForwardingEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes")]
     public partial class EmailIdentityFeedbackAttributes : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Sets the feedback forwarding configuration for the identity.
-        /// </summary>
         [Output("emailForwardingEnabled")]
         public Output<bool?> EmailForwardingEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The email identity.
-        /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentity { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -113,21 +67,12 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityFeedbackAttributesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Sets the feedback forwarding configuration for the identity.
-        /// </summary>
         [Input("emailForwardingEnabled")]
         public Input<bool>? EmailForwardingEnabled { get; set; }
 
-        /// <summary>
-        /// The email identity.
-        /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -139,21 +84,12 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityFeedbackAttributesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Sets the feedback forwarding configuration for the identity.
-        /// </summary>
         [Input("emailForwardingEnabled")]
         public Input<bool>? EmailForwardingEnabled { get; set; }
 
-        /// <summary>
-        /// The email identity.
-        /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentity { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

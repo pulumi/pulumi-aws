@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigUpperCaseString {
-    /**
-     * @return Specifies the keys of the fields to convert to uppercase.
-     * 
-     */
     private List<String> withKeys;
 
     private LogTransformerTransformerConfigUpperCaseString() {}
-    /**
-     * @return Specifies the keys of the fields to convert to uppercase.
-     * 
-     */
     public List<String> withKeys() {
         return this.withKeys;
     }

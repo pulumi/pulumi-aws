@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointClientRouteEnforcementOptions {
-    /**
-     * @return Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-     * 
-     */
     private @Nullable Boolean enforced;
 
     private EndpointClientRouteEnforcementOptions() {}
-    /**
-     * @return Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-     * 
-     */
     public Optional<Boolean> enforced() {
         return Optional.ofNullable(this.enforced);
     }

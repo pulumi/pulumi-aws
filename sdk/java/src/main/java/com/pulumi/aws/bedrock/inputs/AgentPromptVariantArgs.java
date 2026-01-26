@@ -21,122 +21,58 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
 
     public static final AgentPromptVariantArgs Empty = new AgentPromptVariantArgs();
 
-    /**
-     * Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-     * 
-     */
     @Import(name="additionalModelRequestFields")
     private @Nullable Output<String> additionalModelRequestFields;
 
-    /**
-     * @return Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-     * 
-     */
     public Optional<Output<String>> additionalModelRequestFields() {
         return Optional.ofNullable(this.additionalModelRequestFields);
     }
 
-    /**
-     * Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
-     * 
-     */
     @Import(name="genAiResource")
     private @Nullable Output<AgentPromptVariantGenAiResourceArgs> genAiResource;
 
-    /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantGenAiResourceArgs>> genAiResource() {
         return Optional.ofNullable(this.genAiResource);
     }
 
-    /**
-     * Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-     * 
-     */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentPromptVariantInferenceConfigurationArgs> inferenceConfiguration;
 
-    /**
-     * @return Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantInferenceConfigurationArgs>> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
 
-    /**
-     * A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-     * 
-     */
     @Import(name="metadatas")
     private @Nullable Output<List<AgentPromptVariantMetadataArgs>> metadatas;
 
-    /**
-     * @return A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-     * 
-     */
     public Optional<Output<List<AgentPromptVariantMetadataArgs>>> metadatas() {
         return Optional.ofNullable(this.metadatas);
     }
 
-    /**
-     * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
-     * 
-     */
     @Import(name="modelId")
     private @Nullable Output<String> modelId;
 
-    /**
-     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
-     * 
-     */
     public Optional<Output<String>> modelId() {
         return Optional.ofNullable(this.modelId);
     }
 
-    /**
-     * Name of the prompt variant.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the prompt variant.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Contains configurations for the prompt template. See Template Configuration for more information.
-     * 
-     */
     @Import(name="templateConfiguration")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationArgs> templateConfiguration;
 
-    /**
-     * @return Contains configurations for the prompt template. See Template Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationArgs>> templateConfiguration() {
         return Optional.ofNullable(this.templateConfiguration);
     }
 
-    /**
-     * Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-     * 
-     */
     @Import(name="templateType", required=true)
     private Output<String> templateType;
 
-    /**
-     * @return Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-     * 
-     */
     public Output<String> templateType() {
         return this.templateType;
     }
@@ -172,180 +108,78 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
             $ = new AgentPromptVariantArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param additionalModelRequestFields Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalModelRequestFields(@Nullable Output<String> additionalModelRequestFields) {
             $.additionalModelRequestFields = additionalModelRequestFields;
             return this;
         }
 
-        /**
-         * @param additionalModelRequestFields Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalModelRequestFields(String additionalModelRequestFields) {
             return additionalModelRequestFields(Output.of(additionalModelRequestFields));
         }
 
-        /**
-         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder genAiResource(@Nullable Output<AgentPromptVariantGenAiResourceArgs> genAiResource) {
             $.genAiResource = genAiResource;
             return this;
         }
 
-        /**
-         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder genAiResource(AgentPromptVariantGenAiResourceArgs genAiResource) {
             return genAiResource(Output.of(genAiResource));
         }
 
-        /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceConfiguration(@Nullable Output<AgentPromptVariantInferenceConfigurationArgs> inferenceConfiguration) {
             $.inferenceConfiguration = inferenceConfiguration;
             return this;
         }
 
-        /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceConfiguration(AgentPromptVariantInferenceConfigurationArgs inferenceConfiguration) {
             return inferenceConfiguration(Output.of(inferenceConfiguration));
         }
 
-        /**
-         * @param metadatas A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadatas(@Nullable Output<List<AgentPromptVariantMetadataArgs>> metadatas) {
             $.metadatas = metadatas;
             return this;
         }
 
-        /**
-         * @param metadatas A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadatas(List<AgentPromptVariantMetadataArgs> metadatas) {
             return metadatas(Output.of(metadatas));
         }
 
-        /**
-         * @param metadatas A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadatas(AgentPromptVariantMetadataArgs... metadatas) {
             return metadatas(List.of(metadatas));
         }
 
-        /**
-         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(@Nullable Output<String> modelId) {
             $.modelId = modelId;
             return this;
         }
 
-        /**
-         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(String modelId) {
             return modelId(Output.of(modelId));
         }
 
-        /**
-         * @param name Name of the prompt variant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the prompt variant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param templateConfiguration Contains configurations for the prompt template. See Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateConfiguration(@Nullable Output<AgentPromptVariantTemplateConfigurationArgs> templateConfiguration) {
             $.templateConfiguration = templateConfiguration;
             return this;
         }
 
-        /**
-         * @param templateConfiguration Contains configurations for the prompt template. See Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateConfiguration(AgentPromptVariantTemplateConfigurationArgs templateConfiguration) {
             return templateConfiguration(Output.of(templateConfiguration));
         }
 
-        /**
-         * @param templateType Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateType(Output<String> templateType) {
             $.templateType = templateType;
             return this;
         }
 
-        /**
-         * @param templateType Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateType(String templateType) {
             return templateType(Output.of(templateType));
         }

@@ -26,10 +26,6 @@ class VpcOriginArgs:
                  vpc_origin_endpoint_config: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']] = None):
         """
         The set of arguments for constructing a VpcOrigin resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
-               
-               The following arguments are optional:
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -41,9 +37,6 @@ class VpcOriginArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -62,11 +55,6 @@ class VpcOriginArgs:
     @_builtins.property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']]:
-        """
-        The VPC origin endpoint configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 
     @vpc_origin_endpoint_config.setter
@@ -85,13 +73,6 @@ class _VpcOriginState:
                  vpc_origin_endpoint_config: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']] = None):
         """
         Input properties used for looking up and filtering VpcOrigin resources.
-        :param pulumi.Input[_builtins.str] arn: The VPC origin ARN.
-        :param pulumi.Input[_builtins.str] etag: The current version of the origin.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -109,9 +90,6 @@ class _VpcOriginState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The VPC origin ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -121,9 +99,6 @@ class _VpcOriginState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current version of the origin.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -133,9 +108,6 @@ class _VpcOriginState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -145,9 +117,6 @@ class _VpcOriginState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -166,11 +135,6 @@ class _VpcOriginState:
     @_builtins.property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']]:
-        """
-        The VPC origin endpoint configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 
     @vpc_origin_endpoint_config.setter
@@ -189,56 +153,9 @@ class VpcOrigin(pulumi.CustomResource):
                  vpc_origin_endpoint_config: Optional[pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Creates an Amazon CloudFront VPC origin.
-
-        For information about CloudFront VPC origins, see
-        [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
-
-        ## Example Usage
-
-        ### Application Load Balancer
-
-        The following example below creates a CloudFront VPC origin for a Application Load Balancer.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
-            "name": "example-vpc-origin",
-            "arn": this["arn"],
-            "http_port": 8080,
-            "https_port": 8443,
-            "origin_protocol_policy": "https-only",
-            "origin_ssl_protocols": {
-                "items": ["TLSv1.2"],
-                "quantity": 1,
-            },
-        })
-        ```
-
-        ## Import
-
-        terraform
-
-        import {
-
-          to = aws_cloudfront_vpc_origin.origin
-
-          id = "vo_JQEa410sssUFoY6wMkx69j"
-
-        }
-
-        Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
-
-        % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
-
+        Create a VpcOrigin resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -247,50 +164,7 @@ class VpcOrigin(pulumi.CustomResource):
                  args: Optional[VpcOriginArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Amazon CloudFront VPC origin.
-
-        For information about CloudFront VPC origins, see
-        [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
-
-        ## Example Usage
-
-        ### Application Load Balancer
-
-        The following example below creates a CloudFront VPC origin for a Application Load Balancer.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
-            "name": "example-vpc-origin",
-            "arn": this["arn"],
-            "http_port": 8080,
-            "https_port": 8443,
-            "origin_protocol_policy": "https-only",
-            "origin_ssl_protocols": {
-                "items": ["TLSv1.2"],
-                "quantity": 1,
-            },
-        })
-        ```
-
-        ## Import
-
-        terraform
-
-        import {
-
-          to = aws_cloudfront_vpc_origin.origin
-
-          id = "vo_JQEa410sssUFoY6wMkx69j"
-
-        }
-
-        Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
-
-        % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
-
+        Create a VpcOrigin resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcOriginArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,13 +221,6 @@ class VpcOrigin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The VPC origin ARN.
-        :param pulumi.Input[_builtins.str] etag: The current version of the origin.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -370,33 +237,21 @@ class VpcOrigin(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The VPC origin ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current version of the origin.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -407,10 +262,5 @@ class VpcOrigin(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> pulumi.Output[Optional['outputs.VpcOriginVpcOriginEndpointConfig']]:
-        """
-        The VPC origin endpoint configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 

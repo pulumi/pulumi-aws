@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
     {
         [Input("commonAttributes")]
         private InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>? _commonAttributes;
-
-        /// <summary>
-        /// Describes the metadata sent to the HTTP endpoint destination. See `CommonAttributes` block below for details.
-        /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs> CommonAttributes
         {
             get => _commonAttributes ?? (_commonAttributes = new InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>());
             set => _commonAttributes = value;
         }
 
-        /// <summary>
-        /// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
-        /// </summary>
         [Input("contentEncoding")]
         public Input<string>? ContentEncoding { get; set; }
 

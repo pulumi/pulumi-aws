@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.LookupContactsRotation(ctx, &ssm.LookupContactsRotationArgs{
-//				Arn: "arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArgs, opts ...pulumi.InvokeOption) (*LookupContactsRotationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactsRotationResult
@@ -50,29 +23,21 @@ func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArg
 
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationArgs struct {
-	// The Amazon Resource Name (ARN) of the rotation.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    string  `pulumi:"arn"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getContactsRotation.
 type LookupContactsRotationResult struct {
-	Arn string `pulumi:"arn"`
-	// The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-	ContactIds []string `pulumi:"contactIds"`
-	Id         string   `pulumi:"id"`
-	// The name for the rotation.
-	Name string `pulumi:"name"`
-	// Information about when an on-call rotation is in effect and how long the rotation period lasts.
+	Arn         string                          `pulumi:"arn"`
+	ContactIds  []string                        `pulumi:"contactIds"`
+	Id          string                          `pulumi:"id"`
+	Name        string                          `pulumi:"name"`
 	Recurrences []GetContactsRotationRecurrence `pulumi:"recurrences"`
 	Region      string                          `pulumi:"region"`
-	// The date and time, in RFC 3339 format, that the rotation goes into effect.
-	StartTime string `pulumi:"startTime"`
-	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-	TimeZoneId string `pulumi:"timeZoneId"`
+	StartTime   string                          `pulumi:"startTime"`
+	Tags        map[string]string               `pulumi:"tags"`
+	TimeZoneId  string                          `pulumi:"timeZoneId"`
 }
 
 func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotationOutputArgs, opts ...pulumi.InvokeOption) LookupContactsRotationResultOutput {
@@ -86,9 +51,7 @@ func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotati
 
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the rotation.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -115,7 +78,6 @@ func (o LookupContactsRotationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 func (o LookupContactsRotationResultOutput) ContactIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) []string { return v.ContactIds }).(pulumi.StringArrayOutput)
 }
@@ -124,12 +86,10 @@ func (o LookupContactsRotationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name for the rotation.
 func (o LookupContactsRotationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Information about when an on-call rotation is in effect and how long the rotation period lasts.
 func (o LookupContactsRotationResultOutput) Recurrences() GetContactsRotationRecurrenceArrayOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) []GetContactsRotationRecurrence { return v.Recurrences }).(GetContactsRotationRecurrenceArrayOutput)
 }
@@ -138,17 +98,14 @@ func (o LookupContactsRotationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The date and time, in RFC 3339 format, that the rotation goes into effect.
 func (o LookupContactsRotationResultOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource.
 func (o LookupContactsRotationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
 func (o LookupContactsRotationResultOutput) TimeZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.TimeZoneId }).(pulumi.StringOutput)
 }

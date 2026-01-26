@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions
     {
-        /// <summary>
-        /// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
-        /// </summary>
         public readonly string DefaultDocumentIdFormat;
 
         [OutputConstructor]

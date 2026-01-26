@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
- *
- * > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource is simply removed from state instead.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.guardduty.Detector("example", {enable: true});
- * const eksRuntimeMonitoring = new aws.guardduty.OrganizationConfigurationFeature("eks_runtime_monitoring", {
- *     detectorId: example.id,
- *     name: "EKS_RUNTIME_MONITORING",
- *     autoEnable: "ALL",
- *     additionalConfigurations: [{
- *         name: "EKS_ADDON_MANAGEMENT",
- *         autoEnable: "NEW",
- *     }],
- * });
- * ```
- */
 export class OrganizationConfigurationFeature extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationConfigurationFeature resource's state with the given name, ID, and optional extra
@@ -58,25 +35,10 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationConfigurationFeature.__pulumiType;
     }
 
-    /**
-     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-     */
     declare public readonly additionalConfigurations: pulumi.Output<outputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration[] | undefined>;
-    /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-     */
     declare public readonly autoEnable: pulumi.Output<string>;
-    /**
-     * The ID of the detector that configures the delegated administrator.
-     */
     declare public readonly detectorId: pulumi.Output<string>;
-    /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -120,25 +82,10 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationConfigurationFeature resources.
  */
 export interface OrganizationConfigurationFeatureState {
-    /**
-     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-     */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
-    /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-     */
     autoEnable?: pulumi.Input<string>;
-    /**
-     * The ID of the detector that configures the delegated administrator.
-     */
     detectorId?: pulumi.Input<string>;
-    /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -146,24 +93,9 @@ export interface OrganizationConfigurationFeatureState {
  * The set of arguments for constructing a OrganizationConfigurationFeature resource.
  */
 export interface OrganizationConfigurationFeatureArgs {
-    /**
-     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-     */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
-    /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-     */
     autoEnable: pulumi.Input<string>;
-    /**
-     * The ID of the detector that configures the delegated administrator.
-     */
     detectorId: pulumi.Input<string>;
-    /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

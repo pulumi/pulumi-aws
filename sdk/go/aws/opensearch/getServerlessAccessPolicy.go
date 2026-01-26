@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS OpenSearch Serverless Access Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessAccessPolicy(ctx, &opensearch.LookupServerlessAccessPolicyArgs{
-//				Name: exampleAwsOpensearchserverlessAccessPolicy.Name,
-//				Type: exampleAwsOpensearchserverlessAccessPolicy.Type,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessAccessPolicy(ctx *pulumi.Context, args *LookupServerlessAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessAccessPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessAccessPolicyResult
@@ -53,23 +23,17 @@ func LookupServerlessAccessPolicy(ctx *pulumi.Context, args *LookupServerlessAcc
 
 // A collection of arguments for invoking getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyArgs struct {
-	// Name of the policy.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
-	// Type of access policy. Must be `data`.
-	Type string `pulumi:"type"`
+	Type   string  `pulumi:"type"`
 }
 
 // A collection of values returned by getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyResult struct {
-	// Description of the policy. Typically used to store information about the permissions defined in the policy.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy.
-	Policy string `pulumi:"policy"`
-	// Version of the policy.
+	Description   string `pulumi:"description"`
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
+	Policy        string `pulumi:"policy"`
 	PolicyVersion string `pulumi:"policyVersion"`
 	Region        string `pulumi:"region"`
 	Type          string `pulumi:"type"`
@@ -86,12 +50,9 @@ func LookupServerlessAccessPolicyOutput(ctx *pulumi.Context, args LookupServerle
 
 // A collection of arguments for invoking getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyOutputArgs struct {
-	// Name of the policy.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of access policy. Must be `data`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput    `pulumi:"type"`
 }
 
 func (LookupServerlessAccessPolicyOutputArgs) ElementType() reflect.Type {
@@ -113,7 +74,6 @@ func (o LookupServerlessAccessPolicyResultOutput) ToLookupServerlessAccessPolicy
 	return o
 }
 
-// Description of the policy. Typically used to store information about the permissions defined in the policy.
 func (o LookupServerlessAccessPolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -126,12 +86,10 @@ func (o LookupServerlessAccessPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// JSON policy document to use as the content for the new policy.
 func (o LookupServerlessAccessPolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Version of the policy.
 func (o LookupServerlessAccessPolicyResultOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessAccessPolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
 }

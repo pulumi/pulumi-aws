@@ -18,32 +18,16 @@ public final class PipelineDefinitionParameterObjectArgs extends com.pulumi.reso
 
     public static final PipelineDefinitionParameterObjectArgs Empty = new PipelineDefinitionParameterObjectArgs();
 
-    /**
-     * Configuration block for attributes of the parameter object. See below
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<List<PipelineDefinitionParameterObjectAttributeArgs>> attributes;
 
-    /**
-     * @return Configuration block for attributes of the parameter object. See below
-     * 
-     */
     public Optional<Output<List<PipelineDefinitionParameterObjectAttributeArgs>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * ID of the parameter object.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return ID of the parameter object.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -73,54 +57,24 @@ public final class PipelineDefinitionParameterObjectArgs extends com.pulumi.reso
             $ = new PipelineDefinitionParameterObjectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes Configuration block for attributes of the parameter object. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<List<PipelineDefinitionParameterObjectAttributeArgs>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes Configuration block for attributes of the parameter object. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(List<PipelineDefinitionParameterObjectAttributeArgs> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param attributes Configuration block for attributes of the parameter object. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(PipelineDefinitionParameterObjectAttributeArgs... attributes) {
             return attributes(List.of(attributes));
         }
 
-        /**
-         * @param id ID of the parameter object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the parameter object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

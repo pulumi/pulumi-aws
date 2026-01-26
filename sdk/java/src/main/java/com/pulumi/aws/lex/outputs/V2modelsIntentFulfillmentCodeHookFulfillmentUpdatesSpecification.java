@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification {
-    /**
-     * @return Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
-     * 
-     */
     private Boolean active;
-    /**
-     * @return Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
-     * 
-     */
     private @Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse startResponse;
-    /**
-     * @return Length of time that the fulfillment Lambda function should run before it times out.
-     * 
-     */
     private @Nullable Integer timeoutInSeconds;
-    /**
-     * @return Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
-     * 
-     */
     private @Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse updateResponse;
 
     private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification() {}
-    /**
-     * @return Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
-     * 
-     */
     public Boolean active() {
         return this.active;
     }
-    /**
-     * @return Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
-     * 
-     */
     public Optional<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse> startResponse() {
         return Optional.ofNullable(this.startResponse);
     }
-    /**
-     * @return Length of time that the fulfillment Lambda function should run before it times out.
-     * 
-     */
     public Optional<Integer> timeoutInSeconds() {
         return Optional.ofNullable(this.timeoutInSeconds);
     }
-    /**
-     * @return Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
-     * 
-     */
     public Optional<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse> updateResponse() {
         return Optional.ofNullable(this.updateResponse);
     }

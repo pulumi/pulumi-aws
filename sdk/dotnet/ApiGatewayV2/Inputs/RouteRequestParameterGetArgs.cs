@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
 
     public sealed class RouteRequestParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
-        /// </summary>
         [Input("requestParameterKey", required: true)]
         public Input<string> RequestParameterKey { get; set; } = null!;
 
-        /// <summary>
-        /// Boolean whether or not the parameter is required.
-        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 

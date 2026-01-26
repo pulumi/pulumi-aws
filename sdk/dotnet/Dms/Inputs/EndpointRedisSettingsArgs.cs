@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Dms.Inputs
     {
         [Input("authPassword")]
         private Input<string>? _authPassword;
-
-        /// <summary>
-        /// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-        /// </summary>
         public Input<string>? AuthPassword
         {
             get => _authPassword;
@@ -28,39 +24,21 @@ namespace Pulumi.Aws.Dms.Inputs
             }
         }
 
-        /// <summary>
-        /// The type of authentication to perform when connecting to a Redis target. Options include `None`, `auth-token`, and `auth-role`. The `auth-token` option requires an `AuthPassword` value to be provided. The `auth-role` option requires `AuthUserName` and `AuthPassword` values to be provided.
-        /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
 
-        /// <summary>
-        /// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-        /// </summary>
         [Input("authUserName")]
         public Input<string>? AuthUserName { get; set; }
 
-        /// <summary>
-        /// Transmission Control Protocol (TCP) port for the endpoint.
-        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
-        /// <summary>
-        /// Fully qualified domain name of the endpoint.
-        /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        /// </summary>
         [Input("sslCaCertificateArn")]
         public Input<string>? SslCaCertificateArn { get; set; }
 
-        /// <summary>
-        /// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `Plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
-        /// </summary>
         [Input("sslSecurityProtocol")]
         public Input<string>? SslSecurityProtocol { get; set; }
 

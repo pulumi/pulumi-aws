@@ -17,36 +17,16 @@ public final class StackApplicationSettingsArgs extends com.pulumi.resources.Res
 
     public static final StackApplicationSettingsArgs Empty = new StackApplicationSettingsArgs();
 
-    /**
-     * Whether application settings should be persisted.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether application settings should be persisted.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
-     * 
-     */
     @Import(name="settingsGroup")
     private @Nullable Output<String> settingsGroup;
 
-    /**
-     * @return Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
-     * 
-     */
     public Optional<Output<String>> settingsGroup() {
         return Optional.ofNullable(this.settingsGroup);
     }
@@ -76,48 +56,20 @@ public final class StackApplicationSettingsArgs extends com.pulumi.resources.Res
             $ = new StackApplicationSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether application settings should be persisted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether application settings should be persisted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param settingsGroup Name of the settings group.
-         * Required when `enabled` is `true`.
-         * Can be up to 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingsGroup(@Nullable Output<String> settingsGroup) {
             $.settingsGroup = settingsGroup;
             return this;
         }
 
-        /**
-         * @param settingsGroup Name of the settings group.
-         * Required when `enabled` is `true`.
-         * Can be up to 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingsGroup(String settingsGroup) {
             return settingsGroup(Output.of(settingsGroup));
         }

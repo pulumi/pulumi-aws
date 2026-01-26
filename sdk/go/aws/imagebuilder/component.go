@@ -12,92 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Image Builder Component.
-//
-// ## Example Usage
-//
-// ### URI Document
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
-//				Name:     pulumi.String("example"),
-//				Platform: pulumi.String("Linux"),
-//				Uri:      pulumi.Sprintf("s3://%v/%v", exampleAwsS3Object.Bucket, exampleAwsS3Object.Key),
-//				Version:  pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-// $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
-// ```
-// Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 type Component struct {
 	pulumi.CustomResourceState
 
-	// (Required) Amazon Resource Name (ARN) of the component.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Change description of the component.
-	ChangeDescription pulumi.StringPtrOutput `pulumi:"changeDescription"`
-	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-	Data pulumi.StringOutput `pulumi:"data"`
-	// Date the component was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// Description of the component.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Encryption status of the component.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Name of the component.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Owner of the component.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// Platform of the component.
-	Platform pulumi.StringOutput `pulumi:"platform"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
-	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// Set of Operating Systems (OS) supported by the component.
+	Arn                 pulumi.StringOutput      `pulumi:"arn"`
+	ChangeDescription   pulumi.StringPtrOutput   `pulumi:"changeDescription"`
+	Data                pulumi.StringOutput      `pulumi:"data"`
+	DateCreated         pulumi.StringOutput      `pulumi:"dateCreated"`
+	Description         pulumi.StringPtrOutput   `pulumi:"description"`
+	Encrypted           pulumi.BoolOutput        `pulumi:"encrypted"`
+	KmsKeyId            pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	Owner               pulumi.StringOutput      `pulumi:"owner"`
+	Platform            pulumi.StringOutput      `pulumi:"platform"`
+	Region              pulumi.StringOutput      `pulumi:"region"`
+	SkipDestroy         pulumi.BoolPtrOutput     `pulumi:"skipDestroy"`
 	SupportedOsVersions pulumi.StringArrayOutput `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of the component.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-	//
-	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
-	// Version of the component.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringOutput `pulumi:"version"`
+	Tags                pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
+	Uri                 pulumi.StringPtrOutput   `pulumi:"uri"`
+	Version             pulumi.StringOutput      `pulumi:"version"`
 }
 
 // NewComponent registers a new resource with the given unique name, arguments, and options.
@@ -136,89 +71,45 @@ func GetComponent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Component resources.
 type componentState struct {
-	// (Required) Amazon Resource Name (ARN) of the component.
-	Arn *string `pulumi:"arn"`
-	// Change description of the component.
-	ChangeDescription *string `pulumi:"changeDescription"`
-	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-	Data *string `pulumi:"data"`
-	// Date the component was created.
-	DateCreated *string `pulumi:"dateCreated"`
-	// Description of the component.
-	Description *string `pulumi:"description"`
-	// Encryption status of the component.
-	Encrypted *bool `pulumi:"encrypted"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Name of the component.
-	Name *string `pulumi:"name"`
-	// Owner of the component.
-	Owner *string `pulumi:"owner"`
-	// Platform of the component.
-	Platform *string `pulumi:"platform"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Set of Operating Systems (OS) supported by the component.
-	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of the component.
-	Type *string `pulumi:"type"`
-	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-	//
-	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
-	Uri *string `pulumi:"uri"`
-	// Version of the component.
-	//
-	// The following arguments are optional:
-	Version *string `pulumi:"version"`
+	Arn                 *string           `pulumi:"arn"`
+	ChangeDescription   *string           `pulumi:"changeDescription"`
+	Data                *string           `pulumi:"data"`
+	DateCreated         *string           `pulumi:"dateCreated"`
+	Description         *string           `pulumi:"description"`
+	Encrypted           *bool             `pulumi:"encrypted"`
+	KmsKeyId            *string           `pulumi:"kmsKeyId"`
+	Name                *string           `pulumi:"name"`
+	Owner               *string           `pulumi:"owner"`
+	Platform            *string           `pulumi:"platform"`
+	Region              *string           `pulumi:"region"`
+	SkipDestroy         *bool             `pulumi:"skipDestroy"`
+	SupportedOsVersions []string          `pulumi:"supportedOsVersions"`
+	Tags                map[string]string `pulumi:"tags"`
+	TagsAll             map[string]string `pulumi:"tagsAll"`
+	Type                *string           `pulumi:"type"`
+	Uri                 *string           `pulumi:"uri"`
+	Version             *string           `pulumi:"version"`
 }
 
 type ComponentState struct {
-	// (Required) Amazon Resource Name (ARN) of the component.
-	Arn pulumi.StringPtrInput
-	// Change description of the component.
-	ChangeDescription pulumi.StringPtrInput
-	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-	Data pulumi.StringPtrInput
-	// Date the component was created.
-	DateCreated pulumi.StringPtrInput
-	// Description of the component.
-	Description pulumi.StringPtrInput
-	// Encryption status of the component.
-	Encrypted pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-	KmsKeyId pulumi.StringPtrInput
-	// Name of the component.
-	Name pulumi.StringPtrInput
-	// Owner of the component.
-	Owner pulumi.StringPtrInput
-	// Platform of the component.
-	Platform pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
-	SkipDestroy pulumi.BoolPtrInput
-	// Set of Operating Systems (OS) supported by the component.
+	Arn                 pulumi.StringPtrInput
+	ChangeDescription   pulumi.StringPtrInput
+	Data                pulumi.StringPtrInput
+	DateCreated         pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Encrypted           pulumi.BoolPtrInput
+	KmsKeyId            pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Owner               pulumi.StringPtrInput
+	Platform            pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	SkipDestroy         pulumi.BoolPtrInput
 	SupportedOsVersions pulumi.StringArrayInput
-	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Type of the component.
-	Type pulumi.StringPtrInput
-	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-	//
-	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
-	Uri pulumi.StringPtrInput
-	// Version of the component.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	Type                pulumi.StringPtrInput
+	Uri                 pulumi.StringPtrInput
+	Version             pulumi.StringPtrInput
 }
 
 func (ComponentState) ElementType() reflect.Type {
@@ -226,66 +117,34 @@ func (ComponentState) ElementType() reflect.Type {
 }
 
 type componentArgs struct {
-	// Change description of the component.
-	ChangeDescription *string `pulumi:"changeDescription"`
-	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-	Data *string `pulumi:"data"`
-	// Description of the component.
-	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Name of the component.
-	Name *string `pulumi:"name"`
-	// Platform of the component.
-	Platform string `pulumi:"platform"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Set of Operating Systems (OS) supported by the component.
-	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-	//
-	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
-	Uri *string `pulumi:"uri"`
-	// Version of the component.
-	//
-	// The following arguments are optional:
-	Version string `pulumi:"version"`
+	ChangeDescription   *string           `pulumi:"changeDescription"`
+	Data                *string           `pulumi:"data"`
+	Description         *string           `pulumi:"description"`
+	KmsKeyId            *string           `pulumi:"kmsKeyId"`
+	Name                *string           `pulumi:"name"`
+	Platform            string            `pulumi:"platform"`
+	Region              *string           `pulumi:"region"`
+	SkipDestroy         *bool             `pulumi:"skipDestroy"`
+	SupportedOsVersions []string          `pulumi:"supportedOsVersions"`
+	Tags                map[string]string `pulumi:"tags"`
+	Uri                 *string           `pulumi:"uri"`
+	Version             string            `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
-	// Change description of the component.
-	ChangeDescription pulumi.StringPtrInput
-	// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-	Data pulumi.StringPtrInput
-	// Description of the component.
-	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-	KmsKeyId pulumi.StringPtrInput
-	// Name of the component.
-	Name pulumi.StringPtrInput
-	// Platform of the component.
-	Platform pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
-	SkipDestroy pulumi.BoolPtrInput
-	// Set of Operating Systems (OS) supported by the component.
+	ChangeDescription   pulumi.StringPtrInput
+	Data                pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	KmsKeyId            pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Platform            pulumi.StringInput
+	Region              pulumi.StringPtrInput
+	SkipDestroy         pulumi.BoolPtrInput
 	SupportedOsVersions pulumi.StringArrayInput
-	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-	//
-	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
-	Uri pulumi.StringPtrInput
-	// Version of the component.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringInput
+	Tags                pulumi.StringMapInput
+	Uri                 pulumi.StringPtrInput
+	Version             pulumi.StringInput
 }
 
 func (ComponentArgs) ElementType() reflect.Type {
@@ -375,96 +234,74 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 	return o
 }
 
-// (Required) Amazon Resource Name (ARN) of the component.
 func (o ComponentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Change description of the component.
 func (o ComponentOutput) ChangeDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.ChangeDescription }).(pulumi.StringPtrOutput)
 }
 
-// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
 func (o ComponentOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
 }
 
-// Date the component was created.
 func (o ComponentOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Description of the component.
 func (o ComponentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Encryption status of the component.
 func (o ComponentOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Component) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
 func (o ComponentOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the component.
 func (o ComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Owner of the component.
 func (o ComponentOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Platform of the component.
 func (o ComponentOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ComponentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 func (o ComponentOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Set of Operating Systems (OS) supported by the component.
 func (o ComponentOutput) SupportedOsVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringArrayOutput { return v.SupportedOsVersions }).(pulumi.StringArrayOutput)
 }
 
-// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ComponentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ComponentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of the component.
 func (o ComponentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-//
-// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 func (o ComponentOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// Version of the component.
-//
-// The following arguments are optional:
 func (o ComponentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

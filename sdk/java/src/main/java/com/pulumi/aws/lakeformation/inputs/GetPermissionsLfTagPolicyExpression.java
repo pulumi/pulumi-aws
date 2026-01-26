@@ -14,32 +14,16 @@ public final class GetPermissionsLfTagPolicyExpression extends com.pulumi.resour
 
     public static final GetPermissionsLfTagPolicyExpression Empty = new GetPermissionsLfTagPolicyExpression();
 
-    /**
-     * Key-name of an LF-Tag.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return Key-name of an LF-Tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
 
-    /**
-     * List of possible values of an LF-Tag.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return List of possible values of an LF-Tag.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,34 +53,16 @@ public final class GetPermissionsLfTagPolicyExpression extends com.pulumi.resour
             $ = new GetPermissionsLfTagPolicyExpression(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key-name of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param values List of possible values of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of possible values of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

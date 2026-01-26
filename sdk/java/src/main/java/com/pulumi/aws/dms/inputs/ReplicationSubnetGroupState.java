@@ -17,17 +17,9 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
 
     public static final ReplicationSubnetGroupState Empty = new ReplicationSubnetGroupState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -39,92 +31,44 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.replicationSubnetGroupArn);
     }
 
-    /**
-     * Description for the subnet group.
-     * 
-     */
     @Import(name="replicationSubnetGroupDescription")
     private @Nullable Output<String> replicationSubnetGroupDescription;
 
-    /**
-     * @return Description for the subnet group.
-     * 
-     */
     public Optional<Output<String>> replicationSubnetGroupDescription() {
         return Optional.ofNullable(this.replicationSubnetGroupDescription);
     }
 
-    /**
-     * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-     * 
-     */
     @Import(name="replicationSubnetGroupId")
     private @Nullable Output<String> replicationSubnetGroupId;
 
-    /**
-     * @return Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-     * 
-     */
     public Optional<Output<String>> replicationSubnetGroupId() {
         return Optional.ofNullable(this.replicationSubnetGroupId);
     }
 
-    /**
-     * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The ID of the VPC the subnet group is in.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC the subnet group is in.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -160,23 +104,11 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
             $ = new ReplicationSubnetGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -190,138 +122,60 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
             return replicationSubnetGroupArn(Output.of(replicationSubnetGroupArn));
         }
 
-        /**
-         * @param replicationSubnetGroupDescription Description for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupDescription(@Nullable Output<String> replicationSubnetGroupDescription) {
             $.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
             return this;
         }
 
-        /**
-         * @param replicationSubnetGroupDescription Description for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupDescription(String replicationSubnetGroupDescription) {
             return replicationSubnetGroupDescription(Output.of(replicationSubnetGroupDescription));
         }
 
-        /**
-         * @param replicationSubnetGroupId Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupId(@Nullable Output<String> replicationSubnetGroupId) {
             $.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;
         }
 
-        /**
-         * @param replicationSubnetGroupId Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
             return replicationSubnetGroupId(Output.of(replicationSubnetGroupId));
         }
 
-        /**
-         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param vpcId The ID of the VPC the subnet group is in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC the subnet group is in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

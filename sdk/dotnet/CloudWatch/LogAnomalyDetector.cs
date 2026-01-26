@@ -9,106 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Logs Log Anomaly Detector.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new List&lt;Aws.CloudWatch.LogGroup&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         test.Add(new Aws.CloudWatch.LogGroup($"test-{range.Value}", new()
-    ///         {
-    ///             Name = $"testing-{range.Value}",
-    ///         }));
-    ///     }
-    ///     var testLogAnomalyDetector = new Aws.CloudWatch.LogAnomalyDetector("test", new()
-    ///     {
-    ///         DetectorName = "testing",
-    ///         LogGroupArnLists = new[]
-    ///         {
-    ///             test[0].Arn,
-    ///         },
-    ///         AnomalyVisibilityTime = 7,
-    ///         EvaluationFrequency = "TEN_MIN",
-    ///         Enabled = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector")]
     public partial class LogAnomalyDetector : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        /// </summary>
         [Output("anomalyVisibilityTime")]
         public Output<int> AnomalyVisibilityTime { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the log anomaly detector that you just created.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name for this anomaly detector.
-        /// </summary>
         [Output("detectorName")]
         public Output<string?> DetectorName { get; private set; } = null!;
 
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `EvaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        /// </summary>
         [Output("evaluationFrequency")]
         public Output<string?> EvaluationFrequency { get; private set; } = null!;
 
-        /// <summary>
-        /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        /// </summary>
         [Output("filterPattern")]
         public Output<string?> FilterPattern { get; private set; } = null!;
 
-        /// <summary>
-        /// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("logGroupArnLists")]
         public Output<ImmutableArray<string>> LogGroupArnLists { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -164,56 +91,32 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogAnomalyDetectorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        /// </summary>
         [Input("anomalyVisibilityTime")]
         public Input<int>? AnomalyVisibilityTime { get; set; }
 
-        /// <summary>
-        /// Name for this anomaly detector.
-        /// </summary>
         [Input("detectorName")]
         public Input<string>? DetectorName { get; set; }
 
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `EvaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        /// </summary>
         [Input("evaluationFrequency")]
         public Input<string>? EvaluationFrequency { get; set; }
 
-        /// <summary>
-        /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        /// </summary>
         [Input("filterPattern")]
         public Input<string>? FilterPattern { get; set; }
 
-        /// <summary>
-        /// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("logGroupArnLists", required: true)]
         private InputList<string>? _logGroupArnLists;
-
-        /// <summary>
-        /// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<string> LogGroupArnLists
         {
             get => _logGroupArnLists ?? (_logGroupArnLists = new InputList<string>());
             set => _logGroupArnLists = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -233,62 +136,35 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogAnomalyDetectorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        /// </summary>
         [Input("anomalyVisibilityTime")]
         public Input<int>? AnomalyVisibilityTime { get; set; }
 
-        /// <summary>
-        /// ARN of the log anomaly detector that you just created.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name for this anomaly detector.
-        /// </summary>
         [Input("detectorName")]
         public Input<string>? DetectorName { get; set; }
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `EvaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        /// </summary>
         [Input("evaluationFrequency")]
         public Input<string>? EvaluationFrequency { get; set; }
 
-        /// <summary>
-        /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        /// </summary>
         [Input("filterPattern")]
         public Input<string>? FilterPattern { get; set; }
 
-        /// <summary>
-        /// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("logGroupArnLists")]
         private InputList<string>? _logGroupArnLists;
-
-        /// <summary>
-        /// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<string> LogGroupArnLists
         {
             get => _logGroupArnLists ?? (_logGroupArnLists = new InputList<string>());
             set => _logGroupArnLists = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

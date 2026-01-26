@@ -34,16 +34,6 @@ class RepositoryCreationTemplateArgs:
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        :param pulumi.Input[_builtins.str] description: The description for this template.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         pulumi.set(__self__, "applied_fors", applied_fors)
         pulumi.set(__self__, "prefix", prefix)
@@ -69,9 +59,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        """
         return pulumi.get(self, "applied_fors")
 
     @applied_fors.setter
@@ -81,9 +68,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[_builtins.str]:
-        """
-        The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -93,9 +77,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        """
         return pulumi.get(self, "custom_role_arn")
 
     @custom_role_arn.setter
@@ -105,9 +86,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for this template.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -117,9 +95,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration for any created repositories. See below for schema.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -129,9 +104,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @image_tag_mutability.setter
@@ -141,9 +113,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]]:
-        """
-        Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @image_tag_mutability_exclusion_filters.setter
@@ -153,9 +122,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        """
         return pulumi.get(self, "lifecycle_policy")
 
     @lifecycle_policy.setter
@@ -165,9 +131,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -186,9 +149,6 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to any created repositories.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -213,17 +173,6 @@ class _RepositoryCreationTemplateState:
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryCreationTemplate resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        :param pulumi.Input[_builtins.str] description: The description for this template.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID the repository creation template applies to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         if applied_fors is not None:
             pulumi.set(__self__, "applied_fors", applied_fors)
@@ -253,9 +202,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        """
         return pulumi.get(self, "applied_fors")
 
     @applied_fors.setter
@@ -265,9 +211,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        """
         return pulumi.get(self, "custom_role_arn")
 
     @custom_role_arn.setter
@@ -277,9 +220,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for this template.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -289,9 +229,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration for any created repositories. See below for schema.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -301,9 +238,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @image_tag_mutability.setter
@@ -313,9 +247,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]]]:
-        """
-        Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @image_tag_mutability_exclusion_filters.setter
@@ -325,9 +256,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        """
         return pulumi.get(self, "lifecycle_policy")
 
     @lifecycle_policy.setter
@@ -337,9 +265,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -349,9 +274,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -361,9 +283,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The registry ID the repository creation template applies to.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -382,9 +301,6 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to any created repositories.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -411,91 +327,9 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Elastic Container Registry Repository Creation Template.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": [
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        }])
-        example_repository_creation_template = aws.ecr.RepositoryCreationTemplate("example",
-            prefix="example",
-            description="An example template",
-            image_tag_mutability="IMMUTABLE",
-            custom_role_arn="arn:aws:iam::123456789012:role/example",
-            applied_fors=["PULL_THROUGH_CACHE"],
-            encryption_configurations=[{
-                "encryption_type": "AES256",
-            }],
-            repository_policy=example.json,
-            lifecycle_policy=\"\"\"{
-          \\"rules\\": [
-            {
-              \\"rulePriority\\": 1,
-              \\"description\\": \\"Expire images older than 14 days\\",
-              \\"selection\\": {
-                \\"tagStatus\\": \\"untagged\\",
-                \\"countType\\": \\"sinceImagePushed\\",
-                \\"countUnit\\": \\"days\\",
-                \\"countNumber\\": 14
-              },
-              \\"action\\": {
-                \\"type\\": \\"expire\\"
-              }
-            }
-          ]
-        }
-        \"\"\",
-            resource_tags={
-                "Foo": "Bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the ECR Repository Creating Templates using the `prefix`. For example:
-
-        ```sh
-        $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
-        ```
-
+        Create a RepositoryCreationTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        :param pulumi.Input[_builtins.str] description: The description for this template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         ...
     @overload
@@ -504,79 +338,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  args: RepositoryCreationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic Container Registry Repository Creation Template.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": [
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        }])
-        example_repository_creation_template = aws.ecr.RepositoryCreationTemplate("example",
-            prefix="example",
-            description="An example template",
-            image_tag_mutability="IMMUTABLE",
-            custom_role_arn="arn:aws:iam::123456789012:role/example",
-            applied_fors=["PULL_THROUGH_CACHE"],
-            encryption_configurations=[{
-                "encryption_type": "AES256",
-            }],
-            repository_policy=example.json,
-            lifecycle_policy=\"\"\"{
-          \\"rules\\": [
-            {
-              \\"rulePriority\\": 1,
-              \\"description\\": \\"Expire images older than 14 days\\",
-              \\"selection\\": {
-                \\"tagStatus\\": \\"untagged\\",
-                \\"countType\\": \\"sinceImagePushed\\",
-                \\"countUnit\\": \\"days\\",
-                \\"countNumber\\": 14
-              },
-              \\"action\\": {
-                \\"type\\": \\"expire\\"
-              }
-            }
-          ]
-        }
-        \"\"\",
-            resource_tags={
-                "Foo": "Bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the ECR Repository Creating Templates using the `prefix`. For example:
-
-        ```sh
-        $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
-        ```
-
+        Create a RepositoryCreationTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryCreationTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -657,17 +419,6 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        :param pulumi.Input[_builtins.str] description: The description for this template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID the repository creation template applies to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -690,81 +441,51 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        """
         return pulumi.get(self, "applied_fors")
 
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        """
         return pulumi.get(self, "custom_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description for this template.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCreationTemplateEncryptionConfiguration']]]:
-        """
-        Encryption configuration for any created repositories. See below for schema.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]]:
-        """
-        Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
-        """
         return pulumi.get(self, "lifecycle_policy")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        """
         return pulumi.get(self, "prefix")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The registry ID the repository creation template applies to.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
@@ -775,8 +496,5 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to any created repositories.
-        """
         return pulumi.get(self, "resource_tags")
 

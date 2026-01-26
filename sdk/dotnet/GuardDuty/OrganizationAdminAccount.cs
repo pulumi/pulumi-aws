@@ -9,64 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GuardDuty
 {
-    /// <summary>
-    /// Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.Organization("example", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "guardduty.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("example");
-    /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("example", new()
-    ///     {
-    ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]
     public partial class OrganizationAdminAccount : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for GuardDuty.
-        /// </summary>
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -116,15 +64,9 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class OrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for GuardDuty.
-        /// </summary>
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -136,15 +78,9 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class OrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for GuardDuty.
-        /// </summary>
         [Input("adminAccountId")]
         public Input<string>? AdminAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

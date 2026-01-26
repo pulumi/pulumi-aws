@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult
     {
-        /// <summary>
-        /// Mode of threat protection operation in custom authentication.
-        /// </summary>
         public readonly string CustomAuthMode;
 
         [OutputConstructor]

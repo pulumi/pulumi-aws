@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Chime.Outputs
     [OutputType]
     public sealed class SdkvoiceSipMediaApplicationEndpoints
     {
-        /// <summary>
-        /// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-        /// </summary>
         public readonly string LambdaArn;
 
         [OutputConstructor]

@@ -35,20 +35,6 @@ class ProductArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Product resource.
-        :param pulumi.Input[_builtins.str] owner: Owner of the product.
-        :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] description: Description of the product.
-        :param pulumi.Input[_builtins.str] distributor: Distributor (i.e., vendor) of the product.
-        :param pulumi.Input[_builtins.str] name: Name of the product.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] support_description: Support information about the product.
-        :param pulumi.Input[_builtins.str] support_email: Contact email for product support.
-        :param pulumi.Input[_builtins.str] support_url: Contact URL for product support.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
@@ -75,9 +61,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Input[_builtins.str]:
-        """
-        Owner of the product.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -87,9 +70,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactParameters")
     def provisioning_artifact_parameters(self) -> pulumi.Input['ProductProvisioningArtifactParametersArgs']:
-        """
-        Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        """
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @provisioning_artifact_parameters.setter
@@ -99,11 +79,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -113,9 +88,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -125,9 +97,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the product.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -137,9 +106,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter
     def distributor(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Distributor (i.e., vendor) of the product.
-        """
         return pulumi.get(self, "distributor")
 
     @distributor.setter
@@ -149,9 +115,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the product.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -161,9 +124,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -173,9 +133,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Support information about the product.
-        """
         return pulumi.get(self, "support_description")
 
     @support_description.setter
@@ -185,9 +142,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter(name="supportEmail")
     def support_email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contact email for product support.
-        """
         return pulumi.get(self, "support_email")
 
     @support_email.setter
@@ -197,9 +151,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter(name="supportUrl")
     def support_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contact URL for product support.
-        """
         return pulumi.get(self, "support_url")
 
     @support_url.setter
@@ -209,9 +160,6 @@ class ProductArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -241,25 +189,6 @@ class _ProductState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Product resources.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the product.
-        :param pulumi.Input[_builtins.str] created_time: Time when the product was created.
-        :param pulumi.Input[_builtins.str] description: Description of the product.
-        :param pulumi.Input[_builtins.str] distributor: Distributor (i.e., vendor) of the product.
-        :param pulumi.Input[_builtins.bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-        :param pulumi.Input[_builtins.str] name: Name of the product.
-        :param pulumi.Input[_builtins.str] owner: Owner of the product.
-        :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the product.
-        :param pulumi.Input[_builtins.str] support_description: Support information about the product.
-        :param pulumi.Input[_builtins.str] support_email: Contact email for product support.
-        :param pulumi.Input[_builtins.str] support_url: Contact URL for product support.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-               
-               The following arguments are optional:
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -299,9 +228,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -311,9 +237,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the product.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -323,9 +246,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time when the product was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -335,9 +255,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the product.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -347,9 +264,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def distributor(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Distributor (i.e., vendor) of the product.
-        """
         return pulumi.get(self, "distributor")
 
     @distributor.setter
@@ -359,9 +273,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="hasDefaultPath")
     def has_default_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-        """
         return pulumi.get(self, "has_default_path")
 
     @has_default_path.setter
@@ -371,9 +282,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the product.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -383,9 +291,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Owner of the product.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -395,9 +300,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactParameters")
     def provisioning_artifact_parameters(self) -> Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']]:
-        """
-        Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        """
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @provisioning_artifact_parameters.setter
@@ -407,9 +309,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -419,9 +318,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the product.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -431,9 +327,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Support information about the product.
-        """
         return pulumi.get(self, "support_description")
 
     @support_description.setter
@@ -443,9 +336,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="supportEmail")
     def support_email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contact email for product support.
-        """
         return pulumi.get(self, "support_email")
 
     @support_email.setter
@@ -455,9 +345,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="supportUrl")
     def support_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contact URL for product support.
-        """
         return pulumi.get(self, "support_url")
 
     @support_url.setter
@@ -467,9 +354,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -479,9 +363,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -491,11 +372,6 @@ class _ProductState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -523,56 +399,9 @@ class Product(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Product.
-
-        > **NOTE:** The user or role that uses this resources must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `template_physical_id` argument.
-
-        > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.Product("example",
-            name="example",
-            owner="example-owner",
-            type="CLOUD_FORMATION_TEMPLATE",
-            provisioning_artifact_parameters={
-                "template_url": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
-            },
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
-        ```
-
+        Create a Product resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] description: Description of the product.
-        :param pulumi.Input[_builtins.str] distributor: Distributor (i.e., vendor) of the product.
-        :param pulumi.Input[_builtins.str] name: Name of the product.
-        :param pulumi.Input[_builtins.str] owner: Owner of the product.
-        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] support_description: Support information about the product.
-        :param pulumi.Input[_builtins.str] support_email: Contact email for product support.
-        :param pulumi.Input[_builtins.str] support_url: Contact URL for product support.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -581,40 +410,7 @@ class Product(pulumi.CustomResource):
                  args: ProductArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Product.
-
-        > **NOTE:** The user or role that uses this resources must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `template_physical_id` argument.
-
-        > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.Product("example",
-            name="example",
-            owner="example-owner",
-            type="CLOUD_FORMATION_TEMPLATE",
-            provisioning_artifact_parameters={
-                "template_url": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
-            },
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
-        ```
-
+        Create a Product resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -708,25 +504,6 @@ class Product(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the product.
-        :param pulumi.Input[_builtins.str] created_time: Time when the product was created.
-        :param pulumi.Input[_builtins.str] description: Description of the product.
-        :param pulumi.Input[_builtins.str] distributor: Distributor (i.e., vendor) of the product.
-        :param pulumi.Input[_builtins.bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-        :param pulumi.Input[_builtins.str] name: Name of the product.
-        :param pulumi.Input[_builtins.str] owner: Owner of the product.
-        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the product.
-        :param pulumi.Input[_builtins.str] support_description: Support information about the product.
-        :param pulumi.Input[_builtins.str] support_email: Contact email for product support.
-        :param pulumi.Input[_builtins.str] support_url: Contact URL for product support.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -754,138 +531,85 @@ class Product(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the product.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time when the product was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the product.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def distributor(self) -> pulumi.Output[_builtins.str]:
-        """
-        Distributor (i.e., vendor) of the product.
-        """
         return pulumi.get(self, "distributor")
 
     @_builtins.property
     @pulumi.getter(name="hasDefaultPath")
     def has_default_path(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-        """
         return pulumi.get(self, "has_default_path")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the product.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        Owner of the product.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactParameters")
     def provisioning_artifact_parameters(self) -> pulumi.Output['outputs.ProductProvisioningArtifactParameters']:
-        """
-        Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        """
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the product.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Support information about the product.
-        """
         return pulumi.get(self, "support_description")
 
     @_builtins.property
     @pulumi.getter(name="supportEmail")
     def support_email(self) -> pulumi.Output[_builtins.str]:
-        """
-        Contact email for product support.
-        """
         return pulumi.get(self, "support_email")
 
     @_builtins.property
     @pulumi.getter(name="supportUrl")
     def support_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        Contact URL for product support.
-        """
         return pulumi.get(self, "support_url")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 

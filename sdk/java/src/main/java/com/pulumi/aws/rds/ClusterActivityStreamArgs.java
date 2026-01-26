@@ -17,83 +17,37 @@ public final class ClusterActivityStreamArgs extends com.pulumi.resources.Resour
 
     public static final ClusterActivityStreamArgs Empty = new ClusterActivityStreamArgs();
 
-    /**
-     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
-     * 
-     */
     @Import(name="engineNativeAuditFieldsIncluded")
     private @Nullable Output<Boolean> engineNativeAuditFieldsIncluded;
 
-    /**
-     * @return Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
-     * 
-     */
     public Optional<Output<Boolean>> engineNativeAuditFieldsIncluded() {
         return Optional.ofNullable(this.engineNativeAuditFieldsIncluded);
     }
 
-    /**
-     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
-     * 
-     */
     @Import(name="kmsKeyId", required=true)
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
 
-    /**
-     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the DB cluster.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -126,113 +80,47 @@ public final class ClusterActivityStreamArgs extends com.pulumi.resources.Resour
             $ = new ClusterActivityStreamArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-         * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineNativeAuditFieldsIncluded(@Nullable Output<Boolean> engineNativeAuditFieldsIncluded) {
             $.engineNativeAuditFieldsIncluded = engineNativeAuditFieldsIncluded;
             return this;
         }
 
-        /**
-         * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-         * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineNativeAuditFieldsIncluded(Boolean engineNativeAuditFieldsIncluded) {
             return engineNativeAuditFieldsIncluded(Output.of(engineNativeAuditFieldsIncluded));
         }
 
-        /**
-         * @param kmsKeyId The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param mode Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the DB cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the DB cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

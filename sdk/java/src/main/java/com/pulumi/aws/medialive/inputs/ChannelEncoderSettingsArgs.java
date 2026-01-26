@@ -25,137 +25,65 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
 
     public static final ChannelEncoderSettingsArgs Empty = new ChannelEncoderSettingsArgs();
 
-    /**
-     * Audio descriptions for the channel. See Audio Descriptions for more details.
-     * 
-     */
     @Import(name="audioDescriptions")
     private @Nullable Output<List<ChannelEncoderSettingsAudioDescriptionArgs>> audioDescriptions;
 
-    /**
-     * @return Audio descriptions for the channel. See Audio Descriptions for more details.
-     * 
-     */
     public Optional<Output<List<ChannelEncoderSettingsAudioDescriptionArgs>>> audioDescriptions() {
         return Optional.ofNullable(this.audioDescriptions);
     }
 
-    /**
-     * Settings for ad avail blanking. See Avail Blanking for more details.
-     * 
-     */
     @Import(name="availBlanking")
     private @Nullable Output<ChannelEncoderSettingsAvailBlankingArgs> availBlanking;
 
-    /**
-     * @return Settings for ad avail blanking. See Avail Blanking for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsAvailBlankingArgs>> availBlanking() {
         return Optional.ofNullable(this.availBlanking);
     }
 
-    /**
-     * Caption Descriptions. See Caption Descriptions for more details.
-     * 
-     */
     @Import(name="captionDescriptions")
     private @Nullable Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>> captionDescriptions;
 
-    /**
-     * @return Caption Descriptions. See Caption Descriptions for more details.
-     * 
-     */
     public Optional<Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>>> captionDescriptions() {
         return Optional.ofNullable(this.captionDescriptions);
     }
 
-    /**
-     * Configuration settings that apply to the event as a whole. See Global Configuration for more details.
-     * 
-     */
     @Import(name="globalConfiguration")
     private @Nullable Output<ChannelEncoderSettingsGlobalConfigurationArgs> globalConfiguration;
 
-    /**
-     * @return Configuration settings that apply to the event as a whole. See Global Configuration for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsGlobalConfigurationArgs>> globalConfiguration() {
         return Optional.ofNullable(this.globalConfiguration);
     }
 
-    /**
-     * Settings for motion graphics. See Motion Graphics Configuration for more details.
-     * 
-     */
     @Import(name="motionGraphicsConfiguration")
     private @Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs> motionGraphicsConfiguration;
 
-    /**
-     * @return Settings for motion graphics. See Motion Graphics Configuration for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs>> motionGraphicsConfiguration() {
         return Optional.ofNullable(this.motionGraphicsConfiguration);
     }
 
-    /**
-     * Nielsen configuration settings. See Nielsen Configuration for more details.
-     * 
-     */
     @Import(name="nielsenConfiguration")
     private @Nullable Output<ChannelEncoderSettingsNielsenConfigurationArgs> nielsenConfiguration;
 
-    /**
-     * @return Nielsen configuration settings. See Nielsen Configuration for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsNielsenConfigurationArgs>> nielsenConfiguration() {
         return Optional.ofNullable(this.nielsenConfiguration);
     }
 
-    /**
-     * Output groups for the channel. See Output Groups for more details.
-     * 
-     */
     @Import(name="outputGroups", required=true)
     private Output<List<ChannelEncoderSettingsOutputGroupArgs>> outputGroups;
 
-    /**
-     * @return Output groups for the channel. See Output Groups for more details.
-     * 
-     */
     public Output<List<ChannelEncoderSettingsOutputGroupArgs>> outputGroups() {
         return this.outputGroups;
     }
 
-    /**
-     * Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-     * 
-     */
     @Import(name="timecodeConfig", required=true)
     private Output<ChannelEncoderSettingsTimecodeConfigArgs> timecodeConfig;
 
-    /**
-     * @return Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsTimecodeConfigArgs> timecodeConfig() {
         return this.timecodeConfig;
     }
 
-    /**
-     * Video Descriptions. See Video Descriptions for more details.
-     * 
-     */
     @Import(name="videoDescriptions")
     private @Nullable Output<List<ChannelEncoderSettingsVideoDescriptionArgs>> videoDescriptions;
 
-    /**
-     * @return Video Descriptions. See Video Descriptions for more details.
-     * 
-     */
     public Optional<Output<List<ChannelEncoderSettingsVideoDescriptionArgs>>> videoDescriptions() {
         return Optional.ofNullable(this.videoDescriptions);
     }
@@ -192,231 +120,99 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
             $ = new ChannelEncoderSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioDescriptions Audio descriptions for the channel. See Audio Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioDescriptions(@Nullable Output<List<ChannelEncoderSettingsAudioDescriptionArgs>> audioDescriptions) {
             $.audioDescriptions = audioDescriptions;
             return this;
         }
 
-        /**
-         * @param audioDescriptions Audio descriptions for the channel. See Audio Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioDescriptions(List<ChannelEncoderSettingsAudioDescriptionArgs> audioDescriptions) {
             return audioDescriptions(Output.of(audioDescriptions));
         }
 
-        /**
-         * @param audioDescriptions Audio descriptions for the channel. See Audio Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioDescriptions(ChannelEncoderSettingsAudioDescriptionArgs... audioDescriptions) {
             return audioDescriptions(List.of(audioDescriptions));
         }
 
-        /**
-         * @param availBlanking Settings for ad avail blanking. See Avail Blanking for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availBlanking(@Nullable Output<ChannelEncoderSettingsAvailBlankingArgs> availBlanking) {
             $.availBlanking = availBlanking;
             return this;
         }
 
-        /**
-         * @param availBlanking Settings for ad avail blanking. See Avail Blanking for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availBlanking(ChannelEncoderSettingsAvailBlankingArgs availBlanking) {
             return availBlanking(Output.of(availBlanking));
         }
 
-        /**
-         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captionDescriptions(@Nullable Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>> captionDescriptions) {
             $.captionDescriptions = captionDescriptions;
             return this;
         }
 
-        /**
-         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captionDescriptions(List<ChannelEncoderSettingsCaptionDescriptionArgs> captionDescriptions) {
             return captionDescriptions(Output.of(captionDescriptions));
         }
 
-        /**
-         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captionDescriptions(ChannelEncoderSettingsCaptionDescriptionArgs... captionDescriptions) {
             return captionDescriptions(List.of(captionDescriptions));
         }
 
-        /**
-         * @param globalConfiguration Configuration settings that apply to the event as a whole. See Global Configuration for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalConfiguration(@Nullable Output<ChannelEncoderSettingsGlobalConfigurationArgs> globalConfiguration) {
             $.globalConfiguration = globalConfiguration;
             return this;
         }
 
-        /**
-         * @param globalConfiguration Configuration settings that apply to the event as a whole. See Global Configuration for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalConfiguration(ChannelEncoderSettingsGlobalConfigurationArgs globalConfiguration) {
             return globalConfiguration(Output.of(globalConfiguration));
         }
 
-        /**
-         * @param motionGraphicsConfiguration Settings for motion graphics. See Motion Graphics Configuration for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder motionGraphicsConfiguration(@Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs> motionGraphicsConfiguration) {
             $.motionGraphicsConfiguration = motionGraphicsConfiguration;
             return this;
         }
 
-        /**
-         * @param motionGraphicsConfiguration Settings for motion graphics. See Motion Graphics Configuration for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder motionGraphicsConfiguration(ChannelEncoderSettingsMotionGraphicsConfigurationArgs motionGraphicsConfiguration) {
             return motionGraphicsConfiguration(Output.of(motionGraphicsConfiguration));
         }
 
-        /**
-         * @param nielsenConfiguration Nielsen configuration settings. See Nielsen Configuration for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nielsenConfiguration(@Nullable Output<ChannelEncoderSettingsNielsenConfigurationArgs> nielsenConfiguration) {
             $.nielsenConfiguration = nielsenConfiguration;
             return this;
         }
 
-        /**
-         * @param nielsenConfiguration Nielsen configuration settings. See Nielsen Configuration for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nielsenConfiguration(ChannelEncoderSettingsNielsenConfigurationArgs nielsenConfiguration) {
             return nielsenConfiguration(Output.of(nielsenConfiguration));
         }
 
-        /**
-         * @param outputGroups Output groups for the channel. See Output Groups for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputGroups(Output<List<ChannelEncoderSettingsOutputGroupArgs>> outputGroups) {
             $.outputGroups = outputGroups;
             return this;
         }
 
-        /**
-         * @param outputGroups Output groups for the channel. See Output Groups for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputGroups(List<ChannelEncoderSettingsOutputGroupArgs> outputGroups) {
             return outputGroups(Output.of(outputGroups));
         }
 
-        /**
-         * @param outputGroups Output groups for the channel. See Output Groups for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputGroups(ChannelEncoderSettingsOutputGroupArgs... outputGroups) {
             return outputGroups(List.of(outputGroups));
         }
 
-        /**
-         * @param timecodeConfig Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timecodeConfig(Output<ChannelEncoderSettingsTimecodeConfigArgs> timecodeConfig) {
             $.timecodeConfig = timecodeConfig;
             return this;
         }
 
-        /**
-         * @param timecodeConfig Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timecodeConfig(ChannelEncoderSettingsTimecodeConfigArgs timecodeConfig) {
             return timecodeConfig(Output.of(timecodeConfig));
         }
 
-        /**
-         * @param videoDescriptions Video Descriptions. See Video Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder videoDescriptions(@Nullable Output<List<ChannelEncoderSettingsVideoDescriptionArgs>> videoDescriptions) {
             $.videoDescriptions = videoDescriptions;
             return this;
         }
 
-        /**
-         * @param videoDescriptions Video Descriptions. See Video Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder videoDescriptions(List<ChannelEncoderSettingsVideoDescriptionArgs> videoDescriptions) {
             return videoDescriptions(Output.of(videoDescriptions));
         }
 
-        /**
-         * @param videoDescriptions Video Descriptions. See Video Descriptions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder videoDescriptions(ChannelEncoderSettingsVideoDescriptionArgs... videoDescriptions) {
             return videoDescriptions(List.of(videoDescriptions));
         }

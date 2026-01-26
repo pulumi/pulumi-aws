@@ -17,32 +17,16 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
 
     public static final SizeConstraintSetArgs Empty = new SizeConstraintSetArgs();
 
-    /**
-     * Name or description of the Size Constraint Set.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name or description of the Size Constraint Set.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Parts of web requests that you want to inspect the size of.
-     * 
-     */
     @Import(name="sizeConstraints")
     private @Nullable Output<List<SizeConstraintSetSizeConstraintArgs>> sizeConstraints;
 
-    /**
-     * @return Parts of web requests that you want to inspect the size of.
-     * 
-     */
     public Optional<Output<List<SizeConstraintSetSizeConstraintArgs>>> sizeConstraints() {
         return Optional.ofNullable(this.sizeConstraints);
     }
@@ -72,54 +56,24 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.ResourceAr
             $ = new SizeConstraintSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name or description of the Size Constraint Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name or description of the Size Constraint Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraints(@Nullable Output<List<SizeConstraintSetSizeConstraintArgs>> sizeConstraints) {
             $.sizeConstraints = sizeConstraints;
             return this;
         }
 
-        /**
-         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraints(List<SizeConstraintSetSizeConstraintArgs> sizeConstraints) {
             return sizeConstraints(Output.of(sizeConstraints));
         }
 
-        /**
-         * @param sizeConstraints Parts of web requests that you want to inspect the size of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeConstraints(SizeConstraintSetSizeConstraintArgs... sizeConstraints) {
             return sizeConstraints(List.of(sizeConstraints));
         }

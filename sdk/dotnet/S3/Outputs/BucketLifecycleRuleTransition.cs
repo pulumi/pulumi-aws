@@ -13,17 +13,8 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketLifecycleRuleTransition
     {
-        /// <summary>
-        /// Specifies the date after which you want the corresponding action to take effect.
-        /// </summary>
         public readonly string? Date;
-        /// <summary>
-        /// Specifies the number of days after object creation when the specific rule action takes effect.
-        /// </summary>
         public readonly int? Days;
-        /// <summary>
-        /// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-        /// </summary>
         public readonly string StorageClass;
 
         [OutputConstructor]

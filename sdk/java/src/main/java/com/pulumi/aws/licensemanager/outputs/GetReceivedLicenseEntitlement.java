@@ -12,77 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseEntitlement {
-    /**
-     * @return Indicates whether check-ins are allowed.
-     * 
-     */
     private Boolean allowCheckIn;
-    /**
-     * @return Maximum entitlement count. Use if the unit is not None.
-     * 
-     */
     private Integer maxCount;
-    /**
-     * @return The key name.
-     * 
-     */
     private String name;
-    /**
-     * @return Indicates whether overages are allowed.
-     * 
-     */
     private Boolean overage;
-    /**
-     * @return Entitlement unit.
-     * 
-     */
     private String unit;
-    /**
-     * @return The value.
-     * 
-     */
     private String value;
 
     private GetReceivedLicenseEntitlement() {}
-    /**
-     * @return Indicates whether check-ins are allowed.
-     * 
-     */
     public Boolean allowCheckIn() {
         return this.allowCheckIn;
     }
-    /**
-     * @return Maximum entitlement count. Use if the unit is not None.
-     * 
-     */
     public Integer maxCount() {
         return this.maxCount;
     }
-    /**
-     * @return The key name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Indicates whether overages are allowed.
-     * 
-     */
     public Boolean overage() {
         return this.overage;
     }
-    /**
-     * @return Entitlement unit.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return The value.
-     * 
-     */
     public String value() {
         return this.value;
     }

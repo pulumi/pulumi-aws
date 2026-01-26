@@ -52,12 +52,6 @@ class ApplicationAppversionLifecycle(dict):
                  delete_source_from_s3: Optional[_builtins.bool] = None,
                  max_age_in_days: Optional[_builtins.int] = None,
                  max_count: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str service_role: The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        :param _builtins.bool delete_source_from_s3: Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        :param _builtins.int max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        :param _builtins.int max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         pulumi.set(__self__, "service_role", service_role)
         if delete_source_from_s3 is not None:
             pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
@@ -69,33 +63,21 @@ class ApplicationAppversionLifecycle(dict):
     @_builtins.property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> _builtins.str:
-        """
-        The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        """
         return pulumi.get(self, "service_role")
 
     @_builtins.property
     @pulumi.getter(name="deleteSourceFromS3")
     def delete_source_from_s3(self) -> Optional[_builtins.bool]:
-        """
-        Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        """
         return pulumi.get(self, "delete_source_from_s3")
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInDays")
     def max_age_in_days(self) -> Optional[_builtins.int]:
-        """
-        The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         return pulumi.get(self, "max_age_in_days")
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         return pulumi.get(self, "max_count")
 
 
@@ -106,9 +88,6 @@ class ConfigurationTemplateSetting(dict):
                  namespace: _builtins.str,
                  value: _builtins.str,
                  resource: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: A unique name for this Template.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -118,9 +97,6 @@ class ConfigurationTemplateSetting(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A unique name for this Template.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -146,10 +122,6 @@ class EnvironmentAllSetting(dict):
                  namespace: _builtins.str,
                  value: _builtins.str,
                  resource: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: A unique name for this Environment. This name is used
-               in the application URL
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -159,10 +131,6 @@ class EnvironmentAllSetting(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -188,10 +156,6 @@ class EnvironmentSetting(dict):
                  namespace: _builtins.str,
                  value: _builtins.str,
                  resource: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: A unique name for this Environment. This name is used
-               in the application URL
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -201,10 +165,6 @@ class EnvironmentSetting(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -230,12 +190,6 @@ class GetApplicationAppversionLifecycleResult(dict):
                  max_age_in_days: _builtins.int,
                  max_count: _builtins.int,
                  service_role: _builtins.str):
-        """
-        :param _builtins.bool delete_source_from_s3: Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-        :param _builtins.int max_age_in_days: Number of days to retain an application version.
-        :param _builtins.int max_count: Maximum number of application versions to retain.
-        :param _builtins.str service_role: ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        """
         pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
         pulumi.set(__self__, "max_age_in_days", max_age_in_days)
         pulumi.set(__self__, "max_count", max_count)
@@ -244,33 +198,21 @@ class GetApplicationAppversionLifecycleResult(dict):
     @_builtins.property
     @pulumi.getter(name="deleteSourceFromS3")
     def delete_source_from_s3(self) -> _builtins.bool:
-        """
-        Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-        """
         return pulumi.get(self, "delete_source_from_s3")
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInDays")
     def max_age_in_days(self) -> _builtins.int:
-        """
-        Number of days to retain an application version.
-        """
         return pulumi.get(self, "max_age_in_days")
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> _builtins.int:
-        """
-        Maximum number of application versions to retain.
-        """
         return pulumi.get(self, "max_count")
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> _builtins.str:
-        """
-        ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        """
         return pulumi.get(self, "service_role")
 
 

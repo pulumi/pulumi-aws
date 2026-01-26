@@ -19,117 +19,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerDefaultAction {
-    /**
-     * @return Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
-     * 
-     */
     private @Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito;
-    /**
-     * @return Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
-     * 
-     */
     private @Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc;
-    /**
-     * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-     * 
-     */
     private @Nullable ListenerDefaultActionFixedResponse fixedResponse;
-    /**
-     * @return Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
-     * 
-     */
     private @Nullable ListenerDefaultActionForward forward;
-    /**
-     * @return Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
-     * 
-     */
     private @Nullable ListenerDefaultActionJwtValidation jwtValidation;
-    /**
-     * @return Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
-     * 
-     */
     private @Nullable Integer order;
-    /**
-     * @return Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
-     * 
-     */
     private @Nullable ListenerDefaultActionRedirect redirect;
-    /**
-     * @return ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
-     * 
-     */
     private @Nullable String targetGroupArn;
-    /**
-     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String type;
 
     private ListenerDefaultAction() {}
-    /**
-     * @return Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
-     * 
-     */
     public Optional<ListenerDefaultActionAuthenticateCognito> authenticateCognito() {
         return Optional.ofNullable(this.authenticateCognito);
     }
-    /**
-     * @return Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
-     * 
-     */
     public Optional<ListenerDefaultActionAuthenticateOidc> authenticateOidc() {
         return Optional.ofNullable(this.authenticateOidc);
     }
-    /**
-     * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-     * 
-     */
     public Optional<ListenerDefaultActionFixedResponse> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
-    /**
-     * @return Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
-     * 
-     */
     public Optional<ListenerDefaultActionForward> forward() {
         return Optional.ofNullable(this.forward);
     }
-    /**
-     * @return Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
-     * 
-     */
     public Optional<ListenerDefaultActionJwtValidation> jwtValidation() {
         return Optional.ofNullable(this.jwtValidation);
     }
-    /**
-     * @return Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
-     * 
-     */
     public Optional<Integer> order() {
         return Optional.ofNullable(this.order);
     }
-    /**
-     * @return Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
-     * 
-     */
     public Optional<ListenerDefaultActionRedirect> redirect() {
         return Optional.ofNullable(this.redirect);
     }
-    /**
-     * @return ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
-     * 
-     */
     public Optional<String> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }
-    /**
-     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String type() {
         return this.type;
     }

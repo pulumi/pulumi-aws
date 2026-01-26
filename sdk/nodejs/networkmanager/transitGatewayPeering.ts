@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Manager transit gateway peering connection. Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.TransitGatewayPeering("example", {
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     transitGatewayArn: exampleAwsEc2TransitGateway.arn,
- * }, {
- *     dependsOn: [
- *         exampleAwsEc2TransitGatewayPolicyTable,
- *         exampleAwsNetworkmanagerCoreNetworkPolicyAttachment,
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
- * ```
- */
 export class TransitGatewayPeering extends pulumi.CustomResource {
     /**
      * Get an existing TransitGatewayPeering resource's state with the given name, ID, and optional extra
@@ -60,51 +32,16 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayPeering.__pulumiType;
     }
 
-    /**
-     * Peering ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ARN of the core network.
-     */
     declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
-    /**
-     * ID of a core network.
-     */
     declare public readonly coreNetworkId: pulumi.Output<string>;
-    /**
-     * Edge location for the peer.
-     */
     declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
-    /**
-     * ID of the account owner.
-     */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * Type of peering. This will be `TRANSIT_GATEWAY`.
-     */
     declare public /*out*/ readonly peeringType: pulumi.Output<string>;
-    /**
-     * Resource ARN of the peer.
-     */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
-    /**
-     * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the transit gateway for the peering request.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly transitGatewayArn: pulumi.Output<string>;
-    /**
-     * ID of the transit gateway peering attachment.
-     */
     declare public /*out*/ readonly transitGatewayPeeringAttachmentId: pulumi.Output<string>;
 
     /**
@@ -160,51 +97,16 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TransitGatewayPeering resources.
  */
 export interface TransitGatewayPeeringState {
-    /**
-     * Peering ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of the core network.
-     */
     coreNetworkArn?: pulumi.Input<string>;
-    /**
-     * ID of a core network.
-     */
     coreNetworkId?: pulumi.Input<string>;
-    /**
-     * Edge location for the peer.
-     */
     edgeLocation?: pulumi.Input<string>;
-    /**
-     * ID of the account owner.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * Type of peering. This will be `TRANSIT_GATEWAY`.
-     */
     peeringType?: pulumi.Input<string>;
-    /**
-     * Resource ARN of the peer.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the transit gateway for the peering request.
-     *
-     * The following arguments are optional:
-     */
     transitGatewayArn?: pulumi.Input<string>;
-    /**
-     * ID of the transit gateway peering attachment.
-     */
     transitGatewayPeeringAttachmentId?: pulumi.Input<string>;
 }
 
@@ -212,18 +114,7 @@ export interface TransitGatewayPeeringState {
  * The set of arguments for constructing a TransitGatewayPeering resource.
  */
 export interface TransitGatewayPeeringArgs {
-    /**
-     * ID of a core network.
-     */
     coreNetworkId: pulumi.Input<string>;
-    /**
-     * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the transit gateway for the peering request.
-     *
-     * The following arguments are optional:
-     */
     transitGatewayArn: pulumi.Input<string>;
 }

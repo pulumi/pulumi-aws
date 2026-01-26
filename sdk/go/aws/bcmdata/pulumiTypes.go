@@ -14,17 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ExportExport struct {
-	// Data query for this specific data export. See the `dataQuery` argument reference below.
-	DataQueries []ExportExportDataQuery `pulumi:"dataQueries"`
-	// Description for this specific data export.
-	Description *string `pulumi:"description"`
-	// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+	DataQueries               []ExportExportDataQuery                `pulumi:"dataQueries"`
+	Description               *string                                `pulumi:"description"`
 	DestinationConfigurations []ExportExportDestinationConfiguration `pulumi:"destinationConfigurations"`
 	ExportArn                 *string                                `pulumi:"exportArn"`
-	// Name of this specific data export.
-	Name string `pulumi:"name"`
-	// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
-	RefreshCadences []ExportExportRefreshCadence `pulumi:"refreshCadences"`
+	Name                      string                                 `pulumi:"name"`
+	RefreshCadences           []ExportExportRefreshCadence           `pulumi:"refreshCadences"`
 }
 
 // ExportExportInput is an input type that accepts ExportExportArgs and ExportExportOutput values.
@@ -39,17 +34,12 @@ type ExportExportInput interface {
 }
 
 type ExportExportArgs struct {
-	// Data query for this specific data export. See the `dataQuery` argument reference below.
-	DataQueries ExportExportDataQueryArrayInput `pulumi:"dataQueries"`
-	// Description for this specific data export.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+	DataQueries               ExportExportDataQueryArrayInput                `pulumi:"dataQueries"`
+	Description               pulumi.StringPtrInput                          `pulumi:"description"`
 	DestinationConfigurations ExportExportDestinationConfigurationArrayInput `pulumi:"destinationConfigurations"`
 	ExportArn                 pulumi.StringPtrInput                          `pulumi:"exportArn"`
-	// Name of this specific data export.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
-	RefreshCadences ExportExportRefreshCadenceArrayInput `pulumi:"refreshCadences"`
+	Name                      pulumi.StringInput                             `pulumi:"name"`
+	RefreshCadences           ExportExportRefreshCadenceArrayInput           `pulumi:"refreshCadences"`
 }
 
 func (ExportExportArgs) ElementType() reflect.Type {
@@ -129,17 +119,14 @@ func (o ExportExportOutput) ToExportExportPtrOutputWithContext(ctx context.Conte
 	}).(ExportExportPtrOutput)
 }
 
-// Data query for this specific data export. See the `dataQuery` argument reference below.
 func (o ExportExportOutput) DataQueries() ExportExportDataQueryArrayOutput {
 	return o.ApplyT(func(v ExportExport) []ExportExportDataQuery { return v.DataQueries }).(ExportExportDataQueryArrayOutput)
 }
 
-// Description for this specific data export.
 func (o ExportExportOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExport) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
 func (o ExportExportOutput) DestinationConfigurations() ExportExportDestinationConfigurationArrayOutput {
 	return o.ApplyT(func(v ExportExport) []ExportExportDestinationConfiguration { return v.DestinationConfigurations }).(ExportExportDestinationConfigurationArrayOutput)
 }
@@ -148,12 +135,10 @@ func (o ExportExportOutput) ExportArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExport) *string { return v.ExportArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of this specific data export.
 func (o ExportExportOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExport) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
 func (o ExportExportOutput) RefreshCadences() ExportExportRefreshCadenceArrayOutput {
 	return o.ApplyT(func(v ExportExport) []ExportExportRefreshCadence { return v.RefreshCadences }).(ExportExportRefreshCadenceArrayOutput)
 }
@@ -182,7 +167,6 @@ func (o ExportExportPtrOutput) Elem() ExportExportOutput {
 	}).(ExportExportOutput)
 }
 
-// Data query for this specific data export. See the `dataQuery` argument reference below.
 func (o ExportExportPtrOutput) DataQueries() ExportExportDataQueryArrayOutput {
 	return o.ApplyT(func(v *ExportExport) []ExportExportDataQuery {
 		if v == nil {
@@ -192,7 +176,6 @@ func (o ExportExportPtrOutput) DataQueries() ExportExportDataQueryArrayOutput {
 	}).(ExportExportDataQueryArrayOutput)
 }
 
-// Description for this specific data export.
 func (o ExportExportPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportExport) *string {
 		if v == nil {
@@ -202,7 +185,6 @@ func (o ExportExportPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
 func (o ExportExportPtrOutput) DestinationConfigurations() ExportExportDestinationConfigurationArrayOutput {
 	return o.ApplyT(func(v *ExportExport) []ExportExportDestinationConfiguration {
 		if v == nil {
@@ -221,7 +203,6 @@ func (o ExportExportPtrOutput) ExportArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of this specific data export.
 func (o ExportExportPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportExport) *string {
 		if v == nil {
@@ -231,7 +212,6 @@ func (o ExportExportPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
 func (o ExportExportPtrOutput) RefreshCadences() ExportExportRefreshCadenceArrayOutput {
 	return o.ApplyT(func(v *ExportExport) []ExportExportRefreshCadence {
 		if v == nil {
@@ -242,9 +222,7 @@ func (o ExportExportPtrOutput) RefreshCadences() ExportExportRefreshCadenceArray
 }
 
 type ExportExportDataQuery struct {
-	// Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-	QueryStatement string `pulumi:"queryStatement"`
-	// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
+	QueryStatement      string                       `pulumi:"queryStatement"`
 	TableConfigurations map[string]map[string]string `pulumi:"tableConfigurations"`
 }
 
@@ -260,9 +238,7 @@ type ExportExportDataQueryInput interface {
 }
 
 type ExportExportDataQueryArgs struct {
-	// Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-	QueryStatement pulumi.StringInput `pulumi:"queryStatement"`
-	// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
+	QueryStatement      pulumi.StringInput       `pulumi:"queryStatement"`
 	TableConfigurations pulumi.StringMapMapInput `pulumi:"tableConfigurations"`
 }
 
@@ -317,12 +293,10 @@ func (o ExportExportDataQueryOutput) ToExportExportDataQueryOutputWithContext(ct
 	return o
 }
 
-// Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
 func (o ExportExportDataQueryOutput) QueryStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDataQuery) string { return v.QueryStatement }).(pulumi.StringOutput)
 }
 
-// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
 func (o ExportExportDataQueryOutput) TableConfigurations() pulumi.StringMapMapOutput {
 	return o.ApplyT(func(v ExportExportDataQuery) map[string]map[string]string { return v.TableConfigurations }).(pulumi.StringMapMapOutput)
 }
@@ -348,7 +322,6 @@ func (o ExportExportDataQueryArrayOutput) Index(i pulumi.IntInput) ExportExportD
 }
 
 type ExportExportDestinationConfiguration struct {
-	// Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
 	S3Destinations []ExportExportDestinationConfigurationS3Destination `pulumi:"s3Destinations"`
 }
 
@@ -364,7 +337,6 @@ type ExportExportDestinationConfigurationInput interface {
 }
 
 type ExportExportDestinationConfigurationArgs struct {
-	// Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
 	S3Destinations ExportExportDestinationConfigurationS3DestinationArrayInput `pulumi:"s3Destinations"`
 }
 
@@ -419,7 +391,6 @@ func (o ExportExportDestinationConfigurationOutput) ToExportExportDestinationCon
 	return o
 }
 
-// Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
 func (o ExportExportDestinationConfigurationOutput) S3Destinations() ExportExportDestinationConfigurationS3DestinationArrayOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfiguration) []ExportExportDestinationConfigurationS3Destination {
 		return v.S3Destinations
@@ -447,14 +418,10 @@ func (o ExportExportDestinationConfigurationArrayOutput) Index(i pulumi.IntInput
 }
 
 type ExportExportDestinationConfigurationS3Destination struct {
-	// Name of the Amazon S3 bucket used as the destination of a data export file.
-	S3Bucket string `pulumi:"s3Bucket"`
-	// Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
+	S3Bucket               string                                                                   `pulumi:"s3Bucket"`
 	S3OutputConfigurations []ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration `pulumi:"s3OutputConfigurations"`
-	// S3 path prefix you want prepended to the name of your data export.
-	S3Prefix string `pulumi:"s3Prefix"`
-	// S3 bucket region.
-	S3Region string `pulumi:"s3Region"`
+	S3Prefix               string                                                                   `pulumi:"s3Prefix"`
+	S3Region               string                                                                   `pulumi:"s3Region"`
 }
 
 // ExportExportDestinationConfigurationS3DestinationInput is an input type that accepts ExportExportDestinationConfigurationS3DestinationArgs and ExportExportDestinationConfigurationS3DestinationOutput values.
@@ -469,14 +436,10 @@ type ExportExportDestinationConfigurationS3DestinationInput interface {
 }
 
 type ExportExportDestinationConfigurationS3DestinationArgs struct {
-	// Name of the Amazon S3 bucket used as the destination of a data export file.
-	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	// Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
+	S3Bucket               pulumi.StringInput                                                               `pulumi:"s3Bucket"`
 	S3OutputConfigurations ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArrayInput `pulumi:"s3OutputConfigurations"`
-	// S3 path prefix you want prepended to the name of your data export.
-	S3Prefix pulumi.StringInput `pulumi:"s3Prefix"`
-	// S3 bucket region.
-	S3Region pulumi.StringInput `pulumi:"s3Region"`
+	S3Prefix               pulumi.StringInput                                                               `pulumi:"s3Prefix"`
+	S3Region               pulumi.StringInput                                                               `pulumi:"s3Region"`
 }
 
 func (ExportExportDestinationConfigurationS3DestinationArgs) ElementType() reflect.Type {
@@ -530,24 +493,20 @@ func (o ExportExportDestinationConfigurationS3DestinationOutput) ToExportExportD
 	return o
 }
 
-// Name of the Amazon S3 bucket used as the destination of a data export file.
 func (o ExportExportDestinationConfigurationS3DestinationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3Destination) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
 func (o ExportExportDestinationConfigurationS3DestinationOutput) S3OutputConfigurations() ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArrayOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3Destination) []ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration {
 		return v.S3OutputConfigurations
 	}).(ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArrayOutput)
 }
 
-// S3 path prefix you want prepended to the name of your data export.
 func (o ExportExportDestinationConfigurationS3DestinationOutput) S3Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3Destination) string { return v.S3Prefix }).(pulumi.StringOutput)
 }
 
-// S3 bucket region.
 func (o ExportExportDestinationConfigurationS3DestinationOutput) S3Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3Destination) string { return v.S3Region }).(pulumi.StringOutput)
 }
@@ -573,14 +532,10 @@ func (o ExportExportDestinationConfigurationS3DestinationArrayOutput) Index(i pu
 }
 
 type ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration struct {
-	// Compression type for the data export. Valid values `GZIP`, `PARQUET`.
 	Compression string `pulumi:"compression"`
-	// File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
-	Format string `pulumi:"format"`
-	// Output type for the data export. Valid value `CUSTOM`.
-	OutputType string `pulumi:"outputType"`
-	// The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
-	Overwrite string `pulumi:"overwrite"`
+	Format      string `pulumi:"format"`
+	OutputType  string `pulumi:"outputType"`
+	Overwrite   string `pulumi:"overwrite"`
 }
 
 // ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationInput is an input type that accepts ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs and ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationOutput values.
@@ -595,14 +550,10 @@ type ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationInput
 }
 
 type ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs struct {
-	// Compression type for the data export. Valid values `GZIP`, `PARQUET`.
 	Compression pulumi.StringInput `pulumi:"compression"`
-	// File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
-	Format pulumi.StringInput `pulumi:"format"`
-	// Output type for the data export. Valid value `CUSTOM`.
-	OutputType pulumi.StringInput `pulumi:"outputType"`
-	// The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
-	Overwrite pulumi.StringInput `pulumi:"overwrite"`
+	Format      pulumi.StringInput `pulumi:"format"`
+	OutputType  pulumi.StringInput `pulumi:"outputType"`
+	Overwrite   pulumi.StringInput `pulumi:"overwrite"`
 }
 
 func (ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs) ElementType() reflect.Type {
@@ -656,26 +607,22 @@ func (o ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationOu
 	return o
 }
 
-// Compression type for the data export. Valid values `GZIP`, `PARQUET`.
 func (o ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationOutput) Compression() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration) string {
 		return v.Compression
 	}).(pulumi.StringOutput)
 }
 
-// File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
 func (o ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// Output type for the data export. Valid value `CUSTOM`.
 func (o ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationOutput) OutputType() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration) string {
 		return v.OutputType
 	}).(pulumi.StringOutput)
 }
 
-// The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
 func (o ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationOutput) Overwrite() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration) string {
 		return v.Overwrite
@@ -703,7 +650,6 @@ func (o ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationAr
 }
 
 type ExportExportRefreshCadence struct {
-	// Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
 	Frequency string `pulumi:"frequency"`
 }
 
@@ -719,7 +665,6 @@ type ExportExportRefreshCadenceInput interface {
 }
 
 type ExportExportRefreshCadenceArgs struct {
-	// Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 }
 
@@ -774,7 +719,6 @@ func (o ExportExportRefreshCadenceOutput) ToExportExportRefreshCadenceOutputWith
 	return o
 }
 
-// Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
 func (o ExportExportRefreshCadenceOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExportRefreshCadence) string { return v.Frequency }).(pulumi.StringOutput)
 }

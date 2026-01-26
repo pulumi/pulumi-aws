@@ -20,126 +20,58 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
 
     public static final ScraperState Empty = new ScraperState();
 
-    /**
-     * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-     * 
-     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
-    /**
-     * @return a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-     * 
-     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the new scraper.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the new scraper.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Configuration block for the managed scraper to send metrics to. See `destination`.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<ScraperDestinationArgs> destination;
 
-    /**
-     * @return Configuration block for the managed scraper to send metrics to. See `destination`.
-     * 
-     */
     public Optional<Output<ScraperDestinationArgs>> destination() {
         return Optional.ofNullable(this.destination);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
-     * 
-     */
     @Import(name="roleConfiguration")
     private @Nullable Output<ScraperRoleConfigurationArgs> roleConfiguration;
 
-    /**
-     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
-     * 
-     */
     public Optional<Output<ScraperRoleConfigurationArgs>> roleConfiguration() {
         return Optional.ofNullable(this.roleConfiguration);
     }
 
-    /**
-     * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-     * 
-     */
     @Import(name="scrapeConfiguration")
     private @Nullable Output<String> scrapeConfiguration;
 
-    /**
-     * @return The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-     * 
-     */
     public Optional<Output<String>> scrapeConfiguration() {
         return Optional.ofNullable(this.scrapeConfiguration);
     }
 
-    /**
-     * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<ScraperSourceArgs> source;
 
-    /**
-     * @return Configuration block to specify where the managed scraper will collect metrics from. See `source`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<ScraperSourceArgs>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -199,174 +131,74 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
             $ = new ScraperState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alias a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
-        /**
-         * @param alias a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the new scraper.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the new scraper.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param destination Configuration block for the managed scraper to send metrics to. See `destination`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<ScraperDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Configuration block for the managed scraper to send metrics to. See `destination`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ScraperDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleConfiguration(@Nullable Output<ScraperRoleConfigurationArgs> roleConfiguration) {
             $.roleConfiguration = roleConfiguration;
             return this;
         }
 
-        /**
-         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleConfiguration(ScraperRoleConfigurationArgs roleConfiguration) {
             return roleConfiguration(Output.of(roleConfiguration));
         }
 
-        /**
-         * @param scrapeConfiguration The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder scrapeConfiguration(@Nullable Output<String> scrapeConfiguration) {
             $.scrapeConfiguration = scrapeConfiguration;
             return this;
         }
 
-        /**
-         * @param scrapeConfiguration The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder scrapeConfiguration(String scrapeConfiguration) {
             return scrapeConfiguration(Output.of(scrapeConfiguration));
         }
 
-        /**
-         * @param source Configuration block to specify where the managed scraper will collect metrics from. See `source`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<ScraperSourceArgs> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Configuration block to specify where the managed scraper will collect metrics from. See `source`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(ScraperSourceArgs source) {
             return source(Output.of(source));
         }

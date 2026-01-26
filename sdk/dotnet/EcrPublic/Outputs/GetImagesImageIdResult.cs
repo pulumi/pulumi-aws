@@ -14,11 +14,11 @@ namespace Pulumi.Aws.EcrPublic.Outputs
     public sealed class GetImagesImageIdResult
     {
         /// <summary>
-        /// Digest of the image manifest.
+        /// Image digest.
         /// </summary>
         public readonly string? ImageDigest;
         /// <summary>
-        /// Tag used for the image.
+        /// Image tag.
         /// </summary>
         public readonly string? ImageTag;
 

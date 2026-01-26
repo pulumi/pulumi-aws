@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS VPC Lattice Resource Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.LookupResourcePolicy(ctx, &vpclattice.LookupResourcePolicyArgs{
-//				ResourceArn: exampleAwsVpclatticeServiceNetwork.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, opts ...pulumi.InvokeOption) (*LookupResourcePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourcePolicyResult
@@ -52,17 +23,14 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 
 // A collection of arguments for invoking getResourcePolicy.
 type LookupResourcePolicyArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource ARN of the resource for which a policy is retrieved.
-	ResourceArn string `pulumi:"resourceArn"`
+	Region      *string `pulumi:"region"`
+	ResourceArn string  `pulumi:"resourceArn"`
 }
 
 // A collection of values returned by getResourcePolicy.
 type LookupResourcePolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// JSON-encoded string representation of the applied resource policy.
+	Id          string `pulumi:"id"`
 	Policy      string `pulumi:"policy"`
 	Region      string `pulumi:"region"`
 	ResourceArn string `pulumi:"resourceArn"`
@@ -79,10 +47,8 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 
 // A collection of arguments for invoking getResourcePolicy.
 type LookupResourcePolicyOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Resource ARN of the resource for which a policy is retrieved.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	ResourceArn pulumi.StringInput    `pulumi:"resourceArn"`
 }
 
 func (LookupResourcePolicyOutputArgs) ElementType() reflect.Type {
@@ -109,7 +75,6 @@ func (o LookupResourcePolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// JSON-encoded string representation of the applied resource policy.
 func (o LookupResourcePolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Policy }).(pulumi.StringOutput)
 }

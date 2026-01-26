@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
     [OutputType]
     public sealed class GetParameterGroupParameterResult
     {
-        /// <summary>
-        /// Name of the parameter group.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value of the parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

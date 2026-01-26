@@ -27,10 +27,6 @@ class ServiceIntegrationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceIntegration resource.
-        :param pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs'] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        :param pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs'] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        :param pulumi.Input['ServiceIntegrationOpsCenterArgs'] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if kms_server_side_encryption is not None:
             pulumi.set(__self__, "kms_server_side_encryption", kms_server_side_encryption)
@@ -44,9 +40,6 @@ class ServiceIntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsServerSideEncryption")
     def kms_server_side_encryption(self) -> Optional[pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs']]:
-        """
-        Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        """
         return pulumi.get(self, "kms_server_side_encryption")
 
     @kms_server_side_encryption.setter
@@ -56,9 +49,6 @@ class ServiceIntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="logsAnomalyDetection")
     def logs_anomaly_detection(self) -> Optional[pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs']]:
-        """
-        Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        """
         return pulumi.get(self, "logs_anomaly_detection")
 
     @logs_anomaly_detection.setter
@@ -68,9 +58,6 @@ class ServiceIntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="opsCenter")
     def ops_center(self) -> Optional[pulumi.Input['ServiceIntegrationOpsCenterArgs']]:
-        """
-        Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        """
         return pulumi.get(self, "ops_center")
 
     @ops_center.setter
@@ -80,9 +67,6 @@ class ServiceIntegrationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,10 +83,6 @@ class _ServiceIntegrationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceIntegration resources.
-        :param pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs'] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        :param pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs'] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        :param pulumi.Input['ServiceIntegrationOpsCenterArgs'] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if kms_server_side_encryption is not None:
             pulumi.set(__self__, "kms_server_side_encryption", kms_server_side_encryption)
@@ -116,9 +96,6 @@ class _ServiceIntegrationState:
     @_builtins.property
     @pulumi.getter(name="kmsServerSideEncryption")
     def kms_server_side_encryption(self) -> Optional[pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs']]:
-        """
-        Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        """
         return pulumi.get(self, "kms_server_side_encryption")
 
     @kms_server_side_encryption.setter
@@ -128,9 +105,6 @@ class _ServiceIntegrationState:
     @_builtins.property
     @pulumi.getter(name="logsAnomalyDetection")
     def logs_anomaly_detection(self) -> Optional[pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs']]:
-        """
-        Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        """
         return pulumi.get(self, "logs_anomaly_detection")
 
     @logs_anomaly_detection.setter
@@ -140,9 +114,6 @@ class _ServiceIntegrationState:
     @_builtins.property
     @pulumi.getter(name="opsCenter")
     def ops_center(self) -> Optional[pulumi.Input['ServiceIntegrationOpsCenterArgs']]:
-        """
-        Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        """
         return pulumi.get(self, "ops_center")
 
     @ops_center.setter
@@ -152,9 +123,6 @@ class _ServiceIntegrationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -174,62 +142,9 @@ class ServiceIntegration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.devopsguru.ServiceIntegration("example",
-            kms_server_side_encryption={
-                "opt_in_status": "ENABLED",
-                "type": "AWS_OWNED_KMS_KEY",
-            },
-            logs_anomaly_detection={
-                "opt_in_status": "ENABLED",
-            },
-            ops_center={
-                "opt_in_status": "ENABLED",
-            })
-        ```
-
-        ### Customer Managed KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example")
-        example_service_integration = aws.devopsguru.ServiceIntegration("example",
-            kms_server_side_encryption={
-                "kms_key_id": test["arn"],
-                "opt_in_status": "ENABLED",
-                "type": "CUSTOMER_MANAGED_KEY",
-            },
-            logs_anomaly_detection={
-                "opt_in_status": "DISABLED",
-            },
-            ops_center={
-                "opt_in_status": "DISABLED",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
-
-        ```sh
-        $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
-        ```
-
+        Create a ServiceIntegration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceIntegrationKmsServerSideEncryptionArgs', 'ServiceIntegrationKmsServerSideEncryptionArgsDict']] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        :param pulumi.Input[Union['ServiceIntegrationLogsAnomalyDetectionArgs', 'ServiceIntegrationLogsAnomalyDetectionArgsDict']] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        :param pulumi.Input[Union['ServiceIntegrationOpsCenterArgs', 'ServiceIntegrationOpsCenterArgsDict']] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -238,56 +153,7 @@ class ServiceIntegration(pulumi.CustomResource):
                  args: Optional[ServiceIntegrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.devopsguru.ServiceIntegration("example",
-            kms_server_side_encryption={
-                "opt_in_status": "ENABLED",
-                "type": "AWS_OWNED_KMS_KEY",
-            },
-            logs_anomaly_detection={
-                "opt_in_status": "ENABLED",
-            },
-            ops_center={
-                "opt_in_status": "ENABLED",
-            })
-        ```
-
-        ### Customer Managed KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example")
-        example_service_integration = aws.devopsguru.ServiceIntegration("example",
-            kms_server_side_encryption={
-                "kms_key_id": test["arn"],
-                "opt_in_status": "ENABLED",
-                "type": "CUSTOMER_MANAGED_KEY",
-            },
-            logs_anomaly_detection={
-                "opt_in_status": "DISABLED",
-            },
-            ops_center={
-                "opt_in_status": "DISABLED",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
-
-        ```sh
-        $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
-        ```
-
+        Create a ServiceIntegration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceIntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,10 +207,6 @@ class ServiceIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceIntegrationKmsServerSideEncryptionArgs', 'ServiceIntegrationKmsServerSideEncryptionArgsDict']] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        :param pulumi.Input[Union['ServiceIntegrationLogsAnomalyDetectionArgs', 'ServiceIntegrationLogsAnomalyDetectionArgsDict']] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        :param pulumi.Input[Union['ServiceIntegrationOpsCenterArgs', 'ServiceIntegrationOpsCenterArgsDict']] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,32 +221,20 @@ class ServiceIntegration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="kmsServerSideEncryption")
     def kms_server_side_encryption(self) -> pulumi.Output[Optional['outputs.ServiceIntegrationKmsServerSideEncryption']]:
-        """
-        Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        """
         return pulumi.get(self, "kms_server_side_encryption")
 
     @_builtins.property
     @pulumi.getter(name="logsAnomalyDetection")
     def logs_anomaly_detection(self) -> pulumi.Output[Optional['outputs.ServiceIntegrationLogsAnomalyDetection']]:
-        """
-        Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        """
         return pulumi.get(self, "logs_anomaly_detection")
 
     @_builtins.property
     @pulumi.getter(name="opsCenter")
     def ops_center(self) -> pulumi.Output[Optional['outputs.ServiceIntegrationOpsCenter']]:
-        """
-        Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        """
         return pulumi.get(self, "ops_center")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

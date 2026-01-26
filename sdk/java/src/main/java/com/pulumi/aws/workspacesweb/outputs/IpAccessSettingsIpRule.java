@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IpAccessSettingsIpRule {
-    /**
-     * @return The description of the IP access settings.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The IP range of the IP rule.
-     * 
-     */
     private String ipRange;
 
     private IpAccessSettingsIpRule() {}
-    /**
-     * @return The description of the IP access settings.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The IP range of the IP rule.
-     * 
-     */
     public String ipRange() {
         return this.ipRange;
     }

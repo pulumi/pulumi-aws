@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualClusterContainerProviderInfo {
-    /**
-     * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-     * 
-     */
     private List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
 
     private GetVirtualClusterContainerProviderInfo() {}
-    /**
-     * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-     * 
-     */
     public List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos() {
         return this.eksInfos;
     }

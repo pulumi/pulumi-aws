@@ -189,9 +189,6 @@ func (o CapacityReservationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type DatabaseAclConfiguration struct {
-	// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-	//
-	// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 	S3AclOption string `pulumi:"s3AclOption"`
 }
 
@@ -207,9 +204,6 @@ type DatabaseAclConfigurationInput interface {
 }
 
 type DatabaseAclConfigurationArgs struct {
-	// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-	//
-	// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 	S3AclOption pulumi.StringInput `pulumi:"s3AclOption"`
 }
 
@@ -290,9 +284,6 @@ func (o DatabaseAclConfigurationOutput) ToDatabaseAclConfigurationPtrOutputWithC
 	}).(DatabaseAclConfigurationPtrOutput)
 }
 
-// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-//
-// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 func (o DatabaseAclConfigurationOutput) S3AclOption() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseAclConfiguration) string { return v.S3AclOption }).(pulumi.StringOutput)
 }
@@ -321,9 +312,6 @@ func (o DatabaseAclConfigurationPtrOutput) Elem() DatabaseAclConfigurationOutput
 	}).(DatabaseAclConfigurationOutput)
 }
 
-// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-//
-// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 func (o DatabaseAclConfigurationPtrOutput) S3AclOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseAclConfiguration) *string {
 		if v == nil {
@@ -334,10 +322,8 @@ func (o DatabaseAclConfigurationPtrOutput) S3AclOption() pulumi.StringPtrOutput 
 }
 
 type DatabaseEncryptionConfiguration struct {
-	// Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-	EncryptionOption string `pulumi:"encryptionOption"`
-	// KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-	KmsKey *string `pulumi:"kmsKey"`
+	EncryptionOption string  `pulumi:"encryptionOption"`
+	KmsKey           *string `pulumi:"kmsKey"`
 }
 
 // DatabaseEncryptionConfigurationInput is an input type that accepts DatabaseEncryptionConfigurationArgs and DatabaseEncryptionConfigurationOutput values.
@@ -352,10 +338,8 @@ type DatabaseEncryptionConfigurationInput interface {
 }
 
 type DatabaseEncryptionConfigurationArgs struct {
-	// Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-	EncryptionOption pulumi.StringInput `pulumi:"encryptionOption"`
-	// KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	EncryptionOption pulumi.StringInput    `pulumi:"encryptionOption"`
+	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (DatabaseEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -435,12 +419,10 @@ func (o DatabaseEncryptionConfigurationOutput) ToDatabaseEncryptionConfiguration
 	}).(DatabaseEncryptionConfigurationPtrOutput)
 }
 
-// Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
 func (o DatabaseEncryptionConfigurationOutput) EncryptionOption() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
 }
 
-// KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
 func (o DatabaseEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -469,7 +451,6 @@ func (o DatabaseEncryptionConfigurationPtrOutput) Elem() DatabaseEncryptionConfi
 	}).(DatabaseEncryptionConfigurationOutput)
 }
 
-// Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
 func (o DatabaseEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseEncryptionConfiguration) *string {
 		if v == nil {
@@ -479,7 +460,6 @@ func (o DatabaseEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
 func (o DatabaseEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseEncryptionConfiguration) *string {
 		if v == nil {
@@ -490,30 +470,18 @@ func (o DatabaseEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutpu
 }
 
 type WorkgroupConfiguration struct {
-	// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
-	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
-	// Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+	BytesScannedCutoffPerQuery             *int                                                          `pulumi:"bytesScannedCutoffPerQuery"`
 	CustomerContentEncryptionConfiguration *WorkgroupConfigurationCustomerContentEncryptionConfiguration `pulumi:"customerContentEncryptionConfiguration"`
-	// Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
-	EnableMinimumEncryptionConfiguration *bool `pulumi:"enableMinimumEncryptionConfiguration"`
-	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
-	EnforceWorkgroupConfiguration *bool `pulumi:"enforceWorkgroupConfiguration"`
-	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
-	EngineVersion *WorkgroupConfigurationEngineVersion `pulumi:"engineVersion"`
-	// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
-	ExecutionRole *string `pulumi:"executionRole"`
-	// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
-	IdentityCenterConfiguration *WorkgroupConfigurationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
-	// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
-	ManagedQueryResultsConfiguration *WorkgroupConfigurationManagedQueryResultsConfiguration `pulumi:"managedQueryResultsConfiguration"`
-	// Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
-	MonitoringConfiguration *WorkgroupConfigurationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
-	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
-	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
-	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
-	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
-	// Configuration block with result settings. See Result Configuration below.
-	ResultConfiguration *WorkgroupConfigurationResultConfiguration `pulumi:"resultConfiguration"`
+	EnableMinimumEncryptionConfiguration   *bool                                                         `pulumi:"enableMinimumEncryptionConfiguration"`
+	EnforceWorkgroupConfiguration          *bool                                                         `pulumi:"enforceWorkgroupConfiguration"`
+	EngineVersion                          *WorkgroupConfigurationEngineVersion                          `pulumi:"engineVersion"`
+	ExecutionRole                          *string                                                       `pulumi:"executionRole"`
+	IdentityCenterConfiguration            *WorkgroupConfigurationIdentityCenterConfiguration            `pulumi:"identityCenterConfiguration"`
+	ManagedQueryResultsConfiguration       *WorkgroupConfigurationManagedQueryResultsConfiguration       `pulumi:"managedQueryResultsConfiguration"`
+	MonitoringConfiguration                *WorkgroupConfigurationMonitoringConfiguration                `pulumi:"monitoringConfiguration"`
+	PublishCloudwatchMetricsEnabled        *bool                                                         `pulumi:"publishCloudwatchMetricsEnabled"`
+	RequesterPaysEnabled                   *bool                                                         `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration                    *WorkgroupConfigurationResultConfiguration                    `pulumi:"resultConfiguration"`
 }
 
 // WorkgroupConfigurationInput is an input type that accepts WorkgroupConfigurationArgs and WorkgroupConfigurationOutput values.
@@ -528,30 +496,18 @@ type WorkgroupConfigurationInput interface {
 }
 
 type WorkgroupConfigurationArgs struct {
-	// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
-	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
-	// Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+	BytesScannedCutoffPerQuery             pulumi.IntPtrInput                                                   `pulumi:"bytesScannedCutoffPerQuery"`
 	CustomerContentEncryptionConfiguration WorkgroupConfigurationCustomerContentEncryptionConfigurationPtrInput `pulumi:"customerContentEncryptionConfiguration"`
-	// Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
-	EnableMinimumEncryptionConfiguration pulumi.BoolPtrInput `pulumi:"enableMinimumEncryptionConfiguration"`
-	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
-	EnforceWorkgroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkgroupConfiguration"`
-	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
-	EngineVersion WorkgroupConfigurationEngineVersionPtrInput `pulumi:"engineVersion"`
-	// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
-	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
-	// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
-	IdentityCenterConfiguration WorkgroupConfigurationIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
-	// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
-	ManagedQueryResultsConfiguration WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput `pulumi:"managedQueryResultsConfiguration"`
-	// Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
-	MonitoringConfiguration WorkgroupConfigurationMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
-	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
-	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
-	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
-	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
-	// Configuration block with result settings. See Result Configuration below.
-	ResultConfiguration WorkgroupConfigurationResultConfigurationPtrInput `pulumi:"resultConfiguration"`
+	EnableMinimumEncryptionConfiguration   pulumi.BoolPtrInput                                                  `pulumi:"enableMinimumEncryptionConfiguration"`
+	EnforceWorkgroupConfiguration          pulumi.BoolPtrInput                                                  `pulumi:"enforceWorkgroupConfiguration"`
+	EngineVersion                          WorkgroupConfigurationEngineVersionPtrInput                          `pulumi:"engineVersion"`
+	ExecutionRole                          pulumi.StringPtrInput                                                `pulumi:"executionRole"`
+	IdentityCenterConfiguration            WorkgroupConfigurationIdentityCenterConfigurationPtrInput            `pulumi:"identityCenterConfiguration"`
+	ManagedQueryResultsConfiguration       WorkgroupConfigurationManagedQueryResultsConfigurationPtrInput       `pulumi:"managedQueryResultsConfiguration"`
+	MonitoringConfiguration                WorkgroupConfigurationMonitoringConfigurationPtrInput                `pulumi:"monitoringConfiguration"`
+	PublishCloudwatchMetricsEnabled        pulumi.BoolPtrInput                                                  `pulumi:"publishCloudwatchMetricsEnabled"`
+	RequesterPaysEnabled                   pulumi.BoolPtrInput                                                  `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration                    WorkgroupConfigurationResultConfigurationPtrInput                    `pulumi:"resultConfiguration"`
 }
 
 func (WorkgroupConfigurationArgs) ElementType() reflect.Type {
@@ -631,70 +587,58 @@ func (o WorkgroupConfigurationOutput) ToWorkgroupConfigurationPtrOutputWithConte
 	}).(WorkgroupConfigurationPtrOutput)
 }
 
-// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
 func (o WorkgroupConfigurationOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
 }
 
-// Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
 func (o WorkgroupConfigurationOutput) CustomerContentEncryptionConfiguration() WorkgroupConfigurationCustomerContentEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationCustomerContentEncryptionConfiguration {
 		return v.CustomerContentEncryptionConfiguration
 	}).(WorkgroupConfigurationCustomerContentEncryptionConfigurationPtrOutput)
 }
 
-// Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
 func (o WorkgroupConfigurationOutput) EnableMinimumEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.EnableMinimumEncryptionConfiguration }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 func (o WorkgroupConfigurationOutput) EnforceWorkgroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 func (o WorkgroupConfigurationOutput) EngineVersion() WorkgroupConfigurationEngineVersionPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion { return v.EngineVersion }).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
-// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
 func (o WorkgroupConfigurationOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
 func (o WorkgroupConfigurationOutput) IdentityCenterConfiguration() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationIdentityCenterConfiguration {
 		return v.IdentityCenterConfiguration
 	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
 }
 
-// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
 func (o WorkgroupConfigurationOutput) ManagedQueryResultsConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationManagedQueryResultsConfiguration {
 		return v.ManagedQueryResultsConfiguration
 	}).(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput)
 }
 
-// Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
 func (o WorkgroupConfigurationOutput) MonitoringConfiguration() WorkgroupConfigurationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationMonitoringConfiguration {
 		return v.MonitoringConfiguration
 	}).(WorkgroupConfigurationMonitoringConfigurationPtrOutput)
 }
 
-// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
 func (o WorkgroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block with result settings. See Result Configuration below.
 func (o WorkgroupConfigurationOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
 		return v.ResultConfiguration
@@ -725,7 +669,6 @@ func (o WorkgroupConfigurationPtrOutput) Elem() WorkgroupConfigurationOutput {
 	}).(WorkgroupConfigurationOutput)
 }
 
-// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
 func (o WorkgroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *int {
 		if v == nil {
@@ -735,7 +678,6 @@ func (o WorkgroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
 func (o WorkgroupConfigurationPtrOutput) CustomerContentEncryptionConfiguration() WorkgroupConfigurationCustomerContentEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationCustomerContentEncryptionConfiguration {
 		if v == nil {
@@ -745,7 +687,6 @@ func (o WorkgroupConfigurationPtrOutput) CustomerContentEncryptionConfiguration(
 	}).(WorkgroupConfigurationCustomerContentEncryptionConfigurationPtrOutput)
 }
 
-// Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
 func (o WorkgroupConfigurationPtrOutput) EnableMinimumEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
 		if v == nil {
@@ -755,7 +696,6 @@ func (o WorkgroupConfigurationPtrOutput) EnableMinimumEncryptionConfiguration() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 func (o WorkgroupConfigurationPtrOutput) EnforceWorkgroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
 		if v == nil {
@@ -765,7 +705,6 @@ func (o WorkgroupConfigurationPtrOutput) EnforceWorkgroupConfiguration() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 func (o WorkgroupConfigurationPtrOutput) EngineVersion() WorkgroupConfigurationEngineVersionPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion {
 		if v == nil {
@@ -775,7 +714,6 @@ func (o WorkgroupConfigurationPtrOutput) EngineVersion() WorkgroupConfigurationE
 	}).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
-// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
 func (o WorkgroupConfigurationPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *string {
 		if v == nil {
@@ -785,7 +723,6 @@ func (o WorkgroupConfigurationPtrOutput) ExecutionRole() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
 func (o WorkgroupConfigurationPtrOutput) IdentityCenterConfiguration() WorkgroupConfigurationIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationIdentityCenterConfiguration {
 		if v == nil {
@@ -795,7 +732,6 @@ func (o WorkgroupConfigurationPtrOutput) IdentityCenterConfiguration() Workgroup
 	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
 }
 
-// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
 func (o WorkgroupConfigurationPtrOutput) ManagedQueryResultsConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationManagedQueryResultsConfiguration {
 		if v == nil {
@@ -805,7 +741,6 @@ func (o WorkgroupConfigurationPtrOutput) ManagedQueryResultsConfiguration() Work
 	}).(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput)
 }
 
-// Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
 func (o WorkgroupConfigurationPtrOutput) MonitoringConfiguration() WorkgroupConfigurationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationMonitoringConfiguration {
 		if v == nil {
@@ -815,7 +750,6 @@ func (o WorkgroupConfigurationPtrOutput) MonitoringConfiguration() WorkgroupConf
 	}).(WorkgroupConfigurationMonitoringConfigurationPtrOutput)
 }
 
-// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationPtrOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
 		if v == nil {
@@ -825,7 +759,6 @@ func (o WorkgroupConfigurationPtrOutput) PublishCloudwatchMetricsEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
 func (o WorkgroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
 		if v == nil {
@@ -835,7 +768,6 @@ func (o WorkgroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block with result settings. See Result Configuration below.
 func (o WorkgroupConfigurationPtrOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
 		if v == nil {
@@ -979,10 +911,8 @@ func (o WorkgroupConfigurationCustomerContentEncryptionConfigurationPtrOutput) K
 }
 
 type WorkgroupConfigurationEngineVersion struct {
-	// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
 	EffectiveEngineVersion *string `pulumi:"effectiveEngineVersion"`
-	// Requested engine version. Defaults to `AUTO`.
-	SelectedEngineVersion *string `pulumi:"selectedEngineVersion"`
+	SelectedEngineVersion  *string `pulumi:"selectedEngineVersion"`
 }
 
 // WorkgroupConfigurationEngineVersionInput is an input type that accepts WorkgroupConfigurationEngineVersionArgs and WorkgroupConfigurationEngineVersionOutput values.
@@ -997,10 +927,8 @@ type WorkgroupConfigurationEngineVersionInput interface {
 }
 
 type WorkgroupConfigurationEngineVersionArgs struct {
-	// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
 	EffectiveEngineVersion pulumi.StringPtrInput `pulumi:"effectiveEngineVersion"`
-	// Requested engine version. Defaults to `AUTO`.
-	SelectedEngineVersion pulumi.StringPtrInput `pulumi:"selectedEngineVersion"`
+	SelectedEngineVersion  pulumi.StringPtrInput `pulumi:"selectedEngineVersion"`
 }
 
 func (WorkgroupConfigurationEngineVersionArgs) ElementType() reflect.Type {
@@ -1080,12 +1008,10 @@ func (o WorkgroupConfigurationEngineVersionOutput) ToWorkgroupConfigurationEngin
 	}).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
-// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
 func (o WorkgroupConfigurationEngineVersionOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationEngineVersion) *string { return v.EffectiveEngineVersion }).(pulumi.StringPtrOutput)
 }
 
-// Requested engine version. Defaults to `AUTO`.
 func (o WorkgroupConfigurationEngineVersionOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationEngineVersion) *string { return v.SelectedEngineVersion }).(pulumi.StringPtrOutput)
 }
@@ -1114,7 +1040,6 @@ func (o WorkgroupConfigurationEngineVersionPtrOutput) Elem() WorkgroupConfigurat
 	}).(WorkgroupConfigurationEngineVersionOutput)
 }
 
-// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
 func (o WorkgroupConfigurationEngineVersionPtrOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationEngineVersion) *string {
 		if v == nil {
@@ -1124,7 +1049,6 @@ func (o WorkgroupConfigurationEngineVersionPtrOutput) EffectiveEngineVersion() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Requested engine version. Defaults to `AUTO`.
 func (o WorkgroupConfigurationEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationEngineVersion) *string {
 		if v == nil {
@@ -1135,9 +1059,7 @@ func (o WorkgroupConfigurationEngineVersionPtrOutput) SelectedEngineVersion() pu
 }
 
 type WorkgroupConfigurationIdentityCenterConfiguration struct {
-	// Specifies whether the workgroup is IAM Identity Center supported.
-	EnableIdentityCenter *bool `pulumi:"enableIdentityCenter"`
-	// The IAM Identity Center instance ARN that the workgroup associates to.
+	EnableIdentityCenter      *bool   `pulumi:"enableIdentityCenter"`
 	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
 }
 
@@ -1153,9 +1075,7 @@ type WorkgroupConfigurationIdentityCenterConfigurationInput interface {
 }
 
 type WorkgroupConfigurationIdentityCenterConfigurationArgs struct {
-	// Specifies whether the workgroup is IAM Identity Center supported.
-	EnableIdentityCenter pulumi.BoolPtrInput `pulumi:"enableIdentityCenter"`
-	// The IAM Identity Center instance ARN that the workgroup associates to.
+	EnableIdentityCenter      pulumi.BoolPtrInput   `pulumi:"enableIdentityCenter"`
 	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
 }
 
@@ -1236,12 +1156,10 @@ func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) ToWorkgroupConf
 	}).(WorkgroupConfigurationIdentityCenterConfigurationPtrOutput)
 }
 
-// Specifies whether the workgroup is IAM Identity Center supported.
 func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) EnableIdentityCenter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationIdentityCenterConfiguration) *bool { return v.EnableIdentityCenter }).(pulumi.BoolPtrOutput)
 }
 
-// The IAM Identity Center instance ARN that the workgroup associates to.
 func (o WorkgroupConfigurationIdentityCenterConfigurationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationIdentityCenterConfiguration) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }
@@ -1270,7 +1188,6 @@ func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) Elem() Workg
 	}).(WorkgroupConfigurationIdentityCenterConfigurationOutput)
 }
 
-// Specifies whether the workgroup is IAM Identity Center supported.
 func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) EnableIdentityCenter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationIdentityCenterConfiguration) *bool {
 		if v == nil {
@@ -1280,7 +1197,6 @@ func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) EnableIdenti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The IAM Identity Center instance ARN that the workgroup associates to.
 func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationIdentityCenterConfiguration) *string {
 		if v == nil {
@@ -1291,9 +1207,7 @@ func (o WorkgroupConfigurationIdentityCenterConfigurationPtrOutput) IdentityCent
 }
 
 type WorkgroupConfigurationManagedQueryResultsConfiguration struct {
-	// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+	Enabled                 *bool                                                                          `pulumi:"enabled"`
 	EncryptionConfiguration *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 }
 
@@ -1309,9 +1223,7 @@ type WorkgroupConfigurationManagedQueryResultsConfigurationInput interface {
 }
 
 type WorkgroupConfigurationManagedQueryResultsConfigurationArgs struct {
-	// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+	Enabled                 pulumi.BoolPtrInput                                                                   `pulumi:"enabled"`
 	EncryptionConfiguration WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 }
 
@@ -1392,12 +1304,10 @@ func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) ToWorkgrou
 	}).(WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput)
 }
 
-// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
 func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationManagedQueryResultsConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
 func (o WorkgroupConfigurationManagedQueryResultsConfigurationOutput) EncryptionConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationManagedQueryResultsConfiguration) *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration {
 		return v.EncryptionConfiguration
@@ -1428,7 +1338,6 @@ func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) Elem() 
 	}).(WorkgroupConfigurationManagedQueryResultsConfigurationOutput)
 }
 
-// If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
 func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationManagedQueryResultsConfiguration) *bool {
 		if v == nil {
@@ -1438,7 +1347,6 @@ func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
 func (o WorkgroupConfigurationManagedQueryResultsConfigurationPtrOutput) EncryptionConfiguration() WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationManagedQueryResultsConfiguration) *WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration {
 		if v == nil {
@@ -1584,12 +1492,9 @@ func (o WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigur
 }
 
 type WorkgroupConfigurationMonitoringConfiguration struct {
-	// Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
 	CloudWatchLoggingConfiguration *WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration `pulumi:"cloudWatchLoggingConfiguration"`
-	// Configuration block for managed log persistence. See Managed Logging Configuration below.
-	ManagedLoggingConfiguration *WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration `pulumi:"managedLoggingConfiguration"`
-	// Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-	S3LoggingConfiguration *WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration `pulumi:"s3LoggingConfiguration"`
+	ManagedLoggingConfiguration    *WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration    `pulumi:"managedLoggingConfiguration"`
+	S3LoggingConfiguration         *WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration         `pulumi:"s3LoggingConfiguration"`
 }
 
 // WorkgroupConfigurationMonitoringConfigurationInput is an input type that accepts WorkgroupConfigurationMonitoringConfigurationArgs and WorkgroupConfigurationMonitoringConfigurationOutput values.
@@ -1604,12 +1509,9 @@ type WorkgroupConfigurationMonitoringConfigurationInput interface {
 }
 
 type WorkgroupConfigurationMonitoringConfigurationArgs struct {
-	// Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
 	CloudWatchLoggingConfiguration WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrInput `pulumi:"cloudWatchLoggingConfiguration"`
-	// Configuration block for managed log persistence. See Managed Logging Configuration below.
-	ManagedLoggingConfiguration WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrInput `pulumi:"managedLoggingConfiguration"`
-	// Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-	S3LoggingConfiguration WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrInput `pulumi:"s3LoggingConfiguration"`
+	ManagedLoggingConfiguration    WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrInput    `pulumi:"managedLoggingConfiguration"`
+	S3LoggingConfiguration         WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrInput         `pulumi:"s3LoggingConfiguration"`
 }
 
 func (WorkgroupConfigurationMonitoringConfigurationArgs) ElementType() reflect.Type {
@@ -1689,21 +1591,18 @@ func (o WorkgroupConfigurationMonitoringConfigurationOutput) ToWorkgroupConfigur
 	}).(WorkgroupConfigurationMonitoringConfigurationPtrOutput)
 }
 
-// Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
 func (o WorkgroupConfigurationMonitoringConfigurationOutput) CloudWatchLoggingConfiguration() WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfiguration) *WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration {
 		return v.CloudWatchLoggingConfiguration
 	}).(WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrOutput)
 }
 
-// Configuration block for managed log persistence. See Managed Logging Configuration below.
 func (o WorkgroupConfigurationMonitoringConfigurationOutput) ManagedLoggingConfiguration() WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfiguration) *WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration {
 		return v.ManagedLoggingConfiguration
 	}).(WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrOutput)
 }
 
-// Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
 func (o WorkgroupConfigurationMonitoringConfigurationOutput) S3LoggingConfiguration() WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfiguration) *WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration {
 		return v.S3LoggingConfiguration
@@ -1734,7 +1633,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationPtrOutput) Elem() Workgroup
 	}).(WorkgroupConfigurationMonitoringConfigurationOutput)
 }
 
-// Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
 func (o WorkgroupConfigurationMonitoringConfigurationPtrOutput) CloudWatchLoggingConfiguration() WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfiguration) *WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration {
 		if v == nil {
@@ -1744,7 +1642,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationPtrOutput) CloudWatchLoggin
 	}).(WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrOutput)
 }
 
-// Configuration block for managed log persistence. See Managed Logging Configuration below.
 func (o WorkgroupConfigurationMonitoringConfigurationPtrOutput) ManagedLoggingConfiguration() WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfiguration) *WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration {
 		if v == nil {
@@ -1754,7 +1651,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationPtrOutput) ManagedLoggingCo
 	}).(WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrOutput)
 }
 
-// Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
 func (o WorkgroupConfigurationMonitoringConfigurationPtrOutput) S3LoggingConfiguration() WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfiguration) *WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration {
 		if v == nil {
@@ -1765,13 +1661,10 @@ func (o WorkgroupConfigurationMonitoringConfigurationPtrOutput) S3LoggingConfigu
 }
 
 type WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration struct {
-	Enabled bool `pulumi:"enabled"`
-	// Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-	LogGroup *string `pulumi:"logGroup"`
-	// Prefix for the CloudWatch log stream name.
-	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
-	// Repeatable block defining log types to be delivered to CloudWatch.
-	LogTypes []WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType `pulumi:"logTypes"`
+	Enabled             bool                                                                                 `pulumi:"enabled"`
+	LogGroup            *string                                                                              `pulumi:"logGroup"`
+	LogStreamNamePrefix *string                                                                              `pulumi:"logStreamNamePrefix"`
+	LogTypes            []WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType `pulumi:"logTypes"`
 }
 
 // WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationInput is an input type that accepts WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs and WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationOutput values.
@@ -1786,13 +1679,10 @@ type WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration
 }
 
 type WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
-	// Prefix for the CloudWatch log stream name.
-	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
-	// Repeatable block defining log types to be delivered to CloudWatch.
-	LogTypes WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArrayInput `pulumi:"logTypes"`
+	Enabled             pulumi.BoolInput                                                                             `pulumi:"enabled"`
+	LogGroup            pulumi.StringPtrInput                                                                        `pulumi:"logGroup"`
+	LogStreamNamePrefix pulumi.StringPtrInput                                                                        `pulumi:"logStreamNamePrefix"`
+	LogTypes            WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArrayInput `pulumi:"logTypes"`
 }
 
 func (WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -1878,21 +1768,18 @@ func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurat
 	}).(pulumi.BoolOutput)
 }
 
-// Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration) *string {
 		return v.LogGroup
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix for the CloudWatch log stream name.
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration) *string {
 		return v.LogStreamNamePrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repeatable block defining log types to be delivered to CloudWatch.
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationOutput) LogTypes() WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArrayOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration) []WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType {
 		return v.LogTypes
@@ -1932,7 +1819,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurat
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration) *string {
 		if v == nil {
@@ -1942,7 +1828,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix for the CloudWatch log stream name.
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration) *string {
 		if v == nil {
@@ -1952,7 +1837,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repeatable block defining log types to be delivered to CloudWatch.
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationPtrOutput) LogTypes() WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArrayOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration) []WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType {
 		if v == nil {
@@ -1963,9 +1847,7 @@ func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurat
 }
 
 type WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType struct {
-	// Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-	Key string `pulumi:"key"`
-	// List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
+	Key    string   `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1981,9 +1863,7 @@ type WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration
 }
 
 type WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs struct {
-	// Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-	Key pulumi.StringInput `pulumi:"key"`
-	// List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
+	Key    pulumi.StringInput      `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2038,14 +1918,12 @@ func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurat
 	return o
 }
 
-// Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType) string {
 		return v.Key
 	}).(pulumi.StringOutput)
 }
 
-// List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
 func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType) []string {
 		return v.Values
@@ -2073,7 +1951,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurat
 }
 
 type WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration struct {
-	// Boolean whether managed log persistence is enabled for the workgroup.
 	Enabled bool    `pulumi:"enabled"`
 	KmsKey  *string `pulumi:"kmsKey"`
 }
@@ -2090,7 +1967,6 @@ type WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationInp
 }
 
 type WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs struct {
-	// Boolean whether managed log persistence is enabled for the workgroup.
 	Enabled pulumi.BoolInput      `pulumi:"enabled"`
 	KmsKey  pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
@@ -2172,7 +2048,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration
 	}).(WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrOutput)
 }
 
-// Boolean whether managed log persistence is enabled for the workgroup.
 func (o WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration) bool {
 		return v.Enabled
@@ -2209,7 +2084,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration
 	}).(WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationOutput)
 }
 
-// Boolean whether managed log persistence is enabled for the workgroup.
 func (o WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration) *bool {
 		if v == nil {
@@ -2229,11 +2103,8 @@ func (o WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration
 }
 
 type WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration struct {
-	// Boolean whether Amazon S3 logging is enabled for the workgroup.
-	Enabled bool `pulumi:"enabled"`
-	// KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-	KmsKey *string `pulumi:"kmsKey"`
-	// Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
+	Enabled     bool    `pulumi:"enabled"`
+	KmsKey      *string `pulumi:"kmsKey"`
 	LogLocation *string `pulumi:"logLocation"`
 }
 
@@ -2249,11 +2120,8 @@ type WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationInput in
 }
 
 type WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs struct {
-	// Boolean whether Amazon S3 logging is enabled for the workgroup.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
-	// Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
+	Enabled     pulumi.BoolInput      `pulumi:"enabled"`
+	KmsKey      pulumi.StringPtrInput `pulumi:"kmsKey"`
 	LogLocation pulumi.StringPtrInput `pulumi:"logLocation"`
 }
 
@@ -2334,17 +2202,14 @@ func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationOutpu
 	}).(WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOutput)
 }
 
-// Boolean whether Amazon S3 logging is enabled for the workgroup.
 func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
 func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
 func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationOutput) LogLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration) *string {
 		return v.LogLocation
@@ -2375,7 +2240,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOu
 	}).(WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationOutput)
 }
 
-// Boolean whether Amazon S3 logging is enabled for the workgroup.
 func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration) *bool {
 		if v == nil {
@@ -2385,7 +2249,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
 func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration) *string {
 		if v == nil {
@@ -2395,7 +2258,6 @@ func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
 func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOutput) LogLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration) *string {
 		if v == nil {
@@ -2406,14 +2268,10 @@ func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOu
 }
 
 type WorkgroupConfigurationResultConfiguration struct {
-	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-	AclConfiguration *WorkgroupConfigurationResultConfigurationAclConfiguration `pulumi:"aclConfiguration"`
-	// Configuration block with encryption settings. See Encryption Configuration below.
+	AclConfiguration        *WorkgroupConfigurationResultConfigurationAclConfiguration        `pulumi:"aclConfiguration"`
 	EncryptionConfiguration *WorkgroupConfigurationResultConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-	OutputLocation *string `pulumi:"outputLocation"`
+	ExpectedBucketOwner     *string                                                           `pulumi:"expectedBucketOwner"`
+	OutputLocation          *string                                                           `pulumi:"outputLocation"`
 }
 
 // WorkgroupConfigurationResultConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationArgs and WorkgroupConfigurationResultConfigurationOutput values.
@@ -2428,14 +2286,10 @@ type WorkgroupConfigurationResultConfigurationInput interface {
 }
 
 type WorkgroupConfigurationResultConfigurationArgs struct {
-	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-	AclConfiguration WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput `pulumi:"aclConfiguration"`
-	// Configuration block with encryption settings. See Encryption Configuration below.
+	AclConfiguration        WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput        `pulumi:"aclConfiguration"`
 	EncryptionConfiguration WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
-	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-	ExpectedBucketOwner pulumi.StringPtrInput `pulumi:"expectedBucketOwner"`
-	// Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
+	ExpectedBucketOwner     pulumi.StringPtrInput                                                    `pulumi:"expectedBucketOwner"`
+	OutputLocation          pulumi.StringPtrInput                                                    `pulumi:"outputLocation"`
 }
 
 func (WorkgroupConfigurationResultConfigurationArgs) ElementType() reflect.Type {
@@ -2515,26 +2369,22 @@ func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfiguratio
 	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
 
-// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
 func (o WorkgroupConfigurationResultConfigurationOutput) AclConfiguration() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationAclConfiguration {
 		return v.AclConfiguration
 	}).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
 }
 
-// Configuration block with encryption settings. See Encryption Configuration below.
 func (o WorkgroupConfigurationResultConfigurationOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
 		return v.EncryptionConfiguration
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
-// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 func (o WorkgroupConfigurationResultConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 func (o WorkgroupConfigurationResultConfigurationOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
 }
@@ -2563,7 +2413,6 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) Elem() WorkgroupConf
 	}).(WorkgroupConfigurationResultConfigurationOutput)
 }
 
-// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) AclConfiguration() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationAclConfiguration {
 		if v == nil {
@@ -2573,7 +2422,6 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) AclConfiguration() W
 	}).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
 }
 
-// Configuration block with encryption settings. See Encryption Configuration below.
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
 		if v == nil {
@@ -2583,7 +2431,6 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) EncryptionConfigurat
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
-// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *string {
 		if v == nil {
@@ -2593,7 +2440,6 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) ExpectedBucketOwner(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *string {
 		if v == nil {
@@ -2604,7 +2450,6 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) OutputLocation() pul
 }
 
 type WorkgroupConfigurationResultConfigurationAclConfiguration struct {
-	// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 	S3AclOption string `pulumi:"s3AclOption"`
 }
 
@@ -2620,7 +2465,6 @@ type WorkgroupConfigurationResultConfigurationAclConfigurationInput interface {
 }
 
 type WorkgroupConfigurationResultConfigurationAclConfigurationArgs struct {
-	// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 	S3AclOption pulumi.StringInput `pulumi:"s3AclOption"`
 }
 
@@ -2701,7 +2545,6 @@ func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ToWorkg
 	}).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
 }
 
-// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) S3AclOption() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationAclConfiguration) string { return v.S3AclOption }).(pulumi.StringOutput)
 }
@@ -2730,7 +2573,6 @@ func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) Elem
 	}).(WorkgroupConfigurationResultConfigurationAclConfigurationOutput)
 }
 
-// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) S3AclOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationAclConfiguration) *string {
 		if v == nil {
@@ -2741,10 +2583,8 @@ func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) S3Ac
 }
 
 type WorkgroupConfigurationResultConfigurationEncryptionConfiguration struct {
-	// Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 	EncryptionOption *string `pulumi:"encryptionOption"`
-	// For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	KmsKeyArn        *string `pulumi:"kmsKeyArn"`
 }
 
 // WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs and WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput values.
@@ -2759,10 +2599,8 @@ type WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput inter
 }
 
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs struct {
-	// Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 	EncryptionOption pulumi.StringPtrInput `pulumi:"encryptionOption"`
-	// For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	KmsKeyArn        pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -2842,14 +2680,12 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) 
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
-// Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
 		return v.EncryptionOption
 	}).(pulumi.StringPtrOutput)
 }
 
-// For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -2878,7 +2714,6 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
 }
 
-// Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
 		if v == nil {
@@ -2888,7 +2723,6 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
 		if v == nil {

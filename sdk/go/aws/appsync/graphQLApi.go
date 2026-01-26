@@ -12,461 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppSync GraphQL API.
-//
-// ## Example Usage
-//
-// ### API Key Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Name:               pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### AWS IAM Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AWS_IAM"),
-//				Name:               pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### AWS Cognito User Pool Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-//				Name:               pulumi.String("example"),
-//				UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
-//					AwsRegion:     pulumi.Any(current.Region),
-//					DefaultAction: pulumi.String("DENY"),
-//					UserPoolId:    pulumi.Any(exampleAwsCognitoUserPool.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### OpenID Connect Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("OPENID_CONNECT"),
-//				Name:               pulumi.String("example"),
-//				OpenidConnectConfig: &appsync.GraphQLApiOpenidConnectConfigArgs{
-//					Issuer: pulumi.String("https://example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### AWS Lambda Authorizer Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AWS_LAMBDA"),
-//				Name:               pulumi.String("example"),
-//				LambdaAuthorizerConfig: &appsync.GraphQLApiLambdaAuthorizerConfigArgs{
-//					AuthorizerUri: pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewPermission(ctx, "appsync_lambda_authorizer", &lambda.PermissionArgs{
-//				StatementId: pulumi.String("appsync_lambda_authorizer"),
-//				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    pulumi.Any("custom_lambda_authorizer"),
-//				Principal:   pulumi.String("appsync.amazonaws.com"),
-//				SourceArn:   example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Multiple Authentication Providers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Name:               pulumi.String("example"),
-//				AdditionalAuthenticationProviders: appsync.GraphQLApiAdditionalAuthenticationProviderArray{
-//					&appsync.GraphQLApiAdditionalAuthenticationProviderArgs{
-//						AuthenticationType: pulumi.String("AWS_IAM"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Schema
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AWS_IAM"),
-//				Name:               pulumi.String("example"),
-//				Schema: pulumi.String(`schema {
-//
-// \tquery: Query
-// }
-//
-//	type Query {
-//	  test: Int
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Enabling Logging
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"appsync.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"),
-//				Role:      example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				LogConfig: &appsync.GraphQLApiLogConfigArgs{
-//					CloudwatchLogsRoleArn: example.Arn,
-//					FieldLogLevel:         pulumi.String("ERROR"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Associate Web ACL (v2)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Name:               pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:        pulumi.String("managed-rule-example"),
-//				Description: pulumi.String("Example of a managed rule."),
-//				Scope:       pulumi.String("REGIONAL"),
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
-//				},
-//				Rules: wafv2.WebAclRuleArray{
-//					&wafv2.WebAclRuleArgs{
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
-//							Block: []map[string]interface{}{
-//								map[string]interface{}{},
-//							},
-//						},
-//						Statement: &wafv2.WebAclRuleStatementArgs{
-//							ManagedRuleGroupStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs{
-//								Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
-//								VendorName: pulumi.String("AWS"),
-//							},
-//						},
-//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewWebAclAssociation(ctx, "example", &wafv2.WebAclAssociationArgs{
-//				ResourceArn: example.Arn,
-//				WebAclArn:   exampleWebAcl.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### GraphQL run complexity, query depth, and introspection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType:  pulumi.String("AWS_IAM"),
-//				Name:                pulumi.String("example"),
-//				IntrospectionConfig: pulumi.String("ENABLED"),
-//				QueryDepthLimit:     pulumi.Int(2),
-//				ResolverCountLimit:  pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
-//
-// ```sh
-// $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
-// ```
 type GraphQLApi struct {
 	pulumi.CustomResourceState
 
-	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
-	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
-	ApiType pulumi.StringPtrOutput `pulumi:"apiType"`
-	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
-	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
-	EnhancedMetricsConfig GraphQLApiEnhancedMetricsConfigPtrOutput `pulumi:"enhancedMetricsConfig"`
-	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-	IntrospectionConfig pulumi.StringPtrOutput `pulumi:"introspectionConfig"`
-	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
-	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrOutput `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing logging configuration. See `logConfig` Block for details.
-	LogConfig GraphQLApiLogConfigPtrOutput `pulumi:"logConfig"`
-	// ARN of the execution role when `apiType` is set to `MERGED`.
-	MergedApiExecutionRoleArn pulumi.StringPtrOutput `pulumi:"mergedApiExecutionRoleArn"`
-	// User-supplied name for the GraphQL API.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrOutput `pulumi:"openidConnectConfig"`
-	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-	//
-	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-	QueryDepthLimit pulumi.IntPtrOutput `pulumi:"queryDepthLimit"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-	ResolverCountLimit pulumi.IntPtrOutput `pulumi:"resolverCountLimit"`
-	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-	Schema pulumi.StringPtrOutput `pulumi:"schema"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-	Uris pulumi.StringMapOutput `pulumi:"uris"`
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
-	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
-	// Whether tracing with X-ray is enabled. Defaults to false.
-	XrayEnabled pulumi.BoolPtrOutput `pulumi:"xrayEnabled"`
+	ApiType                           pulumi.StringPtrOutput                                `pulumi:"apiType"`
+	Arn                               pulumi.StringOutput                                   `pulumi:"arn"`
+	AuthenticationType                pulumi.StringOutput                                   `pulumi:"authenticationType"`
+	EnhancedMetricsConfig             GraphQLApiEnhancedMetricsConfigPtrOutput              `pulumi:"enhancedMetricsConfig"`
+	IntrospectionConfig               pulumi.StringPtrOutput                                `pulumi:"introspectionConfig"`
+	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrOutput             `pulumi:"lambdaAuthorizerConfig"`
+	LogConfig                         GraphQLApiLogConfigPtrOutput                          `pulumi:"logConfig"`
+	MergedApiExecutionRoleArn         pulumi.StringPtrOutput                                `pulumi:"mergedApiExecutionRoleArn"`
+	Name                              pulumi.StringOutput                                   `pulumi:"name"`
+	OpenidConnectConfig               GraphQLApiOpenidConnectConfigPtrOutput                `pulumi:"openidConnectConfig"`
+	QueryDepthLimit                   pulumi.IntPtrOutput                                   `pulumi:"queryDepthLimit"`
+	Region                            pulumi.StringOutput                                   `pulumi:"region"`
+	ResolverCountLimit                pulumi.IntPtrOutput                                   `pulumi:"resolverCountLimit"`
+	Schema                            pulumi.StringPtrOutput                                `pulumi:"schema"`
+	Tags                              pulumi.StringMapOutput                                `pulumi:"tags"`
+	TagsAll                           pulumi.StringMapOutput                                `pulumi:"tagsAll"`
+	Uris                              pulumi.StringMapOutput                                `pulumi:"uris"`
+	UserPoolConfig                    GraphQLApiUserPoolConfigPtrOutput                     `pulumi:"userPoolConfig"`
+	Visibility                        pulumi.StringPtrOutput                                `pulumi:"visibility"`
+	XrayEnabled                       pulumi.BoolPtrOutput                                  `pulumi:"xrayEnabled"`
 }
 
 // NewGraphQLApi registers a new resource with the given unique name, arguments, and options.
@@ -502,101 +71,51 @@ func GetGraphQLApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GraphQLApi resources.
 type graphQLApiState struct {
-	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
-	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
-	ApiType *string `pulumi:"apiType"`
-	// ARN
-	Arn *string `pulumi:"arn"`
-	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
-	EnhancedMetricsConfig *GraphQLApiEnhancedMetricsConfig `pulumi:"enhancedMetricsConfig"`
-	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-	IntrospectionConfig *string `pulumi:"introspectionConfig"`
-	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
-	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing logging configuration. See `logConfig` Block for details.
-	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// ARN of the execution role when `apiType` is set to `MERGED`.
-	MergedApiExecutionRoleArn *string `pulumi:"mergedApiExecutionRoleArn"`
-	// User-supplied name for the GraphQL API.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-	//
-	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-	QueryDepthLimit *int `pulumi:"queryDepthLimit"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-	ResolverCountLimit *int `pulumi:"resolverCountLimit"`
-	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-	Schema *string `pulumi:"schema"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-	Uris map[string]string `pulumi:"uris"`
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
-	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-	Visibility *string `pulumi:"visibility"`
-	// Whether tracing with X-ray is enabled. Defaults to false.
-	XrayEnabled *bool `pulumi:"xrayEnabled"`
+	ApiType                           *string                                      `pulumi:"apiType"`
+	Arn                               *string                                      `pulumi:"arn"`
+	AuthenticationType                *string                                      `pulumi:"authenticationType"`
+	EnhancedMetricsConfig             *GraphQLApiEnhancedMetricsConfig             `pulumi:"enhancedMetricsConfig"`
+	IntrospectionConfig               *string                                      `pulumi:"introspectionConfig"`
+	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
+	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
+	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
+	Name                              *string                                      `pulumi:"name"`
+	OpenidConnectConfig               *GraphQLApiOpenidConnectConfig               `pulumi:"openidConnectConfig"`
+	QueryDepthLimit                   *int                                         `pulumi:"queryDepthLimit"`
+	Region                            *string                                      `pulumi:"region"`
+	ResolverCountLimit                *int                                         `pulumi:"resolverCountLimit"`
+	Schema                            *string                                      `pulumi:"schema"`
+	Tags                              map[string]string                            `pulumi:"tags"`
+	TagsAll                           map[string]string                            `pulumi:"tagsAll"`
+	Uris                              map[string]string                            `pulumi:"uris"`
+	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
+	Visibility                        *string                                      `pulumi:"visibility"`
+	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
 }
 
 type GraphQLApiState struct {
-	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
-	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
-	ApiType pulumi.StringPtrInput
-	// ARN
-	Arn pulumi.StringPtrInput
-	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-	AuthenticationType pulumi.StringPtrInput
-	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
-	EnhancedMetricsConfig GraphQLApiEnhancedMetricsConfigPtrInput
-	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-	IntrospectionConfig pulumi.StringPtrInput
-	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
-	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
-	// Nested argument containing logging configuration. See `logConfig` Block for details.
-	LogConfig GraphQLApiLogConfigPtrInput
-	// ARN of the execution role when `apiType` is set to `MERGED`.
-	MergedApiExecutionRoleArn pulumi.StringPtrInput
-	// User-supplied name for the GraphQL API.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
-	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-	//
-	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-	QueryDepthLimit pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-	ResolverCountLimit pulumi.IntPtrInput
-	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-	Schema pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-	Uris pulumi.StringMapInput
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
-	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-	Visibility pulumi.StringPtrInput
-	// Whether tracing with X-ray is enabled. Defaults to false.
-	XrayEnabled pulumi.BoolPtrInput
+	ApiType                           pulumi.StringPtrInput
+	Arn                               pulumi.StringPtrInput
+	AuthenticationType                pulumi.StringPtrInput
+	EnhancedMetricsConfig             GraphQLApiEnhancedMetricsConfigPtrInput
+	IntrospectionConfig               pulumi.StringPtrInput
+	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrInput
+	LogConfig                         GraphQLApiLogConfigPtrInput
+	MergedApiExecutionRoleArn         pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
+	OpenidConnectConfig               GraphQLApiOpenidConnectConfigPtrInput
+	QueryDepthLimit                   pulumi.IntPtrInput
+	Region                            pulumi.StringPtrInput
+	ResolverCountLimit                pulumi.IntPtrInput
+	Schema                            pulumi.StringPtrInput
+	Tags                              pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
+	Uris                              pulumi.StringMapInput
+	UserPoolConfig                    GraphQLApiUserPoolConfigPtrInput
+	Visibility                        pulumi.StringPtrInput
+	XrayEnabled                       pulumi.BoolPtrInput
 }
 
 func (GraphQLApiState) ElementType() reflect.Type {
@@ -604,90 +123,46 @@ func (GraphQLApiState) ElementType() reflect.Type {
 }
 
 type graphQLApiArgs struct {
-	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
-	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
-	ApiType *string `pulumi:"apiType"`
-	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
-	EnhancedMetricsConfig *GraphQLApiEnhancedMetricsConfig `pulumi:"enhancedMetricsConfig"`
-	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-	IntrospectionConfig *string `pulumi:"introspectionConfig"`
-	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
-	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing logging configuration. See `logConfig` Block for details.
-	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// ARN of the execution role when `apiType` is set to `MERGED`.
-	MergedApiExecutionRoleArn *string `pulumi:"mergedApiExecutionRoleArn"`
-	// User-supplied name for the GraphQL API.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-	//
-	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-	QueryDepthLimit *int `pulumi:"queryDepthLimit"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-	ResolverCountLimit *int `pulumi:"resolverCountLimit"`
-	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-	Schema *string `pulumi:"schema"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
-	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-	Visibility *string `pulumi:"visibility"`
-	// Whether tracing with X-ray is enabled. Defaults to false.
-	XrayEnabled *bool `pulumi:"xrayEnabled"`
+	ApiType                           *string                                      `pulumi:"apiType"`
+	AuthenticationType                string                                       `pulumi:"authenticationType"`
+	EnhancedMetricsConfig             *GraphQLApiEnhancedMetricsConfig             `pulumi:"enhancedMetricsConfig"`
+	IntrospectionConfig               *string                                      `pulumi:"introspectionConfig"`
+	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
+	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
+	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
+	Name                              *string                                      `pulumi:"name"`
+	OpenidConnectConfig               *GraphQLApiOpenidConnectConfig               `pulumi:"openidConnectConfig"`
+	QueryDepthLimit                   *int                                         `pulumi:"queryDepthLimit"`
+	Region                            *string                                      `pulumi:"region"`
+	ResolverCountLimit                *int                                         `pulumi:"resolverCountLimit"`
+	Schema                            *string                                      `pulumi:"schema"`
+	Tags                              map[string]string                            `pulumi:"tags"`
+	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
+	Visibility                        *string                                      `pulumi:"visibility"`
+	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
 }
 
 // The set of arguments for constructing a GraphQLApi resource.
 type GraphQLApiArgs struct {
-	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
-	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
-	ApiType pulumi.StringPtrInput
-	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-	AuthenticationType pulumi.StringInput
-	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
-	EnhancedMetricsConfig GraphQLApiEnhancedMetricsConfigPtrInput
-	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-	IntrospectionConfig pulumi.StringPtrInput
-	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
-	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
-	// Nested argument containing logging configuration. See `logConfig` Block for details.
-	LogConfig GraphQLApiLogConfigPtrInput
-	// ARN of the execution role when `apiType` is set to `MERGED`.
-	MergedApiExecutionRoleArn pulumi.StringPtrInput
-	// User-supplied name for the GraphQL API.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
-	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-	//
-	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-	QueryDepthLimit pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-	ResolverCountLimit pulumi.IntPtrInput
-	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-	Schema pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
-	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-	Visibility pulumi.StringPtrInput
-	// Whether tracing with X-ray is enabled. Defaults to false.
-	XrayEnabled pulumi.BoolPtrInput
+	ApiType                           pulumi.StringPtrInput
+	AuthenticationType                pulumi.StringInput
+	EnhancedMetricsConfig             GraphQLApiEnhancedMetricsConfigPtrInput
+	IntrospectionConfig               pulumi.StringPtrInput
+	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrInput
+	LogConfig                         GraphQLApiLogConfigPtrInput
+	MergedApiExecutionRoleArn         pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
+	OpenidConnectConfig               GraphQLApiOpenidConnectConfigPtrInput
+	QueryDepthLimit                   pulumi.IntPtrInput
+	Region                            pulumi.StringPtrInput
+	ResolverCountLimit                pulumi.IntPtrInput
+	Schema                            pulumi.StringPtrInput
+	Tags                              pulumi.StringMapInput
+	UserPoolConfig                    GraphQLApiUserPoolConfigPtrInput
+	Visibility                        pulumi.StringPtrInput
+	XrayEnabled                       pulumi.BoolPtrInput
 }
 
 func (GraphQLApiArgs) ElementType() reflect.Type {
@@ -777,113 +252,88 @@ func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
-// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 		return v.AdditionalAuthenticationProviders
 	}).(GraphQLApiAdditionalAuthenticationProviderArrayOutput)
 }
 
-// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
 func (o GraphQLApiOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.ApiType }).(pulumi.StringPtrOutput)
 }
 
-// ARN
 func (o GraphQLApiOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 func (o GraphQLApiOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
 func (o GraphQLApiOutput) EnhancedMetricsConfig() GraphQLApiEnhancedMetricsConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiEnhancedMetricsConfigPtrOutput { return v.EnhancedMetricsConfig }).(GraphQLApiEnhancedMetricsConfigPtrOutput)
 }
 
-// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 func (o GraphQLApiOutput) IntrospectionConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.IntrospectionConfig }).(pulumi.StringPtrOutput)
 }
 
-// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 func (o GraphQLApiOutput) LambdaAuthorizerConfig() GraphQLApiLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLambdaAuthorizerConfigPtrOutput { return v.LambdaAuthorizerConfig }).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
 }
 
-// Nested argument containing logging configuration. See `logConfig` Block for details.
 func (o GraphQLApiOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLogConfigPtrOutput { return v.LogConfig }).(GraphQLApiLogConfigPtrOutput)
 }
 
-// ARN of the execution role when `apiType` is set to `MERGED`.
 func (o GraphQLApiOutput) MergedApiExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.MergedApiExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// User-supplied name for the GraphQL API.
-//
-// The following arguments are optional:
 func (o GraphQLApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 func (o GraphQLApiOutput) OpenidConnectConfig() GraphQLApiOpenidConnectConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiOpenidConnectConfigPtrOutput { return v.OpenidConnectConfig }).(GraphQLApiOpenidConnectConfigPtrOutput)
 }
 
-// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-//
-// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
 func (o GraphQLApiOutput) QueryDepthLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.IntPtrOutput { return v.QueryDepthLimit }).(pulumi.IntPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GraphQLApiOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
 func (o GraphQLApiOutput) ResolverCountLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.IntPtrOutput { return v.ResolverCountLimit }).(pulumi.IntPtrOutput)
 }
 
-// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 func (o GraphQLApiOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GraphQLApiOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GraphQLApiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 func (o GraphQLApiOutput) Uris() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.Uris }).(pulumi.StringMapOutput)
 }
 
-// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiUserPoolConfigPtrOutput { return v.UserPoolConfig }).(GraphQLApiUserPoolConfigPtrOutput)
 }
 
-// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
 func (o GraphQLApiOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
-// Whether tracing with X-ray is enabled. Defaults to false.
 func (o GraphQLApiOutput) XrayEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.BoolPtrOutput { return v.XrayEnabled }).(pulumi.BoolPtrOutput)
 }

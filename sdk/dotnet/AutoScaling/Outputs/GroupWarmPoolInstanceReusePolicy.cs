@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupWarmPoolInstanceReusePolicy
     {
-        /// <summary>
-        /// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-        /// </summary>
         public readonly bool? ReuseOnScaleIn;
 
         [OutputConstructor]

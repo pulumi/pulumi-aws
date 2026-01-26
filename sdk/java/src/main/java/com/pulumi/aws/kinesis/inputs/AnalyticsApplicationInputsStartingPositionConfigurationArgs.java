@@ -15,17 +15,9 @@ public final class AnalyticsApplicationInputsStartingPositionConfigurationArgs e
 
     public static final AnalyticsApplicationInputsStartingPositionConfigurationArgs Empty = new AnalyticsApplicationInputsStartingPositionConfigurationArgs();
 
-    /**
-     * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-     * 
-     */
     @Import(name="startingPosition")
     private @Nullable Output<String> startingPosition;
 
-    /**
-     * @return The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-     * 
-     */
     public Optional<Output<String>> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
@@ -54,23 +46,11 @@ public final class AnalyticsApplicationInputsStartingPositionConfigurationArgs e
             $ = new AnalyticsApplicationInputsStartingPositionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param startingPosition The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(@Nullable Output<String> startingPosition) {
             $.startingPosition = startingPosition;
             return this;
         }
 
-        /**
-         * @param startingPosition The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(String startingPosition) {
             return startingPosition(Output.of(startingPosition));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
     {
         [Input("accountIds")]
         private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
 
         [Input("resourceTags")]
         private InputList<ImmutableDictionary<string, string>>? _resourceTags;
-
-        /// <summary>
-        /// List of key-value pairs for resource tags to exclude from the analysis.
-        /// </summary>
         public InputList<ImmutableDictionary<string, string>> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<ImmutableDictionary<string, string>>());

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentOutputContextGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the output context.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-        /// </summary>
         [Input("timeToLiveInSeconds", required: true)]
         public Input<int> TimeToLiveInSeconds { get; set; } = null!;
 
-        /// <summary>
-        /// Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-        /// </summary>
         [Input("turnsToLive", required: true)]
         public Input<int> TurnsToLive { get; set; } = null!;
 

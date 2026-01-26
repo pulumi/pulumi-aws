@@ -32,17 +32,6 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[_builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
-               
-               The following arguments are optional:
-        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "access_string", access_string)
         pulumi.set(__self__, "engine", engine)
@@ -62,9 +51,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Input[_builtins.str]:
-        """
-        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -74,9 +60,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Input[_builtins.str]:
-        """
-        The current supported values are `redis`, `valkey` (case insensitive).
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -86,9 +69,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -98,11 +78,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -112,9 +87,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input['UserAuthenticationModeArgs']]:
-        """
-        Denotes the user's authentication properties. Detailed below.
-        """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
@@ -124,9 +96,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates a password is not required for this user.
-        """
         return pulumi.get(self, "no_password_required")
 
     @no_password_required.setter
@@ -136,9 +105,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Passwords used for this user. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
@@ -148,9 +114,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -160,9 +123,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A list of tags to be added to this resource. A tag is a key-value pair.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -186,18 +146,6 @@ class _UserState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the created ElastiCache User.
-        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
-        :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
-               
-               The following arguments are optional:
         """
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
@@ -225,9 +173,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -237,9 +182,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the created ElastiCache User.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -249,9 +191,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input['UserAuthenticationModeArgs']]:
-        """
-        Denotes the user's authentication properties. Detailed below.
-        """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
@@ -261,9 +200,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current supported values are `redis`, `valkey` (case insensitive).
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -273,9 +209,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates a password is not required for this user.
-        """
         return pulumi.get(self, "no_password_required")
 
     @no_password_required.setter
@@ -285,9 +218,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Passwords used for this user. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
@@ -297,9 +227,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -309,9 +236,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A list of tags to be added to this resource. A tag is a key-value pair.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -330,9 +254,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -342,11 +263,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -371,76 +287,9 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an ElastiCache user resource.
-
-        > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="redis",
-            passwords=["password123456789"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "iam",
-            })
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "password",
-                "passwords": [
-                    "password1",
-                    "password2",
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/user:User my_user userId1
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
-        :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -449,63 +298,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ElastiCache user resource.
-
-        > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="redis",
-            passwords=["password123456789"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "iam",
-            })
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "password",
-                "passwords": [
-                    "password1",
-                    "password2",
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/user:User my_user userId1
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -588,18 +381,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the created ElastiCache User.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
-        :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -621,65 +402,41 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Output[_builtins.str]:
-        """
-        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        """
         return pulumi.get(self, "access_string")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the created ElastiCache User.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output['outputs.UserAuthenticationMode']:
-        """
-        Denotes the user's authentication properties. Detailed below.
-        """
         return pulumi.get(self, "authentication_mode")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current supported values are `redis`, `valkey` (case insensitive).
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates a password is not required for this user.
-        """
         return pulumi.get(self, "no_password_required")
 
     @_builtins.property
     @pulumi.getter
     def passwords(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Passwords used for this user. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A list of tags to be added to this resource. A tag is a key-value pair.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -690,18 +447,10 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingAmazonManagedKafkaEventSourceConfig
     {
-        /// <summary>
-        /// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-        /// </summary>
         public readonly string? ConsumerGroupId;
-        /// <summary>
-        /// Block for a Kafka schema registry setting. See below.
-        /// </summary>
         public readonly Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig? SchemaRegistryConfig;
 
         [OutputConstructor]

@@ -15,32 +15,16 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
 
     public static final AssociationTargetArgs Empty = new AssociationTargetArgs();
 
-    /**
-     * Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * User-defined criteria that maps to Key. A list of instance IDs or tag values.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return User-defined criteria that maps to Key. A list of instance IDs or tag values.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
             $ = new AssociationTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

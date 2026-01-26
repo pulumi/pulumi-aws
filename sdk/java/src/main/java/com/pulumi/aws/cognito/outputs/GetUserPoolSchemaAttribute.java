@@ -14,74 +14,30 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolSchemaAttribute {
-    /**
-     * @return - Data type of the attribute (e.g., string, number).
-     * 
-     */
     private String attributeDataType;
-    /**
-     * @return - Whether the attribute is for developer use only.
-     * 
-     */
     private Boolean developerOnlyAttribute;
-    /**
-     * @return - Whether the attribute can be changed after user creation.
-     * 
-     */
     private Boolean mutable;
-    /**
-     * @return - Name of the attribute.
-     * 
-     */
     private String name;
     private List<GetUserPoolSchemaAttributeNumberAttributeConstraint> numberAttributeConstraints;
-    /**
-     * @return - Whether the attribute is required during user registration.
-     * * number_attribute_constraints - Constraints for numeric attributes.
-     * * string_attribute_constraints - Constraints for string attributes.
-     * 
-     */
     private Boolean required;
     private List<GetUserPoolSchemaAttributeStringAttributeConstraint> stringAttributeConstraints;
 
     private GetUserPoolSchemaAttribute() {}
-    /**
-     * @return - Data type of the attribute (e.g., string, number).
-     * 
-     */
     public String attributeDataType() {
         return this.attributeDataType;
     }
-    /**
-     * @return - Whether the attribute is for developer use only.
-     * 
-     */
     public Boolean developerOnlyAttribute() {
         return this.developerOnlyAttribute;
     }
-    /**
-     * @return - Whether the attribute can be changed after user creation.
-     * 
-     */
     public Boolean mutable() {
         return this.mutable;
     }
-    /**
-     * @return - Name of the attribute.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public List<GetUserPoolSchemaAttributeNumberAttributeConstraint> numberAttributeConstraints() {
         return this.numberAttributeConstraints;
     }
-    /**
-     * @return - Whether the attribute is required during user registration.
-     * * number_attribute_constraints - Constraints for numeric attributes.
-     * * string_attribute_constraints - Constraints for string attributes.
-     * 
-     */
     public Boolean required() {
         return this.required;
     }

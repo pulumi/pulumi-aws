@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS VPC Lattice Service Network.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpclattice.getServiceNetwork({
- *     serviceNetworkIdentifier: "snsa-01112223334445556",
- * });
- * ```
- */
 export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", {
@@ -33,13 +17,7 @@ export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getServiceNetwork.
  */
 export interface GetServiceNetworkArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Identifier of the service network.
-     */
     serviceNetworkIdentifier: string;
     tags?: {[key: string]: string};
 }
@@ -48,58 +26,21 @@ export interface GetServiceNetworkArgs {
  * A collection of values returned by getServiceNetwork.
  */
 export interface GetServiceNetworkResult {
-    /**
-     * ARN of the Service Network.
-     */
     readonly arn: string;
-    /**
-     * Authentication type for the service network. Either `NONE` or `AWS_IAM`.
-     */
     readonly authType: string;
-    /**
-     * Date and time the service network was created.
-     */
     readonly createdAt: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Date and time the service network was last updated.
-     */
     readonly lastUpdatedAt: string;
-    /**
-     * Name of the service network.
-     */
     readonly name: string;
-    /**
-     * Number of services associated with this service network.
-     */
     readonly numberOfAssociatedServices: number;
-    /**
-     * Number of VPCs associated with this service network.
-     */
     readonly numberOfAssociatedVpcs: number;
     readonly region: string;
     readonly serviceNetworkIdentifier: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Data source for managing an AWS VPC Lattice Service Network.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpclattice.getServiceNetwork({
- *     serviceNetworkIdentifier: "snsa-01112223334445556",
- * });
- * ```
- */
 export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getServiceNetwork:getServiceNetwork", {
@@ -113,13 +54,7 @@ export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?
  * A collection of arguments for invoking getServiceNetwork.
  */
 export interface GetServiceNetworkOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the service network.
-     */
     serviceNetworkIdentifier: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

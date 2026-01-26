@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about multiple Elastic File System (EFS) Access Points.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.efs.getAccessPoints({
- *     fileSystemId: "fs-12345678",
- * });
- * ```
- */
 export function getAccessPoints(args: GetAccessPointsArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getAccessPoints:getAccessPoints", {
@@ -30,13 +16,7 @@ export function getAccessPoints(args: GetAccessPointsArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getAccessPoints.
  */
 export interface GetAccessPointsArgs {
-    /**
-     * EFS File System identifier.
-     */
     fileSystemId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -44,35 +24,15 @@ export interface GetAccessPointsArgs {
  * A collection of values returned by getAccessPoints.
  */
 export interface GetAccessPointsResult {
-    /**
-     * Set of Amazon Resource Names (ARNs).
-     */
     readonly arns: string[];
     readonly fileSystemId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of identifiers.
-     */
     readonly ids: string[];
     readonly region: string;
 }
-/**
- * Provides information about multiple Elastic File System (EFS) Access Points.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.efs.getAccessPoints({
- *     fileSystemId: "fs-12345678",
- * });
- * ```
- */
 export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:efs/getAccessPoints:getAccessPoints", {
@@ -85,12 +45,6 @@ export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pu
  * A collection of arguments for invoking getAccessPoints.
  */
 export interface GetAccessPointsOutputArgs {
-    /**
-     * EFS File System identifier.
-     */
     fileSystemId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

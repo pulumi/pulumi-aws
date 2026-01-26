@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableGlobalTableWitness {
-    /**
-     * @return Name of the AWS Region that serves as a witness for the MRSC global table.
-     * 
-     */
     private @Nullable String regionName;
 
     private TableGlobalTableWitness() {}
-    /**
-     * @return Name of the AWS Region that serves as a witness for the MRSC global table.
-     * 
-     */
     public Optional<String> regionName() {
         return Optional.ofNullable(this.regionName);
     }

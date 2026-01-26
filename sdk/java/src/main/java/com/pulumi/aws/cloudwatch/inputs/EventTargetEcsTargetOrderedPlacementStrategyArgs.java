@@ -16,32 +16,16 @@ public final class EventTargetEcsTargetOrderedPlacementStrategyArgs extends com.
 
     public static final EventTargetEcsTargetOrderedPlacementStrategyArgs Empty = new EventTargetEcsTargetOrderedPlacementStrategyArgs();
 
-    /**
-     * The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-     * 
-     */
     @Import(name="field")
     private @Nullable Output<String> field;
 
-    /**
-     * @return The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-     * 
-     */
     public Optional<Output<String>> field() {
         return Optional.ofNullable(this.field);
     }
 
-    /**
-     * Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,44 +55,20 @@ public final class EventTargetEcsTargetOrderedPlacementStrategyArgs extends com.
             $ = new EventTargetEcsTargetOrderedPlacementStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param field The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(@Nullable Output<String> field) {
             $.field = field;
             return this;
         }
 
-        /**
-         * @param field The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(String field) {
             return field(Output.of(field));
         }
 
-        /**
-         * @param type Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

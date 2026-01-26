@@ -19,62 +19,30 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
 
     public static final SubscriberSourceCustomLogSourceResourceArgs Empty = new SubscriberSourceCustomLogSourceResourceArgs();
 
-    /**
-     * The attributes of the third-party custom source. See `attributes` Block below.
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<List<SubscriberSourceCustomLogSourceResourceAttributeArgs>> attributes;
 
-    /**
-     * @return The attributes of the third-party custom source. See `attributes` Block below.
-     * 
-     */
     public Optional<Output<List<SubscriberSourceCustomLogSourceResourceAttributeArgs>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * The details of the log provider for the third-party custom source. See `provider` Block below.
-     * 
-     */
     @Import(name="providers")
     private @Nullable Output<List<SubscriberSourceCustomLogSourceResourceProviderArgs>> providers;
 
-    /**
-     * @return The details of the log provider for the third-party custom source. See `provider` Block below.
-     * 
-     */
     public Optional<Output<List<SubscriberSourceCustomLogSourceResourceProviderArgs>>> providers() {
         return Optional.ofNullable(this.providers);
     }
 
-    /**
-     * The name for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     @Import(name="sourceName", required=true)
     private Output<String> sourceName;
 
-    /**
-     * @return The name for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     public Output<String> sourceName() {
         return this.sourceName;
     }
 
-    /**
-     * The version for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
-    /**
-     * @return The version for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     public Optional<Output<String>> sourceVersion() {
         return Optional.ofNullable(this.sourceVersion);
     }
@@ -106,106 +74,46 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
             $ = new SubscriberSourceCustomLogSourceResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes The attributes of the third-party custom source. See `attributes` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<List<SubscriberSourceCustomLogSourceResourceAttributeArgs>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes The attributes of the third-party custom source. See `attributes` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(List<SubscriberSourceCustomLogSourceResourceAttributeArgs> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param attributes The attributes of the third-party custom source. See `attributes` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(SubscriberSourceCustomLogSourceResourceAttributeArgs... attributes) {
             return attributes(List.of(attributes));
         }
 
-        /**
-         * @param providers The details of the log provider for the third-party custom source. See `provider` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providers(@Nullable Output<List<SubscriberSourceCustomLogSourceResourceProviderArgs>> providers) {
             $.providers = providers;
             return this;
         }
 
-        /**
-         * @param providers The details of the log provider for the third-party custom source. See `provider` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providers(List<SubscriberSourceCustomLogSourceResourceProviderArgs> providers) {
             return providers(Output.of(providers));
         }
 
-        /**
-         * @param providers The details of the log provider for the third-party custom source. See `provider` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providers(SubscriberSourceCustomLogSourceResourceProviderArgs... providers) {
             return providers(List.of(providers));
         }
 
-        /**
-         * @param sourceName The name for a third-party custom source. This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
-        /**
-         * @param sourceName The name for a third-party custom source. This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }
 
-        /**
-         * @param sourceVersion The version for a third-party custom source. This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(@Nullable Output<String> sourceVersion) {
             $.sourceVersion = sourceVersion;
             return this;
         }
 
-        /**
-         * @param sourceVersion The version for a third-party custom source. This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(String sourceVersion) {
             return sourceVersion(Output.of(sourceVersion));
         }

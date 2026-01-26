@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailCrossRegionConfig
     {
-        /// <summary>
-        /// Guardrail profile ARN.
-        /// </summary>
         public readonly string GuardrailProfileIdentifier;
 
         [OutputConstructor]

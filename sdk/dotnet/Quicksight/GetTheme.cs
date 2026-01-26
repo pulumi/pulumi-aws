@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Quicksight
 {
     public static class GetTheme
     {
-        /// <summary>
-        /// Data source for managing an AWS QuickSight Theme.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetTheme.Invoke(new()
-        ///     {
-        ///         ThemeId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetThemeResult> InvokeAsync(GetThemeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("aws:quicksight/getTheme:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS QuickSight Theme.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetTheme.Invoke(new()
-        ///     {
-        ///         ThemeId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws:quicksight/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS QuickSight Theme.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetTheme.Invoke(new()
-        ///     {
-        ///         ThemeId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws:quicksight/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
     }
@@ -96,29 +27,17 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier of the theme.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("themeId", required: true)]
         public string ThemeId { get; set; } = null!;
 
@@ -133,29 +52,17 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier of the theme.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("themeId", required: true)]
         public Input<string> ThemeId { get; set; } = null!;
 
@@ -169,56 +76,23 @@ namespace Pulumi.Aws.Quicksight
     [OutputType]
     public sealed class GetThemeResult
     {
-        /// <summary>
-        /// ARN of the theme.
-        /// </summary>
         public readonly string Arn;
         public readonly string AwsAccountId;
-        /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
-        /// </summary>
         public readonly string BaseThemeId;
-        /// <summary>
-        /// The theme configuration, which contains the theme display properties. See configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationResult> Configurations;
-        /// <summary>
-        /// The time that the theme was created.
-        /// </summary>
         public readonly string CreatedTime;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The time that the theme was last updated.
-        /// </summary>
         public readonly string LastUpdatedTime;
-        /// <summary>
-        /// Display name of the theme.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A set of resource permissions on the theme. See permissions.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemePermissionResult> Permissions;
         public readonly string Region;
-        /// <summary>
-        /// The theme creation status.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string ThemeId;
-        /// <summary>
-        /// A description of the current theme version being created/updated.
-        /// </summary>
         public readonly string VersionDescription;
-        /// <summary>
-        /// The version number of the theme version.
-        /// </summary>
         public readonly int VersionNumber;
 
         [OutputConstructor]

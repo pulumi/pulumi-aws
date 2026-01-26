@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetScriptDagNodeArg {
-    /**
-     * @return Name of the argument or property.
-     * 
-     */
     private String name;
-    /**
-     * @return Boolean if the value is used as a parameter. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean param;
-    /**
-     * @return Value of the argument or property.
-     * 
-     */
     private String value;
 
     private GetScriptDagNodeArg() {}
-    /**
-     * @return Name of the argument or property.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Boolean if the value is used as a parameter. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> param() {
         return Optional.ofNullable(this.param);
     }
-    /**
-     * @return Value of the argument or property.
-     * 
-     */
     public String value() {
         return this.value;
     }

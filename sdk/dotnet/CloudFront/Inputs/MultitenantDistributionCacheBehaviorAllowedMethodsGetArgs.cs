@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("cachedMethods", required: true)]
         private InputList<string>? _cachedMethods;
-
-        /// <summary>
-        /// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        /// </summary>
         public InputList<string> CachedMethods
         {
             get => _cachedMethods ?? (_cachedMethods = new InputList<string>());

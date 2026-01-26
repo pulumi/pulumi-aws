@@ -12,9 +12,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class OptInResourceDataCatalogArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the catalog resource.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 

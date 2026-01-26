@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigTrimString
     {
-        /// <summary>
-        /// Specifies the keys of the fields to trim.
-        /// </summary>
         public readonly ImmutableArray<string> WithKeys;
 
         [OutputConstructor]

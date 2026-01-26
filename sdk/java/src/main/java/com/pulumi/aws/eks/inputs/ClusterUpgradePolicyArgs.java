@@ -15,17 +15,9 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
 
     public static final ClusterUpgradePolicyArgs Empty = new ClusterUpgradePolicyArgs();
 
-    /**
-     * Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
-     * 
-     */
     @Import(name="supportType")
     private @Nullable Output<String> supportType;
 
-    /**
-     * @return Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
-     * 
-     */
     public Optional<Output<String>> supportType() {
         return Optional.ofNullable(this.supportType);
     }
@@ -54,23 +46,11 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
             $ = new ClusterUpgradePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param supportType Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportType(@Nullable Output<String> supportType) {
             $.supportType = supportType;
             return this;
         }
 
-        /**
-         * @param supportType Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportType(String supportType) {
             return supportType(Output.of(supportType));
         }

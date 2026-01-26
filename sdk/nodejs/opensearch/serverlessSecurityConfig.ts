@@ -7,19 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Security Config.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
- * ```
- */
 export class ServerlessSecurityConfig extends pulumi.CustomResource {
     /**
      * Get an existing ServerlessSecurityConfig resource's state with the given name, ID, and optional extra
@@ -60,18 +47,10 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
      * Name of the policy.
      */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration block for SAML options.
-     */
     declare public readonly samlOptions: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
     /**
      * Type of configuration. Must be `saml`.
-     *
-     * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -127,18 +106,10 @@ export interface ServerlessSecurityConfigState {
      * Name of the policy.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block for SAML options.
-     */
     samlOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigSamlOptions>;
     /**
      * Type of configuration. Must be `saml`.
-     *
-     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -155,18 +126,10 @@ export interface ServerlessSecurityConfigArgs {
      * Name of the policy.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block for SAML options.
-     */
     samlOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigSamlOptions>;
     /**
      * Type of configuration. Must be `saml`.
-     *
-     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

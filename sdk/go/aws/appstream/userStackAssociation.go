@@ -12,71 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AppStream User Stack association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := appstream.NewStack(ctx, "test", &appstream.StackArgs{
-//				Name: pulumi.String("STACK NAME"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testUser, err := appstream.NewUser(ctx, "test", &appstream.UserArgs{
-//				AuthenticationType: pulumi.String("USERPOOL"),
-//				UserName:           pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appstream.NewUserStackAssociation(ctx, "test", &appstream.UserStackAssociationArgs{
-//				AuthenticationType: testUser.AuthenticationType,
-//				StackName:          test.Name,
-//				UserName:           testUser.UserName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
-// ```
 type UserStackAssociation struct {
 	pulumi.CustomResourceState
 
-	// Authentication type for the user.
-	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
+	AuthenticationType    pulumi.StringOutput  `pulumi:"authenticationType"`
+	Region                pulumi.StringOutput  `pulumi:"region"`
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
-	// Name of the stack that is associated with the user.
-	StackName pulumi.StringOutput `pulumi:"stackName"`
-	// Email address of the user who is associated with the stack.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	StackName             pulumi.StringOutput  `pulumi:"stackName"`
+	UserName              pulumi.StringOutput  `pulumi:"userName"`
 }
 
 // NewUserStackAssociation registers a new resource with the given unique name, arguments, and options.
@@ -118,33 +61,19 @@ func GetUserStackAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserStackAssociation resources.
 type userStackAssociationState struct {
-	// Authentication type for the user.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
-	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
-	// Name of the stack that is associated with the user.
-	StackName *string `pulumi:"stackName"`
-	// Email address of the user who is associated with the stack.
-	//
-	// The following arguments are optional:
-	UserName *string `pulumi:"userName"`
+	AuthenticationType    *string `pulumi:"authenticationType"`
+	Region                *string `pulumi:"region"`
+	SendEmailNotification *bool   `pulumi:"sendEmailNotification"`
+	StackName             *string `pulumi:"stackName"`
+	UserName              *string `pulumi:"userName"`
 }
 
 type UserStackAssociationState struct {
-	// Authentication type for the user.
-	AuthenticationType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
+	AuthenticationType    pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	SendEmailNotification pulumi.BoolPtrInput
-	// Name of the stack that is associated with the user.
-	StackName pulumi.StringPtrInput
-	// Email address of the user who is associated with the stack.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringPtrInput
+	StackName             pulumi.StringPtrInput
+	UserName              pulumi.StringPtrInput
 }
 
 func (UserStackAssociationState) ElementType() reflect.Type {
@@ -152,34 +81,20 @@ func (UserStackAssociationState) ElementType() reflect.Type {
 }
 
 type userStackAssociationArgs struct {
-	// Authentication type for the user.
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
-	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
-	// Name of the stack that is associated with the user.
-	StackName string `pulumi:"stackName"`
-	// Email address of the user who is associated with the stack.
-	//
-	// The following arguments are optional:
-	UserName string `pulumi:"userName"`
+	AuthenticationType    string  `pulumi:"authenticationType"`
+	Region                *string `pulumi:"region"`
+	SendEmailNotification *bool   `pulumi:"sendEmailNotification"`
+	StackName             string  `pulumi:"stackName"`
+	UserName              string  `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserStackAssociation resource.
 type UserStackAssociationArgs struct {
-	// Authentication type for the user.
-	AuthenticationType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
+	AuthenticationType    pulumi.StringInput
+	Region                pulumi.StringPtrInput
 	SendEmailNotification pulumi.BoolPtrInput
-	// Name of the stack that is associated with the user.
-	StackName pulumi.StringInput
-	// Email address of the user who is associated with the stack.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringInput
+	StackName             pulumi.StringInput
+	UserName              pulumi.StringInput
 }
 
 func (UserStackAssociationArgs) ElementType() reflect.Type {
@@ -269,29 +184,22 @@ func (o UserStackAssociationOutput) ToUserStackAssociationOutputWithContext(ctx 
 	return o
 }
 
-// Authentication type for the user.
 func (o UserStackAssociationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserStackAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether a welcome email is sent to a user after the user is created in the user pool.
 func (o UserStackAssociationOutput) SendEmailNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.BoolPtrOutput { return v.SendEmailNotification }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the stack that is associated with the user.
 func (o UserStackAssociationOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }
 
-// Email address of the user who is associated with the stack.
-//
-// The following arguments are optional:
 func (o UserStackAssociationOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

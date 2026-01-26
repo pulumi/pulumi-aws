@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class GetImagesImageIdResult
     {
-        /// <summary>
-        /// The sha256 digest of the image manifest.
-        /// </summary>
         public readonly string ImageDigest;
-        /// <summary>
-        /// The tag associated with the image.
-        /// </summary>
         public readonly string ImageTag;
 
         [OutputConstructor]

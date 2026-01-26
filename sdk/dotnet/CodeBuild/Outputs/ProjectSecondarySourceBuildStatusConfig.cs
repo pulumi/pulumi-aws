@@ -13,15 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectSecondarySourceBuildStatusConfig
     {
-        /// <summary>
-        /// Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-        /// this parameter depends on the source provider.
-        /// </summary>
         public readonly string? Context;
-        /// <summary>
-        /// Specifies the target url of the build status CodeBuild sends to the source provider. The
-        /// usage of this parameter depends on the source provider.
-        /// </summary>
         public readonly string? TargetUrl;
 
         [OutputConstructor]

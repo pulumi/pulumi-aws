@@ -16,89 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry {
-    /**
-     * @return A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-     * 
-     */
     private @Nullable String cidrBlock;
-    /**
-     * @return A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-     * 
-     */
     private Boolean egress;
-    /**
-     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
-     * 
-     */
     private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode> icmpTypeCodes;
-    /**
-     * @return A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-     * 
-     */
     private @Nullable String ipv6CidrBlock;
-    /**
-     * @return A configuration block for PortRange. See the `portRange` block.
-     * 
-     */
     private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange> portRanges;
-    /**
-     * @return The protocol number. A value of &#34;-1&#34; means all protocols.
-     * 
-     */
     private String protocol;
-    /**
-     * @return A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-     * 
-     */
     private String ruleAction;
 
     private PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry() {}
-    /**
-     * @return A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-     * 
-     */
     public Optional<String> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
-    /**
-     * @return A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-     * 
-     */
     public Boolean egress() {
         return this.egress;
     }
-    /**
-     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
-     * 
-     */
     public List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode> icmpTypeCodes() {
         return this.icmpTypeCodes == null ? List.of() : this.icmpTypeCodes;
     }
-    /**
-     * @return A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-     * 
-     */
     public Optional<String> ipv6CidrBlock() {
         return Optional.ofNullable(this.ipv6CidrBlock);
     }
-    /**
-     * @return A configuration block for PortRange. See the `portRange` block.
-     * 
-     */
     public List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange> portRanges() {
         return this.portRanges == null ? List.of() : this.portRanges;
     }
-    /**
-     * @return The protocol number. A value of &#34;-1&#34; means all protocols.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-     * 
-     */
     public String ruleAction() {
         return this.ruleAction;
     }

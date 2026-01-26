@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterControlPlaneScalingConfig {
-    /**
-     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
-     * 
-     */
     private String tier;
 
     private GetClusterControlPlaneScalingConfig() {}
-    /**
-     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
-     * 
-     */
     public String tier() {
         return this.tier;
     }

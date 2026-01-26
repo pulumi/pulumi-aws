@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class VpnConnectionTunnel1LogOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
-        /// </summary>
         [Input("cloudwatchLogOptions")]
         public Input<Inputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsGetArgs>? CloudwatchLogOptions { get; set; }
 

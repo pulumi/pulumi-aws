@@ -15,17 +15,9 @@ public final class BucketObjectv2OverrideProviderArgs extends com.pulumi.resourc
 
     public static final BucketObjectv2OverrideProviderArgs Empty = new BucketObjectv2OverrideProviderArgs();
 
-    /**
-     * Override the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="defaultTags")
     private @Nullable Output<BucketObjectv2OverrideProviderDefaultTagsArgs> defaultTags;
 
-    /**
-     * @return Override the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<BucketObjectv2OverrideProviderDefaultTagsArgs>> defaultTags() {
         return Optional.ofNullable(this.defaultTags);
     }
@@ -54,23 +46,11 @@ public final class BucketObjectv2OverrideProviderArgs extends com.pulumi.resourc
             $ = new BucketObjectv2OverrideProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultTags Override the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTags(@Nullable Output<BucketObjectv2OverrideProviderDefaultTagsArgs> defaultTags) {
             $.defaultTags = defaultTags;
             return this;
         }
 
-        /**
-         * @param defaultTags Override the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTags(BucketObjectv2OverrideProviderDefaultTagsArgs defaultTags) {
             return defaultTags(Output.of(defaultTags));
         }

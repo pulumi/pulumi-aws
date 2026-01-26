@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create an organizational unit.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.OrganizationalUnit("example", {
- *     name: "example",
- *     parentId: exampleAwsOrganizationsOrganization.roots[0].id,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `id` (String) ID of the organizational unit.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
- *
- * % pulumi import aws_organizations_organizational_unit.example ou-1234567
- */
 export class OrganizationalUnit extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationalUnit resource's state with the given name, ID, and optional extra
@@ -66,29 +35,11 @@ export class OrganizationalUnit extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationalUnit.__pulumiType;
     }
 
-    /**
-     * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-     */
     declare public /*out*/ readonly accounts: pulumi.Output<outputs.organizations.OrganizationalUnitAccount[]>;
-    /**
-     * ARN of the organizational unit
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name for the organizational unit
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * ID of the parent organizational unit, which may be the root
-     */
     declare public readonly parentId: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -131,29 +82,11 @@ export class OrganizationalUnit extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationalUnit resources.
  */
 export interface OrganizationalUnitState {
-    /**
-     * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-     */
     accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationalUnitAccount>[]>;
-    /**
-     * ARN of the organizational unit
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name for the organizational unit
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the parent organizational unit, which may be the root
-     */
     parentId?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -161,16 +94,7 @@ export interface OrganizationalUnitState {
  * The set of arguments for constructing a OrganizationalUnit resource.
  */
 export interface OrganizationalUnitArgs {
-    /**
-     * The name for the organizational unit
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the parent organizational unit, which may be the root
-     */
     parentId: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

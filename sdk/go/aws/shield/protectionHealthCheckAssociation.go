@@ -12,102 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an association between a Route53 Health Check and a Shield Advanced protected resource.
-// This association uses the health of your applications to improve responsiveness and accuracy in attack detection and mitigation.
-//
-// Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
-//
-// ## Example Usage
-//
-// ### Create an association between a protected EIP and a Route53 Health Check
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
-//				Domain: pulumi.String("vpc"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleProtection, err := shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
-//				Name: pulumi.String("example-protection"),
-//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentGetPartition.Partition, current.Region, currentGetCallerIdentity.AccountId, id), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleHealthCheck, err := route53.NewHealthCheck(ctx, "example", &route53.HealthCheckArgs{
-//				IpAddress:        example.PublicIp,
-//				Port:             pulumi.Int(80),
-//				Type:             pulumi.String("HTTP"),
-//				ResourcePath:     pulumi.String("/ready"),
-//				FailureThreshold: pulumi.Int(3),
-//				RequestInterval:  pulumi.Int(30),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-example-health-check"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "example", &shield.ProtectionHealthCheckAssociationArgs{
-//				HealthCheckArn:     exampleHealthCheck.Arn,
-//				ShieldProtectionId: exampleProtection.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
-// ```
 type ProtectionHealthCheckAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-	HealthCheckArn pulumi.StringOutput `pulumi:"healthCheckArn"`
-	// The ID of the protected resource.
+	HealthCheckArn     pulumi.StringOutput `pulumi:"healthCheckArn"`
 	ShieldProtectionId pulumi.StringOutput `pulumi:"shieldProtectionId"`
 }
 
@@ -147,16 +55,12 @@ func GetProtectionHealthCheckAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionHealthCheckAssociation resources.
 type protectionHealthCheckAssociationState struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-	HealthCheckArn *string `pulumi:"healthCheckArn"`
-	// The ID of the protected resource.
+	HealthCheckArn     *string `pulumi:"healthCheckArn"`
 	ShieldProtectionId *string `pulumi:"shieldProtectionId"`
 }
 
 type ProtectionHealthCheckAssociationState struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-	HealthCheckArn pulumi.StringPtrInput
-	// The ID of the protected resource.
+	HealthCheckArn     pulumi.StringPtrInput
 	ShieldProtectionId pulumi.StringPtrInput
 }
 
@@ -165,17 +69,13 @@ func (ProtectionHealthCheckAssociationState) ElementType() reflect.Type {
 }
 
 type protectionHealthCheckAssociationArgs struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-	HealthCheckArn string `pulumi:"healthCheckArn"`
-	// The ID of the protected resource.
+	HealthCheckArn     string `pulumi:"healthCheckArn"`
 	ShieldProtectionId string `pulumi:"shieldProtectionId"`
 }
 
 // The set of arguments for constructing a ProtectionHealthCheckAssociation resource.
 type ProtectionHealthCheckAssociationArgs struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-	HealthCheckArn pulumi.StringInput
-	// The ID of the protected resource.
+	HealthCheckArn     pulumi.StringInput
 	ShieldProtectionId pulumi.StringInput
 }
 
@@ -266,12 +166,10 @@ func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociati
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
 func (o ProtectionHealthCheckAssociationOutput) HealthCheckArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionHealthCheckAssociation) pulumi.StringOutput { return v.HealthCheckArn }).(pulumi.StringOutput)
 }
 
-// The ID of the protected resource.
 func (o ProtectionHealthCheckAssociationOutput) ShieldProtectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionHealthCheckAssociation) pulumi.StringOutput { return v.ShieldProtectionId }).(pulumi.StringOutput)
 }

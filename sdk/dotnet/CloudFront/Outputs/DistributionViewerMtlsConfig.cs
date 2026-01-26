@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionViewerMtlsConfig
     {
-        /// <summary>
-        /// The mode for viewer mTLS. Valid values: `Required`, `Optional`.
-        /// </summary>
         public readonly string? Mode;
-        /// <summary>
-        /// The trust store configuration for viewer mTLS (maximum one).
-        /// </summary>
         public readonly Outputs.DistributionViewerMtlsConfigTrustStoreConfig? TrustStoreConfig;
 
         [OutputConstructor]

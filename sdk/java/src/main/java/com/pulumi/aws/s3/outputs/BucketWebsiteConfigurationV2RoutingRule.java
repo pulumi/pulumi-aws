@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketWebsiteConfigurationV2RoutingRule {
-    /**
-     * @return Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-     * 
-     */
     private @Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition;
-    /**
-     * @return Configuration block for redirect information. See below.
-     * 
-     */
     private BucketWebsiteConfigurationV2RoutingRuleRedirect redirect;
 
     private BucketWebsiteConfigurationV2RoutingRule() {}
-    /**
-     * @return Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-     * 
-     */
     public Optional<BucketWebsiteConfigurationV2RoutingRuleCondition> condition() {
         return Optional.ofNullable(this.condition);
     }
-    /**
-     * @return Configuration block for redirect information. See below.
-     * 
-     */
     public BucketWebsiteConfigurationV2RoutingRuleRedirect redirect() {
         return this.redirect;
     }

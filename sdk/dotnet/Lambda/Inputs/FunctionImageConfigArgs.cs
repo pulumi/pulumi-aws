@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("commands")]
         private InputList<string>? _commands;
-
-        /// <summary>
-        /// Parameters to pass to the container image.
-        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
@@ -26,19 +22,12 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("entryPoints")]
         private InputList<string>? _entryPoints;
-
-        /// <summary>
-        /// Entry point to your application.
-        /// </summary>
         public InputList<string> EntryPoints
         {
             get => _entryPoints ?? (_entryPoints = new InputList<string>());
             set => _entryPoints = value;
         }
 
-        /// <summary>
-        /// Working directory for the container image.
-        /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 

@@ -14,37 +14,21 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         [Input("containerOverrides")]
         private List<Inputs.GetTaskExecutionOverridesContainerOverrideArgs>? _containerOverrides;
-
-        /// <summary>
-        /// One or more container overrides that are sent to a task. See below.
-        /// </summary>
         public List<Inputs.GetTaskExecutionOverridesContainerOverrideArgs> ContainerOverrides
         {
             get => _containerOverrides ?? (_containerOverrides = new List<Inputs.GetTaskExecutionOverridesContainerOverrideArgs>());
             set => _containerOverrides = value;
         }
 
-        /// <summary>
-        /// The CPU override for the task.
-        /// </summary>
         [Input("cpu")]
         public string? Cpu { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the task execution role override for the task.
-        /// </summary>
         [Input("executionRoleArn")]
         public string? ExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// The memory override for the task.
-        /// </summary>
         [Input("memory")]
         public string? Memory { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the role that containers in this task can assume.
-        /// </summary>
         [Input("taskRoleArn")]
         public string? TaskRoleArn { get; set; }
 

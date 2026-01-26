@@ -64,17 +64,11 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of EC2 Local Gateway Virtual Interface Group identifiers.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
     @pulumi.getter(name="localGatewayVirtualInterfaceIds")
     def local_gateway_virtual_interface_ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of EC2 Local Gateway Virtual Interface identifiers.
-        """
         return pulumi.get(self, "local_gateway_virtual_interface_ids")
 
     @_builtins.property
@@ -107,21 +101,7 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union[
                                                tags: Optional[Mapping[str, _builtins.str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceGroupsResult:
     """
-    Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.ec2.get_local_gateway_virtual_interface_groups()
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -142,21 +122,7 @@ def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.I
                                                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupsResult]:
     """
-    Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.ec2.get_local_gateway_virtual_interface_groups()
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

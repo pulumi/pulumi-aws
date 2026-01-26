@@ -32,17 +32,6 @@ class LifecyclePolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
-        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] status: The status of the lifecycle policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -64,9 +53,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
@@ -76,9 +62,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -88,9 +71,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        description for the lifecycle policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -100,9 +80,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the lifecycle policy to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -112,9 +89,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyDetails")
     def policy_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]]:
-        """
-        Configuration block with policy details. Detailed below.
-        """
         return pulumi.get(self, "policy_details")
 
     @policy_details.setter
@@ -124,9 +98,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,11 +107,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourceSelection")
     def resource_selection(self) -> Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']]:
-        """
-        Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_selection")
 
     @resource_selection.setter
@@ -150,9 +116,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the lifecycle policy.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -162,9 +125,6 @@ class LifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -188,19 +148,6 @@ class _LifecyclePolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the lifecycle policy.
-        :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
-        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        :param pulumi.Input[_builtins.str] status: The status of the lifecycle policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -228,9 +175,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the lifecycle policy.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -240,9 +184,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        description for the lifecycle policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -252,9 +193,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
@@ -264,9 +202,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the lifecycle policy to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -276,9 +211,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter(name="policyDetails")
     def policy_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]]:
-        """
-        Configuration block with policy details. Detailed below.
-        """
         return pulumi.get(self, "policy_details")
 
     @policy_details.setter
@@ -288,9 +220,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -300,11 +229,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter(name="resourceSelection")
     def resource_selection(self) -> Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']]:
-        """
-        Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_selection")
 
     @resource_selection.setter
@@ -314,9 +238,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -326,9 +247,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the lifecycle policy.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -338,9 +256,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -350,9 +265,6 @@ class _LifecyclePolicyState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -377,82 +289,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an Image Builder Lifecycle Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        current_get_partition = aws.get_partition()
-        example = aws.iam.Role("example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": f"imagebuilder.{current_get_partition.dns_suffix}",
-                    },
-                }],
-            }),
-            name="example")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
-            role=example.name)
-        example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
-            policy_details=[{
-                "action": {
-                    "type": "DELETE",
-                },
-                "filter": {
-                    "type": "AGE",
-                    "value": 6,
-                    "retain_at_least": 10,
-                    "unit": "YEARS",
-                },
-            }],
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
-
-        Using `pulumi import`, import `aws_imagebuilder_lifecycle_policy` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_imagebuilder_lifecycle_policy.example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
-
+        Create a LifecyclePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        :param pulumi.Input[_builtins.str] status: The status of the lifecycle policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -461,69 +300,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  args: LifecyclePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Image Builder Lifecycle Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        current_get_partition = aws.get_partition()
-        example = aws.iam.Role("example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": f"imagebuilder.{current_get_partition.dns_suffix}",
-                    },
-                }],
-            }),
-            name="example")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
-            role=example.name)
-        example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
-            policy_details=[{
-                "action": {
-                    "type": "DELETE",
-                },
-                "filter": {
-                    "type": "AGE",
-                    "value": 6,
-                    "retain_at_least": 10,
-                    "unit": "YEARS",
-                },
-            }],
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
-
-        Using `pulumi import`, import `aws_imagebuilder_lifecycle_policy` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_imagebuilder_lifecycle_policy.example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
-
+        Create a LifecyclePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -600,19 +377,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the lifecycle policy.
-        :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        :param pulumi.Input[_builtins.str] status: The status of the lifecycle policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -634,90 +398,55 @@ class LifecyclePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the lifecycle policy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        description for the lifecycle policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        """
         return pulumi.get(self, "execution_role")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the lifecycle policy to create.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="policyDetails")
     def policy_details(self) -> pulumi.Output[Optional[Sequence['outputs.LifecyclePolicyPolicyDetail']]]:
-        """
-        Configuration block with policy details. Detailed below.
-        """
         return pulumi.get(self, "policy_details")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceSelection")
     def resource_selection(self) -> pulumi.Output[Optional['outputs.LifecyclePolicyResourceSelection']]:
-        """
-        Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_selection")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the lifecycle policy.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

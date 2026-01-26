@@ -14,32 +14,16 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
 
     public static final TableRetentionPropertiesArgs Empty = new TableRetentionPropertiesArgs();
 
-    /**
-     * The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-     * 
-     */
     @Import(name="magneticStoreRetentionPeriodInDays", required=true)
     private Output<Integer> magneticStoreRetentionPeriodInDays;
 
-    /**
-     * @return The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-     * 
-     */
     public Output<Integer> magneticStoreRetentionPeriodInDays() {
         return this.magneticStoreRetentionPeriodInDays;
     }
 
-    /**
-     * The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-     * 
-     */
     @Import(name="memoryStoreRetentionPeriodInHours", required=true)
     private Output<Integer> memoryStoreRetentionPeriodInHours;
 
-    /**
-     * @return The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-     * 
-     */
     public Output<Integer> memoryStoreRetentionPeriodInHours() {
         return this.memoryStoreRetentionPeriodInHours;
     }
@@ -69,44 +53,20 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
             $ = new TableRetentionPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param magneticStoreRetentionPeriodInDays The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder magneticStoreRetentionPeriodInDays(Output<Integer> magneticStoreRetentionPeriodInDays) {
             $.magneticStoreRetentionPeriodInDays = magneticStoreRetentionPeriodInDays;
             return this;
         }
 
-        /**
-         * @param magneticStoreRetentionPeriodInDays The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder magneticStoreRetentionPeriodInDays(Integer magneticStoreRetentionPeriodInDays) {
             return magneticStoreRetentionPeriodInDays(Output.of(magneticStoreRetentionPeriodInDays));
         }
 
-        /**
-         * @param memoryStoreRetentionPeriodInHours The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryStoreRetentionPeriodInHours(Output<Integer> memoryStoreRetentionPeriodInHours) {
             $.memoryStoreRetentionPeriodInHours = memoryStoreRetentionPeriodInHours;
             return this;
         }
 
-        /**
-         * @param memoryStoreRetentionPeriodInHours The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryStoreRetentionPeriodInHours(Integer memoryStoreRetentionPeriodInHours) {
             return memoryStoreRetentionPeriodInHours(Output.of(memoryStoreRetentionPeriodInHours));
         }

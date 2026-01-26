@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayProtocolConfigurationMcp {
-    /**
-     * @return Instructions for the MCP protocol configuration.
-     * 
-     */
     private @Nullable String instructions;
-    /**
-     * @return Search type for MCP. Valid values: `SEMANTIC`.
-     * 
-     */
     private @Nullable String searchType;
-    /**
-     * @return Set of supported MCP protocol versions.
-     * 
-     */
     private @Nullable List<String> supportedVersions;
 
     private AgentcoreGatewayProtocolConfigurationMcp() {}
-    /**
-     * @return Instructions for the MCP protocol configuration.
-     * 
-     */
     public Optional<String> instructions() {
         return Optional.ofNullable(this.instructions);
     }
-    /**
-     * @return Search type for MCP. Valid values: `SEMANTIC`.
-     * 
-     */
     public Optional<String> searchType() {
         return Optional.ofNullable(this.searchType);
     }
-    /**
-     * @return Set of supported MCP protocol versions.
-     * 
-     */
     public List<String> supportedVersions() {
         return this.supportedVersions == null ? List.of() : this.supportedVersions;
     }

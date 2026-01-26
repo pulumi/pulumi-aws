@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration {
-    /**
-     * @return ARN of the Amazon Kendra index.
-     * 
-     */
     private String kendraIndexArn;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration() {}
-    /**
-     * @return ARN of the Amazon Kendra index.
-     * 
-     */
     public String kendraIndexArn() {
         return this.kendraIndexArn;
     }

@@ -61,25 +61,16 @@ class GetSecretResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the secret.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Created date of the secret in UTC.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the secret.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -93,17 +84,11 @@ class GetSecretResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="lastChangedDate")
     def last_changed_date(self) -> _builtins.str:
-        """
-        Last updated date of the secret in UTC.
-        """
         return pulumi.get(self, "last_changed_date")
 
     @_builtins.property
@@ -114,9 +99,6 @@ class GetSecretResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        Resource-based policy document that's attached to the secret.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
@@ -127,9 +109,6 @@ class GetSecretResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags of the secret.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -157,33 +136,7 @@ def get_secret(arn: Optional[_builtins.str] = None,
                tags: Optional[Mapping[str, _builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-
-    ## Example Usage
-
-    ### ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
-    ```
-
-    ### Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.secretsmanager.get_secret(name="example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the secret to retrieve.
-    :param _builtins.str name: Name of the secret to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags of the secret.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -210,33 +163,7 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = Non
                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
-    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-
-    ## Example Usage
-
-    ### ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
-    ```
-
-    ### Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.secretsmanager.get_secret(name="example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the secret to retrieve.
-    :param _builtins.str name: Name of the secret to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags of the secret.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

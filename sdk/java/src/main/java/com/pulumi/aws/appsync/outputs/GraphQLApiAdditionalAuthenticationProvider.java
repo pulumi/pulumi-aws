@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GraphQLApiAdditionalAuthenticationProvider {
-    /**
-     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-     * 
-     */
     private String authenticationType;
-    /**
-     * @return Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
-     * 
-     */
     private @Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig;
-    /**
-     * @return Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-     * 
-     */
     private @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig;
-    /**
-     * @return Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-     * 
-     */
     private @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig;
 
     private GraphQLApiAdditionalAuthenticationProvider() {}
-    /**
-     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-     * 
-     */
     public String authenticationType() {
         return this.authenticationType;
     }
-    /**
-     * @return Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
-     * 
-     */
     public Optional<GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig> lambdaAuthorizerConfig() {
         return Optional.ofNullable(this.lambdaAuthorizerConfig);
     }
-    /**
-     * @return Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-     * 
-     */
     public Optional<GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig> openidConnectConfig() {
         return Optional.ofNullable(this.openidConnectConfig);
     }
-    /**
-     * @return Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-     * 
-     */
     public Optional<GraphQLApiAdditionalAuthenticationProviderUserPoolConfig> userPoolConfig() {
         return Optional.ofNullable(this.userPoolConfig);
     }

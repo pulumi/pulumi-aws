@@ -15,17 +15,9 @@ public final class GlobalSettingsArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final GlobalSettingsArgs Empty = new GlobalSettingsArgs();
 
-    /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-     * 
-     */
     @Import(name="globalSettings", required=true)
     private Output<Map<String,String>> globalSettings;
 
-    /**
-     * @return A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-     * 
-     */
     public Output<Map<String,String>> globalSettings() {
         return this.globalSettings;
     }
@@ -54,23 +46,11 @@ public final class GlobalSettingsArgs extends com.pulumi.resources.ResourceArgs 
             $ = new GlobalSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalSettings A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalSettings(Output<Map<String,String>> globalSettings) {
             $.globalSettings = globalSettings;
             return this;
         }
 
-        /**
-         * @param globalSettings A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalSettings(Map<String,String> globalSettings) {
             return globalSettings(Output.of(globalSettings));
         }

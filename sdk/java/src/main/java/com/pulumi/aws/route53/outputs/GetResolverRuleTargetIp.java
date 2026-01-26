@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverRuleTargetIp {
-    /**
-     * @return IPv4 address that you want to forward DNS queries to.
-     * 
-     */
     private String ip;
-    /**
-     * @return IPv6 address that you want to forward DNS queries to.
-     * 
-     */
     private String ipv6;
-    /**
-     * @return Port at the IP address that you want to forward DNS queries to.
-     * 
-     */
     private Integer port;
-    /**
-     * @return Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
-     * 
-     */
     private String protocol;
 
     private GetResolverRuleTargetIp() {}
-    /**
-     * @return IPv4 address that you want to forward DNS queries to.
-     * 
-     */
     public String ip() {
         return this.ip;
     }
-    /**
-     * @return IPv6 address that you want to forward DNS queries to.
-     * 
-     */
     public String ipv6() {
         return this.ipv6;
     }
-    /**
-     * @return Port at the IP address that you want to forward DNS queries to.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }

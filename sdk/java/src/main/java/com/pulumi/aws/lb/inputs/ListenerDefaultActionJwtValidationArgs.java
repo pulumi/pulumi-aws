@@ -18,51 +18,23 @@ public final class ListenerDefaultActionJwtValidationArgs extends com.pulumi.res
 
     public static final ListenerDefaultActionJwtValidationArgs Empty = new ListenerDefaultActionJwtValidationArgs();
 
-    /**
-     * Repeatable configuration block for additional claims to validate.
-     * 
-     */
     @Import(name="additionalClaims")
     private @Nullable Output<List<ListenerDefaultActionJwtValidationAdditionalClaimArgs>> additionalClaims;
 
-    /**
-     * @return Repeatable configuration block for additional claims to validate.
-     * 
-     */
     public Optional<Output<List<ListenerDefaultActionJwtValidationAdditionalClaimArgs>>> additionalClaims() {
         return Optional.ofNullable(this.additionalClaims);
     }
 
-    /**
-     * Issuer of the JWT.
-     * 
-     */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     public Output<String> issuer() {
         return this.issuer;
     }
 
-    /**
-     * JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="jwksEndpoint", required=true)
     private Output<String> jwksEndpoint;
 
-    /**
-     * @return JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> jwksEndpoint() {
         return this.jwksEndpoint;
     }
@@ -93,79 +65,33 @@ public final class ListenerDefaultActionJwtValidationArgs extends com.pulumi.res
             $ = new ListenerDefaultActionJwtValidationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param additionalClaims Repeatable configuration block for additional claims to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalClaims(@Nullable Output<List<ListenerDefaultActionJwtValidationAdditionalClaimArgs>> additionalClaims) {
             $.additionalClaims = additionalClaims;
             return this;
         }
 
-        /**
-         * @param additionalClaims Repeatable configuration block for additional claims to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalClaims(List<ListenerDefaultActionJwtValidationAdditionalClaimArgs> additionalClaims) {
             return additionalClaims(Output.of(additionalClaims));
         }
 
-        /**
-         * @param additionalClaims Repeatable configuration block for additional claims to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalClaims(ListenerDefaultActionJwtValidationAdditionalClaimArgs... additionalClaims) {
             return additionalClaims(List.of(additionalClaims));
         }
 
-        /**
-         * @param issuer Issuer of the JWT.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer Issuer of the JWT.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }
 
-        /**
-         * @param jwksEndpoint JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwksEndpoint(Output<String> jwksEndpoint) {
             $.jwksEndpoint = jwksEndpoint;
             return this;
         }
 
-        /**
-         * @param jwksEndpoint JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwksEndpoint(String jwksEndpoint) {
             return jwksEndpoint(Output.of(jwksEndpoint));
         }

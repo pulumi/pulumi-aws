@@ -18,9 +18,6 @@ namespace Pulumi.Aws.RolesAnywhere.Inputs
         [Input("configuredBy")]
         public Input<string>? ConfiguredBy { get; set; }
 
-        /// <summary>
-        /// Whether or not the Trust Anchor should be enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

@@ -17,32 +17,16 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs();
 
-    /**
-     * ARN of the Lambda function to invoke.
-     * 
-     */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
-    /**
-     * @return ARN of the Lambda function to invoke.
-     * 
-     */
     public Output<String> lambdaArn() {
         return this.lambdaArn;
     }
 
-    /**
-     * Schema definition for the tool. See `toolSchema` below.
-     * 
-     */
     @Import(name="toolSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema;
 
-    /**
-     * @return Schema definition for the tool. See `toolSchema` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs>> toolSchema() {
         return Optional.ofNullable(this.toolSchema);
     }
@@ -72,44 +56,20 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lambdaArn ARN of the Lambda function to invoke.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(Output<String> lambdaArn) {
             $.lambdaArn = lambdaArn;
             return this;
         }
 
-        /**
-         * @param lambdaArn ARN of the Lambda function to invoke.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(String lambdaArn) {
             return lambdaArn(Output.of(lambdaArn));
         }
 
-        /**
-         * @param toolSchema Schema definition for the tool. See `toolSchema` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolSchema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema) {
             $.toolSchema = toolSchema;
             return this;
         }
 
-        /**
-         * @param toolSchema Schema definition for the tool. See `toolSchema` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs toolSchema) {
             return toolSchema(Output.of(toolSchema));
         }

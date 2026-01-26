@@ -30,10 +30,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
         [Input("publicAddressAllocationIds", required: true)]
         private InputList<string>? _publicAddressAllocationIds;
-
-        /// <summary>
-        /// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
-        /// </summary>
         public InputList<string> PublicAddressAllocationIds
         {
             get => _publicAddressAllocationIds ?? (_publicAddressAllocationIds = new InputList<string>());
@@ -42,10 +38,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -54,10 +46,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

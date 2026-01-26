@@ -16,62 +16,30 @@ public final class DistributionConfigurationDistributionS3ExportConfigurationArg
 
     public static final DistributionConfigurationDistributionS3ExportConfigurationArgs Empty = new DistributionConfigurationDistributionS3ExportConfigurationArgs();
 
-    /**
-     * The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-     * 
-     */
     @Import(name="diskImageFormat", required=true)
     private Output<String> diskImageFormat;
 
-    /**
-     * @return The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-     * 
-     */
     public Output<String> diskImageFormat() {
         return this.diskImageFormat;
     }
 
-    /**
-     * The name of the IAM role to use for exporting.
-     * 
-     */
     @Import(name="roleName", required=true)
     private Output<String> roleName;
 
-    /**
-     * @return The name of the IAM role to use for exporting.
-     * 
-     */
     public Output<String> roleName() {
         return this.roleName;
     }
 
-    /**
-     * The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-     * 
-     */
     @Import(name="s3Bucket", required=true)
     private Output<String> s3Bucket;
 
-    /**
-     * @return The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-     * 
-     */
     public Output<String> s3Bucket() {
         return this.s3Bucket;
     }
 
-    /**
-     * The prefix for the exported image.
-     * 
-     */
     @Import(name="s3Prefix")
     private @Nullable Output<String> s3Prefix;
 
-    /**
-     * @return The prefix for the exported image.
-     * 
-     */
     public Optional<Output<String>> s3Prefix() {
         return Optional.ofNullable(this.s3Prefix);
     }
@@ -103,86 +71,38 @@ public final class DistributionConfigurationDistributionS3ExportConfigurationArg
             $ = new DistributionConfigurationDistributionS3ExportConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param diskImageFormat The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskImageFormat(Output<String> diskImageFormat) {
             $.diskImageFormat = diskImageFormat;
             return this;
         }
 
-        /**
-         * @param diskImageFormat The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskImageFormat(String diskImageFormat) {
             return diskImageFormat(Output.of(diskImageFormat));
         }
 
-        /**
-         * @param roleName The name of the IAM role to use for exporting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(Output<String> roleName) {
             $.roleName = roleName;
             return this;
         }
 
-        /**
-         * @param roleName The name of the IAM role to use for exporting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(String roleName) {
             return roleName(Output.of(roleName));
         }
 
-        /**
-         * @param s3Bucket The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(Output<String> s3Bucket) {
             $.s3Bucket = s3Bucket;
             return this;
         }
 
-        /**
-         * @param s3Bucket The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(String s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
         }
 
-        /**
-         * @param s3Prefix The prefix for the exported image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(@Nullable Output<String> s3Prefix) {
             $.s3Prefix = s3Prefix;
             return this;
         }
 
-        /**
-         * @param s3Prefix The prefix for the exported image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(String s3Prefix) {
             return s3Prefix(Output.of(s3Prefix));
         }

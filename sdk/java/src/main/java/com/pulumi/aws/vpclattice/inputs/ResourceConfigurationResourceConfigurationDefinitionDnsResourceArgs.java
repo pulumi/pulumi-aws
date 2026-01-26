@@ -14,32 +14,16 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
 
     public static final ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs Empty = new ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs();
 
-    /**
-     * The hostname of the Resource for this configuration.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return The hostname of the Resource for this configuration.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * The IP Address type either `IPV4` or `IPV6`
-     * 
-     */
     @Import(name="ipAddressType", required=true)
     private Output<String> ipAddressType;
 
-    /**
-     * @return The IP Address type either `IPV4` or `IPV6`
-     * 
-     */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
     }
@@ -69,44 +53,20 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
             $ = new ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName The hostname of the Resource for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The hostname of the Resource for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param ipAddressType The IP Address type either `IPV4` or `IPV6`
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType The IP Address type either `IPV4` or `IPV6`
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }

@@ -24,152 +24,72 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
 
     public static final ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs Empty = new ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs();
 
-    /**
-     * The bool `value` for a Boolean-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="bool")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs> bool;
 
-    /**
-     * @return The bool `value` for a Boolean-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs>> bool() {
         return Optional.ofNullable(this.bool);
     }
 
-    /**
-     * The float `value` for a Double-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="double")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs> double_;
 
-    /**
-     * @return The float `value` for a Double-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs>> double_() {
         return Optional.ofNullable(this.double_);
     }
 
-    /**
-     * The string `value` for a Enum-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="enum")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs> enum_;
 
-    /**
-     * @return The string `value` for a Enum-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs>> enum_() {
         return Optional.ofNullable(this.enum_);
     }
 
-    /**
-     * The string list `value` for a EnumList-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="enumList")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs> enumList;
 
-    /**
-     * @return The string list `value` for a EnumList-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs>> enumList() {
         return Optional.ofNullable(this.enumList);
     }
 
-    /**
-     * The int `value` for a Int-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="int")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs> int_;
 
-    /**
-     * @return The int `value` for a Int-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs>> int_() {
         return Optional.ofNullable(this.int_);
     }
 
-    /**
-     * The int list `value` for a IntList-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="intList")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs> intList;
 
-    /**
-     * @return The int list `value` for a IntList-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs>> intList() {
         return Optional.ofNullable(this.intList);
     }
 
-    /**
-     * The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The string `value` for a String-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="string")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs> string;
 
-    /**
-     * @return The string `value` for a String-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs>> string() {
         return Optional.ofNullable(this.string);
     }
 
-    /**
-     * The string list `value` for a StringList-typed Security Hub Control Parameter.
-     * 
-     */
     @Import(name="stringList")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs> stringList;
 
-    /**
-     * @return The string list `value` for a StringList-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs>> stringList() {
         return Optional.ofNullable(this.stringList);
     }
 
-    /**
-     * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
-     * 
-     */
     @Import(name="valueType", required=true)
     private Output<String> valueType;
 
-    /**
-     * @return Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
-     * 
-     */
     public Output<String> valueType() {
         return this.valueType;
     }
@@ -207,212 +127,92 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
             $ = new ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bool The bool `value` for a Boolean-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bool(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs> bool) {
             $.bool = bool;
             return this;
         }
 
-        /**
-         * @param bool The bool `value` for a Boolean-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bool(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs bool) {
             return bool(Output.of(bool));
         }
 
-        /**
-         * @param double_ The float `value` for a Double-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder double_(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs> double_) {
             $.double_ = double_;
             return this;
         }
 
-        /**
-         * @param double_ The float `value` for a Double-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder double_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs double_) {
             return double_(Output.of(double_));
         }
 
-        /**
-         * @param enum_ The string `value` for a Enum-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enum_(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs> enum_) {
             $.enum_ = enum_;
             return this;
         }
 
-        /**
-         * @param enum_ The string `value` for a Enum-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enum_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs enum_) {
             return enum_(Output.of(enum_));
         }
 
-        /**
-         * @param enumList The string list `value` for a EnumList-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enumList(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs> enumList) {
             $.enumList = enumList;
             return this;
         }
 
-        /**
-         * @param enumList The string list `value` for a EnumList-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enumList(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs enumList) {
             return enumList(Output.of(enumList));
         }
 
-        /**
-         * @param int_ The int `value` for a Int-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder int_(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs> int_) {
             $.int_ = int_;
             return this;
         }
 
-        /**
-         * @param int_ The int `value` for a Int-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder int_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs int_) {
             return int_(Output.of(int_));
         }
 
-        /**
-         * @param intList The int list `value` for a IntList-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intList(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs> intList) {
             $.intList = intList;
             return this;
         }
 
-        /**
-         * @param intList The int list `value` for a IntList-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intList(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs intList) {
             return intList(Output.of(intList));
         }
 
-        /**
-         * @param name The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param string The string `value` for a String-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder string(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs> string) {
             $.string = string;
             return this;
         }
 
-        /**
-         * @param string The string `value` for a String-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder string(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs string) {
             return string(Output.of(string));
         }
 
-        /**
-         * @param stringList The string list `value` for a StringList-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringList(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs> stringList) {
             $.stringList = stringList;
             return this;
         }
 
-        /**
-         * @param stringList The string list `value` for a StringList-typed Security Hub Control Parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringList(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs stringList) {
             return stringList(Output.of(stringList));
         }
 
-        /**
-         * @param valueType Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueType(Output<String> valueType) {
             $.valueType = valueType;
             return this;
         }
 
-        /**
-         * @param valueType Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueType(String valueType) {
             return valueType(Output.of(valueType));
         }

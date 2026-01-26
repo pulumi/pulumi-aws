@@ -13,43 +13,14 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterVersionsClusterVersionResult
     {
-        /// <summary>
-        /// Type of clusters to filter by.
-        /// Currently, the only valid value is `Eks`.
-        /// </summary>
         public readonly string ClusterType;
-        /// <summary>
-        /// Kubernetes version supported by EKS.
-        /// </summary>
         public readonly string ClusterVersion;
-        /// <summary>
-        /// Default eks platform version for the cluster version.
-        /// </summary>
         public readonly string DefaultPlatformVersion;
-        /// <summary>
-        /// Default Kubernetes version for the cluster version.
-        /// </summary>
         public readonly bool DefaultVersion;
-        /// <summary>
-        /// End of extended support date for the cluster version.
-        /// </summary>
         public readonly string EndOfExtendedSupportDate;
-        /// <summary>
-        /// End of standard support date for the cluster version.
-        /// </summary>
         public readonly string EndOfStandardSupportDate;
-        /// <summary>
-        /// Kubernetes patch version for the cluster version.
-        /// </summary>
         public readonly string KubernetesPatchVersion;
-        /// <summary>
-        /// Release date of the cluster version.
-        /// </summary>
         public readonly string ReleaseDate;
-        /// <summary>
-        /// Status of the EKS cluster versions to list.
-        /// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-        /// </summary>
         public readonly string VersionStatus;
 
         [OutputConstructor]

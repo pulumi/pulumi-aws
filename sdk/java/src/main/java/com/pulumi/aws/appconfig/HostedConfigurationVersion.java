@@ -16,256 +16,53 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppConfig Hosted Configuration Version resource.
- * 
- * ## Example Usage
- * 
- * ### Freeform
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appconfig.HostedConfigurationVersion;
- * import com.pulumi.aws.appconfig.HostedConfigurationVersionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()
- *             .applicationId(exampleAwsAppconfigApplication.id())
- *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
- *             .description("Example Freeform Hosted Configuration Version")
- *             .contentType("application/json")
- *             .content(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("foo", "bar"),
- *                     jsonProperty("fruit", jsonArray(
- *                         "apple", 
- *                         "pear", 
- *                         "orange"
- *                     )),
- *                     jsonProperty("isThingEnabled", true)
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Feature Flags
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appconfig.HostedConfigurationVersion;
- * import com.pulumi.aws.appconfig.HostedConfigurationVersionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()
- *             .applicationId(exampleAwsAppconfigApplication.id())
- *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
- *             .description("Example Feature Flag Configuration Version")
- *             .contentType("application/json")
- *             .content(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("flags", jsonObject(
- *                         jsonProperty("foo", jsonObject(
- *                             jsonProperty("name", "foo"),
- *                             jsonProperty("_deprecation", jsonObject(
- *                                 jsonProperty("status", "planned")
- *                             ))
- *                         )),
- *                         jsonProperty("bar", jsonObject(
- *                             jsonProperty("name", "bar"),
- *                             jsonProperty("attributes", jsonObject(
- *                                 jsonProperty("someAttribute", jsonObject(
- *                                     jsonProperty("constraints", jsonObject(
- *                                         jsonProperty("type", "string"),
- *                                         jsonProperty("required", true)
- *                                     ))
- *                                 )),
- *                                 jsonProperty("someOtherAttribute", jsonObject(
- *                                     jsonProperty("constraints", jsonObject(
- *                                         jsonProperty("type", "number"),
- *                                         jsonProperty("required", true)
- *                                     ))
- *                                 ))
- *                             ))
- *                         ))
- *                     )),
- *                     jsonProperty("values", jsonObject(
- *                         jsonProperty("foo", jsonObject(
- *                             jsonProperty("enabled", "true")
- *                         )),
- *                         jsonProperty("bar", jsonObject(
- *                             jsonProperty("enabled", "true"),
- *                             jsonProperty("someAttribute", "Hello World"),
- *                             jsonProperty("someOtherAttribute", 123)
- *                         ))
- *                     )),
- *                     jsonProperty("version", "1")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Multi-variant Feature Flags
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
- * ```
- * 
- */
 @ResourceType(type="aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")
 public class HostedConfigurationVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * Application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return Application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * ARN of the AppConfig  hosted configuration version.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the AppConfig  hosted configuration version.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration profile ID.
-     * 
-     */
     @Export(name="configurationProfileId", refs={String.class}, tree="[0]")
     private Output<String> configurationProfileId;
 
-    /**
-     * @return Configuration profile ID.
-     * 
-     */
     public Output<String> configurationProfileId() {
         return this.configurationProfileId;
     }
-    /**
-     * Content of the configuration or the configuration data.
-     * 
-     */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
-    /**
-     * @return Content of the configuration or the configuration data.
-     * 
-     */
     public Output<String> content() {
         return this.content;
     }
-    /**
-     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-     * 
-     */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
-    /**
-     * @return Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
-    /**
-     * Description of the configuration.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the configuration.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Version number of the hosted configuration.
-     * 
-     */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
-    /**
-     * @return Version number of the hosted configuration.
-     * 
-     */
     public Output<Integer> versionNumber() {
         return this.versionNumber;
     }

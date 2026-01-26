@@ -16,17 +16,9 @@ public final class BucketObjectv2OverrideProviderDefaultTagsArgs extends com.pul
 
     public static final BucketObjectv2OverrideProviderDefaultTagsArgs Empty = new BucketObjectv2OverrideProviderDefaultTagsArgs();
 
-    /**
-     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,23 +47,11 @@ public final class BucketObjectv2OverrideProviderDefaultTagsArgs extends com.pul
             $ = new BucketObjectv2OverrideProviderDefaultTagsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

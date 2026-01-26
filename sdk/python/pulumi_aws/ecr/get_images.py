@@ -55,9 +55,6 @@ class GetImagesResult:
     @_builtins.property
     @pulumi.getter(name="imageIds")
     def image_ids(self) -> Sequence['outputs.GetImagesImageIdResult']:
-        """
-        List of image objects containing image digest and tags. Each object has the following attributes:
-        """
         return pulumi.get(self, "image_ids")
 
     @_builtins.property
@@ -94,23 +91,7 @@ def get_images(region: Optional[_builtins.str] = None,
                repository_name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagesResult:
     """
-    The ECR Images data source allows the list of images in a specified repository to be retrieved.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecr.get_images(repository_name="my-repository")
-    pulumi.export("imageDigests", [img.image_digest for img in example.image_ids if img.image_digest != None])
-    pulumi.export("imageTags", [img.image_tag for img in example.image_ids if img.image_tag != None])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: ID of the Registry where the repository resides.
-    :param _builtins.str repository_name: Name of the ECR Repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -130,23 +111,7 @@ def get_images_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = 
                       repository_name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
-    The ECR Images data source allows the list of images in a specified repository to be retrieved.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecr.get_images(repository_name="my-repository")
-    pulumi.export("imageDigests", [img.image_digest for img in example.image_ids if img.image_digest != None])
-    pulumi.export("imageTags", [img.image_tag for img in example.image_ids if img.image_tag != None])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: ID of the Registry where the repository resides.
-    :param _builtins.str repository_name: Name of the ECR Repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

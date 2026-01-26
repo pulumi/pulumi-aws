@@ -14,32 +14,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs();
 
-    /**
-     * The ARN of the S3 bucket.
-     * 
-     */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
-    /**
-     * @return The ARN of the S3 bucket.
-     * 
-     */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
 
-    /**
-     * The object key name containing the reference data.
-     * 
-     */
     @Import(name="fileKey", required=true)
     private Output<String> fileKey;
 
-    /**
-     * @return The object key name containing the reference data.
-     * 
-     */
     public Output<String> fileKey() {
         return this.fileKey;
     }
@@ -69,44 +53,20 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketArn The ARN of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
-        /**
-         * @param bucketArn The ARN of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }
 
-        /**
-         * @param fileKey The object key name containing the reference data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileKey(Output<String> fileKey) {
             $.fileKey = fileKey;
             return this;
         }
 
-        /**
-         * @param fileKey The object key name containing the reference data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileKey(String fileKey) {
             return fileKey(Output.of(fileKey));
         }

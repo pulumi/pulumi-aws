@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentcoreApiKeyCredentialProvider("example", {
- *     name: "example-api-key-provider",
- *     apiKey: "your-api-key-here",
- * });
- * ```
- *
- * ### Write-Only API Key (Recommended for Production)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentcoreApiKeyCredentialProvider("example", {
- *     name: "example-api-key-provider",
- *     apiKeyWo: "your-api-key-here",
- *     apiKeyWoVersion: 1,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
- * ```
- */
 export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
     /**
      * Get an existing AgentcoreApiKeyCredentialProvider resource's state with the given name, ID, and optional extra
@@ -71,40 +35,15 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentcoreApiKeyCredentialProvider.__pulumiType;
     }
 
-    /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     *
-     * **Write-Only API Key (choose one approach):**
-     */
     declare public readonly apiKey: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the AWS Secrets Manager secret containing the API key.
-     */
     declare public /*out*/ readonly apiKeySecretArns: pulumi.Output<outputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn[]>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      */
     declare public readonly apiKeyWo: pulumi.Output<string | undefined>;
-    /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-     */
     declare public readonly apiKeyWoVersion: pulumi.Output<number | undefined>;
-    /**
-     * ARN of the API Key credential provider.
-     */
     declare public /*out*/ readonly credentialProviderArn: pulumi.Output<string>;
-    /**
-     * Name of the API Key credential provider. Forces replacement when changed.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     *
-     * **Standard API Key (choose one approach):**
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -148,40 +87,15 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
  */
 export interface AgentcoreApiKeyCredentialProviderState {
-    /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     *
-     * **Write-Only API Key (choose one approach):**
-     */
     apiKey?: pulumi.Input<string>;
-    /**
-     * ARN of the AWS Secrets Manager secret containing the API key.
-     */
     apiKeySecretArns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn>[]>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      */
     apiKeyWo?: pulumi.Input<string>;
-    /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-     */
     apiKeyWoVersion?: pulumi.Input<number>;
-    /**
-     * ARN of the API Key credential provider.
-     */
     credentialProviderArn?: pulumi.Input<string>;
-    /**
-     * Name of the API Key credential provider. Forces replacement when changed.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     *
-     * **Standard API Key (choose one approach):**
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -189,31 +103,12 @@ export interface AgentcoreApiKeyCredentialProviderState {
  * The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
  */
 export interface AgentcoreApiKeyCredentialProviderArgs {
-    /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     *
-     * **Write-Only API Key (choose one approach):**
-     */
     apiKey?: pulumi.Input<string>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      */
     apiKeyWo?: pulumi.Input<string>;
-    /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-     */
     apiKeyWoVersion?: pulumi.Input<number>;
-    /**
-     * Name of the API Key credential provider. Forces replacement when changed.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     *
-     * **Standard API Key (choose one approach):**
-     */
     region?: pulumi.Input<string>;
 }

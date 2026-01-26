@@ -29,12 +29,6 @@ class NetworkAclArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the associated VPC.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if egress is not None:
@@ -51,9 +45,6 @@ class NetworkAclArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the associated VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -63,9 +54,6 @@ class NetworkAclArgs:
     @_builtins.property
     @pulumi.getter
     def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]:
-        """
-        Specifies an egress rule. Parameters defined below.
-        """
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -75,9 +63,6 @@ class NetworkAclArgs:
     @_builtins.property
     @pulumi.getter
     def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]:
-        """
-        Specifies an ingress rule. Parameters defined below.
-        """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -87,9 +72,6 @@ class NetworkAclArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,9 +81,6 @@ class NetworkAclArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of Subnet IDs to apply the ACL to
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -111,9 +90,6 @@ class NetworkAclArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,15 +111,6 @@ class _NetworkAclState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAcl resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the network ACL
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the network ACL.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the associated VPC.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -167,9 +134,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the network ACL
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -179,9 +143,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter
     def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]:
-        """
-        Specifies an egress rule. Parameters defined below.
-        """
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -191,9 +152,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter
     def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]:
-        """
-        Specifies an ingress rule. Parameters defined below.
-        """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -203,9 +161,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AWS account that owns the network ACL.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -215,9 +170,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -227,9 +179,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of Subnet IDs to apply the ACL to
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -239,9 +188,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -251,9 +197,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -263,9 +206,6 @@ class _NetworkAclState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the associated VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -287,64 +227,9 @@ class NetworkAcl(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an network ACL resource. You might set up network ACLs with rules similar
-        to your security groups in order to add an additional layer of security to your VPC.
-
-        > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
-        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-        defined in-line. At this time you cannot use a Network ACL with in-line rules
-        in conjunction with any Network ACL Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-
-        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association
-        resource and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
-        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.NetworkAcl("main",
-            vpc_id=main_aws_vpc["id"],
-            egress=[{
-                "protocol": "tcp",
-                "rule_no": 200,
-                "action": "allow",
-                "cidr_block": "10.3.0.0/18",
-                "from_port": 443,
-                "to_port": 443,
-            }],
-            ingress=[{
-                "protocol": "tcp",
-                "rule_no": 100,
-                "action": "allow",
-                "cidr_block": "10.3.0.0/18",
-                "from_port": 80,
-                "to_port": 80,
-            }],
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network ACLs using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
-        ```
-
+        Create a NetworkAcl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]] ingress: Specifies an ingress rule. Parameters defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the associated VPC.
         """
         ...
     @overload
@@ -353,56 +238,7 @@ class NetworkAcl(pulumi.CustomResource):
                  args: NetworkAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an network ACL resource. You might set up network ACLs with rules similar
-        to your security groups in order to add an additional layer of security to your VPC.
-
-        > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
-        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-        defined in-line. At this time you cannot use a Network ACL with in-line rules
-        in conjunction with any Network ACL Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-
-        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association
-        resource and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
-        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.NetworkAcl("main",
-            vpc_id=main_aws_vpc["id"],
-            egress=[{
-                "protocol": "tcp",
-                "rule_no": 200,
-                "action": "allow",
-                "cidr_block": "10.3.0.0/18",
-                "from_port": 443,
-                "to_port": 443,
-            }],
-            ingress=[{
-                "protocol": "tcp",
-                "rule_no": 100,
-                "action": "allow",
-                "cidr_block": "10.3.0.0/18",
-                "from_port": 80,
-                "to_port": 80,
-            }],
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network ACLs using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
-        ```
-
+        Create a NetworkAcl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkAclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -470,15 +306,6 @@ class NetworkAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the network ACL
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]] ingress: Specifies an ingress rule. Parameters defined below.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the network ACL.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the associated VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -498,72 +325,45 @@ class NetworkAcl(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the network ACL
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def egress(self) -> pulumi.Output[Sequence['outputs.NetworkAclEgress']]:
-        """
-        Specifies an egress rule. Parameters defined below.
-        """
         return pulumi.get(self, "egress")
 
     @_builtins.property
     @pulumi.getter
     def ingress(self) -> pulumi.Output[Sequence['outputs.NetworkAclIngress']]:
-        """
-        Specifies an ingress rule. Parameters defined below.
-        """
         return pulumi.get(self, "ingress")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the AWS account that owns the network ACL.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of Subnet IDs to apply the ACL to
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the associated VPC.
-        """
         return pulumi.get(self, "vpc_id")
 

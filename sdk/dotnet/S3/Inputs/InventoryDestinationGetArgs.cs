@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class InventoryDestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 bucket configuration where inventory results are published (documented below).
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<Inputs.InventoryDestinationBucketGetArgs> Bucket { get; set; } = null!;
 

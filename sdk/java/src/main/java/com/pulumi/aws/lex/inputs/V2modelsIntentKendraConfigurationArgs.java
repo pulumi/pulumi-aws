@@ -17,47 +17,23 @@ public final class V2modelsIntentKendraConfigurationArgs extends com.pulumi.reso
 
     public static final V2modelsIntentKendraConfigurationArgs Empty = new V2modelsIntentKendraConfigurationArgs();
 
-    /**
-     * ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-     * 
-     */
     @Import(name="kendraIndex", required=true)
     private Output<String> kendraIndex;
 
-    /**
-     * @return ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-     * 
-     */
     public Output<String> kendraIndex() {
         return this.kendraIndex;
     }
 
-    /**
-     * Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
-     * 
-     */
     @Import(name="queryFilterString")
     private @Nullable Output<String> queryFilterString;
 
-    /**
-     * @return Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
-     * 
-     */
     public Optional<Output<String>> queryFilterString() {
         return Optional.ofNullable(this.queryFilterString);
     }
 
-    /**
-     * Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-     * 
-     */
     @Import(name="queryFilterStringEnabled")
     private @Nullable Output<Boolean> queryFilterStringEnabled;
 
-    /**
-     * @return Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-     * 
-     */
     public Optional<Output<Boolean>> queryFilterStringEnabled() {
         return Optional.ofNullable(this.queryFilterStringEnabled);
     }
@@ -88,65 +64,29 @@ public final class V2modelsIntentKendraConfigurationArgs extends com.pulumi.reso
             $ = new V2modelsIntentKendraConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kendraIndex ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraIndex(Output<String> kendraIndex) {
             $.kendraIndex = kendraIndex;
             return this;
         }
 
-        /**
-         * @param kendraIndex ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraIndex(String kendraIndex) {
             return kendraIndex(Output.of(kendraIndex));
         }
 
-        /**
-         * @param queryFilterString Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryFilterString(@Nullable Output<String> queryFilterString) {
             $.queryFilterString = queryFilterString;
             return this;
         }
 
-        /**
-         * @param queryFilterString Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryFilterString(String queryFilterString) {
             return queryFilterString(Output.of(queryFilterString));
         }
 
-        /**
-         * @param queryFilterStringEnabled Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryFilterStringEnabled(@Nullable Output<Boolean> queryFilterStringEnabled) {
             $.queryFilterStringEnabled = queryFilterStringEnabled;
             return this;
         }
 
-        /**
-         * @param queryFilterStringEnabled Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryFilterStringEnabled(Boolean queryFilterStringEnabled) {
             return queryFilterStringEnabled(Output.of(queryFilterStringEnabled));
         }

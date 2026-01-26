@@ -17,137 +17,65 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetRandomPasswordArgs Empty = new GetRandomPasswordArgs();
 
-    /**
-     * String of the characters that you don&#39;t want in the password.
-     * 
-     */
     @Import(name="excludeCharacters")
     private @Nullable Output<String> excludeCharacters;
 
-    /**
-     * @return String of the characters that you don&#39;t want in the password.
-     * 
-     */
     public Optional<Output<String>> excludeCharacters() {
         return Optional.ofNullable(this.excludeCharacters);
     }
 
-    /**
-     * Specifies whether to exclude lowercase letters from the password.
-     * 
-     */
     @Import(name="excludeLowercase")
     private @Nullable Output<Boolean> excludeLowercase;
 
-    /**
-     * @return Specifies whether to exclude lowercase letters from the password.
-     * 
-     */
     public Optional<Output<Boolean>> excludeLowercase() {
         return Optional.ofNullable(this.excludeLowercase);
     }
 
-    /**
-     * Specifies whether to exclude numbers from the password.
-     * 
-     */
     @Import(name="excludeNumbers")
     private @Nullable Output<Boolean> excludeNumbers;
 
-    /**
-     * @return Specifies whether to exclude numbers from the password.
-     * 
-     */
     public Optional<Output<Boolean>> excludeNumbers() {
         return Optional.ofNullable(this.excludeNumbers);
     }
 
-    /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
-     * 
-     */
     @Import(name="excludePunctuation")
     private @Nullable Output<Boolean> excludePunctuation;
 
-    /**
-     * @return Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
-     * 
-     */
     public Optional<Output<Boolean>> excludePunctuation() {
         return Optional.ofNullable(this.excludePunctuation);
     }
 
-    /**
-     * Specifies whether to exclude uppercase letters from the password.
-     * 
-     */
     @Import(name="excludeUppercase")
     private @Nullable Output<Boolean> excludeUppercase;
 
-    /**
-     * @return Specifies whether to exclude uppercase letters from the password.
-     * 
-     */
     public Optional<Output<Boolean>> excludeUppercase() {
         return Optional.ofNullable(this.excludeUppercase);
     }
 
-    /**
-     * Specifies whether to include the space character.
-     * 
-     */
     @Import(name="includeSpace")
     private @Nullable Output<Boolean> includeSpace;
 
-    /**
-     * @return Specifies whether to include the space character.
-     * 
-     */
     public Optional<Output<Boolean>> includeSpace() {
         return Optional.ofNullable(this.includeSpace);
     }
 
-    /**
-     * Length of the password.
-     * 
-     */
     @Import(name="passwordLength")
     private @Nullable Output<Integer> passwordLength;
 
-    /**
-     * @return Length of the password.
-     * 
-     */
     public Optional<Output<Integer>> passwordLength() {
         return Optional.ofNullable(this.passwordLength);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
-     * 
-     */
     @Import(name="requireEachIncludedType")
     private @Nullable Output<Boolean> requireEachIncludedType;
 
-    /**
-     * @return Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
-     * 
-     */
     public Optional<Output<Boolean>> requireEachIncludedType() {
         return Optional.ofNullable(this.requireEachIncludedType);
     }
@@ -184,191 +112,83 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetRandomPasswordArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param excludeCharacters String of the characters that you don&#39;t want in the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeCharacters(@Nullable Output<String> excludeCharacters) {
             $.excludeCharacters = excludeCharacters;
             return this;
         }
 
-        /**
-         * @param excludeCharacters String of the characters that you don&#39;t want in the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeCharacters(String excludeCharacters) {
             return excludeCharacters(Output.of(excludeCharacters));
         }
 
-        /**
-         * @param excludeLowercase Specifies whether to exclude lowercase letters from the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeLowercase(@Nullable Output<Boolean> excludeLowercase) {
             $.excludeLowercase = excludeLowercase;
             return this;
         }
 
-        /**
-         * @param excludeLowercase Specifies whether to exclude lowercase letters from the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeLowercase(Boolean excludeLowercase) {
             return excludeLowercase(Output.of(excludeLowercase));
         }
 
-        /**
-         * @param excludeNumbers Specifies whether to exclude numbers from the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeNumbers(@Nullable Output<Boolean> excludeNumbers) {
             $.excludeNumbers = excludeNumbers;
             return this;
         }
 
-        /**
-         * @param excludeNumbers Specifies whether to exclude numbers from the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeNumbers(Boolean excludeNumbers) {
             return excludeNumbers(Output.of(excludeNumbers));
         }
 
-        /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePunctuation(@Nullable Output<Boolean> excludePunctuation) {
             $.excludePunctuation = excludePunctuation;
             return this;
         }
 
-        /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePunctuation(Boolean excludePunctuation) {
             return excludePunctuation(Output.of(excludePunctuation));
         }
 
-        /**
-         * @param excludeUppercase Specifies whether to exclude uppercase letters from the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeUppercase(@Nullable Output<Boolean> excludeUppercase) {
             $.excludeUppercase = excludeUppercase;
             return this;
         }
 
-        /**
-         * @param excludeUppercase Specifies whether to exclude uppercase letters from the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeUppercase(Boolean excludeUppercase) {
             return excludeUppercase(Output.of(excludeUppercase));
         }
 
-        /**
-         * @param includeSpace Specifies whether to include the space character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeSpace(@Nullable Output<Boolean> includeSpace) {
             $.includeSpace = includeSpace;
             return this;
         }
 
-        /**
-         * @param includeSpace Specifies whether to include the space character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeSpace(Boolean includeSpace) {
             return includeSpace(Output.of(includeSpace));
         }
 
-        /**
-         * @param passwordLength Length of the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordLength(@Nullable Output<Integer> passwordLength) {
             $.passwordLength = passwordLength;
             return this;
         }
 
-        /**
-         * @param passwordLength Length of the password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordLength(Integer passwordLength) {
             return passwordLength(Output.of(passwordLength));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param requireEachIncludedType Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireEachIncludedType(@Nullable Output<Boolean> requireEachIncludedType) {
             $.requireEachIncludedType = requireEachIncludedType;
             return this;
         }
 
-        /**
-         * @param requireEachIncludedType Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireEachIncludedType(Boolean requireEachIncludedType) {
             return requireEachIncludedType(Output.of(requireEachIncludedType));
         }

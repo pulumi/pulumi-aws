@@ -30,14 +30,6 @@ class IamPolicyAssignmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IamPolicyAssignment resource.
-        :param pulumi.Input[_builtins.str] assignment_name: Name of the assignment.
-        :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-               
-               The following arguments are optional:
-        :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "assignment_name", assignment_name)
         pulumi.set(__self__, "assignment_status", assignment_status)
@@ -55,9 +47,6 @@ class IamPolicyAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="assignmentName")
     def assignment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the assignment.
-        """
         return pulumi.get(self, "assignment_name")
 
     @assignment_name.setter
@@ -67,11 +56,6 @@ class IamPolicyAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="assignmentStatus")
     def assignment_status(self) -> pulumi.Input[_builtins.str]:
-        """
-        Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assignment_status")
 
     @assignment_status.setter
@@ -90,9 +74,6 @@ class IamPolicyAssignmentArgs:
     @_builtins.property
     @pulumi.getter
     def identities(self) -> Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]:
-        """
-        Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        """
         return pulumi.get(self, "identities")
 
     @identities.setter
@@ -102,9 +83,6 @@ class IamPolicyAssignmentArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace that contains the assignment. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -114,9 +92,6 @@ class IamPolicyAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -126,9 +101,6 @@ class IamPolicyAssignmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -149,15 +121,6 @@ class _IamPolicyAssignmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IamPolicyAssignment resources.
-        :param pulumi.Input[_builtins.str] assignment_id: Assignment ID.
-        :param pulumi.Input[_builtins.str] assignment_name: Name of the assignment.
-        :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-               
-               The following arguments are optional:
-        :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if assignment_id is not None:
             pulumi.set(__self__, "assignment_id", assignment_id)
@@ -179,9 +142,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter(name="assignmentId")
     def assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Assignment ID.
-        """
         return pulumi.get(self, "assignment_id")
 
     @assignment_id.setter
@@ -191,9 +151,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter(name="assignmentName")
     def assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the assignment.
-        """
         return pulumi.get(self, "assignment_name")
 
     @assignment_name.setter
@@ -203,11 +160,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter(name="assignmentStatus")
     def assignment_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assignment_status")
 
     @assignment_status.setter
@@ -226,9 +178,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter
     def identities(self) -> Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]:
-        """
-        Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        """
         return pulumi.get(self, "identities")
 
     @identities.setter
@@ -238,9 +187,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace that contains the assignment. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -250,9 +196,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -262,9 +205,6 @@ class _IamPolicyAssignmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -287,43 +227,9 @@ class IamPolicyAssignment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS QuickSight IAM Policy Assignment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.IamPolicyAssignment("example",
-            assignment_name="example",
-            assignment_status="ENABLED",
-            policy_arn=example_aws_iam_policy["arn"],
-            identities={
-                "users": [example_aws_quicksight_user["userName"]],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
-        ```
-
+        Create a IamPolicyAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] assignment_name: Name of the assignment.
-        :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -332,33 +238,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
                  args: IamPolicyAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS QuickSight IAM Policy Assignment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.IamPolicyAssignment("example",
-            assignment_name="example",
-            assignment_status="ENABLED",
-            policy_arn=example_aws_iam_policy["arn"],
-            identities={
-                "users": [example_aws_quicksight_user["userName"]],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
-        ```
-
+        Create a IamPolicyAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IamPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -427,15 +307,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] assignment_id: Assignment ID.
-        :param pulumi.Input[_builtins.str] assignment_name: Name of the assignment.
-        :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -454,27 +325,16 @@ class IamPolicyAssignment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="assignmentId")
     def assignment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Assignment ID.
-        """
         return pulumi.get(self, "assignment_id")
 
     @_builtins.property
     @pulumi.getter(name="assignmentName")
     def assignment_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the assignment.
-        """
         return pulumi.get(self, "assignment_name")
 
     @_builtins.property
     @pulumi.getter(name="assignmentStatus")
     def assignment_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assignment_status")
 
     @_builtins.property
@@ -485,32 +345,20 @@ class IamPolicyAssignment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def identities(self) -> pulumi.Output[Optional['outputs.IamPolicyAssignmentIdentities']]:
-        """
-        Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        """
         return pulumi.get(self, "identities")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[_builtins.str]:
-        """
-        Namespace that contains the assignment. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        """
         return pulumi.get(self, "policy_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -17,208 +17,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift IDC application.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.IdcApplication;
- * import com.pulumi.aws.redshift.IdcApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new IdcApplication("example", IdcApplicationArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .idcDisplayName("example")
- *             .idcInstanceArn(exampleAwsSsoadminInstances.arns()[0])
- *             .identityNamespace("example")
- *             .redshiftIdcApplicationName("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift endpoint access using the `redshift_idc_application_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/idcApplication:IdcApplication example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/idcApplication:IdcApplication")
 public class IdcApplication extends com.pulumi.resources.CustomResource {
-    /**
-     * Type of application being created. Valid values are `None` or `Lakehouse`.
-     * 
-     */
     @Export(name="applicationType", refs={String.class}, tree="[0]")
     private Output<String> applicationType;
 
-    /**
-     * @return Type of application being created. Valid values are `None` or `Lakehouse`.
-     * 
-     */
     public Output<String> applicationType() {
         return this.applicationType;
     }
-    /**
-     * Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-     * 
-     */
     @Export(name="authorizedTokenIssuer", refs={IdcApplicationAuthorizedTokenIssuer.class}, tree="[0]")
     private Output</* @Nullable */ IdcApplicationAuthorizedTokenIssuer> authorizedTokenIssuer;
 
-    /**
-     * @return Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-     * 
-     */
     public Output<Optional<IdcApplicationAuthorizedTokenIssuer>> authorizedTokenIssuer() {
         return Codegen.optional(this.authorizedTokenIssuer);
     }
-    /**
-     * IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
-    /**
-     * @return IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * Display name for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     @Export(name="idcDisplayName", refs={String.class}, tree="[0]")
     private Output<String> idcDisplayName;
 
-    /**
-     * @return Display name for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     public Output<String> idcDisplayName() {
         return this.idcDisplayName;
     }
-    /**
-     * ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-     * 
-     */
     @Export(name="idcInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> idcInstanceArn;
 
-    /**
-     * @return ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-     * 
-     */
     public Output<String> idcInstanceArn() {
         return this.idcInstanceArn;
     }
-    /**
-     * ARN for the Amazon Redshift IAM Identity Center application.
-     * 
-     */
     @Export(name="idcManagedApplicationArn", refs={String.class}, tree="[0]")
     private Output<String> idcManagedApplicationArn;
 
-    /**
-     * @return ARN for the Amazon Redshift IAM Identity Center application.
-     * 
-     */
     public Output<String> idcManagedApplicationArn() {
         return this.idcManagedApplicationArn;
     }
-    /**
-     * Namespace for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     @Export(name="identityNamespace", refs={String.class}, tree="[0]")
     private Output<String> identityNamespace;
 
-    /**
-     * @return Namespace for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     public Output<String> identityNamespace() {
         return this.identityNamespace;
     }
-    /**
-     * ARN of the Redshift application in IAM Identity Center.
-     * 
-     */
     @Export(name="redshiftIdcApplicationArn", refs={String.class}, tree="[0]")
     private Output<String> redshiftIdcApplicationArn;
 
-    /**
-     * @return ARN of the Redshift application in IAM Identity Center.
-     * 
-     */
     public Output<String> redshiftIdcApplicationArn() {
         return this.redshiftIdcApplicationArn;
     }
-    /**
-     * Name of the Redshift application in IAM Identity Center.
-     * 
-     */
     @Export(name="redshiftIdcApplicationName", refs={String.class}, tree="[0]")
     private Output<String> redshiftIdcApplicationName;
 
-    /**
-     * @return Name of the Redshift application in IAM Identity Center.
-     * 
-     */
     public Output<String> redshiftIdcApplicationName() {
         return this.redshiftIdcApplicationName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-     * 
-     */
     @Export(name="serviceIntegration", refs={IdcApplicationServiceIntegration.class}, tree="[0]")
     private Output</* @Nullable */ IdcApplicationServiceIntegration> serviceIntegration;
 
-    /**
-     * @return Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-     * 
-     */
     public Output<Optional<IdcApplicationServiceIntegration>> serviceIntegration() {
         return Codegen.optional(this.serviceIntegration);
     }

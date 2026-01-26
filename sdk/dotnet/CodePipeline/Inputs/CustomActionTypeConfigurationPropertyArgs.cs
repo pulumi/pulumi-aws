@@ -12,45 +12,24 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
     public sealed class CustomActionTypeConfigurationPropertyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the action configuration property.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Whether the configuration property is a key.
-        /// </summary>
         [Input("key", required: true)]
         public Input<bool> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the action configuration property.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates that the property will be used in conjunction with PollForJobs.
-        /// </summary>
         [Input("queryable")]
         public Input<bool>? Queryable { get; set; }
 
-        /// <summary>
-        /// Whether the configuration property is a required value.
-        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the configuration property is secret.
-        /// </summary>
         [Input("secret", required: true)]
         public Input<bool> Secret { get; set; } = null!;
 
-        /// <summary>
-        /// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

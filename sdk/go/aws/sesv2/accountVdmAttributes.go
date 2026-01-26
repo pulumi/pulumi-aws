@@ -12,62 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewAccountVdmAttributes(ctx, "example", &sesv2.AccountVdmAttributesArgs{
-//				VdmEnabled: pulumi.String("ENABLED"),
-//				DashboardAttributes: &sesv2.AccountVdmAttributesDashboardAttributesArgs{
-//					EngagementMetrics: pulumi.String("ENABLED"),
-//				},
-//				GuardianAttributes: &sesv2.AccountVdmAttributesGuardianAttributesArgs{
-//					OptimizedSharedDelivery: pulumi.String("ENABLED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
-// ```
 type AccountVdmAttributes struct {
 	pulumi.CustomResourceState
 
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes AccountVdmAttributesDashboardAttributesOutput `pulumi:"dashboardAttributes"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-	GuardianAttributes AccountVdmAttributesGuardianAttributesOutput `pulumi:"guardianAttributes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-	//
-	// The following arguments are optional:
-	VdmEnabled pulumi.StringOutput `pulumi:"vdmEnabled"`
+	GuardianAttributes  AccountVdmAttributesGuardianAttributesOutput  `pulumi:"guardianAttributes"`
+	Region              pulumi.StringOutput                           `pulumi:"region"`
+	VdmEnabled          pulumi.StringOutput                           `pulumi:"vdmEnabled"`
 }
 
 // NewAccountVdmAttributes registers a new resource with the given unique name, arguments, and options.
@@ -103,29 +54,17 @@ func GetAccountVdmAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountVdmAttributes resources.
 type accountVdmAttributesState struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes *AccountVdmAttributesDashboardAttributes `pulumi:"dashboardAttributes"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-	GuardianAttributes *AccountVdmAttributesGuardianAttributes `pulumi:"guardianAttributes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-	//
-	// The following arguments are optional:
-	VdmEnabled *string `pulumi:"vdmEnabled"`
+	GuardianAttributes  *AccountVdmAttributesGuardianAttributes  `pulumi:"guardianAttributes"`
+	Region              *string                                  `pulumi:"region"`
+	VdmEnabled          *string                                  `pulumi:"vdmEnabled"`
 }
 
 type AccountVdmAttributesState struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes AccountVdmAttributesDashboardAttributesPtrInput
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-	GuardianAttributes AccountVdmAttributesGuardianAttributesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-	//
-	// The following arguments are optional:
-	VdmEnabled pulumi.StringPtrInput
+	GuardianAttributes  AccountVdmAttributesGuardianAttributesPtrInput
+	Region              pulumi.StringPtrInput
+	VdmEnabled          pulumi.StringPtrInput
 }
 
 func (AccountVdmAttributesState) ElementType() reflect.Type {
@@ -133,30 +72,18 @@ func (AccountVdmAttributesState) ElementType() reflect.Type {
 }
 
 type accountVdmAttributesArgs struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes *AccountVdmAttributesDashboardAttributes `pulumi:"dashboardAttributes"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-	GuardianAttributes *AccountVdmAttributesGuardianAttributes `pulumi:"guardianAttributes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-	//
-	// The following arguments are optional:
-	VdmEnabled string `pulumi:"vdmEnabled"`
+	GuardianAttributes  *AccountVdmAttributesGuardianAttributes  `pulumi:"guardianAttributes"`
+	Region              *string                                  `pulumi:"region"`
+	VdmEnabled          string                                   `pulumi:"vdmEnabled"`
 }
 
 // The set of arguments for constructing a AccountVdmAttributes resource.
 type AccountVdmAttributesArgs struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes AccountVdmAttributesDashboardAttributesPtrInput
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
-	GuardianAttributes AccountVdmAttributesGuardianAttributesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-	//
-	// The following arguments are optional:
-	VdmEnabled pulumi.StringInput
+	GuardianAttributes  AccountVdmAttributesGuardianAttributesPtrInput
+	Region              pulumi.StringPtrInput
+	VdmEnabled          pulumi.StringInput
 }
 
 func (AccountVdmAttributesArgs) ElementType() reflect.Type {
@@ -246,28 +173,22 @@ func (o AccountVdmAttributesOutput) ToAccountVdmAttributesOutputWithContext(ctx 
 	return o
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 func (o AccountVdmAttributesOutput) DashboardAttributes() AccountVdmAttributesDashboardAttributesOutput {
 	return o.ApplyT(func(v *AccountVdmAttributes) AccountVdmAttributesDashboardAttributesOutput {
 		return v.DashboardAttributes
 	}).(AccountVdmAttributesDashboardAttributesOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 func (o AccountVdmAttributesOutput) GuardianAttributes() AccountVdmAttributesGuardianAttributesOutput {
 	return o.ApplyT(func(v *AccountVdmAttributes) AccountVdmAttributesGuardianAttributesOutput {
 		return v.GuardianAttributes
 	}).(AccountVdmAttributesGuardianAttributesOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountVdmAttributesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountVdmAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-//
-// The following arguments are optional:
 func (o AccountVdmAttributesOutput) VdmEnabled() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountVdmAttributes) pulumi.StringOutput { return v.VdmEnabled }).(pulumi.StringOutput)
 }

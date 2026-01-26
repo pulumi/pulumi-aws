@@ -12,36 +12,22 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyFirewallPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
-        /// </summary>
         [Input("policyVariables")]
         public Input<Inputs.FirewallPolicyFirewallPolicyPolicyVariablesGetArgs>? PolicyVariables { get; set; }
 
         [Input("statefulDefaultActions")]
         private InputList<string>? _statefulDefaultActions;
-
-        /// <summary>
-        /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `StatefulEngineOptions` block with a `RuleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, `aws:alert_established, `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
-        /// </summary>
         public InputList<string> StatefulDefaultActions
         {
             get => _statefulDefaultActions ?? (_statefulDefaultActions = new InputList<string>());
             set => _statefulDefaultActions = value;
         }
 
-        /// <summary>
-        /// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
-        /// </summary>
         [Input("statefulEngineOptions")]
         public Input<Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsGetArgs>? StatefulEngineOptions { get; set; }
 
         [Input("statefulRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceGetArgs>? _statefulRuleGroupReferences;
-
-        /// <summary>
-        /// Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
-        /// </summary>
         public InputList<Inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceGetArgs> StatefulRuleGroupReferences
         {
             get => _statefulRuleGroupReferences ?? (_statefulRuleGroupReferences = new InputList<Inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceGetArgs>());
@@ -50,10 +36,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("statelessCustomActions")]
         private InputList<Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs>? _statelessCustomActions;
-
-        /// <summary>
-        /// Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions`. See Stateless Custom Action below for details.
-        /// </summary>
         public InputList<Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs> StatelessCustomActions
         {
             get => _statelessCustomActions ?? (_statelessCustomActions = new InputList<Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionGetArgs>());
@@ -62,11 +44,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("statelessDefaultActions", required: true)]
         private InputList<string>? _statelessDefaultActions;
-
-        /// <summary>
-        /// Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-        /// In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-        /// </summary>
         public InputList<string> StatelessDefaultActions
         {
             get => _statelessDefaultActions ?? (_statelessDefaultActions = new InputList<string>());
@@ -75,11 +52,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("statelessFragmentDefaultActions", required: true)]
         private InputList<string>? _statelessFragmentDefaultActions;
-
-        /// <summary>
-        /// Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-        /// In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-        /// </summary>
         public InputList<string> StatelessFragmentDefaultActions
         {
             get => _statelessFragmentDefaultActions ?? (_statelessFragmentDefaultActions = new InputList<string>());
@@ -88,19 +60,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("statelessRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceGetArgs>? _statelessRuleGroupReferences;
-
-        /// <summary>
-        /// Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
-        /// </summary>
         public InputList<Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceGetArgs> StatelessRuleGroupReferences
         {
             get => _statelessRuleGroupReferences ?? (_statelessRuleGroupReferences = new InputList<Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceGetArgs>());
             set => _statelessRuleGroupReferences = value;
         }
 
-        /// <summary>
-        /// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
-        /// </summary>
         [Input("tlsInspectionConfigurationArn")]
         public Input<string>? TlsInspectionConfigurationArn { get; set; }
 

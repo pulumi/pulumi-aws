@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventTargetAppsyncTargetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains the GraphQL mutation to be parsed and executed.
-        /// </summary>
         [Input("graphqlOperation")]
         public Input<string>? GraphqlOperation { get; set; }
 

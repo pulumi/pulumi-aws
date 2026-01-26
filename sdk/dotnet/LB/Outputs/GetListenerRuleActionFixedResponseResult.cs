@@ -13,17 +13,8 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionFixedResponseResult
     {
-        /// <summary>
-        /// Content type of the response.
-        /// </summary>
         public readonly string ContentType;
-        /// <summary>
-        /// Message body of the response.
-        /// </summary>
         public readonly string MessageBody;
-        /// <summary>
-        /// The HTTP redirect code.
-        /// </summary>
         public readonly string StatusCode;
 
         [OutputConstructor]

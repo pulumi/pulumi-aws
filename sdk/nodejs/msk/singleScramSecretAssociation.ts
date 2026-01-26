@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates a single SCRAM secret with a Managed Streaming for Kafka (MSK) cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.msk.SingleScramSecretAssociation("example", {
- *     clusterArn: exampleAwsMskCluster.arn,
- *     secretArn: exampleAwsSecretsmanagerSecret.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import an MSK SCRAM Secret Association using the `cluster_arn` and `secret_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3,arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
- * ```
- */
 export class SingleScramSecretAssociation extends pulumi.CustomResource {
     /**
      * Get an existing SingleScramSecretAssociation resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class SingleScramSecretAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SingleScramSecretAssociation.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     */
     declare public readonly clusterArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * AWS Secrets Manager secret ARN.
-     */
     declare public readonly secretArn: pulumi.Output<string>;
 
     /**
@@ -105,17 +73,8 @@ export class SingleScramSecretAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SingleScramSecretAssociation resources.
  */
 export interface SingleScramSecretAssociationState {
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     */
     clusterArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * AWS Secrets Manager secret ARN.
-     */
     secretArn?: pulumi.Input<string>;
 }
 
@@ -123,16 +82,7 @@ export interface SingleScramSecretAssociationState {
  * The set of arguments for constructing a SingleScramSecretAssociation resource.
  */
 export interface SingleScramSecretAssociationArgs {
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     */
     clusterArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * AWS Secrets Manager secret ARN.
-     */
     secretArn: pulumi.Input<string>;
 }

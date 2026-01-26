@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ProjectServiceCatalogProvisioningDetails
     {
-        /// <summary>
-        /// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
-        /// </summary>
         public readonly string? PathId;
-        /// <summary>
-        /// The ID of the product to provision.
-        /// </summary>
         public readonly string ProductId;
-        /// <summary>
-        /// The ID of the provisioning artifact.
-        /// </summary>
         public readonly string? ProvisioningArtifactId;
-        /// <summary>
-        /// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ProjectServiceCatalogProvisioningDetailsProvisioningParameter> ProvisioningParameters;
 
         [OutputConstructor]

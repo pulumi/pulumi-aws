@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Oam
 {
     public static class GetLink
     {
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Link.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetLink.Invoke(new()
-        ///     {
-        ///         LinkIdentifier = "arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLinkResult> InvokeAsync(GetLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("aws:oam/getLink:getLink", args ?? new GetLinkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Link.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetLink.Invoke(new()
-        ///     {
-        ///         LinkIdentifier = "arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws:oam/getLink:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Link.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetLink.Invoke(new()
-        ///     {
-        ///         LinkIdentifier = "arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws:oam/getLink:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetLinkArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the link.
-        /// </summary>
         [Input("linkIdentifier", required: true)]
         public string LinkIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -121,15 +46,9 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the link.
-        /// </summary>
         [Input("linkIdentifier", required: true)]
         public Input<string> LinkIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -151,39 +70,18 @@ namespace Pulumi.Aws.Oam
     [OutputType]
     public sealed class GetLinkResult
     {
-        /// <summary>
-        /// ARN of the link.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Label that is assigned to this link.
-        /// </summary>
         public readonly string Label;
-        /// <summary>
-        /// Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
-        /// </summary>
         public readonly string LabelTemplate;
-        /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `LinkConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLinkLinkConfigurationResult> LinkConfigurations;
-        /// <summary>
-        /// ID string that AWS generated as part of the link ARN.
-        /// </summary>
         public readonly string LinkId;
         public readonly string LinkIdentifier;
         public readonly string Region;
-        /// <summary>
-        /// Types of data that the source account shares with the monitoring account.
-        /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
-        /// <summary>
-        /// ARN of the sink that is used for this link.
-        /// </summary>
         public readonly string SinkArn;
         public readonly ImmutableDictionary<string, string> Tags;
 

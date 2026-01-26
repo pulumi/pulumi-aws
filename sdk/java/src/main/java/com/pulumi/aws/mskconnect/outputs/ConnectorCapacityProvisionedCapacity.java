@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorCapacityProvisionedCapacity {
-    /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     private @Nullable Integer mcuCount;
-    /**
-     * @return The number of workers that are allocated to the connector.
-     * 
-     */
     private Integer workerCount;
 
     private ConnectorCapacityProvisionedCapacity() {}
-    /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     public Optional<Integer> mcuCount() {
         return Optional.ofNullable(this.mcuCount);
     }
-    /**
-     * @return The number of workers that are allocated to the connector.
-     * 
-     */
     public Integer workerCount() {
         return this.workerCount;
     }

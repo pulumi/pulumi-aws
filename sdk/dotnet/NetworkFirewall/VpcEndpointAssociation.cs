@@ -9,111 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall
 {
-    /// <summary>
-    /// Manages a firewall endpoint for an AWS Network Firewall firewall.
-    /// 
-    /// Use `aws.networkfirewall.VpcEndpointAssociation` to establish new firewall endpoints in any Availability Zone where the firewall is already being used. The first use of a firewall in an Availability Zone must be defined by `aws.networkfirewall.Firewall` resource and `SubnetMapping` argument.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkFirewall.VpcEndpointAssociation("example", new()
-    ///     {
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
-    ///         VpcId = exampleAwsVpc.Id,
-    ///         SubnetMapping = new Aws.NetworkFirewall.Inputs.VpcEndpointAssociationSubnetMappingArgs
-    ///         {
-    ///             SubnetId = exampleAwsSubnet.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example endpoint" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Network Firewall VPC Endpoint Association using the `vpc_endpoint_association_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation example arn:aws:network-firewall:us-west-1:123456789012:vpc-endpoint-association/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation")]
     public partial class VpcEndpointAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A description of the VPC endpoint association.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
-        /// </summary>
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-        /// </summary>
         [Output("subnetMapping")]
         public Output<Outputs.VpcEndpointAssociationSubnetMapping?> SubnetMapping { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.VpcEndpointAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the VPC Endpoint Association.
-        /// </summary>
         [Output("vpcEndpointAssociationArn")]
         public Output<string> VpcEndpointAssociationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the VPC endpoint association.
-        /// </summary>
         [Output("vpcEndpointAssociationId")]
         public Output<string> VpcEndpointAssociationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested list of information about the current status of the VPC Endpoint Association.
-        /// </summary>
         [Output("vpcEndpointAssociationStatuses")]
         public Output<ImmutableArray<Outputs.VpcEndpointAssociationVpcEndpointAssociationStatus>> VpcEndpointAssociationStatuses { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the VPC for the endpoint association.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -163,36 +91,20 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class VpcEndpointAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the VPC endpoint association.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
-        /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-        /// </summary>
         [Input("subnetMapping")]
         public Input<Inputs.VpcEndpointAssociationSubnetMappingArgs>? SubnetMapping { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -202,9 +114,6 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("timeouts")]
         public Input<Inputs.VpcEndpointAssociationTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the VPC for the endpoint association.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -216,36 +125,20 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class VpcEndpointAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the VPC endpoint association.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
-        /// </summary>
         [Input("firewallArn")]
         public Input<string>? FirewallArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-        /// </summary>
         [Input("subnetMapping")]
         public Input<Inputs.VpcEndpointAssociationSubnetMappingGetArgs>? SubnetMapping { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -254,10 +147,6 @@ namespace Pulumi.Aws.NetworkFirewall
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -267,33 +156,20 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("timeouts")]
         public Input<Inputs.VpcEndpointAssociationTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ARN of the VPC Endpoint Association.
-        /// </summary>
         [Input("vpcEndpointAssociationArn")]
         public Input<string>? VpcEndpointAssociationArn { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the VPC endpoint association.
-        /// </summary>
         [Input("vpcEndpointAssociationId")]
         public Input<string>? VpcEndpointAssociationId { get; set; }
 
         [Input("vpcEndpointAssociationStatuses")]
         private InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusGetArgs>? _vpcEndpointAssociationStatuses;
-
-        /// <summary>
-        /// Nested list of information about the current status of the VPC Endpoint Association.
-        /// </summary>
         public InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusGetArgs> VpcEndpointAssociationStatuses
         {
             get => _vpcEndpointAssociationStatuses ?? (_vpcEndpointAssociationStatuses = new InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusGetArgs>());
             set => _vpcEndpointAssociationStatuses = value;
         }
 
-        /// <summary>
-        /// The unique identifier of the VPC for the endpoint association.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

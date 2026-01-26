@@ -16,32 +16,16 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
 
     public static final CatalogTableOpenTableFormatInputIcebergInputArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputArgs();
 
-    /**
-     * A required metadata operation. Can only be set to CREATE.
-     * 
-     */
     @Import(name="metadataOperation", required=true)
     private Output<String> metadataOperation;
 
-    /**
-     * @return A required metadata operation. Can only be set to CREATE.
-     * 
-     */
     public Output<String> metadataOperation() {
         return this.metadataOperation;
     }
 
-    /**
-     * The table version for the Iceberg table. Defaults to 2.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return The table version for the Iceberg table. Defaults to 2.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -71,44 +55,20 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
             $ = new CatalogTableOpenTableFormatInputIcebergInputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metadataOperation A required metadata operation. Can only be set to CREATE.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataOperation(Output<String> metadataOperation) {
             $.metadataOperation = metadataOperation;
             return this;
         }
 
-        /**
-         * @param metadataOperation A required metadata operation. Can only be set to CREATE.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataOperation(String metadataOperation) {
             return metadataOperation(Output.of(metadataOperation));
         }
 
-        /**
-         * @param version The table version for the Iceberg table. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The table version for the Iceberg table. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

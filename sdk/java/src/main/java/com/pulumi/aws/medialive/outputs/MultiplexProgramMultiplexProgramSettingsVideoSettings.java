@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiplexProgramMultiplexProgramSettingsVideoSettings {
-    /**
-     * @return Constant bitrate value.
-     * 
-     */
     private @Nullable Integer constantBitrate;
-    /**
-     * @return Statmux settings. See Statmux Settings for more details.
-     * 
-     */
     private @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings statmuxSettings;
 
     private MultiplexProgramMultiplexProgramSettingsVideoSettings() {}
-    /**
-     * @return Constant bitrate value.
-     * 
-     */
     public Optional<Integer> constantBitrate() {
         return Optional.ofNullable(this.constantBitrate);
     }
-    /**
-     * @return Statmux settings. See Statmux Settings for more details.
-     * 
-     */
     public Optional<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings> statmuxSettings() {
         return Optional.ofNullable(this.statmuxSettings);
     }

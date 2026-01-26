@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseConsumptionConfigurationBorrowConfiguration {
-    /**
-     * @return Indicates whether early check-ins are allowed.
-     * 
-     */
     private Boolean allowEarlyCheckIn;
-    /**
-     * @return Maximum time for the provisional configuration, in minutes.
-     * 
-     */
     private Integer maxTimeToLiveInMinutes;
 
     private GetReceivedLicenseConsumptionConfigurationBorrowConfiguration() {}
-    /**
-     * @return Indicates whether early check-ins are allowed.
-     * 
-     */
     public Boolean allowEarlyCheckIn() {
         return this.allowEarlyCheckIn;
     }
-    /**
-     * @return Maximum time for the provisional configuration, in minutes.
-     * 
-     */
     public Integer maxTimeToLiveInMinutes() {
         return this.maxTimeToLiveInMinutes;
     }

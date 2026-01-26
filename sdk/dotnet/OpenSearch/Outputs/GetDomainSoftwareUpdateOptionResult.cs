@@ -13,9 +13,6 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainSoftwareUpdateOptionResult
     {
-        /// <summary>
-        /// Enabled or disabled.
-        /// </summary>
         public readonly bool AutoSoftwareUpdateEnabled;
 
         [OutputConstructor]

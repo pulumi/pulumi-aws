@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RecommendationPreferencesScope {
-    /**
-     * @return The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-     * 
-     */
     private String name;
-    /**
-     * @return The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-     * 
-     */
     private String value;
 
     private RecommendationPreferencesScope() {}
-    /**
-     * @return The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-     * 
-     */
     public String value() {
         return this.value;
     }

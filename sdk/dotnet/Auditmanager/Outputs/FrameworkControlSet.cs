@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class FrameworkControlSet
     {
-        /// <summary>
-        /// Configuration block(s) for the controls within the control set. See `Controls` Block below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FrameworkControlSetControl> Controls;
-        /// <summary>
-        /// Unique identifier for the framework.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Name of the control set.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

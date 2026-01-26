@@ -18,62 +18,30 @@ public final class BucketServerSideEncryptionConfigurationArgs extends com.pulum
 
     public static final BucketServerSideEncryptionConfigurationArgs Empty = new BucketServerSideEncryptionConfigurationArgs();
 
-    /**
-     * ID (name) of the bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return ID (name) of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<BucketServerSideEncryptionConfigurationRuleArgs>> rules;
 
-    /**
-     * @return Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-     * 
-     */
     public Output<List<BucketServerSideEncryptionConfigurationRuleArgs>> rules() {
         return this.rules;
     }
@@ -105,96 +73,42 @@ public final class BucketServerSideEncryptionConfigurationArgs extends com.pulum
             $ = new BucketServerSideEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket ID (name) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket ID (name) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rules Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<BucketServerSideEncryptionConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<BucketServerSideEncryptionConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(BucketServerSideEncryptionConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }

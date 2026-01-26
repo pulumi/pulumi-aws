@@ -11,156 +11,12 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetCachePolicy
     {
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront cache policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### AWS-Managed Policies
-        /// 
-        /// AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example1 = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "Managed-CachingOptimized",
-        ///     });
-        /// 
-        ///     var example2 = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "UseOriginCacheControlHeaders",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront cache policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### AWS-Managed Policies
-        /// 
-        /// AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example1 = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "Managed-CachingOptimized",
-        ///     });
-        /// 
-        ///     var example2 = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "UseOriginCacheControlHeaders",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront cache policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### AWS-Managed Policies
-        /// 
-        /// AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example1 = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "Managed-CachingOptimized",
-        ///     });
-        /// 
-        ///     var example2 = Aws.CloudFront.GetCachePolicy.Invoke(new()
-        ///     {
-        ///         Name = "UseOriginCacheControlHeaders",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());
     }
@@ -168,15 +24,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetCachePolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the cache policy.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Unique name to identify the cache policy.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -188,15 +38,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetCachePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the cache policy.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Unique name to identify the cache policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -210,35 +54,14 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetCachePolicyResult
     {
-        /// <summary>
-        /// The cache policy ARN.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Comment to describe the cache policy.
-        /// </summary>
         public readonly string Comment;
-        /// <summary>
-        /// Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        /// </summary>
         public readonly int DefaultTtl;
-        /// <summary>
-        /// Current version of the cache policy.
-        /// </summary>
         public readonly string Etag;
         public readonly string? Id;
-        /// <summary>
-        /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        /// </summary>
         public readonly int MaxTtl;
-        /// <summary>
-        /// Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        /// </summary>
         public readonly int MinTtl;
         public readonly string? Name;
-        /// <summary>
-        /// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult> ParametersInCacheKeyAndForwardedToOrigins;
 
         [OutputConstructor]

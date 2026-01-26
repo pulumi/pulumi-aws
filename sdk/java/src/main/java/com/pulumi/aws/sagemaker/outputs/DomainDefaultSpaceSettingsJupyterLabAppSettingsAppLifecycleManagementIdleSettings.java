@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
-    /**
-     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-     * 
-     */
     private @Nullable Integer idleTimeoutInMinutes;
-    /**
-     * @return Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String lifecycleManagement;
-    /**
-     * @return The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     private @Nullable Integer maxIdleTimeoutInMinutes;
-    /**
-     * @return The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     private @Nullable Integer minIdleTimeoutInMinutes;
 
     private DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings() {}
-    /**
-     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-     * 
-     */
     public Optional<Integer> idleTimeoutInMinutes() {
         return Optional.ofNullable(this.idleTimeoutInMinutes);
     }
-    /**
-     * @return Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> lifecycleManagement() {
         return Optional.ofNullable(this.lifecycleManagement);
     }
-    /**
-     * @return The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     public Optional<Integer> maxIdleTimeoutInMinutes() {
         return Optional.ofNullable(this.maxIdleTimeoutInMinutes);
     }
-    /**
-     * @return The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     public Optional<Integer> minIdleTimeoutInMinutes() {
         return Optional.ofNullable(this.minIdleTimeoutInMinutes);
     }

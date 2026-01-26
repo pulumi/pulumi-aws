@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * The Batch Compute Environment data source allows access to details of a specific
- * compute environment within AWS Batch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const batch_mongo = aws.batch.getComputeEnvironment({
- *     name: "batch-mongo-production",
- * });
- * ```
- */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
@@ -35,17 +20,8 @@ export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pu
  * A collection of arguments for invoking getComputeEnvironment.
  */
 export interface GetComputeEnvironmentArgs {
-    /**
-     * Name of the Batch Compute Environment
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Key-value map of resource tags
-     */
     tags?: {[key: string]: string};
 }
 
@@ -53,13 +29,7 @@ export interface GetComputeEnvironmentArgs {
  * A collection of values returned by getComputeEnvironment.
  */
 export interface GetComputeEnvironmentResult {
-    /**
-     * ARN of the compute environment.
-     */
     readonly arn: string;
-    /**
-     * ARN of the underlying Amazon ECS cluster used by the compute environment.
-     */
     readonly ecsClusterArn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -67,50 +37,14 @@ export interface GetComputeEnvironmentResult {
     readonly id: string;
     readonly name: string;
     readonly region: string;
-    /**
-     * ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-     */
     readonly serviceRole: string;
-    /**
-     * State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
-     */
     readonly state: string;
-    /**
-     * Current status of the compute environment (for example, `CREATING` or `VALID`).
-     */
     readonly status: string;
-    /**
-     * Short, human-readable string to provide additional details about the current status of the compute environment.
-     */
     readonly statusReason: string;
-    /**
-     * Key-value map of resource tags
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
-     */
     readonly type: string;
-    /**
-     * Specifies the infrastructure update policy for the compute environment.
-     */
     readonly updatePolicies: outputs.batch.GetComputeEnvironmentUpdatePolicy[];
 }
-/**
- * The Batch Compute Environment data source allows access to details of a specific
- * compute environment within AWS Batch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const batch_mongo = aws.batch.getComputeEnvironment({
- *     name: "batch-mongo-production",
- * });
- * ```
- */
 export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getComputeEnvironment:getComputeEnvironment", {
@@ -124,16 +58,7 @@ export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArg
  * A collection of arguments for invoking getComputeEnvironment.
  */
 export interface GetComputeEnvironmentOutputArgs {
-    /**
-     * Name of the Batch Compute Environment
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

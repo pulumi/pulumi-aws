@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReceiptRuleSnsAction {
-    /**
-     * @return The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-     * 
-     */
     private @Nullable String encoding;
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     private Integer position;
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     private String topicArn;
 
     private ReceiptRuleSnsAction() {}
-    /**
-     * @return The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-     * 
-     */
     public Optional<String> encoding() {
         return Optional.ofNullable(this.encoding);
     }
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Integer position() {
         return this.position;
     }
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     public String topicArn() {
         return this.topicArn;
     }

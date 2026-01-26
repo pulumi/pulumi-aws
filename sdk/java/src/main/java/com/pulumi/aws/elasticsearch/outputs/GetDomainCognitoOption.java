@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainCognitoOption {
-    /**
-     * @return Whether node to node encryption is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The Cognito Identity pool used by the domain.
-     * 
-     */
     private String identityPoolId;
-    /**
-     * @return The IAM Role with the AmazonESCognitoAccess policy attached.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The Cognito User pool used by the domain.
-     * 
-     */
     private String userPoolId;
 
     private GetDomainCognitoOption() {}
-    /**
-     * @return Whether node to node encryption is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The Cognito Identity pool used by the domain.
-     * 
-     */
     public String identityPoolId() {
         return this.identityPoolId;
     }
-    /**
-     * @return The IAM Role with the AmazonESCognitoAccess policy attached.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The Cognito User pool used by the domain.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }

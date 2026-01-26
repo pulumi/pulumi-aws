@@ -16,81 +16,37 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HsmArgs Empty = new HsmArgs();
 
-    /**
-     * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * The ID of Cloud HSM v2 cluster to which HSM will be added.
-     * 
-     */
     @Import(name="clusterId", required=true)
     private Output<String> clusterId;
 
-    /**
-     * @return The ID of Cloud HSM v2 cluster to which HSM will be added.
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
 
-    /**
-     * The IP address of HSM module. Must be within the CIDR of selected subnet.
-     * 
-     * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
-     * 
-     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
-    /**
-     * @return The IP address of HSM module. Must be within the CIDR of selected subnet.
-     * 
-     * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
-     * 
-     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -123,111 +79,47 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HsmArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZone The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param clusterId The ID of Cloud HSM v2 cluster to which HSM will be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(Output<String> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
-        /**
-         * @param clusterId The ID of Cloud HSM v2 cluster to which HSM will be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(String clusterId) {
             return clusterId(Output.of(clusterId));
         }
 
-        /**
-         * @param ipAddress The IP address of HSM module. Must be within the CIDR of selected subnet.
-         * 
-         * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
-        /**
-         * @param ipAddress The IP address of HSM module. Must be within the CIDR of selected subnet.
-         * 
-         * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subnetId The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

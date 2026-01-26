@@ -13,39 +13,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EmailTemplateEmailTemplate {
-    /**
-     * @return JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that&#39;s based on the template, you can override these defaults with message-specific and address-specific variables and values.
-     * 
-     */
     private @Nullable String defaultSubstitutions;
     private @Nullable String description;
     private @Nullable List<EmailTemplateEmailTemplateHeader> headers;
-    /**
-     * @return The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-     * 
-     */
     private @Nullable String htmlPart;
-    /**
-     * @return The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-     * 
-     */
     private @Nullable String recommenderId;
-    /**
-     * @return Subject line, or title, to use in email messages that are based on the message template.
-     * 
-     */
     private @Nullable String subject;
-    /**
-     * @return Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don&#39;t render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-     * 
-     */
     private @Nullable String textPart;
 
     private EmailTemplateEmailTemplate() {}
-    /**
-     * @return JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that&#39;s based on the template, you can override these defaults with message-specific and address-specific variables and values.
-     * 
-     */
     public Optional<String> defaultSubstitutions() {
         return Optional.ofNullable(this.defaultSubstitutions);
     }
@@ -55,31 +31,15 @@ public final class EmailTemplateEmailTemplate {
     public List<EmailTemplateEmailTemplateHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-     * 
-     */
     public Optional<String> htmlPart() {
         return Optional.ofNullable(this.htmlPart);
     }
-    /**
-     * @return The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-     * 
-     */
     public Optional<String> recommenderId() {
         return Optional.ofNullable(this.recommenderId);
     }
-    /**
-     * @return Subject line, or title, to use in email messages that are based on the message template.
-     * 
-     */
     public Optional<String> subject() {
         return Optional.ofNullable(this.subject);
     }
-    /**
-     * @return Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don&#39;t render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-     * 
-     */
     public Optional<String> textPart() {
         return Optional.ofNullable(this.textPart);
     }

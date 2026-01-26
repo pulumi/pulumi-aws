@@ -12,18 +12,11 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
     public sealed class DataLakeConfigurationLifecycleConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Provides data expiration details of Amazon Security Lake object.
-        /// </summary>
         [Input("expiration")]
         public Input<Inputs.DataLakeConfigurationLifecycleConfigurationExpirationGetArgs>? Expiration { get; set; }
 
         [Input("transitions")]
         private InputList<Inputs.DataLakeConfigurationLifecycleConfigurationTransitionGetArgs>? _transitions;
-
-        /// <summary>
-        /// Provides data storage transition details of Amazon Security Lake object.
-        /// </summary>
         public InputList<Inputs.DataLakeConfigurationLifecycleConfigurationTransitionGetArgs> Transitions
         {
             get => _transitions ?? (_transitions = new InputList<Inputs.DataLakeConfigurationLifecycleConfigurationTransitionGetArgs>());

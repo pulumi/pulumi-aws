@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
-    /**
-     * @return Enables or disables the Secrets Manager configuration.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The ARN of the role the stream assumes.
-     * 
-     */
     private @Nullable String roleArn;
-    /**
-     * @return The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
-     * 
-     */
     private @Nullable String secretArn;
 
     private FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration() {}
-    /**
-     * @return Enables or disables the Secrets Manager configuration.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The ARN of the role the stream assumes.
-     * 
-     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
-    /**
-     * @return The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
-     * 
-     */
     public Optional<String> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }

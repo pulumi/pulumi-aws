@@ -14,216 +14,71 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Disable/enable Security Hub standards control in the current region.
- * 
- * The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
- * Pulumi does not _create_ this resource, but instead &#34;adopts&#34; it
- * into management. When you _delete_ this resource configuration, Pulumi &#34;abandons&#34; resource as is and just removes it from the state.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.StandardsSubscription;
- * import com.pulumi.aws.securityhub.StandardsSubscriptionArgs;
- * import com.pulumi.aws.securityhub.StandardsControl;
- * import com.pulumi.aws.securityhub.StandardsControlArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account("example");
- * 
- *         var cisAwsFoundationsBenchmark = new StandardsSubscription("cisAwsFoundationsBenchmark", StandardsSubscriptionArgs.builder()
- *             .standardsArn("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *         var ensureIamPasswordPolicyPreventsPasswordReuse = new StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", StandardsControlArgs.builder()
- *             .standardsControlArn("arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10")
- *             .controlStatus("DISABLED")
- *             .disabledReason("We handle password policies within Okta")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(cisAwsFoundationsBenchmark)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:securityhub/standardsControl:StandardsControl")
 public class StandardsControl extends com.pulumi.resources.CustomResource {
-    /**
-     * The identifier of the security standard control.
-     * 
-     */
     @Export(name="controlId", refs={String.class}, tree="[0]")
     private Output<String> controlId;
 
-    /**
-     * @return The identifier of the security standard control.
-     * 
-     */
     public Output<String> controlId() {
         return this.controlId;
     }
-    /**
-     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-     * 
-     */
     @Export(name="controlStatus", refs={String.class}, tree="[0]")
     private Output<String> controlStatus;
 
-    /**
-     * @return The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-     * 
-     */
     public Output<String> controlStatus() {
         return this.controlStatus;
     }
-    /**
-     * The date and time that the status of the security standard control was most recently updated.
-     * 
-     */
     @Export(name="controlStatusUpdatedAt", refs={String.class}, tree="[0]")
     private Output<String> controlStatusUpdatedAt;
 
-    /**
-     * @return The date and time that the status of the security standard control was most recently updated.
-     * 
-     */
     public Output<String> controlStatusUpdatedAt() {
         return this.controlStatusUpdatedAt;
     }
-    /**
-     * The standard control longer description. Provides information about what the control is checking for.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The standard control longer description. Provides information about what the control is checking for.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-     * 
-     */
     @Export(name="disabledReason", refs={String.class}, tree="[0]")
     private Output<String> disabledReason;
 
-    /**
-     * @return A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-     * 
-     */
     public Output<String> disabledReason() {
         return this.disabledReason;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The list of requirements that are related to this control.
-     * 
-     */
     @Export(name="relatedRequirements", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> relatedRequirements;
 
-    /**
-     * @return The list of requirements that are related to this control.
-     * 
-     */
     public Output<List<String>> relatedRequirements() {
         return this.relatedRequirements;
     }
-    /**
-     * A link to remediation information for the control in the Security Hub user documentation.
-     * 
-     */
     @Export(name="remediationUrl", refs={String.class}, tree="[0]")
     private Output<String> remediationUrl;
 
-    /**
-     * @return A link to remediation information for the control in the Security Hub user documentation.
-     * 
-     */
     public Output<String> remediationUrl() {
         return this.remediationUrl;
     }
-    /**
-     * The severity of findings generated from this security standard control.
-     * 
-     */
     @Export(name="severityRating", refs={String.class}, tree="[0]")
     private Output<String> severityRating;
 
-    /**
-     * @return The severity of findings generated from this security standard control.
-     * 
-     */
     public Output<String> severityRating() {
         return this.severityRating;
     }
-    /**
-     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-     * 
-     */
     @Export(name="standardsControlArn", refs={String.class}, tree="[0]")
     private Output<String> standardsControlArn;
 
-    /**
-     * @return The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-     * 
-     */
     public Output<String> standardsControlArn() {
         return this.standardsControlArn;
     }
-    /**
-     * The standard control title.
-     * 
-     */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
-    /**
-     * @return The standard control title.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }

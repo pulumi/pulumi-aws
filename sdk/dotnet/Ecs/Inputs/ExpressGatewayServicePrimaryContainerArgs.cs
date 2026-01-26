@@ -22,19 +22,12 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         [Input("commands")]
         private InputList<string>? _commands;
-
-        /// <summary>
-        /// Command to run in the container. Overrides the default command from the Docker image.
-        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
             set => _commands = value;
         }
 
-        /// <summary>
-        /// Port on which the container listens for connections.
-        /// </summary>
         [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }
 
@@ -46,9 +39,6 @@ namespace Pulumi.Aws.Ecs.Inputs
             set => _environments = value;
         }
 
-        /// <summary>
-        /// Docker image to use for the container.
-        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 

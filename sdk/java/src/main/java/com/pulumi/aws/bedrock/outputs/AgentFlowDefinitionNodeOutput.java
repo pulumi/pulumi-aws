@@ -10,18 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeOutput {
-    /**
-     * @return A name for the flow.
-     * 
-     */
     private String name;
     private String type;
 
     private AgentFlowDefinitionNodeOutput() {}
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public String name() {
         return this.name;
     }

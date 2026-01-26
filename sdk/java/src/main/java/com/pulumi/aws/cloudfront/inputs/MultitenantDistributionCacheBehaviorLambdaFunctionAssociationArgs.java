@@ -17,47 +17,23 @@ public final class MultitenantDistributionCacheBehaviorLambdaFunctionAssociation
 
     public static final MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs Empty = new MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs();
 
-    /**
-     * Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-     * 
-     */
     @Import(name="eventType", required=true)
     private Output<String> eventType;
 
-    /**
-     * @return Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-     * 
-     */
     public Output<String> eventType() {
         return this.eventType;
     }
 
-    /**
-     * When set to true, the request body is exposed to the Lambda function. Default: `false`.
-     * 
-     */
     @Import(name="includeBody")
     private @Nullable Output<Boolean> includeBody;
 
-    /**
-     * @return When set to true, the request body is exposed to the Lambda function. Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> includeBody() {
         return Optional.ofNullable(this.includeBody);
     }
 
-    /**
-     * ARN of the Lambda function.
-     * 
-     */
     @Import(name="lambdaFunctionArn", required=true)
     private Output<String> lambdaFunctionArn;
 
-    /**
-     * @return ARN of the Lambda function.
-     * 
-     */
     public Output<String> lambdaFunctionArn() {
         return this.lambdaFunctionArn;
     }
@@ -88,65 +64,29 @@ public final class MultitenantDistributionCacheBehaviorLambdaFunctionAssociation
             $ = new MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventType Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(Output<String> eventType) {
             $.eventType = eventType;
             return this;
         }
 
-        /**
-         * @param eventType Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(String eventType) {
             return eventType(Output.of(eventType));
         }
 
-        /**
-         * @param includeBody When set to true, the request body is exposed to the Lambda function. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeBody(@Nullable Output<Boolean> includeBody) {
             $.includeBody = includeBody;
             return this;
         }
 
-        /**
-         * @param includeBody When set to true, the request body is exposed to the Lambda function. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeBody(Boolean includeBody) {
             return includeBody(Output.of(includeBody));
         }
 
-        /**
-         * @param lambdaFunctionArn ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionArn(Output<String> lambdaFunctionArn) {
             $.lambdaFunctionArn = lambdaFunctionArn;
             return this;
         }
 
-        /**
-         * @param lambdaFunctionArn ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionArn(String lambdaFunctionArn) {
             return lambdaFunctionArn(Output.of(lambdaFunctionArn));
         }

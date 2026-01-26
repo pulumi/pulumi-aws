@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
-    /**
-     * @return SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames subjectAlternativeNames;
-    /**
-     * @return TLS validation context trust.
-     * 
-     */
     private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust;
 
     private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation() {}
-    /**
-     * @return SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public Optional<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
-    /**
-     * @return TLS validation context trust.
-     * 
-     */
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust trust() {
         return this.trust;
     }

@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Route 53 Recovery Readiness Recovery Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoveryreadiness.RecoveryGroup("example", {recoveryGroupName: "my-high-availability-app"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
- *
- * ```sh
- * $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
- * ```
- */
 export class RecoveryGroup extends pulumi.CustomResource {
     /**
      * Get an existing RecoveryGroup resource's state with the given name, ID, and optional extra
@@ -52,27 +32,10 @@ export class RecoveryGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RecoveryGroup.__pulumiType;
     }
 
-    /**
-     * ARN of the recovery group
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * List of cell arns to add as nested fault domains within this recovery group
-     */
     declare public readonly cells: pulumi.Output<string[] | undefined>;
-    /**
-     * A unique name describing the recovery group.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly recoveryGroupName: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -113,27 +76,10 @@ export class RecoveryGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RecoveryGroup resources.
  */
 export interface RecoveryGroupState {
-    /**
-     * ARN of the recovery group
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * List of cell arns to add as nested fault domains within this recovery group
-     */
     cells?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A unique name describing the recovery group.
-     *
-     * The following arguments are optional:
-     */
     recoveryGroupName?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -141,18 +87,7 @@ export interface RecoveryGroupState {
  * The set of arguments for constructing a RecoveryGroup resource.
  */
 export interface RecoveryGroupArgs {
-    /**
-     * List of cell arns to add as nested fault domains within this recovery group
-     */
     cells?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A unique name describing the recovery group.
-     *
-     * The following arguments are optional:
-     */
     recoveryGroupName: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

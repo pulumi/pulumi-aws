@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The day of the month that you want to schedule refresh on.
-        /// </summary>
         [Input("dayOfMonth")]
         public Input<string>? DayOfMonth { get; set; }
 
-        /// <summary>
-        /// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
-        /// </summary>
         [Input("dayOfWeek")]
         public Input<string>? DayOfWeek { get; set; }
 

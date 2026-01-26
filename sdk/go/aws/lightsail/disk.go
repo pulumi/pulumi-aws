@@ -12,81 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail disk. Use this resource to create additional block storage that can be attached to Lightsail instances for extra storage capacity.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDisk(ctx, "example", &lightsail.DiskArgs{
-//				Name:             pulumi.String("example-disk"),
-//				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/disk:Disk example example-disk
-// ```
 type Disk struct {
 	pulumi.CustomResourceState
 
-	// ARN of the disk.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Availability Zone in which to create the disk.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Date and time when the disk was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Size of the disk in GB.
-	//
-	// The following arguments are optional:
-	SizeInGb pulumi.IntOutput `pulumi:"sizeInGb"`
-	// Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	AvailabilityZone pulumi.StringOutput    `pulumi:"availabilityZone"`
+	CreatedAt        pulumi.StringOutput    `pulumi:"createdAt"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Region           pulumi.StringOutput    `pulumi:"region"`
+	SizeInGb         pulumi.IntOutput       `pulumi:"sizeInGb"`
+	SupportCode      pulumi.StringOutput    `pulumi:"supportCode"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDisk registers a new resource with the given unique name, arguments, and options.
@@ -125,49 +62,27 @@ func GetDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Disk resources.
 type diskState struct {
-	// ARN of the disk.
-	Arn *string `pulumi:"arn"`
-	// Availability Zone in which to create the disk.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Date and time when the disk was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Size of the disk in GB.
-	//
-	// The following arguments are optional:
-	SizeInGb *int `pulumi:"sizeInGb"`
-	// Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
-	SupportCode *string `pulumi:"supportCode"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string           `pulumi:"arn"`
+	AvailabilityZone *string           `pulumi:"availabilityZone"`
+	CreatedAt        *string           `pulumi:"createdAt"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	SizeInGb         *int              `pulumi:"sizeInGb"`
+	SupportCode      *string           `pulumi:"supportCode"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type DiskState struct {
-	// ARN of the disk.
-	Arn pulumi.StringPtrInput
-	// Availability Zone in which to create the disk.
+	Arn              pulumi.StringPtrInput
 	AvailabilityZone pulumi.StringPtrInput
-	// Date and time when the disk was created.
-	CreatedAt pulumi.StringPtrInput
-	// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Size of the disk in GB.
-	//
-	// The following arguments are optional:
-	SizeInGb pulumi.IntPtrInput
-	// Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
-	SupportCode pulumi.StringPtrInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	CreatedAt        pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	SizeInGb         pulumi.IntPtrInput
+	SupportCode      pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (DiskState) ElementType() reflect.Type {
@@ -175,34 +90,20 @@ func (DiskState) ElementType() reflect.Type {
 }
 
 type diskArgs struct {
-	// Availability Zone in which to create the disk.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Size of the disk in GB.
-	//
-	// The following arguments are optional:
-	SizeInGb int `pulumi:"sizeInGb"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AvailabilityZone string            `pulumi:"availabilityZone"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	SizeInGb         int               `pulumi:"sizeInGb"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
-	// Availability Zone in which to create the disk.
 	AvailabilityZone pulumi.StringInput
-	// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Size of the disk in GB.
-	//
-	// The following arguments are optional:
-	SizeInGb pulumi.IntInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	SizeInGb         pulumi.IntInput
+	Tags             pulumi.StringMapInput
 }
 
 func (DiskArgs) ElementType() reflect.Type {
@@ -292,49 +193,38 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
-// ARN of the disk.
 func (o DiskOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Availability Zone in which to create the disk.
 func (o DiskOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Date and time when the disk was created.
 func (o DiskOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
 func (o DiskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DiskOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Size of the disk in GB.
-//
-// The following arguments are optional:
 func (o DiskOutput) SizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Disk) pulumi.IntOutput { return v.SizeInGb }).(pulumi.IntOutput)
 }
 
-// Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
 func (o DiskOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DiskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DiskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

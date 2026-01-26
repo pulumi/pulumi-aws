@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class ExperienceConfigurationContentSourceConfiguration
     {
-        /// <summary>
-        /// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-        /// </summary>
         public readonly ImmutableArray<string> DataSourceIds;
-        /// <summary>
-        /// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `False`.
-        /// </summary>
         public readonly bool? DirectPutContent;
-        /// <summary>
-        /// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-        /// </summary>
         public readonly ImmutableArray<string> FaqIds;
 
         [OutputConstructor]

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Cognito
 {
     public static class GetUserPool
     {
-        /// <summary>
-        /// Data source for managing an AWS Cognito User Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Cognito.GetUserPool.Invoke(new()
-        ///     {
-        ///         UserPoolId = "us-west-2_aaaaaaaaa",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetUserPoolResult> InvokeAsync(GetUserPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolResult>("aws:cognito/getUserPool:getUserPool", args ?? new GetUserPoolArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Cognito User Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Cognito.GetUserPool.Invoke(new()
-        ///     {
-        ///         UserPoolId = "us-west-2_aaaaaaaaa",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserPoolResult> Invoke(GetUserPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolResult>("aws:cognito/getUserPool:getUserPool", args ?? new GetUserPoolInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Cognito User Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Cognito.GetUserPool.Invoke(new()
-        ///     {
-        ///         UserPoolId = "us-west-2_aaaaaaaaa",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserPoolResult> Invoke(GetUserPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolResult>("aws:cognito/getUserPool:getUserPool", args ?? new GetUserPoolInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The cognito pool ID
-        /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The cognito pool ID
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -137,83 +56,29 @@ namespace Pulumi.Aws.Cognito
     {
         public readonly ImmutableArray<Outputs.GetUserPoolAccountRecoverySettingResult> AccountRecoverySettings;
         public readonly ImmutableArray<Outputs.GetUserPoolAdminCreateUserConfigResult> AdminCreateUserConfigs;
-        /// <summary>
-        /// ARN of the User Pool.
-        /// * AccountRecoverySetting - The available verified method a user can use to recover their password when they call ForgotPassword. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
-        /// * AdminCreateUserConfig - The configuration for AdminCreateUser requests.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The attributes that are auto-verified in a user pool.
-        /// </summary>
         public readonly ImmutableArray<string> AutoVerifiedAttributes;
-        /// <summary>
-        /// The date and time, in ISO 8601 format, when the item was created.
-        /// </summary>
         public readonly string CreationDate;
-        /// <summary>
-        /// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. An example of a custom domain name might be auth.example.com.
-        /// </summary>
         public readonly string CustomDomain;
-        /// <summary>
-        /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.
-        /// * DeviceConfiguration - The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
-        /// </summary>
         public readonly string DeletionProtection;
         public readonly ImmutableArray<Outputs.GetUserPoolDeviceConfigurationResult> DeviceConfigurations;
-        /// <summary>
-        /// The domain prefix, if the user pool has a domain associated with it.
-        /// * EmailConfiguration - The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
-        /// </summary>
         public readonly string Domain;
         public readonly ImmutableArray<Outputs.GetUserPoolEmailConfigurationResult> EmailConfigurations;
-        /// <summary>
-        /// A number estimating the size of the user pool.
-        /// * LambdaConfig - The AWS Lambda triggers associated with the user pool.
-        /// </summary>
         public readonly int EstimatedNumberOfUsers;
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetUserPoolLambdaConfigResult> LambdaConfigs;
-        /// <summary>
-        /// The date and time, in ISO 8601 format, when the item was modified.
-        /// </summary>
         public readonly string LastModifiedDate;
-        /// <summary>
-        /// Can be one of the following values: `OFF` | `ON` | `OPTIONAL`
-        /// </summary>
         public readonly string MfaConfiguration;
-        /// <summary>
-        /// - Name of the attribute.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
         public readonly ImmutableArray<Outputs.GetUserPoolSchemaAttributeResult> SchemaAttributes;
-        /// <summary>
-        /// The contents of the SMS authentication message.
-        /// </summary>
         public readonly string SmsAuthenticationMessage;
-        /// <summary>
-        /// The reason why the SMS configuration can't send the messages to your users.
-        /// </summary>
         public readonly string SmsConfigurationFailure;
-        /// <summary>
-        /// The contents of the SMS authentication message.
-        /// </summary>
         public readonly string SmsVerificationMessage;
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// * UserPoolAddOns - The user pool add-ons configuration.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<Outputs.GetUserPoolUserPoolAddOnResult> UserPoolAddOns;
         public readonly string UserPoolId;
-        /// <summary>
-        /// (Deprecated) Map of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> UserPoolTags;
-        /// <summary>
-        /// Specifies whether a user can use an email address or phone number as a username when they sign up.
-        /// </summary>
         public readonly ImmutableArray<string> UsernameAttributes;
 
         [OutputConstructor]

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ApiEventConfigAuthProviderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration for Cognito user pool authentication. Required when `AuthType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-        /// </summary>
         [Input("cognitoConfig")]
         public Input<Inputs.ApiEventConfigAuthProviderCognitoConfigGetArgs>? CognitoConfig { get; set; }
 
-        /// <summary>
-        /// Configuration for Lambda authorization. Required when `AuthType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-        /// </summary>
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.ApiEventConfigAuthProviderLambdaAuthorizerConfigGetArgs>? LambdaAuthorizerConfig { get; set; }
 
-        /// <summary>
-        /// Configuration for OpenID Connect. Required when `AuthType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-        /// </summary>
         [Input("openidConnectConfig")]
         public Input<Inputs.ApiEventConfigAuthProviderOpenidConnectConfigGetArgs>? OpenidConnectConfig { get; set; }
 

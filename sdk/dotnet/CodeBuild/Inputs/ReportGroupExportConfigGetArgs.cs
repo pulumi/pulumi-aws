@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ReportGroupExportConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-        /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.ReportGroupExportConfigS3DestinationGetArgs>? S3Destination { get; set; }
 
-        /// <summary>
-        /// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -9,54 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
-    /// <summary>
-    /// Provides an AppSync API Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.DomainNameApiAssociation("example", new()
-    ///     {
-    ///         ApiId = exampleAwsAppsyncGraphqlApi.Id,
-    ///         DomainName = exampleAwsAppsyncDomainName.DomainName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")]
     public partial class DomainNameApiAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// API ID.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// Appsync domain name.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -106,21 +67,12 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class DomainNameApiAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API ID.
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// Appsync domain name.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -132,21 +84,12 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class DomainNameApiAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API ID.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// Appsync domain name.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

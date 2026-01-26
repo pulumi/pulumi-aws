@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelHlsIngest {
-    /**
-     * @return A list of the ingest endpoints
-     * 
-     */
     private @Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints;
 
     private ChannelHlsIngest() {}
-    /**
-     * @return A list of the ingest endpoints
-     * 
-     */
     public List<ChannelHlsIngestIngestEndpoint> ingestEndpoints() {
         return this.ingestEndpoints == null ? List.of() : this.ingestEndpoints;
     }

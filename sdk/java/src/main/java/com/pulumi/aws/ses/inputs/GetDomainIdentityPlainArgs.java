@@ -15,32 +15,16 @@ public final class GetDomainIdentityPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetDomainIdentityPlainArgs Empty = new GetDomainIdentityPlainArgs();
 
-    /**
-     * Name of the domain
-     * 
-     */
     @Import(name="domain", required=true)
     private String domain;
 
-    /**
-     * @return Name of the domain
-     * 
-     */
     public String domain() {
         return this.domain;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetDomainIdentityPlainArgs extends com.pulumi.resources.Invok
             $ = new GetDomainIdentityPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain Name of the domain
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

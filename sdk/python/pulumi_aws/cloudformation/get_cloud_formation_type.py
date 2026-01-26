@@ -91,41 +91,26 @@ class GetCloudFormationTypeResult:
     @_builtins.property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> _builtins.str:
-        """
-        Identifier of the CloudFormation Type default version.
-        """
         return pulumi.get(self, "default_version_id")
 
     @_builtins.property
     @pulumi.getter(name="deprecatedStatus")
     def deprecated_status(self) -> _builtins.str:
-        """
-        Deprecation status of the CloudFormation Type.
-        """
         return pulumi.get(self, "deprecated_status")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the CloudFormation Type.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="documentationUrl")
     def documentation_url(self) -> _builtins.str:
-        """
-        URL of the documentation for the CloudFormation Type.
-        """
         return pulumi.get(self, "documentation_url")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM Role used to register the CloudFormation Type.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
@@ -139,25 +124,16 @@ class GetCloudFormationTypeResult:
     @_builtins.property
     @pulumi.getter(name="isDefaultVersion")
     def is_default_version(self) -> _builtins.bool:
-        """
-        Whether the CloudFormation Type version is the default version.
-        """
         return pulumi.get(self, "is_default_version")
 
     @_builtins.property
     @pulumi.getter(name="loggingConfigs")
     def logging_configs(self) -> Sequence['outputs.GetCloudFormationTypeLoggingConfigResult']:
-        """
-        List of objects containing logging configuration.
-        """
         return pulumi.get(self, "logging_configs")
 
     @_builtins.property
     @pulumi.getter(name="provisioningType")
     def provisioning_type(self) -> _builtins.str:
-        """
-        Provisioning behavior of the CloudFormation Type.
-        """
         return pulumi.get(self, "provisioning_type")
 
     @_builtins.property
@@ -168,17 +144,11 @@ class GetCloudFormationTypeResult:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> _builtins.str:
-        """
-        JSON document of the CloudFormation Type schema.
-        """
         return pulumi.get(self, "schema")
 
     @_builtins.property
     @pulumi.getter(name="sourceUrl")
     def source_url(self) -> _builtins.str:
-        """
-        URL of the source code for the CloudFormation Type.
-        """
         return pulumi.get(self, "source_url")
 
     @_builtins.property
@@ -204,9 +174,6 @@ class GetCloudFormationTypeResult:
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> _builtins.str:
-        """
-        Scope of the CloudFormation Type.
-        """
         return pulumi.get(self, "visibility")
 
 
@@ -243,24 +210,7 @@ def get_cloud_formation_type(arn: Optional[_builtins.str] = None,
                              version_id: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudFormationTypeResult:
     """
-    Provides details about a CloudFormation Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudformation.get_cloud_formation_type(type="RESOURCE",
-        type_name="AWS::Athena::WorkGroup")
-    ```
-
-
-    :param _builtins.str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: CloudFormation Registry Type. For example, `RESOURCE`.
-    :param _builtins.str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
-    :param _builtins.str version_id: Identifier of the CloudFormation Type version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -297,24 +247,7 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[_builtin
                                     version_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationTypeResult]:
     """
-    Provides details about a CloudFormation Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudformation.get_cloud_formation_type(type="RESOURCE",
-        type_name="AWS::Athena::WorkGroup")
-    ```
-
-
-    :param _builtins.str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: CloudFormation Registry Type. For example, `RESOURCE`.
-    :param _builtins.str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
-    :param _builtins.str version_id: Identifier of the CloudFormation Type version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -15,32 +15,16 @@ public final class CatalogDatabaseFederatedDatabaseArgs extends com.pulumi.resou
 
     public static final CatalogDatabaseFederatedDatabaseArgs Empty = new CatalogDatabaseFederatedDatabaseArgs();
 
-    /**
-     * Name of the connection to the external metastore.
-     * 
-     */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
-    /**
-     * @return Name of the connection to the external metastore.
-     * 
-     */
     public Optional<Output<String>> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
 
-    /**
-     * Unique identifier for the federated database.
-     * 
-     */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
-    /**
-     * @return Unique identifier for the federated database.
-     * 
-     */
     public Optional<Output<String>> identifier() {
         return Optional.ofNullable(this.identifier);
     }
@@ -70,44 +54,20 @@ public final class CatalogDatabaseFederatedDatabaseArgs extends com.pulumi.resou
             $ = new CatalogDatabaseFederatedDatabaseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionName Name of the connection to the external metastore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(@Nullable Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
 
-        /**
-         * @param connectionName Name of the connection to the external metastore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
         }
 
-        /**
-         * @param identifier Unique identifier for the federated database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(@Nullable Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
-        /**
-         * @param identifier Unique identifier for the federated database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }

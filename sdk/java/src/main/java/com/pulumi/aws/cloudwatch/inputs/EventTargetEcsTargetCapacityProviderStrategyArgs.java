@@ -17,47 +17,23 @@ public final class EventTargetEcsTargetCapacityProviderStrategyArgs extends com.
 
     public static final EventTargetEcsTargetCapacityProviderStrategyArgs Empty = new EventTargetEcsTargetCapacityProviderStrategyArgs();
 
-    /**
-     * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-     * 
-     */
     @Import(name="base")
     private @Nullable Output<Integer> base;
 
-    /**
-     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-     * 
-     */
     public Optional<Output<Integer>> base() {
         return Optional.ofNullable(this.base);
     }
 
-    /**
-     * Short name of the capacity provider.
-     * 
-     */
     @Import(name="capacityProvider", required=true)
     private Output<String> capacityProvider;
 
-    /**
-     * @return Short name of the capacity provider.
-     * 
-     */
     public Output<String> capacityProvider() {
         return this.capacityProvider;
     }
 
-    /**
-     * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-     * 
-     */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
-    /**
-     * @return The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-     * 
-     */
     public Optional<Output<Integer>> weight() {
         return Optional.ofNullable(this.weight);
     }
@@ -88,65 +64,29 @@ public final class EventTargetEcsTargetCapacityProviderStrategyArgs extends com.
             $ = new EventTargetEcsTargetCapacityProviderStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param base The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder base(@Nullable Output<Integer> base) {
             $.base = base;
             return this;
         }
 
-        /**
-         * @param base The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder base(Integer base) {
             return base(Output.of(base));
         }
 
-        /**
-         * @param capacityProvider Short name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProvider(Output<String> capacityProvider) {
             $.capacityProvider = capacityProvider;
             return this;
         }
 
-        /**
-         * @param capacityProvider Short name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProvider(String capacityProvider) {
             return capacityProvider(Output.of(capacityProvider));
         }
 
-        /**
-         * @param weight The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(@Nullable Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

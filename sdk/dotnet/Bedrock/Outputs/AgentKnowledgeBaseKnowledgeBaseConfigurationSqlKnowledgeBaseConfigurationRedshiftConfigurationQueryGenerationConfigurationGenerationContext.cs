@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext
     {
-        /// <summary>
-        /// Information about example queries to help the query engine generate appropriate SQL queries. See `CuratedQuery` block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery> CuratedQueries;
-        /// <summary>
-        /// Information about a table in the database. See `Table` block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable> Tables;
 
         [OutputConstructor]

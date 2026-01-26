@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserHierarchyStructureHierarchyStructureLevelFife {
-    /**
-     * @return ARN of the hierarchy level.
-     * 
-     */
     private String arn;
-    /**
-     * @return The identifier of the hierarchy level.
-     * 
-     */
     private String id;
-    /**
-     * @return Name of the user hierarchy level. Must not be more than 50 characters.
-     * 
-     */
     private String name;
 
     private GetUserHierarchyStructureHierarchyStructureLevelFife() {}
-    /**
-     * @return ARN of the hierarchy level.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The identifier of the hierarchy level.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the user hierarchy level. Must not be more than 50 characters.
-     * 
-     */
     public String name() {
         return this.name;
     }

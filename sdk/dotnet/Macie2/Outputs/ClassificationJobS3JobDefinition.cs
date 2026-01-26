@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinition
     {
-        /// <summary>
-        /// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `BucketDefinitions`. (documented below)
-        /// </summary>
         public readonly Outputs.ClassificationJobS3JobDefinitionBucketCriteria? BucketCriteria;
-        /// <summary>
-        /// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `BucketCriteria`. (documented below)
-        /// </summary>
         public readonly ImmutableArray<Outputs.ClassificationJobS3JobDefinitionBucketDefinition> BucketDefinitions;
-        /// <summary>
-        /// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
-        /// </summary>
         public readonly Outputs.ClassificationJobS3JobDefinitionScoping? Scoping;
 
         [OutputConstructor]

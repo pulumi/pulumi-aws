@@ -28,10 +28,6 @@ class CapacityBlockReservationArgs:
                  timeouts: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CapacityBlockReservation resource.
-        :param pulumi.Input[_builtins.str] capacity_block_offering_id: The Capacity Block Reservation ID.
-        :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "capacity_block_offering_id", capacity_block_offering_id)
         pulumi.set(__self__, "instance_platform", instance_platform)
@@ -45,9 +41,6 @@ class CapacityBlockReservationArgs:
     @_builtins.property
     @pulumi.getter(name="capacityBlockOfferingId")
     def capacity_block_offering_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Capacity Block Reservation ID.
-        """
         return pulumi.get(self, "capacity_block_offering_id")
 
     @capacity_block_offering_id.setter
@@ -57,9 +50,6 @@ class CapacityBlockReservationArgs:
     @_builtins.property
     @pulumi.getter(name="instancePlatform")
     def instance_platform(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        """
         return pulumi.get(self, "instance_platform")
 
     @instance_platform.setter
@@ -69,9 +59,6 @@ class CapacityBlockReservationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +68,6 @@ class CapacityBlockReservationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,24 +108,6 @@ class _CapacityBlockReservationState:
                  timeouts: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CapacityBlockReservation resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the reservation.
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Block Reservation.
-        :param pulumi.Input[_builtins.str] capacity_block_offering_id: The Capacity Block Reservation ID.
-        :param pulumi.Input[_builtins.str] created_date: The date and time at which the Capacity Block Reservation was created.
-        :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        :param pulumi.Input[_builtins.str] end_date: The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[_builtins.str] end_date_type: Indicates the way in which the Capacity Reservation ends.
-        :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
-        :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[_builtins.str] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[_builtins.str] outpost_arn: The ARN of the Outpost on which to create the Capacity Block Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: The ARN of the placement group in which to create the Capacity Block Reservation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reservation_type: The type of Capacity Reservation.
-        :param pulumi.Input[_builtins.str] start_date: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        :param pulumi.Input[_builtins.str] tenancy: Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -185,9 +151,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the reservation.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -197,9 +160,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Availability Zone in which to create the Capacity Block Reservation.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -209,9 +169,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="capacityBlockOfferingId")
     def capacity_block_offering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Capacity Block Reservation ID.
-        """
         return pulumi.get(self, "capacity_block_offering_id")
 
     @capacity_block_offering_id.setter
@@ -221,9 +178,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time at which the Capacity Block Reservation was created.
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -233,9 +187,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -245,9 +196,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -257,9 +205,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="endDateType")
     def end_date_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates the way in which the Capacity Reservation ends.
-        """
         return pulumi.get(self, "end_date_type")
 
     @end_date_type.setter
@@ -269,9 +214,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of instances for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -281,9 +223,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="instancePlatform")
     def instance_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        """
         return pulumi.get(self, "instance_platform")
 
     @instance_platform.setter
@@ -293,9 +232,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The instance type for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -305,9 +241,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Outpost on which to create the Capacity Block Reservation.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
@@ -317,9 +250,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the placement group in which to create the Capacity Block Reservation.
-        """
         return pulumi.get(self, "placement_group_arn")
 
     @placement_group_arn.setter
@@ -329,9 +259,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -341,9 +268,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="reservationType")
     def reservation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of Capacity Reservation.
-        """
         return pulumi.get(self, "reservation_type")
 
     @reservation_type.setter
@@ -353,9 +277,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="startDate")
     def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
@@ -365,9 +286,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -377,9 +295,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -389,9 +304,6 @@ class _CapacityBlockReservationState:
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
-        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -421,37 +333,9 @@ class CapacityBlockReservation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
-
-        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `capacity_block_offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [EC2 Capacity Block Reservation Documentation](https://aws.amazon.com/ec2/instance-types/p5/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-pricing-billing.html).
-
-        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
-            end_date_range="2024-05-30T15:04:05Z",
-            instance_count=1,
-            instance_type="p4d.24xlarge",
-            start_date_range="2024-04-28T15:04:05Z")
-        example = aws.ec2.CapacityBlockReservation("example",
-            capacity_block_offering_id=test.capacity_block_offering_id,
-            instance_platform="Linux/UNIX",
-            tags={
-                "Environment": "dev",
-            })
-        ```
-
+        Create a CapacityBlockReservation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] capacity_block_offering_id: The Capacity Block Reservation ID.
-        :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -460,31 +344,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
                  args: CapacityBlockReservationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
-
-        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `capacity_block_offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [EC2 Capacity Block Reservation Documentation](https://aws.amazon.com/ec2/instance-types/p5/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-pricing-billing.html).
-
-        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
-            end_date_range="2024-05-30T15:04:05Z",
-            instance_count=1,
-            instance_type="p4d.24xlarge",
-            start_date_range="2024-04-28T15:04:05Z")
-        example = aws.ec2.CapacityBlockReservation("example",
-            capacity_block_offering_id=test.capacity_block_offering_id,
-            instance_platform="Linux/UNIX",
-            tags={
-                "Environment": "dev",
-            })
-        ```
-
+        Create a CapacityBlockReservation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CapacityBlockReservationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -573,24 +433,6 @@ class CapacityBlockReservation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the reservation.
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Block Reservation.
-        :param pulumi.Input[_builtins.str] capacity_block_offering_id: The Capacity Block Reservation ID.
-        :param pulumi.Input[_builtins.str] created_date: The date and time at which the Capacity Block Reservation was created.
-        :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        :param pulumi.Input[_builtins.str] end_date: The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[_builtins.str] end_date_type: Indicates the way in which the Capacity Reservation ends.
-        :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
-        :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[_builtins.str] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[_builtins.str] outpost_arn: The ARN of the Outpost on which to create the Capacity Block Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: The ARN of the placement group in which to create the Capacity Block Reservation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reservation_type: The type of Capacity Reservation.
-        :param pulumi.Input[_builtins.str] start_date: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        :param pulumi.Input[_builtins.str] tenancy: Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -620,145 +462,91 @@ class CapacityBlockReservation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the reservation.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Availability Zone in which to create the Capacity Block Reservation.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="capacityBlockOfferingId")
     def capacity_block_offering_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Capacity Block Reservation ID.
-        """
         return pulumi.get(self, "capacity_block_offering_id")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time at which the Capacity Block Reservation was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @_builtins.property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "end_date")
 
     @_builtins.property
     @pulumi.getter(name="endDateType")
     def end_date_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Indicates the way in which the Capacity Reservation ends.
-        """
         return pulumi.get(self, "end_date_type")
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of instances for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_count")
 
     @_builtins.property
     @pulumi.getter(name="instancePlatform")
     def instance_platform(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        """
         return pulumi.get(self, "instance_platform")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The instance type for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Outpost on which to create the Capacity Block Reservation.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the placement group in which to create the Capacity Block Reservation.
-        """
         return pulumi.get(self, "placement_group_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="reservationType")
     def reservation_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of Capacity Reservation.
-        """
         return pulumi.get(self, "reservation_type")
 
     @_builtins.property
     @pulumi.getter(name="startDate")
     def start_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "start_date")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
-        """
         return pulumi.get(self, "tenancy")
 
     @_builtins.property

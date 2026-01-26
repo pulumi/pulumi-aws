@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionCacheBehaviorSettingsForwardedCookies
     {
         /// <summary>
-        /// Specific cookies to forward to your distribution's origin.
+        /// The specific cookies to forward to your distribution's origin.
         /// </summary>
         public readonly ImmutableArray<string> CookiesAllowLists;
         /// <summary>
-        /// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `All`, `None`, `allow-list`.
+        /// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
         /// </summary>
         public readonly string? Option;
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobQueueComputeEnvironmentOrder
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
-        /// </summary>
         public readonly string ComputeEnvironment;
-        /// <summary>
-        /// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-        /// </summary>
         public readonly int Order;
 
         [OutputConstructor]

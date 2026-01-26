@@ -28,13 +28,6 @@ class ConfigurationAggregatorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationAggregator resource.
-        :param pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs'] account_aggregation_source: The account(s) to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
-        :param pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs'] organization_aggregation_source: The organization to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
         """
         if account_aggregation_source is not None:
             pulumi.set(__self__, "account_aggregation_source", account_aggregation_source)
@@ -50,9 +43,6 @@ class ConfigurationAggregatorArgs:
     @_builtins.property
     @pulumi.getter(name="accountAggregationSource")
     def account_aggregation_source(self) -> Optional[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]:
-        """
-        The account(s) to aggregate config data from as documented below.
-        """
         return pulumi.get(self, "account_aggregation_source")
 
     @account_aggregation_source.setter
@@ -62,9 +52,6 @@ class ConfigurationAggregatorArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the configuration aggregator.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -74,9 +61,6 @@ class ConfigurationAggregatorArgs:
     @_builtins.property
     @pulumi.getter(name="organizationAggregationSource")
     def organization_aggregation_source(self) -> Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']]:
-        """
-        The organization to aggregate config data from as documented below.
-        """
         return pulumi.get(self, "organization_aggregation_source")
 
     @organization_aggregation_source.setter
@@ -86,9 +70,6 @@ class ConfigurationAggregatorArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -98,11 +79,6 @@ class ConfigurationAggregatorArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,15 +98,6 @@ class _ConfigurationAggregatorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationAggregator resources.
-        :param pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs'] account_aggregation_source: The account(s) to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the aggregator
-        :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
-        :param pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs'] organization_aggregation_source: The organization to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if account_aggregation_source is not None:
             pulumi.set(__self__, "account_aggregation_source", account_aggregation_source)
@@ -150,9 +117,6 @@ class _ConfigurationAggregatorState:
     @_builtins.property
     @pulumi.getter(name="accountAggregationSource")
     def account_aggregation_source(self) -> Optional[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]:
-        """
-        The account(s) to aggregate config data from as documented below.
-        """
         return pulumi.get(self, "account_aggregation_source")
 
     @account_aggregation_source.setter
@@ -162,9 +126,6 @@ class _ConfigurationAggregatorState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the aggregator
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -174,9 +135,6 @@ class _ConfigurationAggregatorState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the configuration aggregator.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -186,9 +144,6 @@ class _ConfigurationAggregatorState:
     @_builtins.property
     @pulumi.getter(name="organizationAggregationSource")
     def organization_aggregation_source(self) -> Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']]:
-        """
-        The organization to aggregate config data from as documented below.
-        """
         return pulumi.get(self, "organization_aggregation_source")
 
     @organization_aggregation_source.setter
@@ -198,9 +153,6 @@ class _ConfigurationAggregatorState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -210,11 +162,6 @@ class _ConfigurationAggregatorState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +171,6 @@ class _ConfigurationAggregatorState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -247,70 +191,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an AWS Config Configuration Aggregator
-
-        ## Example Usage
-
-        ### Account Based Aggregation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        account = aws.cfg.ConfigurationAggregator("account",
-            name="example",
-            account_aggregation_source={
-                "account_ids": ["123456789012"],
-                "regions": ["us-west-2"],
-            })
-        ```
-
-        ### Organization Based Aggregation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["config.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        organization_role = aws.iam.Role("organization",
-            name="example",
-            assume_role_policy=assume_role.json)
-        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organization",
-            role=organization_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
-        organization = aws.cfg.ConfigurationAggregator("organization",
-            name="example",
-            organization_aggregation_source={
-                "all_regions": True,
-                "role_arn": organization_role.arn,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Configuration Aggregators using the name. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-        ```
-
+        Create a ConfigurationAggregator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
-        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']] organization_aggregation_source: The organization to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
         """
         ...
     @overload
@@ -319,61 +202,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
                  args: Optional[ConfigurationAggregatorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Config Configuration Aggregator
-
-        ## Example Usage
-
-        ### Account Based Aggregation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        account = aws.cfg.ConfigurationAggregator("account",
-            name="example",
-            account_aggregation_source={
-                "account_ids": ["123456789012"],
-                "regions": ["us-west-2"],
-            })
-        ```
-
-        ### Organization Based Aggregation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["config.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        organization_role = aws.iam.Role("organization",
-            name="example",
-            assume_role_policy=assume_role.json)
-        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organization",
-            role=organization_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
-        organization = aws.cfg.ConfigurationAggregator("organization",
-            name="example",
-            organization_aggregation_source={
-                "all_regions": True,
-                "role_arn": organization_role.arn,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Configuration Aggregators using the name. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-        ```
-
+        Create a ConfigurationAggregator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConfigurationAggregatorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -434,15 +263,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the aggregator
-        :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
-        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']] organization_aggregation_source: The organization to aggregate config data from as documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -460,58 +280,35 @@ class ConfigurationAggregator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountAggregationSource")
     def account_aggregation_source(self) -> pulumi.Output[Optional['outputs.ConfigurationAggregatorAccountAggregationSource']]:
-        """
-        The account(s) to aggregate config data from as documented below.
-        """
         return pulumi.get(self, "account_aggregation_source")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the aggregator
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the configuration aggregator.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="organizationAggregationSource")
     def organization_aggregation_source(self) -> pulumi.Output[Optional['outputs.ConfigurationAggregatorOrganizationAggregationSource']]:
-        """
-        The organization to aggregate config data from as documented below.
-        """
         return pulumi.get(self, "organization_aggregation_source")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

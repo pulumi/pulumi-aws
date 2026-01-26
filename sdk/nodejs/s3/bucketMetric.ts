@@ -7,78 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
- *
- * > This resource cannot be used with S3 directory buckets.
- *
- * ## Example Usage
- *
- * ### Add metrics configuration for entire S3 bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "example"});
- * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
- *     bucket: example.id,
- *     name: "EntireBucket",
- * });
- * ```
- *
- * ### Add metrics configuration with S3 object filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "example"});
- * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
- *     bucket: example.id,
- *     name: "ImportantBlueDocuments",
- *     filter: {
- *         prefix: "documents/",
- *         tags: {
- *             priority: "high",
- *             "class": "blue",
- *         },
- *     },
- * });
- * ```
- *
- * ### Add metrics configuration with S3 object filter for S3 Access Point
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "example"});
- * const example_access_point = new aws.s3.AccessPoint("example-access-point", {
- *     bucket: example.id,
- *     name: "example-access-point",
- * });
- * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
- *     bucket: example.id,
- *     name: "ImportantBlueDocuments",
- *     filter: {
- *         accessPoint: example_access_point.arn,
- *         tags: {
- *             priority: "high",
- *             "class": "blue",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
- * ```
- */
 export class BucketMetric extends pulumi.CustomResource {
     /**
      * Get an existing BucketMetric resource's state with the given name, ID, and optional extra
@@ -107,21 +35,9 @@ export class BucketMetric extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketMetric.__pulumiType;
     }
 
-    /**
-     * Name of the bucket to put metric configuration.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-     */
     declare public readonly filter: pulumi.Output<outputs.s3.BucketMetricFilter | undefined>;
-    /**
-     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -160,21 +76,9 @@ export class BucketMetric extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketMetric resources.
  */
 export interface BucketMetricState {
-    /**
-     * Name of the bucket to put metric configuration.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-     */
     filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
-    /**
-     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -182,20 +86,8 @@ export interface BucketMetricState {
  * The set of arguments for constructing a BucketMetric resource.
  */
 export interface BucketMetricArgs {
-    /**
-     * Name of the bucket to put metric configuration.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-     */
     filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
-    /**
-     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

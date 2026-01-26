@@ -14,17 +14,9 @@ public final class VirtualNodeSpecListenerTlsValidationTrustSdsArgs extends com.
 
     public static final VirtualNodeSpecListenerTlsValidationTrustSdsArgs Empty = new VirtualNodeSpecListenerTlsValidationTrustSdsArgs();
 
-    /**
-     * Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-     * 
-     */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
-    /**
-     * @return Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-     * 
-     */
     public Output<String> secretName() {
         return this.secretName;
     }
@@ -53,23 +45,11 @@ public final class VirtualNodeSpecListenerTlsValidationTrustSdsArgs extends com.
             $ = new VirtualNodeSpecListenerTlsValidationTrustSdsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param secretName Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(Output<String> secretName) {
             $.secretName = secretName;
             return this;
         }
 
-        /**
-         * @param secretName Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(String secretName) {
             return secretName(Output.of(secretName));
         }

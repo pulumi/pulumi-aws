@@ -17,77 +17,37 @@ public final class GetVirtualServiceArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetVirtualServiceArgs Empty = new GetVirtualServiceArgs();
 
-    /**
-     * Name of the service mesh in which the virtual service exists.
-     * 
-     */
     @Import(name="meshName", required=true)
     private Output<String> meshName;
 
-    /**
-     * @return Name of the service mesh in which the virtual service exists.
-     * 
-     */
     public Output<String> meshName() {
         return this.meshName;
     }
 
-    /**
-     * AWS account ID of the service mesh&#39;s owner.
-     * 
-     */
     @Import(name="meshOwner")
     private @Nullable Output<String> meshOwner;
 
-    /**
-     * @return AWS account ID of the service mesh&#39;s owner.
-     * 
-     */
     public Optional<Output<String>> meshOwner() {
         return Optional.ofNullable(this.meshOwner);
     }
 
-    /**
-     * Name of the virtual service.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the virtual service.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,107 +80,47 @@ public final class GetVirtualServiceArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetVirtualServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param meshName Name of the service mesh in which the virtual service exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(Output<String> meshName) {
             $.meshName = meshName;
             return this;
         }
 
-        /**
-         * @param meshName Name of the service mesh in which the virtual service exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(String meshName) {
             return meshName(Output.of(meshName));
         }
 
-        /**
-         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshOwner(@Nullable Output<String> meshOwner) {
             $.meshOwner = meshOwner;
             return this;
         }
 
-        /**
-         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshOwner(String meshOwner) {
             return meshOwner(Output.of(meshOwner));
         }
 
-        /**
-         * @param name Name of the virtual service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the virtual service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

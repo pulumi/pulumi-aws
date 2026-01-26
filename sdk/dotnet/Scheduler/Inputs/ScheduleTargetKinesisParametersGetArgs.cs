@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleTargetKinesisParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-        /// </summary>
         [Input("partitionKey", required: true)]
         public Input<string> PartitionKey { get; set; } = null!;
 

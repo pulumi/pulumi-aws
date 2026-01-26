@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 
     public sealed class GetConnectPeerFilterInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

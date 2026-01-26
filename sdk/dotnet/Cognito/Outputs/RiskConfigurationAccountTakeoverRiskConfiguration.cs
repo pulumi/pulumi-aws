@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationAccountTakeoverRiskConfiguration
     {
-        /// <summary>
-        /// Account takeover risk configuration actions. See details below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions Actions;
-        /// <summary>
-        /// The notify configuration used to construct email notifications. See details below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration? NotifyConfiguration;
 
         [OutputConstructor]

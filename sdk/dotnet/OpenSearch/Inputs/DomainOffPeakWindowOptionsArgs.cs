@@ -12,9 +12,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainOffPeakWindowOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enabled disabled toggle for off-peak update window.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

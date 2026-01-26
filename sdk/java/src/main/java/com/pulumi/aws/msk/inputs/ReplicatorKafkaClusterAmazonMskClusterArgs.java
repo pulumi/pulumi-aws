@@ -14,17 +14,9 @@ public final class ReplicatorKafkaClusterAmazonMskClusterArgs extends com.pulumi
 
     public static final ReplicatorKafkaClusterAmazonMskClusterArgs Empty = new ReplicatorKafkaClusterAmazonMskClusterArgs();
 
-    /**
-     * The ARN of an Amazon MSK cluster.
-     * 
-     */
     @Import(name="mskClusterArn", required=true)
     private Output<String> mskClusterArn;
 
-    /**
-     * @return The ARN of an Amazon MSK cluster.
-     * 
-     */
     public Output<String> mskClusterArn() {
         return this.mskClusterArn;
     }
@@ -53,23 +45,11 @@ public final class ReplicatorKafkaClusterAmazonMskClusterArgs extends com.pulumi
             $ = new ReplicatorKafkaClusterAmazonMskClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mskClusterArn The ARN of an Amazon MSK cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mskClusterArn(Output<String> mskClusterArn) {
             $.mskClusterArn = mskClusterArn;
             return this;
         }
 
-        /**
-         * @param mskClusterArn The ARN of an Amazon MSK cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mskClusterArn(String mskClusterArn) {
             return mskClusterArn(Output.of(mskClusterArn));
         }

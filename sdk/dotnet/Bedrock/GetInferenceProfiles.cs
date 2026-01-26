@@ -11,126 +11,12 @@ namespace Pulumi.Aws.Bedrock
 {
     public static class GetInferenceProfiles
     {
-        /// <summary>
-        /// Data source for managing AWS Bedrock Inference Profiles.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by Type
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
-        ///     {
-        ///         Type = "APPLICATION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetInferenceProfilesResult> InvokeAsync(GetInferenceProfilesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Bedrock Inference Profiles.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by Type
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
-        ///     {
-        ///         Type = "APPLICATION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInferenceProfilesResult> Invoke(GetInferenceProfilesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Bedrock Inference Profiles.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by Type
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
-        ///     {
-        ///         Type = "APPLICATION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInferenceProfilesResult> Invoke(GetInferenceProfilesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesInvokeArgs(), options.WithDefaults());
     }
@@ -138,15 +24,9 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GetInferenceProfilesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -158,15 +38,9 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GetInferenceProfilesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -184,14 +58,8 @@ namespace Pulumi.Aws.Bedrock
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of inference profile summary objects. See `InferenceProfileSummaries`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryResult> InferenceProfileSummaries;
         public readonly string Region;
-        /// <summary>
-        /// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

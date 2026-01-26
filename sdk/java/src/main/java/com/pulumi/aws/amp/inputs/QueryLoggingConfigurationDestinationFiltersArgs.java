@@ -14,17 +14,9 @@ public final class QueryLoggingConfigurationDestinationFiltersArgs extends com.p
 
     public static final QueryLoggingConfigurationDestinationFiltersArgs Empty = new QueryLoggingConfigurationDestinationFiltersArgs();
 
-    /**
-     * The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-     * 
-     */
     @Import(name="qspThreshold", required=true)
     private Output<Integer> qspThreshold;
 
-    /**
-     * @return The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-     * 
-     */
     public Output<Integer> qspThreshold() {
         return this.qspThreshold;
     }
@@ -53,23 +45,11 @@ public final class QueryLoggingConfigurationDestinationFiltersArgs extends com.p
             $ = new QueryLoggingConfigurationDestinationFiltersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param qspThreshold The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qspThreshold(Output<Integer> qspThreshold) {
             $.qspThreshold = qspThreshold;
             return this;
         }
 
-        /**
-         * @param qspThreshold The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qspThreshold(Integer qspThreshold) {
             return qspThreshold(Output.of(qspThreshold));
         }

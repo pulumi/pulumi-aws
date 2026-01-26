@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InputSecurityGroupWhitelistRule {
-    /**
-     * @return The IPv4 CIDR that&#39;s whitelisted.
-     * 
-     */
     private String cidr;
 
     private InputSecurityGroupWhitelistRule() {}
-    /**
-     * @return The IPv4 CIDR that&#39;s whitelisted.
-     * 
-     */
     public String cidr() {
         return this.cidr;
     }

@@ -11,87 +11,12 @@ namespace Pulumi.Aws.BedrockFoundation
 {
     public static class GetModel
     {
-        /// <summary>
-        /// Data source for managing an AWS Bedrock Foundation Model.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
-        ///     {
-        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Bedrock Foundation Model.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
-        ///     {
-        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Bedrock Foundation Model.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
-        ///     {
-        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
@@ -99,15 +24,9 @@ namespace Pulumi.Aws.BedrockFoundation
 
     public sealed class GetModelArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Model identifier.
-        /// </summary>
         [Input("modelId", required: true)]
         public string ModelId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -119,15 +38,9 @@ namespace Pulumi.Aws.BedrockFoundation
 
     public sealed class GetModelInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Model identifier.
-        /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,40 +54,16 @@ namespace Pulumi.Aws.BedrockFoundation
     [OutputType]
     public sealed class GetModelResult
     {
-        /// <summary>
-        /// Customizations that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> CustomizationsSupporteds;
         public readonly string Id;
-        /// <summary>
-        /// Inference types that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> InferenceTypesSupporteds;
-        /// <summary>
-        /// Input modalities that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> InputModalities;
-        /// <summary>
-        /// Model ARN.
-        /// </summary>
         public readonly string ModelArn;
         public readonly string ModelId;
-        /// <summary>
-        /// Model name.
-        /// </summary>
         public readonly string ModelName;
-        /// <summary>
-        /// Output modalities that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> OutputModalities;
-        /// <summary>
-        /// Model provider name.
-        /// </summary>
         public readonly string ProviderName;
         public readonly string Region;
-        /// <summary>
-        /// Indicates whether the model supports streaming.
-        /// </summary>
         public readonly bool ResponseStreamingSupported;
 
         [OutputConstructor]

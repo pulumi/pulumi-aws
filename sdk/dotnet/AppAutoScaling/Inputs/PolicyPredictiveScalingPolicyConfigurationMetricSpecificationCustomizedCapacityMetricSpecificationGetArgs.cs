@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     {
         [Input("metricDataQueries", required: true)]
         private InputList<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryGetArgs>? _metricDataQueries;
-
-        /// <summary>
-        /// One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        /// </summary>
         public InputList<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryGetArgs> MetricDataQueries
         {
             get => _metricDataQueries ?? (_metricDataQueries = new InputList<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryGetArgs>());

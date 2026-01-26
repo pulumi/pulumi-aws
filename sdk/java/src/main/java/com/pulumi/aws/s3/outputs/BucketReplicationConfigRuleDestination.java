@@ -16,89 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketReplicationConfigRuleDestination {
-    /**
-     * @return Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleDestinationAccessControlTranslation accessControlTranslation;
-    /**
-     * @return Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
-     * 
-     */
     private @Nullable String account;
-    /**
-     * @return ARN of the bucket where you want Amazon S3 to store the results.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Configuration block that provides information about encryption. See below. If `sourceSelectionCriteria` is specified, you must specify this element.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleDestinationEncryptionConfiguration encryptionConfiguration;
-    /**
-     * @return Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleDestinationMetrics metrics;
-    /**
-     * @return Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleDestinationReplicationTime replicationTime;
-    /**
-     * @return The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
-     * 
-     */
     private @Nullable String storageClass;
 
     private BucketReplicationConfigRuleDestination() {}
-    /**
-     * @return Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleDestinationAccessControlTranslation> accessControlTranslation() {
         return Optional.ofNullable(this.accessControlTranslation);
     }
-    /**
-     * @return Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
-     * 
-     */
     public Optional<String> account() {
         return Optional.ofNullable(this.account);
     }
-    /**
-     * @return ARN of the bucket where you want Amazon S3 to store the results.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Configuration block that provides information about encryption. See below. If `sourceSelectionCriteria` is specified, you must specify this element.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleDestinationEncryptionConfiguration> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
-    /**
-     * @return Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleDestinationMetrics> metrics() {
         return Optional.ofNullable(this.metrics);
     }
-    /**
-     * @return Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleDestinationReplicationTime> replicationTime() {
         return Optional.ofNullable(this.replicationTime);
     }
-    /**
-     * @return The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
-     * 
-     */
     public Optional<String> storageClass() {
         return Optional.ofNullable(this.storageClass);
     }

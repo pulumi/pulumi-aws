@@ -14,17 +14,9 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
 
     public static final FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs Empty = new FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs();
 
-    /**
-     * A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
-     * 
-     */
     @Import(name="humanLoopActivationConditions", required=true)
     private Output<String> humanLoopActivationConditions;
 
-    /**
-     * @return A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
-     * 
-     */
     public Output<String> humanLoopActivationConditions() {
         return this.humanLoopActivationConditions;
     }
@@ -53,23 +45,11 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
             $ = new FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param humanLoopActivationConditions A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder humanLoopActivationConditions(Output<String> humanLoopActivationConditions) {
             $.humanLoopActivationConditions = humanLoopActivationConditions;
             return this;
         }
 
-        /**
-         * @param humanLoopActivationConditions A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder humanLoopActivationConditions(String humanLoopActivationConditions) {
             return humanLoopActivationConditions(Output.of(humanLoopActivationConditions));
         }

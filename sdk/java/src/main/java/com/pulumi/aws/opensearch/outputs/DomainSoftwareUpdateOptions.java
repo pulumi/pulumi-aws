@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainSoftwareUpdateOptions {
-    /**
-     * @return Whether automatic service software updates are enabled for the domain. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean autoSoftwareUpdateEnabled;
 
     private DomainSoftwareUpdateOptions() {}
-    /**
-     * @return Whether automatic service software updates are enabled for the domain. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> autoSoftwareUpdateEnabled() {
         return Optional.ofNullable(this.autoSoftwareUpdateEnabled);
     }

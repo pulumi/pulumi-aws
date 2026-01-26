@@ -15,69 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogDeliveryConfigurationLogConfiguration {
-    /**
-     * @return Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-     * 
-     */
     private @Nullable LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration cloudWatchLogsConfiguration;
-    /**
-     * @return The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-     * 
-     */
     private String eventSource;
-    /**
-     * @return Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-     * 
-     */
     private @Nullable LogDeliveryConfigurationLogConfigurationFirehoseConfiguration firehoseConfiguration;
-    /**
-     * @return The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-     * 
-     */
     private String logLevel;
-    /**
-     * @return Configuration for S3 delivery. See S3 Configuration below.
-     * 
-     * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
-     * 
-     */
     private @Nullable LogDeliveryConfigurationLogConfigurationS3Configuration s3Configuration;
 
     private LogDeliveryConfigurationLogConfiguration() {}
-    /**
-     * @return Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-     * 
-     */
     public Optional<LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration> cloudWatchLogsConfiguration() {
         return Optional.ofNullable(this.cloudWatchLogsConfiguration);
     }
-    /**
-     * @return The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-     * 
-     */
     public String eventSource() {
         return this.eventSource;
     }
-    /**
-     * @return Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-     * 
-     */
     public Optional<LogDeliveryConfigurationLogConfigurationFirehoseConfiguration> firehoseConfiguration() {
         return Optional.ofNullable(this.firehoseConfiguration);
     }
-    /**
-     * @return The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-     * 
-     */
     public String logLevel() {
         return this.logLevel;
     }
-    /**
-     * @return Configuration for S3 delivery. See S3 Configuration below.
-     * 
-     * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
-     * 
-     */
     public Optional<LogDeliveryConfigurationLogConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }

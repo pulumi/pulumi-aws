@@ -15,17 +15,9 @@ public final class IdcApplicationServiceIntegrationS3AccessGrantsArgs extends co
 
     public static final IdcApplicationServiceIntegrationS3AccessGrantsArgs Empty = new IdcApplicationServiceIntegrationS3AccessGrantsArgs();
 
-    /**
-     * S3 Access grants integration scope.
-     * 
-     */
     @Import(name="readWriteAccess")
     private @Nullable Output<IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs> readWriteAccess;
 
-    /**
-     * @return S3 Access grants integration scope.
-     * 
-     */
     public Optional<Output<IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs>> readWriteAccess() {
         return Optional.ofNullable(this.readWriteAccess);
     }
@@ -54,23 +46,11 @@ public final class IdcApplicationServiceIntegrationS3AccessGrantsArgs extends co
             $ = new IdcApplicationServiceIntegrationS3AccessGrantsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param readWriteAccess S3 Access grants integration scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readWriteAccess(@Nullable Output<IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs> readWriteAccess) {
             $.readWriteAccess = readWriteAccess;
             return this;
         }
 
-        /**
-         * @param readWriteAccess S3 Access grants integration scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readWriteAccess(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs readWriteAccess) {
             return readWriteAccess(Output.of(readWriteAccess));
         }

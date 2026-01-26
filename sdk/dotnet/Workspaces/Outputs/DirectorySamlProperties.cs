@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Workspaces.Outputs
     [OutputType]
     public sealed class DirectorySamlProperties
     {
-        /// <summary>
-        /// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-        /// </summary>
         public readonly string? RelayStateParameterName;
-        /// <summary>
-        /// Status of SAML 2.0 authentication. Default `DISABLED`.
-        /// </summary>
         public readonly string? Status;
-        /// <summary>
-        /// The SAML 2.0 identity provider (IdP) user access URL.
-        /// </summary>
         public readonly string? UserAccessUrl;
 
         [OutputConstructor]

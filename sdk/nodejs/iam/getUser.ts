@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * This data source can be used to fetch information about a specific
- * IAM user. By using this data source, you can reference IAM user
- * properties without having to hard code ARNs or unique IDs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getUser({
- *     userName: "an_example_user_name",
- * });
- * ```
- */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getUser:getUser", {
@@ -32,13 +16,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
-    /**
-     * Map of key-value pairs associated with the user.
-     */
     tags?: {[key: string]: string};
-    /**
-     * Friendly IAM user name to match.
-     */
     userName: string;
 }
 
@@ -46,51 +24,17 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * ARN assigned by AWS for this user.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Path in which this user was created.
-     */
     readonly path: string;
-    /**
-     * The ARN of the policy that is used to set the permissions boundary for the user.
-     */
     readonly permissionsBoundary: string;
-    /**
-     * Map of key-value pairs associated with the user.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Unique ID assigned by AWS for this user.
-     */
     readonly userId: string;
-    /**
-     * Name associated to this User
-     */
     readonly userName: string;
 }
-/**
- * This data source can be used to fetch information about a specific
- * IAM user. By using this data source, you can reference IAM user
- * properties without having to hard code ARNs or unique IDs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getUser({
- *     userName: "an_example_user_name",
- * });
- * ```
- */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getUser:getUser", {
@@ -103,12 +47,6 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
-    /**
-     * Map of key-value pairs associated with the user.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Friendly IAM user name to match.
-     */
     userName: pulumi.Input<string>;
 }

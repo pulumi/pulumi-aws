@@ -7,50 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing VPC IPAMs.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpcIpams({
- *     ipamIds: ["ipam-abcd1234"],
- * });
- * ```
- *
- * ### Filter by `tags`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpcIpams({
- *     filters: [{
- *         name: "tags.Some",
- *         values: ["Value"],
- *     }],
- * });
- * ```
- *
- * ### Filter by `tier`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpcIpams({
- *     filters: [{
- *         name: "tier",
- *         values: ["free"],
- *     }],
- * });
- * ```
- */
 export function getVpcIpams(args?: GetVpcIpamsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,19 +21,8 @@ export function getVpcIpams(args?: GetVpcIpamsArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getVpcIpams.
  */
 export interface GetVpcIpamsArgs {
-    /**
-     * Custom filter block as described below.
-     *
-     * The arguments of this data source act as filters for querying the available IPAMs.
-     */
     filters?: inputs.ec2.GetVpcIpamsFilter[];
-    /**
-     * IDs of the IPAM resources to query for.
-     */
     ipamIds?: string[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -91,56 +36,9 @@ export interface GetVpcIpamsResult {
      */
     readonly id: string;
     readonly ipamIds?: string[];
-    /**
-     * List of IPAM resources matching the provided arguments.
-     */
     readonly ipams: outputs.ec2.GetVpcIpamsIpam[];
     readonly region: string;
 }
-/**
- * Data source for managing VPC IPAMs.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpcIpams({
- *     ipamIds: ["ipam-abcd1234"],
- * });
- * ```
- *
- * ### Filter by `tags`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpcIpams({
- *     filters: [{
- *         name: "tags.Some",
- *         values: ["Value"],
- *     }],
- * });
- * ```
- *
- * ### Filter by `tier`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpcIpams({
- *     filters: [{
- *         name: "tier",
- *         values: ["free"],
- *     }],
- * });
- * ```
- */
 export function getVpcIpamsOutput(args?: GetVpcIpamsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcIpamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -155,18 +53,7 @@ export function getVpcIpamsOutput(args?: GetVpcIpamsOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getVpcIpams.
  */
 export interface GetVpcIpamsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     *
-     * The arguments of this data source act as filters for querying the available IPAMs.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamsFilterArgs>[]>;
-    /**
-     * IDs of the IPAM resources to query for.
-     */
     ipamIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

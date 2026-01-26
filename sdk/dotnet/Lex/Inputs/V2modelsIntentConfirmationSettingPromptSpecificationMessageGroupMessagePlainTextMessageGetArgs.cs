@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessagePlainTextMessageGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Message to send to the user.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

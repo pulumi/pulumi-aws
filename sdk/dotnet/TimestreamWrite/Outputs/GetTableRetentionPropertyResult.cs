@@ -13,13 +13,7 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class GetTableRetentionPropertyResult
     {
-        /// <summary>
-        /// Duration in days in which the data must be stored in magnetic store.
-        /// </summary>
         public readonly int MagneticStoreRetentionPeriodInDays;
-        /// <summary>
-        /// Duration in hours in which the data must be stored in memory store.
-        /// </summary>
         public readonly int MemoryStoreRetentionPeriodInHours;
 
         [OutputConstructor]

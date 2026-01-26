@@ -16,77 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
-    /**
-     * @return Custom OAuth2 provider configuration. See `custom` below.
-     * 
-     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig customOauth2ProviderConfig;
-    /**
-     * @return GitHub OAuth provider configuration. See `github` below.
-     * 
-     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig githubOauth2ProviderConfig;
-    /**
-     * @return Google OAuth provider configuration. See `google` below.
-     * 
-     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig googleOauth2ProviderConfig;
-    /**
-     * @return Microsoft OAuth provider configuration. See `microsoft` below.
-     * 
-     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig microsoftOauth2ProviderConfig;
-    /**
-     * @return Salesforce OAuth provider configuration. See `salesforce` below.
-     * 
-     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig salesforceOauth2ProviderConfig;
-    /**
-     * @return Slack OAuth provider configuration. See `slack` below.
-     * 
-     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig slackOauth2ProviderConfig;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfig() {}
-    /**
-     * @return Custom OAuth2 provider configuration. See `custom` below.
-     * 
-     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig> customOauth2ProviderConfig() {
         return Optional.ofNullable(this.customOauth2ProviderConfig);
     }
-    /**
-     * @return GitHub OAuth provider configuration. See `github` below.
-     * 
-     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig> githubOauth2ProviderConfig() {
         return Optional.ofNullable(this.githubOauth2ProviderConfig);
     }
-    /**
-     * @return Google OAuth provider configuration. See `google` below.
-     * 
-     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig> googleOauth2ProviderConfig() {
         return Optional.ofNullable(this.googleOauth2ProviderConfig);
     }
-    /**
-     * @return Microsoft OAuth provider configuration. See `microsoft` below.
-     * 
-     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig> microsoftOauth2ProviderConfig() {
         return Optional.ofNullable(this.microsoftOauth2ProviderConfig);
     }
-    /**
-     * @return Salesforce OAuth provider configuration. See `salesforce` below.
-     * 
-     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig> salesforceOauth2ProviderConfig() {
         return Optional.ofNullable(this.salesforceOauth2ProviderConfig);
     }
-    /**
-     * @return Slack OAuth provider configuration. See `slack` below.
-     * 
-     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig> slackOauth2ProviderConfig() {
         return Optional.ofNullable(this.slackOauth2ProviderConfig);
     }

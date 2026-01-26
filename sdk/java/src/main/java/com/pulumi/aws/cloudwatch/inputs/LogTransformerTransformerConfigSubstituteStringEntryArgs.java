@@ -14,47 +14,23 @@ public final class LogTransformerTransformerConfigSubstituteStringEntryArgs exte
 
     public static final LogTransformerTransformerConfigSubstituteStringEntryArgs Empty = new LogTransformerTransformerConfigSubstituteStringEntryArgs();
 
-    /**
-     * Specifies the regular expression string to be replaced.
-     * 
-     */
     @Import(name="from", required=true)
     private Output<String> from;
 
-    /**
-     * @return Specifies the regular expression string to be replaced.
-     * 
-     */
     public Output<String> from() {
         return this.from;
     }
 
-    /**
-     * Specifies the key to modify.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * Specifies the string to be substituted for each match of `from`.
-     * 
-     */
     @Import(name="to", required=true)
     private Output<String> to;
 
-    /**
-     * @return Specifies the string to be substituted for each match of `from`.
-     * 
-     */
     public Output<String> to() {
         return this.to;
     }
@@ -85,65 +61,29 @@ public final class LogTransformerTransformerConfigSubstituteStringEntryArgs exte
             $ = new LogTransformerTransformerConfigSubstituteStringEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param from Specifies the regular expression string to be replaced.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(Output<String> from) {
             $.from = from;
             return this;
         }
 
-        /**
-         * @param from Specifies the regular expression string to be replaced.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(String from) {
             return from(Output.of(from));
         }
 
-        /**
-         * @param source Specifies the key to modify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the key to modify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param to Specifies the string to be substituted for each match of `from`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder to(Output<String> to) {
             $.to = to;
             return this;
         }
 
-        /**
-         * @param to Specifies the string to be substituted for each match of `from`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder to(String to) {
             return to(Output.of(to));
         }

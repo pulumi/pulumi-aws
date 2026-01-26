@@ -15,47 +15,23 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaimArgs extends
 
     public static final GetListenerRuleActionJwtValidationAdditionalClaimArgs Empty = new GetListenerRuleActionJwtValidationAdditionalClaimArgs();
 
-    /**
-     * Format of the claim value.
-     * 
-     */
     @Import(name="format", required=true)
     private Output<String> format;
 
-    /**
-     * @return Format of the claim value.
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
 
-    /**
-     * Name of the claim to validate.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the claim to validate.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -86,75 +62,33 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaimArgs extends
             $ = new GetListenerRuleActionJwtValidationAdditionalClaimArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param format Format of the claim value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format Format of the claim value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param name Name of the claim to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the claim to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -15,17 +15,9 @@ public final class WebAclChallengeConfigArgs extends com.pulumi.resources.Resour
 
     public static final WebAclChallengeConfigArgs Empty = new WebAclChallengeConfigArgs();
 
-    /**
-     * Defines custom immunity time. See `immunityTimeProperty` below for details.
-     * 
-     */
     @Import(name="immunityTimeProperty")
     private @Nullable Output<WebAclChallengeConfigImmunityTimePropertyArgs> immunityTimeProperty;
 
-    /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
-     * 
-     */
     public Optional<Output<WebAclChallengeConfigImmunityTimePropertyArgs>> immunityTimeProperty() {
         return Optional.ofNullable(this.immunityTimeProperty);
     }
@@ -54,23 +46,11 @@ public final class WebAclChallengeConfigArgs extends com.pulumi.resources.Resour
             $ = new WebAclChallengeConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param immunityTimeProperty Defines custom immunity time. See `immunityTimeProperty` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTimeProperty(@Nullable Output<WebAclChallengeConfigImmunityTimePropertyArgs> immunityTimeProperty) {
             $.immunityTimeProperty = immunityTimeProperty;
             return this;
         }
 
-        /**
-         * @param immunityTimeProperty Defines custom immunity time. See `immunityTimeProperty` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTimeProperty(WebAclChallengeConfigImmunityTimePropertyArgs immunityTimeProperty) {
             return immunityTimeProperty(Output.of(immunityTimeProperty));
         }

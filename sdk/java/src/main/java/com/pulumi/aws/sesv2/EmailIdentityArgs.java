@@ -18,81 +18,37 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EmailIdentityArgs Empty = new EmailIdentityArgs();
 
-    /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-     * 
-     */
     @Import(name="configurationSetName")
     private @Nullable Output<String> configurationSetName;
 
-    /**
-     * @return The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-     * 
-     */
     public Optional<Output<String>> configurationSetName() {
         return Optional.ofNullable(this.configurationSetName);
     }
 
-    /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
-     * 
-     */
     @Import(name="dkimSigningAttributes")
     private @Nullable Output<EmailIdentityDkimSigningAttributesArgs> dkimSigningAttributes;
 
-    /**
-     * @return The configuration of the DKIM authentication settings for an email domain identity.
-     * 
-     */
     public Optional<Output<EmailIdentityDkimSigningAttributesArgs>> dkimSigningAttributes() {
         return Optional.ofNullable(this.dkimSigningAttributes);
     }
 
-    /**
-     * The email address or domain to verify.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="emailIdentity", required=true)
     private Output<String> emailIdentity;
 
-    /**
-     * @return The email address or domain to verify.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -125,111 +81,47 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EmailIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(@Nullable Output<String> configurationSetName) {
             $.configurationSetName = configurationSetName;
             return this;
         }
 
-        /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(String configurationSetName) {
             return configurationSetName(Output.of(configurationSetName));
         }
 
-        /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dkimSigningAttributes(@Nullable Output<EmailIdentityDkimSigningAttributesArgs> dkimSigningAttributes) {
             $.dkimSigningAttributes = dkimSigningAttributes;
             return this;
         }
 
-        /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs dkimSigningAttributes) {
             return dkimSigningAttributes(Output.of(dkimSigningAttributes));
         }
 
-        /**
-         * @param emailIdentity The email address or domain to verify.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(Output<String> emailIdentity) {
             $.emailIdentity = emailIdentity;
             return this;
         }
 
-        /**
-         * @param emailIdentity The email address or domain to verify.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

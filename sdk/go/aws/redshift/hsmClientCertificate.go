@@ -12,56 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewHsmClientCertificate(ctx, "example", &redshift.HsmClientCertificateArgs{
-//				HsmClientCertificateIdentifier: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
-// ```
 type HsmClientCertificate struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The identifier of the HSM client certificate.
-	HsmClientCertificateIdentifier pulumi.StringOutput `pulumi:"hsmClientCertificateIdentifier"`
-	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-	HsmClientCertificatePublicKey pulumi.StringOutput `pulumi:"hsmClientCertificatePublicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                            pulumi.StringOutput    `pulumi:"arn"`
+	HsmClientCertificateIdentifier pulumi.StringOutput    `pulumi:"hsmClientCertificateIdentifier"`
+	HsmClientCertificatePublicKey  pulumi.StringOutput    `pulumi:"hsmClientCertificatePublicKey"`
+	Region                         pulumi.StringOutput    `pulumi:"region"`
+	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewHsmClientCertificate registers a new resource with the given unique name, arguments, and options.
@@ -97,33 +56,21 @@ func GetHsmClientCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HsmClientCertificate resources.
 type hsmClientCertificateState struct {
-	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-	Arn *string `pulumi:"arn"`
-	// The identifier of the HSM client certificate.
-	HsmClientCertificateIdentifier *string `pulumi:"hsmClientCertificateIdentifier"`
-	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-	HsmClientCertificatePublicKey *string `pulumi:"hsmClientCertificatePublicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                            *string           `pulumi:"arn"`
+	HsmClientCertificateIdentifier *string           `pulumi:"hsmClientCertificateIdentifier"`
+	HsmClientCertificatePublicKey  *string           `pulumi:"hsmClientCertificatePublicKey"`
+	Region                         *string           `pulumi:"region"`
+	Tags                           map[string]string `pulumi:"tags"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 }
 
 type HsmClientCertificateState struct {
-	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-	Arn pulumi.StringPtrInput
-	// The identifier of the HSM client certificate.
+	Arn                            pulumi.StringPtrInput
 	HsmClientCertificateIdentifier pulumi.StringPtrInput
-	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-	HsmClientCertificatePublicKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	HsmClientCertificatePublicKey  pulumi.StringPtrInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 }
 
 func (HsmClientCertificateState) ElementType() reflect.Type {
@@ -131,22 +78,16 @@ func (HsmClientCertificateState) ElementType() reflect.Type {
 }
 
 type hsmClientCertificateArgs struct {
-	// The identifier of the HSM client certificate.
-	HsmClientCertificateIdentifier string `pulumi:"hsmClientCertificateIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	HsmClientCertificateIdentifier string            `pulumi:"hsmClientCertificateIdentifier"`
+	Region                         *string           `pulumi:"region"`
+	Tags                           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HsmClientCertificate resource.
 type HsmClientCertificateArgs struct {
-	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (HsmClientCertificateArgs) ElementType() reflect.Type {
@@ -236,32 +177,26 @@ func (o HsmClientCertificateOutput) ToHsmClientCertificateOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Hsm Client Certificate.
 func (o HsmClientCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The identifier of the HSM client certificate.
 func (o HsmClientCertificateOutput) HsmClientCertificateIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.HsmClientCertificateIdentifier }).(pulumi.StringOutput)
 }
 
-// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 func (o HsmClientCertificateOutput) HsmClientCertificatePublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.HsmClientCertificatePublicKey }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HsmClientCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HsmClientCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HsmClientCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

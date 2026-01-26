@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Iam.Outputs
     [OutputType]
     public sealed class GetAccessKeysAccessKeyResult
     {
-        /// <summary>
-        /// Access key ID.
-        /// </summary>
         public readonly string AccessKeyId;
-        /// <summary>
-        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-        /// </summary>
         public readonly string CreateDate;
-        /// <summary>
-        /// Access key status. Possible values are `Active` and `Inactive`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

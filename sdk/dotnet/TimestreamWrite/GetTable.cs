@@ -11,84 +11,12 @@ namespace Pulumi.Aws.TimestreamWrite
 {
     public static class GetTable
     {
-        /// <summary>
-        /// Data source for managing an AWS Timestream Write Table.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.TimestreamWrite.GetTable.Invoke(new()
-        ///     {
-        ///         DatabaseName = testAwsTimestreamwriteDatabase.DatabaseName,
-        ///         Name = testAwsTimestreamwriteTable.TableName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws:timestreamwrite/getTable:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Timestream Write Table.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.TimestreamWrite.GetTable.Invoke(new()
-        ///     {
-        ///         DatabaseName = testAwsTimestreamwriteDatabase.DatabaseName,
-        ///         Name = testAwsTimestreamwriteTable.TableName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:timestreamwrite/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Timestream Write Table.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.TimestreamWrite.GetTable.Invoke(new()
-        ///     {
-        ///         DatabaseName = testAwsTimestreamwriteDatabase.DatabaseName,
-        ///         Name = testAwsTimestreamwriteTable.TableName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:timestreamwrite/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
@@ -96,21 +24,12 @@ namespace Pulumi.Aws.TimestreamWrite
 
     public sealed class GetTableArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the Timestream database.
-        /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Timestream table.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -122,21 +41,12 @@ namespace Pulumi.Aws.TimestreamWrite
 
     public sealed class GetTableInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the Timestream database.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Timestream table.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -150,46 +60,19 @@ namespace Pulumi.Aws.TimestreamWrite
     [OutputType]
     public sealed class GetTableResult
     {
-        /// <summary>
-        /// ARN that uniquely identifies the table.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Time that table was created.
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// Name of database.
-        /// </summary>
         public readonly string DatabaseName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Last time table was updated.
-        /// </summary>
         public readonly string LastUpdatedTime;
-        /// <summary>
-        /// Object containing the following attributes to desribe magnetic store writes.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTableMagneticStoreWritePropertyResult> MagneticStoreWriteProperties;
-        /// <summary>
-        /// Name of the table.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTableRetentionPropertyResult> RetentionProperties;
-        /// <summary>
-        /// Object containing the following attributes to describe the schema of the table.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTableSchemaResult> Schemas;
-        /// <summary>
-        /// Current state of table.
-        /// </summary>
         public readonly string TableStatus;
 
         [OutputConstructor]

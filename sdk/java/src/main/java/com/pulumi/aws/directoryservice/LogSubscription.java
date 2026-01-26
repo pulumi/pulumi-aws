@@ -15,123 +15,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import com.pulumi.aws.directoryservice.LogSubscription;
- * import com.pulumi.aws.directoryservice.LogSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()
- *             .name(String.format("/aws/directoryservice/%s", exampleAwsDirectoryServiceDirectory.id()))
- *             .retentionInDays(14)
- *             .build());
- * 
- *         final var ad-log-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers("ds.amazonaws.com")
- *                     .type("Service")
- *                     .build())
- *                 .resources(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
- *                 .effect("Allow")
- *                 .build())
- *             .build());
- * 
- *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy("ad-log-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
- *             .policyDocument(ad_log_policy.applyValue(_ad_log_policy -> _ad_log_policy.json()))
- *             .policyName("ad-log-policy")
- *             .build());
- * 
- *         var exampleLogSubscription = new LogSubscription("exampleLogSubscription", LogSubscriptionArgs.builder()
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
- *             .logGroupName(example.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
- * 
- * ```sh
- * $ pulumi import aws:directoryservice/logSubscription:LogSubscription msad d-1234567890
- * ```
- * 
- */
 @ResourceType(type="aws:directoryservice/logSubscription:LogSubscription")
 public class LogSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of directory.
-     * 
-     */
     @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output<String> directoryId;
 
-    /**
-     * @return ID of directory.
-     * 
-     */
     public Output<String> directoryId() {
         return this.directoryId;
     }
-    /**
-     * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-     * 
-     */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
-    /**
-     * @return Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

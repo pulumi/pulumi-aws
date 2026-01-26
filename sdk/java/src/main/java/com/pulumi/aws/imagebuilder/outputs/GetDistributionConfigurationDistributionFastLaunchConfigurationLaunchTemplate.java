@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
-    /**
-     * @return ID of the Amazon EC2 launch template.
-     * 
-     */
     private String launchTemplateId;
-    /**
-     * @return The name of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     private String launchTemplateName;
-    /**
-     * @return The version of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     private String launchTemplateVersion;
 
     private GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate() {}
-    /**
-     * @return ID of the Amazon EC2 launch template.
-     * 
-     */
     public String launchTemplateId() {
         return this.launchTemplateId;
     }
-    /**
-     * @return The name of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public String launchTemplateName() {
         return this.launchTemplateName;
     }
-    /**
-     * @return The version of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public String launchTemplateVersion() {
         return this.launchTemplateVersion;
     }

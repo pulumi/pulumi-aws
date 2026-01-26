@@ -21,415 +21,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an App Runner Service.
- * 
- * ## Example Usage
- * 
- * ### Service with a Code Repository Source
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.Service;
- * import com.pulumi.aws.apprunner.ServiceArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationEgressConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()
- *             .serviceName("example")
- *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .authenticationConfiguration(ServiceSourceConfigurationAuthenticationConfigurationArgs.builder()
- *                     .connectionArn(exampleAwsApprunnerConnection.arn())
- *                     .build())
- *                 .codeRepository(ServiceSourceConfigurationCodeRepositoryArgs.builder()
- *                     .codeConfiguration(ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.builder()
- *                         .codeConfigurationValues(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs.builder()
- *                             .buildCommand("python setup.py develop")
- *                             .port("8000")
- *                             .runtime("PYTHON_3")
- *                             .startCommand("python runapp.py")
- *                             .build())
- *                         .configurationSource("API")
- *                         .build())
- *                     .repositoryUrl("https://github.com/example/my-example-python-app")
- *                     .sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs.builder()
- *                         .type("BRANCH")
- *                         .value("main")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .networkConfiguration(ServiceNetworkConfigurationArgs.builder()
- *                 .egressConfiguration(ServiceNetworkConfigurationEgressConfigurationArgs.builder()
- *                     .egressType("VPC")
- *                     .vpcConnectorArn(connector.arn())
- *                     .build())
- *                 .build())
- *             .tags(Map.of("Name", "example-apprunner-service"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Service with an Image Repository Source
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.Service;
- * import com.pulumi.aws.apprunner.ServiceArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()
- *             .serviceName("example")
- *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
- *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
- *                         .port("8000")
- *                         .build())
- *                     .imageIdentifier("public.ecr.aws/aws-containers/hello-app-runner:latest")
- *                     .imageRepositoryType("ECR_PUBLIC")
- *                     .build())
- *                 .autoDeploymentsEnabled(false)
- *                 .build())
- *             .tags(Map.of("Name", "example-apprunner-service"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Service with Observability Configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.ObservabilityConfiguration;
- * import com.pulumi.aws.apprunner.ObservabilityConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ObservabilityConfigurationTraceConfigurationArgs;
- * import com.pulumi.aws.apprunner.Service;
- * import com.pulumi.aws.apprunner.ServiceArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceObservabilityConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleObservabilityConfiguration = new ObservabilityConfiguration("exampleObservabilityConfiguration", ObservabilityConfigurationArgs.builder()
- *             .observabilityConfigurationName("example")
- *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
- *                 .vendor("AWSXRAY")
- *                 .build())
- *             .build());
- * 
- *         var example = new Service("example", ServiceArgs.builder()
- *             .serviceName("example")
- *             .observabilityConfiguration(ServiceObservabilityConfigurationArgs.builder()
- *                 .observabilityConfigurationArn(exampleObservabilityConfiguration.arn())
- *                 .observabilityEnabled(true)
- *                 .build())
- *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
- *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
- *                         .port("8000")
- *                         .build())
- *                     .imageIdentifier("public.ecr.aws/aws-containers/hello-app-runner:latest")
- *                     .imageRepositoryType("ECR_PUBLIC")
- *                     .build())
- *                 .autoDeploymentsEnabled(false)
- *                 .build())
- *             .tags(Map.of("Name", "example-apprunner-service"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the App Runner service.
- * 
- * Using `pulumi import`, import App Runner Services using the `arn`. For example:
- * 
- * % pulumi import aws_apprunner_service.example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
- * 
- */
 @ResourceType(type="aws:apprunner/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the App Runner service.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the App Runner service.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-     * 
-     */
     @Export(name="autoScalingConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> autoScalingConfigurationArn;
 
-    /**
-     * @return ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-     * 
-     */
     public Output<String> autoScalingConfigurationArn() {
         return this.autoScalingConfigurationArn;
     }
-    /**
-     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={ServiceEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
-     * 
-     */
     public Output<Optional<ServiceEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
-    /**
-     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-     * 
-     */
     @Export(name="healthCheckConfiguration", refs={ServiceHealthCheckConfiguration.class}, tree="[0]")
     private Output<ServiceHealthCheckConfiguration> healthCheckConfiguration;
 
-    /**
-     * @return Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-     * 
-     */
     public Output<ServiceHealthCheckConfiguration> healthCheckConfiguration() {
         return this.healthCheckConfiguration;
     }
-    /**
-     * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-     * 
-     */
     @Export(name="instanceConfiguration", refs={ServiceInstanceConfiguration.class}, tree="[0]")
     private Output<ServiceInstanceConfiguration> instanceConfiguration;
 
-    /**
-     * @return The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-     * 
-     */
     public Output<ServiceInstanceConfiguration> instanceConfiguration() {
         return this.instanceConfiguration;
     }
-    /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-     * 
-     */
     @Export(name="networkConfiguration", refs={ServiceNetworkConfiguration.class}, tree="[0]")
     private Output<ServiceNetworkConfiguration> networkConfiguration;
 
-    /**
-     * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-     * 
-     */
     public Output<ServiceNetworkConfiguration> networkConfiguration() {
         return this.networkConfiguration;
     }
-    /**
-     * The observability configuration of your service. See Observability Configuration below for more details.
-     * 
-     */
     @Export(name="observabilityConfiguration", refs={ServiceObservabilityConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceObservabilityConfiguration> observabilityConfiguration;
 
-    /**
-     * @return The observability configuration of your service. See Observability Configuration below for more details.
-     * 
-     */
     public Output<Optional<ServiceObservabilityConfiguration>> observabilityConfiguration() {
         return Codegen.optional(this.observabilityConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
-     * 
-     */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
-    /**
-     * @return An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
-     * 
-     */
     public Output<String> serviceId() {
         return this.serviceId;
     }
-    /**
-     * Name of the service.
-     * 
-     */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
-    /**
-     * @return Name of the service.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
-    /**
-     * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
-     * 
-     */
     @Export(name="serviceUrl", refs={String.class}, tree="[0]")
     private Output<String> serviceUrl;
 
-    /**
-     * @return Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
-     * 
-     */
     public Output<String> serviceUrl() {
         return this.serviceUrl;
     }
-    /**
-     * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="sourceConfiguration", refs={ServiceSourceConfiguration.class}, tree="[0]")
     private Output<ServiceSourceConfiguration> sourceConfiguration;
 
-    /**
-     * @return The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<ServiceSourceConfiguration> sourceConfiguration() {
         return this.sourceConfiguration;
     }
-    /**
-     * Current state of the App Runner service.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Current state of the App Runner service.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

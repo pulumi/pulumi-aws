@@ -30,12 +30,6 @@ class RestoreTestingPlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestoreTestingPlan resource.
-        :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
-        :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
-        :param pulumi.Input[_builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if name is not None:
@@ -54,9 +48,6 @@ class RestoreTestingPlanArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[_builtins.str]:
-        """
-        The schedule expression for the restore testing plan.
-        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -66,9 +57,6 @@ class RestoreTestingPlanArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -78,9 +66,6 @@ class RestoreTestingPlanArgs:
     @_builtins.property
     @pulumi.getter(name="recoveryPointSelection")
     def recovery_point_selection(self) -> Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']]:
-        """
-        Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        """
         return pulumi.get(self, "recovery_point_selection")
 
     @recovery_point_selection.setter
@@ -90,9 +75,6 @@ class RestoreTestingPlanArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -102,9 +84,6 @@ class RestoreTestingPlanArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timezone for the schedule expression. If not provided, the state value will be used.
-        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
@@ -114,9 +93,6 @@ class RestoreTestingPlanArgs:
     @_builtins.property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        """
         return pulumi.get(self, "start_window_hours")
 
     @start_window_hours.setter
@@ -147,14 +123,6 @@ class _RestoreTestingPlanState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RestoreTestingPlan resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Restore Testing Plan.
-        :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
-        :param pulumi.Input[_builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -178,9 +146,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Restore Testing Plan.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -190,9 +155,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -202,9 +164,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter(name="recoveryPointSelection")
     def recovery_point_selection(self) -> Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']]:
-        """
-        Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        """
         return pulumi.get(self, "recovery_point_selection")
 
     @recovery_point_selection.setter
@@ -214,9 +173,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -226,9 +182,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The schedule expression for the restore testing plan.
-        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -238,9 +191,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timezone for the schedule expression. If not provided, the state value will be used.
-        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
@@ -250,9 +200,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        """
         return pulumi.get(self, "start_window_hours")
 
     @start_window_hours.setter
@@ -271,9 +218,6 @@ class _RestoreTestingPlanState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -296,42 +240,9 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Backup Restore Testing Plan.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.RestoreTestingPlan("example",
-            name="example_restore_testing_plan",
-            recovery_point_selection={
-                "algorithm": "LATEST_WITHIN_WINDOW",
-                "include_vaults": ["*"],
-                "recovery_point_types": ["CONTINUOUS"],
-            },
-            schedule_expression="cron(0 12 ? * * *)")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Restore Testing Plan using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
-        ```
-
+        Create a RestoreTestingPlan resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
-        :param pulumi.Input[_builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         """
         ...
     @overload
@@ -340,34 +251,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  args: RestoreTestingPlanArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Backup Restore Testing Plan.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.RestoreTestingPlan("example",
-            name="example_restore_testing_plan",
-            recovery_point_selection={
-                "algorithm": "LATEST_WITHIN_WINDOW",
-                "include_vaults": ["*"],
-                "recovery_point_types": ["CONTINUOUS"],
-            },
-            schedule_expression="cron(0 12 ? * * *)")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Restore Testing Plan using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
-        ```
-
+        Create a RestoreTestingPlan resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RestoreTestingPlanArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -436,14 +320,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Restore Testing Plan.
-        :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
-        :param pulumi.Input[_builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -463,57 +339,36 @@ class RestoreTestingPlan(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Restore Testing Plan.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="recoveryPointSelection")
     def recovery_point_selection(self) -> pulumi.Output[Optional['outputs.RestoreTestingPlanRecoveryPointSelection']]:
-        """
-        Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        """
         return pulumi.get(self, "recovery_point_selection")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[_builtins.str]:
-        """
-        The schedule expression for the restore testing plan.
-        """
         return pulumi.get(self, "schedule_expression")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> pulumi.Output[_builtins.str]:
-        """
-        The timezone for the schedule expression. If not provided, the state value will be used.
-        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @_builtins.property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        """
         return pulumi.get(self, "start_window_hours")
 
     @_builtins.property
@@ -524,8 +379,5 @@ class RestoreTestingPlan(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

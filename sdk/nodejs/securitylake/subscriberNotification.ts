@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Security Lake Subscriber Notification.
- *
- * ## Example Usage
- *
- * ### SQS Notification
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securitylake.SubscriberNotification("example", {
- *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
- *     configuration: {
- *         sqsNotificationConfiguration: {},
- *     },
- * });
- * ```
- *
- * ### HTTPS Notification
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securitylake.SubscriberNotification("example", {
- *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
- *     configuration: {
- *         httpsNotificationConfiguration: {
- *             endpoint: test.apiEndpoint,
- *             targetRoleArn: eventBridge.arn,
- *         },
- *     },
- * });
- * ```
- */
 export class SubscriberNotification extends pulumi.CustomResource {
     /**
      * Get an existing SubscriberNotification resource's state with the given name, ID, and optional extra
@@ -71,27 +35,13 @@ export class SubscriberNotification extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubscriberNotification.__pulumiType;
     }
 
-    /**
-     * Specify the configuration using which you want to create the subscriber notification..
-     */
     declare public readonly configuration: pulumi.Output<outputs.securitylake.SubscriberNotificationConfiguration | undefined>;
     /**
-     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-     *
      * @deprecated Use subscriberEndpoint instead
      */
     declare public /*out*/ readonly endpointId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The subscriber endpoint to which exception messages are posted.
-     */
     declare public /*out*/ readonly subscriberEndpoint: pulumi.Output<string>;
-    /**
-     * The subscriber ID for the notification subscription.
-     */
     declare public readonly subscriberId: pulumi.Output<string>;
 
     /**
@@ -132,27 +82,13 @@ export class SubscriberNotification extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubscriberNotification resources.
  */
 export interface SubscriberNotificationState {
-    /**
-     * Specify the configuration using which you want to create the subscriber notification..
-     */
     configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
     /**
-     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-     *
      * @deprecated Use subscriberEndpoint instead
      */
     endpointId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The subscriber endpoint to which exception messages are posted.
-     */
     subscriberEndpoint?: pulumi.Input<string>;
-    /**
-     * The subscriber ID for the notification subscription.
-     */
     subscriberId?: pulumi.Input<string>;
 }
 
@@ -160,16 +96,7 @@ export interface SubscriberNotificationState {
  * The set of arguments for constructing a SubscriberNotification resource.
  */
 export interface SubscriberNotificationArgs {
-    /**
-     * Specify the configuration using which you want to create the subscriber notification..
-     */
     configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The subscriber ID for the notification subscription.
-     */
     subscriberId: pulumi.Input<string>;
 }

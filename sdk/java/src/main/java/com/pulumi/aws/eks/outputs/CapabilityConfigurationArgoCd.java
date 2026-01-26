@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapabilityConfigurationArgoCd {
-    /**
-     * @return AWS IAM Identity Center configuration. See `awsIdc` below.
-     * 
-     */
     private @Nullable CapabilityConfigurationArgoCdAwsIdc awsIdc;
-    /**
-     * @return Kubernetes namespace for ArgoCD.
-     * 
-     */
     private @Nullable String namespace;
-    /**
-     * @return Network access configuration. See `networkAccess` below.
-     * 
-     */
     private @Nullable CapabilityConfigurationArgoCdNetworkAccess networkAccess;
-    /**
-     * @return RBAC role mappings. See `rbacRoleMapping` below.
-     * 
-     */
     private @Nullable List<CapabilityConfigurationArgoCdRbacRoleMapping> rbacRoleMappings;
-    /**
-     * @return URL of the Argo CD server.
-     * 
-     */
     private @Nullable String serverUrl;
 
     private CapabilityConfigurationArgoCd() {}
-    /**
-     * @return AWS IAM Identity Center configuration. See `awsIdc` below.
-     * 
-     */
     public Optional<CapabilityConfigurationArgoCdAwsIdc> awsIdc() {
         return Optional.ofNullable(this.awsIdc);
     }
-    /**
-     * @return Kubernetes namespace for ArgoCD.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return Network access configuration. See `networkAccess` below.
-     * 
-     */
     public Optional<CapabilityConfigurationArgoCdNetworkAccess> networkAccess() {
         return Optional.ofNullable(this.networkAccess);
     }
-    /**
-     * @return RBAC role mappings. See `rbacRoleMapping` below.
-     * 
-     */
     public List<CapabilityConfigurationArgoCdRbacRoleMapping> rbacRoleMappings() {
         return this.rbacRoleMappings == null ? List.of() : this.rbacRoleMappings;
     }
-    /**
-     * @return URL of the Argo CD server.
-     * 
-     */
     public Optional<String> serverUrl() {
         return Optional.ofNullable(this.serverUrl);
     }

@@ -61,17 +61,11 @@ class GetSecurityProfileResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Security Profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Security Profile.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -95,17 +89,11 @@ class GetSecurityProfileResult:
     @_builtins.property
     @pulumi.getter(name="organizationResourceId")
     def organization_resource_id(self) -> _builtins.str:
-        """
-        The organization resource identifier for the security profile.
-        """
         return pulumi.get(self, "organization_resource_id")
 
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Sequence[_builtins.str]:
-        """
-        List of permissions assigned to the security profile.
-        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property
@@ -121,9 +109,6 @@ class GetSecurityProfileResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags to assign to the Security Profile.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -152,38 +137,7 @@ def get_security_profile(instance_id: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityProfileResult:
     """
-    Provides details about a specific Amazon Connect Security Profile.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_security_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `security_profile_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_security_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        security_profile_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Security Profile by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Security Profile.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -212,38 +166,7 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[_builtins.str
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
-    Provides details about a specific Amazon Connect Security Profile.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_security_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `security_profile_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_security_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        security_profile_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Security Profile by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Security Profile.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CanaryVpcConfig {
-    /**
-     * @return If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-     * 
-     */
     private @Nullable Boolean ipv6AllowedForDualStack;
-    /**
-     * @return IDs of the security groups for this canary.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return IDs of the subnets where this canary is to run.
-     * 
-     */
     private @Nullable List<String> subnetIds;
-    /**
-     * @return ID of the VPC where this canary is to run.
-     * 
-     */
     private @Nullable String vpcId;
 
     private CanaryVpcConfig() {}
-    /**
-     * @return If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-     * 
-     */
     public Optional<Boolean> ipv6AllowedForDualStack() {
         return Optional.ofNullable(this.ipv6AllowedForDualStack);
     }
-    /**
-     * @return IDs of the security groups for this canary.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return IDs of the subnets where this canary is to run.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds == null ? List.of() : this.subnetIds;
     }
-    /**
-     * @return ID of the VPC where this canary is to run.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }

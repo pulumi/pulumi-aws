@@ -12,65 +12,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupsGroup {
-    /**
-     * @return Description of the specified group.
-     * 
-     */
     private String description;
-    /**
-     * @return Group&#39;s display name.
-     * 
-     */
     private String displayName;
-    /**
-     * @return List of identifiers issued to this resource by an external identity provider.
-     * 
-     */
     private List<GetGroupsGroupExternalId> externalIds;
-    /**
-     * @return Identifier of the group in the Identity Store.
-     * 
-     */
     private String groupId;
-    /**
-     * @return Identity Store ID associated with the Single Sign-On (SSO) Instance.
-     * 
-     */
     private String identityStoreId;
 
     private GetGroupsGroup() {}
-    /**
-     * @return Description of the specified group.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Group&#39;s display name.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return List of identifiers issued to this resource by an external identity provider.
-     * 
-     */
     public List<GetGroupsGroupExternalId> externalIds() {
         return this.externalIds;
     }
-    /**
-     * @return Identifier of the group in the Identity Store.
-     * 
-     */
     public String groupId() {
         return this.groupId;
     }
-    /**
-     * @return Identity Store ID associated with the Single Sign-On (SSO) Instance.
-     * 
-     */
     public String identityStoreId() {
         return this.identityStoreId;
     }

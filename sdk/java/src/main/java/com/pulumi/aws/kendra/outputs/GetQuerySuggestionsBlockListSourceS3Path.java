@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQuerySuggestionsBlockListSourceS3Path {
-    /**
-     * @return Name of the S3 bucket that contains the file.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Name of the file.
-     * 
-     */
     private String key;
 
     private GetQuerySuggestionsBlockListSourceS3Path() {}
-    /**
-     * @return Name of the S3 bucket that contains the file.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Name of the file.
-     * 
-     */
     public String key() {
         return this.key;
     }

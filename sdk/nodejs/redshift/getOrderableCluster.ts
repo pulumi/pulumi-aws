@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about Redshift Orderable Clusters and valid parameter combinations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.redshift.getOrderableCluster({
- *     clusterType: "multi-node",
- *     preferredNodeTypes: [
- *         "dc2.large",
- *         "ds2.xlarge",
- *     ],
- * });
- * ```
- */
 export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableClusterResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,25 +20,10 @@ export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulum
  * A collection of arguments for invoking getOrderableCluster.
  */
 export interface GetOrderableClusterArgs {
-    /**
-     * Reshift Cluster typeE.g., `multi-node` or `single-node`
-     */
     clusterType?: string;
-    /**
-     * Redshift Cluster versionE.g., `1.0`
-     */
     clusterVersion?: string;
-    /**
-     * Redshift Cluster node typeE.g., `dc2.8xlarge`
-     */
     nodeType?: string;
-    /**
-     * Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     */
     preferredNodeTypes?: string[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -64,9 +31,6 @@ export interface GetOrderableClusterArgs {
  * A collection of values returned by getOrderableCluster.
  */
 export interface GetOrderableClusterResult {
-    /**
-     * List of Availability Zone names where the Redshift Cluster is available.
-     */
     readonly availabilityZones: string[];
     readonly clusterType: string;
     readonly clusterVersion: string;
@@ -78,24 +42,6 @@ export interface GetOrderableClusterResult {
     readonly preferredNodeTypes?: string[];
     readonly region: string;
 }
-/**
- * Information about Redshift Orderable Clusters and valid parameter combinations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.redshift.getOrderableCluster({
- *     clusterType: "multi-node",
- *     preferredNodeTypes: [
- *         "dc2.large",
- *         "ds2.xlarge",
- *     ],
- * });
- * ```
- */
 export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderableClusterResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -112,24 +58,9 @@ export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, 
  * A collection of arguments for invoking getOrderableCluster.
  */
 export interface GetOrderableClusterOutputArgs {
-    /**
-     * Reshift Cluster typeE.g., `multi-node` or `single-node`
-     */
     clusterType?: pulumi.Input<string>;
-    /**
-     * Redshift Cluster versionE.g., `1.0`
-     */
     clusterVersion?: pulumi.Input<string>;
-    /**
-     * Redshift Cluster node typeE.g., `dc2.8xlarge`
-     */
     nodeType?: pulumi.Input<string>;
-    /**
-     * Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     */
     preferredNodeTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

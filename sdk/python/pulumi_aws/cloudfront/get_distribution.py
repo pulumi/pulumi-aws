@@ -70,34 +70,21 @@ class GetDistributionResult:
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> Sequence[_builtins.str]:
-        """
-        List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
-        """
         return pulumi.get(self, "aliases")
 
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
     def anycast_ip_list_id(self) -> _builtins.str:
-        """
-        ID of the Anycast static IP list that is associated with the distribution, if any.
-        """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
-        """
-        Domain name corresponding to the distribution. For
-        example: `d604721fxaaqy9.cloudfront.net`.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
@@ -108,55 +95,31 @@ class GetDistributionResult:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> _builtins.str:
-        """
-        Current version of the distribution's information. For example:
-        `E2QWRUHAPOMQZL`.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
-        """
-        CloudFront Route 53 zone ID that can be used to
-        route an [Alias Resource Record Set][7] to. This attribute is simply an
-        alias for the zone ID `Z2FDTNDATAQYW2`.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="inProgressValidationBatches")
     def in_progress_validation_batches(self) -> _builtins.int:
-        """
-        The number of invalidation batches
-        currently in progress.
-        """
         return pulumi.get(self, "in_progress_validation_batches")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> _builtins.str:
-        """
-        Date and time the distribution was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the distribution. `Deployed` if the
-        distribution's information is fully propagated throughout the Amazon
-        CloudFront system.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -167,9 +130,6 @@ class GetDistributionResult:
     @_builtins.property
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> _builtins.str:
-        """
-        AWS WAF web ACL associated with this distribution.
-        """
         return pulumi.get(self, "web_acl_id")
 
 
@@ -198,19 +158,7 @@ def get_distribution(id: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionResult:
     """
-    Use this data source to retrieve information about a CloudFront distribution.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudfront.get_distribution(id="EDFDVBD632BHDS5")
-    ```
-
-
-    :param _builtins.str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -236,19 +184,7 @@ def get_distribution_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionResult]:
     """
-    Use this data source to retrieve information about a CloudFront distribution.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudfront.get_distribution(id="EDFDVBD632BHDS5")
-    ```
-
-
-    :param _builtins.str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

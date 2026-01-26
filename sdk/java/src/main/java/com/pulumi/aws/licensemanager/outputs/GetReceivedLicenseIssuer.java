@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseIssuer {
-    /**
-     * @return Issuer key fingerprint.
-     * 
-     */
     private String keyFingerprint;
-    /**
-     * @return The key name.
-     * 
-     */
     private String name;
-    /**
-     * @return Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-     * 
-     */
     private String signKey;
 
     private GetReceivedLicenseIssuer() {}
-    /**
-     * @return Issuer key fingerprint.
-     * 
-     */
     public String keyFingerprint() {
         return this.keyFingerprint;
     }
-    /**
-     * @return The key name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-     * 
-     */
     public String signKey() {
         return this.signKey;
     }

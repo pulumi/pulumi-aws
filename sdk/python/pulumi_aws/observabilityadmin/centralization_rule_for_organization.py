@@ -28,12 +28,6 @@ class CentralizationRuleForOrganizationArgs:
                  timeouts: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CentralizationRuleForOrganization resource.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleArgs'] rule: Configuration block for the centralization rule. See `rule` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "rule_name", rule_name)
         if region is not None:
@@ -48,9 +42,6 @@ class CentralizationRuleForOrganizationArgs:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the centralization rule. Must be unique within the organization.
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -60,9 +51,6 @@ class CentralizationRuleForOrganizationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -72,11 +60,6 @@ class CentralizationRuleForOrganizationArgs:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']]:
-        """
-        Configuration block for the centralization rule. See `rule` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -86,9 +69,6 @@ class CentralizationRuleForOrganizationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,14 +97,6 @@ class _CentralizationRuleForOrganizationState:
                  timeouts: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CentralizationRuleForOrganization resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleArgs'] rule: Configuration block for the centralization rule. See `rule` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] rule_arn: ARN of the centralization rule.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -144,9 +116,6 @@ class _CentralizationRuleForOrganizationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -156,11 +125,6 @@ class _CentralizationRuleForOrganizationState:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']]:
-        """
-        Configuration block for the centralization rule. See `rule` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -170,9 +134,6 @@ class _CentralizationRuleForOrganizationState:
     @_builtins.property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the centralization rule.
-        """
         return pulumi.get(self, "rule_arn")
 
     @rule_arn.setter
@@ -182,9 +143,6 @@ class _CentralizationRuleForOrganizationState:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the centralization rule. Must be unique within the organization.
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -194,9 +152,6 @@ class _CentralizationRuleForOrganizationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -206,9 +161,6 @@ class _CentralizationRuleForOrganizationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -238,135 +190,9 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS CloudWatch Observability Admin Centralization Rule For Organization.
-
-        Centralization rules enable you to centralize log data from multiple AWS accounts and regions within your organization to a single destination account and region. This helps with log management, compliance, and cost optimization by consolidating logs in a central location.
-
-        This requires an AWS account within an organization with at least [delegated administrator permissions](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
-
-        ## Example Usage
-
-        ### Basic Centralization Rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_organization = aws.organizations.get_organization()
-        example = aws.observabilityadmin.CentralizationRuleForOrganization("example",
-            rule_name="example-centralization-rule",
-            rule={
-                "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
-                },
-                "source": {
-                    "regions": ["ap-southeast-1"],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "SKIP",
-                        "log_group_selection_criteria": "*",
-                    },
-                },
-            },
-            tags={
-                "Name": "example-centralization-rule",
-                "Environment": "production",
-            })
-        ```
-
-        ### Advanced Configuration with Encryption and Backup
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_organization = aws.organizations.get_organization()
-        advanced = aws.observabilityadmin.CentralizationRuleForOrganization("advanced",
-            rule_name="advanced-centralization-rule",
-            rule={
-                "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
-                    "destination_logs_configuration": {
-                        "logs_encryption_configuration": {
-                            "encryption_strategy": "AWS_OWNED",
-                        },
-                        "backup_configuration": {
-                            "region": "us-west-1",
-                        },
-                    },
-                },
-                "source": {
-                    "regions": [
-                        "ap-southeast-1",
-                        "us-east-1",
-                    ],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "*",
-                    },
-                },
-            },
-            tags={
-                "Name": "advanced-centralization-rule",
-                "Environment": "production",
-                "Team": "observability",
-            })
-        ```
-
-        ### Selective Log Group Filtering
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_organization = aws.organizations.get_organization()
-        filtered = aws.observabilityadmin.CentralizationRuleForOrganization("filtered",
-            rule_name="filtered-centralization-rule",
-            rule={
-                "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
-                },
-                "source": {
-                    "regions": [
-                        "ap-southeast-1",
-                        "us-east-1",
-                    ],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
-                    },
-                },
-            },
-            tags={
-                "Name": "filtered-centralization-rule",
-                "Filter": "lambda-logs",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
-
-        ```sh
-        $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule
-        ```
-
+        Create a CentralizationRuleForOrganization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']] rule: Configuration block for the centralization rule. See `rule` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -375,127 +201,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                  args: CentralizationRuleForOrganizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS CloudWatch Observability Admin Centralization Rule For Organization.
-
-        Centralization rules enable you to centralize log data from multiple AWS accounts and regions within your organization to a single destination account and region. This helps with log management, compliance, and cost optimization by consolidating logs in a central location.
-
-        This requires an AWS account within an organization with at least [delegated administrator permissions](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
-
-        ## Example Usage
-
-        ### Basic Centralization Rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_organization = aws.organizations.get_organization()
-        example = aws.observabilityadmin.CentralizationRuleForOrganization("example",
-            rule_name="example-centralization-rule",
-            rule={
-                "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
-                },
-                "source": {
-                    "regions": ["ap-southeast-1"],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "SKIP",
-                        "log_group_selection_criteria": "*",
-                    },
-                },
-            },
-            tags={
-                "Name": "example-centralization-rule",
-                "Environment": "production",
-            })
-        ```
-
-        ### Advanced Configuration with Encryption and Backup
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_organization = aws.organizations.get_organization()
-        advanced = aws.observabilityadmin.CentralizationRuleForOrganization("advanced",
-            rule_name="advanced-centralization-rule",
-            rule={
-                "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
-                    "destination_logs_configuration": {
-                        "logs_encryption_configuration": {
-                            "encryption_strategy": "AWS_OWNED",
-                        },
-                        "backup_configuration": {
-                            "region": "us-west-1",
-                        },
-                    },
-                },
-                "source": {
-                    "regions": [
-                        "ap-southeast-1",
-                        "us-east-1",
-                    ],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "*",
-                    },
-                },
-            },
-            tags={
-                "Name": "advanced-centralization-rule",
-                "Environment": "production",
-                "Team": "observability",
-            })
-        ```
-
-        ### Selective Log Group Filtering
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_organization = aws.organizations.get_organization()
-        filtered = aws.observabilityadmin.CentralizationRuleForOrganization("filtered",
-            rule_name="filtered-centralization-rule",
-            rule={
-                "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
-                },
-                "source": {
-                    "regions": [
-                        "ap-southeast-1",
-                        "us-east-1",
-                    ],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
-                    },
-                },
-            },
-            tags={
-                "Name": "filtered-centralization-rule",
-                "Filter": "lambda-logs",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
-
-        ```sh
-        $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule
-        ```
-
+        Create a CentralizationRuleForOrganization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CentralizationRuleForOrganizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -558,14 +264,6 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']] rule: Configuration block for the centralization rule. See `rule` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] rule_arn: ARN of the centralization rule.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -583,51 +281,31 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def rule(self) -> pulumi.Output[Optional['outputs.CentralizationRuleForOrganizationRule']]:
-        """
-        Configuration block for the centralization rule. See `rule` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule")
 
     @_builtins.property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the centralization rule.
-        """
         return pulumi.get(self, "rule_arn")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the centralization rule. Must be unique within the organization.
-        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

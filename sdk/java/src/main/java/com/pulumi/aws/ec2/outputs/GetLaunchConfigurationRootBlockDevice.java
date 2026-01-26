@@ -12,77 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchConfigurationRootBlockDevice {
-    /**
-     * @return Whether the EBS Volume will be deleted on instance termination.
-     * 
-     */
     private Boolean deleteOnTermination;
-    /**
-     * @return Whether the volume is Encrypted.
-     * 
-     */
     private Boolean encrypted;
-    /**
-     * @return Provisioned IOPs of the volume.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return Throughput of the volume.
-     * 
-     */
     private Integer throughput;
-    /**
-     * @return Size of the volume.
-     * 
-     */
     private Integer volumeSize;
-    /**
-     * @return Type of the volume.
-     * 
-     */
     private String volumeType;
 
     private GetLaunchConfigurationRootBlockDevice() {}
-    /**
-     * @return Whether the EBS Volume will be deleted on instance termination.
-     * 
-     */
     public Boolean deleteOnTermination() {
         return this.deleteOnTermination;
     }
-    /**
-     * @return Whether the volume is Encrypted.
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
-    /**
-     * @return Provisioned IOPs of the volume.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return Throughput of the volume.
-     * 
-     */
     public Integer throughput() {
         return this.throughput;
     }
-    /**
-     * @return Size of the volume.
-     * 
-     */
     public Integer volumeSize() {
         return this.volumeSize;
     }
-    /**
-     * @return Type of the volume.
-     * 
-     */
     public String volumeType() {
         return this.volumeType;
     }

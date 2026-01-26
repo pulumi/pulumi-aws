@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class S3AccessPointAttachmentS3AccessPoint {
-    /**
-     * @return Access policy associated with the S3 access point configuration.
-     * 
-     */
     private @Nullable String policy;
-    /**
-     * @return Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
-     * 
-     */
     private @Nullable S3AccessPointAttachmentS3AccessPointVpcConfiguration vpcConfiguration;
 
     private S3AccessPointAttachmentS3AccessPoint() {}
-    /**
-     * @return Access policy associated with the S3 access point configuration.
-     * 
-     */
     public Optional<String> policy() {
         return Optional.ofNullable(this.policy);
     }
-    /**
-     * @return Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
-     * 
-     */
     public Optional<S3AccessPointAttachmentS3AccessPointVpcConfiguration> vpcConfiguration() {
         return Optional.ofNullable(this.vpcConfiguration);
     }

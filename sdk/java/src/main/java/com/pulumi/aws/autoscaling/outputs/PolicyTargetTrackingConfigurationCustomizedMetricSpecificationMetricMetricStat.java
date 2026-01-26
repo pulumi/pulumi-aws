@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat {
-    /**
-     * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric metric;
-    /**
-     * @return The period of the metric in seconds.
-     * 
-     */
     private @Nullable Integer period;
-    /**
-     * @return Statistic of the metrics to return.
-     * 
-     */
     private String stat;
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     private @Nullable String unit;
 
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat() {}
-    /**
-     * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric metric() {
         return this.metric;
     }
-    /**
-     * @return The period of the metric in seconds.
-     * 
-     */
     public Optional<Integer> period() {
         return Optional.ofNullable(this.period);
     }
-    /**
-     * @return Statistic of the metrics to return.
-     * 
-     */
     public String stat() {
         return this.stat;
     }
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

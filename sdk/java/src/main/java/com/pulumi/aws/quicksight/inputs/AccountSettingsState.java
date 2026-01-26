@@ -24,47 +24,23 @@ public final class AccountSettingsState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-     * 
-     */
     @Import(name="defaultNamespace")
     private @Nullable Output<String> defaultNamespace;
 
-    /**
-     * @return The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-     * 
-     */
     public Optional<Output<String>> defaultNamespace() {
         return Optional.ofNullable(this.defaultNamespace);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-     * 
-     */
     @Import(name="terminationProtectionEnabled")
     private @Nullable Output<Boolean> terminationProtectionEnabled;
 
-    /**
-     * @return A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-     * 
-     */
     public Optional<Output<Boolean>> terminationProtectionEnabled() {
         return Optional.ofNullable(this.terminationProtectionEnabled);
     }
@@ -113,65 +89,29 @@ public final class AccountSettingsState extends com.pulumi.resources.ResourceArg
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param defaultNamespace The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultNamespace(@Nullable Output<String> defaultNamespace) {
             $.defaultNamespace = defaultNamespace;
             return this;
         }
 
-        /**
-         * @param defaultNamespace The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultNamespace(String defaultNamespace) {
             return defaultNamespace(Output.of(defaultNamespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param terminationProtectionEnabled A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminationProtectionEnabled(@Nullable Output<Boolean> terminationProtectionEnabled) {
             $.terminationProtectionEnabled = terminationProtectionEnabled;
             return this;
         }
 
-        /**
-         * @param terminationProtectionEnabled A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminationProtectionEnabled(Boolean terminationProtectionEnabled) {
             return terminationProtectionEnabled(Output.of(terminationProtectionEnabled));
         }

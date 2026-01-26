@@ -15,20 +15,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificateResult {
-    /**
-     * @return ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
-     * 
-     */
     private String arn;
-    /**
-     * @return ACM-issued certificate.
-     * 
-     */
     private String certificate;
-    /**
-     * @return Certificates forming the requested ACM-issued certificate&#39;s chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
-     * 
-     */
     private String certificateChain;
     private String domain;
     /**
@@ -39,38 +27,18 @@ public final class GetCertificateResult {
     private @Nullable List<String> keyTypes;
     private @Nullable Boolean mostRecent;
     private String region;
-    /**
-     * @return Status of the found certificate.
-     * 
-     */
     private String status;
     private @Nullable List<String> statuses;
-    /**
-     * @return Mapping of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
     private @Nullable List<String> types;
 
     private GetCertificateResult() {}
-    /**
-     * @return ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ACM-issued certificate.
-     * 
-     */
     public String certificate() {
         return this.certificate;
     }
-    /**
-     * @return Certificates forming the requested ACM-issued certificate&#39;s chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
-     * 
-     */
     public String certificateChain() {
         return this.certificateChain;
     }
@@ -93,20 +61,12 @@ public final class GetCertificateResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the found certificate.
-     * 
-     */
     public String status() {
         return this.status;
     }
     public List<String> statuses() {
         return this.statuses == null ? List.of() : this.statuses;
     }
-    /**
-     * @return Mapping of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

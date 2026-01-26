@@ -27,8 +27,6 @@ class ResourceSetArgs:
                  timeouts: Optional[pulumi.Input['ResourceSetTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -42,9 +40,6 @@ class ResourceSetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -54,9 +49,6 @@ class ResourceSetArgs:
     @_builtins.property
     @pulumi.getter(name="resourceSets")
     def resource_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]]]:
-        """
-        Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
-        """
         return pulumi.get(self, "resource_sets")
 
     @resource_sets.setter
@@ -93,9 +85,6 @@ class _ResourceSetState:
                  timeouts: Optional[pulumi.Input['ResourceSetTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceSet resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Resource Set.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -113,9 +102,6 @@ class _ResourceSetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Resource Set.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -125,9 +111,6 @@ class _ResourceSetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,9 +120,6 @@ class _ResourceSetState:
     @_builtins.property
     @pulumi.getter(name="resourceSets")
     def resource_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]]]:
-        """
-        Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
-        """
         return pulumi.get(self, "resource_sets")
 
     @resource_sets.setter
@@ -186,34 +166,9 @@ class ResourceSet(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ResourceSetTimeoutsArgs', 'ResourceSetTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS FMS (Firewall Manager) Resource Set.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fms.ResourceSet("example", resource_sets=[{
-            "name": "testing",
-            "resource_type_lists": ["AWS::NetworkFirewall::Firewall"],
-        }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FMS (Firewall Manager) Resource Set using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
-        ```
-
+        Create a ResourceSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         ...
     @overload
@@ -222,30 +177,7 @@ class ResourceSet(pulumi.CustomResource):
                  args: Optional[ResourceSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS FMS (Firewall Manager) Resource Set.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fms.ResourceSet("example", resource_sets=[{
-            "name": "testing",
-            "resource_type_lists": ["AWS::NetworkFirewall::Firewall"],
-        }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FMS (Firewall Manager) Resource Set using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
-        ```
-
+        Create a ResourceSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,9 +235,6 @@ class ResourceSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Resource Set.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -322,25 +251,16 @@ class ResourceSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Resource Set.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceSets")
     def resource_sets(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceSetResourceSet']]]:
-        """
-        Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
-        """
         return pulumi.get(self, "resource_sets")
 
     @_builtins.property

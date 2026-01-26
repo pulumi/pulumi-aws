@@ -9,101 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Provides a CloudFront Field-level Encryption Profile resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.PublicKey("example", new()
-    ///     {
-    ///         Comment = "test public key",
-    ///         EncodedKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "public_key.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Name = "test_key",
-    ///     });
-    /// 
-    ///     var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new()
-    ///     {
-    ///         Comment = "test comment",
-    ///         Name = "test profile",
-    ///         EncryptionEntities = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs
-    ///         {
-    ///             Items = new[]
-    ///             {
-    ///                 new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs
-    ///                 {
-    ///                     PublicKeyId = example.Id,
-    ///                     ProviderId = "test provider",
-    ///                     FieldPatterns = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs
-    ///                     {
-    ///                         Items = new[]
-    ///                         {
-    ///                             "DateOfBirth",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")]
     public partial class FieldLevelEncryptionProfile : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Field Level Encryption Profile ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-        /// </summary>
         [Output("callerReference")]
         public Output<string> CallerReference { get; private set; } = null!;
 
-        /// <summary>
-        /// An optional comment about the Field Level Encryption Profile.
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// The encryption entities config block for field-level encryption profiles that contains an attribute `Items` which includes the encryption key and field pattern specifications.
-        /// </summary>
         [Output("encryptionEntities")]
         public Output<Outputs.FieldLevelEncryptionProfileEncryptionEntities> EncryptionEntities { get; private set; } = null!;
 
-        /// <summary>
-        /// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Field Level Encryption Profile.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -153,21 +76,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class FieldLevelEncryptionProfileArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An optional comment about the Field Level Encryption Profile.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// The encryption entities config block for field-level encryption profiles that contains an attribute `Items` which includes the encryption key and field pattern specifications.
-        /// </summary>
         [Input("encryptionEntities", required: true)]
         public Input<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs> EncryptionEntities { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Field Level Encryption Profile.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -179,39 +93,21 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class FieldLevelEncryptionProfileState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Field Level Encryption Profile ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-        /// </summary>
         [Input("callerReference")]
         public Input<string>? CallerReference { get; set; }
 
-        /// <summary>
-        /// An optional comment about the Field Level Encryption Profile.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// The encryption entities config block for field-level encryption profiles that contains an attribute `Items` which includes the encryption key and field pattern specifications.
-        /// </summary>
         [Input("encryptionEntities")]
         public Input<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesGetArgs>? EncryptionEntities { get; set; }
 
-        /// <summary>
-        /// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The name of the Field Level Encryption Profile.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

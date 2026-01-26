@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig {
-    /**
-     * @return The Amazon EFS access point ID to use.
-     * 
-     */
     private String accessPointId;
-    /**
-     * @return Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
-     * 
-     */
     private String iam;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig() {}
-    /**
-     * @return The Amazon EFS access point ID to use.
-     * 
-     */
     public String accessPointId() {
         return this.accessPointId;
     }
-    /**
-     * @return Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
-     * 
-     */
     public String iam() {
         return this.iam;
     }

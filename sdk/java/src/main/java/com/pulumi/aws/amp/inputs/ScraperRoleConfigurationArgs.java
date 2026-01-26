@@ -15,32 +15,16 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
 
     public static final ScraperRoleConfigurationArgs Empty = new ScraperRoleConfigurationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-     * 
-     */
     @Import(name="sourceRoleArn")
     private @Nullable Output<String> sourceRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-     * 
-     */
     public Optional<Output<String>> sourceRoleArn() {
         return Optional.ofNullable(this.sourceRoleArn);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-     * 
-     */
     @Import(name="targetRoleArn")
     private @Nullable Output<String> targetRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-     * 
-     */
     public Optional<Output<String>> targetRoleArn() {
         return Optional.ofNullable(this.targetRoleArn);
     }
@@ -70,44 +54,20 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
             $ = new ScraperRoleConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceRoleArn The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceRoleArn(@Nullable Output<String> sourceRoleArn) {
             $.sourceRoleArn = sourceRoleArn;
             return this;
         }
 
-        /**
-         * @param sourceRoleArn The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceRoleArn(String sourceRoleArn) {
             return sourceRoleArn(Output.of(sourceRoleArn));
         }
 
-        /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRoleArn(@Nullable Output<String> targetRoleArn) {
             $.targetRoleArn = targetRoleArn;
             return this;
         }
 
-        /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRoleArn(String targetRoleArn) {
             return targetRoleArn(Output.of(targetRoleArn));
         }

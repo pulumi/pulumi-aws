@@ -99,57 +99,36 @@ class GetNatGatewayResult:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> _builtins.str:
-        """
-        Allocation ID of the Elastic IP address.
-        """
         return pulumi.get(self, "allocation_id")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> _builtins.str:
-        """
-        Association ID of the Elastic IP address.
-        """
         return pulumi.get(self, "association_id")
 
     @_builtins.property
     @pulumi.getter(name="autoProvisionZones")
     def auto_provision_zones(self) -> _builtins.str:
-        """
-        (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-        """
         return pulumi.get(self, "auto_provision_zones")
 
     @_builtins.property
     @pulumi.getter(name="autoScalingIps")
     def auto_scaling_ips(self) -> _builtins.str:
-        """
-        (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-        """
         return pulumi.get(self, "auto_scaling_ips")
 
     @_builtins.property
     @pulumi.getter(name="availabilityMode")
     def availability_mode(self) -> _builtins.str:
-        """
-        Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
-        """
         return pulumi.get(self, "availability_mode")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneAddresses")
     def availability_zone_addresses(self) -> Sequence['outputs.GetNatGatewayAvailabilityZoneAddressResult']:
-        """
-        (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
-        """
         return pulumi.get(self, "availability_zone_addresses")
 
     @_builtins.property
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> _builtins.str:
-        """
-        Connectivity type of the NAT Gateway.
-        """
         return pulumi.get(self, "connectivity_type")
 
     @_builtins.property
@@ -165,25 +144,16 @@ class GetNatGatewayResult:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> _builtins.str:
-        """
-        ID of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> _builtins.str:
-        """
-        (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
-        """
         return pulumi.get(self, "private_ip")
 
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> _builtins.str:
-        """
-        Public IP address.
-        """
         return pulumi.get(self, "public_ip")
 
     @_builtins.property
@@ -194,41 +164,26 @@ class GetNatGatewayResult:
     @_builtins.property
     @pulumi.getter(name="regionalNatGatewayAddresses")
     def regional_nat_gateway_addresses(self) -> Sequence['outputs.GetNatGatewayRegionalNatGatewayAddressResult']:
-        """
-        (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-        """
         return pulumi.get(self, "regional_nat_gateway_addresses")
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> _builtins.str:
-        """
-        (regional NAT gateways only) ID of the automatically created route table.
-        """
         return pulumi.get(self, "route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Sequence[_builtins.str]:
-        """
-        (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
-        """
         return pulumi.get(self, "secondary_allocation_ids")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> _builtins.int:
-        """
-        (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
-        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> Sequence[_builtins.str]:
-        """
-        (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
-        """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
     @_builtins.property
@@ -291,42 +246,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
                     vpc_id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
-    Provides details about a specific VPC NAT Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=public["id"])
-    ```
-
-    ### With tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=public["id"],
-        tags={
-            "Name": "gw NAT",
-        })
-    ```
-
-
-    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available
-           NAT Gateways in the current Region. The given filters must match exactly one
-           NAT Gateway whose data will be exported as attributes.
-    :param _builtins.str id: ID of the specific NAT Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-    :param _builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired NAT Gateway.
-    :param _builtins.str vpc_id: ID of the VPC that the NAT Gateway resides in.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -371,42 +291,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
                            vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
-    Provides details about a specific VPC NAT Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=public["id"])
-    ```
-
-    ### With tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=public["id"],
-        tags={
-            "Name": "gw NAT",
-        })
-    ```
-
-
-    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available
-           NAT Gateways in the current Region. The given filters must match exactly one
-           NAT Gateway whose data will be exported as attributes.
-    :param _builtins.str id: ID of the specific NAT Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-    :param _builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired NAT Gateway.
-    :param _builtins.str vpc_id: ID of the VPC that the NAT Gateway resides in.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

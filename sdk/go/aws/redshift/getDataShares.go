@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Redshift Data Shares.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.GetDataShares(ctx, &redshift.GetDataSharesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDataShares(ctx *pulumi.Context, args *GetDataSharesArgs, opts ...pulumi.InvokeOption) (*GetDataSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDataSharesResult
@@ -50,17 +23,14 @@ func GetDataShares(ctx *pulumi.Context, args *GetDataSharesArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDataShares.
 type GetDataSharesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataShares.
 type GetDataSharesResult struct {
-	// An array of all data shares in the current region. See `dataShares` below.
 	DataShares []GetDataSharesDataShare `pulumi:"dataShares"`
-	// AWS region.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Id         string                   `pulumi:"id"`
+	Region     string                   `pulumi:"region"`
 }
 
 func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetDataSharesResultOutput {
@@ -74,7 +44,6 @@ func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts
 
 // A collection of arguments for invoking getDataShares.
 type GetDataSharesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -97,12 +66,10 @@ func (o GetDataSharesResultOutput) ToGetDataSharesResultOutputWithContext(ctx co
 	return o
 }
 
-// An array of all data shares in the current region. See `dataShares` below.
 func (o GetDataSharesResultOutput) DataShares() GetDataSharesDataShareArrayOutput {
 	return o.ApplyT(func(v GetDataSharesResult) []GetDataSharesDataShare { return v.DataShares }).(GetDataSharesDataShareArrayOutput)
 }
 
-// AWS region.
 func (o GetDataSharesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesResult) string { return v.Id }).(pulumi.StringOutput)
 }

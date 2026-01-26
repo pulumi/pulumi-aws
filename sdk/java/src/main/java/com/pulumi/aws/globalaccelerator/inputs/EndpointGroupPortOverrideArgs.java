@@ -14,32 +14,16 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
 
     public static final EndpointGroupPortOverrideArgs Empty = new EndpointGroupPortOverrideArgs();
 
-    /**
-     * The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-     * 
-     */
     @Import(name="endpointPort", required=true)
     private Output<Integer> endpointPort;
 
-    /**
-     * @return The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-     * 
-     */
     public Output<Integer> endpointPort() {
         return this.endpointPort;
     }
 
-    /**
-     * The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-     * 
-     */
     @Import(name="listenerPort", required=true)
     private Output<Integer> listenerPort;
 
-    /**
-     * @return The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-     * 
-     */
     public Output<Integer> listenerPort() {
         return this.listenerPort;
     }
@@ -69,44 +53,20 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
             $ = new EndpointGroupPortOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointPort The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointPort(Output<Integer> endpointPort) {
             $.endpointPort = endpointPort;
             return this;
         }
 
-        /**
-         * @param endpointPort The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointPort(Integer endpointPort) {
             return endpointPort(Output.of(endpointPort));
         }
 
-        /**
-         * @param listenerPort The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerPort(Output<Integer> listenerPort) {
             $.listenerPort = listenerPort;
             return this;
         }
 
-        /**
-         * @param listenerPort The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerPort(Integer listenerPort) {
             return listenerPort(Output.of(listenerPort));
         }

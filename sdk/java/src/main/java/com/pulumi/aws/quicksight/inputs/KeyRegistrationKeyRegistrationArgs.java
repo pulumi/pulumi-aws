@@ -17,32 +17,16 @@ public final class KeyRegistrationKeyRegistrationArgs extends com.pulumi.resourc
 
     public static final KeyRegistrationKeyRegistrationArgs Empty = new KeyRegistrationKeyRegistrationArgs();
 
-    /**
-     * Whether the key is set as the default key for encryption and decryption use.
-     * 
-     */
     @Import(name="defaultKey")
     private @Nullable Output<Boolean> defaultKey;
 
-    /**
-     * @return Whether the key is set as the default key for encryption and decryption use.
-     * 
-     */
     public Optional<Output<Boolean>> defaultKey() {
         return Optional.ofNullable(this.defaultKey);
     }
 
-    /**
-     * ARN of the AWS KMS key that is registered for encryption and decryption use.
-     * 
-     */
     @Import(name="keyArn", required=true)
     private Output<String> keyArn;
 
-    /**
-     * @return ARN of the AWS KMS key that is registered for encryption and decryption use.
-     * 
-     */
     public Output<String> keyArn() {
         return this.keyArn;
     }
@@ -72,44 +56,20 @@ public final class KeyRegistrationKeyRegistrationArgs extends com.pulumi.resourc
             $ = new KeyRegistrationKeyRegistrationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultKey Whether the key is set as the default key for encryption and decryption use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultKey(@Nullable Output<Boolean> defaultKey) {
             $.defaultKey = defaultKey;
             return this;
         }
 
-        /**
-         * @param defaultKey Whether the key is set as the default key for encryption and decryption use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultKey(Boolean defaultKey) {
             return defaultKey(Output.of(defaultKey));
         }
 
-        /**
-         * @param keyArn ARN of the AWS KMS key that is registered for encryption and decryption use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(Output<String> keyArn) {
             $.keyArn = keyArn;
             return this;
         }
 
-        /**
-         * @param keyArn ARN of the AWS KMS key that is registered for encryption and decryption use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(String keyArn) {
             return keyArn(Output.of(keyArn));
         }

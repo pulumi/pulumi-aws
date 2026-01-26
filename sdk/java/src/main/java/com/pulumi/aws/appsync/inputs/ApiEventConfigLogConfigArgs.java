@@ -14,32 +14,16 @@ public final class ApiEventConfigLogConfigArgs extends com.pulumi.resources.Reso
 
     public static final ApiEventConfigLogConfigArgs Empty = new ApiEventConfigLogConfigArgs();
 
-    /**
-     * ARN of the IAM role for CloudWatch logs.
-     * 
-     */
     @Import(name="cloudwatchLogsRoleArn", required=true)
     private Output<String> cloudwatchLogsRoleArn;
 
-    /**
-     * @return ARN of the IAM role for CloudWatch logs.
-     * 
-     */
     public Output<String> cloudwatchLogsRoleArn() {
         return this.cloudwatchLogsRoleArn;
     }
 
-    /**
-     * Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-     * 
-     */
     @Import(name="logLevel", required=true)
     private Output<String> logLevel;
 
-    /**
-     * @return Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-     * 
-     */
     public Output<String> logLevel() {
         return this.logLevel;
     }
@@ -69,44 +53,20 @@ public final class ApiEventConfigLogConfigArgs extends com.pulumi.resources.Reso
             $ = new ApiEventConfigLogConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogsRoleArn ARN of the IAM role for CloudWatch logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsRoleArn(Output<String> cloudwatchLogsRoleArn) {
             $.cloudwatchLogsRoleArn = cloudwatchLogsRoleArn;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogsRoleArn ARN of the IAM role for CloudWatch logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsRoleArn(String cloudwatchLogsRoleArn) {
             return cloudwatchLogsRoleArn(Output.of(cloudwatchLogsRoleArn));
         }
 
-        /**
-         * @param logLevel Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logLevel(Output<String> logLevel) {
             $.logLevel = logLevel;
             return this;
         }
 
-        /**
-         * @param logLevel Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logLevel(String logLevel) {
             return logLevel(Output.of(logLevel));
         }

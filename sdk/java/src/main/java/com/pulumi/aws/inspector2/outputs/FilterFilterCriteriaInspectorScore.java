@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FilterFilterCriteriaInspectorScore {
-    /**
-     * @return (Optional) Lower bound of the range, inclusive.
-     * 
-     */
     private Double lowerInclusive;
-    /**
-     * @return (Optional) Upper bound of the range, inclusive.
-     * 
-     */
     private Double upperInclusive;
 
     private FilterFilterCriteriaInspectorScore() {}
-    /**
-     * @return (Optional) Lower bound of the range, inclusive.
-     * 
-     */
     public Double lowerInclusive() {
         return this.lowerInclusive;
     }
-    /**
-     * @return (Optional) Upper bound of the range, inclusive.
-     * 
-     */
     public Double upperInclusive() {
         return this.upperInclusive;
     }

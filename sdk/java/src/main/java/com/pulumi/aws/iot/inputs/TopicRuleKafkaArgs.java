@@ -19,92 +19,44 @@ public final class TopicRuleKafkaArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final TopicRuleKafkaArgs Empty = new TopicRuleKafkaArgs();
 
-    /**
-     * Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-     * 
-     */
     @Import(name="clientProperties", required=true)
     private Output<Map<String,String>> clientProperties;
 
-    /**
-     * @return Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-     * 
-     */
     public Output<Map<String,String>> clientProperties() {
         return this.clientProperties;
     }
 
-    /**
-     * The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
-     * 
-     */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
-    /**
-     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
 
-    /**
-     * The list of Kafka headers that you specify. Nested arguments below.
-     * 
-     */
     @Import(name="headers")
     private @Nullable Output<List<TopicRuleKafkaHeaderArgs>> headers;
 
-    /**
-     * @return The list of Kafka headers that you specify. Nested arguments below.
-     * 
-     */
     public Optional<Output<List<TopicRuleKafkaHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
-    /**
-     * The Kafka message key.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return The Kafka message key.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * The Kafka message partition.
-     * 
-     */
     @Import(name="partition")
     private @Nullable Output<String> partition;
 
-    /**
-     * @return The Kafka message partition.
-     * 
-     */
     public Optional<Output<String>> partition() {
         return Optional.ofNullable(this.partition);
     }
 
-    /**
-     * The Kafka topic for messages to be sent to the Kafka broker.
-     * 
-     */
     @Import(name="topic", required=true)
     private Output<String> topic;
 
-    /**
-     * @return The Kafka topic for messages to be sent to the Kafka broker.
-     * 
-     */
     public Output<String> topic() {
         return this.topic;
     }
@@ -138,138 +90,60 @@ public final class TopicRuleKafkaArgs extends com.pulumi.resources.ResourceArgs 
             $ = new TopicRuleKafkaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientProperties Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientProperties(Output<Map<String,String>> clientProperties) {
             $.clientProperties = clientProperties;
             return this;
         }
 
-        /**
-         * @param clientProperties Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientProperties(Map<String,String> clientProperties) {
             return clientProperties(Output.of(clientProperties));
         }
 
-        /**
-         * @param destinationArn The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }
 
-        /**
-         * @param headers The list of Kafka headers that you specify. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(@Nullable Output<List<TopicRuleKafkaHeaderArgs>> headers) {
             $.headers = headers;
             return this;
         }
 
-        /**
-         * @param headers The list of Kafka headers that you specify. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(List<TopicRuleKafkaHeaderArgs> headers) {
             return headers(Output.of(headers));
         }
 
-        /**
-         * @param headers The list of Kafka headers that you specify. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(TopicRuleKafkaHeaderArgs... headers) {
             return headers(List.of(headers));
         }
 
-        /**
-         * @param key The Kafka message key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The Kafka message key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param partition The Kafka message partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partition(@Nullable Output<String> partition) {
             $.partition = partition;
             return this;
         }
 
-        /**
-         * @param partition The Kafka message partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partition(String partition) {
             return partition(Output.of(partition));
         }
 
-        /**
-         * @param topic The Kafka topic for messages to be sent to the Kafka broker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topic(Output<String> topic) {
             $.topic = topic;
             return this;
         }
 
-        /**
-         * @param topic The Kafka topic for messages to be sent to the Kafka broker.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topic(String topic) {
             return topic(Output.of(topic));
         }

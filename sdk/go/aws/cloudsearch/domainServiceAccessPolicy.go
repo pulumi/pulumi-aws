@@ -12,92 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an CloudSearch domain service access policy resource.
-//
-// The provider waits for the domain service access policy to become `Active` when applying a configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudsearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
-//				Name: pulumi.String("example-domain"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("search_only"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "*",
-//								Identifiers: []string{
-//									"*",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"cloudsearch:search",
-//							"cloudsearch:document",
-//						},
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "IpAddress",
-//								Variable: "aws:SourceIp",
-//								Values: []string{
-//									"192.0.2.0/32",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "example", &cloudsearch.DomainServiceAccessPolicyArgs{
-//				DomainName:   exampleDomain.ID(),
-//				AccessPolicy: pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-// ```
 type DomainServiceAccessPolicy struct {
 	pulumi.CustomResourceState
 
-	// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
 	AccessPolicy pulumi.StringOutput `pulumi:"accessPolicy"`
-	// The CloudSearch domain name the policy applies to.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	DomainName   pulumi.StringOutput `pulumi:"domainName"`
+	Region       pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomainServiceAccessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -136,21 +56,15 @@ func GetDomainServiceAccessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainServiceAccessPolicy resources.
 type domainServiceAccessPolicyState struct {
-	// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
 	AccessPolicy *string `pulumi:"accessPolicy"`
-	// The CloudSearch domain name the policy applies to.
-	DomainName *string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DomainName   *string `pulumi:"domainName"`
+	Region       *string `pulumi:"region"`
 }
 
 type DomainServiceAccessPolicyState struct {
-	// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
 	AccessPolicy pulumi.StringPtrInput
-	// The CloudSearch domain name the policy applies to.
-	DomainName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DomainName   pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (DomainServiceAccessPolicyState) ElementType() reflect.Type {
@@ -158,22 +72,16 @@ func (DomainServiceAccessPolicyState) ElementType() reflect.Type {
 }
 
 type domainServiceAccessPolicyArgs struct {
-	// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-	AccessPolicy string `pulumi:"accessPolicy"`
-	// The CloudSearch domain name the policy applies to.
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccessPolicy string  `pulumi:"accessPolicy"`
+	DomainName   string  `pulumi:"domainName"`
+	Region       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainServiceAccessPolicy resource.
 type DomainServiceAccessPolicyArgs struct {
-	// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
 	AccessPolicy pulumi.StringInput
-	// The CloudSearch domain name the policy applies to.
-	DomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DomainName   pulumi.StringInput
+	Region       pulumi.StringPtrInput
 }
 
 func (DomainServiceAccessPolicyArgs) ElementType() reflect.Type {
@@ -263,17 +171,14 @@ func (o DomainServiceAccessPolicyOutput) ToDomainServiceAccessPolicyOutputWithCo
 	return o
 }
 
-// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
 func (o DomainServiceAccessPolicyOutput) AccessPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainServiceAccessPolicy) pulumi.StringOutput { return v.AccessPolicy }).(pulumi.StringOutput)
 }
 
-// The CloudSearch domain name the policy applies to.
 func (o DomainServiceAccessPolicyOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainServiceAccessPolicy) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainServiceAccessPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainServiceAccessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

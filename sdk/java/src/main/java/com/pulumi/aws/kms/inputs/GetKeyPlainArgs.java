@@ -16,55 +16,23 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetKeyPlainArgs Empty = new GetKeyPlainArgs();
 
-    /**
-     * List of grant tokens
-     * 
-     */
     @Import(name="grantTokens")
     private @Nullable List<String> grantTokens;
 
-    /**
-     * @return List of grant tokens
-     * 
-     */
     public Optional<List<String>> grantTokens() {
         return Optional.ofNullable(this.grantTokens);
     }
 
-    /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-     * 
-     */
     @Import(name="keyId", required=true)
     private String keyId;
 
-    /**
-     * @return Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -95,48 +63,20 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetKeyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grantTokens List of grant tokens
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantTokens(@Nullable List<String> grantTokens) {
             $.grantTokens = grantTokens;
             return this;
         }
 
-        /**
-         * @param grantTokens List of grant tokens
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantTokens(String... grantTokens) {
             return grantTokens(List.of(grantTokens));
         }
 
-        /**
-         * @param keyId Key identifier which can be one of the following format:
-         * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Alias name. E.g.: `alias/my-key`
-         * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

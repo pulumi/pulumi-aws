@@ -26,11 +26,6 @@ class AnomalyMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
-        :param pulumi.Input[_builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        :param pulumi.Input[_builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
-        :param pulumi.Input[_builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        :param pulumi.Input[_builtins.str] name: The name of the monitor.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "monitor_type", monitor_type)
         if monitor_dimension is not None:
@@ -45,9 +40,6 @@ class AnomalyMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="monitorType")
     def monitor_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        """
         return pulumi.get(self, "monitor_type")
 
     @monitor_type.setter
@@ -57,9 +49,6 @@ class AnomalyMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="monitorDimension")
     def monitor_dimension(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The dimensions to evaluate. Valid values: `SERVICE`.
-        """
         return pulumi.get(self, "monitor_dimension")
 
     @monitor_dimension.setter
@@ -69,9 +58,6 @@ class AnomalyMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="monitorSpecification")
     def monitor_specification(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        """
         return pulumi.get(self, "monitor_specification")
 
     @monitor_specification.setter
@@ -81,9 +67,6 @@ class AnomalyMonitorArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the monitor.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,9 +76,6 @@ class AnomalyMonitorArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,13 +95,6 @@ class _AnomalyMonitorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AnomalyMonitor resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the anomaly monitor.
-        :param pulumi.Input[_builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
-        :param pulumi.Input[_builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        :param pulumi.Input[_builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        :param pulumi.Input[_builtins.str] name: The name of the monitor.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -141,9 +114,6 @@ class _AnomalyMonitorState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the anomaly monitor.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -153,9 +123,6 @@ class _AnomalyMonitorState:
     @_builtins.property
     @pulumi.getter(name="monitorDimension")
     def monitor_dimension(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The dimensions to evaluate. Valid values: `SERVICE`.
-        """
         return pulumi.get(self, "monitor_dimension")
 
     @monitor_dimension.setter
@@ -165,9 +132,6 @@ class _AnomalyMonitorState:
     @_builtins.property
     @pulumi.getter(name="monitorSpecification")
     def monitor_specification(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        """
         return pulumi.get(self, "monitor_specification")
 
     @monitor_specification.setter
@@ -177,9 +141,6 @@ class _AnomalyMonitorState:
     @_builtins.property
     @pulumi.getter(name="monitorType")
     def monitor_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        """
         return pulumi.get(self, "monitor_type")
 
     @monitor_type.setter
@@ -189,9 +150,6 @@ class _AnomalyMonitorState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the monitor.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -201,9 +159,6 @@ class _AnomalyMonitorState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -213,9 +168,6 @@ class _AnomalyMonitorState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -236,67 +188,9 @@ class AnomalyMonitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a CE Anomaly Monitor.
-
-        ## Example Usage
-
-        There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
-
-        ### Dimensional Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        service_monitor = aws.costexplorer.AnomalyMonitor("service_monitor",
-            name="AWSServiceMonitor",
-            monitor_type="DIMENSIONAL",
-            monitor_dimension="SERVICE")
-        ```
-
-        ### Custom Example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.costexplorer.AnomalyMonitor("test",
-            name="AWSCustomAnomalyMonitor",
-            monitor_type="CUSTOM",
-            monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
-                },
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly monitor.
-
-        Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
-
-        % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
-
+        Create a AnomalyMonitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
-        :param pulumi.Input[_builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        :param pulumi.Input[_builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        :param pulumi.Input[_builtins.str] name: The name of the monitor.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -305,60 +199,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                  args: AnomalyMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CE Anomaly Monitor.
-
-        ## Example Usage
-
-        There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
-
-        ### Dimensional Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        service_monitor = aws.costexplorer.AnomalyMonitor("service_monitor",
-            name="AWSServiceMonitor",
-            monitor_type="DIMENSIONAL",
-            monitor_dimension="SERVICE")
-        ```
-
-        ### Custom Example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.costexplorer.AnomalyMonitor("test",
-            name="AWSCustomAnomalyMonitor",
-            monitor_type="CUSTOM",
-            monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
-                },
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly monitor.
-
-        Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
-
-        % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
-
+        Create a AnomalyMonitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AnomalyMonitorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -421,13 +262,6 @@ class AnomalyMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the anomaly monitor.
-        :param pulumi.Input[_builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
-        :param pulumi.Input[_builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        :param pulumi.Input[_builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        :param pulumi.Input[_builtins.str] name: The name of the monitor.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -445,56 +279,35 @@ class AnomalyMonitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the anomaly monitor.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="monitorDimension")
     def monitor_dimension(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The dimensions to evaluate. Valid values: `SERVICE`.
-        """
         return pulumi.get(self, "monitor_dimension")
 
     @_builtins.property
     @pulumi.getter(name="monitorSpecification")
     def monitor_specification(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-        """
         return pulumi.get(self, "monitor_specification")
 
     @_builtins.property
     @pulumi.getter(name="monitorType")
     def monitor_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-        """
         return pulumi.get(self, "monitor_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the monitor.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

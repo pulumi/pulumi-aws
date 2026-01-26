@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get information about an ElastiCache User.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = aws.elasticache.getUser({
- *     userId: "example",
- * });
- * ```
- */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getUser:getUser", {
@@ -39,25 +25,13 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
-    /**
-     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     */
     accessString?: string;
     authenticationModes?: inputs.elasticache.GetUserAuthenticationMode[];
     engine?: string;
     noPasswordRequired?: boolean;
     passwords?: string[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Identifier for the user.
-     */
     userId: string;
-    /**
-     * User name of the user.
-     */
     userName?: string;
 }
 
@@ -65,9 +39,6 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     */
     readonly accessString?: string;
     readonly authenticationModes?: outputs.elasticache.GetUserAuthenticationMode[];
     readonly engine?: string;
@@ -78,29 +49,9 @@ export interface GetUserResult {
     readonly noPasswordRequired?: boolean;
     readonly passwords?: string[];
     readonly region: string;
-    /**
-     * Identifier for the user.
-     */
     readonly userId: string;
-    /**
-     * User name of the user.
-     */
     readonly userName?: string;
 }
-/**
- * Use this data source to get information about an ElastiCache User.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = aws.elasticache.getUser({
- *     userId: "example",
- * });
- * ```
- */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticache/getUser:getUser", {
@@ -119,24 +70,12 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
-    /**
-     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     */
     accessString?: pulumi.Input<string>;
     authenticationModes?: pulumi.Input<pulumi.Input<inputs.elasticache.GetUserAuthenticationModeArgs>[]>;
     engine?: pulumi.Input<string>;
     noPasswordRequired?: pulumi.Input<boolean>;
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier for the user.
-     */
     userId: pulumi.Input<string>;
-    /**
-     * User name of the user.
-     */
     userName?: pulumi.Input<string>;
 }

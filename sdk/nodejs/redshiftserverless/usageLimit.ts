@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift Serverless Usage Limit.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.Workgroup("example", {
- *     namespaceName: exampleAwsRedshiftserverlessNamespace.namespaceName,
- *     workgroupName: "example",
- * });
- * const exampleUsageLimit = new aws.redshiftserverless.UsageLimit("example", {
- *     resourceArn: example.arn,
- *     usageType: "serverless-compute",
- *     amount: 60,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
- * ```
- */
 export class UsageLimit extends pulumi.CustomResource {
     /**
      * Get an existing UsageLimit resource's state with the given name, ID, and optional extra
@@ -60,33 +32,12 @@ export class UsageLimit extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsageLimit.__pulumiType;
     }
 
-    /**
-     * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-     */
     declare public readonly amount: pulumi.Output<number>;
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-     */
     declare public readonly breachAction: pulumi.Output<string | undefined>;
-    /**
-     * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-     */
     declare public readonly period: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
-    /**
-     * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-     */
     declare public readonly usageType: pulumi.Output<string>;
 
     /**
@@ -137,33 +88,12 @@ export class UsageLimit extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UsageLimit resources.
  */
 export interface UsageLimitState {
-    /**
-     * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-     */
     amount?: pulumi.Input<number>;
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-     */
     breachAction?: pulumi.Input<string>;
-    /**
-     * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-     */
     period?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-     */
     usageType?: pulumi.Input<string>;
 }
 
@@ -171,28 +101,10 @@ export interface UsageLimitState {
  * The set of arguments for constructing a UsageLimit resource.
  */
 export interface UsageLimitArgs {
-    /**
-     * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-     */
     amount: pulumi.Input<number>;
-    /**
-     * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-     */
     breachAction?: pulumi.Input<string>;
-    /**
-     * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-     */
     period?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-     */
     resourceArn: pulumi.Input<string>;
-    /**
-     * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-     */
     usageType: pulumi.Input<string>;
 }

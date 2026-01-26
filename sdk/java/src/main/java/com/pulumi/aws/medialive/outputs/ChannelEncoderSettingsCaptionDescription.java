@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsCaptionDescription {
-    /**
-     * @return Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
-     * 
-     */
     private @Nullable String accessibility;
-    /**
-     * @return Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
-     * 
-     */
     private String captionSelectorName;
-    /**
-     * @return Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettings destinationSettings;
-    /**
-     * @return ISO 639-2 three-digit code.
-     * 
-     */
     private @Nullable String languageCode;
-    /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
-     * 
-     */
     private @Nullable String languageDescription;
-    /**
-     * @return Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
-     * 
-     */
     private String name;
 
     private ChannelEncoderSettingsCaptionDescription() {}
-    /**
-     * @return Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
-     * 
-     */
     public Optional<String> accessibility() {
         return Optional.ofNullable(this.accessibility);
     }
-    /**
-     * @return Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
-     * 
-     */
     public String captionSelectorName() {
         return this.captionSelectorName;
     }
-    /**
-     * @return Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettings> destinationSettings() {
         return Optional.ofNullable(this.destinationSettings);
     }
-    /**
-     * @return ISO 639-2 three-digit code.
-     * 
-     */
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
-    /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
-     * 
-     */
     public Optional<String> languageDescription() {
         return Optional.ofNullable(this.languageDescription);
     }
-    /**
-     * @return Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
-     * 
-     */
     public String name() {
         return this.name;
     }

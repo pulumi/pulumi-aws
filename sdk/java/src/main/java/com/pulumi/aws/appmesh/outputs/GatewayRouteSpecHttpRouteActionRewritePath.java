@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteActionRewritePath {
-    /**
-     * @return The exact path to match on.
-     * 
-     */
     private String exact;
 
     private GatewayRouteSpecHttpRouteActionRewritePath() {}
-    /**
-     * @return The exact path to match on.
-     * 
-     */
     public String exact() {
         return this.exact;
     }

@@ -13,17 +13,9 @@ public final class GetPoliciesPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetPoliciesPlainArgs Empty = new GetPoliciesPlainArgs();
 
-    /**
-     * The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-     * 
-     */
     @Import(name="filter", required=true)
     private String filter;
 
-    /**
-     * @return The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-     * 
-     */
     public String filter() {
         return this.filter;
     }
@@ -52,12 +44,6 @@ public final class GetPoliciesPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetPoliciesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filter The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(String filter) {
             $.filter = filter;
             return this;

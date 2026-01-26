@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to fetch information about a Quantum Ledger Database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.qldb.getLedger({
- *     name: "an_example_ledger",
- * });
- * ```
- */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
@@ -31,13 +17,7 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getLedger.
  */
 export interface GetLedgerArgs {
-    /**
-     * Friendly name of the ledger to match.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
     tags?: {[key: string]: string};
 }
@@ -58,20 +38,6 @@ export interface GetLedgerResult {
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to fetch information about a Quantum Ledger Database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.qldb.getLedger({
- *     name: "an_example_ledger",
- * });
- * ```
- */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLedgerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:qldb/getLedger:getLedger", {
@@ -85,13 +51,7 @@ export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getLedger.
  */
 export interface GetLedgerOutputArgs {
-    /**
-     * Friendly name of the ledger to match.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -14,20 +14,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Transfer Family Web App Customization.
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
- * ```
- * 
- */
 @ResourceType(type="aws:transfer/webAppCustomization:WebAppCustomization")
 public class WebAppCustomization extends com.pulumi.resources.CustomResource {
     @Export(name="faviconFile", refs={String.class}, tree="[0]")
@@ -42,49 +28,21 @@ public class WebAppCustomization extends com.pulumi.resources.CustomResource {
     public Output<String> logoFile() {
         return this.logoFile;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-     * 
-     */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> title;
 
-    /**
-     * @return Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-     * 
-     */
     public Output<Optional<String>> title() {
         return Codegen.optional(this.title);
     }
-    /**
-     * The identifier of the web app to be customized.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="webAppId", refs={String.class}, tree="[0]")
     private Output<String> webAppId;
 
-    /**
-     * @return The identifier of the web app to be customized.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> webAppId() {
         return this.webAppId;
     }

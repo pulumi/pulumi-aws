@@ -15,32 +15,16 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
 
     public static final GetVpcIpamPoolsFilterArgs Empty = new GetVpcIpamPoolsFilterArgs();
 
-    /**
-     * The name of the filter. Filter names are case-sensitive.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the filter. Filter names are case-sensitive.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The filter values. Filter values are case-sensitive.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return The filter values. Filter values are case-sensitive.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
             $ = new GetVpcIpamPoolsFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the filter. Filter names are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the filter. Filter names are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values The filter values. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values The filter values. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values The filter values. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -10,20 +10,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStateMachineResult {
-    /**
-     * @return Set to the arn of the state function.
-     * 
-     */
     private String arn;
-    /**
-     * @return Date the state machine was created.
-     * 
-     */
     private String creationDate;
-    /**
-     * @return Set to the state machine definition.
-     * 
-     */
     private String definition;
     private String description;
     /**
@@ -33,41 +21,17 @@ public final class GetStateMachineResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return The revision identifier for the state machine.
-     * 
-     */
     private String revisionId;
-    /**
-     * @return Set to the roleArn used by the state function.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Set to the current status of the state machine.
-     * 
-     */
     private String status;
 
     private GetStateMachineResult() {}
-    /**
-     * @return Set to the arn of the state function.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Date the state machine was created.
-     * 
-     */
     public String creationDate() {
         return this.creationDate;
     }
-    /**
-     * @return Set to the state machine definition.
-     * 
-     */
     public String definition() {
         return this.definition;
     }
@@ -87,24 +51,12 @@ public final class GetStateMachineResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The revision identifier for the state machine.
-     * 
-     */
     public String revisionId() {
         return this.revisionId;
     }
-    /**
-     * @return Set to the roleArn used by the state function.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Set to the current status of the state machine.
-     * 
-     */
     public String status() {
         return this.status;
     }

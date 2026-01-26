@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference {
-    /**
-     * @return Total number of CIDR blocks used by the IP set references in a firewall.
-     * 
-     */
     private Integer resolvedCidrCount;
 
     private GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference() {}
-    /**
-     * @return Total number of CIDR blocks used by the IP set references in a firewall.
-     * 
-     */
     public Integer resolvedCidrCount() {
         return this.resolvedCidrCount;
     }

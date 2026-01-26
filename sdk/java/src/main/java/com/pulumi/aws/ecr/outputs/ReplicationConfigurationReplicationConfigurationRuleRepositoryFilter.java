@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
-    /**
-     * @return The repository filter details.
-     * 
-     */
     private String filter;
-    /**
-     * @return The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-     * 
-     */
     private String filterType;
 
     private ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter() {}
-    /**
-     * @return The repository filter details.
-     * 
-     */
     public String filter() {
         return this.filter;
     }
-    /**
-     * @return The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-     * 
-     */
     public String filterType() {
         return this.filterType;
     }

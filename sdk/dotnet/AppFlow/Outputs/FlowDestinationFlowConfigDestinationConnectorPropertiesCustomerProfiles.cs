@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles
     {
-        /// <summary>
-        /// Unique name of the Amazon Connect Customer Profiles domain.
-        /// </summary>
         public readonly string DomainName;
-        /// <summary>
-        /// Object specified in the Amazon Connect Customer Profiles flow destination.
-        /// </summary>
         public readonly string? ObjectTypeName;
 
         [OutputConstructor]

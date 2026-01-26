@@ -14,32 +14,16 @@ public final class ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs
 
     public static final ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs Empty = new ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs();
 
-    /**
-     * CloudWatch log group name.
-     * 
-     */
     @Import(name="logGroup", required=true)
     private Output<String> logGroup;
 
-    /**
-     * @return CloudWatch log group name.
-     * 
-     */
     public Output<String> logGroup() {
         return this.logGroup;
     }
 
-    /**
-     * Prefix for log stream names. If not specified, a default prefix will be used.
-     * 
-     */
     @Import(name="logStreamPrefix", required=true)
     private Output<String> logStreamPrefix;
 
-    /**
-     * @return Prefix for log stream names. If not specified, a default prefix will be used.
-     * 
-     */
     public Output<String> logStreamPrefix() {
         return this.logStreamPrefix;
     }
@@ -69,44 +53,20 @@ public final class ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs
             $ = new ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroup CloudWatch log group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup CloudWatch log group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }
 
-        /**
-         * @param logStreamPrefix Prefix for log stream names. If not specified, a default prefix will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamPrefix(Output<String> logStreamPrefix) {
             $.logStreamPrefix = logStreamPrefix;
             return this;
         }
 
-        /**
-         * @param logStreamPrefix Prefix for log stream names. If not specified, a default prefix will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamPrefix(String logStreamPrefix) {
             return logStreamPrefix(Output.of(logStreamPrefix));
         }

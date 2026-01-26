@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccessPointPosixUser {
-    /**
-     * @return Group ID
-     * 
-     */
     private Integer gid;
-    /**
-     * @return Secondary group IDs
-     * 
-     */
     private List<Integer> secondaryGids;
-    /**
-     * @return User Id
-     * 
-     */
     private Integer uid;
 
     private GetAccessPointPosixUser() {}
-    /**
-     * @return Group ID
-     * 
-     */
     public Integer gid() {
         return this.gid;
     }
-    /**
-     * @return Secondary group IDs
-     * 
-     */
     public List<Integer> secondaryGids() {
         return this.secondaryGids;
     }
-    /**
-     * @return User Id
-     * 
-     */
     public Integer uid() {
         return this.uid;
     }

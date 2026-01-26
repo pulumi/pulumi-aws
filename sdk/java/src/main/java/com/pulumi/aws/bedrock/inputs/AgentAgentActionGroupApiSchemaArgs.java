@@ -16,36 +16,16 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
 
     public static final AgentAgentActionGroupApiSchemaArgs Empty = new AgentAgentActionGroupApiSchemaArgs();
 
-    /**
-     * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-     * Only one of `payload` or `s3` can be specified.
-     * 
-     */
     @Import(name="payload")
     private @Nullable Output<String> payload;
 
-    /**
-     * @return JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-     * Only one of `payload` or `s3` can be specified.
-     * 
-     */
     public Optional<Output<String>> payload() {
         return Optional.ofNullable(this.payload);
     }
 
-    /**
-     * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-     * Only one of `s3` or `payload` can be specified.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<AgentAgentActionGroupApiSchemaS3Args> s3;
 
-    /**
-     * @return Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-     * Only one of `s3` or `payload` can be specified.
-     * 
-     */
     public Optional<Output<AgentAgentActionGroupApiSchemaS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -75,48 +55,20 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
             $ = new AgentAgentActionGroupApiSchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-         * Only one of `payload` or `s3` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payload(@Nullable Output<String> payload) {
             $.payload = payload;
             return this;
         }
 
-        /**
-         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-         * Only one of `payload` or `s3` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payload(String payload) {
             return payload(Output.of(payload));
         }
 
-        /**
-         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-         * Only one of `s3` or `payload` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<AgentAgentActionGroupApiSchemaS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-         * Only one of `s3` or `payload` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(AgentAgentActionGroupApiSchemaS3Args s3) {
             return s3(Output.of(s3));
         }

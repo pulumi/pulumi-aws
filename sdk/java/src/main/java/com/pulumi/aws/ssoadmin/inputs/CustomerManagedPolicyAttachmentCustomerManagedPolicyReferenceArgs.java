@@ -16,32 +16,16 @@ public final class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference
 
     public static final CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs Empty = new CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs();
 
-    /**
-     * Name of the customer managed IAM Policy to be attached.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the customer managed IAM Policy to be attached.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -71,44 +55,20 @@ public final class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference
             $ = new CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the customer managed IAM Policy to be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the customer managed IAM Policy to be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param path The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

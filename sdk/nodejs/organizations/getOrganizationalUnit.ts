@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for getting an AWS Organizations Organizational Unit.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const ou = org.then(org => aws.organizations.getOrganizationalUnit({
- *     parentId: org.roots?.[0]?.id,
- *     name: "dev",
- * }));
- * ```
- */
 export function getOrganizationalUnit(args: GetOrganizationalUnitArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", {
@@ -34,13 +16,7 @@ export function getOrganizationalUnit(args: GetOrganizationalUnitArgs, opts?: pu
  * A collection of arguments for invoking getOrganizationalUnit.
  */
 export interface GetOrganizationalUnitArgs {
-    /**
-     * Name of the organizational unit
-     */
     name: string;
-    /**
-     * Parent ID of the organizational unit.
-     */
     parentId: string;
 }
 
@@ -48,9 +24,6 @@ export interface GetOrganizationalUnitArgs {
  * A collection of values returned by getOrganizationalUnit.
  */
 export interface GetOrganizationalUnitResult {
-    /**
-     * ARN of the organizational unit
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -59,24 +32,6 @@ export interface GetOrganizationalUnitResult {
     readonly name: string;
     readonly parentId: string;
 }
-/**
- * Data source for getting an AWS Organizations Organizational Unit.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const ou = org.then(org => aws.organizations.getOrganizationalUnit({
- *     parentId: org.roots?.[0]?.id,
- *     name: "dev",
- * }));
- * ```
- */
 export function getOrganizationalUnitOutput(args: GetOrganizationalUnitOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationalUnitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", {
@@ -89,12 +44,6 @@ export function getOrganizationalUnitOutput(args: GetOrganizationalUnitOutputArg
  * A collection of arguments for invoking getOrganizationalUnit.
  */
 export interface GetOrganizationalUnitOutputArgs {
-    /**
-     * Name of the organizational unit
-     */
     name: pulumi.Input<string>;
-    /**
-     * Parent ID of the organizational unit.
-     */
     parentId: pulumi.Input<string>;
 }

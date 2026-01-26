@@ -11,195 +11,12 @@ namespace Pulumi.Aws.CodeBuild
 {
     public static class GetFleet
     {
-        /// <summary>
-        /// Retrieve information about an CodeBuild Fleet.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testFleet = new Aws.CodeBuild.Fleet("test", new()
-        ///     {
-        ///         BaseCapacity = 2,
-        ///         ComputeType = "BUILD_GENERAL1_SMALL",
-        ///         EnvironmentType = "LINUX_CONTAINER",
-        ///         Name = "full-example-codebuild-fleet",
-        ///         OverflowBehavior = "QUEUE",
-        ///         ScalingConfiguration = new Aws.CodeBuild.Inputs.FleetScalingConfigurationArgs
-        ///         {
-        ///             MaxCapacity = 5,
-        ///             ScalingType = "TARGET_TRACKING_SCALING",
-        ///             TargetTrackingScalingConfigs = new[]
-        ///             {
-        ///                 new Aws.CodeBuild.Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs
-        ///                 {
-        ///                     MetricType = "FLEET_UTILIZATION_RATE",
-        ///                     TargetValue = 97.5,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var test = Aws.CodeBuild.GetFleet.Invoke(new()
-        ///     {
-        ///         Name = testFleet.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeBuild.GetFleet.Invoke(new()
-        ///     {
-        ///         Name = "my-codebuild-fleet-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws:codebuild/getFleet:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about an CodeBuild Fleet.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testFleet = new Aws.CodeBuild.Fleet("test", new()
-        ///     {
-        ///         BaseCapacity = 2,
-        ///         ComputeType = "BUILD_GENERAL1_SMALL",
-        ///         EnvironmentType = "LINUX_CONTAINER",
-        ///         Name = "full-example-codebuild-fleet",
-        ///         OverflowBehavior = "QUEUE",
-        ///         ScalingConfiguration = new Aws.CodeBuild.Inputs.FleetScalingConfigurationArgs
-        ///         {
-        ///             MaxCapacity = 5,
-        ///             ScalingType = "TARGET_TRACKING_SCALING",
-        ///             TargetTrackingScalingConfigs = new[]
-        ///             {
-        ///                 new Aws.CodeBuild.Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs
-        ///                 {
-        ///                     MetricType = "FLEET_UTILIZATION_RATE",
-        ///                     TargetValue = 97.5,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var test = Aws.CodeBuild.GetFleet.Invoke(new()
-        ///     {
-        ///         Name = testFleet.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeBuild.GetFleet.Invoke(new()
-        ///     {
-        ///         Name = "my-codebuild-fleet-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws:codebuild/getFleet:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about an CodeBuild Fleet.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testFleet = new Aws.CodeBuild.Fleet("test", new()
-        ///     {
-        ///         BaseCapacity = 2,
-        ///         ComputeType = "BUILD_GENERAL1_SMALL",
-        ///         EnvironmentType = "LINUX_CONTAINER",
-        ///         Name = "full-example-codebuild-fleet",
-        ///         OverflowBehavior = "QUEUE",
-        ///         ScalingConfiguration = new Aws.CodeBuild.Inputs.FleetScalingConfigurationArgs
-        ///         {
-        ///             MaxCapacity = 5,
-        ///             ScalingType = "TARGET_TRACKING_SCALING",
-        ///             TargetTrackingScalingConfigs = new[]
-        ///             {
-        ///                 new Aws.CodeBuild.Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs
-        ///                 {
-        ///                     MetricType = "FLEET_UTILIZATION_RATE",
-        ///                     TargetValue = 97.5,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var test = Aws.CodeBuild.GetFleet.Invoke(new()
-        ///     {
-        ///         Name = testFleet.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeBuild.GetFleet.Invoke(new()
-        ///     {
-        ///         Name = "my-codebuild-fleet-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws:codebuild/getFleet:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
@@ -207,24 +24,14 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class GetFleetArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Fleet name.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Mapping of Key-Value tags for the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -239,24 +46,14 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class GetFleetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Fleet name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of Key-Value tags for the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -273,67 +70,22 @@ namespace Pulumi.Aws.CodeBuild
     [OutputType]
     public sealed class GetFleetResult
     {
-        /// <summary>
-        /// ARN of the Fleet.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Number of machines allocated to the ﬂeet.
-        /// </summary>
         public readonly int BaseCapacity;
-        /// <summary>
-        /// Compute configuration of the compute fleet.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFleetComputeConfigurationResult> ComputeConfigurations;
-        /// <summary>
-        /// Compute resources the compute fleet uses.
-        /// </summary>
         public readonly string ComputeType;
-        /// <summary>
-        /// Creation time of the fleet.
-        /// </summary>
         public readonly string Created;
-        /// <summary>
-        /// Environment type of the compute fleet.
-        /// </summary>
         public readonly string EnvironmentType;
-        /// <summary>
-        /// The service role associated with the compute fleet.
-        /// </summary>
         public readonly string FleetServiceRole;
-        /// <summary>
-        /// ARN of the Fleet.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
-        /// </summary>
         public readonly string ImageId;
-        /// <summary>
-        /// Last modification time of the fleet.
-        /// </summary>
         public readonly string LastModified;
         public readonly string Name;
-        /// <summary>
-        /// Overflow behavior for compute fleet.
-        /// </summary>
         public readonly string OverflowBehavior;
         public readonly string Region;
-        /// <summary>
-        /// Nested attribute containing information about the scaling configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFleetScalingConfigurationResult> ScalingConfigurations;
-        /// <summary>
-        /// Nested attribute containing information about the current status of the fleet.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFleetStatusResult> Statuses;
-        /// <summary>
-        /// Mapping of Key-Value tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Nested attribute containing information about the VPC configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFleetVpcConfigResult> VpcConfigs;
 
         [OutputConstructor]

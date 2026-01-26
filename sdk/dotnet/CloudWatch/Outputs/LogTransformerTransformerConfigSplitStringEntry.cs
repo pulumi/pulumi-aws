@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigSplitStringEntry
     {
-        /// <summary>
-        /// Specifies the separator characters to split the string entry on.
-        /// </summary>
         public readonly string Delimiter;
-        /// <summary>
-        /// Specifies the key to modify.
-        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]

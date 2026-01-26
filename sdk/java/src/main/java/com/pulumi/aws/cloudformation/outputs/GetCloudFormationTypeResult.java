@@ -16,108 +16,44 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCloudFormationTypeResult {
     private String arn;
-    /**
-     * @return Identifier of the CloudFormation Type default version.
-     * 
-     */
     private String defaultVersionId;
-    /**
-     * @return Deprecation status of the CloudFormation Type.
-     * 
-     */
     private String deprecatedStatus;
-    /**
-     * @return Description of the CloudFormation Type.
-     * 
-     */
     private String description;
-    /**
-     * @return URL of the documentation for the CloudFormation Type.
-     * 
-     */
     private String documentationUrl;
-    /**
-     * @return ARN of the IAM Role used to register the CloudFormation Type.
-     * 
-     */
     private String executionRoleArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Whether the CloudFormation Type version is the default version.
-     * 
-     */
     private Boolean isDefaultVersion;
-    /**
-     * @return List of objects containing logging configuration.
-     * 
-     */
     private List<GetCloudFormationTypeLoggingConfig> loggingConfigs;
-    /**
-     * @return Provisioning behavior of the CloudFormation Type.
-     * 
-     */
     private String provisioningType;
     private String region;
-    /**
-     * @return JSON document of the CloudFormation Type schema.
-     * 
-     */
     private String schema;
-    /**
-     * @return URL of the source code for the CloudFormation Type.
-     * 
-     */
     private String sourceUrl;
     private String type;
     private String typeArn;
     private String typeName;
     private @Nullable String versionId;
-    /**
-     * @return Scope of the CloudFormation Type.
-     * 
-     */
     private String visibility;
 
     private GetCloudFormationTypeResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Identifier of the CloudFormation Type default version.
-     * 
-     */
     public String defaultVersionId() {
         return this.defaultVersionId;
     }
-    /**
-     * @return Deprecation status of the CloudFormation Type.
-     * 
-     */
     public String deprecatedStatus() {
         return this.deprecatedStatus;
     }
-    /**
-     * @return Description of the CloudFormation Type.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return URL of the documentation for the CloudFormation Type.
-     * 
-     */
     public String documentationUrl() {
         return this.documentationUrl;
     }
-    /**
-     * @return ARN of the IAM Role used to register the CloudFormation Type.
-     * 
-     */
     public String executionRoleArn() {
         return this.executionRoleArn;
     }
@@ -128,41 +64,21 @@ public final class GetCloudFormationTypeResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Whether the CloudFormation Type version is the default version.
-     * 
-     */
     public Boolean isDefaultVersion() {
         return this.isDefaultVersion;
     }
-    /**
-     * @return List of objects containing logging configuration.
-     * 
-     */
     public List<GetCloudFormationTypeLoggingConfig> loggingConfigs() {
         return this.loggingConfigs;
     }
-    /**
-     * @return Provisioning behavior of the CloudFormation Type.
-     * 
-     */
     public String provisioningType() {
         return this.provisioningType;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return JSON document of the CloudFormation Type schema.
-     * 
-     */
     public String schema() {
         return this.schema;
     }
-    /**
-     * @return URL of the source code for the CloudFormation Type.
-     * 
-     */
     public String sourceUrl() {
         return this.sourceUrl;
     }
@@ -178,10 +94,6 @@ public final class GetCloudFormationTypeResult {
     public Optional<String> versionId() {
         return Optional.ofNullable(this.versionId);
     }
-    /**
-     * @return Scope of the CloudFormation Type.
-     * 
-     */
     public String visibility() {
         return this.visibility;
     }

@@ -49,17 +49,11 @@ class ContactChannelDeliveryAddress(dict):
 
     def __init__(__self__, *,
                  simple_address: _builtins.str):
-        """
-        :param _builtins.str simple_address: Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
-        """
         pulumi.set(__self__, "simple_address", simple_address)
 
     @_builtins.property
     @pulumi.getter(name="simpleAddress")
     def simple_address(self) -> _builtins.str:
-        """
-        Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
-        """
         return pulumi.get(self, "simple_address")
 
 
@@ -85,10 +79,6 @@ class PlanStage(dict):
     def __init__(__self__, *,
                  duration_in_minutes: _builtins.int,
                  targets: Optional[Sequence['outputs.PlanStageTarget']] = None):
-        """
-        :param _builtins.int duration_in_minutes: The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
-        :param Sequence['PlanStageTargetArgs'] targets: One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
-        """
         pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
@@ -96,17 +86,11 @@ class PlanStage(dict):
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
     def duration_in_minutes(self) -> _builtins.int:
-        """
-        The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
-        """
         return pulumi.get(self, "duration_in_minutes")
 
     @_builtins.property
     @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.PlanStageTarget']]:
-        """
-        One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
-        """
         return pulumi.get(self, "targets")
 
 
@@ -134,10 +118,6 @@ class PlanStageTarget(dict):
     def __init__(__self__, *,
                  channel_target_info: Optional['outputs.PlanStageTargetChannelTargetInfo'] = None,
                  contact_target_info: Optional['outputs.PlanStageTargetContactTargetInfo'] = None):
-        """
-        :param 'PlanStageTargetChannelTargetInfoArgs' channel_target_info: A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
-        :param 'PlanStageTargetContactTargetInfoArgs' contact_target_info: A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
-        """
         if channel_target_info is not None:
             pulumi.set(__self__, "channel_target_info", channel_target_info)
         if contact_target_info is not None:
@@ -146,17 +126,11 @@ class PlanStageTarget(dict):
     @_builtins.property
     @pulumi.getter(name="channelTargetInfo")
     def channel_target_info(self) -> Optional['outputs.PlanStageTargetChannelTargetInfo']:
-        """
-        A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
-        """
         return pulumi.get(self, "channel_target_info")
 
     @_builtins.property
     @pulumi.getter(name="contactTargetInfo")
     def contact_target_info(self) -> Optional['outputs.PlanStageTargetContactTargetInfo']:
-        """
-        A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
-        """
         return pulumi.get(self, "contact_target_info")
 
 
@@ -184,10 +158,6 @@ class PlanStageTargetChannelTargetInfo(dict):
     def __init__(__self__, *,
                  contact_channel_id: _builtins.str,
                  retry_interval_in_minutes: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str contact_channel_id: The Amazon Resource Name (ARN) of the contact channel.
-        :param _builtins.int retry_interval_in_minutes: The number of minutes to wait before retrying to send engagement if the engagement initially failed.
-        """
         pulumi.set(__self__, "contact_channel_id", contact_channel_id)
         if retry_interval_in_minutes is not None:
             pulumi.set(__self__, "retry_interval_in_minutes", retry_interval_in_minutes)
@@ -195,17 +165,11 @@ class PlanStageTargetChannelTargetInfo(dict):
     @_builtins.property
     @pulumi.getter(name="contactChannelId")
     def contact_channel_id(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the contact channel.
-        """
         return pulumi.get(self, "contact_channel_id")
 
     @_builtins.property
     @pulumi.getter(name="retryIntervalInMinutes")
     def retry_interval_in_minutes(self) -> Optional[_builtins.int]:
-        """
-        The number of minutes to wait before retrying to send engagement if the engagement initially failed.
-        """
         return pulumi.get(self, "retry_interval_in_minutes")
 
 
@@ -233,10 +197,6 @@ class PlanStageTargetContactTargetInfo(dict):
     def __init__(__self__, *,
                  is_essential: _builtins.bool,
                  contact_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact.
-        """
         pulumi.set(__self__, "is_essential", is_essential)
         if contact_id is not None:
             pulumi.set(__self__, "contact_id", contact_id)
@@ -244,17 +204,11 @@ class PlanStageTargetContactTargetInfo(dict):
     @_builtins.property
     @pulumi.getter(name="isEssential")
     def is_essential(self) -> _builtins.bool:
-        """
-        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
         return pulumi.get(self, "is_essential")
 
     @_builtins.property
     @pulumi.getter(name="contactId")
     def contact_id(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the contact.
-        """
         return pulumi.get(self, "contact_id")
 
 
@@ -332,18 +286,12 @@ class GetPlanStageTargetContactTargetInfoResult(dict):
     def __init__(__self__, *,
                  contact_id: _builtins.str,
                  is_essential: _builtins.bool):
-        """
-        :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        """
         pulumi.set(__self__, "contact_id", contact_id)
         pulumi.set(__self__, "is_essential", is_essential)
 
     @_builtins.property
     @pulumi.getter(name="contactId")
     def contact_id(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the contact or escalation plan.
-        """
         return pulumi.get(self, "contact_id")
 
     @_builtins.property

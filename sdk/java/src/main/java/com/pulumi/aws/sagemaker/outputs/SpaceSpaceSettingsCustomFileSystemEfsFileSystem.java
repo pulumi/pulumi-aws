@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SpaceSpaceSettingsCustomFileSystemEfsFileSystem {
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     private String fileSystemId;
 
     private SpaceSpaceSettingsCustomFileSystemEfsFileSystem() {}
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }

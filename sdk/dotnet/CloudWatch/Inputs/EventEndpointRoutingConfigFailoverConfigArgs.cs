@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventEndpointRoutingConfigFailoverConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Parameters used for the primary Region. Documented below.
-        /// </summary>
         [Input("primary", required: true)]
         public Input<Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs> Primary { get; set; } = null!;
 
-        /// <summary>
-        /// Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-        /// </summary>
         [Input("secondary", required: true)]
         public Input<Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs> Secondary { get; set; } = null!;
 

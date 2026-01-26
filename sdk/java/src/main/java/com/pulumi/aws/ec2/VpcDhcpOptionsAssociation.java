@@ -13,98 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a VPC DHCP Options Association resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcDhcpOptionsAssociation;
- * import com.pulumi.aws.ec2.VpcDhcpOptionsAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dnsResolver = new VpcDhcpOptionsAssociation("dnsResolver", VpcDhcpOptionsAssociationArgs.builder()
- *             .vpcId(fooAwsVpc.id())
- *             .dhcpOptionsId(foo.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Remarks
- * 
- * * You can only associate one DHCP Options Set to a given VPC ID.
- * * Removing the DHCP Options Association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")
 public class VpcDhcpOptionsAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     */
     @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
     private Output<String> dhcpOptionsId;
 
-    /**
-     * @return The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     */
     public Output<String> dhcpOptionsId() {
         return this.dhcpOptionsId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the VPC to which we would like to associate a DHCP Options Set.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to which we would like to associate a DHCP Options Set.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

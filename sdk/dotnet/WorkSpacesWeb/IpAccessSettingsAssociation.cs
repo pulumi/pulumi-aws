@@ -9,67 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web IP Access Settings Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleIpAccessSettings = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///         IpRules = new[]
-    ///         {
-    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
-    ///             {
-    ///                 IpRange = "10.0.0.0/16",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleIpAccessSettingsAssociation = new Aws.WorkSpacesWeb.IpAccessSettingsAssociation("example", new()
-    ///     {
-    ///         IpAccessSettingsArn = exampleIpAccessSettings.IpAccessSettingsArn,
-    ///         PortalArn = example.PortalArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/ipAccessSettingsAssociation:IpAccessSettingsAssociation")]
     public partial class IpAccessSettingsAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Output("ipAccessSettingsArn")]
         public Output<string> IpAccessSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -119,23 +67,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class IpAccessSettingsAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("ipAccessSettingsArn", required: true)]
         public Input<string> IpAccessSettingsArn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -147,23 +84,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class IpAccessSettingsAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("ipAccessSettingsArn")]
         public Input<string>? IpAccessSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration
     {
-        /// <summary>
-        /// ARN of the Amazon Kendra index.
-        /// </summary>
         public readonly string KendraIndexArn;
 
         [OutputConstructor]

@@ -12,76 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon S3 Vectors Index.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewVectorsIndex(ctx, "example", &s3.VectorsIndexArgs{
-//				IndexName:        pulumi.String("example-index"),
-//				VectorBucketName: pulumi.Any(exampleAwsS3vectorsVectorBucket.VectorBucketName),
-//				DataType:         pulumi.String("float32"),
-//				Dimension:        pulumi.Int(2),
-//				DistanceMetric:   pulumi.String("euclidean"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Vectors Index using the `index_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3/vectorsIndex:VectorsIndex example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket/index/example-index
-// ```
 type VectorsIndex struct {
 	pulumi.CustomResourceState
 
-	// Date and time when the vector index was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-	DataType pulumi.StringOutput `pulumi:"dataType"`
-	// Dimensions of the vectors to be inserted into the vector index.
-	Dimension pulumi.IntOutput `pulumi:"dimension"`
-	// Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-	DistanceMetric pulumi.StringOutput `pulumi:"distanceMetric"`
-	// Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+	CreationTime             pulumi.StringOutput                            `pulumi:"creationTime"`
+	DataType                 pulumi.StringOutput                            `pulumi:"dataType"`
+	Dimension                pulumi.IntOutput                               `pulumi:"dimension"`
+	DistanceMetric           pulumi.StringOutput                            `pulumi:"distanceMetric"`
 	EncryptionConfigurations VectorsIndexEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
-	// ARN of the vector index.
-	IndexArn pulumi.StringOutput `pulumi:"indexArn"`
-	// Name of the vector index.
-	IndexName pulumi.StringOutput `pulumi:"indexName"`
-	// Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-	MetadataConfiguration VectorsIndexMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Name of the vector bucket for the vector index.
-	//
-	// The following arguments are optional:
-	VectorBucketName pulumi.StringOutput `pulumi:"vectorBucketName"`
+	IndexArn                 pulumi.StringOutput                            `pulumi:"indexArn"`
+	IndexName                pulumi.StringOutput                            `pulumi:"indexName"`
+	MetadataConfiguration    VectorsIndexMetadataConfigurationPtrOutput     `pulumi:"metadataConfiguration"`
+	Region                   pulumi.StringOutput                            `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	VectorBucketName         pulumi.StringOutput                            `pulumi:"vectorBucketName"`
 }
 
 // NewVectorsIndex registers a new resource with the given unique name, arguments, and options.
@@ -129,61 +74,33 @@ func GetVectorsIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VectorsIndex resources.
 type vectorsIndexState struct {
-	// Date and time when the vector index was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-	DataType *string `pulumi:"dataType"`
-	// Dimensions of the vectors to be inserted into the vector index.
-	Dimension *int `pulumi:"dimension"`
-	// Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-	DistanceMetric *string `pulumi:"distanceMetric"`
-	// Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+	CreationTime             *string                               `pulumi:"creationTime"`
+	DataType                 *string                               `pulumi:"dataType"`
+	Dimension                *int                                  `pulumi:"dimension"`
+	DistanceMetric           *string                               `pulumi:"distanceMetric"`
 	EncryptionConfigurations []VectorsIndexEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// ARN of the vector index.
-	IndexArn *string `pulumi:"indexArn"`
-	// Name of the vector index.
-	IndexName *string `pulumi:"indexName"`
-	// Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-	MetadataConfiguration *VectorsIndexMetadataConfiguration `pulumi:"metadataConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Name of the vector bucket for the vector index.
-	//
-	// The following arguments are optional:
-	VectorBucketName *string `pulumi:"vectorBucketName"`
+	IndexArn                 *string                               `pulumi:"indexArn"`
+	IndexName                *string                               `pulumi:"indexName"`
+	MetadataConfiguration    *VectorsIndexMetadataConfiguration    `pulumi:"metadataConfiguration"`
+	Region                   *string                               `pulumi:"region"`
+	Tags                     map[string]string                     `pulumi:"tags"`
+	TagsAll                  map[string]string                     `pulumi:"tagsAll"`
+	VectorBucketName         *string                               `pulumi:"vectorBucketName"`
 }
 
 type VectorsIndexState struct {
-	// Date and time when the vector index was created.
-	CreationTime pulumi.StringPtrInput
-	// Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-	DataType pulumi.StringPtrInput
-	// Dimensions of the vectors to be inserted into the vector index.
-	Dimension pulumi.IntPtrInput
-	// Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-	DistanceMetric pulumi.StringPtrInput
-	// Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+	CreationTime             pulumi.StringPtrInput
+	DataType                 pulumi.StringPtrInput
+	Dimension                pulumi.IntPtrInput
+	DistanceMetric           pulumi.StringPtrInput
 	EncryptionConfigurations VectorsIndexEncryptionConfigurationArrayInput
-	// ARN of the vector index.
-	IndexArn pulumi.StringPtrInput
-	// Name of the vector index.
-	IndexName pulumi.StringPtrInput
-	// Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-	MetadataConfiguration VectorsIndexMetadataConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Name of the vector bucket for the vector index.
-	//
-	// The following arguments are optional:
-	VectorBucketName pulumi.StringPtrInput
+	IndexArn                 pulumi.StringPtrInput
+	IndexName                pulumi.StringPtrInput
+	MetadataConfiguration    VectorsIndexMetadataConfigurationPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	VectorBucketName         pulumi.StringPtrInput
 }
 
 func (VectorsIndexState) ElementType() reflect.Type {
@@ -191,50 +108,28 @@ func (VectorsIndexState) ElementType() reflect.Type {
 }
 
 type vectorsIndexArgs struct {
-	// Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-	DataType string `pulumi:"dataType"`
-	// Dimensions of the vectors to be inserted into the vector index.
-	Dimension int `pulumi:"dimension"`
-	// Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-	DistanceMetric string `pulumi:"distanceMetric"`
-	// Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+	DataType                 string                                `pulumi:"dataType"`
+	Dimension                int                                   `pulumi:"dimension"`
+	DistanceMetric           string                                `pulumi:"distanceMetric"`
 	EncryptionConfigurations []VectorsIndexEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// Name of the vector index.
-	IndexName string `pulumi:"indexName"`
-	// Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-	MetadataConfiguration *VectorsIndexMetadataConfiguration `pulumi:"metadataConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the vector bucket for the vector index.
-	//
-	// The following arguments are optional:
-	VectorBucketName string `pulumi:"vectorBucketName"`
+	IndexName                string                                `pulumi:"indexName"`
+	MetadataConfiguration    *VectorsIndexMetadataConfiguration    `pulumi:"metadataConfiguration"`
+	Region                   *string                               `pulumi:"region"`
+	Tags                     map[string]string                     `pulumi:"tags"`
+	VectorBucketName         string                                `pulumi:"vectorBucketName"`
 }
 
 // The set of arguments for constructing a VectorsIndex resource.
 type VectorsIndexArgs struct {
-	// Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-	DataType pulumi.StringInput
-	// Dimensions of the vectors to be inserted into the vector index.
-	Dimension pulumi.IntInput
-	// Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-	DistanceMetric pulumi.StringInput
-	// Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+	DataType                 pulumi.StringInput
+	Dimension                pulumi.IntInput
+	DistanceMetric           pulumi.StringInput
 	EncryptionConfigurations VectorsIndexEncryptionConfigurationArrayInput
-	// Name of the vector index.
-	IndexName pulumi.StringInput
-	// Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-	MetadataConfiguration VectorsIndexMetadataConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Name of the vector bucket for the vector index.
-	//
-	// The following arguments are optional:
-	VectorBucketName pulumi.StringInput
+	IndexName                pulumi.StringInput
+	MetadataConfiguration    VectorsIndexMetadataConfigurationPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	VectorBucketName         pulumi.StringInput
 }
 
 func (VectorsIndexArgs) ElementType() reflect.Type {
@@ -324,66 +219,52 @@ func (o VectorsIndexOutput) ToVectorsIndexOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Date and time when the vector index was created.
 func (o VectorsIndexOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
 func (o VectorsIndexOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringOutput { return v.DataType }).(pulumi.StringOutput)
 }
 
-// Dimensions of the vectors to be inserted into the vector index.
 func (o VectorsIndexOutput) Dimension() pulumi.IntOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.IntOutput { return v.Dimension }).(pulumi.IntOutput)
 }
 
-// Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
 func (o VectorsIndexOutput) DistanceMetric() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringOutput { return v.DistanceMetric }).(pulumi.StringOutput)
 }
 
-// Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
 func (o VectorsIndexOutput) EncryptionConfigurations() VectorsIndexEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *VectorsIndex) VectorsIndexEncryptionConfigurationArrayOutput {
 		return v.EncryptionConfigurations
 	}).(VectorsIndexEncryptionConfigurationArrayOutput)
 }
 
-// ARN of the vector index.
 func (o VectorsIndexOutput) IndexArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringOutput { return v.IndexArn }).(pulumi.StringOutput)
 }
 
-// Name of the vector index.
 func (o VectorsIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringOutput { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
 func (o VectorsIndexOutput) MetadataConfiguration() VectorsIndexMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *VectorsIndex) VectorsIndexMetadataConfigurationPtrOutput { return v.MetadataConfiguration }).(VectorsIndexMetadataConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VectorsIndexOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VectorsIndexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VectorsIndexOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Name of the vector bucket for the vector index.
-//
-// The following arguments are optional:
 func (o VectorsIndexOutput) VectorBucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsIndex) pulumi.StringOutput { return v.VectorBucketName }).(pulumi.StringOutput)
 }

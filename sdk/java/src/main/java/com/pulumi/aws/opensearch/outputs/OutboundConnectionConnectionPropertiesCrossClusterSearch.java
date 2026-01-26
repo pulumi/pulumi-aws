@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OutboundConnectionConnectionPropertiesCrossClusterSearch {
-    /**
-     * @return Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-     * 
-     */
     private @Nullable String skipUnavailable;
 
     private OutboundConnectionConnectionPropertiesCrossClusterSearch() {}
-    /**
-     * @return Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public Optional<String> skipUnavailable() {
         return Optional.ofNullable(this.skipUnavailable);
     }

@@ -11,54 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get detailed information about
-// the specified KMS Key with flexible key id input.
-// This can be useful to reference key alias
-// without having to hard code the ARN as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.LookupKey(ctx, &kms.LookupKeyArgs{
-//				KeyId: "alias/my-key",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.LookupKey(ctx, &kms.LookupKeyArgs{
-//				KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.LookupKey(ctx, &kms.LookupKeyArgs{
-//				KeyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.LookupKey(ctx, &kms.LookupKeyArgs{
-//				KeyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyResult
@@ -71,66 +23,38 @@ func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getKey.
 type LookupKeyArgs struct {
-	// List of grant tokens
 	GrantTokens []string `pulumi:"grantTokens"`
-	// Key identifier which can be one of the following format:
-	// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Alias name. E.g.: `alias/my-key`
-	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-	KeyId string `pulumi:"keyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	KeyId       string   `pulumi:"keyId"`
+	Region      *string  `pulumi:"region"`
 }
 
 // A collection of values returned by getKey.
 type LookupKeyResult struct {
-	// The key ARN of a primary or replica key of a multi-Region key.
-	Arn string `pulumi:"arn"`
-	// The twelve-digit account ID of the AWS account that owns the key
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
-	CloudHsmClusterId string `pulumi:"cloudHsmClusterId"`
-	// The date and time when the key was created
-	CreationDate string `pulumi:"creationDate"`
-	// A unique identifier for the custom key store that contains the KMS key.
-	CustomKeyStoreId string `pulumi:"customKeyStoreId"`
-	// See `keySpec`.
-	CustomerMasterKeySpec string `pulumi:"customerMasterKeySpec"`
-	// The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
-	DeletionDate string `pulumi:"deletionDate"`
-	// The description of the key.
-	Description string `pulumi:"description"`
-	// Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
-	Enabled bool `pulumi:"enabled"`
-	// Specifies whether the Key's key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
-	ExpirationModel string   `pulumi:"expirationModel"`
-	GrantTokens     []string `pulumi:"grantTokens"`
+	Arn                   string   `pulumi:"arn"`
+	AwsAccountId          string   `pulumi:"awsAccountId"`
+	CloudHsmClusterId     string   `pulumi:"cloudHsmClusterId"`
+	CreationDate          string   `pulumi:"creationDate"`
+	CustomKeyStoreId      string   `pulumi:"customKeyStoreId"`
+	CustomerMasterKeySpec string   `pulumi:"customerMasterKeySpec"`
+	DeletionDate          string   `pulumi:"deletionDate"`
+	Description           string   `pulumi:"description"`
+	Enabled               bool     `pulumi:"enabled"`
+	ExpirationModel       string   `pulumi:"expirationModel"`
+	GrantTokens           []string `pulumi:"grantTokens"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string `pulumi:"id"`
-	KeyId string `pulumi:"keyId"`
-	// The key's manager
-	KeyManager string `pulumi:"keyManager"`
-	// Describes the type of key material in the KMS key.
-	KeySpec string `pulumi:"keySpec"`
-	// The state of the key
-	KeyState string `pulumi:"keyState"`
-	// Specifies the intended use of the key
-	KeyUsage string `pulumi:"keyUsage"`
-	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
-	MultiRegion bool `pulumi:"multiRegion"`
-	// Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
-	MultiRegionConfigurations []GetKeyMultiRegionConfiguration `pulumi:"multiRegionConfigurations"`
-	// When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
-	Origin string `pulumi:"origin"`
-	// The waiting period before the primary key in a multi-Region key is deleted.
-	PendingDeletionWindowInDays int `pulumi:"pendingDeletionWindowInDays"`
-	// The AWS Region of a primary or replica key in a multi-Region key.
-	Region string `pulumi:"region"`
-	// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
-	ValidTo string `pulumi:"validTo"`
-	// Information about the external key that is associated with a KMS key in an external key store.
-	XksKeyConfigurations []GetKeyXksKeyConfiguration `pulumi:"xksKeyConfigurations"`
+	Id                          string                           `pulumi:"id"`
+	KeyId                       string                           `pulumi:"keyId"`
+	KeyManager                  string                           `pulumi:"keyManager"`
+	KeySpec                     string                           `pulumi:"keySpec"`
+	KeyState                    string                           `pulumi:"keyState"`
+	KeyUsage                    string                           `pulumi:"keyUsage"`
+	MultiRegion                 bool                             `pulumi:"multiRegion"`
+	MultiRegionConfigurations   []GetKeyMultiRegionConfiguration `pulumi:"multiRegionConfigurations"`
+	Origin                      string                           `pulumi:"origin"`
+	PendingDeletionWindowInDays int                              `pulumi:"pendingDeletionWindowInDays"`
+	Region                      string                           `pulumi:"region"`
+	ValidTo                     string                           `pulumi:"validTo"`
+	XksKeyConfigurations        []GetKeyXksKeyConfiguration      `pulumi:"xksKeyConfigurations"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -144,16 +68,9 @@ func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getKey.
 type LookupKeyOutputArgs struct {
-	// List of grant tokens
 	GrantTokens pulumi.StringArrayInput `pulumi:"grantTokens"`
-	// Key identifier which can be one of the following format:
-	// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Alias name. E.g.: `alias/my-key`
-	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-	KeyId pulumi.StringInput `pulumi:"keyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	KeyId       pulumi.StringInput      `pulumi:"keyId"`
+	Region      pulumi.StringPtrInput   `pulumi:"region"`
 }
 
 func (LookupKeyOutputArgs) ElementType() reflect.Type {
@@ -175,52 +92,42 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The key ARN of a primary or replica key of a multi-Region key.
 func (o LookupKeyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The twelve-digit account ID of the AWS account that owns the key
 func (o LookupKeyResultOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
 func (o LookupKeyResultOutput) CloudHsmClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CloudHsmClusterId }).(pulumi.StringOutput)
 }
 
-// The date and time when the key was created
 func (o LookupKeyResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the custom key store that contains the KMS key.
 func (o LookupKeyResultOutput) CustomKeyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomKeyStoreId }).(pulumi.StringOutput)
 }
 
-// See `keySpec`.
 func (o LookupKeyResultOutput) CustomerMasterKeySpec() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomerMasterKeySpec }).(pulumi.StringOutput)
 }
 
-// The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
 func (o LookupKeyResultOutput) DeletionDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.DeletionDate }).(pulumi.StringOutput)
 }
 
-// The description of the key.
 func (o LookupKeyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
 func (o LookupKeyResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKeyResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies whether the Key's key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
 func (o LookupKeyResultOutput) ExpirationModel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.ExpirationModel }).(pulumi.StringOutput)
 }
@@ -238,57 +145,46 @@ func (o LookupKeyResultOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// The key's manager
 func (o LookupKeyResultOutput) KeyManager() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyManager }).(pulumi.StringOutput)
 }
 
-// Describes the type of key material in the KMS key.
 func (o LookupKeyResultOutput) KeySpec() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeySpec }).(pulumi.StringOutput)
 }
 
-// The state of the key
 func (o LookupKeyResultOutput) KeyState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyState }).(pulumi.StringOutput)
 }
 
-// Specifies the intended use of the key
 func (o LookupKeyResultOutput) KeyUsage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyUsage }).(pulumi.StringOutput)
 }
 
-// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
 func (o LookupKeyResultOutput) MultiRegion() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKeyResult) bool { return v.MultiRegion }).(pulumi.BoolOutput)
 }
 
-// Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
 func (o LookupKeyResultOutput) MultiRegionConfigurations() GetKeyMultiRegionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupKeyResult) []GetKeyMultiRegionConfiguration { return v.MultiRegionConfigurations }).(GetKeyMultiRegionConfigurationArrayOutput)
 }
 
-// When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
 func (o LookupKeyResultOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.Origin }).(pulumi.StringOutput)
 }
 
-// The waiting period before the primary key in a multi-Region key is deleted.
 func (o LookupKeyResultOutput) PendingDeletionWindowInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupKeyResult) int { return v.PendingDeletionWindowInDays }).(pulumi.IntOutput)
 }
 
-// The AWS Region of a primary or replica key in a multi-Region key.
 func (o LookupKeyResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
 func (o LookupKeyResultOutput) ValidTo() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.ValidTo }).(pulumi.StringOutput)
 }
 
-// Information about the external key that is associated with a KMS key in an external key store.
 func (o LookupKeyResultOutput) XksKeyConfigurations() GetKeyXksKeyConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupKeyResult) []GetKeyXksKeyConfiguration { return v.XksKeyConfigurations }).(GetKeyXksKeyConfigurationArrayOutput)
 }

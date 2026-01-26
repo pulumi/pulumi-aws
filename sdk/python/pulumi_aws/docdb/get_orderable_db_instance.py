@@ -58,9 +58,6 @@ class GetOrderableDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[_builtins.str]:
-        """
-        Availability zones where the instance is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
@@ -133,32 +130,7 @@ def get_orderable_db_instance(engine: Optional[_builtins.str] = None,
                               vpc: Optional[_builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
-    Information about DocumentDB orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_orderable_db_instance(engine="docdb",
-        engine_version="3.6.0",
-        license_model="na",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
-
-    :param _builtins.str engine: DB engine. Default: `docdb`
-    :param _builtins.str engine_version: Version of the DB engine.
-    :param _builtins.str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
-    :param _builtins.str license_model: License model. Default: `na`
-    :param Sequence[_builtins.str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool vpc: Enable to show only VPC.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -190,32 +162,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[_bui
                                      vpc: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
-    Information about DocumentDB orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_orderable_db_instance(engine="docdb",
-        engine_version="3.6.0",
-        license_model="na",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
-
-    :param _builtins.str engine: DB engine. Default: `docdb`
-    :param _builtins.str engine_version: Version of the DB engine.
-    :param _builtins.str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
-    :param _builtins.str license_model: License model. Default: `na`
-    :param Sequence[_builtins.str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool vpc: Enable to show only VPC.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine

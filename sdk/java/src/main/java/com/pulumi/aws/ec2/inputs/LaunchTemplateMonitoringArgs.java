@@ -15,17 +15,9 @@ public final class LaunchTemplateMonitoringArgs extends com.pulumi.resources.Res
 
     public static final LaunchTemplateMonitoringArgs Empty = new LaunchTemplateMonitoringArgs();
 
-    /**
-     * If `true`, the launched EC2 instance will have detailed monitoring enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return If `true`, the launched EC2 instance will have detailed monitoring enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class LaunchTemplateMonitoringArgs extends com.pulumi.resources.Res
             $ = new LaunchTemplateMonitoringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled If `true`, the launched EC2 instance will have detailed monitoring enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled If `true`, the launched EC2 instance will have detailed monitoring enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

@@ -16,47 +16,23 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
 
     public static final EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs Empty = new EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs();
 
-    /**
-     * Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-     * 
-     */
     @Import(name="maxInstanceCount")
     private @Nullable Output<Integer> maxInstanceCount;
 
-    /**
-     * @return Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-     * 
-     */
     public Optional<Output<Integer>> maxInstanceCount() {
         return Optional.ofNullable(this.maxInstanceCount);
     }
 
-    /**
-     * Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-     * 
-     */
     @Import(name="minInstanceCount")
     private @Nullable Output<Integer> minInstanceCount;
 
-    /**
-     * @return Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-     * 
-     */
     public Optional<Output<Integer>> minInstanceCount() {
         return Optional.ofNullable(this.minInstanceCount);
     }
 
-    /**
-     * Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -87,65 +63,29 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
             $ = new EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxInstanceCount Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxInstanceCount(@Nullable Output<Integer> maxInstanceCount) {
             $.maxInstanceCount = maxInstanceCount;
             return this;
         }
 
-        /**
-         * @param maxInstanceCount Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxInstanceCount(Integer maxInstanceCount) {
             return maxInstanceCount(Output.of(maxInstanceCount));
         }
 
-        /**
-         * @param minInstanceCount Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minInstanceCount(@Nullable Output<Integer> minInstanceCount) {
             $.minInstanceCount = minInstanceCount;
             return this;
         }
 
-        /**
-         * @param minInstanceCount Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minInstanceCount(Integer minInstanceCount) {
             return minInstanceCount(Output.of(minInstanceCount));
         }
 
-        /**
-         * @param status Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

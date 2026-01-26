@@ -14,25 +14,15 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
     {
         [Input("regions", required: true)]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// Set of AWS regions from which to centralize logs. Must contain at least one region.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
             set => _regions = value;
         }
 
-        /// <summary>
-        /// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for source logs settings. See `SourceLogsConfiguration` below.
-        /// </summary>
         [Input("sourceLogsConfiguration")]
         public Input<Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationGetArgs>? SourceLogsConfiguration { get; set; }
 

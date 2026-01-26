@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ArchiveRuleFilter {
-    /**
-     * @return Contains comparator.
-     * 
-     */
     private @Nullable List<String> contains;
-    /**
-     * @return Filter criteria.
-     * 
-     */
     private String criteria;
-    /**
-     * @return Equals comparator.
-     * 
-     */
     private @Nullable List<String> eqs;
-    /**
-     * @return Boolean comparator.
-     * 
-     */
     private @Nullable String exists;
-    /**
-     * @return Not Equals comparator.
-     * 
-     */
     private @Nullable List<String> neqs;
 
     private ArchiveRuleFilter() {}
-    /**
-     * @return Contains comparator.
-     * 
-     */
     public List<String> contains() {
         return this.contains == null ? List.of() : this.contains;
     }
-    /**
-     * @return Filter criteria.
-     * 
-     */
     public String criteria() {
         return this.criteria;
     }
-    /**
-     * @return Equals comparator.
-     * 
-     */
     public List<String> eqs() {
         return this.eqs == null ? List.of() : this.eqs;
     }
-    /**
-     * @return Boolean comparator.
-     * 
-     */
     public Optional<String> exists() {
         return Optional.ofNullable(this.exists);
     }
-    /**
-     * @return Not Equals comparator.
-     * 
-     */
     public List<String> neqs() {
         return this.neqs == null ? List.of() : this.neqs;
     }

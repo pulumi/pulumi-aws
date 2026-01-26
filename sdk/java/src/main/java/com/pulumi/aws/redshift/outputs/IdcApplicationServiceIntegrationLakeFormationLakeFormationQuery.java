@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
-    /**
-     * @return Determines whether the query scope is enabled or disabled.
-     * 
-     */
     private String authorization;
 
     private IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery() {}
-    /**
-     * @return Determines whether the query scope is enabled or disabled.
-     * 
-     */
     public String authorization() {
         return this.authorization;
     }

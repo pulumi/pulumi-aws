@@ -12,57 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateBlockDeviceMapping {
-    /**
-     * @return The name of the device to mount.
-     * 
-     */
     private @Nullable String deviceName;
-    /**
-     * @return Configure EBS volume properties.
-     * 
-     */
     private @Nullable LaunchTemplateBlockDeviceMappingEbs ebs;
-    /**
-     * @return Suppresses the specified device included in the AMI&#39;s block device mapping.
-     * 
-     */
     private @Nullable String noDevice;
-    /**
-     * @return The [Instance Store Device
-     * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-     * (e.g., `&#34;ephemeral0&#34;`).
-     * 
-     */
     private @Nullable String virtualName;
 
     private LaunchTemplateBlockDeviceMapping() {}
-    /**
-     * @return The name of the device to mount.
-     * 
-     */
     public Optional<String> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
-    /**
-     * @return Configure EBS volume properties.
-     * 
-     */
     public Optional<LaunchTemplateBlockDeviceMappingEbs> ebs() {
         return Optional.ofNullable(this.ebs);
     }
-    /**
-     * @return Suppresses the specified device included in the AMI&#39;s block device mapping.
-     * 
-     */
     public Optional<String> noDevice() {
         return Optional.ofNullable(this.noDevice);
     }
-    /**
-     * @return The [Instance Store Device
-     * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-     * (e.g., `&#34;ephemeral0&#34;`).
-     * 
-     */
     public Optional<String> virtualName() {
         return Optional.ofNullable(this.virtualName);
     }

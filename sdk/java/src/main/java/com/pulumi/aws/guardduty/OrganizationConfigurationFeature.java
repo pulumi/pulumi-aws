@@ -16,127 +16,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
- * 
- * &gt; **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource is simply removed from state instead.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.guardduty.OrganizationConfigurationFeature;
- * import com.pulumi.aws.guardduty.OrganizationConfigurationFeatureArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Detector("example", DetectorArgs.builder()
- *             .enable(true)
- *             .build());
- * 
- *         var eksRuntimeMonitoring = new OrganizationConfigurationFeature("eksRuntimeMonitoring", OrganizationConfigurationFeatureArgs.builder()
- *             .detectorId(example.id())
- *             .name("EKS_RUNTIME_MONITORING")
- *             .autoEnable("ALL")
- *             .additionalConfigurations(OrganizationConfigurationFeatureAdditionalConfigurationArgs.builder()
- *                 .name("EKS_ADDON_MANAGEMENT")
- *                 .autoEnable("NEW")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")
 public class OrganizationConfigurationFeature extends com.pulumi.resources.CustomResource {
-    /**
-     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-     * 
-     */
     @Export(name="additionalConfigurations", refs={List.class,OrganizationConfigurationFeatureAdditionalConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OrganizationConfigurationFeatureAdditionalConfiguration>> additionalConfigurations;
 
-    /**
-     * @return Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-     * 
-     */
     public Output<Optional<List<OrganizationConfigurationFeatureAdditionalConfiguration>>> additionalConfigurations() {
         return Codegen.optional(this.additionalConfigurations);
     }
-    /**
-     * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-     * 
-     */
     @Export(name="autoEnable", refs={String.class}, tree="[0]")
     private Output<String> autoEnable;
 
-    /**
-     * @return The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-     * 
-     */
     public Output<String> autoEnable() {
         return this.autoEnable;
     }
-    /**
-     * The ID of the detector that configures the delegated administrator.
-     * 
-     */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
-    /**
-     * @return The ID of the detector that configures the delegated administrator.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
-    /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -9,70 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityLake
 {
-    /// <summary>
-    /// Resource for managing an Amazon Security Lake AWS Log Source.
-    /// 
-    /// &gt; **NOTE:** A single `aws.securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
-    /// 
-    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.AwsLogSource`. Use a `DependsOn` statement.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityLake.AwsLogSource("example", new()
-    ///     {
-    ///         Source = new Aws.SecurityLake.Inputs.AwsLogSourceSourceArgs
-    ///         {
-    ///             Accounts = new[]
-    ///             {
-    ///                 "123456789012",
-    ///             },
-    ///             Regions = new[]
-    ///             {
-    ///                 "eu-west-1",
-    ///             },
-    ///             SourceName = "ROUTE53",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSecuritylakeDataLake,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS log sources using the source name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securitylake/awsLogSource:AwsLogSource")]
     public partial class AwsLogSource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify the natively-supported AWS service to add as a source in Security Lake.
-        /// </summary>
         [Output("source")]
         public Output<Outputs.AwsLogSourceSource?> Source { get; private set; } = null!;
 
@@ -122,15 +64,9 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class AwsLogSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specify the natively-supported AWS service to add as a source in Security Lake.
-        /// </summary>
         [Input("source")]
         public Input<Inputs.AwsLogSourceSourceArgs>? Source { get; set; }
 
@@ -142,15 +78,9 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class AwsLogSourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specify the natively-supported AWS service to add as a source in Security Lake.
-        /// </summary>
         [Input("source")]
         public Input<Inputs.AwsLogSourceSourceGetArgs>? Source { get; set; }
 

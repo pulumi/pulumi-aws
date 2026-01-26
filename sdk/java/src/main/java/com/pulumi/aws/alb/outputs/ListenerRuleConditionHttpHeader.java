@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleConditionHttpHeader {
-    /**
-     * @return Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
-     * 
-     */
     private String httpHeaderName;
-    /**
-     * @return List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
-     * 
-     */
     private @Nullable List<String> regexValues;
-    /**
-     * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
-     * 
-     */
     private @Nullable List<String> values;
 
     private ListenerRuleConditionHttpHeader() {}
-    /**
-     * @return Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
-     * 
-     */
     public String httpHeaderName() {
         return this.httpHeaderName;
     }
-    /**
-     * @return List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
-     * 
-     */
     public List<String> regexValues() {
         return this.regexValues == null ? List.of() : this.regexValues;
     }
-    /**
-     * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
-     * 
-     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InputInputDevice {
-    /**
-     * @return The unique ID for the device.
-     * 
-     */
     private String id;
 
     private InputInputDevice() {}
-    /**
-     * @return The unique ID for the device.
-     * 
-     */
     public String id() {
         return this.id;
     }

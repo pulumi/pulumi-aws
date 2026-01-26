@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 public final class TrustAnchorNotificationSetting {
     private @Nullable String channel;
     private @Nullable String configuredBy;
-    /**
-     * @return Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
     private @Nullable String event;
     private @Nullable Integer threshold;
@@ -30,10 +26,6 @@ public final class TrustAnchorNotificationSetting {
     public Optional<String> configuredBy() {
         return Optional.ofNullable(this.configuredBy);
     }
-    /**
-     * @return Whether or not the Trust Anchor should be enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

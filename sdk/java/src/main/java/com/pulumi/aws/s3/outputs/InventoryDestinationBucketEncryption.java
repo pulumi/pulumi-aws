@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InventoryDestinationBucketEncryption {
-    /**
-     * @return Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
-     * 
-     */
     private @Nullable InventoryDestinationBucketEncryptionSseKms sseKms;
-    /**
-     * @return Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
-     * 
-     */
     private @Nullable InventoryDestinationBucketEncryptionSseS3 sseS3;
 
     private InventoryDestinationBucketEncryption() {}
-    /**
-     * @return Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
-     * 
-     */
     public Optional<InventoryDestinationBucketEncryptionSseKms> sseKms() {
         return Optional.ofNullable(this.sseKms);
     }
-    /**
-     * @return Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
-     * 
-     */
     public Optional<InventoryDestinationBucketEncryptionSseS3> sseS3() {
         return Optional.ofNullable(this.sseS3);
     }

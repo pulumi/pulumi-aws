@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information on an existing backup plan.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.LookupPlan(ctx, &backup.LookupPlanArgs{
-//				PlanId: "my_example_backup_plan_id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.InvokeOption) (*LookupPlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPlanResult
@@ -50,32 +23,23 @@ func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPlan.
 type LookupPlanArgs struct {
-	// Backup plan ID.
-	PlanId string `pulumi:"planId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Metadata that you can assign to help organize the plans you create.
-	Tags map[string]string `pulumi:"tags"`
+	PlanId string            `pulumi:"planId"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPlan.
 type LookupPlanResult struct {
-	// ARN of the backup plan.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Display name of a backup plan.
-	Name   string `pulumi:"name"`
-	PlanId string `pulumi:"planId"`
-	Region string `pulumi:"region"`
-	// Rules of a backup plan.
-	Rules []GetPlanRule `pulumi:"rules"`
-	// Scanning configuration for the backup rule.
+	Id           string               `pulumi:"id"`
+	Name         string               `pulumi:"name"`
+	PlanId       string               `pulumi:"planId"`
+	Region       string               `pulumi:"region"`
+	Rules        []GetPlanRule        `pulumi:"rules"`
 	ScanSettings []GetPlanScanSetting `pulumi:"scanSettings"`
-	// Metadata that you can assign to help organize the plans you create.
-	Tags map[string]string `pulumi:"tags"`
-	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-	Version string `pulumi:"version"`
+	Tags         map[string]string    `pulumi:"tags"`
+	Version      string               `pulumi:"version"`
 }
 
 func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pulumi.InvokeOption) LookupPlanResultOutput {
@@ -89,12 +53,9 @@ func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getPlan.
 type LookupPlanOutputArgs struct {
-	// Backup plan ID.
-	PlanId pulumi.StringInput `pulumi:"planId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	PlanId pulumi.StringInput    `pulumi:"planId"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Metadata that you can assign to help organize the plans you create.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupPlanOutputArgs) ElementType() reflect.Type {
@@ -116,7 +77,6 @@ func (o LookupPlanResultOutput) ToLookupPlanResultOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the backup plan.
 func (o LookupPlanResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -126,7 +86,6 @@ func (o LookupPlanResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Display name of a backup plan.
 func (o LookupPlanResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -139,22 +98,18 @@ func (o LookupPlanResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Rules of a backup plan.
 func (o LookupPlanResultOutput) Rules() GetPlanRuleArrayOutput {
 	return o.ApplyT(func(v LookupPlanResult) []GetPlanRule { return v.Rules }).(GetPlanRuleArrayOutput)
 }
 
-// Scanning configuration for the backup rule.
 func (o LookupPlanResultOutput) ScanSettings() GetPlanScanSettingArrayOutput {
 	return o.ApplyT(func(v LookupPlanResult) []GetPlanScanSetting { return v.ScanSettings }).(GetPlanScanSettingArrayOutput)
 }
 
-// Metadata that you can assign to help organize the plans you create.
 func (o LookupPlanResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPlanResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 func (o LookupPlanResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Version }).(pulumi.StringOutput)
 }

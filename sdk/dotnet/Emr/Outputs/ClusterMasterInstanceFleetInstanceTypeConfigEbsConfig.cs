@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig
     {
-        /// <summary>
-        /// Number of I/O operations per second (IOPS) that the volume supports.
-        /// </summary>
         public readonly int? Iops;
-        /// <summary>
-        /// Volume size, in gibibytes (GiB).
-        /// </summary>
         public readonly int Size;
-        /// <summary>
-        /// Volume type. Valid options are `Gp3`, `Gp2`, `Io1`, `Io2`, `Standard`, `St1` and `Sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        /// </summary>
         public readonly int? VolumesPerInstance;
 
         [OutputConstructor]

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// KMS key ARN when `SseAlgorithm` is `aws:kms`.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-        /// </summary>
         [Input("sseAlgorithm", required: true)]
         public Input<string> SseAlgorithm { get; set; } = null!;
 

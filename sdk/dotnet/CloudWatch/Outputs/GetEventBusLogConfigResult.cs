@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetEventBusLogConfigResult
     {
-        /// <summary>
-        /// Whether EventBridge include detailed event information in the records it generates.
-        /// </summary>
         public readonly string IncludeDetail;
-        /// <summary>
-        /// Level of logging detail to include.
-        /// </summary>
         public readonly string Level;
 
         [OutputConstructor]

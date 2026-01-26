@@ -18,64 +18,30 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NotificationArgs Empty = new NotificationArgs();
 
-    /**
-     * List of AutoScaling Group Names
-     * 
-     */
     @Import(name="groupNames", required=true)
     private Output<List<String>> groupNames;
 
-    /**
-     * @return List of AutoScaling Group Names
-     * 
-     */
     public Output<List<String>> groupNames() {
         return this.groupNames;
     }
 
-    /**
-     * List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     * 
-     */
     @Import(name="notifications", required=true)
     private Output<List<NotificationType>> notifications;
 
-    /**
-     * @return List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     * 
-     */
     public Output<List<NotificationType>> notifications() {
         return this.notifications;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Topic ARN for notifications to be sent through
-     * 
-     */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
-    /**
-     * @return Topic ARN for notifications to be sent through
-     * 
-     */
     public Output<String> topicArn() {
         return this.topicArn;
     }
@@ -107,109 +73,46 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
             $ = new NotificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupNames List of AutoScaling Group Names
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNames(Output<List<String>> groupNames) {
             $.groupNames = groupNames;
             return this;
         }
 
-        /**
-         * @param groupNames List of AutoScaling Group Names
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNames(List<String> groupNames) {
             return groupNames(Output.of(groupNames));
         }
 
-        /**
-         * @param groupNames List of AutoScaling Group Names
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNames(String... groupNames) {
             return groupNames(List.of(groupNames));
         }
 
-        /**
-         * @param notifications List of Notification Types that trigger
-         * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifications(Output<List<NotificationType>> notifications) {
             $.notifications = notifications;
             return this;
         }
 
-        /**
-         * @param notifications List of Notification Types that trigger
-         * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifications(List<NotificationType> notifications) {
             return notifications(Output.of(notifications));
         }
 
-        /**
-         * @param notifications List of Notification Types that trigger
-         * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifications(NotificationType... notifications) {
             return notifications(List.of(notifications));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param topicArn Topic ARN for notifications to be sent through
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn Topic ARN for notifications to be sent through
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

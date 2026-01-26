@@ -15,47 +15,23 @@ public final class TableBucketPolicyState extends com.pulumi.resources.ResourceA
 
     public static final TableBucketPolicyState Empty = new TableBucketPolicyState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     * 
-     */
     @Import(name="resourcePolicy")
     private @Nullable Output<String> resourcePolicy;
 
-    /**
-     * @return Amazon Web Services resource-based policy document in JSON format.
-     * 
-     */
     public Optional<Output<String>> resourcePolicy() {
         return Optional.ofNullable(this.resourcePolicy);
     }
 
-    /**
-     * ARN referencing the Table Bucket that owns this policy.
-     * 
-     */
     @Import(name="tableBucketArn")
     private @Nullable Output<String> tableBucketArn;
 
-    /**
-     * @return ARN referencing the Table Bucket that owns this policy.
-     * 
-     */
     public Optional<Output<String>> tableBucketArn() {
         return Optional.ofNullable(this.tableBucketArn);
     }
@@ -86,65 +62,29 @@ public final class TableBucketPolicyState extends com.pulumi.resources.ResourceA
             $ = new TableBucketPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourcePolicy Amazon Web Services resource-based policy document in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourcePolicy(@Nullable Output<String> resourcePolicy) {
             $.resourcePolicy = resourcePolicy;
             return this;
         }
 
-        /**
-         * @param resourcePolicy Amazon Web Services resource-based policy document in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourcePolicy(String resourcePolicy) {
             return resourcePolicy(Output.of(resourcePolicy));
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that owns this policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(@Nullable Output<String> tableBucketArn) {
             $.tableBucketArn = tableBucketArn;
             return this;
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that owns this policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(String tableBucketArn) {
             return tableBucketArn(Output.of(tableBucketArn));
         }

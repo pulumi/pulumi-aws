@@ -12,18 +12,11 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class AnalyticsConfigurationFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Object prefix for filtering.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Set of object tags for filtering.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

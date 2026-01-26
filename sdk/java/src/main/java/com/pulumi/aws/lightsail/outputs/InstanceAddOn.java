@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class InstanceAddOn {
-    /**
-     * @return Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-     * 
-     */
     private String snapshotTime;
-    /**
-     * @return Status of the add-on. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     private String status;
-    /**
-     * @return Add-on type. There is currently only one valid type `AutoSnapshot`.
-     * 
-     */
     private String type;
 
     private InstanceAddOn() {}
-    /**
-     * @return Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-     * 
-     */
     public String snapshotTime() {
         return this.snapshotTime;
     }
-    /**
-     * @return Status of the add-on. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Add-on type. There is currently only one valid type `AutoSnapshot`.
-     * 
-     */
     public String type() {
         return this.type;
     }

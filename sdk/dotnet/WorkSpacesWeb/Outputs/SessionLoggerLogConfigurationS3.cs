@@ -13,25 +13,10 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class SessionLoggerLogConfigurationS3
     {
-        /// <summary>
-        /// S3 bucket name where logs are delivered.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// Expected bucket owner of the target S3 bucket.
-        /// </summary>
         public readonly string? BucketOwner;
-        /// <summary>
-        /// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-        /// </summary>
         public readonly string FolderStructure;
-        /// <summary>
-        /// S3 path prefix that determines where log files are stored.
-        /// </summary>
         public readonly string? KeyPrefix;
-        /// <summary>
-        /// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-        /// </summary>
         public readonly string LogFileFormat;
 
         [OutputConstructor]

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceNetworkConfigurationEgressConfiguration {
-    /**
-     * @return The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-     * 
-     */
     private @Nullable String egressType;
-    /**
-     * @return The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
-     * 
-     */
     private @Nullable String vpcConnectorArn;
 
     private ServiceNetworkConfigurationEgressConfiguration() {}
-    /**
-     * @return The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-     * 
-     */
     public Optional<String> egressType() {
         return Optional.ofNullable(this.egressType);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
-     * 
-     */
     public Optional<String> vpcConnectorArn() {
         return Optional.ofNullable(this.vpcConnectorArn);
     }

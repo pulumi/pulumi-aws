@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
-    /**
-     * @return Whether audio input is allowed.
-     * 
-     */
     private Boolean allowAudioInput;
-    /**
-     * @return Whether DTMF input is allowed.
-     * 
-     */
     private Boolean allowDtmfInput;
 
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes() {}
-    /**
-     * @return Whether audio input is allowed.
-     * 
-     */
     public Boolean allowAudioInput() {
         return this.allowAudioInput;
     }
-    /**
-     * @return Whether DTMF input is allowed.
-     * 
-     */
     public Boolean allowDtmfInput() {
         return this.allowDtmfInput;
     }

@@ -17,47 +17,23 @@ public final class CostCategoryRuleRuleNotNotArgs extends com.pulumi.resources.R
 
     public static final CostCategoryRuleRuleNotNotArgs Empty = new CostCategoryRuleRuleNotNotArgs();
 
-    /**
-     * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     @Import(name="costCategory")
     private @Nullable Output<CostCategoryRuleRuleNotNotCostCategoryArgs> costCategory;
 
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public Optional<Output<CostCategoryRuleRuleNotNotCostCategoryArgs>> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
-    /**
-     * Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     @Import(name="dimension")
     private @Nullable Output<CostCategoryRuleRuleNotNotDimensionArgs> dimension;
 
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public Optional<Output<CostCategoryRuleRuleNotNotDimensionArgs>> dimension() {
         return Optional.ofNullable(this.dimension);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<CostCategoryRuleRuleNotNotTagsArgs> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<CostCategoryRuleRuleNotNotTagsArgs>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class CostCategoryRuleRuleNotNotArgs extends com.pulumi.resources.R
             $ = new CostCategoryRuleRuleNotNotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(@Nullable Output<CostCategoryRuleRuleNotNotCostCategoryArgs> costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(CostCategoryRuleRuleNotNotCostCategoryArgs costCategory) {
             return costCategory(Output.of(costCategory));
         }
 
-        /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(@Nullable Output<CostCategoryRuleRuleNotNotDimensionArgs> dimension) {
             $.dimension = dimension;
             return this;
         }
 
-        /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(CostCategoryRuleRuleNotNotDimensionArgs dimension) {
             return dimension(Output.of(dimension));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<CostCategoryRuleRuleNotNotTagsArgs> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(CostCategoryRuleRuleNotNotTagsArgs tags) {
             return tags(Output.of(tags));
         }

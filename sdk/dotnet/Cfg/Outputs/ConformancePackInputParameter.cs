@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cfg.Outputs
     [OutputType]
     public sealed class ConformancePackInputParameter
     {
-        /// <summary>
-        /// The input key.
-        /// </summary>
         public readonly string ParameterName;
-        /// <summary>
-        /// The input value.
-        /// </summary>
         public readonly string ParameterValue;
 
         [OutputConstructor]

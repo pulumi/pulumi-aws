@@ -16,47 +16,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs();
 
-    /**
-     * The height of the FEC protection matrix.
-     * 
-     */
     @Import(name="columnDepth")
     private @Nullable Output<Integer> columnDepth;
 
-    /**
-     * @return The height of the FEC protection matrix.
-     * 
-     */
     public Optional<Output<Integer>> columnDepth() {
         return Optional.ofNullable(this.columnDepth);
     }
 
-    /**
-     * Enables column only or column and row based FEC.
-     * 
-     */
     @Import(name="includeFec")
     private @Nullable Output<String> includeFec;
 
-    /**
-     * @return Enables column only or column and row based FEC.
-     * 
-     */
     public Optional<Output<String>> includeFec() {
         return Optional.ofNullable(this.includeFec);
     }
 
-    /**
-     * The width of the FEC protection matrix.
-     * 
-     */
     @Import(name="rowLength")
     private @Nullable Output<Integer> rowLength;
 
-    /**
-     * @return The width of the FEC protection matrix.
-     * 
-     */
     public Optional<Output<Integer>> rowLength() {
         return Optional.ofNullable(this.rowLength);
     }
@@ -87,65 +63,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnDepth The height of the FEC protection matrix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnDepth(@Nullable Output<Integer> columnDepth) {
             $.columnDepth = columnDepth;
             return this;
         }
 
-        /**
-         * @param columnDepth The height of the FEC protection matrix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnDepth(Integer columnDepth) {
             return columnDepth(Output.of(columnDepth));
         }
 
-        /**
-         * @param includeFec Enables column only or column and row based FEC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeFec(@Nullable Output<String> includeFec) {
             $.includeFec = includeFec;
             return this;
         }
 
-        /**
-         * @param includeFec Enables column only or column and row based FEC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeFec(String includeFec) {
             return includeFec(Output.of(includeFec));
         }
 
-        /**
-         * @param rowLength The width of the FEC protection matrix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rowLength(@Nullable Output<Integer> rowLength) {
             $.rowLength = rowLength;
             return this;
         }
 
-        /**
-         * @param rowLength The width of the FEC protection matrix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rowLength(Integer rowLength) {
             return rowLength(Output.of(rowLength));
         }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAdvancedSecurityOptions {
-    /**
-     * @return Whether advanced security is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-     * 
-     */
     private @Nullable Boolean internalUserDatabaseEnabled;
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
 
     private DomainAdvancedSecurityOptions() {}
-    /**
-     * @return Whether advanced security is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-     * 
-     */
     public Optional<Boolean> internalUserDatabaseEnabled() {
         return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     public Optional<DomainAdvancedSecurityOptionsMasterUserOptions> masterUserOptions() {
         return Optional.ofNullable(this.masterUserOptions);
     }

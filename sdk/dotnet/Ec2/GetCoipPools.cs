@@ -11,84 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetCoipPools
     {
-        /// <summary>
-        /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting all COIP Pool Ids.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ec2.GetCoipPools.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Apply(getCoipPoolsResult =&gt; getCoipPoolsResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCoipPoolsResult> InvokeAsync(GetCoipPoolsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting all COIP Pool Ids.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ec2.GetCoipPools.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Apply(getCoipPoolsResult =&gt; getCoipPoolsResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCoipPoolsResult> Invoke(GetCoipPoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting all COIP Pool Ids.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ec2.GetCoipPools.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = foo.Apply(getCoipPoolsResult =&gt; getCoipPoolsResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCoipPoolsResult> Invoke(GetCoipPoolsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsInvokeArgs(), options.WithDefaults());
     }
@@ -98,32 +26,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetCoipPoolsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public List<Inputs.GetCoipPoolsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetCoipPoolsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired aws_ec2_coip_pools.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -140,32 +53,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetCoipPoolsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public InputList<Inputs.GetCoipPoolsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetCoipPoolsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired aws_ec2_coip_pools.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -187,9 +85,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of COIP Pool Identifiers
-        /// </summary>
         public readonly ImmutableArray<string> PoolIds;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;

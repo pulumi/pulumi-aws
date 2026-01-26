@@ -17,47 +17,23 @@ public final class AnomalySubscriptionThresholdExpressionNotArgs extends com.pul
 
     public static final AnomalySubscriptionThresholdExpressionNotArgs Empty = new AnomalySubscriptionThresholdExpressionNotArgs();
 
-    /**
-     * Configuration block for the filter that&#39;s based on  values. See Cost Category below.
-     * 
-     */
     @Import(name="costCategory")
     private @Nullable Output<AnomalySubscriptionThresholdExpressionNotCostCategoryArgs> costCategory;
 
-    /**
-     * @return Configuration block for the filter that&#39;s based on  values. See Cost Category below.
-     * 
-     */
     public Optional<Output<AnomalySubscriptionThresholdExpressionNotCostCategoryArgs>> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
-    /**
-     * Configuration block for the specific Dimension to use for.
-     * 
-     */
     @Import(name="dimension")
     private @Nullable Output<AnomalySubscriptionThresholdExpressionNotDimensionArgs> dimension;
 
-    /**
-     * @return Configuration block for the specific Dimension to use for.
-     * 
-     */
     public Optional<Output<AnomalySubscriptionThresholdExpressionNotDimensionArgs>> dimension() {
         return Optional.ofNullable(this.dimension);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<AnomalySubscriptionThresholdExpressionNotTagsArgs> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<AnomalySubscriptionThresholdExpressionNotTagsArgs>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class AnomalySubscriptionThresholdExpressionNotArgs extends com.pul
             $ = new AnomalySubscriptionThresholdExpressionNotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on  values. See Cost Category below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(@Nullable Output<AnomalySubscriptionThresholdExpressionNotCostCategoryArgs> costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on  values. See Cost Category below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(AnomalySubscriptionThresholdExpressionNotCostCategoryArgs costCategory) {
             return costCategory(Output.of(costCategory));
         }
 
-        /**
-         * @param dimension Configuration block for the specific Dimension to use for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(@Nullable Output<AnomalySubscriptionThresholdExpressionNotDimensionArgs> dimension) {
             $.dimension = dimension;
             return this;
         }
 
-        /**
-         * @param dimension Configuration block for the specific Dimension to use for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(AnomalySubscriptionThresholdExpressionNotDimensionArgs dimension) {
             return dimension(Output.of(dimension));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<AnomalySubscriptionThresholdExpressionNotTagsArgs> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(AnomalySubscriptionThresholdExpressionNotTagsArgs tags) {
             return tags(Output.of(tags));
         }

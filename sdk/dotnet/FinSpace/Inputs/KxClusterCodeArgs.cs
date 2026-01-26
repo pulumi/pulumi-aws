@@ -12,21 +12,12 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
     public sealed class KxClusterCodeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name for the S3 bucket.
-        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-        /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;
 
-        /// <summary>
-        /// Version of an S3 Object.
-        /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
 

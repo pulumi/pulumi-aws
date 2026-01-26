@@ -12,27 +12,15 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainCognitoOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `False`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// ID of the Cognito Identity Pool to use.
-        /// </summary>
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the Cognito User Pool to use.
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

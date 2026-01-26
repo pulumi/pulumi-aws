@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainNameMutualTlsAuthentication {
-    /**
-     * @return Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
-     * 
-     */
     private String truststoreUri;
-    /**
-     * @return Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
-     * 
-     */
     private @Nullable String truststoreVersion;
 
     private DomainNameMutualTlsAuthentication() {}
-    /**
-     * @return Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
-     * 
-     */
     public String truststoreUri() {
         return this.truststoreUri;
     }
-    /**
-     * @return Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
-     * 
-     */
     public Optional<String> truststoreVersion() {
         return Optional.ofNullable(this.truststoreVersion);
     }

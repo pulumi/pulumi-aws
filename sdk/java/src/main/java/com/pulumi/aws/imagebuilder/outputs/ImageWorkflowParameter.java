@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ImageWorkflowParameter {
-    /**
-     * @return The name of the Workflow parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The value of the Workflow parameter.
-     * 
-     */
     private String value;
 
     private ImageWorkflowParameter() {}
-    /**
-     * @return The name of the Workflow parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the Workflow parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

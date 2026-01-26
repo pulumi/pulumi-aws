@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
-    /**
-     * @return The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
-     * 
-     */
     private @Nullable String keyId;
-    /**
-     * @return The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
-     * 
-     */
     private String keyType;
 
     private ApplicationApplicationConfigurationApplicationEncryptionConfiguration() {}
-    /**
-     * @return The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
-     * 
-     */
     public Optional<String> keyId() {
         return Optional.ofNullable(this.keyId);
     }
-    /**
-     * @return The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
-     * 
-     */
     public String keyType() {
         return this.keyType;
     }

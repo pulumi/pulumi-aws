@@ -12,83 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an API Gateway Usage Plan Key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := apigateway.NewRestApi(ctx, "test", &apigateway.RestApiArgs{
-//				Name: pulumi.String("MyDemoAPI"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// ...
-//			myusageplan, err := apigateway.NewUsagePlan(ctx, "myusageplan", &apigateway.UsagePlanArgs{
-//				Name: pulumi.String("my_usage_plan"),
-//				ApiStages: apigateway.UsagePlanApiStageArray{
-//					&apigateway.UsagePlanApiStageArgs{
-//						ApiId: test.ID(),
-//						Stage: pulumi.Any(foo.StageName),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mykey, err := apigateway.NewApiKey(ctx, "mykey", &apigateway.ApiKeyArgs{
-//				Name: pulumi.String("my_key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewUsagePlanKey(ctx, "main", &apigateway.UsagePlanKeyArgs{
-//				KeyId:       mykey.ID(),
-//				KeyType:     pulumi.String("API_KEY"),
-//				UsagePlanId: myusageplan.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
-// ```
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
 
-	// Identifier of the API key resource.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Type of the API key resource. Currently, the valid key type is API_KEY.
-	KeyType pulumi.StringOutput `pulumi:"keyType"`
-	// Name of a usage plan key.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Id of the usage plan resource representing to associate the key to.
+	KeyId       pulumi.StringOutput `pulumi:"keyId"`
+	KeyType     pulumi.StringOutput `pulumi:"keyType"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 	UsagePlanId pulumi.StringOutput `pulumi:"usagePlanId"`
-	// Value of a usage plan key.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value       pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewUsagePlanKey registers a new resource with the given unique name, arguments, and options.
@@ -130,33 +62,21 @@ func GetUsagePlanKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UsagePlanKey resources.
 type usagePlanKeyState struct {
-	// Identifier of the API key resource.
-	KeyId *string `pulumi:"keyId"`
-	// Type of the API key resource. Currently, the valid key type is API_KEY.
-	KeyType *string `pulumi:"keyType"`
-	// Name of a usage plan key.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Id of the usage plan resource representing to associate the key to.
+	KeyId       *string `pulumi:"keyId"`
+	KeyType     *string `pulumi:"keyType"`
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
 	UsagePlanId *string `pulumi:"usagePlanId"`
-	// Value of a usage plan key.
-	Value *string `pulumi:"value"`
+	Value       *string `pulumi:"value"`
 }
 
 type UsagePlanKeyState struct {
-	// Identifier of the API key resource.
-	KeyId pulumi.StringPtrInput
-	// Type of the API key resource. Currently, the valid key type is API_KEY.
-	KeyType pulumi.StringPtrInput
-	// Name of a usage plan key.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Id of the usage plan resource representing to associate the key to.
+	KeyId       pulumi.StringPtrInput
+	KeyType     pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	UsagePlanId pulumi.StringPtrInput
-	// Value of a usage plan key.
-	Value pulumi.StringPtrInput
+	Value       pulumi.StringPtrInput
 }
 
 func (UsagePlanKeyState) ElementType() reflect.Type {
@@ -164,25 +84,17 @@ func (UsagePlanKeyState) ElementType() reflect.Type {
 }
 
 type usagePlanKeyArgs struct {
-	// Identifier of the API key resource.
-	KeyId string `pulumi:"keyId"`
-	// Type of the API key resource. Currently, the valid key type is API_KEY.
-	KeyType string `pulumi:"keyType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Id of the usage plan resource representing to associate the key to.
-	UsagePlanId string `pulumi:"usagePlanId"`
+	KeyId       string  `pulumi:"keyId"`
+	KeyType     string  `pulumi:"keyType"`
+	Region      *string `pulumi:"region"`
+	UsagePlanId string  `pulumi:"usagePlanId"`
 }
 
 // The set of arguments for constructing a UsagePlanKey resource.
 type UsagePlanKeyArgs struct {
-	// Identifier of the API key resource.
-	KeyId pulumi.StringInput
-	// Type of the API key resource. Currently, the valid key type is API_KEY.
-	KeyType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Id of the usage plan resource representing to associate the key to.
+	KeyId       pulumi.StringInput
+	KeyType     pulumi.StringInput
+	Region      pulumi.StringPtrInput
 	UsagePlanId pulumi.StringInput
 }
 
@@ -273,32 +185,26 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Identifier of the API key resource.
 func (o UsagePlanKeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Type of the API key resource. Currently, the valid key type is API_KEY.
 func (o UsagePlanKeyOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.KeyType }).(pulumi.StringOutput)
 }
 
-// Name of a usage plan key.
 func (o UsagePlanKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UsagePlanKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Id of the usage plan resource representing to associate the key to.
 func (o UsagePlanKeyOutput) UsagePlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.UsagePlanId }).(pulumi.StringOutput)
 }
 
-// Value of a usage plan key.
 func (o UsagePlanKeyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

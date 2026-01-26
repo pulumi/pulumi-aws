@@ -9,245 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VpcLattice
 {
-    /// <summary>
-    /// Resource for managing an AWS VPC Lattice Listener.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Fixed response action
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.Service("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Protocol = "HTTPS",
-    ///         ServiceIdentifier = example.Id,
-    ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
-    ///         {
-    ///             FixedResponse = new Aws.VpcLattice.Inputs.ListenerDefaultActionFixedResponseArgs
-    ///             {
-    ///                 StatusCode = 404,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Forward action
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.Service("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleTargetGroup = new Aws.VpcLattice.TargetGroup("example", new()
-    ///     {
-    ///         Name = "example-target-group-1",
-    ///         Type = "INSTANCE",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
-    ///         {
-    ///             Port = 80,
-    ///             Protocol = "HTTP",
-    ///             VpcIdentifier = exampleAwsVpc.Id,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Protocol = "HTTP",
-    ///         ServiceIdentifier = example.Id,
-    ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
-    ///         {
-    ///             Forwards = new[]
-    ///             {
-    ///                 new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardArgs
-    ///                 {
-    ///                     TargetGroups = new[]
-    ///                     {
-    ///                         new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardTargetGroupArgs
-    ///                         {
-    ///                             TargetGroupIdentifier = exampleTargetGroup.Id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Forward action with weighted target groups
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.Service("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var example1 = new Aws.VpcLattice.TargetGroup("example1", new()
-    ///     {
-    ///         Name = "example-target-group-1",
-    ///         Type = "INSTANCE",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
-    ///         {
-    ///             Port = 80,
-    ///             Protocol = "HTTP",
-    ///             VpcIdentifier = exampleAwsVpc.Id,
-    ///         },
-    ///     });
-    /// 
-    ///     var example2 = new Aws.VpcLattice.TargetGroup("example2", new()
-    ///     {
-    ///         Name = "example-target-group-2",
-    ///         Type = "INSTANCE",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
-    ///         {
-    ///             Port = 8080,
-    ///             Protocol = "HTTP",
-    ///             VpcIdentifier = exampleAwsVpc.Id,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Protocol = "HTTP",
-    ///         ServiceIdentifier = example.Id,
-    ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
-    ///         {
-    ///             Forwards = new[]
-    ///             {
-    ///                 new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardArgs
-    ///                 {
-    ///                     TargetGroups = new[]
-    ///                     {
-    ///                         new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardTargetGroupArgs
-    ///                         {
-    ///                             TargetGroupIdentifier = example1.Id,
-    ///                             Weight = 80,
-    ///                         },
-    ///                         new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardTargetGroupArgs
-    ///                         {
-    ///                             TargetGroupIdentifier = example2.Id,
-    ///                             Weight = 20,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpclattice/listener:Listener")]
     public partial class Listener : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the listener.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time that the listener was created, specified in ISO-8601 format.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Default action block for the default listener rule. Default action blocks are defined below.
-        /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.ListenerDefaultAction> DefaultAction { get; private set; } = null!;
 
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
-        /// </summary>
         [Output("listenerId")]
         public Output<string> ListenerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Listener port. You can specify a value from 1 to 65535. If `Port` is not specified and `Protocol` is HTTP, the value will default to 80. If `Port` is not specified and `Protocol` is HTTPS, the value will default to 443.
-        /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
-        /// <summary>
-        /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
-        /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
-        /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
-        /// &gt; **NOTE:** You must specify one of the following arguments: `ServiceArn` or `ServiceIdentifier`.
-        /// </summary>
         [Output("serviceIdentifier")]
         public Output<string> ServiceIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -300,55 +97,29 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class ListenerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Default action block for the default listener rule. Default action blocks are defined below.
-        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.ListenerDefaultActionArgs> DefaultAction { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Listener port. You can specify a value from 1 to 65535. If `Port` is not specified and `Protocol` is HTTP, the value will default to 80. If `Port` is not specified and `Protocol` is HTTPS, the value will default to 443.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
-        /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
 
-        /// <summary>
-        /// ID of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
-        /// &gt; **NOTE:** You must specify one of the following arguments: `ServiceArn` or `ServiceIdentifier`.
-        /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -363,76 +134,41 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class ListenerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the listener.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Date and time that the listener was created, specified in ISO-8601 format.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Default action block for the default listener rule. Default action blocks are defined below.
-        /// </summary>
         [Input("defaultAction")]
         public Input<Inputs.ListenerDefaultActionGetArgs>? DefaultAction { get; set; }
 
         [Input("lastUpdatedAt")]
         public Input<string>? LastUpdatedAt { get; set; }
 
-        /// <summary>
-        /// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
-        /// </summary>
         [Input("listenerId")]
         public Input<string>? ListenerId { get; set; }
 
-        /// <summary>
-        /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Listener port. You can specify a value from 1 to 65535. If `Port` is not specified and `Protocol` is HTTP, the value will default to 80. If `Port` is not specified and `Protocol` is HTTPS, the value will default to 443.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
-        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
-        /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
 
-        /// <summary>
-        /// ID of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
-        /// &gt; **NOTE:** You must specify one of the following arguments: `ServiceArn` or `ServiceIdentifier`.
-        /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

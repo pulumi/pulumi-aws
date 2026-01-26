@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionProxyConfiguration {
-    /**
-     * @return Name of the container that will serve as the App Mesh proxy.
-     * 
-     */
     private String containerName;
-    /**
-     * @return Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-     * 
-     */
     private Map<String,String> properties;
-    /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-     * 
-     */
     private String type;
 
     private GetTaskDefinitionProxyConfiguration() {}
-    /**
-     * @return Name of the container that will serve as the App Mesh proxy.
-     * 
-     */
     public String containerName() {
         return this.containerName;
     }
-    /**
-     * @return Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-     * 
-     */
     public Map<String,String> properties() {
         return this.properties;
     }
-    /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -16,47 +16,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs();
 
-    /**
-     * Name of the Amazon S3 bucket.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * Amazon S3 bucket prefix.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-     * 
-     */
     @Import(name="failOnFirstDestinationError")
     private @Nullable Output<Boolean> failOnFirstDestinationError;
 
-    /**
-     * @return If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-     * 
-     */
     public Optional<Output<Boolean>> failOnFirstDestinationError() {
         return Optional.ofNullable(this.failOnFirstDestinationError);
     }
@@ -87,65 +63,29 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Name of the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Name of the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketPrefix Amazon S3 bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix Amazon S3 bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param failOnFirstDestinationError If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOnFirstDestinationError(@Nullable Output<Boolean> failOnFirstDestinationError) {
             $.failOnFirstDestinationError = failOnFirstDestinationError;
             return this;
         }
 
-        /**
-         * @param failOnFirstDestinationError If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOnFirstDestinationError(Boolean failOnFirstDestinationError) {
             return failOnFirstDestinationError(Output.of(failOnFirstDestinationError));
         }

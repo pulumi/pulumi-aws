@@ -12,51 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `lb.TargetGroupAttachment` resource.
-//
-// > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
-// both a standalone ELB Attachment resource (describing an instance attached to
-// an ELB), and an Elastic Load Balancer resource with
-// `instances` defined in-line. At this time you cannot use an ELB with in-line
-// instances in conjunction with an ELB Attachment resource. Doing so will cause a
-// conflict and will overwrite attachments.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new load balancer attachment
-//			_, err := elb.NewAttachment(ctx, "baz", &elb.AttachmentArgs{
-//				Elb:      pulumi.Any(bar.Id),
-//				Instance: pulumi.Any(foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Attachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the ELB.
-	Elb pulumi.StringOutput `pulumi:"elb"`
-	// Instance ID to place in the ELB pool.
+	Elb      pulumi.StringOutput `pulumi:"elb"`
 	Instance pulumi.StringOutput `pulumi:"instance"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region   pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAttachment registers a new resource with the given unique name, arguments, and options.
@@ -101,21 +62,15 @@ func GetAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Attachment resources.
 type attachmentState struct {
-	// The name of the ELB.
-	Elb *string `pulumi:"elb"`
-	// Instance ID to place in the ELB pool.
+	Elb      *string `pulumi:"elb"`
 	Instance *string `pulumi:"instance"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region   *string `pulumi:"region"`
 }
 
 type AttachmentState struct {
-	// The name of the ELB.
-	Elb pulumi.StringPtrInput
-	// Instance ID to place in the ELB pool.
+	Elb      pulumi.StringPtrInput
 	Instance pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (AttachmentState) ElementType() reflect.Type {
@@ -123,22 +78,16 @@ func (AttachmentState) ElementType() reflect.Type {
 }
 
 type attachmentArgs struct {
-	// The name of the ELB.
-	Elb string `pulumi:"elb"`
-	// Instance ID to place in the ELB pool.
-	Instance string `pulumi:"instance"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Elb      string  `pulumi:"elb"`
+	Instance string  `pulumi:"instance"`
+	Region   *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Attachment resource.
 type AttachmentArgs struct {
-	// The name of the ELB.
-	Elb pulumi.StringInput
-	// Instance ID to place in the ELB pool.
+	Elb      pulumi.StringInput
 	Instance pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (AttachmentArgs) ElementType() reflect.Type {
@@ -228,17 +177,14 @@ func (o AttachmentOutput) ToAttachmentOutputWithContext(ctx context.Context) Att
 	return o
 }
 
-// The name of the ELB.
 func (o AttachmentOutput) Elb() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Elb }).(pulumi.StringOutput)
 }
 
-// Instance ID to place in the ELB pool.
 func (o AttachmentOutput) Instance() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Instance }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

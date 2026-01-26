@@ -18,77 +18,37 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
 
     public static final GetPrincipalApplicationAssignmentsArgs Empty = new GetPrincipalApplicationAssignmentsArgs();
 
-    /**
-     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     @Import(name="applicationAssignments")
     private @Nullable Output<List<GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>> applicationAssignments;
 
-    /**
-     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     public Optional<Output<List<GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>>> applicationAssignments() {
         return Optional.ofNullable(this.applicationAssignments);
     }
 
-    /**
-     * ARN of the instance of IAM Identity Center.
-     * 
-     */
     @Import(name="instanceArn", required=true)
     private Output<String> instanceArn;
 
-    /**
-     * @return ARN of the instance of IAM Identity Center.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
 
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     @Import(name="principalId", required=true)
     private Output<String> principalId;
 
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public Output<String> principalId() {
         return this.principalId;
     }
 
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     @Import(name="principalType", required=true)
     private Output<String> principalType;
 
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public Output<String> principalType() {
         return this.principalType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -121,117 +81,51 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
             $ = new GetPrincipalApplicationAssignmentsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationAssignments(@Nullable Output<List<GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>> applicationAssignments) {
             $.applicationAssignments = applicationAssignments;
             return this;
         }
 
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationAssignments(List<GetPrincipalApplicationAssignmentsApplicationAssignmentArgs> applicationAssignments) {
             return applicationAssignments(Output.of(applicationAssignments));
         }
 
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationAssignments(GetPrincipalApplicationAssignmentsApplicationAssignmentArgs... applicationAssignments) {
             return applicationAssignments(List.of(applicationAssignments));
         }
 
-        /**
-         * @param instanceArn ARN of the instance of IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn ARN of the instance of IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(Output<String> principalType) {
             $.principalType = principalType;
             return this;
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

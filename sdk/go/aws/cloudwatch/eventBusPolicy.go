@@ -12,230 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create an EventBridge resource policy to support cross-account events.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
-//
-// ## Example Usage
-//
-// ### Account Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("DevAccountAccess"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"events:PutEvents",
-//						},
-//						Resources: []string{
-//							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"123456789012",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
-//				Policy:       pulumi.String(test.Json),
-//				EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OrganizationAccess"),
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "events:DescribeRule",
-// "events:ListRules",
-// "events:ListTargetsByRule",
-// "events:ListTagsForResource",
-// },
-// Resources: []string{
-// "arn:aws:events:eu-west-1:123456789012:rule/*",
-// "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "aws:PrincipalOrgID",
-// Values: interface{}{
-// example.Id,
-// },
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
-// Policy: pulumi.String(test.Json),
-// EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ### Multiple Statements
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("DevAccountAccess"),
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "events:PutEvents",
-// },
-// Resources: []string{
-// "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "123456789012",
-// },
-// },
-// },
-// },
-// {
-// Sid: pulumi.StringRef("OrganizationAccess"),
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "events:DescribeRule",
-// "events:ListRules",
-// "events:ListTargetsByRule",
-// "events:ListTagsForResource",
-// },
-// Resources: []string{
-// "arn:aws:events:eu-west-1:123456789012:rule/*",
-// "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "aws:PrincipalOrgID",
-// Values: interface{}{
-// example.Id,
-// },
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
-// Policy: pulumi.String(test.Json),
-// EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-// ```
 type EventBusPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
-	// The text of the policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Policy       pulumi.StringOutput    `pulumi:"policy"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewEventBusPolicy registers a new resource with the given unique name, arguments, and options.
@@ -271,23 +53,15 @@ func GetEventBusPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventBusPolicy resources.
 type eventBusPolicyState struct {
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
-	// The text of the policy.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy       *string `pulumi:"policy"`
+	Region       *string `pulumi:"region"`
 }
 
 type EventBusPolicyState struct {
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
-	// The text of the policy.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy       pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (EventBusPolicyState) ElementType() reflect.Type {
@@ -295,24 +69,16 @@ func (EventBusPolicyState) ElementType() reflect.Type {
 }
 
 type eventBusPolicyArgs struct {
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
-	// The text of the policy.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy       string  `pulumi:"policy"`
+	Region       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventBusPolicy resource.
 type EventBusPolicyArgs struct {
-	// The name of the event bus to set the permissions on.
-	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
-	// The text of the policy.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy       pulumi.StringInput
+	Region       pulumi.StringPtrInput
 }
 
 func (EventBusPolicyArgs) ElementType() reflect.Type {
@@ -402,18 +168,14 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the event bus to set the permissions on.
-// If you omit this, the permissions are set on the `default` event bus.
 func (o EventBusPolicyOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }
 
-// The text of the policy.
 func (o EventBusPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventBusPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

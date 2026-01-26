@@ -19,215 +19,71 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Global Accelerator endpoint group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.globalaccelerator.EndpointGroup;
- * import com.pulumi.aws.globalaccelerator.EndpointGroupArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.EndpointGroupEndpointConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EndpointGroup("example", EndpointGroupArgs.builder()
- *             .listenerArn(exampleAwsGlobalacceleratorListener.arn())
- *             .endpointConfigurations(EndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(exampleAwsLb.arn())
- *                 .weight(100)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator endpoint group.
- * 
- * Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
- * 
- * % pulumi import aws_globalaccelerator_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
- * 
- */
 @ResourceType(type="aws:globalaccelerator/endpointGroup:EndpointGroup")
 public class EndpointGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the endpoint group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the endpoint group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The list of endpoint objects. Fields documented below.
-     * 
-     */
     @Export(name="endpointConfigurations", refs={List.class,EndpointGroupEndpointConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointGroupEndpointConfiguration>> endpointConfigurations;
 
-    /**
-     * @return The list of endpoint objects. Fields documented below.
-     * 
-     */
     public Output<Optional<List<EndpointGroupEndpointConfiguration>>> endpointConfigurations() {
         return Codegen.optional(this.endpointConfigurations);
     }
-    /**
-     * The name of the AWS Region where the endpoint group is located.
-     * 
-     */
     @Export(name="endpointGroupRegion", refs={String.class}, tree="[0]")
     private Output<String> endpointGroupRegion;
 
-    /**
-     * @return The name of the AWS Region where the endpoint group is located.
-     * 
-     */
     public Output<String> endpointGroupRegion() {
         return this.endpointGroupRegion;
     }
-    /**
-     * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
-     * 
-     */
     @Export(name="healthCheckIntervalSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> healthCheckIntervalSeconds;
 
-    /**
-     * @return The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
-     * 
-     */
     public Output<Optional<Integer>> healthCheckIntervalSeconds() {
         return Codegen.optional(this.healthCheckIntervalSeconds);
     }
-    /**
-     * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
-     * 
-     */
     @Export(name="healthCheckPath", refs={String.class}, tree="[0]")
     private Output<String> healthCheckPath;
 
-    /**
-     * @return If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
-     * 
-     */
     public Output<String> healthCheckPath() {
         return this.healthCheckPath;
     }
-    /**
-     * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-     * the provider will only perform drift detection of its value when present in a configuration.
-     * 
-     */
     @Export(name="healthCheckPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> healthCheckPort;
 
-    /**
-     * @return The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-     * the provider will only perform drift detection of its value when present in a configuration.
-     * 
-     */
     public Output<Integer> healthCheckPort() {
         return this.healthCheckPort;
     }
-    /**
-     * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
-     * 
-     */
     @Export(name="healthCheckProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> healthCheckProtocol;
 
-    /**
-     * @return The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
-     * 
-     */
     public Output<Optional<String>> healthCheckProtocol() {
         return Codegen.optional(this.healthCheckProtocol);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the listener.
-     * 
-     */
     @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the listener.
-     * 
-     */
     public Output<String> listenerArn() {
         return this.listenerArn;
     }
-    /**
-     * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-     * 
-     */
     @Export(name="portOverrides", refs={List.class,EndpointGroupPortOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointGroupPortOverride>> portOverrides;
 
-    /**
-     * @return Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-     * 
-     */
     public Output<Optional<List<EndpointGroupPortOverride>>> portOverrides() {
         return Codegen.optional(this.portOverrides);
     }
-    /**
-     * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
-     * 
-     */
     @Export(name="thresholdCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> thresholdCount;
 
-    /**
-     * @return The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
-     * 
-     */
     public Output<Optional<Integer>> thresholdCount() {
         return Codegen.optional(this.thresholdCount);
     }
-    /**
-     * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
-     * 
-     */
     @Export(name="trafficDialPercentage", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> trafficDialPercentage;
 
-    /**
-     * @return The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
-     * 
-     */
     public Output<Optional<Double>> trafficDialPercentage() {
         return Codegen.optional(this.trafficDialPercentage);
     }

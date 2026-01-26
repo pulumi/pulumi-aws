@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class JobExecutionPropertyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
-        /// </summary>
         [Input("maxConcurrentRuns")]
         public Input<int>? MaxConcurrentRuns { get; set; }
 

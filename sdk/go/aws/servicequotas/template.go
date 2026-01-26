@@ -12,71 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Service Quotas Template.
-//
-// > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicequotas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.NewTemplate(ctx, "example", &servicequotas.TemplateArgs{
-//				AwsRegion:   pulumi.String("us-east-1"),
-//				QuotaCode:   pulumi.String("L-2ACBD22F"),
-//				ServiceCode: pulumi.String("lambda"),
-//				Value:       pulumi.Float64(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Quotas Template using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
-// ```
 type Template struct {
 	pulumi.CustomResourceState
 
-	// AWS Region to which the template applies.
-	AwsRegion pulumi.StringOutput `pulumi:"awsRegion"`
-	// Indicates whether the quota is global.
-	GlobalQuota pulumi.BoolOutput `pulumi:"globalQuota"`
-	// Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-	QuotaCode pulumi.StringOutput `pulumi:"quotaCode"`
-	// Quota name.
-	QuotaName pulumi.StringOutput `pulumi:"quotaName"`
-	// AWS Region to which the template applies. Use `getRegion` instead.
-	//
+	AwsRegion   pulumi.StringOutput `pulumi:"awsRegion"`
+	GlobalQuota pulumi.BoolOutput   `pulumi:"globalQuota"`
+	QuotaCode   pulumi.StringOutput `pulumi:"quotaCode"`
+	QuotaName   pulumi.StringOutput `pulumi:"quotaName"`
 	// Deprecated: region is deprecated. Use getRegion instead.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Service identifier. To find the service code value for an AWS service, use the servicequotas.getService data source.
-	ServiceCode pulumi.StringOutput `pulumi:"serviceCode"`
-	// Service name.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// Unit of measurement.
-	Unit pulumi.StringOutput `pulumi:"unit"`
-	// The new, increased value for the quota.
-	Value pulumi.Float64Output `pulumi:"value"`
+	Region      pulumi.StringOutput  `pulumi:"region"`
+	ServiceCode pulumi.StringOutput  `pulumi:"serviceCode"`
+	ServiceName pulumi.StringOutput  `pulumi:"serviceName"`
+	Unit        pulumi.StringOutput  `pulumi:"unit"`
+	Value       pulumi.Float64Output `pulumi:"value"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -118,49 +66,29 @@ func GetTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Template resources.
 type templateState struct {
-	// AWS Region to which the template applies.
-	AwsRegion *string `pulumi:"awsRegion"`
-	// Indicates whether the quota is global.
-	GlobalQuota *bool `pulumi:"globalQuota"`
-	// Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-	QuotaCode *string `pulumi:"quotaCode"`
-	// Quota name.
-	QuotaName *string `pulumi:"quotaName"`
-	// AWS Region to which the template applies. Use `getRegion` instead.
-	//
+	AwsRegion   *string `pulumi:"awsRegion"`
+	GlobalQuota *bool   `pulumi:"globalQuota"`
+	QuotaCode   *string `pulumi:"quotaCode"`
+	QuotaName   *string `pulumi:"quotaName"`
 	// Deprecated: region is deprecated. Use getRegion instead.
-	Region *string `pulumi:"region"`
-	// Service identifier. To find the service code value for an AWS service, use the servicequotas.getService data source.
-	ServiceCode *string `pulumi:"serviceCode"`
-	// Service name.
-	ServiceName *string `pulumi:"serviceName"`
-	// Unit of measurement.
-	Unit *string `pulumi:"unit"`
-	// The new, increased value for the quota.
-	Value *float64 `pulumi:"value"`
+	Region      *string  `pulumi:"region"`
+	ServiceCode *string  `pulumi:"serviceCode"`
+	ServiceName *string  `pulumi:"serviceName"`
+	Unit        *string  `pulumi:"unit"`
+	Value       *float64 `pulumi:"value"`
 }
 
 type TemplateState struct {
-	// AWS Region to which the template applies.
-	AwsRegion pulumi.StringPtrInput
-	// Indicates whether the quota is global.
+	AwsRegion   pulumi.StringPtrInput
 	GlobalQuota pulumi.BoolPtrInput
-	// Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-	QuotaCode pulumi.StringPtrInput
-	// Quota name.
-	QuotaName pulumi.StringPtrInput
-	// AWS Region to which the template applies. Use `getRegion` instead.
-	//
+	QuotaCode   pulumi.StringPtrInput
+	QuotaName   pulumi.StringPtrInput
 	// Deprecated: region is deprecated. Use getRegion instead.
-	Region pulumi.StringPtrInput
-	// Service identifier. To find the service code value for an AWS service, use the servicequotas.getService data source.
+	Region      pulumi.StringPtrInput
 	ServiceCode pulumi.StringPtrInput
-	// Service name.
 	ServiceName pulumi.StringPtrInput
-	// Unit of measurement.
-	Unit pulumi.StringPtrInput
-	// The new, increased value for the quota.
-	Value pulumi.Float64PtrInput
+	Unit        pulumi.StringPtrInput
+	Value       pulumi.Float64PtrInput
 }
 
 func (TemplateState) ElementType() reflect.Type {
@@ -168,34 +96,22 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	// AWS Region to which the template applies.
 	AwsRegion *string `pulumi:"awsRegion"`
-	// Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-	QuotaCode string `pulumi:"quotaCode"`
-	// AWS Region to which the template applies. Use `getRegion` instead.
-	//
+	QuotaCode string  `pulumi:"quotaCode"`
 	// Deprecated: region is deprecated. Use getRegion instead.
-	Region *string `pulumi:"region"`
-	// Service identifier. To find the service code value for an AWS service, use the servicequotas.getService data source.
-	ServiceCode string `pulumi:"serviceCode"`
-	// The new, increased value for the quota.
-	Value float64 `pulumi:"value"`
+	Region      *string `pulumi:"region"`
+	ServiceCode string  `pulumi:"serviceCode"`
+	Value       float64 `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	// AWS Region to which the template applies.
 	AwsRegion pulumi.StringPtrInput
-	// Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
 	QuotaCode pulumi.StringInput
-	// AWS Region to which the template applies. Use `getRegion` instead.
-	//
 	// Deprecated: region is deprecated. Use getRegion instead.
-	Region pulumi.StringPtrInput
-	// Service identifier. To find the service code value for an AWS service, use the servicequotas.getService data source.
+	Region      pulumi.StringPtrInput
 	ServiceCode pulumi.StringInput
-	// The new, increased value for the quota.
-	Value pulumi.Float64Input
+	Value       pulumi.Float64Input
 }
 
 func (TemplateArgs) ElementType() reflect.Type {
@@ -285,49 +201,39 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
-// AWS Region to which the template applies.
 func (o TemplateOutput) AwsRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsRegion }).(pulumi.StringOutput)
 }
 
-// Indicates whether the quota is global.
 func (o TemplateOutput) GlobalQuota() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Template) pulumi.BoolOutput { return v.GlobalQuota }).(pulumi.BoolOutput)
 }
 
-// Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
 func (o TemplateOutput) QuotaCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.QuotaCode }).(pulumi.StringOutput)
 }
 
-// Quota name.
 func (o TemplateOutput) QuotaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.QuotaName }).(pulumi.StringOutput)
 }
 
-// AWS Region to which the template applies. Use `getRegion` instead.
-//
 // Deprecated: region is deprecated. Use getRegion instead.
 func (o TemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Service identifier. To find the service code value for an AWS service, use the servicequotas.getService data source.
 func (o TemplateOutput) ServiceCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.ServiceCode }).(pulumi.StringOutput)
 }
 
-// Service name.
 func (o TemplateOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// Unit of measurement.
 func (o TemplateOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Unit }).(pulumi.StringOutput)
 }
 
-// The new, increased value for the quota.
 func (o TemplateOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v *Template) pulumi.Float64Output { return v.Value }).(pulumi.Float64Output)
 }

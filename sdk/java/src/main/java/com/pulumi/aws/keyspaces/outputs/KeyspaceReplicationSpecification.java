@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KeyspaceReplicationSpecification {
-    /**
-     * @return Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-     * 
-     */
     private @Nullable List<String> regionLists;
-    /**
-     * @return Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-     * 
-     */
     private @Nullable String replicationStrategy;
 
     private KeyspaceReplicationSpecification() {}
-    /**
-     * @return Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-     * 
-     */
     public List<String> regionLists() {
         return this.regionLists == null ? List.of() : this.regionLists;
     }
-    /**
-     * @return Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-     * 
-     */
     public Optional<String> replicationStrategy() {
         return Optional.ofNullable(this.replicationStrategy);
     }

@@ -14,17 +14,9 @@ public final class TableClientSideTimestampsArgs extends com.pulumi.resources.Re
 
     public static final TableClientSideTimestampsArgs Empty = new TableClientSideTimestampsArgs();
 
-    /**
-     * Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -53,23 +45,11 @@ public final class TableClientSideTimestampsArgs extends com.pulumi.resources.Re
             $ = new TableClientSideTimestampsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

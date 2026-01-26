@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeDeploy CustomActionType
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codepipeline.CustomActionType("example", {
- *     category: "Build",
- *     inputArtifactDetails: {
- *         maximumCount: 1,
- *         minimumCount: 0,
- *     },
- *     outputArtifactDetails: {
- *         maximumCount: 1,
- *         minimumCount: 0,
- *     },
- *     providerName: "example",
- *     version: "1",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
- * ```
- */
 export class CustomActionType extends pulumi.CustomResource {
     /**
      * Get an existing CustomActionType resource's state with the given name, ID, and optional extra
@@ -67,34 +35,16 @@ export class CustomActionType extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomActionType.__pulumiType;
     }
 
-    /**
-     * The action ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     */
     declare public readonly category: pulumi.Output<string>;
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     */
     declare public readonly configurationProperties: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperty[] | undefined>;
     declare public readonly inputArtifactDetails: pulumi.Output<outputs.codepipeline.CustomActionTypeInputArtifactDetails>;
     declare public readonly outputArtifactDetails: pulumi.Output<outputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
-    /**
-     * The creator of the action being called.
-     */
     declare public /*out*/ readonly owner: pulumi.Output<string>;
     declare public readonly providerName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly settings: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly version: pulumi.Output<string>;
 
@@ -162,34 +112,16 @@ export class CustomActionType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomActionType resources.
  */
 export interface CustomActionTypeState {
-    /**
-     * The action ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     */
     category?: pulumi.Input<string>;
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     */
     configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
     inputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
     outputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
-    /**
-     * The creator of the action being called.
-     */
     owner?: pulumi.Input<string>;
     providerName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     version?: pulumi.Input<string>;
 }
@@ -198,20 +130,11 @@ export interface CustomActionTypeState {
  * The set of arguments for constructing a CustomActionType resource.
  */
 export interface CustomActionTypeArgs {
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     */
     category: pulumi.Input<string>;
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     */
     configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
     inputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
     outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
     providerName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

@@ -61,34 +61,21 @@ class GetIntentResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Lex intent.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> _builtins.str:
-        """
-        Checksum identifying the version of the intent that was created. The checksum is not
-        included as an argument because the resource will add it automatically when updating the intent.
-        """
         return pulumi.get(self, "checksum")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Date when the intent version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the intent.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -102,28 +89,16 @@ class GetIntentResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Date when the $LATEST version of this intent was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the intent, not case sensitive.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> _builtins.str:
-        """
-        A unique identifier for the built-in intent to base this
-        intent on. To find the signature for an intent, see
-        [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-        in the Alexa Skills Kit.
-        """
         return pulumi.get(self, "parent_intent_signature")
 
     @_builtins.property
@@ -134,9 +109,6 @@ class GetIntentResult:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
-        """
-        Version of the bot.
-        """
         return pulumi.get(self, "version")
 
 
@@ -163,22 +135,7 @@ def get_intent(name: Optional[_builtins.str] = None,
                version: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntentResult:
     """
-    Provides details about a specific Amazon Lex Intent.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers = aws.lex.get_intent(name="OrderFlowers",
-        version="$LATEST")
-    ```
-
-
-    :param _builtins.str name: Name of the intent. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the intent.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -203,22 +160,7 @@ def get_intent_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                       version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntentResult]:
     """
-    Provides details about a specific Amazon Lex Intent.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers = aws.lex.get_intent(name="OrderFlowers",
-        version="$LATEST")
-    ```
-
-
-    :param _builtins.str name: Name of the intent. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the intent.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

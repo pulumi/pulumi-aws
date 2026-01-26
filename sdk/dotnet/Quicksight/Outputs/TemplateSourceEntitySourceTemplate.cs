@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class TemplateSourceEntitySourceTemplate
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
-        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

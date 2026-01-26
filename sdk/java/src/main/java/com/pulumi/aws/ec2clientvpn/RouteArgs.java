@@ -16,77 +16,37 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RouteArgs Empty = new RouteArgs();
 
-    /**
-     * The ID of the Client VPN endpoint.
-     * 
-     */
     @Import(name="clientVpnEndpointId", required=true)
     private Output<String> clientVpnEndpointId;
 
-    /**
-     * @return The ID of the Client VPN endpoint.
-     * 
-     */
     public Output<String> clientVpnEndpointId() {
         return this.clientVpnEndpointId;
     }
 
-    /**
-     * A brief description of the route.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A brief description of the route.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-     * 
-     */
     @Import(name="destinationCidrBlock", required=true)
     private Output<String> destinationCidrBlock;
 
-    /**
-     * @return The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-     * 
-     */
     public Output<String> destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-     * 
-     */
     @Import(name="targetVpcSubnetId", required=true)
     private Output<String> targetVpcSubnetId;
 
-    /**
-     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-     * 
-     */
     public Output<String> targetVpcSubnetId() {
         return this.targetVpcSubnetId;
     }
@@ -119,107 +79,47 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientVpnEndpointId The ID of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientVpnEndpointId(Output<String> clientVpnEndpointId) {
             $.clientVpnEndpointId = clientVpnEndpointId;
             return this;
         }
 
-        /**
-         * @param clientVpnEndpointId The ID of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
             return clientVpnEndpointId(Output.of(clientVpnEndpointId));
         }
 
-        /**
-         * @param description A brief description of the route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A brief description of the route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param destinationCidrBlock The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationCidrBlock(Output<String> destinationCidrBlock) {
             $.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
 
-        /**
-         * @param destinationCidrBlock The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationCidrBlock(String destinationCidrBlock) {
             return destinationCidrBlock(Output.of(destinationCidrBlock));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetVpcSubnetId(Output<String> targetVpcSubnetId) {
             $.targetVpcSubnetId = targetVpcSubnetId;
             return this;
         }
 
-        /**
-         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetVpcSubnetId(String targetVpcSubnetId) {
             return targetVpcSubnetId(Output.of(targetVpcSubnetId));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ModelPrimaryContainerModelDataSource
     {
-        /// <summary>
-        /// S3 location of model data to deploy. See S3 Data Source.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ModelPrimaryContainerModelDataSourceS3DataSource> S3DataSources;
 
         [OutputConstructor]

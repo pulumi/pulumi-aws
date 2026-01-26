@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigMoveKeyArgs extends com.pulumi
 
     public static final LogTransformerTransformerConfigMoveKeyArgs Empty = new LogTransformerTransformerConfigMoveKeyArgs();
 
-    /**
-     * Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
-     * 
-     */
     @Import(name="entries", required=true)
     private Output<List<LogTransformerTransformerConfigMoveKeyEntryArgs>> entries;
 
-    /**
-     * @return Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
-     * 
-     */
     public Output<List<LogTransformerTransformerConfigMoveKeyEntryArgs>> entries() {
         return this.entries;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigMoveKeyArgs extends com.pulumi
             $ = new LogTransformerTransformerConfigMoveKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(Output<List<LogTransformerTransformerConfigMoveKeyEntryArgs>> entries) {
             $.entries = entries;
             return this;
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(List<LogTransformerTransformerConfigMoveKeyEntryArgs> entries) {
             return entries(Output.of(entries));
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(LogTransformerTransformerConfigMoveKeyEntryArgs... entries) {
             return entries(List.of(entries));
         }

@@ -9,178 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
-    /// 
-    /// &gt; **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `aws.ec2.DefaultSecurityGroup` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management.
-    /// 
-    /// When the provider first begins managing the default security group, it **immediately removes all ingress and egress rules in the Security Group**. It then creates any rules specified in the configuration. This way only the rules specified in the configuration are created.
-    /// 
-    /// This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diff shown. For these reasons, this resource is incompatible with the `aws.ec2.SecurityGroupRule` resource.
-    /// 
-    /// For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `aws.ec2.SecurityGroup` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
-    ///     {
-    ///         VpcId = mainvpc.Id,
-    ///         Ingress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
-    ///             {
-    ///                 Protocol = "-1",
-    ///                 Self = true,
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///             },
-    ///         },
-    ///         Egress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
-    ///             {
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///                 Protocol = "-1",
-    ///                 CidrBlocks = new[]
-    ///                 {
-    ///                     "0.0.0.0/0",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Example Config To Deny All Egress Traffic, Allowing Ingress
-    /// 
-    /// The following denies all Egress traffic by omitting any `Egress` rules, while including the default `Ingress` rule to allow all traffic.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
-    ///     {
-    ///         VpcId = mainvpc.Id,
-    ///         Ingress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
-    ///             {
-    ///                 Protocol = "-1",
-    ///                 Self = true,
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
-    /// 
-    /// Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Security Groups using the security group `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")]
     public partial class DefaultSecurityGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the security group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the security group.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("egress")]
         public Output<ImmutableArray<Outputs.DefaultSecurityGroupEgress>> Egress { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("ingress")]
         public Output<ImmutableArray<Outputs.DefaultSecurityGroupIngress>> Ingress { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the security group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Owner ID.
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("revokeRulesOnDelete")]
         public Output<bool?> RevokeRulesOnDelete { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// VPC ID. **Note that changing the `VpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -232,10 +96,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("egress")]
         private InputList<Inputs.DefaultSecurityGroupEgressArgs>? _egress;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.DefaultSecurityGroupEgressArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.DefaultSecurityGroupEgressArgs>());
@@ -244,19 +104,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("ingress")]
         private InputList<Inputs.DefaultSecurityGroupIngressArgs>? _ingress;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.DefaultSecurityGroupIngressArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.DefaultSecurityGroupIngressArgs>());
             set => _ingress = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -265,19 +118,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC ID. **Note that changing the `VpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
@@ -289,24 +135,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultSecurityGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the security group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the security group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("egress")]
         private InputList<Inputs.DefaultSecurityGroupEgressGetArgs>? _egress;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.DefaultSecurityGroupEgressGetArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.DefaultSecurityGroupEgressGetArgs>());
@@ -315,34 +151,21 @@ namespace Pulumi.Aws.Ec2
 
         [Input("ingress")]
         private InputList<Inputs.DefaultSecurityGroupIngressGetArgs>? _ingress;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.DefaultSecurityGroupIngressGetArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.DefaultSecurityGroupIngressGetArgs>());
             set => _ingress = value;
         }
 
-        /// <summary>
-        /// Name of the security group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Owner ID.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -351,10 +174,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -363,19 +182,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// VPC ID. **Note that changing the `VpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

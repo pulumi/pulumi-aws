@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about an Image Builder Image Recipe.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImageRecipe({
- *     arn: "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
- * });
- * ```
- */
 export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImageRecipe:getImageRecipe", {
@@ -34,17 +20,8 @@ export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getImageRecipe.
  */
 export interface GetImageRecipeArgs {
-    /**
-     * ARN of the image recipe.
-     */
     arn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Key-value map of resource tags for the image recipe.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -52,79 +29,26 @@ export interface GetImageRecipeArgs {
  * A collection of values returned by getImageRecipe.
  */
 export interface GetImageRecipeResult {
-    /**
-     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
-     */
     readonly amiTags: {[key: string]: string};
     readonly arn: string;
-    /**
-     * Set of objects with block device mappings for the image recipe.
-     */
     readonly blockDeviceMappings: outputs.imagebuilder.GetImageRecipeBlockDeviceMapping[];
-    /**
-     * List of objects with components for the image recipe.
-     */
     readonly components: outputs.imagebuilder.GetImageRecipeComponent[];
-    /**
-     * Date the image recipe was created.
-     */
     readonly dateCreated: string;
-    /**
-     * Description of the image recipe.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Name of the image recipe.
-     */
     readonly name: string;
-    /**
-     * Owner of the image recipe.
-     */
     readonly owner: string;
-    /**
-     * Base image of the image recipe.
-     */
     readonly parentImage: string;
-    /**
-     * Platform of the image recipe.
-     */
     readonly platform: string;
     readonly region: string;
-    /**
-     * Key-value map of resource tags for the image recipe.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-     */
     readonly userDataBase64: string;
-    /**
-     * Version of the image recipe.
-     */
     readonly version: string;
-    /**
-     * Working directory used during build and test workflows.
-     */
     readonly workingDirectory: string;
 }
-/**
- * Provides details about an Image Builder Image Recipe.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImageRecipe({
- *     arn: "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
- * });
- * ```
- */
 export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageRecipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getImageRecipe:getImageRecipe", {
@@ -138,16 +62,7 @@ export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulu
  * A collection of arguments for invoking getImageRecipe.
  */
 export interface GetImageRecipeOutputArgs {
-    /**
-     * ARN of the image recipe.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags for the image recipe.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

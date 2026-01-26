@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreAgentRuntimeWorkloadIdentityDetail {
-    /**
-     * @return ARN of the workload identity.
-     * 
-     */
     private String workloadIdentityArn;
 
     private AgentcoreAgentRuntimeWorkloadIdentityDetail() {}
-    /**
-     * @return ARN of the workload identity.
-     * 
-     */
     public String workloadIdentityArn() {
         return this.workloadIdentityArn;
     }

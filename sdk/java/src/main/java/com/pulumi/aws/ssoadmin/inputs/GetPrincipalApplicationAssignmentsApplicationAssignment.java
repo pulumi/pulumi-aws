@@ -13,47 +13,23 @@ public final class GetPrincipalApplicationAssignmentsApplicationAssignment exten
 
     public static final GetPrincipalApplicationAssignmentsApplicationAssignment Empty = new GetPrincipalApplicationAssignmentsApplicationAssignment();
 
-    /**
-     * ARN of the application.
-     * 
-     */
     @Import(name="applicationArn", required=true)
     private String applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public String applicationArn() {
         return this.applicationArn;
     }
 
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     @Import(name="principalId", required=true)
     private String principalId;
 
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public String principalId() {
         return this.principalId;
     }
 
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     @Import(name="principalType", required=true)
     private String principalType;
 
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public String principalType() {
         return this.principalType;
     }
@@ -84,34 +60,16 @@ public final class GetPrincipalApplicationAssignmentsApplicationAssignment exten
             $ = new GetPrincipalApplicationAssignmentsApplicationAssignment(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param principalId An identifier for an object in IAM Identity Center, such as a user or group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalId(String principalId) {
             $.principalId = principalId;
             return this;
         }
 
-        /**
-         * @param principalType Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             $.principalType = principalType;
             return this;

@@ -11,10 +11,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinksResult {
-    /**
-     * @return Set of ARN of the Links.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,10 +20,6 @@ public final class GetLinksResult {
     private String region;
 
     private GetLinksResult() {}
-    /**
-     * @return Set of ARN of the Links.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }

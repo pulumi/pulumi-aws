@@ -14,17 +14,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class FleetScalingConfiguration
     {
         public readonly int? DesiredCapacity;
-        /// <summary>
-        /// Maximum number of instances in the ﬂeet when auto-scaling.
-        /// </summary>
         public readonly int? MaxCapacity;
-        /// <summary>
-        /// Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-        /// </summary>
         public readonly string? ScalingType;
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FleetScalingConfigurationTargetTrackingScalingConfig> TargetTrackingScalingConfigs;
 
         [OutputConstructor]

@@ -11,52 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
-//				AddonName:         "vpc-cni",
-//				KubernetesVersion: example.Version,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			latest, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
-//				AddonName:         "vpc-cni",
-//				KubernetesVersion: example.Version,
-//				MostRecent:        pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eks.NewAddon(ctx, "vpc_cni", &eks.AddonArgs{
-//				ClusterName:  pulumi.Any(example.Name),
-//				AddonName:    pulumi.String("vpc-cni"),
-//				AddonVersion: pulumi.String(latest.Version),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("default", _default.Version)
-//			ctx.Export("latest", latest.Version)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAddonVersion(ctx *pulumi.Context, args *GetAddonVersionArgs, opts ...pulumi.InvokeOption) (*GetAddonVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAddonVersionResult
@@ -69,15 +23,10 @@ func GetAddonVersion(ctx *pulumi.Context, args *GetAddonVersionArgs, opts ...pul
 
 // A collection of arguments for invoking getAddonVersion.
 type GetAddonVersionArgs struct {
-	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-	AddonName string `pulumi:"addonName"`
-	// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
-	KubernetesVersion string `pulumi:"kubernetesVersion"`
-	// Determines if the most recent or default version of the addon should be returned.
-	MostRecent *bool `pulumi:"mostRecent"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AddonName         string  `pulumi:"addonName"`
+	KubernetesVersion string  `pulumi:"kubernetesVersion"`
+	MostRecent        *bool   `pulumi:"mostRecent"`
+	Region            *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAddonVersion.
@@ -88,8 +37,7 @@ type GetAddonVersionResult struct {
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	MostRecent        *bool  `pulumi:"mostRecent"`
 	Region            string `pulumi:"region"`
-	// Version of the EKS add-on.
-	Version string `pulumi:"version"`
+	Version           string `pulumi:"version"`
 }
 
 func GetAddonVersionOutput(ctx *pulumi.Context, args GetAddonVersionOutputArgs, opts ...pulumi.InvokeOption) GetAddonVersionResultOutput {
@@ -103,15 +51,10 @@ func GetAddonVersionOutput(ctx *pulumi.Context, args GetAddonVersionOutputArgs, 
 
 // A collection of arguments for invoking getAddonVersion.
 type GetAddonVersionOutputArgs struct {
-	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-	AddonName pulumi.StringInput `pulumi:"addonName"`
-	// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
-	KubernetesVersion pulumi.StringInput `pulumi:"kubernetesVersion"`
-	// Determines if the most recent or default version of the addon should be returned.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	AddonName         pulumi.StringInput    `pulumi:"addonName"`
+	KubernetesVersion pulumi.StringInput    `pulumi:"kubernetesVersion"`
+	MostRecent        pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAddonVersionOutputArgs) ElementType() reflect.Type {
@@ -154,7 +97,6 @@ func (o GetAddonVersionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAddonVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Version of the EKS add-on.
 func (o GetAddonVersionResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAddonVersionResult) string { return v.Version }).(pulumi.StringOutput)
 }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration
     {
-        /// <summary>
-        /// S3 URI to deliver recordings.
-        /// </summary>
         public readonly string? Destination;
 
         [OutputConstructor]

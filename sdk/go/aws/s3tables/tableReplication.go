@@ -12,63 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Amazon S3 Tables Table Replication configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3tables.NewTableReplication(ctx, "example", &s3tables.TableReplicationArgs{
-//				TableArn: pulumi.Any(exampleAwsS3tablesTable.Arn),
-//				Role:     pulumi.Any(exampleAwsIamRole.Arn),
-//				Rule: &s3tables.TableReplicationRuleArgs{
-//					Destinations: s3tables.TableReplicationRuleDestinationArray{
-//						&s3tables.TableReplicationRuleDestinationArgs{
-//							DestinationTableBucketArn: pulumi.Any(target.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Tables Table Replication using the `table_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3tables/tableReplication:TableReplication example 'arn:aws:s3tables:us-west-2:123456789012:table/example-table'
-// ```
 type TableReplication struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN referencing the IAM role assumed by S3 when replicating tables.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// Replication rules. See Rule below for more details.
-	Rule TableReplicationRulePtrOutput `pulumi:"rule"`
-	// ARN referencing the Table that owns this replication configuration.
-	TableArn     pulumi.StringOutput `pulumi:"tableArn"`
-	VersionToken pulumi.StringOutput `pulumi:"versionToken"`
+	Region       pulumi.StringOutput           `pulumi:"region"`
+	Role         pulumi.StringOutput           `pulumi:"role"`
+	Rule         TableReplicationRulePtrOutput `pulumi:"rule"`
+	TableArn     pulumi.StringOutput           `pulumi:"tableArn"`
+	VersionToken pulumi.StringOutput           `pulumi:"versionToken"`
 }
 
 // NewTableReplication registers a new resource with the given unique name, arguments, and options.
@@ -107,25 +58,17 @@ func GetTableReplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableReplication resources.
 type tableReplicationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the IAM role assumed by S3 when replicating tables.
-	Role *string `pulumi:"role"`
-	// Replication rules. See Rule below for more details.
-	Rule *TableReplicationRule `pulumi:"rule"`
-	// ARN referencing the Table that owns this replication configuration.
-	TableArn     *string `pulumi:"tableArn"`
-	VersionToken *string `pulumi:"versionToken"`
+	Region       *string               `pulumi:"region"`
+	Role         *string               `pulumi:"role"`
+	Rule         *TableReplicationRule `pulumi:"rule"`
+	TableArn     *string               `pulumi:"tableArn"`
+	VersionToken *string               `pulumi:"versionToken"`
 }
 
 type TableReplicationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the IAM role assumed by S3 when replicating tables.
-	Role pulumi.StringPtrInput
-	// Replication rules. See Rule below for more details.
-	Rule TableReplicationRulePtrInput
-	// ARN referencing the Table that owns this replication configuration.
+	Region       pulumi.StringPtrInput
+	Role         pulumi.StringPtrInput
+	Rule         TableReplicationRulePtrInput
 	TableArn     pulumi.StringPtrInput
 	VersionToken pulumi.StringPtrInput
 }
@@ -135,25 +78,17 @@ func (TableReplicationState) ElementType() reflect.Type {
 }
 
 type tableReplicationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the IAM role assumed by S3 when replicating tables.
-	Role string `pulumi:"role"`
-	// Replication rules. See Rule below for more details.
-	Rule *TableReplicationRule `pulumi:"rule"`
-	// ARN referencing the Table that owns this replication configuration.
-	TableArn string `pulumi:"tableArn"`
+	Region   *string               `pulumi:"region"`
+	Role     string                `pulumi:"role"`
+	Rule     *TableReplicationRule `pulumi:"rule"`
+	TableArn string                `pulumi:"tableArn"`
 }
 
 // The set of arguments for constructing a TableReplication resource.
 type TableReplicationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the IAM role assumed by S3 when replicating tables.
-	Role pulumi.StringInput
-	// Replication rules. See Rule below for more details.
-	Rule TableReplicationRulePtrInput
-	// ARN referencing the Table that owns this replication configuration.
+	Region   pulumi.StringPtrInput
+	Role     pulumi.StringInput
+	Rule     TableReplicationRulePtrInput
 	TableArn pulumi.StringInput
 }
 
@@ -244,22 +179,18 @@ func (o TableReplicationOutput) ToTableReplicationOutputWithContext(ctx context.
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableReplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplication) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN referencing the IAM role assumed by S3 when replicating tables.
 func (o TableReplicationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplication) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// Replication rules. See Rule below for more details.
 func (o TableReplicationOutput) Rule() TableReplicationRulePtrOutput {
 	return o.ApplyT(func(v *TableReplication) TableReplicationRulePtrOutput { return v.Rule }).(TableReplicationRulePtrOutput)
 }
 
-// ARN referencing the Table that owns this replication configuration.
 func (o TableReplicationOutput) TableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplication) pulumi.StringOutput { return v.TableArn }).(pulumi.StringOutput)
 }

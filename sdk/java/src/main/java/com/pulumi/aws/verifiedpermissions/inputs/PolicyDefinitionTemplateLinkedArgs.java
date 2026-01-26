@@ -18,47 +18,23 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
 
     public static final PolicyDefinitionTemplateLinkedArgs Empty = new PolicyDefinitionTemplateLinkedArgs();
 
-    /**
-     * The ID of the template.
-     * 
-     */
     @Import(name="policyTemplateId", required=true)
     private Output<String> policyTemplateId;
 
-    /**
-     * @return The ID of the template.
-     * 
-     */
     public Output<String> policyTemplateId() {
         return this.policyTemplateId;
     }
 
-    /**
-     * The principal of the template linked policy.
-     * 
-     */
     @Import(name="principal")
     private @Nullable Output<PolicyDefinitionTemplateLinkedPrincipalArgs> principal;
 
-    /**
-     * @return The principal of the template linked policy.
-     * 
-     */
     public Optional<Output<PolicyDefinitionTemplateLinkedPrincipalArgs>> principal() {
         return Optional.ofNullable(this.principal);
     }
 
-    /**
-     * The resource of the template linked policy.
-     * 
-     */
     @Import(name="resource")
     private @Nullable Output<PolicyDefinitionTemplateLinkedResourceArgs> resource;
 
-    /**
-     * @return The resource of the template linked policy.
-     * 
-     */
     public Optional<Output<PolicyDefinitionTemplateLinkedResourceArgs>> resource() {
         return Optional.ofNullable(this.resource);
     }
@@ -89,65 +65,29 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
             $ = new PolicyDefinitionTemplateLinkedArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyTemplateId The ID of the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyTemplateId(Output<String> policyTemplateId) {
             $.policyTemplateId = policyTemplateId;
             return this;
         }
 
-        /**
-         * @param policyTemplateId The ID of the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyTemplateId(String policyTemplateId) {
             return policyTemplateId(Output.of(policyTemplateId));
         }
 
-        /**
-         * @param principal The principal of the template linked policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(@Nullable Output<PolicyDefinitionTemplateLinkedPrincipalArgs> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal The principal of the template linked policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(PolicyDefinitionTemplateLinkedPrincipalArgs principal) {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param resource The resource of the template linked policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resource(@Nullable Output<PolicyDefinitionTemplateLinkedResourceArgs> resource) {
             $.resource = resource;
             return this;
         }
 
-        /**
-         * @param resource The resource of the template linked policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resource(PolicyDefinitionTemplateLinkedResourceArgs resource) {
             return resource(Output.of(resource));
         }

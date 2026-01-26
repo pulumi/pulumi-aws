@@ -11,126 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcPeeringConnection
     {
-        /// <summary>
-        /// The VPC Peering Connection data source provides details about
-        /// a specific VPC peering connection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///         PeerCidrBlock = "10.0.1.0/22",
-        ///     });
-        /// 
-        ///     // Create a route table
-        ///     var rt = new Aws.Ec2.RouteTable("rt", new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///     });
-        /// 
-        ///     // Create a route
-        ///     var r = new Aws.Ec2.Route("r", new()
-        ///     {
-        ///         RouteTableId = rt.Id,
-        ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
-        ///         VpcPeeringConnectionId = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcPeeringConnectionResult> InvokeAsync(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The VPC Peering Connection data source provides details about
-        /// a specific VPC peering connection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///         PeerCidrBlock = "10.0.1.0/22",
-        ///     });
-        /// 
-        ///     // Create a route table
-        ///     var rt = new Aws.Ec2.RouteTable("rt", new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///     });
-        /// 
-        ///     // Create a route
-        ///     var r = new Aws.Ec2.Route("r", new()
-        ///     {
-        ///         RouteTableId = rt.Id,
-        ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
-        ///         VpcPeeringConnectionId = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcPeeringConnectionResult> Invoke(GetVpcPeeringConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The VPC Peering Connection data source provides details about
-        /// a specific VPC peering connection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///         PeerCidrBlock = "10.0.1.0/22",
-        ///     });
-        /// 
-        ///     // Create a route table
-        ///     var rt = new Aws.Ec2.RouteTable("rt", new()
-        ///     {
-        ///         VpcId = foo.Id,
-        ///     });
-        /// 
-        ///     // Create a route
-        ///     var r = new Aws.Ec2.Route("r", new()
-        ///     {
-        ///         RouteTableId = rt.Id,
-        ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
-        ///         VpcPeeringConnectionId = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcPeeringConnectionResult> Invoke(GetVpcPeeringConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionInvokeArgs(), options.WithDefaults());
     }
@@ -138,79 +24,43 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcPeeringConnectionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("cidrBlock")]
         public string? CidrBlock { get; set; }
 
         [Input("filters")]
         private List<Inputs.GetVpcPeeringConnectionFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetVpcPeeringConnectionFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcPeeringConnectionFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("ownerId")]
         public string? OwnerId { get; set; }
 
-        /// <summary>
-        /// Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("peerCidrBlock")]
         public string? PeerCidrBlock { get; set; }
 
-        /// <summary>
-        /// AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("peerOwnerId")]
         public string? PeerOwnerId { get; set; }
 
-        /// <summary>
-        /// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("peerVpcId")]
         public string? PeerVpcId { get; set; }
 
-        /// <summary>
-        /// Status of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("status")]
         public string? Status { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connection.
-        /// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
 
@@ -222,79 +72,43 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcPeeringConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.GetVpcPeeringConnectionFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetVpcPeeringConnectionFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcPeeringConnectionFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("peerCidrBlock")]
         public Input<string>? PeerCidrBlock { get; set; }
 
-        /// <summary>
-        /// AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
 
-        /// <summary>
-        /// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("peerVpcId")]
         public Input<string>? PeerVpcId { get; set; }
 
-        /// <summary>
-        /// Status of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connection.
-        /// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
@@ -308,53 +122,21 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetVpcPeeringConnectionResult
     {
-        /// <summary>
-        /// Configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
-        /// </summary>
         public readonly ImmutableDictionary<string, bool> Accepter;
-        /// <summary>
-        /// CIDR block associated to the VPC of the specific VPC Peering Connection.
-        /// </summary>
         public readonly string CidrBlock;
-        /// <summary>
-        /// List of objects with IPv4 CIDR blocks of the requester VPC.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> CidrBlockSets;
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> Filters;
         public readonly string Id;
-        /// <summary>
-        /// List of objects with IPv6 CIDR blocks of the requester VPC.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult> Ipv6CidrBlockSets;
         public readonly string OwnerId;
         public readonly string PeerCidrBlock;
-        /// <summary>
-        /// List of objects with IPv4 CIDR blocks of the accepter VPC.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> PeerCidrBlockSets;
-        /// <summary>
-        /// List of objects with IPv6 CIDR blocks of the accepter VPC.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult> PeerIpv6CidrBlockSets;
         public readonly string PeerOwnerId;
-        /// <summary>
-        /// Region of the accepter VPC.
-        /// </summary>
         public readonly string PeerRegion;
         public readonly string PeerVpcId;
-        /// <summary>
-        /// (**Deprecated**) Region of the requester VPC. Use `RequesterRegion` instead.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
-        /// </summary>
         public readonly ImmutableDictionary<string, bool> Requester;
-        /// <summary>
-        /// Region of the requester VPC.
-        /// </summary>
         public readonly string RequesterRegion;
         public readonly string Status;
         public readonly ImmutableDictionary<string, string> Tags;

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingDestinationConfigOnFailure
     {
-        /// <summary>
-        /// ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-        /// </summary>
         public readonly string DestinationArn;
 
         [OutputConstructor]

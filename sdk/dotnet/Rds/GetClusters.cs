@@ -11,111 +11,12 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetClusters
     {
-        /// <summary>
-        /// Data source for managing an AWS RDS (Relational Database) Clusters.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Rds.GetClusters.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Rds.Inputs.GetClustersFilterInputArgs
-        ///             {
-        ///                 Name = "engine",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "aurora-postgresql",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetClustersResult> InvokeAsync(GetClustersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:rds/getClusters:getClusters", args ?? new GetClustersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS RDS (Relational Database) Clusters.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Rds.GetClusters.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Rds.Inputs.GetClustersFilterInputArgs
-        ///             {
-        ///                 Name = "engine",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "aurora-postgresql",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:rds/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS RDS (Relational Database) Clusters.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Rds.GetClusters.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Rds.Inputs.GetClustersFilterInputArgs
-        ///             {
-        ///                 Name = "engine",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "aurora-postgresql",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:rds/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
     }
@@ -125,19 +26,12 @@ namespace Pulumi.Aws.Rds
     {
         [Input("filters")]
         private List<Inputs.GetClustersFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public List<Inputs.GetClustersFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetClustersFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -151,19 +45,12 @@ namespace Pulumi.Aws.Rds
     {
         [Input("filters")]
         private InputList<Inputs.GetClustersFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetClustersFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetClustersFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -177,13 +64,7 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetClustersResult
     {
-        /// <summary>
-        /// Set of cluster ARNs of the matched RDS clusters.
-        /// </summary>
         public readonly ImmutableArray<string> ClusterArns;
-        /// <summary>
-        /// Set of ARNs of cluster identifiers of the matched RDS clusters.
-        /// </summary>
         public readonly ImmutableArray<string> ClusterIdentifiers;
         public readonly ImmutableArray<Outputs.GetClustersFilterResult> Filters;
         /// <summary>

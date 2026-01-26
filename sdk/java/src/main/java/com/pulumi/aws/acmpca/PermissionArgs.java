@@ -17,77 +17,37 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PermissionArgs Empty = new PermissionArgs();
 
-    /**
-     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     * 
-     */
     @Import(name="actions", required=true)
     private Output<List<String>> actions;
 
-    /**
-     * @return Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     * 
-     */
     public Output<List<String>> actions() {
         return this.actions;
     }
 
-    /**
-     * ARN of the CA that grants the permissions.
-     * 
-     */
     @Import(name="certificateAuthorityArn", required=true)
     private Output<String> certificateAuthorityArn;
 
-    /**
-     * @return ARN of the CA that grants the permissions.
-     * 
-     */
     public Output<String> certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
 
-    /**
-     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     * 
-     */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
-    /**
-     * @return AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the calling account
-     * 
-     */
     @Import(name="sourceAccount")
     private @Nullable Output<String> sourceAccount;
 
-    /**
-     * @return ID of the calling account
-     * 
-     */
     public Optional<Output<String>> sourceAccount() {
         return Optional.ofNullable(this.sourceAccount);
     }
@@ -120,117 +80,51 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PermissionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(Output<List<String>> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(List<String> actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of the CA that grants the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(Output<String> certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
             return this;
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of the CA that grants the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             return certificateAuthorityArn(Output.of(certificateAuthorityArn));
         }
 
-        /**
-         * @param principal AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceAccount ID of the calling account
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAccount(@Nullable Output<String> sourceAccount) {
             $.sourceAccount = sourceAccount;
             return this;
         }
 
-        /**
-         * @param sourceAccount ID of the calling account
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAccount(String sourceAccount) {
             return sourceAccount(Output.of(sourceAccount));
         }

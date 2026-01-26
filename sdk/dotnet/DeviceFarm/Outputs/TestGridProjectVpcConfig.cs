@@ -13,17 +13,8 @@ namespace Pulumi.Aws.DeviceFarm.Outputs
     [OutputType]
     public sealed class TestGridProjectVpcConfig
     {
-        /// <summary>
-        /// A list of VPC security group IDs in your Amazon VPC.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of VPC subnet IDs in your Amazon VPC.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The ID of the Amazon VPC.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

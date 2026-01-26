@@ -37,22 +37,6 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[_builtins.str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See `default_user_settings` Block below.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[_builtins.str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See `default_space_settings` Block below.
-        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See `domain_settings` Block below.
-        :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
-        :param pulumi.Input[_builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
         pulumi.set(__self__, "default_user_settings", default_user_settings)
@@ -81,9 +65,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
@@ -93,9 +74,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> pulumi.Input['DomainDefaultUserSettingsArgs']:
-        """
-        The default user settings. See `default_user_settings` Block below.
-        """
         return pulumi.get(self, "default_user_settings")
 
     @default_user_settings.setter
@@ -105,9 +83,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -117,9 +92,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The VPC subnets that Studio uses for communication.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -129,11 +101,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -143,9 +110,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="appNetworkAccessType")
     def app_network_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        """
         return pulumi.get(self, "app_network_access_type")
 
     @app_network_access_type.setter
@@ -155,9 +119,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="appSecurityGroupManagement")
     def app_security_group_management(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        """
         return pulumi.get(self, "app_security_group_management")
 
     @app_security_group_management.setter
@@ -167,9 +128,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="defaultSpaceSettings")
     def default_space_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]:
-        """
-        The default space settings. See `default_space_settings` Block below.
-        """
         return pulumi.get(self, "default_space_settings")
 
     @default_space_settings.setter
@@ -179,9 +137,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
-        """
-        The domain settings. See `domain_settings` Block below.
-        """
         return pulumi.get(self, "domain_settings")
 
     @domain_settings.setter
@@ -191,9 +146,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -203,9 +155,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -215,9 +164,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[pulumi.Input['DomainRetentionPolicyArgs']]:
-        """
-        The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
-        """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
@@ -227,9 +173,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="tagPropagation")
     def tag_propagation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "tag_propagation")
 
     @tag_propagation.setter
@@ -239,9 +182,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -275,29 +215,6 @@ class _DomainState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
-        :param pulumi.Input[_builtins.str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[_builtins.str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
-        :param pulumi.Input[_builtins.str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See `default_space_settings` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See `default_user_settings` Block below.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name.
-        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See `domain_settings` Block below.
-        :param pulumi.Input[_builtins.str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-        :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
-        :param pulumi.Input[_builtins.str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-        :param pulumi.Input[_builtins.str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
-        :param pulumi.Input[_builtins.str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[_builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url: The domain's URL.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-               
-               The following arguments are optional:
         """
         if app_network_access_type is not None:
             pulumi.set(__self__, "app_network_access_type", app_network_access_type)
@@ -345,9 +262,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="appNetworkAccessType")
     def app_network_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        """
         return pulumi.get(self, "app_network_access_type")
 
     @app_network_access_type.setter
@@ -357,9 +271,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="appSecurityGroupManagement")
     def app_security_group_management(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        """
         return pulumi.get(self, "app_security_group_management")
 
     @app_security_group_management.setter
@@ -369,9 +280,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Domain.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -381,9 +289,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
@@ -393,9 +298,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="defaultSpaceSettings")
     def default_space_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]:
-        """
-        The default space settings. See `default_space_settings` Block below.
-        """
         return pulumi.get(self, "default_space_settings")
 
     @default_space_settings.setter
@@ -405,9 +307,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsArgs']]:
-        """
-        The default user settings. See `default_user_settings` Block below.
-        """
         return pulumi.get(self, "default_user_settings")
 
     @default_user_settings.setter
@@ -417,9 +316,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -429,9 +325,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
-        """
-        The domain settings. See `domain_settings` Block below.
-        """
         return pulumi.get(self, "domain_settings")
 
     @domain_settings.setter
@@ -441,9 +334,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemId")
     def home_efs_file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-        """
         return pulumi.get(self, "home_efs_file_system_id")
 
     @home_efs_file_system_id.setter
@@ -453,9 +343,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -465,9 +352,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -477,9 +361,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[pulumi.Input['DomainRetentionPolicyArgs']]:
-        """
-        The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
-        """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
@@ -489,9 +370,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIdForDomainBoundary")
     def security_group_id_for_domain_boundary(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-        """
         return pulumi.get(self, "security_group_id_for_domain_boundary")
 
     @security_group_id_for_domain_boundary.setter
@@ -501,9 +379,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="singleSignOnApplicationArn")
     def single_sign_on_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
-        """
         return pulumi.get(self, "single_sign_on_application_arn")
 
     @single_sign_on_application_arn.setter
@@ -513,9 +388,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
     def single_sign_on_managed_application_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SSO managed application instance ID.
-        """
         return pulumi.get(self, "single_sign_on_managed_application_instance_id")
 
     @single_sign_on_managed_application_instance_id.setter
@@ -525,9 +397,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The VPC subnets that Studio uses for communication.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -537,9 +406,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="tagPropagation")
     def tag_propagation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "tag_propagation")
 
     @tag_propagation.setter
@@ -549,9 +415,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -561,9 +424,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -573,9 +433,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain's URL.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -585,11 +442,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -619,98 +471,9 @@ class Domain(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Domain resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["sagemaker.amazonaws.com"],
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example",
-            path="/",
-            assume_role_policy=example.json)
-        example_domain = aws.sagemaker.Domain("example",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings={
-                "execution_role": example_role.arn,
-            })
-        ```
-
-        ### Using Custom Images
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Image("example",
-            image_name="example",
-            role_arn=example_aws_iam_role["arn"])
-        example_app_image_config = aws.sagemaker.AppImageConfig("example",
-            app_image_config_name="example",
-            kernel_gateway_image_config={
-                "kernel_specs": [{
-                    "name": "example",
-                }],
-            })
-        example_image_version = aws.sagemaker.ImageVersion("example",
-            image_name=example.id,
-            base_image="base-image")
-        example_domain = aws.sagemaker.Domain("example",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings={
-                "execution_role": example_aws_iam_role["arn"],
-                "kernel_gateway_app_settings": {
-                    "custom_images": [{
-                        "app_image_config_name": example_app_image_config.app_image_config_name,
-                        "image_name": example_image_version.image_name,
-                    }],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
-        ```
-
+        Create a Domain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[_builtins.str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        :param pulumi.Input[_builtins.str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']] default_space_settings: The default space settings. See `default_space_settings` Block below.
-        :param pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']] default_user_settings: The default user settings. See `default_user_settings` Block below.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name.
-        :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
-        :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[_builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -719,80 +482,7 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Domain resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["sagemaker.amazonaws.com"],
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example",
-            path="/",
-            assume_role_policy=example.json)
-        example_domain = aws.sagemaker.Domain("example",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings={
-                "execution_role": example_role.arn,
-            })
-        ```
-
-        ### Using Custom Images
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Image("example",
-            image_name="example",
-            role_arn=example_aws_iam_role["arn"])
-        example_app_image_config = aws.sagemaker.AppImageConfig("example",
-            app_image_config_name="example",
-            kernel_gateway_image_config={
-                "kernel_specs": [{
-                    "name": "example",
-                }],
-            })
-        example_image_version = aws.sagemaker.ImageVersion("example",
-            image_name=example.id,
-            base_image="base-image")
-        example_domain = aws.sagemaker.Domain("example",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings={
-                "execution_role": example_aws_iam_role["arn"],
-                "kernel_gateway_app_settings": {
-                    "custom_images": [{
-                        "app_image_config_name": example_app_image_config.app_image_config_name,
-                        "image_name": example_image_version.image_name,
-                    }],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
-        ```
-
+        Create a Domain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -900,29 +590,6 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[_builtins.str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
-        :param pulumi.Input[_builtins.str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']] default_space_settings: The default space settings. See `default_space_settings` Block below.
-        :param pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']] default_user_settings: The default user settings. See `default_user_settings` Block below.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name.
-        :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
-        :param pulumi.Input[_builtins.str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-        :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
-        :param pulumi.Input[_builtins.str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-        :param pulumi.Input[_builtins.str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
-        :param pulumi.Input[_builtins.str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[_builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url: The domain's URL.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -954,170 +621,105 @@ class Domain(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appNetworkAccessType")
     def app_network_access_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        """
         return pulumi.get(self, "app_network_access_type")
 
     @_builtins.property
     @pulumi.getter(name="appSecurityGroupManagement")
     def app_security_group_management(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        """
         return pulumi.get(self, "app_security_group_management")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Domain.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        """
         return pulumi.get(self, "auth_mode")
 
     @_builtins.property
     @pulumi.getter(name="defaultSpaceSettings")
     def default_space_settings(self) -> pulumi.Output[Optional['outputs.DomainDefaultSpaceSettings']]:
-        """
-        The default space settings. See `default_space_settings` Block below.
-        """
         return pulumi.get(self, "default_space_settings")
 
     @_builtins.property
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> pulumi.Output['outputs.DomainDefaultUserSettings']:
-        """
-        The default user settings. See `default_user_settings` Block below.
-        """
         return pulumi.get(self, "default_user_settings")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> pulumi.Output[Optional['outputs.DomainDomainSettings']]:
-        """
-        The domain settings. See `domain_settings` Block below.
-        """
         return pulumi.get(self, "domain_settings")
 
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemId")
     def home_efs_file_system_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-        """
         return pulumi.get(self, "home_efs_file_system_id")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> pulumi.Output[Optional['outputs.DomainRetentionPolicy']]:
-        """
-        The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
-        """
         return pulumi.get(self, "retention_policy")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIdForDomainBoundary")
     def security_group_id_for_domain_boundary(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-        """
         return pulumi.get(self, "security_group_id_for_domain_boundary")
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnApplicationArn")
     def single_sign_on_application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
-        """
         return pulumi.get(self, "single_sign_on_application_arn")
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
     def single_sign_on_managed_application_instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The SSO managed application instance ID.
-        """
         return pulumi.get(self, "single_sign_on_managed_application_instance_id")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The VPC subnets that Studio uses for communication.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="tagPropagation")
     def tag_propagation(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "tag_propagation")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The domain's URL.
-        """
         return pulumi.get(self, "url")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 

@@ -15,32 +15,16 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
 
     public static final EfsLocationEc2ConfigArgs Empty = new EfsLocationEc2ConfigArgs();
 
-    /**
-     * List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-     * 
-     */
     @Import(name="securityGroupArns", required=true)
     private Output<List<String>> securityGroupArns;
 
-    /**
-     * @return List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-     * 
-     */
     public Output<List<String>> securityGroupArns() {
         return this.securityGroupArns;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-     * 
-     */
     @Import(name="subnetArn", required=true)
     private Output<String> subnetArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-     * 
-     */
     public Output<String> subnetArn() {
         return this.subnetArn;
     }
@@ -70,54 +54,24 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
             $ = new EfsLocationEc2ConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupArns List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupArns(Output<List<String>> securityGroupArns) {
             $.securityGroupArns = securityGroupArns;
             return this;
         }
 
-        /**
-         * @param securityGroupArns List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupArns(List<String> securityGroupArns) {
             return securityGroupArns(Output.of(securityGroupArns));
         }
 
-        /**
-         * @param securityGroupArns List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupArns(String... securityGroupArns) {
             return securityGroupArns(List.of(securityGroupArns));
         }
 
-        /**
-         * @param subnetArn Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetArn(Output<String> subnetArn) {
             $.subnetArn = subnetArn;
             return this;
         }
 
-        /**
-         * @param subnetArn Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetArn(String subnetArn) {
             return subnetArn(Output.of(subnetArn));
         }

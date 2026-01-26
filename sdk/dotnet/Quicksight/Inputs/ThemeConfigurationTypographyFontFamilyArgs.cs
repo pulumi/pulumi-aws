@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationTypographyFontFamilyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Font family name.
-        /// </summary>
         [Input("fontFamily")]
         public Input<string>? FontFamily { get; set; }
 

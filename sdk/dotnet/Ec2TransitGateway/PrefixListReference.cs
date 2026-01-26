@@ -9,94 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Manages an EC2 Transit Gateway Prefix List Reference.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Attachment Routing
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
-    ///     {
-    ///         PrefixListId = exampleAwsEc2ManagedPrefixList.Id,
-    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
-    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Blackhole Routing
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
-    ///     {
-    ///         Blackhole = true,
-    ///         PrefixListId = exampleAwsEc2ManagedPrefixList.Id,
-    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/prefixListReference:PrefixListReference")]
     public partial class PrefixListReference : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `False`.
-        /// </summary>
         [Output("blackhole")]
         public Output<bool?> Blackhole { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Prefix List.
-        /// </summary>
         [Output("prefixListId")]
         public Output<string> PrefixListId { get; private set; } = null!;
 
         [Output("prefixListOwnerId")]
         public Output<string> PrefixListOwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string?> TransitGatewayAttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("transitGatewayRouteTableId")]
         public Output<string> TransitGatewayRouteTableId { get; private set; } = null!;
 
@@ -146,35 +76,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PrefixListReferenceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `False`.
-        /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Prefix List.
-        /// </summary>
         [Input("prefixListId", required: true)]
         public Input<string> PrefixListId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
 
@@ -186,38 +99,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PrefixListReferenceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `False`.
-        /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Prefix List.
-        /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
 
         [Input("prefixListOwnerId")]
         public Input<string>? PrefixListOwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transitGatewayRouteTableId")]
         public Input<string>? TransitGatewayRouteTableId { get; set; }
 

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreApiKeyCredentialProviderApiKeySecretArn {
-    /**
-     * @return ARN of the secret in AWS Secrets Manager.
-     * 
-     */
     private String secretArn;
 
     private AgentcoreApiKeyCredentialProviderApiKeySecretArn() {}
-    /**
-     * @return ARN of the secret in AWS Secrets Manager.
-     * 
-     */
     public String secretArn() {
         return this.secretArn;
     }

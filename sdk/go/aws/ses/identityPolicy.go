@@ -12,84 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SES:SendEmail"),
-//							pulumi.String("SES:SendRawEmail"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleDomainIdentity.Arn,
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//								Type: pulumi.String("AWS"),
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = ses.NewIdentityPolicy(ctx, "example", &ses.IdentityPolicyArgs{
-//				Identity: exampleDomainIdentity.Arn,
-//				Name:     pulumi.String("example"),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
-//
-// ```sh
-// $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
-// ```
 type IdentityPolicy struct {
 	pulumi.CustomResourceState
 
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringOutput `pulumi:"identity"`
-	// Name of the policy.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// JSON string of the policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Name     pulumi.StringOutput `pulumi:"name"`
+	Policy   pulumi.StringOutput `pulumi:"policy"`
+	Region   pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewIdentityPolicy registers a new resource with the given unique name, arguments, and options.
@@ -128,25 +57,17 @@ func GetIdentityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPolicy resources.
 type identityPolicyState struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity *string `pulumi:"identity"`
-	// Name of the policy.
-	Name *string `pulumi:"name"`
-	// JSON string of the policy.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name     *string `pulumi:"name"`
+	Policy   *string `pulumi:"policy"`
+	Region   *string `pulumi:"region"`
 }
 
 type IdentityPolicyState struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringPtrInput
-	// Name of the policy.
-	Name pulumi.StringPtrInput
-	// JSON string of the policy.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Policy   pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (IdentityPolicyState) ElementType() reflect.Type {
@@ -154,26 +75,18 @@ func (IdentityPolicyState) ElementType() reflect.Type {
 }
 
 type identityPolicyArgs struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
-	Identity string `pulumi:"identity"`
-	// Name of the policy.
-	Name *string `pulumi:"name"`
-	// JSON string of the policy.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Identity string  `pulumi:"identity"`
+	Name     *string `pulumi:"name"`
+	Policy   string  `pulumi:"policy"`
+	Region   *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IdentityPolicy resource.
 type IdentityPolicyArgs struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringInput
-	// Name of the policy.
-	Name pulumi.StringPtrInput
-	// JSON string of the policy.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Policy   pulumi.StringInput
+	Region   pulumi.StringPtrInput
 }
 
 func (IdentityPolicyArgs) ElementType() reflect.Type {
@@ -263,22 +176,18 @@ func (o IdentityPolicyOutput) ToIdentityPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name or Amazon Resource Name (ARN) of the SES Identity.
 func (o IdentityPolicyOutput) Identity() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPolicy) pulumi.StringOutput { return v.Identity }).(pulumi.StringOutput)
 }
 
-// Name of the policy.
 func (o IdentityPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// JSON string of the policy.
 func (o IdentityPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

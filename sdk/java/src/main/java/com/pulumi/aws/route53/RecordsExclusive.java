@@ -17,31 +17,11 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
- * ```
- * 
- */
 @ResourceType(type="aws:route53/recordsExclusive:RecordsExclusive")
 public class RecordsExclusive extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of all resource record sets associated with the hosted zone.
-     * See `resourceRecordSet` below.
-     * 
-     */
     @Export(name="resourceRecordSets", refs={List.class,RecordsExclusiveResourceRecordSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordsExclusiveResourceRecordSet>> resourceRecordSets;
 
-    /**
-     * @return A list of all resource record sets associated with the hosted zone.
-     * See `resourceRecordSet` below.
-     * 
-     */
     public Output<Optional<List<RecordsExclusiveResourceRecordSet>>> resourceRecordSets() {
         return Codegen.optional(this.resourceRecordSets);
     }
@@ -51,21 +31,9 @@ public class RecordsExclusive extends com.pulumi.resources.CustomResource {
     public Output<Optional<RecordsExclusiveTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * ID of the hosted zone containing the resource record sets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
-    /**
-     * @return ID of the hosted zone containing the resource record sets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> zoneId() {
         return this.zoneId;
     }

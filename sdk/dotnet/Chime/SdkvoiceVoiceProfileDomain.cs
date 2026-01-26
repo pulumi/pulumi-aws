@@ -9,82 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Resource for managing an AWS Chime SDK Voice Profile Domain.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "KMS Key for Voice Profile Domain",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleSdkvoiceVoiceProfileDomain = new Aws.Chime.SdkvoiceVoiceProfileDomain("example", new()
-    ///     {
-    ///         Name = "ExampleVoiceProfileDomain",
-    ///         ServerSideEncryptionConfiguration = new Aws.Chime.Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs
-    ///         {
-    ///             KmsKeyArn = example.Arn,
-    ///         },
-    ///         Description = "My Voice Profile Domain",
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain")]
     public partial class SdkvoiceVoiceProfileDomain : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Voice Profile Domain.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of Voice Profile Domain.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of Voice Profile Domain.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration for server side encryption.
-        /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
@@ -140,27 +79,15 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceVoiceProfileDomainArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of Voice Profile Domain.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of Voice Profile Domain.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration for server side encryption.
-        /// </summary>
         [Input("serverSideEncryptionConfiguration", required: true)]
         public Input<Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs> ServerSideEncryptionConfiguration { get; set; } = null!;
 
@@ -180,33 +107,18 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceVoiceProfileDomainState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Voice Profile Domain.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of Voice Profile Domain.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of Voice Profile Domain.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration for server side encryption.
-        /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
 

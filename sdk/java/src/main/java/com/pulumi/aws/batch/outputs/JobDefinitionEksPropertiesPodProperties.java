@@ -19,113 +19,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodProperties {
-    /**
-     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
-     * 
-     */
     private List<JobDefinitionEksPropertiesPodPropertiesContainer> containers;
-    /**
-     * @return DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
-     * 
-     */
     private @Nullable String dnsPolicy;
-    /**
-     * @return Whether the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
-     * 
-     */
     private @Nullable Boolean hostNetwork;
-    /**
-     * @return List of Kubernetes secret resources. See `imagePullSecret` below.
-     * 
-     */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesImagePullSecret> imagePullSecrets;
-    /**
-     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-     * 
-     */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers;
-    /**
-     * @return Metadata about the Kubernetes pod.
-     * 
-     */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesMetadata metadata;
-    /**
-     * @return Name of the service account that&#39;s used to run the pod.
-     * 
-     */
     private @Nullable String serviceAccountName;
-    /**
-     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-     * 
-     */
     private @Nullable Boolean shareProcessNamespace;
-    /**
-     * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
-     * 
-     */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesVolume> volumes;
 
     private JobDefinitionEksPropertiesPodProperties() {}
-    /**
-     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
-     * 
-     */
     public List<JobDefinitionEksPropertiesPodPropertiesContainer> containers() {
         return this.containers;
     }
-    /**
-     * @return DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
-     * 
-     */
     public Optional<String> dnsPolicy() {
         return Optional.ofNullable(this.dnsPolicy);
     }
-    /**
-     * @return Whether the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
-     * 
-     */
     public Optional<Boolean> hostNetwork() {
         return Optional.ofNullable(this.hostNetwork);
     }
-    /**
-     * @return List of Kubernetes secret resources. See `imagePullSecret` below.
-     * 
-     */
     public List<JobDefinitionEksPropertiesPodPropertiesImagePullSecret> imagePullSecrets() {
         return this.imagePullSecrets == null ? List.of() : this.imagePullSecrets;
     }
-    /**
-     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-     * 
-     */
     public List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers() {
         return this.initContainers == null ? List.of() : this.initContainers;
     }
-    /**
-     * @return Metadata about the Kubernetes pod.
-     * 
-     */
     public Optional<JobDefinitionEksPropertiesPodPropertiesMetadata> metadata() {
         return Optional.ofNullable(this.metadata);
     }
-    /**
-     * @return Name of the service account that&#39;s used to run the pod.
-     * 
-     */
     public Optional<String> serviceAccountName() {
         return Optional.ofNullable(this.serviceAccountName);
     }
-    /**
-     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-     * 
-     */
     public Optional<Boolean> shareProcessNamespace() {
         return Optional.ofNullable(this.shareProcessNamespace);
     }
-    /**
-     * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
-     * 
-     */
     public List<JobDefinitionEksPropertiesPodPropertiesVolume> volumes() {
         return this.volumes == null ? List.of() : this.volumes;
     }

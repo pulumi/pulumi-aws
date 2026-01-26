@@ -16,47 +16,23 @@ public final class DataQualityJobDefinitionNetworkConfigArgs extends com.pulumi.
 
     public static final DataQualityJobDefinitionNetworkConfigArgs Empty = new DataQualityJobDefinitionNetworkConfigArgs();
 
-    /**
-     * Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
-     * 
-     */
     @Import(name="enableInterContainerTrafficEncryption")
     private @Nullable Output<Boolean> enableInterContainerTrafficEncryption;
 
-    /**
-     * @return Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
-     * 
-     */
     public Optional<Output<Boolean>> enableInterContainerTrafficEncryption() {
         return Optional.ofNullable(this.enableInterContainerTrafficEncryption);
     }
 
-    /**
-     * Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-     * 
-     */
     @Import(name="enableNetworkIsolation")
     private @Nullable Output<Boolean> enableNetworkIsolation;
 
-    /**
-     * @return Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-     * 
-     */
     public Optional<Output<Boolean>> enableNetworkIsolation() {
         return Optional.ofNullable(this.enableNetworkIsolation);
     }
 
-    /**
-     * Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
-     * 
-     */
     @Import(name="vpcConfig")
     private @Nullable Output<DataQualityJobDefinitionNetworkConfigVpcConfigArgs> vpcConfig;
 
-    /**
-     * @return Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionNetworkConfigVpcConfigArgs>> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }
@@ -87,65 +63,29 @@ public final class DataQualityJobDefinitionNetworkConfigArgs extends com.pulumi.
             $ = new DataQualityJobDefinitionNetworkConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableInterContainerTrafficEncryption Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableInterContainerTrafficEncryption(@Nullable Output<Boolean> enableInterContainerTrafficEncryption) {
             $.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
             return this;
         }
 
-        /**
-         * @param enableInterContainerTrafficEncryption Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableInterContainerTrafficEncryption(Boolean enableInterContainerTrafficEncryption) {
             return enableInterContainerTrafficEncryption(Output.of(enableInterContainerTrafficEncryption));
         }
 
-        /**
-         * @param enableNetworkIsolation Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableNetworkIsolation(@Nullable Output<Boolean> enableNetworkIsolation) {
             $.enableNetworkIsolation = enableNetworkIsolation;
             return this;
         }
 
-        /**
-         * @param enableNetworkIsolation Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableNetworkIsolation(Boolean enableNetworkIsolation) {
             return enableNetworkIsolation(Output.of(enableNetworkIsolation));
         }
 
-        /**
-         * @param vpcConfig Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(@Nullable Output<DataQualityJobDefinitionNetworkConfigVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
-        /**
-         * @param vpcConfig Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(DataQualityJobDefinitionNetworkConfigVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

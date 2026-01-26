@@ -14,32 +14,16 @@ public final class AgentcoreMemoryStrategyConfigurationExtractionArgs extends co
 
     public static final AgentcoreMemoryStrategyConfigurationExtractionArgs Empty = new AgentcoreMemoryStrategyConfigurationExtractionArgs();
 
-    /**
-     * Additional text to append to the model prompt for extraction processing.
-     * 
-     */
     @Import(name="appendToPrompt", required=true)
     private Output<String> appendToPrompt;
 
-    /**
-     * @return Additional text to append to the model prompt for extraction processing.
-     * 
-     */
     public Output<String> appendToPrompt() {
         return this.appendToPrompt;
     }
 
-    /**
-     * ID of the foundation model to use for extraction processing.
-     * 
-     */
     @Import(name="modelId", required=true)
     private Output<String> modelId;
 
-    /**
-     * @return ID of the foundation model to use for extraction processing.
-     * 
-     */
     public Output<String> modelId() {
         return this.modelId;
     }
@@ -69,44 +53,20 @@ public final class AgentcoreMemoryStrategyConfigurationExtractionArgs extends co
             $ = new AgentcoreMemoryStrategyConfigurationExtractionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appendToPrompt Additional text to append to the model prompt for extraction processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appendToPrompt(Output<String> appendToPrompt) {
             $.appendToPrompt = appendToPrompt;
             return this;
         }
 
-        /**
-         * @param appendToPrompt Additional text to append to the model prompt for extraction processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appendToPrompt(String appendToPrompt) {
             return appendToPrompt(Output.of(appendToPrompt));
         }
 
-        /**
-         * @param modelId ID of the foundation model to use for extraction processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(Output<String> modelId) {
             $.modelId = modelId;
             return this;
         }
 
-        /**
-         * @param modelId ID of the foundation model to use for extraction processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(String modelId) {
             return modelId(Output.of(modelId));
         }

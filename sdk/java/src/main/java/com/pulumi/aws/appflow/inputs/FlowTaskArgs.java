@@ -19,77 +19,37 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FlowTaskArgs Empty = new FlowTaskArgs();
 
-    /**
-     * Operation to be performed on the provided source fields. See Connector Operator for details.
-     * 
-     */
     @Import(name="connectorOperators")
     private @Nullable Output<List<FlowTaskConnectorOperatorArgs>> connectorOperators;
 
-    /**
-     * @return Operation to be performed on the provided source fields. See Connector Operator for details.
-     * 
-     */
     public Optional<Output<List<FlowTaskConnectorOperatorArgs>>> connectorOperators() {
         return Optional.ofNullable(this.connectorOperators);
     }
 
-    /**
-     * Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-     * 
-     */
     @Import(name="destinationField")
     private @Nullable Output<String> destinationField;
 
-    /**
-     * @return Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-     * 
-     */
     public Optional<Output<String>> destinationField() {
         return Optional.ofNullable(this.destinationField);
     }
 
-    /**
-     * Source fields to which a particular task is applied.
-     * 
-     */
     @Import(name="sourceFields")
     private @Nullable Output<List<String>> sourceFields;
 
-    /**
-     * @return Source fields to which a particular task is applied.
-     * 
-     */
     public Optional<Output<List<String>>> sourceFields() {
         return Optional.ofNullable(this.sourceFields);
     }
 
-    /**
-     * Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
-     * 
-     */
     @Import(name="taskProperties")
     private @Nullable Output<Map<String,String>> taskProperties;
 
-    /**
-     * @return Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
-     * 
-     */
     public Optional<Output<Map<String,String>>> taskProperties() {
         return Optional.ofNullable(this.taskProperties);
     }
 
-    /**
-     * Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-     * 
-     */
     @Import(name="taskType", required=true)
     private Output<String> taskType;
 
-    /**
-     * @return Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-     * 
-     */
     public Output<String> taskType() {
         return this.taskType;
     }
@@ -122,127 +82,55 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FlowTaskArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorOperators(@Nullable Output<List<FlowTaskConnectorOperatorArgs>> connectorOperators) {
             $.connectorOperators = connectorOperators;
             return this;
         }
 
-        /**
-         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorOperators(List<FlowTaskConnectorOperatorArgs> connectorOperators) {
             return connectorOperators(Output.of(connectorOperators));
         }
 
-        /**
-         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorOperators(FlowTaskConnectorOperatorArgs... connectorOperators) {
             return connectorOperators(List.of(connectorOperators));
         }
 
-        /**
-         * @param destinationField Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationField(@Nullable Output<String> destinationField) {
             $.destinationField = destinationField;
             return this;
         }
 
-        /**
-         * @param destinationField Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationField(String destinationField) {
             return destinationField(Output.of(destinationField));
         }
 
-        /**
-         * @param sourceFields Source fields to which a particular task is applied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFields(@Nullable Output<List<String>> sourceFields) {
             $.sourceFields = sourceFields;
             return this;
         }
 
-        /**
-         * @param sourceFields Source fields to which a particular task is applied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFields(List<String> sourceFields) {
             return sourceFields(Output.of(sourceFields));
         }
 
-        /**
-         * @param sourceFields Source fields to which a particular task is applied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFields(String... sourceFields) {
             return sourceFields(List.of(sourceFields));
         }
 
-        /**
-         * @param taskProperties Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskProperties(@Nullable Output<Map<String,String>> taskProperties) {
             $.taskProperties = taskProperties;
             return this;
         }
 
-        /**
-         * @param taskProperties Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskProperties(Map<String,String> taskProperties) {
             return taskProperties(Output.of(taskProperties));
         }
 
-        /**
-         * @param taskType Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskType(Output<String> taskType) {
             $.taskType = taskType;
             return this;
         }
 
-        /**
-         * @param taskType Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskType(String taskType) {
             return taskType(Output.of(taskType));
         }

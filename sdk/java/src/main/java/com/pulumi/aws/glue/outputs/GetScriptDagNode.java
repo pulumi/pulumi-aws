@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetScriptDagNode {
-    /**
-     * @return Nested configuration an argument or property of a node. Defined below.
-     * 
-     */
     private List<GetScriptDagNodeArg> args;
-    /**
-     * @return Node identifier that is unique within the node&#39;s graph.
-     * 
-     */
     private String id;
-    /**
-     * @return Line number of the node.
-     * 
-     */
     private @Nullable Integer lineNumber;
-    /**
-     * @return Type of node this is.
-     * 
-     */
     private String nodeType;
 
     private GetScriptDagNode() {}
-    /**
-     * @return Nested configuration an argument or property of a node. Defined below.
-     * 
-     */
     public List<GetScriptDagNodeArg> args() {
         return this.args;
     }
-    /**
-     * @return Node identifier that is unique within the node&#39;s graph.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Line number of the node.
-     * 
-     */
     public Optional<Integer> lineNumber() {
         return Optional.ofNullable(this.lineNumber);
     }
-    /**
-     * @return Type of node this is.
-     * 
-     */
     public String nodeType() {
         return this.nodeType;
     }

@@ -80,33 +80,21 @@ class GetFaqResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the FAQ.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Unix datetime that the faq was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the FAQ.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> _builtins.str:
-        """
-        When the `status` field value is `FAILED`, this contains a message that explains why.
-        """
         return pulumi.get(self, "error_message")
 
     @_builtins.property
@@ -117,9 +105,6 @@ class GetFaqResult:
     @_builtins.property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> _builtins.str:
-        """
-        File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        """
         return pulumi.get(self, "file_format")
 
     @_builtins.property
@@ -138,17 +123,11 @@ class GetFaqResult:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> _builtins.str:
-        """
-        Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        """
         return pulumi.get(self, "language_code")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the FAQ.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -159,41 +138,26 @@ class GetFaqResult:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="s3Paths")
     def s3_paths(self) -> Sequence['outputs.GetFaqS3PathResult']:
-        """
-        S3 location of the FAQ input data. Detailed below.
-        """
         return pulumi.get(self, "s3_paths")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the FAQ. It is ready to use when the status is ACTIVE.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Metadata that helps organize the FAQs you create.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> _builtins.str:
-        """
-        Date and time that the FAQ was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -227,23 +191,7 @@ def get_faq(faq_id: Optional[_builtins.str] = None,
             tags: Optional[Mapping[str, _builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFaqResult:
     """
-    Provides details about a specific Amazon Kendra Faq.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.kendra.get_faq(faq_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
-
-
-    :param _builtins.str faq_id: Identifier of the FAQ.
-    :param _builtins.str index_id: Identifier of the index that contains the FAQ.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that helps organize the FAQs you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['faqId'] = faq_id
@@ -276,23 +224,7 @@ def get_faq_output(faq_id: Optional[pulumi.Input[_builtins.str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFaqResult]:
     """
-    Provides details about a specific Amazon Kendra Faq.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.kendra.get_faq(faq_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
-
-
-    :param _builtins.str faq_id: Identifier of the FAQ.
-    :param _builtins.str index_id: Identifier of the index that contains the FAQ.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that helps organize the FAQs you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['faqId'] = faq_id

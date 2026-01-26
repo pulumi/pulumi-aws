@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetLogDataProtectionPolicyDocumentConfigurationResult
     {
-        /// <summary>
-        /// Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult> CustomDataIdentifiers;
 
         [OutputConstructor]

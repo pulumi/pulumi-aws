@@ -15,17 +15,9 @@ public final class MultitenantDistributionRestrictionsArgs extends com.pulumi.re
 
     public static final MultitenantDistributionRestrictionsArgs Empty = new MultitenantDistributionRestrictionsArgs();
 
-    /**
-     * Geographic restriction configuration. See Geo Restriction below.
-     * 
-     */
     @Import(name="geoRestriction")
     private @Nullable Output<MultitenantDistributionRestrictionsGeoRestrictionArgs> geoRestriction;
 
-    /**
-     * @return Geographic restriction configuration. See Geo Restriction below.
-     * 
-     */
     public Optional<Output<MultitenantDistributionRestrictionsGeoRestrictionArgs>> geoRestriction() {
         return Optional.ofNullable(this.geoRestriction);
     }
@@ -54,23 +46,11 @@ public final class MultitenantDistributionRestrictionsArgs extends com.pulumi.re
             $ = new MultitenantDistributionRestrictionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param geoRestriction Geographic restriction configuration. See Geo Restriction below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoRestriction(@Nullable Output<MultitenantDistributionRestrictionsGeoRestrictionArgs> geoRestriction) {
             $.geoRestriction = geoRestriction;
             return this;
         }
 
-        /**
-         * @param geoRestriction Geographic restriction configuration. See Geo Restriction below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoRestriction(MultitenantDistributionRestrictionsGeoRestrictionArgs geoRestriction) {
             return geoRestriction(Output.of(geoRestriction));
         }

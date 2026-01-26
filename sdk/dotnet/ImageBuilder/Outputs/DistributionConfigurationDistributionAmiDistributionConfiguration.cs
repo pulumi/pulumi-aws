@@ -13,29 +13,11 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistributionAmiDistributionConfiguration
     {
-        /// <summary>
-        /// Key-value map of tags to apply to the distributed AMI.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? AmiTags;
-        /// <summary>
-        /// Description to apply to the distributed AMI.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
-        /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission? LaunchPermission;
-        /// <summary>
-        /// Name to apply to the distributed AMI.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Set of AWS Account identifiers to distribute the AMI.
-        /// </summary>
         public readonly ImmutableArray<string> TargetAccountIds;
 
         [OutputConstructor]

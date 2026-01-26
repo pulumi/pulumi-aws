@@ -15,10 +15,6 @@ import java.util.Objects;
 public final class GetGatewayRouteSpecHttpRouteMatchHeader {
     private Boolean invert;
     private List<GetGatewayRouteSpecHttpRouteMatchHeaderMatch> matches;
-    /**
-     * @return Name of the gateway route.
-     * 
-     */
     private String name;
 
     private GetGatewayRouteSpecHttpRouteMatchHeader() {}
@@ -28,10 +24,6 @@ public final class GetGatewayRouteSpecHttpRouteMatchHeader {
     public List<GetGatewayRouteSpecHttpRouteMatchHeaderMatch> matches() {
         return this.matches;
     }
-    /**
-     * @return Name of the gateway route.
-     * 
-     */
     public String name() {
         return this.name;
     }

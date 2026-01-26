@@ -12,63 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the content and status of IP rules.
-//
-// > Deletion of this resource clears all IP restrictions from a QuickSight account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewIpRestriction(ctx, "example", &quicksight.IpRestrictionArgs{
-//				Enabled: pulumi.Bool(true),
-//				IpRestrictionRuleMap: pulumi.StringMap{
-//					"108.56.166.202/32": pulumi.String("Allow self"),
-//				},
-//				VpcIdRestrictionRuleMap: pulumi.StringMap{
-//					exampleAwsVpc.Id: "Main VPC",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight IP restriction using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/ipRestriction:IpRestriction example "012345678901"
-// ```
 type IpRestriction struct {
 	pulumi.CustomResourceState
 
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Whether IP rules are turned on.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Map of allowed IPv4 CIDR ranges and descriptions.
-	IpRestrictionRuleMap pulumi.StringMapOutput `pulumi:"ipRestrictionRuleMap"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of allowed VPC endpoint IDs and descriptions.
+	AwsAccountId                    pulumi.StringOutput    `pulumi:"awsAccountId"`
+	Enabled                         pulumi.BoolOutput      `pulumi:"enabled"`
+	IpRestrictionRuleMap            pulumi.StringMapOutput `pulumi:"ipRestrictionRuleMap"`
+	Region                          pulumi.StringOutput    `pulumi:"region"`
 	VpcEndpointIdRestrictionRuleMap pulumi.StringMapOutput `pulumi:"vpcEndpointIdRestrictionRuleMap"`
-	// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-	VpcIdRestrictionRuleMap pulumi.StringMapOutput `pulumi:"vpcIdRestrictionRuleMap"`
+	VpcIdRestrictionRuleMap         pulumi.StringMapOutput `pulumi:"vpcIdRestrictionRuleMap"`
 }
 
 // NewIpRestriction registers a new resource with the given unique name, arguments, and options.
@@ -104,31 +56,21 @@ func GetIpRestriction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpRestriction resources.
 type ipRestrictionState struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Whether IP rules are turned on.
-	Enabled *bool `pulumi:"enabled"`
-	// Map of allowed IPv4 CIDR ranges and descriptions.
-	IpRestrictionRuleMap map[string]string `pulumi:"ipRestrictionRuleMap"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of allowed VPC endpoint IDs and descriptions.
+	AwsAccountId                    *string           `pulumi:"awsAccountId"`
+	Enabled                         *bool             `pulumi:"enabled"`
+	IpRestrictionRuleMap            map[string]string `pulumi:"ipRestrictionRuleMap"`
+	Region                          *string           `pulumi:"region"`
 	VpcEndpointIdRestrictionRuleMap map[string]string `pulumi:"vpcEndpointIdRestrictionRuleMap"`
-	// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-	VpcIdRestrictionRuleMap map[string]string `pulumi:"vpcIdRestrictionRuleMap"`
+	VpcIdRestrictionRuleMap         map[string]string `pulumi:"vpcIdRestrictionRuleMap"`
 }
 
 type IpRestrictionState struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Whether IP rules are turned on.
-	Enabled pulumi.BoolPtrInput
-	// Map of allowed IPv4 CIDR ranges and descriptions.
-	IpRestrictionRuleMap pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of allowed VPC endpoint IDs and descriptions.
+	AwsAccountId                    pulumi.StringPtrInput
+	Enabled                         pulumi.BoolPtrInput
+	IpRestrictionRuleMap            pulumi.StringMapInput
+	Region                          pulumi.StringPtrInput
 	VpcEndpointIdRestrictionRuleMap pulumi.StringMapInput
-	// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-	VpcIdRestrictionRuleMap pulumi.StringMapInput
+	VpcIdRestrictionRuleMap         pulumi.StringMapInput
 }
 
 func (IpRestrictionState) ElementType() reflect.Type {
@@ -136,32 +78,22 @@ func (IpRestrictionState) ElementType() reflect.Type {
 }
 
 type ipRestrictionArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Whether IP rules are turned on.
-	Enabled bool `pulumi:"enabled"`
-	// Map of allowed IPv4 CIDR ranges and descriptions.
-	IpRestrictionRuleMap map[string]string `pulumi:"ipRestrictionRuleMap"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of allowed VPC endpoint IDs and descriptions.
+	AwsAccountId                    *string           `pulumi:"awsAccountId"`
+	Enabled                         bool              `pulumi:"enabled"`
+	IpRestrictionRuleMap            map[string]string `pulumi:"ipRestrictionRuleMap"`
+	Region                          *string           `pulumi:"region"`
 	VpcEndpointIdRestrictionRuleMap map[string]string `pulumi:"vpcEndpointIdRestrictionRuleMap"`
-	// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-	VpcIdRestrictionRuleMap map[string]string `pulumi:"vpcIdRestrictionRuleMap"`
+	VpcIdRestrictionRuleMap         map[string]string `pulumi:"vpcIdRestrictionRuleMap"`
 }
 
 // The set of arguments for constructing a IpRestriction resource.
 type IpRestrictionArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Whether IP rules are turned on.
-	Enabled pulumi.BoolInput
-	// Map of allowed IPv4 CIDR ranges and descriptions.
-	IpRestrictionRuleMap pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of allowed VPC endpoint IDs and descriptions.
+	AwsAccountId                    pulumi.StringPtrInput
+	Enabled                         pulumi.BoolInput
+	IpRestrictionRuleMap            pulumi.StringMapInput
+	Region                          pulumi.StringPtrInput
 	VpcEndpointIdRestrictionRuleMap pulumi.StringMapInput
-	// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-	VpcIdRestrictionRuleMap pulumi.StringMapInput
+	VpcIdRestrictionRuleMap         pulumi.StringMapInput
 }
 
 func (IpRestrictionArgs) ElementType() reflect.Type {
@@ -255,27 +187,22 @@ func (o IpRestrictionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpRestriction) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Whether IP rules are turned on.
 func (o IpRestrictionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IpRestriction) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Map of allowed IPv4 CIDR ranges and descriptions.
 func (o IpRestrictionOutput) IpRestrictionRuleMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpRestriction) pulumi.StringMapOutput { return v.IpRestrictionRuleMap }).(pulumi.StringMapOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IpRestrictionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpRestriction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of allowed VPC endpoint IDs and descriptions.
 func (o IpRestrictionOutput) VpcEndpointIdRestrictionRuleMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpRestriction) pulumi.StringMapOutput { return v.VpcEndpointIdRestrictionRuleMap }).(pulumi.StringMapOutput)
 }
 
-// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
 func (o IpRestrictionOutput) VpcIdRestrictionRuleMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpRestriction) pulumi.StringMapOutput { return v.VpcIdRestrictionRuleMap }).(pulumi.StringMapOutput)
 }

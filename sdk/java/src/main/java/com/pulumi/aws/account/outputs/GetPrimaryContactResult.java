@@ -11,129 +11,49 @@ import java.util.Objects;
 @CustomType
 public final class GetPrimaryContactResult {
     private String accountId;
-    /**
-     * @return The first line of the primary contact address.
-     * 
-     */
     private String addressLine1;
-    /**
-     * @return The second line of the primary contact address.
-     * 
-     */
     private String addressLine2;
-    /**
-     * @return The third line of the primary contact address.
-     * 
-     */
     private String addressLine3;
-    /**
-     * @return The city of the primary contact address.
-     * 
-     */
     private String city;
-    /**
-     * @return The name of the company associated with the primary contact information.
-     * 
-     */
     private String companyName;
-    /**
-     * @return The ISO-3166 two-letter country code for the primary contact address.
-     * 
-     */
     private String countryCode;
-    /**
-     * @return The district or county of the primary contact address.
-     * 
-     */
     private String districtOrCounty;
-    /**
-     * @return The full name of the primary contact address.
-     * 
-     */
     private String fullName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The phone number of the primary contact information.
-     * 
-     */
     private String phoneNumber;
-    /**
-     * @return The postal code of the primary contact address.
-     * 
-     */
     private String postalCode;
-    /**
-     * @return The state or region of the primary contact address.
-     * 
-     */
     private String stateOrRegion;
-    /**
-     * @return The URL of the website associated with the primary contact information.
-     * 
-     */
     private String websiteUrl;
 
     private GetPrimaryContactResult() {}
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return The first line of the primary contact address.
-     * 
-     */
     public String addressLine1() {
         return this.addressLine1;
     }
-    /**
-     * @return The second line of the primary contact address.
-     * 
-     */
     public String addressLine2() {
         return this.addressLine2;
     }
-    /**
-     * @return The third line of the primary contact address.
-     * 
-     */
     public String addressLine3() {
         return this.addressLine3;
     }
-    /**
-     * @return The city of the primary contact address.
-     * 
-     */
     public String city() {
         return this.city;
     }
-    /**
-     * @return The name of the company associated with the primary contact information.
-     * 
-     */
     public String companyName() {
         return this.companyName;
     }
-    /**
-     * @return The ISO-3166 two-letter country code for the primary contact address.
-     * 
-     */
     public String countryCode() {
         return this.countryCode;
     }
-    /**
-     * @return The district or county of the primary contact address.
-     * 
-     */
     public String districtOrCounty() {
         return this.districtOrCounty;
     }
-    /**
-     * @return The full name of the primary contact address.
-     * 
-     */
     public String fullName() {
         return this.fullName;
     }
@@ -144,31 +64,15 @@ public final class GetPrimaryContactResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The phone number of the primary contact information.
-     * 
-     */
     public String phoneNumber() {
         return this.phoneNumber;
     }
-    /**
-     * @return The postal code of the primary contact address.
-     * 
-     */
     public String postalCode() {
         return this.postalCode;
     }
-    /**
-     * @return The state or region of the primary contact address.
-     * 
-     */
     public String stateOrRegion() {
         return this.stateOrRegion;
     }
-    /**
-     * @return The URL of the website associated with the primary contact information.
-     * 
-     */
     public String websiteUrl() {
         return this.websiteUrl;
     }

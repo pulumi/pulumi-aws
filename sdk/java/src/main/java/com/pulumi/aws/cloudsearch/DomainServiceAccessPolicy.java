@@ -13,122 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an CloudSearch domain service access policy resource.
- * 
- * The provider waits for the domain service access policy to become `Active` when applying a configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudsearch.Domain;
- * import com.pulumi.aws.cloudsearch.DomainArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicy;
- * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
- *             .name("example-domain")
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("search_only")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions(                
- *                     "cloudsearch:search",
- *                     "cloudsearch:document")
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("IpAddress")
- *                     .variable("aws:SourceIp")
- *                     .values("192.0.2.0/32")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", DomainServiceAccessPolicyArgs.builder()
- *             .domainName(exampleDomain.id())
- *             .accessPolicy(example.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
- * ```
- * 
- */
 @ResourceType(type="aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")
 public class DomainServiceAccessPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     * 
-     */
     @Export(name="accessPolicy", refs={String.class}, tree="[0]")
     private Output<String> accessPolicy;
 
-    /**
-     * @return The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     * 
-     */
     public Output<String> accessPolicy() {
         return this.accessPolicy;
     }
-    /**
-     * The CloudSearch domain name the policy applies to.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The CloudSearch domain name the policy applies to.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

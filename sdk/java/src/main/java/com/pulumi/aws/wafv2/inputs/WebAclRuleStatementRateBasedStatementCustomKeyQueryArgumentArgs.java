@@ -16,32 +16,16 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentAr
 
     public static final WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs Empty = new WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs();
 
-    /**
-     * The name of the query argument to use.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the query argument to use.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
     @Import(name="textTransformations", required=true)
     private Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
     public Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations() {
         return this.textTransformations;
     }
@@ -71,54 +55,24 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentAr
             $ = new WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the query argument to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the query argument to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }

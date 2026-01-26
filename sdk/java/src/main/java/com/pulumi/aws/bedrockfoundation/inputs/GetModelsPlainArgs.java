@@ -14,77 +14,37 @@ public final class GetModelsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetModelsPlainArgs Empty = new GetModelsPlainArgs();
 
-    /**
-     * Customization type to filter on. Valid values are `FINE_TUNING`.
-     * 
-     */
     @Import(name="byCustomizationType")
     private @Nullable String byCustomizationType;
 
-    /**
-     * @return Customization type to filter on. Valid values are `FINE_TUNING`.
-     * 
-     */
     public Optional<String> byCustomizationType() {
         return Optional.ofNullable(this.byCustomizationType);
     }
 
-    /**
-     * Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-     * 
-     */
     @Import(name="byInferenceType")
     private @Nullable String byInferenceType;
 
-    /**
-     * @return Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-     * 
-     */
     public Optional<String> byInferenceType() {
         return Optional.ofNullable(this.byInferenceType);
     }
 
-    /**
-     * Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-     * 
-     */
     @Import(name="byOutputModality")
     private @Nullable String byOutputModality;
 
-    /**
-     * @return Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-     * 
-     */
     public Optional<String> byOutputModality() {
         return Optional.ofNullable(this.byOutputModality);
     }
 
-    /**
-     * Model provider to filter on.
-     * 
-     */
     @Import(name="byProvider")
     private @Nullable String byProvider;
 
-    /**
-     * @return Model provider to filter on.
-     * 
-     */
     public Optional<String> byProvider() {
         return Optional.ofNullable(this.byProvider);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -117,56 +77,26 @@ public final class GetModelsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetModelsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param byCustomizationType Customization type to filter on. Valid values are `FINE_TUNING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byCustomizationType(@Nullable String byCustomizationType) {
             $.byCustomizationType = byCustomizationType;
             return this;
         }
 
-        /**
-         * @param byInferenceType Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byInferenceType(@Nullable String byInferenceType) {
             $.byInferenceType = byInferenceType;
             return this;
         }
 
-        /**
-         * @param byOutputModality Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byOutputModality(@Nullable String byOutputModality) {
             $.byOutputModality = byOutputModality;
             return this;
         }
 
-        /**
-         * @param byProvider Model provider to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byProvider(@Nullable String byProvider) {
             $.byProvider = byProvider;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

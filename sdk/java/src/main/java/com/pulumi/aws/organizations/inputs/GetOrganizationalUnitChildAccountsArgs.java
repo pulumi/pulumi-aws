@@ -14,17 +14,9 @@ public final class GetOrganizationalUnitChildAccountsArgs extends com.pulumi.res
 
     public static final GetOrganizationalUnitChildAccountsArgs Empty = new GetOrganizationalUnitChildAccountsArgs();
 
-    /**
-     * The parent ID of the accounts.
-     * 
-     */
     @Import(name="parentId", required=true)
     private Output<String> parentId;
 
-    /**
-     * @return The parent ID of the accounts.
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
@@ -53,23 +45,11 @@ public final class GetOrganizationalUnitChildAccountsArgs extends com.pulumi.res
             $ = new GetOrganizationalUnitChildAccountsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parentId The parent ID of the accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(Output<String> parentId) {
             $.parentId = parentId;
             return this;
         }
 
-        /**
-         * @param parentId The parent ID of the accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(String parentId) {
             return parentId(Output.of(parentId));
         }

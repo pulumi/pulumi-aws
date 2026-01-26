@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
-//
-// This data source allows to find a list of name servers associated with a specific delegation set.
-//
-// ## Example Usage
-//
-// The following example shows how to get a delegation set from its id.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupDelegationSet(ctx, &route53.LookupDelegationSetArgs{
-//				Id: "MQWGHCBFAKEID",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opts ...pulumi.InvokeOption) (*LookupDelegationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDelegationSetResult
@@ -54,19 +23,15 @@ func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opt
 
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetArgs struct {
-	// Delegation set ID.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getDelegationSet.
 type LookupDelegationSetResult struct {
-	// ARN of the Delegation Set.
-	Arn string `pulumi:"arn"`
-	// Caller Reference of the delegation set.
-	CallerReference string `pulumi:"callerReference"`
-	Id              string `pulumi:"id"`
-	// List of DNS name servers for the delegation set.
-	NameServers []string `pulumi:"nameServers"`
+	Arn             string   `pulumi:"arn"`
+	CallerReference string   `pulumi:"callerReference"`
+	Id              string   `pulumi:"id"`
+	NameServers     []string `pulumi:"nameServers"`
 }
 
 func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutputArgs, opts ...pulumi.InvokeOption) LookupDelegationSetResultOutput {
@@ -80,7 +45,6 @@ func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutp
 
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetOutputArgs struct {
-	// Delegation set ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -103,12 +67,10 @@ func (o LookupDelegationSetResultOutput) ToLookupDelegationSetResultOutputWithCo
 	return o
 }
 
-// ARN of the Delegation Set.
 func (o LookupDelegationSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDelegationSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Caller Reference of the delegation set.
 func (o LookupDelegationSetResultOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDelegationSetResult) string { return v.CallerReference }).(pulumi.StringOutput)
 }
@@ -117,7 +79,6 @@ func (o LookupDelegationSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDelegationSetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of DNS name servers for the delegation set.
 func (o LookupDelegationSetResultOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDelegationSetResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
 }

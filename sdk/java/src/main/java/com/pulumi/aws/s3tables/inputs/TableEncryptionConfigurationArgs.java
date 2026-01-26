@@ -14,32 +14,16 @@ public final class TableEncryptionConfigurationArgs extends com.pulumi.resources
 
     public static final TableEncryptionConfigurationArgs Empty = new TableEncryptionConfigurationArgs();
 
-    /**
-     * The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
-     * 
-     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
 
-    /**
-     * One of `aws:kms` or `AES256`
-     * 
-     */
     @Import(name="sseAlgorithm", required=true)
     private Output<String> sseAlgorithm;
 
-    /**
-     * @return One of `aws:kms` or `AES256`
-     * 
-     */
     public Output<String> sseAlgorithm() {
         return this.sseAlgorithm;
     }
@@ -69,44 +53,20 @@ public final class TableEncryptionConfigurationArgs extends com.pulumi.resources
             $ = new TableEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param sseAlgorithm One of `aws:kms` or `AES256`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAlgorithm(Output<String> sseAlgorithm) {
             $.sseAlgorithm = sseAlgorithm;
             return this;
         }
 
-        /**
-         * @param sseAlgorithm One of `aws:kms` or `AES256`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAlgorithm(String sseAlgorithm) {
             return sseAlgorithm(Output.of(sseAlgorithm));
         }

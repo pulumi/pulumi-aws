@@ -14,11 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type PolicyExcludeMap struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
-	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-	//
-	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -34,11 +30,7 @@ type PolicyExcludeMapInput interface {
 }
 
 type PolicyExcludeMapArgs struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-	//
-	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -119,14 +111,10 @@ func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx conte
 	}).(PolicyExcludeMapPtrOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyExcludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-//
-// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -155,7 +143,6 @@ func (o PolicyExcludeMapPtrOutput) Elem() PolicyExcludeMapOutput {
 	}).(PolicyExcludeMapOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -165,9 +152,6 @@ func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-//
-// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -178,11 +162,7 @@ func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 }
 
 type PolicyIncludeMap struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
-	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-	//
-	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -198,11 +178,7 @@ type PolicyIncludeMapInput interface {
 }
 
 type PolicyIncludeMapArgs struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-	//
-	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -283,14 +259,10 @@ func (o PolicyIncludeMapOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx conte
 	}).(PolicyIncludeMapPtrOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyIncludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-//
-// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyIncludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -319,7 +291,6 @@ func (o PolicyIncludeMapPtrOutput) Elem() PolicyIncludeMapOutput {
 	}).(PolicyIncludeMapOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyIncludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIncludeMap) []string {
 		if v == nil {
@@ -329,9 +300,6 @@ func (o PolicyIncludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-//
-// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIncludeMap) []string {
 		if v == nil {
@@ -342,12 +310,9 @@ func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 }
 
 type PolicySecurityServicePolicyData struct {
-	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-	ManagedServiceData *string `pulumi:"managedServiceData"`
-	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
-	PolicyOption *PolicySecurityServicePolicyDataPolicyOption `pulumi:"policyOption"`
-	// An integer value containing ICMP type.
-	Type string `pulumi:"type"`
+	ManagedServiceData *string                                      `pulumi:"managedServiceData"`
+	PolicyOption       *PolicySecurityServicePolicyDataPolicyOption `pulumi:"policyOption"`
+	Type               string                                       `pulumi:"type"`
 }
 
 // PolicySecurityServicePolicyDataInput is an input type that accepts PolicySecurityServicePolicyDataArgs and PolicySecurityServicePolicyDataOutput values.
@@ -362,12 +327,9 @@ type PolicySecurityServicePolicyDataInput interface {
 }
 
 type PolicySecurityServicePolicyDataArgs struct {
-	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
-	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
-	PolicyOption PolicySecurityServicePolicyDataPolicyOptionPtrInput `pulumi:"policyOption"`
-	// An integer value containing ICMP type.
-	Type pulumi.StringInput `pulumi:"type"`
+	ManagedServiceData pulumi.StringPtrInput                               `pulumi:"managedServiceData"`
+	PolicyOption       PolicySecurityServicePolicyDataPolicyOptionPtrInput `pulumi:"policyOption"`
+	Type               pulumi.StringInput                                  `pulumi:"type"`
 }
 
 func (PolicySecurityServicePolicyDataArgs) ElementType() reflect.Type {
@@ -447,19 +409,16 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 	}).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
-// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
 }
 
-// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 func (o PolicySecurityServicePolicyDataOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
 		return v.PolicyOption
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// An integer value containing ICMP type.
 func (o PolicySecurityServicePolicyDataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -488,7 +447,6 @@ func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePo
 	}).(PolicySecurityServicePolicyDataOutput)
 }
 
-// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {
@@ -498,7 +456,6 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
 		if v == nil {
@@ -508,7 +465,6 @@ func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicySecurityS
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// An integer value containing ICMP type.
 func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {
@@ -519,9 +475,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type PolicySecurityServicePolicyDataPolicyOption struct {
-	// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-	NetworkAclCommonPolicy *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy `pulumi:"networkAclCommonPolicy"`
-	// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+	NetworkAclCommonPolicy   *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy   `pulumi:"networkAclCommonPolicy"`
 	NetworkFirewallPolicy    *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy    `pulumi:"networkFirewallPolicy"`
 	ThirdPartyFirewallPolicy *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy `pulumi:"thirdPartyFirewallPolicy"`
 }
@@ -538,9 +492,7 @@ type PolicySecurityServicePolicyDataPolicyOptionInput interface {
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionArgs struct {
-	// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-	NetworkAclCommonPolicy PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput `pulumi:"networkAclCommonPolicy"`
-	// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+	NetworkAclCommonPolicy   PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput   `pulumi:"networkAclCommonPolicy"`
 	NetworkFirewallPolicy    PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput    `pulumi:"networkFirewallPolicy"`
 	ThirdPartyFirewallPolicy PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput `pulumi:"thirdPartyFirewallPolicy"`
 }
@@ -622,14 +574,12 @@ func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToPolicySecurityServi
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionOutput) NetworkAclCommonPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
 		return v.NetworkAclCommonPolicy
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput)
 }
 
-// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionOutput) NetworkFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
 		return v.NetworkFirewallPolicy
@@ -666,7 +616,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) Elem() PolicySecur
 	}).(PolicySecurityServicePolicyDataPolicyOptionOutput)
 }
 
-// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) NetworkAclCommonPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
 		if v == nil {
@@ -676,7 +625,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) NetworkAclCommonPo
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput)
 }
 
-// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) NetworkFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
 		if v == nil {
@@ -696,7 +644,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ThirdPartyFirewall
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy struct {
-	// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
 	NetworkAclEntrySet *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet `pulumi:"networkAclEntrySet"`
 }
 
@@ -712,7 +659,6 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyInput inte
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs struct {
-	// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
 	NetworkAclEntrySet PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrInput `pulumi:"networkAclEntrySet"`
 }
 
@@ -793,7 +739,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput)
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput)
 }
 
-// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput) NetworkAclEntrySet() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
 		return v.NetworkAclEntrySet
@@ -824,7 +769,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutp
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput)
 }
 
-// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput) NetworkAclEntrySet() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
 		if v == nil {
@@ -835,14 +779,10 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutp
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet struct {
-	// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
-	FirstEntries []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry `pulumi:"firstEntries"`
-	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
-	ForceRemediateForFirstEntries bool `pulumi:"forceRemediateForFirstEntries"`
-	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
-	ForceRemediateForLastEntries bool `pulumi:"forceRemediateForLastEntries"`
-	// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
-	LastEntries []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry `pulumi:"lastEntries"`
+	FirstEntries                  []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry `pulumi:"firstEntries"`
+	ForceRemediateForFirstEntries bool                                                                                            `pulumi:"forceRemediateForFirstEntries"`
+	ForceRemediateForLastEntries  bool                                                                                            `pulumi:"forceRemediateForLastEntries"`
+	LastEntries                   []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry  `pulumi:"lastEntries"`
 }
 
 // PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput values.
@@ -857,14 +797,10 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAcl
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs struct {
-	// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
-	FirstEntries PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayInput `pulumi:"firstEntries"`
-	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
-	ForceRemediateForFirstEntries pulumi.BoolInput `pulumi:"forceRemediateForFirstEntries"`
-	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
-	ForceRemediateForLastEntries pulumi.BoolInput `pulumi:"forceRemediateForLastEntries"`
-	// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
-	LastEntries PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayInput `pulumi:"lastEntries"`
+	FirstEntries                  PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayInput `pulumi:"firstEntries"`
+	ForceRemediateForFirstEntries pulumi.BoolInput                                                                                        `pulumi:"forceRemediateForFirstEntries"`
+	ForceRemediateForLastEntries  pulumi.BoolInput                                                                                        `pulumi:"forceRemediateForLastEntries"`
+	LastEntries                   PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayInput  `pulumi:"lastEntries"`
 }
 
 func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs) ElementType() reflect.Type {
@@ -944,28 +880,24 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput)
 }
 
-// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) FirstEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry {
 		return v.FirstEntries
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput)
 }
 
-// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ForceRemediateForFirstEntries() pulumi.BoolOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) bool {
 		return v.ForceRemediateForFirstEntries
 	}).(pulumi.BoolOutput)
 }
 
-// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ForceRemediateForLastEntries() pulumi.BoolOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) bool {
 		return v.ForceRemediateForLastEntries
 	}).(pulumi.BoolOutput)
 }
 
-// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) LastEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry {
 		return v.LastEntries
@@ -996,7 +928,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput)
 }
 
-// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) FirstEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry {
 		if v == nil {
@@ -1006,7 +937,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput)
 }
 
-// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) ForceRemediateForFirstEntries() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) *bool {
 		if v == nil {
@@ -1016,7 +946,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) ForceRemediateForLastEntries() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) *bool {
 		if v == nil {
@@ -1026,7 +955,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) LastEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry {
 		if v == nil {
@@ -1037,20 +965,13 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry struct {
-	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-	Egress bool `pulumi:"egress"`
-	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	CidrBlock     *string                                                                                                     `pulumi:"cidrBlock"`
+	Egress        bool                                                                                                        `pulumi:"egress"`
 	IcmpTypeCodes []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode `pulumi:"icmpTypeCodes"`
-	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// A configuration block for PortRange. See the `portRange` block.
-	PortRanges []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange `pulumi:"portRanges"`
-	// The protocol number. A value of "-1" means all protocols.
-	Protocol string `pulumi:"protocol"`
-	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-	RuleAction string `pulumi:"ruleAction"`
+	Ipv6CidrBlock *string                                                                                                     `pulumi:"ipv6CidrBlock"`
+	PortRanges    []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange    `pulumi:"portRanges"`
+	Protocol      string                                                                                                      `pulumi:"protocol"`
+	RuleAction    string                                                                                                      `pulumi:"ruleAction"`
 }
 
 // PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput values.
@@ -1065,20 +986,13 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAcl
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs struct {
-	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
-	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-	Egress pulumi.BoolInput `pulumi:"egress"`
-	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	CidrBlock     pulumi.StringPtrInput                                                                                               `pulumi:"cidrBlock"`
+	Egress        pulumi.BoolInput                                                                                                    `pulumi:"egress"`
 	IcmpTypeCodes PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayInput `pulumi:"icmpTypeCodes"`
-	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
-	// A configuration block for PortRange. See the `portRange` block.
-	PortRanges PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayInput `pulumi:"portRanges"`
-	// The protocol number. A value of "-1" means all protocols.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
+	Ipv6CidrBlock pulumi.StringPtrInput                                                                                               `pulumi:"ipv6CidrBlock"`
+	PortRanges    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayInput    `pulumi:"portRanges"`
+	Protocol      pulumi.StringInput                                                                                                  `pulumi:"protocol"`
+	RuleAction    pulumi.StringInput                                                                                                  `pulumi:"ruleAction"`
 }
 
 func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs) ElementType() reflect.Type {
@@ -1132,49 +1046,42 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	return o
 }
 
-// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) *string {
 		return v.CidrBlock
 	}).(pulumi.StringPtrOutput)
 }
 
-// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) Egress() pulumi.BoolOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) bool {
 		return v.Egress
 	}).(pulumi.BoolOutput)
 }
 
-// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) IcmpTypeCodes() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode {
 		return v.IcmpTypeCodes
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput)
 }
 
-// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) *string {
 		return v.Ipv6CidrBlock
 	}).(pulumi.StringPtrOutput)
 }
 
-// A configuration block for PortRange. See the `portRange` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) PortRanges() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange {
 		return v.PortRanges
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput)
 }
 
-// The protocol number. A value of "-1" means all protocols.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) string {
 		return v.Protocol
 	}).(pulumi.StringOutput)
 }
 
-// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) RuleAction() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) string {
 		return v.RuleAction
@@ -1202,9 +1109,7 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode struct {
-	// An integer value containing ICMP code.
 	Code *int `pulumi:"code"`
-	// An integer value containing ICMP type.
 	Type *int `pulumi:"type"`
 }
 
@@ -1220,9 +1125,7 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAcl
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs struct {
-	// An integer value containing ICMP code.
 	Code pulumi.IntPtrInput `pulumi:"code"`
-	// An integer value containing ICMP type.
 	Type pulumi.IntPtrInput `pulumi:"type"`
 }
 
@@ -1277,14 +1180,12 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	return o
 }
 
-// An integer value containing ICMP code.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput) Code() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode) *int {
 		return v.Code
 	}).(pulumi.IntPtrOutput)
 }
 
-// An integer value containing ICMP type.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput) Type() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode) *int {
 		return v.Type
@@ -1312,10 +1213,8 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange struct {
-	// The beginning port number of the range.
 	From *int `pulumi:"from"`
-	// The ending port number of the range.
-	To *int `pulumi:"to"`
+	To   *int `pulumi:"to"`
 }
 
 // PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput values.
@@ -1330,10 +1229,8 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAcl
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs struct {
-	// The beginning port number of the range.
 	From pulumi.IntPtrInput `pulumi:"from"`
-	// The ending port number of the range.
-	To pulumi.IntPtrInput `pulumi:"to"`
+	To   pulumi.IntPtrInput `pulumi:"to"`
 }
 
 func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs) ElementType() reflect.Type {
@@ -1387,14 +1284,12 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	return o
 }
 
-// The beginning port number of the range.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput) From() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange) *int {
 		return v.From
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ending port number of the range.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput) To() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange) *int {
 		return v.To
@@ -1422,20 +1317,13 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry struct {
-	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-	Egress bool `pulumi:"egress"`
-	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	CidrBlock     *string                                                                                                    `pulumi:"cidrBlock"`
+	Egress        bool                                                                                                       `pulumi:"egress"`
 	IcmpTypeCodes []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode `pulumi:"icmpTypeCodes"`
-	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// A configuration block for PortRange. See the `portRange` block.
-	PortRanges []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange `pulumi:"portRanges"`
-	// The protocol number. A value of "-1" means all protocols.
-	Protocol string `pulumi:"protocol"`
-	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-	RuleAction string `pulumi:"ruleAction"`
+	Ipv6CidrBlock *string                                                                                                    `pulumi:"ipv6CidrBlock"`
+	PortRanges    []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange    `pulumi:"portRanges"`
+	Protocol      string                                                                                                     `pulumi:"protocol"`
+	RuleAction    string                                                                                                     `pulumi:"ruleAction"`
 }
 
 // PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput values.
@@ -1450,20 +1338,13 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAcl
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs struct {
-	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
-	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-	Egress pulumi.BoolInput `pulumi:"egress"`
-	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	CidrBlock     pulumi.StringPtrInput                                                                                              `pulumi:"cidrBlock"`
+	Egress        pulumi.BoolInput                                                                                                   `pulumi:"egress"`
 	IcmpTypeCodes PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayInput `pulumi:"icmpTypeCodes"`
-	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
-	// A configuration block for PortRange. See the `portRange` block.
-	PortRanges PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayInput `pulumi:"portRanges"`
-	// The protocol number. A value of "-1" means all protocols.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
+	Ipv6CidrBlock pulumi.StringPtrInput                                                                                              `pulumi:"ipv6CidrBlock"`
+	PortRanges    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayInput    `pulumi:"portRanges"`
+	Protocol      pulumi.StringInput                                                                                                 `pulumi:"protocol"`
+	RuleAction    pulumi.StringInput                                                                                                 `pulumi:"ruleAction"`
 }
 
 func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs) ElementType() reflect.Type {
@@ -1517,49 +1398,42 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	return o
 }
 
-// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) *string {
 		return v.CidrBlock
 	}).(pulumi.StringPtrOutput)
 }
 
-// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) Egress() pulumi.BoolOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) bool {
 		return v.Egress
 	}).(pulumi.BoolOutput)
 }
 
-// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) IcmpTypeCodes() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode {
 		return v.IcmpTypeCodes
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput)
 }
 
-// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) *string {
 		return v.Ipv6CidrBlock
 	}).(pulumi.StringPtrOutput)
 }
 
-// A configuration block for PortRange. See the `portRange` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) PortRanges() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange {
 		return v.PortRanges
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput)
 }
 
-// The protocol number. A value of "-1" means all protocols.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) string {
 		return v.Protocol
 	}).(pulumi.StringOutput)
 }
 
-// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) RuleAction() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) string {
 		return v.RuleAction
@@ -1587,9 +1461,7 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode struct {
-	// An integer value containing ICMP code.
 	Code *int `pulumi:"code"`
-	// An integer value containing ICMP type.
 	Type *int `pulumi:"type"`
 }
 
@@ -1605,9 +1477,7 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAcl
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs struct {
-	// An integer value containing ICMP code.
 	Code pulumi.IntPtrInput `pulumi:"code"`
-	// An integer value containing ICMP type.
 	Type pulumi.IntPtrInput `pulumi:"type"`
 }
 
@@ -1662,14 +1532,12 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	return o
 }
 
-// An integer value containing ICMP code.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput) Code() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode) *int {
 		return v.Code
 	}).(pulumi.IntPtrOutput)
 }
 
-// An integer value containing ICMP type.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput) Type() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode) *int {
 		return v.Type
@@ -1697,10 +1565,8 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange struct {
-	// The beginning port number of the range.
 	From *int `pulumi:"from"`
-	// The ending port number of the range.
-	To *int `pulumi:"to"`
+	To   *int `pulumi:"to"`
 }
 
 // PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput values.
@@ -1715,10 +1581,8 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAcl
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs struct {
-	// The beginning port number of the range.
 	From pulumi.IntPtrInput `pulumi:"from"`
-	// The ending port number of the range.
-	To pulumi.IntPtrInput `pulumi:"to"`
+	To   pulumi.IntPtrInput `pulumi:"to"`
 }
 
 func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs) ElementType() reflect.Type {
@@ -1772,14 +1636,12 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 	return o
 }
 
-// The beginning port number of the range.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput) From() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange) *int {
 		return v.From
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ending port number of the range.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput) To() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange) *int {
 		return v.To
@@ -1807,7 +1669,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel *string `pulumi:"firewallDeploymentModel"`
 }
 
@@ -1823,7 +1684,6 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyInput inter
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel pulumi.StringPtrInput `pulumi:"firewallDeploymentModel"`
 }
 
@@ -1904,7 +1764,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) 
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *string {
 		return v.FirewallDeploymentModel
@@ -1935,7 +1794,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutpu
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *string {
 		if v == nil {
@@ -1946,7 +1804,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutpu
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel *string `pulumi:"firewallDeploymentModel"`
 }
 
@@ -1962,7 +1819,6 @@ type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput in
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel pulumi.StringPtrInput `pulumi:"firewallDeploymentModel"`
 }
 
@@ -2043,7 +1899,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutpu
 	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *string {
 		return v.FirewallDeploymentModel
@@ -2074,7 +1929,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOu
 	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *string {
 		if v == nil {
@@ -2085,17 +1939,11 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOu
 }
 
 type ResourceSetResourceSet struct {
-	// Description of the resource set.
-	Description *string `pulumi:"description"`
-	// Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
-	Id *string `pulumi:"id"`
-	// Last time that the reosurce set was changed.
-	LastUpdateTime *string `pulumi:"lastUpdateTime"`
-	// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
-	Name string `pulumi:"name"`
-	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
-	ResourceSetStatus *string `pulumi:"resourceSetStatus"`
-	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	Description       *string  `pulumi:"description"`
+	Id                *string  `pulumi:"id"`
+	LastUpdateTime    *string  `pulumi:"lastUpdateTime"`
+	Name              string   `pulumi:"name"`
+	ResourceSetStatus *string  `pulumi:"resourceSetStatus"`
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	UpdateToken       *string  `pulumi:"updateToken"`
 }
@@ -2112,17 +1960,11 @@ type ResourceSetResourceSetInput interface {
 }
 
 type ResourceSetResourceSetArgs struct {
-	// Description of the resource set.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Last time that the reosurce set was changed.
-	LastUpdateTime pulumi.StringPtrInput `pulumi:"lastUpdateTime"`
-	// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
-	ResourceSetStatus pulumi.StringPtrInput `pulumi:"resourceSetStatus"`
-	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	Description       pulumi.StringPtrInput   `pulumi:"description"`
+	Id                pulumi.StringPtrInput   `pulumi:"id"`
+	LastUpdateTime    pulumi.StringPtrInput   `pulumi:"lastUpdateTime"`
+	Name              pulumi.StringInput      `pulumi:"name"`
+	ResourceSetStatus pulumi.StringPtrInput   `pulumi:"resourceSetStatus"`
 	ResourceTypeLists pulumi.StringArrayInput `pulumi:"resourceTypeLists"`
 	UpdateToken       pulumi.StringPtrInput   `pulumi:"updateToken"`
 }
@@ -2178,32 +2020,26 @@ func (o ResourceSetResourceSetOutput) ToResourceSetResourceSetOutputWithContext(
 	return o
 }
 
-// Description of the resource set.
 func (o ResourceSetResourceSetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
 func (o ResourceSetResourceSetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Last time that the reosurce set was changed.
 func (o ResourceSetResourceSetOutput) LastUpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
 }
 
-// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
 func (o ResourceSetResourceSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
 func (o ResourceSetResourceSetOutput) ResourceSetStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.ResourceSetStatus }).(pulumi.StringPtrOutput)
 }
 
-// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 func (o ResourceSetResourceSetOutput) ResourceTypeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) []string { return v.ResourceTypeLists }).(pulumi.StringArrayOutput)
 }

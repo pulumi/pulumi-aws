@@ -12,27 +12,17 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class MultitenantDistributionOriginGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-        /// </summary>
         [Input("failoverCriteria")]
         public Input<Inputs.MultitenantDistributionOriginGroupFailoverCriteriaGetArgs>? FailoverCriteria { get; set; }
 
         [Input("members")]
         private InputList<Inputs.MultitenantDistributionOriginGroupMemberGetArgs>? _members;
-
-        /// <summary>
-        /// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-        /// </summary>
         public InputList<Inputs.MultitenantDistributionOriginGroupMemberGetArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.MultitenantDistributionOriginGroupMemberGetArgs>());
             set => _members = value;
         }
 
-        /// <summary>
-        /// Unique identifier for the origin group.
-        /// </summary>
         [Input("originId", required: true)]
         public Input<string> OriginId { get; set; } = null!;
 

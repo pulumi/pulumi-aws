@@ -17,32 +17,16 @@ public final class ContactsRotationRecurrenceMonthlySettingArgs extends com.pulu
 
     public static final ContactsRotationRecurrenceMonthlySettingArgs Empty = new ContactsRotationRecurrenceMonthlySettingArgs();
 
-    /**
-     * (Required) The day of the month when monthly recurring on-call rotations begin.
-     * 
-     */
     @Import(name="dayOfMonth", required=true)
     private Output<Integer> dayOfMonth;
 
-    /**
-     * @return (Required) The day of the month when monthly recurring on-call rotations begin.
-     * 
-     */
     public Output<Integer> dayOfMonth() {
         return this.dayOfMonth;
     }
 
-    /**
-     * (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     @Import(name="handOffTime")
     private @Nullable Output<ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs> handOffTime;
 
-    /**
-     * @return (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     public Optional<Output<ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs>> handOffTime() {
         return Optional.ofNullable(this.handOffTime);
     }
@@ -72,44 +56,20 @@ public final class ContactsRotationRecurrenceMonthlySettingArgs extends com.pulu
             $ = new ContactsRotationRecurrenceMonthlySettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dayOfMonth (Required) The day of the month when monthly recurring on-call rotations begin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfMonth(Output<Integer> dayOfMonth) {
             $.dayOfMonth = dayOfMonth;
             return this;
         }
 
-        /**
-         * @param dayOfMonth (Required) The day of the month when monthly recurring on-call rotations begin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfMonth(Integer dayOfMonth) {
             return dayOfMonth(Output.of(dayOfMonth));
         }
 
-        /**
-         * @param handOffTime (Required) The hand off time. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handOffTime(@Nullable Output<ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs> handOffTime) {
             $.handOffTime = handOffTime;
             return this;
         }
 
-        /**
-         * @param handOffTime (Required) The hand off time. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handOffTime(ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs handOffTime) {
             return handOffTime(Output.of(handOffTime));
         }

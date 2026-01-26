@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("customImages")]
         private InputList<Inputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>? _customImages;
-
-        /// <summary>
-        /// A list of custom SageMaker AI images that are configured to run as a RSession app. see `CustomImage` Block below.
-        /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs> CustomImages
         {
             get => _customImages ?? (_customImages = new InputList<Inputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>());
             set => _customImages = value;
         }
 
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block above.
-        /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs>? DefaultResourceSpec { get; set; }
 

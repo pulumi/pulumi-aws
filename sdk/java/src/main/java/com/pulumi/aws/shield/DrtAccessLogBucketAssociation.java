@@ -15,86 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Shield DRT Access Log Bucket Association.
- * Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.shield.DrtAccessRoleArnAssociation;
- * import com.pulumi.aws.shield.DrtAccessRoleArnAssociationArgs;
- * import com.pulumi.aws.shield.DrtAccessLogBucketAssociation;
- * import com.pulumi.aws.shield.DrtAccessLogBucketAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new DrtAccessRoleArnAssociation("test", DrtAccessRoleArnAssociationArgs.builder()
- *             .roleArn(String.format("arn:aws:iam:%s:%s:%s", current.region(),currentAwsCallerIdentity.accountId(),shieldDrtAccessRoleName))
- *             .build());
- * 
- *         var testDrtAccessLogBucketAssociation = new DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation", DrtAccessLogBucketAssociationArgs.builder()
- *             .logBucket(shieldDrtAccessLogBucket)
- *             .roleArnAssociationId(test.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
- * 
- * ```sh
- * $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
- * ```
- * 
- */
 @ResourceType(type="aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation")
 public class DrtAccessLogBucketAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon S3 bucket that contains the logs that you want to share.
-     * 
-     */
     @Export(name="logBucket", refs={String.class}, tree="[0]")
     private Output<String> logBucket;
 
-    /**
-     * @return The Amazon S3 bucket that contains the logs that you want to share.
-     * 
-     */
     public Output<String> logBucket() {
         return this.logBucket;
     }
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * Unused
      * 
      */
     @Export(name="roleArnAssociationId", refs={String.class}, tree="[0]")
     private Output<String> roleArnAssociationId;
 
     /**
-     * @return The ID of the Role Arn association used for allowing Shield DRT Access.
+     * @return Unused
      * 
      */
     public Output<String> roleArnAssociationId() {

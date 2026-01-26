@@ -11,41 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an EC2 Local Gateway Route Table.
-//
-// This data source can prove useful when a module accepts a local gateway route table id as
-// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-//
-// ## Example Usage
-//
-// # The following example returns a specific local gateway route table ID
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			awsEc2LocalGatewayRouteTable := cfg.RequireObject("awsEc2LocalGatewayRouteTable")
-//			_, err := ec2.GetLocalGatewayRouteTable(ctx, &ec2.GetLocalGatewayRouteTableArgs{
-//				LocalGatewayRouteTableId: pulumi.StringRef(awsEc2LocalGatewayRouteTable),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLocalGatewayRouteTable(ctx *pulumi.Context, args *GetLocalGatewayRouteTableArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayRouteTableResult
@@ -58,24 +23,13 @@ func GetLocalGatewayRouteTable(ctx *pulumi.Context, args *GetLocalGatewayRouteTa
 
 // A collection of arguments for invoking getLocalGatewayRouteTable.
 type GetLocalGatewayRouteTableArgs struct {
-	Filters []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
-	// ID of the specific local gateway route table to retrieve.
-	LocalGatewayId *string `pulumi:"localGatewayId"`
-	// Local Gateway Route Table Id assigned to desired local gateway route table
-	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
-	// ARN of the Outpost the local gateway route table is associated with.
-	OutpostArn *string `pulumi:"outpostArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the local gateway route table.
-	State *string `pulumi:"state"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired local gateway route table.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Local Gateway Route Tables in the current region. The given filters must match exactly one
-	// Local Gateway Route Table whose data will be exported as attributes.
-	Tags map[string]string `pulumi:"tags"`
+	Filters                  []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
+	LocalGatewayId           *string                           `pulumi:"localGatewayId"`
+	LocalGatewayRouteTableId *string                           `pulumi:"localGatewayRouteTableId"`
+	OutpostArn               *string                           `pulumi:"outpostArn"`
+	Region                   *string                           `pulumi:"region"`
+	State                    *string                           `pulumi:"state"`
+	Tags                     map[string]string                 `pulumi:"tags"`
 }
 
 // A collection of values returned by getLocalGatewayRouteTable.
@@ -102,24 +56,13 @@ func GetLocalGatewayRouteTableOutput(ctx *pulumi.Context, args GetLocalGatewayRo
 
 // A collection of arguments for invoking getLocalGatewayRouteTable.
 type GetLocalGatewayRouteTableOutputArgs struct {
-	Filters GetLocalGatewayRouteTableFilterArrayInput `pulumi:"filters"`
-	// ID of the specific local gateway route table to retrieve.
-	LocalGatewayId pulumi.StringPtrInput `pulumi:"localGatewayId"`
-	// Local Gateway Route Table Id assigned to desired local gateway route table
-	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
-	// ARN of the Outpost the local gateway route table is associated with.
-	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// State of the local gateway route table.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired local gateway route table.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Local Gateway Route Tables in the current region. The given filters must match exactly one
-	// Local Gateway Route Table whose data will be exported as attributes.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Filters                  GetLocalGatewayRouteTableFilterArrayInput `pulumi:"filters"`
+	LocalGatewayId           pulumi.StringPtrInput                     `pulumi:"localGatewayId"`
+	LocalGatewayRouteTableId pulumi.StringPtrInput                     `pulumi:"localGatewayRouteTableId"`
+	OutpostArn               pulumi.StringPtrInput                     `pulumi:"outpostArn"`
+	Region                   pulumi.StringPtrInput                     `pulumi:"region"`
+	State                    pulumi.StringPtrInput                     `pulumi:"state"`
+	Tags                     pulumi.StringMapInput                     `pulumi:"tags"`
 }
 
 func (GetLocalGatewayRouteTableOutputArgs) ElementType() reflect.Type {

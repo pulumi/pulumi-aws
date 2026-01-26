@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailSensitiveInformationPolicyConfigRegexesConfig
     {
-        /// <summary>
-        /// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        /// </summary>
         public readonly string Action;
-        /// <summary>
-        /// The regex description.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        /// </summary>
         public readonly string? InputAction;
-        /// <summary>
-        /// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        /// </summary>
         public readonly bool? InputEnabled;
-        /// <summary>
-        /// The regex name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        /// </summary>
         public readonly string? OutputAction;
-        /// <summary>
-        /// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        /// </summary>
         public readonly bool? OutputEnabled;
-        /// <summary>
-        /// The regex pattern.
-        /// </summary>
         public readonly string Pattern;
 
         [OutputConstructor]

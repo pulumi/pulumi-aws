@@ -11,65 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolClientAnalyticsConfiguration {
-    /**
-     * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
-     * 
-     */
     private String applicationArn;
-    /**
-     * @return (Optional) Application ID for an Amazon Pinpoint application.
-     * 
-     */
     private String applicationId;
-    /**
-     * @return (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
-     * 
-     */
     private String externalId;
-    /**
-     * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-     * 
-     */
     private Boolean userDataShared;
 
     private GetUserPoolClientAnalyticsConfiguration() {}
-    /**
-     * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
-     * 
-     */
     public String applicationArn() {
         return this.applicationArn;
     }
-    /**
-     * @return (Optional) Application ID for an Amazon Pinpoint application.
-     * 
-     */
     public String applicationId() {
         return this.applicationId;
     }
-    /**
-     * @return (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
-     * 
-     */
     public String externalId() {
         return this.externalId;
     }
-    /**
-     * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-     * 
-     */
     public Boolean userDataShared() {
         return this.userDataShared;
     }

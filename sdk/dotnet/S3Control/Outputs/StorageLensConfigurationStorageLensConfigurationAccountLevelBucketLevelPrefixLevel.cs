@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel
     {
-        /// <summary>
-        /// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics StorageMetrics;
 
         [OutputConstructor]

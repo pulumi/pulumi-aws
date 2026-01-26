@@ -40,25 +40,6 @@ class WorkspaceArgs:
                  vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
-        :param pulumi.Input[_builtins.str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        :param pulumi.Input[_builtins.str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
-        :param pulumi.Input[_builtins.str] description: The workspace description.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
-        :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        :param pulumi.Input[_builtins.str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that the workspace assumes.
-        :param pulumi.Input[_builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         pulumi.set(__self__, "account_access_type", account_access_type)
         pulumi.set(__self__, "authentication_providers", authentication_providers)
@@ -95,9 +76,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        """
         return pulumi.get(self, "account_access_type")
 
     @account_access_type.setter
@@ -107,9 +85,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationProviders")
     def authentication_providers(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        """
         return pulumi.get(self, "authentication_providers")
 
     @authentication_providers.setter
@@ -119,11 +94,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "permission_type")
 
     @permission_type.setter
@@ -133,9 +103,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -145,9 +112,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
-        """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
@@ -157,9 +121,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The workspace description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -169,9 +130,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        """
         return pulumi.get(self, "grafana_version")
 
     @grafana_version.setter
@@ -181,9 +139,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Grafana workspace name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -193,9 +148,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="networkAccessControl")
     def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
-        """
-        Configuration for network access to your workspace.See Network Access Control below.
-        """
         return pulumi.get(self, "network_access_control")
 
     @network_access_control.setter
@@ -205,9 +157,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        """
         return pulumi.get(self, "notification_destinations")
 
     @notification_destinations.setter
@@ -217,9 +166,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="organizationRoleName")
     def organization_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The role name that the workspace uses to access resources through Amazon Organizations.
-        """
         return pulumi.get(self, "organization_role_name")
 
     @organization_role_name.setter
@@ -229,9 +175,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
@@ -241,9 +184,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -253,9 +193,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM role ARN that the workspace assumes.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -265,9 +202,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        """
         return pulumi.get(self, "stack_set_name")
 
     @stack_set_name.setter
@@ -277,9 +211,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -289,9 +220,6 @@ class WorkspaceArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
-        """
-        The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -325,28 +253,6 @@ class _WorkspaceState:
                  vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
-        :param pulumi.Input[_builtins.str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
-        :param pulumi.Input[_builtins.str] description: The workspace description.
-        :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
-        :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        :param pulumi.Input[_builtins.str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        :param pulumi.Input[_builtins.str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that the workspace assumes.
-        :param pulumi.Input[_builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         if account_access_type is not None:
             pulumi.set(__self__, "account_access_type", account_access_type)
@@ -394,9 +300,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        """
         return pulumi.get(self, "account_access_type")
 
     @account_access_type.setter
@@ -406,9 +309,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Grafana workspace.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -418,9 +318,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="authenticationProviders")
     def authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        """
         return pulumi.get(self, "authentication_providers")
 
     @authentication_providers.setter
@@ -430,9 +327,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -442,9 +336,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
-        """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
@@ -454,9 +345,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The workspace description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -466,9 +354,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The endpoint of the Grafana workspace.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -478,9 +363,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        """
         return pulumi.get(self, "grafana_version")
 
     @grafana_version.setter
@@ -490,9 +372,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Grafana workspace name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -502,9 +381,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="networkAccessControl")
     def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
-        """
-        Configuration for network access to your workspace.See Network Access Control below.
-        """
         return pulumi.get(self, "network_access_control")
 
     @network_access_control.setter
@@ -514,9 +390,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        """
         return pulumi.get(self, "notification_destinations")
 
     @notification_destinations.setter
@@ -526,9 +399,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="organizationRoleName")
     def organization_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The role name that the workspace uses to access resources through Amazon Organizations.
-        """
         return pulumi.get(self, "organization_role_name")
 
     @organization_role_name.setter
@@ -538,9 +408,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
@@ -550,11 +417,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "permission_type")
 
     @permission_type.setter
@@ -564,9 +426,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -576,9 +435,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM role ARN that the workspace assumes.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -597,9 +453,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        """
         return pulumi.get(self, "stack_set_name")
 
     @stack_set_name.setter
@@ -609,9 +462,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -621,9 +471,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -633,9 +480,6 @@ class _WorkspaceState:
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
-        """
-        The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -668,92 +512,9 @@ class Workspace(pulumi.CustomResource):
                  vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Provides an Amazon Managed Grafana workspace resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume",
-            name="grafana-assume",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "grafana.amazonaws.com",
-                    },
-                }],
-            }))
-        example = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        ```
-
-        ### Workspace configuration options
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume["arn"],
-            configuration=json.dumps({
-                "plugins": {
-                    "pluginAdminEnabled": True,
-                },
-                "unifiedAlerting": {
-                    "enabled": False,
-                },
-            }))
-        ```
-
-        The optional argument `configuration` is a JSON string that disables the unified `Grafana Alerting` (Grafana version 10 or newer) and enables `Plugin Management` (Grafana version 9 or newer) on the Grafana Workspaces.
-
-        For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
-
-        ## Import
-
-        Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
-
-        ```sh
-        $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-        ```
-
+        Create a Workspace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
-        :param pulumi.Input[_builtins.str] description: The workspace description.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
-        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        :param pulumi.Input[_builtins.str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        :param pulumi.Input[_builtins.str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that the workspace assumes.
-        :param pulumi.Input[_builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         ...
     @overload
@@ -762,71 +523,7 @@ class Workspace(pulumi.CustomResource):
                  args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Managed Grafana workspace resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume",
-            name="grafana-assume",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "grafana.amazonaws.com",
-                    },
-                }],
-            }))
-        example = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        ```
-
-        ### Workspace configuration options
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume["arn"],
-            configuration=json.dumps({
-                "plugins": {
-                    "pluginAdminEnabled": True,
-                },
-                "unifiedAlerting": {
-                    "enabled": False,
-                },
-            }))
-        ```
-
-        The optional argument `configuration` is a JSON string that disables the unified `Grafana Alerting` (Grafana version 10 or newer) and enables `Plugin Management` (Grafana version 9 or newer) on the Grafana Workspaces.
-
-        For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
-
-        ## Import
-
-        Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
-
-        ```sh
-        $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-        ```
-
+        Create a Workspace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -933,28 +630,6 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
-        :param pulumi.Input[_builtins.str] description: The workspace description.
-        :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
-        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        :param pulumi.Input[_builtins.str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        :param pulumi.Input[_builtins.str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that the workspace assumes.
-        :param pulumi.Input[_builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -986,131 +661,81 @@ class Workspace(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        """
         return pulumi.get(self, "account_access_type")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Grafana workspace.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationProviders")
     def authentication_providers(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        """
         return pulumi.get(self, "authentication_providers")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[_builtins.str]:
-        """
-        The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
-        """
         return pulumi.get(self, "data_sources")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The workspace description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The endpoint of the Grafana workspace.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        """
         return pulumi.get(self, "grafana_version")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Grafana workspace name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="networkAccessControl")
     def network_access_control(self) -> pulumi.Output[Optional['outputs.WorkspaceNetworkAccessControl']]:
-        """
-        Configuration for network access to your workspace.See Network Access Control below.
-        """
         return pulumi.get(self, "network_access_control")
 
     @_builtins.property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        """
         return pulumi.get(self, "notification_destinations")
 
     @_builtins.property
     @pulumi.getter(name="organizationRoleName")
     def organization_role_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The role name that the workspace uses to access resources through Amazon Organizations.
-        """
         return pulumi.get(self, "organization_role_name")
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        """
         return pulumi.get(self, "organizational_units")
 
     @_builtins.property
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "permission_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IAM role ARN that the workspace assumes.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
@@ -1121,32 +746,20 @@ class Workspace(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        """
         return pulumi.get(self, "stack_set_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceVpcConfiguration']]:
-        """
-        The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
-        """
         return pulumi.get(self, "vpc_configuration")
 

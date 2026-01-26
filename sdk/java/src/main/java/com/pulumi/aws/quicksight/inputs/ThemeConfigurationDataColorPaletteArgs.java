@@ -16,47 +16,23 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
 
     public static final ThemeConfigurationDataColorPaletteArgs Empty = new ThemeConfigurationDataColorPaletteArgs();
 
-    /**
-     * List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-     * 
-     */
     @Import(name="colors")
     private @Nullable Output<List<String>> colors;
 
-    /**
-     * @return List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-     * 
-     */
     public Optional<Output<List<String>>> colors() {
         return Optional.ofNullable(this.colors);
     }
 
-    /**
-     * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-     * 
-     */
     @Import(name="emptyFillColor")
     private @Nullable Output<String> emptyFillColor;
 
-    /**
-     * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-     * 
-     */
     public Optional<Output<String>> emptyFillColor() {
         return Optional.ofNullable(this.emptyFillColor);
     }
 
-    /**
-     * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-     * 
-     */
     @Import(name="minMaxGradients")
     private @Nullable Output<List<String>> minMaxGradients;
 
-    /**
-     * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-     * 
-     */
     public Optional<Output<List<String>>> minMaxGradients() {
         return Optional.ofNullable(this.minMaxGradients);
     }
@@ -87,85 +63,37 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
             $ = new ThemeConfigurationDataColorPaletteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param colors List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder colors(@Nullable Output<List<String>> colors) {
             $.colors = colors;
             return this;
         }
 
-        /**
-         * @param colors List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder colors(List<String> colors) {
             return colors(Output.of(colors));
         }
 
-        /**
-         * @param colors List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder colors(String... colors) {
             return colors(List.of(colors));
         }
 
-        /**
-         * @param emptyFillColor The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emptyFillColor(@Nullable Output<String> emptyFillColor) {
             $.emptyFillColor = emptyFillColor;
             return this;
         }
 
-        /**
-         * @param emptyFillColor The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emptyFillColor(String emptyFillColor) {
             return emptyFillColor(Output.of(emptyFillColor));
         }
 
-        /**
-         * @param minMaxGradients The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minMaxGradients(@Nullable Output<List<String>> minMaxGradients) {
             $.minMaxGradients = minMaxGradients;
             return this;
         }
 
-        /**
-         * @param minMaxGradients The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minMaxGradients(List<String> minMaxGradients) {
             return minMaxGradients(Output.of(minMaxGradients));
         }
 
-        /**
-         * @param minMaxGradients The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minMaxGradients(String... minMaxGradients) {
             return minMaxGradients(List.of(minMaxGradients));
         }

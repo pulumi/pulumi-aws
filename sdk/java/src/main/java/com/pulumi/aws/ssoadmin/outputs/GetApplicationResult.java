@@ -12,109 +12,45 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationResult {
-    /**
-     * @return AWS account ID.
-     * 
-     */
     private String applicationAccount;
     private String applicationArn;
-    /**
-     * @return ARN of the application provider.
-     * 
-     */
     private String applicationProviderArn;
-    /**
-     * @return Description of the application.
-     * 
-     */
     private String description;
-    /**
-     * @return ARN of the application.
-     * 
-     */
     private String id;
-    /**
-     * @return ARN of the instance of IAM Identity Center.
-     * 
-     */
     private String instanceArn;
-    /**
-     * @return Name of the application.
-     * 
-     */
     private String name;
-    /**
-     * @return Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-     * 
-     */
     private List<GetApplicationPortalOption> portalOptions;
     private String region;
-    /**
-     * @return Status of the application.
-     * 
-     */
     private String status;
 
     private GetApplicationResult() {}
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public String applicationAccount() {
         return this.applicationAccount;
     }
     public String applicationArn() {
         return this.applicationArn;
     }
-    /**
-     * @return ARN of the application provider.
-     * 
-     */
     public String applicationProviderArn() {
         return this.applicationProviderArn;
     }
-    /**
-     * @return Description of the application.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the instance of IAM Identity Center.
-     * 
-     */
     public String instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * @return Name of the application.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-     * 
-     */
     public List<GetApplicationPortalOption> portalOptions() {
         return this.portalOptions;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the application.
-     * 
-     */
     public String status() {
         return this.status;
     }

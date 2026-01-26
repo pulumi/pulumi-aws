@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ReplicatorKafkaClusterAmazonMskClusterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of an Amazon MSK cluster.
-        /// </summary>
         [Input("mskClusterArn", required: true)]
         public Input<string> MskClusterArn { get; set; } = null!;
 

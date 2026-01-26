@@ -17,16 +17,14 @@ public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.R
     public static final TableMetadataIcebergSchemaArgs Empty = new TableMetadataIcebergSchemaArgs();
 
     /**
-     * List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-     * See `field` below.
+     * List of schema fields for the Iceberg table.
      * 
      */
     @Import(name="fields")
     private @Nullable Output<List<TableMetadataIcebergSchemaFieldArgs>> fields;
 
     /**
-     * @return List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-     * See `field` below.
+     * @return List of schema fields for the Iceberg table.
      * 
      */
     public Optional<Output<List<TableMetadataIcebergSchemaFieldArgs>>> fields() {
@@ -58,8 +56,7 @@ public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param fields List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-         * See `field` below.
+         * @param fields List of schema fields for the Iceberg table.
          * 
          * @return builder
          * 
@@ -70,8 +67,7 @@ public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param fields List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-         * See `field` below.
+         * @param fields List of schema fields for the Iceberg table.
          * 
          * @return builder
          * 
@@ -81,8 +77,7 @@ public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param fields List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-         * See `field` below.
+         * @param fields List of schema fields for the Iceberg table.
          * 
          * @return builder
          * 

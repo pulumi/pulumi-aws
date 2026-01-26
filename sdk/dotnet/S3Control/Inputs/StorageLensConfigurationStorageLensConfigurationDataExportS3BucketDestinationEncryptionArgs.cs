@@ -12,18 +12,11 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// SSE-KMS encryption. See SSE KMS below for more details.
-        /// </summary>
         [Input("sseKms")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs>? SseKms { get; set; }
 
         [Input("sseS3s")]
         private InputList<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args>? _sseS3s;
-
-        /// <summary>
-        /// SSE-S3 encryption. An empty configuration block `{}` should be used.
-        /// </summary>
         public InputList<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args> SseS3s
         {
             get => _sseS3s ?? (_sseS3s = new InputList<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args>());

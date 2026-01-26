@@ -17,32 +17,16 @@ public final class GatewayRouteSpecHttpRouteActionTargetArgs extends com.pulumi.
 
     public static final GatewayRouteSpecHttpRouteActionTargetArgs Empty = new GatewayRouteSpecHttpRouteActionTargetArgs();
 
-    /**
-     * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * Virtual service gateway route target.
-     * 
-     */
     @Import(name="virtualService", required=true)
     private Output<GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs> virtualService;
 
-    /**
-     * @return Virtual service gateway route target.
-     * 
-     */
     public Output<GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs> virtualService() {
         return this.virtualService;
     }
@@ -72,44 +56,20 @@ public final class GatewayRouteSpecHttpRouteActionTargetArgs extends com.pulumi.
             $ = new GatewayRouteSpecHttpRouteActionTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param virtualService Virtual service gateway route target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualService(Output<GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs> virtualService) {
             $.virtualService = virtualService;
             return this;
         }
 
-        /**
-         * @param virtualService Virtual service gateway route target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualService(GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs virtualService) {
             return virtualService(Output.of(virtualService));
         }

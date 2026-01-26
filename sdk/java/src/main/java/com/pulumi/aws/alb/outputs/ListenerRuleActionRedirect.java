@@ -12,77 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleActionRedirect {
-    /**
-     * @return The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
-     * 
-     */
     private @Nullable String host;
-    /**
-     * @return The absolute path, starting with the leading &#34;/&#34;. This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
-     * 
-     */
     private @Nullable String path;
-    /**
-     * @return The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-     * 
-     */
     private @Nullable String port;
-    /**
-     * @return The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-     * 
-     */
     private @Nullable String protocol;
-    /**
-     * @return The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading &#34;?&#34;. Defaults to `#{query}`.
-     * 
-     */
     private @Nullable String query;
-    /**
-     * @return The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-     * 
-     */
     private String statusCode;
 
     private ListenerRuleActionRedirect() {}
-    /**
-     * @return The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
-     * 
-     */
     public Optional<String> host() {
         return Optional.ofNullable(this.host);
     }
-    /**
-     * @return The absolute path, starting with the leading &#34;/&#34;. This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
-    /**
-     * @return The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-     * 
-     */
     public Optional<String> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-     * 
-     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
-    /**
-     * @return The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading &#34;?&#34;. Defaults to `#{query}`.
-     * 
-     */
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
     }
-    /**
-     * @return The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-     * 
-     */
     public String statusCode() {
         return this.statusCode;
     }

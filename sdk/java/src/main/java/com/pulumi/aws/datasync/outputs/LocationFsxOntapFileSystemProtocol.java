@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LocationFsxOntapFileSystemProtocol {
-    /**
-     * @return Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-     * 
-     */
     private @Nullable LocationFsxOntapFileSystemProtocolNfs nfs;
-    /**
-     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-     * 
-     */
     private @Nullable LocationFsxOntapFileSystemProtocolSmb smb;
 
     private LocationFsxOntapFileSystemProtocol() {}
-    /**
-     * @return Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-     * 
-     */
     public Optional<LocationFsxOntapFileSystemProtocolNfs> nfs() {
         return Optional.ofNullable(this.nfs);
     }
-    /**
-     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-     * 
-     */
     public Optional<LocationFsxOntapFileSystemProtocolSmb> smb() {
         return Optional.ofNullable(this.smb);
     }

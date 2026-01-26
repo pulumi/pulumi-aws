@@ -18,137 +18,65 @@ public final class PortalArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PortalArgs Empty = new PortalArgs();
 
-    /**
-     * Additional encryption context for the customer managed key. Forces replacement if changed.
-     * 
-     */
     @Import(name="additionalEncryptionContext")
     private @Nullable Output<Map<String,String>> additionalEncryptionContext;
 
-    /**
-     * @return Additional encryption context for the customer managed key. Forces replacement if changed.
-     * 
-     */
     public Optional<Output<Map<String,String>>> additionalEncryptionContext() {
         return Optional.ofNullable(this.additionalEncryptionContext);
     }
 
-    /**
-     * Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-     * 
-     */
     @Import(name="authenticationType")
     private @Nullable Output<String> authenticationType;
 
-    /**
-     * @return Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-     * 
-     */
     public Optional<Output<String>> authenticationType() {
         return Optional.ofNullable(this.authenticationType);
     }
 
-    /**
-     * ARN of the browser settings to use for the portal.
-     * 
-     */
     @Import(name="browserSettingsArn")
     private @Nullable Output<String> browserSettingsArn;
 
-    /**
-     * @return ARN of the browser settings to use for the portal.
-     * 
-     */
     public Optional<Output<String>> browserSettingsArn() {
         return Optional.ofNullable(this.browserSettingsArn);
     }
 
-    /**
-     * ARN of the customer managed key. Forces replacement if changed.
-     * 
-     */
     @Import(name="customerManagedKey")
     private @Nullable Output<String> customerManagedKey;
 
-    /**
-     * @return ARN of the customer managed key. Forces replacement if changed.
-     * 
-     */
     public Optional<Output<String>> customerManagedKey() {
         return Optional.ofNullable(this.customerManagedKey);
     }
 
-    /**
-     * Display name of the portal.
-     * 
-     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
-    /**
-     * @return Display name of the portal.
-     * 
-     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-     * 
-     */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
-    /**
-     * @return Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-     * 
-     */
     public Optional<Output<String>> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
 
-    /**
-     * Maximum number of concurrent sessions for the portal.
-     * 
-     */
     @Import(name="maxConcurrentSessions")
     private @Nullable Output<Integer> maxConcurrentSessions;
 
-    /**
-     * @return Maximum number of concurrent sessions for the portal.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrentSessions() {
         return Optional.ofNullable(this.maxConcurrentSessions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -193,191 +121,83 @@ public final class PortalArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PortalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param additionalEncryptionContext Additional encryption context for the customer managed key. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalEncryptionContext(@Nullable Output<Map<String,String>> additionalEncryptionContext) {
             $.additionalEncryptionContext = additionalEncryptionContext;
             return this;
         }
 
-        /**
-         * @param additionalEncryptionContext Additional encryption context for the customer managed key. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalEncryptionContext(Map<String,String> additionalEncryptionContext) {
             return additionalEncryptionContext(Output.of(additionalEncryptionContext));
         }
 
-        /**
-         * @param authenticationType Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationType(@Nullable Output<String> authenticationType) {
             $.authenticationType = authenticationType;
             return this;
         }
 
-        /**
-         * @param authenticationType Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationType(String authenticationType) {
             return authenticationType(Output.of(authenticationType));
         }
 
-        /**
-         * @param browserSettingsArn ARN of the browser settings to use for the portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder browserSettingsArn(@Nullable Output<String> browserSettingsArn) {
             $.browserSettingsArn = browserSettingsArn;
             return this;
         }
 
-        /**
-         * @param browserSettingsArn ARN of the browser settings to use for the portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder browserSettingsArn(String browserSettingsArn) {
             return browserSettingsArn(Output.of(browserSettingsArn));
         }
 
-        /**
-         * @param customerManagedKey ARN of the customer managed key. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerManagedKey(@Nullable Output<String> customerManagedKey) {
             $.customerManagedKey = customerManagedKey;
             return this;
         }
 
-        /**
-         * @param customerManagedKey ARN of the customer managed key. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerManagedKey(String customerManagedKey) {
             return customerManagedKey(Output.of(customerManagedKey));
         }
 
-        /**
-         * @param displayName Display name of the portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName Display name of the portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param instanceType Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(@Nullable Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
-        /**
-         * @param maxConcurrentSessions Maximum number of concurrent sessions for the portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentSessions(@Nullable Output<Integer> maxConcurrentSessions) {
             $.maxConcurrentSessions = maxConcurrentSessions;
             return this;
         }
 
-        /**
-         * @param maxConcurrentSessions Maximum number of concurrent sessions for the portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentSessions(Integer maxConcurrentSessions) {
             return maxConcurrentSessions(Output.of(maxConcurrentSessions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

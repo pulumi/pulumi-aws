@@ -24,9 +24,6 @@ class TableBucketPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TableBucketPolicy resource.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_policy", resource_policy)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
@@ -36,9 +33,6 @@ class TableBucketPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Web Services resource-based policy document in JSON format.
-        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -48,9 +42,6 @@ class TableBucketPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that owns this policy.
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -60,9 +51,6 @@ class TableBucketPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _TableBucketPolicyState:
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableBucketPolicy resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -92,9 +77,6 @@ class _TableBucketPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,9 +86,6 @@ class _TableBucketPolicyState:
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Web Services resource-based policy document in JSON format.
-        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -116,9 +95,6 @@ class _TableBucketPolicyState:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN referencing the Table Bucket that owns this policy.
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -137,36 +113,9 @@ class TableBucketPolicy(pulumi.CustomResource):
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon S3 Tables Table Bucket Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{}])
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example_table_bucket_policy = aws.s3tables.TableBucketPolicy("example",
-            resource_policy=example.json,
-            table_bucket_arn=example_table_bucket.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Table Bucket Policy using the `table_bucket_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/tableBucketPolicy:TableBucketPolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
-        ```
-
+        Create a TableBucketPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
         ...
     @overload
@@ -175,31 +124,7 @@ class TableBucketPolicy(pulumi.CustomResource):
                  args: TableBucketPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon S3 Tables Table Bucket Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{}])
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example_table_bucket_policy = aws.s3tables.TableBucketPolicy("example",
-            resource_policy=example.json,
-            table_bucket_arn=example_table_bucket.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Table Bucket Policy using the `table_bucket_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/tableBucketPolicy:TableBucketPolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
-        ```
-
+        Create a TableBucketPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TableBucketPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,9 +179,6 @@ class TableBucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,24 +192,15 @@ class TableBucketPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Web Services resource-based policy document in JSON format.
-        """
         return pulumi.get(self, "resource_policy")
 
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that owns this policy.
-        """
         return pulumi.get(self, "table_bucket_arn")
 

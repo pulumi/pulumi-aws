@@ -19,113 +19,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerRuleAction {
-    /**
-     * @return An action to authenticate using Amazon Cognito.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos;
-    /**
-     * @return An action to authenticate using OIDC.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs;
-    /**
-     * @return An action to return a fixed response.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleActionFixedResponse> fixedResponses;
-    /**
-     * @return An action to forward the request.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleActionForward> forwards;
-    /**
-     * @return An action to validate using JWT.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleActionJwtValidation> jwtValidations;
-    /**
-     * @return The evaluation order of the action.
-     * 
-     */
     private Integer order;
-    /**
-     * @return An action to redirect the request.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleActionRedirect> redirects;
-    /**
-     * @return Type of transform.
-     * 
-     */
     private String type;
 
     private GetListenerRuleAction() {}
-    /**
-     * @return An action to authenticate using Amazon Cognito.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos() {
         return this.authenticateCognitos == null ? List.of() : this.authenticateCognitos;
     }
-    /**
-     * @return An action to authenticate using OIDC.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs() {
         return this.authenticateOidcs == null ? List.of() : this.authenticateOidcs;
     }
-    /**
-     * @return An action to return a fixed response.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleActionFixedResponse> fixedResponses() {
         return this.fixedResponses == null ? List.of() : this.fixedResponses;
     }
-    /**
-     * @return An action to forward the request.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleActionForward> forwards() {
         return this.forwards == null ? List.of() : this.forwards;
     }
-    /**
-     * @return An action to validate using JWT.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleActionJwtValidation> jwtValidations() {
         return this.jwtValidations == null ? List.of() : this.jwtValidations;
     }
-    /**
-     * @return The evaluation order of the action.
-     * 
-     */
     public Integer order() {
         return this.order;
     }
-    /**
-     * @return An action to redirect the request.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleActionRedirect> redirects() {
         return this.redirects == null ? List.of() : this.redirects;
     }
-    /**
-     * @return Type of transform.
-     * 
-     */
     public String type() {
         return this.type;
     }

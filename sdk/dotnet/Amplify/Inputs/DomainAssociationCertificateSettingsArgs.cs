@@ -12,23 +12,12 @@ namespace Pulumi.Aws.Amplify.Inputs
 
     public sealed class DomainAssociationCertificateSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-        /// </summary>
         [Input("certificateVerificationDnsRecord")]
         public Input<string>? CertificateVerificationDnsRecord { get; set; }
 
-        /// <summary>
-        /// The Amazon resource name (ARN) for the custom certificate.
-        /// Required when `Type` is `CUSTOM`.
-        /// </summary>
         [Input("customCertificateArn")]
         public Input<string>? CustomCertificateArn { get; set; }
 
-        /// <summary>
-        /// The certificate type.
-        /// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

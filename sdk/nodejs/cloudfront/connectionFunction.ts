@@ -7,95 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS CloudFront Connection Function.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
- *     connectionFunctionConfig: {
- *         runtime: "cloudfront-js-2.0",
- *         comment: "Example connection function",
- *     },
- * });
- * ```
- *
- * ### With Publish Enabled
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
- *     connectionFunctionConfig: {
- *         runtime: "cloudfront-js-2.0",
- *         comment: "Example connection function",
- *     },
- *     publish: true,
- * });
- * ```
- *
- * ### With Key Value Store Associations
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.KeyValueStore("example", {
- *     name: "example-kvs",
- *     comment: "Example key value store",
- * });
- * const exampleConnectionFunction = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
- *     connectionFunctionConfig: {
- *         runtime: "cloudfront-js-2.0",
- *         comment: "Example connection function",
- *         keyValueStoreAssociation: {
- *             keyValueStoreArn: example.arn,
- *         },
- *     },
- * });
- * ```
- *
- * ### With Tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
- *     connectionFunctionConfig: {
- *         runtime: "cloudfront-js-2.0",
- *         comment: "Example connection function",
- *     },
- *     tags: {
- *         Environment: "production",
- *         Team: "web",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudFront Connection Function using the function ID. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/connectionFunction:ConnectionFunction example E1PA6795UKMFR9
- * ```
- */
 export class ConnectionFunction extends pulumi.CustomResource {
     /**
      * Get an existing ConnectionFunction resource's state with the given name, ID, and optional extra
@@ -124,47 +35,15 @@ export class ConnectionFunction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionFunction.__pulumiType;
     }
 
-    /**
-     * ARN of the connection function.
-     */
     declare public /*out*/ readonly connectionFunctionArn: pulumi.Output<string>;
-    /**
-     * Code for the connection function. Maximum length is 40960 characters.
-     */
     declare public readonly connectionFunctionCode: pulumi.Output<string>;
-    /**
-     * Configuration information for the connection function. See `connectionFunctionConfig` below.
-     */
     declare public readonly connectionFunctionConfig: pulumi.Output<outputs.cloudfront.ConnectionFunctionConnectionFunctionConfig | undefined>;
-    /**
-     * ETag of the connection function.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * ETag of the function's LIVE stage. Will be empty if the function has not been published.
-     */
     declare public /*out*/ readonly liveStageEtag: pulumi.Output<string>;
-    /**
-     * Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-     */
     declare public readonly publish: pulumi.Output<boolean>;
-    /**
-     * Status of the connection function.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -215,47 +94,15 @@ export class ConnectionFunction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConnectionFunction resources.
  */
 export interface ConnectionFunctionState {
-    /**
-     * ARN of the connection function.
-     */
     connectionFunctionArn?: pulumi.Input<string>;
-    /**
-     * Code for the connection function. Maximum length is 40960 characters.
-     */
     connectionFunctionCode?: pulumi.Input<string>;
-    /**
-     * Configuration information for the connection function. See `connectionFunctionConfig` below.
-     */
     connectionFunctionConfig?: pulumi.Input<inputs.cloudfront.ConnectionFunctionConnectionFunctionConfig>;
-    /**
-     * ETag of the connection function.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * ETag of the function's LIVE stage. Will be empty if the function has not been published.
-     */
     liveStageEtag?: pulumi.Input<string>;
-    /**
-     * Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-     */
     publish?: pulumi.Input<boolean>;
-    /**
-     * Status of the connection function.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -263,26 +110,9 @@ export interface ConnectionFunctionState {
  * The set of arguments for constructing a ConnectionFunction resource.
  */
 export interface ConnectionFunctionArgs {
-    /**
-     * Code for the connection function. Maximum length is 40960 characters.
-     */
     connectionFunctionCode: pulumi.Input<string>;
-    /**
-     * Configuration information for the connection function. See `connectionFunctionConfig` below.
-     */
     connectionFunctionConfig?: pulumi.Input<inputs.cloudfront.ConnectionFunctionConnectionFunctionConfig>;
-    /**
-     * Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-     */
     publish?: pulumi.Input<boolean>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -14,32 +14,16 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
 
     public static final V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs Empty = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs();
 
-    /**
-     * Whether audio input is allowed.
-     * 
-     */
     @Import(name="allowAudioInput", required=true)
     private Output<Boolean> allowAudioInput;
 
-    /**
-     * @return Whether audio input is allowed.
-     * 
-     */
     public Output<Boolean> allowAudioInput() {
         return this.allowAudioInput;
     }
 
-    /**
-     * Whether DTMF input is allowed.
-     * 
-     */
     @Import(name="allowDtmfInput", required=true)
     private Output<Boolean> allowDtmfInput;
 
-    /**
-     * @return Whether DTMF input is allowed.
-     * 
-     */
     public Output<Boolean> allowDtmfInput() {
         return this.allowDtmfInput;
     }
@@ -69,44 +53,20 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
             $ = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowAudioInput Whether audio input is allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAudioInput(Output<Boolean> allowAudioInput) {
             $.allowAudioInput = allowAudioInput;
             return this;
         }
 
-        /**
-         * @param allowAudioInput Whether audio input is allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAudioInput(Boolean allowAudioInput) {
             return allowAudioInput(Output.of(allowAudioInput));
         }
 
-        /**
-         * @param allowDtmfInput Whether DTMF input is allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowDtmfInput(Output<Boolean> allowDtmfInput) {
             $.allowDtmfInput = allowDtmfInput;
             return this;
         }
 
-        /**
-         * @param allowDtmfInput Whether DTMF input is allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowDtmfInput(Boolean allowDtmfInput) {
             return allowDtmfInput(Output.of(allowDtmfInput));
         }

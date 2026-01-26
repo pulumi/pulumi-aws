@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceInstanceMarketOptionsSpotOptions {
-    /**
-     * @return The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
-     * 
-     */
     private @Nullable String instanceInterruptionBehavior;
-    /**
-     * @return The maximum hourly price that you&#39;re willing to pay for a Spot Instance.
-     * 
-     */
     private @Nullable String maxPrice;
-    /**
-     * @return The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
-     * 
-     */
     private @Nullable String spotInstanceType;
-    /**
-     * @return The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
-     * 
-     */
     private @Nullable String validUntil;
 
     private InstanceInstanceMarketOptionsSpotOptions() {}
-    /**
-     * @return The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
-     * 
-     */
     public Optional<String> instanceInterruptionBehavior() {
         return Optional.ofNullable(this.instanceInterruptionBehavior);
     }
-    /**
-     * @return The maximum hourly price that you&#39;re willing to pay for a Spot Instance.
-     * 
-     */
     public Optional<String> maxPrice() {
         return Optional.ofNullable(this.maxPrice);
     }
-    /**
-     * @return The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
-     * 
-     */
     public Optional<String> spotInstanceType() {
         return Optional.ofNullable(this.spotInstanceType);
     }
-    /**
-     * @return The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
-     * 
-     */
     public Optional<String> validUntil() {
         return Optional.ofNullable(this.validUntil);
     }

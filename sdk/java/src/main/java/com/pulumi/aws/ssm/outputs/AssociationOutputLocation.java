@@ -12,45 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AssociationOutputLocation {
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     private String s3BucketName;
-    /**
-     * @return The S3 bucket prefix. Results stored in the root if not configured.
-     * 
-     */
     private @Nullable String s3KeyPrefix;
-    /**
-     * @return The S3 bucket region.
-     * 
-     * Targets specify what instance IDs or tags to apply the document to and has these keys:
-     * 
-     */
     private @Nullable String s3Region;
 
     private AssociationOutputLocation() {}
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
-    /**
-     * @return The S3 bucket prefix. Results stored in the root if not configured.
-     * 
-     */
     public Optional<String> s3KeyPrefix() {
         return Optional.ofNullable(this.s3KeyPrefix);
     }
-    /**
-     * @return The S3 bucket region.
-     * 
-     * Targets specify what instance IDs or tags to apply the document to and has these keys:
-     * 
-     */
     public Optional<String> s3Region() {
         return Optional.ofNullable(this.s3Region);
     }

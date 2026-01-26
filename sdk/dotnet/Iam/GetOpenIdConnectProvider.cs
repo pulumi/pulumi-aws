@@ -11,129 +11,12 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetOpenIdConnectProvider
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM OpenID Connect provider. By using this data source, you can retrieve the
-        /// the resource information by either its `Arn` or `Url`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetOpenIdConnectProvider.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetOpenIdConnectProvider.Invoke(new()
-        ///     {
-        ///         Url = "https://accounts.google.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM OpenID Connect provider. By using this data source, you can retrieve the
-        /// the resource information by either its `Arn` or `Url`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetOpenIdConnectProvider.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetOpenIdConnectProvider.Invoke(new()
-        ///     {
-        ///         Url = "https://accounts.google.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOpenIdConnectProviderResult> Invoke(GetOpenIdConnectProviderInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenIdConnectProviderResult>("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM OpenID Connect provider. By using this data source, you can retrieve the
-        /// the resource information by either its `Arn` or `Url`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetOpenIdConnectProvider.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetOpenIdConnectProvider.Invoke(new()
-        ///     {
-        ///         Url = "https://accounts.google.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOpenIdConnectProviderResult> Invoke(GetOpenIdConnectProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenIdConnectProviderResult>("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderInvokeArgs(), options.WithDefaults());
     }
@@ -141,27 +24,17 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetOpenIdConnectProviderArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the OpenID Connect provider.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags for the IAM OIDC provider.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// URL of the OpenID Connect provider.
-        /// </summary>
         [Input("url")]
         public string? Url { get; set; }
 
@@ -173,27 +46,17 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetOpenIdConnectProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the OpenID Connect provider.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags for the IAM OIDC provider.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// URL of the OpenID Connect provider.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
@@ -208,21 +71,12 @@ namespace Pulumi.Aws.Iam
     public sealed class GetOpenIdConnectProviderResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the ClientId parameter on OAuth requests.)
-        /// </summary>
         public readonly ImmutableArray<string> ClientIdLists;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Map of resource tags for the IAM OIDC provider.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        /// </summary>
         public readonly ImmutableArray<string> ThumbprintLists;
         public readonly string Url;
 

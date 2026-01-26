@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
-    /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
-     * 
-     */
     private @Nullable List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters;
-    /**
-     * @return The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-     * 
-     */
     private String type;
 
     private AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration() {}
-    /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
-     * 
-     */
     public List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters() {
         return this.patternObjectFilters == null ? List.of() : this.patternObjectFilters;
     }
-    /**
-     * @return The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-     * 
-     */
     public String type() {
         return this.type;
     }

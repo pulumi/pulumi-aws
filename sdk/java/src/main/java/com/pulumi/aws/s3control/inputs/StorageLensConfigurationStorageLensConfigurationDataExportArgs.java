@@ -16,32 +16,16 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
 
     public static final StorageLensConfigurationStorageLensConfigurationDataExportArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportArgs();
 
-    /**
-     * Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-     * 
-     */
     @Import(name="cloudWatchMetrics")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs> cloudWatchMetrics;
 
-    /**
-     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs>> cloudWatchMetrics() {
         return Optional.ofNullable(this.cloudWatchMetrics);
     }
 
-    /**
-     * The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-     * 
-     */
     @Import(name="s3BucketDestination")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs> s3BucketDestination;
 
-    /**
-     * @return The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs>> s3BucketDestination() {
         return Optional.ofNullable(this.s3BucketDestination);
     }
@@ -71,44 +55,20 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
             $ = new StorageLensConfigurationStorageLensConfigurationDataExportArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudWatchMetrics Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchMetrics(@Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs> cloudWatchMetrics) {
             $.cloudWatchMetrics = cloudWatchMetrics;
             return this;
         }
 
-        /**
-         * @param cloudWatchMetrics Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchMetrics(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs cloudWatchMetrics) {
             return cloudWatchMetrics(Output.of(cloudWatchMetrics));
         }
 
-        /**
-         * @param s3BucketDestination The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketDestination(@Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs> s3BucketDestination) {
             $.s3BucketDestination = s3BucketDestination;
             return this;
         }
 
-        /**
-         * @param s3BucketDestination The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketDestination(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs s3BucketDestination) {
             return s3BucketDestination(Output.of(s3BucketDestination));
         }

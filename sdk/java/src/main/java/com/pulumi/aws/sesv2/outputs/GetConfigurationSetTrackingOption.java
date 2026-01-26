@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationSetTrackingOption {
-    /**
-     * @return The domain to use for tracking open and click events.
-     * 
-     */
     private String customRedirectDomain;
-    /**
-     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-     * 
-     */
     private String httpsPolicy;
 
     private GetConfigurationSetTrackingOption() {}
-    /**
-     * @return The domain to use for tracking open and click events.
-     * 
-     */
     public String customRedirectDomain() {
         return this.customRedirectDomain;
     }
-    /**
-     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-     * 
-     */
     public String httpsPolicy() {
         return this.httpsPolicy;
     }

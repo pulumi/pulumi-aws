@@ -20,10 +20,6 @@ public final class GetLocalGatewaysResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of all the Local Gateway identifiers
-     * 
-     */
     private List<String> ids;
     private String region;
     private Map<String,String> tags;
@@ -39,10 +35,6 @@ public final class GetLocalGatewaysResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of all the Local Gateway identifiers
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

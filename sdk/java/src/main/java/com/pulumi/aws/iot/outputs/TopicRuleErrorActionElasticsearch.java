@@ -10,65 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleErrorActionElasticsearch {
-    /**
-     * @return The endpoint of your Elasticsearch domain.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return The unique identifier for the document you are storing.
-     * 
-     */
     private String id;
-    /**
-     * @return The Elasticsearch index where you want to store your data.
-     * 
-     */
     private String index;
-    /**
-     * @return The IAM role ARN that has access to Elasticsearch.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The type of document you are storing.
-     * 
-     */
     private String type;
 
     private TopicRuleErrorActionElasticsearch() {}
-    /**
-     * @return The endpoint of your Elasticsearch domain.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return The unique identifier for the document you are storing.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The Elasticsearch index where you want to store your data.
-     * 
-     */
     public String index() {
         return this.index;
     }
-    /**
-     * @return The IAM role ARN that has access to Elasticsearch.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The type of document you are storing.
-     * 
-     */
     public String type() {
         return this.type;
     }

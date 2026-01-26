@@ -15,32 +15,16 @@ public final class GetDataCatalogEncryptionSettingsPlainArgs extends com.pulumi.
 
     public static final GetDataCatalogEncryptionSettingsPlainArgs Empty = new GetDataCatalogEncryptionSettingsPlainArgs();
 
-    /**
-     * ID of the Data Catalog. This is typically the AWS account ID.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private String catalogId;
 
-    /**
-     * @return ID of the Data Catalog. This is typically the AWS account ID.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetDataCatalogEncryptionSettingsPlainArgs extends com.pulumi.
             $ = new GetDataCatalogEncryptionSettingsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId ID of the Data Catalog. This is typically the AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

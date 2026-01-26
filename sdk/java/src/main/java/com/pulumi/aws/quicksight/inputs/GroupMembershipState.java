@@ -29,62 +29,30 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * The name of the group in which the member will be added.
-     * 
-     */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
-    /**
-     * @return The name of the group in which the member will be added.
-     * 
-     */
     public Optional<Output<String>> groupName() {
         return Optional.ofNullable(this.groupName);
     }
 
-    /**
-     * The name of the member to add to the group.
-     * 
-     */
     @Import(name="memberName")
     private @Nullable Output<String> memberName;
 
-    /**
-     * @return The name of the member to add to the group.
-     * 
-     */
     public Optional<Output<String>> memberName() {
         return Optional.ofNullable(this.memberName);
     }
 
-    /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return The namespace that you want the user to be a part of. Defaults to `default`.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -136,86 +104,38 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param groupName The name of the group in which the member will be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName The name of the group in which the member will be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param memberName The name of the member to add to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberName(@Nullable Output<String> memberName) {
             $.memberName = memberName;
             return this;
         }
 
-        /**
-         * @param memberName The name of the member to add to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberName(String memberName) {
             return memberName(Output.of(memberName));
         }
 
-        /**
-         * @param namespace The namespace that you want the user to be a part of. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace The namespace that you want the user to be a part of. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

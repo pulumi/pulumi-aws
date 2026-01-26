@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
-    /**
-     * @return Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
-     * 
-     */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet networkAclEntrySet;
 
     private PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy() {}
-    /**
-     * @return Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
-     * 
-     */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet> networkAclEntrySet() {
         return Optional.ofNullable(this.networkAclEntrySet);
     }

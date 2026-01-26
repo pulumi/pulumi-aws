@@ -12,18 +12,11 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

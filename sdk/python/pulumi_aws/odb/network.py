@@ -39,13 +39,9 @@ class NetworkArgs:
         The set of arguments for constructing a Network resource.
         :param pulumi.Input[_builtins.str] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         pulumi.set(__self__, "backup_subnet_cidr", backup_subnet_cidr)
@@ -123,8 +119,6 @@ class NetworkArgs:
     def zero_etl_access(self) -> pulumi.Input[_builtins.str]:
         """
         Specifies the configuration for Zero-ETL access from the ODB network.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "zero_etl_access")
 
@@ -177,9 +171,6 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -201,9 +192,6 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -253,12 +241,11 @@ class _NetworkState:
                  zero_etl_access: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Network resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The managed services configuration for the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]] oci_dns_forwarding_configs: The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_network_anchor_url: The URL of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor for the ODB network.
@@ -266,15 +253,11 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] oci_vcn_url: The URL of the OCI VCN for the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peered_cidrs: The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
         :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the ODB network, expressed as a percentage.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] status: The status of the network resource.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the ODB network.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -336,9 +319,6 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the odb network resource.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -439,7 +419,7 @@ class _NetworkState:
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]]]:
         """
-        The name of the OCI resource anchor for the Exadata infrastructure.
+        The managed services configuration for the ODB network.
         """
         return pulumi.get(self, "managed_services")
 
@@ -451,7 +431,7 @@ class _NetworkState:
     @pulumi.getter(name="ociDnsForwardingConfigs")
     def oci_dns_forwarding_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]]]:
         """
-        The number of storage servers requested for the Exadata infrastructure.
+        The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
         """
         return pulumi.get(self, "oci_dns_forwarding_configs")
 
@@ -546,9 +526,6 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -606,9 +583,6 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -638,8 +612,6 @@ class _NetworkState:
     def zero_etl_access(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the configuration for Zero-ETL access from the ODB network.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "zero_etl_access")
 
@@ -670,29 +642,14 @@ class Network(pulumi.CustomResource):
                  zero_etl_access: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing odb Network resource in AWS for Oracle Database@AWS.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import Odb Network using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/network:Network example example
-        ```
-
+        Create a Network resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -701,18 +658,7 @@ class Network(pulumi.CustomResource):
                  args: NetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing odb Network resource in AWS for Oracle Database@AWS.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import Odb Network using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/network:Network example example
-        ```
-
+        Create a Network resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -836,12 +782,11 @@ class Network(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The managed services configuration for the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_network_anchor_url: The URL of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor for the ODB network.
@@ -849,15 +794,11 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_vcn_url: The URL of the OCI VCN for the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peered_cidrs: The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
         :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the ODB network, expressed as a percentage.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] status: The status of the network resource.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the ODB network.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -896,9 +837,6 @@ class Network(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the odb network resource.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -959,7 +897,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> pulumi.Output[Sequence['outputs.NetworkManagedService']]:
         """
-        The name of the OCI resource anchor for the Exadata infrastructure.
+        The managed services configuration for the ODB network.
         """
         return pulumi.get(self, "managed_services")
 
@@ -967,7 +905,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="ociDnsForwardingConfigs")
     def oci_dns_forwarding_configs(self) -> pulumi.Output[Sequence['outputs.NetworkOciDnsForwardingConfig']]:
         """
-        The number of storage servers requested for the Exadata infrastructure.
+        The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
         """
         return pulumi.get(self, "oci_dns_forwarding_configs")
 
@@ -1030,9 +968,6 @@ class Network(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -1070,9 +1005,6 @@ class Network(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -1090,8 +1022,6 @@ class Network(pulumi.CustomResource):
     def zero_etl_access(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the configuration for Zero-ETL access from the ODB network.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "zero_etl_access")
 

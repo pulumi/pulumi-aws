@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup {
-    /**
-     * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage message;
-    /**
-     * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     private @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariation> variations;
 
     private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup() {}
-    /**
-     * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     public V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage message() {
         return this.message;
     }
-    /**
-     * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     public List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariation> variations() {
         return this.variations == null ? List.of() : this.variations;
     }

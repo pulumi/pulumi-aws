@@ -19,96 +19,44 @@ public final class ScopeState extends com.pulumi.resources.ResourceArgs {
 
     public static final ScopeState Empty = new ScopeState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     @Import(name="scopeArn")
     private @Nullable Output<String> scopeArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     public Optional<Output<String>> scopeArn() {
         return Optional.ofNullable(this.scopeArn);
     }
 
-    /**
-     * The identifier for the scope that includes the resources you want to get data results for.
-     * 
-     */
     @Import(name="scopeId")
     private @Nullable Output<String> scopeId;
 
-    /**
-     * @return The identifier for the scope that includes the resources you want to get data results for.
-     * 
-     */
     public Optional<Output<String>> scopeId() {
         return Optional.ofNullable(this.scopeId);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="targets")
     private @Nullable Output<List<ScopeTargetArgs>> targets;
 
-    /**
-     * @return The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<ScopeTargetArgs>>> targets() {
         return Optional.ofNullable(this.targets);
     }
@@ -150,144 +98,60 @@ public final class ScopeState extends com.pulumi.resources.ResourceArgs {
             $ = new ScopeState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scopeArn The Amazon Resource Name (ARN) of the scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeArn(@Nullable Output<String> scopeArn) {
             $.scopeArn = scopeArn;
             return this;
         }
 
-        /**
-         * @param scopeArn The Amazon Resource Name (ARN) of the scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeArn(String scopeArn) {
             return scopeArn(Output.of(scopeArn));
         }
 
-        /**
-         * @param scopeId The identifier for the scope that includes the resources you want to get data results for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeId(@Nullable Output<String> scopeId) {
             $.scopeId = scopeId;
             return this;
         }
 
-        /**
-         * @param scopeId The identifier for the scope that includes the resources you want to get data results for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeId(String scopeId) {
             return scopeId(Output.of(scopeId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param targets The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(@Nullable Output<List<ScopeTargetArgs>> targets) {
             $.targets = targets;
             return this;
         }
 
-        /**
-         * @param targets The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(List<ScopeTargetArgs> targets) {
             return targets(Output.of(targets));
         }
 
-        /**
-         * @param targets The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(ScopeTargetArgs... targets) {
             return targets(List.of(targets));
         }

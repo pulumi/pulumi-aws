@@ -16,141 +16,65 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
 
     public static final TrafficMirrorTargetState Empty = new TrafficMirrorTargetState();
 
-    /**
-     * The ARN of the traffic mirror target.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the traffic mirror target.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * A description of the traffic mirror session.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the traffic mirror session.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
-     * 
-     */
     @Import(name="gatewayLoadBalancerEndpointId")
     private @Nullable Output<String> gatewayLoadBalancerEndpointId;
 
-    /**
-     * @return The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
-     * 
-     */
     public Optional<Output<String>> gatewayLoadBalancerEndpointId() {
         return Optional.ofNullable(this.gatewayLoadBalancerEndpointId);
     }
 
-    /**
-     * The network interface ID that is associated with the target.
-     * 
-     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
-    /**
-     * @return The network interface ID that is associated with the target.
-     * 
-     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-     * 
-     */
     @Import(name="networkLoadBalancerArn")
     private @Nullable Output<String> networkLoadBalancerArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-     * 
-     */
     public Optional<Output<String>> networkLoadBalancerArn() {
         return Optional.ofNullable(this.networkLoadBalancerArn);
     }
 
-    /**
-     * The ID of the AWS account that owns the traffic mirror target.
-     * 
-     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
-    /**
-     * @return The ID of the AWS account that owns the traffic mirror target.
-     * 
-     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -187,195 +111,83 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
             $ = new TrafficMirrorTargetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the traffic mirror target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the traffic mirror target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description A description of the traffic mirror session.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the traffic mirror session.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param gatewayLoadBalancerEndpointId The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayLoadBalancerEndpointId(@Nullable Output<String> gatewayLoadBalancerEndpointId) {
             $.gatewayLoadBalancerEndpointId = gatewayLoadBalancerEndpointId;
             return this;
         }
 
-        /**
-         * @param gatewayLoadBalancerEndpointId The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayLoadBalancerEndpointId(String gatewayLoadBalancerEndpointId) {
             return gatewayLoadBalancerEndpointId(Output.of(gatewayLoadBalancerEndpointId));
         }
 
-        /**
-         * @param networkInterfaceId The network interface ID that is associated with the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId The network interface ID that is associated with the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
-        /**
-         * @param networkLoadBalancerArn The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkLoadBalancerArn(@Nullable Output<String> networkLoadBalancerArn) {
             $.networkLoadBalancerArn = networkLoadBalancerArn;
             return this;
         }
 
-        /**
-         * @param networkLoadBalancerArn The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkLoadBalancerArn(String networkLoadBalancerArn) {
             return networkLoadBalancerArn(Output.of(networkLoadBalancerArn));
         }
 
-        /**
-         * @param ownerId The ID of the AWS account that owns the traffic mirror target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
-        /**
-         * @param ownerId The ID of the AWS account that owns the traffic mirror target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -16,32 +16,16 @@ public final class EndpointClientLoginBannerOptionsArgs extends com.pulumi.resou
 
     public static final EndpointClientLoginBannerOptionsArgs Empty = new EndpointClientLoginBannerOptionsArgs();
 
-    /**
-     * Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-     * 
-     */
     @Import(name="bannerText")
     private @Nullable Output<String> bannerText;
 
-    /**
-     * @return Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-     * 
-     */
     public Optional<Output<String>> bannerText() {
         return Optional.ofNullable(this.bannerText);
     }
 
-    /**
-     * Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -71,44 +55,20 @@ public final class EndpointClientLoginBannerOptionsArgs extends com.pulumi.resou
             $ = new EndpointClientLoginBannerOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bannerText Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bannerText(@Nullable Output<String> bannerText) {
             $.bannerText = bannerText;
             return this;
         }
 
-        /**
-         * @param bannerText Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bannerText(String bannerText) {
             return bannerText(Output.of(bannerText));
         }
 
-        /**
-         * @param enabled Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

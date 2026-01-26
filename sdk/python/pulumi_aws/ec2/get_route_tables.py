@@ -64,9 +64,6 @@ class GetRouteTablesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the route table ids found.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -105,40 +102,7 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
                      vpc_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTablesResult:
     """
-    This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-
-    ## Example Usage
-
-    The following adds a route for a particular cidr block to every (private
-    kops) route table in a specified vpc to use a particular vpc peering
-    connection.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
-        filters=[{
-            "name": "tag:kubernetes.io/kops/role",
-            "values": ["private*"],
-        }])
-    r = []
-    def create_r(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            r.append(aws.ec2.Route(f"r-{range['value']}",
-                route_table_id=rts.ids[range["value"]],
-                destination_cidr_block="10.0.0.0/22",
-                vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
-
-    (len(rts.ids)).apply(create_r)
-    ```
-
-
-    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired route tables.
-    :param _builtins.str vpc_id: VPC ID that you want to filter from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -161,40 +125,7 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
                             vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTablesResult]:
     """
-    This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-
-    ## Example Usage
-
-    The following adds a route for a particular cidr block to every (private
-    kops) route table in a specified vpc to use a particular vpc peering
-    connection.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
-        filters=[{
-            "name": "tag:kubernetes.io/kops/role",
-            "values": ["private*"],
-        }])
-    r = []
-    def create_r(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            r.append(aws.ec2.Route(f"r-{range['value']}",
-                route_table_id=rts.ids[range["value"]],
-                destination_cidr_block="10.0.0.0/22",
-                vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
-
-    (len(rts.ids)).apply(create_r)
-    ```
-
-
-    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired route tables.
-    :param _builtins.str vpc_id: VPC ID that you want to filter from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

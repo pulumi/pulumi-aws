@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains
     {
-        /// <summary>
-        /// Strings in the body of the response that indicate a failed login attempt.
-        /// </summary>
         public readonly ImmutableArray<string> FailureStrings;
-        /// <summary>
-        /// Strings in the body of the response that indicate a successful login attempt.
-        /// </summary>
         public readonly ImmutableArray<string> SuccessStrings;
 
         [OutputConstructor]

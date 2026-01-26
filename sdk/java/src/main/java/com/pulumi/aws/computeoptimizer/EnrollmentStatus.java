@@ -17,106 +17,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages AWS Compute Optimizer enrollment status.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.computeoptimizer.EnrollmentStatus;
- * import com.pulumi.aws.computeoptimizer.EnrollmentStatusArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EnrollmentStatus("example", EnrollmentStatusArgs.builder()
- *             .status("Active")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import enrollment status using the account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:computeoptimizer/enrollmentStatus:EnrollmentStatus example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:computeoptimizer/enrollmentStatus:EnrollmentStatus")
 public class EnrollmentStatus extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-     * 
-     */
     @Export(name="includeMemberAccounts", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> includeMemberAccounts;
 
-    /**
-     * @return Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-     * 
-     */
     public Output<Boolean> includeMemberAccounts() {
         return this.includeMemberAccounts;
     }
-    /**
-     * The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-     * 
-     */
     @Export(name="numberOfMemberAccountsOptedIn", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfMemberAccountsOptedIn;
 
-    /**
-     * @return The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-     * 
-     */
     public Output<Integer> numberOfMemberAccountsOptedIn() {
         return this.numberOfMemberAccountsOptedIn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The enrollment status of the account. Valid values: `Active`, `Inactive`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The enrollment status of the account. Valid values: `Active`, `Inactive`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

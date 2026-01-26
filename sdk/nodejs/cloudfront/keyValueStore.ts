@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudFront Key Value Store.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.KeyValueStore("example", {
- *     name: "ExampleKeyValueStore",
- *     comment: "This is an example key value store",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `name` (String) Name of the CloudFront Key Value Store.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
- *
- * % pulumi import aws_cloudfront_key_value_store.example example_store
- */
 export class KeyValueStore extends pulumi.CustomResource {
     /**
      * Get an existing KeyValueStore resource's state with the given name, ID, and optional extra
@@ -68,24 +35,10 @@ export class KeyValueStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyValueStore.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Comment.
-     */
     declare public readonly comment: pulumi.Output<string | undefined>;
-    /**
-     * ETag hash of the KeyValueStore.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
-    /**
-     * Unique name for your CloudFront KeyValueStore.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.cloudfront.KeyValueStoreTimeouts | undefined>;
 
@@ -126,24 +79,10 @@ export class KeyValueStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KeyValueStore resources.
  */
 export interface KeyValueStoreState {
-    /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Comment.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * ETag hash of the KeyValueStore.
-     */
     etag?: pulumi.Input<string>;
     lastModifiedTime?: pulumi.Input<string>;
-    /**
-     * Unique name for your CloudFront KeyValueStore.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts>;
 }
@@ -152,15 +91,7 @@ export interface KeyValueStoreState {
  * The set of arguments for constructing a KeyValueStore resource.
  */
 export interface KeyValueStoreArgs {
-    /**
-     * Comment.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * Unique name for your CloudFront KeyValueStore.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts>;
 }

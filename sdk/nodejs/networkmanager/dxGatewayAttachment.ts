@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Manager Direct Connect Gateway Attachment.
- *
- * Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.networkmanager.DxGatewayAttachment("test", {
- *     coreNetworkId: testAwsNetworkmanagerCoreNetworkPolicyAttachment.coreNetworkId,
- *     directConnectGatewayArn: `arn:aws:directconnect::${current.accountId}:dx-gateway/${testAwsDxGateway.id}`,
- *     edgeLocations: [currentAwsRegion.region],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Network Manager DX Gateway Attachment using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g
- * ```
- */
 export class DxGatewayAttachment extends pulumi.CustomResource {
     /**
      * Get an existing DxGatewayAttachment resource's state with the given name, ID, and optional extra
@@ -63,59 +35,18 @@ export class DxGatewayAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === DxGatewayAttachment.__pulumiType;
     }
 
-    /**
-     * ARN of the attachment.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Policy rule number associated with the attachment.
-     */
     declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
-    /**
-     * Type of attachment.
-     */
     declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
-    /**
-     * ARN of the core network for the attachment.
-     */
     declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
-    /**
-     * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     */
     declare public readonly coreNetworkId: pulumi.Output<string>;
-    /**
-     * ARN of the Direct Connect gateway attachment.
-     */
     declare public readonly directConnectGatewayArn: pulumi.Output<string>;
-    /**
-     * One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly edgeLocations: pulumi.Output<string[]>;
-    /**
-     * ID of the attachment account owner.
-     */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     */
     declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
-    /**
-     * Name of the segment attachment.
-     */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
-    /**
-     * State of the attachment.
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.networkmanager.DxGatewayAttachmentTimeouts | undefined>;
 
@@ -181,59 +112,18 @@ export class DxGatewayAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DxGatewayAttachment resources.
  */
 export interface DxGatewayAttachmentState {
-    /**
-     * ARN of the attachment.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Policy rule number associated with the attachment.
-     */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
-    /**
-     * Type of attachment.
-     */
     attachmentType?: pulumi.Input<string>;
-    /**
-     * ARN of the core network for the attachment.
-     */
     coreNetworkArn?: pulumi.Input<string>;
-    /**
-     * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     */
     coreNetworkId?: pulumi.Input<string>;
-    /**
-     * ARN of the Direct Connect gateway attachment.
-     */
     directConnectGatewayArn?: pulumi.Input<string>;
-    /**
-     * One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     *
-     * The following arguments are optional:
-     */
     edgeLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ID of the attachment account owner.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     */
     routingPolicyLabel?: pulumi.Input<string>;
-    /**
-     * Name of the segment attachment.
-     */
     segmentName?: pulumi.Input<string>;
-    /**
-     * State of the attachment.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.networkmanager.DxGatewayAttachmentTimeouts>;
 }
@@ -242,27 +132,10 @@ export interface DxGatewayAttachmentState {
  * The set of arguments for constructing a DxGatewayAttachment resource.
  */
 export interface DxGatewayAttachmentArgs {
-    /**
-     * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     */
     coreNetworkId: pulumi.Input<string>;
-    /**
-     * ARN of the Direct Connect gateway attachment.
-     */
     directConnectGatewayArn: pulumi.Input<string>;
-    /**
-     * One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     *
-     * The following arguments are optional:
-     */
     edgeLocations: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     */
     routingPolicyLabel?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.networkmanager.DxGatewayAttachmentTimeouts>;
 }

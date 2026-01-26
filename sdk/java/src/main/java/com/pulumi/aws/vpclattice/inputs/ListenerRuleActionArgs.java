@@ -16,36 +16,16 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
     public static final ListenerRuleActionArgs Empty = new ListenerRuleActionArgs();
 
-    /**
-     * Describes the rule action that returns a custom HTTP response.
-     * See `fixedResponse` Block for details.
-     * 
-     */
     @Import(name="fixedResponse")
     private @Nullable Output<ListenerRuleActionFixedResponseArgs> fixedResponse;
 
-    /**
-     * @return Describes the rule action that returns a custom HTTP response.
-     * See `fixedResponse` Block for details.
-     * 
-     */
     public Optional<Output<ListenerRuleActionFixedResponseArgs>> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
 
-    /**
-     * The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-     * See `forward` Block for details.
-     * 
-     */
     @Import(name="forward")
     private @Nullable Output<ListenerRuleActionForwardArgs> forward;
 
-    /**
-     * @return The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-     * See `forward` Block for details.
-     * 
-     */
     public Optional<Output<ListenerRuleActionForwardArgs>> forward() {
         return Optional.ofNullable(this.forward);
     }
@@ -75,48 +55,20 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
             $ = new ListenerRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fixedResponse Describes the rule action that returns a custom HTTP response.
-         * See `fixedResponse` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponse(@Nullable Output<ListenerRuleActionFixedResponseArgs> fixedResponse) {
             $.fixedResponse = fixedResponse;
             return this;
         }
 
-        /**
-         * @param fixedResponse Describes the rule action that returns a custom HTTP response.
-         * See `fixedResponse` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponse(ListenerRuleActionFixedResponseArgs fixedResponse) {
             return fixedResponse(Output.of(fixedResponse));
         }
 
-        /**
-         * @param forward The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-         * See `forward` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(@Nullable Output<ListenerRuleActionForwardArgs> forward) {
             $.forward = forward;
             return this;
         }
 
-        /**
-         * @param forward The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-         * See `forward` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(ListenerRuleActionForwardArgs forward) {
             return forward(Output.of(forward));
         }

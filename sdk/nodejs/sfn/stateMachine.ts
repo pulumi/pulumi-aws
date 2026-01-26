@@ -7,165 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Step Function State Machine resource
- *
- * ## Example Usage
- *
- * ### Basic (Standard Workflow)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
- *     name: "my-state-machine",
- *     roleArn: iamForSfn.arn,
- *     definition: `{
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"${lambda.arn}\",
- *       \"End\": true
- *     }
- *   }
- * }
- * `,
- * });
- * ```
- *
- * ### Basic (Express Workflow)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
- *     name: "my-state-machine",
- *     roleArn: iamForSfn.arn,
- *     type: "EXPRESS",
- *     definition: `{
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"${lambda.arn}\",
- *       \"End\": true
- *     }
- *   }
- * }
- * `,
- * });
- * ```
- *
- * ### Publish (Publish SFN version)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
- *     name: "my-state-machine",
- *     roleArn: iamForSfn.arn,
- *     publish: true,
- *     type: "EXPRESS",
- *     definition: `{
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"${lambda.arn}\",
- *       \"End\": true
- *     }
- *   }
- * }
- * `,
- * });
- * ```
- *
- * ### Logging
- *
- * > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
- *     name: "my-state-machine",
- *     roleArn: iamForSfn.arn,
- *     definition: `{
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"${lambda.arn}\",
- *       \"End\": true
- *     }
- *   }
- * }
- * `,
- *     loggingConfiguration: {
- *         logDestination: `${logGroupForSfn.arn}:*`,
- *         includeExecutionData: true,
- *         level: "ERROR",
- *     },
- * });
- * ```
- *
- * ### Encryption
- *
- * > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
- *     name: "my-state-machine",
- *     roleArn: iamForSfn.arn,
- *     definition: `{
- *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
- *   \"StartAt\": \"HelloWorld\",
- *   \"States\": {
- *     \"HelloWorld\": {
- *       \"Type\": \"Task\",
- *       \"Resource\": \"${lambda.arn}\",
- *       \"End\": true
- *     }
- *   }
- * }
- * `,
- *     encryptionConfiguration: {
- *         kmsKeyId: kmsKeyForSfn.arn,
- *         type: "CUSTOMER_MANAGED_KMS_KEY",
- *         kmsDataKeyReusePeriodSeconds: 900,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) ARN of the state machine.
- *
- * Using `pulumi import`, import State Machines using the `arn`. For example:
- *
- * % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
- */
 export class StateMachine extends pulumi.CustomResource {
     /**
      * Get an existing StateMachine resource's state with the given name, ID, and optional extra
@@ -194,71 +35,23 @@ export class StateMachine extends pulumi.CustomResource {
         return obj['__pulumiType'] === StateMachine.__pulumiType;
     }
 
-    /**
-     * The ARN of the state machine.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The date the state machine was created.
-     */
     declare public /*out*/ readonly creationDate: pulumi.Output<string>;
-    /**
-     * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-     */
     declare public readonly definition: pulumi.Output<string>;
     declare public /*out*/ readonly description: pulumi.Output<string>;
-    /**
-     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-     */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.sfn.StateMachineEncryptionConfiguration>;
-    /**
-     * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-     */
     declare public readonly loggingConfiguration: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
-    /**
-     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Set to true to publish a version of the state machine during creation. Default: false.
-     */
     declare public readonly publish: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public /*out*/ readonly revisionId: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * The ARN of the state machine version.
-     */
     declare public /*out*/ readonly stateMachineVersionArn: pulumi.Output<string>;
-    /**
-     * The current status of the state machine. Either `ACTIVE` or `DELETING`.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Selects whether AWS X-Ray tracing is enabled.
-     */
     declare public readonly tracingConfiguration: pulumi.Output<outputs.sfn.StateMachineTracingConfiguration>;
-    /**
-     * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-     */
     declare public readonly type: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly versionDescription: pulumi.Output<string>;
 
@@ -331,71 +124,23 @@ export class StateMachine extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StateMachine resources.
  */
 export interface StateMachineState {
-    /**
-     * The ARN of the state machine.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The date the state machine was created.
-     */
     creationDate?: pulumi.Input<string>;
-    /**
-     * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-     */
     definition?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    /**
-     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-     */
     encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration>;
-    /**
-     * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-     */
     loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
-    /**
-     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Set to true to publish a version of the state machine during creation. Default: false.
-     */
     publish?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     revisionId?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * The ARN of the state machine version.
-     */
     stateMachineVersionArn?: pulumi.Input<string>;
-    /**
-     * The current status of the state machine. Either `ACTIVE` or `DELETING`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Selects whether AWS X-Ray tracing is enabled.
-     */
     tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
-    /**
-     * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-     */
     type?: pulumi.Input<string>;
     versionDescription?: pulumi.Input<string>;
 }
@@ -404,48 +149,15 @@ export interface StateMachineState {
  * The set of arguments for constructing a StateMachine resource.
  */
 export interface StateMachineArgs {
-    /**
-     * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-     */
     definition: pulumi.Input<string>;
-    /**
-     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-     */
     encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration>;
-    /**
-     * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
-     */
     loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
-    /**
-     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Set to true to publish a version of the state machine during creation. Default: false.
-     */
     publish?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Selects whether AWS X-Ray tracing is enabled.
-     */
     tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
-    /**
-     * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-     */
     type?: pulumi.Input<string>;
 }

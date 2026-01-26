@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationNetworkConfiguration {
-    /**
-     * @return The array of security group Ids for customer VPC connectivity.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return The array of subnet Ids for customer VPC connectivity.
-     * 
-     */
     private @Nullable List<String> subnetIds;
 
     private ApplicationNetworkConfiguration() {}
-    /**
-     * @return The array of security group Ids for customer VPC connectivity.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return The array of subnet Ids for customer VPC connectivity.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds == null ? List.of() : this.subnetIds;
     }

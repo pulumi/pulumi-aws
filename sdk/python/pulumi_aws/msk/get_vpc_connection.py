@@ -63,17 +63,11 @@ class GetVpcConnectionResult:
     @_builtins.property
     @pulumi.getter
     def authentication(self) -> _builtins.str:
-        """
-        The authentication type for the client VPC Connection.
-        """
         return pulumi.get(self, "authentication")
 
     @_builtins.property
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> Sequence[_builtins.str]:
-        """
-        The list of subnets in the client VPC.
-        """
         return pulumi.get(self, "client_subnets")
 
     @_builtins.property
@@ -92,33 +86,21 @@ class GetVpcConnectionResult:
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        The security groups attached to the ENIs for the broker nodes.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of key-value pairs assigned to the VPC Connection.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="targetClusterArn")
     def target_cluster_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the cluster.
-        """
         return pulumi.get(self, "target_cluster_arn")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The VPC ID of the remote client.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -144,21 +126,7 @@ def get_vpc_connection(arn: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcConnectionResult:
     """
-    Get information on an Amazon MSK VPC Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_vpc_connection(arn=example_aws_msk_vpc_connection["arn"])
-    ```
-
-
-    :param _builtins.str arn: ARN of the VPC Connection.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the VPC Connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -182,21 +150,7 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
-    Get information on an Amazon MSK VPC Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_vpc_connection(arn=example_aws_msk_vpc_connection["arn"])
-    ```
-
-
-    :param _builtins.str arn: ARN of the VPC Connection.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the VPC Connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

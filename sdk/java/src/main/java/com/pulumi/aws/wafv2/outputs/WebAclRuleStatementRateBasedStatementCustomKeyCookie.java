@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementCustomKeyCookie {
-    /**
-     * @return The name of the cookie to use.
-     * 
-     */
     private String name;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
     private List<WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementCustomKeyCookie() {}
-    /**
-     * @return The name of the cookie to use.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
     public List<WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation> textTransformations() {
         return this.textTransformations;
     }

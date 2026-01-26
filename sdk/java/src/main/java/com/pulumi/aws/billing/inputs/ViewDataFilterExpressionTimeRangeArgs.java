@@ -14,17 +14,9 @@ public final class ViewDataFilterExpressionTimeRangeArgs extends com.pulumi.reso
 
     public static final ViewDataFilterExpressionTimeRangeArgs Empty = new ViewDataFilterExpressionTimeRangeArgs();
 
-    /**
-     * Inclusive end date of the time range.
-     * 
-     */
     @Import(name="beginDateInclusive", required=true)
     private Output<String> beginDateInclusive;
 
-    /**
-     * @return Inclusive end date of the time range.
-     * 
-     */
     public Output<String> beginDateInclusive() {
         return this.beginDateInclusive;
     }
@@ -61,23 +53,11 @@ public final class ViewDataFilterExpressionTimeRangeArgs extends com.pulumi.reso
             $ = new ViewDataFilterExpressionTimeRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param beginDateInclusive Inclusive end date of the time range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder beginDateInclusive(Output<String> beginDateInclusive) {
             $.beginDateInclusive = beginDateInclusive;
             return this;
         }
 
-        /**
-         * @param beginDateInclusive Inclusive end date of the time range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder beginDateInclusive(String beginDateInclusive) {
             return beginDateInclusive(Output.of(beginDateInclusive));
         }

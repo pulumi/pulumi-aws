@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterRemoteNetworkConfig {
-    /**
-     * @return Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     private ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks;
-    /**
-     * @return Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     private @Nullable ClusterRemoteNetworkConfigRemotePodNetworks remotePodNetworks;
 
     private ClusterRemoteNetworkConfig() {}
-    /**
-     * @return Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     public ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks() {
         return this.remoteNodeNetworks;
     }
-    /**
-     * @return Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     public Optional<ClusterRemoteNetworkConfigRemotePodNetworks> remotePodNetworks() {
         return Optional.ofNullable(this.remotePodNetworks);
     }

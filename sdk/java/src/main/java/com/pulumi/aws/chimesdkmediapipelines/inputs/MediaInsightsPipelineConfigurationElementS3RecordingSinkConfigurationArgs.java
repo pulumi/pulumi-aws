@@ -15,17 +15,9 @@ public final class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfi
 
     public static final MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs();
 
-    /**
-     * S3 URI to deliver recordings.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
-    /**
-     * @return S3 URI to deliver recordings.
-     * 
-     */
     public Optional<Output<String>> destination() {
         return Optional.ofNullable(this.destination);
     }
@@ -54,23 +46,11 @@ public final class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfi
             $ = new MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination S3 URI to deliver recordings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination S3 URI to deliver recordings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }

@@ -14,17 +14,9 @@ public final class VirtualServiceSpecProviderVirtualNodeArgs extends com.pulumi.
 
     public static final VirtualServiceSpecProviderVirtualNodeArgs Empty = new VirtualServiceSpecProviderVirtualNodeArgs();
 
-    /**
-     * Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="virtualNodeName", required=true)
     private Output<String> virtualNodeName;
 
-    /**
-     * @return Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> virtualNodeName() {
         return this.virtualNodeName;
     }
@@ -53,23 +45,11 @@ public final class VirtualServiceSpecProviderVirtualNodeArgs extends com.pulumi.
             $ = new VirtualServiceSpecProviderVirtualNodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param virtualNodeName Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNodeName(Output<String> virtualNodeName) {
             $.virtualNodeName = virtualNodeName;
             return this;
         }
 
-        /**
-         * @param virtualNodeName Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNodeName(String virtualNodeName) {
             return virtualNodeName(Output.of(virtualNodeName));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib
     {
-        /// <summary>
-        /// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-        /// </summary>
         public readonly int? Max;
-        /// <summary>
-        /// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

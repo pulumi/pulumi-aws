@@ -23,32 +23,16 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
 
     public static final DomainDefaultUserSettingsCanvasAppSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsArgs();
 
-    /**
-     * The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
-     * 
-     */
     @Import(name="directDeploySettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings;
 
-    /**
-     * @return The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
     }
 
-    /**
-     * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-     * 
-     */
     @Import(name="emrServerlessSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings;
 
-    /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>> emrServerlessSettings() {
         return Optional.ofNullable(this.emrServerlessSettings);
     }
@@ -60,77 +44,37 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         return Optional.ofNullable(this.generativeAiSettings);
     }
 
-    /**
-     * The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
-     * 
-     */
     @Import(name="identityProviderOauthSettings")
     private @Nullable Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings;
 
-    /**
-     * @return The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
-     * 
-     */
     public Optional<Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>>> identityProviderOauthSettings() {
         return Optional.ofNullable(this.identityProviderOauthSettings);
     }
 
-    /**
-     * The settings for document querying. See `kendraSettings` Block below.
-     * 
-     */
     @Import(name="kendraSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings;
 
-    /**
-     * @return The settings for document querying. See `kendraSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs>> kendraSettings() {
         return Optional.ofNullable(this.kendraSettings);
     }
 
-    /**
-     * The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
-     * 
-     */
     @Import(name="modelRegisterSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings;
 
-    /**
-     * @return The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>> modelRegisterSettings() {
         return Optional.ofNullable(this.modelRegisterSettings);
     }
 
-    /**
-     * Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
-     * 
-     */
     @Import(name="timeSeriesForecastingSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings;
 
-    /**
-     * @return Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>> timeSeriesForecastingSettings() {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
 
-    /**
-     * The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
-     * 
-     */
     @Import(name="workspaceSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings;
 
-    /**
-     * @return The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>> workspaceSettings() {
         return Optional.ofNullable(this.workspaceSettings);
     }
@@ -166,44 +110,20 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
             $ = new DomainDefaultUserSettingsCanvasAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directDeploySettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings) {
             $.directDeploySettings = directDeploySettings;
             return this;
         }
 
-        /**
-         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directDeploySettings(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs directDeploySettings) {
             return directDeploySettings(Output.of(directDeploySettings));
         }
 
-        /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emrServerlessSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings) {
             $.emrServerlessSettings = emrServerlessSettings;
             return this;
         }
 
-        /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emrServerlessSettings(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs emrServerlessSettings) {
             return emrServerlessSettings(Output.of(emrServerlessSettings));
         }
@@ -217,117 +137,51 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
             return generativeAiSettings(Output.of(generativeAiSettings));
         }
 
-        /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderOauthSettings(@Nullable Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings) {
             $.identityProviderOauthSettings = identityProviderOauthSettings;
             return this;
         }
 
-        /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderOauthSettings(List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs> identityProviderOauthSettings) {
             return identityProviderOauthSettings(Output.of(identityProviderOauthSettings));
         }
 
-        /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderOauthSettings(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs... identityProviderOauthSettings) {
             return identityProviderOauthSettings(List.of(identityProviderOauthSettings));
         }
 
-        /**
-         * @param kendraSettings The settings for document querying. See `kendraSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings) {
             $.kendraSettings = kendraSettings;
             return this;
         }
 
-        /**
-         * @param kendraSettings The settings for document querying. See `kendraSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraSettings(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs kendraSettings) {
             return kendraSettings(Output.of(kendraSettings));
         }
 
-        /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelRegisterSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings) {
             $.modelRegisterSettings = modelRegisterSettings;
             return this;
         }
 
-        /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelRegisterSettings(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs modelRegisterSettings) {
             return modelRegisterSettings(Output.of(modelRegisterSettings));
         }
 
-        /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeSeriesForecastingSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings) {
             $.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             return this;
         }
 
-        /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeSeriesForecastingSettings(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs timeSeriesForecastingSettings) {
             return timeSeriesForecastingSettings(Output.of(timeSeriesForecastingSettings));
         }
 
-        /**
-         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings) {
             $.workspaceSettings = workspaceSettings;
             return this;
         }
 
-        /**
-         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceSettings(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs workspaceSettings) {
             return workspaceSettings(Output.of(workspaceSettings));
         }

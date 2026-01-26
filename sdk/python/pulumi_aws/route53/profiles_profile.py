@@ -27,9 +27,6 @@ class ProfilesProfileArgs:
                  timeouts: Optional[pulumi.Input['ProfilesProfileTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProfilesProfile resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -43,9 +40,6 @@ class ProfilesProfileArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -55,9 +49,6 @@ class ProfilesProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -67,9 +58,6 @@ class ProfilesProfileArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,14 +89,6 @@ class _ProfilesProfileState:
                  timeouts: Optional[pulumi.Input['ProfilesProfileTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProfilesProfile resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Profile.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] share_status: Share status of the Profile.
-        :param pulumi.Input[_builtins.str] status: Status of the Profile.
-        :param pulumi.Input[_builtins.str] status_message: Status message of the Profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -134,9 +114,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Profile.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -146,9 +123,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -167,9 +141,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -179,9 +150,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Share status of the Profile.
-        """
         return pulumi.get(self, "share_status")
 
     @share_status.setter
@@ -191,9 +159,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the Profile.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -203,9 +168,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status message of the Profile.
-        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -215,9 +177,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -227,9 +186,6 @@ class _ProfilesProfileState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -258,36 +214,9 @@ class ProfilesProfile(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ProfilesProfileTimeoutsArgs', 'ProfilesProfileTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Route 53 Profile.
-
-        ## Example Usage
-
-        ### Empty Profile
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ProfilesProfile("example",
-            name="example",
-            tags={
-                "Environment": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Profiles Profile using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
-        ```
-
+        Create a ProfilesProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -296,31 +225,7 @@ class ProfilesProfile(pulumi.CustomResource):
                  args: Optional[ProfilesProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Route 53 Profile.
-
-        ## Example Usage
-
-        ### Empty Profile
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ProfilesProfile("example",
-            name="example",
-            tags={
-                "Environment": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Profiles Profile using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
-        ```
-
+        Create a ProfilesProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProfilesProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -386,14 +291,6 @@ class ProfilesProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Profile.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] share_status: Share status of the Profile.
-        :param pulumi.Input[_builtins.str] status: Status of the Profile.
-        :param pulumi.Input[_builtins.str] status_message: Status message of the Profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -414,17 +311,11 @@ class ProfilesProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Profile.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -435,49 +326,31 @@ class ProfilesProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Share status of the Profile.
-        """
         return pulumi.get(self, "share_status")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the Profile.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status message of the Profile.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

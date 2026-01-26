@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionResult
     {
-        /// <summary>
-        /// Block defining the action to take when conditions match. Detailed below.
-        /// </summary>
         public readonly Outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionResult Action;
-        /// <summary>
-        /// Logic to apply when multiple match conditions are present. Valid values: `And`, `Or`.
-        /// </summary>
         public readonly string? ConditionLogic;
-        /// <summary>
-        /// List of conditions to match against routes. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionResult> MatchConditions;
 
         [OutputConstructor]

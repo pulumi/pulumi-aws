@@ -15,17 +15,9 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsR
 
     public static final DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs Empty = new DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs();
 
-    /**
-     * The Amazon S3 URI for the constraints resource.
-     * 
-     */
     @Import(name="s3Uri")
     private @Nullable Output<String> s3Uri;
 
-    /**
-     * @return The Amazon S3 URI for the constraints resource.
-     * 
-     */
     public Optional<Output<String>> s3Uri() {
         return Optional.ofNullable(this.s3Uri);
     }
@@ -54,23 +46,11 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsR
             $ = new DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Uri The Amazon S3 URI for the constraints resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(@Nullable Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri The Amazon S3 URI for the constraints resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

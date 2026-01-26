@@ -14,17 +14,9 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs extends c
 
     public static final LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs();
 
-    /**
-     * Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
-     * 
-     */
     @Import(name="archiveRetainRule", required=true)
     private Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs> archiveRetainRule;
 
-    /**
-     * @return Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
-     * 
-     */
     public Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs> archiveRetainRule() {
         return this.archiveRetainRule;
     }
@@ -53,23 +45,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs extends c
             $ = new LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param archiveRetainRule Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveRetainRule(Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs> archiveRetainRule) {
             $.archiveRetainRule = archiveRetainRule;
             return this;
         }
 
-        /**
-         * @param archiveRetainRule Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveRetainRule(LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs archiveRetainRule) {
             return archiveRetainRule(Output.of(archiveRetainRule));
         }

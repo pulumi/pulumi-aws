@@ -19,62 +19,30 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
 
     public static final GetScriptDagNodeArgs Empty = new GetScriptDagNodeArgs();
 
-    /**
-     * Nested configuration an argument or property of a node. Defined below.
-     * 
-     */
     @Import(name="args", required=true)
     private Output<List<GetScriptDagNodeArgArgs>> args;
 
-    /**
-     * @return Nested configuration an argument or property of a node. Defined below.
-     * 
-     */
     public Output<List<GetScriptDagNodeArgArgs>> args() {
         return this.args;
     }
 
-    /**
-     * Node identifier that is unique within the node&#39;s graph.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Node identifier that is unique within the node&#39;s graph.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Line number of the node.
-     * 
-     */
     @Import(name="lineNumber")
     private @Nullable Output<Integer> lineNumber;
 
-    /**
-     * @return Line number of the node.
-     * 
-     */
     public Optional<Output<Integer>> lineNumber() {
         return Optional.ofNullable(this.lineNumber);
     }
 
-    /**
-     * Type of node this is.
-     * 
-     */
     @Import(name="nodeType", required=true)
     private Output<String> nodeType;
 
-    /**
-     * @return Type of node this is.
-     * 
-     */
     public Output<String> nodeType() {
         return this.nodeType;
     }
@@ -106,96 +74,42 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
             $ = new GetScriptDagNodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param args Nested configuration an argument or property of a node. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(Output<List<GetScriptDagNodeArgArgs>> args) {
             $.args = args;
             return this;
         }
 
-        /**
-         * @param args Nested configuration an argument or property of a node. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(List<GetScriptDagNodeArgArgs> args) {
             return args(Output.of(args));
         }
 
-        /**
-         * @param args Nested configuration an argument or property of a node. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(GetScriptDagNodeArgArgs... args) {
             return args(List.of(args));
         }
 
-        /**
-         * @param id Node identifier that is unique within the node&#39;s graph.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Node identifier that is unique within the node&#39;s graph.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param lineNumber Line number of the node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lineNumber(@Nullable Output<Integer> lineNumber) {
             $.lineNumber = lineNumber;
             return this;
         }
 
-        /**
-         * @param lineNumber Line number of the node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lineNumber(Integer lineNumber) {
             return lineNumber(Output.of(lineNumber));
         }
 
-        /**
-         * @param nodeType Type of node this is.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeType(Output<String> nodeType) {
             $.nodeType = nodeType;
             return this;
         }
 
-        /**
-         * @param nodeType Type of node this is.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeType(String nodeType) {
             return nodeType(Output.of(nodeType));
         }

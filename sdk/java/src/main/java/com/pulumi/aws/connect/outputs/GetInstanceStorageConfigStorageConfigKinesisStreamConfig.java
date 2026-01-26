@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
-    /**
-     * @return The Amazon Resource Name (ARN) of the data stream.
-     * 
-     */
     private String streamArn;
 
     private GetInstanceStorageConfigStorageConfigKinesisStreamConfig() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the data stream.
-     * 
-     */
     public String streamArn() {
         return this.streamArn;
     }

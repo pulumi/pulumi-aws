@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class GetFleetVpcConfigResult
     {
-        /// <summary>
-        /// A list of one or more security groups IDs in your Amazon VPC.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of one or more subnet IDs in your Amazon VPC.
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
-        /// <summary>
-        /// The ID of the Amazon VPC.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

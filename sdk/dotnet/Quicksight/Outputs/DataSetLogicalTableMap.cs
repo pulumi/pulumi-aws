@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMap
     {
-        /// <summary>
-        /// A display name for the logical table.
-        /// </summary>
         public readonly string Alias;
-        /// <summary>
-        /// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetLogicalTableMapDataTransform> DataTransforms;
-        /// <summary>
-        /// Key of the logical table map.
-        /// </summary>
         public readonly string LogicalTableMapId;
-        /// <summary>
-        /// Source of this logical table. See source.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapSource Source;
 
         [OutputConstructor]

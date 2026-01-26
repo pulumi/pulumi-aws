@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     {
         [Input("branches")]
         private InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestBranchArgs>? _branches;
-
-        /// <summary>
-        /// The field that specifies to filter on branches for the pull request trigger configuration. A `Branches` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestBranchArgs> Branches
         {
             get => _branches ?? (_branches = new InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestBranchArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("events")]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("filePaths")]
         private InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>? _filePaths;
-
-        /// <summary>
-        /// The field that specifies to filter on file paths for the pull request trigger configuration. A `FilePaths` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathArgs> FilePaths
         {
             get => _filePaths ?? (_filePaths = new InputList<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>());

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SessionLoggerEventFilter {
-    /**
-     * @return Block that specifies to monitor all events. Set to `{}` to monitor all events.
-     * 
-     */
     private @Nullable SessionLoggerEventFilterAll all;
-    /**
-     * @return List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-     * 
-     */
     private @Nullable List<String> includes;
 
     private SessionLoggerEventFilter() {}
-    /**
-     * @return Block that specifies to monitor all events. Set to `{}` to monitor all events.
-     * 
-     */
     public Optional<SessionLoggerEventFilterAll> all() {
         return Optional.ofNullable(this.all);
     }
-    /**
-     * @return List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-     * 
-     */
     public List<String> includes() {
         return this.includes == null ? List.of() : this.includes;
     }

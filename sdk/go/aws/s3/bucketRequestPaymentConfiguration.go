@@ -12,66 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
-//
-// > **NOTE:** Destroying an `s3.BucketRequestPaymentConfiguration` resource resets the bucket's `payer` to the S3 default: the bucket owner.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketRequestPaymentConfiguration(ctx, "example", &s3.BucketRequestPaymentConfigurationArgs{
-//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//				Payer:  pulumi.String("Requester"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// __Using `pulumi import` to import__ S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-//
-// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-//
-// ```sh
-// $ pulumi import aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration example bucket-name
-// ```
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// ```sh
-// $ pulumi import aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration example bucket-name,123456789012
-// ```
 type BucketRequestPaymentConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringOutput    `pulumi:"bucket"`
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-	Payer pulumi.StringOutput `pulumi:"payer"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Payer               pulumi.StringOutput    `pulumi:"payer"`
+	Region              pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewBucketRequestPaymentConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -116,25 +63,17 @@ func GetBucketRequestPaymentConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketRequestPaymentConfiguration resources.
 type bucketRequestPaymentConfigurationState struct {
-	// Name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
+	Bucket              *string `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-	Payer *string `pulumi:"payer"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Payer               *string `pulumi:"payer"`
+	Region              *string `pulumi:"region"`
 }
 
 type BucketRequestPaymentConfigurationState struct {
-	// Name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringPtrInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-	Payer pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Payer               pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (BucketRequestPaymentConfigurationState) ElementType() reflect.Type {
@@ -142,26 +81,18 @@ func (BucketRequestPaymentConfigurationState) ElementType() reflect.Type {
 }
 
 type bucketRequestPaymentConfigurationArgs struct {
-	// Name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
+	Bucket              string  `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-	Payer string `pulumi:"payer"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Payer               string  `pulumi:"payer"`
+	Region              *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketRequestPaymentConfiguration resource.
 type BucketRequestPaymentConfigurationArgs struct {
-	// Name of the bucket.
-	Bucket pulumi.StringInput
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-	Payer pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Payer               pulumi.StringInput
+	Region              pulumi.StringPtrInput
 }
 
 func (BucketRequestPaymentConfigurationArgs) ElementType() reflect.Type {
@@ -251,22 +182,18 @@ func (o BucketRequestPaymentConfigurationOutput) ToBucketRequestPaymentConfigura
 	return o
 }
 
-// Name of the bucket.
 func (o BucketRequestPaymentConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Account ID of the expected bucket owner.
 func (o BucketRequestPaymentConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 func (o BucketRequestPaymentConfigurationOutput) Payer() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Payer }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketRequestPaymentConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

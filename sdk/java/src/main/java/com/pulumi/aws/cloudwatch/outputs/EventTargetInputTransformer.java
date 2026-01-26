@@ -12,35 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetInputTransformer {
-    /**
-     * @return Key value pairs specified in the form of JSONPath (for example, time = $.time)
-     * * You can have as many as 100 key-value pairs.
-     * * You must use JSON dot notation, not bracket notation.
-     * * The keys can&#39;t start with &#34;AWS&#34;.
-     * 
-     */
     private @Nullable Map<String,String> inputPaths;
-    /**
-     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-     * 
-     */
     private String inputTemplate;
 
     private EventTargetInputTransformer() {}
-    /**
-     * @return Key value pairs specified in the form of JSONPath (for example, time = $.time)
-     * * You can have as many as 100 key-value pairs.
-     * * You must use JSON dot notation, not bracket notation.
-     * * The keys can&#39;t start with &#34;AWS&#34;.
-     * 
-     */
     public Map<String,String> inputPaths() {
         return this.inputPaths == null ? Map.of() : this.inputPaths;
     }
-    /**
-     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-     * 
-     */
     public String inputTemplate() {
         return this.inputTemplate;
     }

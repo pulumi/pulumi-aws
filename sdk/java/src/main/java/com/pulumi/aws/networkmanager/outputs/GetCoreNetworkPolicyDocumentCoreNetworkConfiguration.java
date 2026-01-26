@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
-    /**
-     * @return List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
-     * 
-     */
     private List<String> asnRanges;
-    /**
-     * @return Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
-     * 
-     */
     private @Nullable Boolean dnsSupport;
-    /**
-     * @return A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
-     * 
-     */
     private List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations;
-    /**
-     * @return The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
-     * 
-     */
     private @Nullable List<String> insideCidrBlocks;
-    /**
-     * @return — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
-     * 
-     */
     private @Nullable Boolean securityGroupReferencingSupport;
-    /**
-     * @return Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
-     * 
-     */
     private @Nullable Boolean vpnEcmpSupport;
 
     private GetCoreNetworkPolicyDocumentCoreNetworkConfiguration() {}
-    /**
-     * @return List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
-     * 
-     */
     public List<String> asnRanges() {
         return this.asnRanges;
     }
-    /**
-     * @return Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
-     * 
-     */
     public Optional<Boolean> dnsSupport() {
         return Optional.ofNullable(this.dnsSupport);
     }
-    /**
-     * @return A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations() {
         return this.edgeLocations;
     }
-    /**
-     * @return The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
-     * 
-     */
     public List<String> insideCidrBlocks() {
         return this.insideCidrBlocks == null ? List.of() : this.insideCidrBlocks;
     }
-    /**
-     * @return — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
-     * 
-     */
     public Optional<Boolean> securityGroupReferencingSupport() {
         return Optional.ofNullable(this.securityGroupReferencingSupport);
     }
-    /**
-     * @return Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
-     * 
-     */
     public Optional<Boolean> vpnEcmpSupport() {
         return Optional.ofNullable(this.vpnEcmpSupport);
     }

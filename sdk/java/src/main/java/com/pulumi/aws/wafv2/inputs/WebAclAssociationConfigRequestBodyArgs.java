@@ -19,77 +19,37 @@ public final class WebAclAssociationConfigRequestBodyArgs extends com.pulumi.res
 
     public static final WebAclAssociationConfigRequestBodyArgs Empty = new WebAclAssociationConfigRequestBodyArgs();
 
-    /**
-     * Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `apiGateway` below for details.
-     * 
-     */
     @Import(name="apiGateway")
     private @Nullable Output<WebAclAssociationConfigRequestBodyApiGatewayArgs> apiGateway;
 
-    /**
-     * @return Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `apiGateway` below for details.
-     * 
-     */
     public Optional<Output<WebAclAssociationConfigRequestBodyApiGatewayArgs>> apiGateway() {
         return Optional.ofNullable(this.apiGateway);
     }
 
-    /**
-     * Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `appRunnerService` below for details.
-     * 
-     */
     @Import(name="appRunnerService")
     private @Nullable Output<WebAclAssociationConfigRequestBodyAppRunnerServiceArgs> appRunnerService;
 
-    /**
-     * @return Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `appRunnerService` below for details.
-     * 
-     */
     public Optional<Output<WebAclAssociationConfigRequestBodyAppRunnerServiceArgs>> appRunnerService() {
         return Optional.ofNullable(this.appRunnerService);
     }
 
-    /**
-     * Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
-     * 
-     */
     @Import(name="cloudfront")
     private @Nullable Output<WebAclAssociationConfigRequestBodyCloudfrontArgs> cloudfront;
 
-    /**
-     * @return Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
-     * 
-     */
     public Optional<Output<WebAclAssociationConfigRequestBodyCloudfrontArgs>> cloudfront() {
         return Optional.ofNullable(this.cloudfront);
     }
 
-    /**
-     * Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
-     * 
-     */
     @Import(name="cognitoUserPool")
     private @Nullable Output<WebAclAssociationConfigRequestBodyCognitoUserPoolArgs> cognitoUserPool;
 
-    /**
-     * @return Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
-     * 
-     */
     public Optional<Output<WebAclAssociationConfigRequestBodyCognitoUserPoolArgs>> cognitoUserPool() {
         return Optional.ofNullable(this.cognitoUserPool);
     }
 
-    /**
-     * Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
-     * 
-     */
     @Import(name="verifiedAccessInstance")
     private @Nullable Output<WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs> verifiedAccessInstance;
 
-    /**
-     * @return Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
-     * 
-     */
     public Optional<Output<WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>> verifiedAccessInstance() {
         return Optional.ofNullable(this.verifiedAccessInstance);
     }
@@ -122,107 +82,47 @@ public final class WebAclAssociationConfigRequestBodyArgs extends com.pulumi.res
             $ = new WebAclAssociationConfigRequestBodyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiGateway Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `apiGateway` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiGateway(@Nullable Output<WebAclAssociationConfigRequestBodyApiGatewayArgs> apiGateway) {
             $.apiGateway = apiGateway;
             return this;
         }
 
-        /**
-         * @param apiGateway Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `apiGateway` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiGateway(WebAclAssociationConfigRequestBodyApiGatewayArgs apiGateway) {
             return apiGateway(Output.of(apiGateway));
         }
 
-        /**
-         * @param appRunnerService Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `appRunnerService` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appRunnerService(@Nullable Output<WebAclAssociationConfigRequestBodyAppRunnerServiceArgs> appRunnerService) {
             $.appRunnerService = appRunnerService;
             return this;
         }
 
-        /**
-         * @param appRunnerService Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `appRunnerService` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appRunnerService(WebAclAssociationConfigRequestBodyAppRunnerServiceArgs appRunnerService) {
             return appRunnerService(Output.of(appRunnerService));
         }
 
-        /**
-         * @param cloudfront Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudfront(@Nullable Output<WebAclAssociationConfigRequestBodyCloudfrontArgs> cloudfront) {
             $.cloudfront = cloudfront;
             return this;
         }
 
-        /**
-         * @param cloudfront Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudfront(WebAclAssociationConfigRequestBodyCloudfrontArgs cloudfront) {
             return cloudfront(Output.of(cloudfront));
         }
 
-        /**
-         * @param cognitoUserPool Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cognitoUserPool(@Nullable Output<WebAclAssociationConfigRequestBodyCognitoUserPoolArgs> cognitoUserPool) {
             $.cognitoUserPool = cognitoUserPool;
             return this;
         }
 
-        /**
-         * @param cognitoUserPool Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cognitoUserPool(WebAclAssociationConfigRequestBodyCognitoUserPoolArgs cognitoUserPool) {
             return cognitoUserPool(Output.of(cognitoUserPool));
         }
 
-        /**
-         * @param verifiedAccessInstance Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAccessInstance(@Nullable Output<WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs> verifiedAccessInstance) {
             $.verifiedAccessInstance = verifiedAccessInstance;
             return this;
         }
 
-        /**
-         * @param verifiedAccessInstance Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAccessInstance(WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs verifiedAccessInstance) {
             return verifiedAccessInstance(Output.of(verifiedAccessInstance));
         }

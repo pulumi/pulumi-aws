@@ -15,137 +15,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.ResourcePolicy;
- * import com.pulumi.aws.organizations.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .content("""
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Statement\": [
- *     {
- *       \"Sid\": \"DelegatingNecessaryDescribeListActions\",
- *       \"Effect\": \"Allow\",
- *       \"Principal\": {
- *         \"AWS\": \"arn:aws:iam::123456789012:root\"
- *       },
- *       \"Action\": [
- *         \"organizations:DescribeOrganization\",
- *         \"organizations:DescribeOrganizationalUnit\",
- *         \"organizations:DescribeAccount\",
- *         \"organizations:DescribePolicy\",
- *         \"organizations:DescribeEffectivePolicy\",
- *         \"organizations:ListRoots\",
- *         \"organizations:ListOrganizationalUnitsForParent\",
- *         \"organizations:ListParents\",
- *         \"organizations:ListChildren\",
- *         \"organizations:ListAccounts\",
- *         \"organizations:ListAccountsForParent\",
- *         \"organizations:ListPolicies\",
- *         \"organizations:ListPoliciesForTarget\",
- *         \"organizations:ListTargetsForPolicy\",
- *         \"organizations:ListTagsForResource\"
- *       ],
- *       \"Resource\": \"*\"
- *     }
- *   ]
- * }
- *             """)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:organizations/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the resource policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the resource policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy&#39;s type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-     * 
-     */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
-    /**
-     * @return Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy&#39;s type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-     * 
-     */
     public Output<String> content() {
         return this.content;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

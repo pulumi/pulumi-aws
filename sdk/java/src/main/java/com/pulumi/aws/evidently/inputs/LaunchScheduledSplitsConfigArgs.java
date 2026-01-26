@@ -15,17 +15,9 @@ public final class LaunchScheduledSplitsConfigArgs extends com.pulumi.resources.
 
     public static final LaunchScheduledSplitsConfigArgs Empty = new LaunchScheduledSplitsConfigArgs();
 
-    /**
-     * One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-     * 
-     */
     @Import(name="steps", required=true)
     private Output<List<LaunchScheduledSplitsConfigStepArgs>> steps;
 
-    /**
-     * @return One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-     * 
-     */
     public Output<List<LaunchScheduledSplitsConfigStepArgs>> steps() {
         return this.steps;
     }
@@ -54,33 +46,15 @@ public final class LaunchScheduledSplitsConfigArgs extends com.pulumi.resources.
             $ = new LaunchScheduledSplitsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param steps One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder steps(Output<List<LaunchScheduledSplitsConfigStepArgs>> steps) {
             $.steps = steps;
             return this;
         }
 
-        /**
-         * @param steps One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder steps(List<LaunchScheduledSplitsConfigStepArgs> steps) {
             return steps(Output.of(steps));
         }
 
-        /**
-         * @param steps One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder steps(LaunchScheduledSplitsConfigStepArgs... steps) {
             return steps(List.of(steps));
         }

@@ -13,121 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Associate an existing ElastiCache user and an existing user group.
- * 
- * &gt; Pulumi will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignoreChanges` meta argument as shown in the example.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.User;
- * import com.pulumi.aws.elasticache.UserArgs;
- * import com.pulumi.aws.elasticache.UserGroup;
- * import com.pulumi.aws.elasticache.UserGroupArgs;
- * import com.pulumi.aws.elasticache.UserGroupAssociation;
- * import com.pulumi.aws.elasticache.UserGroupAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var default_ = new User("default", UserArgs.builder()
- *             .userId("defaultUserID")
- *             .userName("default")
- *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
- *             .engine("REDIS")
- *             .passwords("password123456789")
- *             .build());
- * 
- *         var example = new UserGroup("example", UserGroupArgs.builder()
- *             .engine("REDIS")
- *             .userGroupId("userGroupId")
- *             .userIds(default_.userId())
- *             .build());
- * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .userId("exampleUserID")
- *             .userName("exampleuser")
- *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
- *             .engine("REDIS")
- *             .passwords("password123456789")
- *             .build());
- * 
- *         var exampleUserGroupAssociation = new UserGroupAssociation("exampleUserGroupAssociation", UserGroupAssociationArgs.builder()
- *             .userGroupId(example.userGroupId())
- *             .userId(exampleUser.userId())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
- * ```
- * 
- */
 @ResourceType(type="aws:elasticache/userGroupAssociation:UserGroupAssociation")
 public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the user group.
-     * 
-     */
     @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output<String> userGroupId;
 
-    /**
-     * @return ID of the user group.
-     * 
-     */
     public Output<String> userGroupId() {
         return this.userGroupId;
     }
-    /**
-     * ID of the user to associated with the user group.
-     * 
-     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
-    /**
-     * @return ID of the user to associated with the user group.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }

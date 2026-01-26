@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
-// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
-// configured in the provider.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Declare the data source
-//			rules, err := inspector.GetRulesPackages(ctx, &inspector.GetRulesPackagesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// e.g., Use in aws_inspector_assessment_template
-//			group, err := inspector.NewResourceGroup(ctx, "group", &inspector.ResourceGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"test": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assessment, err := inspector.NewAssessmentTarget(ctx, "assessment", &inspector.AssessmentTargetArgs{
-//				Name:             pulumi.String("test"),
-//				ResourceGroupArn: group.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector.NewAssessmentTemplate(ctx, "assessment", &inspector.AssessmentTemplateArgs{
-//				Name:             pulumi.String("Test"),
-//				TargetArn:        assessment.Arn,
-//				Duration:         pulumi.Int(60),
-//				RulesPackageArns: interface{}(rules.Arns),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRulesPackages(ctx *pulumi.Context, args *GetRulesPackagesArgs, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRulesPackagesResult
@@ -76,13 +23,11 @@ func GetRulesPackages(ctx *pulumi.Context, args *GetRulesPackagesArgs, opts ...p
 
 // A collection of arguments for invoking getRulesPackages.
 type GetRulesPackagesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRulesPackages.
 type GetRulesPackagesResult struct {
-	// List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -100,7 +45,6 @@ func GetRulesPackagesOutput(ctx *pulumi.Context, args GetRulesPackagesOutputArgs
 
 // A collection of arguments for invoking getRulesPackages.
 type GetRulesPackagesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -123,7 +67,6 @@ func (o GetRulesPackagesResultOutput) ToGetRulesPackagesResultOutputWithContext(
 	return o
 }
 
-// List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
 func (o GetRulesPackagesResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRulesPackagesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

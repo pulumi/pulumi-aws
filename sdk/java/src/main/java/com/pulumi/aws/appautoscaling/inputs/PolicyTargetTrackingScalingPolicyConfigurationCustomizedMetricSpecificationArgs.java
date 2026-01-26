@@ -18,92 +18,44 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs();
 
-    /**
-     * Dimensions of the metric.
-     * 
-     */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs>> dimensions;
 
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public Optional<Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * Name of the metric.
-     * 
-     */
     @Import(name="metricName")
     private @Nullable Output<String> metricName;
 
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Optional<Output<String>> metricName() {
         return Optional.ofNullable(this.metricName);
     }
 
-    /**
-     * Metrics to include, as a metric data query.
-     * 
-     */
     @Import(name="metrics")
     private @Nullable Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs>> metrics;
 
-    /**
-     * @return Metrics to include, as a metric data query.
-     * 
-     */
     public Optional<Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs>>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
 
-    /**
-     * Namespace of the metric.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-     * 
-     */
     @Import(name="statistic")
     private @Nullable Output<String> statistic;
 
-    /**
-     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-     * 
-     */
     public Optional<Output<String>> statistic() {
         return Optional.ofNullable(this.statistic);
     }
 
-    /**
-     * Unit of the metrics to return.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
@@ -137,148 +89,64 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             $ = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(@Nullable Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(@Nullable Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param metrics Metrics to include, as a metric data query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(@Nullable Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs>> metrics) {
             $.metrics = metrics;
             return this;
         }
 
-        /**
-         * @param metrics Metrics to include, as a metric data query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs> metrics) {
             return metrics(Output.of(metrics));
         }
 
-        /**
-         * @param metrics Metrics to include, as a metric data query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs... metrics) {
             return metrics(List.of(metrics));
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param statistic Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(@Nullable Output<String> statistic) {
             $.statistic = statistic;
             return this;
         }
 
-        /**
-         * @param statistic Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(String statistic) {
             return statistic(Output.of(statistic));
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

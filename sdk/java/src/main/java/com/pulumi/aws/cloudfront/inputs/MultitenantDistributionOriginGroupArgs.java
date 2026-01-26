@@ -19,47 +19,23 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
 
     public static final MultitenantDistributionOriginGroupArgs Empty = new MultitenantDistributionOriginGroupArgs();
 
-    /**
-     * Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-     * 
-     */
     @Import(name="failoverCriteria")
     private @Nullable Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs> failoverCriteria;
 
-    /**
-     * @return Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-     * 
-     */
     public Optional<Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs>> failoverCriteria() {
         return Optional.ofNullable(this.failoverCriteria);
     }
 
-    /**
-     * List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-     * 
-     */
     @Import(name="members")
     private @Nullable Output<List<MultitenantDistributionOriginGroupMemberArgs>> members;
 
-    /**
-     * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-     * 
-     */
     public Optional<Output<List<MultitenantDistributionOriginGroupMemberArgs>>> members() {
         return Optional.ofNullable(this.members);
     }
 
-    /**
-     * Unique identifier for the origin group.
-     * 
-     */
     @Import(name="originId", required=true)
     private Output<String> originId;
 
-    /**
-     * @return Unique identifier for the origin group.
-     * 
-     */
     public Output<String> originId() {
         return this.originId;
     }
@@ -90,75 +66,33 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
             $ = new MultitenantDistributionOriginGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param failoverCriteria Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failoverCriteria(@Nullable Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs> failoverCriteria) {
             $.failoverCriteria = failoverCriteria;
             return this;
         }
 
-        /**
-         * @param failoverCriteria Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failoverCriteria(MultitenantDistributionOriginGroupFailoverCriteriaArgs failoverCriteria) {
             return failoverCriteria(Output.of(failoverCriteria));
         }
 
-        /**
-         * @param members List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(@Nullable Output<List<MultitenantDistributionOriginGroupMemberArgs>> members) {
             $.members = members;
             return this;
         }
 
-        /**
-         * @param members List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(List<MultitenantDistributionOriginGroupMemberArgs> members) {
             return members(Output.of(members));
         }
 
-        /**
-         * @param members List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(MultitenantDistributionOriginGroupMemberArgs... members) {
             return members(List.of(members));
         }
 
-        /**
-         * @param originId Unique identifier for the origin group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originId(Output<String> originId) {
             $.originId = originId;
             return this;
         }
 
-        /**
-         * @param originId Unique identifier for the origin group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originId(String originId) {
             return originId(Output.of(originId));
         }

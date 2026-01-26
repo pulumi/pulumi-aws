@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KxEnvironmentTransitGatewayConfiguration {
-    /**
-     * @return Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
-     * 
-     */
     private @Nullable List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations;
-    /**
-     * @return Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
-     * 
-     */
     private String routableCidrSpace;
-    /**
-     * @return Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
-     * 
-     */
     private String transitGatewayId;
 
     private KxEnvironmentTransitGatewayConfiguration() {}
-    /**
-     * @return Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
-     * 
-     */
     public List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations() {
         return this.attachmentNetworkAclConfigurations == null ? List.of() : this.attachmentNetworkAclConfigurations;
     }
-    /**
-     * @return Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
-     * 
-     */
     public String routableCidrSpace() {
         return this.routableCidrSpace;
     }
-    /**
-     * @return Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }

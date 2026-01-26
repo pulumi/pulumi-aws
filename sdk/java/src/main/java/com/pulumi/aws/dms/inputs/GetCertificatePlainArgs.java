@@ -16,32 +16,16 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetCertificatePlainArgs Empty = new GetCertificatePlainArgs();
 
-    /**
-     * A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can&#39;t end with a hyphen or contain two consecutive hyphens.
-     * 
-     */
     @Import(name="certificateId", required=true)
     private String certificateId;
 
-    /**
-     * @return A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can&#39;t end with a hyphen or contain two consecutive hyphens.
-     * 
-     */
     public String certificateId() {
         return this.certificateId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -79,23 +63,11 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetCertificatePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateId A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can&#39;t end with a hyphen or contain two consecutive hyphens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateId(String certificateId) {
             $.certificateId = certificateId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

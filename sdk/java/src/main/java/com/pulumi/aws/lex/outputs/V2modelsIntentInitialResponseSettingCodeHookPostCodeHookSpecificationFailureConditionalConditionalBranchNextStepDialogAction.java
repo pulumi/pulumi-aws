@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction {
-    /**
-     * @return If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
-     * 
-     */
     private @Nullable String slotToElicit;
-    /**
-     * @return Whether the next message for the intent is _not_ used.
-     * 
-     */
     private @Nullable Boolean suppressNextMessage;
-    /**
-     * @return Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
-     * 
-     */
     private String type;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction() {}
-    /**
-     * @return If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
-     * 
-     */
     public Optional<String> slotToElicit() {
         return Optional.ofNullable(this.slotToElicit);
     }
-    /**
-     * @return Whether the next message for the intent is _not_ used.
-     * 
-     */
     public Optional<Boolean> suppressNextMessage() {
         return Optional.ofNullable(this.suppressNextMessage);
     }
-    /**
-     * @return Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
-     * 
-     */
     public String type() {
         return this.type;
     }

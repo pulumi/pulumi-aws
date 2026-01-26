@@ -12,24 +12,14 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
 
     public sealed class ResponsePlanActionSsmAutomationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The automation document's name.
-        /// </summary>
         [Input("documentName", required: true)]
         public Input<string> DocumentName { get; set; } = null!;
 
-        /// <summary>
-        /// The version of the automation document to use at runtime.
-        /// </summary>
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 
         [Input("dynamicParameters")]
         private InputMap<string>? _dynamicParameters;
-
-        /// <summary>
-        /// The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        /// </summary>
         public InputMap<string> DynamicParameters
         {
             get => _dynamicParameters ?? (_dynamicParameters = new InputMap<string>());
@@ -38,25 +28,15 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
 
         [Input("parameters")]
         private InputList<Inputs.ResponsePlanActionSsmAutomationParameterArgs>? _parameters;
-
-        /// <summary>
-        /// The key-value pair parameters to use when the automation document runs. The following values are supported:
-        /// </summary>
         public InputList<Inputs.ResponsePlanActionSsmAutomationParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ResponsePlanActionSsmAutomationParameterArgs>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The account that the automation document runs in. This can be in either the management account or an application account.
-        /// </summary>
         [Input("targetAccount")]
         public Input<string>? TargetAccount { get; set; }
 

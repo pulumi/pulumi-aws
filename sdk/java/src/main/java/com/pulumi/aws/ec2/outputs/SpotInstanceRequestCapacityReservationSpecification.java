@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestCapacityReservationSpecification {
-    /**
-     * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
-     * 
-     */
     private @Nullable String capacityReservationPreference;
-    /**
-     * @return Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
-     * 
-     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
-     * 
-     */
     private @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
 
     private SpotInstanceRequestCapacityReservationSpecification() {}
-    /**
-     * @return Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
-     * 
-     */
     public Optional<String> capacityReservationPreference() {
         return Optional.ofNullable(this.capacityReservationPreference);
     }
-    /**
-     * @return Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
-     * 
-     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
-     * 
-     */
     public Optional<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTarget() {
         return Optional.ofNullable(this.capacityReservationTarget);
     }

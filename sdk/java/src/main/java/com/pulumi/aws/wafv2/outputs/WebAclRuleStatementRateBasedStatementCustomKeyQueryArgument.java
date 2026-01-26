@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument {
-    /**
-     * @return The name of the query argument to use.
-     * 
-     */
     private String name;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
     private List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument() {}
-    /**
-     * @return The name of the query argument to use.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
     public List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation> textTransformations() {
         return this.textTransformations;
     }

@@ -10,45 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProducerDataSharesDataShare {
-    /**
-     * @return ARN (Amazon Resource Name) of the data share.
-     * 
-     */
     private String dataShareArn;
-    /**
-     * @return Identifier of a datashare to show its managing entity.
-     * 
-     */
     private String managedBy;
-    /**
-     * @return Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String producerArn;
 
     private GetProducerDataSharesDataShare() {}
-    /**
-     * @return ARN (Amazon Resource Name) of the data share.
-     * 
-     */
     public String dataShareArn() {
         return this.dataShareArn;
     }
-    /**
-     * @return Identifier of a datashare to show its managing entity.
-     * 
-     */
     public String managedBy() {
         return this.managedBy;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String producerArn() {
         return this.producerArn;
     }

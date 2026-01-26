@@ -9,68 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing an AWS QuickSight Folder Membership.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.FolderMembership("example", new()
-    ///     {
-    ///         FolderId = exampleAwsQuicksightFolder.FolderId,
-    ///         MemberType = "DATASET",
-    ///         MemberId = exampleAwsQuicksightDataSet.DataSetId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/folderMembership:FolderMembership")]
     public partial class FolderMembership : global::Pulumi.CustomResource
     {
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier for the folder.
-        /// </summary>
         [Output("folderId")]
         public Output<string> FolderId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the asset (the dashboard, analysis, or dataset).
-        /// </summary>
         [Output("memberId")]
         public Output<string> MemberId { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("memberType")]
         public Output<string> MemberType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -123,29 +76,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier for the folder.
-        /// </summary>
         [Input("folderId", required: true)]
         public Input<string> FolderId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the asset (the dashboard, analysis, or dataset).
-        /// </summary>
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
 
-        /// <summary>
-        /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("memberType", required: true)]
         public Input<string> MemberType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -160,29 +99,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier for the folder.
-        /// </summary>
         [Input("folderId")]
         public Input<string>? FolderId { get; set; }
 
-        /// <summary>
-        /// ID of the asset (the dashboard, analysis, or dataset).
-        /// </summary>
         [Input("memberId")]
         public Input<string>? MemberId { get; set; }
 
-        /// <summary>
-        /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("memberType")]
         public Input<string>? MemberType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

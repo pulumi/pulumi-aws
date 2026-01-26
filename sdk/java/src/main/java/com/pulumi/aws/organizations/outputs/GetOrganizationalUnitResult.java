@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationalUnitResult {
-    /**
-     * @return ARN of the organizational unit
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,10 +20,6 @@ public final class GetOrganizationalUnitResult {
     private String parentId;
 
     private GetOrganizationalUnitResult() {}
-    /**
-     * @return ARN of the organizational unit
-     * 
-     */
     public String arn() {
         return this.arn;
     }

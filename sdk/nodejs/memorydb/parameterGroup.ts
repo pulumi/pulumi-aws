@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a MemoryDB Parameter Group.
- *
- * More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.memorydb.ParameterGroup("example", {
- *     name: "my-parameter-group",
- *     family: "memorydb_redis6",
- *     parameters: [{
- *         name: "activedefrag",
- *         value: "yes",
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a parameter group using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
- * ```
- */
 export class ParameterGroup extends pulumi.CustomResource {
     /**
      * Get an existing ParameterGroup resource's state with the given name, ID, and optional extra
@@ -64,43 +35,14 @@ export class ParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ParameterGroup.__pulumiType;
     }
 
-    /**
-     * The ARN of the parameter group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The engine version that the parameter group can be used with.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly family: pulumi.Output<string>;
-    /**
-     * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-     */
     declare public readonly parameters: pulumi.Output<outputs.memorydb.ParameterGroupParameter[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -149,43 +91,14 @@ export class ParameterGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ParameterGroup resources.
  */
 export interface ParameterGroupState {
-    /**
-     * The ARN of the parameter group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The engine version that the parameter group can be used with.
-     *
-     * The following arguments are optional:
-     */
     family?: pulumi.Input<string>;
-    /**
-     * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -193,34 +106,11 @@ export interface ParameterGroupState {
  * The set of arguments for constructing a ParameterGroup resource.
  */
 export interface ParameterGroupArgs {
-    /**
-     * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The engine version that the parameter group can be used with.
-     *
-     * The following arguments are optional:
-     */
     family: pulumi.Input<string>;
-    /**
-     * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

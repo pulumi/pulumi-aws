@@ -12,103 +12,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleActionAuthenticateCognito {
-    /**
-     * @return Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     private Map<String,String> authenticationRequestExtraParams;
-    /**
-     * @return Behavior when the client is not authenticated.
-     * 
-     */
     private String onUnauthenticatedRequest;
-    /**
-     * @return Set of user claims requested.
-     * 
-     */
     private String scope;
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     private String sessionCookieName;
-    /**
-     * @return Maximum duration of the authentication session in seconds.
-     * 
-     */
     private Integer sessionTimeout;
-    /**
-     * @return ARN of the Cognito user pool.
-     * 
-     */
     private String userPoolArn;
-    /**
-     * @return ID of the Cognito user pool client.
-     * 
-     */
     private String userPoolClientId;
-    /**
-     * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
-     * 
-     */
     private String userPoolDomain;
 
     private GetListenerRuleActionAuthenticateCognito() {}
-    /**
-     * @return Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams;
     }
-    /**
-     * @return Behavior when the client is not authenticated.
-     * 
-     */
     public String onUnauthenticatedRequest() {
         return this.onUnauthenticatedRequest;
     }
-    /**
-     * @return Set of user claims requested.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     public String sessionCookieName() {
         return this.sessionCookieName;
     }
-    /**
-     * @return Maximum duration of the authentication session in seconds.
-     * 
-     */
     public Integer sessionTimeout() {
         return this.sessionTimeout;
     }
-    /**
-     * @return ARN of the Cognito user pool.
-     * 
-     */
     public String userPoolArn() {
         return this.userPoolArn;
     }
-    /**
-     * @return ID of the Cognito user pool client.
-     * 
-     */
     public String userPoolClientId() {
         return this.userPoolClientId;
     }
-    /**
-     * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
-     * 
-     */
     public String userPoolDomain() {
         return this.userPoolDomain;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
 
     public sealed class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for backup settings. See `BackupConfiguration` below.
-        /// </summary>
         [Input("backupConfiguration")]
         public Input<Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs>? BackupConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration block for logs encryption settings. See `LogsEncryptionConfiguration` below.
-        /// </summary>
         [Input("logsEncryptionConfiguration")]
         public Input<Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs>? LogsEncryptionConfiguration { get; set; }
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ivs.Inputs
 
     public sealed class RecordingConfigurationThumbnailConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        /// </summary>
         [Input("recordingMode")]
         public Input<string>? RecordingMode { get; set; }
 
-        /// <summary>
-        /// The targeted thumbnail-generation interval in seconds.
-        /// </summary>
         [Input("targetIntervalSeconds")]
         public Input<int>? TargetIntervalSeconds { get; set; }
 

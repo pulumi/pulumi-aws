@@ -7,59 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EKS Fargate Profile.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.FargateProfile("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     fargateProfileName: "example",
- *     podExecutionRoleArn: exampleAwsIamRole.arn,
- *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
- *     selectors: [{
- *         namespace: "example",
- *     }],
- * });
- * ```
- *
- * ### Example IAM Role for EKS Fargate Profile
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.Role("example", {
- *     name: "eks-fargate-profile-example",
- *     assumeRolePolicy: JSON.stringify({
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "eks-fargate-pods.amazonaws.com",
- *             },
- *         }],
- *         Version: "2012-10-17",
- *     }),
- * });
- * const example_AmazonEKSFargatePodExecutionRolePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
- *     role: example.name,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
- *
- * ```sh
- * $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
- * ```
- */
 export class FargateProfile extends pulumi.CustomResource {
     /**
      * Get an existing FargateProfile resource's state with the given name, ID, and optional extra
@@ -88,47 +35,15 @@ export class FargateProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === FargateProfile.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the EKS Fargate Profile.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the EKS Cluster.
-     */
     declare public readonly clusterName: pulumi.Output<string>;
-    /**
-     * Name of the EKS Fargate Profile.
-     */
     declare public readonly fargateProfileName: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-     */
     declare public readonly podExecutionRoleArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-     */
     declare public readonly selectors: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
-    /**
-     * Status of the EKS Fargate Profile.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-     *
-     * The following arguments are optional:
-     */
     declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -185,47 +100,15 @@ export class FargateProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FargateProfile resources.
  */
 export interface FargateProfileState {
-    /**
-     * Amazon Resource Name (ARN) of the EKS Fargate Profile.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the EKS Cluster.
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * Name of the EKS Fargate Profile.
-     */
     fargateProfileName?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-     */
     podExecutionRoleArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-     */
     selectors?: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
-    /**
-     * Status of the EKS Fargate Profile.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-     *
-     * The following arguments are optional:
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -233,34 +116,11 @@ export interface FargateProfileState {
  * The set of arguments for constructing a FargateProfile resource.
  */
 export interface FargateProfileArgs {
-    /**
-     * Name of the EKS Cluster.
-     */
     clusterName: pulumi.Input<string>;
-    /**
-     * Name of the EKS Fargate Profile.
-     */
     fargateProfileName?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-     */
     podExecutionRoleArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-     */
     selectors: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
-    /**
-     * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-     *
-     * The following arguments are optional:
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

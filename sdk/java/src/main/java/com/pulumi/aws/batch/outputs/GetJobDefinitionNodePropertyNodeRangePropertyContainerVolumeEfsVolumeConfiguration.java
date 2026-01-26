@@ -13,65 +13,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration {
-    /**
-     * @return The authorization configuration details for the Amazon EFS file system.
-     * 
-     */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs;
-    /**
-     * @return The Amazon EFS file system ID to use.
-     * 
-     */
     private String fileSystemId;
-    /**
-     * @return The directory within the Amazon EFS file system to mount as the root directory inside the host.
-     * 
-     */
     private String rootDirectory;
-    /**
-     * @return Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
-     * 
-     */
     private String transitEncryption;
-    /**
-     * @return The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
-     * 
-     */
     private Integer transitEncryptionPort;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration() {}
-    /**
-     * @return The authorization configuration details for the Amazon EFS file system.
-     * 
-     */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs() {
         return this.authorizationConfigs;
     }
-    /**
-     * @return The Amazon EFS file system ID to use.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * @return The directory within the Amazon EFS file system to mount as the root directory inside the host.
-     * 
-     */
     public String rootDirectory() {
         return this.rootDirectory;
     }
-    /**
-     * @return Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
-     * 
-     */
     public String transitEncryption() {
         return this.transitEncryption;
     }
-    /**
-     * @return The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
-     * 
-     */
     public Integer transitEncryptionPort() {
         return this.transitEncryptionPort;
     }

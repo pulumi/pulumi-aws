@@ -14,116 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.EmailIdentity;
- * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import com.pulumi.aws.sesv2.EmailIdentityMailFromAttributes;
- * import com.pulumi.aws.sesv2.EmailIdentityMailFromAttributesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
- *             .emailIdentity("example.com")
- *             .build());
- * 
- *         var exampleEmailIdentityMailFromAttributes = new EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes", EmailIdentityMailFromAttributesArgs.builder()
- *             .emailIdentity(example.emailIdentity())
- *             .behaviorOnMxFailure("REJECT_MESSAGE")
- *             .mailFromDomain(example.emailIdentity().applyValue(_emailIdentity -> String.format("subdomain.%s", _emailIdentity)))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes")
 public class EmailIdentityMailFromAttributes extends com.pulumi.resources.CustomResource {
-    /**
-     * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-     * 
-     */
     @Export(name="behaviorOnMxFailure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMxFailure;
 
-    /**
-     * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-     * 
-     */
     public Output<Optional<String>> behaviorOnMxFailure() {
         return Codegen.optional(this.behaviorOnMxFailure);
     }
-    /**
-     * The verified email identity.
-     * 
-     */
     @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
-    /**
-     * @return The verified email identity.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
-    /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
-     * 
-     */
     @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mailFromDomain;
 
-    /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
-     * 
-     */
     public Output<Optional<String>> mailFromDomain() {
         return Codegen.optional(this.mailFromDomain);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -18,156 +18,72 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
 
     public static final LinkState Empty = new LinkState();
 
-    /**
-     * ARN of the link.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the link.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Label that is assigned to this link.
-     * 
-     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
-    /**
-     * @return Label that is assigned to this link.
-     * 
-     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
 
-    /**
-     * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-     * 
-     */
     @Import(name="labelTemplate")
     private @Nullable Output<String> labelTemplate;
 
-    /**
-     * @return Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-     * 
-     */
     public Optional<Output<String>> labelTemplate() {
         return Optional.ofNullable(this.labelTemplate);
     }
 
-    /**
-     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
-     * 
-     */
     @Import(name="linkConfiguration")
     private @Nullable Output<LinkLinkConfigurationArgs> linkConfiguration;
 
-    /**
-     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<LinkLinkConfigurationArgs>> linkConfiguration() {
         return Optional.ofNullable(this.linkConfiguration);
     }
 
-    /**
-     * ID string that AWS generated as part of the link ARN.
-     * 
-     */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
-    /**
-     * @return ID string that AWS generated as part of the link ARN.
-     * 
-     */
     public Optional<Output<String>> linkId() {
         return Optional.ofNullable(this.linkId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Types of data that the source account shares with the monitoring account.
-     * 
-     */
     @Import(name="resourceTypes")
     private @Nullable Output<List<String>> resourceTypes;
 
-    /**
-     * @return Types of data that the source account shares with the monitoring account.
-     * 
-     */
     public Optional<Output<List<String>>> resourceTypes() {
         return Optional.ofNullable(this.resourceTypes);
     }
 
-    /**
-     * ARN of the sink that is used for this link.
-     * 
-     */
     @Import(name="sinkArn")
     private @Nullable Output<String> sinkArn;
 
-    /**
-     * @return ARN of the sink that is used for this link.
-     * 
-     */
     public Optional<Output<String>> sinkArn() {
         return Optional.ofNullable(this.sinkArn);
     }
 
-    /**
-     * Identifier of the sink to use to create this link.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="sinkIdentifier")
     private @Nullable Output<String> sinkIdentifier;
 
-    /**
-     * @return Identifier of the sink to use to create this link.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> sinkIdentifier() {
         return Optional.ofNullable(this.sinkIdentifier);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -213,226 +129,96 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
             $ = new LinkState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param label Label that is assigned to this link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
-        /**
-         * @param label Label that is assigned to this link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(String label) {
             return label(Output.of(label));
         }
 
-        /**
-         * @param labelTemplate Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelTemplate(@Nullable Output<String> labelTemplate) {
             $.labelTemplate = labelTemplate;
             return this;
         }
 
-        /**
-         * @param labelTemplate Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelTemplate(String labelTemplate) {
             return labelTemplate(Output.of(labelTemplate));
         }
 
-        /**
-         * @param linkConfiguration Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkConfiguration(@Nullable Output<LinkLinkConfigurationArgs> linkConfiguration) {
             $.linkConfiguration = linkConfiguration;
             return this;
         }
 
-        /**
-         * @param linkConfiguration Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkConfiguration(LinkLinkConfigurationArgs linkConfiguration) {
             return linkConfiguration(Output.of(linkConfiguration));
         }
 
-        /**
-         * @param linkId ID string that AWS generated as part of the link ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(@Nullable Output<String> linkId) {
             $.linkId = linkId;
             return this;
         }
 
-        /**
-         * @param linkId ID string that AWS generated as part of the link ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceTypes Types of data that the source account shares with the monitoring account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(@Nullable Output<List<String>> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
 
-        /**
-         * @param resourceTypes Types of data that the source account shares with the monitoring account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(List<String> resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
         }
 
-        /**
-         * @param resourceTypes Types of data that the source account shares with the monitoring account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }
 
-        /**
-         * @param sinkArn ARN of the sink that is used for this link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkArn(@Nullable Output<String> sinkArn) {
             $.sinkArn = sinkArn;
             return this;
         }
 
-        /**
-         * @param sinkArn ARN of the sink that is used for this link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkArn(String sinkArn) {
             return sinkArn(Output.of(sinkArn));
         }
 
-        /**
-         * @param sinkIdentifier Identifier of the sink to use to create this link.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkIdentifier(@Nullable Output<String> sinkIdentifier) {
             $.sinkIdentifier = sinkIdentifier;
             return this;
         }
 
-        /**
-         * @param sinkIdentifier Identifier of the sink to use to create this link.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkIdentifier(String sinkIdentifier) {
             return sinkIdentifier(Output.of(sinkIdentifier));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fis.Inputs
 
     public sealed class ExperimentTemplateExperimentOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-        /// </summary>
         [Input("accountTargeting")]
         public Input<string>? AccountTargeting { get; set; }
 
-        /// <summary>
-        /// Specifies the empty target resolution mode for experiment options. Supports `Fail` and `Skip`.
-        /// </summary>
         [Input("emptyTargetResolutionMode")]
         public Input<string>? EmptyTargetResolutionMode { get; set; }
 

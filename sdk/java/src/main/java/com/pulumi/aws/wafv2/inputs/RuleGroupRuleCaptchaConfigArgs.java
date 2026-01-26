@@ -15,17 +15,9 @@ public final class RuleGroupRuleCaptchaConfigArgs extends com.pulumi.resources.R
 
     public static final RuleGroupRuleCaptchaConfigArgs Empty = new RuleGroupRuleCaptchaConfigArgs();
 
-    /**
-     * Defines custom immunity time. See Immunity Time Property below for details.
-     * 
-     */
     @Import(name="immunityTimeProperty")
     private @Nullable Output<RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs> immunityTimeProperty;
 
-    /**
-     * @return Defines custom immunity time. See Immunity Time Property below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs>> immunityTimeProperty() {
         return Optional.ofNullable(this.immunityTimeProperty);
     }
@@ -54,23 +46,11 @@ public final class RuleGroupRuleCaptchaConfigArgs extends com.pulumi.resources.R
             $ = new RuleGroupRuleCaptchaConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param immunityTimeProperty Defines custom immunity time. See Immunity Time Property below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTimeProperty(@Nullable Output<RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs> immunityTimeProperty) {
             $.immunityTimeProperty = immunityTimeProperty;
             return this;
         }
 
-        /**
-         * @param immunityTimeProperty Defines custom immunity time. See Immunity Time Property below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTimeProperty(RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs immunityTimeProperty) {
             return immunityTimeProperty(Output.of(immunityTimeProperty));
         }

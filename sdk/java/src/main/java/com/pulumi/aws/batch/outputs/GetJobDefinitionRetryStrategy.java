@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionRetryStrategy {
-    /**
-     * @return The number of times to move a job to the RUNNABLE status.
-     * 
-     */
     private Integer attempts;
-    /**
-     * @return Array of up to 5 objects that specify the conditions where jobs are retried or failed.
-     * 
-     */
     private List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits;
 
     private GetJobDefinitionRetryStrategy() {}
-    /**
-     * @return The number of times to move a job to the RUNNABLE status.
-     * 
-     */
     public Integer attempts() {
         return this.attempts;
     }
-    /**
-     * @return Array of up to 5 objects that specify the conditions where jobs are retried or failed.
-     * 
-     */
     public List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits() {
         return this.evaluateOnExits;
     }

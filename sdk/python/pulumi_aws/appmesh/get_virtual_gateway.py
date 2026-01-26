@@ -65,17 +65,11 @@ class GetVirtualGatewayResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the virtual gateway.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Creation date of the virtual gateway.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -89,9 +83,6 @@ class GetVirtualGatewayResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Last update date of the virtual gateway.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
@@ -117,25 +108,16 @@ class GetVirtualGatewayResult:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> _builtins.str:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @_builtins.property
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualGatewaySpecResult']:
-        """
-        Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.
-        """
         return pulumi.get(self, "specs")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -164,25 +146,7 @@ def get_virtual_gateway(mesh_name: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualGatewayResult:
     """
-    Data source for managing an AWS App Mesh Virtual Gateway.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appmesh.get_virtual_gateway(mesh_name="mesh-gateway",
-        name="example-mesh")
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual gateway exists.
-    :param _builtins.str name: Name of the virtual gateway.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name
@@ -210,25 +174,7 @@ def get_virtual_gateway_output(mesh_name: Optional[pulumi.Input[_builtins.str]] 
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualGatewayResult]:
     """
-    Data source for managing an AWS App Mesh Virtual Gateway.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appmesh.get_virtual_gateway(mesh_name="mesh-gateway",
-        name="example-mesh")
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual gateway exists.
-    :param _builtins.str name: Name of the virtual gateway.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name

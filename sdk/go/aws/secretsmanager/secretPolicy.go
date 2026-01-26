@@ -12,93 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS Secrets Manager secret policy.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"arn:aws:iam::123456789012:root",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"secretsmanager:GetSecretValue",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = secretsmanager.NewSecretPolicy(ctx, "example", &secretsmanager.SecretPolicyArgs{
-//				SecretArn: exampleSecret.Arn,
-//				Policy:    pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
-//
-// Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_secretsmanager_secret_policy.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 type SecretPolicy struct {
 	pulumi.CustomResourceState
 
-	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrOutput `pulumi:"blockPublicPolicy"`
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Secret ARN.
-	//
-	// The following arguments are optional:
-	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
+	Policy            pulumi.StringOutput  `pulumi:"policy"`
+	Region            pulumi.StringOutput  `pulumi:"region"`
+	SecretArn         pulumi.StringOutput  `pulumi:"secretArn"`
 }
 
 // NewSecretPolicy registers a new resource with the given unique name, arguments, and options.
@@ -137,29 +57,17 @@ func GetSecretPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecretPolicy resources.
 type secretPolicyState struct {
-	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Secret ARN.
-	//
-	// The following arguments are optional:
-	SecretArn *string `pulumi:"secretArn"`
+	BlockPublicPolicy *bool   `pulumi:"blockPublicPolicy"`
+	Policy            *string `pulumi:"policy"`
+	Region            *string `pulumi:"region"`
+	SecretArn         *string `pulumi:"secretArn"`
 }
 
 type SecretPolicyState struct {
-	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrInput
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Secret ARN.
-	//
-	// The following arguments are optional:
-	SecretArn pulumi.StringPtrInput
+	Policy            pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	SecretArn         pulumi.StringPtrInput
 }
 
 func (SecretPolicyState) ElementType() reflect.Type {
@@ -167,30 +75,18 @@ func (SecretPolicyState) ElementType() reflect.Type {
 }
 
 type secretPolicyArgs struct {
-	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Secret ARN.
-	//
-	// The following arguments are optional:
-	SecretArn string `pulumi:"secretArn"`
+	BlockPublicPolicy *bool   `pulumi:"blockPublicPolicy"`
+	Policy            string  `pulumi:"policy"`
+	Region            *string `pulumi:"region"`
+	SecretArn         string  `pulumi:"secretArn"`
 }
 
 // The set of arguments for constructing a SecretPolicy resource.
 type SecretPolicyArgs struct {
-	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrInput
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Secret ARN.
-	//
-	// The following arguments are optional:
-	SecretArn pulumi.StringInput
+	Policy            pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	SecretArn         pulumi.StringInput
 }
 
 func (SecretPolicyArgs) ElementType() reflect.Type {
@@ -280,24 +176,18 @@ func (o SecretPolicyOutput) ToSecretPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 func (o SecretPolicyOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.BoolPtrOutput { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 func (o SecretPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecretPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Secret ARN.
-//
-// The following arguments are optional:
 func (o SecretPolicyOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }

@@ -14,17 +14,9 @@ public final class OrganizationConfigurationDatasourcesS3LogsArgs extends com.pu
 
     public static final OrganizationConfigurationDatasourcesS3LogsArgs Empty = new OrganizationConfigurationDatasourcesS3LogsArgs();
 
-    /**
-     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-     * 
-     */
     @Import(name="autoEnable", required=true)
     private Output<Boolean> autoEnable;
 
-    /**
-     * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-     * 
-     */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
     }
@@ -53,23 +45,11 @@ public final class OrganizationConfigurationDatasourcesS3LogsArgs extends com.pu
             $ = new OrganizationConfigurationDatasourcesS3LogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnable Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Output<Boolean> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
-        /**
-         * @param autoEnable Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Boolean autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }

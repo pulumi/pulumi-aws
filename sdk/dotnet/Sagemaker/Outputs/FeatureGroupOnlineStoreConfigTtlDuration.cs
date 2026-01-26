@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FeatureGroupOnlineStoreConfigTtlDuration
     {
-        /// <summary>
-        /// TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-        /// </summary>
         public readonly string? Unit;
-        /// <summary>
-        /// TtlDuration time value.
-        /// </summary>
         public readonly int? Value;
 
         [OutputConstructor]

@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ActivityEncryptionConfiguration struct {
-	// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
-	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
-	Type *string `pulumi:"type"`
+	KmsDataKeyReusePeriodSeconds *int    `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     *string `pulumi:"kmsKeyId"`
+	Type                         *string `pulumi:"type"`
 }
 
 // ActivityEncryptionConfigurationInput is an input type that accepts ActivityEncryptionConfigurationArgs and ActivityEncryptionConfigurationOutput values.
@@ -34,12 +31,9 @@ type ActivityEncryptionConfigurationInput interface {
 }
 
 type ActivityEncryptionConfigurationArgs struct {
-	// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
-	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput    `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	Type                         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ActivityEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -119,17 +113,14 @@ func (o ActivityEncryptionConfigurationOutput) ToActivityEncryptionConfiguration
 	}).(ActivityEncryptionConfigurationPtrOutput)
 }
 
-// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
 func (o ActivityEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
 func (o ActivityEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
 func (o ActivityEncryptionConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +149,6 @@ func (o ActivityEncryptionConfigurationPtrOutput) Elem() ActivityEncryptionConfi
 	}).(ActivityEncryptionConfigurationOutput)
 }
 
-// Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
 func (o ActivityEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *int {
 		if v == nil {
@@ -168,7 +158,6 @@ func (o ActivityEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
 func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
 		if v == nil {
@@ -178,7 +167,6 @@ func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
 func (o ActivityEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
 		if v == nil {
@@ -189,10 +177,8 @@ func (o ActivityEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type AliasRoutingConfiguration struct {
-	// The Amazon Resource Name (ARN) of the state machine version.
 	StateMachineVersionArn string `pulumi:"stateMachineVersionArn"`
-	// Percentage of traffic routed to the state machine version.
-	Weight int `pulumi:"weight"`
+	Weight                 int    `pulumi:"weight"`
 }
 
 // AliasRoutingConfigurationInput is an input type that accepts AliasRoutingConfigurationArgs and AliasRoutingConfigurationOutput values.
@@ -207,10 +193,8 @@ type AliasRoutingConfigurationInput interface {
 }
 
 type AliasRoutingConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the state machine version.
 	StateMachineVersionArn pulumi.StringInput `pulumi:"stateMachineVersionArn"`
-	// Percentage of traffic routed to the state machine version.
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Weight                 pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (AliasRoutingConfigurationArgs) ElementType() reflect.Type {
@@ -264,12 +248,10 @@ func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutputWithCo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the state machine version.
 func (o AliasRoutingConfigurationOutput) StateMachineVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) string { return v.StateMachineVersionArn }).(pulumi.StringOutput)
 }
 
-// Percentage of traffic routed to the state machine version.
 func (o AliasRoutingConfigurationOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -295,12 +277,9 @@ func (o AliasRoutingConfigurationArrayOutput) Index(i pulumi.IntInput) AliasRout
 }
 
 type StateMachineEncryptionConfiguration struct {
-	// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
-	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
-	Type *string `pulumi:"type"`
+	KmsDataKeyReusePeriodSeconds *int    `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     *string `pulumi:"kmsKeyId"`
+	Type                         *string `pulumi:"type"`
 }
 
 // StateMachineEncryptionConfigurationInput is an input type that accepts StateMachineEncryptionConfigurationArgs and StateMachineEncryptionConfigurationOutput values.
@@ -315,12 +294,9 @@ type StateMachineEncryptionConfigurationInput interface {
 }
 
 type StateMachineEncryptionConfigurationArgs struct {
-	// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
-	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput    `pulumi:"kmsDataKeyReusePeriodSeconds"`
+	KmsKeyId                     pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	Type                         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (StateMachineEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -400,17 +376,14 @@ func (o StateMachineEncryptionConfigurationOutput) ToStateMachineEncryptionConfi
 	}).(StateMachineEncryptionConfigurationPtrOutput)
 }
 
-// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
 func (o StateMachineEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
 func (o StateMachineEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
 func (o StateMachineEncryptionConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -439,7 +412,6 @@ func (o StateMachineEncryptionConfigurationPtrOutput) Elem() StateMachineEncrypt
 	}).(StateMachineEncryptionConfigurationOutput)
 }
 
-// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
 func (o StateMachineEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *int {
 		if v == nil {
@@ -449,7 +421,6 @@ func (o StateMachineEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSecon
 	}).(pulumi.IntPtrOutput)
 }
 
-// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
 func (o StateMachineEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *string {
 		if v == nil {
@@ -459,7 +430,6 @@ func (o StateMachineEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
 func (o StateMachineEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *string {
 		if v == nil {
@@ -470,12 +440,9 @@ func (o StateMachineEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOut
 }
 
 type StateMachineLoggingConfiguration struct {
-	// Determines whether execution data is included in your log. When set to `false`, data is excluded.
-	IncludeExecutionData *bool `pulumi:"includeExecutionData"`
-	// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-	Level *string `pulumi:"level"`
-	// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
-	LogDestination *string `pulumi:"logDestination"`
+	IncludeExecutionData *bool   `pulumi:"includeExecutionData"`
+	Level                *string `pulumi:"level"`
+	LogDestination       *string `pulumi:"logDestination"`
 }
 
 // StateMachineLoggingConfigurationInput is an input type that accepts StateMachineLoggingConfigurationArgs and StateMachineLoggingConfigurationOutput values.
@@ -490,12 +457,9 @@ type StateMachineLoggingConfigurationInput interface {
 }
 
 type StateMachineLoggingConfigurationArgs struct {
-	// Determines whether execution data is included in your log. When set to `false`, data is excluded.
-	IncludeExecutionData pulumi.BoolPtrInput `pulumi:"includeExecutionData"`
-	// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
-	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
+	IncludeExecutionData pulumi.BoolPtrInput   `pulumi:"includeExecutionData"`
+	Level                pulumi.StringPtrInput `pulumi:"level"`
+	LogDestination       pulumi.StringPtrInput `pulumi:"logDestination"`
 }
 
 func (StateMachineLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -575,17 +539,14 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	}).(StateMachineLoggingConfigurationPtrOutput)
 }
 
-// Determines whether execution data is included in your log. When set to `false`, data is excluded.
 func (o StateMachineLoggingConfigurationOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *bool { return v.IncludeExecutionData }).(pulumi.BoolPtrOutput)
 }
 
-// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
 func (o StateMachineLoggingConfigurationOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 func (o StateMachineLoggingConfigurationOutput) LogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.LogDestination }).(pulumi.StringPtrOutput)
 }
@@ -614,7 +575,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingCon
 	}).(StateMachineLoggingConfigurationOutput)
 }
 
-// Determines whether execution data is included in your log. When set to `false`, data is excluded.
 func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *bool {
 		if v == nil {
@@ -624,7 +584,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
 func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *string {
 		if v == nil {
@@ -634,7 +593,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 func (o StateMachineLoggingConfigurationPtrOutput) LogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *string {
 		if v == nil {
@@ -645,7 +603,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) LogDestination() pulumi.Strin
 }
 
 type StateMachineTracingConfiguration struct {
-	// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -661,7 +618,6 @@ type StateMachineTracingConfigurationInput interface {
 }
 
 type StateMachineTracingConfigurationArgs struct {
-	// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -742,7 +698,6 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
 
-// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 func (o StateMachineTracingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineTracingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -771,7 +726,6 @@ func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingCon
 	}).(StateMachineTracingConfigurationOutput)
 }
 
-// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineTracingConfiguration) *bool {
 		if v == nil {

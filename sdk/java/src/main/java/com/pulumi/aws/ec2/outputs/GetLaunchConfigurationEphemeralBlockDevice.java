@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchConfigurationEphemeralBlockDevice {
-    /**
-     * @return Name of the device.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Virtual Name of the device.
-     * 
-     */
     private String virtualName;
 
     private GetLaunchConfigurationEphemeralBlockDevice() {}
-    /**
-     * @return Name of the device.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Virtual Name of the device.
-     * 
-     */
     public String virtualName() {
         return this.virtualName;
     }

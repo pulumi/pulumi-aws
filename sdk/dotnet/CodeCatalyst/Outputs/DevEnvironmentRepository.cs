@@ -13,15 +13,7 @@ namespace Pulumi.Aws.CodeCatalyst.Outputs
     [OutputType]
     public sealed class DevEnvironmentRepository
     {
-        /// <summary>
-        /// The name of the branch in a source repository.
-        /// 
-        /// persistent storage (` PersistentStorage`) supports the following:
-        /// </summary>
         public readonly string? BranchName;
-        /// <summary>
-        /// The name of the source repository.
-        /// </summary>
         public readonly string RepositoryName;
 
         [OutputConstructor]

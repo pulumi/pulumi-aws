@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryUpstream {
-    /**
-     * @return The name of an upstream repository.
-     * 
-     */
     private String repositoryName;
 
     private RepositoryUpstream() {}
-    /**
-     * @return The name of an upstream repository.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }

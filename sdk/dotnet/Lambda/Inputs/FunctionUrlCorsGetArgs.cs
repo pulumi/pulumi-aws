@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionUrlCorsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow cookies or other credentials in requests to the function URL.
-        /// </summary>
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
 
         [Input("allowHeaders")]
         private InputList<string>? _allowHeaders;
-
-        /// <summary>
-        /// HTTP headers that origins can include in requests to the function URL.
-        /// </summary>
         public InputList<string> AllowHeaders
         {
             get => _allowHeaders ?? (_allowHeaders = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("allowMethods")]
         private InputList<string>? _allowMethods;
-
-        /// <summary>
-        /// HTTP methods that are allowed when calling the function URL.
-        /// </summary>
         public InputList<string> AllowMethods
         {
             get => _allowMethods ?? (_allowMethods = new InputList<string>());
@@ -44,10 +33,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("allowOrigins")]
         private InputList<string>? _allowOrigins;
-
-        /// <summary>
-        /// Origins that can access the function URL.
-        /// </summary>
         public InputList<string> AllowOrigins
         {
             get => _allowOrigins ?? (_allowOrigins = new InputList<string>());
@@ -56,19 +41,12 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("exposeHeaders")]
         private InputList<string>? _exposeHeaders;
-
-        /// <summary>
-        /// HTTP headers in your function response that you want to expose to origins that call the function URL.
-        /// </summary>
         public InputList<string> ExposeHeaders
         {
             get => _exposeHeaders ?? (_exposeHeaders = new InputList<string>());
             set => _exposeHeaders = value;
         }
 
-        /// <summary>
-        /// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-        /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }
 

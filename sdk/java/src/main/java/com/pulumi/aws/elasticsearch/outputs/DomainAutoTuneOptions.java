@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAutoTuneOptions {
-    /**
-     * @return The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     private String desiredState;
-    /**
-     * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-     * 
-     */
     private @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules;
-    /**
-     * @return Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-     * 
-     */
     private @Nullable String rollbackOnDisable;
 
     private DomainAutoTuneOptions() {}
-    /**
-     * @return The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     public String desiredState() {
         return this.desiredState;
     }
-    /**
-     * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-     * 
-     */
     public List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules() {
         return this.maintenanceSchedules == null ? List.of() : this.maintenanceSchedules;
     }
-    /**
-     * @return Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-     * 
-     */
     public Optional<String> rollbackOnDisable() {
         return Optional.ofNullable(this.rollbackOnDisable);
     }

@@ -39,23 +39,6 @@ class EndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
-        :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input['EndpointCidrOptionsArgs'] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-        :param pulumi.Input[_builtins.str] description: A description for the Verified Access endpoint.
-        :param pulumi.Input[_builtins.str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input[_builtins.str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        :param pulumi.Input['EndpointLoadBalancerOptionsArgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input['EndpointNetworkInterfaceOptionsArgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input['EndpointSseSpecificationArgs'] sse_specification: The options in use for server side encryption.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "attachment_type", attachment_type)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -90,9 +73,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of attachment. Currently, only `vpc` is supported.
-        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -102,9 +82,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -114,11 +91,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="verifiedAccessGroupId")
     def verified_access_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Verified Access group to associate the endpoint with.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "verified_access_group_id")
 
     @verified_access_group_id.setter
@@ -128,9 +100,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="applicationDomain")
     def application_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        """
         return pulumi.get(self, "application_domain")
 
     @application_domain.setter
@@ -140,9 +109,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="cidrOptions")
     def cidr_options(self) -> Optional[pulumi.Input['EndpointCidrOptionsArgs']]:
-        """
-        The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-        """
         return pulumi.get(self, "cidr_options")
 
     @cidr_options.setter
@@ -152,9 +118,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the Verified Access endpoint.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -164,9 +127,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="domainCertificateArn")
     def domain_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        """
         return pulumi.get(self, "domain_certificate_arn")
 
     @domain_certificate_arn.setter
@@ -176,9 +136,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="endpointDomainPrefix")
     def endpoint_domain_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        """
         return pulumi.get(self, "endpoint_domain_prefix")
 
     @endpoint_domain_prefix.setter
@@ -188,9 +145,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancerOptions")
     def load_balancer_options(self) -> Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']]:
-        """
-        The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        """
         return pulumi.get(self, "load_balancer_options")
 
     @load_balancer_options.setter
@@ -200,9 +154,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceOptions")
     def network_interface_options(self) -> Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']]:
-        """
-        The network interface details. This parameter is required if the endpoint type is `network-interface`.
-        """
         return pulumi.get(self, "network_interface_options")
 
     @network_interface_options.setter
@@ -212,9 +163,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy document that is associated with this resource.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -233,9 +181,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -245,9 +190,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of the the security groups IDs to associate with the Verified Access endpoint.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -257,9 +199,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['EndpointSseSpecificationArgs']]:
-        """
-        The options in use for server side encryption.
-        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -269,9 +208,6 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -304,25 +240,6 @@ class _EndpointState:
                  verified_access_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
-        :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
-        :param pulumi.Input['EndpointCidrOptionsArgs'] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-        :param pulumi.Input[_builtins.str] description: A description for the Verified Access endpoint.
-        :param pulumi.Input[_builtins.str] device_validation_domain: Returned if endpoint has a device trust provider attached.
-        :param pulumi.Input[_builtins.str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input[_builtins.str] endpoint_domain: A DNS name that is generated for the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input['EndpointLoadBalancerOptionsArgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input['EndpointNetworkInterfaceOptionsArgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input['EndpointSseSpecificationArgs'] sse_specification: The options in use for server side encryption.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
-               
-               The following arguments are optional:
         """
         if application_domain is not None:
             pulumi.set(__self__, "application_domain", application_domain)
@@ -368,9 +285,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="applicationDomain")
     def application_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        """
         return pulumi.get(self, "application_domain")
 
     @application_domain.setter
@@ -380,9 +294,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of attachment. Currently, only `vpc` is supported.
-        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -392,9 +303,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="cidrOptions")
     def cidr_options(self) -> Optional[pulumi.Input['EndpointCidrOptionsArgs']]:
-        """
-        The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-        """
         return pulumi.get(self, "cidr_options")
 
     @cidr_options.setter
@@ -404,9 +312,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the Verified Access endpoint.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -416,9 +321,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="deviceValidationDomain")
     def device_validation_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Returned if endpoint has a device trust provider attached.
-        """
         return pulumi.get(self, "device_validation_domain")
 
     @device_validation_domain.setter
@@ -428,9 +330,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="domainCertificateArn")
     def domain_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        """
         return pulumi.get(self, "domain_certificate_arn")
 
     @domain_certificate_arn.setter
@@ -440,9 +339,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointDomain")
     def endpoint_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A DNS name that is generated for the endpoint.
-        """
         return pulumi.get(self, "endpoint_domain")
 
     @endpoint_domain.setter
@@ -452,9 +348,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointDomainPrefix")
     def endpoint_domain_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        """
         return pulumi.get(self, "endpoint_domain_prefix")
 
     @endpoint_domain_prefix.setter
@@ -464,9 +357,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -476,9 +366,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="loadBalancerOptions")
     def load_balancer_options(self) -> Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']]:
-        """
-        The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        """
         return pulumi.get(self, "load_balancer_options")
 
     @load_balancer_options.setter
@@ -488,9 +375,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceOptions")
     def network_interface_options(self) -> Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']]:
-        """
-        The network interface details. This parameter is required if the endpoint type is `network-interface`.
-        """
         return pulumi.get(self, "network_interface_options")
 
     @network_interface_options.setter
@@ -500,9 +384,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy document that is associated with this resource.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -521,9 +402,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -533,9 +411,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of the the security groups IDs to associate with the Verified Access endpoint.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -545,9 +420,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['EndpointSseSpecificationArgs']]:
-        """
-        The options in use for server side encryption.
-        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -557,9 +429,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -578,11 +447,6 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="verifiedAccessGroupId")
     def verified_access_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Verified Access group to associate the endpoint with.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "verified_access_group_id")
 
     @verified_access_group_id.setter
@@ -623,105 +487,9 @@ class Endpoint(pulumi.CustomResource):
                  verified_access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
-
-        ## Example Usage
-
-        ### ALB Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=example_aws_acm_certificate["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="load-balancer",
-            load_balancer_options={
-                "load_balancer_arn": example_aws_lb["arn"],
-                "port": 443,
-                "protocol": "https",
-                "subnet_ids": [subnet["id"] for subnet in public],
-            },
-            security_group_ids=[example_aws_security_group["id"]],
-            verified_access_group_id=example_aws_verifiedaccess_group["id"])
-        ```
-
-        ### Network Interface Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=example_aws_acm_certificate["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="network-interface",
-            network_interface_options={
-                "network_interface_id": example_aws_network_interface["id"],
-                "port": 443,
-                "protocol": "https",
-            },
-            security_group_ids=[example_aws_security_group["id"]],
-            verified_access_group_id=example_aws_verifiedaccess_group["id"])
-        ```
-
-        ### Cidr Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.Endpoint("example",
-            attachment_type="vpc",
-            description="example",
-            endpoint_type="cidr",
-            cidr_options={
-                "cidr": test[0]["cidrBlock"],
-                "port_ranges": [{
-                    "from_port": 443,
-                    "to_port": 443,
-                }],
-                "protocol": "tcp",
-                "subnet_ids": [subnet["id"] for subnet in test],
-            },
-            security_group_ids=[test_aws_security_group["id"]],
-            verified_access_group_id=test_aws_verifiedaccess_group["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
-        ```
-
+        Create a Endpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
-        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-        :param pulumi.Input[_builtins.str] description: A description for the Verified Access endpoint.
-        :param pulumi.Input[_builtins.str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input[_builtins.str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']] sse_specification: The options in use for server side encryption.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -730,86 +498,7 @@ class Endpoint(pulumi.CustomResource):
                  args: EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
-
-        ## Example Usage
-
-        ### ALB Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=example_aws_acm_certificate["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="load-balancer",
-            load_balancer_options={
-                "load_balancer_arn": example_aws_lb["arn"],
-                "port": 443,
-                "protocol": "https",
-                "subnet_ids": [subnet["id"] for subnet in public],
-            },
-            security_group_ids=[example_aws_security_group["id"]],
-            verified_access_group_id=example_aws_verifiedaccess_group["id"])
-        ```
-
-        ### Network Interface Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=example_aws_acm_certificate["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="network-interface",
-            network_interface_options={
-                "network_interface_id": example_aws_network_interface["id"],
-                "port": 443,
-                "protocol": "https",
-            },
-            security_group_ids=[example_aws_security_group["id"]],
-            verified_access_group_id=example_aws_verifiedaccess_group["id"])
-        ```
-
-        ### Cidr Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.Endpoint("example",
-            attachment_type="vpc",
-            description="example",
-            endpoint_type="cidr",
-            cidr_options={
-                "cidr": test[0]["cidrBlock"],
-                "port_ranges": [{
-                    "from_port": 443,
-                    "to_port": 443,
-                }],
-                "protocol": "tcp",
-                "subnet_ids": [subnet["id"] for subnet in test],
-            },
-            security_group_ids=[test_aws_security_group["id"]],
-            verified_access_group_id=test_aws_verifiedaccess_group["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
-        ```
-
+        Create a Endpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -913,25 +602,6 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
-        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-        :param pulumi.Input[_builtins.str] description: A description for the Verified Access endpoint.
-        :param pulumi.Input[_builtins.str] device_validation_domain: Returned if endpoint has a device trust provider attached.
-        :param pulumi.Input[_builtins.str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        :param pulumi.Input[_builtins.str] endpoint_domain: A DNS name that is generated for the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']] sse_specification: The options in use for server side encryption.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -962,97 +632,61 @@ class Endpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationDomain")
     def application_domain(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        """
         return pulumi.get(self, "application_domain")
 
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of attachment. Currently, only `vpc` is supported.
-        """
         return pulumi.get(self, "attachment_type")
 
     @_builtins.property
     @pulumi.getter(name="cidrOptions")
     def cidr_options(self) -> pulumi.Output[Optional['outputs.EndpointCidrOptions']]:
-        """
-        The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-        """
         return pulumi.get(self, "cidr_options")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description for the Verified Access endpoint.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="deviceValidationDomain")
     def device_validation_domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        Returned if endpoint has a device trust provider attached.
-        """
         return pulumi.get(self, "device_validation_domain")
 
     @_builtins.property
     @pulumi.getter(name="domainCertificateArn")
     def domain_certificate_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-        """
         return pulumi.get(self, "domain_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="endpointDomain")
     def endpoint_domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        A DNS name that is generated for the endpoint.
-        """
         return pulumi.get(self, "endpoint_domain")
 
     @_builtins.property
     @pulumi.getter(name="endpointDomainPrefix")
     def endpoint_domain_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        """
         return pulumi.get(self, "endpoint_domain_prefix")
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerOptions")
     def load_balancer_options(self) -> pulumi.Output[Optional['outputs.EndpointLoadBalancerOptions']]:
-        """
-        The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        """
         return pulumi.get(self, "load_balancer_options")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceOptions")
     def network_interface_options(self) -> pulumi.Output[Optional['outputs.EndpointNetworkInterfaceOptions']]:
-        """
-        The network interface details. This parameter is required if the endpoint type is `network-interface`.
-        """
         return pulumi.get(self, "network_interface_options")
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The policy document that is associated with this resource.
-        """
         return pulumi.get(self, "policy_document")
 
     @_builtins.property
@@ -1063,33 +697,21 @@ class Endpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of the the security groups IDs to associate with the Verified Access endpoint.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> pulumi.Output['outputs.EndpointSseSpecification']:
-        """
-        The options in use for server side encryption.
-        """
         return pulumi.get(self, "sse_specification")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -1100,11 +722,6 @@ class Endpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="verifiedAccessGroupId")
     def verified_access_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Verified Access group to associate the endpoint with.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "verified_access_group_id")
 
     @_builtins.property

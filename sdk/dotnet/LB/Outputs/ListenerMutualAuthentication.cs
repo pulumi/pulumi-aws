@@ -13,22 +13,9 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerMutualAuthentication
     {
-        /// <summary>
-        /// Valid values are `Off` and `On`.
-        /// </summary>
         public readonly string? AdvertiseTrustStoreCaNames;
-        /// <summary>
-        /// Whether client certificate expiry is ignored.
-        /// Default is `False`.
-        /// </summary>
         public readonly bool? IgnoreClientCertificateExpiry;
-        /// <summary>
-        /// Valid values are `Off`, `Passthrough`, and `Verify`.
-        /// </summary>
         public readonly string Mode;
-        /// <summary>
-        /// ARN of the elbv2 Trust Store.
-        /// </summary>
         public readonly string? TrustStoreArn;
 
         [OutputConstructor]

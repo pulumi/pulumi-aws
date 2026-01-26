@@ -13,78 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an RDS DB Instance association with an IAM Role. Example use cases:
- * 
- * * [Amazon RDS Oracle integration with Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html)
- * * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
- * 
- * &gt; To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `aws.rds.Instance` resource `monitoringRoleArn` argument instead.
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
- * ```
- * 
- */
 @ResourceType(type="aws:rds/roleAssociation:RoleAssociation")
 public class RoleAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * DB Instance Identifier to associate with the IAM Role.
-     * 
-     */
     @Export(name="dbInstanceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbInstanceIdentifier;
 
-    /**
-     * @return DB Instance Identifier to associate with the IAM Role.
-     * 
-     */
     public Output<String> dbInstanceIdentifier() {
         return this.dbInstanceIdentifier;
     }
-    /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     @Export(name="featureName", refs={String.class}, tree="[0]")
     private Output<String> featureName;
 
-    /**
-     * @return Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     public Output<String> featureName() {
         return this.featureName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

@@ -97,65 +97,41 @@ class GetImagePipelineResult:
     @_builtins.property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> _builtins.str:
-        """
-        ARN of the container recipe.
-        """
         return pulumi.get(self, "container_recipe_arn")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> _builtins.str:
-        """
-        Date the image pipeline was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter(name="dateLastRun")
     def date_last_run(self) -> _builtins.str:
-        """
-        Date the image pipeline was last run.
-        """
         return pulumi.get(self, "date_last_run")
 
     @_builtins.property
     @pulumi.getter(name="dateNextRun")
     def date_next_run(self) -> _builtins.str:
-        """
-        Date the image pipeline will run next.
-        """
         return pulumi.get(self, "date_next_run")
 
     @_builtins.property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> _builtins.str:
-        """
-        Date the image pipeline was updated.
-        """
         return pulumi.get(self, "date_updated")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the image pipeline.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> _builtins.str:
-        """
-        ARN of the Image Builder Distribution Configuration.
-        """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @_builtins.property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> _builtins.bool:
-        """
-        Whether additional information about the image being created is collected.
-        """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @_builtins.property
@@ -169,9 +145,6 @@ class GetImagePipelineResult:
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> _builtins.str:
-        """
-        ARN of the image recipe.
-        """
         return pulumi.get(self, "image_recipe_arn")
 
     @_builtins.property
@@ -182,33 +155,21 @@ class GetImagePipelineResult:
     @_builtins.property
     @pulumi.getter(name="imageTestsConfigurations")
     def image_tests_configurations(self) -> Sequence['outputs.GetImagePipelineImageTestsConfigurationResult']:
-        """
-        List of an object with image tests configuration.
-        """
         return pulumi.get(self, "image_tests_configurations")
 
     @_builtins.property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> _builtins.str:
-        """
-        ARN of the Image Builder Infrastructure Configuration.
-        """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the image pipeline.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> _builtins.str:
-        """
-        Platform of the image pipeline.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
@@ -219,25 +180,16 @@ class GetImagePipelineResult:
     @_builtins.property
     @pulumi.getter
     def schedules(self) -> Sequence['outputs.GetImagePipelineScheduleResult']:
-        """
-        List of an object with schedule settings.
-        """
         return pulumi.get(self, "schedules")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the image pipeline.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the image pipeline.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -274,21 +226,7 @@ def get_image_pipeline(arn: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagePipelineResult:
     """
-    Provides details about an Image Builder Image Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the image pipeline.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the image pipeline.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -323,21 +261,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
-    Provides details about an Image Builder Image Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the image pipeline.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the image pipeline.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

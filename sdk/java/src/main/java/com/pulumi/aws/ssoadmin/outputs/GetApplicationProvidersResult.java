@@ -12,30 +12,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationProvidersResult {
-    /**
-     * @return A list of application providers available in the current region. See `applicationProviders` below.
-     * 
-     */
     private List<GetApplicationProvidersApplicationProvider> applicationProviders;
-    /**
-     * @return AWS region.
-     * 
-     */
     private String id;
     private String region;
 
     private GetApplicationProvidersResult() {}
-    /**
-     * @return A list of application providers available in the current region. See `applicationProviders` below.
-     * 
-     */
     public List<GetApplicationProvidersApplicationProvider> applicationProviders() {
         return this.applicationProviders;
     }
-    /**
-     * @return AWS region.
-     * 
-     */
     public String id() {
         return this.id;
     }

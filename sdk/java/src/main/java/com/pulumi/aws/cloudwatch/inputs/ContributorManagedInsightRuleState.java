@@ -16,47 +16,23 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
 
     public static final ContributorManagedInsightRuleState Empty = new ContributorManagedInsightRuleState();
 
-    /**
-     * ARN of the Contributor Managed Insight Rule.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Contributor Managed Insight Rule.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
@@ -89,21 +65,9 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="templateName")
     private @Nullable Output<String> templateName;
 
-    /**
-     * @return Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> templateName() {
         return Optional.ofNullable(this.templateName);
     }
@@ -139,65 +103,29 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
             $ = new ContributorManagedInsightRuleState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Contributor Managed Insight Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Contributor Managed Insight Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
@@ -238,27 +166,11 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param templateName Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateName(@Nullable Output<String> templateName) {
             $.templateName = templateName;
             return this;
         }
 
-        /**
-         * @param templateName Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateName(String templateName) {
             return templateName(Output.of(templateName));
         }

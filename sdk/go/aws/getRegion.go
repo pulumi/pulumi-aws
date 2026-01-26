@@ -11,39 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `getRegion` provides details about a specific AWS Region.
-//
-// As well as validating a given Region name this resource can be used to
-// discover the name of the Region configured within the provider. The latter
-// can be useful in a child module which is inheriting an AWS provider
-// configuration from its parent module.
-//
-// ## Example Usage
-//
-// The following example shows how the resource might be used to obtain
-// the name of the AWS Region configured on the provider.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegionResult
@@ -56,20 +23,15 @@ func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getRegion.
 type GetRegionArgs struct {
-	// EC2 endpoint of the region to select.
 	Endpoint *string `pulumi:"endpoint"`
 	Id       *string `pulumi:"id"`
-	// Full name of the region to select. Use `region` instead.
-	//
 	// Deprecated: name is deprecated. Use region instead.
-	Name *string `pulumi:"name"`
-	// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRegion.
 type GetRegionResult struct {
-	// Region's description in this format: "Location (Region name)".
 	Description string `pulumi:"description"`
 	Endpoint    string `pulumi:"endpoint"`
 	Id          string `pulumi:"id"`
@@ -89,14 +51,10 @@ func GetRegionOutput(ctx *pulumi.Context, args GetRegionOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getRegion.
 type GetRegionOutputArgs struct {
-	// EC2 endpoint of the region to select.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 	Id       pulumi.StringPtrInput `pulumi:"id"`
-	// Full name of the region to select. Use `region` instead.
-	//
 	// Deprecated: name is deprecated. Use region instead.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -119,7 +77,6 @@ func (o GetRegionResultOutput) ToGetRegionResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// Region's description in this format: "Location (Region name)".
 func (o GetRegionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Description }).(pulumi.StringOutput)
 }

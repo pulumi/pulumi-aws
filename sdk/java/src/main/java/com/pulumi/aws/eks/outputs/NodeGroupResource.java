@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NodeGroupResource {
-    /**
-     * @return List of objects containing information about AutoScaling Groups.
-     * 
-     */
     private @Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups;
-    /**
-     * @return Identifier of the remote access EC2 Security Group.
-     * 
-     */
     private @Nullable String remoteAccessSecurityGroupId;
 
     private NodeGroupResource() {}
-    /**
-     * @return List of objects containing information about AutoScaling Groups.
-     * 
-     */
     public List<NodeGroupResourceAutoscalingGroup> autoscalingGroups() {
         return this.autoscalingGroups == null ? List.of() : this.autoscalingGroups;
     }
-    /**
-     * @return Identifier of the remote access EC2 Security Group.
-     * 
-     */
     public Optional<String> remoteAccessSecurityGroupId() {
         return Optional.ofNullable(this.remoteAccessSecurityGroupId);
     }

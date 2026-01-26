@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupCustomResponseBody {
-    /**
-     * @return The payload of the custom response.
-     * 
-     */
     private String content;
-    /**
-     * @return The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
-     * 
-     */
     private String contentType;
-    /**
-     * @return A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
-     * 
-     */
     private String key;
 
     private RuleGroupCustomResponseBody() {}
-    /**
-     * @return The payload of the custom response.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }
-    /**
-     * @return A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
-     * 
-     */
     public String key() {
         return this.key;
     }

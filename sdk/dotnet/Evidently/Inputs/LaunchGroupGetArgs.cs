@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class LaunchGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the description of the launch group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the feature that the launch is using.
-        /// </summary>
         [Input("feature", required: true)]
         public Input<string> Feature { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the lahnch group.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the feature variation to use for this launch group.
-        /// </summary>
         [Input("variation", required: true)]
         public Input<string> Variation { get; set; } = null!;
 

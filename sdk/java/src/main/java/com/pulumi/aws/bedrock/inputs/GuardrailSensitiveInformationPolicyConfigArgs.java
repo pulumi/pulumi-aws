@@ -17,32 +17,16 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
 
     public static final GuardrailSensitiveInformationPolicyConfigArgs Empty = new GuardrailSensitiveInformationPolicyConfigArgs();
 
-    /**
-     * List of entities. See PII Entities Config for more information.
-     * 
-     */
     @Import(name="piiEntitiesConfigs")
     private @Nullable Output<List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>> piiEntitiesConfigs;
 
-    /**
-     * @return List of entities. See PII Entities Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>>> piiEntitiesConfigs() {
         return Optional.ofNullable(this.piiEntitiesConfigs);
     }
 
-    /**
-     * List of regex. See Regexes Config for more information.
-     * 
-     */
     @Import(name="regexesConfigs")
     private @Nullable Output<List<GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>> regexesConfigs;
 
-    /**
-     * @return List of regex. See Regexes Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>>> regexesConfigs() {
         return Optional.ofNullable(this.regexesConfigs);
     }
@@ -72,64 +56,28 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
             $ = new GuardrailSensitiveInformationPolicyConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param piiEntitiesConfigs List of entities. See PII Entities Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder piiEntitiesConfigs(@Nullable Output<List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>> piiEntitiesConfigs) {
             $.piiEntitiesConfigs = piiEntitiesConfigs;
             return this;
         }
 
-        /**
-         * @param piiEntitiesConfigs List of entities. See PII Entities Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder piiEntitiesConfigs(List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs> piiEntitiesConfigs) {
             return piiEntitiesConfigs(Output.of(piiEntitiesConfigs));
         }
 
-        /**
-         * @param piiEntitiesConfigs List of entities. See PII Entities Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder piiEntitiesConfigs(GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs... piiEntitiesConfigs) {
             return piiEntitiesConfigs(List.of(piiEntitiesConfigs));
         }
 
-        /**
-         * @param regexesConfigs List of regex. See Regexes Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexesConfigs(@Nullable Output<List<GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>> regexesConfigs) {
             $.regexesConfigs = regexesConfigs;
             return this;
         }
 
-        /**
-         * @param regexesConfigs List of regex. See Regexes Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexesConfigs(List<GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs> regexesConfigs) {
             return regexesConfigs(Output.of(regexesConfigs));
         }
 
-        /**
-         * @param regexesConfigs List of regex. See Regexes Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexesConfigs(GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs... regexesConfigs) {
             return regexesConfigs(List.of(regexesConfigs));
         }

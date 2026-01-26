@@ -26,8 +26,6 @@ class RegistryPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         if region is not None:
@@ -36,9 +34,6 @@ class RegistryPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -48,9 +43,6 @@ class RegistryPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -66,9 +58,6 @@ class _RegistryPolicyState:
                  registry_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryPolicy resources.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the registry was created.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -80,9 +69,6 @@ class _RegistryPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -92,9 +78,6 @@ class _RegistryPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,9 +87,6 @@ class _RegistryPolicyState:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The registry ID where the registry was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -124,46 +104,9 @@ class RegistryPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Elastic Container Registry Policy.
-
-        > **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_region = aws.get_region()
-        current_get_partition = aws.get_partition()
-        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
-                },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.region}:{current.account_id}:repository/*"],
-            }],
-        }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
-
-        ```sh
-        $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
-        ```
-
+        Create a RegistryPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -172,42 +115,7 @@ class RegistryPolicy(pulumi.CustomResource):
                  args: RegistryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic Container Registry Policy.
-
-        > **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_region = aws.get_region()
-        current_get_partition = aws.get_partition()
-        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
-                },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.region}:{current.account_id}:repository/*"],
-            }],
-        }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
-
-        ```sh
-        $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
-        ```
-
+        Create a RegistryPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,9 +167,6 @@ class RegistryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the registry was created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,24 +180,15 @@ class RegistryPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The registry ID where the registry was created.
-        """
         return pulumi.get(self, "registry_id")
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Elb.Outputs
     [OutputType]
     public sealed class SslNegotiationPolicyAttribute
     {
-        /// <summary>
-        /// The name of the attribute
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value of the attribute
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -15,122 +15,58 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation extends com.
 
     public static final GetTrafficPolicyDocumentRuleGeoProximityLocation Empty = new GetTrafficPolicyDocumentRuleGeoProximityLocation();
 
-    /**
-     * Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-     * 
-     */
     @Import(name="bias")
     private @Nullable String bias;
 
-    /**
-     * @return Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-     * 
-     */
     public Optional<String> bias() {
         return Optional.ofNullable(this.bias);
     }
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable String endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     @Import(name="evaluateTargetHealth")
     private @Nullable Boolean evaluateTargetHealth;
 
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable String healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
 
-    /**
-     * Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-     * 
-     */
     @Import(name="latitude")
     private @Nullable String latitude;
 
-    /**
-     * @return Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-     * 
-     */
     public Optional<String> latitude() {
         return Optional.ofNullable(this.latitude);
     }
 
-    /**
-     * Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-     * 
-     */
     @Import(name="longitude")
     private @Nullable String longitude;
 
-    /**
-     * @return Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-     * 
-     */
     public Optional<String> longitude() {
         return Optional.ofNullable(this.longitude);
     }
 
-    /**
-     * If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * References to a rule.
-     * 
-     */
     @Import(name="ruleReference")
     private @Nullable String ruleReference;
 
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }
@@ -166,89 +102,41 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation extends com.
             $ = new GetTrafficPolicyDocumentRuleGeoProximityLocation(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bias Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-         * 
-         * @return builder
-         * 
-         */
         public Builder bias(@Nullable String bias) {
             $.bias = bias;
             return this;
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable String endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             $.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable String healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param latitude Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latitude(@Nullable String latitude) {
             $.latitude = latitude;
             return this;
         }
 
-        /**
-         * @param longitude Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longitude(@Nullable String longitude) {
             $.longitude = longitude;
             return this;
         }
 
-        /**
-         * @param region If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(@Nullable String ruleReference) {
             $.ruleReference = ruleReference;
             return this;

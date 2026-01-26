@@ -30,15 +30,6 @@ class MlflowTrackingServerArgs:
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MlflowTrackingServer resource.
-        :param pulumi.Input[_builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        :param pulumi.Input[_builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        :param pulumi.Input[_builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        :param pulumi.Input[_builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tracking_server_size: The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         """
         pulumi.set(__self__, "artifact_store_uri", artifact_store_uri)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -59,9 +50,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter(name="artifactStoreUri")
     def artifact_store_uri(self) -> pulumi.Input[_builtins.str]:
-        """
-        The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        """
         return pulumi.get(self, "artifact_store_uri")
 
     @artifact_store_uri.setter
@@ -71,9 +59,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -83,9 +68,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter(name="trackingServerName")
     def tracking_server_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        """
         return pulumi.get(self, "tracking_server_name")
 
     @tracking_server_name.setter
@@ -95,9 +77,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter(name="automaticModelRegistration")
     def automatic_model_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        """
         return pulumi.get(self, "automatic_model_registration")
 
     @automatic_model_registration.setter
@@ -107,9 +86,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter(name="mlflowVersion")
     def mlflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        """
         return pulumi.get(self, "mlflow_version")
 
     @mlflow_version.setter
@@ -119,9 +95,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -131,9 +104,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -143,9 +113,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter(name="trackingServerSize")
     def tracking_server_size(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        """
         return pulumi.get(self, "tracking_server_size")
 
     @tracking_server_size.setter
@@ -155,9 +122,6 @@ class MlflowTrackingServerArgs:
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
@@ -182,18 +146,6 @@ class _MlflowTrackingServerState:
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MlflowTrackingServer resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
-        :param pulumi.Input[_builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        :param pulumi.Input[_builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        :param pulumi.Input[_builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        :param pulumi.Input[_builtins.str] tracking_server_size: The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        :param pulumi.Input[_builtins.str] tracking_server_url: The URL to connect to the MLflow user interface for the described tracking server.
-        :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -223,9 +175,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -235,9 +184,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="artifactStoreUri")
     def artifact_store_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        """
         return pulumi.get(self, "artifact_store_uri")
 
     @artifact_store_uri.setter
@@ -247,9 +193,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="automaticModelRegistration")
     def automatic_model_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        """
         return pulumi.get(self, "automatic_model_registration")
 
     @automatic_model_registration.setter
@@ -259,9 +202,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="mlflowVersion")
     def mlflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        """
         return pulumi.get(self, "mlflow_version")
 
     @mlflow_version.setter
@@ -271,9 +211,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -283,9 +220,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -295,9 +229,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -307,9 +238,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -319,9 +247,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="trackingServerName")
     def tracking_server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        """
         return pulumi.get(self, "tracking_server_name")
 
     @tracking_server_name.setter
@@ -331,9 +256,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="trackingServerSize")
     def tracking_server_size(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        """
         return pulumi.get(self, "tracking_server_size")
 
     @tracking_server_size.setter
@@ -343,9 +265,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="trackingServerUrl")
     def tracking_server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL to connect to the MLflow user interface for the described tracking server.
-        """
         return pulumi.get(self, "tracking_server_url")
 
     @tracking_server_url.setter
@@ -355,9 +274,6 @@ class _MlflowTrackingServerState:
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
@@ -382,41 +298,9 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI MLFlow Tracking Server resource.
-
-        ## Example Usage
-
-        ### Cognito Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.MlflowTrackingServer("example",
-            tracking_server_name="example",
-            role_arn=example_aws_iam_role["arn"],
-            artifact_store_uri=f"s3://{example_aws_s3_bucket['bucket']}/path")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteam_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example
-        ```
-
+        Create a MlflowTrackingServer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        :param pulumi.Input[_builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        :param pulumi.Input[_builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        :param pulumi.Input[_builtins.str] tracking_server_size: The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         """
         ...
     @overload
@@ -425,30 +309,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  args: MlflowTrackingServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI MLFlow Tracking Server resource.
-
-        ## Example Usage
-
-        ### Cognito Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.MlflowTrackingServer("example",
-            tracking_server_name="example",
-            role_arn=example_aws_iam_role["arn"],
-            artifact_store_uri=f"s3://{example_aws_s3_bucket['bucket']}/path")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteam_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example
-        ```
-
+        Create a MlflowTrackingServer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MlflowTrackingServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -529,18 +390,6 @@ class MlflowTrackingServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
-        :param pulumi.Input[_builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        :param pulumi.Input[_builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        :param pulumi.Input[_builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        :param pulumi.Input[_builtins.str] tracking_server_size: The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        :param pulumi.Input[_builtins.str] tracking_server_url: The URL to connect to the MLflow user interface for the described tracking server.
-        :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -563,96 +412,60 @@ class MlflowTrackingServer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="artifactStoreUri")
     def artifact_store_uri(self) -> pulumi.Output[_builtins.str]:
-        """
-        The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
-        """
         return pulumi.get(self, "artifact_store_uri")
 
     @_builtins.property
     @pulumi.getter(name="automaticModelRegistration")
     def automatic_model_registration(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A list of Member Definitions that contains objects that identify the workers that make up the work team.
-        """
         return pulumi.get(self, "automatic_model_registration")
 
     @_builtins.property
     @pulumi.getter(name="mlflowVersion")
     def mlflow_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
-        """
         return pulumi.get(self, "mlflow_version")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="trackingServerName")
     def tracking_server_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A unique string identifying the tracking server name. This string is part of the tracking server ARN.
-        """
         return pulumi.get(self, "tracking_server_name")
 
     @_builtins.property
     @pulumi.getter(name="trackingServerSize")
     def tracking_server_size(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
-        """
         return pulumi.get(self, "tracking_server_size")
 
     @_builtins.property
     @pulumi.getter(name="trackingServerUrl")
     def tracking_server_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URL to connect to the MLflow user interface for the described tracking server.
-        """
         return pulumi.get(self, "tracking_server_url")
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> pulumi.Output[_builtins.str]:
-        """
-        The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
-        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 

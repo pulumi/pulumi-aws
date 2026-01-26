@@ -13,77 +13,23 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultUserSettings
     {
-        /// <summary>
-        /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
-        /// </summary>
         public readonly string? AutoMountHomeEfs;
-        /// <summary>
-        /// The Canvas app settings. See `CanvasAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettings? CanvasAppSettings;
-        /// <summary>
-        /// The Code Editor application settings. See `CodeEditorAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCodeEditorAppSettings? CodeEditorAppSettings;
-        /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `CustomFileSystemConfig` Block below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsCustomFileSystemConfig> CustomFileSystemConfigs;
-        /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See `CustomPosixUserConfig` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCustomPosixUserConfig? CustomPosixUserConfig;
-        /// <summary>
-        /// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
-        /// </summary>
         public readonly string? DefaultLandingUri;
-        /// <summary>
-        /// The execution role ARN for the user.
-        /// </summary>
         public readonly string ExecutionRole;
-        /// <summary>
-        /// The settings for the JupyterLab application. See `JupyterLabAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettings? JupyterLabAppSettings;
-        /// <summary>
-        /// The Jupyter server's app settings. See `JupyterServerAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsJupyterServerAppSettings? JupyterServerAppSettings;
-        /// <summary>
-        /// The kernel gateway app settings. See `KernelGatewayAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
-        /// <summary>
-        /// The RSession app settings. See `RSessionAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsRSessionAppSettings? RSessionAppSettings;
-        /// <summary>
-        /// A collection of settings that configure user interaction with the RStudioServerPro app. See `RStudioServerProAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsRStudioServerProAppSettings? RStudioServerProAppSettings;
-        /// <summary>
-        /// A list of security group IDs that will be attached to the user.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// The sharing settings. See `SharingSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsSharingSettings? SharingSettings;
-        /// <summary>
-        /// The storage settings for a private space. See `SpaceStorageSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsSpaceStorageSettings? SpaceStorageSettings;
-        /// <summary>
-        /// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? StudioWebPortal;
-        /// <summary>
-        /// The Studio Web Portal settings. See `StudioWebPortalSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsStudioWebPortalSettings? StudioWebPortalSettings;
-        /// <summary>
-        /// The TensorBoard app settings. See `TensorBoardAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsTensorBoardAppSettings? TensorBoardAppSettings;
 
         [OutputConstructor]

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
     {
         [Input("s3ReportLocations")]
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>? _s3ReportLocations;
-
-        /// <summary>
-        /// S3 location where error reports are written.
-        /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs> S3ReportLocations
         {
             get => _s3ReportLocations ?? (_s3ReportLocations = new InputList<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>());

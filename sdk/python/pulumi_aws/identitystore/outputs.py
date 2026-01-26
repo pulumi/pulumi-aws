@@ -51,10 +51,6 @@ class GroupExternalId(dict):
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None,
                  issuer: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if issuer is not None:
@@ -63,17 +59,11 @@ class GroupExternalId(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[_builtins.str]:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -107,16 +97,6 @@ class UserAddresses(dict):
                  region: Optional[_builtins.str] = None,
                  street_address: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str country: The country that this address is in.
-        :param _builtins.str formatted: The name that is typically displayed when the address is shown for display.
-        :param _builtins.str locality: The address locality.
-        :param _builtins.str postal_code: The postal code of the address.
-        :param _builtins.bool primary: When `true`, this is the primary address associated with the user.
-        :param _builtins.str region: The region of the address.
-        :param _builtins.str street_address: The street of the address.
-        :param _builtins.str type: The type of address.
-        """
         if country is not None:
             pulumi.set(__self__, "country", country)
         if formatted is not None:
@@ -137,65 +117,41 @@ class UserAddresses(dict):
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        The country that this address is in.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> Optional[_builtins.str]:
-        """
-        The name that is typically displayed when the address is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @_builtins.property
     @pulumi.getter
     def locality(self) -> Optional[_builtins.str]:
-        """
-        The address locality.
-        """
         return pulumi.get(self, "locality")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[_builtins.str]:
-        """
-        The postal code of the address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional[_builtins.bool]:
-        """
-        When `true`, this is the primary address associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        The region of the address.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> Optional[_builtins.str]:
-        """
-        The street of the address.
-        """
         return pulumi.get(self, "street_address")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        The type of address.
-        """
         return pulumi.get(self, "type")
 
 
@@ -205,11 +161,6 @@ class UserEmails(dict):
                  primary: Optional[_builtins.bool] = None,
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool primary: When `true`, this is the primary email associated with the user.
-        :param _builtins.str type: The type of email.
-        :param _builtins.str value: The email address. This value must be unique across the identity store.
-        """
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
         if type is not None:
@@ -220,25 +171,16 @@ class UserEmails(dict):
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional[_builtins.bool]:
-        """
-        When `true`, this is the primary email associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        The type of email.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The email address. This value must be unique across the identity store.
-        """
         return pulumi.get(self, "value")
 
 
@@ -247,10 +189,6 @@ class UserExternalId(dict):
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None,
                  issuer: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if issuer is not None:
@@ -259,17 +197,11 @@ class UserExternalId(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[_builtins.str]:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -307,16 +239,6 @@ class UserName(dict):
                  honorific_prefix: Optional[_builtins.str] = None,
                  honorific_suffix: Optional[_builtins.str] = None,
                  middle_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str family_name: The family name of the user.
-        :param _builtins.str given_name: The given name of the user.
-               
-               The following arguments are optional:
-        :param _builtins.str formatted: The name that is typically displayed when the name is shown for display.
-        :param _builtins.str honorific_prefix: The honorific prefix of the user.
-        :param _builtins.str honorific_suffix: The honorific suffix of the user.
-        :param _builtins.str middle_name: The middle name of the user.
-        """
         pulumi.set(__self__, "family_name", family_name)
         pulumi.set(__self__, "given_name", given_name)
         if formatted is not None:
@@ -331,51 +253,31 @@ class UserName(dict):
     @_builtins.property
     @pulumi.getter(name="familyName")
     def family_name(self) -> _builtins.str:
-        """
-        The family name of the user.
-        """
         return pulumi.get(self, "family_name")
 
     @_builtins.property
     @pulumi.getter(name="givenName")
     def given_name(self) -> _builtins.str:
-        """
-        The given name of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "given_name")
 
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> Optional[_builtins.str]:
-        """
-        The name that is typically displayed when the name is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @_builtins.property
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> Optional[_builtins.str]:
-        """
-        The honorific prefix of the user.
-        """
         return pulumi.get(self, "honorific_prefix")
 
     @_builtins.property
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> Optional[_builtins.str]:
-        """
-        The honorific suffix of the user.
-        """
         return pulumi.get(self, "honorific_suffix")
 
     @_builtins.property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> Optional[_builtins.str]:
-        """
-        The middle name of the user.
-        """
         return pulumi.get(self, "middle_name")
 
 
@@ -385,11 +287,6 @@ class UserPhoneNumbers(dict):
                  primary: Optional[_builtins.bool] = None,
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param _builtins.str type: The type of phone number.
-        :param _builtins.str value: The user's phone number.
-        """
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
         if type is not None:
@@ -400,25 +297,16 @@ class UserPhoneNumbers(dict):
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional[_builtins.bool]:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        The type of phone number.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The user's phone number.
-        """
         return pulumi.get(self, "value")
 
 
@@ -427,12 +315,6 @@ class GetGroupAlternateIdentifierResult(dict):
     def __init__(__self__, *,
                  external_id: Optional['outputs.GetGroupAlternateIdentifierExternalIdResult'] = None,
                  unique_attribute: Optional['outputs.GetGroupAlternateIdentifierUniqueAttributeResult'] = None):
-        """
-        :param 'GetGroupAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetGroupAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
-               
-               > Exactly one of the above arguments must be provided.
-        """
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if unique_attribute is not None:
@@ -441,19 +323,11 @@ class GetGroupAlternateIdentifierResult(dict):
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional['outputs.GetGroupAlternateIdentifierExternalIdResult']:
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="uniqueAttribute")
     def unique_attribute(self) -> Optional['outputs.GetGroupAlternateIdentifierUniqueAttributeResult']:
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
-
-        > Exactly one of the above arguments must be provided.
-        """
         return pulumi.get(self, "unique_attribute")
 
 
@@ -462,27 +336,17 @@ class GetGroupAlternateIdentifierExternalIdResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -491,27 +355,17 @@ class GetGroupAlternateIdentifierUniqueAttributeResult(dict):
     def __init__(__self__, *,
                  attribute_path: _builtins.str,
                  attribute_value: _builtins.str):
-        """
-        :param _builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        :param _builtins.str attribute_value: Value for an attribute.
-        """
         pulumi.set(__self__, "attribute_path", attribute_path)
         pulumi.set(__self__, "attribute_value", attribute_value)
 
     @_builtins.property
     @pulumi.getter(name="attributePath")
     def attribute_path(self) -> _builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        """
         return pulumi.get(self, "attribute_path")
 
     @_builtins.property
     @pulumi.getter(name="attributeValue")
     def attribute_value(self) -> _builtins.str:
-        """
-        Value for an attribute.
-        """
         return pulumi.get(self, "attribute_value")
 
 
@@ -520,27 +374,17 @@ class GetGroupExternalIdResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -551,11 +395,6 @@ class GetGroupMembershipsGroupMembershipResult(dict):
                  identity_store_id: _builtins.str,
                  member_id: 'outputs.GetGroupMembershipsGroupMembershipMemberIdResult',
                  membership_id: _builtins.str):
-        """
-        :param _builtins.str group_id: The identifier for a group in the Identity Store.
-        :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-        :param 'GetGroupMembershipsGroupMembershipMemberIdArgs' member_id: An object containing the identifier of a group member. See `member_id` below.
-        """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
         pulumi.set(__self__, "member_id", member_id)
@@ -564,25 +403,16 @@ class GetGroupMembershipsGroupMembershipResult(dict):
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> _builtins.str:
-        """
-        The identifier for a group in the Identity Store.
-        """
         return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> _builtins.str:
-        """
-        Identity Store ID associated with the Single Sign-On Instance.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @_builtins.property
     @pulumi.getter(name="memberId")
     def member_id(self) -> 'outputs.GetGroupMembershipsGroupMembershipMemberIdResult':
-        """
-        An object containing the identifier of a group member. See `member_id` below.
-        """
         return pulumi.get(self, "member_id")
 
     @_builtins.property
@@ -595,17 +425,11 @@ class GetGroupMembershipsGroupMembershipResult(dict):
 class GetGroupMembershipsGroupMembershipMemberIdResult(dict):
     def __init__(__self__, *,
                  user_id: _builtins.str):
-        """
-        :param _builtins.str user_id: User identifier of the group member.
-        """
         pulumi.set(__self__, "user_id", user_id)
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
-        """
-        User identifier of the group member.
-        """
         return pulumi.get(self, "user_id")
 
 
@@ -617,13 +441,6 @@ class GetGroupsGroupResult(dict):
                  external_ids: Sequence['outputs.GetGroupsGroupExternalIdResult'],
                  group_id: _builtins.str,
                  identity_store_id: _builtins.str):
-        """
-        :param _builtins.str description: Description of the specified group.
-        :param _builtins.str display_name: Group's display name.
-        :param Sequence['GetGroupsGroupExternalIdArgs'] external_ids: List of identifiers issued to this resource by an external identity provider.
-        :param _builtins.str group_id: Identifier of the group in the Identity Store.
-        :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
-        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "external_ids", external_ids)
@@ -633,41 +450,26 @@ class GetGroupsGroupResult(dict):
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the specified group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Group's display name.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Sequence['outputs.GetGroupsGroupExternalIdResult']:
-        """
-        List of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> _builtins.str:
-        """
-        Identifier of the group in the Identity Store.
-        """
         return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> _builtins.str:
-        """
-        Identity Store ID associated with the Single Sign-On (SSO) Instance.
-        """
         return pulumi.get(self, "identity_store_id")
 
 
@@ -676,27 +478,17 @@ class GetGroupsGroupExternalIdResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: Identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: Issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        Issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -711,16 +503,6 @@ class GetUserAddressResult(dict):
                  region: _builtins.str,
                  street_address: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str country: The country that this address is in.
-        :param _builtins.str formatted: The name that is typically displayed when the name is shown for display.
-        :param _builtins.str locality: The address locality.
-        :param _builtins.str postal_code: The postal code of the address.
-        :param _builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param _builtins.str street_address: The street of the address.
-        :param _builtins.str type: The type of phone number.
-        """
         pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "formatted", formatted)
         pulumi.set(__self__, "locality", locality)
@@ -733,65 +515,41 @@ class GetUserAddressResult(dict):
     @_builtins.property
     @pulumi.getter
     def country(self) -> _builtins.str:
-        """
-        The country that this address is in.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> _builtins.str:
-        """
-        The name that is typically displayed when the name is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @_builtins.property
     @pulumi.getter
     def locality(self) -> _builtins.str:
-        """
-        The address locality.
-        """
         return pulumi.get(self, "locality")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> _builtins.str:
-        """
-        The postal code of the address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter
     def primary(self) -> _builtins.bool:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> _builtins.str:
-        """
-        The street of the address.
-        """
         return pulumi.get(self, "street_address")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of phone number.
-        """
         return pulumi.get(self, "type")
 
 
@@ -800,12 +558,6 @@ class GetUserAlternateIdentifierResult(dict):
     def __init__(__self__, *,
                  external_id: Optional['outputs.GetUserAlternateIdentifierExternalIdResult'] = None,
                  unique_attribute: Optional['outputs.GetUserAlternateIdentifierUniqueAttributeResult'] = None):
-        """
-        :param 'GetUserAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetUserAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
-               
-               > Exactly one of the above arguments must be provided.
-        """
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if unique_attribute is not None:
@@ -814,19 +566,11 @@ class GetUserAlternateIdentifierResult(dict):
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional['outputs.GetUserAlternateIdentifierExternalIdResult']:
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="uniqueAttribute")
     def unique_attribute(self) -> Optional['outputs.GetUserAlternateIdentifierUniqueAttributeResult']:
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
-
-        > Exactly one of the above arguments must be provided.
-        """
         return pulumi.get(self, "unique_attribute")
 
 
@@ -835,27 +579,17 @@ class GetUserAlternateIdentifierExternalIdResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -864,27 +598,17 @@ class GetUserAlternateIdentifierUniqueAttributeResult(dict):
     def __init__(__self__, *,
                  attribute_path: _builtins.str,
                  attribute_value: _builtins.str):
-        """
-        :param _builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        :param _builtins.str attribute_value: Value for an attribute.
-        """
         pulumi.set(__self__, "attribute_path", attribute_path)
         pulumi.set(__self__, "attribute_value", attribute_value)
 
     @_builtins.property
     @pulumi.getter(name="attributePath")
     def attribute_path(self) -> _builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        """
         return pulumi.get(self, "attribute_path")
 
     @_builtins.property
     @pulumi.getter(name="attributeValue")
     def attribute_value(self) -> _builtins.str:
-        """
-        Value for an attribute.
-        """
         return pulumi.get(self, "attribute_value")
 
 
@@ -894,11 +618,6 @@ class GetUserEmailResult(dict):
                  primary: _builtins.bool,
                  type: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param _builtins.str type: The type of phone number.
-        :param _builtins.str value: The user's phone number.
-        """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -906,25 +625,16 @@ class GetUserEmailResult(dict):
     @_builtins.property
     @pulumi.getter
     def primary(self) -> _builtins.bool:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of phone number.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The user's phone number.
-        """
         return pulumi.get(self, "value")
 
 
@@ -933,27 +643,17 @@ class GetUserExternalIdResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: The identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: The issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        The issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -966,14 +666,6 @@ class GetUserNameResult(dict):
                  honorific_prefix: _builtins.str,
                  honorific_suffix: _builtins.str,
                  middle_name: _builtins.str):
-        """
-        :param _builtins.str family_name: The family name of the user.
-        :param _builtins.str formatted: The name that is typically displayed when the name is shown for display.
-        :param _builtins.str given_name: The given name of the user.
-        :param _builtins.str honorific_prefix: The honorific prefix of the user.
-        :param _builtins.str honorific_suffix: The honorific suffix of the user.
-        :param _builtins.str middle_name: The middle name of the user.
-        """
         pulumi.set(__self__, "family_name", family_name)
         pulumi.set(__self__, "formatted", formatted)
         pulumi.set(__self__, "given_name", given_name)
@@ -984,49 +676,31 @@ class GetUserNameResult(dict):
     @_builtins.property
     @pulumi.getter(name="familyName")
     def family_name(self) -> _builtins.str:
-        """
-        The family name of the user.
-        """
         return pulumi.get(self, "family_name")
 
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> _builtins.str:
-        """
-        The name that is typically displayed when the name is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @_builtins.property
     @pulumi.getter(name="givenName")
     def given_name(self) -> _builtins.str:
-        """
-        The given name of the user.
-        """
         return pulumi.get(self, "given_name")
 
     @_builtins.property
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> _builtins.str:
-        """
-        The honorific prefix of the user.
-        """
         return pulumi.get(self, "honorific_prefix")
 
     @_builtins.property
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> _builtins.str:
-        """
-        The honorific suffix of the user.
-        """
         return pulumi.get(self, "honorific_suffix")
 
     @_builtins.property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> _builtins.str:
-        """
-        The middle name of the user.
-        """
         return pulumi.get(self, "middle_name")
 
 
@@ -1036,11 +710,6 @@ class GetUserPhoneNumberResult(dict):
                  primary: _builtins.bool,
                  type: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param _builtins.str type: The type of phone number.
-        :param _builtins.str value: The user's phone number.
-        """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -1048,25 +717,16 @@ class GetUserPhoneNumberResult(dict):
     @_builtins.property
     @pulumi.getter
     def primary(self) -> _builtins.bool:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of phone number.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The user's phone number.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1089,24 +749,6 @@ class GetUsersUserResult(dict):
                  user_id: _builtins.str,
                  user_name: _builtins.str,
                  user_type: _builtins.str):
-        """
-        :param Sequence['GetUsersUserAddressArgs'] addresses: List of details about the user's address.
-        :param _builtins.str display_name: Name that is typically displayed when the user is referenced.
-        :param Sequence['GetUsersUserEmailArgs'] emails: List of details about the user's email.
-        :param Sequence['GetUsersUserExternalIdArgs'] external_ids: List of identifiers issued to this resource by an external identity provider.
-        :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-        :param _builtins.str locale: User's geographical region or location.
-        :param Sequence['GetUsersUserNameArgs'] names: Details about the user's full name.
-        :param _builtins.str nickname: An alternate name for the user.
-        :param Sequence['GetUsersUserPhoneNumberArgs'] phone_numbers: List of details about the user's phone number.
-        :param _builtins.str preferred_language: Preferred language of the user.
-        :param _builtins.str profile_url: An URL that may be associated with the user.
-        :param _builtins.str timezone: User's time zone.
-        :param _builtins.str title: User's title.
-        :param _builtins.str user_id: Identifier of the user in the Identity Store.
-        :param _builtins.str user_name: User's user name value.
-        :param _builtins.str user_type: User type.
-        """
         pulumi.set(__self__, "addresses", addresses)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "emails", emails)
@@ -1127,129 +769,81 @@ class GetUsersUserResult(dict):
     @_builtins.property
     @pulumi.getter
     def addresses(self) -> Sequence['outputs.GetUsersUserAddressResult']:
-        """
-        List of details about the user's address.
-        """
         return pulumi.get(self, "addresses")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Name that is typically displayed when the user is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter
     def emails(self) -> Sequence['outputs.GetUsersUserEmailResult']:
-        """
-        List of details about the user's email.
-        """
         return pulumi.get(self, "emails")
 
     @_builtins.property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Sequence['outputs.GetUsersUserExternalIdResult']:
-        """
-        List of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> _builtins.str:
-        """
-        Identity Store ID associated with the Single Sign-On Instance.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @_builtins.property
     @pulumi.getter
     def locale(self) -> _builtins.str:
-        """
-        User's geographical region or location.
-        """
         return pulumi.get(self, "locale")
 
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence['outputs.GetUsersUserNameResult']:
-        """
-        Details about the user's full name.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
     @pulumi.getter
     def nickname(self) -> _builtins.str:
-        """
-        An alternate name for the user.
-        """
         return pulumi.get(self, "nickname")
 
     @_builtins.property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> Sequence['outputs.GetUsersUserPhoneNumberResult']:
-        """
-        List of details about the user's phone number.
-        """
         return pulumi.get(self, "phone_numbers")
 
     @_builtins.property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> _builtins.str:
-        """
-        Preferred language of the user.
-        """
         return pulumi.get(self, "preferred_language")
 
     @_builtins.property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> _builtins.str:
-        """
-        An URL that may be associated with the user.
-        """
         return pulumi.get(self, "profile_url")
 
     @_builtins.property
     @pulumi.getter
     def timezone(self) -> _builtins.str:
-        """
-        User's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @_builtins.property
     @pulumi.getter
     def title(self) -> _builtins.str:
-        """
-        User's title.
-        """
         return pulumi.get(self, "title")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
-        """
-        Identifier of the user in the Identity Store.
-        """
         return pulumi.get(self, "user_id")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> _builtins.str:
-        """
-        User's user name value.
-        """
         return pulumi.get(self, "user_name")
 
     @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> _builtins.str:
-        """
-        User type.
-        """
         return pulumi.get(self, "user_type")
 
 
@@ -1264,16 +858,6 @@ class GetUsersUserAddressResult(dict):
                  region: _builtins.str,
                  street_address: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str country: Country that this address is in.
-        :param _builtins.str formatted: Name that is typically displayed when the name is shown for display.
-        :param _builtins.str locality: Address locality.
-        :param _builtins.str postal_code: Postal code of the address.
-        :param _builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param _builtins.str street_address: Street of the address.
-        :param _builtins.str type: Type of phone number.
-        """
         pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "formatted", formatted)
         pulumi.set(__self__, "locality", locality)
@@ -1286,65 +870,41 @@ class GetUsersUserAddressResult(dict):
     @_builtins.property
     @pulumi.getter
     def country(self) -> _builtins.str:
-        """
-        Country that this address is in.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> _builtins.str:
-        """
-        Name that is typically displayed when the name is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @_builtins.property
     @pulumi.getter
     def locality(self) -> _builtins.str:
-        """
-        Address locality.
-        """
         return pulumi.get(self, "locality")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> _builtins.str:
-        """
-        Postal code of the address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter
     def primary(self) -> _builtins.bool:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> _builtins.str:
-        """
-        Street of the address.
-        """
         return pulumi.get(self, "street_address")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of phone number.
-        """
         return pulumi.get(self, "type")
 
 
@@ -1354,11 +914,6 @@ class GetUsersUserEmailResult(dict):
                  primary: _builtins.bool,
                  type: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param _builtins.str type: Type of phone number.
-        :param _builtins.str value: User's phone number.
-        """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -1366,25 +921,16 @@ class GetUsersUserEmailResult(dict):
     @_builtins.property
     @pulumi.getter
     def primary(self) -> _builtins.bool:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of phone number.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        User's phone number.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1393,27 +939,17 @@ class GetUsersUserExternalIdResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str id: Identifier issued to this resource by an external identity provider.
-        :param _builtins.str issuer: Issuer for an external identifier.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        Issuer for an external identifier.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -1426,14 +962,6 @@ class GetUsersUserNameResult(dict):
                  honorific_prefix: _builtins.str,
                  honorific_suffix: _builtins.str,
                  middle_name: _builtins.str):
-        """
-        :param _builtins.str family_name: Family name of the user.
-        :param _builtins.str formatted: Name that is typically displayed when the name is shown for display.
-        :param _builtins.str given_name: Given name of the user.
-        :param _builtins.str honorific_prefix: Honorific prefix of the user.
-        :param _builtins.str honorific_suffix: Honorific suffix of the user.
-        :param _builtins.str middle_name: Middle name of the user.
-        """
         pulumi.set(__self__, "family_name", family_name)
         pulumi.set(__self__, "formatted", formatted)
         pulumi.set(__self__, "given_name", given_name)
@@ -1444,49 +972,31 @@ class GetUsersUserNameResult(dict):
     @_builtins.property
     @pulumi.getter(name="familyName")
     def family_name(self) -> _builtins.str:
-        """
-        Family name of the user.
-        """
         return pulumi.get(self, "family_name")
 
     @_builtins.property
     @pulumi.getter
     def formatted(self) -> _builtins.str:
-        """
-        Name that is typically displayed when the name is shown for display.
-        """
         return pulumi.get(self, "formatted")
 
     @_builtins.property
     @pulumi.getter(name="givenName")
     def given_name(self) -> _builtins.str:
-        """
-        Given name of the user.
-        """
         return pulumi.get(self, "given_name")
 
     @_builtins.property
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> _builtins.str:
-        """
-        Honorific prefix of the user.
-        """
         return pulumi.get(self, "honorific_prefix")
 
     @_builtins.property
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> _builtins.str:
-        """
-        Honorific suffix of the user.
-        """
         return pulumi.get(self, "honorific_suffix")
 
     @_builtins.property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> _builtins.str:
-        """
-        Middle name of the user.
-        """
         return pulumi.get(self, "middle_name")
 
 
@@ -1496,11 +1006,6 @@ class GetUsersUserPhoneNumberResult(dict):
                  primary: _builtins.bool,
                  type: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param _builtins.str type: Type of phone number.
-        :param _builtins.str value: User's phone number.
-        """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -1508,25 +1013,16 @@ class GetUsersUserPhoneNumberResult(dict):
     @_builtins.property
     @pulumi.getter
     def primary(self) -> _builtins.bool:
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of phone number.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        User's phone number.
-        """
         return pulumi.get(self, "value")
 
 

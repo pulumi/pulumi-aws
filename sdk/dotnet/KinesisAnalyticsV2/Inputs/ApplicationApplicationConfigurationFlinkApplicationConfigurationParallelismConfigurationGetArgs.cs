@@ -12,27 +12,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-        /// </summary>
         [Input("autoScalingEnabled")]
         public Input<bool>? AutoScalingEnabled { get; set; }
 
-        /// <summary>
-        /// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKpu` attribute values to be effective.
-        /// </summary>
         [Input("configurationType", required: true)]
         public Input<string> ConfigurationType { get; set; } = null!;
 
-        /// <summary>
-        /// Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-        /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
 
-        /// <summary>
-        /// Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-        /// </summary>
         [Input("parallelismPerKpu")]
         public Input<int>? ParallelismPerKpu { get; set; }
 

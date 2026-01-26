@@ -32,17 +32,6 @@ class VpcAttachmentArgs:
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of EC2 VPC.
-        :param pulumi.Input[_builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        :param pulumi.Input[_builtins.str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -67,9 +56,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Identifiers of EC2 Subnets.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -79,9 +65,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -91,9 +74,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -103,9 +83,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "appliance_mode_support")
 
     @appliance_mode_support.setter
@@ -115,9 +92,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        """
         return pulumi.get(self, "dns_support")
 
     @dns_support.setter
@@ -127,9 +101,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "ipv6_support")
 
     @ipv6_support.setter
@@ -139,9 +110,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -151,9 +119,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
-        """
         return pulumi.get(self, "security_group_referencing_support")
 
     @security_group_referencing_support.setter
@@ -163,9 +128,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,9 +137,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayDefaultRouteTableAssociation")
     def transit_gateway_default_route_table_association(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        """
         return pulumi.get(self, "transit_gateway_default_route_table_association")
 
     @transit_gateway_default_route_table_association.setter
@@ -187,9 +146,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayDefaultRouteTablePropagation")
     def transit_gateway_default_route_table_propagation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        """
         return pulumi.get(self, "transit_gateway_default_route_table_propagation")
 
     @transit_gateway_default_route_table_propagation.setter
@@ -216,20 +172,6 @@ class _VpcAttachmentState:
                  vpc_owner_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcAttachment resources.
-        :param pulumi.Input[_builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        :param pulumi.Input[_builtins.str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of EC2 VPC.
-        :param pulumi.Input[_builtins.str] vpc_owner_id: Identifier of the AWS account that owns the EC2 VPC.
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -263,9 +205,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "appliance_mode_support")
 
     @appliance_mode_support.setter
@@ -275,9 +214,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -287,9 +223,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        """
         return pulumi.get(self, "dns_support")
 
     @dns_support.setter
@@ -299,9 +232,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "ipv6_support")
 
     @ipv6_support.setter
@@ -311,9 +241,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -323,9 +250,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
-        """
         return pulumi.get(self, "security_group_referencing_support")
 
     @security_group_referencing_support.setter
@@ -335,9 +259,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identifiers of EC2 Subnets.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -347,9 +268,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -359,9 +277,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -371,9 +286,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayDefaultRouteTableAssociation")
     def transit_gateway_default_route_table_association(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        """
         return pulumi.get(self, "transit_gateway_default_route_table_association")
 
     @transit_gateway_default_route_table_association.setter
@@ -383,9 +295,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayDefaultRouteTablePropagation")
     def transit_gateway_default_route_table_propagation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        """
         return pulumi.get(self, "transit_gateway_default_route_table_propagation")
 
     @transit_gateway_default_route_table_propagation.setter
@@ -395,9 +304,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -407,9 +313,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -419,9 +322,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="vpcOwnerId")
     def vpc_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the AWS account that owns the EC2 VPC.
-        """
         return pulumi.get(self, "vpc_owner_id")
 
     @vpc_owner_id.setter
@@ -448,41 +348,9 @@ class VpcAttachment(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[example_aws_subnet["id"]],
-            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
-        ```
-
+        Create a VpcAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        :param pulumi.Input[_builtins.str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of EC2 VPC.
         """
         ...
     @overload
@@ -491,28 +359,7 @@ class VpcAttachment(pulumi.CustomResource):
                  args: VpcAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[example_aws_subnet["id"]],
-            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
-        ```
-
+        Create a VpcAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -599,20 +446,6 @@ class VpcAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        :param pulumi.Input[_builtins.str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of EC2 VPC.
-        :param pulumi.Input[_builtins.str] vpc_owner_id: Identifier of the AWS account that owns the EC2 VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -637,112 +470,70 @@ class VpcAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "appliance_mode_support")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        """
         return pulumi.get(self, "dns_support")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "ipv6_support")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
-        """
         return pulumi.get(self, "security_group_referencing_support")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Identifiers of EC2 Subnets.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayDefaultRouteTableAssociation")
     def transit_gateway_default_route_table_association(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        """
         return pulumi.get(self, "transit_gateway_default_route_table_association")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayDefaultRouteTablePropagation")
     def transit_gateway_default_route_table_propagation(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        """
         return pulumi.get(self, "transit_gateway_default_route_table_propagation")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcOwnerId")
     def vpc_owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the AWS account that owns the EC2 VPC.
-        """
         return pulumi.get(self, "vpc_owner_id")
 

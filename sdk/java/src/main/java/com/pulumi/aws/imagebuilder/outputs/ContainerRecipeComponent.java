@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContainerRecipeComponent {
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
-     * 
-     */
     private String componentArn;
-    /**
-     * @return Configuration block(s) for parameters to configure the component. Detailed below.
-     * 
-     */
     private @Nullable List<ContainerRecipeComponentParameter> parameters;
 
     private ContainerRecipeComponent() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
-     * 
-     */
     public String componentArn() {
         return this.componentArn;
     }
-    /**
-     * @return Configuration block(s) for parameters to configure the component. Detailed below.
-     * 
-     */
     public List<ContainerRecipeComponentParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }

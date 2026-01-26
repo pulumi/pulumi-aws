@@ -18,167 +18,79 @@ public final class IdcApplicationState extends com.pulumi.resources.ResourceArgs
 
     public static final IdcApplicationState Empty = new IdcApplicationState();
 
-    /**
-     * Type of application being created. Valid values are `None` or `Lakehouse`.
-     * 
-     */
     @Import(name="applicationType")
     private @Nullable Output<String> applicationType;
 
-    /**
-     * @return Type of application being created. Valid values are `None` or `Lakehouse`.
-     * 
-     */
     public Optional<Output<String>> applicationType() {
         return Optional.ofNullable(this.applicationType);
     }
 
-    /**
-     * Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-     * 
-     */
     @Import(name="authorizedTokenIssuer")
     private @Nullable Output<IdcApplicationAuthorizedTokenIssuerArgs> authorizedTokenIssuer;
 
-    /**
-     * @return Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-     * 
-     */
     public Optional<Output<IdcApplicationAuthorizedTokenIssuerArgs>> authorizedTokenIssuer() {
         return Optional.ofNullable(this.authorizedTokenIssuer);
     }
 
-    /**
-     * IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
-    /**
-     * @return IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     public Optional<Output<String>> iamRoleArn() {
         return Optional.ofNullable(this.iamRoleArn);
     }
 
-    /**
-     * Display name for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     @Import(name="idcDisplayName")
     private @Nullable Output<String> idcDisplayName;
 
-    /**
-     * @return Display name for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     public Optional<Output<String>> idcDisplayName() {
         return Optional.ofNullable(this.idcDisplayName);
     }
 
-    /**
-     * ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-     * 
-     */
     @Import(name="idcInstanceArn")
     private @Nullable Output<String> idcInstanceArn;
 
-    /**
-     * @return ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-     * 
-     */
     public Optional<Output<String>> idcInstanceArn() {
         return Optional.ofNullable(this.idcInstanceArn);
     }
 
-    /**
-     * ARN for the Amazon Redshift IAM Identity Center application.
-     * 
-     */
     @Import(name="idcManagedApplicationArn")
     private @Nullable Output<String> idcManagedApplicationArn;
 
-    /**
-     * @return ARN for the Amazon Redshift IAM Identity Center application.
-     * 
-     */
     public Optional<Output<String>> idcManagedApplicationArn() {
         return Optional.ofNullable(this.idcManagedApplicationArn);
     }
 
-    /**
-     * Namespace for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     @Import(name="identityNamespace")
     private @Nullable Output<String> identityNamespace;
 
-    /**
-     * @return Namespace for the Amazon Redshift IAM Identity Center application instance.
-     * 
-     */
     public Optional<Output<String>> identityNamespace() {
         return Optional.ofNullable(this.identityNamespace);
     }
 
-    /**
-     * ARN of the Redshift application in IAM Identity Center.
-     * 
-     */
     @Import(name="redshiftIdcApplicationArn")
     private @Nullable Output<String> redshiftIdcApplicationArn;
 
-    /**
-     * @return ARN of the Redshift application in IAM Identity Center.
-     * 
-     */
     public Optional<Output<String>> redshiftIdcApplicationArn() {
         return Optional.ofNullable(this.redshiftIdcApplicationArn);
     }
 
-    /**
-     * Name of the Redshift application in IAM Identity Center.
-     * 
-     */
     @Import(name="redshiftIdcApplicationName")
     private @Nullable Output<String> redshiftIdcApplicationName;
 
-    /**
-     * @return Name of the Redshift application in IAM Identity Center.
-     * 
-     */
     public Optional<Output<String>> redshiftIdcApplicationName() {
         return Optional.ofNullable(this.redshiftIdcApplicationName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-     * 
-     */
     @Import(name="serviceIntegration")
     private @Nullable Output<IdcApplicationServiceIntegrationArgs> serviceIntegration;
 
-    /**
-     * @return Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-     * 
-     */
     public Optional<Output<IdcApplicationServiceIntegrationArgs>> serviceIntegration() {
         return Optional.ofNullable(this.serviceIntegration);
     }
@@ -233,233 +145,101 @@ public final class IdcApplicationState extends com.pulumi.resources.ResourceArgs
             $ = new IdcApplicationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationType Type of application being created. Valid values are `None` or `Lakehouse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationType(@Nullable Output<String> applicationType) {
             $.applicationType = applicationType;
             return this;
         }
 
-        /**
-         * @param applicationType Type of application being created. Valid values are `None` or `Lakehouse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationType(String applicationType) {
             return applicationType(Output.of(applicationType));
         }
 
-        /**
-         * @param authorizedTokenIssuer Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedTokenIssuer(@Nullable Output<IdcApplicationAuthorizedTokenIssuerArgs> authorizedTokenIssuer) {
             $.authorizedTokenIssuer = authorizedTokenIssuer;
             return this;
         }
 
-        /**
-         * @param authorizedTokenIssuer Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedTokenIssuer(IdcApplicationAuthorizedTokenIssuerArgs authorizedTokenIssuer) {
             return authorizedTokenIssuer(Output.of(authorizedTokenIssuer));
         }
 
-        /**
-         * @param iamRoleArn IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(@Nullable Output<String> iamRoleArn) {
             $.iamRoleArn = iamRoleArn;
             return this;
         }
 
-        /**
-         * @param iamRoleArn IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(String iamRoleArn) {
             return iamRoleArn(Output.of(iamRoleArn));
         }
 
-        /**
-         * @param idcDisplayName Display name for the Amazon Redshift IAM Identity Center application instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcDisplayName(@Nullable Output<String> idcDisplayName) {
             $.idcDisplayName = idcDisplayName;
             return this;
         }
 
-        /**
-         * @param idcDisplayName Display name for the Amazon Redshift IAM Identity Center application instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcDisplayName(String idcDisplayName) {
             return idcDisplayName(Output.of(idcDisplayName));
         }
 
-        /**
-         * @param idcInstanceArn ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcInstanceArn(@Nullable Output<String> idcInstanceArn) {
             $.idcInstanceArn = idcInstanceArn;
             return this;
         }
 
-        /**
-         * @param idcInstanceArn ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcInstanceArn(String idcInstanceArn) {
             return idcInstanceArn(Output.of(idcInstanceArn));
         }
 
-        /**
-         * @param idcManagedApplicationArn ARN for the Amazon Redshift IAM Identity Center application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcManagedApplicationArn(@Nullable Output<String> idcManagedApplicationArn) {
             $.idcManagedApplicationArn = idcManagedApplicationArn;
             return this;
         }
 
-        /**
-         * @param idcManagedApplicationArn ARN for the Amazon Redshift IAM Identity Center application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcManagedApplicationArn(String idcManagedApplicationArn) {
             return idcManagedApplicationArn(Output.of(idcManagedApplicationArn));
         }
 
-        /**
-         * @param identityNamespace Namespace for the Amazon Redshift IAM Identity Center application instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityNamespace(@Nullable Output<String> identityNamespace) {
             $.identityNamespace = identityNamespace;
             return this;
         }
 
-        /**
-         * @param identityNamespace Namespace for the Amazon Redshift IAM Identity Center application instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityNamespace(String identityNamespace) {
             return identityNamespace(Output.of(identityNamespace));
         }
 
-        /**
-         * @param redshiftIdcApplicationArn ARN of the Redshift application in IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftIdcApplicationArn(@Nullable Output<String> redshiftIdcApplicationArn) {
             $.redshiftIdcApplicationArn = redshiftIdcApplicationArn;
             return this;
         }
 
-        /**
-         * @param redshiftIdcApplicationArn ARN of the Redshift application in IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftIdcApplicationArn(String redshiftIdcApplicationArn) {
             return redshiftIdcApplicationArn(Output.of(redshiftIdcApplicationArn));
         }
 
-        /**
-         * @param redshiftIdcApplicationName Name of the Redshift application in IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftIdcApplicationName(@Nullable Output<String> redshiftIdcApplicationName) {
             $.redshiftIdcApplicationName = redshiftIdcApplicationName;
             return this;
         }
 
-        /**
-         * @param redshiftIdcApplicationName Name of the Redshift application in IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftIdcApplicationName(String redshiftIdcApplicationName) {
             return redshiftIdcApplicationName(Output.of(redshiftIdcApplicationName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceIntegration Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIntegration(@Nullable Output<IdcApplicationServiceIntegrationArgs> serviceIntegration) {
             $.serviceIntegration = serviceIntegration;
             return this;
         }
 
-        /**
-         * @param serviceIntegration Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIntegration(IdcApplicationServiceIntegrationArgs serviceIntegration) {
             return serviceIntegration(Output.of(serviceIntegration));
         }

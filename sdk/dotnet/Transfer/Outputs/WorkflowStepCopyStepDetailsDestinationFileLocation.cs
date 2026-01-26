@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowStepCopyStepDetailsDestinationFileLocation
     {
-        /// <summary>
-        /// Specifies the details for the EFS file being copied.
-        /// </summary>
         public readonly Outputs.WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation? EfsFileLocation;
-        /// <summary>
-        /// Specifies the details for the S3 file being copied.
-        /// </summary>
         public readonly Outputs.WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation? S3FileLocation;
 
         [OutputConstructor]

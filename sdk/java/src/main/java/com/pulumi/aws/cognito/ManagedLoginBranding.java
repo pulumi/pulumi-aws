@@ -17,220 +17,53 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages branding settings for a user pool style and associates it with an app client.
- * 
- * ## Example Usage
- * 
- * ### Default Branding Style
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.ManagedLoginBranding;
- * import com.pulumi.aws.cognito.ManagedLoginBrandingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var client = new ManagedLoginBranding("client", ManagedLoginBrandingArgs.builder()
- *             .clientId(example.id())
- *             .userPoolId(exampleAwsCognitoUserPool.id())
- *             .useCognitoProvidedValues(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Custom Branding Style
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.ManagedLoginBranding;
- * import com.pulumi.aws.cognito.ManagedLoginBrandingArgs;
- * import com.pulumi.aws.cognito.inputs.ManagedLoginBrandingAssetArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var client = new ManagedLoginBranding("client", ManagedLoginBrandingArgs.builder()
- *             .clientId(example.id())
- *             .userPoolId(exampleAwsCognitoUserPool.id())
- *             .assets(ManagedLoginBrandingAssetArgs.builder()
- *                 .bytes(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input("login_branding_asset.svg")
- *                     .build()).result())
- *                 .category("PAGE_HEADER_BACKGROUND")
- *                 .colorMode("DARK")
- *                 .extension("SVG")
- *                 .build())
- *             .settings(serializeJson(
- *                 jsonObject(
- * 
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cognito branding settings using `user_pool_id` and `managed_login_branding_id` separated by `,`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/managedLoginBranding:ManagedLoginBranding")
 public class ManagedLoginBranding extends com.pulumi.resources.CustomResource {
-    /**
-     * Image files to apply to roles like backgrounds, logos, and icons. See details below.
-     * 
-     */
     @Export(name="assets", refs={List.class,ManagedLoginBrandingAsset.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ManagedLoginBrandingAsset>> assets;
 
-    /**
-     * @return Image files to apply to roles like backgrounds, logos, and icons. See details below.
-     * 
-     */
     public Output<Optional<List<ManagedLoginBrandingAsset>>> assets() {
         return Codegen.optional(this.assets);
     }
-    /**
-     * App client that the branding style is for.
-     * 
-     */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
-    /**
-     * @return App client that the branding style is for.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
-    /**
-     * ID of the managed login branding style.
-     * 
-     */
     @Export(name="managedLoginBrandingId", refs={String.class}, tree="[0]")
     private Output<String> managedLoginBrandingId;
 
-    /**
-     * @return ID of the managed login branding style.
-     * 
-     */
     public Output<String> managedLoginBrandingId() {
         return this.managedLoginBrandingId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * JSON document with the the settings to apply to the style.
-     * 
-     */
     @Export(name="settings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> settings;
 
-    /**
-     * @return JSON document with the the settings to apply to the style.
-     * 
-     */
     public Output<Optional<String>> settings() {
         return Codegen.optional(this.settings);
     }
-    /**
-     * Settings including Amazon Cognito defaults.
-     * 
-     */
     @Export(name="settingsAll", refs={String.class}, tree="[0]")
     private Output<String> settingsAll;
 
-    /**
-     * @return Settings including Amazon Cognito defaults.
-     * 
-     */
     public Output<String> settingsAll() {
         return this.settingsAll;
     }
-    /**
-     * When `true`, applies the default branding style options.
-     * 
-     */
     @Export(name="useCognitoProvidedValues", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> useCognitoProvidedValues;
 
-    /**
-     * @return When `true`, applies the default branding style options.
-     * 
-     */
     public Output<Boolean> useCognitoProvidedValues() {
         return this.useCognitoProvidedValues;
     }
-    /**
-     * User pool the client belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
-    /**
-     * @return User pool the client belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }

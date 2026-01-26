@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about an AWS WorkSpaces directory.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.LookupDirectory(ctx, &workspaces.LookupDirectoryArgs{
-//				DirectoryId: "d-9067783251",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDirectoryResult
@@ -50,62 +23,39 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryArgs struct {
-	// Directory identifier for registration in WorkSpaces service.
-	DirectoryId string `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the WorkSpaces directory.
-	Tags map[string]string `pulumi:"tags"`
+	DirectoryId string            `pulumi:"directoryId"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDirectory.
 type LookupDirectoryResult struct {
-	// Configuration for Active Directory integration when `workspaceType` is set to `POOLS`.
-	ActiveDirectoryConfigs []GetDirectoryActiveDirectoryConfig `pulumi:"activeDirectoryConfigs"`
-	// Directory alias.
+	ActiveDirectoryConfigs         []GetDirectoryActiveDirectoryConfig        `pulumi:"activeDirectoryConfigs"`
 	Alias                          string                                     `pulumi:"alias"`
 	CertificateBasedAuthProperties []GetDirectoryCertificateBasedAuthProperty `pulumi:"certificateBasedAuthProperties"`
-	// User name for the service account.
-	CustomerUserName string `pulumi:"customerUserName"`
-	DirectoryId      string `pulumi:"directoryId"`
-	// Name of the directory.
-	DirectoryName string `pulumi:"directoryName"`
-	// Directory type.
-	DirectoryType string `pulumi:"directoryType"`
-	// IP addresses of the DNS servers for the directory.
-	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
-	// Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
-	IamRoleId string `pulumi:"iamRoleId"`
+	CustomerUserName               string                                     `pulumi:"customerUserName"`
+	DirectoryId                    string                                     `pulumi:"directoryId"`
+	DirectoryName                  string                                     `pulumi:"directoryName"`
+	DirectoryType                  string                                     `pulumi:"directoryType"`
+	DnsIpAddresses                 []string                                   `pulumi:"dnsIpAddresses"`
+	IamRoleId                      string                                     `pulumi:"iamRoleId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Identifiers of the IP access control groups associated with the directory.
-	IpGroupIds []string `pulumi:"ipGroupIds"`
-	Region     string   `pulumi:"region"`
-	// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-	RegistrationCode string                     `pulumi:"registrationCode"`
-	SamlProperties   []GetDirectorySamlProperty `pulumi:"samlProperties"`
-	// The permissions to enable or disable self-service capabilities.
-	SelfServicePermissions []GetDirectorySelfServicePermission `pulumi:"selfServicePermissions"`
-	// Identifiers of the subnets where the directory resides.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags assigned to the WorkSpaces directory.
-	Tags map[string]string `pulumi:"tags"`
-	// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-	Tenancy string `pulumi:"tenancy"`
-	// The user identity type for the WorkSpaces directory.
-	UserIdentityType string `pulumi:"userIdentityType"`
-	// Specifies which devices and operating systems users can use to access their WorkSpaces.
-	WorkspaceAccessProperties []GetDirectoryWorkspaceAccessProperty `pulumi:"workspaceAccessProperties"`
-	// The default properties that are used for creating WorkSpaces.
-	WorkspaceCreationProperties []GetDirectoryWorkspaceCreationProperty `pulumi:"workspaceCreationProperties"`
-	// The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
-	WorkspaceDirectoryDescription string `pulumi:"workspaceDirectoryDescription"`
-	// The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
-	WorkspaceDirectoryName string `pulumi:"workspaceDirectoryName"`
-	// The identifier of the security group that is assigned to new WorkSpaces.
-	WorkspaceSecurityGroupId string `pulumi:"workspaceSecurityGroupId"`
-	// The type of WorkSpaces directory.
-	WorkspaceType string `pulumi:"workspaceType"`
+	Id                            string                                  `pulumi:"id"`
+	IpGroupIds                    []string                                `pulumi:"ipGroupIds"`
+	Region                        string                                  `pulumi:"region"`
+	RegistrationCode              string                                  `pulumi:"registrationCode"`
+	SamlProperties                []GetDirectorySamlProperty              `pulumi:"samlProperties"`
+	SelfServicePermissions        []GetDirectorySelfServicePermission     `pulumi:"selfServicePermissions"`
+	SubnetIds                     []string                                `pulumi:"subnetIds"`
+	Tags                          map[string]string                       `pulumi:"tags"`
+	Tenancy                       string                                  `pulumi:"tenancy"`
+	UserIdentityType              string                                  `pulumi:"userIdentityType"`
+	WorkspaceAccessProperties     []GetDirectoryWorkspaceAccessProperty   `pulumi:"workspaceAccessProperties"`
+	WorkspaceCreationProperties   []GetDirectoryWorkspaceCreationProperty `pulumi:"workspaceCreationProperties"`
+	WorkspaceDirectoryDescription string                                  `pulumi:"workspaceDirectoryDescription"`
+	WorkspaceDirectoryName        string                                  `pulumi:"workspaceDirectoryName"`
+	WorkspaceSecurityGroupId      string                                  `pulumi:"workspaceSecurityGroupId"`
+	WorkspaceType                 string                                  `pulumi:"workspaceType"`
 }
 
 func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryResultOutput {
@@ -119,12 +69,9 @@ func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, 
 
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryOutputArgs struct {
-	// Directory identifier for registration in WorkSpaces service.
-	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the WorkSpaces directory.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	DirectoryId pulumi.StringInput    `pulumi:"directoryId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDirectoryOutputArgs) ElementType() reflect.Type {
@@ -146,12 +93,10 @@ func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ct
 	return o
 }
 
-// Configuration for Active Directory integration when `workspaceType` is set to `POOLS`.
 func (o LookupDirectoryResultOutput) ActiveDirectoryConfigs() GetDirectoryActiveDirectoryConfigArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryActiveDirectoryConfig { return v.ActiveDirectoryConfigs }).(GetDirectoryActiveDirectoryConfigArrayOutput)
 }
 
-// Directory alias.
 func (o LookupDirectoryResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Alias }).(pulumi.StringOutput)
 }
@@ -162,7 +107,6 @@ func (o LookupDirectoryResultOutput) CertificateBasedAuthProperties() GetDirecto
 	}).(GetDirectoryCertificateBasedAuthPropertyArrayOutput)
 }
 
-// User name for the service account.
 func (o LookupDirectoryResultOutput) CustomerUserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.CustomerUserName }).(pulumi.StringOutput)
 }
@@ -171,22 +115,18 @@ func (o LookupDirectoryResultOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// Name of the directory.
 func (o LookupDirectoryResultOutput) DirectoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DirectoryName }).(pulumi.StringOutput)
 }
 
-// Directory type.
 func (o LookupDirectoryResultOutput) DirectoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DirectoryType }).(pulumi.StringOutput)
 }
 
-// IP addresses of the DNS servers for the directory.
 func (o LookupDirectoryResultOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
 func (o LookupDirectoryResultOutput) IamRoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.IamRoleId }).(pulumi.StringOutput)
 }
@@ -196,7 +136,6 @@ func (o LookupDirectoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Identifiers of the IP access control groups associated with the directory.
 func (o LookupDirectoryResultOutput) IpGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.IpGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -205,7 +144,6 @@ func (o LookupDirectoryResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 func (o LookupDirectoryResultOutput) RegistrationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.RegistrationCode }).(pulumi.StringOutput)
 }
@@ -214,61 +152,50 @@ func (o LookupDirectoryResultOutput) SamlProperties() GetDirectorySamlPropertyAr
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectorySamlProperty { return v.SamlProperties }).(GetDirectorySamlPropertyArrayOutput)
 }
 
-// The permissions to enable or disable self-service capabilities.
 func (o LookupDirectoryResultOutput) SelfServicePermissions() GetDirectorySelfServicePermissionArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectorySelfServicePermission { return v.SelfServicePermissions }).(GetDirectorySelfServicePermissionArrayOutput)
 }
 
-// Identifiers of the subnets where the directory resides.
 func (o LookupDirectoryResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags assigned to the WorkSpaces directory.
 func (o LookupDirectoryResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
 func (o LookupDirectoryResultOutput) Tenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Tenancy }).(pulumi.StringOutput)
 }
 
-// The user identity type for the WorkSpaces directory.
 func (o LookupDirectoryResultOutput) UserIdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.UserIdentityType }).(pulumi.StringOutput)
 }
 
-// Specifies which devices and operating systems users can use to access their WorkSpaces.
 func (o LookupDirectoryResultOutput) WorkspaceAccessProperties() GetDirectoryWorkspaceAccessPropertyArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryWorkspaceAccessProperty {
 		return v.WorkspaceAccessProperties
 	}).(GetDirectoryWorkspaceAccessPropertyArrayOutput)
 }
 
-// The default properties that are used for creating WorkSpaces.
 func (o LookupDirectoryResultOutput) WorkspaceCreationProperties() GetDirectoryWorkspaceCreationPropertyArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryWorkspaceCreationProperty {
 		return v.WorkspaceCreationProperties
 	}).(GetDirectoryWorkspaceCreationPropertyArrayOutput)
 }
 
-// The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
 func (o LookupDirectoryResultOutput) WorkspaceDirectoryDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.WorkspaceDirectoryDescription }).(pulumi.StringOutput)
 }
 
-// The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
 func (o LookupDirectoryResultOutput) WorkspaceDirectoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.WorkspaceDirectoryName }).(pulumi.StringOutput)
 }
 
-// The identifier of the security group that is assigned to new WorkSpaces.
 func (o LookupDirectoryResultOutput) WorkspaceSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.WorkspaceSecurityGroupId }).(pulumi.StringOutput)
 }
 
-// The type of WorkSpaces directory.
 func (o LookupDirectoryResultOutput) WorkspaceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.WorkspaceType }).(pulumi.StringOutput)
 }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     {
         [Input("segments")]
         private List<string>? _segments;
-
-        /// <summary>
-        /// A list of strings. The list of segments that the `send-via` `Action` uses.
-        /// </summary>
         public List<string> Segments
         {
             get => _segments ?? (_segments = new List<string>());

@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProfilesProfilesProfile {
-    /**
-     * @return ARN of the Profile.
-     * 
-     */
     private String arn;
-    /**
-     * @return ID of the Profile.
-     * 
-     */
     private String id;
-    /**
-     * @return Name of the Profile.
-     * 
-     */
     private String name;
-    /**
-     * @return Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-     * 
-     */
     private String shareStatus;
 
     private GetProfilesProfilesProfile() {}
-    /**
-     * @return ARN of the Profile.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ID of the Profile.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the Profile.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-     * 
-     */
     public String shareStatus() {
         return this.shareStatus;
     }

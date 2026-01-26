@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetRecordsResourceRecordSetGeolocationResult
     {
-        /// <summary>
-        /// The two-letter code for the continent.
-        /// </summary>
         public readonly string ContinentCode;
-        /// <summary>
-        /// The two-letter code for a country.
-        /// </summary>
         public readonly string CountryCode;
-        /// <summary>
-        /// The two-letter code for a state of the United States.
-        /// </summary>
         public readonly string SubdivisionCode;
 
         [OutputConstructor]

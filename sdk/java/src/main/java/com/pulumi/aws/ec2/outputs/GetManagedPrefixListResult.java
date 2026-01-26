@@ -16,110 +16,46 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetManagedPrefixListResult {
-    /**
-     * @return Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
-     * 
-     */
     private String addressFamily;
-    /**
-     * @return ARN of the selected prefix list.
-     * 
-     */
     private String arn;
-    /**
-     * @return Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
-     * 
-     */
     private List<GetManagedPrefixListEntry> entries;
     private @Nullable List<GetManagedPrefixListFilter> filters;
-    /**
-     * @return ID of the selected prefix list.
-     * 
-     */
     private String id;
-    /**
-     * @return When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
-     * 
-     */
     private Integer maxEntries;
-    /**
-     * @return Name of the selected prefix list.
-     * 
-     */
     private String name;
-    /**
-     * @return Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
-     * 
-     */
     private String ownerId;
     private String region;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
     private Integer version;
 
     private GetManagedPrefixListResult() {}
-    /**
-     * @return Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
-     * 
-     */
     public String addressFamily() {
         return this.addressFamily;
     }
-    /**
-     * @return ARN of the selected prefix list.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
-     * 
-     */
     public List<GetManagedPrefixListEntry> entries() {
         return this.entries;
     }
     public List<GetManagedPrefixListFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return ID of the selected prefix list.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
-     * 
-     */
     public Integer maxEntries() {
         return this.maxEntries;
     }
-    /**
-     * @return Name of the selected prefix list.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

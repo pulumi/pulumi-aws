@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigRuleDeleteMarkerReplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

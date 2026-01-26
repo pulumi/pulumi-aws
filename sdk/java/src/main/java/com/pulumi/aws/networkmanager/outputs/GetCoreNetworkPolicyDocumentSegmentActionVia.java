@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentActionVia {
-    /**
-     * @return A list of strings. The network function group to use for the service insertion action.
-     * 
-     */
     private @Nullable List<String> networkFunctionGroups;
-    /**
-     * @return Any edge overrides and the preferred edge to use.
-     * 
-     */
     private @Nullable List<GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride> withEdgeOverrides;
 
     private GetCoreNetworkPolicyDocumentSegmentActionVia() {}
-    /**
-     * @return A list of strings. The network function group to use for the service insertion action.
-     * 
-     */
     public List<String> networkFunctionGroups() {
         return this.networkFunctionGroups == null ? List.of() : this.networkFunctionGroups;
     }
-    /**
-     * @return Any edge overrides and the preferred edge to use.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride> withEdgeOverrides() {
         return this.withEdgeOverrides == null ? List.of() : this.withEdgeOverrides;
     }

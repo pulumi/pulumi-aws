@@ -13,30 +13,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
-    /**
-     * @return ARN of the service.
-     * 
-     */
     private String arn;
-    /**
-     * @return Type of IAM policy. Either `NONE` or `AWS_IAM`.
-     * 
-     */
     private String authType;
-    /**
-     * @return Amazon Resource Name (ARN) of the certificate.
-     * 
-     */
     private String certificateArn;
-    /**
-     * @return Custom domain name of the service.
-     * 
-     */
     private String customDomainName;
-    /**
-     * @return List of objects with DNS names.
-     * 
-     */
     private List<GetServiceDnsEntry> dnsEntries;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -46,50 +26,22 @@ public final class GetServiceResult {
     private String name;
     private String region;
     private String serviceIdentifier;
-    /**
-     * @return Status of the service.
-     * 
-     */
     private String status;
-    /**
-     * @return List of tags associated with the service.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetServiceResult() {}
-    /**
-     * @return ARN of the service.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Type of IAM policy. Either `NONE` or `AWS_IAM`.
-     * 
-     */
     public String authType() {
         return this.authType;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the certificate.
-     * 
-     */
     public String certificateArn() {
         return this.certificateArn;
     }
-    /**
-     * @return Custom domain name of the service.
-     * 
-     */
     public String customDomainName() {
         return this.customDomainName;
     }
-    /**
-     * @return List of objects with DNS names.
-     * 
-     */
     public List<GetServiceDnsEntry> dnsEntries() {
         return this.dnsEntries;
     }
@@ -109,17 +61,9 @@ public final class GetServiceResult {
     public String serviceIdentifier() {
         return this.serviceIdentifier;
     }
-    /**
-     * @return Status of the service.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return List of tags associated with the service.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

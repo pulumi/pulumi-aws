@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Pinpoint Email Template resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.pinpoint.EmailTemplate("test", {
- *     templateName: "testing",
- *     emailTemplates: [{
- *         subject: "testing",
- *         textPart: "we are testing template text part",
- *         headers: [{
- *             name: "testingname",
- *             value: "testingvalue",
- *         }],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Pinpoint Email Template using the `template_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
- * ```
- */
 export class EmailTemplate extends pulumi.CustomResource {
     /**
      * Get an existing EmailTemplate resource's state with the given name, ID, and optional extra
@@ -65,23 +35,11 @@ export class EmailTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailTemplate.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the message template.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-     */
     declare public readonly emailTemplates: pulumi.Output<outputs.pinpoint.EmailTemplateEmailTemplate[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-     */
     declare public readonly templateName: pulumi.Output<string>;
 
     /**
@@ -124,23 +82,11 @@ export class EmailTemplate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EmailTemplate resources.
  */
 export interface EmailTemplateState {
-    /**
-     * Amazon Resource Name (ARN) of the message template.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-     */
     emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-     */
     templateName?: pulumi.Input<string>;
 }
 
@@ -148,17 +94,8 @@ export interface EmailTemplateState {
  * The set of arguments for constructing a EmailTemplate resource.
  */
 export interface EmailTemplateArgs {
-    /**
-     * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-     */
     emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-     */
     templateName: pulumi.Input<string>;
 }

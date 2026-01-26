@@ -19,62 +19,30 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
 
     public static final OntapStorageVirtualMachineEndpointArgs Empty = new OntapStorageVirtualMachineEndpointArgs();
 
-    /**
-     * An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-     * 
-     */
     @Import(name="iscsis")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>> iscsis;
 
-    /**
-     * @return An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-     * 
-     */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>>> iscsis() {
         return Optional.ofNullable(this.iscsis);
     }
 
-    /**
-     * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-     * 
-     */
     @Import(name="managements")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointManagementArgs>> managements;
 
-    /**
-     * @return An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-     * 
-     */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointManagementArgs>>> managements() {
         return Optional.ofNullable(this.managements);
     }
 
-    /**
-     * An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-     * 
-     */
     @Import(name="nfs")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointNfArgs>> nfs;
 
-    /**
-     * @return An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-     * 
-     */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointNfArgs>>> nfs() {
         return Optional.ofNullable(this.nfs);
     }
 
-    /**
-     * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
-     * 
-     */
     @Import(name="smbs")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointSmbArgs>> smbs;
 
-    /**
-     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
-     * 
-     */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointSmbArgs>>> smbs() {
         return Optional.ofNullable(this.smbs);
     }
@@ -106,126 +74,54 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
             $ = new OntapStorageVirtualMachineEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param iscsis An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iscsis(@Nullable Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>> iscsis) {
             $.iscsis = iscsis;
             return this;
         }
 
-        /**
-         * @param iscsis An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iscsis(List<OntapStorageVirtualMachineEndpointIscsiArgs> iscsis) {
             return iscsis(Output.of(iscsis));
         }
 
-        /**
-         * @param iscsis An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iscsis(OntapStorageVirtualMachineEndpointIscsiArgs... iscsis) {
             return iscsis(List.of(iscsis));
         }
 
-        /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managements(@Nullable Output<List<OntapStorageVirtualMachineEndpointManagementArgs>> managements) {
             $.managements = managements;
             return this;
         }
 
-        /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managements(List<OntapStorageVirtualMachineEndpointManagementArgs> managements) {
             return managements(Output.of(managements));
         }
 
-        /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managements(OntapStorageVirtualMachineEndpointManagementArgs... managements) {
             return managements(List.of(managements));
         }
 
-        /**
-         * @param nfs An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nfs(@Nullable Output<List<OntapStorageVirtualMachineEndpointNfArgs>> nfs) {
             $.nfs = nfs;
             return this;
         }
 
-        /**
-         * @param nfs An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nfs(List<OntapStorageVirtualMachineEndpointNfArgs> nfs) {
             return nfs(Output.of(nfs));
         }
 
-        /**
-         * @param nfs An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nfs(OntapStorageVirtualMachineEndpointNfArgs... nfs) {
             return nfs(List.of(nfs));
         }
 
-        /**
-         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smbs(@Nullable Output<List<OntapStorageVirtualMachineEndpointSmbArgs>> smbs) {
             $.smbs = smbs;
             return this;
         }
 
-        /**
-         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smbs(List<OntapStorageVirtualMachineEndpointSmbArgs> smbs) {
             return smbs(Output.of(smbs));
         }
 
-        /**
-         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smbs(OntapStorageVirtualMachineEndpointSmbArgs... smbs) {
             return smbs(List.of(smbs));
         }

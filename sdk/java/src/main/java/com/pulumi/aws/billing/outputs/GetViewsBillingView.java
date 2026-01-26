@@ -10,57 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetViewsBillingView {
-    /**
-     * @return ARN of the billing view.
-     * 
-     */
     private String arn;
     private String billingViewType;
-    /**
-     * @return Description of the billing view.
-     * 
-     */
     private String description;
-    /**
-     * @return Name of the billing view.
-     * 
-     */
     private String name;
-    /**
-     * @return Account ID of the billing view owner.
-     * 
-     */
     private String ownerAccountId;
 
     private GetViewsBillingView() {}
-    /**
-     * @return ARN of the billing view.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String billingViewType() {
         return this.billingViewType;
     }
-    /**
-     * @return Description of the billing view.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Name of the billing view.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Account ID of the billing view owner.
-     * 
-     */
     public String ownerAccountId() {
         return this.ownerAccountId;
     }

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetOriginAccessIdentity
     {
-        /// <summary>
-        /// Use this data source to retrieve information for an Amazon CloudFront origin access identity.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example below creates a CloudFront origin access identity.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
-        ///     {
-        ///         Id = "E1ZAKK699EOLAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOriginAccessIdentityResult> InvokeAsync(GetOriginAccessIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information for an Amazon CloudFront origin access identity.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example below creates a CloudFront origin access identity.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
-        ///     {
-        ///         Id = "E1ZAKK699EOLAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOriginAccessIdentityResult> Invoke(GetOriginAccessIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information for an Amazon CloudFront origin access identity.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example below creates a CloudFront origin access identity.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
-        ///     {
-        ///         Id = "E1ZAKK699EOLAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOriginAccessIdentityResult> Invoke(GetOriginAccessIdentityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithDefaults());
     }
@@ -93,9 +24,6 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetOriginAccessIdentityArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -107,9 +35,6 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetOriginAccessIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -123,41 +48,13 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetOriginAccessIdentityResult
     {
-        /// <summary>
-        /// The origin access identity ARN.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Internal value used by CloudFront to allow future
-        /// updates to the origin access identity.
-        /// </summary>
         public readonly string CallerReference;
-        /// <summary>
-        /// A shortcut to the full path for the
-        /// origin access identity to use in CloudFront, see below.
-        /// </summary>
         public readonly string CloudfrontAccessIdentityPath;
-        /// <summary>
-        /// An optional comment for the origin access identity.
-        /// </summary>
         public readonly string Comment;
-        /// <summary>
-        /// Current version of the origin access identity's information.
-        /// For example: `E2QWRUHAPOMQZL`.
-        /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// Pre-generated ARN for use in S3 bucket policies (see below).
-        /// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
-        /// E2QWRUHAPOMQZL`.
-        /// </summary>
         public readonly string IamArn;
         public readonly string Id;
-        /// <summary>
-        /// The Amazon S3 canonical user ID for the origin
-        /// access identity, which you use when giving the origin access identity read
-        /// permission to an object in Amazon S3.
-        /// </summary>
         public readonly string S3CanonicalUserId;
 
         [OutputConstructor]

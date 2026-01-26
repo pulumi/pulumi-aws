@@ -19,107 +19,51 @@ public final class LogDeliveryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LogDeliveryArgs Empty = new LogDeliveryArgs();
 
-    /**
-     * The ARN of the delivery destination to use for this delivery.
-     * 
-     */
     @Import(name="deliveryDestinationArn", required=true)
     private Output<String> deliveryDestinationArn;
 
-    /**
-     * @return The ARN of the delivery destination to use for this delivery.
-     * 
-     */
     public Output<String> deliveryDestinationArn() {
         return this.deliveryDestinationArn;
     }
 
-    /**
-     * The name of the delivery source to use for this delivery.
-     * 
-     */
     @Import(name="deliverySourceName", required=true)
     private Output<String> deliverySourceName;
 
-    /**
-     * @return The name of the delivery source to use for this delivery.
-     * 
-     */
     public Output<String> deliverySourceName() {
         return this.deliverySourceName;
     }
 
-    /**
-     * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-     * 
-     */
     @Import(name="fieldDelimiter")
     private @Nullable Output<String> fieldDelimiter;
 
-    /**
-     * @return The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-     * 
-     */
     public Optional<Output<String>> fieldDelimiter() {
         return Optional.ofNullable(this.fieldDelimiter);
     }
 
-    /**
-     * The list of record fields to be delivered to the destination, in order.
-     * 
-     */
     @Import(name="recordFields")
     private @Nullable Output<List<String>> recordFields;
 
-    /**
-     * @return The list of record fields to be delivered to the destination, in order.
-     * 
-     */
     public Optional<Output<List<String>>> recordFields() {
         return Optional.ofNullable(this.recordFields);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
-     * 
-     */
     @Import(name="s3DeliveryConfigurations")
     private @Nullable Output<List<LogDeliveryS3DeliveryConfigurationArgs>> s3DeliveryConfigurations;
 
-    /**
-     * @return Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
-     * 
-     */
     public Optional<Output<List<LogDeliveryS3DeliveryConfigurationArgs>>> s3DeliveryConfigurations() {
         return Optional.ofNullable(this.s3DeliveryConfigurations);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -154,169 +98,73 @@ public final class LogDeliveryArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LogDeliveryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryDestinationArn The ARN of the delivery destination to use for this delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationArn(Output<String> deliveryDestinationArn) {
             $.deliveryDestinationArn = deliveryDestinationArn;
             return this;
         }
 
-        /**
-         * @param deliveryDestinationArn The ARN of the delivery destination to use for this delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationArn(String deliveryDestinationArn) {
             return deliveryDestinationArn(Output.of(deliveryDestinationArn));
         }
 
-        /**
-         * @param deliverySourceName The name of the delivery source to use for this delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliverySourceName(Output<String> deliverySourceName) {
             $.deliverySourceName = deliverySourceName;
             return this;
         }
 
-        /**
-         * @param deliverySourceName The name of the delivery source to use for this delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliverySourceName(String deliverySourceName) {
             return deliverySourceName(Output.of(deliverySourceName));
         }
 
-        /**
-         * @param fieldDelimiter The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldDelimiter(@Nullable Output<String> fieldDelimiter) {
             $.fieldDelimiter = fieldDelimiter;
             return this;
         }
 
-        /**
-         * @param fieldDelimiter The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldDelimiter(String fieldDelimiter) {
             return fieldDelimiter(Output.of(fieldDelimiter));
         }
 
-        /**
-         * @param recordFields The list of record fields to be delivered to the destination, in order.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFields(@Nullable Output<List<String>> recordFields) {
             $.recordFields = recordFields;
             return this;
         }
 
-        /**
-         * @param recordFields The list of record fields to be delivered to the destination, in order.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFields(List<String> recordFields) {
             return recordFields(Output.of(recordFields));
         }
 
-        /**
-         * @param recordFields The list of record fields to be delivered to the destination, in order.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFields(String... recordFields) {
             return recordFields(List.of(recordFields));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3DeliveryConfigurations Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DeliveryConfigurations(@Nullable Output<List<LogDeliveryS3DeliveryConfigurationArgs>> s3DeliveryConfigurations) {
             $.s3DeliveryConfigurations = s3DeliveryConfigurations;
             return this;
         }
 
-        /**
-         * @param s3DeliveryConfigurations Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DeliveryConfigurations(List<LogDeliveryS3DeliveryConfigurationArgs> s3DeliveryConfigurations) {
             return s3DeliveryConfigurations(Output.of(s3DeliveryConfigurations));
         }
 
-        /**
-         * @param s3DeliveryConfigurations Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DeliveryConfigurations(LogDeliveryS3DeliveryConfigurationArgs... s3DeliveryConfigurations) {
             return s3DeliveryConfigurations(List.of(s3DeliveryConfigurations));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

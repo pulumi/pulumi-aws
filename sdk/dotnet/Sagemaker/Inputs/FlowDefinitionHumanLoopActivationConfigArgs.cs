@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FlowDefinitionHumanLoopActivationConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
-        /// </summary>
         [Input("humanLoopActivationConditionsConfig")]
         public Input<Inputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs>? HumanLoopActivationConditionsConfig { get; set; }
 

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PeeringAttachmentOptions {
-    /**
-     * @return Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
-     * 
-     */
     private @Nullable String dynamicRouting;
 
     private PeeringAttachmentOptions() {}
-    /**
-     * @return Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
-     * 
-     */
     public Optional<String> dynamicRouting() {
         return Optional.ofNullable(this.dynamicRouting);
     }

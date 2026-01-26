@@ -23,14 +23,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final DbInstanceArgs Empty = new DbInstanceArgs();
 
     /**
-     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
+     * The amount of storage to allocate for your DB storage type in GiB (gibibytes).
      * 
      */
     @Import(name="allocatedStorage", required=true)
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
+     * @return The amount of storage to allocate for your DB storage type in GiB (gibibytes).
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -38,14 +38,18 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket.
+     * 					A bucket combines the concept of a database and a retention period (the duration of time
+     * 					that each data point persists). A bucket belongs to an organization.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket.
+     * 					A bucket combines the concept of a database and a retention period (the duration of time
+     * 					that each data point persists). A bucket belongs to an organization.
      * 
      */
     public Output<String> bucket() {
@@ -53,14 +57,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
+     * The Timestream for InfluxDB DB instance type to run InfluxDB on.
      * 
      */
     @Import(name="dbInstanceType", required=true)
     private Output<String> dbInstanceType;
 
     /**
-     * @return Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
+     * @return The Timestream for InfluxDB DB instance type to run InfluxDB on.
      * 
      */
     public Output<String> dbInstanceType() {
@@ -68,14 +72,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
+     * The id of the DB parameter group assigned to your DB instance.
      * 
      */
     @Import(name="dbParameterGroupIdentifier")
     private @Nullable Output<String> dbParameterGroupIdentifier;
 
     /**
-     * @return ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
+     * @return The id of the DB parameter group assigned to your DB instance.
      * 
      */
     public Optional<Output<String>> dbParameterGroupIdentifier() {
@@ -83,14 +87,20 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
+     * The Timestream for InfluxDB DB storage type to read and write InfluxDB data.
+     * 					You can choose between 3 different types of provisioned Influx IOPS included storage according
+     * 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS,
+     * 					Influx IO Included 16000 IOPS.
      * 
      */
     @Import(name="dbStorageType")
     private @Nullable Output<String> dbStorageType;
 
     /**
-     * @return Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
+     * @return The Timestream for InfluxDB DB storage type to read and write InfluxDB data.
+     * 					You can choose between 3 different types of provisioned Influx IOPS included storage according
+     * 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS,
+     * 					Influx IO Included 16000 IOPS.
      * 
      */
     public Optional<Output<String>> dbStorageType() {
@@ -98,14 +108,16 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
+     * Specifies whether the DB instance will be deployed as a standalone instance or
+     * 					with a Multi-AZ standby for high availability.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
+     * @return Specifies whether the DB instance will be deployed as a standalone instance or
+     * 					with a Multi-AZ standby for high availability.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -113,14 +125,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+     * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
      * 
      */
     @Import(name="logDeliveryConfiguration")
     private @Nullable Output<DbInstanceLogDeliveryConfigurationArgs> logDeliveryConfiguration;
 
     /**
-     * @return Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+     * @return Configuration for sending InfluxDB engine logs to a specified S3 bucket.
      * 
      */
     public Optional<Output<DbInstanceLogDeliveryConfigurationArgs>> logDeliveryConfiguration() {
@@ -128,14 +140,20 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
+     * The name that uniquely identifies the DB instance when interacting with the
+     * 					Amazon Timestream for InfluxDB API and CLI commands. This name will also be a
+     * 					prefix included in the endpoint. DB instance names must be unique per customer
+     * 					and per region.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
+     * @return The name that uniquely identifies the DB instance when interacting with the
+     * 					Amazon Timestream for InfluxDB API and CLI commands. This name will also be a
+     * 					prefix included in the endpoint. DB instance names must be unique per customer
+     * 					and per region.
      * 
      */
     public Optional<Output<String>> name() {
@@ -143,14 +161,18 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * Specifies whether the networkType of the Timestream for InfluxDB instance is
+     * 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate
+     * 					over both IPv4 and IPv6 protocols.
      * 
      */
     @Import(name="networkType")
     private @Nullable Output<String> networkType;
 
     /**
-     * @return Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * @return Specifies whether the networkType of the Timestream for InfluxDB instance is
+     * 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate
+     * 					over both IPv4 and IPv6 protocols.
      * 
      */
     public Optional<Output<String>> networkType() {
@@ -158,14 +180,16 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * The name of the initial organization for the initial admin user in InfluxDB. An
+     * 					InfluxDB organization is a workspace for a group of users.
      * 
      */
     @Import(name="organization", required=true)
     private Output<String> organization;
 
     /**
-     * @return Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return The name of the initial organization for the initial admin user in InfluxDB. An
+     * 					InfluxDB organization is a workspace for a group of users.
      * 
      */
     public Output<String> organization() {
@@ -173,14 +197,20 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * The password of the initial admin user created in InfluxDB. This password will
+     * 					allow you to access the InfluxDB UI to perform various administrative tasks and
+     * 					also use the InfluxDB CLI to create an operator token. These attributes will be
+     * 					stored in a Secret created in AWS SecretManager in your account.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return The password of the initial admin user created in InfluxDB. This password will
+     * 					allow you to access the InfluxDB UI to perform various administrative tasks and
+     * 					also use the InfluxDB CLI to create an operator token. These attributes will be
+     * 					stored in a Secret created in AWS SecretManager in your account.
      * 
      */
     public Output<String> password() {
@@ -188,14 +218,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * The port number on which InfluxDB accepts connections.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * @return The port number on which InfluxDB accepts connections.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -203,46 +233,30 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * Configures the DB instance with a public IP to facilitate access.
      * 
      */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
     /**
-     * @return Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * @return Configures the DB instance with a public IP to facilitate access.
      * 
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
         return Optional.ofNullable(this.publiclyAccessible);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -255,14 +269,26 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * The username of the initial admin user created in InfluxDB.
+     * 					Must start with a letter and can&#39;t end with a hyphen or contain two
+     * 					consecutive hyphens. For example, my-user1. This username will allow
+     * 					you to access the InfluxDB UI to perform various administrative tasks
+     * 					and also use the InfluxDB CLI to create an operator token. These
+     * 					attributes will be stored in a Secret created in Amazon Secrets
+     * 					Manager in your account
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+     * @return The username of the initial admin user created in InfluxDB.
+     * 					Must start with a letter and can&#39;t end with a hyphen or contain two
+     * 					consecutive hyphens. For example, my-user1. This username will allow
+     * 					you to access the InfluxDB UI to perform various administrative tasks
+     * 					and also use the InfluxDB CLI to create an operator token. These
+     * 					attributes will be stored in a Secret created in Amazon Secrets
+     * 					Manager in your account
      * 
      */
     public Output<String> username() {
@@ -270,14 +296,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of VPC security group IDs to associate with the DB instance.
+     * A list of VPC security group IDs to associate with the DB instance.
      * 
      */
     @Import(name="vpcSecurityGroupIds", required=true)
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return List of VPC security group IDs to associate with the DB instance.
+     * @return A list of VPC security group IDs to associate with the DB instance.
      * 
      */
     public Output<List<String>> vpcSecurityGroupIds() {
@@ -285,18 +311,16 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
-     * 
-     * The following arguments are optional:
+     * A list of VPC subnet IDs to associate with the DB instance. Provide at least
+     * 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
      * 
      */
     @Import(name="vpcSubnetIds", required=true)
     private Output<List<String>> vpcSubnetIds;
 
     /**
-     * @return List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
-     * 
-     * The following arguments are optional:
+     * @return A list of VPC subnet IDs to associate with the DB instance. Provide at least
+     * 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
      * 
      */
     public Output<List<String>> vpcSubnetIds() {
@@ -346,7 +370,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
+         * @param allocatedStorage The amount of storage to allocate for your DB storage type in GiB (gibibytes).
          * 
          * @return builder
          * 
@@ -357,7 +381,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument&#39;s minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
+         * @param allocatedStorage The amount of storage to allocate for your DB storage type in GiB (gibibytes).
          * 
          * @return builder
          * 
@@ -367,7 +391,9 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param bucket The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket.
+         * 					A bucket combines the concept of a database and a retention period (the duration of time
+         * 					that each data point persists). A bucket belongs to an organization.
          * 
          * @return builder
          * 
@@ -378,7 +404,9 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param bucket The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket.
+         * 					A bucket combines the concept of a database and a retention period (the duration of time
+         * 					that each data point persists). A bucket belongs to an organization.
          * 
          * @return builder
          * 
@@ -388,7 +416,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceType Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
+         * @param dbInstanceType The Timestream for InfluxDB DB instance type to run InfluxDB on.
          * 
          * @return builder
          * 
@@ -399,7 +427,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceType Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
+         * @param dbInstanceType The Timestream for InfluxDB DB instance type to run InfluxDB on.
          * 
          * @return builder
          * 
@@ -409,7 +437,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbParameterGroupIdentifier ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
+         * @param dbParameterGroupIdentifier The id of the DB parameter group assigned to your DB instance.
          * 
          * @return builder
          * 
@@ -420,7 +448,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbParameterGroupIdentifier ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
+         * @param dbParameterGroupIdentifier The id of the DB parameter group assigned to your DB instance.
          * 
          * @return builder
          * 
@@ -430,7 +458,10 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbStorageType Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
+         * @param dbStorageType The Timestream for InfluxDB DB storage type to read and write InfluxDB data.
+         * 					You can choose between 3 different types of provisioned Influx IOPS included storage according
+         * 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS,
+         * 					Influx IO Included 16000 IOPS.
          * 
          * @return builder
          * 
@@ -441,7 +472,10 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbStorageType Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
+         * @param dbStorageType The Timestream for InfluxDB DB storage type to read and write InfluxDB data.
+         * 					You can choose between 3 different types of provisioned Influx IOPS included storage according
+         * 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS,
+         * 					Influx IO Included 16000 IOPS.
          * 
          * @return builder
          * 
@@ -451,7 +485,8 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
+         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or
+         * 					with a Multi-AZ standby for high availability.
          * 
          * @return builder
          * 
@@ -462,7 +497,8 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
+         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or
+         * 					with a Multi-AZ standby for high availability.
          * 
          * @return builder
          * 
@@ -472,7 +508,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket.
          * 
          * @return builder
          * 
@@ -483,7 +519,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket.
          * 
          * @return builder
          * 
@@ -493,7 +529,10 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
+         * @param name The name that uniquely identifies the DB instance when interacting with the
+         * 					Amazon Timestream for InfluxDB API and CLI commands. This name will also be a
+         * 					prefix included in the endpoint. DB instance names must be unique per customer
+         * 					and per region.
          * 
          * @return builder
          * 
@@ -504,7 +543,10 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
+         * @param name The name that uniquely identifies the DB instance when interacting with the
+         * 					Amazon Timestream for InfluxDB API and CLI commands. This name will also be a
+         * 					prefix included in the endpoint. DB instance names must be unique per customer
+         * 					and per region.
          * 
          * @return builder
          * 
@@ -514,7 +556,9 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkType Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+         * @param networkType Specifies whether the networkType of the Timestream for InfluxDB instance is
+         * 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate
+         * 					over both IPv4 and IPv6 protocols.
          * 
          * @return builder
          * 
@@ -525,7 +569,9 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkType Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+         * @param networkType Specifies whether the networkType of the Timestream for InfluxDB instance is
+         * 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate
+         * 					over both IPv4 and IPv6 protocols.
          * 
          * @return builder
          * 
@@ -535,7 +581,8 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organization Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param organization The name of the initial organization for the initial admin user in InfluxDB. An
+         * 					InfluxDB organization is a workspace for a group of users.
          * 
          * @return builder
          * 
@@ -546,7 +593,8 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organization Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param organization The name of the initial organization for the initial admin user in InfluxDB. An
+         * 					InfluxDB organization is a workspace for a group of users.
          * 
          * @return builder
          * 
@@ -556,7 +604,10 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param password The password of the initial admin user created in InfluxDB. This password will
+         * 					allow you to access the InfluxDB UI to perform various administrative tasks and
+         * 					also use the InfluxDB CLI to create an operator token. These attributes will be
+         * 					stored in a Secret created in AWS SecretManager in your account.
          * 
          * @return builder
          * 
@@ -567,7 +618,10 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param password The password of the initial admin user created in InfluxDB. This password will
+         * 					allow you to access the InfluxDB UI to perform various administrative tasks and
+         * 					also use the InfluxDB CLI to create an operator token. These attributes will be
+         * 					stored in a Secret created in AWS SecretManager in your account.
          * 
          * @return builder
          * 
@@ -577,7 +631,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+         * @param port The port number on which InfluxDB accepts connections.
          * 
          * @return builder
          * 
@@ -588,7 +642,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+         * @param port The port number on which InfluxDB accepts connections.
          * 
          * @return builder
          * 
@@ -598,7 +652,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+         * @param publiclyAccessible Configures the DB instance with a public IP to facilitate access.
          * 
          * @return builder
          * 
@@ -609,7 +663,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+         * @param publiclyAccessible Configures the DB instance with a public IP to facilitate access.
          * 
          * @return builder
          * 
@@ -618,44 +672,20 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
             return publiclyAccessible(Output.of(publiclyAccessible));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -670,7 +700,13 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param username The username of the initial admin user created in InfluxDB.
+         * 					Must start with a letter and can&#39;t end with a hyphen or contain two
+         * 					consecutive hyphens. For example, my-user1. This username will allow
+         * 					you to access the InfluxDB UI to perform various administrative tasks
+         * 					and also use the InfluxDB CLI to create an operator token. These
+         * 					attributes will be stored in a Secret created in Amazon Secrets
+         * 					Manager in your account
          * 
          * @return builder
          * 
@@ -681,7 +717,13 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
+         * @param username The username of the initial admin user created in InfluxDB.
+         * 					Must start with a letter and can&#39;t end with a hyphen or contain two
+         * 					consecutive hyphens. For example, my-user1. This username will allow
+         * 					you to access the InfluxDB UI to perform various administrative tasks
+         * 					and also use the InfluxDB CLI to create an operator token. These
+         * 					attributes will be stored in a Secret created in Amazon Secrets
+         * 					Manager in your account
          * 
          * @return builder
          * 
@@ -691,7 +733,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds List of VPC security group IDs to associate with the DB instance.
+         * @param vpcSecurityGroupIds A list of VPC security group IDs to associate with the DB instance.
          * 
          * @return builder
          * 
@@ -702,7 +744,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds List of VPC security group IDs to associate with the DB instance.
+         * @param vpcSecurityGroupIds A list of VPC security group IDs to associate with the DB instance.
          * 
          * @return builder
          * 
@@ -712,7 +754,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds List of VPC security group IDs to associate with the DB instance.
+         * @param vpcSecurityGroupIds A list of VPC security group IDs to associate with the DB instance.
          * 
          * @return builder
          * 
@@ -722,9 +764,8 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSubnetIds List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
-         * 
-         * The following arguments are optional:
+         * @param vpcSubnetIds A list of VPC subnet IDs to associate with the DB instance. Provide at least
+         * 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
          * 
          * @return builder
          * 
@@ -735,9 +776,8 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSubnetIds List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
-         * 
-         * The following arguments are optional:
+         * @param vpcSubnetIds A list of VPC subnet IDs to associate with the DB instance. Provide at least
+         * 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
          * 
          * @return builder
          * 
@@ -747,9 +787,8 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSubnetIds List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
-         * 
-         * The following arguments are optional:
+         * @param vpcSubnetIds A list of VPC subnet IDs to associate with the DB instance. Provide at least
+         * 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
          * 
          * @return builder
          * 

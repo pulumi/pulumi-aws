@@ -14,16 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ReplicationConfigurationTemplatePitPolicy struct {
-	// Whether this rule is enabled or not.
-	Enabled *bool `pulumi:"enabled"`
-	// How often, in the chosen units, a snapshot should be taken.
-	Interval int `pulumi:"interval"`
-	// Duration to retain a snapshot for, in the chosen `units`.
-	RetentionDuration int `pulumi:"retentionDuration"`
-	// ID of the rule. Valid values are integers.
-	RuleId *int `pulumi:"ruleId"`
-	// Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-	Units string `pulumi:"units"`
+	Enabled           *bool  `pulumi:"enabled"`
+	Interval          int    `pulumi:"interval"`
+	RetentionDuration int    `pulumi:"retentionDuration"`
+	RuleId            *int   `pulumi:"ruleId"`
+	Units             string `pulumi:"units"`
 }
 
 // ReplicationConfigurationTemplatePitPolicyInput is an input type that accepts ReplicationConfigurationTemplatePitPolicyArgs and ReplicationConfigurationTemplatePitPolicyOutput values.
@@ -38,16 +33,11 @@ type ReplicationConfigurationTemplatePitPolicyInput interface {
 }
 
 type ReplicationConfigurationTemplatePitPolicyArgs struct {
-	// Whether this rule is enabled or not.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// How often, in the chosen units, a snapshot should be taken.
-	Interval pulumi.IntInput `pulumi:"interval"`
-	// Duration to retain a snapshot for, in the chosen `units`.
-	RetentionDuration pulumi.IntInput `pulumi:"retentionDuration"`
-	// ID of the rule. Valid values are integers.
-	RuleId pulumi.IntPtrInput `pulumi:"ruleId"`
-	// Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-	Units pulumi.StringInput `pulumi:"units"`
+	Enabled           pulumi.BoolPtrInput `pulumi:"enabled"`
+	Interval          pulumi.IntInput     `pulumi:"interval"`
+	RetentionDuration pulumi.IntInput     `pulumi:"retentionDuration"`
+	RuleId            pulumi.IntPtrInput  `pulumi:"ruleId"`
+	Units             pulumi.StringInput  `pulumi:"units"`
 }
 
 func (ReplicationConfigurationTemplatePitPolicyArgs) ElementType() reflect.Type {
@@ -101,27 +91,22 @@ func (o ReplicationConfigurationTemplatePitPolicyOutput) ToReplicationConfigurat
 	return o
 }
 
-// Whether this rule is enabled or not.
 func (o ReplicationConfigurationTemplatePitPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// How often, in the chosen units, a snapshot should be taken.
 func (o ReplicationConfigurationTemplatePitPolicyOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicy) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// Duration to retain a snapshot for, in the chosen `units`.
 func (o ReplicationConfigurationTemplatePitPolicyOutput) RetentionDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicy) int { return v.RetentionDuration }).(pulumi.IntOutput)
 }
 
-// ID of the rule. Valid values are integers.
 func (o ReplicationConfigurationTemplatePitPolicyOutput) RuleId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicy) *int { return v.RuleId }).(pulumi.IntPtrOutput)
 }
 
-// Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
 func (o ReplicationConfigurationTemplatePitPolicyOutput) Units() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicy) string { return v.Units }).(pulumi.StringOutput)
 }

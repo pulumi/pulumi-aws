@@ -9,70 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog Principal Portfolio Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.PrincipalPortfolioAssociation("example", new()
-    ///     {
-    ///         PortfolioId = "port-68656c6c6f",
-    ///         PrincipalArn = "arn:aws:iam::123456789012:user/Eleanor",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")]
     public partial class PrincipalPortfolioAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Output("portfolioId")]
         public Output<string> PortfolioId { get; private set; } = null!;
 
-        /// <summary>
-        /// Principal ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `PrincipalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        /// </summary>
         [Output("principalType")]
         public Output<string?> PrincipalType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -122,35 +73,18 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class PrincipalPortfolioAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId", required: true)]
         public Input<string> PortfolioId { get; set; } = null!;
 
-        /// <summary>
-        /// Principal ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `PrincipalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,35 +96,18 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class PrincipalPortfolioAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId")]
         public Input<string>? PortfolioId { get; set; }
 
-        /// <summary>
-        /// Principal ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 
-        /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `PrincipalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

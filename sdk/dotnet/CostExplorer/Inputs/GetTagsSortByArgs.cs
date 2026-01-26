@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class GetTagsSortByInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-        /// </summary>
         [Input("sortOrder")]
         public Input<string>? SortOrder { get; set; }
 

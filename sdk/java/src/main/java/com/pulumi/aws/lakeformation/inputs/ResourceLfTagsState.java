@@ -20,100 +20,44 @@ public final class ResourceLfTagsState extends com.pulumi.resources.ResourceArgs
 
     public static final ResourceLfTagsState Empty = new ResourceLfTagsState();
 
-    /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Configuration block for a database resource. See below.
-     * 
-     */
     @Import(name="database")
     private @Nullable Output<ResourceLfTagsDatabaseArgs> database;
 
-    /**
-     * @return Configuration block for a database resource. See below.
-     * 
-     */
     public Optional<Output<ResourceLfTagsDatabaseArgs>> database() {
         return Optional.ofNullable(this.database);
     }
 
-    /**
-     * Set of LF-tags to attach to the resource. See below.
-     * 
-     * Exactly one of the following is required:
-     * 
-     */
     @Import(name="lfTags")
     private @Nullable Output<List<ResourceLfTagsLfTagArgs>> lfTags;
 
-    /**
-     * @return Set of LF-tags to attach to the resource. See below.
-     * 
-     * Exactly one of the following is required:
-     * 
-     */
     public Optional<Output<List<ResourceLfTagsLfTagArgs>>> lfTags() {
         return Optional.ofNullable(this.lfTags);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block for a table resource. See below.
-     * 
-     */
     @Import(name="table")
     private @Nullable Output<ResourceLfTagsTableArgs> table;
 
-    /**
-     * @return Configuration block for a table resource. See below.
-     * 
-     */
     public Optional<Output<ResourceLfTagsTableArgs>> table() {
         return Optional.ofNullable(this.table);
     }
 
-    /**
-     * Configuration block for a table with columns resource. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="tableWithColumns")
     private @Nullable Output<ResourceLfTagsTableWithColumnsArgs> tableWithColumns;
 
-    /**
-     * @return Configuration block for a table with columns resource. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<ResourceLfTagsTableWithColumnsArgs>> tableWithColumns() {
         return Optional.ofNullable(this.tableWithColumns);
     }
@@ -147,148 +91,60 @@ public final class ResourceLfTagsState extends com.pulumi.resources.ResourceArgs
             $ = new ResourceLfTagsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param database Configuration block for a database resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(@Nullable Output<ResourceLfTagsDatabaseArgs> database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param database Configuration block for a database resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(ResourceLfTagsDatabaseArgs database) {
             return database(Output.of(database));
         }
 
-        /**
-         * @param lfTags Set of LF-tags to attach to the resource. See below.
-         * 
-         * Exactly one of the following is required:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfTags(@Nullable Output<List<ResourceLfTagsLfTagArgs>> lfTags) {
             $.lfTags = lfTags;
             return this;
         }
 
-        /**
-         * @param lfTags Set of LF-tags to attach to the resource. See below.
-         * 
-         * Exactly one of the following is required:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfTags(List<ResourceLfTagsLfTagArgs> lfTags) {
             return lfTags(Output.of(lfTags));
         }
 
-        /**
-         * @param lfTags Set of LF-tags to attach to the resource. See below.
-         * 
-         * Exactly one of the following is required:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfTags(ResourceLfTagsLfTagArgs... lfTags) {
             return lfTags(List.of(lfTags));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param table Configuration block for a table resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder table(@Nullable Output<ResourceLfTagsTableArgs> table) {
             $.table = table;
             return this;
         }
 
-        /**
-         * @param table Configuration block for a table resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder table(ResourceLfTagsTableArgs table) {
             return table(Output.of(table));
         }
 
-        /**
-         * @param tableWithColumns Configuration block for a table with columns resource. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableWithColumns(@Nullable Output<ResourceLfTagsTableWithColumnsArgs> tableWithColumns) {
             $.tableWithColumns = tableWithColumns;
             return this;
         }
 
-        /**
-         * @param tableWithColumns Configuration block for a table with columns resource. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableWithColumns(ResourceLfTagsTableWithColumnsArgs tableWithColumns) {
             return tableWithColumns(Output.of(tableWithColumns));
         }

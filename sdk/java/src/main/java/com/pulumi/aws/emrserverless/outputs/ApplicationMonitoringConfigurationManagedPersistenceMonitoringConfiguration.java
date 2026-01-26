@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration {
-    /**
-     * @return Enables managed log persistence for monitoring logs.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The KMS key ARN to encrypt the logs stored in managed persistence.
-     * 
-     */
     private @Nullable String encryptionKeyArn;
 
     private ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration() {}
-    /**
-     * @return Enables managed log persistence for monitoring logs.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The KMS key ARN to encrypt the logs stored in managed persistence.
-     * 
-     */
     public Optional<String> encryptionKeyArn() {
         return Optional.ofNullable(this.encryptionKeyArn);
     }

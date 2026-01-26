@@ -20,10 +20,6 @@ public final class GetManagedPrefixListsResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the managed prefix list ids found.
-     * 
-     */
     private List<String> ids;
     private String region;
     private Map<String,String> tags;
@@ -39,10 +35,6 @@ public final class GetManagedPrefixListsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the managed prefix list ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

@@ -14,17 +14,9 @@ public final class LinkLinkConfigurationLogGroupConfigurationArgs extends com.pu
 
     public static final LinkLinkConfigurationLogGroupConfigurationArgs Empty = new LinkLinkConfigurationLogGroupConfigurationArgs();
 
-    /**
-     * Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-     * 
-     */
     @Import(name="filter", required=true)
     private Output<String> filter;
 
-    /**
-     * @return Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-     * 
-     */
     public Output<String> filter() {
         return this.filter;
     }
@@ -53,23 +45,11 @@ public final class LinkLinkConfigurationLogGroupConfigurationArgs extends com.pu
             $ = new LinkLinkConfigurationLogGroupConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filter Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(Output<String> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(String filter) {
             return filter(Output.of(filter));
         }

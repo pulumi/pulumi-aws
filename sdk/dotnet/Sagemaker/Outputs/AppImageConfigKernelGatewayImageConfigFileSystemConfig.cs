@@ -13,19 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class AppImageConfigKernelGatewayImageConfigFileSystemConfig
     {
-        /// <summary>
-        /// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
-        /// </summary>
         public readonly int? DefaultGid;
-        /// <summary>
-        /// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
-        /// </summary>
         public readonly int? DefaultUid;
-        /// <summary>
-        /// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
-        /// 
-        /// &gt; **Note:** When specifying `DefaultGid` and `DefaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
-        /// </summary>
         public readonly string? MountPath;
 
         [OutputConstructor]

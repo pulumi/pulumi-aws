@@ -12,106 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Container Registry Repository Policy.
-//
-// Note that currently only one policy may be applied to a repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := ecr.NewRepository(ctx, "example", &ecr.RepositoryArgs{
-//				Name: pulumi.String("example-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("new policy"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"123456789012",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"ecr:GetDownloadUrlForLayer",
-//							"ecr:BatchGetImage",
-//							"ecr:BatchCheckLayerAvailability",
-//							"ecr:PutImage",
-//							"ecr:InitiateLayerUpload",
-//							"ecr:UploadLayerPart",
-//							"ecr:CompleteLayerUpload",
-//							"ecr:DescribeRepositories",
-//							"ecr:GetRepositoryPolicy",
-//							"ecr:ListImages",
-//							"ecr:DeleteRepository",
-//							"ecr:BatchDeleteImage",
-//							"ecr:SetRepositoryPolicy",
-//							"ecr:DeleteRepositoryPolicy",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewRepositoryPolicy(ctx, "example", &ecr.RepositoryPolicyArgs{
-//				Repository: exampleRepository.Name,
-//				Policy:     pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `repository` - (String) Name of the ECR repository.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
-//
-// % pulumi import aws_ecr_repository_policy.example example
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The registry ID where the repository was created.
+	Policy     pulumi.StringOutput `pulumi:"policy"`
+	Region     pulumi.StringOutput `pulumi:"region"`
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
-	// Name of the repository to apply the policy.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
 
@@ -151,24 +57,16 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryPolicy resources.
 type repositoryPolicyState struct {
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The registry ID where the repository was created.
-	RegistryId *string `pulumi:"registryId"`
-	// Name of the repository to apply the policy.
-	Repository *string `pulumi:"repository"`
+	Policy     interface{} `pulumi:"policy"`
+	Region     *string     `pulumi:"region"`
+	RegistryId *string     `pulumi:"registryId"`
+	Repository *string     `pulumi:"repository"`
 }
 
 type RepositoryPolicyState struct {
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The registry ID where the repository was created.
+	Policy     pulumi.Input
+	Region     pulumi.StringPtrInput
 	RegistryId pulumi.StringPtrInput
-	// Name of the repository to apply the policy.
 	Repository pulumi.StringPtrInput
 }
 
@@ -177,21 +75,15 @@ func (RepositoryPolicyState) ElementType() reflect.Type {
 }
 
 type repositoryPolicyArgs struct {
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the repository to apply the policy.
-	Repository string `pulumi:"repository"`
+	Policy     interface{} `pulumi:"policy"`
+	Region     *string     `pulumi:"region"`
+	Repository string      `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryPolicy resource.
 type RepositoryPolicyArgs struct {
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the repository to apply the policy.
+	Policy     pulumi.Input
+	Region     pulumi.StringPtrInput
 	Repository pulumi.StringInput
 }
 
@@ -282,22 +174,18 @@ func (o RepositoryPolicyOutput) ToRepositoryPolicyOutputWithContext(ctx context.
 	return o
 }
 
-// The policy document. This is a JSON formatted string.
 func (o RepositoryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The registry ID where the repository was created.
 func (o RepositoryPolicyOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// Name of the repository to apply the policy.
 func (o RepositoryPolicyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

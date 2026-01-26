@@ -13,20 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationCloudwatchLoggingOptions {
     private @Nullable String cloudwatchLoggingOptionId;
-    /**
-     * @return The ARN of the CloudWatch log stream to receive application messages.
-     * 
-     */
     private String logStreamArn;
 
     private ApplicationCloudwatchLoggingOptions() {}
     public Optional<String> cloudwatchLoggingOptionId() {
         return Optional.ofNullable(this.cloudwatchLoggingOptionId);
     }
-    /**
-     * @return The ARN of the CloudWatch log stream to receive application messages.
-     * 
-     */
     public String logStreamArn() {
         return this.logStreamArn;
     }

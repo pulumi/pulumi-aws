@@ -11,81 +11,12 @@ namespace Pulumi.Aws.DataZone
 {
     public static class GetDomain
     {
-        /// <summary>
-        /// Data source for managing an AWS DataZone Domain.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DataZone.GetDomain.Invoke(new()
-        ///     {
-        ///         Name = "example_domain",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws:datazone/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DataZone Domain.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DataZone.GetDomain.Invoke(new()
-        ///     {
-        ///         Name = "example_domain",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws:datazone/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DataZone Domain.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DataZone.GetDomain.Invoke(new()
-        ///     {
-        ///         Name = "example_domain",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws:datazone/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
@@ -93,21 +24,12 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Domain. One of `Name` or `Id` is required
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Name of the Domain. One of `Name` or `Id` is required.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -119,21 +41,12 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Domain. One of `Name` or `Id` is required
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the Domain. One of `Name` or `Id` is required.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -147,44 +60,17 @@ namespace Pulumi.Aws.DataZone
     [OutputType]
     public sealed class GetDomainResult
     {
-        /// <summary>
-        /// ARN of the Domain.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The date and time the Domain was created.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Description of the Domain.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Version of the Domain.
-        /// </summary>
         public readonly string DomainVersion;
         public readonly string Id;
-        /// <summary>
-        /// The date and time the Domain was last updated.
-        /// </summary>
         public readonly string LastUpdatedAt;
-        /// <summary>
-        /// The AWS account ID that owns the Domain.
-        /// </summary>
         public readonly string ManagedAccountId;
         public readonly string Name;
-        /// <summary>
-        /// URL of the Domain.
-        /// </summary>
         public readonly string PortalUrl;
         public readonly string Region;
-        /// <summary>
-        /// ID of the root domain unit.
-        /// </summary>
         public readonly string RootDomainUnitId;
-        /// <summary>
-        /// Status of the Domain.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

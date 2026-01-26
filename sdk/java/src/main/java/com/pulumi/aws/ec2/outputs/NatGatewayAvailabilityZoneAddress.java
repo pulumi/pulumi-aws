@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NatGatewayAvailabilityZoneAddress {
-    /**
-     * @return List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-     * 
-     */
     private @Nullable List<String> allocationIds;
-    /**
-     * @return Availability Zone (e.g. `us-west-2a`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return Availability Zone ID (e.g. `usw2-az2`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
-     * 
-     */
     private @Nullable String availabilityZoneId;
 
     private NatGatewayAvailabilityZoneAddress() {}
-    /**
-     * @return List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-     * 
-     */
     public List<String> allocationIds() {
         return this.allocationIds == null ? List.of() : this.allocationIds;
     }
-    /**
-     * @return Availability Zone (e.g. `us-west-2a`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return Availability Zone ID (e.g. `usw2-az2`) where this specific NAT gateway configuration will be active. Exactly one of `availabilityZone` or `availabilityZoneId` must be specified.
-     * 
-     */
     public Optional<String> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }

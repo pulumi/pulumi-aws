@@ -23,107 +23,51 @@ public final class DomainRuleBasedMatchingArgs extends com.pulumi.resources.Reso
 
     public static final DomainRuleBasedMatchingArgs Empty = new DomainRuleBasedMatchingArgs();
 
-    /**
-     * A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-     * 
-     */
     @Import(name="attributeTypesSelector")
     private @Nullable Output<DomainRuleBasedMatchingAttributeTypesSelectorArgs> attributeTypesSelector;
 
-    /**
-     * @return A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-     * 
-     */
     public Optional<Output<DomainRuleBasedMatchingAttributeTypesSelectorArgs>> attributeTypesSelector() {
         return Optional.ofNullable(this.attributeTypesSelector);
     }
 
-    /**
-     * A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     @Import(name="conflictResolution")
     private @Nullable Output<DomainRuleBasedMatchingConflictResolutionArgs> conflictResolution;
 
-    /**
-     * @return A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     public Optional<Output<DomainRuleBasedMatchingConflictResolutionArgs>> conflictResolution() {
         return Optional.ofNullable(this.conflictResolution);
     }
 
-    /**
-     * The flag that enables the rule-based matching process of duplicate profiles.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return The flag that enables the rule-based matching process of duplicate profiles.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-     * 
-     */
     @Import(name="exportingConfig")
     private @Nullable Output<DomainRuleBasedMatchingExportingConfigArgs> exportingConfig;
 
-    /**
-     * @return A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-     * 
-     */
     public Optional<Output<DomainRuleBasedMatchingExportingConfigArgs>> exportingConfig() {
         return Optional.ofNullable(this.exportingConfig);
     }
 
-    /**
-     * A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-     * 
-     */
     @Import(name="matchingRules")
     private @Nullable Output<List<DomainRuleBasedMatchingMatchingRuleArgs>> matchingRules;
 
-    /**
-     * @return A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-     * 
-     */
     public Optional<Output<List<DomainRuleBasedMatchingMatchingRuleArgs>>> matchingRules() {
         return Optional.ofNullable(this.matchingRules);
     }
 
-    /**
-     * Indicates the maximum allowed rule level for matching.
-     * 
-     */
     @Import(name="maxAllowedRuleLevelForMatching")
     private @Nullable Output<Integer> maxAllowedRuleLevelForMatching;
 
-    /**
-     * @return Indicates the maximum allowed rule level for matching.
-     * 
-     */
     public Optional<Output<Integer>> maxAllowedRuleLevelForMatching() {
         return Optional.ofNullable(this.maxAllowedRuleLevelForMatching);
     }
 
-    /**
-     * Indicates the maximum allowed rule level for merging.
-     * 
-     */
     @Import(name="maxAllowedRuleLevelForMerging")
     private @Nullable Output<Integer> maxAllowedRuleLevelForMerging;
 
-    /**
-     * @return Indicates the maximum allowed rule level for merging.
-     * 
-     */
     public Optional<Output<Integer>> maxAllowedRuleLevelForMerging() {
         return Optional.ofNullable(this.maxAllowedRuleLevelForMerging);
     }
@@ -166,159 +110,69 @@ public final class DomainRuleBasedMatchingArgs extends com.pulumi.resources.Reso
             $ = new DomainRuleBasedMatchingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributeTypesSelector A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeTypesSelector(@Nullable Output<DomainRuleBasedMatchingAttributeTypesSelectorArgs> attributeTypesSelector) {
             $.attributeTypesSelector = attributeTypesSelector;
             return this;
         }
 
-        /**
-         * @param attributeTypesSelector A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeTypesSelector(DomainRuleBasedMatchingAttributeTypesSelectorArgs attributeTypesSelector) {
             return attributeTypesSelector(Output.of(attributeTypesSelector));
         }
 
-        /**
-         * @param conflictResolution A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictResolution(@Nullable Output<DomainRuleBasedMatchingConflictResolutionArgs> conflictResolution) {
             $.conflictResolution = conflictResolution;
             return this;
         }
 
-        /**
-         * @param conflictResolution A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictResolution(DomainRuleBasedMatchingConflictResolutionArgs conflictResolution) {
             return conflictResolution(Output.of(conflictResolution));
         }
 
-        /**
-         * @param enabled The flag that enables the rule-based matching process of duplicate profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled The flag that enables the rule-based matching process of duplicate profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param exportingConfig A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportingConfig(@Nullable Output<DomainRuleBasedMatchingExportingConfigArgs> exportingConfig) {
             $.exportingConfig = exportingConfig;
             return this;
         }
 
-        /**
-         * @param exportingConfig A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportingConfig(DomainRuleBasedMatchingExportingConfigArgs exportingConfig) {
             return exportingConfig(Output.of(exportingConfig));
         }
 
-        /**
-         * @param matchingRules A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchingRules(@Nullable Output<List<DomainRuleBasedMatchingMatchingRuleArgs>> matchingRules) {
             $.matchingRules = matchingRules;
             return this;
         }
 
-        /**
-         * @param matchingRules A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchingRules(List<DomainRuleBasedMatchingMatchingRuleArgs> matchingRules) {
             return matchingRules(Output.of(matchingRules));
         }
 
-        /**
-         * @param matchingRules A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchingRules(DomainRuleBasedMatchingMatchingRuleArgs... matchingRules) {
             return matchingRules(List.of(matchingRules));
         }
 
-        /**
-         * @param maxAllowedRuleLevelForMatching Indicates the maximum allowed rule level for matching.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAllowedRuleLevelForMatching(@Nullable Output<Integer> maxAllowedRuleLevelForMatching) {
             $.maxAllowedRuleLevelForMatching = maxAllowedRuleLevelForMatching;
             return this;
         }
 
-        /**
-         * @param maxAllowedRuleLevelForMatching Indicates the maximum allowed rule level for matching.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAllowedRuleLevelForMatching(Integer maxAllowedRuleLevelForMatching) {
             return maxAllowedRuleLevelForMatching(Output.of(maxAllowedRuleLevelForMatching));
         }
 
-        /**
-         * @param maxAllowedRuleLevelForMerging Indicates the maximum allowed rule level for merging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAllowedRuleLevelForMerging(@Nullable Output<Integer> maxAllowedRuleLevelForMerging) {
             $.maxAllowedRuleLevelForMerging = maxAllowedRuleLevelForMerging;
             return this;
         }
 
-        /**
-         * @param maxAllowedRuleLevelForMerging Indicates the maximum allowed rule level for merging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAllowedRuleLevelForMerging(Integer maxAllowedRuleLevelForMerging) {
             return maxAllowedRuleLevelForMerging(Output.of(maxAllowedRuleLevelForMerging));
         }

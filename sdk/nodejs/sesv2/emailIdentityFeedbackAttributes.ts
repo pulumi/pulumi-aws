@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "example.com"});
- * const exampleEmailIdentityFeedbackAttributes = new aws.sesv2.EmailIdentityFeedbackAttributes("example", {
- *     emailIdentity: example.emailIdentity,
- *     emailForwardingEnabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
- *
- * ```sh
- * $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
- * ```
- */
 export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {
     /**
      * Get an existing EmailIdentityFeedbackAttributes resource's state with the given name, ID, and optional extra
@@ -58,17 +32,8 @@ export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailIdentityFeedbackAttributes.__pulumiType;
     }
 
-    /**
-     * Sets the feedback forwarding configuration for the identity.
-     */
     declare public readonly emailForwardingEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * The email identity.
-     */
     declare public readonly emailIdentity: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -105,17 +70,8 @@ export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EmailIdentityFeedbackAttributes resources.
  */
 export interface EmailIdentityFeedbackAttributesState {
-    /**
-     * Sets the feedback forwarding configuration for the identity.
-     */
     emailForwardingEnabled?: pulumi.Input<boolean>;
-    /**
-     * The email identity.
-     */
     emailIdentity?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -123,16 +79,7 @@ export interface EmailIdentityFeedbackAttributesState {
  * The set of arguments for constructing a EmailIdentityFeedbackAttributes resource.
  */
 export interface EmailIdentityFeedbackAttributesArgs {
-    /**
-     * Sets the feedback forwarding configuration for the identity.
-     */
     emailForwardingEnabled?: pulumi.Input<boolean>;
-    /**
-     * The email identity.
-     */
     emailIdentity: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

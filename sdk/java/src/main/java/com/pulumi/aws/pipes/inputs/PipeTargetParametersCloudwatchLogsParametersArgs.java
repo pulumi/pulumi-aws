@@ -15,32 +15,16 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
 
     public static final PipeTargetParametersCloudwatchLogsParametersArgs Empty = new PipeTargetParametersCloudwatchLogsParametersArgs();
 
-    /**
-     * The name of the log stream.
-     * 
-     */
     @Import(name="logStreamName")
     private @Nullable Output<String> logStreamName;
 
-    /**
-     * @return The name of the log stream.
-     * 
-     */
     public Optional<Output<String>> logStreamName() {
         return Optional.ofNullable(this.logStreamName);
     }
 
-    /**
-     * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-     * 
-     */
     @Import(name="timestamp")
     private @Nullable Output<String> timestamp;
 
-    /**
-     * @return The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-     * 
-     */
     public Optional<Output<String>> timestamp() {
         return Optional.ofNullable(this.timestamp);
     }
@@ -70,44 +54,20 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
             $ = new PipeTargetParametersCloudwatchLogsParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logStreamName The name of the log stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamName(@Nullable Output<String> logStreamName) {
             $.logStreamName = logStreamName;
             return this;
         }
 
-        /**
-         * @param logStreamName The name of the log stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamName(String logStreamName) {
             return logStreamName(Output.of(logStreamName));
         }
 
-        /**
-         * @param timestamp The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-         * 
-         * @return builder
-         * 
-         */
         public Builder timestamp(@Nullable Output<String> timestamp) {
             $.timestamp = timestamp;
             return this;
         }
 
-        /**
-         * @param timestamp The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-         * 
-         * @return builder
-         * 
-         */
         public Builder timestamp(String timestamp) {
             return timestamp(Output.of(timestamp));
         }

@@ -24,21 +24,9 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.fixedResponse);
     }
 
-    /**
-     * Route requests to one or more target groups. See Forward blocks below.
-     * 
-     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-     * 
-     */
     @Import(name="forwards")
     private @Nullable Output<List<ListenerDefaultActionForwardArgs>> forwards;
 
-    /**
-     * @return Route requests to one or more target groups. See Forward blocks below.
-     * 
-     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-     * 
-     */
     public Optional<Output<List<ListenerDefaultActionForwardArgs>>> forwards() {
         return Optional.ofNullable(this.forwards);
     }
@@ -77,39 +65,15 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
             return fixedResponse(Output.of(fixedResponse));
         }
 
-        /**
-         * @param forwards Route requests to one or more target groups. See Forward blocks below.
-         * 
-         * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwards(@Nullable Output<List<ListenerDefaultActionForwardArgs>> forwards) {
             $.forwards = forwards;
             return this;
         }
 
-        /**
-         * @param forwards Route requests to one or more target groups. See Forward blocks below.
-         * 
-         * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwards(List<ListenerDefaultActionForwardArgs> forwards) {
             return forwards(Output.of(forwards));
         }
 
-        /**
-         * @param forwards Route requests to one or more target groups. See Forward blocks below.
-         * 
-         * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwards(ListenerDefaultActionForwardArgs... forwards) {
             return forwards(List.of(forwards));
         }

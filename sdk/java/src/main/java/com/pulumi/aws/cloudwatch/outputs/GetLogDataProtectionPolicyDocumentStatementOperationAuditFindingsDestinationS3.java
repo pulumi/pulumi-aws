@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
-    /**
-     * @return Name of the S3 Bucket to send findings to.
-     * 
-     */
     private String bucket;
 
     private GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3() {}
-    /**
-     * @return Name of the S3 Bucket to send findings to.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }

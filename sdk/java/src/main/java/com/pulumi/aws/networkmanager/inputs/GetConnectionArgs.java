@@ -17,47 +17,23 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetConnectionArgs Empty = new GetConnectionArgs();
 
-    /**
-     * ID of the specific connection to retrieve.
-     * 
-     */
     @Import(name="connectionId", required=true)
     private Output<String> connectionId;
 
-    /**
-     * @return ID of the specific connection to retrieve.
-     * 
-     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
 
-    /**
-     * ID of the Global Network of the connection to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the connection to retrieve.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Key-value tags for the connection.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the connection.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetConnectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionId ID of the specific connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(Output<String> connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
-        /**
-         * @param connectionId ID of the specific connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param tags Key-value tags for the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

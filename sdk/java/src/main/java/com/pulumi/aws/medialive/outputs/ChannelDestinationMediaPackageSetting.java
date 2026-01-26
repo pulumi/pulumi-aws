@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelDestinationMediaPackageSetting {
-    /**
-     * @return ID of the channel in MediaPackage that is the destination for this output group.
-     * 
-     */
     private String channelId;
 
     private ChannelDestinationMediaPackageSetting() {}
-    /**
-     * @return ID of the channel in MediaPackage that is the destination for this output group.
-     * 
-     */
     public String channelId() {
         return this.channelId;
     }

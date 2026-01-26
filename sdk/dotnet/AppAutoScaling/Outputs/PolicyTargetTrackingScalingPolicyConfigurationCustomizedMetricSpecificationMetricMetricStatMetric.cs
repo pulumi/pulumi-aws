@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric
     {
-        /// <summary>
-        /// Dimensions of the metric.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension> Dimensions;
-        /// <summary>
-        /// Name of the metric.
-        /// </summary>
         public readonly string MetricName;
-        /// <summary>
-        /// Namespace of the metric.
-        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

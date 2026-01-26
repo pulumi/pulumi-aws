@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Dsql.Inputs
 
     public sealed class ClusterEncryptionDetailArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The status of encryption for the DSQL Cluster.
-        /// </summary>
         [Input("encryptionStatus", required: true)]
         public Input<string> EncryptionStatus { get; set; } = null!;
 
-        /// <summary>
-        /// The type of encryption that protects the data on the DSQL Cluster.
-        /// </summary>
         [Input("encryptionType", required: true)]
         public Input<string> EncryptionType { get; set; } = null!;
 

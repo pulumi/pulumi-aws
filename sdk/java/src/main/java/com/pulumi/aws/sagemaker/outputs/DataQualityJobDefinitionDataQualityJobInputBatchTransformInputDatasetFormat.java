@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat {
-    /**
-     * @return The CSV dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     private @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv csv;
-    /**
-     * @return The JSON dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     private @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson json;
 
     private DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat() {}
-    /**
-     * @return The CSV dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv> csv() {
         return Optional.ofNullable(this.csv);
     }
-    /**
-     * @return The JSON dataset used in the monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson> json() {
         return Optional.ofNullable(this.json);
     }

@@ -14,17 +14,9 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsA
 
     public static final ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs();
 
-    /**
-     * Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
-    /**
-     * @return Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Output<Boolean> override() {
         return this.override;
     }
@@ -53,23 +45,11 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsA
             $ = new ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Output<Boolean> override) {
             $.override = override;
             return this;
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Boolean override) {
             return override(Output.of(override));
         }

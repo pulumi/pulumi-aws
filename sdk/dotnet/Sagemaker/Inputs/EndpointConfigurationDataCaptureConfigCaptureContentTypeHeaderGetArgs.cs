@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("csvContentTypes")]
         private InputList<string>? _csvContentTypes;
-
-        /// <summary>
-        /// CSV content type headers to capture. One of `CsvContentTypes` or `JsonContentTypes` is required.
-        /// </summary>
         public InputList<string> CsvContentTypes
         {
             get => _csvContentTypes ?? (_csvContentTypes = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("jsonContentTypes")]
         private InputList<string>? _jsonContentTypes;
-
-        /// <summary>
-        /// The JSON content type headers to capture. One of `JsonContentTypes` or `CsvContentTypes` is required.
-        /// </summary>
         public InputList<string> JsonContentTypes
         {
             get => _jsonContentTypes ?? (_jsonContentTypes = new InputList<string>());

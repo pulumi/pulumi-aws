@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TablePointInTimeRecovery
     {
-        /// <summary>
-        /// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `PointInTimeRecovery` block is not provided, this defaults to `False`.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-        /// </summary>
         public readonly int? RecoveryPeriodInDays;
 
         [OutputConstructor]

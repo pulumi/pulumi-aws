@@ -23,66 +23,30 @@ public final class RoleMembershipArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Name of the group to be added to the role.
-     * 
-     */
     @Import(name="memberName", required=true)
     private Output<String> memberName;
 
-    /**
-     * @return Name of the group to be added to the role.
-     * 
-     */
     public Output<String> memberName() {
         return this.memberName;
     }
 
-    /**
-     * Name of the namespace. Defaults to `default`.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Name of the namespace. Defaults to `default`.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="role", required=true)
     private Output<String> role;
 
-    /**
-     * @return Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }
@@ -124,90 +88,38 @@ public final class RoleMembershipArgs extends com.pulumi.resources.ResourceArgs 
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param memberName Name of the group to be added to the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberName(Output<String> memberName) {
             $.memberName = memberName;
             return this;
         }
 
-        /**
-         * @param memberName Name of the group to be added to the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberName(String memberName) {
             return memberName(Output.of(memberName));
         }
 
-        /**
-         * @param namespace Name of the namespace. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Name of the namespace. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param role Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }

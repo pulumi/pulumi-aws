@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineTriggerAll
     {
-        /// <summary>
-        /// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `GitConfiguration` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerAllGitConfiguration> GitConfigurations;
-        /// <summary>
-        /// The source provider for the event. Possible value is `CodeStarSourceConnection`.
-        /// </summary>
         public readonly string? ProviderType;
 
         [OutputConstructor]

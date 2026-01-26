@@ -17,47 +17,23 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
 
     public static final GatewayRouteSpecHttpRouteActionRewriteArgs Empty = new GatewayRouteSpecHttpRouteActionRewriteArgs();
 
-    /**
-     * Host name to rewrite.
-     * 
-     */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs> hostname;
 
-    /**
-     * @return Host name to rewrite.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs>> hostname() {
         return Optional.ofNullable(this.hostname);
     }
 
-    /**
-     * Exact path to rewrite.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewritePathArgs> path;
 
-    /**
-     * @return Exact path to rewrite.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewritePathArgs>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * Specified beginning characters to rewrite.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs> prefix;
 
-    /**
-     * @return Specified beginning characters to rewrite.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -88,65 +64,29 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
             $ = new GatewayRouteSpecHttpRouteActionRewriteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostname Host name to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(@Nullable Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs> hostname) {
             $.hostname = hostname;
             return this;
         }
 
-        /**
-         * @param hostname Host name to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(GatewayRouteSpecHttpRouteActionRewriteHostnameArgs hostname) {
             return hostname(Output.of(hostname));
         }
 
-        /**
-         * @param path Exact path to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<GatewayRouteSpecHttpRouteActionRewritePathArgs> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Exact path to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(GatewayRouteSpecHttpRouteActionRewritePathArgs path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param prefix Specified beginning characters to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Specified beginning characters to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(GatewayRouteSpecHttpRouteActionRewritePrefixArgs prefix) {
             return prefix(Output.of(prefix));
         }

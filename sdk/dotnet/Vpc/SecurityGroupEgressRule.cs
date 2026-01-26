@@ -9,141 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpc
 {
-    /// <summary>
-    /// Manages an outbound (egress) rule for a security group.
-    /// 
-    /// When specifying an outbound rule for your security group in a VPC, the configuration must include a destination for the traffic.
-    /// 
-    /// &gt; **NOTE:** Using `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources is the current best practice. Avoid using the `aws.ec2.SecurityGroupRule` resource and the `Ingress` and `Egress` arguments of the `aws.ec2.SecurityGroup` resource for configuring in-line rules, as they struggle with managing multiple CIDR blocks, and tags and descriptions due to the historical lack of unique IDs.
-    /// 
-    /// !&gt; **WARNING:** You should not use the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources in conjunction with the `aws.ec2.SecurityGroup` resource with _in-line rules_ (using the `Ingress` and `Egress` arguments of `aws.ec2.SecurityGroup`) or the `aws.ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Vpc.SecurityGroupEgressRule("example", new()
-    ///     {
-    ///         SecurityGroupId = exampleAwsSecurityGroup.Id,
-    ///         CidrIpv4 = "10.0.0.0/8",
-    ///         FromPort = 80,
-    ///         IpProtocol = "tcp",
-    ///         ToPort = 80,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `id` - (String) ID of the security group rule.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
-    /// 
-    /// % pulumi import aws_vpc_security_group_egress_rule.example sgr-02108b27edd666983
-    /// </summary>
     [AwsResourceType("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")]
     public partial class SecurityGroupEgressRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the security group rule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The destination IPv4 CIDR range.
-        /// </summary>
         [Output("cidrIpv4")]
         public Output<string?> CidrIpv4 { get; private set; } = null!;
 
-        /// <summary>
-        /// The destination IPv6 CIDR range.
-        /// </summary>
         [Output("cidrIpv6")]
         public Output<string?> CidrIpv6 { get; private set; } = null!;
 
-        /// <summary>
-        /// The security group rule description.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-        /// </summary>
         [Output("fromPort")]
         public Output<int?> FromPort { get; private set; } = null!;
 
-        /// <summary>
-        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `IpProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `FromPort` and `ToPort` values should not be defined.
-        /// </summary>
         [Output("ipProtocol")]
         public Output<string> IpProtocol { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the destination prefix list.
-        /// </summary>
         [Output("prefixListId")]
         public Output<string?> PrefixListId { get; private set; } = null!;
 
-        /// <summary>
-        /// The destination security group that is referenced in the rule.
-        /// </summary>
         [Output("referencedSecurityGroupId")]
         public Output<string?> ReferencedSecurityGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the security group rule.
-        /// </summary>
         [Output("securityGroupRuleId")]
         public Output<string> SecurityGroupRuleId { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-        /// 
-        /// &gt; **Note** Although `CidrIpv4`, `CidrIpv6`, `PrefixListId`, and `ReferencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `FromPort` and `ToPort` arguments are required unless `IpProtocol` is set to `-1` or `Icmpv6`.
-        /// </summary>
         [Output("toPort")]
         public Output<int?> ToPort { get; private set; } = null!;
 
@@ -193,77 +100,41 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class SecurityGroupEgressRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The destination IPv4 CIDR range.
-        /// </summary>
         [Input("cidrIpv4")]
         public Input<string>? CidrIpv4 { get; set; }
 
-        /// <summary>
-        /// The destination IPv6 CIDR range.
-        /// </summary>
         [Input("cidrIpv6")]
         public Input<string>? CidrIpv6 { get; set; }
 
-        /// <summary>
-        /// The security group rule description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-        /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
-        /// <summary>
-        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `IpProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `FromPort` and `ToPort` values should not be defined.
-        /// </summary>
         [Input("ipProtocol", required: true)]
         public Input<string> IpProtocol { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the destination prefix list.
-        /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
 
-        /// <summary>
-        /// The destination security group that is referenced in the rule.
-        /// </summary>
         [Input("referencedSecurityGroupId")]
         public Input<string>? ReferencedSecurityGroupId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-        /// 
-        /// &gt; **Note** Although `CidrIpv4`, `CidrIpv6`, `PrefixListId`, and `ReferencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `FromPort` and `ToPort` arguments are required unless `IpProtocol` is set to `-1` or `Icmpv6`.
-        /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 
@@ -275,78 +146,41 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class SecurityGroupEgressRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the security group rule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The destination IPv4 CIDR range.
-        /// </summary>
         [Input("cidrIpv4")]
         public Input<string>? CidrIpv4 { get; set; }
 
-        /// <summary>
-        /// The destination IPv6 CIDR range.
-        /// </summary>
         [Input("cidrIpv6")]
         public Input<string>? CidrIpv6 { get; set; }
 
-        /// <summary>
-        /// The security group rule description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-        /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
-        /// <summary>
-        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `IpProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `FromPort` and `ToPort` values should not be defined.
-        /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }
 
-        /// <summary>
-        /// The ID of the destination prefix list.
-        /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
 
-        /// <summary>
-        /// The destination security group that is referenced in the rule.
-        /// </summary>
         [Input("referencedSecurityGroupId")]
         public Input<string>? ReferencedSecurityGroupId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
 
-        /// <summary>
-        /// The ID of the security group rule.
-        /// </summary>
         [Input("securityGroupRuleId")]
         public Input<string>? SecurityGroupRuleId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -355,21 +189,12 @@ namespace Pulumi.Aws.Vpc
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-        /// 
-        /// &gt; **Note** Although `CidrIpv4`, `CidrIpv6`, `PrefixListId`, and `ReferencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `FromPort` and `ToPort` arguments are required unless `IpProtocol` is set to `-1` or `Icmpv6`.
-        /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 

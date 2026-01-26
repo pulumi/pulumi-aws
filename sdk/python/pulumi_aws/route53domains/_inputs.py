@@ -56,17 +56,8 @@ MYPY = False
 if not MYPY:
     class DelegationSignerRecordSigningAttributesArgsDict(TypedDict):
         algorithm: pulumi.Input[_builtins.int]
-        """
-        Algorithm which was used to generate the digest from the public key.
-        """
         flags: pulumi.Input[_builtins.int]
-        """
-        Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-        """
         public_key: pulumi.Input[_builtins.str]
-        """
-        The base64-encoded public key part of the key pair that is passed to the registry.
-        """
 elif False:
     DelegationSignerRecordSigningAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -76,11 +67,6 @@ class DelegationSignerRecordSigningAttributesArgs:
                  algorithm: pulumi.Input[_builtins.int],
                  flags: pulumi.Input[_builtins.int],
                  public_key: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.int] algorithm: Algorithm which was used to generate the digest from the public key.
-        :param pulumi.Input[_builtins.int] flags: Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-        :param pulumi.Input[_builtins.str] public_key: The base64-encoded public key part of the key pair that is passed to the registry.
-        """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "flags", flags)
         pulumi.set(__self__, "public_key", public_key)
@@ -88,9 +74,6 @@ class DelegationSignerRecordSigningAttributesArgs:
     @_builtins.property
     @pulumi.getter
     def algorithm(self) -> pulumi.Input[_builtins.int]:
-        """
-        Algorithm which was used to generate the digest from the public key.
-        """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
@@ -100,9 +83,6 @@ class DelegationSignerRecordSigningAttributesArgs:
     @_builtins.property
     @pulumi.getter
     def flags(self) -> pulumi.Input[_builtins.int]:
-        """
-        Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-        """
         return pulumi.get(self, "flags")
 
     @flags.setter
@@ -112,9 +92,6 @@ class DelegationSignerRecordSigningAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The base64-encoded public key part of the key pair that is passed to the registry.
-        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -177,61 +154,19 @@ class DelegationSignerRecordTimeoutsArgs:
 if not MYPY:
     class DomainAdminContactArgsDict(TypedDict):
         address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
         address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
         contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
         extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainAdminContactExtraParamArgsDict']]]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
         last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
         organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     DomainAdminContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -252,22 +187,6 @@ class DomainAdminContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAdminContactExtraParamArgs']]] extra_params: A list of name-value pairs for parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         if address_line1 is not None:
             pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
@@ -300,9 +219,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -312,9 +228,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -324,9 +237,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -336,9 +246,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -348,9 +255,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -360,9 +264,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -372,9 +273,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAdminContactExtraParamArgs']]]]:
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -384,9 +282,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -396,9 +291,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -408,9 +300,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -420,9 +309,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -432,9 +318,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -444,9 +327,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -456,9 +336,6 @@ class DomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
@@ -469,13 +346,7 @@ class DomainAdminContactArgs:
 if not MYPY:
     class DomainAdminContactExtraParamArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
 elif False:
     DomainAdminContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -484,19 +355,12 @@ class DomainAdminContactExtraParamArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of an additional parameter that is required by a top-level domain.
-        :param pulumi.Input[_builtins.str] value: The value that corresponds with the name of an extra parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -506,9 +370,6 @@ class DomainAdminContactExtraParamArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -519,61 +380,19 @@ class DomainAdminContactExtraParamArgs:
 if not MYPY:
     class DomainBillingContactArgsDict(TypedDict):
         address_line1: pulumi.Input[_builtins.str]
-        """
-        First line of the contact's address.
-        """
         address_line2: pulumi.Input[_builtins.str]
-        """
-        Second line of contact's address, if any.
-        """
         city: pulumi.Input[_builtins.str]
-        """
-        The city of the contact's address.
-        """
         contact_type: pulumi.Input[_builtins.str]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: pulumi.Input[_builtins.str]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: pulumi.Input[_builtins.str]
-        """
-        Email address of the contact.
-        """
         extra_params: pulumi.Input[Sequence[pulumi.Input['DomainBillingContactExtraParamArgsDict']]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         fax: pulumi.Input[_builtins.str]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: pulumi.Input[_builtins.str]
-        """
-        First name of contact.
-        """
         last_name: pulumi.Input[_builtins.str]
-        """
-        Last name of contact.
-        """
         organization_name: pulumi.Input[_builtins.str]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: pulumi.Input[_builtins.str]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: pulumi.Input[_builtins.str]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: pulumi.Input[_builtins.str]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     DomainBillingContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -594,22 +413,6 @@ class DomainBillingContactArgs:
                  phone_number: pulumi.Input[_builtins.str],
                  state: pulumi.Input[_builtins.str],
                  zip_code: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainBillingContactExtraParamArgs']]] extra_params: A list of name-value pairs for parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         pulumi.set(__self__, "address_line1", address_line1)
         pulumi.set(__self__, "address_line2", address_line2)
         pulumi.set(__self__, "city", city)
@@ -628,9 +431,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> pulumi.Input[_builtins.str]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -640,9 +440,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> pulumi.Input[_builtins.str]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -652,9 +449,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> pulumi.Input[_builtins.str]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -664,9 +458,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -676,9 +467,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -688,9 +476,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -700,9 +485,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> pulumi.Input[Sequence[pulumi.Input['DomainBillingContactExtraParamArgs']]]:
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -712,9 +494,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> pulumi.Input[_builtins.str]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -724,9 +503,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -736,9 +512,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -748,9 +521,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -760,9 +530,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Input[_builtins.str]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -772,9 +539,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -784,9 +548,6 @@ class DomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
@@ -797,13 +558,7 @@ class DomainBillingContactArgs:
 if not MYPY:
     class DomainBillingContactExtraParamArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
 elif False:
     DomainBillingContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -812,19 +567,12 @@ class DomainBillingContactExtraParamArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of an additional parameter that is required by a top-level domain.
-        :param pulumi.Input[_builtins.str] value: The value that corresponds with the name of an extra parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -834,9 +582,6 @@ class DomainBillingContactExtraParamArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -847,13 +592,7 @@ class DomainBillingContactExtraParamArgs:
 if not MYPY:
     class DomainNameServerArgsDict(TypedDict):
         glue_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        The fully qualified host name of the name server.
-        """
 elif False:
     DomainNameServerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -862,19 +601,12 @@ class DomainNameServerArgs:
     def __init__(__self__, *,
                  glue_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glue_ips: Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        :param pulumi.Input[_builtins.str] name: The fully qualified host name of the name server.
-        """
         pulumi.set(__self__, "glue_ips", glue_ips)
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="glueIps")
     def glue_ips(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        """
         return pulumi.get(self, "glue_ips")
 
     @glue_ips.setter
@@ -884,9 +616,6 @@ class DomainNameServerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The fully qualified host name of the name server.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -897,61 +626,19 @@ class DomainNameServerArgs:
 if not MYPY:
     class DomainRegistrantContactArgsDict(TypedDict):
         address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
         address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
         contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
         extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainRegistrantContactExtraParamArgsDict']]]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
         last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
         organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     DomainRegistrantContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -972,22 +659,6 @@ class DomainRegistrantContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainRegistrantContactExtraParamArgs']]] extra_params: A list of name-value pairs for parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         if address_line1 is not None:
             pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
@@ -1020,9 +691,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -1032,9 +700,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -1044,9 +709,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1056,9 +718,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -1068,9 +727,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -1080,9 +736,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -1092,9 +745,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainRegistrantContactExtraParamArgs']]]]:
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -1104,9 +754,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -1116,9 +763,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -1128,9 +772,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -1140,9 +781,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -1152,9 +790,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -1164,9 +799,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1176,9 +808,6 @@ class DomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
@@ -1189,13 +818,7 @@ class DomainRegistrantContactArgs:
 if not MYPY:
     class DomainRegistrantContactExtraParamArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
 elif False:
     DomainRegistrantContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1204,19 +827,12 @@ class DomainRegistrantContactExtraParamArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of an additional parameter that is required by a top-level domain.
-        :param pulumi.Input[_builtins.str] value: The value that corresponds with the name of an extra parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1226,9 +842,6 @@ class DomainRegistrantContactExtraParamArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1239,61 +852,19 @@ class DomainRegistrantContactExtraParamArgs:
 if not MYPY:
     class DomainTechContactArgsDict(TypedDict):
         address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
         address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
         contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
         extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainTechContactExtraParamArgsDict']]]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
         last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
         organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     DomainTechContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1314,22 +885,6 @@ class DomainTechContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainTechContactExtraParamArgs']]] extra_params: A list of name-value pairs for parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         if address_line1 is not None:
             pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
@@ -1362,9 +917,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -1374,9 +926,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -1386,9 +935,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1398,9 +944,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -1410,9 +953,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -1422,9 +962,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -1434,9 +971,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTechContactExtraParamArgs']]]]:
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -1446,9 +980,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -1458,9 +989,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -1470,9 +998,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -1482,9 +1007,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -1494,9 +1016,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -1506,9 +1025,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1518,9 +1034,6 @@ class DomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
@@ -1531,13 +1044,7 @@ class DomainTechContactArgs:
 if not MYPY:
     class DomainTechContactExtraParamArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
 elif False:
     DomainTechContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1546,19 +1053,12 @@ class DomainTechContactExtraParamArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of an additional parameter that is required by a top-level domain.
-        :param pulumi.Input[_builtins.str] value: The value that corresponds with the name of an extra parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1568,9 +1068,6 @@ class DomainTechContactExtraParamArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1653,61 +1150,19 @@ class DomainTimeoutsArgs:
 if not MYPY:
     class RegisteredDomainAdminContactArgsDict(TypedDict):
         address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
         address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
         contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
         extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
         last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
         organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     RegisteredDomainAdminContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1728,22 +1183,6 @@ class RegisteredDomainAdminContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extra_params: A key-value map of parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         if address_line1 is not None:
             pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
@@ -1776,9 +1215,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -1788,9 +1224,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -1800,9 +1233,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1812,9 +1242,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -1824,9 +1251,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -1836,9 +1260,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -1848,9 +1269,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -1860,9 +1278,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -1872,9 +1287,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -1884,9 +1296,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -1896,9 +1305,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -1908,9 +1314,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -1920,9 +1323,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1932,9 +1332,6 @@ class RegisteredDomainAdminContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
@@ -1945,61 +1342,19 @@ class RegisteredDomainAdminContactArgs:
 if not MYPY:
     class RegisteredDomainBillingContactArgsDict(TypedDict):
         address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
         address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
         contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
         extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
         last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
         organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     RegisteredDomainBillingContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2020,22 +1375,6 @@ class RegisteredDomainBillingContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extra_params: A key-value map of parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         if address_line1 is not None:
             pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
@@ -2068,9 +1407,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -2080,9 +1416,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -2092,9 +1425,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -2104,9 +1434,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -2116,9 +1443,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -2128,9 +1452,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -2140,9 +1461,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -2152,9 +1470,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -2164,9 +1479,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -2176,9 +1488,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -2188,9 +1497,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -2200,9 +1506,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -2212,9 +1515,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -2224,9 +1524,6 @@ class RegisteredDomainBillingContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
@@ -2237,13 +1534,7 @@ class RegisteredDomainBillingContactArgs:
 if not MYPY:
     class RegisteredDomainNameServerArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The fully qualified host name of the name server.
-        """
         glue_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        """
 elif False:
     RegisteredDomainNameServerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2252,10 +1543,6 @@ class RegisteredDomainNameServerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  glue_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The fully qualified host name of the name server.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glue_ips: Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        """
         pulumi.set(__self__, "name", name)
         if glue_ips is not None:
             pulumi.set(__self__, "glue_ips", glue_ips)
@@ -2263,9 +1550,6 @@ class RegisteredDomainNameServerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The fully qualified host name of the name server.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2275,9 +1559,6 @@ class RegisteredDomainNameServerArgs:
     @_builtins.property
     @pulumi.getter(name="glueIps")
     def glue_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        """
         return pulumi.get(self, "glue_ips")
 
     @glue_ips.setter
@@ -2288,61 +1569,19 @@ class RegisteredDomainNameServerArgs:
 if not MYPY:
     class RegisteredDomainRegistrantContactArgsDict(TypedDict):
         address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
         address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
         contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
         extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
         last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
         organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     RegisteredDomainRegistrantContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2363,22 +1602,6 @@ class RegisteredDomainRegistrantContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extra_params: A key-value map of parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         if address_line1 is not None:
             pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
@@ -2411,9 +1634,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -2423,9 +1643,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -2435,9 +1652,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -2447,9 +1661,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -2459,9 +1670,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -2471,9 +1679,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -2483,9 +1688,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -2495,9 +1697,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -2507,9 +1706,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -2519,9 +1715,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -2531,9 +1724,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -2543,9 +1733,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -2555,9 +1742,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -2567,9 +1751,6 @@ class RegisteredDomainRegistrantContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
@@ -2580,61 +1761,19 @@ class RegisteredDomainRegistrantContactArgs:
 if not MYPY:
     class RegisteredDomainTechContactArgsDict(TypedDict):
         address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
         address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
         contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
         extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
         last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
         organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
         zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
 elif False:
     RegisteredDomainTechContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2655,22 +1794,6 @@ class RegisteredDomainTechContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address_line1: First line of the contact's address.
-        :param pulumi.Input[_builtins.str] address_line2: Second line of contact's address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the contact's address.
-        :param pulumi.Input[_builtins.str] contact_type: Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        :param pulumi.Input[_builtins.str] country_code: Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        :param pulumi.Input[_builtins.str] email: Email address of the contact.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extra_params: A key-value map of parameters required by certain top-level domains.
-        :param pulumi.Input[_builtins.str] fax: Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] first_name: First name of contact.
-        :param pulumi.Input[_builtins.str] last_name: Last name of contact.
-        :param pulumi.Input[_builtins.str] organization_name: Name of the organization for contact types other than `PERSON`.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        :param pulumi.Input[_builtins.str] state: The state or province of the contact's city.
-        :param pulumi.Input[_builtins.str] zip_code: The zip or postal code of the contact's address.
-        """
         if address_line1 is not None:
             pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
@@ -2703,9 +1826,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First line of the contact's address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -2715,9 +1835,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Second line of contact's address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -2727,9 +1844,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the contact's address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -2739,9 +1853,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactType")
     def contact_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
         return pulumi.get(self, "contact_type")
 
     @contact_type.setter
@@ -2751,9 +1862,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -2763,9 +1871,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -2775,9 +1880,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="extraParams")
     def extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
         return pulumi.get(self, "extra_params")
 
     @extra_params.setter
@@ -2787,9 +1889,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def fax(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "fax")
 
     @fax.setter
@@ -2799,9 +1898,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of contact.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -2811,9 +1907,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of contact.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -2823,9 +1916,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
@@ -2835,9 +1925,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -2847,9 +1934,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or province of the contact's city.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -2859,9 +1943,6 @@ class RegisteredDomainTechContactArgs:
     @_builtins.property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The zip or postal code of the contact's address.
-        """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter

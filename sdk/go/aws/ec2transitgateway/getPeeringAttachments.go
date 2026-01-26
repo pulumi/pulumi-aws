@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on EC2 Transit Gateway Peering Attachments.
-//
-// ## Example Usage
-//
-// ### All Resources
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetPeeringAttachments(ctx, &ec2transitgateway.GetPeeringAttachmentsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### By Filter
 func GetPeeringAttachments(ctx *pulumi.Context, args *GetPeeringAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetPeeringAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPeeringAttachmentsResult
@@ -52,18 +23,15 @@ func GetPeeringAttachments(ctx *pulumi.Context, args *GetPeeringAttachmentsArgs,
 
 // A collection of arguments for invoking getPeeringAttachments.
 type GetPeeringAttachmentsArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetPeeringAttachmentsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                       `pulumi:"region"`
 }
 
 // A collection of values returned by getPeeringAttachments.
 type GetPeeringAttachmentsResult struct {
 	Filters []GetPeeringAttachmentsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
+	Id     string   `pulumi:"id"`
 	Ids    []string `pulumi:"ids"`
 	Region string   `pulumi:"region"`
 }
@@ -79,10 +47,8 @@ func GetPeeringAttachmentsOutput(ctx *pulumi.Context, args GetPeeringAttachments
 
 // A collection of arguments for invoking getPeeringAttachments.
 type GetPeeringAttachmentsOutputArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetPeeringAttachmentsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput                 `pulumi:"region"`
 }
 
 func (GetPeeringAttachmentsOutputArgs) ElementType() reflect.Type {
@@ -113,7 +79,6 @@ func (o GetPeeringAttachmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPeeringAttachmentsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
 func (o GetPeeringAttachmentsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPeeringAttachmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

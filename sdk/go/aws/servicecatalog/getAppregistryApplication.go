@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Service Catalog AppRegistry Application.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.LookupAppregistryApplication(ctx, &servicecatalog.LookupAppregistryApplicationArgs{
-//				Id: "application-1234",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAppregistryApplication(ctx *pulumi.Context, args *LookupAppregistryApplicationArgs, opts ...pulumi.InvokeOption) (*LookupAppregistryApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppregistryApplicationResult
@@ -52,26 +23,19 @@ func LookupAppregistryApplication(ctx *pulumi.Context, args *LookupAppregistryAp
 
 // A collection of arguments for invoking getAppregistryApplication.
 type LookupAppregistryApplicationArgs struct {
-	// Application identifier.
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryApplication.
 type LookupAppregistryApplicationResult struct {
-	// A map with a single tag key-value pair used to associate resources with the application.
 	ApplicationTag map[string]string `pulumi:"applicationTag"`
-	// ARN (Amazon Resource Name) of the application.
-	Arn string `pulumi:"arn"`
-	// Description of the application.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	// Name of the application.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Arn            string            `pulumi:"arn"`
+	Description    string            `pulumi:"description"`
+	Id             string            `pulumi:"id"`
+	Name           string            `pulumi:"name"`
+	Region         string            `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregistryApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupAppregistryApplicationResultOutput {
@@ -85,9 +49,7 @@ func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregis
 
 // A collection of arguments for invoking getAppregistryApplication.
 type LookupAppregistryApplicationOutputArgs struct {
-	// Application identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringInput    `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -110,17 +72,14 @@ func (o LookupAppregistryApplicationResultOutput) ToLookupAppregistryApplication
 	return o
 }
 
-// A map with a single tag key-value pair used to associate resources with the application.
 func (o LookupAppregistryApplicationResultOutput) ApplicationTag() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) map[string]string { return v.ApplicationTag }).(pulumi.StringMapOutput)
 }
 
-// ARN (Amazon Resource Name) of the application.
 func (o LookupAppregistryApplicationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the application.
 func (o LookupAppregistryApplicationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -129,7 +88,6 @@ func (o LookupAppregistryApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the application.
 func (o LookupAppregistryApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -138,7 +96,6 @@ func (o LookupAppregistryApplicationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LookupAppregistryApplicationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

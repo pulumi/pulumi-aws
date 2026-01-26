@@ -16,177 +16,58 @@ import java.util.Objects;
 @CustomType
 public final class GetClusterResult {
     private String arn;
-    /**
-     * @return Availability Zone for the cache cluster.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
-     * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
-     * 
-     */
     private List<GetClusterCacheNode> cacheNodes;
-    /**
-     * @return (Memcached only) DNS name of the cache cluster without the port appended.
-     * 
-     */
     private String clusterAddress;
     private String clusterId;
-    /**
-     * @return (Memcached only) Configuration endpoint to allow host discovery.
-     * 
-     */
     private String configurationEndpoint;
-    /**
-     * @return Name of the cache engine.
-     * 
-     */
     private String engine;
-    /**
-     * @return Version number of the cache engine.
-     * 
-     */
     private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The IP version advertised in the discovery protocol.
-     * 
-     */
     private String ipDiscovery;
-    /**
-     * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
-     * 
-     */
     private List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations;
-    /**
-     * @return Specifies the weekly time range for when maintenance
-     * on the cache cluster is performed.
-     * 
-     */
     private String maintenanceWindow;
-    /**
-     * @return The IP versions for cache cluster connections.
-     * 
-     */
     private String networkType;
-    /**
-     * @return The cluster node type.
-     * 
-     */
     private String nodeType;
-    /**
-     * @return An ARN of an
-     * SNS topic that ElastiCache notifications get sent to.
-     * 
-     */
     private String notificationTopicArn;
-    /**
-     * @return The number of cache nodes that the cache cluster has.
-     * 
-     */
     private Integer numCacheNodes;
-    /**
-     * @return Name of the parameter group associated with this cache cluster.
-     * 
-     */
     private String parameterGroupName;
-    /**
-     * @return The port number on which each of the cache nodes will
-     * accept connections.
-     * 
-     */
     private Integer port;
-    /**
-     * @return The outpost ARN in which the cache cluster was created if created in outpost.
-     * 
-     */
     private String preferredOutpostArn;
     private String region;
-    /**
-     * @return The replication group to which this cache cluster belongs.
-     * 
-     */
     private String replicationGroupId;
-    /**
-     * @return List VPC security groups associated with the cache cluster.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The number of days for which ElastiCache will
-     * retain automatic cache cluster snapshots before deleting them.
-     * 
-     */
     private Integer snapshotRetentionLimit;
-    /**
-     * @return Daily time range (in UTC) during which ElastiCache will
-     * begin taking a daily snapshot of the cache cluster.
-     * 
-     */
     private String snapshotWindow;
-    /**
-     * @return Name of the subnet group associated to the cache cluster.
-     * 
-     */
     private String subnetGroupName;
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     private Map<String,String> tags;
 
     private GetClusterResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Availability Zone for the cache cluster.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
-     * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
-     * 
-     */
     public List<GetClusterCacheNode> cacheNodes() {
         return this.cacheNodes;
     }
-    /**
-     * @return (Memcached only) DNS name of the cache cluster without the port appended.
-     * 
-     */
     public String clusterAddress() {
         return this.clusterAddress;
     }
     public String clusterId() {
         return this.clusterId;
     }
-    /**
-     * @return (Memcached only) Configuration endpoint to allow host discovery.
-     * 
-     */
     public String configurationEndpoint() {
         return this.configurationEndpoint;
     }
-    /**
-     * @return Name of the cache engine.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return Version number of the cache engine.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
@@ -197,123 +78,54 @@ public final class GetClusterResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The IP version advertised in the discovery protocol.
-     * 
-     */
     public String ipDiscovery() {
         return this.ipDiscovery;
     }
-    /**
-     * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
-     * 
-     */
     public List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations() {
         return this.logDeliveryConfigurations;
     }
-    /**
-     * @return Specifies the weekly time range for when maintenance
-     * on the cache cluster is performed.
-     * 
-     */
     public String maintenanceWindow() {
         return this.maintenanceWindow;
     }
-    /**
-     * @return The IP versions for cache cluster connections.
-     * 
-     */
     public String networkType() {
         return this.networkType;
     }
-    /**
-     * @return The cluster node type.
-     * 
-     */
     public String nodeType() {
         return this.nodeType;
     }
-    /**
-     * @return An ARN of an
-     * SNS topic that ElastiCache notifications get sent to.
-     * 
-     */
     public String notificationTopicArn() {
         return this.notificationTopicArn;
     }
-    /**
-     * @return The number of cache nodes that the cache cluster has.
-     * 
-     */
     public Integer numCacheNodes() {
         return this.numCacheNodes;
     }
-    /**
-     * @return Name of the parameter group associated with this cache cluster.
-     * 
-     */
     public String parameterGroupName() {
         return this.parameterGroupName;
     }
-    /**
-     * @return The port number on which each of the cache nodes will
-     * accept connections.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return The outpost ARN in which the cache cluster was created if created in outpost.
-     * 
-     */
     public String preferredOutpostArn() {
         return this.preferredOutpostArn;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The replication group to which this cache cluster belongs.
-     * 
-     */
     public String replicationGroupId() {
         return this.replicationGroupId;
     }
-    /**
-     * @return List VPC security groups associated with the cache cluster.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The number of days for which ElastiCache will
-     * retain automatic cache cluster snapshots before deleting them.
-     * 
-     */
     public Integer snapshotRetentionLimit() {
         return this.snapshotRetentionLimit;
     }
-    /**
-     * @return Daily time range (in UTC) during which ElastiCache will
-     * begin taking a daily snapshot of the cache cluster.
-     * 
-     */
     public String snapshotWindow() {
         return this.snapshotWindow;
     }
-    /**
-     * @return Name of the subnet group associated to the cache cluster.
-     * 
-     */
     public String subnetGroupName() {
         return this.subnetGroupName;
     }
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

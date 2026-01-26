@@ -13,150 +13,42 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings
     {
-        /// <summary>
-        /// Enables or disables adaptive quantization.
-        /// </summary>
         public readonly string? AdaptiveQuantization;
-        /// <summary>
-        /// Indicates that AFD values will be written into the output stream.
-        /// </summary>
         public readonly string? AfdSignaling;
-        /// <summary>
-        /// Whether or not EML should insert an Alternative Transfer Function SEI message.
-        /// </summary>
         public readonly string? AlternativeTransferFunction;
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         public readonly int Bitrate;
-        /// <summary>
-        /// Size of buffer in bits.
-        /// </summary>
         public readonly int? BufSize;
-        /// <summary>
-        /// Includes color space metadata in the output.
-        /// </summary>
         public readonly string? ColorMetadata;
-        /// <summary>
-        /// Define the color metadata for the output. H265 Color Space Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings? ColorSpaceSettings;
-        /// <summary>
-        /// Filters to apply to an encode. See H265 Filter Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings? FilterSettings;
-        /// <summary>
-        /// Four bit AFD value to write on all frames of video in the output stream.
-        /// </summary>
         public readonly string? FixedAfd;
         public readonly string? FlickerAq;
-        /// <summary>
-        /// Framerate denominator.
-        /// </summary>
         public readonly int FramerateDenominator;
-        /// <summary>
-        /// Framerate numerator.
-        /// </summary>
         public readonly int FramerateNumerator;
-        /// <summary>
-        /// Frequency of closed GOPs.
-        /// </summary>
         public readonly int? GopClosedCadence;
-        /// <summary>
-        /// GOP size in units of either frames of seconds per `GopSizeUnits`.
-        /// </summary>
         public readonly double? GopSize;
-        /// <summary>
-        /// Indicates if the `GopSize` is specified in frames or seconds.
-        /// </summary>
         public readonly string? GopSizeUnits;
-        /// <summary>
-        /// H265 level.
-        /// </summary>
         public readonly string? Level;
-        /// <summary>
-        /// Amount of lookahead.
-        /// </summary>
         public readonly string? LookAheadRateControl;
-        /// <summary>
-        /// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-        /// </summary>
         public readonly int? MaxBitrate;
-        /// <summary>
-        /// Min interval.
-        /// </summary>
         public readonly int? MinIInterval;
-        /// <summary>
-        /// Set the minimum QP.
-        /// </summary>
         public readonly int? MinQp;
-        /// <summary>
-        /// Enables or disables motion vector over picture boundaries.
-        /// </summary>
         public readonly string? MvOverPictureBoundaries;
-        /// <summary>
-        /// Enables or disables the motion vector temporal predictor.
-        /// </summary>
         public readonly string? MvTemporalPredictor;
-        /// <summary>
-        /// Pixel Aspect Ratio denominator.
-        /// </summary>
         public readonly int? ParDenominator;
-        /// <summary>
-        /// Pixel Aspect Ratio numerator.
-        /// </summary>
         public readonly int? ParNumerator;
-        /// <summary>
-        /// H265 profile.
-        /// </summary>
         public readonly string? Profile;
-        /// <summary>
-        /// Controls the target quality for the video encode.
-        /// </summary>
         public readonly int? QvbrQualityLevel;
-        /// <summary>
-        /// Rate control mode.
-        /// </summary>
         public readonly string? RateControlMode;
-        /// <summary>
-        /// Sets the scan type of the output.
-        /// </summary>
         public readonly string? ScanType;
-        /// <summary>
-        /// Scene change detection.
-        /// </summary>
         public readonly string? SceneChangeDetect;
-        /// <summary>
-        /// Number of slices per picture.
-        /// </summary>
         public readonly int? Slices;
-        /// <summary>
-        /// Set the H265 tier in the output.
-        /// </summary>
         public readonly string? Tier;
-        /// <summary>
-        /// Sets the height of tiles.
-        /// </summary>
         public readonly int? TileHeight;
-        /// <summary>
-        /// Enables or disables padding of tiles.
-        /// </summary>
         public readonly string? TilePadding;
-        /// <summary>
-        /// Sets the width of tiles.
-        /// </summary>
         public readonly int? TileWidth;
-        /// <summary>
-        /// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings? TimecodeBurninSettings;
-        /// <summary>
-        /// Determines how timecodes should be inserted into the video elementary stream.
-        /// </summary>
         public readonly string? TimecodeInsertion;
-        /// <summary>
-        /// Sets the size of the treeblock.
-        /// </summary>
         public readonly string? TreeblockSize;
 
         [OutputConstructor]

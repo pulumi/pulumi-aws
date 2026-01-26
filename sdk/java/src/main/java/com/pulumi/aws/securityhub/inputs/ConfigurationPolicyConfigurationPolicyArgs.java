@@ -19,47 +19,23 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
 
     public static final ConfigurationPolicyConfigurationPolicyArgs Empty = new ConfigurationPolicyConfigurationPolicyArgs();
 
-    /**
-     * A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
-     * 
-     */
     @Import(name="enabledStandardArns")
     private @Nullable Output<List<String>> enabledStandardArns;
 
-    /**
-     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
-     * 
-     */
     public Optional<Output<List<String>>> enabledStandardArns() {
         return Optional.ofNullable(this.enabledStandardArns);
     }
 
-    /**
-     * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-     * 
-     */
     @Import(name="securityControlsConfiguration")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs> securityControlsConfiguration;
 
-    /**
-     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs>> securityControlsConfiguration() {
         return Optional.ofNullable(this.securityControlsConfiguration);
     }
 
-    /**
-     * Indicates whether Security Hub is enabled in the policy.
-     * 
-     */
     @Import(name="serviceEnabled", required=true)
     private Output<Boolean> serviceEnabled;
 
-    /**
-     * @return Indicates whether Security Hub is enabled in the policy.
-     * 
-     */
     public Output<Boolean> serviceEnabled() {
         return this.serviceEnabled;
     }
@@ -90,75 +66,33 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
             $ = new ConfigurationPolicyConfigurationPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledStandardArns(@Nullable Output<List<String>> enabledStandardArns) {
             $.enabledStandardArns = enabledStandardArns;
             return this;
         }
 
-        /**
-         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledStandardArns(List<String> enabledStandardArns) {
             return enabledStandardArns(Output.of(enabledStandardArns));
         }
 
-        /**
-         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledStandardArns(String... enabledStandardArns) {
             return enabledStandardArns(List.of(enabledStandardArns));
         }
 
-        /**
-         * @param securityControlsConfiguration Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlsConfiguration(@Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs> securityControlsConfiguration) {
             $.securityControlsConfiguration = securityControlsConfiguration;
             return this;
         }
 
-        /**
-         * @param securityControlsConfiguration Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs securityControlsConfiguration) {
             return securityControlsConfiguration(Output.of(securityControlsConfiguration));
         }
 
-        /**
-         * @param serviceEnabled Indicates whether Security Hub is enabled in the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceEnabled(Output<Boolean> serviceEnabled) {
             $.serviceEnabled = serviceEnabled;
             return this;
         }
 
-        /**
-         * @param serviceEnabled Indicates whether Security Hub is enabled in the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceEnabled(Boolean serviceEnabled) {
             return serviceEnabled(Output.of(serviceEnabled));
         }

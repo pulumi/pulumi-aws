@@ -11,68 +11,28 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecretResult {
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     private String arn;
-    /**
-     * @return Created date of the secret in UTC.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Description of the secret.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Last updated date of the secret in UTC.
-     * 
-     */
     private String lastChangedDate;
     private String name;
-    /**
-     * @return Resource-based policy document that&#39;s attached to the secret.
-     * 
-     */
     private String policy;
     private String region;
-    /**
-     * @return Tags of the secret.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetSecretResult() {}
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Created date of the secret in UTC.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Description of the secret.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -83,37 +43,21 @@ public final class GetSecretResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Last updated date of the secret in UTC.
-     * 
-     */
     public String lastChangedDate() {
         return this.lastChangedDate;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Resource-based policy document that&#39;s attached to the secret.
-     * 
-     */
     public String policy() {
         return this.policy;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Tags of the secret.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

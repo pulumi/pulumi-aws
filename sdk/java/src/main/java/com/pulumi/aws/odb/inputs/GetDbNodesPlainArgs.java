@@ -15,36 +15,16 @@ public final class GetDbNodesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDbNodesPlainArgs Empty = new GetDbNodesPlainArgs();
 
-    /**
-     * The unique identifier of the cloud vm cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="cloudVmClusterId", required=true)
     private String cloudVmClusterId;
 
-    /**
-     * @return The unique identifier of the cloud vm cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String cloudVmClusterId() {
         return this.cloudVmClusterId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -74,25 +54,11 @@ public final class GetDbNodesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDbNodesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudVmClusterId The unique identifier of the cloud vm cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudVmClusterId(String cloudVmClusterId) {
             $.cloudVmClusterId = cloudVmClusterId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

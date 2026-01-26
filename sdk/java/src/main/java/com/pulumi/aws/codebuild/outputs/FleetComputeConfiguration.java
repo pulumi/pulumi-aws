@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetComputeConfiguration {
-    /**
-     * @return Amount of disk space of the instance type included in the fleet.
-     * 
-     */
     private @Nullable Integer disk;
-    /**
-     * @return EC2 instance type to be launched in the fleet. Specify only if `computeType` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
-     * 
-     */
     private @Nullable String machineType;
-    /**
-     * @return Amount of memory of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
-     * 
-     */
     private @Nullable Integer memory;
-    /**
-     * @return Number of vCPUs of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
-     * 
-     */
     private @Nullable Integer vcpu;
 
     private FleetComputeConfiguration() {}
-    /**
-     * @return Amount of disk space of the instance type included in the fleet.
-     * 
-     */
     public Optional<Integer> disk() {
         return Optional.ofNullable(this.disk);
     }
-    /**
-     * @return EC2 instance type to be launched in the fleet. Specify only if `computeType` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
-     * 
-     */
     public Optional<String> machineType() {
         return Optional.ofNullable(this.machineType);
     }
-    /**
-     * @return Amount of memory of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
-     * 
-     */
     public Optional<Integer> memory() {
         return Optional.ofNullable(this.memory);
     }
-    /**
-     * @return Number of vCPUs of the instance type included in the fleet. Specify only if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`.
-     * 
-     */
     public Optional<Integer> vcpu() {
         return Optional.ofNullable(this.vcpu);
     }

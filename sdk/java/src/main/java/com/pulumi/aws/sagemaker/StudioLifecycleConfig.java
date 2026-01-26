@@ -15,156 +15,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker AI Studio Lifecycle Config resource.
- * 
- * ## Example Usage
- * 
- * ### Basic usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.StudioLifecycleConfig;
- * import com.pulumi.aws.sagemaker.StudioLifecycleConfigArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Base64encodeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new StudioLifecycleConfig("example", StudioLifecycleConfigArgs.builder()
- *             .studioLifecycleConfigName("example")
- *             .studioLifecycleConfigAppType("JupyterServer")
- *             .studioLifecycleConfigContent(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input("echo Hello")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SageMaker AI Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")
 public class StudioLifecycleConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
-     * 
-     */
     @Export(name="studioLifecycleConfigAppType", refs={String.class}, tree="[0]")
     private Output<String> studioLifecycleConfigAppType;
 
-    /**
-     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
-     * 
-     */
     public Output<String> studioLifecycleConfigAppType() {
         return this.studioLifecycleConfigAppType;
     }
-    /**
-     * The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-     * 
-     */
     @Export(name="studioLifecycleConfigContent", refs={String.class}, tree="[0]")
     private Output<String> studioLifecycleConfigContent;
 
-    /**
-     * @return The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-     * 
-     */
     public Output<String> studioLifecycleConfigContent() {
         return this.studioLifecycleConfigContent;
     }
-    /**
-     * The name of the Studio Lifecycle Configuration to create.
-     * 
-     */
     @Export(name="studioLifecycleConfigName", refs={String.class}, tree="[0]")
     private Output<String> studioLifecycleConfigName;
 
-    /**
-     * @return The name of the Studio Lifecycle Configuration to create.
-     * 
-     */
     public Output<String> studioLifecycleConfigName() {
         return this.studioLifecycleConfigName;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -12,39 +12,21 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class TrustStoreCertificateGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Certificate body in PEM format.
-        /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
 
-        /// <summary>
-        /// Certificate issuer.
-        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
-        /// <summary>
-        /// Date and time when the certificate expires in RFC3339 format.
-        /// </summary>
         [Input("notValidAfter")]
         public Input<string>? NotValidAfter { get; set; }
 
-        /// <summary>
-        /// Date and time when the certificate becomes valid in RFC3339 format.
-        /// </summary>
         [Input("notValidBefore")]
         public Input<string>? NotValidBefore { get; set; }
 
-        /// <summary>
-        /// Certificate subject.
-        /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
 
-        /// <summary>
-        /// Certificate thumbprint.
-        /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }
 

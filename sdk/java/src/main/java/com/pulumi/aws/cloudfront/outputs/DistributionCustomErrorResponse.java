@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionCustomErrorResponse {
-    /**
-     * @return Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
-     * 
-     */
     private @Nullable Integer errorCachingMinTtl;
-    /**
-     * @return 4xx or 5xx HTTP status code that you want to customize.
-     * 
-     */
     private Integer errorCode;
-    /**
-     * @return HTTP status code that you want CloudFront to return with the custom error page to the viewer.
-     * 
-     */
     private @Nullable Integer responseCode;
-    /**
-     * @return Path of the custom error page (for example, `/custom_404.html`).
-     * 
-     */
     private @Nullable String responsePagePath;
 
     private DistributionCustomErrorResponse() {}
-    /**
-     * @return Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
-     * 
-     */
     public Optional<Integer> errorCachingMinTtl() {
         return Optional.ofNullable(this.errorCachingMinTtl);
     }
-    /**
-     * @return 4xx or 5xx HTTP status code that you want to customize.
-     * 
-     */
     public Integer errorCode() {
         return this.errorCode;
     }
-    /**
-     * @return HTTP status code that you want CloudFront to return with the custom error page to the viewer.
-     * 
-     */
     public Optional<Integer> responseCode() {
         return Optional.ofNullable(this.responseCode);
     }
-    /**
-     * @return Path of the custom error page (for example, `/custom_404.html`).
-     * 
-     */
     public Optional<String> responsePagePath() {
         return Optional.ofNullable(this.responsePagePath);
     }

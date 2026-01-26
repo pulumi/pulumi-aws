@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFabric.Outputs
     [OutputType]
     public sealed class AppAuthorizationCredential
     {
-        /// <summary>
-        /// Contains API key credential information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AppAuthorizationCredentialApiKeyCredential> ApiKeyCredentials;
-        /// <summary>
-        /// Contains OAuth2 client credential information.
-        /// </summary>
         public readonly Outputs.AppAuthorizationCredentialOauth2Credential? Oauth2Credential;
 
         [OutputConstructor]

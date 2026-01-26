@@ -15,119 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Enables Security Hub for this AWS account.
- * 
- * &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account("example");
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:securityhub/account:Account example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the SecurityHub Hub created in the account.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the SecurityHub Hub created in the account.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-     * 
-     */
     @Export(name="autoEnableControls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoEnableControls;
 
-    /**
-     * @return Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-     * 
-     */
     public Output<Optional<Boolean>> autoEnableControls() {
         return Codegen.optional(this.autoEnableControls);
     }
-    /**
-     * Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-     * 
-     */
     @Export(name="controlFindingGenerator", refs={String.class}, tree="[0]")
     private Output<String> controlFindingGenerator;
 
-    /**
-     * @return Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-     * 
-     */
     public Output<String> controlFindingGenerator() {
         return this.controlFindingGenerator;
     }
-    /**
-     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-     * 
-     */
     @Export(name="enableDefaultStandards", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDefaultStandards;
 
-    /**
-     * @return Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enableDefaultStandards() {
         return Codegen.optional(this.enableDefaultStandards);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

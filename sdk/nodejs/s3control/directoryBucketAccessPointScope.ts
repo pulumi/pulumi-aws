@@ -7,52 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### S3 Access Point Scope for a directory bucket in an AWS Local Zone
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const example = new aws.s3.DirectoryBucket("example", {
- *     bucket: "example--zoneId--x-s3",
- *     location: {
- *         name: available.then(available => available.zoneIds?.[0]),
- *     },
- * });
- * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
- *     bucket: example.id,
- *     name: "example--zoneId--xa-s3",
- * });
- * const exampleDirectoryBucketAccessPointScope = new aws.s3control.DirectoryBucketAccessPointScope("example", {
- *     name: "example--zoneId--xa-s3",
- *     accountId: "123456789012",
- *     scope: {
- *         permissions: [
- *             "GetObject",
- *             "ListBucket",
- *         ],
- *         prefixes: [
- *             "myobject1.csv",
- *             "myobject2*",
- *         ],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Access Point Scope using access point name and AWS account ID separated by a colon (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope example example--zoneid--xa-s3,123456789012
- * ```
- */
 export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
     /**
      * Get an existing DirectoryBucketAccessPointScope resource's state with the given name, ID, and optional extra
@@ -81,21 +35,9 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
         return obj['__pulumiType'] === DirectoryBucketAccessPointScope.__pulumiType;
     }
 
-    /**
-     * The AWS account ID that owns the specified access point.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The name of the access point that you want to apply the scope to.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-     */
     declare public readonly scope: pulumi.Output<outputs.s3control.DirectoryBucketAccessPointScopeScope | undefined>;
 
     /**
@@ -134,21 +76,9 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DirectoryBucketAccessPointScope resources.
  */
 export interface DirectoryBucketAccessPointScopeState {
-    /**
-     * The AWS account ID that owns the specified access point.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The name of the access point that you want to apply the scope to.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-     */
     scope?: pulumi.Input<inputs.s3control.DirectoryBucketAccessPointScopeScope>;
 }
 
@@ -156,20 +86,8 @@ export interface DirectoryBucketAccessPointScopeState {
  * The set of arguments for constructing a DirectoryBucketAccessPointScope resource.
  */
 export interface DirectoryBucketAccessPointScopeArgs {
-    /**
-     * The AWS account ID that owns the specified access point.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * The name of the access point that you want to apply the scope to.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-     */
     scope?: pulumi.Input<inputs.s3control.DirectoryBucketAccessPointScopeScope>;
 }

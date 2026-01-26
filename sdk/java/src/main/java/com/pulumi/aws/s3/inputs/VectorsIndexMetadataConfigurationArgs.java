@@ -15,17 +15,9 @@ public final class VectorsIndexMetadataConfigurationArgs extends com.pulumi.reso
 
     public static final VectorsIndexMetadataConfigurationArgs Empty = new VectorsIndexMetadataConfigurationArgs();
 
-    /**
-     * List of non-filterable metadata keys.
-     * 
-     */
     @Import(name="nonFilterableMetadataKeys", required=true)
     private Output<List<String>> nonFilterableMetadataKeys;
 
-    /**
-     * @return List of non-filterable metadata keys.
-     * 
-     */
     public Output<List<String>> nonFilterableMetadataKeys() {
         return this.nonFilterableMetadataKeys;
     }
@@ -54,33 +46,15 @@ public final class VectorsIndexMetadataConfigurationArgs extends com.pulumi.reso
             $ = new VectorsIndexMetadataConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nonFilterableMetadataKeys List of non-filterable metadata keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonFilterableMetadataKeys(Output<List<String>> nonFilterableMetadataKeys) {
             $.nonFilterableMetadataKeys = nonFilterableMetadataKeys;
             return this;
         }
 
-        /**
-         * @param nonFilterableMetadataKeys List of non-filterable metadata keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonFilterableMetadataKeys(List<String> nonFilterableMetadataKeys) {
             return nonFilterableMetadataKeys(Output.of(nonFilterableMetadataKeys));
         }
 
-        /**
-         * @param nonFilterableMetadataKeys List of non-filterable metadata keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonFilterableMetadataKeys(String... nonFilterableMetadataKeys) {
             return nonFilterableMetadataKeys(List.of(nonFilterableMetadataKeys));
         }

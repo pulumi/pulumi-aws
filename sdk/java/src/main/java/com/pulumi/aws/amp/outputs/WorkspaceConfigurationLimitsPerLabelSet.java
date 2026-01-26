@@ -14,29 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkspaceConfigurationLimitsPerLabelSet {
-    /**
-     * @return Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don&#39;t match any other label set.
-     * 
-     */
     private Map<String,String> labelSet;
-    /**
-     * @return Configuration block for the limits to apply to the specified label set. Detailed below.
-     * 
-     */
     private @Nullable WorkspaceConfigurationLimitsPerLabelSetLimits limits;
 
     private WorkspaceConfigurationLimitsPerLabelSet() {}
-    /**
-     * @return Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don&#39;t match any other label set.
-     * 
-     */
     public Map<String,String> labelSet() {
         return this.labelSet;
     }
-    /**
-     * @return Configuration block for the limits to apply to the specified label set. Detailed below.
-     * 
-     */
     public Optional<WorkspaceConfigurationLimitsPerLabelSetLimits> limits() {
         return Optional.ofNullable(this.limits);
     }

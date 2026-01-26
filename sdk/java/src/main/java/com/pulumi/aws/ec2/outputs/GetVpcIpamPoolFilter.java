@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcIpamPoolFilter {
-    /**
-     * @return The name of the filter. Filter names are case-sensitive.
-     * 
-     */
     private String name;
-    /**
-     * @return The filter values. Filter values are case-sensitive.
-     * 
-     */
     private List<String> values;
 
     private GetVpcIpamPoolFilter() {}
-    /**
-     * @return The name of the filter. Filter names are case-sensitive.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The filter values. Filter values are case-sensitive.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

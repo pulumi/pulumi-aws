@@ -13,11 +13,6 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class PolicyStoreValidationSettings
     {
-        /// <summary>
-        /// The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

@@ -17,47 +17,23 @@ public final class BucketV2LifecycleRuleTransitionArgs extends com.pulumi.resour
 
     public static final BucketV2LifecycleRuleTransitionArgs Empty = new BucketV2LifecycleRuleTransitionArgs();
 
-    /**
-     * Specifies the date after which you want the corresponding action to take effect.
-     * 
-     */
     @Import(name="date")
     private @Nullable Output<String> date;
 
-    /**
-     * @return Specifies the date after which you want the corresponding action to take effect.
-     * 
-     */
     public Optional<Output<String>> date() {
         return Optional.ofNullable(this.date);
     }
 
-    /**
-     * Specifies the number of days after object creation when the specific rule action takes effect.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return Specifies the number of days after object creation when the specific rule action takes effect.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
-    /**
-     * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-     * 
-     */
     @Import(name="storageClass", required=true)
     private Output<String> storageClass;
 
-    /**
-     * @return Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-     * 
-     */
     public Output<String> storageClass() {
         return this.storageClass;
     }
@@ -88,65 +64,29 @@ public final class BucketV2LifecycleRuleTransitionArgs extends com.pulumi.resour
             $ = new BucketV2LifecycleRuleTransitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param date Specifies the date after which you want the corresponding action to take effect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder date(@Nullable Output<String> date) {
             $.date = date;
             return this;
         }
 
-        /**
-         * @param date Specifies the date after which you want the corresponding action to take effect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder date(String date) {
             return date(Output.of(date));
         }
 
-        /**
-         * @param days Specifies the number of days after object creation when the specific rule action takes effect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days Specifies the number of days after object creation when the specific rule action takes effect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }
 
-        /**
-         * @param storageClass Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(Output<String> storageClass) {
             $.storageClass = storageClass;
             return this;
         }
 
-        /**
-         * @param storageClass Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(String storageClass) {
             return storageClass(Output.of(storageClass));
         }

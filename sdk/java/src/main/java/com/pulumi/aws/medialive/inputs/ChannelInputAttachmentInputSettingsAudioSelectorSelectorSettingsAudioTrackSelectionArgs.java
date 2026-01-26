@@ -18,32 +18,16 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs();
 
-    /**
-     * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
-     * 
-     */
     @Import(name="dolbyEDecode")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs> dolbyEDecode;
 
-    /**
-     * @return Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs>> dolbyEDecode() {
         return Optional.ofNullable(this.dolbyEDecode);
     }
 
-    /**
-     * Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-     * 
-     */
     @Import(name="tracks", required=true)
     private Output<List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>> tracks;
 
-    /**
-     * @return Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-     * 
-     */
     public Output<List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>> tracks() {
         return this.tracks;
     }
@@ -73,54 +57,24 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dolbyEDecode Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dolbyEDecode(@Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs> dolbyEDecode) {
             $.dolbyEDecode = dolbyEDecode;
             return this;
         }
 
-        /**
-         * @param dolbyEDecode Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dolbyEDecode(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs dolbyEDecode) {
             return dolbyEDecode(Output.of(dolbyEDecode));
         }
 
-        /**
-         * @param tracks Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tracks(Output<List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>> tracks) {
             $.tracks = tracks;
             return this;
         }
 
-        /**
-         * @param tracks Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tracks(List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs> tracks) {
             return tracks(Output.of(tracks));
         }
 
-        /**
-         * @param tracks Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tracks(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs... tracks) {
             return tracks(List.of(tracks));
         }

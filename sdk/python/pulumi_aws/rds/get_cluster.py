@@ -332,9 +332,6 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -400,21 +397,7 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Provides information about an RDS cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
-    ```
-
-
-    :param _builtins.str cluster_identifier: Cluster identifier of the RDS cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
@@ -468,21 +451,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]]
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Provides information about an RDS cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
-    ```
-
-
-    :param _builtins.str cluster_identifier: Cluster identifier of the RDS cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier

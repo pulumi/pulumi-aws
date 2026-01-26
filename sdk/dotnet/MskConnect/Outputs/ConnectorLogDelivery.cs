@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorLogDelivery
     {
-        /// <summary>
-        /// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `WorkerLogDelivery` Block for details.
-        /// </summary>
         public readonly Outputs.ConnectorLogDeliveryWorkerLogDelivery WorkerLogDelivery;
 
         [OutputConstructor]

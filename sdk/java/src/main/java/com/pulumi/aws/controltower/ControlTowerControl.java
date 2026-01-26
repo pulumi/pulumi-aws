@@ -16,94 +16,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
- * [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
- * ```
- * 
- */
 @ResourceType(type="aws:controltower/controlTowerControl:ControlTowerControl")
 public class ControlTowerControl extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the EnabledControl resource.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the EnabledControl resource.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     * 
-     */
     @Export(name="controlIdentifier", refs={String.class}, tree="[0]")
     private Output<String> controlIdentifier;
 
-    /**
-     * @return The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     * 
-     */
     public Output<String> controlIdentifier() {
         return this.controlIdentifier;
     }
-    /**
-     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-     * 
-     */
     @Export(name="parameters", refs={List.class,ControlTowerControlParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ControlTowerControlParameter>> parameters;
 
-    /**
-     * @return Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-     * 
-     */
     public Output<Optional<List<ControlTowerControlParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ARN of the organizational unit.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="targetIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetIdentifier;
 
-    /**
-     * @return The ARN of the organizational unit.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetIdentifier() {
         return this.targetIdentifier;
     }

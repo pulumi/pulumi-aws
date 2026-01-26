@@ -7,131 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
- *
- * ## Example Usage
- *
- * ### Filter by AWS account ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleInsight = new aws.securityhub.Insight("example", {
- *     filters: {
- *         awsAccountIds: [
- *             {
- *                 comparison: "EQUALS",
- *                 value: "1234567890",
- *             },
- *             {
- *                 comparison: "EQUALS",
- *                 value: "09876543210",
- *             },
- *         ],
- *     },
- *     groupByAttribute: "AwsAccountId",
- *     name: "example-insight",
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ### Filter by date range
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleInsight = new aws.securityhub.Insight("example", {
- *     filters: {
- *         createdAts: [{
- *             dateRange: {
- *                 unit: "DAYS",
- *                 value: 5,
- *             },
- *         }],
- *     },
- *     groupByAttribute: "CreatedAt",
- *     name: "example-insight",
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ### Filter by destination IPv4 address
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleInsight = new aws.securityhub.Insight("example", {
- *     filters: {
- *         networkDestinationIpv4s: [{
- *             cidr: "10.0.0.0/16",
- *         }],
- *     },
- *     groupByAttribute: "NetworkDestinationIpV4",
- *     name: "example-insight",
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ### Filter by finding's confidence
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleInsight = new aws.securityhub.Insight("example", {
- *     filters: {
- *         confidences: [{
- *             gte: "80",
- *         }],
- *     },
- *     groupByAttribute: "Confidence",
- *     name: "example-insight",
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ### Filter by resource tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleInsight = new aws.securityhub.Insight("example", {
- *     filters: {
- *         resourceTags: [{
- *             comparison: "EQUALS",
- *             key: "Environment",
- *             value: "Production",
- *         }],
- *     },
- *     groupByAttribute: "ResourceTags",
- *     name: "example-insight",
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Security Hub insights using the ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
- * ```
- */
 export class Insight extends pulumi.CustomResource {
     /**
      * Get an existing Insight resource's state with the given name, ID, and optional extra
@@ -160,25 +35,10 @@ export class Insight extends pulumi.CustomResource {
         return obj['__pulumiType'] === Insight.__pulumiType;
     }
 
-    /**
-     * ARN of the insight.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-     */
     declare public readonly filters: pulumi.Output<outputs.securityhub.InsightFilters>;
-    /**
-     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-     */
     declare public readonly groupByAttribute: pulumi.Output<string>;
-    /**
-     * The name of the custom insight.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -222,25 +82,10 @@ export class Insight extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Insight resources.
  */
 export interface InsightState {
-    /**
-     * ARN of the insight.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-     */
     filters?: pulumi.Input<inputs.securityhub.InsightFilters>;
-    /**
-     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-     */
     groupByAttribute?: pulumi.Input<string>;
-    /**
-     * The name of the custom insight.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -248,20 +93,8 @@ export interface InsightState {
  * The set of arguments for constructing a Insight resource.
  */
 export interface InsightArgs {
-    /**
-     * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-     */
     filters: pulumi.Input<inputs.securityhub.InsightFilters>;
-    /**
-     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-     */
     groupByAttribute: pulumi.Input<string>;
-    /**
-     * The name of the custom insight.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

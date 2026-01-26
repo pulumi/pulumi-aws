@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings {
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     private @Nullable Double bitrate;
-    /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-     * 
-     */
     private @Nullable String bitstreamMode;
-    /**
-     * @return Dolby Digital coding mode.
-     * 
-     */
     private @Nullable String codingMode;
-    /**
-     * @return Sets the dialnorm of the output.
-     * 
-     */
     private @Nullable Integer dialnorm;
-    /**
-     * @return If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-     * 
-     */
     private @Nullable String drcProfile;
-    /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-     * 
-     */
     private @Nullable String lfeFilter;
-    /**
-     * @return Metadata control.
-     * 
-     */
     private @Nullable String metadataControl;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings() {}
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Optional<Double> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
-    /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-     * 
-     */
     public Optional<String> bitstreamMode() {
         return Optional.ofNullable(this.bitstreamMode);
     }
-    /**
-     * @return Dolby Digital coding mode.
-     * 
-     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
-    /**
-     * @return Sets the dialnorm of the output.
-     * 
-     */
     public Optional<Integer> dialnorm() {
         return Optional.ofNullable(this.dialnorm);
     }
-    /**
-     * @return If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-     * 
-     */
     public Optional<String> drcProfile() {
         return Optional.ofNullable(this.drcProfile);
     }
-    /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-     * 
-     */
     public Optional<String> lfeFilter() {
         return Optional.ofNullable(this.lfeFilter);
     }
-    /**
-     * @return Metadata control.
-     * 
-     */
     public Optional<String> metadataControl() {
         return Optional.ofNullable(this.metadataControl);
     }

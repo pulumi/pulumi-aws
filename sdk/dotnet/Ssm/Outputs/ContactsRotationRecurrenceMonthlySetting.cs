@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class ContactsRotationRecurrenceMonthlySetting
     {
-        /// <summary>
-        /// (Required) The day of the month when monthly recurring on-call rotations begin.
-        /// </summary>
         public readonly int DayOfMonth;
-        /// <summary>
-        /// (Required) The hand off time. See Hand Off Time for more details.
-        /// </summary>
         public readonly Outputs.ContactsRotationRecurrenceMonthlySettingHandOffTime? HandOffTime;
 
         [OutputConstructor]

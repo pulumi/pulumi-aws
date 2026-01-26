@@ -12,128 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the Security Hub Organization Configuration.
-//
-// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation.
-//
-// > **NOTE:** In order to set the `configurationType` to `CENTRAL`, the delegated admin must be a member account of the organization and not the management account. Central configuration also requires an `securityhub.FindingAggregator` to be configured.
-//
-// > **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
-//
-// > **NOTE:** Deleting this resource resets security hub to a local organization configuration with auto enable false.
-//
-// ## Example Usage
-//
-// ### Local Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("securityhub.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
-//				AdminAccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Central Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
-//				AdminAccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsOrganizationsOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			exampleFindingAggregator, err := securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("ALL_REGIONS"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable:          pulumi.Bool(false),
-//				AutoEnableStandards: pulumi.String("NONE"),
-//				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
-//					ConfigurationType: pulumi.String("CENTRAL"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleFindingAggregator,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
-// ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Whether to automatically enable Security Hub for new accounts in the organization.
-	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
-	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-	AutoEnableStandards pulumi.StringOutput `pulumi:"autoEnableStandards"`
-	// Provides information about the way an organization is configured in Security Hub.
+	AutoEnable                pulumi.BoolOutput                                        `pulumi:"autoEnable"`
+	AutoEnableStandards       pulumi.StringOutput                                      `pulumi:"autoEnableStandards"`
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationOutput `pulumi:"organizationConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region                    pulumi.StringOutput                                      `pulumi:"region"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -169,25 +54,17 @@ func GetOrganizationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationConfiguration resources.
 type organizationConfigurationState struct {
-	// Whether to automatically enable Security Hub for new accounts in the organization.
-	AutoEnable *bool `pulumi:"autoEnable"`
-	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
-	// Provides information about the way an organization is configured in Security Hub.
+	AutoEnable                *bool                                               `pulumi:"autoEnable"`
+	AutoEnableStandards       *string                                             `pulumi:"autoEnableStandards"`
 	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                    *string                                             `pulumi:"region"`
 }
 
 type OrganizationConfigurationState struct {
-	// Whether to automatically enable Security Hub for new accounts in the organization.
-	AutoEnable pulumi.BoolPtrInput
-	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-	AutoEnableStandards pulumi.StringPtrInput
-	// Provides information about the way an organization is configured in Security Hub.
+	AutoEnable                pulumi.BoolPtrInput
+	AutoEnableStandards       pulumi.StringPtrInput
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationState) ElementType() reflect.Type {
@@ -195,26 +72,18 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 }
 
 type organizationConfigurationArgs struct {
-	// Whether to automatically enable Security Hub for new accounts in the organization.
-	AutoEnable bool `pulumi:"autoEnable"`
-	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
-	// Provides information about the way an organization is configured in Security Hub.
+	AutoEnable                bool                                                `pulumi:"autoEnable"`
+	AutoEnableStandards       *string                                             `pulumi:"autoEnableStandards"`
 	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                    *string                                             `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
 type OrganizationConfigurationArgs struct {
-	// Whether to automatically enable Security Hub for new accounts in the organization.
-	AutoEnable pulumi.BoolInput
-	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-	AutoEnableStandards pulumi.StringPtrInput
-	// Provides information about the way an organization is configured in Security Hub.
+	AutoEnable                pulumi.BoolInput
+	AutoEnableStandards       pulumi.StringPtrInput
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationArgs) ElementType() reflect.Type {
@@ -304,24 +173,20 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithCo
 	return o
 }
 
-// Whether to automatically enable Security Hub for new accounts in the organization.
 func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.AutoEnable }).(pulumi.BoolOutput)
 }
 
-// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
 func (o OrganizationConfigurationOutput) AutoEnableStandards() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.AutoEnableStandards }).(pulumi.StringOutput)
 }
 
-// Provides information about the way an organization is configured in Security Hub.
 func (o OrganizationConfigurationOutput) OrganizationConfiguration() OrganizationConfigurationOrganizationConfigurationOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfigurationOrganizationConfigurationOutput {
 		return v.OrganizationConfiguration
 	}).(OrganizationConfigurationOrganizationConfigurationOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -15,11 +15,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
-        /// <summary>
-        /// Name of the Channel.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class AppImageConfigJupyterLabImageConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration used to run the application image container. See Container Config details below.
-        /// </summary>
         [Input("containerConfig")]
         public Input<Inputs.AppImageConfigJupyterLabImageConfigContainerConfigGetArgs>? ContainerConfig { get; set; }
 
-        /// <summary>
-        /// The URL where the Git repository is located. See File System Config details below.
-        /// </summary>
         [Input("fileSystemConfig")]
         public Input<Inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigGetArgs>? FileSystemConfig { get; set; }
 

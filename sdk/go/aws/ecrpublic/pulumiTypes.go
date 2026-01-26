@@ -14,18 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type RepositoryCatalogData struct {
-	// A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-	AboutText *string `pulumi:"aboutText"`
-	// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
-	Architectures []string `pulumi:"architectures"`
-	// A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
-	Description *string `pulumi:"description"`
-	// The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-	LogoImageBlob *string `pulumi:"logoImageBlob"`
-	// The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+	AboutText        *string  `pulumi:"aboutText"`
+	Architectures    []string `pulumi:"architectures"`
+	Description      *string  `pulumi:"description"`
+	LogoImageBlob    *string  `pulumi:"logoImageBlob"`
 	OperatingSystems []string `pulumi:"operatingSystems"`
-	// Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
-	UsageText *string `pulumi:"usageText"`
+	UsageText        *string  `pulumi:"usageText"`
 }
 
 // RepositoryCatalogDataInput is an input type that accepts RepositoryCatalogDataArgs and RepositoryCatalogDataOutput values.
@@ -40,18 +34,12 @@ type RepositoryCatalogDataInput interface {
 }
 
 type RepositoryCatalogDataArgs struct {
-	// A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-	AboutText pulumi.StringPtrInput `pulumi:"aboutText"`
-	// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
-	Architectures pulumi.StringArrayInput `pulumi:"architectures"`
-	// A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-	LogoImageBlob pulumi.StringPtrInput `pulumi:"logoImageBlob"`
-	// The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+	AboutText        pulumi.StringPtrInput   `pulumi:"aboutText"`
+	Architectures    pulumi.StringArrayInput `pulumi:"architectures"`
+	Description      pulumi.StringPtrInput   `pulumi:"description"`
+	LogoImageBlob    pulumi.StringPtrInput   `pulumi:"logoImageBlob"`
 	OperatingSystems pulumi.StringArrayInput `pulumi:"operatingSystems"`
-	// Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
-	UsageText pulumi.StringPtrInput `pulumi:"usageText"`
+	UsageText        pulumi.StringPtrInput   `pulumi:"usageText"`
 }
 
 func (RepositoryCatalogDataArgs) ElementType() reflect.Type {
@@ -131,32 +119,26 @@ func (o RepositoryCatalogDataOutput) ToRepositoryCatalogDataPtrOutputWithContext
 	}).(RepositoryCatalogDataPtrOutput)
 }
 
-// A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
 func (o RepositoryCatalogDataOutput) AboutText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCatalogData) *string { return v.AboutText }).(pulumi.StringPtrOutput)
 }
 
-// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
 func (o RepositoryCatalogDataOutput) Architectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepositoryCatalogData) []string { return v.Architectures }).(pulumi.StringArrayOutput)
 }
 
-// A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
 func (o RepositoryCatalogDataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCatalogData) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
 func (o RepositoryCatalogDataOutput) LogoImageBlob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCatalogData) *string { return v.LogoImageBlob }).(pulumi.StringPtrOutput)
 }
 
-// The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
 func (o RepositoryCatalogDataOutput) OperatingSystems() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepositoryCatalogData) []string { return v.OperatingSystems }).(pulumi.StringArrayOutput)
 }
 
-// Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
 func (o RepositoryCatalogDataOutput) UsageText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCatalogData) *string { return v.UsageText }).(pulumi.StringPtrOutput)
 }
@@ -185,7 +167,6 @@ func (o RepositoryCatalogDataPtrOutput) Elem() RepositoryCatalogDataOutput {
 	}).(RepositoryCatalogDataOutput)
 }
 
-// A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
 func (o RepositoryCatalogDataPtrOutput) AboutText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCatalogData) *string {
 		if v == nil {
@@ -195,7 +176,6 @@ func (o RepositoryCatalogDataPtrOutput) AboutText() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
 func (o RepositoryCatalogDataPtrOutput) Architectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryCatalogData) []string {
 		if v == nil {
@@ -205,7 +185,6 @@ func (o RepositoryCatalogDataPtrOutput) Architectures() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
 func (o RepositoryCatalogDataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCatalogData) *string {
 		if v == nil {
@@ -215,7 +194,6 @@ func (o RepositoryCatalogDataPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
 func (o RepositoryCatalogDataPtrOutput) LogoImageBlob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCatalogData) *string {
 		if v == nil {
@@ -225,7 +203,6 @@ func (o RepositoryCatalogDataPtrOutput) LogoImageBlob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
 func (o RepositoryCatalogDataPtrOutput) OperatingSystems() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryCatalogData) []string {
 		if v == nil {
@@ -235,7 +212,6 @@ func (o RepositoryCatalogDataPtrOutput) OperatingSystems() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
 func (o RepositoryCatalogDataPtrOutput) UsageText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCatalogData) *string {
 		if v == nil {
@@ -246,19 +222,14 @@ func (o RepositoryCatalogDataPtrOutput) UsageText() pulumi.StringPtrOutput {
 }
 
 type GetImagesImage struct {
-	// Media type of the artifact.
-	ArtifactMediaType string `pulumi:"artifactMediaType"`
-	// Digest of the image manifest.
-	ImageDigest string `pulumi:"imageDigest"`
-	// Media type of the image manifest.
+	ArtifactMediaType      string   `pulumi:"artifactMediaType"`
+	ImageDigest            string   `pulumi:"imageDigest"`
 	ImageManifestMediaType string   `pulumi:"imageManifestMediaType"`
 	ImagePushedAt          string   `pulumi:"imagePushedAt"`
 	ImageSizeInBytes       int      `pulumi:"imageSizeInBytes"`
 	ImageTags              []string `pulumi:"imageTags"`
-	// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-	RegistryId string `pulumi:"registryId"`
-	// Name of the public repository.
-	RepositoryName string `pulumi:"repositoryName"`
+	RegistryId             string   `pulumi:"registryId"`
+	RepositoryName         string   `pulumi:"repositoryName"`
 }
 
 // GetImagesImageInput is an input type that accepts GetImagesImageArgs and GetImagesImageOutput values.
@@ -273,19 +244,14 @@ type GetImagesImageInput interface {
 }
 
 type GetImagesImageArgs struct {
-	// Media type of the artifact.
-	ArtifactMediaType pulumi.StringInput `pulumi:"artifactMediaType"`
-	// Digest of the image manifest.
-	ImageDigest pulumi.StringInput `pulumi:"imageDigest"`
-	// Media type of the image manifest.
+	ArtifactMediaType      pulumi.StringInput      `pulumi:"artifactMediaType"`
+	ImageDigest            pulumi.StringInput      `pulumi:"imageDigest"`
 	ImageManifestMediaType pulumi.StringInput      `pulumi:"imageManifestMediaType"`
 	ImagePushedAt          pulumi.StringInput      `pulumi:"imagePushedAt"`
 	ImageSizeInBytes       pulumi.IntInput         `pulumi:"imageSizeInBytes"`
 	ImageTags              pulumi.StringArrayInput `pulumi:"imageTags"`
-	// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-	RegistryId pulumi.StringInput `pulumi:"registryId"`
-	// Name of the public repository.
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	RegistryId             pulumi.StringInput      `pulumi:"registryId"`
+	RepositoryName         pulumi.StringInput      `pulumi:"repositoryName"`
 }
 
 func (GetImagesImageArgs) ElementType() reflect.Type {
@@ -339,17 +305,14 @@ func (o GetImagesImageOutput) ToGetImagesImageOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Media type of the artifact.
 func (o GetImagesImageOutput) ArtifactMediaType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.ArtifactMediaType }).(pulumi.StringOutput)
 }
 
-// Digest of the image manifest.
 func (o GetImagesImageOutput) ImageDigest() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.ImageDigest }).(pulumi.StringOutput)
 }
 
-// Media type of the image manifest.
 func (o GetImagesImageOutput) ImageManifestMediaType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.ImageManifestMediaType }).(pulumi.StringOutput)
 }
@@ -366,12 +329,10 @@ func (o GetImagesImageOutput) ImageTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImagesImage) []string { return v.ImageTags }).(pulumi.StringArrayOutput)
 }
 
-// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
 func (o GetImagesImageOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// Name of the public repository.
 func (o GetImagesImageOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
@@ -397,9 +358,9 @@ func (o GetImagesImageArrayOutput) Index(i pulumi.IntInput) GetImagesImageOutput
 }
 
 type GetImagesImageId struct {
-	// Digest of the image manifest.
+	// Image digest.
 	ImageDigest *string `pulumi:"imageDigest"`
-	// Tag used for the image.
+	// Image tag.
 	ImageTag *string `pulumi:"imageTag"`
 }
 
@@ -415,9 +376,9 @@ type GetImagesImageIdInput interface {
 }
 
 type GetImagesImageIdArgs struct {
-	// Digest of the image manifest.
+	// Image digest.
 	ImageDigest pulumi.StringPtrInput `pulumi:"imageDigest"`
-	// Tag used for the image.
+	// Image tag.
 	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
 }
 
@@ -472,12 +433,12 @@ func (o GetImagesImageIdOutput) ToGetImagesImageIdOutputWithContext(ctx context.
 	return o
 }
 
-// Digest of the image manifest.
+// Image digest.
 func (o GetImagesImageIdOutput) ImageDigest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImagesImageId) *string { return v.ImageDigest }).(pulumi.StringPtrOutput)
 }
 
-// Tag used for the image.
+// Image tag.
 func (o GetImagesImageIdOutput) ImageTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImagesImageId) *string { return v.ImageTag }).(pulumi.StringPtrOutput)
 }

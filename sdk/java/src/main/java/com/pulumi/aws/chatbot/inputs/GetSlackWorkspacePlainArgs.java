@@ -15,32 +15,16 @@ public final class GetSlackWorkspacePlainArgs extends com.pulumi.resources.Invok
 
     public static final GetSlackWorkspacePlainArgs Empty = new GetSlackWorkspacePlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Slack workspace name configured with AWS Chatbot.
-     * 
-     */
     @Import(name="slackTeamName", required=true)
     private String slackTeamName;
 
-    /**
-     * @return Slack workspace name configured with AWS Chatbot.
-     * 
-     */
     public String slackTeamName() {
         return this.slackTeamName;
     }
@@ -70,23 +54,11 @@ public final class GetSlackWorkspacePlainArgs extends com.pulumi.resources.Invok
             $ = new GetSlackWorkspacePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param slackTeamName Slack workspace name configured with AWS Chatbot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slackTeamName(String slackTeamName) {
             $.slackTeamName = slackTeamName;
             return this;

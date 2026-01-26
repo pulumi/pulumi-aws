@@ -13,14 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeInput
     {
-        /// <summary>
-        /// How input data flows between iterations in a DoWhile loop.
-        /// </summary>
         public readonly string? Category;
         public readonly string Expression;
-        /// <summary>
-        /// A name for the flow.
-        /// </summary>
         public readonly string Name;
         public readonly string Type;
 

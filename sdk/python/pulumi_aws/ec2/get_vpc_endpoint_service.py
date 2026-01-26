@@ -93,33 +93,21 @@ class GetVpcEndpointServiceResult:
     @_builtins.property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> _builtins.bool:
-        """
-        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        """
         return pulumi.get(self, "acceptance_required")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the VPC endpoint service.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[_builtins.str]:
-        """
-        Availability Zones in which the service is available. Not available for endpoint services in other regions.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="baseEndpointDnsNames")
     def base_endpoint_dns_names(self) -> Sequence[_builtins.str]:
-        """
-        The DNS names for the service.
-        """
         return pulumi.get(self, "base_endpoint_dns_names")
 
     @_builtins.property
@@ -138,42 +126,27 @@ class GetVpcEndpointServiceResult:
     @_builtins.property
     @pulumi.getter(name="managesVpcEndpoints")
     def manages_vpc_endpoints(self) -> _builtins.bool:
-        """
-        Whether or not the service manages its VPC endpoints - `true` or `false`.
-        """
         return pulumi.get(self, "manages_vpc_endpoints")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> _builtins.str:
-        """
-        AWS account ID of the service owner or `amazon`.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> _builtins.str:
-        """
-        Private DNS name for the service.
-        """
         return pulumi.get(self, "private_dns_name")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNames")
     def private_dns_names(self) -> Sequence[_builtins.str]:
-        """
-        Private DNS names assigned to the VPC endpoint service.
-        """
         return pulumi.get(self, "private_dns_names")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use service_region instead.""")
     def region(self) -> _builtins.str:
-        """
-        (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -184,9 +157,6 @@ class GetVpcEndpointServiceResult:
     @_builtins.property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> _builtins.str:
-        """
-        ID of the endpoint service.
-        """
         return pulumi.get(self, "service_id")
 
     @_builtins.property
@@ -197,9 +167,6 @@ class GetVpcEndpointServiceResult:
     @_builtins.property
     @pulumi.getter(name="serviceRegion")
     def service_region(self) -> _builtins.str:
-        """
-        Region of the endpoint service.
-        """
         return pulumi.get(self, "service_region")
 
     @_builtins.property
@@ -215,25 +182,16 @@ class GetVpcEndpointServiceResult:
     @_builtins.property
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> Sequence[_builtins.str]:
-        """
-        The supported IP address types.
-        """
         return pulumi.get(self, "supported_ip_address_types")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointPolicySupported")
     def vpc_endpoint_policy_supported(self) -> _builtins.bool:
-        """
-        Whether or not the service supports endpoint policies - `true` or `false`.
-        """
         return pulumi.get(self, "vpc_endpoint_policy_supported")
 
 
@@ -273,58 +231,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
                              tags: Optional[Mapping[str, _builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServiceResult:
     """
-    The VPC Endpoint Service data source details about a specific service that
-    can be specified when creating a VPC endpoint within the region configured in the provider.
-
-    ## Example Usage
-
-    ### AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
-        service_type="Gateway")
-    # Create a VPC
-    foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-    # Create a VPC endpoint
-    ep = aws.ec2.VpcEndpoint("ep",
-        vpc_id=foo.id,
-        service_name=s3.service_name)
-    ```
-
-    ### Non-AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
-    ```
-
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_endpoint_service(filters=[{
-        "name": "service-name",
-        "values": ["some-service"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str service: Common name of an AWS service (e.g., `s3`).
-    :param _builtins.str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param Sequence[_builtins.str] service_regions: AWS regions in which to look for services.
-    :param _builtins.str service_type: Service type, `Gateway` or `Interface`.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
-           
-           > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.<region>.<service>`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -365,58 +272,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
-    The VPC Endpoint Service data source details about a specific service that
-    can be specified when creating a VPC endpoint within the region configured in the provider.
-
-    ## Example Usage
-
-    ### AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
-        service_type="Gateway")
-    # Create a VPC
-    foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-    # Create a VPC endpoint
-    ep = aws.ec2.VpcEndpoint("ep",
-        vpc_id=foo.id,
-        service_name=s3.service_name)
-    ```
-
-    ### Non-AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
-    ```
-
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_endpoint_service(filters=[{
-        "name": "service-name",
-        "values": ["some-service"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str service: Common name of an AWS service (e.g., `s3`).
-    :param _builtins.str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param Sequence[_builtins.str] service_regions: AWS regions in which to look for services.
-    :param _builtins.str service_type: Service type, `Gateway` or `Interface`.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
-           
-           > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.<region>.<service>`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

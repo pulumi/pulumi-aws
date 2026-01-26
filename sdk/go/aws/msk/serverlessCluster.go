@@ -12,77 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon MSK Serverless cluster.
-//
-// > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := msk.NewServerlessCluster(ctx, "example", &msk.ServerlessClusterArgs{
-// ClusterName: pulumi.String("Example"),
-// VpcConfigs: msk.ServerlessClusterVpcConfigArray{
-// &msk.ServerlessClusterVpcConfigArgs{
-// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
-// SecurityGroupIds: pulumi.StringArray{
-// exampleAwsSecurityGroup.Id,
-// },
-// },
-// },
-// ClientAuthentication: &msk.ServerlessClusterClientAuthenticationArgs{
-// Sasl: &msk.ServerlessClusterClientAuthenticationSaslArgs{
-// Iam: &msk.ServerlessClusterClientAuthenticationSaslIamArgs{
-// Enabled: pulumi.Bool(true),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-// ```
 type ServerlessCluster struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the serverless cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersSaslIam pulumi.StringOutput `pulumi:"bootstrapBrokersSaslIam"`
-	// Specifies client authentication information for the serverless cluster. See below.
-	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
-	// The name of the serverless cluster.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// UUID of the serverless cluster, for use in IAM policies.
-	ClusterUuid pulumi.StringOutput `pulumi:"clusterUuid"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// VPC configuration information. See below.
-	VpcConfigs ServerlessClusterVpcConfigArrayOutput `pulumi:"vpcConfigs"`
+	Arn                     pulumi.StringOutput                         `pulumi:"arn"`
+	BootstrapBrokersSaslIam pulumi.StringOutput                         `pulumi:"bootstrapBrokersSaslIam"`
+	ClientAuthentication    ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
+	ClusterName             pulumi.StringOutput                         `pulumi:"clusterName"`
+	ClusterUuid             pulumi.StringOutput                         `pulumi:"clusterUuid"`
+	Region                  pulumi.StringOutput                         `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	VpcConfigs              ServerlessClusterVpcConfigArrayOutput       `pulumi:"vpcConfigs"`
 }
 
 // NewServerlessCluster registers a new resource with the given unique name, arguments, and options.
@@ -121,45 +62,27 @@ func GetServerlessCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerlessCluster resources.
 type serverlessClusterState struct {
-	// The ARN of the serverless cluster.
-	Arn *string `pulumi:"arn"`
-	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersSaslIam *string `pulumi:"bootstrapBrokersSaslIam"`
-	// Specifies client authentication information for the serverless cluster. See below.
-	ClientAuthentication *ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
-	// The name of the serverless cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// UUID of the serverless cluster, for use in IAM policies.
-	ClusterUuid *string `pulumi:"clusterUuid"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// VPC configuration information. See below.
-	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
+	Arn                     *string                                `pulumi:"arn"`
+	BootstrapBrokersSaslIam *string                                `pulumi:"bootstrapBrokersSaslIam"`
+	ClientAuthentication    *ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
+	ClusterName             *string                                `pulumi:"clusterName"`
+	ClusterUuid             *string                                `pulumi:"clusterUuid"`
+	Region                  *string                                `pulumi:"region"`
+	Tags                    map[string]string                      `pulumi:"tags"`
+	TagsAll                 map[string]string                      `pulumi:"tagsAll"`
+	VpcConfigs              []ServerlessClusterVpcConfig           `pulumi:"vpcConfigs"`
 }
 
 type ServerlessClusterState struct {
-	// The ARN of the serverless cluster.
-	Arn pulumi.StringPtrInput
-	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+	Arn                     pulumi.StringPtrInput
 	BootstrapBrokersSaslIam pulumi.StringPtrInput
-	// Specifies client authentication information for the serverless cluster. See below.
-	ClientAuthentication ServerlessClusterClientAuthenticationPtrInput
-	// The name of the serverless cluster.
-	ClusterName pulumi.StringPtrInput
-	// UUID of the serverless cluster, for use in IAM policies.
-	ClusterUuid pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// VPC configuration information. See below.
-	VpcConfigs ServerlessClusterVpcConfigArrayInput
+	ClientAuthentication    ServerlessClusterClientAuthenticationPtrInput
+	ClusterName             pulumi.StringPtrInput
+	ClusterUuid             pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	VpcConfigs              ServerlessClusterVpcConfigArrayInput
 }
 
 func (ServerlessClusterState) ElementType() reflect.Type {
@@ -167,30 +90,20 @@ func (ServerlessClusterState) ElementType() reflect.Type {
 }
 
 type serverlessClusterArgs struct {
-	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
-	// The name of the serverless cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC configuration information. See below.
-	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
+	ClusterName          *string                               `pulumi:"clusterName"`
+	Region               *string                               `pulumi:"region"`
+	Tags                 map[string]string                     `pulumi:"tags"`
+	VpcConfigs           []ServerlessClusterVpcConfig          `pulumi:"vpcConfigs"`
 }
 
 // The set of arguments for constructing a ServerlessCluster resource.
 type ServerlessClusterArgs struct {
-	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
-	// The name of the serverless cluster.
-	ClusterName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// VPC configuration information. See below.
-	VpcConfigs ServerlessClusterVpcConfigArrayInput
+	ClusterName          pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	VpcConfigs           ServerlessClusterVpcConfigArrayInput
 }
 
 func (ServerlessClusterArgs) ElementType() reflect.Type {
@@ -280,47 +193,38 @@ func (o ServerlessClusterOutput) ToServerlessClusterOutputWithContext(ctx contex
 	return o
 }
 
-// The ARN of the serverless cluster.
 func (o ServerlessClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 func (o ServerlessClusterOutput) BootstrapBrokersSaslIam() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.BootstrapBrokersSaslIam }).(pulumi.StringOutput)
 }
 
-// Specifies client authentication information for the serverless cluster. See below.
 func (o ServerlessClusterOutput) ClientAuthentication() ServerlessClusterClientAuthenticationOutput {
 	return o.ApplyT(func(v *ServerlessCluster) ServerlessClusterClientAuthenticationOutput { return v.ClientAuthentication }).(ServerlessClusterClientAuthenticationOutput)
 }
 
-// The name of the serverless cluster.
 func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// UUID of the serverless cluster, for use in IAM policies.
 func (o ServerlessClusterOutput) ClusterUuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterUuid }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServerlessClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServerlessClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// VPC configuration information. See below.
 func (o ServerlessClusterOutput) VpcConfigs() ServerlessClusterVpcConfigArrayOutput {
 	return o.ApplyT(func(v *ServerlessCluster) ServerlessClusterVpcConfigArrayOutput { return v.VpcConfigs }).(ServerlessClusterVpcConfigArrayOutput)
 }

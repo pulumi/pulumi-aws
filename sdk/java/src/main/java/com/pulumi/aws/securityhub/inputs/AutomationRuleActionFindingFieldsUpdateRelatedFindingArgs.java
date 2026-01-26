@@ -14,32 +14,16 @@ public final class AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs ext
 
     public static final AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs Empty = new AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs();
 
-    /**
-     * The product-generated identifier for a related finding.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The product-generated identifier for a related finding.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * The ARN of the product that generated a related finding.
-     * 
-     */
     @Import(name="productArn", required=true)
     private Output<String> productArn;
 
-    /**
-     * @return The ARN of the product that generated a related finding.
-     * 
-     */
     public Output<String> productArn() {
         return this.productArn;
     }
@@ -69,44 +53,20 @@ public final class AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs ext
             $ = new AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The product-generated identifier for a related finding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The product-generated identifier for a related finding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param productArn The ARN of the product that generated a related finding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productArn(Output<String> productArn) {
             $.productArn = productArn;
             return this;
         }
 
-        /**
-         * @param productArn The ARN of the product that generated a related finding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productArn(String productArn) {
             return productArn(Output.of(productArn));
         }

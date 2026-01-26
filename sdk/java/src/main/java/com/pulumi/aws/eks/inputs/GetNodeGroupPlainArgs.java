@@ -16,62 +16,30 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetNodeGroupPlainArgs Empty = new GetNodeGroupPlainArgs();
 
-    /**
-     * Name of the cluster.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private String clusterName;
 
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     public String clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * Name of the node group.
-     * 
-     */
     @Import(name="nodeGroupName", required=true)
     private String nodeGroupName;
 
-    /**
-     * @return Name of the node group.
-     * 
-     */
     public String nodeGroupName() {
         return this.nodeGroupName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,45 +71,21 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetNodeGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterName Name of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param nodeGroupName Name of the node group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeGroupName(String nodeGroupName) {
             $.nodeGroupName = nodeGroupName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

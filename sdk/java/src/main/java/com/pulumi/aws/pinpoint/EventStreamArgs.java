@@ -16,62 +16,30 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventStreamArgs Empty = new EventStreamArgs();
 
-    /**
-     * The application ID.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-     * 
-     */
     @Import(name="destinationStreamArn", required=true)
     private Output<String> destinationStreamArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-     * 
-     */
     public Output<String> destinationStreamArn() {
         return this.destinationStreamArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -103,86 +71,38 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EventStreamArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param destinationStreamArn The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationStreamArn(Output<String> destinationStreamArn) {
             $.destinationStreamArn = destinationStreamArn;
             return this;
         }
 
-        /**
-         * @param destinationStreamArn The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationStreamArn(String destinationStreamArn) {
             return destinationStreamArn(Output.of(destinationStreamArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

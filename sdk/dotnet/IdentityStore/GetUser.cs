@@ -11,117 +11,12 @@ namespace Pulumi.Aws.IdentityStore
 {
     public static class GetUser
     {
-        /// <summary>
-        /// Use this data source to get an Identity Store User.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "UserName",
-        ///                 AttributeValue = "ExampleUser",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["userId"] = exampleGetUser.Apply(getUserResult =&gt; getUserResult.UserId),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get an Identity Store User.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "UserName",
-        ///                 AttributeValue = "ExampleUser",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["userId"] = exampleGetUser.Apply(getUserResult =&gt; getUserResult.UserId),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get an Identity Store User.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
-        ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
-        ///         {
-        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
-        ///             {
-        ///                 AttributePath = "UserName",
-        ///                 AttributeValue = "ExampleUser",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["userId"] = exampleGetUser.Apply(getUserResult =&gt; getUserResult.UserId),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -129,31 +24,15 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `UserId` and `Filter`. Detailed below.
-        /// </summary>
         [Input("alternateIdentifier")]
         public Inputs.GetUserAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The identifier for a user in the Identity Store.
-        /// 
-        /// &gt; Exactly one of the above arguments must be provided. Passing both `Filter` and `UserId` is allowed for backwards compatibility.
-        /// </summary>
         [Input("userId")]
         public string? UserId { get; set; }
 
@@ -165,31 +44,15 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `UserId` and `Filter`. Detailed below.
-        /// </summary>
         [Input("alternateIdentifier")]
         public Input<Inputs.GetUserAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The identifier for a user in the Identity Store.
-        /// 
-        /// &gt; Exactly one of the above arguments must be provided. Passing both `Filter` and `UserId` is allowed for backwards compatibility.
-        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 
@@ -203,72 +66,27 @@ namespace Pulumi.Aws.IdentityStore
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// List of details about the user's address.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserAddressResult> Addresses;
         public readonly Outputs.GetUserAlternateIdentifierResult? AlternateIdentifier;
-        /// <summary>
-        /// The name that is typically displayed when the user is referenced.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// List of details about the user's email.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserEmailResult> Emails;
-        /// <summary>
-        /// List of identifiers issued to this resource by an external identity provider.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserExternalIdResult> ExternalIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string IdentityStoreId;
-        /// <summary>
-        /// The user's geographical region or location.
-        /// </summary>
         public readonly string Locale;
-        /// <summary>
-        /// Details about the user's full name.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserNameResult> Names;
-        /// <summary>
-        /// An alternate name for the user.
-        /// </summary>
         public readonly string Nickname;
-        /// <summary>
-        /// List of details about the user's phone number.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserPhoneNumberResult> PhoneNumbers;
-        /// <summary>
-        /// The preferred language of the user.
-        /// </summary>
         public readonly string PreferredLanguage;
-        /// <summary>
-        /// An URL that may be associated with the user.
-        /// </summary>
         public readonly string ProfileUrl;
-        /// <summary>
-        /// The region of the address.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// The user's time zone.
-        /// </summary>
         public readonly string Timezone;
-        /// <summary>
-        /// The user's title.
-        /// </summary>
         public readonly string Title;
         public readonly string UserId;
-        /// <summary>
-        /// User's user name value.
-        /// </summary>
         public readonly string UserName;
-        /// <summary>
-        /// The user type.
-        /// </summary>
         public readonly string UserType;
 
         [OutputConstructor]

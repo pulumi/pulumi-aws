@@ -21,137 +21,65 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
 
     public static final CloudExadataInfrastructureMaintenanceWindowArgs Empty = new CloudExadataInfrastructureMaintenanceWindowArgs();
 
-    /**
-     * The custom action timeout in minutes for the maintenance window.
-     * 
-     */
     @Import(name="customActionTimeoutInMins", required=true)
     private Output<Integer> customActionTimeoutInMins;
 
-    /**
-     * @return The custom action timeout in minutes for the maintenance window.
-     * 
-     */
     public Output<Integer> customActionTimeoutInMins() {
         return this.customActionTimeoutInMins;
     }
 
-    /**
-     * The days of the week when maintenance can be performed.
-     * 
-     */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>> daysOfWeeks;
 
-    /**
-     * @return The days of the week when maintenance can be performed.
-     * 
-     */
     public Optional<Output<List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>>> daysOfWeeks() {
         return Optional.ofNullable(this.daysOfWeeks);
     }
 
-    /**
-     * The hours of the day when maintenance can be performed.
-     * 
-     */
     @Import(name="hoursOfDays")
     private @Nullable Output<List<Integer>> hoursOfDays;
 
-    /**
-     * @return The hours of the day when maintenance can be performed.
-     * 
-     */
     public Optional<Output<List<Integer>>> hoursOfDays() {
         return Optional.ofNullable(this.hoursOfDays);
     }
 
-    /**
-     * ndicates whether custom action timeout is enabled for the maintenance window.
-     * 
-     */
     @Import(name="isCustomActionTimeoutEnabled", required=true)
     private Output<Boolean> isCustomActionTimeoutEnabled;
 
-    /**
-     * @return ndicates whether custom action timeout is enabled for the maintenance window.
-     * 
-     */
     public Output<Boolean> isCustomActionTimeoutEnabled() {
         return this.isCustomActionTimeoutEnabled;
     }
 
-    /**
-     * The lead time in weeks before the maintenance window.
-     * 
-     */
     @Import(name="leadTimeInWeeks")
     private @Nullable Output<Integer> leadTimeInWeeks;
 
-    /**
-     * @return The lead time in weeks before the maintenance window.
-     * 
-     */
     public Optional<Output<Integer>> leadTimeInWeeks() {
         return Optional.ofNullable(this.leadTimeInWeeks);
     }
 
-    /**
-     * The months when maintenance can be performed.
-     * 
-     */
     @Import(name="months")
     private @Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowMonthArgs>> months;
 
-    /**
-     * @return The months when maintenance can be performed.
-     * 
-     */
     public Optional<Output<List<CloudExadataInfrastructureMaintenanceWindowMonthArgs>>> months() {
         return Optional.ofNullable(this.months);
     }
 
-    /**
-     * The patching mode for the maintenance window.
-     * 
-     */
     @Import(name="patchingMode", required=true)
     private Output<String> patchingMode;
 
-    /**
-     * @return The patching mode for the maintenance window.
-     * 
-     */
     public Output<String> patchingMode() {
         return this.patchingMode;
     }
 
-    /**
-     * The preference for the maintenance window scheduling.
-     * 
-     */
     @Import(name="preference", required=true)
     private Output<String> preference;
 
-    /**
-     * @return The preference for the maintenance window scheduling.
-     * 
-     */
     public Output<String> preference() {
         return this.preference;
     }
 
-    /**
-     * The weeks of the month when maintenance can be performed.
-     * 
-     */
     @Import(name="weeksOfMonths")
     private @Nullable Output<List<Integer>> weeksOfMonths;
 
-    /**
-     * @return The weeks of the month when maintenance can be performed.
-     * 
-     */
     public Optional<Output<List<Integer>>> weeksOfMonths() {
         return Optional.ofNullable(this.weeksOfMonths);
     }
@@ -188,231 +116,99 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
             $ = new CloudExadataInfrastructureMaintenanceWindowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customActionTimeoutInMins The custom action timeout in minutes for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customActionTimeoutInMins(Output<Integer> customActionTimeoutInMins) {
             $.customActionTimeoutInMins = customActionTimeoutInMins;
             return this;
         }
 
-        /**
-         * @param customActionTimeoutInMins The custom action timeout in minutes for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customActionTimeoutInMins(Integer customActionTimeoutInMins) {
             return customActionTimeoutInMins(Output.of(customActionTimeoutInMins));
         }
 
-        /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysOfWeeks(@Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>> daysOfWeeks) {
             $.daysOfWeeks = daysOfWeeks;
             return this;
         }
 
-        /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysOfWeeks(List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs> daysOfWeeks) {
             return daysOfWeeks(Output.of(daysOfWeeks));
         }
 
-        /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysOfWeeks(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs... daysOfWeeks) {
             return daysOfWeeks(List.of(daysOfWeeks));
         }
 
-        /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hoursOfDays(@Nullable Output<List<Integer>> hoursOfDays) {
             $.hoursOfDays = hoursOfDays;
             return this;
         }
 
-        /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hoursOfDays(List<Integer> hoursOfDays) {
             return hoursOfDays(Output.of(hoursOfDays));
         }
 
-        /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hoursOfDays(Integer... hoursOfDays) {
             return hoursOfDays(List.of(hoursOfDays));
         }
 
-        /**
-         * @param isCustomActionTimeoutEnabled ndicates whether custom action timeout is enabled for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isCustomActionTimeoutEnabled(Output<Boolean> isCustomActionTimeoutEnabled) {
             $.isCustomActionTimeoutEnabled = isCustomActionTimeoutEnabled;
             return this;
         }
 
-        /**
-         * @param isCustomActionTimeoutEnabled ndicates whether custom action timeout is enabled for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isCustomActionTimeoutEnabled(Boolean isCustomActionTimeoutEnabled) {
             return isCustomActionTimeoutEnabled(Output.of(isCustomActionTimeoutEnabled));
         }
 
-        /**
-         * @param leadTimeInWeeks The lead time in weeks before the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder leadTimeInWeeks(@Nullable Output<Integer> leadTimeInWeeks) {
             $.leadTimeInWeeks = leadTimeInWeeks;
             return this;
         }
 
-        /**
-         * @param leadTimeInWeeks The lead time in weeks before the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder leadTimeInWeeks(Integer leadTimeInWeeks) {
             return leadTimeInWeeks(Output.of(leadTimeInWeeks));
         }
 
-        /**
-         * @param months The months when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder months(@Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowMonthArgs>> months) {
             $.months = months;
             return this;
         }
 
-        /**
-         * @param months The months when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder months(List<CloudExadataInfrastructureMaintenanceWindowMonthArgs> months) {
             return months(Output.of(months));
         }
 
-        /**
-         * @param months The months when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder months(CloudExadataInfrastructureMaintenanceWindowMonthArgs... months) {
             return months(List.of(months));
         }
 
-        /**
-         * @param patchingMode The patching mode for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patchingMode(Output<String> patchingMode) {
             $.patchingMode = patchingMode;
             return this;
         }
 
-        /**
-         * @param patchingMode The patching mode for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patchingMode(String patchingMode) {
             return patchingMode(Output.of(patchingMode));
         }
 
-        /**
-         * @param preference The preference for the maintenance window scheduling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preference(Output<String> preference) {
             $.preference = preference;
             return this;
         }
 
-        /**
-         * @param preference The preference for the maintenance window scheduling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preference(String preference) {
             return preference(Output.of(preference));
         }
 
-        /**
-         * @param weeksOfMonths The weeks of the month when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeksOfMonths(@Nullable Output<List<Integer>> weeksOfMonths) {
             $.weeksOfMonths = weeksOfMonths;
             return this;
         }
 
-        /**
-         * @param weeksOfMonths The weeks of the month when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeksOfMonths(List<Integer> weeksOfMonths) {
             return weeksOfMonths(Output.of(weeksOfMonths));
         }
 
-        /**
-         * @param weeksOfMonths The weeks of the month when maintenance can be performed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeksOfMonths(Integer... weeksOfMonths) {
             return weeksOfMonths(List.of(weeksOfMonths));
         }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     {
-        /// <summary>
-        /// Settings specific to the container type of the file. See Container Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings? ContainerSettings;
-        /// <summary>
-        /// Output file extension.
-        /// </summary>
         public readonly string? Extension;
-        /// <summary>
-        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-        /// </summary>
         public readonly string? NameModifier;
 
         [OutputConstructor]

@@ -13,17 +13,9 @@ public final class GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs e
 
     public static final GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs Empty = new GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs();
 
-    /**
-     * Parent ID of the organizational unit.
-     * 
-     */
     @Import(name="parentId", required=true)
     private String parentId;
 
-    /**
-     * @return Parent ID of the organizational unit.
-     * 
-     */
     public String parentId() {
         return this.parentId;
     }
@@ -52,12 +44,6 @@ public final class GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs e
             $ = new GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parentId Parent ID of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(String parentId) {
             $.parentId = parentId;
             return this;

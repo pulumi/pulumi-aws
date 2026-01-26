@@ -58,17 +58,11 @@ class GetServerlessSecurityPolicyResult:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        The date the security policy was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the security policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -82,9 +76,6 @@ class GetServerlessSecurityPolicyResult:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> _builtins.str:
-        """
-        The date the security policy was last modified.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
@@ -95,17 +86,11 @@ class GetServerlessSecurityPolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        The JSON policy document without any whitespaces.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="policyVersion")
     def policy_version(self) -> _builtins.str:
-        """
-        Version of the policy.
-        """
         return pulumi.get(self, "policy_version")
 
     @_builtins.property
@@ -141,22 +126,7 @@ def get_serverless_security_policy(name: Optional[_builtins.str] = None,
                                    type: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessSecurityPolicyResult:
     """
-    Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_policy(name="example-security-policy",
-        type="encryption")
-    ```
-
-
-    :param _builtins.str name: Name of the policy
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of security policy. One of `encryption` or `network`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -180,22 +150,7 @@ def get_serverless_security_policy_output(name: Optional[pulumi.Input[_builtins.
                                           type: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityPolicyResult]:
     """
-    Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_policy(name="example-security-policy",
-        type="encryption")
-    ```
-
-
-    :param _builtins.str name: Name of the policy
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Type of security policy. One of `encryption` or `network`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

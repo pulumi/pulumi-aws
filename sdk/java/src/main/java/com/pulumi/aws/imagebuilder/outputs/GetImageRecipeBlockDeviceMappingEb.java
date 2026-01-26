@@ -11,101 +11,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageRecipeBlockDeviceMappingEb {
-    /**
-     * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     private String deleteOnTermination;
-    /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     private String encrypted;
-    /**
-     * @return Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return ARN of the Key Management Service (KMS) Key for encryption.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Identifier of the EC2 Volume Snapshot.
-     * 
-     */
     private String snapshotId;
-    /**
-     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
-     * 
-     */
     private Integer throughput;
-    /**
-     * @return Size of the volume, in GiB.
-     * 
-     */
     private Integer volumeSize;
-    /**
-     * @return Type of the volume. For example, `gp2` or `io2`.
-     * 
-     */
     private String volumeType;
 
     private GetImageRecipeBlockDeviceMappingEb() {}
-    /**
-     * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     public String deleteOnTermination() {
         return this.deleteOnTermination;
     }
-    /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     public String encrypted() {
         return this.encrypted;
     }
-    /**
-     * @return Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return ARN of the Key Management Service (KMS) Key for encryption.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Identifier of the EC2 Volume Snapshot.
-     * 
-     */
     public String snapshotId() {
         return this.snapshotId;
     }
-    /**
-     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
-     * 
-     */
     public Integer throughput() {
         return this.throughput;
     }
-    /**
-     * @return Size of the volume, in GiB.
-     * 
-     */
     public Integer volumeSize() {
         return this.volumeSize;
     }
-    /**
-     * @return Type of the volume. For example, `gp2` or `io2`.
-     * 
-     */
     public String volumeType() {
         return this.volumeType;
     }

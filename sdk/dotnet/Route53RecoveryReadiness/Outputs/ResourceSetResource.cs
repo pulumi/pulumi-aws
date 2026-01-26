@@ -14,17 +14,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Outputs
     public sealed class ResourceSetResource
     {
         public readonly string? ComponentId;
-        /// <summary>
-        /// Component for DNS/Routing Control Readiness Checks.
-        /// </summary>
         public readonly Outputs.ResourceSetResourceDnsTargetResource? DnsTargetResource;
-        /// <summary>
-        /// Recovery group ARN or cell ARN that contains this resource set.
-        /// </summary>
         public readonly ImmutableArray<string> ReadinessScopes;
-        /// <summary>
-        /// ARN of the resource.
-        /// </summary>
         public readonly string? ResourceArn;
 
         [OutputConstructor]

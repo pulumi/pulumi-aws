@@ -9,376 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CostExplorer
 {
-    /// <summary>
-    /// Provides a CE Anomaly Subscription.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
-    ///     {
-    ///         Name = "AWSServiceMonitor",
-    ///         MonitorType = "DIMENSIONAL",
-    ///         MonitorDimension = "SERVICE",
-    ///     });
-    /// 
-    ///     var testAnomalySubscription = new Aws.CostExplorer.AnomalySubscription("test", new()
-    ///     {
-    ///         Name = "DAILYSUBSCRIPTION",
-    ///         Frequency = "DAILY",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             test.Arn,
-    ///         },
-    ///         Subscribers = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
-    ///             {
-    ///                 Type = "EMAIL",
-    ///                 Address = "abc@example.com",
-    ///             },
-    ///         },
-    ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
-    ///         {
-    ///             Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs
-    ///             {
-    ///                 Key = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-    ///                 MatchOptions = new[]
-    ///                 {
-    ///                     "GREATER_THAN_OR_EQUAL",
-    ///                 },
-    ///                 Values = new[]
-    ///                 {
-    ///                     "100",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Threshold Expression Example
-    /// 
-    /// ### Using a Percentage Threshold
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
-    ///     {
-    ///         Name = "AWSServiceMonitor",
-    ///         Frequency = "DAILY",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             testAwsCeAnomalyMonitor.Arn,
-    ///         },
-    ///         Subscribers = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
-    ///             {
-    ///                 Type = "EMAIL",
-    ///                 Address = "abc@example.com",
-    ///             },
-    ///         },
-    ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
-    ///         {
-    ///             Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs
-    ///             {
-    ///                 Key = "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-    ///                 MatchOptions = new[]
-    ///                 {
-    ///                     "GREATER_THAN_OR_EQUAL",
-    ///                 },
-    ///                 Values = new[]
-    ///                 {
-    ///                     "100",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Using an `And` Expression
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
-    ///     {
-    ///         Name = "AWSServiceMonitor",
-    ///         Frequency = "DAILY",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             testAwsCeAnomalyMonitor.Arn,
-    ///         },
-    ///         Subscribers = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
-    ///             {
-    ///                 Type = "EMAIL",
-    ///                 Address = "abc@example.com",
-    ///             },
-    ///         },
-    ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
-    ///         {
-    ///             Ands = new[]
-    ///             {
-    ///                 new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndArgs
-    ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndDimensionArgs
-    ///                     {
-    ///                         Key = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "GREATER_THAN_OR_EQUAL",
-    ///                         },
-    ///                         Values = new[]
-    ///                         {
-    ///                             "100",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndArgs
-    ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndDimensionArgs
-    ///                     {
-    ///                         Key = "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "GREATER_THAN_OR_EQUAL",
-    ///                         },
-    ///                         Values = new[]
-    ///                         {
-    ///                             "50",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### SNS Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var costAnomalyUpdates = new Aws.Sns.Topic("cost_anomaly_updates", new()
-    ///     {
-    ///         Name = "CostAnomalyUpdates",
-    ///     });
-    /// 
-    ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         PolicyId = "__default_policy_ID",
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///             {
-    ///                 Sid = "AWSAnomalyDetectionSNSPublishingPermissions",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Publish",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "costalerts.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     costAnomalyUpdates.Arn,
-    ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///             {
-    ///                 Sid = "__default_statement_ID",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Subscribe",
-    ///                     "SNS:SetTopicAttributes",
-    ///                     "SNS:RemovePermission",
-    ///                     "SNS:Receive",
-    ///                     "SNS:Publish",
-    ///                     "SNS:ListSubscriptionsByTopic",
-    ///                     "SNS:GetTopicAttributes",
-    ///                     "SNS:DeleteTopic",
-    ///                     "SNS:AddPermission",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "AWS:SourceOwner",
-    ///                         Values = new[]
-    ///                         {
-    ///                             accountId,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     costAnomalyUpdates.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var @default = new Aws.Sns.TopicPolicy("default", new()
-    ///     {
-    ///         Arn = costAnomalyUpdates.Arn,
-    ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var anomalyMonitor = new Aws.CostExplorer.AnomalyMonitor("anomaly_monitor", new()
-    ///     {
-    ///         Name = "AWSServiceMonitor",
-    ///         MonitorType = "DIMENSIONAL",
-    ///         MonitorDimension = "SERVICE",
-    ///     });
-    /// 
-    ///     var realtimeSubscription = new Aws.CostExplorer.AnomalySubscription("realtime_subscription", new()
-    ///     {
-    ///         Name = "RealtimeAnomalySubscription",
-    ///         Frequency = "IMMEDIATE",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             anomalyMonitor.Arn,
-    ///         },
-    ///         Subscribers = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
-    ///             {
-    ///                 Type = "SNS",
-    ///                 Address = costAnomalyUpdates.Arn,
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             @default,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly subscription.
-    /// 
-    /// Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
-    /// 
-    /// % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
-    /// </summary>
     [AwsResourceType("aws:costexplorer/anomalySubscription:AnomalySubscription")]
     public partial class AnomalySubscription : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the anomaly subscription.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-        /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of cost anomaly monitors.
-        /// </summary>
         [Output("monitorArnLists")]
         public Output<ImmutableArray<string>> MonitorArnLists { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for the subscription.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A subscriber configuration. Multiple subscribers can be defined.
-        /// </summary>
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.AnomalySubscriptionSubscriber>> Subscribers { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-        /// </summary>
         [Output("thresholdExpression")]
         public Output<Outputs.AnomalySubscriptionThresholdExpression> ThresholdExpression { get; private set; } = null!;
 
@@ -428,42 +85,25 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class AnomalySubscriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
         [Input("monitorArnLists", required: true)]
         private InputList<string>? _monitorArnLists;
-
-        /// <summary>
-        /// A list of cost anomaly monitors.
-        /// </summary>
         public InputList<string> MonitorArnLists
         {
             get => _monitorArnLists ?? (_monitorArnLists = new InputList<string>());
             set => _monitorArnLists = value;
         }
 
-        /// <summary>
-        /// The name for the subscription.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("subscribers", required: true)]
         private InputList<Inputs.AnomalySubscriptionSubscriberArgs>? _subscribers;
-
-        /// <summary>
-        /// A subscriber configuration. Multiple subscribers can be defined.
-        /// </summary>
         public InputList<Inputs.AnomalySubscriptionSubscriberArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.AnomalySubscriptionSubscriberArgs>());
@@ -472,19 +112,12 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-        /// </summary>
         [Input("thresholdExpression")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionArgs>? ThresholdExpression { get; set; }
 
@@ -496,48 +129,28 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class AnomalySubscriptionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// ARN of the anomaly subscription.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-        /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
 
         [Input("monitorArnLists")]
         private InputList<string>? _monitorArnLists;
-
-        /// <summary>
-        /// A list of cost anomaly monitors.
-        /// </summary>
         public InputList<string> MonitorArnLists
         {
             get => _monitorArnLists ?? (_monitorArnLists = new InputList<string>());
             set => _monitorArnLists = value;
         }
 
-        /// <summary>
-        /// The name for the subscription.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("subscribers")]
         private InputList<Inputs.AnomalySubscriptionSubscriberGetArgs>? _subscribers;
-
-        /// <summary>
-        /// A subscriber configuration. Multiple subscribers can be defined.
-        /// </summary>
         public InputList<Inputs.AnomalySubscriptionSubscriberGetArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.AnomalySubscriptionSubscriberGetArgs>());
@@ -546,10 +159,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -558,19 +167,12 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-        /// </summary>
         [Input("thresholdExpression")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionGetArgs>? ThresholdExpression { get; set; }
 

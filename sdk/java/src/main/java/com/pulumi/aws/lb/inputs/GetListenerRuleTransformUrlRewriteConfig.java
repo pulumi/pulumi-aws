@@ -15,17 +15,9 @@ public final class GetListenerRuleTransformUrlRewriteConfig extends com.pulumi.r
 
     public static final GetListenerRuleTransformUrlRewriteConfig Empty = new GetListenerRuleTransformUrlRewriteConfig();
 
-    /**
-     * Block for URL rewrite configuration. Detailed below.
-     * 
-     */
     @Import(name="rewrites")
     private @Nullable List<GetListenerRuleTransformUrlRewriteConfigRewrite> rewrites;
 
-    /**
-     * @return Block for URL rewrite configuration. Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleTransformUrlRewriteConfigRewrite>> rewrites() {
         return Optional.ofNullable(this.rewrites);
     }
@@ -54,23 +46,11 @@ public final class GetListenerRuleTransformUrlRewriteConfig extends com.pulumi.r
             $ = new GetListenerRuleTransformUrlRewriteConfig(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rewrites Block for URL rewrite configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrites(@Nullable List<GetListenerRuleTransformUrlRewriteConfigRewrite> rewrites) {
             $.rewrites = rewrites;
             return this;
         }
 
-        /**
-         * @param rewrites Block for URL rewrite configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrites(GetListenerRuleTransformUrlRewriteConfigRewrite... rewrites) {
             return rewrites(List.of(rewrites));
         }

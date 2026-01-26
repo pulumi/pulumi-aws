@@ -11,53 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Shield Subscription.
-//
-// > This resource creates a subscription to AWS Shield Advanced, which requires a 1 year subscription commitment with a monthly fee. Refer to the [AWS Shield Pricing](https://aws.amazon.com/shield/pricing/) page for more details.
-//
-// > Destruction of this resource will set `autoRenew` to `DISABLED`. Automatic renewal can only be disabled during the last 30 days of a subscription. To unsubscribe outside of this window, you must contact AWS Support. Set `skipDestroy` to `true` to skip modifying the `autoRenew` argument during destruction.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := shield.NewSubscription(ctx, "example", &shield.SubscriptionArgs{
-//				AutoRenew: pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Shield Subscription using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:shield/subscription:Subscription example 123456789012
-// ```
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-	AutoRenew pulumi.StringOutput `pulumi:"autoRenew"`
-	// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
+	// Whether to automatically renew the subscription when it expires.
+	AutoRenew   pulumi.StringOutput  `pulumi:"autoRenew"`
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 }
 
@@ -91,16 +49,14 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
-	// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-	AutoRenew *string `pulumi:"autoRenew"`
-	// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
+	// Whether to automatically renew the subscription when it expires.
+	AutoRenew   *string `pulumi:"autoRenew"`
+	SkipDestroy *bool   `pulumi:"skipDestroy"`
 }
 
 type SubscriptionState struct {
-	// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-	AutoRenew pulumi.StringPtrInput
-	// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
+	// Whether to automatically renew the subscription when it expires.
+	AutoRenew   pulumi.StringPtrInput
 	SkipDestroy pulumi.BoolPtrInput
 }
 
@@ -109,17 +65,15 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-	AutoRenew *string `pulumi:"autoRenew"`
-	// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
+	// Whether to automatically renew the subscription when it expires.
+	AutoRenew   *string `pulumi:"autoRenew"`
+	SkipDestroy *bool   `pulumi:"skipDestroy"`
 }
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-	AutoRenew pulumi.StringPtrInput
-	// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
+	// Whether to automatically renew the subscription when it expires.
+	AutoRenew   pulumi.StringPtrInput
 	SkipDestroy pulumi.BoolPtrInput
 }
 
@@ -210,12 +164,11 @@ func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+// Whether to automatically renew the subscription when it expires.
 func (o SubscriptionOutput) AutoRenew() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.AutoRenew }).(pulumi.StringOutput)
 }
 
-// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
 func (o SubscriptionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }

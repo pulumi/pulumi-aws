@@ -17,20 +17,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMulticastDomainResult {
-    /**
-     * @return EC2 Transit Gateway Multicast Domain ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return EC2 Transit Gateway Multicast Domain Associations
-     * 
-     */
     private List<GetMulticastDomainAssociation> associations;
-    /**
-     * @return Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     private String autoAcceptSharedAssociations;
     private @Nullable List<GetMulticastDomainFilter> filters;
     /**
@@ -38,69 +26,25 @@ public final class GetMulticastDomainResult {
      * 
      */
     private String id;
-    /**
-     * @return Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     private String igmpv2Support;
-    /**
-     * @return EC2 Multicast Domain Group Members
-     * 
-     */
     private List<GetMulticastDomainMember> members;
-    /**
-     * @return Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     private String ownerId;
     private String region;
-    /**
-     * @return EC2 Multicast Domain Group Sources
-     * 
-     */
     private List<GetMulticastDomainSource> sources;
     private String state;
-    /**
-     * @return Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     private String staticSourcesSupport;
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The ID of the transit gateway attachment.
-     * 
-     */
     private String transitGatewayAttachmentId;
-    /**
-     * @return EC2 Transit Gateway identifier.
-     * 
-     */
     private String transitGatewayId;
     private String transitGatewayMulticastDomainId;
 
     private GetMulticastDomainResult() {}
-    /**
-     * @return EC2 Transit Gateway Multicast Domain ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return EC2 Transit Gateway Multicast Domain Associations
-     * 
-     */
     public List<GetMulticastDomainAssociation> associations() {
         return this.associations;
     }
-    /**
-     * @return Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     public String autoAcceptSharedAssociations() {
         return this.autoAcceptSharedAssociations;
     }
@@ -114,65 +58,33 @@ public final class GetMulticastDomainResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     public String igmpv2Support() {
         return this.igmpv2Support;
     }
-    /**
-     * @return EC2 Multicast Domain Group Members
-     * 
-     */
     public List<GetMulticastDomainMember> members() {
         return this.members;
     }
-    /**
-     * @return Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return EC2 Multicast Domain Group Sources
-     * 
-     */
     public List<GetMulticastDomainSource> sources() {
         return this.sources;
     }
     public String state() {
         return this.state;
     }
-    /**
-     * @return Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     public String staticSourcesSupport() {
         return this.staticSourcesSupport;
     }
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The ID of the transit gateway attachment.
-     * 
-     */
     public String transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
-    /**
-     * @return EC2 Transit Gateway identifier.
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }

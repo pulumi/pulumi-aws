@@ -15,36 +15,16 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
     public static final TableMaintenanceConfigurationArgs Empty = new TableMaintenanceConfigurationArgs();
 
-    /**
-     * A single Iceberg compaction settings object.
-     * See `icebergCompaction` below.
-     * 
-     */
     @Import(name="icebergCompaction", required=true)
     private Output<TableMaintenanceConfigurationIcebergCompactionArgs> icebergCompaction;
 
-    /**
-     * @return A single Iceberg compaction settings object.
-     * See `icebergCompaction` below.
-     * 
-     */
     public Output<TableMaintenanceConfigurationIcebergCompactionArgs> icebergCompaction() {
         return this.icebergCompaction;
     }
 
-    /**
-     * A single Iceberg snapshot management settings object.
-     * See `icebergSnapshotManagement` below.
-     * 
-     */
     @Import(name="icebergSnapshotManagement", required=true)
     private Output<TableMaintenanceConfigurationIcebergSnapshotManagementArgs> icebergSnapshotManagement;
 
-    /**
-     * @return A single Iceberg snapshot management settings object.
-     * See `icebergSnapshotManagement` below.
-     * 
-     */
     public Output<TableMaintenanceConfigurationIcebergSnapshotManagementArgs> icebergSnapshotManagement() {
         return this.icebergSnapshotManagement;
     }
@@ -74,48 +54,20 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
             $ = new TableMaintenanceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param icebergCompaction A single Iceberg compaction settings object.
-         * See `icebergCompaction` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergCompaction(Output<TableMaintenanceConfigurationIcebergCompactionArgs> icebergCompaction) {
             $.icebergCompaction = icebergCompaction;
             return this;
         }
 
-        /**
-         * @param icebergCompaction A single Iceberg compaction settings object.
-         * See `icebergCompaction` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergCompaction(TableMaintenanceConfigurationIcebergCompactionArgs icebergCompaction) {
             return icebergCompaction(Output.of(icebergCompaction));
         }
 
-        /**
-         * @param icebergSnapshotManagement A single Iceberg snapshot management settings object.
-         * See `icebergSnapshotManagement` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergSnapshotManagement(Output<TableMaintenanceConfigurationIcebergSnapshotManagementArgs> icebergSnapshotManagement) {
             $.icebergSnapshotManagement = icebergSnapshotManagement;
             return this;
         }
 
-        /**
-         * @param icebergSnapshotManagement A single Iceberg snapshot management settings object.
-         * See `icebergSnapshotManagement` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergSnapshotManagement(TableMaintenanceConfigurationIcebergSnapshotManagementArgs icebergSnapshotManagement) {
             return icebergSnapshotManagement(Output.of(icebergSnapshotManagement));
         }

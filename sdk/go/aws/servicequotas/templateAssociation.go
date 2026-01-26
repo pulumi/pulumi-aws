@@ -11,51 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Service Quotas Template Association.
-//
-// > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicequotas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.NewTemplateAssociation(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
-// ```
 type TemplateAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      pulumi.StringOutput  `pulumi:"region"`
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status      pulumi.StringOutput  `pulumi:"status"`
 }
 
 // NewTemplateAssociation registers a new resource with the given unique name, arguments, and options.
@@ -88,19 +49,15 @@ func GetTemplateAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateAssociation resources.
 type templateAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      *string `pulumi:"region"`
 	SkipDestroy *bool   `pulumi:"skipDestroy"`
-	// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-	Status *string `pulumi:"status"`
+	Status      *string `pulumi:"status"`
 }
 
 type TemplateAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      pulumi.StringPtrInput
 	SkipDestroy pulumi.BoolPtrInput
-	// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-	Status pulumi.StringPtrInput
+	Status      pulumi.StringPtrInput
 }
 
 func (TemplateAssociationState) ElementType() reflect.Type {
@@ -108,14 +65,12 @@ func (TemplateAssociationState) ElementType() reflect.Type {
 }
 
 type templateAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      *string `pulumi:"region"`
 	SkipDestroy *bool   `pulumi:"skipDestroy"`
 }
 
 // The set of arguments for constructing a TemplateAssociation resource.
 type TemplateAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      pulumi.StringPtrInput
 	SkipDestroy pulumi.BoolPtrInput
 }
@@ -207,7 +162,6 @@ func (o TemplateAssociationOutput) ToTemplateAssociationOutputWithContext(ctx co
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TemplateAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -216,7 +170,6 @@ func (o TemplateAssociationOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TemplateAssociation) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
 func (o TemplateAssociationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

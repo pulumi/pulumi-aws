@@ -30,15 +30,6 @@ class SessionLoggerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SessionLogger resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input['SessionLoggerEventFilterArgs'] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input['SessionLoggerLogConfigurationArgs'] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -58,9 +49,6 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of additional encryption context key-value pairs.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -70,9 +58,6 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key used to encrypt sensitive information.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -82,9 +67,6 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable display name for the session logger resource. Forces replacement if changed.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -94,9 +76,6 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> Optional[pulumi.Input['SessionLoggerEventFilterArgs']]:
-        """
-        Event filter that determines which events are logged. See Event Filter below.
-        """
         return pulumi.get(self, "event_filter")
 
     @event_filter.setter
@@ -106,11 +85,6 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['SessionLoggerLogConfigurationArgs']]:
-        """
-        Configuration block for specifying where logs are delivered. See Log Configuration below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -120,9 +94,6 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -132,9 +103,6 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -157,18 +125,6 @@ class _SessionLoggerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SessionLogger resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the session logger.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input['SessionLoggerEventFilterArgs'] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input['SessionLoggerLogConfigurationArgs'] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] session_logger_arn: ARN of the session logger.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -194,9 +150,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of additional encryption context key-value pairs.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -206,9 +159,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of ARNs of the web portals associated with the session logger.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @associated_portal_arns.setter
@@ -218,9 +168,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key used to encrypt sensitive information.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -230,9 +177,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable display name for the session logger resource. Forces replacement if changed.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -242,9 +186,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> Optional[pulumi.Input['SessionLoggerEventFilterArgs']]:
-        """
-        Event filter that determines which events are logged. See Event Filter below.
-        """
         return pulumi.get(self, "event_filter")
 
     @event_filter.setter
@@ -254,11 +195,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['SessionLoggerLogConfigurationArgs']]:
-        """
-        Configuration block for specifying where logs are delivered. See Log Configuration below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -268,9 +204,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -280,9 +213,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the session logger.
-        """
         return pulumi.get(self, "session_logger_arn")
 
     @session_logger_arn.setter
@@ -292,9 +222,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -304,9 +231,6 @@ class _SessionLoggerState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -329,147 +253,9 @@ class SessionLogger(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Session Logger.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example-session-logs")
-        example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["workspaces-web.amazonaws.com"],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
-        }])
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket.id,
-            policy=example.json)
-        example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
-            event_filter={
-                "all": {},
-            },
-            log_configuration={
-                "s3": {
-                    "bucket": example_bucket.id,
-                    "folder_structure": "Flat",
-                    "log_file_format": "Json",
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
-        ```
-
-        ### Complete Configuration with KMS Encryption
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-session-logs",
-            force_destroy=True)
-        example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["workspaces-web.amazonaws.com"],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [
-                example_bucket.arn,
-                example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        }])
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket.id,
-            policy=example.json)
-        current = aws.get_partition()
-        current_get_caller_identity = aws.get_caller_identity()
-        kms_key_policy = aws.iam.get_policy_document(statements=[
-            {
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [f"arn:{current.partition}:iam::{current_get_caller_identity.account_id}:root"],
-                }],
-                "actions": ["kms:*"],
-                "resources": ["*"],
-            },
-            {
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["workspaces-web.amazonaws.com"],
-                }],
-                "actions": [
-                    "kms:Encrypt",
-                    "kms:GenerateDataKey*",
-                    "kms:ReEncrypt*",
-                    "kms:Decrypt",
-                ],
-                "resources": ["*"],
-            },
-        ])
-        example_key = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Session Logger",
-            policy=kms_key_policy.json)
-        example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
-            customer_managed_key=example_key.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-                "Application": "WorkSpacesWeb",
-            },
-            event_filter={
-                "includes": [
-                    "SessionStart",
-                    "SessionEnd",
-                ],
-            },
-            log_configuration={
-                "s3": {
-                    "bucket": example_bucket.id,
-                    "bucket_owner": current_get_caller_identity.account_id,
-                    "folder_structure": "NestedByDate",
-                    "key_prefix": "workspaces-web-logs/",
-                    "log_file_format": "JsonLines",
-                },
-            },
-            tags={
-                "Name": "example-session-logger",
-                "Environment": "Production",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_bucket_policy,
-                    example_key,
-                ]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Session Logger using the `session_logger_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678
-        ```
-
+        Create a SessionLogger resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -478,136 +264,7 @@ class SessionLogger(pulumi.CustomResource):
                  args: Optional[SessionLoggerArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Session Logger.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example-session-logs")
-        example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["workspaces-web.amazonaws.com"],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
-        }])
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket.id,
-            policy=example.json)
-        example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
-            event_filter={
-                "all": {},
-            },
-            log_configuration={
-                "s3": {
-                    "bucket": example_bucket.id,
-                    "folder_structure": "Flat",
-                    "log_file_format": "Json",
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
-        ```
-
-        ### Complete Configuration with KMS Encryption
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-session-logs",
-            force_destroy=True)
-        example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["workspaces-web.amazonaws.com"],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [
-                example_bucket.arn,
-                example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        }])
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket.id,
-            policy=example.json)
-        current = aws.get_partition()
-        current_get_caller_identity = aws.get_caller_identity()
-        kms_key_policy = aws.iam.get_policy_document(statements=[
-            {
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [f"arn:{current.partition}:iam::{current_get_caller_identity.account_id}:root"],
-                }],
-                "actions": ["kms:*"],
-                "resources": ["*"],
-            },
-            {
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["workspaces-web.amazonaws.com"],
-                }],
-                "actions": [
-                    "kms:Encrypt",
-                    "kms:GenerateDataKey*",
-                    "kms:ReEncrypt*",
-                    "kms:Decrypt",
-                ],
-                "resources": ["*"],
-            },
-        ])
-        example_key = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Session Logger",
-            policy=kms_key_policy.json)
-        example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
-            customer_managed_key=example_key.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-                "Application": "WorkSpacesWeb",
-            },
-            event_filter={
-                "includes": [
-                    "SessionStart",
-                    "SessionEnd",
-                ],
-            },
-            log_configuration={
-                "s3": {
-                    "bucket": example_bucket.id,
-                    "bucket_owner": current_get_caller_identity.account_id,
-                    "folder_structure": "NestedByDate",
-                    "key_prefix": "workspaces-web-logs/",
-                    "log_file_format": "JsonLines",
-                },
-            },
-            tags={
-                "Name": "example-session-logger",
-                "Environment": "Production",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_bucket_policy,
-                    example_key,
-                ]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Session Logger using the `session_logger_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678
-        ```
-
+        Create a SessionLogger resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SessionLoggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -676,18 +333,6 @@ class SessionLogger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the session logger.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] session_logger_arn: ARN of the session logger.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -708,82 +353,50 @@ class SessionLogger(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of additional encryption context key-value pairs.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of ARNs of the web portals associated with the session logger.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key used to encrypt sensitive information.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Human-readable display name for the session logger resource. Forces replacement if changed.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> pulumi.Output[Optional['outputs.SessionLoggerEventFilter']]:
-        """
-        Event filter that determines which events are logged. See Event Filter below.
-        """
         return pulumi.get(self, "event_filter")
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.SessionLoggerLogConfiguration']]:
-        """
-        Configuration block for specifying where logs are delivered. See Log Configuration below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "log_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the session logger.
-        """
         return pulumi.get(self, "session_logger_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

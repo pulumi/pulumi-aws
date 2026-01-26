@@ -18,384 +18,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
- * 
- * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
- * 
- * ## Example Usage
- * 
- * ### New MySQL Global Cluster
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.GlobalCluster;
- * import com.pulumi.aws.rds.GlobalClusterArgs;
- * import com.pulumi.aws.rds.Cluster;
- * import com.pulumi.aws.rds.ClusterArgs;
- * import com.pulumi.aws.rds.ClusterInstance;
- * import com.pulumi.aws.rds.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
- *             .globalClusterIdentifier("global-test")
- *             .engine("aurora")
- *             .engineVersion("5.6.mysql_aurora.1.22.2")
- *             .databaseName("example_db")
- *             .build());
- * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-primary-cluster")
- *             .masterUsername("username")
- *             .masterPassword("somepass123")
- *             .databaseName("example_db")
- *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName("default")
- *             .build());
- * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .identifier("test-primary-cluster-instance")
- *             .clusterIdentifier(primary.id())
- *             .instanceClass("db.r4.large")
- *             .dbSubnetGroupName("default")
- *             .build());
- * 
- *         var secondary = new Cluster("secondary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-secondary-cluster")
- *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName("default")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
- * 
- *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .identifier("test-secondary-cluster-instance")
- *             .clusterIdentifier(secondary.id())
- *             .instanceClass("db.r4.large")
- *             .dbSubnetGroupName("default")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### New PostgreSQL Global Cluster
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.GlobalCluster;
- * import com.pulumi.aws.rds.GlobalClusterArgs;
- * import com.pulumi.aws.rds.Cluster;
- * import com.pulumi.aws.rds.ClusterArgs;
- * import com.pulumi.aws.rds.ClusterInstance;
- * import com.pulumi.aws.rds.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
- *             .globalClusterIdentifier("global-test")
- *             .engine("aurora-postgresql")
- *             .engineVersion("11.9")
- *             .databaseName("example_db")
- *             .build());
- * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-primary-cluster")
- *             .masterUsername("username")
- *             .masterPassword("somepass123")
- *             .databaseName("example_db")
- *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName("default")
- *             .build());
- * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .identifier("test-primary-cluster-instance")
- *             .clusterIdentifier(primary.id())
- *             .instanceClass("db.r4.large")
- *             .dbSubnetGroupName("default")
- *             .build());
- * 
- *         var secondary = new Cluster("secondary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-secondary-cluster")
- *             .globalClusterIdentifier(example.id())
- *             .skipFinalSnapshot(true)
- *             .dbSubnetGroupName("default")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
- * 
- *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .identifier("test-secondary-cluster-instance")
- *             .clusterIdentifier(secondary.id())
- *             .instanceClass("db.r4.large")
- *             .dbSubnetGroupName("default")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### New Global Cluster From Existing DB Cluster
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Cluster;
- * import com.pulumi.aws.rds.GlobalCluster;
- * import com.pulumi.aws.rds.GlobalClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example");
- * 
- *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
- *             .forceDestroy(true)
- *             .globalClusterIdentifier("example")
- *             .sourceDbClusterIdentifier(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Upgrading Engine Versions
- * 
- * When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignoreChanges` meta argument as shown below on the `aws.rds.Cluster`.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.GlobalCluster;
- * import com.pulumi.aws.rds.GlobalClusterArgs;
- * import com.pulumi.aws.rds.Cluster;
- * import com.pulumi.aws.rds.ClusterArgs;
- * import com.pulumi.aws.rds.ClusterInstance;
- * import com.pulumi.aws.rds.ClusterInstanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
- *             .globalClusterIdentifier("kyivkharkiv")
- *             .engine("aurora-mysql")
- *             .engineVersion("5.7.mysql_aurora.2.07.5")
- *             .build());
- * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()
- *             .allowMajorVersionUpgrade(true)
- *             .applyImmediately(true)
- *             .clusterIdentifier("odessadnipro")
- *             .databaseName("totoro")
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .globalClusterIdentifier(example.id())
- *             .masterPassword("satsukimae")
- *             .masterUsername("maesatsuki")
- *             .skipFinalSnapshot(true)
- *             .build());
- * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
- *             .applyImmediately(true)
- *             .clusterIdentifier(primary.id())
- *             .engine(primary.engine())
- *             .engineVersion(primary.engineVersion())
- *             .identifier("donetsklviv")
- *             .instanceClass("db.r4.large")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/globalCluster:GlobalCluster example example
- * ```
- * Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
- * 
- * Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
- * 
- */
 @ResourceType(type="aws:rds/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * RDS Global Cluster Amazon Resource Name (ARN).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
-    /**
-     * @return Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
-    /**
-     * @return If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> deletionProtection() {
         return Codegen.optional(this.deletionProtection);
     }
-    /**
-     * Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
-     * 
-     */
     @Export(name="engineLifecycleSupport", refs={String.class}, tree="[0]")
     private Output<String> engineLifecycleSupport;
 
-    /**
-     * @return The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
-     * 
-     */
     public Output<String> engineLifecycleSupport() {
         return this.engineLifecycleSupport;
     }
-    /**
-     * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
@@ -405,137 +68,57 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> engineVersionActual() {
         return this.engineVersionActual;
     }
-    /**
-     * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
-    /**
-     * @return Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
-     * 
-     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * Global cluster identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="globalClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> globalClusterIdentifier;
 
-    /**
-     * @return Global cluster identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> globalClusterIdentifier() {
         return this.globalClusterIdentifier;
     }
-    /**
-     * Set of objects containing Global Cluster members.
-     * 
-     */
     @Export(name="globalClusterMembers", refs={List.class,GlobalClusterGlobalClusterMember.class}, tree="[0,1]")
     private Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
 
-    /**
-     * @return Set of objects containing Global Cluster members.
-     * 
-     */
     public Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers() {
         return this.globalClusterMembers;
     }
-    /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     * 
-     */
     @Export(name="globalClusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> globalClusterResourceId;
 
-    /**
-     * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     * 
-     */
     public Output<String> globalClusterResourceId() {
         return this.globalClusterResourceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
-     * 
-     */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
-    /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
-     * 
-     */
     public Output<String> sourceDbClusterIdentifier() {
         return this.sourceDbClusterIdentifier;
     }
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-     * 
-     */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
-    /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-     * 
-     */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }
-    /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

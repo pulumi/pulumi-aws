@@ -9,238 +9,84 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53Domains
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53Domains.Domain("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         AutoRenew = false,
-    ///         AdminContact = new Aws.Route53Domains.Inputs.DomainAdminContactArgs
-    ///         {
-    ///             AddressLine1 = "101 Main Street",
-    ///             City = "San Francisco",
-    ///             ContactType = "COMPANY",
-    ///             CountryCode = "US",
-    ///             Email = "pulumi-acctest@example.com",
-    ///             Fax = "+1.4155551234",
-    ///             FirstName = "Terraform",
-    ///             LastName = "Team",
-    ///             OrganizationName = "HashiCorp",
-    ///             PhoneNumber = "+1.4155551234",
-    ///             State = "CA",
-    ///             ZipCode = "94105",
-    ///         },
-    ///         RegistrantContact = new Aws.Route53Domains.Inputs.DomainRegistrantContactArgs
-    ///         {
-    ///             AddressLine1 = "101 Main Street",
-    ///             City = "San Francisco",
-    ///             ContactType = "COMPANY",
-    ///             CountryCode = "US",
-    ///             Email = "pulumi-acctest@example.com",
-    ///             Fax = "+1.4155551234",
-    ///             FirstName = "Terraform",
-    ///             LastName = "Team",
-    ///             OrganizationName = "HashiCorp",
-    ///             PhoneNumber = "+1.4155551234",
-    ///             State = "CA",
-    ///             ZipCode = "94105",
-    ///         },
-    ///         TechContact = new Aws.Route53Domains.Inputs.DomainTechContactArgs
-    ///         {
-    ///             AddressLine1 = "101 Main Street",
-    ///             City = "San Francisco",
-    ///             ContactType = "COMPANY",
-    ///             CountryCode = "US",
-    ///             Email = "pulumi-acctest@example.com",
-    ///             Fax = "+1.4155551234",
-    ///             FirstName = "Terraform",
-    ///             LastName = "Team",
-    ///             OrganizationName = "HashiCorp",
-    ///             PhoneNumber = "+1.4155551234",
-    ///             State = "CA",
-    ///             ZipCode = "94105",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import domains using the `domain_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53domains/domain:Domain example example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53domains/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-        /// </summary>
         [Output("abuseContactEmail")]
         public Output<string> AbuseContactEmail { get; private set; } = null!;
 
-        /// <summary>
-        /// Phone number for reporting abuse.
-        /// </summary>
         [Output("abuseContactPhone")]
         public Output<string> AbuseContactPhone { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the domain administrative contact. See Contact Blocks for more details.
-        /// </summary>
         [Output("adminContact")]
         public Output<Outputs.DomainAdminContact?> AdminContact { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Output("adminPrivacy")]
         public Output<bool> AdminPrivacy { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the domain registration is set to renew automatically. Default: `True`.
-        /// </summary>
         [Output("autoRenew")]
         public Output<bool> AutoRenew { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the domain billing contact. See Contact Blocks for more details.
-        /// </summary>
         [Output("billingContacts")]
         public Output<ImmutableArray<Outputs.DomainBillingContact>> BillingContacts { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Output("billingPrivacy")]
         public Output<bool> BillingPrivacy { get; private set; } = null!;
 
-        /// <summary>
-        /// The date when the domain was created as found in the response to a WHOIS query.
-        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the domain.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
-        /// </summary>
         [Output("durationInYears")]
         public Output<int> DurationInYears { get; private set; } = null!;
 
-        /// <summary>
-        /// The date when the registration for the domain is set to expire.
-        /// </summary>
         [Output("expirationDate")]
         public Output<string> ExpirationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the public Route 53 hosted zone created for the domain. This hosted zone is deleted when the domain is deregistered.
-        /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of nameservers for the domain. See `NameServer` Blocks for more details.
-        /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<Outputs.DomainNameServer>> NameServers { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the domain registrant. See Contact Blocks for more details.
-        /// </summary>
         [Output("registrantContact")]
         public Output<Outputs.DomainRegistrantContact?> RegistrantContact { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Output("registrantPrivacy")]
         public Output<bool> RegistrantPrivacy { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the registrar of the domain as identified in the registry.
-        /// </summary>
         [Output("registrarName")]
         public Output<string> RegistrarName { get; private set; } = null!;
 
-        /// <summary>
-        /// Web address of the registrar.
-        /// </summary>
         [Output("registrarUrl")]
         public Output<string> RegistrarUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-        /// </summary>
         [Output("statusLists")]
         public Output<ImmutableArray<string>> StatusLists { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the domain technical contact. See Contact Blocks for more details.
-        /// </summary>
         [Output("techContact")]
         public Output<Outputs.DomainTechContact?> TechContact { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Output("techPrivacy")]
         public Output<bool> TechPrivacy { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.DomainTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the domain is locked for transfer. Default: `True`.
-        /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `AdminPrivacy`, `RegistrantPrivacy` and `TechPrivacy`.
-        /// </summary>
         [Output("transferLock")]
         public Output<bool> TransferLock { get; private set; } = null!;
 
-        /// <summary>
-        /// The last updated date of the domain as found in the response to a WHOIS query.
-        /// </summary>
         [Output("updatedDate")]
         public Output<string> UpdatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-        /// </summary>
         [Output("whoisServer")]
         public Output<string> WhoisServer { get; private set; } = null!;
 
@@ -290,110 +136,63 @@ namespace Pulumi.Aws.Route53Domains
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details about the domain administrative contact. See Contact Blocks for more details.
-        /// </summary>
         [Input("adminContact")]
         public Input<Inputs.DomainAdminContactArgs>? AdminContact { get; set; }
 
-        /// <summary>
-        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("adminPrivacy")]
         public Input<bool>? AdminPrivacy { get; set; }
 
-        /// <summary>
-        /// Whether the domain registration is set to renew automatically. Default: `True`.
-        /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
 
         [Input("billingContacts")]
         private InputList<Inputs.DomainBillingContactArgs>? _billingContacts;
-
-        /// <summary>
-        /// Details about the domain billing contact. See Contact Blocks for more details.
-        /// </summary>
         public InputList<Inputs.DomainBillingContactArgs> BillingContacts
         {
             get => _billingContacts ?? (_billingContacts = new InputList<Inputs.DomainBillingContactArgs>());
             set => _billingContacts = value;
         }
 
-        /// <summary>
-        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("billingPrivacy")]
         public Input<bool>? BillingPrivacy { get; set; }
 
-        /// <summary>
-        /// The name of the domain.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
-        /// </summary>
         [Input("durationInYears")]
         public Input<int>? DurationInYears { get; set; }
 
         [Input("nameServers")]
         private InputList<Inputs.DomainNameServerArgs>? _nameServers;
-
-        /// <summary>
-        /// The list of nameservers for the domain. See `NameServer` Blocks for more details.
-        /// </summary>
         public InputList<Inputs.DomainNameServerArgs> NameServers
         {
             get => _nameServers ?? (_nameServers = new InputList<Inputs.DomainNameServerArgs>());
             set => _nameServers = value;
         }
 
-        /// <summary>
-        /// Details about the domain registrant. See Contact Blocks for more details.
-        /// </summary>
         [Input("registrantContact")]
         public Input<Inputs.DomainRegistrantContactArgs>? RegistrantContact { get; set; }
 
-        /// <summary>
-        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("registrantPrivacy")]
         public Input<bool>? RegistrantPrivacy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Details about the domain technical contact. See Contact Blocks for more details.
-        /// </summary>
         [Input("techContact")]
         public Input<Inputs.DomainTechContactArgs>? TechContact { get; set; }
 
-        /// <summary>
-        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("techPrivacy")]
         public Input<bool>? TechPrivacy { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.DomainTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Whether the domain is locked for transfer. Default: `True`.
-        /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `AdminPrivacy`, `RegistrantPrivacy` and `TechPrivacy`.
-        /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }
 
@@ -405,126 +204,69 @@ namespace Pulumi.Aws.Route53Domains
 
     public sealed class DomainState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-        /// </summary>
         [Input("abuseContactEmail")]
         public Input<string>? AbuseContactEmail { get; set; }
 
-        /// <summary>
-        /// Phone number for reporting abuse.
-        /// </summary>
         [Input("abuseContactPhone")]
         public Input<string>? AbuseContactPhone { get; set; }
 
-        /// <summary>
-        /// Details about the domain administrative contact. See Contact Blocks for more details.
-        /// </summary>
         [Input("adminContact")]
         public Input<Inputs.DomainAdminContactGetArgs>? AdminContact { get; set; }
 
-        /// <summary>
-        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("adminPrivacy")]
         public Input<bool>? AdminPrivacy { get; set; }
 
-        /// <summary>
-        /// Whether the domain registration is set to renew automatically. Default: `True`.
-        /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
 
         [Input("billingContacts")]
         private InputList<Inputs.DomainBillingContactGetArgs>? _billingContacts;
-
-        /// <summary>
-        /// Details about the domain billing contact. See Contact Blocks for more details.
-        /// </summary>
         public InputList<Inputs.DomainBillingContactGetArgs> BillingContacts
         {
             get => _billingContacts ?? (_billingContacts = new InputList<Inputs.DomainBillingContactGetArgs>());
             set => _billingContacts = value;
         }
 
-        /// <summary>
-        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("billingPrivacy")]
         public Input<bool>? BillingPrivacy { get; set; }
 
-        /// <summary>
-        /// The date when the domain was created as found in the response to a WHOIS query.
-        /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
-        /// <summary>
-        /// The name of the domain.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
-        /// </summary>
         [Input("durationInYears")]
         public Input<int>? DurationInYears { get; set; }
 
-        /// <summary>
-        /// The date when the registration for the domain is set to expire.
-        /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
 
-        /// <summary>
-        /// The ID of the public Route 53 hosted zone created for the domain. This hosted zone is deleted when the domain is deregistered.
-        /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 
         [Input("nameServers")]
         private InputList<Inputs.DomainNameServerGetArgs>? _nameServers;
-
-        /// <summary>
-        /// The list of nameservers for the domain. See `NameServer` Blocks for more details.
-        /// </summary>
         public InputList<Inputs.DomainNameServerGetArgs> NameServers
         {
             get => _nameServers ?? (_nameServers = new InputList<Inputs.DomainNameServerGetArgs>());
             set => _nameServers = value;
         }
 
-        /// <summary>
-        /// Details about the domain registrant. See Contact Blocks for more details.
-        /// </summary>
         [Input("registrantContact")]
         public Input<Inputs.DomainRegistrantContactGetArgs>? RegistrantContact { get; set; }
 
-        /// <summary>
-        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("registrantPrivacy")]
         public Input<bool>? RegistrantPrivacy { get; set; }
 
-        /// <summary>
-        /// Name of the registrar of the domain as identified in the registry.
-        /// </summary>
         [Input("registrarName")]
         public Input<string>? RegistrarName { get; set; }
 
-        /// <summary>
-        /// Web address of the registrar.
-        /// </summary>
         [Input("registrarUrl")]
         public Input<string>? RegistrarUrl { get; set; }
 
         [Input("statusLists")]
         private InputList<string>? _statusLists;
-
-        /// <summary>
-        /// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-        /// </summary>
         public InputList<string> StatusLists
         {
             get => _statusLists ?? (_statusLists = new InputList<string>());
@@ -533,10 +275,6 @@ namespace Pulumi.Aws.Route53Domains
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -545,48 +283,27 @@ namespace Pulumi.Aws.Route53Domains
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Details about the domain technical contact. See Contact Blocks for more details.
-        /// </summary>
         [Input("techContact")]
         public Input<Inputs.DomainTechContactGetArgs>? TechContact { get; set; }
 
-        /// <summary>
-        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.
-        /// </summary>
         [Input("techPrivacy")]
         public Input<bool>? TechPrivacy { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.DomainTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Whether the domain is locked for transfer. Default: `True`.
-        /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `AdminPrivacy`, `RegistrantPrivacy` and `TechPrivacy`.
-        /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }
 
-        /// <summary>
-        /// The last updated date of the domain as found in the response to a WHOIS query.
-        /// </summary>
         [Input("updatedDate")]
         public Input<string>? UpdatedDate { get; set; }
 
-        /// <summary>
-        /// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-        /// </summary>
         [Input("whoisServer")]
         public Input<string>? WhoisServer { get; set; }
 

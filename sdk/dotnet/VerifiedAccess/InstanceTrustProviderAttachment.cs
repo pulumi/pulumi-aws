@@ -9,67 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VerifiedAccess
 {
-    /// <summary>
-    /// Resource for managing a Verified Access Instance Trust Provider Attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.Instance("example");
-    /// 
-    ///     var exampleTrustProvider = new Aws.VerifiedAccess.TrustProvider("example", new()
-    ///     {
-    ///         DeviceTrustProviderType = "jamf",
-    ///         PolicyReferenceName = "example",
-    ///         TrustProviderType = "device",
-    ///         DeviceOptions = new Aws.VerifiedAccess.Inputs.TrustProviderDeviceOptionsArgs
-    ///         {
-    ///             TenantId = "example",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInstanceTrustProviderAttachment = new Aws.VerifiedAccess.InstanceTrustProviderAttachment("example", new()
-    ///     {
-    ///         VerifiedaccessInstanceId = example.Id,
-    ///         VerifiedaccessTrustProviderId = exampleTrustProvider.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment")]
     public partial class InstanceTrustProviderAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Verified Access instance to attach the Trust Provider to.
-        /// </summary>
         [Output("verifiedaccessInstanceId")]
         public Output<string> VerifiedaccessInstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Verified Access trust provider.
-        /// </summary>
         [Output("verifiedaccessTrustProviderId")]
         public Output<string> VerifiedaccessTrustProviderId { get; private set; } = null!;
 
@@ -119,21 +67,12 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class InstanceTrustProviderAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Verified Access instance to attach the Trust Provider to.
-        /// </summary>
         [Input("verifiedaccessInstanceId", required: true)]
         public Input<string> VerifiedaccessInstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the Verified Access trust provider.
-        /// </summary>
         [Input("verifiedaccessTrustProviderId", required: true)]
         public Input<string> VerifiedaccessTrustProviderId { get; set; } = null!;
 
@@ -145,21 +84,12 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class InstanceTrustProviderAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Verified Access instance to attach the Trust Provider to.
-        /// </summary>
         [Input("verifiedaccessInstanceId")]
         public Input<string>? VerifiedaccessInstanceId { get; set; }
 
-        /// <summary>
-        /// The ID of the Verified Access trust provider.
-        /// </summary>
         [Input("verifiedaccessTrustProviderId")]
         public Input<string>? VerifiedaccessTrustProviderId { get; set; }
 

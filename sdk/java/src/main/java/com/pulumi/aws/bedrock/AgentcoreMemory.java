@@ -17,254 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Bedrock AgentCore Memory. Memory provides persistent storage for AI agent interactions, allowing agents to retain context across conversations and sessions.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.bedrock.AgentcoreMemory;
- * import com.pulumi.aws.bedrock.AgentcoreMemoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("bedrock-agentcore.amazonaws.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var example = new Role("example", RoleArgs.builder()
- *             .name("bedrock-agentcore-memory-role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(example.name())
- *             .policyArn("arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
- *             .build());
- * 
- *         var exampleAgentcoreMemory = new AgentcoreMemory("exampleAgentcoreMemory", AgentcoreMemoryArgs.builder()
- *             .name("example_memory")
- *             .eventExpiryDuration(30)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Memory with Custom Encryption and Role
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.bedrock.AgentcoreMemory;
- * import com.pulumi.aws.bedrock.AgentcoreMemoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()
- *             .description("KMS key for Bedrock AgentCore Memory")
- *             .build());
- * 
- *         var exampleAgentcoreMemory = new AgentcoreMemory("exampleAgentcoreMemory", AgentcoreMemoryArgs.builder()
- *             .name("example_memory")
- *             .description("Memory for customer service agent")
- *             .eventExpiryDuration(60)
- *             .encryptionKeyArn(example.arn())
- *             .memoryExecutionRoleArn(exampleAwsIamRole.arn())
- *             .clientToken("unique-client-token")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentcoreMemory:AgentcoreMemory")
 public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Memory.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Memory.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the memory.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the memory.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-     * 
-     */
     @Export(name="encryptionKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptionKeyArn;
 
-    /**
-     * @return ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-     * 
-     */
     public Output<Optional<String>> encryptionKeyArn() {
         return Codegen.optional(this.encryptionKeyArn);
     }
-    /**
-     * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="eventExpiryDuration", refs={Integer.class}, tree="[0]")
     private Output<Integer> eventExpiryDuration;
 
-    /**
-     * @return Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> eventExpiryDuration() {
         return this.eventExpiryDuration;
     }
-    /**
-     * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-     * 
-     */
     @Export(name="memoryExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> memoryExecutionRoleArn;
 
-    /**
-     * @return ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-     * 
-     */
     public Output<Optional<String>> memoryExecutionRoleArn() {
         return Codegen.optional(this.memoryExecutionRoleArn);
     }
-    /**
-     * Name of the memory.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the memory.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -16,32 +16,16 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
 
     public static final ThemeConfigurationSheetTileLayoutArgs Empty = new ThemeConfigurationSheetTileLayoutArgs();
 
-    /**
-     * The gutter settings that apply between tiles. See gutter.
-     * 
-     */
     @Import(name="gutter")
     private @Nullable Output<ThemeConfigurationSheetTileLayoutGutterArgs> gutter;
 
-    /**
-     * @return The gutter settings that apply between tiles. See gutter.
-     * 
-     */
     public Optional<Output<ThemeConfigurationSheetTileLayoutGutterArgs>> gutter() {
         return Optional.ofNullable(this.gutter);
     }
 
-    /**
-     * The margin settings that apply around the outside edge of sheets. See margin.
-     * 
-     */
     @Import(name="margin")
     private @Nullable Output<ThemeConfigurationSheetTileLayoutMarginArgs> margin;
 
-    /**
-     * @return The margin settings that apply around the outside edge of sheets. See margin.
-     * 
-     */
     public Optional<Output<ThemeConfigurationSheetTileLayoutMarginArgs>> margin() {
         return Optional.ofNullable(this.margin);
     }
@@ -71,44 +55,20 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
             $ = new ThemeConfigurationSheetTileLayoutArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gutter The gutter settings that apply between tiles. See gutter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gutter(@Nullable Output<ThemeConfigurationSheetTileLayoutGutterArgs> gutter) {
             $.gutter = gutter;
             return this;
         }
 
-        /**
-         * @param gutter The gutter settings that apply between tiles. See gutter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gutter(ThemeConfigurationSheetTileLayoutGutterArgs gutter) {
             return gutter(Output.of(gutter));
         }
 
-        /**
-         * @param margin The margin settings that apply around the outside edge of sheets. See margin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder margin(@Nullable Output<ThemeConfigurationSheetTileLayoutMarginArgs> margin) {
             $.margin = margin;
             return this;
         }
 
-        /**
-         * @param margin The margin settings that apply around the outside edge of sheets. See margin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder margin(ThemeConfigurationSheetTileLayoutMarginArgs margin) {
             return margin(Output.of(margin));
         }

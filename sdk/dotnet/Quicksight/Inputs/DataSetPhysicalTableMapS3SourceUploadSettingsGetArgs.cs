@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetPhysicalTableMapS3SourceUploadSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the file has a header row, or the files each have a header row.
-        /// </summary>
         [Input("containsHeader")]
         public Input<bool>? ContainsHeader { get; set; }
 
-        /// <summary>
-        /// Delimiter between values in the file.
-        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
-        /// <summary>
-        /// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-        /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
-        /// <summary>
-        /// A row number to start reading data from.
-        /// </summary>
         [Input("startFromRow")]
         public Input<int>? StartFromRow { get; set; }
 
-        /// <summary>
-        /// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-        /// </summary>
         [Input("textQualifier")]
         public Input<string>? TextQualifier { get; set; }
 

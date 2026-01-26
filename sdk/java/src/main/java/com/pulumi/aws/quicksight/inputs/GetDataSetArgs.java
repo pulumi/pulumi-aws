@@ -24,32 +24,16 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Identifier for the data set.
-     * 
-     */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
-    /**
-     * @return Identifier for the data set.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -97,44 +81,20 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param dataSetId Identifier for the data set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(Output<String> dataSetId) {
             $.dataSetId = dataSetId;
             return this;
         }
 
-        /**
-         * @param dataSetId Identifier for the data set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -81,17 +81,11 @@ class GetDevEnvironmentResult:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> Optional[_builtins.str]:
-        """
-        The user-specified alias for the Dev Environment.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
     @pulumi.getter(name="creatorId")
     def creator_id(self) -> Optional[_builtins.str]:
-        """
-        The system-generated unique ID of the user who created the Dev Environment.
-        """
         return pulumi.get(self, "creator_id")
 
     @_builtins.property
@@ -110,41 +104,26 @@ class GetDevEnvironmentResult:
     @_builtins.property
     @pulumi.getter
     def ides(self) -> Sequence['outputs.GetDevEnvironmentIdeResult']:
-        """
-        Information about the integrated development environment (IDE) configured for a Dev Environment.
-        """
         return pulumi.get(self, "ides")
 
     @_builtins.property
     @pulumi.getter(name="inactivityTimeoutMinutes")
     def inactivity_timeout_minutes(self) -> _builtins.int:
-        """
-        The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        """
         return pulumi.get(self, "inactivity_timeout_minutes")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> _builtins.str:
-        """
-        The Amazon EC2 instace type to use for the Dev Environment.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> _builtins.str:
-        """
-        The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter(name="persistentStorages")
     def persistent_storages(self) -> Sequence['outputs.GetDevEnvironmentPersistentStorageResult']:
-        """
-        Information about the amount of storage allocated to the Dev Environment.
-        """
         return pulumi.get(self, "persistent_storages")
 
     @_builtins.property
@@ -160,9 +139,6 @@ class GetDevEnvironmentResult:
     @_builtins.property
     @pulumi.getter
     def repositories(self) -> Optional[Sequence['outputs.GetDevEnvironmentRepositoryResult']]:
-        """
-        The source repository that contains the branch to clone into the Dev Environment.
-        """
         return pulumi.get(self, "repositories")
 
     @_builtins.property
@@ -173,17 +149,11 @@ class GetDevEnvironmentResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> _builtins.str:
-        """
-        The reason for the status.
-        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
@@ -226,29 +196,7 @@ def get_dev_environment(alias: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevEnvironmentResult:
     """
-    Data source for managing an AWS CodeCatalyst Dev Environment.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecatalyst.get_dev_environment(space_name="myspace",
-        project_name="myproject",
-        env_id=example_aws_codecatalyst_dev_environment["id"])
-    ```
-
-
-    :param _builtins.str alias: The user-specified alias for the Dev Environment.
-    :param _builtins.str creator_id: The system-generated unique ID of the user who created the Dev Environment.
-    :param _builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-    :param _builtins.str project_name: The name of the project in the space.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
-    :param _builtins.str space_name: The name of the space.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alias'] = alias
@@ -289,29 +237,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[_builtins.s
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevEnvironmentResult]:
     """
-    Data source for managing an AWS CodeCatalyst Dev Environment.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecatalyst.get_dev_environment(space_name="myspace",
-        project_name="myproject",
-        env_id=example_aws_codecatalyst_dev_environment["id"])
-    ```
-
-
-    :param _builtins.str alias: The user-specified alias for the Dev Environment.
-    :param _builtins.str creator_id: The system-generated unique ID of the user who created the Dev Environment.
-    :param _builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-    :param _builtins.str project_name: The name of the project in the space.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
-    :param _builtins.str space_name: The name of the space.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alias'] = alias

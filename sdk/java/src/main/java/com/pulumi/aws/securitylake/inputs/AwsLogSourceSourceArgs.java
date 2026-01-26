@@ -17,68 +17,30 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
 
     public static final AwsLogSourceSourceArgs Empty = new AwsLogSourceSourceArgs();
 
-    /**
-     * Specify the AWS account information where you want to enable Security Lake.
-     * If not specified, uses all accounts included in the Security Lake.
-     * 
-     */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
-    /**
-     * @return Specify the AWS account information where you want to enable Security Lake.
-     * If not specified, uses all accounts included in the Security Lake.
-     * 
-     */
     public Optional<Output<List<String>>> accounts() {
         return Optional.ofNullable(this.accounts);
     }
 
-    /**
-     * Specify the Regions where you want to enable Security Lake.
-     * 
-     */
     @Import(name="regions", required=true)
     private Output<List<String>> regions;
 
-    /**
-     * @return Specify the Regions where you want to enable Security Lake.
-     * 
-     */
     public Output<List<String>> regions() {
         return this.regions;
     }
 
-    /**
-     * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-     * 
-     */
     @Import(name="sourceName", required=true)
     private Output<String> sourceName;
 
-    /**
-     * @return The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-     * 
-     */
     public Output<String> sourceName() {
         return this.sourceName;
     }
 
-    /**
-     * The version for a AWS source.
-     * If not specified, the version will be the default.
-     * This must be a Regionally unique value.
-     * 
-     */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
-    /**
-     * @return The version for a AWS source.
-     * If not specified, the version will be the default.
-     * This must be a Regionally unique value.
-     * 
-     */
     public Optional<Output<String>> sourceVersion() {
         return Optional.ofNullable(this.sourceVersion);
     }
@@ -110,113 +72,46 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
             $ = new AwsLogSourceSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accounts Specify the AWS account information where you want to enable Security Lake.
-         * If not specified, uses all accounts included in the Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(@Nullable Output<List<String>> accounts) {
             $.accounts = accounts;
             return this;
         }
 
-        /**
-         * @param accounts Specify the AWS account information where you want to enable Security Lake.
-         * If not specified, uses all accounts included in the Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(List<String> accounts) {
             return accounts(Output.of(accounts));
         }
 
-        /**
-         * @param accounts Specify the AWS account information where you want to enable Security Lake.
-         * If not specified, uses all accounts included in the Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(String... accounts) {
             return accounts(List.of(accounts));
         }
 
-        /**
-         * @param regions Specify the Regions where you want to enable Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions Specify the Regions where you want to enable Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions Specify the Regions where you want to enable Security Lake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
 
-        /**
-         * @param sourceName The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
-        /**
-         * @param sourceName The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }
 
-        /**
-         * @param sourceVersion The version for a AWS source.
-         * If not specified, the version will be the default.
-         * This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(@Nullable Output<String> sourceVersion) {
             $.sourceVersion = sourceVersion;
             return this;
         }
 
-        /**
-         * @param sourceVersion The version for a AWS source.
-         * If not specified, the version will be the default.
-         * This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(String sourceVersion) {
             return sourceVersion(Output.of(sourceVersion));
         }

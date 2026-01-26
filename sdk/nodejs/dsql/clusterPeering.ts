@@ -7,43 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon Aurora DSQL Cluster Peering.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example1 = new aws.dsql.Cluster("example_1", {multiRegionProperties: {
- *     witnessRegion: "us-west-2",
- * }});
- * const example2 = new aws.dsql.Cluster("example_2", {multiRegionProperties: {
- *     witnessRegion: "us-west-2",
- * }});
- * const example1ClusterPeering = new aws.dsql.ClusterPeering("example_1", {
- *     identifier: example1.identifier,
- *     clusters: [example2.arn],
- *     witnessRegion: example1.multiRegionProperties.apply(multiRegionProperties => multiRegionProperties?.witnessRegion),
- * });
- * const example2ClusterPeering = new aws.dsql.ClusterPeering("example_2", {
- *     identifier: example2.identifier,
- *     clusters: [example1.arn],
- *     witnessRegion: example2.multiRegionProperties.apply(multiRegionProperties => multiRegionProperties?.witnessRegion),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DSQL Cluster Peering using the `identifier`. For example:
- *
- * ```sh
- * $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678
- * ```
- */
 export class ClusterPeering extends pulumi.CustomResource {
     /**
      * Get an existing ClusterPeering resource's state with the given name, ID, and optional extra
@@ -72,22 +35,10 @@ export class ClusterPeering extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterPeering.__pulumiType;
     }
 
-    /**
-     * List of DSQL Cluster ARNs to be peered to this cluster.
-     */
     declare public readonly clusters: pulumi.Output<string[]>;
-    /**
-     * DSQL Cluster Identifier.
-     */
     declare public readonly identifier: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.dsql.ClusterPeeringTimeouts | undefined>;
-    /**
-     * Witness region for a multi-region cluster.
-     */
     declare public readonly witnessRegion: pulumi.Output<string>;
 
     /**
@@ -134,22 +85,10 @@ export class ClusterPeering extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterPeering resources.
  */
 export interface ClusterPeeringState {
-    /**
-     * List of DSQL Cluster ARNs to be peered to this cluster.
-     */
     clusters?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * DSQL Cluster Identifier.
-     */
     identifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.dsql.ClusterPeeringTimeouts>;
-    /**
-     * Witness region for a multi-region cluster.
-     */
     witnessRegion?: pulumi.Input<string>;
 }
 
@@ -157,21 +96,9 @@ export interface ClusterPeeringState {
  * The set of arguments for constructing a ClusterPeering resource.
  */
 export interface ClusterPeeringArgs {
-    /**
-     * List of DSQL Cluster ARNs to be peered to this cluster.
-     */
     clusters: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * DSQL Cluster Identifier.
-     */
     identifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.dsql.ClusterPeeringTimeouts>;
-    /**
-     * Witness region for a multi-region cluster.
-     */
     witnessRegion: pulumi.Input<string>;
 }

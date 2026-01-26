@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS SFN (Step Functions) State Machine Versions.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.GetStateMachineVersions(ctx, &sfn.GetStateMachineVersionsArgs{
-//				StatemachineArn: testAwsSfnStateMachine.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetStateMachineVersions(ctx *pulumi.Context, args *GetStateMachineVersionsArgs, opts ...pulumi.InvokeOption) (*GetStateMachineVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStateMachineVersionsResult
@@ -52,19 +23,16 @@ func GetStateMachineVersions(ctx *pulumi.Context, args *GetStateMachineVersionsA
 
 // A collection of arguments for invoking getStateMachineVersions.
 type GetStateMachineVersionsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the State Machine.
-	StatemachineArn string `pulumi:"statemachineArn"`
+	Region          *string `pulumi:"region"`
+	StatemachineArn string  `pulumi:"statemachineArn"`
 }
 
 // A collection of values returned by getStateMachineVersions.
 type GetStateMachineVersionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	Region          string `pulumi:"region"`
-	StatemachineArn string `pulumi:"statemachineArn"`
-	// ARN List identifying the statemachine versions.
+	Id                   string   `pulumi:"id"`
+	Region               string   `pulumi:"region"`
+	StatemachineArn      string   `pulumi:"statemachineArn"`
 	StatemachineVersions []string `pulumi:"statemachineVersions"`
 }
 
@@ -79,10 +47,8 @@ func GetStateMachineVersionsOutput(ctx *pulumi.Context, args GetStateMachineVers
 
 // A collection of arguments for invoking getStateMachineVersions.
 type GetStateMachineVersionsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ARN of the State Machine.
-	StatemachineArn pulumi.StringInput `pulumi:"statemachineArn"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
+	StatemachineArn pulumi.StringInput    `pulumi:"statemachineArn"`
 }
 
 func (GetStateMachineVersionsOutputArgs) ElementType() reflect.Type {
@@ -117,7 +83,6 @@ func (o GetStateMachineVersionsResultOutput) StatemachineArn() pulumi.StringOutp
 	return o.ApplyT(func(v GetStateMachineVersionsResult) string { return v.StatemachineArn }).(pulumi.StringOutput)
 }
 
-// ARN List identifying the statemachine versions.
 func (o GetStateMachineVersionsResultOutput) StatemachineVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetStateMachineVersionsResult) []string { return v.StatemachineVersions }).(pulumi.StringArrayOutput)
 }

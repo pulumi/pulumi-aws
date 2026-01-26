@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventEndpointRoutingConfigFailoverConfigPrimary
     {
-        /// <summary>
-        /// The ARN of the health check used by the endpoint to determine whether failover is triggered.
-        /// </summary>
         public readonly string? HealthCheck;
 
         [OutputConstructor]

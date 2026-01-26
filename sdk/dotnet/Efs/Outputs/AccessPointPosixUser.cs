@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class AccessPointPosixUser
     {
-        /// <summary>
-        /// POSIX group ID used for all file system operations using this access point.
-        /// </summary>
         public readonly int Gid;
-        /// <summary>
-        /// Secondary POSIX group IDs used for all file system operations using this access point.
-        /// </summary>
         public readonly ImmutableArray<int> SecondaryGids;
-        /// <summary>
-        /// POSIX user ID used for all file system operations using this access point.
-        /// </summary>
         public readonly int Uid;
 
         [OutputConstructor]

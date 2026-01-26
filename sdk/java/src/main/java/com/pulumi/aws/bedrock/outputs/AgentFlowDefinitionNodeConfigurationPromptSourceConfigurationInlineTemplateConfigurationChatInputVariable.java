@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
-    /**
-     * @return The name of the variable.
-     * 
-     */
     private String name;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable() {}
-    /**
-     * @return The name of the variable.
-     * 
-     */
     public String name() {
         return this.name;
     }

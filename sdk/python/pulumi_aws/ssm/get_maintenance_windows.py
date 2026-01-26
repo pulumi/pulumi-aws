@@ -58,9 +58,6 @@ class GetMaintenanceWindowsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of window IDs of the matched SSM maintenance windows.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -85,23 +82,7 @@ def get_maintenance_windows(filters: Optional[Sequence[Union['GetMaintenanceWind
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceWindowsResult:
     """
-    Use this data source to get the window IDs of SSM maintenance windows.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_maintenance_windows(filters=[{
-        "name": "Enabled",
-        "values": ["true"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -118,23 +99,7 @@ def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Seque
                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceWindowsResult]:
     """
-    Use this data source to get the window IDs of SSM maintenance windows.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_maintenance_windows(filters=[{
-        "name": "Enabled",
-        "values": ["true"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -66,17 +66,11 @@ class GetOpenZfsSnapshotResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name of the snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        Time that the resource was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
@@ -100,9 +94,6 @@ class GetOpenZfsSnapshotResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the snapshot.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -113,9 +104,6 @@ class GetOpenZfsSnapshotResult:
     @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> _builtins.str:
-        """
-        ID of the snapshot.
-        """
         return pulumi.get(self, "snapshot_id")
 
     @_builtins.property
@@ -126,17 +114,11 @@ class GetOpenZfsSnapshotResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        List of Tag values, with a maximum of 50 elements.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> _builtins.str:
-        """
-        ID of the volume that the snapshot is of.
-        """
         return pulumi.get(self, "volume_id")
 
 
@@ -167,31 +149,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenZfsSnapshotResult:
     """
-    Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-
-    ## Example Usage
-
-    ### Root volume Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_open_zfs_snapshot(most_recent=True,
-        filters=[{
-            "name": "volume-id",
-            "values": ["fsvol-073a32b6098a73feb"],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. The
-           supported names are file-system-id or volume-id.
-    :param _builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
-    :param _builtins.str name: Name of the snapshot.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[_builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
-    :param Mapping[str, _builtins.str] tags: List of Tag values, with a maximum of 50 elements.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -223,31 +181,7 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenZfsSnapshotResult]:
     """
-    Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-
-    ## Example Usage
-
-    ### Root volume Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_open_zfs_snapshot(most_recent=True,
-        filters=[{
-            "name": "volume-id",
-            "values": ["fsvol-073a32b6098a73feb"],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. The
-           supported names are file-system-id or volume-id.
-    :param _builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
-    :param _builtins.str name: Name of the snapshot.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[_builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
-    :param Mapping[str, _builtins.str] tags: List of Tag values, with a maximum of 50 elements.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

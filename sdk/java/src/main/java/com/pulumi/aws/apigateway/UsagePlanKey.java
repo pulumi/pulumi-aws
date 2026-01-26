@@ -13,160 +13,41 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an API Gateway Usage Plan Key.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.UsagePlan;
- * import com.pulumi.aws.apigateway.UsagePlanArgs;
- * import com.pulumi.aws.apigateway.inputs.UsagePlanApiStageArgs;
- * import com.pulumi.aws.apigateway.ApiKey;
- * import com.pulumi.aws.apigateway.ApiKeyArgs;
- * import com.pulumi.aws.apigateway.UsagePlanKey;
- * import com.pulumi.aws.apigateway.UsagePlanKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new RestApi("test", RestApiArgs.builder()
- *             .name("MyDemoAPI")
- *             .build());
- * 
- *         // ...
- *         var myusageplan = new UsagePlan("myusageplan", UsagePlanArgs.builder()
- *             .name("my_usage_plan")
- *             .apiStages(UsagePlanApiStageArgs.builder()
- *                 .apiId(test.id())
- *                 .stage(foo.stageName())
- *                 .build())
- *             .build());
- * 
- *         var mykey = new ApiKey("mykey", ApiKeyArgs.builder()
- *             .name("my_key")
- *             .build());
- * 
- *         var main = new UsagePlanKey("main", UsagePlanKeyArgs.builder()
- *             .keyId(mykey.id())
- *             .keyType("API_KEY")
- *             .usagePlanId(myusageplan.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/usagePlanKey:UsagePlanKey")
 public class UsagePlanKey extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier of the API key resource.
-     * 
-     */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
-    /**
-     * @return Identifier of the API key resource.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
-    /**
-     * Type of the API key resource. Currently, the valid key type is API_KEY.
-     * 
-     */
     @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
-    /**
-     * @return Type of the API key resource. Currently, the valid key type is API_KEY.
-     * 
-     */
     public Output<String> keyType() {
         return this.keyType;
     }
-    /**
-     * Name of a usage plan key.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of a usage plan key.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Id of the usage plan resource representing to associate the key to.
-     * 
-     */
     @Export(name="usagePlanId", refs={String.class}, tree="[0]")
     private Output<String> usagePlanId;
 
-    /**
-     * @return Id of the usage plan resource representing to associate the key to.
-     * 
-     */
     public Output<String> usagePlanId() {
         return this.usagePlanId;
     }
-    /**
-     * Value of a usage plan key.
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Value of a usage plan key.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

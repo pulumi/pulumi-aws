@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataSync.Inputs
 
     public sealed class LocationFsxOntapFileSystemProtocolNfsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-        /// </summary>
         [Input("mountOptions", required: true)]
         public Input<Inputs.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs> MountOptions { get; set; } = null!;
 

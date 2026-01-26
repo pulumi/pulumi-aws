@@ -12,127 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates and manages an AWS IoT CA Certificate.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi-tls/sdk/v5/go/tls"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			caPrivateKey, err := tls.NewPrivateKey(ctx, "ca", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ca, err := tls.NewSelfSignedCert(ctx, "ca", &tls.SelfSignedCertArgs{
-//				PrivateKeyPem: caPrivateKey.PrivateKeyPem,
-//				Subject: tls.SelfSignedCertSubjectArgs{
-//					map[string]interface{}{
-//						"commonName":   "example.com",
-//						"organization": "ACME Examples, Inc",
-//					},
-//				},
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
-//				},
-//				IsCaCertificate: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			verificationPrivateKey, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iot.GetRegistrationCode(ctx, &iot.GetRegistrationCodeArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			verification, err := tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
-//				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
-//				Subject: tls.CertRequestSubjectArgs{
-//					map[string]interface{}{
-//						"commonName": example.RegistrationCode,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			verificationLocallySignedCert, err := tls.NewLocallySignedCert(ctx, "verification", &tls.LocallySignedCertArgs{
-//				CertRequestPem:      verification.CertRequestPem,
-//				CaPrivateKeyPem:     caPrivateKey.PrivateKeyPem,
-//				CaCertPem:           ca.CertPem,
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewCaCertificate(ctx, "example", &iot.CaCertificateArgs{
-//				Active:                     pulumi.Bool(true),
-//				CaCertificatePem:           ca.CertPem,
-//				VerificationCertificatePem: verificationLocallySignedCert.CertPem,
-//				AllowAutoRegistration:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type CaCertificate struct {
 	pulumi.CustomResourceState
 
-	// Boolean flag to indicate if the certificate should be active for device authentication.
-	Active pulumi.BoolOutput `pulumi:"active"`
-	// Boolean flag to indicate if the certificate should be active for device regisration.
-	AllowAutoRegistration pulumi.BoolOutput `pulumi:"allowAutoRegistration"`
-	// The ARN of the created CA certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// PEM encoded CA certificate.
-	CaCertificatePem pulumi.StringOutput `pulumi:"caCertificatePem"`
-	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-	CertificateMode pulumi.StringPtrOutput `pulumi:"certificateMode"`
-	// The customer version of the CA certificate.
-	CustomerVersion pulumi.IntOutput `pulumi:"customerVersion"`
-	// The generation ID of the CA certificate.
-	GenerationId pulumi.StringOutput `pulumi:"generationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Information about the registration configuration. See below.
-	RegistrationConfig CaCertificateRegistrationConfigPtrOutput `pulumi:"registrationConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// When the CA certificate is valid.
-	Validities CaCertificateValidityArrayOutput `pulumi:"validities"`
-	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
-	VerificationCertificatePem pulumi.StringPtrOutput `pulumi:"verificationCertificatePem"`
+	Active                     pulumi.BoolOutput                        `pulumi:"active"`
+	AllowAutoRegistration      pulumi.BoolOutput                        `pulumi:"allowAutoRegistration"`
+	Arn                        pulumi.StringOutput                      `pulumi:"arn"`
+	CaCertificatePem           pulumi.StringOutput                      `pulumi:"caCertificatePem"`
+	CertificateMode            pulumi.StringPtrOutput                   `pulumi:"certificateMode"`
+	CustomerVersion            pulumi.IntOutput                         `pulumi:"customerVersion"`
+	GenerationId               pulumi.StringOutput                      `pulumi:"generationId"`
+	Region                     pulumi.StringOutput                      `pulumi:"region"`
+	RegistrationConfig         CaCertificateRegistrationConfigPtrOutput `pulumi:"registrationConfig"`
+	Tags                       pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	Validities                 CaCertificateValidityArrayOutput         `pulumi:"validities"`
+	VerificationCertificatePem pulumi.StringPtrOutput                   `pulumi:"verificationCertificatePem"`
 }
 
 // NewCaCertificate registers a new resource with the given unique name, arguments, and options.
@@ -185,62 +80,34 @@ func GetCaCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CaCertificate resources.
 type caCertificateState struct {
-	// Boolean flag to indicate if the certificate should be active for device authentication.
-	Active *bool `pulumi:"active"`
-	// Boolean flag to indicate if the certificate should be active for device regisration.
-	AllowAutoRegistration *bool `pulumi:"allowAutoRegistration"`
-	// The ARN of the created CA certificate.
-	Arn *string `pulumi:"arn"`
-	// PEM encoded CA certificate.
-	CaCertificatePem *string `pulumi:"caCertificatePem"`
-	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-	CertificateMode *string `pulumi:"certificateMode"`
-	// The customer version of the CA certificate.
-	CustomerVersion *int `pulumi:"customerVersion"`
-	// The generation ID of the CA certificate.
-	GenerationId *string `pulumi:"generationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Information about the registration configuration. See below.
-	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// When the CA certificate is valid.
-	Validities []CaCertificateValidity `pulumi:"validities"`
-	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
-	VerificationCertificatePem *string `pulumi:"verificationCertificatePem"`
+	Active                     *bool                            `pulumi:"active"`
+	AllowAutoRegistration      *bool                            `pulumi:"allowAutoRegistration"`
+	Arn                        *string                          `pulumi:"arn"`
+	CaCertificatePem           *string                          `pulumi:"caCertificatePem"`
+	CertificateMode            *string                          `pulumi:"certificateMode"`
+	CustomerVersion            *int                             `pulumi:"customerVersion"`
+	GenerationId               *string                          `pulumi:"generationId"`
+	Region                     *string                          `pulumi:"region"`
+	RegistrationConfig         *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
+	Tags                       map[string]string                `pulumi:"tags"`
+	TagsAll                    map[string]string                `pulumi:"tagsAll"`
+	Validities                 []CaCertificateValidity          `pulumi:"validities"`
+	VerificationCertificatePem *string                          `pulumi:"verificationCertificatePem"`
 }
 
 type CaCertificateState struct {
-	// Boolean flag to indicate if the certificate should be active for device authentication.
-	Active pulumi.BoolPtrInput
-	// Boolean flag to indicate if the certificate should be active for device regisration.
-	AllowAutoRegistration pulumi.BoolPtrInput
-	// The ARN of the created CA certificate.
-	Arn pulumi.StringPtrInput
-	// PEM encoded CA certificate.
-	CaCertificatePem pulumi.StringPtrInput
-	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-	CertificateMode pulumi.StringPtrInput
-	// The customer version of the CA certificate.
-	CustomerVersion pulumi.IntPtrInput
-	// The generation ID of the CA certificate.
-	GenerationId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Information about the registration configuration. See below.
-	RegistrationConfig CaCertificateRegistrationConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// When the CA certificate is valid.
-	Validities CaCertificateValidityArrayInput
-	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
+	Active                     pulumi.BoolPtrInput
+	AllowAutoRegistration      pulumi.BoolPtrInput
+	Arn                        pulumi.StringPtrInput
+	CaCertificatePem           pulumi.StringPtrInput
+	CertificateMode            pulumi.StringPtrInput
+	CustomerVersion            pulumi.IntPtrInput
+	GenerationId               pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
+	RegistrationConfig         CaCertificateRegistrationConfigPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
+	Validities                 CaCertificateValidityArrayInput
 	VerificationCertificatePem pulumi.StringPtrInput
 }
 
@@ -249,43 +116,25 @@ func (CaCertificateState) ElementType() reflect.Type {
 }
 
 type caCertificateArgs struct {
-	// Boolean flag to indicate if the certificate should be active for device authentication.
-	Active bool `pulumi:"active"`
-	// Boolean flag to indicate if the certificate should be active for device regisration.
-	AllowAutoRegistration bool `pulumi:"allowAutoRegistration"`
-	// PEM encoded CA certificate.
-	CaCertificatePem string `pulumi:"caCertificatePem"`
-	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-	CertificateMode *string `pulumi:"certificateMode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Information about the registration configuration. See below.
-	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
-	VerificationCertificatePem *string `pulumi:"verificationCertificatePem"`
+	Active                     bool                             `pulumi:"active"`
+	AllowAutoRegistration      bool                             `pulumi:"allowAutoRegistration"`
+	CaCertificatePem           string                           `pulumi:"caCertificatePem"`
+	CertificateMode            *string                          `pulumi:"certificateMode"`
+	Region                     *string                          `pulumi:"region"`
+	RegistrationConfig         *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
+	Tags                       map[string]string                `pulumi:"tags"`
+	VerificationCertificatePem *string                          `pulumi:"verificationCertificatePem"`
 }
 
 // The set of arguments for constructing a CaCertificate resource.
 type CaCertificateArgs struct {
-	// Boolean flag to indicate if the certificate should be active for device authentication.
-	Active pulumi.BoolInput
-	// Boolean flag to indicate if the certificate should be active for device regisration.
-	AllowAutoRegistration pulumi.BoolInput
-	// PEM encoded CA certificate.
-	CaCertificatePem pulumi.StringInput
-	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-	CertificateMode pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Information about the registration configuration. See below.
-	RegistrationConfig CaCertificateRegistrationConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// PEM encoded verification certificate containing the common name of a registration code. Review
-	// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
+	Active                     pulumi.BoolInput
+	AllowAutoRegistration      pulumi.BoolInput
+	CaCertificatePem           pulumi.StringInput
+	CertificateMode            pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
+	RegistrationConfig         CaCertificateRegistrationConfigPtrInput
+	Tags                       pulumi.StringMapInput
 	VerificationCertificatePem pulumi.StringPtrInput
 }
 
@@ -376,68 +225,54 @@ func (o CaCertificateOutput) ToCaCertificateOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Boolean flag to indicate if the certificate should be active for device authentication.
 func (o CaCertificateOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.BoolOutput { return v.Active }).(pulumi.BoolOutput)
 }
 
-// Boolean flag to indicate if the certificate should be active for device regisration.
 func (o CaCertificateOutput) AllowAutoRegistration() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.BoolOutput { return v.AllowAutoRegistration }).(pulumi.BoolOutput)
 }
 
-// The ARN of the created CA certificate.
 func (o CaCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// PEM encoded CA certificate.
 func (o CaCertificateOutput) CaCertificatePem() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.CaCertificatePem }).(pulumi.StringOutput)
 }
 
-// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 func (o CaCertificateOutput) CertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringPtrOutput { return v.CertificateMode }).(pulumi.StringPtrOutput)
 }
 
-// The customer version of the CA certificate.
 func (o CaCertificateOutput) CustomerVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.IntOutput { return v.CustomerVersion }).(pulumi.IntOutput)
 }
 
-// The generation ID of the CA certificate.
 func (o CaCertificateOutput) GenerationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.GenerationId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CaCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Information about the registration configuration. See below.
 func (o CaCertificateOutput) RegistrationConfig() CaCertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateRegistrationConfigPtrOutput { return v.RegistrationConfig }).(CaCertificateRegistrationConfigPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CaCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CaCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// When the CA certificate is valid.
 func (o CaCertificateOutput) Validities() CaCertificateValidityArrayOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateValidityArrayOutput { return v.Validities }).(CaCertificateValidityArrayOutput)
 }
 
-// PEM encoded verification certificate containing the common name of a registration code. Review
-// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
 func (o CaCertificateOutput) VerificationCertificatePem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringPtrOutput { return v.VerificationCertificatePem }).(pulumi.StringPtrOutput)
 }

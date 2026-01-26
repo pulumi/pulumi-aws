@@ -19,93 +19,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentRule {
-    /**
-     * @return Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-     * 
-     */
     private @Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations;
-    /**
-     * @return ID of a rule you want to assign.
-     * 
-     */
     private String id;
-    /**
-     * @return Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-     * 
-     */
     private @Nullable List<GetTrafficPolicyDocumentRuleItem> items;
-    /**
-     * @return Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-     * 
-     */
     private @Nullable List<GetTrafficPolicyDocumentRuleLocation> locations;
-    /**
-     * @return Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-     * 
-     */
     private @Nullable GetTrafficPolicyDocumentRulePrimary primary;
     private @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
-    /**
-     * @return Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-     * 
-     */
     private @Nullable GetTrafficPolicyDocumentRuleSecondary secondary;
-    /**
-     * @return Type of the rule.
-     * 
-     */
     private @Nullable String type;
 
     private GetTrafficPolicyDocumentRule() {}
-    /**
-     * @return Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-     * 
-     */
     public List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations() {
         return this.geoProximityLocations == null ? List.of() : this.geoProximityLocations;
     }
-    /**
-     * @return ID of a rule you want to assign.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-     * 
-     */
     public List<GetTrafficPolicyDocumentRuleItem> items() {
         return this.items == null ? List.of() : this.items;
     }
-    /**
-     * @return Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-     * 
-     */
     public List<GetTrafficPolicyDocumentRuleLocation> locations() {
         return this.locations == null ? List.of() : this.locations;
     }
-    /**
-     * @return Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-     * 
-     */
     public Optional<GetTrafficPolicyDocumentRulePrimary> primary() {
         return Optional.ofNullable(this.primary);
     }
     public List<GetTrafficPolicyDocumentRuleRegion> regions() {
         return this.regions == null ? List.of() : this.regions;
     }
-    /**
-     * @return Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-     * 
-     */
     public Optional<GetTrafficPolicyDocumentRuleSecondary> secondary() {
         return Optional.ofNullable(this.secondary);
     }
-    /**
-     * @return Type of the rule.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

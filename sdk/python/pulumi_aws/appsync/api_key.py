@@ -25,10 +25,6 @@ class ApiKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
-        :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         if description is None:
@@ -43,9 +39,6 @@ class ApiKeyArgs:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the associated AppSync API
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -55,9 +48,6 @@ class ApiKeyArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API key description. Defaults to "Managed by Pulumi".
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -67,9 +57,6 @@ class ApiKeyArgs:
     @_builtins.property
     @pulumi.getter
     def expires(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        """
         return pulumi.get(self, "expires")
 
     @expires.setter
@@ -79,9 +66,6 @@ class ApiKeyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,11 +84,6 @@ class _ApiKeyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
-        :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[_builtins.str] key: API key
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -124,9 +103,6 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the associated AppSync API
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -145,9 +121,6 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API key description. Defaults to "Managed by Pulumi".
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -157,9 +130,6 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter
     def expires(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        """
         return pulumi.get(self, "expires")
 
     @expires.setter
@@ -169,9 +139,6 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -181,9 +148,6 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -203,36 +167,9 @@ class ApiKey(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AppSync API Key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example")
-        example_api_key = aws.appsync.ApiKey("example",
-            api_id=example.id,
-            expires="2018-05-03T04:00:00Z")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -241,30 +178,7 @@ class ApiKey(pulumi.CustomResource):
                  args: ApiKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppSync API Key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example")
-        example_api_key = aws.appsync.ApiKey("example",
-            api_id=example.id,
-            expires="2018-05-03T04:00:00Z")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,11 +242,6 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[_builtins.str] key: API key
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -349,9 +258,6 @@ class ApiKey(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the associated AppSync API
-        """
         return pulumi.get(self, "api_id")
 
     @_builtins.property
@@ -362,32 +268,20 @@ class ApiKey(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        API key description. Defaults to "Managed by Pulumi".
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def expires(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        """
         return pulumi.get(self, "expires")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
-        """
-        API key
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

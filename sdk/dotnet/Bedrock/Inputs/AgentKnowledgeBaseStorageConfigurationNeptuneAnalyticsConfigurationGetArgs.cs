@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        /// </summary>
         [Input("fieldMapping")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingGetArgs>? FieldMapping { get; set; }
 
-        /// <summary>
-        /// ARN of the Neptune Analytics vector store.
-        /// </summary>
         [Input("graphArn", required: true)]
         public Input<string> GraphArn { get; set; } = null!;
 

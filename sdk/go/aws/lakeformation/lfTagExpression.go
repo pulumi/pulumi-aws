@@ -11,72 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Lake Formation LF Tag Expression.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("example"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewLfTagExpression(ctx, "example", &lakeformation.LfTagExpressionArgs{
-//				Name: pulumi.String("example"),
-//				Expressions: lakeformation.LfTagExpressionExpressionArray{
-//					&lakeformation.LfTagExpressionExpressionArgs{
-//						TagKey:    example.Key,
-//						TagValues: example.Values,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lake Formation LF Tag Expression using the `name,catalog_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:lakeformation/lfTagExpression:LfTagExpression example example-tag-expression,123456789012
-// ```
 type LfTagExpression struct {
 	pulumi.CustomResourceState
 
-	// ID of the Data Catalog. Defaults to the account ID if not specified.
+	// The ID of the Data Catalog.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Description of the LF-Tag Expression.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-	//
-	// The following arguments are optional:
+	// A description of the LF-Tag Expression.
+	Description pulumi.StringPtrOutput               `pulumi:"description"`
 	Expressions LfTagExpressionExpressionArrayOutput `pulumi:"expressions"`
-	// Name of the LF-Tag Expression.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The name of the LF-Tag Expression.
+	Name   pulumi.StringOutput `pulumi:"name"`
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -110,32 +54,24 @@ func GetLfTagExpression(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LfTagExpression resources.
 type lfTagExpressionState struct {
-	// ID of the Data Catalog. Defaults to the account ID if not specified.
+	// The ID of the Data Catalog.
 	CatalogId *string `pulumi:"catalogId"`
-	// Description of the LF-Tag Expression.
-	Description *string `pulumi:"description"`
-	// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-	//
-	// The following arguments are optional:
+	// A description of the LF-Tag Expression.
+	Description *string                     `pulumi:"description"`
 	Expressions []LfTagExpressionExpression `pulumi:"expressions"`
-	// Name of the LF-Tag Expression.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The name of the LF-Tag Expression.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 type LfTagExpressionState struct {
-	// ID of the Data Catalog. Defaults to the account ID if not specified.
+	// The ID of the Data Catalog.
 	CatalogId pulumi.StringPtrInput
-	// Description of the LF-Tag Expression.
+	// A description of the LF-Tag Expression.
 	Description pulumi.StringPtrInput
-	// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-	//
-	// The following arguments are optional:
 	Expressions LfTagExpressionExpressionArrayInput
-	// Name of the LF-Tag Expression.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The name of the LF-Tag Expression.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 }
 
@@ -144,33 +80,25 @@ func (LfTagExpressionState) ElementType() reflect.Type {
 }
 
 type lfTagExpressionArgs struct {
-	// ID of the Data Catalog. Defaults to the account ID if not specified.
+	// The ID of the Data Catalog.
 	CatalogId *string `pulumi:"catalogId"`
-	// Description of the LF-Tag Expression.
-	Description *string `pulumi:"description"`
-	// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-	//
-	// The following arguments are optional:
+	// A description of the LF-Tag Expression.
+	Description *string                     `pulumi:"description"`
 	Expressions []LfTagExpressionExpression `pulumi:"expressions"`
-	// Name of the LF-Tag Expression.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The name of the LF-Tag Expression.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LfTagExpression resource.
 type LfTagExpressionArgs struct {
-	// ID of the Data Catalog. Defaults to the account ID if not specified.
+	// The ID of the Data Catalog.
 	CatalogId pulumi.StringPtrInput
-	// Description of the LF-Tag Expression.
+	// A description of the LF-Tag Expression.
 	Description pulumi.StringPtrInput
-	// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-	//
-	// The following arguments are optional:
 	Expressions LfTagExpressionExpressionArrayInput
-	// Name of the LF-Tag Expression.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The name of the LF-Tag Expression.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 }
 
@@ -261,29 +189,25 @@ func (o LfTagExpressionOutput) ToLfTagExpressionOutputWithContext(ctx context.Co
 	return o
 }
 
-// ID of the Data Catalog. Defaults to the account ID if not specified.
+// The ID of the Data Catalog.
 func (o LfTagExpressionOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTagExpression) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Description of the LF-Tag Expression.
+// A description of the LF-Tag Expression.
 func (o LfTagExpressionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LfTagExpression) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-//
-// The following arguments are optional:
 func (o LfTagExpressionOutput) Expressions() LfTagExpressionExpressionArrayOutput {
 	return o.ApplyT(func(v *LfTagExpression) LfTagExpressionExpressionArrayOutput { return v.Expressions }).(LfTagExpressionExpressionArrayOutput)
 }
 
-// Name of the LF-Tag Expression.
+// The name of the LF-Tag Expression.
 func (o LfTagExpressionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTagExpression) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LfTagExpressionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTagExpression) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -17,260 +17,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages Cost and Usage Report Definitions.
- * 
- * &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cur.ReportDefinition;
- * import com.pulumi.aws.cur.ReportDefinitionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleCurReportDefinition = new ReportDefinition("exampleCurReportDefinition", ReportDefinitionArgs.builder()
- *             .reportName("example-cur-report-definition")
- *             .timeUnit("HOURLY")
- *             .format("textORcsv")
- *             .compression("GZIP")
- *             .additionalSchemaElements(            
- *                 "RESOURCES",
- *                 "SPLIT_COST_ALLOCATION_DATA")
- *             .s3Bucket("example-bucket-name")
- *             .s3Prefix("example-cur-report")
- *             .s3Region("us-east-1")
- *             .additionalArtifacts(            
- *                 "REDSHIFT",
- *                 "QUICKSIGHT")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Report Definitions using the `report_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
- * ```
- * 
- */
 @ResourceType(type="aws:cur/reportDefinition:ReportDefinition")
 public class ReportDefinition extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
-     * 
-     */
     @Export(name="additionalArtifacts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> additionalArtifacts;
 
-    /**
-     * @return A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
-     * 
-     */
     public Output<Optional<List<String>>> additionalArtifacts() {
         return Codegen.optional(this.additionalArtifacts);
     }
-    /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
-     * 
-     */
     @Export(name="additionalSchemaElements", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> additionalSchemaElements;
 
-    /**
-     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
-     * 
-     */
     public Output<List<String>> additionalSchemaElements() {
         return this.additionalSchemaElements;
     }
-    /**
-     * The Amazon Resource Name (ARN) specifying the cur report.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) specifying the cur report.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
-     * 
-     */
     @Export(name="compression", refs={String.class}, tree="[0]")
     private Output<String> compression;
 
-    /**
-     * @return Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
-     * 
-     */
     public Output<String> compression() {
         return this.compression;
     }
-    /**
-     * Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
-     * 
-     */
     @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
-    /**
-     * @return Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
-    /**
-     * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
-     * 
-     */
     @Export(name="refreshClosedReports", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> refreshClosedReports;
 
-    /**
-     * @return Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
-     * 
-     */
     public Output<Optional<Boolean>> refreshClosedReports() {
         return Codegen.optional(this.refreshClosedReports);
     }
-    /**
-     * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
-     * 
-     */
     @Export(name="reportName", refs={String.class}, tree="[0]")
     private Output<String> reportName;
 
-    /**
-     * @return Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
-     * 
-     */
     public Output<String> reportName() {
         return this.reportName;
     }
-    /**
-     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
-     * 
-     */
     @Export(name="reportVersioning", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> reportVersioning;
 
-    /**
-     * @return Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
-     * 
-     */
     public Output<Optional<String>> reportVersioning() {
         return Codegen.optional(this.reportVersioning);
     }
-    /**
-     * Name of the existing S3 bucket to hold generated reports.
-     * 
-     */
     @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output<String> s3Bucket;
 
-    /**
-     * @return Name of the existing S3 bucket to hold generated reports.
-     * 
-     */
     public Output<String> s3Bucket() {
         return this.s3Bucket;
     }
-    /**
-     * Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
-     * 
-     */
     @Export(name="s3Prefix", refs={String.class}, tree="[0]")
     private Output<String> s3Prefix;
 
-    /**
-     * @return Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
-     * 
-     */
     public Output<String> s3Prefix() {
         return this.s3Prefix;
     }
-    /**
-     * Region of the existing S3 bucket to hold generated reports.
-     * 
-     */
     @Export(name="s3Region", refs={String.class}, tree="[0]")
     private Output<String> s3Region;
 
-    /**
-     * @return Region of the existing S3 bucket to hold generated reports.
-     * 
-     */
     public Output<String> s3Region() {
         return this.s3Region;
     }
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
-     * 
-     */
     @Export(name="timeUnit", refs={String.class}, tree="[0]")
     private Output<String> timeUnit;
 
-    /**
-     * @return The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
-     * 
-     */
     public Output<String> timeUnit() {
         return this.timeUnit;
     }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-        /// </summary>
         [Input("egressConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationEgressConfigurationArgs>? EgressConfiguration { get; set; }
 
-        /// <summary>
-        /// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-        /// </summary>
         [Input("ingressConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationIngressConfigurationArgs>? IngressConfiguration { get; set; }
 
-        /// <summary>
-        /// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 

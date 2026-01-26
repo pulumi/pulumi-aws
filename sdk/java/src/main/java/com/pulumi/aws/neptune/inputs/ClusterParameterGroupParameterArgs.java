@@ -16,47 +16,23 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
 
     public static final ClusterParameterGroupParameterArgs Empty = new ClusterParameterGroupParameterArgs();
 
-    /**
-     * Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-     * 
-     */
     @Import(name="applyMethod")
     private @Nullable Output<String> applyMethod;
 
-    /**
-     * @return Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-     * 
-     */
     public Optional<Output<String>> applyMethod() {
         return Optional.ofNullable(this.applyMethod);
     }
 
-    /**
-     * The name of the neptune parameter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the neptune parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value of the neptune parameter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the neptune parameter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -87,65 +63,29 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
             $ = new ClusterParameterGroupParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applyMethod Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyMethod(@Nullable Output<String> applyMethod) {
             $.applyMethod = applyMethod;
             return this;
         }
 
-        /**
-         * @param applyMethod Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyMethod(String applyMethod) {
             return applyMethod(Output.of(applyMethod));
         }
 
-        /**
-         * @param name The name of the neptune parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the neptune parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value of the neptune parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the neptune parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS SQS (Simple Queue) Queues.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sqs.getQueues({
- *     queueNamePrefix: "example",
- * });
- * ```
- */
 export function getQueues(args?: GetQueuesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueuesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,13 +17,7 @@ export function getQueues(args?: GetQueuesArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getQueues.
  */
 export interface GetQueuesArgs {
-    /**
-     * A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-     */
     queueNamePrefix?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -52,28 +30,9 @@ export interface GetQueuesResult {
      */
     readonly id: string;
     readonly queueNamePrefix?: string;
-    /**
-     * A list of queue URLs.
-     */
     readonly queueUrls: string[];
     readonly region: string;
 }
-/**
- * Data source for managing an AWS SQS (Simple Queue) Queues.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sqs.getQueues({
- *     queueNamePrefix: "example",
- * });
- * ```
- */
 export function getQueuesOutput(args?: GetQueuesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueuesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,12 +46,6 @@ export function getQueuesOutput(args?: GetQueuesOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getQueues.
  */
 export interface GetQueuesOutputArgs {
-    /**
-     * A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-     */
     queueNamePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

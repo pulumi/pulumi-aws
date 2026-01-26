@@ -12,99 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewContactList(ctx, "example", &sesv2.ContactListArgs{
-//				ContactListName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Extended Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewContactList(ctx, "example", &sesv2.ContactListArgs{
-//				ContactListName: pulumi.String("example"),
-//				Description:     pulumi.String("description"),
-//				Topics: sesv2.ContactListTopicArray{
-//					&sesv2.ContactListTopicArgs{
-//						DefaultSubscriptionStatus: pulumi.String("OPT_IN"),
-//						Description:               pulumi.String("topic description"),
-//						DisplayName:               pulumi.String("Example Topic"),
-//						TopicName:                 pulumi.String("example-topic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/contactList:ContactList example example
-// ```
 type ContactList struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the contact list.
-	//
-	// The following arguments are optional:
-	ContactListName pulumi.StringOutput `pulumi:"contactListName"`
-	// Timestamp noting when the contact list was created in ISO 8601 format.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
-	// Description of what the contact list is about.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Timestamp noting the last time the contact list was updated in ISO 8601 format.
-	LastUpdatedTimestamp pulumi.StringOutput `pulumi:"lastUpdatedTimestamp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block(s) with topic for the contact list. Detailed below.
-	Topics ContactListTopicArrayOutput `pulumi:"topics"`
+	Arn                  pulumi.StringOutput         `pulumi:"arn"`
+	ContactListName      pulumi.StringOutput         `pulumi:"contactListName"`
+	CreatedTimestamp     pulumi.StringOutput         `pulumi:"createdTimestamp"`
+	Description          pulumi.StringPtrOutput      `pulumi:"description"`
+	LastUpdatedTimestamp pulumi.StringOutput         `pulumi:"lastUpdatedTimestamp"`
+	Region               pulumi.StringOutput         `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	Topics               ContactListTopicArrayOutput `pulumi:"topics"`
 }
 
 // NewContactList registers a new resource with the given unique name, arguments, and options.
@@ -140,45 +59,27 @@ func GetContactList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactList resources.
 type contactListState struct {
-	Arn *string `pulumi:"arn"`
-	// Name of the contact list.
-	//
-	// The following arguments are optional:
-	ContactListName *string `pulumi:"contactListName"`
-	// Timestamp noting when the contact list was created in ISO 8601 format.
-	CreatedTimestamp *string `pulumi:"createdTimestamp"`
-	// Description of what the contact list is about.
-	Description *string `pulumi:"description"`
-	// Timestamp noting the last time the contact list was updated in ISO 8601 format.
-	LastUpdatedTimestamp *string `pulumi:"lastUpdatedTimestamp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block(s) with topic for the contact list. Detailed below.
-	Topics []ContactListTopic `pulumi:"topics"`
+	Arn                  *string            `pulumi:"arn"`
+	ContactListName      *string            `pulumi:"contactListName"`
+	CreatedTimestamp     *string            `pulumi:"createdTimestamp"`
+	Description          *string            `pulumi:"description"`
+	LastUpdatedTimestamp *string            `pulumi:"lastUpdatedTimestamp"`
+	Region               *string            `pulumi:"region"`
+	Tags                 map[string]string  `pulumi:"tags"`
+	TagsAll              map[string]string  `pulumi:"tagsAll"`
+	Topics               []ContactListTopic `pulumi:"topics"`
 }
 
 type ContactListState struct {
-	Arn pulumi.StringPtrInput
-	// Name of the contact list.
-	//
-	// The following arguments are optional:
-	ContactListName pulumi.StringPtrInput
-	// Timestamp noting when the contact list was created in ISO 8601 format.
-	CreatedTimestamp pulumi.StringPtrInput
-	// Description of what the contact list is about.
-	Description pulumi.StringPtrInput
-	// Timestamp noting the last time the contact list was updated in ISO 8601 format.
+	Arn                  pulumi.StringPtrInput
+	ContactListName      pulumi.StringPtrInput
+	CreatedTimestamp     pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
 	LastUpdatedTimestamp pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// Configuration block(s) with topic for the contact list. Detailed below.
-	Topics ContactListTopicArrayInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	Topics               ContactListTopicArrayInput
 }
 
 func (ContactListState) ElementType() reflect.Type {
@@ -186,34 +87,20 @@ func (ContactListState) ElementType() reflect.Type {
 }
 
 type contactListArgs struct {
-	// Name of the contact list.
-	//
-	// The following arguments are optional:
-	ContactListName string `pulumi:"contactListName"`
-	// Description of what the contact list is about.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Configuration block(s) with topic for the contact list. Detailed below.
-	Topics []ContactListTopic `pulumi:"topics"`
+	ContactListName string             `pulumi:"contactListName"`
+	Description     *string            `pulumi:"description"`
+	Region          *string            `pulumi:"region"`
+	Tags            map[string]string  `pulumi:"tags"`
+	Topics          []ContactListTopic `pulumi:"topics"`
 }
 
 // The set of arguments for constructing a ContactList resource.
 type ContactListArgs struct {
-	// Name of the contact list.
-	//
-	// The following arguments are optional:
 	ContactListName pulumi.StringInput
-	// Description of what the contact list is about.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Configuration block(s) with topic for the contact list. Detailed below.
-	Topics ContactListTopicArrayInput
+	Description     pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	Topics          ContactListTopicArrayInput
 }
 
 func (ContactListArgs) ElementType() reflect.Type {
@@ -307,34 +194,26 @@ func (o ContactListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the contact list.
-//
-// The following arguments are optional:
 func (o ContactListOutput) ContactListName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.ContactListName }).(pulumi.StringOutput)
 }
 
-// Timestamp noting when the contact list was created in ISO 8601 format.
 func (o ContactListOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// Description of what the contact list is about.
 func (o ContactListOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp noting the last time the contact list was updated in ISO 8601 format.
 func (o ContactListOutput) LastUpdatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContactListOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContactListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -343,7 +222,6 @@ func (o ContactListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block(s) with topic for the contact list. Detailed below.
 func (o ContactListOutput) Topics() ContactListTopicArrayOutput {
 	return o.ApplyT(func(v *ContactList) ContactListTopicArrayOutput { return v.Topics }).(ContactListTopicArrayOutput)
 }

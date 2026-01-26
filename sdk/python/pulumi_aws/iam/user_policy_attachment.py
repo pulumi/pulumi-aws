@@ -23,8 +23,6 @@ class UserPolicyAttachmentArgs:
                  user: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserPolicyAttachment resource.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] user: The user the policy should be applied to
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
         pulumi.set(__self__, "user", user)
@@ -32,9 +30,6 @@ class UserPolicyAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -44,9 +39,6 @@ class UserPolicyAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def user(self) -> pulumi.Input[_builtins.str]:
-        """
-        The user the policy should be applied to
-        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -61,8 +53,6 @@ class _UserPolicyAttachmentState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPolicyAttachment resources.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] user: The user the policy should be applied to
         """
         if policy_arn is not None:
             pulumi.set(__self__, "policy_arn", policy_arn)
@@ -72,9 +62,6 @@ class _UserPolicyAttachmentState:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -84,9 +71,6 @@ class _UserPolicyAttachmentState:
     @_builtins.property
     @pulumi.getter
     def user(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user the policy should be applied to
-        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -104,38 +88,9 @@ class UserPolicyAttachment(pulumi.CustomResource):
                  user: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches a Managed IAM Policy to an IAM user
-
-        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user = aws.iam.User("user", name="test-user")
-        policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
-            policy="{ ... policy JSON ... }")
-        test_attach = aws.iam.UserPolicyAttachment("test-attach",
-            user=user.name,
-            policy_arn=policy.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
-
+        Create a UserPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] user: The user the policy should be applied to
         """
         ...
     @overload
@@ -144,34 +99,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
                  args: UserPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a Managed IAM Policy to an IAM user
-
-        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user = aws.iam.User("user", name="test-user")
-        policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
-            policy="{ ... policy JSON ... }")
-        test_attach = aws.iam.UserPolicyAttachment("test-attach",
-            user=user.name,
-            policy_arn=policy.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-        ```
-
+        Create a UserPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,8 +151,6 @@ class UserPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] user: The user the policy should be applied to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -237,16 +163,10 @@ class UserPolicyAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @_builtins.property
     @pulumi.getter
     def user(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user the policy should be applied to
-        """
         return pulumi.get(self, "user")
 

@@ -12,195 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Security Hub configuration policy
-//
-// > **NOTE:** This resource requires `securityhub.OrganizationConfiguration` to be configured of type `CENTRAL`. More information about Security Hub central configuration and configuration policies can be found in the [How Security Hub configuration policies work](https://docs.aws.amazon.com/securityhub/latest/userguide/configuration-policies-overview.html) documentation.
-//
-// ## Example Usage
-//
-// ### Default standards enabled
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("ALL_REGIONS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleOrganizationConfiguration, err := securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable:          pulumi.Bool(false),
-//				AutoEnableStandards: pulumi.String("NONE"),
-//				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
-//					ConfigurationType: pulumi.String("CENTRAL"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewConfigurationPolicy(ctx, "example", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Example"),
-//				Description: pulumi.String("This is an example configuration policy"),
-//				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
-//					ServiceEnabled: pulumi.Bool(true),
-//					EnabledStandardArns: pulumi.StringArray{
-//						pulumi.String("arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0"),
-//						pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-//					},
-//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
-//						DisabledControlIdentifiers: pulumi.StringArray{},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganizationConfiguration,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Disabled Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewConfigurationPolicy(ctx, "disabled", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Disabled"),
-//				Description: pulumi.String("This is an example of disabled configuration policy"),
-//				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
-//					ServiceEnabled: pulumi.Bool(false),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom Control Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewConfigurationPolicy(ctx, "disabled", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Custom Controls"),
-//				Description: pulumi.String("This is an example of configuration policy with custom control settings"),
-//				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
-//					ServiceEnabled: pulumi.Bool(true),
-//					EnabledStandardArns: pulumi.StringArray{
-//						pulumi.String("arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0"),
-//						pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-//					},
-//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
-//						EnabledControlIdentifiers: pulumi.StringArray{
-//							pulumi.String("APIGateway.1"),
-//							pulumi.String("IAM.7"),
-//						},
-//						SecurityControlCustomParameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray{
-//							&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{
-//								SecurityControlId: pulumi.String("APIGateway.1"),
-//								Parameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{
-//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
-//										Name:      pulumi.String("loggingLevel"),
-//										ValueType: pulumi.String("CUSTOM"),
-//										Enum: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs{
-//											Value: pulumi.String("INFO"),
-//										},
-//									},
-//								},
-//							},
-//							&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{
-//								SecurityControlId: pulumi.String("IAM.7"),
-//								Parameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{
-//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
-//										Name:      pulumi.String("RequireLowercaseCharacters"),
-//										ValueType: pulumi.String("CUSTOM"),
-//										Bool: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs{
-//											Value: pulumi.Bool(false),
-//										},
-//									},
-//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
-//										Name:      pulumi.String("MaxPasswordAge"),
-//										ValueType: pulumi.String("CUSTOM"),
-//										Int: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs{
-//											Value: pulumi.Int(60),
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an existing Security Hub enabled account using the universally unique identifier (UUID) of the policy. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/configurationPolicy:ConfigurationPolicy example "00000000-1111-2222-3333-444444444444"
-// ```
 type ConfigurationPolicy struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Defines how Security Hub is configured. See below.
+	Arn                 pulumi.StringOutput                          `pulumi:"arn"`
 	ConfigurationPolicy ConfigurationPolicyConfigurationPolicyOutput `pulumi:"configurationPolicy"`
-	// The description of the configuration policy.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the configuration policy.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Description         pulumi.StringPtrOutput                       `pulumi:"description"`
+	Name                pulumi.StringOutput                          `pulumi:"name"`
+	Region              pulumi.StringOutput                          `pulumi:"region"`
 }
 
 // NewConfigurationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -236,27 +55,19 @@ func GetConfigurationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationPolicy resources.
 type configurationPolicyState struct {
-	Arn *string `pulumi:"arn"`
-	// Defines how Security Hub is configured. See below.
+	Arn                 *string                                 `pulumi:"arn"`
 	ConfigurationPolicy *ConfigurationPolicyConfigurationPolicy `pulumi:"configurationPolicy"`
-	// The description of the configuration policy.
-	Description *string `pulumi:"description"`
-	// The name of the configuration policy.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Description         *string                                 `pulumi:"description"`
+	Name                *string                                 `pulumi:"name"`
+	Region              *string                                 `pulumi:"region"`
 }
 
 type ConfigurationPolicyState struct {
-	Arn pulumi.StringPtrInput
-	// Defines how Security Hub is configured. See below.
+	Arn                 pulumi.StringPtrInput
 	ConfigurationPolicy ConfigurationPolicyConfigurationPolicyPtrInput
-	// The description of the configuration policy.
-	Description pulumi.StringPtrInput
-	// The name of the configuration policy.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (ConfigurationPolicyState) ElementType() reflect.Type {
@@ -264,26 +75,18 @@ func (ConfigurationPolicyState) ElementType() reflect.Type {
 }
 
 type configurationPolicyArgs struct {
-	// Defines how Security Hub is configured. See below.
 	ConfigurationPolicy ConfigurationPolicyConfigurationPolicy `pulumi:"configurationPolicy"`
-	// The description of the configuration policy.
-	Description *string `pulumi:"description"`
-	// The name of the configuration policy.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Description         *string                                `pulumi:"description"`
+	Name                *string                                `pulumi:"name"`
+	Region              *string                                `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConfigurationPolicy resource.
 type ConfigurationPolicyArgs struct {
-	// Defines how Security Hub is configured. See below.
 	ConfigurationPolicy ConfigurationPolicyConfigurationPolicyInput
-	// The description of the configuration policy.
-	Description pulumi.StringPtrInput
-	// The name of the configuration policy.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (ConfigurationPolicyArgs) ElementType() reflect.Type {
@@ -377,24 +180,20 @@ func (o ConfigurationPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Defines how Security Hub is configured. See below.
 func (o ConfigurationPolicyOutput) ConfigurationPolicy() ConfigurationPolicyConfigurationPolicyOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) ConfigurationPolicyConfigurationPolicyOutput {
 		return v.ConfigurationPolicy
 	}).(ConfigurationPolicyConfigurationPolicyOutput)
 }
 
-// The description of the configuration policy.
 func (o ConfigurationPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the configuration policy.
 func (o ConfigurationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

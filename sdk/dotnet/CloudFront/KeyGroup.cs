@@ -9,75 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// The following example below creates a CloudFront key group.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.PublicKey("example", new()
-    ///     {
-    ///         Comment = "example public key",
-    ///         EncodedKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "public_key.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Name = "example-key",
-    ///     });
-    /// 
-    ///     var exampleKeyGroup = new Aws.CloudFront.KeyGroup("example", new()
-    ///     {
-    ///         Comment = "example key group",
-    ///         Items = new[]
-    ///         {
-    ///             example.Id,
-    ///         },
-    ///         Name = "example-key-group",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/keyGroup:KeyGroup")]
     public partial class KeyGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A comment to describe the key group..
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier for this version of the key group.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of the identifiers of the public keys in the key group.
-        /// </summary>
         [Output("items")]
         public Output<ImmutableArray<string>> Items { get; private set; } = null!;
 
-        /// <summary>
-        /// A name to identify the key group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -127,27 +70,17 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class KeyGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A comment to describe the key group..
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         [Input("items", required: true)]
         private InputList<string>? _items;
-
-        /// <summary>
-        /// A list of the identifiers of the public keys in the key group.
-        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());
             set => _items = value;
         }
 
-        /// <summary>
-        /// A name to identify the key group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -159,33 +92,20 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class KeyGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A comment to describe the key group..
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// The identifier for this version of the key group.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         [Input("items")]
         private InputList<string>? _items;
-
-        /// <summary>
-        /// A list of the identifiers of the public keys in the key group.
-        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());
             set => _items = value;
         }
 
-        /// <summary>
-        /// A name to identify the key group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

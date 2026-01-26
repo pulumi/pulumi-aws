@@ -16,32 +16,16 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs();
 
-    /**
-     * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-     * 
-     */
     @Import(name="authorizationServerMetadata")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs> authorizationServerMetadata;
 
-    /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>> authorizationServerMetadata() {
         return Optional.ofNullable(this.authorizationServerMetadata);
     }
 
-    /**
-     * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-     * 
-     */
     @Import(name="discoveryUrl")
     private @Nullable Output<String> discoveryUrl;
 
-    /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-     * 
-     */
     public Optional<Output<String>> discoveryUrl() {
         return Optional.ofNullable(this.discoveryUrl);
     }
@@ -71,44 +55,20 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationServerMetadata Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationServerMetadata(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs> authorizationServerMetadata) {
             $.authorizationServerMetadata = authorizationServerMetadata;
             return this;
         }
 
-        /**
-         * @param authorizationServerMetadata Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationServerMetadata(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs authorizationServerMetadata) {
             return authorizationServerMetadata(Output.of(authorizationServerMetadata));
         }
 
-        /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryUrl(@Nullable Output<String> discoveryUrl) {
             $.discoveryUrl = discoveryUrl;
             return this;
         }
 
-        /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryUrl(String discoveryUrl) {
             return discoveryUrl(Output.of(discoveryUrl));
         }

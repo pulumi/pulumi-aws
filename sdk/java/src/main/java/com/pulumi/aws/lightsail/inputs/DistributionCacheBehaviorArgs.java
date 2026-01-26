@@ -15,14 +15,14 @@ public final class DistributionCacheBehaviorArgs extends com.pulumi.resources.Re
     public static final DistributionCacheBehaviorArgs Empty = new DistributionCacheBehaviorArgs();
 
     /**
-     * Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
+     * The cache behavior for the specified path.
      * 
      */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
     /**
-     * @return Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
+     * @return The cache behavior for the specified path.
      * 
      */
     public Output<String> behavior() {
@@ -30,14 +30,14 @@ public final class DistributionCacheBehaviorArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
+     * The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
+     * @return The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
      * 
      */
     public Output<String> path() {
@@ -70,7 +70,7 @@ public final class DistributionCacheBehaviorArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param behavior Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
+         * @param behavior The cache behavior for the specified path.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DistributionCacheBehaviorArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param behavior Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
+         * @param behavior The cache behavior for the specified path.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class DistributionCacheBehaviorArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
+         * @param path The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DistributionCacheBehaviorArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
+         * @param path The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
          * 
          * @return builder
          * 

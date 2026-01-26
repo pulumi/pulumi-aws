@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranch
     {
-        /// <summary>
-        /// Configuration block for the next step in the conversation. See `NextStep`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep? NextStep;
-        /// <summary>
-        /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `Response`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponse? Response;
 
         [OutputConstructor]

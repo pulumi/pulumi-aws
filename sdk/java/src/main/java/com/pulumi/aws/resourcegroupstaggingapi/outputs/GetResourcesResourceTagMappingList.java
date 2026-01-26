@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResourcesResourceTagMappingList {
-    /**
-     * @return List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
-     * 
-     */
     private List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails;
-    /**
-     * @return ARN of the resource.
-     * 
-     */
     private String resourceArn;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetResourcesResourceTagMappingList() {}
-    /**
-     * @return List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
-     * 
-     */
     public List<GetResourcesResourceTagMappingListComplianceDetail> complianceDetails() {
         return this.complianceDetails;
     }
-    /**
-     * @return ARN of the resource.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

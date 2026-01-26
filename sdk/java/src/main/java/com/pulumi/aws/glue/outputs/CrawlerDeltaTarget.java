@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerDeltaTarget {
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     private @Nullable String connectionName;
-    /**
-     * @return Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
-     * 
-     */
     private @Nullable Boolean createNativeDeltaTable;
-    /**
-     * @return A list of the Amazon S3 paths to the Delta tables.
-     * 
-     */
     private List<String> deltaTables;
-    /**
-     * @return Specifies whether to write the manifest files to the Delta table path.
-     * 
-     */
     private Boolean writeManifest;
 
     private CrawlerDeltaTarget() {}
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
-    /**
-     * @return Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
-     * 
-     */
     public Optional<Boolean> createNativeDeltaTable() {
         return Optional.ofNullable(this.createNativeDeltaTable);
     }
-    /**
-     * @return A list of the Amazon S3 paths to the Delta tables.
-     * 
-     */
     public List<String> deltaTables() {
         return this.deltaTables;
     }
-    /**
-     * @return Specifies whether to write the manifest files to the Delta table path.
-     * 
-     */
     public Boolean writeManifest() {
         return this.writeManifest;
     }

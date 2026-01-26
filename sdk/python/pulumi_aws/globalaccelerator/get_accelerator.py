@@ -141,30 +141,7 @@ def get_accelerator(arn: Optional[_builtins.str] = None,
                     name: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAcceleratorResult:
     """
-    Provides information about a Global Accelerator accelerator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    accelerator_arn = config.get("acceleratorArn")
-    if accelerator_arn is None:
-        accelerator_arn = ""
-    accelerator_name = config.get("acceleratorName")
-    if accelerator_name is None:
-        accelerator_name = ""
-    example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
-        name=accelerator_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the Global Accelerator.
-    :param _builtins.str name: Unique name of the Global Accelerator.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -188,30 +165,7 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] 
                            name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
-    Provides information about a Global Accelerator accelerator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    accelerator_arn = config.get("acceleratorArn")
-    if accelerator_arn is None:
-        accelerator_arn = ""
-    accelerator_name = config.get("acceleratorName")
-    if accelerator_name is None:
-        accelerator_name = ""
-    example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
-        name=accelerator_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the Global Accelerator.
-    :param _builtins.str name: Unique name of the Global Accelerator.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

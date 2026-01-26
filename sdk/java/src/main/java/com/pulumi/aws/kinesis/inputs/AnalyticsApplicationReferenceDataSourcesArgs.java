@@ -18,62 +18,30 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
 
     public static final AnalyticsApplicationReferenceDataSourcesArgs Empty = new AnalyticsApplicationReferenceDataSourcesArgs();
 
-    /**
-     * The ARN of the Kinesis Analytics Application.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return The ARN of the Kinesis Analytics Application.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The S3 configuration for the reference data source. See S3 Reference below for more details.
-     * 
-     */
     @Import(name="s3", required=true)
     private Output<AnalyticsApplicationReferenceDataSourcesS3Args> s3;
 
-    /**
-     * @return The S3 configuration for the reference data source. See S3 Reference below for more details.
-     * 
-     */
     public Output<AnalyticsApplicationReferenceDataSourcesS3Args> s3() {
         return this.s3;
     }
 
-    /**
-     * The Schema format of the data in the streaming source. See Source Schema below for more details.
-     * 
-     */
     @Import(name="schema", required=true)
     private Output<AnalyticsApplicationReferenceDataSourcesSchemaArgs> schema;
 
-    /**
-     * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
-     * 
-     */
     public Output<AnalyticsApplicationReferenceDataSourcesSchemaArgs> schema() {
         return this.schema;
     }
 
-    /**
-     * The in-application Table Name.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The in-application Table Name.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -105,86 +73,38 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
             $ = new AnalyticsApplicationReferenceDataSourcesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The ARN of the Kinesis Analytics Application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The ARN of the Kinesis Analytics Application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param s3 The S3 configuration for the reference data source. See S3 Reference below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(Output<AnalyticsApplicationReferenceDataSourcesS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 The S3 configuration for the reference data source. See S3 Reference below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(AnalyticsApplicationReferenceDataSourcesS3Args s3) {
             return s3(Output.of(s3));
         }
 
-        /**
-         * @param schema The Schema format of the data in the streaming source. See Source Schema below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(Output<AnalyticsApplicationReferenceDataSourcesSchemaArgs> schema) {
             $.schema = schema;
             return this;
         }
 
-        /**
-         * @param schema The Schema format of the data in the streaming source. See Source Schema below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(AnalyticsApplicationReferenceDataSourcesSchemaArgs schema) {
             return schema(Output.of(schema));
         }
 
-        /**
-         * @param tableName The in-application Table Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The in-application Table Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

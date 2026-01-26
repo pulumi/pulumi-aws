@@ -54,13 +54,7 @@ MYPY = False
 if not MYPY:
     class AppAuthorizationConnectionAuthRequestArgsDict(TypedDict):
         code: pulumi.Input[_builtins.str]
-        """
-        The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-        """
         redirect_uri: pulumi.Input[_builtins.str]
-        """
-        The redirect URL that is specified in the AuthURL and the application client.
-        """
 elif False:
     AppAuthorizationConnectionAuthRequestArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -69,19 +63,12 @@ class AppAuthorizationConnectionAuthRequestArgs:
     def __init__(__self__, *,
                  code: pulumi.Input[_builtins.str],
                  redirect_uri: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] code: The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-        :param pulumi.Input[_builtins.str] redirect_uri: The redirect URL that is specified in the AuthURL and the application client.
-        """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "redirect_uri", redirect_uri)
 
     @_builtins.property
     @pulumi.getter
     def code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -91,9 +78,6 @@ class AppAuthorizationConnectionAuthRequestArgs:
     @_builtins.property
     @pulumi.getter(name="redirectUri")
     def redirect_uri(self) -> pulumi.Input[_builtins.str]:
-        """
-        The redirect URL that is specified in the AuthURL and the application client.
-        """
         return pulumi.get(self, "redirect_uri")
 
     @redirect_uri.setter
@@ -170,13 +154,7 @@ class AppAuthorizationConnectionTimeoutsArgs:
 if not MYPY:
     class AppAuthorizationCredentialArgsDict(TypedDict):
         api_key_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgsDict']]]]
-        """
-        Contains API key credential information.
-        """
         oauth2_credential: NotRequired[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgsDict']]
-        """
-        Contains OAuth2 client credential information.
-        """
 elif False:
     AppAuthorizationCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -185,10 +163,6 @@ class AppAuthorizationCredentialArgs:
     def __init__(__self__, *,
                  api_key_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]] = None,
                  oauth2_credential: Optional[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]] api_key_credentials: Contains API key credential information.
-        :param pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgs'] oauth2_credential: Contains OAuth2 client credential information.
-        """
         if api_key_credentials is not None:
             pulumi.set(__self__, "api_key_credentials", api_key_credentials)
         if oauth2_credential is not None:
@@ -197,9 +171,6 @@ class AppAuthorizationCredentialArgs:
     @_builtins.property
     @pulumi.getter(name="apiKeyCredentials")
     def api_key_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]]:
-        """
-        Contains API key credential information.
-        """
         return pulumi.get(self, "api_key_credentials")
 
     @api_key_credentials.setter
@@ -209,9 +180,6 @@ class AppAuthorizationCredentialArgs:
     @_builtins.property
     @pulumi.getter(name="oauth2Credential")
     def oauth2_credential(self) -> Optional[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgs']]:
-        """
-        Contains OAuth2 client credential information.
-        """
         return pulumi.get(self, "oauth2_credential")
 
     @oauth2_credential.setter
@@ -222,9 +190,6 @@ class AppAuthorizationCredentialArgs:
 if not MYPY:
     class AppAuthorizationCredentialApiKeyCredentialArgsDict(TypedDict):
         api_key: pulumi.Input[_builtins.str]
-        """
-        Contains API key credential information.
-        """
 elif False:
     AppAuthorizationCredentialApiKeyCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -232,17 +197,11 @@ elif False:
 class AppAuthorizationCredentialApiKeyCredentialArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] api_key: Contains API key credential information.
-        """
         pulumi.set(__self__, "api_key", api_key)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Contains API key credential information.
-        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -253,13 +212,7 @@ class AppAuthorizationCredentialApiKeyCredentialArgs:
 if not MYPY:
     class AppAuthorizationCredentialOauth2CredentialArgsDict(TypedDict):
         client_id: pulumi.Input[_builtins.str]
-        """
-        The client ID of the client application.
-        """
         client_secret: pulumi.Input[_builtins.str]
-        """
-        The client secret of the client application.
-        """
 elif False:
     AppAuthorizationCredentialOauth2CredentialArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -268,19 +221,12 @@ class AppAuthorizationCredentialOauth2CredentialArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] client_id: The client ID of the client application.
-        :param pulumi.Input[_builtins.str] client_secret: The client secret of the client application.
-        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The client ID of the client application.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -290,9 +236,6 @@ class AppAuthorizationCredentialOauth2CredentialArgs:
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[_builtins.str]:
-        """
-        The client secret of the client application.
-        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -303,13 +246,7 @@ class AppAuthorizationCredentialOauth2CredentialArgs:
 if not MYPY:
     class AppAuthorizationTenantArgsDict(TypedDict):
         tenant_display_name: pulumi.Input[_builtins.str]
-        """
-        The display name of the tenant.
-        """
         tenant_identifier: pulumi.Input[_builtins.str]
-        """
-        The ID of the application tenant.
-        """
 elif False:
     AppAuthorizationTenantArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -318,19 +255,12 @@ class AppAuthorizationTenantArgs:
     def __init__(__self__, *,
                  tenant_display_name: pulumi.Input[_builtins.str],
                  tenant_identifier: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] tenant_display_name: The display name of the tenant.
-        :param pulumi.Input[_builtins.str] tenant_identifier: The ID of the application tenant.
-        """
         pulumi.set(__self__, "tenant_display_name", tenant_display_name)
         pulumi.set(__self__, "tenant_identifier", tenant_identifier)
 
     @_builtins.property
     @pulumi.getter(name="tenantDisplayName")
     def tenant_display_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The display name of the tenant.
-        """
         return pulumi.get(self, "tenant_display_name")
 
     @tenant_display_name.setter
@@ -340,9 +270,6 @@ class AppAuthorizationTenantArgs:
     @_builtins.property
     @pulumi.getter(name="tenantIdentifier")
     def tenant_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the application tenant.
-        """
         return pulumi.get(self, "tenant_identifier")
 
     @tenant_identifier.setter
@@ -425,9 +352,6 @@ class AppAuthorizationTimeoutsArgs:
 if not MYPY:
     class IngestionDestinationDestinationConfigurationArgsDict(TypedDict):
         audit_log: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgsDict']]
-        """
-        Contains information about an audit log processing configuration.
-        """
 elif False:
     IngestionDestinationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -435,18 +359,12 @@ elif False:
 class IngestionDestinationDestinationConfigurationArgs:
     def __init__(__self__, *,
                  audit_log: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']] = None):
-        """
-        :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs'] audit_log: Contains information about an audit log processing configuration.
-        """
         if audit_log is not None:
             pulumi.set(__self__, "audit_log", audit_log)
 
     @_builtins.property
     @pulumi.getter(name="auditLog")
     def audit_log(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgs']]:
-        """
-        Contains information about an audit log processing configuration.
-        """
         return pulumi.get(self, "audit_log")
 
     @audit_log.setter
@@ -457,9 +375,6 @@ class IngestionDestinationDestinationConfigurationArgs:
 if not MYPY:
     class IngestionDestinationDestinationConfigurationAuditLogArgsDict(TypedDict):
         destination: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict']]
-        """
-        Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-        """
 elif False:
     IngestionDestinationDestinationConfigurationAuditLogArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -467,18 +382,12 @@ elif False:
 class IngestionDestinationDestinationConfigurationAuditLogArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']] = None):
-        """
-        :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs'] destination: Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-        """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgs']]:
-        """
-        Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -489,13 +398,7 @@ class IngestionDestinationDestinationConfigurationAuditLogArgs:
 if not MYPY:
     class IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict(TypedDict):
         firehose_stream: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict']]
-        """
-        Contains information about an Amazon Data Firehose delivery stream.
-        """
         s3_bucket: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict']]
-        """
-        Contains information about an Amazon S3 bucket.
-        """
 elif False:
     IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -504,10 +407,6 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs:
     def __init__(__self__, *,
                  firehose_stream: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']] = None,
                  s3_bucket: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']] = None):
-        """
-        :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs'] firehose_stream: Contains information about an Amazon Data Firehose delivery stream.
-        :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs'] s3_bucket: Contains information about an Amazon S3 bucket.
-        """
         if firehose_stream is not None:
             pulumi.set(__self__, "firehose_stream", firehose_stream)
         if s3_bucket is not None:
@@ -516,9 +415,6 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="firehoseStream")
     def firehose_stream(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']]:
-        """
-        Contains information about an Amazon Data Firehose delivery stream.
-        """
         return pulumi.get(self, "firehose_stream")
 
     @firehose_stream.setter
@@ -528,9 +424,6 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']]:
-        """
-        Contains information about an Amazon S3 bucket.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -564,9 +457,6 @@ if not MYPY:
     class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict(TypedDict):
         bucket_name: pulumi.Input[_builtins.str]
         prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object key to use.
-        """
 elif False:
     IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -575,9 +465,6 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArg
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] prefix: The object key to use.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -594,9 +481,6 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArg
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The object key to use.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -607,9 +491,6 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArg
 if not MYPY:
     class IngestionDestinationProcessingConfigurationArgsDict(TypedDict):
         audit_log: NotRequired[pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgsDict']]
-        """
-        Contains information about an audit log processing configuration.
-        """
 elif False:
     IngestionDestinationProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -617,18 +498,12 @@ elif False:
 class IngestionDestinationProcessingConfigurationArgs:
     def __init__(__self__, *,
                  audit_log: Optional[pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']] = None):
-        """
-        :param pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs'] audit_log: Contains information about an audit log processing configuration.
-        """
         if audit_log is not None:
             pulumi.set(__self__, "audit_log", audit_log)
 
     @_builtins.property
     @pulumi.getter(name="auditLog")
     def audit_log(self) -> Optional[pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgs']]:
-        """
-        Contains information about an audit log processing configuration.
-        """
         return pulumi.get(self, "audit_log")
 
     @audit_log.setter
@@ -639,13 +514,7 @@ class IngestionDestinationProcessingConfigurationArgs:
 if not MYPY:
     class IngestionDestinationProcessingConfigurationAuditLogArgsDict(TypedDict):
         format: pulumi.Input[_builtins.str]
-        """
-        The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-        """
         schema: pulumi.Input[_builtins.str]
-        """
-        The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-        """
 elif False:
     IngestionDestinationProcessingConfigurationAuditLogArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -654,19 +523,12 @@ class IngestionDestinationProcessingConfigurationAuditLogArgs:
     def __init__(__self__, *,
                  format: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] format: The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-        :param pulumi.Input[_builtins.str] schema: The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-        """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "schema", schema)
 
     @_builtins.property
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
-        """
-        The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -676,9 +538,6 @@ class IngestionDestinationProcessingConfigurationAuditLogArgs:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> pulumi.Input[_builtins.str]:
-        """
-        The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter

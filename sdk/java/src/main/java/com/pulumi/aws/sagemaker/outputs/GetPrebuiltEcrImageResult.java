@@ -20,15 +20,7 @@ public final class GetPrebuiltEcrImageResult {
     private String id;
     private @Nullable String imageTag;
     private String region;
-    /**
-     * @return Account ID containing the image. For example, `469771592824`.
-     * 
-     */
     private String registryId;
-    /**
-     * @return Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
-     * 
-     */
     private String registryPath;
     private String repositoryName;
 
@@ -49,17 +41,9 @@ public final class GetPrebuiltEcrImageResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Account ID containing the image. For example, `469771592824`.
-     * 
-     */
     public String registryId() {
         return this.registryId;
     }
-    /**
-     * @return Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
-     * 
-     */
     public String registryPath() {
         return this.registryPath;
     }

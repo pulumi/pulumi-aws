@@ -24,9 +24,6 @@ class VpnGatewayAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpnGatewayAttachment resource.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
@@ -36,9 +33,6 @@ class VpnGatewayAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -48,9 +42,6 @@ class VpnGatewayAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Virtual Private Gateway.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -60,9 +51,6 @@ class VpnGatewayAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _VpnGatewayAttachmentState:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnGatewayAttachment resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -92,9 +77,6 @@ class _VpnGatewayAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,9 +86,6 @@ class _VpnGatewayAttachmentState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -116,9 +95,6 @@ class _VpnGatewayAttachmentState:
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Virtual Private Gateway.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -137,41 +113,9 @@ class VpnGatewayAttachment(pulumi.CustomResource):
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Virtual Private Gateway attachment resource, allowing for an existing
-        hardware VPN gateway to be attached and/or detached from a VPC.
-
-        > **Note:** The `ec2.VpnGateway`
-        resource can also automatically attach the Virtual Private Gateway it creates
-        to an existing VPC by setting the `vpc_id` attribute accordingly.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        network = aws.ec2.Vpc("network", cidr_block="10.0.0.0/16")
-        vpn = aws.ec2.VpnGateway("vpn", tags={
-            "Name": "example-vpn-gateway",
-        })
-        vpn_attachment = aws.ec2.VpnGatewayAttachment("vpn_attachment",
-            vpc_id=network.id,
-            vpn_gateway_id=vpn.id)
-        ```
-
-        See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
-        and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
-        guides for more information.
-
-        ## Import
-
-        You cannot import this resource.
-
+        Create a VpnGatewayAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         ...
     @overload
@@ -180,36 +124,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
                  args: VpnGatewayAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Virtual Private Gateway attachment resource, allowing for an existing
-        hardware VPN gateway to be attached and/or detached from a VPC.
-
-        > **Note:** The `ec2.VpnGateway`
-        resource can also automatically attach the Virtual Private Gateway it creates
-        to an existing VPC by setting the `vpc_id` attribute accordingly.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        network = aws.ec2.Vpc("network", cidr_block="10.0.0.0/16")
-        vpn = aws.ec2.VpnGateway("vpn", tags={
-            "Name": "example-vpn-gateway",
-        })
-        vpn_attachment = aws.ec2.VpnGatewayAttachment("vpn_attachment",
-            vpc_id=network.id,
-            vpn_gateway_id=vpn.id)
-        ```
-
-        See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
-        and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
-        guides for more information.
-
-        ## Import
-
-        You cannot import this resource.
-
+        Create a VpnGatewayAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpnGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,9 +179,6 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,24 +192,15 @@ class VpnGatewayAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Virtual Private Gateway.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 

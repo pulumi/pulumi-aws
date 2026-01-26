@@ -15,98 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an App Runner Deployment Operation.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.Deployment;
- * import com.pulumi.aws.apprunner.DeploymentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Deployment("example", DeploymentArgs.builder()
- *             .serviceArn(exampleAwsApprunnerService.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:apprunner/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
-    /**
-     * The unique ID of the operation associated with deployment.
-     * 
-     */
     @Export(name="operationId", refs={String.class}, tree="[0]")
     private Output<String> operationId;
 
-    /**
-     * @return The unique ID of the operation associated with deployment.
-     * 
-     */
     public Output<String> operationId() {
         return this.operationId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-     * 
-     */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-     * 
-     */
     public Output<String> serviceArn() {
         return this.serviceArn;
     }
-    /**
-     * The current status of the App Runner service deployment.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The current status of the App Runner service deployment.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

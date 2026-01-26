@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailTopicPolicyConfigTopicsConfig
     {
-        /// <summary>
-        /// Definition of topic in topic policy.
-        /// </summary>
         public readonly string Definition;
-        /// <summary>
-        /// List of text examples.
-        /// </summary>
         public readonly ImmutableArray<string> Examples;
-        /// <summary>
-        /// Name of topic in topic policy.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Type of topic in a policy.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

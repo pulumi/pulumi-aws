@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsNielsenConfiguration {
-    /**
-     * @return Enter the Distributor ID assigned to your organization by Nielsen.
-     * 
-     */
     private @Nullable String distributorId;
-    /**
-     * @return Enables Nielsen PCM to ID3 tagging.
-     * 
-     */
     private @Nullable String nielsenPcmToId3Tagging;
 
     private ChannelEncoderSettingsNielsenConfiguration() {}
-    /**
-     * @return Enter the Distributor ID assigned to your organization by Nielsen.
-     * 
-     */
     public Optional<String> distributorId() {
         return Optional.ofNullable(this.distributorId);
     }
-    /**
-     * @return Enables Nielsen PCM to ID3 tagging.
-     * 
-     */
     public Optional<String> nielsenPcmToId3Tagging() {
         return Optional.ofNullable(this.nielsenPcmToId3Tagging);
     }

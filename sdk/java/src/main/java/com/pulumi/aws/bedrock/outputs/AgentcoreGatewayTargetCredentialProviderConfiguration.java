@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
-    /**
-     * @return API key-based authentication configuration. See `apiKey` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationApiKey apiKey;
-    /**
-     * @return Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole gatewayIamRole;
-    /**
-     * @return OAuth-based authentication configuration. See `oauth` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationOauth oauth;
 
     private AgentcoreGatewayTargetCredentialProviderConfiguration() {}
-    /**
-     * @return API key-based authentication configuration. See `apiKey` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationApiKey> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
-    /**
-     * @return Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole> gatewayIamRole() {
         return Optional.ofNullable(this.gatewayIamRole);
     }
-    /**
-     * @return OAuth-based authentication configuration. See `oauth` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationOauth> oauth() {
         return Optional.ofNullable(this.oauth);
     }

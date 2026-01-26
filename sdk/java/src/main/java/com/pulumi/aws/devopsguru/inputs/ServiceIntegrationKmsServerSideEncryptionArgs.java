@@ -15,47 +15,23 @@ public final class ServiceIntegrationKmsServerSideEncryptionArgs extends com.pul
 
     public static final ServiceIntegrationKmsServerSideEncryptionArgs Empty = new ServiceIntegrationKmsServerSideEncryptionArgs();
 
-    /**
-     * KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     @Import(name="optInStatus")
     private @Nullable Output<String> optInStatus;
 
-    /**
-     * @return Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     public Optional<Output<String>> optInStatus() {
         return Optional.ofNullable(this.optInStatus);
     }
 
-    /**
-     * Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -86,65 +62,29 @@ public final class ServiceIntegrationKmsServerSideEncryptionArgs extends com.pul
             $ = new ServiceIntegrationKmsServerSideEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param optInStatus Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(@Nullable Output<String> optInStatus) {
             $.optInStatus = optInStatus;
             return this;
         }
 
-        /**
-         * @param optInStatus Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(String optInStatus) {
             return optInStatus(Output.of(optInStatus));
         }
 
-        /**
-         * @param type Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

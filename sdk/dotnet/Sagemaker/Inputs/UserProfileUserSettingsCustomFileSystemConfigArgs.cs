@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("efsFileSystemConfigs")]
         private InputList<Inputs.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>? _efsFileSystemConfigs;
-
-        /// <summary>
-        /// The default EBS storage settings for a private space. See EFS File System Config below.
-        /// </summary>
         public InputList<Inputs.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs> EfsFileSystemConfigs
         {
             get => _efsFileSystemConfigs ?? (_efsFileSystemConfigs = new InputList<Inputs.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>());

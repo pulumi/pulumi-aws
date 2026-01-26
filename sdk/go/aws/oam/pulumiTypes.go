@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LinkLinkConfiguration struct {
-	// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
 	LogGroupConfiguration *LinkLinkConfigurationLogGroupConfiguration `pulumi:"logGroupConfiguration"`
-	// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-	MetricConfiguration *LinkLinkConfigurationMetricConfiguration `pulumi:"metricConfiguration"`
+	MetricConfiguration   *LinkLinkConfigurationMetricConfiguration   `pulumi:"metricConfiguration"`
 }
 
 // LinkLinkConfigurationInput is an input type that accepts LinkLinkConfigurationArgs and LinkLinkConfigurationOutput values.
@@ -32,10 +30,8 @@ type LinkLinkConfigurationInput interface {
 }
 
 type LinkLinkConfigurationArgs struct {
-	// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
 	LogGroupConfiguration LinkLinkConfigurationLogGroupConfigurationPtrInput `pulumi:"logGroupConfiguration"`
-	// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-	MetricConfiguration LinkLinkConfigurationMetricConfigurationPtrInput `pulumi:"metricConfiguration"`
+	MetricConfiguration   LinkLinkConfigurationMetricConfigurationPtrInput   `pulumi:"metricConfiguration"`
 }
 
 func (LinkLinkConfigurationArgs) ElementType() reflect.Type {
@@ -115,14 +111,12 @@ func (o LinkLinkConfigurationOutput) ToLinkLinkConfigurationPtrOutputWithContext
 	}).(LinkLinkConfigurationPtrOutput)
 }
 
-// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
 func (o LinkLinkConfigurationOutput) LogGroupConfiguration() LinkLinkConfigurationLogGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v LinkLinkConfiguration) *LinkLinkConfigurationLogGroupConfiguration {
 		return v.LogGroupConfiguration
 	}).(LinkLinkConfigurationLogGroupConfigurationPtrOutput)
 }
 
-// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
 func (o LinkLinkConfigurationOutput) MetricConfiguration() LinkLinkConfigurationMetricConfigurationPtrOutput {
 	return o.ApplyT(func(v LinkLinkConfiguration) *LinkLinkConfigurationMetricConfiguration { return v.MetricConfiguration }).(LinkLinkConfigurationMetricConfigurationPtrOutput)
 }
@@ -151,7 +145,6 @@ func (o LinkLinkConfigurationPtrOutput) Elem() LinkLinkConfigurationOutput {
 	}).(LinkLinkConfigurationOutput)
 }
 
-// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
 func (o LinkLinkConfigurationPtrOutput) LogGroupConfiguration() LinkLinkConfigurationLogGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v *LinkLinkConfiguration) *LinkLinkConfigurationLogGroupConfiguration {
 		if v == nil {
@@ -161,7 +154,6 @@ func (o LinkLinkConfigurationPtrOutput) LogGroupConfiguration() LinkLinkConfigur
 	}).(LinkLinkConfigurationLogGroupConfigurationPtrOutput)
 }
 
-// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
 func (o LinkLinkConfigurationPtrOutput) MetricConfiguration() LinkLinkConfigurationMetricConfigurationPtrOutput {
 	return o.ApplyT(func(v *LinkLinkConfiguration) *LinkLinkConfigurationMetricConfiguration {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o LinkLinkConfigurationPtrOutput) MetricConfiguration() LinkLinkConfigurat
 }
 
 type LinkLinkConfigurationLogGroupConfiguration struct {
-	// Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
 	Filter string `pulumi:"filter"`
 }
 
@@ -188,7 +179,6 @@ type LinkLinkConfigurationLogGroupConfigurationInput interface {
 }
 
 type LinkLinkConfigurationLogGroupConfigurationArgs struct {
-	// Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -269,7 +259,6 @@ func (o LinkLinkConfigurationLogGroupConfigurationOutput) ToLinkLinkConfiguratio
 	}).(LinkLinkConfigurationLogGroupConfigurationPtrOutput)
 }
 
-// Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
 func (o LinkLinkConfigurationLogGroupConfigurationOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkLinkConfigurationLogGroupConfiguration) string { return v.Filter }).(pulumi.StringOutput)
 }
@@ -298,7 +287,6 @@ func (o LinkLinkConfigurationLogGroupConfigurationPtrOutput) Elem() LinkLinkConf
 	}).(LinkLinkConfigurationLogGroupConfigurationOutput)
 }
 
-// Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
 func (o LinkLinkConfigurationLogGroupConfigurationPtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkLinkConfigurationLogGroupConfiguration) *string {
 		if v == nil {
@@ -309,7 +297,6 @@ func (o LinkLinkConfigurationLogGroupConfigurationPtrOutput) Filter() pulumi.Str
 }
 
 type LinkLinkConfigurationMetricConfiguration struct {
-	// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 	Filter string `pulumi:"filter"`
 }
 
@@ -325,7 +312,6 @@ type LinkLinkConfigurationMetricConfigurationInput interface {
 }
 
 type LinkLinkConfigurationMetricConfigurationArgs struct {
-	// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -406,7 +392,6 @@ func (o LinkLinkConfigurationMetricConfigurationOutput) ToLinkLinkConfigurationM
 	}).(LinkLinkConfigurationMetricConfigurationPtrOutput)
 }
 
-// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 func (o LinkLinkConfigurationMetricConfigurationOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkLinkConfigurationMetricConfiguration) string { return v.Filter }).(pulumi.StringOutput)
 }
@@ -435,7 +420,6 @@ func (o LinkLinkConfigurationMetricConfigurationPtrOutput) Elem() LinkLinkConfig
 	}).(LinkLinkConfigurationMetricConfigurationOutput)
 }
 
-// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 func (o LinkLinkConfigurationMetricConfigurationPtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkLinkConfigurationMetricConfiguration) *string {
 		if v == nil {
@@ -446,10 +430,8 @@ func (o LinkLinkConfigurationMetricConfigurationPtrOutput) Filter() pulumi.Strin
 }
 
 type GetLinkLinkConfiguration struct {
-	// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
 	LogGroupConfigurations []GetLinkLinkConfigurationLogGroupConfiguration `pulumi:"logGroupConfigurations"`
-	// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-	MetricConfigurations []GetLinkLinkConfigurationMetricConfiguration `pulumi:"metricConfigurations"`
+	MetricConfigurations   []GetLinkLinkConfigurationMetricConfiguration   `pulumi:"metricConfigurations"`
 }
 
 // GetLinkLinkConfigurationInput is an input type that accepts GetLinkLinkConfigurationArgs and GetLinkLinkConfigurationOutput values.
@@ -464,10 +446,8 @@ type GetLinkLinkConfigurationInput interface {
 }
 
 type GetLinkLinkConfigurationArgs struct {
-	// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
 	LogGroupConfigurations GetLinkLinkConfigurationLogGroupConfigurationArrayInput `pulumi:"logGroupConfigurations"`
-	// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
-	MetricConfigurations GetLinkLinkConfigurationMetricConfigurationArrayInput `pulumi:"metricConfigurations"`
+	MetricConfigurations   GetLinkLinkConfigurationMetricConfigurationArrayInput   `pulumi:"metricConfigurations"`
 }
 
 func (GetLinkLinkConfigurationArgs) ElementType() reflect.Type {
@@ -521,14 +501,12 @@ func (o GetLinkLinkConfigurationOutput) ToGetLinkLinkConfigurationOutputWithCont
 	return o
 }
 
-// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
 func (o GetLinkLinkConfigurationOutput) LogGroupConfigurations() GetLinkLinkConfigurationLogGroupConfigurationArrayOutput {
 	return o.ApplyT(func(v GetLinkLinkConfiguration) []GetLinkLinkConfigurationLogGroupConfiguration {
 		return v.LogGroupConfigurations
 	}).(GetLinkLinkConfigurationLogGroupConfigurationArrayOutput)
 }
 
-// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
 func (o GetLinkLinkConfigurationOutput) MetricConfigurations() GetLinkLinkConfigurationMetricConfigurationArrayOutput {
 	return o.ApplyT(func(v GetLinkLinkConfiguration) []GetLinkLinkConfigurationMetricConfiguration {
 		return v.MetricConfigurations
@@ -556,7 +534,6 @@ func (o GetLinkLinkConfigurationArrayOutput) Index(i pulumi.IntInput) GetLinkLin
 }
 
 type GetLinkLinkConfigurationLogGroupConfiguration struct {
-	// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 	Filter string `pulumi:"filter"`
 }
 
@@ -572,7 +549,6 @@ type GetLinkLinkConfigurationLogGroupConfigurationInput interface {
 }
 
 type GetLinkLinkConfigurationLogGroupConfigurationArgs struct {
-	// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -627,7 +603,6 @@ func (o GetLinkLinkConfigurationLogGroupConfigurationOutput) ToGetLinkLinkConfig
 	return o
 }
 
-// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 func (o GetLinkLinkConfigurationLogGroupConfigurationOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinkLinkConfigurationLogGroupConfiguration) string { return v.Filter }).(pulumi.StringOutput)
 }
@@ -653,7 +628,6 @@ func (o GetLinkLinkConfigurationLogGroupConfigurationArrayOutput) Index(i pulumi
 }
 
 type GetLinkLinkConfigurationMetricConfiguration struct {
-	// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 	Filter string `pulumi:"filter"`
 }
 
@@ -669,7 +643,6 @@ type GetLinkLinkConfigurationMetricConfigurationInput interface {
 }
 
 type GetLinkLinkConfigurationMetricConfigurationArgs struct {
-	// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -724,7 +697,6 @@ func (o GetLinkLinkConfigurationMetricConfigurationOutput) ToGetLinkLinkConfigur
 	return o
 }
 
-// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
 func (o GetLinkLinkConfigurationMetricConfigurationOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinkLinkConfigurationMetricConfiguration) string { return v.Filter }).(pulumi.StringOutput)
 }

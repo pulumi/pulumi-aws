@@ -17,64 +17,30 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
 
     public static final ListenerMutualAuthenticationArgs Empty = new ListenerMutualAuthenticationArgs();
 
-    /**
-     * Valid values are `off` and `on`.
-     * 
-     */
     @Import(name="advertiseTrustStoreCaNames")
     private @Nullable Output<String> advertiseTrustStoreCaNames;
 
-    /**
-     * @return Valid values are `off` and `on`.
-     * 
-     */
     public Optional<Output<String>> advertiseTrustStoreCaNames() {
         return Optional.ofNullable(this.advertiseTrustStoreCaNames);
     }
 
-    /**
-     * Whether client certificate expiry is ignored.
-     * Default is `false`.
-     * 
-     */
     @Import(name="ignoreClientCertificateExpiry")
     private @Nullable Output<Boolean> ignoreClientCertificateExpiry;
 
-    /**
-     * @return Whether client certificate expiry is ignored.
-     * Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> ignoreClientCertificateExpiry() {
         return Optional.ofNullable(this.ignoreClientCertificateExpiry);
     }
 
-    /**
-     * Valid values are `off`, `passthrough`, and `verify`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return Valid values are `off`, `passthrough`, and `verify`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
 
-    /**
-     * ARN of the elbv2 Trust Store.
-     * 
-     */
     @Import(name="trustStoreArn")
     private @Nullable Output<String> trustStoreArn;
 
-    /**
-     * @return ARN of the elbv2 Trust Store.
-     * 
-     */
     public Optional<Output<String>> trustStoreArn() {
         return Optional.ofNullable(this.trustStoreArn);
     }
@@ -106,88 +72,38 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
             $ = new ListenerMutualAuthenticationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param advertiseTrustStoreCaNames Valid values are `off` and `on`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advertiseTrustStoreCaNames(@Nullable Output<String> advertiseTrustStoreCaNames) {
             $.advertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
             return this;
         }
 
-        /**
-         * @param advertiseTrustStoreCaNames Valid values are `off` and `on`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advertiseTrustStoreCaNames(String advertiseTrustStoreCaNames) {
             return advertiseTrustStoreCaNames(Output.of(advertiseTrustStoreCaNames));
         }
 
-        /**
-         * @param ignoreClientCertificateExpiry Whether client certificate expiry is ignored.
-         * Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreClientCertificateExpiry(@Nullable Output<Boolean> ignoreClientCertificateExpiry) {
             $.ignoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             return this;
         }
 
-        /**
-         * @param ignoreClientCertificateExpiry Whether client certificate expiry is ignored.
-         * Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreClientCertificateExpiry(Boolean ignoreClientCertificateExpiry) {
             return ignoreClientCertificateExpiry(Output.of(ignoreClientCertificateExpiry));
         }
 
-        /**
-         * @param mode Valid values are `off`, `passthrough`, and `verify`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode Valid values are `off`, `passthrough`, and `verify`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param trustStoreArn ARN of the elbv2 Trust Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreArn(@Nullable Output<String> trustStoreArn) {
             $.trustStoreArn = trustStoreArn;
             return this;
         }
 
-        /**
-         * @param trustStoreArn ARN of the elbv2 Trust Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreArn(String trustStoreArn) {
             return trustStoreArn(Output.of(trustStoreArn));
         }

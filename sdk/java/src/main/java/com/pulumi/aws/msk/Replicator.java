@@ -18,108 +18,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Managed Streaming for Kafka Replicator.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.msk.Replicator;
- * import com.pulumi.aws.msk.ReplicatorArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Replicator("test", ReplicatorArgs.builder()
- *             .replicatorName("test-name")
- *             .description("test-description")
- *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
- *             .kafkaClusters(            
- *                 ReplicatorKafkaClusterArgs.builder()
- *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
- *                         .mskClusterArn(source.arn())
- *                         .build())
- *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
- *                         .subnetIds(sourceAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                         .securityGroupsIds(sourceAwsSecurityGroup.id())
- *                         .build())
- *                     .build(),
- *                 ReplicatorKafkaClusterArgs.builder()
- *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
- *                         .mskClusterArn(target.arn())
- *                         .build())
- *                     .vpcConfig(ReplicatorKafkaClusterVpcConfigArgs.builder()
- *                         .subnetIds(targetAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                         .securityGroupsIds(targetAwsSecurityGroup.id())
- *                         .build())
- *                     .build())
- *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
- *                 .sourceKafkaClusterArn(source.arn())
- *                 .targetKafkaClusterArn(target.arn())
- *                 .targetCompressionType("NONE")
- *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
- *                     .topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs.builder()
- *                         .type("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
- *                         .build())
- *                     .topicsToReplicates(".*")
- *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
- *                         .type("LATEST")
- *                         .build())
- *                     .build())
- *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
- *                     .consumerGroupsToReplicates(".*")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- * 
- */
 @ResourceType(type="aws:msk/replicator:Replicator")
 public class Replicator extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Replicator.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Replicator.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -129,115 +32,51 @@ public class Replicator extends com.pulumi.resources.CustomResource {
     public Output<String> currentVersion() {
         return this.currentVersion;
     }
-    /**
-     * A summary description of the replicator.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A summary description of the replicator.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * A list of Kafka clusters which are targets of the replicator.
-     * 
-     */
     @Export(name="kafkaClusters", refs={List.class,ReplicatorKafkaCluster.class}, tree="[0,1]")
     private Output<List<ReplicatorKafkaCluster>> kafkaClusters;
 
-    /**
-     * @return A list of Kafka clusters which are targets of the replicator.
-     * 
-     */
     public Output<List<ReplicatorKafkaCluster>> kafkaClusters() {
         return this.kafkaClusters;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
-     * 
-     */
     @Export(name="replicationInfoList", refs={ReplicatorReplicationInfoList.class}, tree="[0]")
     private Output<ReplicatorReplicationInfoList> replicationInfoList;
 
-    /**
-     * @return A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
-     * 
-     */
     public Output<ReplicatorReplicationInfoList> replicationInfoList() {
         return this.replicationInfoList;
     }
-    /**
-     * The name of the replicator.
-     * 
-     */
     @Export(name="replicatorName", refs={String.class}, tree="[0]")
     private Output<String> replicatorName;
 
-    /**
-     * @return The name of the replicator.
-     * 
-     */
     public Output<String> replicatorName() {
         return this.replicatorName;
     }
-    /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
-     * 
-     */
     @Export(name="serviceExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRoleArn;
 
-    /**
-     * @return The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
-     * 
-     */
     public Output<String> serviceExecutionRoleArn() {
         return this.serviceExecutionRoleArn;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -12,24 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
-// ```
 type RecordsExclusive struct {
 	pulumi.CustomResourceState
 
-	// A list of all resource record sets associated with the hosted zone.
-	// See `resourceRecordSet` below.
 	ResourceRecordSets RecordsExclusiveResourceRecordSetArrayOutput `pulumi:"resourceRecordSets"`
 	Timeouts           RecordsExclusiveTimeoutsPtrOutput            `pulumi:"timeouts"`
-	// ID of the hosted zone containing the resource record sets.
-	//
-	// The following arguments are optional:
-	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
+	ZoneId             pulumi.StringOutput                          `pulumi:"zoneId"`
 }
 
 // NewRecordsExclusive registers a new resource with the given unique name, arguments, and options.
@@ -65,25 +53,15 @@ func GetRecordsExclusive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecordsExclusive resources.
 type recordsExclusiveState struct {
-	// A list of all resource record sets associated with the hosted zone.
-	// See `resourceRecordSet` below.
 	ResourceRecordSets []RecordsExclusiveResourceRecordSet `pulumi:"resourceRecordSets"`
 	Timeouts           *RecordsExclusiveTimeouts           `pulumi:"timeouts"`
-	// ID of the hosted zone containing the resource record sets.
-	//
-	// The following arguments are optional:
-	ZoneId *string `pulumi:"zoneId"`
+	ZoneId             *string                             `pulumi:"zoneId"`
 }
 
 type RecordsExclusiveState struct {
-	// A list of all resource record sets associated with the hosted zone.
-	// See `resourceRecordSet` below.
 	ResourceRecordSets RecordsExclusiveResourceRecordSetArrayInput
 	Timeouts           RecordsExclusiveTimeoutsPtrInput
-	// ID of the hosted zone containing the resource record sets.
-	//
-	// The following arguments are optional:
-	ZoneId pulumi.StringPtrInput
+	ZoneId             pulumi.StringPtrInput
 }
 
 func (RecordsExclusiveState) ElementType() reflect.Type {
@@ -91,26 +69,16 @@ func (RecordsExclusiveState) ElementType() reflect.Type {
 }
 
 type recordsExclusiveArgs struct {
-	// A list of all resource record sets associated with the hosted zone.
-	// See `resourceRecordSet` below.
 	ResourceRecordSets []RecordsExclusiveResourceRecordSet `pulumi:"resourceRecordSets"`
 	Timeouts           *RecordsExclusiveTimeouts           `pulumi:"timeouts"`
-	// ID of the hosted zone containing the resource record sets.
-	//
-	// The following arguments are optional:
-	ZoneId string `pulumi:"zoneId"`
+	ZoneId             string                              `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a RecordsExclusive resource.
 type RecordsExclusiveArgs struct {
-	// A list of all resource record sets associated with the hosted zone.
-	// See `resourceRecordSet` below.
 	ResourceRecordSets RecordsExclusiveResourceRecordSetArrayInput
 	Timeouts           RecordsExclusiveTimeoutsPtrInput
-	// ID of the hosted zone containing the resource record sets.
-	//
-	// The following arguments are optional:
-	ZoneId pulumi.StringInput
+	ZoneId             pulumi.StringInput
 }
 
 func (RecordsExclusiveArgs) ElementType() reflect.Type {
@@ -200,8 +168,6 @@ func (o RecordsExclusiveOutput) ToRecordsExclusiveOutputWithContext(ctx context.
 	return o
 }
 
-// A list of all resource record sets associated with the hosted zone.
-// See `resourceRecordSet` below.
 func (o RecordsExclusiveOutput) ResourceRecordSets() RecordsExclusiveResourceRecordSetArrayOutput {
 	return o.ApplyT(func(v *RecordsExclusive) RecordsExclusiveResourceRecordSetArrayOutput { return v.ResourceRecordSets }).(RecordsExclusiveResourceRecordSetArrayOutput)
 }
@@ -210,9 +176,6 @@ func (o RecordsExclusiveOutput) Timeouts() RecordsExclusiveTimeoutsPtrOutput {
 	return o.ApplyT(func(v *RecordsExclusive) RecordsExclusiveTimeoutsPtrOutput { return v.Timeouts }).(RecordsExclusiveTimeoutsPtrOutput)
 }
 
-// ID of the hosted zone containing the resource record sets.
-//
-// The following arguments are optional:
 func (o RecordsExclusiveOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecordsExclusive) pulumi.StringOutput { return v.ZoneId }).(pulumi.StringOutput)
 }

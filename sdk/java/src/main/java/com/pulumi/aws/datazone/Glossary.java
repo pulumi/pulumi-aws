@@ -14,179 +14,11 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DataZone Glossary.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
- * import com.pulumi.aws.datazone.Domain;
- * import com.pulumi.aws.datazone.DomainArgs;
- * import com.pulumi.aws.ec2.SecurityGroup;
- * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.datazone.Project;
- * import com.pulumi.aws.datazone.ProjectArgs;
- * import com.pulumi.aws.datazone.Glossary;
- * import com.pulumi.aws.datazone.GlossaryArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()
- *             .name("example_name")
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "sts:AssumeRole", 
- *                                 "sts:TagSession"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "datazone.amazonaws.com")
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "sts:AssumeRole", 
- *                                 "sts:TagSession"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "cloudformation.amazonaws.com")
- *                             ))
- *                         )
- *                     ))
- *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("example_name")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "datazone:*", 
- *                                 "ram:*", 
- *                                 "sso:*", 
- *                                 "kms:*"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Resource", "*")
- *                         )))
- *                     )))
- *                 .build())
- *             .build());
- * 
- *         var test = new Domain("test", DomainArgs.builder()
- *             .name("example_name")
- *             .domainExecutionRole(domainExecutionRole.arn())
- *             .build());
- * 
- *         var testSecurityGroup = new SecurityGroup("testSecurityGroup", SecurityGroupArgs.builder()
- *             .name("example_name")
- *             .build());
- * 
- *         var testProject = new Project("testProject", ProjectArgs.builder()
- *             .domainIdentifier(test.id())
- *             .glossaryTerms("2N8w6XJCwZf")
- *             .name("example_name")
- *             .description("desc")
- *             .skipDeletionCheck(true)
- *             .build());
- * 
- *         var testGlossary = new Glossary("testGlossary", GlossaryArgs.builder()
- *             .description("description")
- *             .name("example_name")
- *             .owningProjectIdentifier(testProject.id())
- *             .status("DISABLED")
- *             .domainIdentifier(testProject.domainIdentifier())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datazone.Glossary;
- * import com.pulumi.aws.datazone.GlossaryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Glossary("test", GlossaryArgs.builder()
- *             .description("description")
- *             .name("example_name")
- *             .owningProjectIdentifier(testAwsDatazoneProject.id())
- *             .status("DISABLED")
- *             .domainIdentifier(testAwsDatazoneProject.domainIdentifier())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DataZone Glossary using the import Datazone Glossary using a comma-delimited string combining the domain id, glossary id, and the id of the project it&#39;s under. For example:
- * 
- * ```sh
- * $ pulumi import aws:datazone/glossary:Glossary example domain-id,glossary-id,owning-project-identifier
- * ```
- * 
- */
 @ResourceType(type="aws:datazone/glossary:Glossary")
 public class Glossary extends com.pulumi.resources.CustomResource {
-    /**
-     * Description of the glossary. Must have a length between 0 and 4096.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the glossary. Must have a length between 0 and 4096.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -196,63 +28,27 @@ public class Glossary extends com.pulumi.resources.CustomResource {
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
-    /**
-     * Name of the glossary. Must have length between 1 and 256.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the glossary. Must have length between 1 and 256.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="owningProjectIdentifier", refs={String.class}, tree="[0]")
     private Output<String> owningProjectIdentifier;
 
-    /**
-     * @return ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> owningProjectIdentifier() {
         return this.owningProjectIdentifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Status of business glossary. Valid values are DISABLED and ENABLED.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return Status of business glossary. Valid values are DISABLED and ENABLED.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }

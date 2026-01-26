@@ -17,62 +17,30 @@ public final class EventTargetBatchTargetArgs extends com.pulumi.resources.Resou
 
     public static final EventTargetBatchTargetArgs Empty = new EventTargetBatchTargetArgs();
 
-    /**
-     * The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-     * 
-     */
     @Import(name="arraySize")
     private @Nullable Output<Integer> arraySize;
 
-    /**
-     * @return The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-     * 
-     */
     public Optional<Output<Integer>> arraySize() {
         return Optional.ofNullable(this.arraySize);
     }
 
-    /**
-     * The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-     * 
-     */
     @Import(name="jobAttempts")
     private @Nullable Output<Integer> jobAttempts;
 
-    /**
-     * @return The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-     * 
-     */
     public Optional<Output<Integer>> jobAttempts() {
         return Optional.ofNullable(this.jobAttempts);
     }
 
-    /**
-     * The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-     * 
-     */
     @Import(name="jobDefinition", required=true)
     private Output<String> jobDefinition;
 
-    /**
-     * @return The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-     * 
-     */
     public Output<String> jobDefinition() {
         return this.jobDefinition;
     }
 
-    /**
-     * The name to use for this execution of the job, if the target is an AWS Batch job.
-     * 
-     */
     @Import(name="jobName", required=true)
     private Output<String> jobName;
 
-    /**
-     * @return The name to use for this execution of the job, if the target is an AWS Batch job.
-     * 
-     */
     public Output<String> jobName() {
         return this.jobName;
     }
@@ -104,86 +72,38 @@ public final class EventTargetBatchTargetArgs extends com.pulumi.resources.Resou
             $ = new EventTargetBatchTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arraySize The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arraySize(@Nullable Output<Integer> arraySize) {
             $.arraySize = arraySize;
             return this;
         }
 
-        /**
-         * @param arraySize The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arraySize(Integer arraySize) {
             return arraySize(Output.of(arraySize));
         }
 
-        /**
-         * @param jobAttempts The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobAttempts(@Nullable Output<Integer> jobAttempts) {
             $.jobAttempts = jobAttempts;
             return this;
         }
 
-        /**
-         * @param jobAttempts The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobAttempts(Integer jobAttempts) {
             return jobAttempts(Output.of(jobAttempts));
         }
 
-        /**
-         * @param jobDefinition The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobDefinition(Output<String> jobDefinition) {
             $.jobDefinition = jobDefinition;
             return this;
         }
 
-        /**
-         * @param jobDefinition The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobDefinition(String jobDefinition) {
             return jobDefinition(Output.of(jobDefinition));
         }
 
-        /**
-         * @param jobName The name to use for this execution of the job, if the target is an AWS Batch job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobName(Output<String> jobName) {
             $.jobName = jobName;
             return this;
         }
 
-        /**
-         * @param jobName The name to use for this execution of the job, if the target is an AWS Batch job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobName(String jobName) {
             return jobName(Output.of(jobName));
         }

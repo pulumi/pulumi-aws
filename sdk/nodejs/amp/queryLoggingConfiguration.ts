@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon Managed Service for Prometheus (AMP) Query Logging Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amp.Workspace("example", {alias: "example"});
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "/aws/prometheus/query-logs/example"});
- * const exampleQueryLoggingConfiguration = new aws.amp.QueryLoggingConfiguration("example", {
- *     workspaceId: example.id,
- *     destinations: [{
- *         cloudwatchLogs: {
- *             logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
- *         },
- *         filters: {
- *             qspThreshold: 1000,
- *         },
- *     }],
- * });
- * ```
- */
 export class QueryLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing QueryLoggingConfiguration resource's state with the given name, ID, and optional extra
@@ -59,20 +35,9 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueryLoggingConfiguration.__pulumiType;
     }
 
-    /**
-     * Configuration block for the logging destinations. See `destinations`.
-     */
     declare public readonly destinations: pulumi.Output<outputs.amp.QueryLoggingConfigurationDestination[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
-    /**
-     * The ID of the AMP workspace for which to configure query logging.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
@@ -111,20 +76,9 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueryLoggingConfiguration resources.
  */
 export interface QueryLoggingConfigurationState {
-    /**
-     * Configuration block for the logging destinations. See `destinations`.
-     */
     destinations?: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts>;
-    /**
-     * The ID of the AMP workspace for which to configure query logging.
-     *
-     * The following arguments are optional:
-     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -132,19 +86,8 @@ export interface QueryLoggingConfigurationState {
  * The set of arguments for constructing a QueryLoggingConfiguration resource.
  */
 export interface QueryLoggingConfigurationArgs {
-    /**
-     * Configuration block for the logging destinations. See `destinations`.
-     */
     destinations?: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts>;
-    /**
-     * The ID of the AMP workspace for which to configure query logging.
-     *
-     * The following arguments are optional:
-     */
     workspaceId: pulumi.Input<string>;
 }

@@ -33,16 +33,6 @@ class CompositeAlarmArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
-        :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        :param pulumi.Input['CompositeAlarmActionsSuppressorArgs'] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] alarm_description: The description for the composite alarm.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "alarm_name", alarm_name)
         pulumi.set(__self__, "alarm_rule", alarm_rule)
@@ -66,9 +56,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name for the composite alarm. This name must be unique within the region.
-        """
         return pulumi.get(self, "alarm_name")
 
     @alarm_name.setter
@@ -78,9 +65,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Input[_builtins.str]:
-        """
-        An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        """
         return pulumi.get(self, "alarm_rule")
 
     @alarm_rule.setter
@@ -90,9 +74,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        """
         return pulumi.get(self, "actions_enabled")
 
     @actions_enabled.setter
@@ -102,9 +83,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="actionsSuppressor")
     def actions_suppressor(self) -> Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']]:
-        """
-        Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        """
         return pulumi.get(self, "actions_suppressor")
 
     @actions_suppressor.setter
@@ -114,9 +92,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "alarm_actions")
 
     @alarm_actions.setter
@@ -126,9 +101,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="alarmDescription")
     def alarm_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for the composite alarm.
-        """
         return pulumi.get(self, "alarm_description")
 
     @alarm_description.setter
@@ -138,9 +110,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "insufficient_data_actions")
 
     @insufficient_data_actions.setter
@@ -150,9 +119,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter(name="okActions")
     def ok_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "ok_actions")
 
     @ok_actions.setter
@@ -162,9 +128,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -174,9 +137,6 @@ class CompositeAlarmArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -201,18 +161,6 @@ class _CompositeAlarmState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CompositeAlarm resources.
-        :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        :param pulumi.Input['CompositeAlarmActionsSuppressorArgs'] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] alarm_description: The description for the composite alarm.
-        :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the composite alarm.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -242,9 +190,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        """
         return pulumi.get(self, "actions_enabled")
 
     @actions_enabled.setter
@@ -254,9 +199,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="actionsSuppressor")
     def actions_suppressor(self) -> Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']]:
-        """
-        Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        """
         return pulumi.get(self, "actions_suppressor")
 
     @actions_suppressor.setter
@@ -266,9 +208,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "alarm_actions")
 
     @alarm_actions.setter
@@ -278,9 +217,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="alarmDescription")
     def alarm_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for the composite alarm.
-        """
         return pulumi.get(self, "alarm_description")
 
     @alarm_description.setter
@@ -290,9 +226,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the composite alarm. This name must be unique within the region.
-        """
         return pulumi.get(self, "alarm_name")
 
     @alarm_name.setter
@@ -302,9 +235,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        """
         return pulumi.get(self, "alarm_rule")
 
     @alarm_rule.setter
@@ -314,9 +244,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the composite alarm.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -326,9 +253,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "insufficient_data_actions")
 
     @insufficient_data_actions.setter
@@ -338,9 +262,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="okActions")
     def ok_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "ok_actions")
 
     @ok_actions.setter
@@ -350,9 +271,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -362,9 +280,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -374,9 +289,6 @@ class _CompositeAlarmState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -402,51 +314,9 @@ class CompositeAlarm(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch Composite Alarm resource.
-
-        > **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.CompositeAlarm("example",
-            alarm_description="This is a composite alarm!",
-            alarm_name="example-composite-alarm",
-            alarm_actions=example_aws_sns_topic["arn"],
-            ok_actions=example_aws_sns_topic["arn"],
-            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
-        ALARM({bravo["alarmName"]})
-        \"\"\",
-            actions_suppressor={
-                "alarm": "suppressor-alarm",
-                "extension_period": 10,
-                "wait_period": 20,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
-        ```
-
+        Create a CompositeAlarm resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        :param pulumi.Input[Union['CompositeAlarmActionsSuppressorArgs', 'CompositeAlarmActionsSuppressorArgsDict']] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] alarm_description: The description for the composite alarm.
-        :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -455,39 +325,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  args: CompositeAlarmArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch Composite Alarm resource.
-
-        > **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.CompositeAlarm("example",
-            alarm_description="This is a composite alarm!",
-            alarm_name="example-composite-alarm",
-            alarm_actions=example_aws_sns_topic["arn"],
-            ok_actions=example_aws_sns_topic["arn"],
-            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
-        ALARM({bravo["alarmName"]})
-        \"\"\",
-            actions_suppressor={
-                "alarm": "suppressor-alarm",
-                "extension_period": 10,
-                "wait_period": 20,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
-        ```
-
+        Create a CompositeAlarm resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CompositeAlarmArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -567,18 +405,6 @@ class CompositeAlarm(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        :param pulumi.Input[Union['CompositeAlarmActionsSuppressorArgs', 'CompositeAlarmActionsSuppressorArgsDict']] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] alarm_description: The description for the composite alarm.
-        :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the composite alarm.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -601,96 +427,60 @@ class CompositeAlarm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        """
         return pulumi.get(self, "actions_enabled")
 
     @_builtins.property
     @pulumi.getter(name="actionsSuppressor")
     def actions_suppressor(self) -> pulumi.Output[Optional['outputs.CompositeAlarmActionsSuppressor']]:
-        """
-        Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        """
         return pulumi.get(self, "actions_suppressor")
 
     @_builtins.property
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "alarm_actions")
 
     @_builtins.property
     @pulumi.getter(name="alarmDescription")
     def alarm_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description for the composite alarm.
-        """
         return pulumi.get(self, "alarm_description")
 
     @_builtins.property
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name for the composite alarm. This name must be unique within the region.
-        """
         return pulumi.get(self, "alarm_name")
 
     @_builtins.property
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Output[_builtins.str]:
-        """
-        An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        """
         return pulumi.get(self, "alarm_rule")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the composite alarm.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "insufficient_data_actions")
 
     @_builtins.property
     @pulumi.getter(name="okActions")
     def ok_actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        """
         return pulumi.get(self, "ok_actions")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

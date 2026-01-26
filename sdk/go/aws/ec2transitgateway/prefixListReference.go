@@ -12,89 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Prefix List Reference.
-//
-// ## Example Usage
-//
-// ### Attachment Routing
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
-//				PrefixListId:               pulumi.Any(exampleAwsEc2ManagedPrefixList.Id),
-//				TransitGatewayAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayVpcAttachment.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Blackhole Routing
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
-//				Blackhole:                  pulumi.Bool(true),
-//				PrefixListId:               pulumi.Any(exampleAwsEc2ManagedPrefixList.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
-// ```
 type PrefixListReference struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-	Blackhole pulumi.BoolPtrOutput `pulumi:"blackhole"`
-	// Identifier of EC2 Prefix List.
-	PrefixListId      pulumi.StringOutput `pulumi:"prefixListId"`
-	PrefixListOwnerId pulumi.StringOutput `pulumi:"prefixListOwnerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of EC2 Transit Gateway Attachment.
+	Blackhole                  pulumi.BoolPtrOutput   `pulumi:"blackhole"`
+	PrefixListId               pulumi.StringOutput    `pulumi:"prefixListId"`
+	PrefixListOwnerId          pulumi.StringOutput    `pulumi:"prefixListOwnerId"`
+	Region                     pulumi.StringOutput    `pulumi:"region"`
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// The following arguments are optional:
-	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId pulumi.StringOutput    `pulumi:"transitGatewayRouteTableId"`
 }
 
 // NewPrefixListReference registers a new resource with the given unique name, arguments, and options.
@@ -133,34 +59,20 @@ func GetPrefixListReference(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrefixListReference resources.
 type prefixListReferenceState struct {
-	// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-	Blackhole *bool `pulumi:"blackhole"`
-	// Identifier of EC2 Prefix List.
-	PrefixListId      *string `pulumi:"prefixListId"`
-	PrefixListOwnerId *string `pulumi:"prefixListOwnerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of EC2 Transit Gateway Attachment.
+	Blackhole                  *bool   `pulumi:"blackhole"`
+	PrefixListId               *string `pulumi:"prefixListId"`
+	PrefixListOwnerId          *string `pulumi:"prefixListOwnerId"`
+	Region                     *string `pulumi:"region"`
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// The following arguments are optional:
 	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
 
 type PrefixListReferenceState struct {
-	// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-	Blackhole pulumi.BoolPtrInput
-	// Identifier of EC2 Prefix List.
-	PrefixListId      pulumi.StringPtrInput
-	PrefixListOwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Attachment.
+	Blackhole                  pulumi.BoolPtrInput
+	PrefixListId               pulumi.StringPtrInput
+	PrefixListOwnerId          pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
 	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringPtrInput
 }
 
@@ -169,33 +81,19 @@ func (PrefixListReferenceState) ElementType() reflect.Type {
 }
 
 type prefixListReferenceArgs struct {
-	// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-	Blackhole *bool `pulumi:"blackhole"`
-	// Identifier of EC2 Prefix List.
-	PrefixListId string `pulumi:"prefixListId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of EC2 Transit Gateway Attachment.
+	Blackhole                  *bool   `pulumi:"blackhole"`
+	PrefixListId               string  `pulumi:"prefixListId"`
+	Region                     *string `pulumi:"region"`
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// The following arguments are optional:
-	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId string  `pulumi:"transitGatewayRouteTableId"`
 }
 
 // The set of arguments for constructing a PrefixListReference resource.
 type PrefixListReferenceArgs struct {
-	// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-	Blackhole pulumi.BoolPtrInput
-	// Identifier of EC2 Prefix List.
-	PrefixListId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Attachment.
+	Blackhole                  pulumi.BoolPtrInput
+	PrefixListId               pulumi.StringInput
+	Region                     pulumi.StringPtrInput
 	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -286,12 +184,10 @@ func (o PrefixListReferenceOutput) ToPrefixListReferenceOutputWithContext(ctx co
 	return o
 }
 
-// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
 func (o PrefixListReferenceOutput) Blackhole() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.BoolPtrOutput { return v.Blackhole }).(pulumi.BoolPtrOutput)
 }
 
-// Identifier of EC2 Prefix List.
 func (o PrefixListReferenceOutput) PrefixListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.PrefixListId }).(pulumi.StringOutput)
 }
@@ -300,19 +196,14 @@ func (o PrefixListReferenceOutput) PrefixListOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.PrefixListOwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PrefixListReferenceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway Attachment.
 func (o PrefixListReferenceOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringPtrOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of EC2 Transit Gateway Route Table.
-//
-// The following arguments are optional:
 func (o PrefixListReferenceOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InsightFiltersResourceContainerLaunchedAt {
-    /**
-     * @return A configuration block of the date range for the date filter. See dateRange below for more details.
-     * 
-     */
     private @Nullable InsightFiltersResourceContainerLaunchedAtDateRange dateRange;
-    /**
-     * @return An end date for the date filter. Required with `start` if `dateRange` is not specified.
-     * 
-     */
     private @Nullable String end;
-    /**
-     * @return A start date for the date filter. Required with `end` if `dateRange` is not specified.
-     * 
-     */
     private @Nullable String start;
 
     private InsightFiltersResourceContainerLaunchedAt() {}
-    /**
-     * @return A configuration block of the date range for the date filter. See dateRange below for more details.
-     * 
-     */
     public Optional<InsightFiltersResourceContainerLaunchedAtDateRange> dateRange() {
         return Optional.ofNullable(this.dateRange);
     }
-    /**
-     * @return An end date for the date filter. Required with `start` if `dateRange` is not specified.
-     * 
-     */
     public Optional<String> end() {
         return Optional.ofNullable(this.end);
     }
-    /**
-     * @return A start date for the date filter. Required with `end` if `dateRange` is not specified.
-     * 
-     */
     public Optional<String> start() {
         return Optional.ofNullable(this.start);
     }

@@ -17,32 +17,16 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
 
     public static final LustreFileSystemDataReadCacheConfigurationArgs Empty = new LustreFileSystemDataReadCacheConfigurationArgs();
 
-    /**
-     * Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
-     * 
-     */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
-    /**
-     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
-     * 
-     */
     public Optional<Output<Integer>> size() {
         return Optional.ofNullable(this.size);
     }
 
-    /**
-     * Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-     * 
-     */
     @Import(name="sizingMode", required=true)
     private Output<String> sizingMode;
 
-    /**
-     * @return Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-     * 
-     */
     public Output<String> sizingMode() {
         return this.sizingMode;
     }
@@ -72,44 +56,20 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
             $ = new LustreFileSystemDataReadCacheConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(@Nullable Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }
 
-        /**
-         * @param sizingMode Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizingMode(Output<String> sizingMode) {
             $.sizingMode = sizingMode;
             return this;
         }
 
-        /**
-         * @param sizingMode Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizingMode(String sizingMode) {
             return sizingMode(Output.of(sizingMode));
         }

@@ -14,58 +14,34 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         [Input("commands")]
         private List<string>? _commands;
-
-        /// <summary>
-        /// The command to send to the container that overrides the default command from the Docker image or the task definition.
-        /// </summary>
         public List<string> Commands
         {
             get => _commands ?? (_commands = new List<string>());
             set => _commands = value;
         }
 
-        /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition.
-        /// </summary>
         [Input("cpu")]
         public int? Cpu { get; set; }
 
         [Input("environments")]
         private List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>? _environments;
-
-        /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-        /// </summary>
         public List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs> Environments
         {
             get => _environments ?? (_environments = new List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>());
             set => _environments = value;
         }
 
-        /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-        /// </summary>
         [Input("memory")]
         public int? Memory { get; set; }
 
-        /// <summary>
-        /// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-        /// </summary>
         [Input("memoryReservation")]
         public int? MemoryReservation { get; set; }
 
-        /// <summary>
-        /// The name of the container that receives the override. This parameter is required if any override is specified.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("resourceRequirements")]
         private List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>? _resourceRequirements;
-
-        /// <summary>
-        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-        /// </summary>
         public List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs> ResourceRequirements
         {
             get => _resourceRequirements ?? (_resourceRequirements = new List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>());

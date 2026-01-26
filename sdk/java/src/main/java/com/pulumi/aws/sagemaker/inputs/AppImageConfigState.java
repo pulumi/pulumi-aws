@@ -19,126 +19,58 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
 
     public static final AppImageConfigState Empty = new AppImageConfigState();
 
-    /**
-     * The name of the App Image Config.
-     * 
-     */
     @Import(name="appImageConfigName")
     private @Nullable Output<String> appImageConfigName;
 
-    /**
-     * @return The name of the App Image Config.
-     * 
-     */
     public Optional<Output<String>> appImageConfigName() {
         return Optional.ofNullable(this.appImageConfigName);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-     * 
-     */
     @Import(name="codeEditorAppImageConfig")
     private @Nullable Output<AppImageConfigCodeEditorAppImageConfigArgs> codeEditorAppImageConfig;
 
-    /**
-     * @return The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-     * 
-     */
     public Optional<Output<AppImageConfigCodeEditorAppImageConfigArgs>> codeEditorAppImageConfig() {
         return Optional.ofNullable(this.codeEditorAppImageConfig);
     }
 
-    /**
-     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-     * 
-     */
     @Import(name="jupyterLabImageConfig")
     private @Nullable Output<AppImageConfigJupyterLabImageConfigArgs> jupyterLabImageConfig;
 
-    /**
-     * @return The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-     * 
-     */
     public Optional<Output<AppImageConfigJupyterLabImageConfigArgs>> jupyterLabImageConfig() {
         return Optional.ofNullable(this.jupyterLabImageConfig);
     }
 
-    /**
-     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-     * 
-     */
     @Import(name="kernelGatewayImageConfig")
     private @Nullable Output<AppImageConfigKernelGatewayImageConfigArgs> kernelGatewayImageConfig;
 
-    /**
-     * @return The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-     * 
-     */
     public Optional<Output<AppImageConfigKernelGatewayImageConfigArgs>> kernelGatewayImageConfig() {
         return Optional.ofNullable(this.kernelGatewayImageConfig);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -174,174 +106,74 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
             $ = new AppImageConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appImageConfigName The name of the App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appImageConfigName(@Nullable Output<String> appImageConfigName) {
             $.appImageConfigName = appImageConfigName;
             return this;
         }
 
-        /**
-         * @param appImageConfigName The name of the App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appImageConfigName(String appImageConfigName) {
             return appImageConfigName(Output.of(appImageConfigName));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeEditorAppImageConfig(@Nullable Output<AppImageConfigCodeEditorAppImageConfigArgs> codeEditorAppImageConfig) {
             $.codeEditorAppImageConfig = codeEditorAppImageConfig;
             return this;
         }
 
-        /**
-         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeEditorAppImageConfig(AppImageConfigCodeEditorAppImageConfigArgs codeEditorAppImageConfig) {
             return codeEditorAppImageConfig(Output.of(codeEditorAppImageConfig));
         }
 
-        /**
-         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterLabImageConfig(@Nullable Output<AppImageConfigJupyterLabImageConfigArgs> jupyterLabImageConfig) {
             $.jupyterLabImageConfig = jupyterLabImageConfig;
             return this;
         }
 
-        /**
-         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterLabImageConfig(AppImageConfigJupyterLabImageConfigArgs jupyterLabImageConfig) {
             return jupyterLabImageConfig(Output.of(jupyterLabImageConfig));
         }
 
-        /**
-         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayImageConfig(@Nullable Output<AppImageConfigKernelGatewayImageConfigArgs> kernelGatewayImageConfig) {
             $.kernelGatewayImageConfig = kernelGatewayImageConfig;
             return this;
         }
 
-        /**
-         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs kernelGatewayImageConfig) {
             return kernelGatewayImageConfig(Output.of(kernelGatewayImageConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * &gt; **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * &gt; **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

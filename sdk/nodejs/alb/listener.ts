@@ -7,303 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Load Balancer Listener resource.
- *
- * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
- *
- * ## Example Usage
- *
- * ### Forward Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
- *     loadBalancerArn: frontEnd.arn,
- *     port: 443,
- *     protocol: "HTTPS",
- *     sslPolicy: "ELBSecurityPolicy-2016-08",
- *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
- *     defaultActions: [{
- *         type: "forward",
- *         targetGroupArn: frontEndTargetGroup.arn,
- *     }],
- * });
- * ```
- *
- * With weighted target groups:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndBlue = new aws.lb.TargetGroup("front_end_blue", {});
- * const frontEndGreen = new aws.lb.TargetGroup("front_end_green", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
- *     loadBalancerArn: frontEnd.arn,
- *     port: 443,
- *     protocol: "HTTPS",
- *     sslPolicy: "ELBSecurityPolicy-2016-08",
- *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
- *     defaultActions: [{
- *         type: "forward",
- *         forward: {
- *             targetGroups: [
- *                 {
- *                     arn: frontEndBlue.arn,
- *                     weight: 100,
- *                 },
- *                 {
- *                     arn: frontEndGreen.arn,
- *                     weight: 0,
- *                 },
- *             ],
- *         },
- *     }],
- * });
- * ```
- *
- * To a NLB:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.Listener("front_end", {
- *     loadBalancerArn: frontEndAwsLb.arn,
- *     port: 443,
- *     protocol: "TLS",
- *     sslPolicy: "ELBSecurityPolicy-2016-08",
- *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
- *     alpnPolicy: "HTTP2Preferred",
- *     defaultActions: [{
- *         type: "forward",
- *         targetGroupArn: frontEndAwsLbTargetGroup.arn,
- *     }],
- * });
- * ```
- *
- * ### Redirect Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
- *     loadBalancerArn: frontEnd.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [{
- *         type: "redirect",
- *         redirect: {
- *             port: "443",
- *             protocol: "HTTPS",
- *             statusCode: "HTTP_301",
- *         },
- *     }],
- * });
- * ```
- *
- * ### Fixed-response Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
- *     loadBalancerArn: frontEnd.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [{
- *         type: "fixed-response",
- *         fixedResponse: {
- *             contentType: "text/plain",
- *             messageBody: "Fixed response content",
- *             statusCode: "200",
- *         },
- *     }],
- * });
- * ```
- *
- * ### Authenticate-cognito Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const pool = new aws.cognito.UserPool("pool", {});
- * const client = new aws.cognito.UserPoolClient("client", {});
- * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
- *     loadBalancerArn: frontEnd.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [
- *         {
- *             type: "authenticate-cognito",
- *             authenticateCognito: {
- *                 userPoolArn: pool.arn,
- *                 userPoolClientId: client.id,
- *                 userPoolDomain: domain.domain,
- *             },
- *         },
- *         {
- *             type: "forward",
- *             targetGroupArn: frontEndTargetGroup.arn,
- *         },
- *     ],
- * });
- * ```
- *
- * ### Authenticate-OIDC Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
- *     loadBalancerArn: frontEnd.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [
- *         {
- *             type: "authenticate-oidc",
- *             authenticateOidc: {
- *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                 clientId: "client_id",
- *                 clientSecret: "client_secret",
- *                 issuer: "https://example.com",
- *                 tokenEndpoint: "https://example.com/token_endpoint",
- *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
- *             },
- *         },
- *         {
- *             type: "forward",
- *             targetGroupArn: frontEndTargetGroup.arn,
- *         },
- *     ],
- * });
- * ```
- *
- * ### JWT Validation Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lb.Listener("test", {
- *     loadBalancerArn: testAwsLb.id,
- *     protocol: "HTTPS",
- *     port: 443,
- *     sslPolicy: "ELBSecurityPolicy-2016-08",
- *     certificateArn: testAwsIamServerCertificate.arn,
- *     defaultActions: [
- *         {
- *             type: "jwt-validation",
- *             jwtValidation: {
- *                 issuer: "https://example.com",
- *                 jwksEndpoint: "https://example.com/.well-known/jwks.json",
- *                 additionalClaims: [
- *                     {
- *                         format: "string-array",
- *                         name: "claim_name1",
- *                         values: [
- *                             "value1",
- *                             "value2",
- *                         ],
- *                     },
- *                     {
- *                         format: "single-string",
- *                         name: "claim_name2",
- *                         values: ["value1"],
- *                     },
- *                 ],
- *             },
- *         },
- *         {
- *             targetGroupArn: testAwsLbTargetGroup.id,
- *             type: "forward",
- *         },
- *     ],
- * });
- * ```
- *
- * ### Gateway Load Balancer Listener
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lb.LoadBalancer("example", {
- *     loadBalancerType: "gateway",
- *     name: "example",
- *     subnetMappings: [{
- *         subnetId: exampleAwsSubnet.id,
- *     }],
- * });
- * const exampleTargetGroup = new aws.lb.TargetGroup("example", {
- *     name: "example",
- *     port: 6081,
- *     protocol: "GENEVE",
- *     vpcId: exampleAwsVpc.id,
- *     healthCheck: {
- *         port: "80",
- *         protocol: "HTTP",
- *     },
- * });
- * const exampleListener = new aws.lb.Listener("example", {
- *     loadBalancerArn: example.id,
- *     defaultActions: [{
- *         targetGroupArn: exampleTargetGroup.id,
- *         type: "forward",
- *     }],
- * });
- * ```
- *
- * ### Mutual TLS Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lb.LoadBalancer("example", {loadBalancerType: "application"});
- * const exampleTargetGroup = new aws.lb.TargetGroup("example", {});
- * const exampleListener = new aws.lb.Listener("example", {
- *     loadBalancerArn: example.id,
- *     defaultActions: [{
- *         targetGroupArn: exampleTargetGroup.id,
- *         type: "forward",
- *     }],
- *     mutualAuthentication: {
- *         mode: "verify",
- *         trustStoreArn: "...",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the load balancer listener.
- *
- * Using `pulumi import`, import listeners using their ARN. For example:
- *
- * % pulumi import aws_lb_listener.front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
- */
 export class Listener extends pulumi.CustomResource {
     /**
      * Get an existing Listener resource's state with the given name, ID, and optional extra
@@ -332,137 +35,37 @@ export class Listener extends pulumi.CustomResource {
         return obj['__pulumiType'] === Listener.__pulumiType;
     }
 
-    /**
-     * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-     */
     declare public readonly alpnPolicy: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the listener.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
-     */
     declare public readonly certificateArn: pulumi.Output<string | undefined>;
-    /**
-     * Configuration block for default actions. See below.
-     */
     declare public readonly defaultActions: pulumi.Output<outputs.alb.ListenerDefaultAction[]>;
-    /**
-     * ARN of the load balancer.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly loadBalancerArn: pulumi.Output<string>;
-    /**
-     * The mutual authentication configuration information. See below.
-     */
     declare public readonly mutualAuthentication: pulumi.Output<outputs.alb.ListenerMutualAuthentication>;
-    /**
-     * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-     */
     declare public readonly port: pulumi.Output<number | undefined>;
-    /**
-     * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `QUIC`, and `TCP_QUIC`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid to use `QUIC` or `TCP_QUIC` if security groups are configured or dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-     */
     declare public readonly protocol: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznMtlsClientcertHeaderName: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznMtlsClientcertIssuerHeaderName: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznMtlsClientcertLeafHeaderName: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznMtlsClientcertSubjectHeaderName: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznMtlsClientcertValidityHeaderName: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznTlsCipherSuiteHeaderName: pulumi.Output<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     declare public readonly routingHttpRequestXAmznTlsVersionHeaderName: pulumi.Output<string>;
-    /**
-     * Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
-     */
     declare public readonly routingHttpResponseAccessControlAllowCredentialsHeaderValue: pulumi.Output<string>;
-    /**
-     * Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
-     */
     declare public readonly routingHttpResponseAccessControlAllowHeadersHeaderValue: pulumi.Output<string>;
-    /**
-     * Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
-     */
     declare public readonly routingHttpResponseAccessControlAllowMethodsHeaderValue: pulumi.Output<string>;
-    /**
-     * Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
-     */
     declare public readonly routingHttpResponseAccessControlAllowOriginHeaderValue: pulumi.Output<string>;
-    /**
-     * Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
-     */
     declare public readonly routingHttpResponseAccessControlExposeHeadersHeaderValue: pulumi.Output<string>;
-    /**
-     * Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
-     */
     declare public readonly routingHttpResponseAccessControlMaxAgeHeaderValue: pulumi.Output<string>;
-    /**
-     * Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
-     */
     declare public readonly routingHttpResponseContentSecurityPolicyHeaderValue: pulumi.Output<string>;
-    /**
-     * Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
-     */
     declare public readonly routingHttpResponseServerEnabled: pulumi.Output<boolean>;
-    /**
-     * Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
-     */
     declare public readonly routingHttpResponseStrictTransportSecurityHeaderValue: pulumi.Output<string>;
-    /**
-     * Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
-     */
     declare public readonly routingHttpResponseXContentTypeOptionsHeaderValue: pulumi.Output<string>;
-    /**
-     * Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
-     */
     declare public readonly routingHttpResponseXFrameOptionsHeaderValue: pulumi.Output<string>;
-    /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
-     */
     declare public readonly sslPolicy: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
-     */
     declare public readonly tcpIdleTimeoutSeconds: pulumi.Output<number>;
 
     /**
@@ -562,137 +165,37 @@ export class Listener extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Listener resources.
  */
 export interface ListenerState {
-    /**
-     * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-     */
     alpnPolicy?: pulumi.Input<string>;
-    /**
-     * ARN of the listener.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Configuration block for default actions. See below.
-     */
     defaultActions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerDefaultAction>[]>;
-    /**
-     * ARN of the load balancer.
-     *
-     * The following arguments are optional:
-     */
     loadBalancerArn?: pulumi.Input<string>;
-    /**
-     * The mutual authentication configuration information. See below.
-     */
     mutualAuthentication?: pulumi.Input<inputs.alb.ListenerMutualAuthentication>;
-    /**
-     * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `QUIC`, and `TCP_QUIC`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid to use `QUIC` or `TCP_QUIC` if security groups are configured or dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-     */
     protocol?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertIssuerHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertLeafHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertSubjectHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertValidityHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznTlsCipherSuiteHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznTlsVersionHeaderName?: pulumi.Input<string>;
-    /**
-     * Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
-     */
     routingHttpResponseAccessControlAllowCredentialsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
-     */
     routingHttpResponseAccessControlAllowHeadersHeaderValue?: pulumi.Input<string>;
-    /**
-     * Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
-     */
     routingHttpResponseAccessControlAllowMethodsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
-     */
     routingHttpResponseAccessControlAllowOriginHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
-     */
     routingHttpResponseAccessControlExposeHeadersHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
-     */
     routingHttpResponseAccessControlMaxAgeHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
-     */
     routingHttpResponseContentSecurityPolicyHeaderValue?: pulumi.Input<string>;
-    /**
-     * Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
-     */
     routingHttpResponseServerEnabled?: pulumi.Input<boolean>;
-    /**
-     * Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
-     */
     routingHttpResponseStrictTransportSecurityHeaderValue?: pulumi.Input<string>;
-    /**
-     * Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
-     */
     routingHttpResponseXContentTypeOptionsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
-     */
     routingHttpResponseXFrameOptionsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
-     */
     sslPolicy?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
-     */
     tcpIdleTimeoutSeconds?: pulumi.Input<number>;
 }
 
@@ -700,128 +203,34 @@ export interface ListenerState {
  * The set of arguments for constructing a Listener resource.
  */
 export interface ListenerArgs {
-    /**
-     * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-     */
     alpnPolicy?: pulumi.Input<string>;
-    /**
-     * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Configuration block for default actions. See below.
-     */
     defaultActions: pulumi.Input<pulumi.Input<inputs.alb.ListenerDefaultAction>[]>;
-    /**
-     * ARN of the load balancer.
-     *
-     * The following arguments are optional:
-     */
     loadBalancerArn: pulumi.Input<string>;
-    /**
-     * The mutual authentication configuration information. See below.
-     */
     mutualAuthentication?: pulumi.Input<inputs.alb.ListenerMutualAuthentication>;
-    /**
-     * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `QUIC`, and `TCP_QUIC`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid to use `QUIC` or `TCP_QUIC` if security groups are configured or dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-     */
     protocol?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertIssuerHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertLeafHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertSubjectHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznMtlsClientcertValidityHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznTlsCipherSuiteHeaderName?: pulumi.Input<string>;
-    /**
-     * Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
-     */
     routingHttpRequestXAmznTlsVersionHeaderName?: pulumi.Input<string>;
-    /**
-     * Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
-     */
     routingHttpResponseAccessControlAllowCredentialsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
-     */
     routingHttpResponseAccessControlAllowHeadersHeaderValue?: pulumi.Input<string>;
-    /**
-     * Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
-     */
     routingHttpResponseAccessControlAllowMethodsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
-     */
     routingHttpResponseAccessControlAllowOriginHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
-     */
     routingHttpResponseAccessControlExposeHeadersHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
-     */
     routingHttpResponseAccessControlMaxAgeHeaderValue?: pulumi.Input<string>;
-    /**
-     * Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
-     */
     routingHttpResponseContentSecurityPolicyHeaderValue?: pulumi.Input<string>;
-    /**
-     * Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
-     */
     routingHttpResponseServerEnabled?: pulumi.Input<boolean>;
-    /**
-     * Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
-     */
     routingHttpResponseStrictTransportSecurityHeaderValue?: pulumi.Input<string>;
-    /**
-     * Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
-     */
     routingHttpResponseXContentTypeOptionsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
-     */
     routingHttpResponseXFrameOptionsHeaderValue?: pulumi.Input<string>;
-    /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
-     */
     sslPolicy?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
-     */
     tcpIdleTimeoutSeconds?: pulumi.Input<number>;
 }

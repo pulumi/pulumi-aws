@@ -18,32 +18,16 @@ public final class ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs ext
 
     public static final ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs Empty = new ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs();
 
-    /**
-     * A list of CloudFront domain names for the staging distribution.
-     * 
-     */
     @Import(name="items")
     private @Nullable Output<List<String>> items;
 
-    /**
-     * @return A list of CloudFront domain names for the staging distribution.
-     * 
-     */
     public Optional<Output<List<String>>> items() {
         return Optional.ofNullable(this.items);
     }
 
-    /**
-     * Number of CloudFront domain names in the staging distribution.
-     * 
-     */
     @Import(name="quantity", required=true)
     private Output<Integer> quantity;
 
-    /**
-     * @return Number of CloudFront domain names in the staging distribution.
-     * 
-     */
     public Output<Integer> quantity() {
         return this.quantity;
     }
@@ -73,54 +57,24 @@ public final class ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs ext
             $ = new ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param items A list of CloudFront domain names for the staging distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(@Nullable Output<List<String>> items) {
             $.items = items;
             return this;
         }
 
-        /**
-         * @param items A list of CloudFront domain names for the staging distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(List<String> items) {
             return items(Output.of(items));
         }
 
-        /**
-         * @param items A list of CloudFront domain names for the staging distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(String... items) {
             return items(List.of(items));
         }
 
-        /**
-         * @param quantity Number of CloudFront domain names in the staging distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quantity(Output<Integer> quantity) {
             $.quantity = quantity;
             return this;
         }
 
-        /**
-         * @param quantity Number of CloudFront domain names in the staging distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quantity(Integer quantity) {
             return quantity(Output.of(quantity));
         }

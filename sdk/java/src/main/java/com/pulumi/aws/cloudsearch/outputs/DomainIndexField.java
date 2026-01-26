@@ -13,125 +13,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainIndexField {
-    /**
-     * @return The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
-     * 
-     */
     private @Nullable String analysisScheme;
-    /**
-     * @return The default value for the field. This value is used when no value is specified for the field in the document data.
-     * 
-     */
     private @Nullable String defaultValue;
-    /**
-     * @return You can get facet information by enabling this.
-     * 
-     */
     private @Nullable Boolean facet;
-    /**
-     * @return You can highlight information.
-     * 
-     */
     private @Nullable Boolean highlight;
-    /**
-     * @return A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
-     * 
-     */
     private String name;
-    /**
-     * @return You can enable returning the value of all searchable fields.
-     * 
-     */
     private @Nullable Boolean return_;
-    /**
-     * @return You can set whether this index should be searchable or not.
-     * 
-     */
     private @Nullable Boolean search;
-    /**
-     * @return You can enable the property to be sortable.
-     * 
-     */
     private @Nullable Boolean sort;
-    /**
-     * @return A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
-     * 
-     */
     private @Nullable String sourceFields;
-    /**
-     * @return The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
-     * 
-     */
     private String type;
 
     private DomainIndexField() {}
-    /**
-     * @return The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
-     * 
-     */
     public Optional<String> analysisScheme() {
         return Optional.ofNullable(this.analysisScheme);
     }
-    /**
-     * @return The default value for the field. This value is used when no value is specified for the field in the document data.
-     * 
-     */
     public Optional<String> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
-    /**
-     * @return You can get facet information by enabling this.
-     * 
-     */
     public Optional<Boolean> facet() {
         return Optional.ofNullable(this.facet);
     }
-    /**
-     * @return You can highlight information.
-     * 
-     */
     public Optional<Boolean> highlight() {
         return Optional.ofNullable(this.highlight);
     }
-    /**
-     * @return A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return You can enable returning the value of all searchable fields.
-     * 
-     */
     public Optional<Boolean> return_() {
         return Optional.ofNullable(this.return_);
     }
-    /**
-     * @return You can set whether this index should be searchable or not.
-     * 
-     */
     public Optional<Boolean> search() {
         return Optional.ofNullable(this.search);
     }
-    /**
-     * @return You can enable the property to be sortable.
-     * 
-     */
     public Optional<Boolean> sort() {
         return Optional.ofNullable(this.sort);
     }
-    /**
-     * @return A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
-     * 
-     */
     public Optional<String> sourceFields() {
         return Optional.ofNullable(this.sourceFields);
     }
-    /**
-     * @return The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
-     * 
-     */
     public String type() {
         return this.type;
     }

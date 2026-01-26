@@ -13,25 +13,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerCertificateResult {
-    /**
-     * @return is set to the ARN of the IAM Server Certificate
-     * 
-     */
     private String arn;
-    /**
-     * @return is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
-     * 
-     */
     private String certificateBody;
-    /**
-     * @return is the public key certificate chain (PEM-encoded) if exists, empty otherwise
-     * 
-     */
     private String certificateChain;
-    /**
-     * @return is set to the expiration date of the IAM Server Certificate
-     * 
-     */
     private String expirationDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -41,44 +25,20 @@ public final class GetServerCertificateResult {
     private @Nullable Boolean latest;
     private String name;
     private @Nullable String namePrefix;
-    /**
-     * @return is set to the path of the IAM Server Certificate
-     * 
-     */
     private String path;
     private @Nullable String pathPrefix;
-    /**
-     * @return is the date when the server certificate was uploaded
-     * 
-     */
     private String uploadDate;
 
     private GetServerCertificateResult() {}
-    /**
-     * @return is set to the ARN of the IAM Server Certificate
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
-     * 
-     */
     public String certificateBody() {
         return this.certificateBody;
     }
-    /**
-     * @return is the public key certificate chain (PEM-encoded) if exists, empty otherwise
-     * 
-     */
     public String certificateChain() {
         return this.certificateChain;
     }
-    /**
-     * @return is set to the expiration date of the IAM Server Certificate
-     * 
-     */
     public String expirationDate() {
         return this.expirationDate;
     }
@@ -98,20 +58,12 @@ public final class GetServerCertificateResult {
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
-    /**
-     * @return is set to the path of the IAM Server Certificate
-     * 
-     */
     public String path() {
         return this.path;
     }
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
-    /**
-     * @return is the date when the server certificate was uploaded
-     * 
-     */
     public String uploadDate() {
         return this.uploadDate;
     }

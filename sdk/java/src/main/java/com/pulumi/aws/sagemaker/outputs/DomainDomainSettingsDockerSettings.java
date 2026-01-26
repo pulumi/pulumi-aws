@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDomainSettingsDockerSettings {
-    /**
-     * @return Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String enableDockerAccess;
-    /**
-     * @return The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-     * 
-     */
     private @Nullable List<String> vpcOnlyTrustedAccounts;
 
     private DomainDomainSettingsDockerSettings() {}
-    /**
-     * @return Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> enableDockerAccess() {
         return Optional.ofNullable(this.enableDockerAccess);
     }
-    /**
-     * @return The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-     * 
-     */
     public List<String> vpcOnlyTrustedAccounts() {
         return this.vpcOnlyTrustedAccounts == null ? List.of() : this.vpcOnlyTrustedAccounts;
     }

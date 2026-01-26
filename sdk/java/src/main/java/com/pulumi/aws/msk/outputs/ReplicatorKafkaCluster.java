@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ReplicatorKafkaCluster {
-    /**
-     * @return Details of an Amazon MSK cluster.
-     * 
-     */
     private ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster;
-    /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-     * 
-     */
     private ReplicatorKafkaClusterVpcConfig vpcConfig;
 
     private ReplicatorKafkaCluster() {}
-    /**
-     * @return Details of an Amazon MSK cluster.
-     * 
-     */
     public ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster() {
         return this.amazonMskCluster;
     }
-    /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-     * 
-     */
     public ReplicatorKafkaClusterVpcConfig vpcConfig() {
         return this.vpcConfig;
     }

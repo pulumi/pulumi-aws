@@ -15,17 +15,9 @@ public final class ScraperDestinationArgs extends com.pulumi.resources.ResourceA
 
     public static final ScraperDestinationArgs Empty = new ScraperDestinationArgs();
 
-    /**
-     * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-     * 
-     */
     @Import(name="amp")
     private @Nullable Output<ScraperDestinationAmpArgs> amp;
 
-    /**
-     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-     * 
-     */
     public Optional<Output<ScraperDestinationAmpArgs>> amp() {
         return Optional.ofNullable(this.amp);
     }
@@ -54,23 +46,11 @@ public final class ScraperDestinationArgs extends com.pulumi.resources.ResourceA
             $ = new ScraperDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amp Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amp(@Nullable Output<ScraperDestinationAmpArgs> amp) {
             $.amp = amp;
             return this;
         }
 
-        /**
-         * @param amp Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amp(ScraperDestinationAmpArgs amp) {
             return amp(Output.of(amp));
         }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupTrafficSource {
-    /**
-     * @return Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-     * 
-     */
     private String identifier;
-    /**
-     * @return Traffic source type.
-     * 
-     */
     private String type;
 
     private GetGroupTrafficSource() {}
-    /**
-     * @return Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-     * 
-     */
     public String identifier() {
         return this.identifier;
     }
-    /**
-     * @return Traffic source type.
-     * 
-     */
     public String type() {
         return this.type;
     }

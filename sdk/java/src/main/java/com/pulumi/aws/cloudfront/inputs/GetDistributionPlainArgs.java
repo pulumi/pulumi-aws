@@ -16,17 +16,9 @@ public final class GetDistributionPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetDistributionPlainArgs Empty = new GetDistributionPlainArgs();
 
-    /**
-     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     public String id() {
         return this.id;
     }
@@ -63,12 +55,6 @@ public final class GetDistributionPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetDistributionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;

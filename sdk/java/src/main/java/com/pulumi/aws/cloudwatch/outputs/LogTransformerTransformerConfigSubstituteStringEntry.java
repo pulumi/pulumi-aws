@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigSubstituteStringEntry {
-    /**
-     * @return Specifies the regular expression string to be replaced.
-     * 
-     */
     private String from;
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     private String source;
-    /**
-     * @return Specifies the string to be substituted for each match of `from`.
-     * 
-     */
     private String to;
 
     private LogTransformerTransformerConfigSubstituteStringEntry() {}
-    /**
-     * @return Specifies the regular expression string to be replaced.
-     * 
-     */
     public String from() {
         return this.from;
     }
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Specifies the string to be substituted for each match of `from`.
-     * 
-     */
     public String to() {
         return this.to;
     }

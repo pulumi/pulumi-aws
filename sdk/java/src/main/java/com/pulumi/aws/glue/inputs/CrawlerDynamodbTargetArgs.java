@@ -18,47 +18,23 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
 
     public static final CrawlerDynamodbTargetArgs Empty = new CrawlerDynamodbTargetArgs();
 
-    /**
-     * The name of the DynamoDB table to crawl.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return The name of the DynamoDB table to crawl.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
 
-    /**
-     * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
-     * 
-     */
     @Import(name="scanAll")
     private @Nullable Output<Boolean> scanAll;
 
-    /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> scanAll() {
         return Optional.ofNullable(this.scanAll);
     }
 
-    /**
-     * The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
-     * 
-     */
     @Import(name="scanRate")
     private @Nullable Output<Double> scanRate;
 
-    /**
-     * @return The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
-     * 
-     */
     public Optional<Output<Double>> scanRate() {
         return Optional.ofNullable(this.scanRate);
     }
@@ -89,65 +65,29 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
             $ = new CrawlerDynamodbTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param path The name of the DynamoDB table to crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The name of the DynamoDB table to crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanAll(@Nullable Output<Boolean> scanAll) {
             $.scanAll = scanAll;
             return this;
         }
 
-        /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanAll(Boolean scanAll) {
             return scanAll(Output.of(scanAll));
         }
 
-        /**
-         * @param scanRate The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanRate(@Nullable Output<Double> scanRate) {
             $.scanRate = scanRate;
             return this;
         }
 
-        /**
-         * @param scanRate The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanRate(Double scanRate) {
             return scanRate(Output.of(scanRate));
         }

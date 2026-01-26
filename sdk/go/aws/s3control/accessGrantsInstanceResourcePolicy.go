@@ -12,77 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Access Grants instance resource policy.
-// Use a resource policy to manage cross-account access to your S3 Access Grants instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3control.NewAccessGrantsInstance(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewAccessGrantsInstanceResourcePolicy(ctx, "example", &s3control.AccessGrantsInstanceResourcePolicyArgs{
-//				Policy: example.AccessGrantsInstanceArn.ApplyT(func(accessGrantsInstanceArn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  \"Version\": \"2012-10-17\",
-//	  \"Id\": \"S3AccessGrantsPolicy\",
-//	  \"Statement\": [{
-//	    \"Sid\": \"AllowAccessToS3AccessGrants\",
-//	    \"Effect\": \"Allow\",
-//	    \"Principal\": {
-//	      \"AWS\": \"123456789456\"
-//	    },
-//	    \"Action\": [
-//	      \"s3:ListAccessGrants\",
-//	      \"s3:ListAccessGrantsLocations\",
-//	      \"s3:GetDataAccess\"
-//	    ],
-//	    \"Resource\": \"%v\"
-//	  }]
-//	}
-//
-// `, accessGrantsInstanceArn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
-// ```
 type AccessGrantsInstanceResourcePolicy struct {
 	pulumi.CustomResourceState
 
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The policy document.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Policy    pulumi.StringOutput `pulumi:"policy"`
+	Region    pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAccessGrantsInstanceResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -119,18 +54,14 @@ func GetAccessGrantsInstanceResourcePolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AccessGrantsInstanceResourcePolicy resources.
 type accessGrantsInstanceResourcePolicyState struct {
 	AccountId *string `pulumi:"accountId"`
-	// The policy document.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy    *string `pulumi:"policy"`
+	Region    *string `pulumi:"region"`
 }
 
 type AccessGrantsInstanceResourcePolicyState struct {
 	AccountId pulumi.StringPtrInput
-	// The policy document.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy    pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (AccessGrantsInstanceResourcePolicyState) ElementType() reflect.Type {
@@ -139,19 +70,15 @@ func (AccessGrantsInstanceResourcePolicyState) ElementType() reflect.Type {
 
 type accessGrantsInstanceResourcePolicyArgs struct {
 	AccountId *string `pulumi:"accountId"`
-	// The policy document.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy    string  `pulumi:"policy"`
+	Region    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccessGrantsInstanceResourcePolicy resource.
 type AccessGrantsInstanceResourcePolicyArgs struct {
 	AccountId pulumi.StringPtrInput
-	// The policy document.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy    pulumi.StringInput
+	Region    pulumi.StringPtrInput
 }
 
 func (AccessGrantsInstanceResourcePolicyArgs) ElementType() reflect.Type {
@@ -245,12 +172,10 @@ func (o AccessGrantsInstanceResourcePolicyOutput) AccountId() pulumi.StringOutpu
 	return o.ApplyT(func(v *AccessGrantsInstanceResourcePolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The policy document.
 func (o AccessGrantsInstanceResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstanceResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessGrantsInstanceResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstanceResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

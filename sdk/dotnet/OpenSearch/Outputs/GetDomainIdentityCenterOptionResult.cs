@@ -13,21 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainIdentityCenterOptionResult
     {
-        /// <summary>
-        /// Boolean whether IAM Identity Center is enabled for API access.
-        /// </summary>
         public readonly bool EnabledApiAccess;
-        /// <summary>
-        /// ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
-        /// </summary>
         public readonly string IdentityCenterInstanceArn;
-        /// <summary>
-        /// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
-        /// </summary>
         public readonly string RolesKey;
-        /// <summary>
-        /// Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
-        /// </summary>
         public readonly string SubjectKey;
 
         [OutputConstructor]

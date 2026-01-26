@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolSchemaAttributeNumberAttributeConstraint {
-    /**
-     * @return - Maximum allowed value.
-     * 
-     */
     private String maxValue;
-    /**
-     * @return - Minimum allowed value.
-     * 
-     */
     private String minValue;
 
     private GetUserPoolSchemaAttributeNumberAttributeConstraint() {}
-    /**
-     * @return - Maximum allowed value.
-     * 
-     */
     public String maxValue() {
         return this.maxValue;
     }
-    /**
-     * @return - Minimum allowed value.
-     * 
-     */
     public String minValue() {
         return this.minValue;
     }

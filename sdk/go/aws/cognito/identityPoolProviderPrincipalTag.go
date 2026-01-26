@@ -12,99 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Cognito Identity Principal Mapping.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("user pool"),
-//				AutoVerifiedAttributes: pulumi.StringArray{
-//					pulumi.String("email"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeCompact, err := std.Compact(ctx, &std.CompactArgs{
-//				Input: []string{
-//					"COGNITO",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
-//				Name:                       pulumi.String("client"),
-//				UserPoolId:                 example.ID(),
-//				SupportedIdentityProviders: pulumi.StringArray(invokeCompact.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "example", &cognito.IdentityPoolArgs{
-//				IdentityPoolName:               pulumi.String("identity pool"),
-//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
-//				CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
-//					&cognito.IdentityPoolCognitoIdentityProviderArgs{
-//						ClientId:             exampleUserPoolClient.ID(),
-//						ProviderName:         example.Endpoint,
-//						ServerSideTokenCheck: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewIdentityPoolProviderPrincipalTag(ctx, "example", &cognito.IdentityPoolProviderPrincipalTagArgs{
-//				IdentityPoolId:       exampleIdentityPool.ID(),
-//				IdentityProviderName: example.Endpoint,
-//				UseDefaults:          pulumi.Bool(false),
-//				PrincipalTags: pulumi.StringMap{
-//					"test": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
-//
-// ```sh
-// $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
-// ```
 type IdentityPoolProviderPrincipalTag struct {
 	pulumi.CustomResourceState
 
-	// An identity pool ID.
-	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
-	// The name of the identity provider.
-	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
-	// String to string map of variables.
-	PrincipalTags pulumi.StringMapOutput `pulumi:"principalTags"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// use default (username and clientID) attribute mappings.
-	UseDefaults pulumi.BoolPtrOutput `pulumi:"useDefaults"`
+	IdentityPoolId       pulumi.StringOutput    `pulumi:"identityPoolId"`
+	IdentityProviderName pulumi.StringOutput    `pulumi:"identityProviderName"`
+	PrincipalTags        pulumi.StringMapOutput `pulumi:"principalTags"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
+	UseDefaults          pulumi.BoolPtrOutput   `pulumi:"useDefaults"`
 }
 
 // NewIdentityPoolProviderPrincipalTag registers a new resource with the given unique name, arguments, and options.
@@ -143,29 +58,19 @@ func GetIdentityPoolProviderPrincipalTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
 type identityPoolProviderPrincipalTagState struct {
-	// An identity pool ID.
-	IdentityPoolId *string `pulumi:"identityPoolId"`
-	// The name of the identity provider.
-	IdentityProviderName *string `pulumi:"identityProviderName"`
-	// String to string map of variables.
-	PrincipalTags map[string]string `pulumi:"principalTags"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// use default (username and clientID) attribute mappings.
-	UseDefaults *bool `pulumi:"useDefaults"`
+	IdentityPoolId       *string           `pulumi:"identityPoolId"`
+	IdentityProviderName *string           `pulumi:"identityProviderName"`
+	PrincipalTags        map[string]string `pulumi:"principalTags"`
+	Region               *string           `pulumi:"region"`
+	UseDefaults          *bool             `pulumi:"useDefaults"`
 }
 
 type IdentityPoolProviderPrincipalTagState struct {
-	// An identity pool ID.
-	IdentityPoolId pulumi.StringPtrInput
-	// The name of the identity provider.
+	IdentityPoolId       pulumi.StringPtrInput
 	IdentityProviderName pulumi.StringPtrInput
-	// String to string map of variables.
-	PrincipalTags pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// use default (username and clientID) attribute mappings.
-	UseDefaults pulumi.BoolPtrInput
+	PrincipalTags        pulumi.StringMapInput
+	Region               pulumi.StringPtrInput
+	UseDefaults          pulumi.BoolPtrInput
 }
 
 func (IdentityPoolProviderPrincipalTagState) ElementType() reflect.Type {
@@ -173,30 +78,20 @@ func (IdentityPoolProviderPrincipalTagState) ElementType() reflect.Type {
 }
 
 type identityPoolProviderPrincipalTagArgs struct {
-	// An identity pool ID.
-	IdentityPoolId string `pulumi:"identityPoolId"`
-	// The name of the identity provider.
-	IdentityProviderName string `pulumi:"identityProviderName"`
-	// String to string map of variables.
-	PrincipalTags map[string]string `pulumi:"principalTags"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// use default (username and clientID) attribute mappings.
-	UseDefaults *bool `pulumi:"useDefaults"`
+	IdentityPoolId       string            `pulumi:"identityPoolId"`
+	IdentityProviderName string            `pulumi:"identityProviderName"`
+	PrincipalTags        map[string]string `pulumi:"principalTags"`
+	Region               *string           `pulumi:"region"`
+	UseDefaults          *bool             `pulumi:"useDefaults"`
 }
 
 // The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
 type IdentityPoolProviderPrincipalTagArgs struct {
-	// An identity pool ID.
-	IdentityPoolId pulumi.StringInput
-	// The name of the identity provider.
+	IdentityPoolId       pulumi.StringInput
 	IdentityProviderName pulumi.StringInput
-	// String to string map of variables.
-	PrincipalTags pulumi.StringMapInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// use default (username and clientID) attribute mappings.
-	UseDefaults pulumi.BoolPtrInput
+	PrincipalTags        pulumi.StringMapInput
+	Region               pulumi.StringPtrInput
+	UseDefaults          pulumi.BoolPtrInput
 }
 
 func (IdentityPoolProviderPrincipalTagArgs) ElementType() reflect.Type {
@@ -286,27 +181,22 @@ func (o IdentityPoolProviderPrincipalTagOutput) ToIdentityPoolProviderPrincipalT
 	return o
 }
 
-// An identity pool ID.
 func (o IdentityPoolProviderPrincipalTagOutput) IdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
-// The name of the identity provider.
 func (o IdentityPoolProviderPrincipalTagOutput) IdentityProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringOutput { return v.IdentityProviderName }).(pulumi.StringOutput)
 }
 
-// String to string map of variables.
 func (o IdentityPoolProviderPrincipalTagOutput) PrincipalTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringMapOutput { return v.PrincipalTags }).(pulumi.StringMapOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityPoolProviderPrincipalTagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// use default (username and clientID) attribute mappings.
 func (o IdentityPoolProviderPrincipalTagOutput) UseDefaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.BoolPtrOutput { return v.UseDefaults }).(pulumi.BoolPtrOutput)
 }

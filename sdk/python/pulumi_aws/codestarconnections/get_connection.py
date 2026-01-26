@@ -60,17 +60,11 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> _builtins.str:
-        """
-        CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        """
         return pulumi.get(self, "connection_status")
 
     @_builtins.property
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> _builtins.str:
-        """
-        ARN of the host associated with the connection.
-        """
         return pulumi.get(self, "host_arn")
 
     @_builtins.property
@@ -84,17 +78,11 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the CodeStar Connection. The name is unique in the calling AWS account.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> _builtins.str:
-        """
-        Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an codestarconnections.Host resource and use `host_arn` instead.
-        """
         return pulumi.get(self, "provider_type")
 
     @_builtins.property
@@ -105,9 +93,6 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of key-value resource tags to associate with the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -133,35 +118,7 @@ def get_connection(arn: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Provides details about CodeStar Connection.
-
-    ## Example Usage
-
-    ### By ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
-    ```
-
-    ### By Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
-    ```
-
-
-    :param _builtins.str arn: CodeStar Connection ARN.
-    :param _builtins.str name: CodeStar Connection name.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of key-value resource tags to associate with the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -186,35 +143,7 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] =
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    Provides details about CodeStar Connection.
-
-    ## Example Usage
-
-    ### By ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
-    ```
-
-    ### By Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
-    ```
-
-
-    :param _builtins.str arn: CodeStar Connection ARN.
-    :param _builtins.str name: CodeStar Connection name.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of key-value resource tags to associate with the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

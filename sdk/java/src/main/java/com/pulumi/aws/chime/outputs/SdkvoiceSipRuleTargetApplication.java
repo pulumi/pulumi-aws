@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class SdkvoiceSipRuleTargetApplication {
-    /**
-     * @return The AWS Region of the target application.
-     * 
-     */
     private String awsRegion;
-    /**
-     * @return Priority of the SIP media application in the target list.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return The SIP media application ID.
-     * 
-     */
     private String sipMediaApplicationId;
 
     private SdkvoiceSipRuleTargetApplication() {}
-    /**
-     * @return The AWS Region of the target application.
-     * 
-     */
     public String awsRegion() {
         return this.awsRegion;
     }
-    /**
-     * @return Priority of the SIP media application in the target list.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return The SIP media application ID.
-     * 
-     */
     public String sipMediaApplicationId() {
         return this.sipMediaApplicationId;
     }

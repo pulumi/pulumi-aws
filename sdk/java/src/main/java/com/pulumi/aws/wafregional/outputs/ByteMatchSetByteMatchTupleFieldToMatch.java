@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ByteMatchSetByteMatchTupleFieldToMatch {
-    /**
-     * @return When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
-     * 
-     */
     private @Nullable String data;
-    /**
-     * @return The part of the web request that you want AWS WAF to search for a specified string.
-     * 
-     */
     private String type;
 
     private ByteMatchSetByteMatchTupleFieldToMatch() {}
-    /**
-     * @return When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
-     * 
-     */
     public Optional<String> data() {
         return Optional.ofNullable(this.data);
     }
-    /**
-     * @return The part of the web request that you want AWS WAF to search for a specified string.
-     * 
-     */
     public String type() {
         return this.type;
     }

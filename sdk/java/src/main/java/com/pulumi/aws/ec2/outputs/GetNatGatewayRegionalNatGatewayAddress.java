@@ -10,89 +10,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNatGatewayRegionalNatGatewayAddress {
-    /**
-     * @return Allocation ID of the Elastic IP address.
-     * 
-     */
     private String allocationId;
-    /**
-     * @return Association ID of the Elastic IP address.
-     * 
-     */
     private String associationId;
-    /**
-     * @return Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     private String availabilityZoneId;
-    /**
-     * @return ID of the network interface.
-     * 
-     */
     private String networkInterfaceId;
-    /**
-     * @return Public IP address.
-     * 
-     */
     private String publicIp;
-    /**
-     * @return Status of the NAT gateway address.
-     * 
-     */
     private String status;
 
     private GetNatGatewayRegionalNatGatewayAddress() {}
-    /**
-     * @return Allocation ID of the Elastic IP address.
-     * 
-     */
     public String allocationId() {
         return this.allocationId;
     }
-    /**
-     * @return Association ID of the Elastic IP address.
-     * 
-     */
     public String associationId() {
         return this.associationId;
     }
-    /**
-     * @return Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
-    /**
-     * @return ID of the network interface.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * @return Public IP address.
-     * 
-     */
     public String publicIp() {
         return this.publicIp;
     }
-    /**
-     * @return Status of the NAT gateway address.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -15,17 +15,9 @@ public final class OutboundWebIdentityFederationState extends com.pulumi.resourc
 
     public static final OutboundWebIdentityFederationState Empty = new OutboundWebIdentityFederationState();
 
-    /**
-     * A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-     * 
-     */
     @Import(name="issuerIdentifier")
     private @Nullable Output<String> issuerIdentifier;
 
-    /**
-     * @return A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-     * 
-     */
     public Optional<Output<String>> issuerIdentifier() {
         return Optional.ofNullable(this.issuerIdentifier);
     }
@@ -54,23 +46,11 @@ public final class OutboundWebIdentityFederationState extends com.pulumi.resourc
             $ = new OutboundWebIdentityFederationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param issuerIdentifier A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuerIdentifier(@Nullable Output<String> issuerIdentifier) {
             $.issuerIdentifier = issuerIdentifier;
             return this;
         }
 
-        /**
-         * @param issuerIdentifier A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuerIdentifier(String issuerIdentifier) {
             return issuerIdentifier(Output.of(issuerIdentifier));
         }

@@ -16,17 +16,9 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
 
     public static final WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs Empty = new WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs();
 
-    /**
-     * Headers to insert into the request. See below.
-     * 
-     */
     @Import(name="insertHeaders")
     private @Nullable Output<List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
-    /**
-     * @return Headers to insert into the request. See below.
-     * 
-     */
     public Optional<Output<List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs>>> insertHeaders() {
         return Optional.ofNullable(this.insertHeaders);
     }
@@ -55,33 +47,15 @@ public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrid
             $ = new WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insertHeaders Headers to insert into the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(@Nullable Output<List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
-        /**
-         * @param insertHeaders Headers to insert into the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs> insertHeaders) {
             return insertHeaders(Output.of(insertHeaders));
         }
 
-        /**
-         * @param insertHeaders Headers to insert into the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }

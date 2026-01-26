@@ -17,32 +17,16 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
 
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs();
 
-    /**
-     * Defines which tools the model should request when invoked. See Tool Choice for more information.
-     * 
-     */
     @Import(name="toolChoice")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs> toolChoice;
 
-    /**
-     * @return Defines which tools the model should request when invoked. See Tool Choice for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs>> toolChoice() {
         return Optional.ofNullable(this.toolChoice);
     }
 
-    /**
-     * A list of tools to pass to a model. See Tool for more information.
-     * 
-     */
     @Import(name="tools")
     private @Nullable Output<List<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs>> tools;
 
-    /**
-     * @return A list of tools to pass to a model. See Tool for more information.
-     * 
-     */
     public Optional<Output<List<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs>>> tools() {
         return Optional.ofNullable(this.tools);
     }
@@ -72,54 +56,24 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
             $ = new AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param toolChoice Defines which tools the model should request when invoked. See Tool Choice for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolChoice(@Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs> toolChoice) {
             $.toolChoice = toolChoice;
             return this;
         }
 
-        /**
-         * @param toolChoice Defines which tools the model should request when invoked. See Tool Choice for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolChoice(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs toolChoice) {
             return toolChoice(Output.of(toolChoice));
         }
 
-        /**
-         * @param tools A list of tools to pass to a model. See Tool for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tools(@Nullable Output<List<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs>> tools) {
             $.tools = tools;
             return this;
         }
 
-        /**
-         * @param tools A list of tools to pass to a model. See Tool for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tools(List<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs> tools) {
             return tools(Output.of(tools));
         }
 
-        /**
-         * @param tools A list of tools to pass to a model. See Tool for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tools(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs... tools) {
             return tools(List.of(tools));
         }

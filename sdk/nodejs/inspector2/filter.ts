@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Inspector Filter.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.inspector2.Filter("example", {
- *     name: "test",
- *     action: "NONE",
- *     filterCriterias: [{
- *         awsAccountIds: [{
- *             comparison: "EQUALS",
- *             value: "111222333444",
- *         }],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Inspector Filter using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:inspector2/filter:Filter example "arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678"
- * ```
- */
 export class Filter extends pulumi.CustomResource {
     /**
      * Get an existing Filter resource's state with the given name, ID, and optional extra
@@ -66,43 +35,14 @@ export class Filter extends pulumi.CustomResource {
         return obj['__pulumiType'] === Filter.__pulumiType;
     }
 
-    /**
-     * Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-     */
     declare public readonly action: pulumi.Output<string>;
-    /**
-     * ARN of the Filter.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Details on the filter criteria. Documented below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly filterCriterias: pulumi.Output<outputs.inspector2.FilterFilterCriteria[] | undefined>;
-    /**
-     * Name of the filter.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Reason for creating the filter
-     */
     declare public readonly reason: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -151,43 +91,14 @@ export class Filter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Filter resources.
  */
 export interface FilterState {
-    /**
-     * Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-     */
     action?: pulumi.Input<string>;
-    /**
-     * ARN of the Filter.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Details on the filter criteria. Documented below.
-     *
-     * The following arguments are optional:
-     */
     filterCriterias?: pulumi.Input<pulumi.Input<inputs.inspector2.FilterFilterCriteria>[]>;
-    /**
-     * Name of the filter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Reason for creating the filter
-     */
     reason?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -195,34 +106,11 @@ export interface FilterState {
  * The set of arguments for constructing a Filter resource.
  */
 export interface FilterArgs {
-    /**
-     * Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-     */
     action: pulumi.Input<string>;
-    /**
-     * Description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Details on the filter criteria. Documented below.
-     *
-     * The following arguments are optional:
-     */
     filterCriterias?: pulumi.Input<pulumi.Input<inputs.inspector2.FilterFilterCriteria>[]>;
-    /**
-     * Name of the filter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Reason for creating the filter
-     */
     reason?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

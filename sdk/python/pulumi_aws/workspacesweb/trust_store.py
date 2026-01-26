@@ -26,9 +26,6 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TrustStoreCertificateArgs']]] certificates: Set of certificates to include in the trust store. See Certificate below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -40,9 +37,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreCertificateArgs']]]]:
-        """
-        Set of certificates to include in the trust store. See Certificate below.
-        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -52,9 +46,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -64,9 +55,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -85,12 +73,6 @@ class _TrustStoreState:
                  trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustStore resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the trust store.
-        :param pulumi.Input[Sequence[pulumi.Input['TrustStoreCertificateArgs']]] certificates: Set of certificates to include in the trust store. See Certificate below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] trust_store_arn: ARN of the trust store.
         """
         if associated_portal_arns is not None:
             pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
@@ -108,9 +90,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of ARNs of the web portals associated with the trust store.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @associated_portal_arns.setter
@@ -120,9 +99,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreCertificateArgs']]]]:
-        """
-        Set of certificates to include in the trust store. See Certificate below.
-        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -132,9 +108,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -144,9 +117,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -156,9 +126,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -168,9 +135,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the trust store.
-        """
         return pulumi.get(self, "trust_store_arn")
 
     @trust_store_arn.setter
@@ -189,56 +153,9 @@ class TrustStore(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Trust Store.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.workspacesweb.TrustStore("example", certificates=[{
-            "body": std.file(input="certificate.pem").result,
-        }])
-        ```
-
-        ### Multiple Certificates
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.workspacesweb.TrustStore("example",
-            certificates=[
-                {
-                    "body": std.file(input="certificate1.pem").result,
-                },
-                {
-                    "body": std.file(input="certificate2.pem").result,
-                },
-            ],
-            tags={
-                "Name": "example-trust-store",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Trust Store using the `trust_store_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
-        ```
-
+        Create a TrustStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreCertificateArgs', 'TrustStoreCertificateArgsDict']]]] certificates: Set of certificates to include in the trust store. See Certificate below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -247,51 +164,7 @@ class TrustStore(pulumi.CustomResource):
                  args: Optional[TrustStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Trust Store.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.workspacesweb.TrustStore("example", certificates=[{
-            "body": std.file(input="certificate.pem").result,
-        }])
-        ```
-
-        ### Multiple Certificates
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.workspacesweb.TrustStore("example",
-            certificates=[
-                {
-                    "body": std.file(input="certificate1.pem").result,
-                },
-                {
-                    "body": std.file(input="certificate2.pem").result,
-                },
-            ],
-            tags={
-                "Name": "example-trust-store",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Trust Store using the `trust_store_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
-        ```
-
+        Create a TrustStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -348,12 +221,6 @@ class TrustStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the trust store.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreCertificateArgs', 'TrustStoreCertificateArgsDict']]]] certificates: Set of certificates to include in the trust store. See Certificate below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] trust_store_arn: ARN of the trust store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -370,48 +237,30 @@ class TrustStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of ARNs of the web portals associated with the trust store.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.TrustStoreCertificate']]]:
-        """
-        Set of certificates to include in the trust store. See Certificate below.
-        """
         return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the trust store.
-        """
         return pulumi.get(self, "trust_store_arn")
 

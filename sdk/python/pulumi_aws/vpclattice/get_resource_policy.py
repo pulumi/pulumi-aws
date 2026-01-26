@@ -51,9 +51,6 @@ class GetResourcePolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        JSON-encoded string representation of the applied resource policy.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
@@ -83,22 +80,7 @@ def get_resource_policy(region: Optional[_builtins.str] = None,
                         resource_arn: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
-    Data source for managing an AWS VPC Lattice Resource Policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_resource_policy(resource_arn=example_aws_vpclattice_service_network["arn"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: Resource ARN of the resource for which a policy is retrieved.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -115,22 +97,7 @@ def get_resource_policy_output(region: Optional[pulumi.Input[Optional[_builtins.
                                resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
-    Data source for managing an AWS VPC Lattice Resource Policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_resource_policy(resource_arn=example_aws_vpclattice_service_network["arn"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: Resource ARN of the resource for which a policy is retrieved.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

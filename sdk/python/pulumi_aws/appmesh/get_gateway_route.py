@@ -68,17 +68,11 @@ class GetGatewayRouteResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the gateway route.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Creation date of the gateway route.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -92,9 +86,6 @@ class GetGatewayRouteResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Last update date of the gateway route.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
@@ -120,25 +111,16 @@ class GetGatewayRouteResult:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> _builtins.str:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @_builtins.property
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetGatewayRouteSpecResult']:
-        """
-        Gateway route specification. See the `appmesh.GatewayRoute` resource for details.
-        """
         return pulumi.get(self, "specs")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -175,26 +157,7 @@ def get_gateway_route(mesh_name: Optional[_builtins.str] = None,
                       virtual_gateway_name: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayRouteResult:
     """
-    The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_gateway_route(name="test-route",
-        mesh_name="test-mesh",
-        virtual_gateway_name="test-gateway")
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual gateway exists.
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the gateway route.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
-    :param _builtins.str virtual_gateway_name: Name of the virtual gateway in which the route exists.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name
@@ -227,26 +190,7 @@ def get_gateway_route_output(mesh_name: Optional[pulumi.Input[_builtins.str]] = 
                              virtual_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayRouteResult]:
     """
-    The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_gateway_route(name="test-route",
-        mesh_name="test-mesh",
-        virtual_gateway_name="test-gateway")
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual gateway exists.
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the gateway route.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
-    :param _builtins.str virtual_gateway_name: Name of the virtual gateway in which the route exists.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name

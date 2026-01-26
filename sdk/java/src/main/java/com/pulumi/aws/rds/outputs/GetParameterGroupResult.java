@@ -10,20 +10,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetParameterGroupResult {
-    /**
-     * @return ARN of the parameter group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the parameter group.
-     * 
-     */
     private String description;
-    /**
-     * @return Family of the parameter group.
-     * 
-     */
     private String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -34,24 +22,12 @@ public final class GetParameterGroupResult {
     private String region;
 
     private GetParameterGroupResult() {}
-    /**
-     * @return ARN of the parameter group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the parameter group.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Family of the parameter group.
-     * 
-     */
     public String family() {
         return this.family;
     }

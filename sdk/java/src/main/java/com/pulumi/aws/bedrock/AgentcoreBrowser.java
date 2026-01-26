@@ -18,320 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Bedrock AgentCore Browser. Browser provides AI agents with web browsing capabilities, allowing them to navigate websites, extract information, and interact with web content in a controlled environment.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreBrowser;
- * import com.pulumi.aws.bedrock.AgentcoreBrowserArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserNetworkConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreBrowser("example", AgentcoreBrowserArgs.builder()
- *             .name("example-browser")
- *             .description("Browser for web data extraction")
- *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
- *                 .networkMode("PUBLIC")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Browser with VPC Configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreBrowser;
- * import com.pulumi.aws.bedrock.AgentcoreBrowserArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserNetworkConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserNetworkConfigurationVpcConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var vpcExample = new AgentcoreBrowser("vpcExample", AgentcoreBrowserArgs.builder()
- *             .name("vpc-browser")
- *             .description("Browser with VPC configuration")
- *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
- *                 .networkMode("VPC")
- *                 .vpcConfig(AgentcoreBrowserNetworkConfigurationVpcConfigArgs.builder()
- *                     .securityGroups("sg-12345678")
- *                     .subnets(                    
- *                         "subnet-12345678",
- *                         "subnet-87654321")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Browser with Execution Role and Recording
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.bedrock.AgentcoreBrowser;
- * import com.pulumi.aws.bedrock.AgentcoreBrowserArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserNetworkConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserRecordingArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserRecordingS3LocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("bedrock-agentcore.amazonaws.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var example = new Role("example", RoleArgs.builder()
- *             .name("bedrock-agentcore-browser-role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var recording = new Bucket("recording", BucketArgs.builder()
- *             .bucket("browser-recording-bucket")
- *             .build());
- * 
- *         var exampleAgentcoreBrowser = new AgentcoreBrowser("exampleAgentcoreBrowser", AgentcoreBrowserArgs.builder()
- *             .name("example-browser")
- *             .description("Browser with recording enabled")
- *             .executionRoleArn(example.arn())
- *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
- *                 .networkMode("PUBLIC")
- *                 .build())
- *             .recording(AgentcoreBrowserRecordingArgs.builder()
- *                 .enabled(true)
- *                 .s3Location(AgentcoreBrowserRecordingS3LocationArgs.builder()
- *                     .bucket(recording.bucket())
- *                     .prefix("browser-sessions/")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock AgentCore Browser using the browser ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreBrowser:AgentcoreBrowser example BROWSER1234567890
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentcoreBrowser:AgentcoreBrowser")
 public class AgentcoreBrowser extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Browser.
-     * 
-     */
     @Export(name="browserArn", refs={String.class}, tree="[0]")
     private Output<String> browserArn;
 
-    /**
-     * @return ARN of the Browser.
-     * 
-     */
     public Output<String> browserArn() {
         return this.browserArn;
     }
-    /**
-     * Unique identifier of the Browser.
-     * 
-     */
     @Export(name="browserId", refs={String.class}, tree="[0]")
     private Output<String> browserId;
 
-    /**
-     * @return Unique identifier of the Browser.
-     * 
-     */
     public Output<String> browserId() {
         return this.browserId;
     }
-    /**
-     * Description of the browser.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the browser.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * ARN of the IAM role that the browser assumes for execution.
-     * 
-     */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionRoleArn;
 
-    /**
-     * @return ARN of the IAM role that the browser assumes for execution.
-     * 
-     */
     public Output<Optional<String>> executionRoleArn() {
         return Codegen.optional(this.executionRoleArn);
     }
-    /**
-     * Name of the browser.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the browser.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Network configuration for the browser. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="networkConfiguration", refs={AgentcoreBrowserNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreBrowserNetworkConfiguration> networkConfiguration;
 
-    /**
-     * @return Network configuration for the browser. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<AgentcoreBrowserNetworkConfiguration>> networkConfiguration() {
         return Codegen.optional(this.networkConfiguration);
     }
-    /**
-     * Recording configuration for browser sessions. See `recording` below.
-     * 
-     */
     @Export(name="recording", refs={AgentcoreBrowserRecording.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreBrowserRecording> recording;
 
-    /**
-     * @return Recording configuration for browser sessions. See `recording` below.
-     * 
-     */
     public Output<Optional<AgentcoreBrowserRecording>> recording() {
         return Codegen.optional(this.recording);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

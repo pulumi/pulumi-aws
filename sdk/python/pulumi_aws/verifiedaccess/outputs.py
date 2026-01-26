@@ -476,10 +476,6 @@ class GroupSseConfiguration(dict):
     def __init__(__self__, *,
                  customer_managed_key_enabled: Optional[_builtins.bool] = None,
                  kms_key_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool customer_managed_key_enabled: Boolean flag to indicate that the CMK should be used.
-        :param _builtins.str kms_key_arn: ARN of the KMS key to use.
-        """
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -488,17 +484,11 @@ class GroupSseConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Boolean flag to indicate that the CMK should be used.
-        """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the KMS key to use.
-        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -533,13 +523,6 @@ class InstanceLoggingConfigurationAccessLogs(dict):
                  kinesis_data_firehose: Optional['outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose'] = None,
                  log_version: Optional[_builtins.str] = None,
                  s3: Optional['outputs.InstanceLoggingConfigurationAccessLogsS3'] = None):
-        """
-        :param 'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs' cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-        :param _builtins.bool include_trust_context: Include trust data sent by trust providers into the logs.
-        :param 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs' kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-        :param _builtins.str log_version: The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-        :param 'InstanceLoggingConfigurationAccessLogsS3Args' s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if include_trust_context is not None:
@@ -554,41 +537,26 @@ class InstanceLoggingConfigurationAccessLogs(dict):
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs']:
-        """
-        A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @_builtins.property
     @pulumi.getter(name="includeTrustContext")
     def include_trust_context(self) -> Optional[_builtins.bool]:
-        """
-        Include trust data sent by trust providers into the logs.
-        """
         return pulumi.get(self, "include_trust_context")
 
     @_builtins.property
     @pulumi.getter(name="kinesisDataFirehose")
     def kinesis_data_firehose(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose']:
-        """
-        A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-        """
         return pulumi.get(self, "kinesis_data_firehose")
 
     @_builtins.property
     @pulumi.getter(name="logVersion")
     def log_version(self) -> Optional[_builtins.str]:
-        """
-        The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-        """
         return pulumi.get(self, "log_version")
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsS3']:
-        """
-        A block that specifies configures sending Verified Access logs to S3. Detailed below.
-        """
         return pulumi.get(self, "s3")
 
 
@@ -614,10 +582,6 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  log_group: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: Indicates whether logging is enabled.
-        :param _builtins.str log_group: The name of the CloudWatch Logs Log Group.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
@@ -625,17 +589,11 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Indicates whether logging is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[_builtins.str]:
-        """
-        The name of the CloudWatch Logs Log Group.
-        """
         return pulumi.get(self, "log_group")
 
 
@@ -661,10 +619,6 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  delivery_stream: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: Indicates whether logging is enabled.
-        :param _builtins.str delivery_stream: The name of the delivery stream.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if delivery_stream is not None:
             pulumi.set(__self__, "delivery_stream", delivery_stream)
@@ -672,17 +626,11 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Indicates whether logging is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="deliveryStream")
     def delivery_stream(self) -> Optional[_builtins.str]:
-        """
-        The name of the delivery stream.
-        """
         return pulumi.get(self, "delivery_stream")
 
 
@@ -712,12 +660,6 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
                  bucket_name: Optional[_builtins.str] = None,
                  bucket_owner: Optional[_builtins.str] = None,
                  prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: Indicates whether logging is enabled.
-        :param _builtins.str bucket_name: The name of S3 bucket.
-        :param _builtins.str bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
-        :param _builtins.str prefix: The bucket prefix.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -729,33 +671,21 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Indicates whether logging is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[_builtins.str]:
-        """
-        The name of S3 bucket.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> Optional[_builtins.str]:
-        """
-        The ID of the AWS account that owns the Amazon S3 bucket.
-        """
         return pulumi.get(self, "bucket_owner")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
-        """
-        The bucket prefix.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -790,13 +720,6 @@ class InstanceVerifiedAccessTrustProvider(dict):
                  trust_provider_type: Optional[_builtins.str] = None,
                  user_trust_provider_type: Optional[_builtins.str] = None,
                  verified_access_trust_provider_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str description: A description for the AWS Verified Access Instance.
-        :param _builtins.str device_trust_provider_type: The type of device-based trust provider.
-        :param _builtins.str trust_provider_type: The type of trust provider (user- or device-based).
-        :param _builtins.str user_trust_provider_type: The type of user-based trust provider.
-        :param _builtins.str verified_access_trust_provider_id: The ID of the trust provider.
-        """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if device_trust_provider_type is not None:
@@ -811,41 +734,26 @@ class InstanceVerifiedAccessTrustProvider(dict):
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        A description for the AWS Verified Access Instance.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustProviderType")
     def device_trust_provider_type(self) -> Optional[_builtins.str]:
-        """
-        The type of device-based trust provider.
-        """
         return pulumi.get(self, "device_trust_provider_type")
 
     @_builtins.property
     @pulumi.getter(name="trustProviderType")
     def trust_provider_type(self) -> Optional[_builtins.str]:
-        """
-        The type of trust provider (user- or device-based).
-        """
         return pulumi.get(self, "trust_provider_type")
 
     @_builtins.property
     @pulumi.getter(name="userTrustProviderType")
     def user_trust_provider_type(self) -> Optional[_builtins.str]:
-        """
-        The type of user-based trust provider.
-        """
         return pulumi.get(self, "user_trust_provider_type")
 
     @_builtins.property
     @pulumi.getter(name="verifiedAccessTrustProviderId")
     def verified_access_trust_provider_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the trust provider.
-        """
         return pulumi.get(self, "verified_access_trust_provider_id")
 
 

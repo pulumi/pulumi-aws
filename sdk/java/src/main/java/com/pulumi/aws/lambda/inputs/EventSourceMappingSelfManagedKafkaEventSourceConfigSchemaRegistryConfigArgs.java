@@ -18,62 +18,30 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
 
     public static final EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs Empty = new EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs();
 
-    /**
-     * Configuration block for authentication Lambda uses to access the schema registry.
-     * 
-     */
     @Import(name="accessConfigs")
     private @Nullable Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs>> accessConfigs;
 
-    /**
-     * @return Configuration block for authentication Lambda uses to access the schema registry.
-     * 
-     */
     public Optional<Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs>>> accessConfigs() {
         return Optional.ofNullable(this.accessConfigs);
     }
 
-    /**
-     * Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-     * 
-     */
     @Import(name="eventRecordFormat")
     private @Nullable Output<String> eventRecordFormat;
 
-    /**
-     * @return Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-     * 
-     */
     public Optional<Output<String>> eventRecordFormat() {
         return Optional.ofNullable(this.eventRecordFormat);
     }
 
-    /**
-     * URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-     * 
-     */
     @Import(name="schemaRegistryUri")
     private @Nullable Output<String> schemaRegistryUri;
 
-    /**
-     * @return URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-     * 
-     */
     public Optional<Output<String>> schemaRegistryUri() {
         return Optional.ofNullable(this.schemaRegistryUri);
     }
 
-    /**
-     * Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-     * 
-     */
     @Import(name="schemaValidationConfigs")
     private @Nullable Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs>> schemaValidationConfigs;
 
-    /**
-     * @return Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-     * 
-     */
     public Optional<Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs>>> schemaValidationConfigs() {
         return Optional.ofNullable(this.schemaValidationConfigs);
     }
@@ -105,106 +73,46 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
             $ = new EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessConfigs(@Nullable Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs>> accessConfigs) {
             $.accessConfigs = accessConfigs;
             return this;
         }
 
-        /**
-         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessConfigs(List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs> accessConfigs) {
             return accessConfigs(Output.of(accessConfigs));
         }
 
-        /**
-         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessConfigs(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs... accessConfigs) {
             return accessConfigs(List.of(accessConfigs));
         }
 
-        /**
-         * @param eventRecordFormat Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventRecordFormat(@Nullable Output<String> eventRecordFormat) {
             $.eventRecordFormat = eventRecordFormat;
             return this;
         }
 
-        /**
-         * @param eventRecordFormat Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventRecordFormat(String eventRecordFormat) {
             return eventRecordFormat(Output.of(eventRecordFormat));
         }
 
-        /**
-         * @param schemaRegistryUri URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaRegistryUri(@Nullable Output<String> schemaRegistryUri) {
             $.schemaRegistryUri = schemaRegistryUri;
             return this;
         }
 
-        /**
-         * @param schemaRegistryUri URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaRegistryUri(String schemaRegistryUri) {
             return schemaRegistryUri(Output.of(schemaRegistryUri));
         }
 
-        /**
-         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaValidationConfigs(@Nullable Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs>> schemaValidationConfigs) {
             $.schemaValidationConfigs = schemaValidationConfigs;
             return this;
         }
 
-        /**
-         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaValidationConfigs(List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs> schemaValidationConfigs) {
             return schemaValidationConfigs(Output.of(schemaValidationConfigs));
         }
 
-        /**
-         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaValidationConfigs(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs... schemaValidationConfigs) {
             return schemaValidationConfigs(List.of(schemaValidationConfigs));
         }

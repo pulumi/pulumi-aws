@@ -15,32 +15,16 @@ public final class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs 
 
     public static final SecurityConfigurationEncryptionConfigurationS3EncryptionArgs Empty = new SecurityConfigurationEncryptionConfigurationS3EncryptionArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-     * 
-     */
     @Import(name="s3EncryptionMode")
     private @Nullable Output<String> s3EncryptionMode;
 
-    /**
-     * @return Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> s3EncryptionMode() {
         return Optional.ofNullable(this.s3EncryptionMode);
     }
@@ -70,44 +54,20 @@ public final class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs 
             $ = new SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param s3EncryptionMode Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3EncryptionMode(@Nullable Output<String> s3EncryptionMode) {
             $.s3EncryptionMode = s3EncryptionMode;
             return this;
         }
 
-        /**
-         * @param s3EncryptionMode Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3EncryptionMode(String s3EncryptionMode) {
             return s3EncryptionMode(Output.of(s3EncryptionMode));
         }

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
-    /**
-     * @return The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     private String authType;
-    /**
-     * @return The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     private String credentialsSecretArn;
-    /**
-     * @return The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
-     * 
-     */
     private String hostUrl;
 
     private AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration() {}
-    /**
-     * @return The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     public String authType() {
         return this.authType;
     }
-    /**
-     * @return The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
-    /**
-     * @return The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
-     * 
-     */
     public String hostUrl() {
         return this.hostUrl;
     }

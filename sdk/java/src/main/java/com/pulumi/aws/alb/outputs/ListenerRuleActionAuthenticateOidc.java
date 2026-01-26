@@ -14,137 +14,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleActionAuthenticateOidc {
-    /**
-     * @return The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-     * 
-     */
     private @Nullable Map<String,String> authenticationRequestExtraParams;
-    /**
-     * @return The authorization endpoint of the IdP.
-     * 
-     */
     private String authorizationEndpoint;
-    /**
-     * @return The OAuth 2.0 client identifier.
-     * 
-     */
     private String clientId;
-    /**
-     * @return The OAuth 2.0 client secret.
-     * 
-     */
     private String clientSecret;
-    /**
-     * @return The OIDC issuer identifier of the IdP.
-     * 
-     */
     private String issuer;
-    /**
-     * @return The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-     * 
-     */
     private @Nullable String onUnauthenticatedRequest;
-    /**
-     * @return The set of user claims to be requested from the IdP.
-     * 
-     */
     private @Nullable String scope;
-    /**
-     * @return The name of the cookie used to maintain session information.
-     * 
-     */
     private @Nullable String sessionCookieName;
-    /**
-     * @return The maximum duration of the authentication session, in seconds.
-     * 
-     */
     private @Nullable Integer sessionTimeout;
-    /**
-     * @return The token endpoint of the IdP.
-     * 
-     */
     private String tokenEndpoint;
-    /**
-     * @return The user info endpoint of the IdP.
-     * 
-     */
     private String userInfoEndpoint;
 
     private ListenerRuleActionAuthenticateOidc() {}
-    /**
-     * @return The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-     * 
-     */
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams == null ? Map.of() : this.authenticationRequestExtraParams;
     }
-    /**
-     * @return The authorization endpoint of the IdP.
-     * 
-     */
     public String authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
-    /**
-     * @return The OAuth 2.0 client identifier.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return The OAuth 2.0 client secret.
-     * 
-     */
     public String clientSecret() {
         return this.clientSecret;
     }
-    /**
-     * @return The OIDC issuer identifier of the IdP.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
-    /**
-     * @return The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-     * 
-     */
     public Optional<String> onUnauthenticatedRequest() {
         return Optional.ofNullable(this.onUnauthenticatedRequest);
     }
-    /**
-     * @return The set of user claims to be requested from the IdP.
-     * 
-     */
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
     }
-    /**
-     * @return The name of the cookie used to maintain session information.
-     * 
-     */
     public Optional<String> sessionCookieName() {
         return Optional.ofNullable(this.sessionCookieName);
     }
-    /**
-     * @return The maximum duration of the authentication session, in seconds.
-     * 
-     */
     public Optional<Integer> sessionTimeout() {
         return Optional.ofNullable(this.sessionTimeout);
     }
-    /**
-     * @return The token endpoint of the IdP.
-     * 
-     */
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }
-    /**
-     * @return The user info endpoint of the IdP.
-     * 
-     */
     public String userInfoEndpoint() {
         return this.userInfoEndpoint;
     }

@@ -16,47 +16,23 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
 
     public static final AccessPointPolicyArgs Empty = new AccessPointPolicyArgs();
 
-    /**
-     * The ARN of the access point that you want to associate with the specified policy.
-     * 
-     */
     @Import(name="accessPointArn", required=true)
     private Output<String> accessPointArn;
 
-    /**
-     * @return The ARN of the access point that you want to associate with the specified policy.
-     * 
-     */
     public Output<String> accessPointArn() {
         return this.accessPointArn;
     }
 
-    /**
-     * The policy that you want to apply to the specified access point.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return The policy that you want to apply to the specified access point.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
             $ = new AccessPointPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPointArn The ARN of the access point that you want to associate with the specified policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointArn(Output<String> accessPointArn) {
             $.accessPointArn = accessPointArn;
             return this;
         }
 
-        /**
-         * @param accessPointArn The ARN of the access point that you want to associate with the specified policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointArn(String accessPointArn) {
             return accessPointArn(Output.of(accessPointArn));
         }
 
-        /**
-         * @param policy The policy that you want to apply to the specified access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The policy that you want to apply to the specified access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

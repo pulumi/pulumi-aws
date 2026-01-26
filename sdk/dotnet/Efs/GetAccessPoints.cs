@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Efs
 {
     public static class GetAccessPoints
     {
-        /// <summary>
-        /// Provides information about multiple Elastic File System (EFS) Access Points.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Efs.GetAccessPoints.Invoke(new()
-        ///     {
-        ///         FileSystemId = "fs-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAccessPointsResult> InvokeAsync(GetAccessPointsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointsResult>("aws:efs/getAccessPoints:getAccessPoints", args ?? new GetAccessPointsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about multiple Elastic File System (EFS) Access Points.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Efs.GetAccessPoints.Invoke(new()
-        ///     {
-        ///         FileSystemId = "fs-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccessPointsResult> Invoke(GetAccessPointsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointsResult>("aws:efs/getAccessPoints:getAccessPoints", args ?? new GetAccessPointsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about multiple Elastic File System (EFS) Access Points.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Efs.GetAccessPoints.Invoke(new()
-        ///     {
-        ///         FileSystemId = "fs-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccessPointsResult> Invoke(GetAccessPointsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointsResult>("aws:efs/getAccessPoints:getAccessPoints", args ?? new GetAccessPointsInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Efs
 
     public sealed class GetAccessPointsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// EFS File System identifier.
-        /// </summary>
         [Input("fileSystemId", required: true)]
         public string FileSystemId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Efs
 
     public sealed class GetAccessPointsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// EFS File System identifier.
-        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,18 +54,12 @@ namespace Pulumi.Aws.Efs
     [OutputType]
     public sealed class GetAccessPointsResult
     {
-        /// <summary>
-        /// Set of Amazon Resource Names (ARNs).
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly string FileSystemId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of identifiers.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
 

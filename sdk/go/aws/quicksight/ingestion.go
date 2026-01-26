@@ -12,63 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS QuickSight Ingestion.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewIngestion(ctx, "example", &quicksight.IngestionArgs{
-//				DataSetId:     pulumi.Any(exampleAwsQuicksightDataSet.DataSetId),
-//				IngestionId:   pulumi.String("example-id"),
-//				IngestionType: pulumi.String("FULL_REFRESH"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
-// ```
 type Ingestion struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Ingestion.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// ID of the dataset used in the ingestion.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// ID for the ingestion.
-	IngestionId pulumi.StringOutput `pulumi:"ingestionId"`
-	// Ingestion status.
+	Arn             pulumi.StringOutput `pulumi:"arn"`
+	AwsAccountId    pulumi.StringOutput `pulumi:"awsAccountId"`
+	DataSetId       pulumi.StringOutput `pulumi:"dataSetId"`
+	IngestionId     pulumi.StringOutput `pulumi:"ingestionId"`
 	IngestionStatus pulumi.StringOutput `pulumi:"ingestionStatus"`
-	// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-	//
-	// The following arguments are optional:
-	IngestionType pulumi.StringOutput `pulumi:"ingestionType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	IngestionType   pulumi.StringOutput `pulumi:"ingestionType"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewIngestion registers a new resource with the given unique name, arguments, and options.
@@ -110,39 +63,23 @@ func GetIngestion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Ingestion resources.
 type ingestionState struct {
-	// ARN of the Ingestion.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// ID of the dataset used in the ingestion.
-	DataSetId *string `pulumi:"dataSetId"`
-	// ID for the ingestion.
-	IngestionId *string `pulumi:"ingestionId"`
-	// Ingestion status.
+	Arn             *string `pulumi:"arn"`
+	AwsAccountId    *string `pulumi:"awsAccountId"`
+	DataSetId       *string `pulumi:"dataSetId"`
+	IngestionId     *string `pulumi:"ingestionId"`
 	IngestionStatus *string `pulumi:"ingestionStatus"`
-	// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-	//
-	// The following arguments are optional:
-	IngestionType *string `pulumi:"ingestionType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IngestionType   *string `pulumi:"ingestionType"`
+	Region          *string `pulumi:"region"`
 }
 
 type IngestionState struct {
-	// ARN of the Ingestion.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// ID of the dataset used in the ingestion.
-	DataSetId pulumi.StringPtrInput
-	// ID for the ingestion.
-	IngestionId pulumi.StringPtrInput
-	// Ingestion status.
+	Arn             pulumi.StringPtrInput
+	AwsAccountId    pulumi.StringPtrInput
+	DataSetId       pulumi.StringPtrInput
+	IngestionId     pulumi.StringPtrInput
 	IngestionStatus pulumi.StringPtrInput
-	// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-	//
-	// The following arguments are optional:
-	IngestionType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IngestionType   pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (IngestionState) ElementType() reflect.Type {
@@ -150,32 +87,20 @@ func (IngestionState) ElementType() reflect.Type {
 }
 
 type ingestionArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// ID of the dataset used in the ingestion.
-	DataSetId string `pulumi:"dataSetId"`
-	// ID for the ingestion.
-	IngestionId string `pulumi:"ingestionId"`
-	// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-	//
-	// The following arguments are optional:
-	IngestionType string `pulumi:"ingestionType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AwsAccountId  *string `pulumi:"awsAccountId"`
+	DataSetId     string  `pulumi:"dataSetId"`
+	IngestionId   string  `pulumi:"ingestionId"`
+	IngestionType string  `pulumi:"ingestionType"`
+	Region        *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Ingestion resource.
 type IngestionArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// ID of the dataset used in the ingestion.
-	DataSetId pulumi.StringInput
-	// ID for the ingestion.
-	IngestionId pulumi.StringInput
-	// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-	//
-	// The following arguments are optional:
+	AwsAccountId  pulumi.StringPtrInput
+	DataSetId     pulumi.StringInput
+	IngestionId   pulumi.StringInput
 	IngestionType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (IngestionArgs) ElementType() reflect.Type {
@@ -265,7 +190,6 @@ func (o IngestionOutput) ToIngestionOutputWithContext(ctx context.Context) Inges
 	return o
 }
 
-// ARN of the Ingestion.
 func (o IngestionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -274,29 +198,22 @@ func (o IngestionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// ID of the dataset used in the ingestion.
 func (o IngestionOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
 
-// ID for the ingestion.
 func (o IngestionOutput) IngestionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.IngestionId }).(pulumi.StringOutput)
 }
 
-// Ingestion status.
 func (o IngestionOutput) IngestionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.IngestionStatus }).(pulumi.StringOutput)
 }
 
-// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-//
-// The following arguments are optional:
 func (o IngestionOutput) IngestionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.IngestionType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IngestionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

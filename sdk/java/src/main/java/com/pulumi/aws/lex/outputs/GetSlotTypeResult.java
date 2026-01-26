@@ -14,88 +14,31 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSlotTypeResult {
-    /**
-     * @return Checksum identifying the version of the slot type that was created. The checksum is
-     * not included as an argument because the resource will add it automatically when updating the slot type.
-     * 
-     */
     private String checksum;
-    /**
-     * @return Date when the slot type version was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Description of the slot type.
-     * 
-     */
     private String description;
-    /**
-     * @return Set of EnumerationValue objects that defines the values that
-     * the slot type can take. Each value can have a set of synonyms, which are additional values that help
-     * train the machine learning model about the values that it resolves for a slot.
-     * 
-     */
     private List<GetSlotTypeEnumerationValue> enumerationValues;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Date when the $LATEST version of this slot type was updated.
-     * 
-     */
     private String lastUpdatedDate;
-    /**
-     * @return Name of the slot type. The name is not case sensitive.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Determines the slot resolution strategy that Amazon Lex
-     * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-     * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned.
-     * 
-     */
     private String valueSelectionStrategy;
-    /**
-     * @return Version of the slot type.
-     * 
-     */
     private @Nullable String version;
 
     private GetSlotTypeResult() {}
-    /**
-     * @return Checksum identifying the version of the slot type that was created. The checksum is
-     * not included as an argument because the resource will add it automatically when updating the slot type.
-     * 
-     */
     public String checksum() {
         return this.checksum;
     }
-    /**
-     * @return Date when the slot type version was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Description of the slot type.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Set of EnumerationValue objects that defines the values that
-     * the slot type can take. Each value can have a set of synonyms, which are additional values that help
-     * train the machine learning model about the values that it resolves for a slot.
-     * 
-     */
     public List<GetSlotTypeEnumerationValue> enumerationValues() {
         return this.enumerationValues;
     }
@@ -106,37 +49,18 @@ public final class GetSlotTypeResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Date when the $LATEST version of this slot type was updated.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * @return Name of the slot type. The name is not case sensitive.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Determines the slot resolution strategy that Amazon Lex
-     * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-     * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned.
-     * 
-     */
     public String valueSelectionStrategy() {
         return this.valueSelectionStrategy;
     }
-    /**
-     * @return Version of the slot type.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

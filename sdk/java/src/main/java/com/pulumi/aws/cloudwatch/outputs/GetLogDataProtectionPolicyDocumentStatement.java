@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatement {
-    /**
-     * @return Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-     * 
-     */
     private List<String> dataIdentifiers;
-    /**
-     * @return Configures the data protection operation applied by this statement.
-     * 
-     */
     private GetLogDataProtectionPolicyDocumentStatementOperation operation;
-    /**
-     * @return Name of this statement.
-     * 
-     */
     private @Nullable String sid;
 
     private GetLogDataProtectionPolicyDocumentStatement() {}
-    /**
-     * @return Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-     * 
-     */
     public List<String> dataIdentifiers() {
         return this.dataIdentifiers;
     }
-    /**
-     * @return Configures the data protection operation applied by this statement.
-     * 
-     */
     public GetLogDataProtectionPolicyDocumentStatementOperation operation() {
         return this.operation;
     }
-    /**
-     * @return Name of this statement.
-     * 
-     */
     public Optional<String> sid() {
         return Optional.ofNullable(this.sid);
     }

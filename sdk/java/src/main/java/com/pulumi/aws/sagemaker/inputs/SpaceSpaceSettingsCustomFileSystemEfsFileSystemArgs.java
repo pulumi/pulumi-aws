@@ -14,17 +14,9 @@ public final class SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs extends c
 
     public static final SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs Empty = new SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs();
 
-    /**
-     * The ID of your Amazon EFS file system.
-     * 
-     */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
@@ -53,23 +45,11 @@ public final class SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs extends c
             $ = new SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fileSystemId The ID of your Amazon EFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId The ID of your Amazon EFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }

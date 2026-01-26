@@ -12,67 +12,27 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountResult {
     private String accountId;
-    /**
-     * @return ARN of the organization.
-     * 
-     */
     private String arn;
-    /**
-     * @return Email address of the owner assigned to the new member account.
-     * 
-     */
     private String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     private String joinedMethod;
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     private String joinedTimestamp;
-    /**
-     * @return Friendly name for the member account.
-     * 
-     */
     private String name;
-    /**
-     * @return Parent Organizational Unit ID or Root ID for the account.
-     * 
-     */
     private String parentId;
-    /**
-     * @return State of the account in the organization.
-     * 
-     */
     private String state;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetAccountResult() {}
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return ARN of the organization.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Email address of the owner assigned to the new member account.
-     * 
-     */
     public String email() {
         return this.email;
     }
@@ -83,45 +43,21 @@ public final class GetAccountResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     public String joinedMethod() {
         return this.joinedMethod;
     }
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     public String joinedTimestamp() {
         return this.joinedTimestamp;
     }
-    /**
-     * @return Friendly name for the member account.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Parent Organizational Unit ID or Root ID for the account.
-     * 
-     */
     public String parentId() {
         return this.parentId;
     }
-    /**
-     * @return State of the account in the organization.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

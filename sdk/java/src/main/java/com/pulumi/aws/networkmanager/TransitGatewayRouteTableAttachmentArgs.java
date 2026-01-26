@@ -17,66 +17,30 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
 
     public static final TransitGatewayRouteTableAttachmentArgs Empty = new TransitGatewayRouteTableAttachmentArgs();
 
-    /**
-     * ID of the peer for the attachment.
-     * 
-     */
     @Import(name="peeringId", required=true)
     private Output<String> peeringId;
 
-    /**
-     * @return ID of the peer for the attachment.
-     * 
-     */
     public Output<String> peeringId() {
         return this.peeringId;
     }
 
-    /**
-     * The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Import(name="routingPolicyLabel")
     private @Nullable Output<String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Optional<Output<String>> routingPolicyLabel() {
         return Optional.ofNullable(this.routingPolicyLabel);
     }
 
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * ARN of the transit gateway route table for the attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="transitGatewayRouteTableArn", required=true)
     private Output<String> transitGatewayRouteTableArn;
 
-    /**
-     * @return ARN of the transit gateway route table for the attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> transitGatewayRouteTableArn() {
         return this.transitGatewayRouteTableArn;
     }
@@ -108,90 +72,38 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
             $ = new TransitGatewayRouteTableAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param peeringId ID of the peer for the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peeringId(Output<String> peeringId) {
             $.peeringId = peeringId;
             return this;
         }
 
-        /**
-         * @param peeringId ID of the peer for the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peeringId(String peeringId) {
             return peeringId(Output.of(peeringId));
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
             $.routingPolicyLabel = routingPolicyLabel;
             return this;
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(String routingPolicyLabel) {
             return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transitGatewayRouteTableArn ARN of the transit gateway route table for the attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableArn(Output<String> transitGatewayRouteTableArn) {
             $.transitGatewayRouteTableArn = transitGatewayRouteTableArn;
             return this;
         }
 
-        /**
-         * @param transitGatewayRouteTableArn ARN of the transit gateway route table for the attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableArn(String transitGatewayRouteTableArn) {
             return transitGatewayRouteTableArn(Output.of(transitGatewayRouteTableArn));
         }

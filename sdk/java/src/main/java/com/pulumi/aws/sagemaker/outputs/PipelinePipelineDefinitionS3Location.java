@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelinePipelineDefinitionS3Location {
-    /**
-     * @return Name of the S3 bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The object key (or key name) uniquely identifies the object in an S3 bucket.
-     * 
-     */
     private String objectKey;
-    /**
-     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
-     * 
-     */
     private @Nullable String versionId;
 
     private PipelinePipelineDefinitionS3Location() {}
-    /**
-     * @return Name of the S3 bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The object key (or key name) uniquely identifies the object in an S3 bucket.
-     * 
-     */
     public String objectKey() {
         return this.objectKey;
     }
-    /**
-     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
-     * 
-     */
     public Optional<String> versionId() {
         return Optional.ofNullable(this.versionId);
     }

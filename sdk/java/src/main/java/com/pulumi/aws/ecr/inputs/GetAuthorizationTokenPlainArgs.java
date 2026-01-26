@@ -14,32 +14,16 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
 
     public static final GetAuthorizationTokenPlainArgs Empty = new GetAuthorizationTokenPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * AWS account ID of the ECR Repository. If not specified the default account is assumed.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable String registryId;
 
-    /**
-     * @return AWS account ID of the ECR Repository. If not specified the default account is assumed.
-     * 
-     */
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
     }
@@ -69,23 +53,11 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
             $ = new GetAuthorizationTokenPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param registryId AWS account ID of the ECR Repository. If not specified the default account is assumed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable String registryId) {
             $.registryId = registryId;
             return this;

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class FeatureEvaluationRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class MultitenantDistributionCacheBehaviorAllowedMethods {
-    /**
-     * @return Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-     * 
-     */
     private List<String> cachedMethods;
     private List<String> items;
 
     private MultitenantDistributionCacheBehaviorAllowedMethods() {}
-    /**
-     * @return Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-     * 
-     */
     public List<String> cachedMethods() {
         return this.cachedMethods;
     }

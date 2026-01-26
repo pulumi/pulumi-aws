@@ -19,90 +19,34 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainRuleBasedMatching {
-    /**
-     * @return A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-     * 
-     */
     private @Nullable DomainRuleBasedMatchingAttributeTypesSelector attributeTypesSelector;
-    /**
-     * @return A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     private @Nullable DomainRuleBasedMatchingConflictResolution conflictResolution;
-    /**
-     * @return The flag that enables the rule-based matching process of duplicate profiles.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-     * 
-     */
     private @Nullable DomainRuleBasedMatchingExportingConfig exportingConfig;
-    /**
-     * @return A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-     * 
-     */
     private @Nullable List<DomainRuleBasedMatchingMatchingRule> matchingRules;
-    /**
-     * @return Indicates the maximum allowed rule level for matching.
-     * 
-     */
     private @Nullable Integer maxAllowedRuleLevelForMatching;
-    /**
-     * @return Indicates the maximum allowed rule level for merging.
-     * 
-     */
     private @Nullable Integer maxAllowedRuleLevelForMerging;
     private @Nullable String status;
 
     private DomainRuleBasedMatching() {}
-    /**
-     * @return A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-     * 
-     */
     public Optional<DomainRuleBasedMatchingAttributeTypesSelector> attributeTypesSelector() {
         return Optional.ofNullable(this.attributeTypesSelector);
     }
-    /**
-     * @return A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     public Optional<DomainRuleBasedMatchingConflictResolution> conflictResolution() {
         return Optional.ofNullable(this.conflictResolution);
     }
-    /**
-     * @return The flag that enables the rule-based matching process of duplicate profiles.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-     * 
-     */
     public Optional<DomainRuleBasedMatchingExportingConfig> exportingConfig() {
         return Optional.ofNullable(this.exportingConfig);
     }
-    /**
-     * @return A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-     * 
-     */
     public List<DomainRuleBasedMatchingMatchingRule> matchingRules() {
         return this.matchingRules == null ? List.of() : this.matchingRules;
     }
-    /**
-     * @return Indicates the maximum allowed rule level for matching.
-     * 
-     */
     public Optional<Integer> maxAllowedRuleLevelForMatching() {
         return Optional.ofNullable(this.maxAllowedRuleLevelForMatching);
     }
-    /**
-     * @return Indicates the maximum allowed rule level for merging.
-     * 
-     */
     public Optional<Integer> maxAllowedRuleLevelForMerging() {
         return Optional.ofNullable(this.maxAllowedRuleLevelForMerging);
     }

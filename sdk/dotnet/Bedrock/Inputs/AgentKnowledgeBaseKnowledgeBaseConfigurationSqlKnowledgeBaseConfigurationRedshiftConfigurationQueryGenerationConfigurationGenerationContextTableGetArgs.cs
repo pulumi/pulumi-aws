@@ -14,31 +14,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("columns")]
         private InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnGetArgs>? _columns;
-
-        /// <summary>
-        /// Information about a column in the table. See `Column` block for details.
-        /// </summary>
         public InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnGetArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnGetArgs>());
             set => _columns = value;
         }
 
-        /// <summary>
-        /// Description of the table that helps the query engine understand the contents of the table.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        /// </summary>
         [Input("inclusion")]
         public Input<string>? Inclusion { get; set; }
 
-        /// <summary>
-        /// Name of the table for which the other fields in this object apply.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

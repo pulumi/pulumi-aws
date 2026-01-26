@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupLaunchTemplate {
-    /**
-     * @return ID of the launch template.
-     * 
-     */
     private String id;
-    /**
-     * @return Specify the exact name of the desired autoscaling group.
-     * 
-     */
     private String name;
-    /**
-     * @return Template version.
-     * 
-     */
     private String version;
 
     private GetGroupLaunchTemplate() {}
-    /**
-     * @return ID of the launch template.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Specify the exact name of the desired autoscaling group.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Template version.
-     * 
-     */
     public String version() {
         return this.version;
     }

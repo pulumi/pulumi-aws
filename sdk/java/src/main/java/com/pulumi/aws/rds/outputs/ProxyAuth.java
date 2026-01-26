@@ -11,77 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProxyAuth {
-    /**
-     * @return The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
-     * 
-     */
     private @Nullable String authScheme;
-    /**
-     * @return The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
-     * 
-     */
     private @Nullable String clientPasswordAuthType;
-    /**
-     * @return A user-specified description about the authentication used by a proxy to log in as a specific database user.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
-     * 
-     */
     private @Nullable String iamAuth;
-    /**
-     * @return The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
-     * 
-     */
     private @Nullable String secretArn;
-    /**
-     * @return The name of the database user to which the proxy connects.
-     * 
-     */
     private @Nullable String username;
 
     private ProxyAuth() {}
-    /**
-     * @return The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
-     * 
-     */
     public Optional<String> authScheme() {
         return Optional.ofNullable(this.authScheme);
     }
-    /**
-     * @return The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
-     * 
-     */
     public Optional<String> clientPasswordAuthType() {
         return Optional.ofNullable(this.clientPasswordAuthType);
     }
-    /**
-     * @return A user-specified description about the authentication used by a proxy to log in as a specific database user.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
-     * 
-     */
     public Optional<String> iamAuth() {
         return Optional.ofNullable(this.iamAuth);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
-     * 
-     */
     public Optional<String> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
-    /**
-     * @return The name of the database user to which the proxy connects.
-     * 
-     */
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Efs.Inputs
 
     public sealed class FileSystemProtectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-        /// </summary>
         [Input("replicationOverwrite")]
         public Input<string>? ReplicationOverwrite { get; set; }
 

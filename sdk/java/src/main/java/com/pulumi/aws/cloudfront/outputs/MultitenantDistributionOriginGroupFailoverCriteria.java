@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MultitenantDistributionOriginGroupFailoverCriteria {
-    /**
-     * @return List of HTTP status codes that trigger a failover to the secondary origin.
-     * 
-     */
     private List<Integer> statusCodes;
 
     private MultitenantDistributionOriginGroupFailoverCriteria() {}
-    /**
-     * @return List of HTTP status codes that trigger a failover to the secondary origin.
-     * 
-     */
     public List<Integer> statusCodes() {
         return this.statusCodes;
     }

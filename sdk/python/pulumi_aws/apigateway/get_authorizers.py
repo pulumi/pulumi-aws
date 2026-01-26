@@ -51,9 +51,6 @@ class GetAuthorizersResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of Authorizer identifiers.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -83,20 +80,7 @@ def get_authorizers(region: Optional[_builtins.str] = None,
                     rest_api_id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizersResult:
     """
-    Provides details about multiple API Gateway Authorizers.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_authorizers(rest_api_id=example_aws_api_gateway_rest_api["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: ID of the associated REST API.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -113,20 +97,7 @@ def get_authorizers_output(region: Optional[pulumi.Input[Optional[_builtins.str]
                            rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizersResult]:
     """
-    Provides details about multiple API Gateway Authorizers.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_authorizers(rest_api_id=example_aws_api_gateway_rest_api["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: ID of the associated REST API.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

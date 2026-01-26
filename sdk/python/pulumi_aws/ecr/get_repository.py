@@ -68,17 +68,11 @@ class GetRepositoryResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Full ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Sequence['outputs.GetRepositoryEncryptionConfigurationResult']:
-        """
-        Encryption configuration for the repository. See Encryption Configuration below.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
@@ -92,33 +86,21 @@ class GetRepositoryResult:
     @_builtins.property
     @pulumi.getter(name="imageScanningConfigurations")
     def image_scanning_configurations(self) -> Sequence['outputs.GetRepositoryImageScanningConfigurationResult']:
-        """
-        Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
-        """
         return pulumi.get(self, "image_scanning_configurations")
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> _builtins.str:
-        """
-        The tag mutability setting for the repository.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> Sequence['outputs.GetRepositoryImageTagMutabilityExclusionFilterResult']:
-        """
-        Block that defines filters to specify which image tags can override the default tag mutability setting.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @_builtins.property
     @pulumi.getter(name="mostRecentImageTags")
     def most_recent_image_tags(self) -> Sequence[_builtins.str]:
-        """
-        List of image tags associated with the most recently pushed image in the repository.
-        """
         return pulumi.get(self, "most_recent_image_tags")
 
     @_builtins.property
@@ -139,17 +121,11 @@ class GetRepositoryResult:
     @_builtins.property
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> _builtins.str:
-        """
-        URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-        """
         return pulumi.get(self, "repository_url")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -179,22 +155,7 @@ def get_repository(name: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryResult:
     """
-    The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    service = aws.ecr.get_repository(name="ecr-repository")
-    ```
-
-
-    :param _builtins.str name: Name of the ECR Repository.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: Registry ID where the repository was created.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -223,22 +184,7 @@ def get_repository_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
-    The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    service = aws.ecr.get_repository(name="ecr-repository")
-    ```
-
-
-    :param _builtins.str name: Name of the ECR Repository.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: Registry ID where the repository was created.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorEgressConfigVpcLattice {
-    /**
-     * @return Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
-     * 
-     */
     private @Nullable Integer portNumber;
-    /**
-     * @return ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
-     * 
-     */
     private String resourceConfigurationArn;
 
     private ConnectorEgressConfigVpcLattice() {}
-    /**
-     * @return Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
-     * 
-     */
     public Optional<Integer> portNumber() {
         return Optional.ofNullable(this.portNumber);
     }
-    /**
-     * @return ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
-     * 
-     */
     public String resourceConfigurationArn() {
         return this.resourceConfigurationArn;
     }

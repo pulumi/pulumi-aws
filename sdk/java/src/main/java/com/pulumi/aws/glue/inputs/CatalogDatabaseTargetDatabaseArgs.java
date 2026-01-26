@@ -16,47 +16,23 @@ public final class CatalogDatabaseTargetDatabaseArgs extends com.pulumi.resource
 
     public static final CatalogDatabaseTargetDatabaseArgs Empty = new CatalogDatabaseTargetDatabaseArgs();
 
-    /**
-     * ID of the Data Catalog in which the database resides.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private Output<String> catalogId;
 
-    /**
-     * @return ID of the Data Catalog in which the database resides.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
 
-    /**
-     * Name of the catalog database.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the catalog database.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Region of the target database.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region of the target database.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class CatalogDatabaseTargetDatabaseArgs extends com.pulumi.resource
             $ = new CatalogDatabaseTargetDatabaseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId ID of the Data Catalog in which the database resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId ID of the Data Catalog in which the database resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param databaseName Name of the catalog database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the catalog database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param region Region of the target database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region of the target database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

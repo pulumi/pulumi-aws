@@ -27,11 +27,6 @@ class GetResourcesResourceTagMappingListResult(dict):
                  compliance_details: Sequence['outputs.GetResourcesResourceTagMappingListComplianceDetailResult'],
                  resource_arn: _builtins.str,
                  tags: Mapping[str, _builtins.str]):
-        """
-        :param Sequence['GetResourcesResourceTagMappingListComplianceDetailArgs'] compliance_details: List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
-        :param _builtins.str resource_arn: ARN of the resource.
-        :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
-        """
         pulumi.set(__self__, "compliance_details", compliance_details)
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "tags", tags)
@@ -39,25 +34,16 @@ class GetResourcesResourceTagMappingListResult(dict):
     @_builtins.property
     @pulumi.getter(name="complianceDetails")
     def compliance_details(self) -> Sequence['outputs.GetResourcesResourceTagMappingListComplianceDetailResult']:
-        """
-        List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
-        """
         return pulumi.get(self, "compliance_details")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
-        """
-        ARN of the resource.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -67,11 +53,6 @@ class GetResourcesResourceTagMappingListComplianceDetailResult(dict):
                  compliance_status: _builtins.bool,
                  keys_with_noncompliant_values: Sequence[_builtins.str],
                  non_compliant_keys: Sequence[_builtins.str]):
-        """
-        :param _builtins.bool compliance_status: Whether the resource is compliant.
-               * `keys_with_noncompliant_values ` - Set of tag keys with non-compliant tag values.
-               * `non_compliant_keys ` - Set of non-compliant tag keys.
-        """
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "keys_with_noncompliant_values", keys_with_noncompliant_values)
         pulumi.set(__self__, "non_compliant_keys", non_compliant_keys)
@@ -79,11 +60,6 @@ class GetResourcesResourceTagMappingListComplianceDetailResult(dict):
     @_builtins.property
     @pulumi.getter(name="complianceStatus")
     def compliance_status(self) -> _builtins.bool:
-        """
-        Whether the resource is compliant.
-        * `keys_with_noncompliant_values ` - Set of tag keys with non-compliant tag values.
-        * `non_compliant_keys ` - Set of non-compliant tag keys.
-        """
         return pulumi.get(self, "compliance_status")
 
     @_builtins.property
@@ -102,10 +78,6 @@ class GetResourcesTagFilterResult(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: One part of a key-value pair that makes up a tag.
-        :param Sequence[_builtins.str] values: Optional part of a key-value pair that make up a tag.
-        """
         pulumi.set(__self__, "key", key)
         if values is not None:
             pulumi.set(__self__, "values", values)
@@ -113,17 +85,11 @@ class GetResourcesTagFilterResult(dict):
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        One part of a key-value pair that makes up a tag.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Optional part of a key-value pair that make up a tag.
-        """
         return pulumi.get(self, "values")
 
 

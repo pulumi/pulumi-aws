@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerRuleActionJwtValidation {
-    /**
-     * @return Additional claims to validate.
-     * 
-     */
     private @Nullable List<GetListenerRuleActionJwtValidationAdditionalClaim> additionalClaims;
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     private String issuer;
-    /**
-     * @return JSON Web Key Set (JWKS) endpoint.
-     * 
-     */
     private String jwksEndpoint;
 
     private GetListenerRuleActionJwtValidation() {}
-    /**
-     * @return Additional claims to validate.
-     * 
-     */
     public List<GetListenerRuleActionJwtValidationAdditionalClaim> additionalClaims() {
         return this.additionalClaims == null ? List.of() : this.additionalClaims;
     }
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
-    /**
-     * @return JSON Web Key Set (JWKS) endpoint.
-     * 
-     */
     public String jwksEndpoint() {
         return this.jwksEndpoint;
     }

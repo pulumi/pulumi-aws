@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Rbin.Outputs
     [OutputType]
     public sealed class RuleRetentionPeriod
     {
-        /// <summary>
-        /// Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-        /// </summary>
         public readonly string RetentionPeriodUnit;
-        /// <summary>
-        /// Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-        /// </summary>
         public readonly int RetentionPeriodValue;
 
         [OutputConstructor]

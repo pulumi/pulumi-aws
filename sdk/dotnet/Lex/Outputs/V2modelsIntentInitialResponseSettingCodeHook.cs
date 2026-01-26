@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentInitialResponseSettingCodeHook
     {
-        /// <summary>
-        /// Whether a dialog code hook is used when the intent is activated.
-        /// </summary>
         public readonly bool Active;
-        /// <summary>
-        /// Whether a Lambda function should be invoked for the dialog.
-        /// </summary>
         public readonly bool EnableCodeHookInvocation;
-        /// <summary>
-        /// Label that indicates the dialog step from which the dialog code hook is happening.
-        /// </summary>
         public readonly string? InvocationLabel;
-        /// <summary>
-        /// Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `PostCodeHookSpecification`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification PostCodeHookSpecification;
 
         [OutputConstructor]

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduledQueryScheduleConfiguration {
-    /**
-     * @return When to trigger the scheduled query run. This can be a cron expression or a rate expression.
-     * 
-     */
     private String scheduleExpression;
 
     private ScheduledQueryScheduleConfiguration() {}
-    /**
-     * @return When to trigger the scheduled query run. This can be a cron expression or a rate expression.
-     * 
-     */
     public String scheduleExpression() {
         return this.scheduleExpression;
     }

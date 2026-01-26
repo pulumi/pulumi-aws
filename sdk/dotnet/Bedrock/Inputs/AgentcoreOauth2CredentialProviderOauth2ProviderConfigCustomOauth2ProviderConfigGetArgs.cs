@@ -12,20 +12,11 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Used together with write-only credentials to trigger an update. Increment this value when an update to `ClientIdWo` or `ClientSecretWo` is required.
-        /// 
-        /// **OAuth Discovery Configuration:**
-        /// </summary>
         [Input("clientCredentialsWoVersion")]
         public Input<int>? ClientCredentialsWoVersion { get; set; }
 
         [Input("clientId")]
         private Input<string>? _clientId;
-
-        /// <summary>
-        /// OAuth2 client ID. Cannot be used with `ClientIdWo`. Must be used together with `ClientSecret`.
-        /// </summary>
         public Input<string>? ClientId
         {
             get => _clientId;
@@ -41,7 +32,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only OAuth2 client ID. Cannot be used with `ClientId`. Must be used together with `ClientSecretWo` and `ClientCredentialsWoVersion`.
         /// </summary>
         public Input<string>? ClientIdWo
         {
@@ -55,12 +45,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("clientSecret")]
         private Input<string>? _clientSecret;
-
-        /// <summary>
-        /// OAuth2 client secret. Cannot be used with `ClientSecretWo`. Must be used together with `ClientId`.
-        /// 
-        /// **Write-Only Credentials (choose one pair):**
-        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -76,7 +60,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only OAuth2 client secret. Cannot be used with `ClientSecret`. Must be used together with `ClientIdWo` and `ClientCredentialsWoVersion`.
         /// </summary>
         public Input<string>? ClientSecretWo
         {
@@ -88,9 +71,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
             }
         }
 
-        /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// </summary>
         [Input("oauthDiscovery")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryGetArgs>? OauthDiscovery { get; set; }
 

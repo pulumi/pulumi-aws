@@ -11,87 +11,12 @@ namespace Pulumi.Aws.Quicksight
 {
     public static class GetQuicksightUser
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// QuickSight user. By using this data source, you can reference QuickSight user
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
-        ///     {
-        ///         UserName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetQuicksightUserResult> InvokeAsync(GetQuicksightUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// QuickSight user. By using this data source, you can reference QuickSight user
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
-        ///     {
-        ///         UserName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuicksightUserResult> Invoke(GetQuicksightUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// QuickSight user. By using this data source, you can reference QuickSight user
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
-        ///     {
-        ///         UserName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQuicksightUserResult> Invoke(GetQuicksightUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserInvokeArgs(), options.WithDefaults());
     }
@@ -102,23 +27,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// QuickSight namespace. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public string? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The name of the user that you want to match.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
 
@@ -133,23 +47,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// QuickSight namespace. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the user that you want to match.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -163,44 +66,20 @@ namespace Pulumi.Aws.Quicksight
     [OutputType]
     public sealed class GetQuicksightUserResult
     {
-        /// <summary>
-        /// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-        /// </summary>
         public readonly bool Active;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the user.
-        /// </summary>
         public readonly string Arn;
         public readonly string AwsAccountId;
-        /// <summary>
-        /// The custom permissions profile associated with this user.
-        /// </summary>
         public readonly string CustomPermissionsName;
-        /// <summary>
-        /// The user's email address.
-        /// </summary>
         public readonly string Email;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The type of identity authentication used by the user.
-        /// </summary>
         public readonly string IdentityType;
         public readonly string? Namespace;
-        /// <summary>
-        /// The principal ID of the user.
-        /// </summary>
         public readonly string PrincipalId;
         public readonly string Region;
         public readonly string UserName;
-        /// <summary>
-        /// The Amazon QuickSight role for the user. The user role can be one of the following:.
-        /// - `READER`: A user who has read-only access to dashboards.
-        /// - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-        /// - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
-        /// </summary>
         public readonly string UserRole;
 
         [OutputConstructor]

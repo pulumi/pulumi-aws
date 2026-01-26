@@ -16,32 +16,16 @@ public final class IpAccessSettingsIpRuleArgs extends com.pulumi.resources.Resou
 
     public static final IpAccessSettingsIpRuleArgs Empty = new IpAccessSettingsIpRuleArgs();
 
-    /**
-     * The description of the IP access settings.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the IP access settings.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The IP range of the IP rule.
-     * 
-     */
     @Import(name="ipRange", required=true)
     private Output<String> ipRange;
 
-    /**
-     * @return The IP range of the IP rule.
-     * 
-     */
     public Output<String> ipRange() {
         return this.ipRange;
     }
@@ -71,44 +55,20 @@ public final class IpAccessSettingsIpRuleArgs extends com.pulumi.resources.Resou
             $ = new IpAccessSettingsIpRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description of the IP access settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the IP access settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param ipRange The IP range of the IP rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipRange(Output<String> ipRange) {
             $.ipRange = ipRange;
             return this;
         }
 
-        /**
-         * @param ipRange The IP range of the IP rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipRange(String ipRange) {
             return ipRange(Output.of(ipRange));
         }

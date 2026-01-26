@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantInferenceConfiguration
     {
-        /// <summary>
-        /// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantInferenceConfigurationText? Text;
 
         [OutputConstructor]

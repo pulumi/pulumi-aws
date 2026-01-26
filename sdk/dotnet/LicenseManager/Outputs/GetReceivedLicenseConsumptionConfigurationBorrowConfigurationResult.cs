@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LicenseManager.Outputs
     [OutputType]
     public sealed class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult
     {
-        /// <summary>
-        /// Indicates whether early check-ins are allowed.
-        /// </summary>
         public readonly bool AllowEarlyCheckIn;
-        /// <summary>
-        /// Maximum time for the provisional configuration, in minutes.
-        /// </summary>
         public readonly int MaxTimeToLiveInMinutes;
 
         [OutputConstructor]

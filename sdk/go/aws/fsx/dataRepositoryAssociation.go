@@ -12,115 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a FSx for Lustre Data Repository Association. See [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html) for more information.
-//
-// > **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLustreFileSystem, err := fsx.NewLustreFileSystem(ctx, "example", &fsx.LustreFileSystemArgs{
-//				StorageCapacity:          pulumi.Int(1200),
-//				SubnetIds:                pulumi.Any(exampleAwsSubnet.Id),
-//				DeploymentType:           pulumi.String("PERSISTENT_2"),
-//				PerUnitStorageThroughput: pulumi.Int(125),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewDataRepositoryAssociation(ctx, "example", &fsx.DataRepositoryAssociationArgs{
-//				FileSystemId: exampleLustreFileSystem.ID(),
-//				DataRepositoryPath: example.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("s3://%v", id), nil
-//				}).(pulumi.StringOutput),
-//				FileSystemPath: pulumi.String("/my-bucket"),
-//				S3: &fsx.DataRepositoryAssociationS3Args{
-//					AutoExportPolicy: &fsx.DataRepositoryAssociationS3AutoExportPolicyArgs{
-//						Events: pulumi.StringArray{
-//							pulumi.String("NEW"),
-//							pulumi.String("CHANGED"),
-//							pulumi.String("DELETED"),
-//						},
-//					},
-//					AutoImportPolicy: &fsx.DataRepositoryAssociationS3AutoImportPolicyArgs{
-//						Events: pulumi.StringArray{
-//							pulumi.String("NEW"),
-//							pulumi.String("CHANGED"),
-//							pulumi.String("DELETED"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
-// ```
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the file system.
-	Arn           pulumi.StringOutput `pulumi:"arn"`
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
-	BatchImportMetaDataOnCreate pulumi.BoolPtrOutput `pulumi:"batchImportMetaDataOnCreate"`
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
-	DataRepositoryPath pulumi.StringOutput `pulumi:"dataRepositoryPath"`
-	// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
-	DeleteDataInFilesystem pulumi.BoolPtrOutput `pulumi:"deleteDataInFilesystem"`
-	// The ID of the Amazon FSx file system to on which to create a data repository association.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
-	FileSystemPath pulumi.StringOutput `pulumi:"fileSystemPath"`
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-	ImportedFileChunkSize pulumi.IntOutput `pulumi:"importedFileChunkSize"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// See the `s3` configuration block. Max of 1.
-	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-	S3 DataRepositoryAssociationS3Output `pulumi:"s3"`
-	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                         pulumi.StringOutput               `pulumi:"arn"`
+	AssociationId               pulumi.StringOutput               `pulumi:"associationId"`
+	BatchImportMetaDataOnCreate pulumi.BoolPtrOutput              `pulumi:"batchImportMetaDataOnCreate"`
+	DataRepositoryPath          pulumi.StringOutput               `pulumi:"dataRepositoryPath"`
+	DeleteDataInFilesystem      pulumi.BoolPtrOutput              `pulumi:"deleteDataInFilesystem"`
+	FileSystemId                pulumi.StringOutput               `pulumi:"fileSystemId"`
+	FileSystemPath              pulumi.StringOutput               `pulumi:"fileSystemPath"`
+	ImportedFileChunkSize       pulumi.IntOutput                  `pulumi:"importedFileChunkSize"`
+	Region                      pulumi.StringOutput               `pulumi:"region"`
+	S3                          DataRepositoryAssociationS3Output `pulumi:"s3"`
+	Tags                        pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput            `pulumi:"tagsAll"`
 }
 
 // NewDataRepositoryAssociation registers a new resource with the given unique name, arguments, and options.
@@ -162,57 +68,33 @@ func GetDataRepositoryAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataRepositoryAssociation resources.
 type dataRepositoryAssociationState struct {
-	// Amazon Resource Name of the file system.
-	Arn           *string `pulumi:"arn"`
-	AssociationId *string `pulumi:"associationId"`
-	// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
-	BatchImportMetaDataOnCreate *bool `pulumi:"batchImportMetaDataOnCreate"`
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
-	DataRepositoryPath *string `pulumi:"dataRepositoryPath"`
-	// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
-	DeleteDataInFilesystem *bool `pulumi:"deleteDataInFilesystem"`
-	// The ID of the Amazon FSx file system to on which to create a data repository association.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
-	FileSystemPath *string `pulumi:"fileSystemPath"`
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// See the `s3` configuration block. Max of 1.
-	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
-	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                         *string                      `pulumi:"arn"`
+	AssociationId               *string                      `pulumi:"associationId"`
+	BatchImportMetaDataOnCreate *bool                        `pulumi:"batchImportMetaDataOnCreate"`
+	DataRepositoryPath          *string                      `pulumi:"dataRepositoryPath"`
+	DeleteDataInFilesystem      *bool                        `pulumi:"deleteDataInFilesystem"`
+	FileSystemId                *string                      `pulumi:"fileSystemId"`
+	FileSystemPath              *string                      `pulumi:"fileSystemPath"`
+	ImportedFileChunkSize       *int                         `pulumi:"importedFileChunkSize"`
+	Region                      *string                      `pulumi:"region"`
+	S3                          *DataRepositoryAssociationS3 `pulumi:"s3"`
+	Tags                        map[string]string            `pulumi:"tags"`
+	TagsAll                     map[string]string            `pulumi:"tagsAll"`
 }
 
 type DataRepositoryAssociationState struct {
-	// Amazon Resource Name of the file system.
-	Arn           pulumi.StringPtrInput
-	AssociationId pulumi.StringPtrInput
-	// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
+	Arn                         pulumi.StringPtrInput
+	AssociationId               pulumi.StringPtrInput
 	BatchImportMetaDataOnCreate pulumi.BoolPtrInput
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
-	DataRepositoryPath pulumi.StringPtrInput
-	// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
-	DeleteDataInFilesystem pulumi.BoolPtrInput
-	// The ID of the Amazon FSx file system to on which to create a data repository association.
-	FileSystemId pulumi.StringPtrInput
-	// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
-	FileSystemPath pulumi.StringPtrInput
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-	ImportedFileChunkSize pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// See the `s3` configuration block. Max of 1.
-	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-	S3 DataRepositoryAssociationS3PtrInput
-	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	DataRepositoryPath          pulumi.StringPtrInput
+	DeleteDataInFilesystem      pulumi.BoolPtrInput
+	FileSystemId                pulumi.StringPtrInput
+	FileSystemPath              pulumi.StringPtrInput
+	ImportedFileChunkSize       pulumi.IntPtrInput
+	Region                      pulumi.StringPtrInput
+	S3                          DataRepositoryAssociationS3PtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (DataRepositoryAssociationState) ElementType() reflect.Type {
@@ -220,48 +102,28 @@ func (DataRepositoryAssociationState) ElementType() reflect.Type {
 }
 
 type dataRepositoryAssociationArgs struct {
-	// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
-	BatchImportMetaDataOnCreate *bool `pulumi:"batchImportMetaDataOnCreate"`
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
-	DataRepositoryPath string `pulumi:"dataRepositoryPath"`
-	// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
-	DeleteDataInFilesystem *bool `pulumi:"deleteDataInFilesystem"`
-	// The ID of the Amazon FSx file system to on which to create a data repository association.
-	FileSystemId string `pulumi:"fileSystemId"`
-	// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
-	FileSystemPath string `pulumi:"fileSystemPath"`
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// See the `s3` configuration block. Max of 1.
-	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
-	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	BatchImportMetaDataOnCreate *bool                        `pulumi:"batchImportMetaDataOnCreate"`
+	DataRepositoryPath          string                       `pulumi:"dataRepositoryPath"`
+	DeleteDataInFilesystem      *bool                        `pulumi:"deleteDataInFilesystem"`
+	FileSystemId                string                       `pulumi:"fileSystemId"`
+	FileSystemPath              string                       `pulumi:"fileSystemPath"`
+	ImportedFileChunkSize       *int                         `pulumi:"importedFileChunkSize"`
+	Region                      *string                      `pulumi:"region"`
+	S3                          *DataRepositoryAssociationS3 `pulumi:"s3"`
+	Tags                        map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataRepositoryAssociation resource.
 type DataRepositoryAssociationArgs struct {
-	// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
 	BatchImportMetaDataOnCreate pulumi.BoolPtrInput
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
-	DataRepositoryPath pulumi.StringInput
-	// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
-	DeleteDataInFilesystem pulumi.BoolPtrInput
-	// The ID of the Amazon FSx file system to on which to create a data repository association.
-	FileSystemId pulumi.StringInput
-	// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
-	FileSystemPath pulumi.StringInput
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-	ImportedFileChunkSize pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// See the `s3` configuration block. Max of 1.
-	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-	S3 DataRepositoryAssociationS3PtrInput
-	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	DataRepositoryPath          pulumi.StringInput
+	DeleteDataInFilesystem      pulumi.BoolPtrInput
+	FileSystemId                pulumi.StringInput
+	FileSystemPath              pulumi.StringInput
+	ImportedFileChunkSize       pulumi.IntPtrInput
+	Region                      pulumi.StringPtrInput
+	S3                          DataRepositoryAssociationS3PtrInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (DataRepositoryAssociationArgs) ElementType() reflect.Type {
@@ -351,7 +213,6 @@ func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutputWithCo
 	return o
 }
 
-// Amazon Resource Name of the file system.
 func (o DataRepositoryAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -360,53 +221,42 @@ func (o DataRepositoryAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
 func (o DataRepositoryAssociationOutput) BatchImportMetaDataOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.BoolPtrOutput { return v.BatchImportMetaDataOnCreate }).(pulumi.BoolPtrOutput)
 }
 
-// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
 func (o DataRepositoryAssociationOutput) DataRepositoryPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.DataRepositoryPath }).(pulumi.StringOutput)
 }
 
-// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
 func (o DataRepositoryAssociationOutput) DeleteDataInFilesystem() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.BoolPtrOutput { return v.DeleteDataInFilesystem }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the Amazon FSx file system to on which to create a data repository association.
 func (o DataRepositoryAssociationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
 func (o DataRepositoryAssociationOutput) FileSystemPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.FileSystemPath }).(pulumi.StringOutput)
 }
 
-// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 func (o DataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.IntOutput { return v.ImportedFileChunkSize }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataRepositoryAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// See the `s3` configuration block. Max of 1.
-// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 func (o DataRepositoryAssociationOutput) S3() DataRepositoryAssociationS3Output {
 	return o.ApplyT(func(v *DataRepositoryAssociation) DataRepositoryAssociationS3Output { return v.S3 }).(DataRepositoryAssociationS3Output)
 }
 
-// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DataRepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataRepositoryAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

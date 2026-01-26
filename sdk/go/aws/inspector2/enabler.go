@@ -12,98 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for enabling Amazon Inspector resource scans.
-//
-// This resource must be created in the Organization's Administrator Account.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewEnabler(ctx, "example", &inspector2.EnablerArgs{
-//				AccountIds: pulumi.StringArray{
-//					pulumi.String("123456789012"),
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("EC2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### For the Calling Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector2.NewEnabler(ctx, "test", &inspector2.EnablerArgs{
-//				AccountIds: pulumi.StringArray{
-//					pulumi.String(current.AccountId),
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("ECR"),
-//					pulumi.String("EC2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Inspector Enabler using using `account_ids` and `region_types` formatted as `[account_id1]:[account_id2]:...-[resource_type1]:[resource_type2]:...`, where `account_ids` are sorted in ascending order and `resource_types` are sorted in alphabetical order. For example:
-//
-// ```sh
-// $ pulumi import aws:inspector2/enabler:Enabler example 123456789012:234567890123-EC2:ECR
-// ```
 type Enabler struct {
 	pulumi.CustomResourceState
 
-	// Set of account IDs.
-	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-	AccountIds pulumi.StringArrayOutput `pulumi:"accountIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-	// At least one item is required.
+	AccountIds    pulumi.StringArrayOutput `pulumi:"accountIds"`
+	Region        pulumi.StringOutput      `pulumi:"region"`
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
 }
 
@@ -143,26 +56,14 @@ func GetEnabler(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Enabler resources.
 type enablerState struct {
-	// Set of account IDs.
-	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-	AccountIds []string `pulumi:"accountIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-	// At least one item is required.
+	AccountIds    []string `pulumi:"accountIds"`
+	Region        *string  `pulumi:"region"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
 type EnablerState struct {
-	// Set of account IDs.
-	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-	AccountIds pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-	// At least one item is required.
+	AccountIds    pulumi.StringArrayInput
+	Region        pulumi.StringPtrInput
 	ResourceTypes pulumi.StringArrayInput
 }
 
@@ -171,27 +72,15 @@ func (EnablerState) ElementType() reflect.Type {
 }
 
 type enablerArgs struct {
-	// Set of account IDs.
-	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-	AccountIds []string `pulumi:"accountIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-	// At least one item is required.
+	AccountIds    []string `pulumi:"accountIds"`
+	Region        *string  `pulumi:"region"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
 // The set of arguments for constructing a Enabler resource.
 type EnablerArgs struct {
-	// Set of account IDs.
-	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-	AccountIds pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-	// At least one item is required.
+	AccountIds    pulumi.StringArrayInput
+	Region        pulumi.StringPtrInput
 	ResourceTypes pulumi.StringArrayInput
 }
 
@@ -282,20 +171,14 @@ func (o EnablerOutput) ToEnablerOutputWithContext(ctx context.Context) EnablerOu
 	return o
 }
 
-// Set of account IDs.
-// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 func (o EnablerOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnablerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Type of resources to scan.
-// Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-// At least one item is required.
 func (o EnablerOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }

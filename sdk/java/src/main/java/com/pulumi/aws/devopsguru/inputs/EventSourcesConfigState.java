@@ -17,32 +17,16 @@ public final class EventSourcesConfigState extends com.pulumi.resources.Resource
 
     public static final EventSourcesConfigState Empty = new EventSourcesConfigState();
 
-    /**
-     * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
-     * 
-     */
     @Import(name="eventSources")
     private @Nullable Output<List<EventSourcesConfigEventSourceArgs>> eventSources;
 
-    /**
-     * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
-     * 
-     */
     public Optional<Output<List<EventSourcesConfigEventSourceArgs>>> eventSources() {
         return Optional.ofNullable(this.eventSources);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -72,54 +56,24 @@ public final class EventSourcesConfigState extends com.pulumi.resources.Resource
             $ = new EventSourcesConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSources(@Nullable Output<List<EventSourcesConfigEventSourceArgs>> eventSources) {
             $.eventSources = eventSources;
             return this;
         }
 
-        /**
-         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSources(List<EventSourcesConfigEventSourceArgs> eventSources) {
             return eventSources(Output.of(eventSources));
         }
 
-        /**
-         * @param eventSources Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSources(EventSourcesConfigEventSourceArgs... eventSources) {
             return eventSources(List.of(eventSources));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

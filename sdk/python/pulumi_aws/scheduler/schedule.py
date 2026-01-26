@@ -37,22 +37,6 @@ class ScheduleArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
-        :param pulumi.Input['ScheduleFlexibleTimeWindowArgs'] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        :param pulumi.Input[_builtins.str] schedule_expression: Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        :param pulumi.Input['ScheduleTargetArgs'] target: Configures the target of the schedule. Detailed below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
-        :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[_builtins.str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        :param pulumi.Input[_builtins.str] name: Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        :param pulumi.Input[_builtins.str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[_builtins.str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         """
         pulumi.set(__self__, "flexible_time_window", flexible_time_window)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -83,9 +67,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="flexibleTimeWindow")
     def flexible_time_window(self) -> pulumi.Input['ScheduleFlexibleTimeWindowArgs']:
-        """
-        Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        """
         return pulumi.get(self, "flexible_time_window")
 
     @flexible_time_window.setter
@@ -95,9 +76,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[_builtins.str]:
-        """
-        Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -107,11 +85,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Input['ScheduleTargetArgs']:
-        """
-        Configures the target of the schedule. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -121,9 +94,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="actionAfterCompletion")
     def action_after_completion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        """
         return pulumi.get(self, "action_after_completion")
 
     @action_after_completion.setter
@@ -133,9 +103,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Brief description of the schedule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -145,9 +112,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -157,9 +121,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -169,9 +130,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -181,9 +139,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -193,9 +148,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -205,9 +157,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -217,9 +166,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
@@ -229,9 +175,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="startDate")
     def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
@@ -241,9 +184,6 @@ class ScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -271,23 +211,6 @@ class _ScheduleState:
                  target: Optional[pulumi.Input['ScheduleTargetArgs']] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
-        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the schedule.
-        :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
-        :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input['ScheduleFlexibleTimeWindowArgs'] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        :param pulumi.Input[_builtins.str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        :param pulumi.Input[_builtins.str] name: Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression: Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        :param pulumi.Input[_builtins.str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[_builtins.str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        :param pulumi.Input['ScheduleTargetArgs'] target: Configures the target of the schedule. Detailed below.
-               
-               The following arguments are optional:
         """
         if action_after_completion is not None:
             pulumi.set(__self__, "action_after_completion", action_after_completion)
@@ -323,9 +246,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="actionAfterCompletion")
     def action_after_completion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        """
         return pulumi.get(self, "action_after_completion")
 
     @action_after_completion.setter
@@ -335,9 +255,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the schedule.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -347,9 +264,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Brief description of the schedule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -359,9 +273,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -371,9 +282,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="flexibleTimeWindow")
     def flexible_time_window(self) -> Optional[pulumi.Input['ScheduleFlexibleTimeWindowArgs']]:
-        """
-        Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        """
         return pulumi.get(self, "flexible_time_window")
 
     @flexible_time_window.setter
@@ -383,9 +291,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -395,9 +300,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -407,9 +309,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -419,9 +318,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -431,9 +327,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -443,9 +336,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -455,9 +345,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
@@ -467,9 +354,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter(name="startDate")
     def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
@@ -479,9 +363,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -491,11 +372,6 @@ class _ScheduleState:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['ScheduleTargetArgs']]:
-        """
-        Configures the target of the schedule. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -525,83 +401,9 @@ class Schedule(pulumi.CustomResource):
                  target: Optional[pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']]] = None,
                  __props__=None):
         """
-        Provides an EventBridge Scheduler Schedule resource.
-
-        You can find out more about EventBridge Scheduler in the [User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html).
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.scheduler.Schedule("example",
-            name="my-schedule",
-            group_name="default",
-            flexible_time_window={
-                "mode": "OFF",
-            },
-            schedule_expression="rate(1 hours)",
-            target={
-                "arn": example_aws_sqs_queue["arn"],
-                "role_arn": example_aws_iam_role["arn"],
-            })
-        ```
-
-        ### Universal Target
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sqs.Queue("example")
-        example_schedule = aws.scheduler.Schedule("example",
-            name="my-schedule",
-            flexible_time_window={
-                "mode": "OFF",
-            },
-            schedule_expression="rate(1 hours)",
-            target={
-                "arn": "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                "role_arn": example_aws_iam_role["arn"],
-                "input": pulumi.Output.json_dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": example.url,
-                }),
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
-
-        ```sh
-        $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-        ```
-
+        Create a Schedule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
-        :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        :param pulumi.Input[_builtins.str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        :param pulumi.Input[_builtins.str] name: Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression: Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        :param pulumi.Input[_builtins.str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[_builtins.str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        :param pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']] target: Configures the target of the schedule. Detailed below.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -610,65 +412,7 @@ class Schedule(pulumi.CustomResource):
                  args: ScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EventBridge Scheduler Schedule resource.
-
-        You can find out more about EventBridge Scheduler in the [User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html).
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.scheduler.Schedule("example",
-            name="my-schedule",
-            group_name="default",
-            flexible_time_window={
-                "mode": "OFF",
-            },
-            schedule_expression="rate(1 hours)",
-            target={
-                "arn": example_aws_sqs_queue["arn"],
-                "role_arn": example_aws_iam_role["arn"],
-            })
-        ```
-
-        ### Universal Target
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sqs.Queue("example")
-        example_schedule = aws.scheduler.Schedule("example",
-            name="my-schedule",
-            flexible_time_window={
-                "mode": "OFF",
-            },
-            schedule_expression="rate(1 hours)",
-            target={
-                "arn": "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                "role_arn": example_aws_iam_role["arn"],
-                "input": pulumi.Output.json_dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": example.url,
-                }),
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
-
-        ```sh
-        $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-        ```
-
+        Create a Schedule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -760,23 +504,6 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the schedule.
-        :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
-        :param pulumi.Input[_builtins.str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        :param pulumi.Input[_builtins.str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        :param pulumi.Input[_builtins.str] name: Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schedule_expression: Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        :param pulumi.Input[_builtins.str] schedule_expression_timezone: Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        :param pulumi.Input[_builtins.str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[_builtins.str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        :param pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']] target: Configures the target of the schedule. Detailed below.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -802,122 +529,75 @@ class Schedule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="actionAfterCompletion")
     def action_after_completion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        """
         return pulumi.get(self, "action_after_completion")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the schedule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Brief description of the schedule.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        """
         return pulumi.get(self, "end_date")
 
     @_builtins.property
     @pulumi.getter(name="flexibleTimeWindow")
     def flexible_time_window(self) -> pulumi.Output['outputs.ScheduleFlexibleTimeWindow']:
-        """
-        Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        """
         return pulumi.get(self, "flexible_time_window")
 
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[_builtins.str]:
-        """
-        Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        """
         return pulumi.get(self, "schedule_expression")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @_builtins.property
     @pulumi.getter(name="startDate")
     def start_date(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        """
         return pulumi.get(self, "start_date")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Output['outputs.ScheduleTarget']:
-        """
-        Configures the target of the schedule. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target")
 

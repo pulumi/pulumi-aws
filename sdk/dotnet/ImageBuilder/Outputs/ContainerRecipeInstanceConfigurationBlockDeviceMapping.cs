@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class ContainerRecipeInstanceConfigurationBlockDeviceMapping
     {
-        /// <summary>
-        /// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        /// </summary>
         public readonly string? DeviceName;
-        /// <summary>
-        /// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
-        /// </summary>
         public readonly Outputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs? Ebs;
-        /// <summary>
-        /// Set to `True` to remove a mapping from the parent image.
-        /// </summary>
         public readonly bool? NoDevice;
-        /// <summary>
-        /// Virtual device name. For example, `Ephemeral0`. Instance store volumes are numbered starting from 0.
-        /// </summary>
         public readonly string? VirtualName;
 
         [OutputConstructor]

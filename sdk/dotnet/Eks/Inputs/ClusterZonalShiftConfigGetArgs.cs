@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterZonalShiftConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether zonal shift is enabled for the cluster.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

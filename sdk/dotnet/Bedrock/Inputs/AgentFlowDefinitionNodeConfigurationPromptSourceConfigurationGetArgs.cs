@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-        /// </summary>
         [Input("inline")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineGetArgs>? Inline { get; set; }
 
-        /// <summary>
-        /// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-        /// </summary>
         [Input("resource")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceGetArgs>? Resource { get; set; }
 

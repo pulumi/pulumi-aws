@@ -15,17 +15,9 @@ public final class AgentcoreGatewayInterceptorConfigurationInterceptorArgs exten
 
     public static final AgentcoreGatewayInterceptorConfigurationInterceptorArgs Empty = new AgentcoreGatewayInterceptorConfigurationInterceptorArgs();
 
-    /**
-     * Lambda function configuration for the interceptor. See `lambda` below.
-     * 
-     */
     @Import(name="lambda")
     private @Nullable Output<AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs> lambda;
 
-    /**
-     * @return Lambda function configuration for the interceptor. See `lambda` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs>> lambda() {
         return Optional.ofNullable(this.lambda);
     }
@@ -54,23 +46,11 @@ public final class AgentcoreGatewayInterceptorConfigurationInterceptorArgs exten
             $ = new AgentcoreGatewayInterceptorConfigurationInterceptorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lambda Lambda function configuration for the interceptor. See `lambda` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambda(@Nullable Output<AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs> lambda) {
             $.lambda = lambda;
             return this;
         }
 
-        /**
-         * @param lambda Lambda function configuration for the interceptor. See `lambda` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambda(AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs lambda) {
             return lambda(Output.of(lambda));
         }

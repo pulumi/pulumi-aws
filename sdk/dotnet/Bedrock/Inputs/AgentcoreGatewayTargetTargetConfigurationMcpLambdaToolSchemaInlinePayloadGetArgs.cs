@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of what the tool does.
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        /// <summary>
-        /// Schema for the tool's input. See `SchemaDefinition` below.
-        /// </summary>
         [Input("inputSchema")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaGetArgs>? InputSchema { get; set; }
 
-        /// <summary>
-        /// Name of the tool.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Schema for the tool's output. See `SchemaDefinition` below.
-        /// </summary>
         [Input("outputSchema")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaGetArgs>? OutputSchema { get; set; }
 

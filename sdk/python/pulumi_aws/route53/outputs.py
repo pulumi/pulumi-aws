@@ -215,11 +215,6 @@ class RecordAlias(dict):
                  evaluate_target_health: _builtins.bool,
                  name: _builtins.str,
                  zone_id: _builtins.str):
-        """
-        :param _builtins.bool evaluate_target_health: Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        :param _builtins.str name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
-        :param _builtins.str zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
         pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "zone_id", zone_id)
@@ -227,25 +222,16 @@ class RecordAlias(dict):
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> _builtins.bool:
-        """
-        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> _builtins.str:
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
         return pulumi.get(self, "zone_id")
 
 
@@ -273,27 +259,17 @@ class RecordCidrRoutingPolicy(dict):
     def __init__(__self__, *,
                  collection_id: _builtins.str,
                  location_name: _builtins.str):
-        """
-        :param _builtins.str collection_id: The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
-        :param _builtins.str location_name: The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
-        """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "location_name", location_name)
 
     @_builtins.property
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> _builtins.str:
-        """
-        The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
-        """
         return pulumi.get(self, "collection_id")
 
     @_builtins.property
     @pulumi.getter(name="locationName")
     def location_name(self) -> _builtins.str:
-        """
-        The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
-        """
         return pulumi.get(self, "location_name")
 
 
@@ -301,17 +277,11 @@ class RecordCidrRoutingPolicy(dict):
 class RecordFailoverRoutingPolicy(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
         return pulumi.get(self, "type")
 
 
@@ -321,11 +291,6 @@ class RecordGeolocationRoutingPolicy(dict):
                  continent: Optional[_builtins.str] = None,
                  country: Optional[_builtins.str] = None,
                  subdivision: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str continent: A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        :param _builtins.str country: A two-character country code or `*` to indicate a default resource record set.
-        :param _builtins.str subdivision: A subdivision code for a country.
-        """
         if continent is not None:
             pulumi.set(__self__, "continent", continent)
         if country is not None:
@@ -336,25 +301,16 @@ class RecordGeolocationRoutingPolicy(dict):
     @_builtins.property
     @pulumi.getter
     def continent(self) -> Optional[_builtins.str]:
-        """
-        A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        """
         return pulumi.get(self, "continent")
 
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        A two-character country code or `*` to indicate a default resource record set.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter
     def subdivision(self) -> Optional[_builtins.str]:
-        """
-        A subdivision code for a country.
-        """
         return pulumi.get(self, "subdivision")
 
 
@@ -384,12 +340,6 @@ class RecordGeoproximityRoutingPolicy(dict):
                  bias: Optional[_builtins.int] = None,
                  coordinates: Optional[Sequence['outputs.RecordGeoproximityRoutingPolicyCoordinate']] = None,
                  local_zone_group: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str aws_region: A AWS region where the resource is present.
-        :param _builtins.int bias: Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        :param Sequence['RecordGeoproximityRoutingPolicyCoordinateArgs'] coordinates: Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        :param _builtins.str local_zone_group: A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if bias is not None:
@@ -402,33 +352,21 @@ class RecordGeoproximityRoutingPolicy(dict):
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[_builtins.str]:
-        """
-        A AWS region where the resource is present.
-        """
         return pulumi.get(self, "aws_region")
 
     @_builtins.property
     @pulumi.getter
     def bias(self) -> Optional[_builtins.int]:
-        """
-        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        """
         return pulumi.get(self, "bias")
 
     @_builtins.property
     @pulumi.getter
     def coordinates(self) -> Optional[Sequence['outputs.RecordGeoproximityRoutingPolicyCoordinate']]:
-        """
-        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        """
         return pulumi.get(self, "coordinates")
 
     @_builtins.property
     @pulumi.getter(name="localZoneGroup")
     def local_zone_group(self) -> Optional[_builtins.str]:
-        """
-        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        """
         return pulumi.get(self, "local_zone_group")
 
 
@@ -455,17 +393,11 @@ class RecordGeoproximityRoutingPolicyCoordinate(dict):
 class RecordLatencyRoutingPolicy(dict):
     def __init__(__self__, *,
                  region: _builtins.str):
-        """
-        :param _builtins.str region: An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        """
         pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        """
         return pulumi.get(self, "region")
 
 
@@ -473,17 +405,11 @@ class RecordLatencyRoutingPolicy(dict):
 class RecordWeightedRoutingPolicy(dict):
     def __init__(__self__, *,
                  weight: _builtins.int):
-        """
-        :param _builtins.int weight: A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        """
         pulumi.set(__self__, "weight", weight)
 
     @_builtins.property
     @pulumi.getter
     def weight(self) -> _builtins.int:
-        """
-        A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        """
         return pulumi.get(self, "weight")
 
 
@@ -536,34 +462,6 @@ class RecordsExclusiveResourceRecordSet(dict):
                  ttl: Optional[_builtins.int] = None,
                  type: Optional[_builtins.str] = None,
                  weight: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str name: Name of the record.
-        :param 'RecordsExclusiveResourceRecordSetAliasTargetArgs' alias_target: Alias target block.
-               See `alias_target` below.
-        :param _builtins.str failover: Type of failover resource record.
-               Valid values are `PRIMARY` and `SECONDARY`.
-               See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
-        :param 'RecordsExclusiveResourceRecordSetGeolocationArgs' geolocation: Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-               See `geolocation` below.
-        :param 'RecordsExclusiveResourceRecordSetGeoproximityLocationArgs' geoproximity_location: Geoproximity location block.
-               See `geoproximity_location` below.
-        :param _builtins.str health_check_id: Health check the record should be associated with.
-        :param _builtins.str region: AWS region of the resource this record set refers to.
-               Must be a valid AWS region name.
-               See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
-        :param Sequence['RecordsExclusiveResourceRecordSetResourceRecordArgs'] resource_records: Information about the resource records to act upon.
-               See `resource_records` below.
-        :param _builtins.str set_identifier: An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-               Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
-        :param _builtins.int ttl: Resource record cache time to live (TTL), in seconds.
-        :param _builtins.str type: Record type.
-               Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
-               
-               The following arguments are optional:
-               
-               > Exactly one of `resource_records` or `alias_target` must be specified.
-        :param _builtins.int weight: Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-        """
         pulumi.set(__self__, "name", name)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
@@ -597,18 +495,11 @@ class RecordsExclusiveResourceRecordSet(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the record.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetAliasTarget']:
-        """
-        Alias target block.
-        See `alias_target` below.
-        """
         return pulumi.get(self, "alias_target")
 
     @_builtins.property
@@ -619,37 +510,21 @@ class RecordsExclusiveResourceRecordSet(dict):
     @_builtins.property
     @pulumi.getter
     def failover(self) -> Optional[_builtins.str]:
-        """
-        Type of failover resource record.
-        Valid values are `PRIMARY` and `SECONDARY`.
-        See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
-        """
         return pulumi.get(self, "failover")
 
     @_builtins.property
     @pulumi.getter
     def geolocation(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetGeolocation']:
-        """
-        Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        See `geolocation` below.
-        """
         return pulumi.get(self, "geolocation")
 
     @_builtins.property
     @pulumi.getter(name="geoproximityLocation")
     def geoproximity_location(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetGeoproximityLocation']:
-        """
-        Geoproximity location block.
-        See `geoproximity_location` below.
-        """
         return pulumi.get(self, "geoproximity_location")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> Optional[_builtins.str]:
-        """
-        Health check the record should be associated with.
-        """
         return pulumi.get(self, "health_check_id")
 
     @_builtins.property
@@ -660,29 +535,16 @@ class RecordsExclusiveResourceRecordSet(dict):
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        AWS region of the resource this record set refers to.
-        Must be a valid AWS region name.
-        See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecords")
     def resource_records(self) -> Optional[Sequence['outputs.RecordsExclusiveResourceRecordSetResourceRecord']]:
-        """
-        Information about the resource records to act upon.
-        See `resource_records` below.
-        """
         return pulumi.get(self, "resource_records")
 
     @_builtins.property
     @pulumi.getter(name="setIdentifier")
     def set_identifier(self) -> Optional[_builtins.str]:
-        """
-        An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
-        """
         return pulumi.get(self, "set_identifier")
 
     @_builtins.property
@@ -693,30 +555,16 @@ class RecordsExclusiveResourceRecordSet(dict):
     @_builtins.property
     @pulumi.getter
     def ttl(self) -> Optional[_builtins.int]:
-        """
-        Resource record cache time to live (TTL), in seconds.
-        """
         return pulumi.get(self, "ttl")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Record type.
-        Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
-
-        The following arguments are optional:
-
-        > Exactly one of `resource_records` or `alias_target` must be specified.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def weight(self) -> Optional[_builtins.int]:
-        """
-        Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-        """
         return pulumi.get(self, "weight")
 
 
@@ -747,11 +595,6 @@ class RecordsExclusiveResourceRecordSetAliasTarget(dict):
                  dns_name: _builtins.str,
                  evaluate_target_health: _builtins.bool,
                  hosted_zone_id: _builtins.str):
-        """
-        :param _builtins.str dns_name: DNS domain name for another resource record set in this hosted zone.
-        :param _builtins.bool evaluate_target_health: Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
-        :param _builtins.str hosted_zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
-        """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -759,25 +602,16 @@ class RecordsExclusiveResourceRecordSetAliasTarget(dict):
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        DNS domain name for another resource record set in this hosted zone.
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> _builtins.bool:
-        """
-        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
 
@@ -805,35 +639,17 @@ class RecordsExclusiveResourceRecordSetCidrRoutingConfig(dict):
     def __init__(__self__, *,
                  collection_id: _builtins.str,
                  location_name: _builtins.str):
-        """
-        :param _builtins.str collection_id: CIDR collection ID.
-               See the `route53.CidrCollection` resource for more details.
-        :param _builtins.str location_name: CIDR collection location name.
-               See the `route53.CidrLocation` resource for more details.
-               A `location_name` with an asterisk `"*"` can be used to create a default CIDR record.
-               `collection_id` is still required for a default record.
-        """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "location_name", location_name)
 
     @_builtins.property
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> _builtins.str:
-        """
-        CIDR collection ID.
-        See the `route53.CidrCollection` resource for more details.
-        """
         return pulumi.get(self, "collection_id")
 
     @_builtins.property
     @pulumi.getter(name="locationName")
     def location_name(self) -> _builtins.str:
-        """
-        CIDR collection location name.
-        See the `route53.CidrLocation` resource for more details.
-        A `location_name` with an asterisk `"*"` can be used to create a default CIDR record.
-        `collection_id` is still required for a default record.
-        """
         return pulumi.get(self, "location_name")
 
 
@@ -913,17 +729,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocation(dict):
                  bias: Optional[_builtins.int] = None,
                  coordinates: Optional['outputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates'] = None,
                  local_zone_group: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str aws_region: AWS region of the resource where DNS traffic is directed to.
-        :param _builtins.int bias: Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-               To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
-               To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
-               See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
-        :param 'RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs' coordinates: Coordinates for a geoproximity resource record.
-               See `coordinates` below.
-        :param _builtins.str local_zone_group: AWS local zone group.
-               Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
-        """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if bias is not None:
@@ -936,38 +741,21 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocation(dict):
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[_builtins.str]:
-        """
-        AWS region of the resource where DNS traffic is directed to.
-        """
         return pulumi.get(self, "aws_region")
 
     @_builtins.property
     @pulumi.getter
     def bias(self) -> Optional[_builtins.int]:
-        """
-        Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-        To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
-        To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
-        See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
-        """
         return pulumi.get(self, "bias")
 
     @_builtins.property
     @pulumi.getter
     def coordinates(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates']:
-        """
-        Coordinates for a geoproximity resource record.
-        See `coordinates` below.
-        """
         return pulumi.get(self, "coordinates")
 
     @_builtins.property
     @pulumi.getter(name="localZoneGroup")
     def local_zone_group(self) -> Optional[_builtins.str]:
-        """
-        AWS local zone group.
-        Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
-        """
         return pulumi.get(self, "local_zone_group")
 
 
@@ -976,27 +764,17 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates(dict):
     def __init__(__self__, *,
                  latitude: _builtins.str,
                  longitude: _builtins.str):
-        """
-        :param _builtins.str latitude: A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
-        :param _builtins.str longitude: A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
-        """
         pulumi.set(__self__, "latitude", latitude)
         pulumi.set(__self__, "longitude", longitude)
 
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> _builtins.str:
-        """
-        A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
-        """
         return pulumi.get(self, "latitude")
 
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> _builtins.str:
-        """
-        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
-        """
         return pulumi.get(self, "longitude")
 
 
@@ -1004,17 +782,11 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates(dict):
 class RecordsExclusiveResourceRecordSetResourceRecord(dict):
     def __init__(__self__, *,
                  value: _builtins.str):
-        """
-        :param _builtins.str value: DNS record value.
-        """
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        DNS record value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1075,11 +847,6 @@ class ResolverEndpointIpAddress(dict):
                  ip: Optional[_builtins.str] = None,
                  ip_id: Optional[_builtins.str] = None,
                  ipv6: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str subnet_id: ID of the subnet that contains the IP address.
-        :param _builtins.str ip: IPv4 address in the subnet that you want to use for DNS queries.
-        :param _builtins.str ipv6: IPv6 address in the subnet that you want to use for DNS queries.
-        """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -1091,17 +858,11 @@ class ResolverEndpointIpAddress(dict):
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        ID of the subnet that contains the IP address.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def ip(self) -> Optional[_builtins.str]:
-        """
-        IPv4 address in the subnet that you want to use for DNS queries.
-        """
         return pulumi.get(self, "ip")
 
     @_builtins.property
@@ -1112,9 +873,6 @@ class ResolverEndpointIpAddress(dict):
     @_builtins.property
     @pulumi.getter
     def ipv6(self) -> Optional[_builtins.str]:
-        """
-        IPv6 address in the subnet that you want to use for DNS queries.
-        """
         return pulumi.get(self, "ipv6")
 
 
@@ -1125,12 +883,6 @@ class ResolverRuleTargetIp(dict):
                  ipv6: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None,
                  protocol: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str ip: One IPv4 address that you want to forward DNS queries to.
-        :param _builtins.str ipv6: One IPv6 address that you want to forward DNS queries to.
-        :param _builtins.int port: Port at `ip` that you want to forward DNS queries to. Default value is `53`.
-        :param _builtins.str protocol: Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
-        """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
         if ipv6 is not None:
@@ -1143,33 +895,21 @@ class ResolverRuleTargetIp(dict):
     @_builtins.property
     @pulumi.getter
     def ip(self) -> Optional[_builtins.str]:
-        """
-        One IPv4 address that you want to forward DNS queries to.
-        """
         return pulumi.get(self, "ip")
 
     @_builtins.property
     @pulumi.getter
     def ipv6(self) -> Optional[_builtins.str]:
-        """
-        One IPv6 address that you want to forward DNS queries to.
-        """
         return pulumi.get(self, "ipv6")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        Port at `ip` that you want to forward DNS queries to. Default value is `53`.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[_builtins.str]:
-        """
-        Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
-        """
         return pulumi.get(self, "protocol")
 
 
@@ -1197,10 +937,6 @@ class ZoneVpc(dict):
     def __init__(__self__, *,
                  vpc_id: _builtins.str,
                  vpc_region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str vpc_id: ID of the VPC to associate.
-        :param _builtins.str vpc_region: Region of the VPC to associate. Defaults to AWS provider region.
-        """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if vpc_region is not None:
             pulumi.set(__self__, "vpc_region", vpc_region)
@@ -1208,17 +944,11 @@ class ZoneVpc(dict):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        ID of the VPC to associate.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcRegion")
     def vpc_region(self) -> Optional[_builtins.str]:
-        """
-        Region of the VPC to associate. Defaults to AWS provider region.
-        """
         return pulumi.get(self, "vpc_region")
 
 
@@ -1229,12 +959,6 @@ class GetProfilesProfilesProfileResult(dict):
                  id: _builtins.str,
                  name: _builtins.str,
                  share_status: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the Profile.
-        :param _builtins.str id: ID of the Profile.
-        :param _builtins.str name: Name of the Profile.
-        :param _builtins.str share_status: Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1243,33 +967,21 @@ class GetProfilesProfilesProfileResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of the Profile.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Profile.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> _builtins.str:
-        """
-        Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        """
         return pulumi.get(self, "share_status")
 
 
@@ -1278,18 +990,12 @@ class GetQueryLogConfigFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: The name of the query logging configuration.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the query logging configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -1316,23 +1022,6 @@ class GetRecordsResourceRecordSetResult(dict):
                  ttl: _builtins.int,
                  type: _builtins.str,
                  weight: _builtins.int):
-        """
-        :param 'GetRecordsResourceRecordSetAliasTargetArgs' alias_target: Information about the AWS resource traffic is routed to.
-        :param 'GetRecordsResourceRecordSetCidrRoutingConfigArgs' cidr_routing_config: Information about the CIDR location traffic is routed to.
-        :param _builtins.str failover: `PRIMARY` or `SECONDARY`.
-        :param 'GetRecordsResourceRecordSetGeolocationArgs' geolocation: Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        :param 'GetRecordsResourceRecordSetGeoproximityLocationArgs' geoproximity_location: Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        :param _builtins.str health_check_id: ID of any applicable health check.
-        :param _builtins.bool multi_value_answer: Traffic is routed approximately randomly to multiple resources.
-        :param _builtins.str name: The name of the record.
-        :param _builtins.str region: The Amazon EC2 Region of the resource that this resource record set refers to.
-        :param Sequence['GetRecordsResourceRecordSetResourceRecordArgs'] resource_records: The resource records.
-        :param _builtins.str set_identifier: An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        :param _builtins.str traffic_policy_instance_id: The ID of any traffic policy instance that Route 53 created this resource record set for.
-        :param _builtins.int ttl: The resource record cache time to live (TTL), in seconds.
-        :param _builtins.str type: The DNS record type.
-        :param _builtins.int weight: Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-        """
         pulumi.set(__self__, "alias_target", alias_target)
         pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
         pulumi.set(__self__, "failover", failover)
@@ -1352,121 +1041,76 @@ class GetRecordsResourceRecordSetResult(dict):
     @_builtins.property
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> 'outputs.GetRecordsResourceRecordSetAliasTargetResult':
-        """
-        Information about the AWS resource traffic is routed to.
-        """
         return pulumi.get(self, "alias_target")
 
     @_builtins.property
     @pulumi.getter(name="cidrRoutingConfig")
     def cidr_routing_config(self) -> 'outputs.GetRecordsResourceRecordSetCidrRoutingConfigResult':
-        """
-        Information about the CIDR location traffic is routed to.
-        """
         return pulumi.get(self, "cidr_routing_config")
 
     @_builtins.property
     @pulumi.getter
     def failover(self) -> _builtins.str:
-        """
-        `PRIMARY` or `SECONDARY`.
-        """
         return pulumi.get(self, "failover")
 
     @_builtins.property
     @pulumi.getter
     def geolocation(self) -> 'outputs.GetRecordsResourceRecordSetGeolocationResult':
-        """
-        Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        """
         return pulumi.get(self, "geolocation")
 
     @_builtins.property
     @pulumi.getter(name="geoproximityLocation")
     def geoproximity_location(self) -> 'outputs.GetRecordsResourceRecordSetGeoproximityLocationResult':
-        """
-        Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        """
         return pulumi.get(self, "geoproximity_location")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> _builtins.str:
-        """
-        ID of any applicable health check.
-        """
         return pulumi.get(self, "health_check_id")
 
     @_builtins.property
     @pulumi.getter(name="multiValueAnswer")
     def multi_value_answer(self) -> _builtins.bool:
-        """
-        Traffic is routed approximately randomly to multiple resources.
-        """
         return pulumi.get(self, "multi_value_answer")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the record.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        The Amazon EC2 Region of the resource that this resource record set refers to.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecords")
     def resource_records(self) -> Sequence['outputs.GetRecordsResourceRecordSetResourceRecordResult']:
-        """
-        The resource records.
-        """
         return pulumi.get(self, "resource_records")
 
     @_builtins.property
     @pulumi.getter(name="setIdentifier")
     def set_identifier(self) -> _builtins.str:
-        """
-        An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        """
         return pulumi.get(self, "set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="trafficPolicyInstanceId")
     def traffic_policy_instance_id(self) -> _builtins.str:
-        """
-        The ID of any traffic policy instance that Route 53 created this resource record set for.
-        """
         return pulumi.get(self, "traffic_policy_instance_id")
 
     @_builtins.property
     @pulumi.getter
     def ttl(self) -> _builtins.int:
-        """
-        The resource record cache time to live (TTL), in seconds.
-        """
         return pulumi.get(self, "ttl")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The DNS record type.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def weight(self) -> _builtins.int:
-        """
-        Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-        """
         return pulumi.get(self, "weight")
 
 
@@ -1476,11 +1120,6 @@ class GetRecordsResourceRecordSetAliasTargetResult(dict):
                  dns_name: _builtins.str,
                  evaluate_target_health: _builtins.bool,
                  hosted_zone_id: _builtins.str):
-        """
-        :param _builtins.str dns_name: Target DNS name.
-        :param _builtins.bool evaluate_target_health: Whether an alias resource record set inherits the health of the referenced AWS resource.
-        :param _builtins.str hosted_zone_id: Target hosted zone ID.
-        """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -1488,25 +1127,16 @@ class GetRecordsResourceRecordSetAliasTargetResult(dict):
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        Target DNS name.
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> _builtins.bool:
-        """
-        Whether an alias resource record set inherits the health of the referenced AWS resource.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
-        """
-        Target hosted zone ID.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
 
@@ -1515,27 +1145,17 @@ class GetRecordsResourceRecordSetCidrRoutingConfigResult(dict):
     def __init__(__self__, *,
                  collection_id: _builtins.str,
                  location_name: _builtins.str):
-        """
-        :param _builtins.str collection_id: The CIDR collection ID.
-        :param _builtins.str location_name: The CIDR collection location name.
-        """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "location_name", location_name)
 
     @_builtins.property
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> _builtins.str:
-        """
-        The CIDR collection ID.
-        """
         return pulumi.get(self, "collection_id")
 
     @_builtins.property
     @pulumi.getter(name="locationName")
     def location_name(self) -> _builtins.str:
-        """
-        The CIDR collection location name.
-        """
         return pulumi.get(self, "location_name")
 
 
@@ -1545,11 +1165,6 @@ class GetRecordsResourceRecordSetGeolocationResult(dict):
                  continent_code: _builtins.str,
                  country_code: _builtins.str,
                  subdivision_code: _builtins.str):
-        """
-        :param _builtins.str continent_code: The two-letter code for the continent.
-        :param _builtins.str country_code: The two-letter code for a country.
-        :param _builtins.str subdivision_code: The two-letter code for a state of the United States.
-        """
         pulumi.set(__self__, "continent_code", continent_code)
         pulumi.set(__self__, "country_code", country_code)
         pulumi.set(__self__, "subdivision_code", subdivision_code)
@@ -1557,25 +1172,16 @@ class GetRecordsResourceRecordSetGeolocationResult(dict):
     @_builtins.property
     @pulumi.getter(name="continentCode")
     def continent_code(self) -> _builtins.str:
-        """
-        The two-letter code for the continent.
-        """
         return pulumi.get(self, "continent_code")
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> _builtins.str:
-        """
-        The two-letter code for a country.
-        """
         return pulumi.get(self, "country_code")
 
     @_builtins.property
     @pulumi.getter(name="subdivisionCode")
     def subdivision_code(self) -> _builtins.str:
-        """
-        The two-letter code for a state of the United States.
-        """
         return pulumi.get(self, "subdivision_code")
 
 
@@ -1586,12 +1192,6 @@ class GetRecordsResourceRecordSetGeoproximityLocationResult(dict):
                  bias: _builtins.int,
                  coordinates: 'outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult',
                  local_zone_group: _builtins.str):
-        """
-        :param _builtins.str aws_region: The AWS Region the resource you are directing DNS traffic to, is in.
-        :param _builtins.int bias: The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-        :param 'GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs' coordinates: Contains the longitude and latitude for a geographic region.
-        :param _builtins.str local_zone_group: An AWS Local Zone Group.
-        """
         pulumi.set(__self__, "aws_region", aws_region)
         pulumi.set(__self__, "bias", bias)
         pulumi.set(__self__, "coordinates", coordinates)
@@ -1600,33 +1200,21 @@ class GetRecordsResourceRecordSetGeoproximityLocationResult(dict):
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> _builtins.str:
-        """
-        The AWS Region the resource you are directing DNS traffic to, is in.
-        """
         return pulumi.get(self, "aws_region")
 
     @_builtins.property
     @pulumi.getter
     def bias(self) -> _builtins.int:
-        """
-        The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-        """
         return pulumi.get(self, "bias")
 
     @_builtins.property
     @pulumi.getter
     def coordinates(self) -> 'outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult':
-        """
-        Contains the longitude and latitude for a geographic region.
-        """
         return pulumi.get(self, "coordinates")
 
     @_builtins.property
     @pulumi.getter(name="localZoneGroup")
     def local_zone_group(self) -> _builtins.str:
-        """
-        An AWS Local Zone Group.
-        """
         return pulumi.get(self, "local_zone_group")
 
 
@@ -1635,27 +1223,17 @@ class GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult(dict):
     def __init__(__self__, *,
                  latitude: _builtins.str,
                  longitude: _builtins.str):
-        """
-        :param _builtins.str latitude: Latitude.
-        :param _builtins.str longitude: Longitude.
-        """
         pulumi.set(__self__, "latitude", latitude)
         pulumi.set(__self__, "longitude", longitude)
 
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> _builtins.str:
-        """
-        Latitude.
-        """
         return pulumi.get(self, "latitude")
 
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> _builtins.str:
-        """
-        Longitude.
-        """
         return pulumi.get(self, "longitude")
 
 
@@ -1663,17 +1241,11 @@ class GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult(dict):
 class GetRecordsResourceRecordSetResourceRecordResult(dict):
     def __init__(__self__, *,
                  value: _builtins.str):
-        """
-        :param _builtins.str value: The DNS record value.
-        """
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The DNS record value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1716,25 +1288,6 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
                  name: _builtins.str,
                  priority: _builtins.int,
                  q_type: _builtins.str):
-        """
-        :param _builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-        :param _builtins.str block_override_dns_type: The DNS record's type.
-        :param _builtins.str block_override_domain: The custom DNS record to send back in response to the query.
-        :param _builtins.int block_override_ttl: The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
-        :param _builtins.str block_response: The way that you want DNS Firewall to block the request.
-        :param _builtins.str confidence_threshold: The confidence threshold for DNS Firewall Advanced rules.
-        :param _builtins.str creation_time: The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
-        :param _builtins.str creator_request_id: A unique string defined by you to identify the request.
-        :param _builtins.str dns_threat_protection: The type of DNS Firewall Advanced rule.
-        :param _builtins.str firewall_domain_list_id: The ID of the domain list that's used in the rule.
-        :param _builtins.str firewall_domain_redirection_action: How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
-        :param _builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
-        :param _builtins.str firewall_threat_protection_id: The ID of the DNS Firewall Advanced rule.
-        :param _builtins.str modification_time: The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
-        :param _builtins.str name: The name of the rule.
-        :param _builtins.int priority: The setting that determines the processing order of the rules in a rule group.
-        :param _builtins.str q_type: The DNS query type that the rule evaluates.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
         pulumi.set(__self__, "block_override_domain", block_override_domain)
@@ -1756,137 +1309,86 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
     @_builtins.property
     @pulumi.getter
     def action(self) -> _builtins.str:
-        """
-        The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDnsType")
     def block_override_dns_type(self) -> _builtins.str:
-        """
-        The DNS record's type.
-        """
         return pulumi.get(self, "block_override_dns_type")
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDomain")
     def block_override_domain(self) -> _builtins.str:
-        """
-        The custom DNS record to send back in response to the query.
-        """
         return pulumi.get(self, "block_override_domain")
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideTtl")
     def block_override_ttl(self) -> _builtins.int:
-        """
-        The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
-        """
         return pulumi.get(self, "block_override_ttl")
 
     @_builtins.property
     @pulumi.getter(name="blockResponse")
     def block_response(self) -> _builtins.str:
-        """
-        The way that you want DNS Firewall to block the request.
-        """
         return pulumi.get(self, "block_response")
 
     @_builtins.property
     @pulumi.getter(name="confidenceThreshold")
     def confidence_threshold(self) -> _builtins.str:
-        """
-        The confidence threshold for DNS Firewall Advanced rules.
-        """
         return pulumi.get(self, "confidence_threshold")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> _builtins.str:
-        """
-        A unique string defined by you to identify the request.
-        """
         return pulumi.get(self, "creator_request_id")
 
     @_builtins.property
     @pulumi.getter(name="dnsThreatProtection")
     def dns_threat_protection(self) -> _builtins.str:
-        """
-        The type of DNS Firewall Advanced rule.
-        """
         return pulumi.get(self, "dns_threat_protection")
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainListId")
     def firewall_domain_list_id(self) -> _builtins.str:
-        """
-        The ID of the domain list that's used in the rule.
-        """
         return pulumi.get(self, "firewall_domain_list_id")
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainRedirectionAction")
     def firewall_domain_redirection_action(self) -> _builtins.str:
-        """
-        How DNS Firewall evaluates DNS redirection in the DNS redirection chain.
-        """
         return pulumi.get(self, "firewall_domain_redirection_action")
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> _builtins.str:
-        """
-        The unique identifier of the firewall rule group that you want to retrieve the rules for.
-        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @_builtins.property
     @pulumi.getter(name="firewallThreatProtectionId")
     def firewall_threat_protection_id(self) -> _builtins.str:
-        """
-        The ID of the DNS Firewall Advanced rule.
-        """
         return pulumi.get(self, "firewall_threat_protection_id")
 
     @_builtins.property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> _builtins.str:
-        """
-        The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "modification_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the rule.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        The setting that determines the processing order of the rules in a rule group.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="qType")
     def q_type(self) -> _builtins.str:
-        """
-        The DNS query type that the rule evaluates.
-        """
         return pulumi.get(self, "q_type")
 
 
@@ -1897,12 +1399,6 @@ class GetResolverRuleTargetIpResult(dict):
                  ipv6: _builtins.str,
                  port: _builtins.int,
                  protocol: _builtins.str):
-        """
-        :param _builtins.str ip: IPv4 address that you want to forward DNS queries to.
-        :param _builtins.str ipv6: IPv6 address that you want to forward DNS queries to.
-        :param _builtins.int port: Port at the IP address that you want to forward DNS queries to.
-        :param _builtins.str protocol: Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
-        """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "ipv6", ipv6)
         pulumi.set(__self__, "port", port)
@@ -1911,33 +1407,21 @@ class GetResolverRuleTargetIpResult(dict):
     @_builtins.property
     @pulumi.getter
     def ip(self) -> _builtins.str:
-        """
-        IPv4 address that you want to forward DNS queries to.
-        """
         return pulumi.get(self, "ip")
 
     @_builtins.property
     @pulumi.getter
     def ipv6(self) -> _builtins.str:
-        """
-        IPv6 address that you want to forward DNS queries to.
-        """
         return pulumi.get(self, "ipv6")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        Port at the IP address that you want to forward DNS queries to.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
-        """
-        Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
-        """
         return pulumi.get(self, "protocol")
 
 
@@ -1948,12 +1432,6 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
                  region: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str id: ID of an endpoint you want to assign.
-        :param _builtins.str region: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        :param _builtins.str type: Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-        :param _builtins.str value: Value of the `type`.
-        """
         pulumi.set(__self__, "id", id)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -1965,33 +1443,21 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of an endpoint you want to assign.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        Value of the `type`.
-        """
         return pulumi.get(self, "value")
 
 
@@ -2006,15 +1472,6 @@ class GetTrafficPolicyDocumentRuleResult(dict):
                  regions: Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleRegionResult']] = None,
                  secondary: Optional['outputs.GetTrafficPolicyDocumentRuleSecondaryResult'] = None,
                  type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str id: ID of a rule you want to assign.
-        :param Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs'] geo_proximity_locations: Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleItemArgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleLocationArgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        :param 'GetTrafficPolicyDocumentRulePrimaryArgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        :param 'GetTrafficPolicyDocumentRuleSecondaryArgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-        :param _builtins.str type: Type of the rule.
-        """
         pulumi.set(__self__, "id", id)
         if geo_proximity_locations is not None:
             pulumi.set(__self__, "geo_proximity_locations", geo_proximity_locations)
@@ -2034,41 +1491,26 @@ class GetTrafficPolicyDocumentRuleResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of a rule you want to assign.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="geoProximityLocations")
     def geo_proximity_locations(self) -> Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult']]:
-        """
-        Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        """
         return pulumi.get(self, "geo_proximity_locations")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleItemResult']]:
-        """
-        Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleLocationResult']]:
-        """
-        Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional['outputs.GetTrafficPolicyDocumentRulePrimaryResult']:
-        """
-        Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
@@ -2079,17 +1521,11 @@ class GetTrafficPolicyDocumentRuleResult(dict):
     @_builtins.property
     @pulumi.getter
     def secondary(self) -> Optional['outputs.GetTrafficPolicyDocumentRuleSecondaryResult']:
-        """
-        Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-        """
         return pulumi.get(self, "secondary")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Type of the rule.
-        """
         return pulumi.get(self, "type")
 
 
@@ -2104,16 +1540,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
                  longitude: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  rule_reference: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bias: Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.str latitude: Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-        :param _builtins.str longitude: Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-        :param _builtins.str region: If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-        :param _builtins.str rule_reference: References to a rule.
-        """
         if bias is not None:
             pulumi.set(__self__, "bias", bias)
         if endpoint_reference is not None:
@@ -2134,65 +1560,41 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
     @_builtins.property
     @pulumi.getter
     def bias(self) -> Optional[_builtins.str]:
-        """
-        Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-        """
         return pulumi.get(self, "bias")
 
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> Optional[_builtins.str]:
-        """
-        Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-        """
         return pulumi.get(self, "latitude")
 
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> Optional[_builtins.str]:
-        """
-        Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-        """
         return pulumi.get(self, "longitude")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
 
@@ -2228,16 +1630,6 @@ class GetTrafficPolicyDocumentRuleLocationResult(dict):
                  is_default: Optional[_builtins.bool] = None,
                  rule_reference: Optional[_builtins.str] = None,
                  subdivision: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str continent: Value of a continent.
-        :param _builtins.str country: Value of a country.
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.bool is_default: Indicates whether this set of values represents the default location.
-        :param _builtins.str rule_reference: References to a rule.
-        :param _builtins.str subdivision: Value of a subdivision.
-        """
         if continent is not None:
             pulumi.set(__self__, "continent", continent)
         if country is not None:
@@ -2258,65 +1650,41 @@ class GetTrafficPolicyDocumentRuleLocationResult(dict):
     @_builtins.property
     @pulumi.getter
     def continent(self) -> Optional[_builtins.str]:
-        """
-        Value of a continent.
-        """
         return pulumi.get(self, "continent")
 
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        Value of a country.
-        """
         return pulumi.get(self, "country")
 
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether this set of values represents the default location.
-        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
     @_builtins.property
     @pulumi.getter
     def subdivision(self) -> Optional[_builtins.str]:
-        """
-        Value of a subdivision.
-        """
         return pulumi.get(self, "subdivision")
 
 
@@ -2327,12 +1695,6 @@ class GetTrafficPolicyDocumentRulePrimaryResult(dict):
                  evaluate_target_health: Optional[_builtins.bool] = None,
                  health_check: Optional[_builtins.str] = None,
                  rule_reference: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.str rule_reference: References to a rule.
-        """
         if endpoint_reference is not None:
             pulumi.set(__self__, "endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
@@ -2345,33 +1707,21 @@ class GetTrafficPolicyDocumentRulePrimaryResult(dict):
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
 
@@ -2383,13 +1733,6 @@ class GetTrafficPolicyDocumentRuleRegionResult(dict):
                  health_check: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  rule_reference: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.str region: Region code for the AWS Region that you created the resource in.
-        :param _builtins.str rule_reference: References to a rule.
-        """
         if endpoint_reference is not None:
             pulumi.set(__self__, "endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
@@ -2404,41 +1747,26 @@ class GetTrafficPolicyDocumentRuleRegionResult(dict):
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        Region code for the AWS Region that you created the resource in.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
 

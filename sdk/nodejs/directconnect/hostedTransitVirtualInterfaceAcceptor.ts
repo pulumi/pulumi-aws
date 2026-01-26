@@ -4,52 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage the accepter's side of a Direct Connect hosted transit virtual interface.
- * This resource accepts ownership of a transit virtual interface created by another AWS account.
- *
- * > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `aws.directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `aws.directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const accepter = aws.getCallerIdentity({});
- * // Accepter's side of the VIF.
- * const example = new aws.directconnect.Gateway("example", {
- *     name: "tf-dxg-example",
- *     amazonSideAsn: "64512",
- * });
- * // Creator's side of the VIF
- * const creator = new aws.directconnect.HostedTransitVirtualInterface("creator", {
- *     connectionId: "dxcon-zzzzzzzz",
- *     ownerAccountId: accepter.then(accepter => accepter.accountId),
- *     name: "tf-transit-vif-example",
- *     vlan: 4094,
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- * }, {
- *     dependsOn: [example],
- * });
- * const accepterHostedTransitVirtualInterfaceAcceptor = new aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepter", {
- *     virtualInterfaceId: creator.id,
- *     dxGatewayId: example.id,
- *     tags: {
- *         Side: "Accepter",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
- * ```
- */
 export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource {
     /**
      * Get an existing HostedTransitVirtualInterfaceAcceptor resource's state with the given name, ID, and optional extra
@@ -78,29 +32,11 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
         return obj['__pulumiType'] === HostedTransitVirtualInterfaceAcceptor.__pulumiType;
     }
 
-    /**
-     * The ARN of the virtual interface.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ID of the Direct Connect gateway to which to connect the virtual interface.
-     */
     declare public readonly dxGatewayId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The ID of the Direct Connect virtual interface to accept.
-     */
     declare public readonly virtualInterfaceId: pulumi.Output<string>;
 
     /**
@@ -146,29 +82,11 @@ export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource
  * Input properties used for looking up and filtering HostedTransitVirtualInterfaceAcceptor resources.
  */
 export interface HostedTransitVirtualInterfaceAcceptorState {
-    /**
-     * The ARN of the virtual interface.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the Direct Connect gateway to which to connect the virtual interface.
-     */
     dxGatewayId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the Direct Connect virtual interface to accept.
-     */
     virtualInterfaceId?: pulumi.Input<string>;
 }
 
@@ -176,20 +94,8 @@ export interface HostedTransitVirtualInterfaceAcceptorState {
  * The set of arguments for constructing a HostedTransitVirtualInterfaceAcceptor resource.
  */
 export interface HostedTransitVirtualInterfaceAcceptorArgs {
-    /**
-     * The ID of the Direct Connect gateway to which to connect the virtual interface.
-     */
     dxGatewayId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the Direct Connect virtual interface to accept.
-     */
     virtualInterfaceId: pulumi.Input<string>;
 }

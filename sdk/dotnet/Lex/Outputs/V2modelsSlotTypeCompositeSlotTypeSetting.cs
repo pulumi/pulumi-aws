@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeCompositeSlotTypeSetting
     {
-        /// <summary>
-        /// Sub slots in the composite slot.
-        /// See `SubSlots` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> SubSlots;
 
         [OutputConstructor]

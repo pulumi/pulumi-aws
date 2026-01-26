@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketReplicationConfigurationRuleDestinationReplicationTime {
-    /**
-     * @return Threshold within which objects are to be replicated. The only valid value is `15`.
-     * 
-     */
     private @Nullable Integer minutes;
-    /**
-     * @return Status of RTC. Either `Enabled` or `Disabled`.
-     * 
-     */
     private @Nullable String status;
 
     private BucketReplicationConfigurationRuleDestinationReplicationTime() {}
-    /**
-     * @return Threshold within which objects are to be replicated. The only valid value is `15`.
-     * 
-     */
     public Optional<Integer> minutes() {
         return Optional.ofNullable(this.minutes);
     }
-    /**
-     * @return Status of RTC. Either `Enabled` or `Disabled`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

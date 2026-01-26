@@ -11,15 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionsResult {
-    /**
-     * @return List of Lambda Function ARNs.
-     * 
-     */
     private List<String> functionArns;
-    /**
-     * @return List of Lambda Function names.
-     * 
-     */
     private List<String> functionNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,17 +21,9 @@ public final class GetFunctionsResult {
     private String region;
 
     private GetFunctionsResult() {}
-    /**
-     * @return List of Lambda Function ARNs.
-     * 
-     */
     public List<String> functionArns() {
         return this.functionArns;
     }
-    /**
-     * @return List of Lambda Function names.
-     * 
-     */
     public List<String> functionNames() {
         return this.functionNames;
     }

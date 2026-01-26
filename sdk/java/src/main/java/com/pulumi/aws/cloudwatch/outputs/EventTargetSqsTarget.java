@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetSqsTarget {
-    /**
-     * @return The FIFO message group ID to use as the target.
-     * 
-     */
     private @Nullable String messageGroupId;
 
     private EventTargetSqsTarget() {}
-    /**
-     * @return The FIFO message group ID to use as the target.
-     * 
-     */
     public Optional<String> messageGroupId() {
         return Optional.ofNullable(this.messageGroupId);
     }

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class SpotFleetRequestLaunchTemplateConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Launch template specification. See Launch Template Specification below for more details.
-        /// </summary>
         [Input("launchTemplateSpecification", required: true)]
         public Input<Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationGetArgs> LaunchTemplateSpecification { get; set; } = null!;
 
         [Input("overrides")]
         private InputList<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideGetArgs>? _overrides;
-
-        /// <summary>
-        /// One or more override configurations. See Overrides below for more details.
-        /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideGetArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideGetArgs>());

@@ -15,122 +15,58 @@ public final class GetTrafficPolicyDocumentRuleLocation extends com.pulumi.resou
 
     public static final GetTrafficPolicyDocumentRuleLocation Empty = new GetTrafficPolicyDocumentRuleLocation();
 
-    /**
-     * Value of a continent.
-     * 
-     */
     @Import(name="continent")
     private @Nullable String continent;
 
-    /**
-     * @return Value of a continent.
-     * 
-     */
     public Optional<String> continent() {
         return Optional.ofNullable(this.continent);
     }
 
-    /**
-     * Value of a country.
-     * 
-     */
     @Import(name="country")
     private @Nullable String country;
 
-    /**
-     * @return Value of a country.
-     * 
-     */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
     }
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable String endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     @Import(name="evaluateTargetHealth")
     private @Nullable Boolean evaluateTargetHealth;
 
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable String healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
 
-    /**
-     * Indicates whether this set of values represents the default location.
-     * 
-     */
     @Import(name="isDefault")
     private @Nullable Boolean isDefault;
 
-    /**
-     * @return Indicates whether this set of values represents the default location.
-     * 
-     */
     public Optional<Boolean> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
 
-    /**
-     * References to a rule.
-     * 
-     */
     @Import(name="ruleReference")
     private @Nullable String ruleReference;
 
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }
 
-    /**
-     * Value of a subdivision.
-     * 
-     */
     @Import(name="subdivision")
     private @Nullable String subdivision;
 
-    /**
-     * @return Value of a subdivision.
-     * 
-     */
     public Optional<String> subdivision() {
         return Optional.ofNullable(this.subdivision);
     }
@@ -166,89 +102,41 @@ public final class GetTrafficPolicyDocumentRuleLocation extends com.pulumi.resou
             $ = new GetTrafficPolicyDocumentRuleLocation(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param continent Value of a continent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder continent(@Nullable String continent) {
             $.continent = continent;
             return this;
         }
 
-        /**
-         * @param country Value of a country.
-         * 
-         * @return builder
-         * 
-         */
         public Builder country(@Nullable String country) {
             $.country = country;
             return this;
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable String endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             $.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable String healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param isDefault Indicates whether this set of values represents the default location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(@Nullable Boolean isDefault) {
             $.isDefault = isDefault;
             return this;
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(@Nullable String ruleReference) {
             $.ruleReference = ruleReference;
             return this;
         }
 
-        /**
-         * @param subdivision Value of a subdivision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdivision(@Nullable String subdivision) {
             $.subdivision = subdivision;
             return this;

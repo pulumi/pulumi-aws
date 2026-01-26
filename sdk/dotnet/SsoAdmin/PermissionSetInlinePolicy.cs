@@ -9,87 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///     });
-    /// 
-    ///     var exampleGetPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "1",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:ListAllMyBuckets",
-    ///                     "s3:GetBucketLocation",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:s3:::*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePermissionSetInlinePolicy = new Aws.SsoAdmin.PermissionSetInlinePolicy("example", new()
-    ///     {
-    ///         InlinePolicy = exampleGetPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         PermissionSetArn = examplePermissionSet.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy")]
     public partial class PermissionSetInlinePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The IAM inline policy to attach to a Permission Set.
-        /// </summary>
         [Output("inlinePolicy")]
         public Output<string> InlinePolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -139,27 +70,15 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class PermissionSetInlinePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IAM inline policy to attach to a Permission Set.
-        /// </summary>
         [Input("inlinePolicy", required: true)]
         public Input<string> InlinePolicy { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -171,27 +90,15 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class PermissionSetInlinePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IAM inline policy to attach to a Permission Set.
-        /// </summary>
         [Input("inlinePolicy")]
         public Input<string>? InlinePolicy { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -18,161 +18,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainClusterConfig {
-    /**
-     * @return Configuration block containing cold storage configuration.
-     * 
-     */
     private List<GetDomainClusterConfigColdStorageOption> coldStorageOptions;
-    /**
-     * @return Number of dedicated master nodes in the cluster.
-     * 
-     */
     private Integer dedicatedMasterCount;
-    /**
-     * @return Indicates whether dedicated master nodes are enabled for the cluster.
-     * 
-     */
     private Boolean dedicatedMasterEnabled;
-    /**
-     * @return Instance type of the dedicated master nodes in the cluster.
-     * 
-     */
     private String dedicatedMasterType;
-    /**
-     * @return Number of instances in the cluster.
-     * 
-     */
     private Integer instanceCount;
-    /**
-     * @return Instance type of data nodes in the cluster.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return Whether a multi-AZ domain is turned on with a standby AZ.
-     * 
-     */
     private Boolean multiAzWithStandbyEnabled;
-    /**
-     * @return List of node options for the domain.
-     * 
-     */
     private List<GetDomainClusterConfigNodeOption> nodeOptions;
-    /**
-     * @return Number of warm nodes in the cluster.
-     * 
-     */
     private Integer warmCount;
-    /**
-     * @return Warm storage is enabled.
-     * 
-     */
     private @Nullable Boolean warmEnabled;
-    /**
-     * @return Instance type for the OpenSearch cluster&#39;s warm nodes.
-     * 
-     */
     private String warmType;
-    /**
-     * @return Configuration block containing zone awareness settings.
-     * 
-     */
     private List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs;
-    /**
-     * @return Indicates whether zone awareness is enabled.
-     * 
-     */
     private Boolean zoneAwarenessEnabled;
 
     private GetDomainClusterConfig() {}
-    /**
-     * @return Configuration block containing cold storage configuration.
-     * 
-     */
     public List<GetDomainClusterConfigColdStorageOption> coldStorageOptions() {
         return this.coldStorageOptions;
     }
-    /**
-     * @return Number of dedicated master nodes in the cluster.
-     * 
-     */
     public Integer dedicatedMasterCount() {
         return this.dedicatedMasterCount;
     }
-    /**
-     * @return Indicates whether dedicated master nodes are enabled for the cluster.
-     * 
-     */
     public Boolean dedicatedMasterEnabled() {
         return this.dedicatedMasterEnabled;
     }
-    /**
-     * @return Instance type of the dedicated master nodes in the cluster.
-     * 
-     */
     public String dedicatedMasterType() {
         return this.dedicatedMasterType;
     }
-    /**
-     * @return Number of instances in the cluster.
-     * 
-     */
     public Integer instanceCount() {
         return this.instanceCount;
     }
-    /**
-     * @return Instance type of data nodes in the cluster.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return Whether a multi-AZ domain is turned on with a standby AZ.
-     * 
-     */
     public Boolean multiAzWithStandbyEnabled() {
         return this.multiAzWithStandbyEnabled;
     }
-    /**
-     * @return List of node options for the domain.
-     * 
-     */
     public List<GetDomainClusterConfigNodeOption> nodeOptions() {
         return this.nodeOptions;
     }
-    /**
-     * @return Number of warm nodes in the cluster.
-     * 
-     */
     public Integer warmCount() {
         return this.warmCount;
     }
-    /**
-     * @return Warm storage is enabled.
-     * 
-     */
     public Optional<Boolean> warmEnabled() {
         return Optional.ofNullable(this.warmEnabled);
     }
-    /**
-     * @return Instance type for the OpenSearch cluster&#39;s warm nodes.
-     * 
-     */
     public String warmType() {
         return this.warmType;
     }
-    /**
-     * @return Configuration block containing zone awareness settings.
-     * 
-     */
     public List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs() {
         return this.zoneAwarenessConfigs;
     }
-    /**
-     * @return Indicates whether zone awareness is enabled.
-     * 
-     */
     public Boolean zoneAwarenessEnabled() {
         return this.zoneAwarenessEnabled;
     }

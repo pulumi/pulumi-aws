@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetNetworksOdbNetworkResult
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the odb network resource.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Display name for the network resource.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// Unique identifier of the odb network resource.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The unique identifier of the OCI network anchor for the ODB network.
-        /// </summary>
         public readonly string OciNetworkAnchorId;
-        /// <summary>
-        /// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
-        /// </summary>
         public readonly string OciVcnId;
-        /// <summary>
-        /// The URL of the OCI VCN for the ODB network.
-        /// </summary>
         public readonly string OciVcnUrl;
 
         [OutputConstructor]

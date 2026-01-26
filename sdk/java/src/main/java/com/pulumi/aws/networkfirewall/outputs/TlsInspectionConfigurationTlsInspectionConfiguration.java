@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TlsInspectionConfigurationTlsInspectionConfiguration {
-    /**
-     * @return Server certificate configurations that are associated with the TLS configuration. Detailed below.
-     * 
-     */
     private @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration;
 
     private TlsInspectionConfigurationTlsInspectionConfiguration() {}
-    /**
-     * @return Server certificate configurations that are associated with the TLS configuration. Detailed below.
-     * 
-     */
     public Optional<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration> serverCertificateConfiguration() {
         return Optional.ofNullable(this.serverCertificateConfiguration);
     }

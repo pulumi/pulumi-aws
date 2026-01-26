@@ -12,68 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a ELBv2 Trust Store Revocation for use with Application Load Balancer Listener resources.
-//
-// ## Example Usage
-//
-// ### Trust Store With Revocations
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lb.NewTrustStore(ctx, "test", &lb.TrustStoreArgs{
-//				Name:                         pulumi.String("tf-example-lb-ts"),
-//				CaCertificatesBundleS3Bucket: pulumi.String("..."),
-//				CaCertificatesBundleS3Key:    pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTrustStoreRevocation(ctx, "test", &lb.TrustStoreRevocationArgs{
-//				TrustStoreArn:       test.Arn,
-//				RevocationsS3Bucket: pulumi.String("..."),
-//				RevocationsS3Key:    pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Trust Store Revocations using their ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
-// ```
 type TrustStoreRevocation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// AWS assigned RevocationId, (number).
-	RevocationId pulumi.IntOutput `pulumi:"revocationId"`
-	// S3 Bucket name holding the client certificate CA bundle.
-	RevocationsS3Bucket pulumi.StringOutput `pulumi:"revocationsS3Bucket"`
-	// S3 object key holding the client certificate CA bundle.
-	RevocationsS3Key pulumi.StringOutput `pulumi:"revocationsS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	Region                     pulumi.StringOutput    `pulumi:"region"`
+	RevocationId               pulumi.IntOutput       `pulumi:"revocationId"`
+	RevocationsS3Bucket        pulumi.StringOutput    `pulumi:"revocationsS3Bucket"`
+	RevocationsS3Key           pulumi.StringOutput    `pulumi:"revocationsS3Key"`
 	RevocationsS3ObjectVersion pulumi.StringPtrOutput `pulumi:"revocationsS3ObjectVersion"`
-	// Trust Store ARN.
-	TrustStoreArn pulumi.StringOutput `pulumi:"trustStoreArn"`
+	TrustStoreArn              pulumi.StringOutput    `pulumi:"trustStoreArn"`
 }
 
 // NewTrustStoreRevocation registers a new resource with the given unique name, arguments, and options.
@@ -115,33 +62,21 @@ func GetTrustStoreRevocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustStoreRevocation resources.
 type trustStoreRevocationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS assigned RevocationId, (number).
-	RevocationId *int `pulumi:"revocationId"`
-	// S3 Bucket name holding the client certificate CA bundle.
-	RevocationsS3Bucket *string `pulumi:"revocationsS3Bucket"`
-	// S3 object key holding the client certificate CA bundle.
-	RevocationsS3Key *string `pulumi:"revocationsS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	Region                     *string `pulumi:"region"`
+	RevocationId               *int    `pulumi:"revocationId"`
+	RevocationsS3Bucket        *string `pulumi:"revocationsS3Bucket"`
+	RevocationsS3Key           *string `pulumi:"revocationsS3Key"`
 	RevocationsS3ObjectVersion *string `pulumi:"revocationsS3ObjectVersion"`
-	// Trust Store ARN.
-	TrustStoreArn *string `pulumi:"trustStoreArn"`
+	TrustStoreArn              *string `pulumi:"trustStoreArn"`
 }
 
 type TrustStoreRevocationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// AWS assigned RevocationId, (number).
-	RevocationId pulumi.IntPtrInput
-	// S3 Bucket name holding the client certificate CA bundle.
-	RevocationsS3Bucket pulumi.StringPtrInput
-	// S3 object key holding the client certificate CA bundle.
-	RevocationsS3Key pulumi.StringPtrInput
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	Region                     pulumi.StringPtrInput
+	RevocationId               pulumi.IntPtrInput
+	RevocationsS3Bucket        pulumi.StringPtrInput
+	RevocationsS3Key           pulumi.StringPtrInput
 	RevocationsS3ObjectVersion pulumi.StringPtrInput
-	// Trust Store ARN.
-	TrustStoreArn pulumi.StringPtrInput
+	TrustStoreArn              pulumi.StringPtrInput
 }
 
 func (TrustStoreRevocationState) ElementType() reflect.Type {
@@ -149,30 +84,20 @@ func (TrustStoreRevocationState) ElementType() reflect.Type {
 }
 
 type trustStoreRevocationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// S3 Bucket name holding the client certificate CA bundle.
-	RevocationsS3Bucket string `pulumi:"revocationsS3Bucket"`
-	// S3 object key holding the client certificate CA bundle.
-	RevocationsS3Key string `pulumi:"revocationsS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	Region                     *string `pulumi:"region"`
+	RevocationsS3Bucket        string  `pulumi:"revocationsS3Bucket"`
+	RevocationsS3Key           string  `pulumi:"revocationsS3Key"`
 	RevocationsS3ObjectVersion *string `pulumi:"revocationsS3ObjectVersion"`
-	// Trust Store ARN.
-	TrustStoreArn string `pulumi:"trustStoreArn"`
+	TrustStoreArn              string  `pulumi:"trustStoreArn"`
 }
 
 // The set of arguments for constructing a TrustStoreRevocation resource.
 type TrustStoreRevocationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// S3 Bucket name holding the client certificate CA bundle.
-	RevocationsS3Bucket pulumi.StringInput
-	// S3 object key holding the client certificate CA bundle.
-	RevocationsS3Key pulumi.StringInput
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	Region                     pulumi.StringPtrInput
+	RevocationsS3Bucket        pulumi.StringInput
+	RevocationsS3Key           pulumi.StringInput
 	RevocationsS3ObjectVersion pulumi.StringPtrInput
-	// Trust Store ARN.
-	TrustStoreArn pulumi.StringInput
+	TrustStoreArn              pulumi.StringInput
 }
 
 func (TrustStoreRevocationArgs) ElementType() reflect.Type {
@@ -262,32 +187,26 @@ func (o TrustStoreRevocationOutput) ToTrustStoreRevocationOutputWithContext(ctx 
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustStoreRevocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS assigned RevocationId, (number).
 func (o TrustStoreRevocationOutput) RevocationId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.IntOutput { return v.RevocationId }).(pulumi.IntOutput)
 }
 
-// S3 Bucket name holding the client certificate CA bundle.
 func (o TrustStoreRevocationOutput) RevocationsS3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringOutput { return v.RevocationsS3Bucket }).(pulumi.StringOutput)
 }
 
-// S3 object key holding the client certificate CA bundle.
 func (o TrustStoreRevocationOutput) RevocationsS3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringOutput { return v.RevocationsS3Key }).(pulumi.StringOutput)
 }
 
-// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 func (o TrustStoreRevocationOutput) RevocationsS3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringPtrOutput { return v.RevocationsS3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
-// Trust Store ARN.
 func (o TrustStoreRevocationOutput) TrustStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringOutput { return v.TrustStoreArn }).(pulumi.StringOutput)
 }

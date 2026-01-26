@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFrameworkControl {
-    /**
-     * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-     * 
-     */
     private List<GetFrameworkControlInputParameter> inputParameters;
-    /**
-     * @return Backup framework name.
-     * 
-     */
     private String name;
-    /**
-     * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-     * 
-     */
     private List<GetFrameworkControlScope> scopes;
 
     private GetFrameworkControl() {}
-    /**
-     * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-     * 
-     */
     public List<GetFrameworkControlInputParameter> inputParameters() {
         return this.inputParameters;
     }
-    /**
-     * @return Backup framework name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-     * 
-     */
     public List<GetFrameworkControlScope> scopes() {
         return this.scopes;
     }

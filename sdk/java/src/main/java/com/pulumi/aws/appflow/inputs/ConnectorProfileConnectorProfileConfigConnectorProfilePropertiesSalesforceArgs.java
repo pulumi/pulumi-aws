@@ -23,32 +23,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.instanceUrl);
     }
 
-    /**
-     * Indicates whether the connector profile applies to a sandbox or production environment.
-     * 
-     */
     @Import(name="isSandboxEnvironment")
     private @Nullable Output<Boolean> isSandboxEnvironment;
 
-    /**
-     * @return Indicates whether the connector profile applies to a sandbox or production environment.
-     * 
-     */
     public Optional<Output<Boolean>> isSandboxEnvironment() {
         return Optional.ofNullable(this.isSandboxEnvironment);
     }
 
-    /**
-     * Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-     * 
-     */
     @Import(name="usePrivatelinkForMetadataAndAuthorization")
     private @Nullable Output<Boolean> usePrivatelinkForMetadataAndAuthorization;
 
-    /**
-     * @return Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-     * 
-     */
     public Optional<Output<Boolean>> usePrivatelinkForMetadataAndAuthorization() {
         return Optional.ofNullable(this.usePrivatelinkForMetadataAndAuthorization);
     }
@@ -88,44 +72,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return instanceUrl(Output.of(instanceUrl));
         }
 
-        /**
-         * @param isSandboxEnvironment Indicates whether the connector profile applies to a sandbox or production environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSandboxEnvironment(@Nullable Output<Boolean> isSandboxEnvironment) {
             $.isSandboxEnvironment = isSandboxEnvironment;
             return this;
         }
 
-        /**
-         * @param isSandboxEnvironment Indicates whether the connector profile applies to a sandbox or production environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSandboxEnvironment(Boolean isSandboxEnvironment) {
             return isSandboxEnvironment(Output.of(isSandboxEnvironment));
         }
 
-        /**
-         * @param usePrivatelinkForMetadataAndAuthorization Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usePrivatelinkForMetadataAndAuthorization(@Nullable Output<Boolean> usePrivatelinkForMetadataAndAuthorization) {
             $.usePrivatelinkForMetadataAndAuthorization = usePrivatelinkForMetadataAndAuthorization;
             return this;
         }
 
-        /**
-         * @param usePrivatelinkForMetadataAndAuthorization Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usePrivatelinkForMetadataAndAuthorization(Boolean usePrivatelinkForMetadataAndAuthorization) {
             return usePrivatelinkForMetadataAndAuthorization(Output.of(usePrivatelinkForMetadataAndAuthorization));
         }

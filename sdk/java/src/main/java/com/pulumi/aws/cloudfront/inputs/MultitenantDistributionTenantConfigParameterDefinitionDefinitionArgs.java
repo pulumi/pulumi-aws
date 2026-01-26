@@ -16,17 +16,9 @@ public final class MultitenantDistributionTenantConfigParameterDefinitionDefinit
 
     public static final MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs Empty = new MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs();
 
-    /**
-     * String schema configuration. See String Schema below.
-     * 
-     */
     @Import(name="stringSchemas")
     private @Nullable Output<List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs>> stringSchemas;
 
-    /**
-     * @return String schema configuration. See String Schema below.
-     * 
-     */
     public Optional<Output<List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs>>> stringSchemas() {
         return Optional.ofNullable(this.stringSchemas);
     }
@@ -55,33 +47,15 @@ public final class MultitenantDistributionTenantConfigParameterDefinitionDefinit
             $ = new MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param stringSchemas String schema configuration. See String Schema below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringSchemas(@Nullable Output<List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs>> stringSchemas) {
             $.stringSchemas = stringSchemas;
             return this;
         }
 
-        /**
-         * @param stringSchemas String schema configuration. See String Schema below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringSchemas(List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs> stringSchemas) {
             return stringSchemas(Output.of(stringSchemas));
         }
 
-        /**
-         * @param stringSchemas String schema configuration. See String Schema below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringSchemas(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs... stringSchemas) {
             return stringSchemas(List.of(stringSchemas));
         }

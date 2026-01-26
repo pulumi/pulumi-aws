@@ -18,77 +18,37 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
 
     public static final FlowSourceFlowConfigArgs Empty = new FlowSourceFlowConfigArgs();
 
-    /**
-     * API version that the destination connector uses.
-     * 
-     */
     @Import(name="apiVersion")
     private @Nullable Output<String> apiVersion;
 
-    /**
-     * @return API version that the destination connector uses.
-     * 
-     */
     public Optional<Output<String>> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
     }
 
-    /**
-     * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-     * 
-     */
     @Import(name="connectorProfileName")
     private @Nullable Output<String> connectorProfileName;
 
-    /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-     * 
-     */
     public Optional<Output<String>> connectorProfileName() {
         return Optional.ofNullable(this.connectorProfileName);
     }
 
-    /**
-     * Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-     * 
-     */
     @Import(name="connectorType", required=true)
     private Output<String> connectorType;
 
-    /**
-     * @return Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-     * 
-     */
     public Output<String> connectorType() {
         return this.connectorType;
     }
 
-    /**
-     * Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
-     * 
-     */
     @Import(name="incrementalPullConfig")
     private @Nullable Output<FlowSourceFlowConfigIncrementalPullConfigArgs> incrementalPullConfig;
 
-    /**
-     * @return Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigIncrementalPullConfigArgs>> incrementalPullConfig() {
         return Optional.ofNullable(this.incrementalPullConfig);
     }
 
-    /**
-     * Information that is required to query a particular source connector. See Source Connector Properties for details.
-     * 
-     */
     @Import(name="sourceConnectorProperties", required=true)
     private Output<FlowSourceFlowConfigSourceConnectorPropertiesArgs> sourceConnectorProperties;
 
-    /**
-     * @return Information that is required to query a particular source connector. See Source Connector Properties for details.
-     * 
-     */
     public Output<FlowSourceFlowConfigSourceConnectorPropertiesArgs> sourceConnectorProperties() {
         return this.sourceConnectorProperties;
     }
@@ -121,107 +81,47 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
             $ = new FlowSourceFlowConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiVersion API version that the destination connector uses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiVersion(@Nullable Output<String> apiVersion) {
             $.apiVersion = apiVersion;
             return this;
         }
 
-        /**
-         * @param apiVersion API version that the destination connector uses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiVersion(String apiVersion) {
             return apiVersion(Output.of(apiVersion));
         }
 
-        /**
-         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorProfileName(@Nullable Output<String> connectorProfileName) {
             $.connectorProfileName = connectorProfileName;
             return this;
         }
 
-        /**
-         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorProfileName(String connectorProfileName) {
             return connectorProfileName(Output.of(connectorProfileName));
         }
 
-        /**
-         * @param connectorType Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorType(Output<String> connectorType) {
             $.connectorType = connectorType;
             return this;
         }
 
-        /**
-         * @param connectorType Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorType(String connectorType) {
             return connectorType(Output.of(connectorType));
         }
 
-        /**
-         * @param incrementalPullConfig Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder incrementalPullConfig(@Nullable Output<FlowSourceFlowConfigIncrementalPullConfigArgs> incrementalPullConfig) {
             $.incrementalPullConfig = incrementalPullConfig;
             return this;
         }
 
-        /**
-         * @param incrementalPullConfig Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder incrementalPullConfig(FlowSourceFlowConfigIncrementalPullConfigArgs incrementalPullConfig) {
             return incrementalPullConfig(Output.of(incrementalPullConfig));
         }
 
-        /**
-         * @param sourceConnectorProperties Information that is required to query a particular source connector. See Source Connector Properties for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceConnectorProperties(Output<FlowSourceFlowConfigSourceConnectorPropertiesArgs> sourceConnectorProperties) {
             $.sourceConnectorProperties = sourceConnectorProperties;
             return this;
         }
 
-        /**
-         * @param sourceConnectorProperties Information that is required to query a particular source connector. See Source Connector Properties for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceConnectorProperties(FlowSourceFlowConfigSourceConnectorPropertiesArgs sourceConnectorProperties) {
             return sourceConnectorProperties(Output.of(sourceConnectorProperties));
         }

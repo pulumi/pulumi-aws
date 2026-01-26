@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetRunCommandTarget
     {
-        /// <summary>
-        /// Can be either `tag:tag-key` or `InstanceIds`.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

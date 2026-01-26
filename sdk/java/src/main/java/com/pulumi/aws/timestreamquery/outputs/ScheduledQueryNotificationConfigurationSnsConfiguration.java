@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduledQueryNotificationConfigurationSnsConfiguration {
-    /**
-     * @return SNS topic ARN that the scheduled query status notifications will be sent to.
-     * 
-     */
     private String topicArn;
 
     private ScheduledQueryNotificationConfigurationSnsConfiguration() {}
-    /**
-     * @return SNS topic ARN that the scheduled query status notifications will be sent to.
-     * 
-     */
     public String topicArn() {
         return this.topicArn;
     }

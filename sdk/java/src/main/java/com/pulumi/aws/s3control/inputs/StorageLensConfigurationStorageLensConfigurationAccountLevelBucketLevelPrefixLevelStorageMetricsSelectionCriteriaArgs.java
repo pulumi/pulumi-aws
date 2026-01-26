@@ -17,47 +17,23 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
     public static final StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs Empty = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs();
 
-    /**
-     * The delimiter of the selection criteria being used.
-     * 
-     */
     @Import(name="delimiter")
     private @Nullable Output<String> delimiter;
 
-    /**
-     * @return The delimiter of the selection criteria being used.
-     * 
-     */
     public Optional<Output<String>> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
 
-    /**
-     * The max depth of the selection criteria.
-     * 
-     */
     @Import(name="maxDepth")
     private @Nullable Output<Integer> maxDepth;
 
-    /**
-     * @return The max depth of the selection criteria.
-     * 
-     */
     public Optional<Output<Integer>> maxDepth() {
         return Optional.ofNullable(this.maxDepth);
     }
 
-    /**
-     * The minimum number of storage bytes percentage whose metrics will be selected.
-     * 
-     */
     @Import(name="minStorageBytesPercentage")
     private @Nullable Output<Double> minStorageBytesPercentage;
 
-    /**
-     * @return The minimum number of storage bytes percentage whose metrics will be selected.
-     * 
-     */
     public Optional<Output<Double>> minStorageBytesPercentage() {
         return Optional.ofNullable(this.minStorageBytesPercentage);
     }
@@ -88,65 +64,29 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             $ = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param delimiter The delimiter of the selection criteria being used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(@Nullable Output<String> delimiter) {
             $.delimiter = delimiter;
             return this;
         }
 
-        /**
-         * @param delimiter The delimiter of the selection criteria being used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(String delimiter) {
             return delimiter(Output.of(delimiter));
         }
 
-        /**
-         * @param maxDepth The max depth of the selection criteria.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxDepth(@Nullable Output<Integer> maxDepth) {
             $.maxDepth = maxDepth;
             return this;
         }
 
-        /**
-         * @param maxDepth The max depth of the selection criteria.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxDepth(Integer maxDepth) {
             return maxDepth(Output.of(maxDepth));
         }
 
-        /**
-         * @param minStorageBytesPercentage The minimum number of storage bytes percentage whose metrics will be selected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minStorageBytesPercentage(@Nullable Output<Double> minStorageBytesPercentage) {
             $.minStorageBytesPercentage = minStorageBytesPercentage;
             return this;
         }
 
-        /**
-         * @param minStorageBytesPercentage The minimum number of storage bytes percentage whose metrics will be selected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minStorageBytesPercentage(Double minStorageBytesPercentage) {
             return minStorageBytesPercentage(Output.of(minStorageBytesPercentage));
         }

@@ -23,140 +23,52 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyAsn asn;
-    /**
-     * @return (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyCookie cookie;
-    /**
-     * @return (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp forwardedIp;
-    /**
-     * @return (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHeader header;
-    /**
-     * @return (Optional) Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod httpMethod;
-    /**
-     * @return (Optional) Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyIp ip;
-    /**
-     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint;
-    /**
-     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint;
-    /**
-     * @return (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace;
-    /**
-     * @return (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument;
-    /**
-     * @return (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString queryString;
-    /**
-     * @return (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath uriPath;
 
     private RuleGroupRuleStatementRateBasedStatementCustomKey() {}
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyAsn> asn() {
         return Optional.ofNullable(this.asn);
     }
-    /**
-     * @return (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyCookie> cookie() {
         return Optional.ofNullable(this.cookie);
     }
-    /**
-     * @return (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp> forwardedIp() {
         return Optional.ofNullable(this.forwardedIp);
     }
-    /**
-     * @return (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyHeader> header() {
         return Optional.ofNullable(this.header);
     }
-    /**
-     * @return (Optional) Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod> httpMethod() {
         return Optional.ofNullable(this.httpMethod);
     }
-    /**
-     * @return (Optional) Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyIp> ip() {
         return Optional.ofNullable(this.ip);
     }
-    /**
-     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
-    /**
-     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint> ja4Fingerprint() {
         return Optional.ofNullable(this.ja4Fingerprint);
     }
-    /**
-     * @return (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace> labelNamespace() {
         return Optional.ofNullable(this.labelNamespace);
     }
-    /**
-     * @return (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument> queryArgument() {
         return Optional.ofNullable(this.queryArgument);
     }
-    /**
-     * @return (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
-    /**
-     * @return (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }

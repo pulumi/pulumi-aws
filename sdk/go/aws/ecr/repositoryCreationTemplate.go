@@ -12,138 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Container Registry Repository Creation Template.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("new policy"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"123456789012",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"ecr:GetDownloadUrlForLayer",
-//							"ecr:BatchGetImage",
-//							"ecr:BatchCheckLayerAvailability",
-//							"ecr:PutImage",
-//							"ecr:InitiateLayerUpload",
-//							"ecr:UploadLayerPart",
-//							"ecr:CompleteLayerUpload",
-//							"ecr:DescribeRepositories",
-//							"ecr:GetRepositoryPolicy",
-//							"ecr:ListImages",
-//							"ecr:DeleteRepository",
-//							"ecr:BatchDeleteImage",
-//							"ecr:SetRepositoryPolicy",
-//							"ecr:DeleteRepositoryPolicy",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewRepositoryCreationTemplate(ctx, "example", &ecr.RepositoryCreationTemplateArgs{
-//				Prefix:             pulumi.String("example"),
-//				Description:        pulumi.String("An example template"),
-//				ImageTagMutability: pulumi.String("IMMUTABLE"),
-//				CustomRoleArn:      pulumi.String("arn:aws:iam::123456789012:role/example"),
-//				AppliedFors: pulumi.StringArray{
-//					pulumi.String("PULL_THROUGH_CACHE"),
-//				},
-//				EncryptionConfigurations: ecr.RepositoryCreationTemplateEncryptionConfigurationArray{
-//					&ecr.RepositoryCreationTemplateEncryptionConfigurationArgs{
-//						EncryptionType: pulumi.String("AES256"),
-//					},
-//				},
-//				RepositoryPolicy: pulumi.String(example.Json),
-//				LifecyclePolicy: pulumi.String(`{
-//	  \"rules\": [
-//	    {
-//	      \"rulePriority\": 1,
-//	      \"description\": \"Expire images older than 14 days\",
-//	      \"selection\": {
-//	        \"tagStatus\": \"untagged\",
-//	        \"countType\": \"sinceImagePushed\",
-//	        \"countUnit\": \"days\",
-//	        \"countNumber\": 14
-//	      },
-//	      \"action\": {
-//	        \"type\": \"expire\"
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//				ResourceTags: pulumi.StringMap{
-//					"Foo": pulumi.String("Bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the ECR Repository Creating Templates using the `prefix`. For example:
-//
-// ```sh
-// $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
-// ```
 type RepositoryCreationTemplate struct {
 	pulumi.CustomResourceState
 
-	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-	AppliedFors pulumi.StringArrayOutput `pulumi:"appliedFors"`
-	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-	CustomRoleArn pulumi.StringPtrOutput `pulumi:"customRoleArn"`
-	// The description for this template.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Encryption configuration for any created repositories. See below for schema.
-	EncryptionConfigurations RepositoryCreationTemplateEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability pulumi.StringPtrOutput `pulumi:"imageTagMutability"`
-	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	AppliedFors                        pulumi.StringArrayOutput                                               `pulumi:"appliedFors"`
+	CustomRoleArn                      pulumi.StringPtrOutput                                                 `pulumi:"customRoleArn"`
+	Description                        pulumi.StringPtrOutput                                                 `pulumi:"description"`
+	EncryptionConfigurations           RepositoryCreationTemplateEncryptionConfigurationArrayOutput           `pulumi:"encryptionConfigurations"`
+	ImageTagMutability                 pulumi.StringPtrOutput                                                 `pulumi:"imageTagMutability"`
 	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput `pulumi:"imageTagMutabilityExclusionFilters"`
-	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
-	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
-	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-	Prefix pulumi.StringOutput `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The registry ID the repository creation template applies to.
-	RegistryId       pulumi.StringOutput    `pulumi:"registryId"`
-	RepositoryPolicy pulumi.StringPtrOutput `pulumi:"repositoryPolicy"`
-	// A map of tags to assign to any created repositories.
-	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
+	LifecyclePolicy                    pulumi.StringPtrOutput                                                 `pulumi:"lifecyclePolicy"`
+	Prefix                             pulumi.StringOutput                                                    `pulumi:"prefix"`
+	Region                             pulumi.StringOutput                                                    `pulumi:"region"`
+	RegistryId                         pulumi.StringOutput                                                    `pulumi:"registryId"`
+	RepositoryPolicy                   pulumi.StringPtrOutput                                                 `pulumi:"repositoryPolicy"`
+	ResourceTags                       pulumi.StringMapOutput                                                 `pulumi:"resourceTags"`
 }
 
 // NewRepositoryCreationTemplate registers a new resource with the given unique name, arguments, and options.
@@ -182,55 +65,33 @@ func GetRepositoryCreationTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryCreationTemplate resources.
 type repositoryCreationTemplateState struct {
-	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-	AppliedFors []string `pulumi:"appliedFors"`
-	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-	CustomRoleArn *string `pulumi:"customRoleArn"`
-	// The description for this template.
-	Description *string `pulumi:"description"`
-	// Encryption configuration for any created repositories. See below for schema.
-	EncryptionConfigurations []RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability *string `pulumi:"imageTagMutability"`
-	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	AppliedFors                        []string                                                      `pulumi:"appliedFors"`
+	CustomRoleArn                      *string                                                       `pulumi:"customRoleArn"`
+	Description                        *string                                                       `pulumi:"description"`
+	EncryptionConfigurations           []RepositoryCreationTemplateEncryptionConfiguration           `pulumi:"encryptionConfigurations"`
+	ImageTagMutability                 *string                                                       `pulumi:"imageTagMutability"`
 	ImageTagMutabilityExclusionFilters []RepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
-	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
-	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
-	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-	Prefix *string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The registry ID the repository creation template applies to.
-	RegistryId       *string `pulumi:"registryId"`
-	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
-	// A map of tags to assign to any created repositories.
-	ResourceTags map[string]string `pulumi:"resourceTags"`
+	LifecyclePolicy                    *string                                                       `pulumi:"lifecyclePolicy"`
+	Prefix                             *string                                                       `pulumi:"prefix"`
+	Region                             *string                                                       `pulumi:"region"`
+	RegistryId                         *string                                                       `pulumi:"registryId"`
+	RepositoryPolicy                   *string                                                       `pulumi:"repositoryPolicy"`
+	ResourceTags                       map[string]string                                             `pulumi:"resourceTags"`
 }
 
 type RepositoryCreationTemplateState struct {
-	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-	AppliedFors pulumi.StringArrayInput
-	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-	CustomRoleArn pulumi.StringPtrInput
-	// The description for this template.
-	Description pulumi.StringPtrInput
-	// Encryption configuration for any created repositories. See below for schema.
-	EncryptionConfigurations RepositoryCreationTemplateEncryptionConfigurationArrayInput
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability pulumi.StringPtrInput
-	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	AppliedFors                        pulumi.StringArrayInput
+	CustomRoleArn                      pulumi.StringPtrInput
+	Description                        pulumi.StringPtrInput
+	EncryptionConfigurations           RepositoryCreationTemplateEncryptionConfigurationArrayInput
+	ImageTagMutability                 pulumi.StringPtrInput
 	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayInput
-	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
-	LifecyclePolicy pulumi.StringPtrInput
-	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-	Prefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The registry ID the repository creation template applies to.
-	RegistryId       pulumi.StringPtrInput
-	RepositoryPolicy pulumi.StringPtrInput
-	// A map of tags to assign to any created repositories.
-	ResourceTags pulumi.StringMapInput
+	LifecyclePolicy                    pulumi.StringPtrInput
+	Prefix                             pulumi.StringPtrInput
+	Region                             pulumi.StringPtrInput
+	RegistryId                         pulumi.StringPtrInput
+	RepositoryPolicy                   pulumi.StringPtrInput
+	ResourceTags                       pulumi.StringMapInput
 }
 
 func (RepositoryCreationTemplateState) ElementType() reflect.Type {
@@ -238,52 +99,32 @@ func (RepositoryCreationTemplateState) ElementType() reflect.Type {
 }
 
 type repositoryCreationTemplateArgs struct {
-	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-	AppliedFors []string `pulumi:"appliedFors"`
-	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-	CustomRoleArn *string `pulumi:"customRoleArn"`
-	// The description for this template.
-	Description *string `pulumi:"description"`
-	// Encryption configuration for any created repositories. See below for schema.
-	EncryptionConfigurations []RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability *string `pulumi:"imageTagMutability"`
-	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	AppliedFors                        []string                                                      `pulumi:"appliedFors"`
+	CustomRoleArn                      *string                                                       `pulumi:"customRoleArn"`
+	Description                        *string                                                       `pulumi:"description"`
+	EncryptionConfigurations           []RepositoryCreationTemplateEncryptionConfiguration           `pulumi:"encryptionConfigurations"`
+	ImageTagMutability                 *string                                                       `pulumi:"imageTagMutability"`
 	ImageTagMutabilityExclusionFilters []RepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
-	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
-	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
-	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-	Prefix string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region           *string `pulumi:"region"`
-	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
-	// A map of tags to assign to any created repositories.
-	ResourceTags map[string]string `pulumi:"resourceTags"`
+	LifecyclePolicy                    *string                                                       `pulumi:"lifecyclePolicy"`
+	Prefix                             string                                                        `pulumi:"prefix"`
+	Region                             *string                                                       `pulumi:"region"`
+	RepositoryPolicy                   *string                                                       `pulumi:"repositoryPolicy"`
+	ResourceTags                       map[string]string                                             `pulumi:"resourceTags"`
 }
 
 // The set of arguments for constructing a RepositoryCreationTemplate resource.
 type RepositoryCreationTemplateArgs struct {
-	// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-	AppliedFors pulumi.StringArrayInput
-	// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-	CustomRoleArn pulumi.StringPtrInput
-	// The description for this template.
-	Description pulumi.StringPtrInput
-	// Encryption configuration for any created repositories. See below for schema.
-	EncryptionConfigurations RepositoryCreationTemplateEncryptionConfigurationArrayInput
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability pulumi.StringPtrInput
-	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+	AppliedFors                        pulumi.StringArrayInput
+	CustomRoleArn                      pulumi.StringPtrInput
+	Description                        pulumi.StringPtrInput
+	EncryptionConfigurations           RepositoryCreationTemplateEncryptionConfigurationArrayInput
+	ImageTagMutability                 pulumi.StringPtrInput
 	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayInput
-	// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
-	LifecyclePolicy pulumi.StringPtrInput
-	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-	Prefix pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region           pulumi.StringPtrInput
-	RepositoryPolicy pulumi.StringPtrInput
-	// A map of tags to assign to any created repositories.
-	ResourceTags pulumi.StringMapInput
+	LifecyclePolicy                    pulumi.StringPtrInput
+	Prefix                             pulumi.StringInput
+	Region                             pulumi.StringPtrInput
+	RepositoryPolicy                   pulumi.StringPtrInput
+	ResourceTags                       pulumi.StringMapInput
 }
 
 func (RepositoryCreationTemplateArgs) ElementType() reflect.Type {
@@ -373,56 +214,46 @@ func (o RepositoryCreationTemplateOutput) ToRepositoryCreationTemplateOutputWith
 	return o
 }
 
-// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 func (o RepositoryCreationTemplateOutput) AppliedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringArrayOutput { return v.AppliedFors }).(pulumi.StringArrayOutput)
 }
 
-// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
 func (o RepositoryCreationTemplateOutput) CustomRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.CustomRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The description for this template.
 func (o RepositoryCreationTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Encryption configuration for any created repositories. See below for schema.
 func (o RepositoryCreationTemplateOutput) EncryptionConfigurations() RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
 		return v.EncryptionConfigurations
 	}).(RepositoryCreationTemplateEncryptionConfigurationArrayOutput)
 }
 
-// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
 func (o RepositoryCreationTemplateOutput) ImageTagMutability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.ImageTagMutability }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
 func (o RepositoryCreationTemplateOutput) ImageTagMutabilityExclusionFilters() RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
 		return v.ImageTagMutabilityExclusionFilters
 	}).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput)
 }
 
-// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
 func (o RepositoryCreationTemplateOutput) LifecyclePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.LifecyclePolicy }).(pulumi.StringPtrOutput)
 }
 
-// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 func (o RepositoryCreationTemplateOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryCreationTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The registry ID the repository creation template applies to.
 func (o RepositoryCreationTemplateOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
@@ -431,7 +262,6 @@ func (o RepositoryCreationTemplateOutput) RepositoryPolicy() pulumi.StringPtrOut
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.RepositoryPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to any created repositories.
 func (o RepositoryCreationTemplateOutput) ResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringMapOutput { return v.ResourceTags }).(pulumi.StringMapOutput)
 }

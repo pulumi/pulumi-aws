@@ -14,17 +14,9 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalCondit
 
     public static final V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs Empty = new V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs();
 
-    /**
-     * SSML text that defines the prompt.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return SSML text that defines the prompt.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentConfirmationSettingDeclinationConditionalCondit
             $ = new V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value SSML text that defines the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value SSML text that defines the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

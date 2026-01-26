@@ -14,25 +14,15 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     {
         [Input("containerTags")]
         private InputList<string>? _containerTags;
-
-        /// <summary>
-        /// Set of tags that are attached to the container distribution configuration.
-        /// </summary>
         public InputList<string> ContainerTags
         {
             get => _containerTags ?? (_containerTags = new InputList<string>());
             set => _containerTags = value;
         }
 
-        /// <summary>
-        /// Description of the container distribution configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Configuration block with the destination repository for the container distribution configuration.
-        /// </summary>
         [Input("targetRepository", required: true)]
         public Input<Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs> TargetRepository { get; set; } = null!;
 

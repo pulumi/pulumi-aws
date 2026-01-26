@@ -22,10 +22,6 @@ public final class GetAddonVersionResult {
     private String kubernetesVersion;
     private @Nullable Boolean mostRecent;
     private String region;
-    /**
-     * @return Version of the EKS add-on.
-     * 
-     */
     private String version;
 
     private GetAddonVersionResult() {}
@@ -48,10 +44,6 @@ public final class GetAddonVersionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Version of the EKS add-on.
-     * 
-     */
     public String version() {
         return this.version;
     }

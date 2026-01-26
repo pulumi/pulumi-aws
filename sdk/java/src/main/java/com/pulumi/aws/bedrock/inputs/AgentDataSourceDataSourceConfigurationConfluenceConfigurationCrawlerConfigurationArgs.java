@@ -15,17 +15,9 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs();
 
-    /**
-     * The Salesforce standard object configuration. See `filterConfiguration` block for details.
-     * 
-     */
     @Import(name="filterConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration;
 
-    /**
-     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs>> filterConfiguration() {
         return Optional.ofNullable(this.filterConfiguration);
     }
@@ -54,23 +46,11 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
             $ = new AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration) {
             $.filterConfiguration = filterConfiguration;
             return this;
         }
 
-        /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterConfiguration(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs filterConfiguration) {
             return filterConfiguration(Output.of(filterConfiguration));
         }

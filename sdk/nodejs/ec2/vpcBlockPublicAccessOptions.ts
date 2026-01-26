@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC Block Public Access Options.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.VpcBlockPublicAccessOptions("example", {internetGatewayBlockMode: "block-bidirectional"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Block Public Access Options using the `aws_region`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
- * ```
- */
 export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
     /**
      * Get an existing VpcBlockPublicAccessOptions resource's state with the given name, ID, and optional extra
@@ -57,21 +35,9 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcBlockPublicAccessOptions.__pulumiType;
     }
 
-    /**
-     * The AWS account id to which these options apply.
-     */
     declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * The AWS region to which these options apply.
-     */
     declare public /*out*/ readonly awsRegion: pulumi.Output<string>;
-    /**
-     * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-     */
     declare public readonly internetGatewayBlockMode: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.VpcBlockPublicAccessOptionsTimeouts | undefined>;
 
@@ -113,21 +79,9 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcBlockPublicAccessOptions resources.
  */
 export interface VpcBlockPublicAccessOptionsState {
-    /**
-     * The AWS account id to which these options apply.
-     */
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The AWS region to which these options apply.
-     */
     awsRegion?: pulumi.Input<string>;
-    /**
-     * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-     */
     internetGatewayBlockMode?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessOptionsTimeouts>;
 }
@@ -136,13 +90,7 @@ export interface VpcBlockPublicAccessOptionsState {
  * The set of arguments for constructing a VpcBlockPublicAccessOptions resource.
  */
 export interface VpcBlockPublicAccessOptionsArgs {
-    /**
-     * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-     */
     internetGatewayBlockMode: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessOptionsTimeouts>;
 }

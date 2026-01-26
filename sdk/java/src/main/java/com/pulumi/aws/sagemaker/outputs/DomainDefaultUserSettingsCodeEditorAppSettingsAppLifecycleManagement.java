@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings idleSettings;
 
     private DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement() {}
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings> idleSettings() {
         return Optional.ofNullable(this.idleSettings);
     }

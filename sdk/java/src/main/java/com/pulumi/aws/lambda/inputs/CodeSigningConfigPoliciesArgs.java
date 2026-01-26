@@ -14,17 +14,9 @@ public final class CodeSigningConfigPoliciesArgs extends com.pulumi.resources.Re
 
     public static final CodeSigningConfigPoliciesArgs Empty = new CodeSigningConfigPoliciesArgs();
 
-    /**
-     * Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-     * 
-     */
     @Import(name="untrustedArtifactOnDeployment", required=true)
     private Output<String> untrustedArtifactOnDeployment;
 
-    /**
-     * @return Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-     * 
-     */
     public Output<String> untrustedArtifactOnDeployment() {
         return this.untrustedArtifactOnDeployment;
     }
@@ -53,23 +45,11 @@ public final class CodeSigningConfigPoliciesArgs extends com.pulumi.resources.Re
             $ = new CodeSigningConfigPoliciesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param untrustedArtifactOnDeployment Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder untrustedArtifactOnDeployment(Output<String> untrustedArtifactOnDeployment) {
             $.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
             return this;
         }
 
-        /**
-         * @param untrustedArtifactOnDeployment Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder untrustedArtifactOnDeployment(String untrustedArtifactOnDeployment) {
             return untrustedArtifactOnDeployment(Output.of(untrustedArtifactOnDeployment));
         }

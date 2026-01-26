@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduleTargetDeadLetterConfig {
-    /**
-     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
-     * 
-     */
     private String arn;
 
     private ScheduleTargetDeadLetterConfig() {}
-    /**
-     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

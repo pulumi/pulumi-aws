@@ -14,17 +14,9 @@ public final class RuleGroupRuleRuleLabelArgs extends com.pulumi.resources.Resou
 
     public static final RuleGroupRuleRuleLabelArgs Empty = new RuleGroupRuleRuleLabelArgs();
 
-    /**
-     * The label string.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The label string.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,23 +45,11 @@ public final class RuleGroupRuleRuleLabelArgs extends com.pulumi.resources.Resou
             $ = new RuleGroupRuleRuleLabelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The label string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The label string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

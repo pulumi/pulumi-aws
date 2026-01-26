@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The text of a description for a column.
-        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 

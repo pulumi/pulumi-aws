@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS QuickSight Theme.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.LookupTheme(ctx, &quicksight.LookupThemeArgs{
-//				ThemeId: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThemeResult
@@ -52,46 +23,30 @@ func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTheme.
 type LookupThemeArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the theme.
-	//
-	// The following arguments are optional:
-	ThemeId string `pulumi:"themeId"`
+	AwsAccountId *string           `pulumi:"awsAccountId"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
+	ThemeId      string            `pulumi:"themeId"`
 }
 
 // A collection of values returned by getTheme.
 type LookupThemeResult struct {
-	// ARN of the theme.
-	Arn          string `pulumi:"arn"`
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
-	BaseThemeId string `pulumi:"baseThemeId"`
-	// The theme configuration, which contains the theme display properties. See configuration.
+	Arn            string                  `pulumi:"arn"`
+	AwsAccountId   string                  `pulumi:"awsAccountId"`
+	BaseThemeId    string                  `pulumi:"baseThemeId"`
 	Configurations []GetThemeConfiguration `pulumi:"configurations"`
-	// The time that the theme was created.
-	CreatedTime string `pulumi:"createdTime"`
+	CreatedTime    string                  `pulumi:"createdTime"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The time that the theme was last updated.
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
-	// Display name of the theme.
-	Name string `pulumi:"name"`
-	// A set of resource permissions on the theme. See permissions.
-	Permissions []GetThemePermission `pulumi:"permissions"`
-	Region      string               `pulumi:"region"`
-	// The theme creation status.
-	Status string `pulumi:"status"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	Tags    map[string]string `pulumi:"tags"`
-	ThemeId string            `pulumi:"themeId"`
-	// A description of the current theme version being created/updated.
-	VersionDescription string `pulumi:"versionDescription"`
-	// The version number of the theme version.
-	VersionNumber int `pulumi:"versionNumber"`
+	Id                 string               `pulumi:"id"`
+	LastUpdatedTime    string               `pulumi:"lastUpdatedTime"`
+	Name               string               `pulumi:"name"`
+	Permissions        []GetThemePermission `pulumi:"permissions"`
+	Region             string               `pulumi:"region"`
+	Status             string               `pulumi:"status"`
+	Tags               map[string]string    `pulumi:"tags"`
+	ThemeId            string               `pulumi:"themeId"`
+	VersionDescription string               `pulumi:"versionDescription"`
+	VersionNumber      int                  `pulumi:"versionNumber"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -106,14 +61,9 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 // A collection of arguments for invoking getTheme.
 type LookupThemeOutputArgs struct {
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the theme.
-	//
-	// The following arguments are optional:
-	ThemeId pulumi.StringInput `pulumi:"themeId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
+	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	ThemeId      pulumi.StringInput    `pulumi:"themeId"`
 }
 
 func (LookupThemeOutputArgs) ElementType() reflect.Type {
@@ -135,7 +85,6 @@ func (o LookupThemeResultOutput) ToLookupThemeResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the theme.
 func (o LookupThemeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -144,17 +93,14 @@ func (o LookupThemeResultOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
 func (o LookupThemeResultOutput) BaseThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.BaseThemeId }).(pulumi.StringOutput)
 }
 
-// The theme configuration, which contains the theme display properties. See configuration.
 func (o LookupThemeResultOutput) Configurations() GetThemeConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []GetThemeConfiguration { return v.Configurations }).(GetThemeConfigurationArrayOutput)
 }
 
-// The time that the theme was created.
 func (o LookupThemeResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -164,17 +110,14 @@ func (o LookupThemeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The time that the theme was last updated.
 func (o LookupThemeResultOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// Display name of the theme.
 func (o LookupThemeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A set of resource permissions on the theme. See permissions.
 func (o LookupThemeResultOutput) Permissions() GetThemePermissionArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []GetThemePermission { return v.Permissions }).(GetThemePermissionArrayOutput)
 }
@@ -183,12 +126,10 @@ func (o LookupThemeResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The theme creation status.
 func (o LookupThemeResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LookupThemeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupThemeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -197,12 +138,10 @@ func (o LookupThemeResultOutput) ThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.ThemeId }).(pulumi.StringOutput)
 }
 
-// A description of the current theme version being created/updated.
 func (o LookupThemeResultOutput) VersionDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.VersionDescription }).(pulumi.StringOutput)
 }
 
-// The version number of the theme version.
 func (o LookupThemeResultOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupThemeResult) int { return v.VersionNumber }).(pulumi.IntOutput)
 }

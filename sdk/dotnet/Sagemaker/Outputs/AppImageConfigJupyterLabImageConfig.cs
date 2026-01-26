@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class AppImageConfigJupyterLabImageConfig
     {
-        /// <summary>
-        /// The configuration used to run the application image container. See Container Config details below.
-        /// </summary>
         public readonly Outputs.AppImageConfigJupyterLabImageConfigContainerConfig? ContainerConfig;
-        /// <summary>
-        /// The URL where the Git repository is located. See File System Config details below.
-        /// </summary>
         public readonly Outputs.AppImageConfigJupyterLabImageConfigFileSystemConfig? FileSystemConfig;
 
         [OutputConstructor]

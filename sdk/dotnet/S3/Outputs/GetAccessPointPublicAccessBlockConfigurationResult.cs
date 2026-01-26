@@ -13,21 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetAccessPointPublicAccessBlockConfigurationResult
     {
-        /// <summary>
-        /// Whether Amazon S3 blocks public ACLs for buckets in this account.
-        /// </summary>
         public readonly bool BlockPublicAcls;
-        /// <summary>
-        /// Whether Amazon S3 blocks public bucket policies for buckets in this account.
-        /// </summary>
         public readonly bool BlockPublicPolicy;
-        /// <summary>
-        /// Whether Amazon S3 ignores public ACLs for buckets in this account.
-        /// </summary>
         public readonly bool IgnorePublicAcls;
-        /// <summary>
-        /// Whether Amazon S3 restricts public bucket policies for buckets in this account.
-        /// </summary>
         public readonly bool RestrictPublicBuckets;
 
         [OutputConstructor]

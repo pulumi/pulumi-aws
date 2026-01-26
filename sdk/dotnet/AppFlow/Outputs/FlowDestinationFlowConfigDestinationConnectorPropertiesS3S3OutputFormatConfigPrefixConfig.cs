@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig
     {
-        /// <summary>
-        /// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-        /// </summary>
         public readonly string? PrefixFormat;
-        /// <summary>
-        /// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-        /// </summary>
         public readonly ImmutableArray<string> PrefixHierarchies;
-        /// <summary>
-        /// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-        /// </summary>
         public readonly string? PrefixType;
 
         [OutputConstructor]

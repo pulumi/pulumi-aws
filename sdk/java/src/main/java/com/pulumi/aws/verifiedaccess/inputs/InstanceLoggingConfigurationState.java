@@ -16,47 +16,23 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
 
     public static final InstanceLoggingConfigurationState Empty = new InstanceLoggingConfigurationState();
 
-    /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
-     * 
-     */
     @Import(name="accessLogs")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsArgs> accessLogs;
 
-    /**
-     * @return A block that specifies the configuration options for Verified Access instances. Detailed below.
-     * 
-     */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsArgs>> accessLogs() {
         return Optional.ofNullable(this.accessLogs);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the Verified Access instance.
-     * 
-     */
     @Import(name="verifiedaccessInstanceId")
     private @Nullable Output<String> verifiedaccessInstanceId;
 
-    /**
-     * @return The ID of the Verified Access instance.
-     * 
-     */
     public Optional<Output<String>> verifiedaccessInstanceId() {
         return Optional.ofNullable(this.verifiedaccessInstanceId);
     }
@@ -87,65 +63,29 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
             $ = new InstanceLoggingConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessLogs A block that specifies the configuration options for Verified Access instances. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessLogs(@Nullable Output<InstanceLoggingConfigurationAccessLogsArgs> accessLogs) {
             $.accessLogs = accessLogs;
             return this;
         }
 
-        /**
-         * @param accessLogs A block that specifies the configuration options for Verified Access instances. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessLogs(InstanceLoggingConfigurationAccessLogsArgs accessLogs) {
             return accessLogs(Output.of(accessLogs));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(@Nullable Output<String> verifiedaccessInstanceId) {
             $.verifiedaccessInstanceId = verifiedaccessInstanceId;
             return this;
         }
 
-        /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(String verifiedaccessInstanceId) {
             return verifiedaccessInstanceId(Output.of(verifiedaccessInstanceId));
         }

@@ -11,61 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTrackerResult {
-    /**
-     * @return Timestamp for when the tracker resource was created in ISO 8601 format.
-     * 
-     */
     private String createTime;
-    /**
-     * @return Optional description for the tracker resource.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Position filtering method of the tracker resource.
-     * 
-     */
     private String positionFiltering;
     private String region;
-    /**
-     * @return Key-value map of resource tags for the tracker.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return ARN for the tracker resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     private String trackerArn;
     private String trackerName;
-    /**
-     * @return Timestamp for when the tracker resource was last updated in ISO 8601 format.
-     * 
-     */
     private String updateTime;
 
     private GetTrackerResult() {}
-    /**
-     * @return Timestamp for when the tracker resource was created in ISO 8601 format.
-     * 
-     */
     public String createTime() {
         return this.createTime;
     }
-    /**
-     * @return Optional description for the tracker resource.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -76,44 +40,24 @@ public final class GetTrackerResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Position filtering method of the tracker resource.
-     * 
-     */
     public String positionFiltering() {
         return this.positionFiltering;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the tracker.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return ARN for the tracker resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     public String trackerArn() {
         return this.trackerArn;
     }
     public String trackerName() {
         return this.trackerName;
     }
-    /**
-     * @return Timestamp for when the tracker resource was last updated in ISO 8601 format.
-     * 
-     */
     public String updateTime() {
         return this.updateTime;
     }

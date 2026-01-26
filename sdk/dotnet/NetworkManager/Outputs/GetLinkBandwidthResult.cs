@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetLinkBandwidthResult
     {
-        /// <summary>
-        /// Download speed in Mbps.
-        /// </summary>
         public readonly int DownloadSpeed;
-        /// <summary>
-        /// Upload speed in Mbps.
-        /// </summary>
         public readonly int UploadSpeed;
 
         [OutputConstructor]

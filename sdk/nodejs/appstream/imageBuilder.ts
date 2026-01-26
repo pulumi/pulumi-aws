@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppStream image builder.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testFleet = new aws.appstream.ImageBuilder("test_fleet", {
- *     name: "Name",
- *     description: "Description of a ImageBuilder",
- *     displayName: "Display name of a ImageBuilder",
- *     enableDefaultInternetAccess: false,
- *     imageName: "AppStream-WinServer2019-10-05-2022",
- *     instanceType: "stream.standard.large",
- *     vpcConfig: {
- *         subnetIds: [example.id],
- *     },
- *     tags: {
- *         Name: "Example Image Builder",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
- * ```
- */
 export class ImageBuilder extends pulumi.CustomResource {
     /**
      * Get an existing ImageBuilder resource's state with the given name, ID, and optional extra
@@ -68,79 +35,23 @@ export class ImageBuilder extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImageBuilder.__pulumiType;
     }
 
-    /**
-     * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-     */
     declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
-    /**
-     * Version of the AppStream 2.0 agent to use for this image builder.
-     */
     declare public readonly appstreamAgentVersion: pulumi.Output<string>;
-    /**
-     * ARN of the appstream image builder.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * Description to display.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Human-readable friendly name for the AppStream image builder.
-     */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-     */
     declare public readonly domainJoinInfo: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo>;
-    /**
-     * Enables or disables default internet access for the image builder.
-     */
     declare public readonly enableDefaultInternetAccess: pulumi.Output<boolean>;
-    /**
-     * ARN of the IAM role to apply to the image builder.
-     */
     declare public readonly iamRoleArn: pulumi.Output<string>;
-    /**
-     * ARN of the public, private, or shared image to use.
-     */
     declare public readonly imageArn: pulumi.Output<string>;
-    /**
-     * Name of the image used to create the image builder.
-     */
     declare public readonly imageName: pulumi.Output<string>;
-    /**
-     * Instance type to use when launching the image builder.
-     */
     declare public readonly instanceType: pulumi.Output<string>;
-    /**
-     * Unique name for the image builder.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Configuration block for the VPC configuration for the image builder. See below.
-     */
     declare public readonly vpcConfig: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig>;
 
     /**
@@ -207,79 +118,23 @@ export class ImageBuilder extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ImageBuilder resources.
  */
 export interface ImageBuilderState {
-    /**
-     * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-     */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
-    /**
-     * Version of the AppStream 2.0 agent to use for this image builder.
-     */
     appstreamAgentVersion?: pulumi.Input<string>;
-    /**
-     * ARN of the appstream image builder.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * Description to display.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Human-readable friendly name for the AppStream image builder.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-     */
     domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo>;
-    /**
-     * Enables or disables default internet access for the image builder.
-     */
     enableDefaultInternetAccess?: pulumi.Input<boolean>;
-    /**
-     * ARN of the IAM role to apply to the image builder.
-     */
     iamRoleArn?: pulumi.Input<string>;
-    /**
-     * ARN of the public, private, or shared image to use.
-     */
     imageArn?: pulumi.Input<string>;
-    /**
-     * Name of the image used to create the image builder.
-     */
     imageName?: pulumi.Input<string>;
-    /**
-     * Instance type to use when launching the image builder.
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * Unique name for the image builder.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for the VPC configuration for the image builder. See below.
-     */
     vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig>;
 }
 
@@ -287,62 +142,18 @@ export interface ImageBuilderState {
  * The set of arguments for constructing a ImageBuilder resource.
  */
 export interface ImageBuilderArgs {
-    /**
-     * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-     */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
-    /**
-     * Version of the AppStream 2.0 agent to use for this image builder.
-     */
     appstreamAgentVersion?: pulumi.Input<string>;
-    /**
-     * Description to display.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Human-readable friendly name for the AppStream image builder.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-     */
     domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo>;
-    /**
-     * Enables or disables default internet access for the image builder.
-     */
     enableDefaultInternetAccess?: pulumi.Input<boolean>;
-    /**
-     * ARN of the IAM role to apply to the image builder.
-     */
     iamRoleArn?: pulumi.Input<string>;
-    /**
-     * ARN of the public, private, or shared image to use.
-     */
     imageArn?: pulumi.Input<string>;
-    /**
-     * Name of the image used to create the image builder.
-     */
     imageName?: pulumi.Input<string>;
-    /**
-     * Instance type to use when launching the image builder.
-     */
     instanceType: pulumi.Input<string>;
-    /**
-     * Unique name for the image builder.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for the VPC configuration for the image builder. See below.
-     */
     vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig>;
 }

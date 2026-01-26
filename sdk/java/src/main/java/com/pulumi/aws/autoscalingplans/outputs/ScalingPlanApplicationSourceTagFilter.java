@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScalingPlanApplicationSourceTagFilter {
-    /**
-     * @return Tag key.
-     * 
-     */
     private String key;
-    /**
-     * @return Tag values.
-     * 
-     */
     private @Nullable List<String> values;
 
     private ScalingPlanApplicationSourceTagFilter() {}
-    /**
-     * @return Tag key.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Tag values.
-     * 
-     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

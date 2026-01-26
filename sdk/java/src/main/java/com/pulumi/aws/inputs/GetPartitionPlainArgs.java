@@ -14,17 +14,9 @@ public final class GetPartitionPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetPartitionPlainArgs Empty = new GetPartitionPlainArgs();
 
-    /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -53,12 +45,6 @@ public final class GetPartitionPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetPartitionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

@@ -12,49 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectPeerConfigurationBgpConfiguration {
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     private @Nullable String coreNetworkAddress;
     private @Nullable Integer coreNetworkAsn;
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private @Nullable String peerAddress;
-    /**
-     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     private @Nullable String peerAsn;
 
     private ConnectPeerConfigurationBgpConfiguration() {}
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     public Optional<String> coreNetworkAddress() {
         return Optional.ofNullable(this.coreNetworkAddress);
     }
     public Optional<Integer> coreNetworkAsn() {
         return Optional.ofNullable(this.coreNetworkAsn);
     }
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<String> peerAddress() {
         return Optional.ofNullable(this.peerAddress);
     }
-    /**
-     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     public Optional<String> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }

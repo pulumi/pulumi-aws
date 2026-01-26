@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLocalGatewayVirtualInterfaceGroupFilter {
-    /**
-     * @return Name of the filter.
-     * 
-     */
     private String name;
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     private List<String> values;
 
     private GetLocalGatewayVirtualInterfaceGroupFilter() {}
-    /**
-     * @return Name of the filter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

@@ -26,11 +26,6 @@ class IdentityPoolProviderPrincipalTagArgs:
                  use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
-        :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID.
-        :param pulumi.Input[_builtins.str] identity_provider_name: The name of the identity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "identity_provider_name", identity_provider_name)
@@ -44,9 +39,6 @@ class IdentityPoolProviderPrincipalTagArgs:
     @_builtins.property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        An identity pool ID.
-        """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
@@ -56,9 +48,6 @@ class IdentityPoolProviderPrincipalTagArgs:
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the identity provider.
-        """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
@@ -68,9 +57,6 @@ class IdentityPoolProviderPrincipalTagArgs:
     @_builtins.property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        String to string map of variables.
-        """
         return pulumi.get(self, "principal_tags")
 
     @principal_tags.setter
@@ -80,9 +66,6 @@ class IdentityPoolProviderPrincipalTagArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -92,9 +75,6 @@ class IdentityPoolProviderPrincipalTagArgs:
     @_builtins.property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        use default (username and clientID) attribute mappings.
-        """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
@@ -112,11 +92,6 @@ class _IdentityPoolProviderPrincipalTagState:
                  use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
-        :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID.
-        :param pulumi.Input[_builtins.str] identity_provider_name: The name of the identity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         if identity_pool_id is not None:
             pulumi.set(__self__, "identity_pool_id", identity_pool_id)
@@ -132,9 +107,6 @@ class _IdentityPoolProviderPrincipalTagState:
     @_builtins.property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identity pool ID.
-        """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
@@ -144,9 +116,6 @@ class _IdentityPoolProviderPrincipalTagState:
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the identity provider.
-        """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
@@ -156,9 +125,6 @@ class _IdentityPoolProviderPrincipalTagState:
     @_builtins.property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        String to string map of variables.
-        """
         return pulumi.get(self, "principal_tags")
 
     @principal_tags.setter
@@ -168,9 +134,6 @@ class _IdentityPoolProviderPrincipalTagState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,9 +143,6 @@ class _IdentityPoolProviderPrincipalTagState:
     @_builtins.property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        use default (username and clientID) attribute mappings.
-        """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
@@ -203,54 +163,9 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
                  use_defaults: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides an AWS Cognito Identity Principal Mapping.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example",
-            name="user pool",
-            auto_verified_attributes=["email"])
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="client",
-            user_pool_id=example.id,
-            supported_identity_providers=std.compact(input=["COGNITO"]).result)
-        example_identity_pool = aws.cognito.IdentityPool("example",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            cognito_identity_providers=[{
-                "client_id": example_user_pool_client.id,
-                "provider_name": example.endpoint,
-                "server_side_token_check": False,
-            }])
-        example_identity_pool_provider_principal_tag = aws.cognito.IdentityPoolProviderPrincipalTag("example",
-            identity_pool_id=example_identity_pool.id,
-            identity_provider_name=example.endpoint,
-            use_defaults=False,
-            principal_tags={
-                "test": "value",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
-        ```
-
+        Create a IdentityPoolProviderPrincipalTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID.
-        :param pulumi.Input[_builtins.str] identity_provider_name: The name of the identity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         ...
     @overload
@@ -259,47 +174,7 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
                  args: IdentityPoolProviderPrincipalTagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Cognito Identity Principal Mapping.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example",
-            name="user pool",
-            auto_verified_attributes=["email"])
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="client",
-            user_pool_id=example.id,
-            supported_identity_providers=std.compact(input=["COGNITO"]).result)
-        example_identity_pool = aws.cognito.IdentityPool("example",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            cognito_identity_providers=[{
-                "client_id": example_user_pool_client.id,
-                "provider_name": example.endpoint,
-                "server_side_token_check": False,
-            }])
-        example_identity_pool_provider_principal_tag = aws.cognito.IdentityPoolProviderPrincipalTag("example",
-            identity_pool_id=example_identity_pool.id,
-            identity_provider_name=example.endpoint,
-            use_defaults=False,
-            principal_tags={
-                "test": "value",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
-        ```
-
+        Create a IdentityPoolProviderPrincipalTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IdentityPoolProviderPrincipalTagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -360,11 +235,6 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID.
-        :param pulumi.Input[_builtins.str] identity_provider_name: The name of the identity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -380,40 +250,25 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        An identity pool ID.
-        """
         return pulumi.get(self, "identity_pool_id")
 
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the identity provider.
-        """
         return pulumi.get(self, "identity_provider_name")
 
     @_builtins.property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        String to string map of variables.
-        """
         return pulumi.get(self, "principal_tags")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        use default (username and clientID) attribute mappings.
-        """
         return pulumi.get(self, "use_defaults")
 

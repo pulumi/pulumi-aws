@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ApiEventConfigAuthProviderLambdaAuthorizerConfig
     {
-        /// <summary>
-        /// TTL in seconds for the authorization result cache.
-        /// </summary>
         public readonly int? AuthorizerResultTtlInSeconds;
-        /// <summary>
-        /// URI of the Lambda function for authorization.
-        /// </summary>
         public readonly string AuthorizerUri;
-        /// <summary>
-        /// Regular expression for identity validation.
-        /// </summary>
         public readonly string? IdentityValidationExpression;
 
         [OutputConstructor]

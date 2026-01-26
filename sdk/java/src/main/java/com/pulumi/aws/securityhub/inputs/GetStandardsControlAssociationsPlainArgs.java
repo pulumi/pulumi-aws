@@ -15,32 +15,16 @@ public final class GetStandardsControlAssociationsPlainArgs extends com.pulumi.r
 
     public static final GetStandardsControlAssociationsPlainArgs Empty = new GetStandardsControlAssociationsPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-     * 
-     */
     @Import(name="securityControlId", required=true)
     private String securityControlId;
 
-    /**
-     * @return The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-     * 
-     */
     public String securityControlId() {
         return this.securityControlId;
     }
@@ -70,23 +54,11 @@ public final class GetStandardsControlAssociationsPlainArgs extends com.pulumi.r
             $ = new GetStandardsControlAssociationsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param securityControlId The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlId(String securityControlId) {
             $.securityControlId = securityControlId;
             return this;

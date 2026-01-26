@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleConditionHostHeaderResult
     {
-        /// <summary>
-        /// Set of regular expressions to compare against the request URL.
-        /// </summary>
         public readonly ImmutableArray<string> RegexValues;
-        /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

@@ -14,17 +14,9 @@ public final class LaunchMetricMonitorArgs extends com.pulumi.resources.Resource
 
     public static final LaunchMetricMonitorArgs Empty = new LaunchMetricMonitorArgs();
 
-    /**
-     * A block that defines the metric. Detailed below.
-     * 
-     */
     @Import(name="metricDefinition", required=true)
     private Output<LaunchMetricMonitorMetricDefinitionArgs> metricDefinition;
 
-    /**
-     * @return A block that defines the metric. Detailed below.
-     * 
-     */
     public Output<LaunchMetricMonitorMetricDefinitionArgs> metricDefinition() {
         return this.metricDefinition;
     }
@@ -53,23 +45,11 @@ public final class LaunchMetricMonitorArgs extends com.pulumi.resources.Resource
             $ = new LaunchMetricMonitorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricDefinition A block that defines the metric. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDefinition(Output<LaunchMetricMonitorMetricDefinitionArgs> metricDefinition) {
             $.metricDefinition = metricDefinition;
             return this;
         }
 
-        /**
-         * @param metricDefinition A block that defines the metric. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDefinition(LaunchMetricMonitorMetricDefinitionArgs metricDefinition) {
             return metricDefinition(Output.of(metricDefinition));
         }

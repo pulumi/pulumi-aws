@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class WebhookScopeConfiguration
     {
-        /// <summary>
-        /// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
-        /// </summary>
         public readonly string? Domain;
-        /// <summary>
-        /// The name of either the enterprise or organization.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
-        /// </summary>
         public readonly string Scope;
 
         [OutputConstructor]

@@ -11,75 +11,12 @@ namespace Pulumi.Aws.CloudHsmV2
 {
     public static class GetCluster
     {
-        /// <summary>
-        /// Use this data source to get information about a CloudHSM v2 cluster
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterId = "cluster-testclusterid",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:cloudhsmv2/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a CloudHSM v2 cluster
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterId = "cluster-testclusterid",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:cloudhsmv2/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a CloudHSM v2 cluster
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterId = "cluster-testclusterid",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:cloudhsmv2/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
@@ -87,21 +24,12 @@ namespace Pulumi.Aws.CloudHsmV2
 
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of Cloud HSM v2 cluster.
-        /// </summary>
         [Input("clusterId", required: true)]
         public string ClusterId { get; set; } = null!;
 
-        /// <summary>
-        /// State of the cluster to be found.
-        /// </summary>
         [Input("clusterState")]
         public string? ClusterState { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,21 +41,12 @@ namespace Pulumi.Aws.CloudHsmV2
 
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of Cloud HSM v2 cluster.
-        /// </summary>
         [Input("clusterId", required: true)]
         public Input<string> ClusterId { get; set; } = null!;
 
-        /// <summary>
-        /// State of the cluster to be found.
-        /// </summary>
         [Input("clusterState")]
         public Input<string>? ClusterState { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,9 +60,6 @@ namespace Pulumi.Aws.CloudHsmV2
     [OutputType]
     public sealed class GetClusterResult
     {
-        /// <summary>
-        /// The list of cluster certificates.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterClusterCertificateResult> ClusterCertificates;
         public readonly string ClusterId;
         public readonly string ClusterState;
@@ -152,17 +68,8 @@ namespace Pulumi.Aws.CloudHsmV2
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// ID of the security group associated with the CloudHSM cluster.
-        /// </summary>
         public readonly string SecurityGroupId;
-        /// <summary>
-        /// IDs of subnets in which cluster operates.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// ID of the VPC that the CloudHSM cluster resides in.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

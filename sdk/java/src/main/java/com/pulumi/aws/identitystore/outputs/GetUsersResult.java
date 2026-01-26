@@ -18,15 +18,7 @@ public final class GetUsersResult {
      */
     private String id;
     private String identityStoreId;
-    /**
-     * @return Region of the address.
-     * 
-     */
     private String region;
-    /**
-     * @return List of Identity Store Users
-     * 
-     */
     private List<GetUsersUser> users;
 
     private GetUsersResult() {}
@@ -40,17 +32,9 @@ public final class GetUsersResult {
     public String identityStoreId() {
         return this.identityStoreId;
     }
-    /**
-     * @return Region of the address.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of Identity Store Users
-     * 
-     */
     public List<GetUsersUser> users() {
         return this.users;
     }

@@ -13,21 +13,8 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification
     {
-        /// <summary>
-        /// The ID of the launch template. Conflicts with `Name`.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The name of the launch template. Conflicts with `Id`.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the LaunchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
-        /// 
-        /// **Note:** The specified launch template can specify only a subset of the
-        /// inputs of `aws.ec2.LaunchTemplate`.  There are limitations on
-        /// what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `InstanceInitiatedShutdownBehavior` is confirmed unsupported.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

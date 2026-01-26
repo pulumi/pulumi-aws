@@ -9,132 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Identity Provider.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage with SAML
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleIdentityProvider = new Aws.WorkSpacesWeb.IdentityProvider("example", new()
-    ///     {
-    ///         IdentityProviderName = "example-saml",
-    ///         IdentityProviderType = "SAML",
-    ///         PortalArn = example.PortalArn,
-    ///         IdentityProviderDetails = 
-    ///         {
-    ///             { "MetadataURL", "https://example.com/metadata" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### OIDC Identity Provider
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.WorkSpacesWeb.Portal("test", new()
-    ///     {
-    ///         DisplayName = "test",
-    ///     });
-    /// 
-    ///     var testIdentityProvider = new Aws.WorkSpacesWeb.IdentityProvider("test", new()
-    ///     {
-    ///         IdentityProviderName = "test-updated",
-    ///         IdentityProviderType = "OIDC",
-    ///         PortalArn = test.PortalArn,
-    ///         IdentityProviderDetails = 
-    ///         {
-    ///             { "client_id", "test-client-id" },
-    ///             { "client_secret", "test-client-secret" },
-    ///             { "oidc_issuer", "https://accounts.google.com" },
-    ///             { "attributes_request_method", "POST" },
-    ///             { "authorize_scopes", "openid, email" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web Identity Provider using the `identity_provider_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/identityProvider:IdentityProvider")]
     public partial class IdentityProvider : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the identity provider.
-        /// </summary>
         [Output("identityProviderArn")]
         public Output<string> IdentityProviderArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-        /// * For Google and Login with Amazon:
-        /// </summary>
         [Output("identityProviderDetails")]
         public Output<ImmutableDictionary<string, string>> IdentityProviderDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// Identity provider name.
-        /// </summary>
         [Output("identityProviderName")]
         public Output<string> IdentityProviderName { get; private set; } = null!;
 
-        /// <summary>
-        /// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        /// </summary>
         [Output("identityProviderType")]
         public Output<string> IdentityProviderType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the web portal. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -186,49 +84,26 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("identityProviderDetails", required: true)]
         private InputMap<string>? _identityProviderDetails;
-
-        /// <summary>
-        /// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-        /// * For Google and Login with Amazon:
-        /// </summary>
         public InputMap<string> IdentityProviderDetails
         {
             get => _identityProviderDetails ?? (_identityProviderDetails = new InputMap<string>());
             set => _identityProviderDetails = value;
         }
 
-        /// <summary>
-        /// Identity provider name.
-        /// </summary>
         [Input("identityProviderName", required: true)]
         public Input<string> IdentityProviderName { get; set; } = null!;
 
-        /// <summary>
-        /// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        /// </summary>
         [Input("identityProviderType", required: true)]
         public Input<string> IdentityProviderType { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the web portal. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -243,57 +118,31 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class IdentityProviderState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the identity provider.
-        /// </summary>
         [Input("identityProviderArn")]
         public Input<string>? IdentityProviderArn { get; set; }
 
         [Input("identityProviderDetails")]
         private InputMap<string>? _identityProviderDetails;
-
-        /// <summary>
-        /// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-        /// * For Google and Login with Amazon:
-        /// </summary>
         public InputMap<string> IdentityProviderDetails
         {
             get => _identityProviderDetails ?? (_identityProviderDetails = new InputMap<string>());
             set => _identityProviderDetails = value;
         }
 
-        /// <summary>
-        /// Identity provider name.
-        /// </summary>
         [Input("identityProviderName")]
         public Input<string>? IdentityProviderName { get; set; }
 
-        /// <summary>
-        /// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        /// </summary>
         [Input("identityProviderType")]
         public Input<string>? IdentityProviderType { get; set; }
 
-        /// <summary>
-        /// ARN of the web portal. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -302,10 +151,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

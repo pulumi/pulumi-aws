@@ -31,10 +31,7 @@ class ServerlessVpcEndpointArgs:
         The set of arguments for constructing a ServerlessVpcEndpoint resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC from which you'll access OpenSearch Serverless.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the interface endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -65,8 +62,6 @@ class ServerlessVpcEndpointArgs:
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
         ID of the VPC from which you'll access OpenSearch Serverless.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 
@@ -89,9 +84,6 @@ class ServerlessVpcEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -132,12 +124,9 @@ class _ServerlessVpcEndpointState:
         """
         Input properties used for looking up and filtering ServerlessVpcEndpoint resources.
         :param pulumi.Input[_builtins.str] name: Name of the interface endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC from which you'll access OpenSearch Serverless.
-               
-               The following arguments are optional:
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -167,9 +156,6 @@ class _ServerlessVpcEndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -214,8 +200,6 @@ class _ServerlessVpcEndpointState:
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         ID of the VPC from which you'll access OpenSearch Serverless.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 
@@ -238,39 +222,13 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearchServerless VPC Endpoint.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessVpcEndpoint("example",
-            name="myendpoint",
-            subnet_ids=[example_aws_subnet["id"]],
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-        ```
-
+        Create a ServerlessVpcEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the interface endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC from which you'll access OpenSearch Serverless.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -279,30 +237,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
                  args: ServerlessVpcEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearchServerless VPC Endpoint.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessVpcEndpoint("example",
-            name="myendpoint",
-            subnet_ids=[example_aws_subnet["id"]],
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-        ```
-
+        Create a ServerlessVpcEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerlessVpcEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -367,12 +302,9 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the interface endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC from which you'll access OpenSearch Serverless.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -397,9 +329,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -428,8 +357,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
         ID of the VPC from which you'll access OpenSearch Serverless.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 

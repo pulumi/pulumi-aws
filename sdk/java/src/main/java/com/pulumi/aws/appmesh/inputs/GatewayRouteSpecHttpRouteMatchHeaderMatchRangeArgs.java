@@ -14,32 +14,16 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs extends co
 
     public static final GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs Empty = new GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs();
 
-    /**
-     * End of the range.
-     * 
-     */
     @Import(name="end", required=true)
     private Output<Integer> end;
 
-    /**
-     * @return End of the range.
-     * 
-     */
     public Output<Integer> end() {
         return this.end;
     }
 
-    /**
-     * Start of the range.
-     * 
-     */
     @Import(name="start", required=true)
     private Output<Integer> start;
 
-    /**
-     * @return Start of the range.
-     * 
-     */
     public Output<Integer> start() {
         return this.start;
     }
@@ -69,44 +53,20 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs extends co
             $ = new GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param end End of the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(Output<Integer> end) {
             $.end = end;
             return this;
         }
 
-        /**
-         * @param end End of the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(Integer end) {
             return end(Output.of(end));
         }
 
-        /**
-         * @param start Start of the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(Output<Integer> start) {
             $.start = start;
             return this;
         }
 
-        /**
-         * @param start Start of the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(Integer start) {
             return start(Output.of(start));
         }

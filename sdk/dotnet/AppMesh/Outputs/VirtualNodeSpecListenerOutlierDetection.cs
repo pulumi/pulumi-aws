@@ -13,22 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecListenerOutlierDetection
     {
-        /// <summary>
-        /// Base amount of time for which a host is ejected.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration BaseEjectionDuration;
-        /// <summary>
-        /// Time interval between ejection sweep analysis.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerOutlierDetectionInterval Interval;
-        /// <summary>
-        /// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-        /// Minimum value of `0`. Maximum value of `100`.
-        /// </summary>
         public readonly int MaxEjectionPercent;
-        /// <summary>
-        /// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
-        /// </summary>
         public readonly int MaxServerErrors;
 
         [OutputConstructor]

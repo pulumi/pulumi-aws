@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclLoggingConfigurationLoggingFilterFilter {
-    /**
-     * @return Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
-     * 
-     */
     private String behavior;
-    /**
-     * @return Match condition(s) for the filter. See Condition below for more details.
-     * 
-     */
     private List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions;
-    /**
-     * @return Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
-     * 
-     */
     private String requirement;
 
     private WebAclLoggingConfigurationLoggingFilterFilter() {}
-    /**
-     * @return Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
-     * 
-     */
     public String behavior() {
         return this.behavior;
     }
-    /**
-     * @return Match condition(s) for the filter. See Condition below for more details.
-     * 
-     */
     public List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions() {
         return this.conditions;
     }
-    /**
-     * @return Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
-     * 
-     */
     public String requirement() {
         return this.requirement;
     }

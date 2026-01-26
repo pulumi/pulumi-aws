@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The ECR Images data source allows the list of images in a specified repository to be retrieved.
-//
-// ## Example Usage
 func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOption) (*GetImagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagesResult
@@ -26,19 +23,15 @@ func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getImages.
 type GetImagesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the Registry where the repository resides.
-	RegistryId *string `pulumi:"registryId"`
-	// Name of the ECR Repository.
-	RepositoryName string `pulumi:"repositoryName"`
+	Region         *string `pulumi:"region"`
+	RegistryId     *string `pulumi:"registryId"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 // A collection of values returned by getImages.
 type GetImagesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of image objects containing image digest and tags. Each object has the following attributes:
+	Id             string             `pulumi:"id"`
 	ImageIds       []GetImagesImageId `pulumi:"imageIds"`
 	Region         string             `pulumi:"region"`
 	RegistryId     *string            `pulumi:"registryId"`
@@ -56,12 +49,9 @@ func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getImages.
 type GetImagesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID of the Registry where the repository resides.
-	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
-	// Name of the ECR Repository.
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	RegistryId     pulumi.StringPtrInput `pulumi:"registryId"`
+	RepositoryName pulumi.StringInput    `pulumi:"repositoryName"`
 }
 
 func (GetImagesOutputArgs) ElementType() reflect.Type {
@@ -88,7 +78,6 @@ func (o GetImagesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of image objects containing image digest and tags. Each object has the following attributes:
 func (o GetImagesResultOutput) ImageIds() GetImagesImageIdArrayOutput {
 	return o.ApplyT(func(v GetImagesResult) []GetImagesImageId { return v.ImageIds }).(GetImagesImageIdArrayOutput)
 }

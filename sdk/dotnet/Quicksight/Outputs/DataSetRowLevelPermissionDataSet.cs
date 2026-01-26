@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetRowLevelPermissionDataSet
     {
-        /// <summary>
-        /// ARN of the dataset that contains permissions for RLS.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// User or group rules associated with the dataset that contains permissions for RLS.
-        /// </summary>
         public readonly string? FormatVersion;
-        /// <summary>
-        /// Namespace associated with the dataset that contains permissions for RLS.
-        /// </summary>
         public readonly string? Namespace;
-        /// <summary>
-        /// Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
-        /// </summary>
         public readonly string PermissionPolicy;
-        /// <summary>
-        /// Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

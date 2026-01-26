@@ -14,32 +14,16 @@ public final class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguratio
 
     public static final GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs Empty = new GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs();
 
-    /**
-     * Unique identifier of the guardrail.
-     * 
-     */
     @Import(name="guardrailIdentifier", required=true)
     private Output<String> guardrailIdentifier;
 
-    /**
-     * @return Unique identifier of the guardrail.
-     * 
-     */
     public Output<String> guardrailIdentifier() {
         return this.guardrailIdentifier;
     }
 
-    /**
-     * Version of the guardrail.
-     * 
-     */
     @Import(name="guardrailVersion", required=true)
     private Output<String> guardrailVersion;
 
-    /**
-     * @return Version of the guardrail.
-     * 
-     */
     public Output<String> guardrailVersion() {
         return this.guardrailVersion;
     }
@@ -69,44 +53,20 @@ public final class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguratio
             $ = new GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param guardrailIdentifier Unique identifier of the guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailIdentifier(Output<String> guardrailIdentifier) {
             $.guardrailIdentifier = guardrailIdentifier;
             return this;
         }
 
-        /**
-         * @param guardrailIdentifier Unique identifier of the guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailIdentifier(String guardrailIdentifier) {
             return guardrailIdentifier(Output.of(guardrailIdentifier));
         }
 
-        /**
-         * @param guardrailVersion Version of the guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailVersion(Output<String> guardrailVersion) {
             $.guardrailVersion = guardrailVersion;
             return this;
         }
 
-        /**
-         * @param guardrailVersion Version of the guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailVersion(String guardrailVersion) {
             return guardrailVersion(Output.of(guardrailVersion));
         }

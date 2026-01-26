@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class ConnectorEgressConfig
     {
-        /// <summary>
-        /// VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
-        /// </summary>
         public readonly Outputs.ConnectorEgressConfigVpcLattice? VpcLattice;
 
         [OutputConstructor]

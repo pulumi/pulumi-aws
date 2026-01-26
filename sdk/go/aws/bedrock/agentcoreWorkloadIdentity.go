@@ -11,90 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock AgentCore Workload Identity. Workload Identity provides OAuth2-based authentication and authorization for AI agents to access external resources securely.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreWorkloadIdentity(ctx, "example", &bedrock.AgentcoreWorkloadIdentityArgs{
-//				Name: pulumi.String("example-workload-identity"),
-//				AllowedResourceOauth2ReturnUrls: pulumi.StringArray{
-//					pulumi.String("https://example.com/callback"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Workload Identity with Multiple Return URLs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreWorkloadIdentity(ctx, "example", &bedrock.AgentcoreWorkloadIdentityArgs{
-//				Name: pulumi.String("example-workload-identity"),
-//				AllowedResourceOauth2ReturnUrls: pulumi.StringArray{
-//					pulumi.String("https://app.example.com/oauth/callback"),
-//					pulumi.String("https://api.example.com/auth/return"),
-//					pulumi.String("https://example.com/callback"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity example example-workload-identity
-// ```
 type AgentcoreWorkloadIdentity struct {
 	pulumi.CustomResourceState
 
-	// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
 	AllowedResourceOauth2ReturnUrls pulumi.StringArrayOutput `pulumi:"allowedResourceOauth2ReturnUrls"`
-	// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the Workload Identity.
-	WorkloadIdentityArn pulumi.StringOutput `pulumi:"workloadIdentityArn"`
+	Name                            pulumi.StringOutput      `pulumi:"name"`
+	Region                          pulumi.StringOutput      `pulumi:"region"`
+	WorkloadIdentityArn             pulumi.StringOutput      `pulumi:"workloadIdentityArn"`
 }
 
 // NewAgentcoreWorkloadIdentity registers a new resource with the given unique name, arguments, and options.
@@ -127,29 +50,17 @@ func GetAgentcoreWorkloadIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreWorkloadIdentity resources.
 type agentcoreWorkloadIdentityState struct {
-	// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
 	AllowedResourceOauth2ReturnUrls []string `pulumi:"allowedResourceOauth2ReturnUrls"`
-	// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the Workload Identity.
-	WorkloadIdentityArn *string `pulumi:"workloadIdentityArn"`
+	Name                            *string  `pulumi:"name"`
+	Region                          *string  `pulumi:"region"`
+	WorkloadIdentityArn             *string  `pulumi:"workloadIdentityArn"`
 }
 
 type AgentcoreWorkloadIdentityState struct {
-	// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
 	AllowedResourceOauth2ReturnUrls pulumi.StringArrayInput
-	// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the Workload Identity.
-	WorkloadIdentityArn pulumi.StringPtrInput
+	Name                            pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
+	WorkloadIdentityArn             pulumi.StringPtrInput
 }
 
 func (AgentcoreWorkloadIdentityState) ElementType() reflect.Type {
@@ -157,26 +68,16 @@ func (AgentcoreWorkloadIdentityState) ElementType() reflect.Type {
 }
 
 type agentcoreWorkloadIdentityArgs struct {
-	// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
 	AllowedResourceOauth2ReturnUrls []string `pulumi:"allowedResourceOauth2ReturnUrls"`
-	// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name                            *string  `pulumi:"name"`
+	Region                          *string  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AgentcoreWorkloadIdentity resource.
 type AgentcoreWorkloadIdentityArgs struct {
-	// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
 	AllowedResourceOauth2ReturnUrls pulumi.StringArrayInput
-	// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name                            pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
 }
 
 func (AgentcoreWorkloadIdentityArgs) ElementType() reflect.Type {
@@ -266,24 +167,18 @@ func (o AgentcoreWorkloadIdentityOutput) ToAgentcoreWorkloadIdentityOutputWithCo
 	return o
 }
 
-// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
 func (o AgentcoreWorkloadIdentityOutput) AllowedResourceOauth2ReturnUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreWorkloadIdentity) pulumi.StringArrayOutput { return v.AllowedResourceOauth2ReturnUrls }).(pulumi.StringArrayOutput)
 }
 
-// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-//
-// The following arguments are optional:
 func (o AgentcoreWorkloadIdentityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreWorkloadIdentity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreWorkloadIdentityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreWorkloadIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the Workload Identity.
 func (o AgentcoreWorkloadIdentityOutput) WorkloadIdentityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreWorkloadIdentity) pulumi.StringOutput { return v.WorkloadIdentityArn }).(pulumi.StringOutput)
 }

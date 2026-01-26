@@ -13,17 +13,8 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     [OutputType]
     public sealed class CustomRoutingEndpointGroupDestinationConfiguration
     {
-        /// <summary>
-        /// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        /// </summary>
         public readonly int FromPort;
-        /// <summary>
-        /// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
-        /// </summary>
         public readonly ImmutableArray<string> Protocols;
-        /// <summary>
-        /// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

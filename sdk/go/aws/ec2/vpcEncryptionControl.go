@@ -12,115 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a VPC Encryption Control.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcEncryptionControl(ctx, "example", &ec2.VpcEncryptionControlArgs{
-//				VpcId: exampleVpc.ID(),
-//				Mode:  pulumi.String("monitor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Encryption Control using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcEncryptionControl:VpcEncryptionControl example vpcec-12345678901234567
-// ```
 type VpcEncryptionControl struct {
 	pulumi.CustomResourceState
 
-	// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	EgressOnlyInternetGatewayExclusion pulumi.StringOutput `pulumi:"egressOnlyInternetGatewayExclusion"`
-	// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	ElasticFileSystemExclusion pulumi.StringOutput `pulumi:"elasticFileSystemExclusion"`
-	// Whether to exclude Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	InternetGatewayExclusion pulumi.StringOutput `pulumi:"internetGatewayExclusion"`
-	// Whether to exclude Lambda Functions from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	LambdaExclusion pulumi.StringOutput `pulumi:"lambdaExclusion"`
-	// Mode to enable for VPC Encryption Control.
-	// Valid values are `monitor` or `enforce`.
-	Mode pulumi.StringOutput `pulumi:"mode"`
-	// Whether to exclude NAT Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	NatGatewayExclusion pulumi.StringOutput `pulumi:"natGatewayExclusion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// State of exclusions from encryption enforcement.
-	// Will be `nil` if `mode` is `monitor`.
-	// See `resourceExclusions` below
-	ResourceExclusions VpcEncryptionControlResourceExclusionsOutput `pulumi:"resourceExclusions"`
-	// The current state of the VPC Encryption Control.
-	State pulumi.StringOutput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
-	StateMessage pulumi.StringOutput `pulumi:"stateMessage"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
-	Timeouts VpcEncryptionControlTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Whether to exclude Virtual Private Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VirtualPrivateGatewayExclusion pulumi.StringOutput `pulumi:"virtualPrivateGatewayExclusion"`
-	// The ID of the VPC the VPC Encryption Control is linked to.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
-	// Whether to exclude VPC Lattice from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcLatticeExclusion pulumi.StringOutput `pulumi:"vpcLatticeExclusion"`
-	// Whether to exclude peered VPCs from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcPeeringExclusion pulumi.StringOutput `pulumi:"vpcPeeringExclusion"`
+	EgressOnlyInternetGatewayExclusion pulumi.StringOutput                          `pulumi:"egressOnlyInternetGatewayExclusion"`
+	ElasticFileSystemExclusion         pulumi.StringOutput                          `pulumi:"elasticFileSystemExclusion"`
+	InternetGatewayExclusion           pulumi.StringOutput                          `pulumi:"internetGatewayExclusion"`
+	LambdaExclusion                    pulumi.StringOutput                          `pulumi:"lambdaExclusion"`
+	Mode                               pulumi.StringOutput                          `pulumi:"mode"`
+	NatGatewayExclusion                pulumi.StringOutput                          `pulumi:"natGatewayExclusion"`
+	Region                             pulumi.StringOutput                          `pulumi:"region"`
+	ResourceExclusions                 VpcEncryptionControlResourceExclusionsOutput `pulumi:"resourceExclusions"`
+	State                              pulumi.StringOutput                          `pulumi:"state"`
+	StateMessage                       pulumi.StringOutput                          `pulumi:"stateMessage"`
+	Tags                               pulumi.StringMapOutput                       `pulumi:"tags"`
+	TagsAll                            pulumi.StringMapOutput                       `pulumi:"tagsAll"`
+	Timeouts                           VpcEncryptionControlTimeoutsPtrOutput        `pulumi:"timeouts"`
+	VirtualPrivateGatewayExclusion     pulumi.StringOutput                          `pulumi:"virtualPrivateGatewayExclusion"`
+	VpcId                              pulumi.StringOutput                          `pulumi:"vpcId"`
+	VpcLatticeExclusion                pulumi.StringOutput                          `pulumi:"vpcLatticeExclusion"`
+	VpcPeeringExclusion                pulumi.StringOutput                          `pulumi:"vpcPeeringExclusion"`
 }
 
 // NewVpcEncryptionControl registers a new resource with the given unique name, arguments, and options.
@@ -165,133 +76,43 @@ func GetVpcEncryptionControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEncryptionControl resources.
 type vpcEncryptionControlState struct {
-	// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	EgressOnlyInternetGatewayExclusion *string `pulumi:"egressOnlyInternetGatewayExclusion"`
-	// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	ElasticFileSystemExclusion *string `pulumi:"elasticFileSystemExclusion"`
-	// Whether to exclude Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	InternetGatewayExclusion *string `pulumi:"internetGatewayExclusion"`
-	// Whether to exclude Lambda Functions from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	LambdaExclusion *string `pulumi:"lambdaExclusion"`
-	// Mode to enable for VPC Encryption Control.
-	// Valid values are `monitor` or `enforce`.
-	Mode *string `pulumi:"mode"`
-	// Whether to exclude NAT Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	NatGatewayExclusion *string `pulumi:"natGatewayExclusion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of exclusions from encryption enforcement.
-	// Will be `nil` if `mode` is `monitor`.
-	// See `resourceExclusions` below
-	ResourceExclusions *VpcEncryptionControlResourceExclusions `pulumi:"resourceExclusions"`
-	// The current state of the VPC Encryption Control.
-	State *string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
-	StateMessage *string `pulumi:"stateMessage"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string             `pulumi:"tagsAll"`
-	Timeouts *VpcEncryptionControlTimeouts `pulumi:"timeouts"`
-	// Whether to exclude Virtual Private Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VirtualPrivateGatewayExclusion *string `pulumi:"virtualPrivateGatewayExclusion"`
-	// The ID of the VPC the VPC Encryption Control is linked to.
-	//
-	// The following arguments are optional:
-	VpcId *string `pulumi:"vpcId"`
-	// Whether to exclude VPC Lattice from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcLatticeExclusion *string `pulumi:"vpcLatticeExclusion"`
-	// Whether to exclude peered VPCs from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcPeeringExclusion *string `pulumi:"vpcPeeringExclusion"`
+	EgressOnlyInternetGatewayExclusion *string                                 `pulumi:"egressOnlyInternetGatewayExclusion"`
+	ElasticFileSystemExclusion         *string                                 `pulumi:"elasticFileSystemExclusion"`
+	InternetGatewayExclusion           *string                                 `pulumi:"internetGatewayExclusion"`
+	LambdaExclusion                    *string                                 `pulumi:"lambdaExclusion"`
+	Mode                               *string                                 `pulumi:"mode"`
+	NatGatewayExclusion                *string                                 `pulumi:"natGatewayExclusion"`
+	Region                             *string                                 `pulumi:"region"`
+	ResourceExclusions                 *VpcEncryptionControlResourceExclusions `pulumi:"resourceExclusions"`
+	State                              *string                                 `pulumi:"state"`
+	StateMessage                       *string                                 `pulumi:"stateMessage"`
+	Tags                               map[string]string                       `pulumi:"tags"`
+	TagsAll                            map[string]string                       `pulumi:"tagsAll"`
+	Timeouts                           *VpcEncryptionControlTimeouts           `pulumi:"timeouts"`
+	VirtualPrivateGatewayExclusion     *string                                 `pulumi:"virtualPrivateGatewayExclusion"`
+	VpcId                              *string                                 `pulumi:"vpcId"`
+	VpcLatticeExclusion                *string                                 `pulumi:"vpcLatticeExclusion"`
+	VpcPeeringExclusion                *string                                 `pulumi:"vpcPeeringExclusion"`
 }
 
 type VpcEncryptionControlState struct {
-	// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
 	EgressOnlyInternetGatewayExclusion pulumi.StringPtrInput
-	// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	ElasticFileSystemExclusion pulumi.StringPtrInput
-	// Whether to exclude Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	InternetGatewayExclusion pulumi.StringPtrInput
-	// Whether to exclude Lambda Functions from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	LambdaExclusion pulumi.StringPtrInput
-	// Mode to enable for VPC Encryption Control.
-	// Valid values are `monitor` or `enforce`.
-	Mode pulumi.StringPtrInput
-	// Whether to exclude NAT Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	NatGatewayExclusion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of exclusions from encryption enforcement.
-	// Will be `nil` if `mode` is `monitor`.
-	// See `resourceExclusions` below
-	ResourceExclusions VpcEncryptionControlResourceExclusionsPtrInput
-	// The current state of the VPC Encryption Control.
-	State pulumi.StringPtrInput
-	// A message providing additional information about the state of the VPC Encryption Control.
-	StateMessage pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts VpcEncryptionControlTimeoutsPtrInput
-	// Whether to exclude Virtual Private Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VirtualPrivateGatewayExclusion pulumi.StringPtrInput
-	// The ID of the VPC the VPC Encryption Control is linked to.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringPtrInput
-	// Whether to exclude VPC Lattice from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcLatticeExclusion pulumi.StringPtrInput
-	// Whether to exclude peered VPCs from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcPeeringExclusion pulumi.StringPtrInput
+	ElasticFileSystemExclusion         pulumi.StringPtrInput
+	InternetGatewayExclusion           pulumi.StringPtrInput
+	LambdaExclusion                    pulumi.StringPtrInput
+	Mode                               pulumi.StringPtrInput
+	NatGatewayExclusion                pulumi.StringPtrInput
+	Region                             pulumi.StringPtrInput
+	ResourceExclusions                 VpcEncryptionControlResourceExclusionsPtrInput
+	State                              pulumi.StringPtrInput
+	StateMessage                       pulumi.StringPtrInput
+	Tags                               pulumi.StringMapInput
+	TagsAll                            pulumi.StringMapInput
+	Timeouts                           VpcEncryptionControlTimeoutsPtrInput
+	VirtualPrivateGatewayExclusion     pulumi.StringPtrInput
+	VpcId                              pulumi.StringPtrInput
+	VpcLatticeExclusion                pulumi.StringPtrInput
+	VpcPeeringExclusion                pulumi.StringPtrInput
 }
 
 func (VpcEncryptionControlState) ElementType() reflect.Type {
@@ -299,114 +120,36 @@ func (VpcEncryptionControlState) ElementType() reflect.Type {
 }
 
 type vpcEncryptionControlArgs struct {
-	// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	EgressOnlyInternetGatewayExclusion *string `pulumi:"egressOnlyInternetGatewayExclusion"`
-	// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	ElasticFileSystemExclusion *string `pulumi:"elasticFileSystemExclusion"`
-	// Whether to exclude Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	InternetGatewayExclusion *string `pulumi:"internetGatewayExclusion"`
-	// Whether to exclude Lambda Functions from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	LambdaExclusion *string `pulumi:"lambdaExclusion"`
-	// Mode to enable for VPC Encryption Control.
-	// Valid values are `monitor` or `enforce`.
-	Mode string `pulumi:"mode"`
-	// Whether to exclude NAT Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	NatGatewayExclusion *string `pulumi:"natGatewayExclusion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string             `pulumi:"tags"`
-	Timeouts *VpcEncryptionControlTimeouts `pulumi:"timeouts"`
-	// Whether to exclude Virtual Private Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VirtualPrivateGatewayExclusion *string `pulumi:"virtualPrivateGatewayExclusion"`
-	// The ID of the VPC the VPC Encryption Control is linked to.
-	//
-	// The following arguments are optional:
-	VpcId string `pulumi:"vpcId"`
-	// Whether to exclude VPC Lattice from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcLatticeExclusion *string `pulumi:"vpcLatticeExclusion"`
-	// Whether to exclude peered VPCs from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcPeeringExclusion *string `pulumi:"vpcPeeringExclusion"`
+	EgressOnlyInternetGatewayExclusion *string                       `pulumi:"egressOnlyInternetGatewayExclusion"`
+	ElasticFileSystemExclusion         *string                       `pulumi:"elasticFileSystemExclusion"`
+	InternetGatewayExclusion           *string                       `pulumi:"internetGatewayExclusion"`
+	LambdaExclusion                    *string                       `pulumi:"lambdaExclusion"`
+	Mode                               string                        `pulumi:"mode"`
+	NatGatewayExclusion                *string                       `pulumi:"natGatewayExclusion"`
+	Region                             *string                       `pulumi:"region"`
+	Tags                               map[string]string             `pulumi:"tags"`
+	Timeouts                           *VpcEncryptionControlTimeouts `pulumi:"timeouts"`
+	VirtualPrivateGatewayExclusion     *string                       `pulumi:"virtualPrivateGatewayExclusion"`
+	VpcId                              string                        `pulumi:"vpcId"`
+	VpcLatticeExclusion                *string                       `pulumi:"vpcLatticeExclusion"`
+	VpcPeeringExclusion                *string                       `pulumi:"vpcPeeringExclusion"`
 }
 
 // The set of arguments for constructing a VpcEncryptionControl resource.
 type VpcEncryptionControlArgs struct {
-	// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
 	EgressOnlyInternetGatewayExclusion pulumi.StringPtrInput
-	// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	ElasticFileSystemExclusion pulumi.StringPtrInput
-	// Whether to exclude Internet Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	InternetGatewayExclusion pulumi.StringPtrInput
-	// Whether to exclude Lambda Functions from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	LambdaExclusion pulumi.StringPtrInput
-	// Mode to enable for VPC Encryption Control.
-	// Valid values are `monitor` or `enforce`.
-	Mode pulumi.StringInput
-	// Whether to exclude NAT Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	NatGatewayExclusion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts VpcEncryptionControlTimeoutsPtrInput
-	// Whether to exclude Virtual Private Gateways from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VirtualPrivateGatewayExclusion pulumi.StringPtrInput
-	// The ID of the VPC the VPC Encryption Control is linked to.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringInput
-	// Whether to exclude VPC Lattice from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcLatticeExclusion pulumi.StringPtrInput
-	// Whether to exclude peered VPCs from encryption enforcement.
-	// Valid values are `disable` or `enable`.
-	// Default is `disable`.
-	// Only valid when `mode` is `enforce`.
-	VpcPeeringExclusion pulumi.StringPtrInput
+	ElasticFileSystemExclusion         pulumi.StringPtrInput
+	InternetGatewayExclusion           pulumi.StringPtrInput
+	LambdaExclusion                    pulumi.StringPtrInput
+	Mode                               pulumi.StringInput
+	NatGatewayExclusion                pulumi.StringPtrInput
+	Region                             pulumi.StringPtrInput
+	Tags                               pulumi.StringMapInput
+	Timeouts                           VpcEncryptionControlTimeoutsPtrInput
+	VirtualPrivateGatewayExclusion     pulumi.StringPtrInput
+	VpcId                              pulumi.StringInput
+	VpcLatticeExclusion                pulumi.StringPtrInput
+	VpcPeeringExclusion                pulumi.StringPtrInput
 }
 
 func (VpcEncryptionControlArgs) ElementType() reflect.Type {
@@ -496,82 +239,52 @@ func (o VpcEncryptionControlOutput) ToVpcEncryptionControlOutputWithContext(ctx 
 	return o
 }
 
-// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) EgressOnlyInternetGatewayExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.EgressOnlyInternetGatewayExclusion }).(pulumi.StringOutput)
 }
 
-// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) ElasticFileSystemExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.ElasticFileSystemExclusion }).(pulumi.StringOutput)
 }
 
-// Whether to exclude Internet Gateways from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) InternetGatewayExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.InternetGatewayExclusion }).(pulumi.StringOutput)
 }
 
-// Whether to exclude Lambda Functions from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) LambdaExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.LambdaExclusion }).(pulumi.StringOutput)
 }
 
-// Mode to enable for VPC Encryption Control.
-// Valid values are `monitor` or `enforce`.
 func (o VpcEncryptionControlOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Whether to exclude NAT Gateways from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) NatGatewayExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.NatGatewayExclusion }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEncryptionControlOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of exclusions from encryption enforcement.
-// Will be `nil` if `mode` is `monitor`.
-// See `resourceExclusions` below
 func (o VpcEncryptionControlOutput) ResourceExclusions() VpcEncryptionControlResourceExclusionsOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlResourceExclusionsOutput {
 		return v.ResourceExclusions
 	}).(VpcEncryptionControlResourceExclusionsOutput)
 }
 
-// The current state of the VPC Encryption Control.
 func (o VpcEncryptionControlOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
 func (o VpcEncryptionControlOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.StateMessage }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcEncryptionControlOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcEncryptionControlOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -580,33 +293,18 @@ func (o VpcEncryptionControlOutput) Timeouts() VpcEncryptionControlTimeoutsPtrOu
 	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlTimeoutsPtrOutput { return v.Timeouts }).(VpcEncryptionControlTimeoutsPtrOutput)
 }
 
-// Whether to exclude Virtual Private Gateways from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) VirtualPrivateGatewayExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.VirtualPrivateGatewayExclusion }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC the VPC Encryption Control is linked to.
-//
-// The following arguments are optional:
 func (o VpcEncryptionControlOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// Whether to exclude VPC Lattice from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) VpcLatticeExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.VpcLatticeExclusion }).(pulumi.StringOutput)
 }
 
-// Whether to exclude peered VPCs from encryption enforcement.
-// Valid values are `disable` or `enable`.
-// Default is `disable`.
-// Only valid when `mode` is `enforce`.
 func (o VpcEncryptionControlOutput) VpcPeeringExclusion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEncryptionControl) pulumi.StringOutput { return v.VpcPeeringExclusion }).(pulumi.StringOutput)
 }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
-    /**
-     * @return Metric type.
-     * 
-     */
     private String predefinedMetricType;
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the average request count.
-     * 
-     */
     private @Nullable String resourceLabel;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification() {}
-    /**
-     * @return Metric type.
-     * 
-     */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the average request count.
-     * 
-     */
     public Optional<String> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }

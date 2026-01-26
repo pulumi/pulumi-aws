@@ -17,287 +17,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Bedrock Agents Prompt.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentPrompt;
- * import com.pulumi.aws.bedrock.AgentPromptArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentPrompt("example", AgentPromptArgs.builder()
- *             .name("MyPrompt")
- *             .description("My prompt description.")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Variants
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentPrompt;
- * import com.pulumi.aws.bedrock.AgentPromptArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantInferenceConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantInferenceConfigurationTextArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantTemplateConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantTemplateConfigurationTextArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentPrompt("example", AgentPromptArgs.builder()
- *             .name("MakePlaylist")
- *             .description("My first prompt.")
- *             .defaultVariant("Variant1")
- *             .variants(AgentPromptVariantArgs.builder()
- *                 .name("Variant1")
- *                 .modelId("amazon.titan-text-express-v1")
- *                 .inferenceConfiguration(AgentPromptVariantInferenceConfigurationArgs.builder()
- *                     .text(AgentPromptVariantInferenceConfigurationTextArgs.builder()
- *                         .temperature(0.8)
- *                         .build())
- *                     .build())
- *                 .templateType("TEXT")
- *                 .templateConfiguration(AgentPromptVariantTemplateConfigurationArgs.builder()
- *                     .text(AgentPromptVariantTemplateConfigurationTextArgs.builder()
- *                         .text("Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.")
- *                         .inputVariables(                        
- *                             AgentPromptVariantTemplateConfigurationTextInputVariableArgs.builder()
- *                                 .name("genre")
- *                                 .build(),
- *                             AgentPromptVariantTemplateConfigurationTextInputVariableArgs.builder()
- *                                 .name("number")
- *                                 .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock Agents Prompt using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentPrompt:AgentPrompt")
 public class AgentPrompt extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the prompt.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the prompt.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Time at which the prompt was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Time at which the prompt was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-     * 
-     */
     @Export(name="customerEncryptionKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerEncryptionKeyArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-     * 
-     */
     public Output<Optional<String>> customerEncryptionKeyArn() {
         return Codegen.optional(this.customerEncryptionKeyArn);
     }
-    /**
-     * Name of the default variant for your prompt.
-     * 
-     */
     @Export(name="defaultVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultVariant;
 
-    /**
-     * @return Name of the default variant for your prompt.
-     * 
-     */
     public Output<Optional<String>> defaultVariant() {
         return Codegen.optional(this.defaultVariant);
     }
-    /**
-     * Description of the prompt.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the prompt.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Time at which the prompt was last updated.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return Time at which the prompt was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
-    /**
-     * A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-     * 
-     */
     @Export(name="variants", refs={List.class,AgentPromptVariant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentPromptVariant>> variants;
 
-    /**
-     * @return A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-     * 
-     */
     public Output<Optional<List<AgentPromptVariant>>> variants() {
         return Codegen.optional(this.variants);
     }
-    /**
-     * Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

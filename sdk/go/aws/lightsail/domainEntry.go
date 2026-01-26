@@ -12,69 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail domain entry (DNS record). Use this resource to define how DNS queries for your domain are handled.
-//
-// > **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lightsail.NewDomain(ctx, "example", &lightsail.DomainArgs{
-//				DomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDomainEntry(ctx, "example", &lightsail.DomainEntryArgs{
-//				DomainName: example.DomainName,
-//				Name:       pulumi.String("www"),
-//				Type:       pulumi.String("A"),
-//				Target:     pulumi.String("127.0.0.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lightsail Domain Entry using the id attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,example.com,A,127.0.0.1
-// ```
 type DomainEntry struct {
 	pulumi.CustomResourceState
 
-	// Name of the Lightsail domain in which to create the entry.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Whether the entry should be an alias. Default: `false`.
-	IsAlias pulumi.BoolPtrOutput `pulumi:"isAlias"`
-	// Name of the entry record.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Target of the domain entry.
-	Target pulumi.StringOutput `pulumi:"target"`
-	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringOutput `pulumi:"type"`
+	DomainName pulumi.StringOutput  `pulumi:"domainName"`
+	IsAlias    pulumi.BoolPtrOutput `pulumi:"isAlias"`
+	Name       pulumi.StringOutput  `pulumi:"name"`
+	Region     pulumi.StringOutput  `pulumi:"region"`
+	Target     pulumi.StringOutput  `pulumi:"target"`
+	Type       pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewDomainEntry registers a new resource with the given unique name, arguments, and options.
@@ -116,37 +62,21 @@ func GetDomainEntry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainEntry resources.
 type domainEntryState struct {
-	// Name of the Lightsail domain in which to create the entry.
 	DomainName *string `pulumi:"domainName"`
-	// Whether the entry should be an alias. Default: `false`.
-	IsAlias *bool `pulumi:"isAlias"`
-	// Name of the entry record.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Target of the domain entry.
-	Target *string `pulumi:"target"`
-	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-	//
-	// The following arguments are optional:
-	Type *string `pulumi:"type"`
+	IsAlias    *bool   `pulumi:"isAlias"`
+	Name       *string `pulumi:"name"`
+	Region     *string `pulumi:"region"`
+	Target     *string `pulumi:"target"`
+	Type       *string `pulumi:"type"`
 }
 
 type DomainEntryState struct {
-	// Name of the Lightsail domain in which to create the entry.
 	DomainName pulumi.StringPtrInput
-	// Whether the entry should be an alias. Default: `false`.
-	IsAlias pulumi.BoolPtrInput
-	// Name of the entry record.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Target of the domain entry.
-	Target pulumi.StringPtrInput
-	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringPtrInput
+	IsAlias    pulumi.BoolPtrInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Target     pulumi.StringPtrInput
+	Type       pulumi.StringPtrInput
 }
 
 func (DomainEntryState) ElementType() reflect.Type {
@@ -154,38 +84,22 @@ func (DomainEntryState) ElementType() reflect.Type {
 }
 
 type domainEntryArgs struct {
-	// Name of the Lightsail domain in which to create the entry.
-	DomainName string `pulumi:"domainName"`
-	// Whether the entry should be an alias. Default: `false`.
-	IsAlias *bool `pulumi:"isAlias"`
-	// Name of the entry record.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Target of the domain entry.
-	Target string `pulumi:"target"`
-	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-	//
-	// The following arguments are optional:
-	Type string `pulumi:"type"`
+	DomainName string  `pulumi:"domainName"`
+	IsAlias    *bool   `pulumi:"isAlias"`
+	Name       *string `pulumi:"name"`
+	Region     *string `pulumi:"region"`
+	Target     string  `pulumi:"target"`
+	Type       string  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DomainEntry resource.
 type DomainEntryArgs struct {
-	// Name of the Lightsail domain in which to create the entry.
 	DomainName pulumi.StringInput
-	// Whether the entry should be an alias. Default: `false`.
-	IsAlias pulumi.BoolPtrInput
-	// Name of the entry record.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Target of the domain entry.
-	Target pulumi.StringInput
-	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringInput
+	IsAlias    pulumi.BoolPtrInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Target     pulumi.StringInput
+	Type       pulumi.StringInput
 }
 
 func (DomainEntryArgs) ElementType() reflect.Type {
@@ -275,34 +189,26 @@ func (o DomainEntryOutput) ToDomainEntryOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// Name of the Lightsail domain in which to create the entry.
 func (o DomainEntryOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Whether the entry should be an alias. Default: `false`.
 func (o DomainEntryOutput) IsAlias() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.BoolPtrOutput { return v.IsAlias }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the entry record.
 func (o DomainEntryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainEntryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Target of the domain entry.
 func (o DomainEntryOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }
 
-// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-//
-// The following arguments are optional:
 func (o DomainEntryOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

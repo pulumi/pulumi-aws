@@ -4,42 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
- *
- * ## Example Usage
- *
- * ### Accept cross-account request
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.VpcEndpointService("example", {
- *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [exampleAwsLb.arn],
- * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
- *     vpcId: testAlternate.id,
- *     serviceName: testAwsVpcEndpointService.serviceName,
- *     vpcEndpointType: "Interface",
- *     privateDnsEnabled: false,
- *     securityGroupIds: [test.id],
- * });
- * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("example", {
- *     vpcEndpointServiceId: example.id,
- *     vpcEndpointId: exampleVpcEndpoint.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
- * ```
- */
 export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpointConnectionAccepter resource's state with the given name, ID, and optional extra
@@ -68,21 +32,9 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpointConnectionAccepter.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * AWS VPC Endpoint ID.
-     */
     declare public readonly vpcEndpointId: pulumi.Output<string>;
-    /**
-     * AWS VPC Endpoint Service ID.
-     */
     declare public readonly vpcEndpointServiceId: pulumi.Output<string>;
-    /**
-     * State of the VPC Endpoint.
-     */
     declare public /*out*/ readonly vpcEndpointState: pulumi.Output<string>;
 
     /**
@@ -124,21 +76,9 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpointConnectionAccepter resources.
  */
 export interface VpcEndpointConnectionAccepterState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * AWS VPC Endpoint ID.
-     */
     vpcEndpointId?: pulumi.Input<string>;
-    /**
-     * AWS VPC Endpoint Service ID.
-     */
     vpcEndpointServiceId?: pulumi.Input<string>;
-    /**
-     * State of the VPC Endpoint.
-     */
     vpcEndpointState?: pulumi.Input<string>;
 }
 
@@ -146,16 +86,7 @@ export interface VpcEndpointConnectionAccepterState {
  * The set of arguments for constructing a VpcEndpointConnectionAccepter resource.
  */
 export interface VpcEndpointConnectionAccepterArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * AWS VPC Endpoint ID.
-     */
     vpcEndpointId: pulumi.Input<string>;
-    /**
-     * AWS VPC Endpoint Service ID.
-     */
     vpcEndpointServiceId: pulumi.Input<string>;
 }

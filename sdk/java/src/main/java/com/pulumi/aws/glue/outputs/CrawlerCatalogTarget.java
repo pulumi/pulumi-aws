@@ -13,73 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerCatalogTarget {
-    /**
-     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
-     * 
-     */
     private @Nullable String connectionName;
-    /**
-     * @return The name of the Glue database to be synchronized.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
-     * 
-     */
     private @Nullable String dlqEventQueueArn;
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     private @Nullable String eventQueueArn;
-    /**
-     * @return A list of catalog tables to be synchronized.
-     * 
-     */
     private List<String> tables;
 
     private CrawlerCatalogTarget() {}
-    /**
-     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
-     * 
-     */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
-    /**
-     * @return The name of the Glue database to be synchronized.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
-     * 
-     */
     public Optional<String> dlqEventQueueArn() {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     public Optional<String> eventQueueArn() {
         return Optional.ofNullable(this.eventQueueArn);
     }
-    /**
-     * @return A list of catalog tables to be synchronized.
-     * 
-     */
     public List<String> tables() {
         return this.tables;
     }

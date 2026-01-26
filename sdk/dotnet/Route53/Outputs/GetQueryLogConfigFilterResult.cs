@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetQueryLogConfigFilterResult
     {
-        /// <summary>
-        /// The name of the query logging configuration.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> Values;
 

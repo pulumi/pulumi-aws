@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
- *
- * Manages Password Policy for the AWS Account.
- * See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
- * in the official AWS docs.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const strict = new aws.iam.AccountPasswordPolicy("strict", {
- *     minimumPasswordLength: 8,
- *     requireLowercaseCharacters: true,
- *     requireNumbers: true,
- *     requireUppercaseCharacters: true,
- *     requireSymbols: true,
- *     allowUsersToChangePassword: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
- * ```
- */
 export class AccountPasswordPolicy extends pulumi.CustomResource {
     /**
      * Get an existing AccountPasswordPolicy resource's state with the given name, ID, and optional extra
@@ -63,45 +32,15 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountPasswordPolicy.__pulumiType;
     }
 
-    /**
-     * Whether to allow users to change their own password
-     */
     declare public readonly allowUsersToChangePassword: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
-     */
     declare public /*out*/ readonly expirePasswords: pulumi.Output<boolean>;
-    /**
-     * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-     */
     declare public readonly hardExpiry: pulumi.Output<boolean>;
-    /**
-     * The number of days that an user password is valid.
-     */
     declare public readonly maxPasswordAge: pulumi.Output<number>;
-    /**
-     * Minimum length to require for user passwords.
-     */
     declare public readonly minimumPasswordLength: pulumi.Output<number | undefined>;
-    /**
-     * The number of previous passwords that users are prevented from reusing.
-     */
     declare public readonly passwordReusePrevention: pulumi.Output<number>;
-    /**
-     * Whether to require lowercase characters for user passwords.
-     */
     declare public readonly requireLowercaseCharacters: pulumi.Output<boolean>;
-    /**
-     * Whether to require numbers for user passwords.
-     */
     declare public readonly requireNumbers: pulumi.Output<boolean>;
-    /**
-     * Whether to require symbols for user passwords.
-     */
     declare public readonly requireSymbols: pulumi.Output<boolean>;
-    /**
-     * Whether to require uppercase characters for user passwords.
-     */
     declare public readonly requireUppercaseCharacters: pulumi.Output<boolean>;
 
     /**
@@ -149,45 +88,15 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountPasswordPolicy resources.
  */
 export interface AccountPasswordPolicyState {
-    /**
-     * Whether to allow users to change their own password
-     */
     allowUsersToChangePassword?: pulumi.Input<boolean>;
-    /**
-     * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
-     */
     expirePasswords?: pulumi.Input<boolean>;
-    /**
-     * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-     */
     hardExpiry?: pulumi.Input<boolean>;
-    /**
-     * The number of days that an user password is valid.
-     */
     maxPasswordAge?: pulumi.Input<number>;
-    /**
-     * Minimum length to require for user passwords.
-     */
     minimumPasswordLength?: pulumi.Input<number>;
-    /**
-     * The number of previous passwords that users are prevented from reusing.
-     */
     passwordReusePrevention?: pulumi.Input<number>;
-    /**
-     * Whether to require lowercase characters for user passwords.
-     */
     requireLowercaseCharacters?: pulumi.Input<boolean>;
-    /**
-     * Whether to require numbers for user passwords.
-     */
     requireNumbers?: pulumi.Input<boolean>;
-    /**
-     * Whether to require symbols for user passwords.
-     */
     requireSymbols?: pulumi.Input<boolean>;
-    /**
-     * Whether to require uppercase characters for user passwords.
-     */
     requireUppercaseCharacters?: pulumi.Input<boolean>;
 }
 
@@ -195,40 +104,13 @@ export interface AccountPasswordPolicyState {
  * The set of arguments for constructing a AccountPasswordPolicy resource.
  */
 export interface AccountPasswordPolicyArgs {
-    /**
-     * Whether to allow users to change their own password
-     */
     allowUsersToChangePassword?: pulumi.Input<boolean>;
-    /**
-     * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-     */
     hardExpiry?: pulumi.Input<boolean>;
-    /**
-     * The number of days that an user password is valid.
-     */
     maxPasswordAge?: pulumi.Input<number>;
-    /**
-     * Minimum length to require for user passwords.
-     */
     minimumPasswordLength?: pulumi.Input<number>;
-    /**
-     * The number of previous passwords that users are prevented from reusing.
-     */
     passwordReusePrevention?: pulumi.Input<number>;
-    /**
-     * Whether to require lowercase characters for user passwords.
-     */
     requireLowercaseCharacters?: pulumi.Input<boolean>;
-    /**
-     * Whether to require numbers for user passwords.
-     */
     requireNumbers?: pulumi.Input<boolean>;
-    /**
-     * Whether to require symbols for user passwords.
-     */
     requireSymbols?: pulumi.Input<boolean>;
-    /**
-     * Whether to require uppercase characters for user passwords.
-     */
     requireUppercaseCharacters?: pulumi.Input<boolean>;
 }

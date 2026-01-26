@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataTableWithColumns {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     private @Nullable List<String> columnNames;
-    /**
-     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     private @Nullable OptInResourceDataTableWithColumnsColumnWildcard columnWildcard;
-    /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Name of the table.
-     * 
-     */
     private String name;
 
     private OptInResourceDataTableWithColumns() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
-    /**
-     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     public Optional<OptInResourceDataTableWithColumnsColumnWildcard> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
-    /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Name of the table.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -15,359 +15,115 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceResult {
-    /**
-     * @return Hostname of the RDS instance. See also `endpoint` and `port`.
-     * 
-     */
     private String address;
-    /**
-     * @return Allocated storage size specified in gigabytes.
-     * 
-     */
     private Integer allocatedStorage;
-    /**
-     * @return Indicates that minor version patches are applied automatically.
-     * 
-     */
     private Boolean autoMinorVersionUpgrade;
-    /**
-     * @return Name of the Availability Zone the DB instance is located in.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Specifies the number of days for which automatic DB snapshots are retained.
-     * 
-     */
     private Integer backupRetentionPeriod;
-    /**
-     * @return Identifier of the CA certificate for the DB instance.
-     * 
-     */
     private String caCertIdentifier;
-    /**
-     * @return The mode of Database Insights that is enabled for the DB instance.
-     * 
-     */
     private String databaseInsightsMode;
-    /**
-     * @return If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
-     * 
-     */
     private String dbClusterIdentifier;
-    /**
-     * @return ARN for the DB instance.
-     * 
-     */
     private String dbInstanceArn;
-    /**
-     * @return Contains the name of the compute and memory capacity class of the DB instance.
-     * 
-     */
     private String dbInstanceClass;
     private String dbInstanceIdentifier;
-    /**
-     * @return Port that the DB instance listens on.
-     * 
-     */
     private Integer dbInstancePort;
-    /**
-     * @return Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
-     * 
-     */
     private String dbName;
-    /**
-     * @return Provides the list of DB parameter groups applied to this DB instance.
-     * 
-     */
     private List<String> dbParameterGroups;
-    /**
-     * @return Name of the subnet group associated with the DB instance.
-     * 
-     */
     private String dbSubnetGroup;
-    /**
-     * @return List of log types to export to cloudwatch.
-     * 
-     */
     private List<String> enabledCloudwatchLogsExports;
-    /**
-     * @return Connection endpoint in `address:port` format.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return Provides the name of the database engine to be used for this DB instance.
-     * 
-     */
     private String engine;
-    /**
-     * @return Database engine version.
-     * 
-     */
     private String engineVersion;
-    /**
-     * @return Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
-     * 
-     */
     private String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Provisioned IOPS (I/O operations per second) value.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return License model information for this DB instance.
-     * 
-     */
     private String licenseModel;
-    /**
-     * @return Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
-     * 
-     */
     private List<GetInstanceMasterUserSecret> masterUserSecrets;
-    /**
-     * @return Contains the master username for the DB instance.
-     * 
-     */
     private String masterUsername;
-    /**
-     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
-     * 
-     */
     private Integer maxAllocatedStorage;
-    /**
-     * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
-     * 
-     */
     private Integer monitoringInterval;
-    /**
-     * @return ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
-     * 
-     */
     private String monitoringRoleArn;
-    /**
-     * @return If the DB instance is a Multi-AZ deployment.
-     * 
-     */
     private Boolean multiAz;
-    /**
-     * @return Network type of the DB instance.
-     * 
-     */
     private String networkType;
-    /**
-     * @return Provides the list of option group memberships for this DB instance.
-     * 
-     */
     private List<String> optionGroupMemberships;
-    /**
-     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
-     * 
-     */
     private Integer port;
-    /**
-     * @return Specifies the daily time range during which automated backups are created.
-     * 
-     */
     private String preferredBackupWindow;
-    /**
-     * @return Specifies the weekly time range during which system maintenance can occur in UTC.
-     * 
-     */
     private String preferredMaintenanceWindow;
-    /**
-     * @return Accessibility options for the DB instance.
-     * 
-     */
     private Boolean publiclyAccessible;
     private String region;
-    /**
-     * @return Identifier of the source DB that this is a replica of.
-     * 
-     */
     private String replicateSourceDb;
-    /**
-     * @return RDS Resource ID of this instance.
-     * 
-     */
     private String resourceId;
-    /**
-     * @return Whether the DB instance is encrypted.
-     * 
-     */
     private Boolean storageEncrypted;
-    /**
-     * @return Storage throughput value for the DB instance.
-     * 
-     */
     private Integer storageThroughput;
-    /**
-     * @return Storage type associated with DB instance.
-     * 
-     */
     private String storageType;
     private Map<String,String> tags;
-    /**
-     * @return Time zone of the DB instance.
-     * 
-     */
     private String timezone;
-    /**
-     * @return Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
-     * 
-     */
     private String upgradeRolloutOrder;
-    /**
-     * @return Provides a list of VPC security group elements that the DB instance belongs to.
-     * 
-     */
     private List<String> vpcSecurityGroups;
 
     private GetInstanceResult() {}
-    /**
-     * @return Hostname of the RDS instance. See also `endpoint` and `port`.
-     * 
-     */
     public String address() {
         return this.address;
     }
-    /**
-     * @return Allocated storage size specified in gigabytes.
-     * 
-     */
     public Integer allocatedStorage() {
         return this.allocatedStorage;
     }
-    /**
-     * @return Indicates that minor version patches are applied automatically.
-     * 
-     */
     public Boolean autoMinorVersionUpgrade() {
         return this.autoMinorVersionUpgrade;
     }
-    /**
-     * @return Name of the Availability Zone the DB instance is located in.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Specifies the number of days for which automatic DB snapshots are retained.
-     * 
-     */
     public Integer backupRetentionPeriod() {
         return this.backupRetentionPeriod;
     }
-    /**
-     * @return Identifier of the CA certificate for the DB instance.
-     * 
-     */
     public String caCertIdentifier() {
         return this.caCertIdentifier;
     }
-    /**
-     * @return The mode of Database Insights that is enabled for the DB instance.
-     * 
-     */
     public String databaseInsightsMode() {
         return this.databaseInsightsMode;
     }
-    /**
-     * @return If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
-     * 
-     */
     public String dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
-    /**
-     * @return ARN for the DB instance.
-     * 
-     */
     public String dbInstanceArn() {
         return this.dbInstanceArn;
     }
-    /**
-     * @return Contains the name of the compute and memory capacity class of the DB instance.
-     * 
-     */
     public String dbInstanceClass() {
         return this.dbInstanceClass;
     }
     public String dbInstanceIdentifier() {
         return this.dbInstanceIdentifier;
     }
-    /**
-     * @return Port that the DB instance listens on.
-     * 
-     */
     public Integer dbInstancePort() {
         return this.dbInstancePort;
     }
-    /**
-     * @return Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
-     * 
-     */
     public String dbName() {
         return this.dbName;
     }
-    /**
-     * @return Provides the list of DB parameter groups applied to this DB instance.
-     * 
-     */
     public List<String> dbParameterGroups() {
         return this.dbParameterGroups;
     }
-    /**
-     * @return Name of the subnet group associated with the DB instance.
-     * 
-     */
     public String dbSubnetGroup() {
         return this.dbSubnetGroup;
     }
-    /**
-     * @return List of log types to export to cloudwatch.
-     * 
-     */
     public List<String> enabledCloudwatchLogsExports() {
         return this.enabledCloudwatchLogsExports;
     }
-    /**
-     * @return Connection endpoint in `address:port` format.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return Provides the name of the database engine to be used for this DB instance.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return Database engine version.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * @return Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
-     * 
-     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }
@@ -378,170 +134,78 @@ public final class GetInstanceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Provisioned IOPS (I/O operations per second) value.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return License model information for this DB instance.
-     * 
-     */
     public String licenseModel() {
         return this.licenseModel;
     }
-    /**
-     * @return Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
-     * 
-     */
     public List<GetInstanceMasterUserSecret> masterUserSecrets() {
         return this.masterUserSecrets;
     }
-    /**
-     * @return Contains the master username for the DB instance.
-     * 
-     */
     public String masterUsername() {
         return this.masterUsername;
     }
-    /**
-     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
-     * 
-     */
     public Integer maxAllocatedStorage() {
         return this.maxAllocatedStorage;
     }
-    /**
-     * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
-     * 
-     */
     public Integer monitoringInterval() {
         return this.monitoringInterval;
     }
-    /**
-     * @return ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
-     * 
-     */
     public String monitoringRoleArn() {
         return this.monitoringRoleArn;
     }
-    /**
-     * @return If the DB instance is a Multi-AZ deployment.
-     * 
-     */
     public Boolean multiAz() {
         return this.multiAz;
     }
-    /**
-     * @return Network type of the DB instance.
-     * 
-     */
     public String networkType() {
         return this.networkType;
     }
-    /**
-     * @return Provides the list of option group memberships for this DB instance.
-     * 
-     */
     public List<String> optionGroupMemberships() {
         return this.optionGroupMemberships;
     }
-    /**
-     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return Specifies the daily time range during which automated backups are created.
-     * 
-     */
     public String preferredBackupWindow() {
         return this.preferredBackupWindow;
     }
-    /**
-     * @return Specifies the weekly time range during which system maintenance can occur in UTC.
-     * 
-     */
     public String preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
     }
-    /**
-     * @return Accessibility options for the DB instance.
-     * 
-     */
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Identifier of the source DB that this is a replica of.
-     * 
-     */
     public String replicateSourceDb() {
         return this.replicateSourceDb;
     }
-    /**
-     * @return RDS Resource ID of this instance.
-     * 
-     */
     public String resourceId() {
         return this.resourceId;
     }
-    /**
-     * @return Whether the DB instance is encrypted.
-     * 
-     */
     public Boolean storageEncrypted() {
         return this.storageEncrypted;
     }
-    /**
-     * @return Storage throughput value for the DB instance.
-     * 
-     */
     public Integer storageThroughput() {
         return this.storageThroughput;
     }
-    /**
-     * @return Storage type associated with DB instance.
-     * 
-     */
     public String storageType() {
         return this.storageType;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Time zone of the DB instance.
-     * 
-     */
     public String timezone() {
         return this.timezone;
     }
-    /**
-     * @return Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
-     * 
-     */
     public String upgradeRolloutOrder() {
         return this.upgradeRolloutOrder;
     }
-    /**
-     * @return Provides a list of VPC security group elements that the DB instance belongs to.
-     * 
-     */
     public List<String> vpcSecurityGroups() {
         return this.vpcSecurityGroups;
     }

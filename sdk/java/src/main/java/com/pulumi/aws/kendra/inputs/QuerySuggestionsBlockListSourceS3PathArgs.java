@@ -14,36 +14,16 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
 
     public static final QuerySuggestionsBlockListSourceS3PathArgs Empty = new QuerySuggestionsBlockListSourceS3PathArgs();
 
-    /**
-     * Name of the S3 bucket that contains the file.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the S3 bucket that contains the file.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Name of the file.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Name of the file.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -73,48 +53,20 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
             $ = new QuerySuggestionsBlockListSourceS3PathArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the S3 bucket that contains the file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the S3 bucket that contains the file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param key Name of the file.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Name of the file.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

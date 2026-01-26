@@ -56,9 +56,6 @@ class GetQueuesResult:
     @_builtins.property
     @pulumi.getter(name="queueUrls")
     def queue_urls(self) -> Sequence[_builtins.str]:
-        """
-        A list of queue URLs.
-        """
         return pulumi.get(self, "queue_urls")
 
     @_builtins.property
@@ -83,22 +80,7 @@ def get_queues(queue_name_prefix: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueuesResult:
     """
-    Data source for managing an AWS SQS (Simple Queue) Queues.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queues(queue_name_prefix="example")
-    ```
-
-
-    :param _builtins.str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix
@@ -115,22 +97,7 @@ def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[_builtin
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueuesResult]:
     """
-    Data source for managing an AWS SQS (Simple Queue) Queues.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queues(queue_name_prefix="example")
-    ```
-
-
-    :param _builtins.str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix

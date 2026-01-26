@@ -17,136 +17,48 @@ import java.util.Objects;
 @CustomType
 public final class GetContainerRecipeResult {
     private String arn;
-    /**
-     * @return List of objects with components for the container recipe.
-     * 
-     */
     private List<GetContainerRecipeComponent> components;
-    /**
-     * @return Type of the container.
-     * 
-     */
     private String containerType;
-    /**
-     * @return Date the container recipe was created.
-     * 
-     */
     private String dateCreated;
-    /**
-     * @return Description of the container recipe.
-     * 
-     */
     private String description;
-    /**
-     * @return Dockerfile template used to build the image.
-     * 
-     */
     private String dockerfileTemplateData;
-    /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     private Boolean encrypted;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return List of objects with instance configurations for building and testing container images.
-     * 
-     */
     private List<GetContainerRecipeInstanceConfiguration> instanceConfigurations;
-    /**
-     * @return KMS key used to encrypt the container image.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Name of the container recipe.
-     * 
-     */
     private String name;
-    /**
-     * @return Owner of the container recipe.
-     * 
-     */
     private String owner;
-    /**
-     * @return Base image for the container recipe.
-     * 
-     */
     private String parentImage;
-    /**
-     * @return Platform of the container recipe.
-     * 
-     */
     private String platform;
     private String region;
-    /**
-     * @return Key-value map of resource tags for the container recipe.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Destination repository for the container image.
-     * 
-     */
     private List<GetContainerRecipeTargetRepository> targetRepositories;
-    /**
-     * @return Version of the container recipe.
-     * 
-     */
     private String version;
-    /**
-     * @return Working directory used during build and test workflows.
-     * 
-     */
     private String workingDirectory;
 
     private GetContainerRecipeResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return List of objects with components for the container recipe.
-     * 
-     */
     public List<GetContainerRecipeComponent> components() {
         return this.components;
     }
-    /**
-     * @return Type of the container.
-     * 
-     */
     public String containerType() {
         return this.containerType;
     }
-    /**
-     * @return Date the container recipe was created.
-     * 
-     */
     public String dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * @return Description of the container recipe.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Dockerfile template used to build the image.
-     * 
-     */
     public String dockerfileTemplateData() {
         return this.dockerfileTemplateData;
     }
-    /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
@@ -157,76 +69,36 @@ public final class GetContainerRecipeResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of objects with instance configurations for building and testing container images.
-     * 
-     */
     public List<GetContainerRecipeInstanceConfiguration> instanceConfigurations() {
         return this.instanceConfigurations;
     }
-    /**
-     * @return KMS key used to encrypt the container image.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Name of the container recipe.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Owner of the container recipe.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Base image for the container recipe.
-     * 
-     */
     public String parentImage() {
         return this.parentImage;
     }
-    /**
-     * @return Platform of the container recipe.
-     * 
-     */
     public String platform() {
         return this.platform;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the container recipe.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Destination repository for the container image.
-     * 
-     */
     public List<GetContainerRecipeTargetRepository> targetRepositories() {
         return this.targetRepositories;
     }
-    /**
-     * @return Version of the container recipe.
-     * 
-     */
     public String version() {
         return this.version;
     }
-    /**
-     * @return Working directory used during build and test workflows.
-     * 
-     */
     public String workingDirectory() {
         return this.workingDirectory;
     }

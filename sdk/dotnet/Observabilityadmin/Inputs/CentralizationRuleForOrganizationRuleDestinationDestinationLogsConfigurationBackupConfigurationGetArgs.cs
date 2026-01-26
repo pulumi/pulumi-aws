@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
 
     public sealed class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the KMS key to use for backup encryption.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// AWS region for backup storage.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

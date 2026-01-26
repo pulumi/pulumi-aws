@@ -17,32 +17,16 @@ public final class TopicRuleErrorActionDynamodbv2Args extends com.pulumi.resourc
 
     public static final TopicRuleErrorActionDynamodbv2Args Empty = new TopicRuleErrorActionDynamodbv2Args();
 
-    /**
-     * Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-     * 
-     */
     @Import(name="putItem")
     private @Nullable Output<TopicRuleErrorActionDynamodbv2PutItemArgs> putItem;
 
-    /**
-     * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-     * 
-     */
     public Optional<Output<TopicRuleErrorActionDynamodbv2PutItemArgs>> putItem() {
         return Optional.ofNullable(this.putItem);
     }
 
-    /**
-     * The ARN of the IAM role that grants access to the DynamoDB table.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role that grants access to the DynamoDB table.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -72,44 +56,20 @@ public final class TopicRuleErrorActionDynamodbv2Args extends com.pulumi.resourc
             $ = new TopicRuleErrorActionDynamodbv2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param putItem Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder putItem(@Nullable Output<TopicRuleErrorActionDynamodbv2PutItemArgs> putItem) {
             $.putItem = putItem;
             return this;
         }
 
-        /**
-         * @param putItem Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder putItem(TopicRuleErrorActionDynamodbv2PutItemArgs putItem) {
             return putItem(Output.of(putItem));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access to the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access to the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

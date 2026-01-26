@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
- * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.s3.getCanonicalUserId({});
- * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucket.id,
- *     rule: {
- *         objectOwnership: "BucketOwnerPreferred",
- *     },
- * });
- * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
- *     bucket: exampleBucket.id,
- *     accessControlPolicy: {
- *         grants: [{
- *             grantee: {
- *                 id: example.then(example => example.id),
- *                 type: "CanonicalUser",
- *             },
- *             permission: "FULL_CONTROL",
- *         }],
- *         owner: {
- *             id: current.then(current => current.id),
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleBucketOwnershipControls],
- * });
- * ```
- */
 export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,9 +16,6 @@ export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUser
  * A collection of arguments for invoking getLogDeliveryCanonicalUserId.
  */
 export interface GetLogDeliveryCanonicalUserIdArgs {
-    /**
-     * Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -70,44 +29,6 @@ export interface GetLogDeliveryCanonicalUserIdResult {
     readonly id: string;
     readonly region?: string;
 }
-/**
- * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
- * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.s3.getCanonicalUserId({});
- * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucket.id,
- *     rule: {
- *         objectOwnership: "BucketOwnerPreferred",
- *     },
- * });
- * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
- *     bucket: exampleBucket.id,
- *     accessControlPolicy: {
- *         grants: [{
- *             grantee: {
- *                 id: example.then(example => example.id),
- *                 type: "CanonicalUser",
- *             },
- *             permission: "FULL_CONTROL",
- *         }],
- *         owner: {
- *             id: current.then(current => current.id),
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleBucketOwnershipControls],
- * });
- * ```
- */
 export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -120,8 +41,5 @@ export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonic
  * A collection of arguments for invoking getLogDeliveryCanonicalUserId.
  */
 export interface GetLogDeliveryCanonicalUserIdOutputArgs {
-    /**
-     * Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

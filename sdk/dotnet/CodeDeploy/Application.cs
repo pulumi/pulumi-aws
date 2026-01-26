@@ -9,130 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeDeploy
 {
-    /// <summary>
-    /// Provides a CodeDeploy application to be used as a basis for deployments
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### ECS Application
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
-    ///     {
-    ///         ComputePlatform = "ECS",
-    ///         Name = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Lambda Application
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
-    ///     {
-    ///         ComputePlatform = "Lambda",
-    ///         Name = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Server Application
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
-    ///     {
-    ///         ComputePlatform = "Server",
-    ///         Name = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:codedeploy/application:Application example my-application
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codedeploy/application:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the CodeDeploy application.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        /// </summary>
         [Output("computePlatform")]
         public Output<string?> ComputePlatform { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for a connection to a GitHub account.
-        /// </summary>
         [Output("githubAccountName")]
         public Output<string> GithubAccountName { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the user has authenticated with GitHub for the specified application.
-        /// </summary>
         [Output("linkedToGithub")]
         public Output<bool> LinkedToGithub { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -182,30 +85,17 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        /// </summary>
         [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -220,54 +110,29 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
-        /// <summary>
-        /// The ARN of the CodeDeploy application.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        /// </summary>
         [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
 
-        /// <summary>
-        /// The name for a connection to a GitHub account.
-        /// </summary>
         [Input("githubAccountName")]
         public Input<string>? GithubAccountName { get; set; }
 
-        /// <summary>
-        /// Whether the user has authenticated with GitHub for the specified application.
-        /// </summary>
         [Input("linkedToGithub")]
         public Input<bool>? LinkedToGithub { get; set; }
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -276,10 +141,6 @@ namespace Pulumi.Aws.CodeDeploy
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

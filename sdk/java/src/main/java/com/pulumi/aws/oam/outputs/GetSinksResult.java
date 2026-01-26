@@ -11,10 +11,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSinksResult {
-    /**
-     * @return Set of ARN of the Sinks.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,10 +20,6 @@ public final class GetSinksResult {
     private String region;
 
     private GetSinksResult() {}
-    /**
-     * @return Set of ARN of the Sinks.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }

@@ -17,167 +17,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.ServiceIntegration;
- * import com.pulumi.aws.devopsguru.ServiceIntegrationArgs;
- * import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationKmsServerSideEncryptionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationLogsAnomalyDetectionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationOpsCenterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServiceIntegration("example", ServiceIntegrationArgs.builder()
- *             .kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs.builder()
- *                 .optInStatus("ENABLED")
- *                 .type("AWS_OWNED_KMS_KEY")
- *                 .build())
- *             .logsAnomalyDetection(ServiceIntegrationLogsAnomalyDetectionArgs.builder()
- *                 .optInStatus("ENABLED")
- *                 .build())
- *             .opsCenter(ServiceIntegrationOpsCenterArgs.builder()
- *                 .optInStatus("ENABLED")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Customer Managed KMS Key
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.devopsguru.ServiceIntegration;
- * import com.pulumi.aws.devopsguru.ServiceIntegrationArgs;
- * import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationKmsServerSideEncryptionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationLogsAnomalyDetectionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ServiceIntegrationOpsCenterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example");
- * 
- *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
- *             .kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs.builder()
- *                 .kmsKeyId(test.arn())
- *                 .optInStatus("ENABLED")
- *                 .type("CUSTOMER_MANAGED_KEY")
- *                 .build())
- *             .logsAnomalyDetection(ServiceIntegrationLogsAnomalyDetectionArgs.builder()
- *                 .optInStatus("DISABLED")
- *                 .build())
- *             .opsCenter(ServiceIntegrationOpsCenterArgs.builder()
- *                 .optInStatus("DISABLED")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
- * 
- * ```sh
- * $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
- * ```
- * 
- */
 @ResourceType(type="aws:devopsguru/serviceIntegration:ServiceIntegration")
 public class ServiceIntegration extends com.pulumi.resources.CustomResource {
-    /**
-     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-     * 
-     */
     @Export(name="kmsServerSideEncryption", refs={ServiceIntegrationKmsServerSideEncryption.class}, tree="[0]")
     private Output</* @Nullable */ ServiceIntegrationKmsServerSideEncryption> kmsServerSideEncryption;
 
-    /**
-     * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-     * 
-     */
     public Output<Optional<ServiceIntegrationKmsServerSideEncryption>> kmsServerSideEncryption() {
         return Codegen.optional(this.kmsServerSideEncryption);
     }
-    /**
-     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-     * 
-     */
     @Export(name="logsAnomalyDetection", refs={ServiceIntegrationLogsAnomalyDetection.class}, tree="[0]")
     private Output</* @Nullable */ ServiceIntegrationLogsAnomalyDetection> logsAnomalyDetection;
 
-    /**
-     * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-     * 
-     */
     public Output<Optional<ServiceIntegrationLogsAnomalyDetection>> logsAnomalyDetection() {
         return Codegen.optional(this.logsAnomalyDetection);
     }
-    /**
-     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-     * 
-     */
     @Export(name="opsCenter", refs={ServiceIntegrationOpsCenter.class}, tree="[0]")
     private Output</* @Nullable */ ServiceIntegrationOpsCenter> opsCenter;
 
-    /**
-     * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-     * 
-     */
     public Output<Optional<ServiceIntegrationOpsCenter>> opsCenter() {
         return Codegen.optional(this.opsCenter);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

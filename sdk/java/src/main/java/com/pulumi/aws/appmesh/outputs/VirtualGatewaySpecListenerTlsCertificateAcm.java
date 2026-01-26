@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualGatewaySpecListenerTlsCertificateAcm {
-    /**
-     * @return ARN for the certificate.
-     * 
-     */
     private String certificateArn;
 
     private VirtualGatewaySpecListenerTlsCertificateAcm() {}
-    /**
-     * @return ARN for the certificate.
-     * 
-     */
     public String certificateArn() {
         return this.certificateArn;
     }

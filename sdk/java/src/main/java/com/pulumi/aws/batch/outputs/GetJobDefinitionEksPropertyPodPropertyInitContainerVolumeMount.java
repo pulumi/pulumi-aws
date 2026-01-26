@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount {
-    /**
-     * @return The path on the container where the volume is mounted.
-     * 
-     */
     private String mountPath;
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     private String name;
-    /**
-     * @return If this value is true, the container has read-only access to the volume.
-     * 
-     */
     private Boolean readOnly;
 
     private GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount() {}
-    /**
-     * @return The path on the container where the volume is mounted.
-     * 
-     */
     public String mountPath() {
         return this.mountPath;
     }
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return If this value is true, the container has read-only access to the volume.
-     * 
-     */
     public Boolean readOnly() {
         return this.readOnly;
     }

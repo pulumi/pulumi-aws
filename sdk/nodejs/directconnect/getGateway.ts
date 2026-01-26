@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about a Direct Connect Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.directconnect.getGateway({
- *     name: "example",
- * });
- * ```
- */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
@@ -30,13 +16,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getGateway.
  */
 export interface GetGatewayArgs {
-    /**
-     * Name of the gateway to retrieve.
-     */
     name: string;
-    /**
-     * A map of tags assigned to the gateway.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -44,42 +24,16 @@ export interface GetGatewayArgs {
  * A collection of values returned by getGateway.
  */
 export interface GetGatewayResult {
-    /**
-     * ASN on the Amazon side of the connection.
-     */
     readonly amazonSideAsn: string;
-    /**
-     * ARN of the gateway.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
-    /**
-     * AWS Account ID of the gateway.
-     */
     readonly ownerAccountId: string;
-    /**
-     * A map of tags assigned to the gateway.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Retrieve information about a Direct Connect Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.directconnect.getGateway({
- *     name: "example",
- * });
- * ```
- */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getGateway:getGateway", {
@@ -92,12 +46,6 @@ export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getGateway.
  */
 export interface GetGatewayOutputArgs {
-    /**
-     * Name of the gateway to retrieve.
-     */
     name: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the gateway.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

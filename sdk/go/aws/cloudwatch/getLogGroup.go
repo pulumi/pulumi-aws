@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an AWS Cloudwatch Log Group
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.LookupLogGroup(ctx, &cloudwatch.LookupLogGroupArgs{
-//				Name: "MyImportantLogs",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulumi.InvokeOption) (*LookupLogGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLogGroupResult
@@ -50,34 +23,24 @@ func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulum
 
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupArgs struct {
-	// Name of the Cloudwatch log group
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLogGroup.
 type LookupLogGroupResult struct {
-	// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-	Arn string `pulumi:"arn"`
-	// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-	CreationTime int `pulumi:"creationTime"`
-	// Boolean to indicate whether deletion protection is enabled.
-	DeletionProtectionEnabled bool `pulumi:"deletionProtectionEnabled"`
+	Arn                       string `pulumi:"arn"`
+	CreationTime              int    `pulumi:"creationTime"`
+	DeletionProtectionEnabled bool   `pulumi:"deletionProtectionEnabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the KMS Key to use when encrypting log data.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The log class of the log group.
-	LogGroupClass string `pulumi:"logGroupClass"`
-	Name          string `pulumi:"name"`
-	Region        string `pulumi:"region"`
-	// Number of days log events retained in the specified log group.
-	RetentionInDays int `pulumi:"retentionInDays"`
-	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id              string            `pulumi:"id"`
+	KmsKeyId        string            `pulumi:"kmsKeyId"`
+	LogGroupClass   string            `pulumi:"logGroupClass"`
+	Name            string            `pulumi:"name"`
+	Region          string            `pulumi:"region"`
+	RetentionInDays int               `pulumi:"retentionInDays"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, opts ...pulumi.InvokeOption) LookupLogGroupResultOutput {
@@ -91,12 +54,9 @@ func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, op
 
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupOutputArgs struct {
-	// Name of the Cloudwatch log group
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags to assign to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLogGroupOutputArgs) ElementType() reflect.Type {
@@ -118,17 +78,14 @@ func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 func (o LookupLogGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 func (o LookupLogGroupResultOutput) CreationTime() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) int { return v.CreationTime }).(pulumi.IntOutput)
 }
 
-// Boolean to indicate whether deletion protection is enabled.
 func (o LookupLogGroupResultOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) bool { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
 }
@@ -138,12 +95,10 @@ func (o LookupLogGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the KMS Key to use when encrypting log data.
 func (o LookupLogGroupResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The log class of the log group.
 func (o LookupLogGroupResultOutput) LogGroupClass() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.LogGroupClass }).(pulumi.StringOutput)
 }
@@ -156,12 +111,10 @@ func (o LookupLogGroupResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Number of days log events retained in the specified log group.
 func (o LookupLogGroupResultOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
-// Map of tags to assign to the resource.
 func (o LookupLogGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

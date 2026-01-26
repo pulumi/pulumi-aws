@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationInlineCodeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The code that's executed in your inline code node.
-        /// </summary>
         [Input("code", required: true)]
         public Input<string> Code { get; set; } = null!;
 
-        /// <summary>
-        /// The programming language used by your inline code node.
-        /// </summary>
         [Input("language", required: true)]
         public Input<string> Language { get; set; } = null!;
 

@@ -19,201 +19,93 @@ public final class DxGatewayAttachmentState extends com.pulumi.resources.Resourc
 
     public static final DxGatewayAttachmentState Empty = new DxGatewayAttachmentState();
 
-    /**
-     * ARN of the attachment.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Policy rule number associated with the attachment.
-     * 
-     */
     @Import(name="attachmentPolicyRuleNumber")
     private @Nullable Output<Integer> attachmentPolicyRuleNumber;
 
-    /**
-     * @return Policy rule number associated with the attachment.
-     * 
-     */
     public Optional<Output<Integer>> attachmentPolicyRuleNumber() {
         return Optional.ofNullable(this.attachmentPolicyRuleNumber);
     }
 
-    /**
-     * Type of attachment.
-     * 
-     */
     @Import(name="attachmentType")
     private @Nullable Output<String> attachmentType;
 
-    /**
-     * @return Type of attachment.
-     * 
-     */
     public Optional<Output<String>> attachmentType() {
         return Optional.ofNullable(this.attachmentType);
     }
 
-    /**
-     * ARN of the core network for the attachment.
-     * 
-     */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
-    /**
-     * @return ARN of the core network for the attachment.
-     * 
-     */
     public Optional<Output<String>> coreNetworkArn() {
         return Optional.ofNullable(this.coreNetworkArn);
     }
 
-    /**
-     * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     * 
-     */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
-    /**
-     * @return ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-     * 
-     */
     public Optional<Output<String>> coreNetworkId() {
         return Optional.ofNullable(this.coreNetworkId);
     }
 
-    /**
-     * ARN of the Direct Connect gateway attachment.
-     * 
-     */
     @Import(name="directConnectGatewayArn")
     private @Nullable Output<String> directConnectGatewayArn;
 
-    /**
-     * @return ARN of the Direct Connect gateway attachment.
-     * 
-     */
     public Optional<Output<String>> directConnectGatewayArn() {
         return Optional.ofNullable(this.directConnectGatewayArn);
     }
 
-    /**
-     * One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="edgeLocations")
     private @Nullable Output<List<String>> edgeLocations;
 
-    /**
-     * @return One or more core network edge locations to associate with the Direct Connect gateway attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<String>>> edgeLocations() {
         return Optional.ofNullable(this.edgeLocations);
     }
 
-    /**
-     * ID of the attachment account owner.
-     * 
-     */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
-    /**
-     * @return ID of the attachment account owner.
-     * 
-     */
     public Optional<Output<String>> ownerAccountId() {
         return Optional.ofNullable(this.ownerAccountId);
     }
 
-    /**
-     * The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Import(name="routingPolicyLabel")
     private @Nullable Output<String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Optional<Output<String>> routingPolicyLabel() {
         return Optional.ofNullable(this.routingPolicyLabel);
     }
 
-    /**
-     * Name of the segment attachment.
-     * 
-     */
     @Import(name="segmentName")
     private @Nullable Output<String> segmentName;
 
-    /**
-     * @return Name of the segment attachment.
-     * 
-     */
     public Optional<Output<String>> segmentName() {
         return Optional.ofNullable(this.segmentName);
     }
 
-    /**
-     * State of the attachment.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return State of the attachment.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -262,291 +154,123 @@ public final class DxGatewayAttachmentState extends com.pulumi.resources.Resourc
             $ = new DxGatewayAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentPolicyRuleNumber(@Nullable Output<Integer> attachmentPolicyRuleNumber) {
             $.attachmentPolicyRuleNumber = attachmentPolicyRuleNumber;
             return this;
         }
 
-        /**
-         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentPolicyRuleNumber(Integer attachmentPolicyRuleNumber) {
             return attachmentPolicyRuleNumber(Output.of(attachmentPolicyRuleNumber));
         }
 
-        /**
-         * @param attachmentType Type of attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(@Nullable Output<String> attachmentType) {
             $.attachmentType = attachmentType;
             return this;
         }
 
-        /**
-         * @param attachmentType Type of attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(String attachmentType) {
             return attachmentType(Output.of(attachmentType));
         }
 
-        /**
-         * @param coreNetworkArn ARN of the core network for the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkArn(@Nullable Output<String> coreNetworkArn) {
             $.coreNetworkArn = coreNetworkArn;
             return this;
         }
 
-        /**
-         * @param coreNetworkArn ARN of the core network for the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkArn(String coreNetworkArn) {
             return coreNetworkArn(Output.of(coreNetworkArn));
         }
 
-        /**
-         * @param coreNetworkId ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(@Nullable Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
-        /**
-         * @param coreNetworkId ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
-        /**
-         * @param directConnectGatewayArn ARN of the Direct Connect gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directConnectGatewayArn(@Nullable Output<String> directConnectGatewayArn) {
             $.directConnectGatewayArn = directConnectGatewayArn;
             return this;
         }
 
-        /**
-         * @param directConnectGatewayArn ARN of the Direct Connect gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directConnectGatewayArn(String directConnectGatewayArn) {
             return directConnectGatewayArn(Output.of(directConnectGatewayArn));
         }
 
-        /**
-         * @param edgeLocations One or more core network edge locations to associate with the Direct Connect gateway attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(@Nullable Output<List<String>> edgeLocations) {
             $.edgeLocations = edgeLocations;
             return this;
         }
 
-        /**
-         * @param edgeLocations One or more core network edge locations to associate with the Direct Connect gateway attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(List<String> edgeLocations) {
             return edgeLocations(Output.of(edgeLocations));
         }
 
-        /**
-         * @param edgeLocations One or more core network edge locations to associate with the Direct Connect gateway attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(String... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
         }
 
-        /**
-         * @param ownerAccountId ID of the attachment account owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(@Nullable Output<String> ownerAccountId) {
             $.ownerAccountId = ownerAccountId;
             return this;
         }
 
-        /**
-         * @param ownerAccountId ID of the attachment account owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
             $.routingPolicyLabel = routingPolicyLabel;
             return this;
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(String routingPolicyLabel) {
             return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
-        /**
-         * @param segmentName Name of the segment attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segmentName(@Nullable Output<String> segmentName) {
             $.segmentName = segmentName;
             return this;
         }
 
-        /**
-         * @param segmentName Name of the segment attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segmentName(String segmentName) {
             return segmentName(Output.of(segmentName));
         }
 
-        /**
-         * @param state State of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state State of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3
     {
-        /// <summary>
-        /// Account ID of the S3 bucket owner.
-        /// </summary>
         public readonly string? BucketOwnerAccountId;
-        /// <summary>
-        /// S3 URI where the schema is stored.
-        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]

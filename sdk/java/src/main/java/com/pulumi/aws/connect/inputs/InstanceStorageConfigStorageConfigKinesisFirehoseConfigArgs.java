@@ -14,17 +14,9 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs e
 
     public static final InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs Empty = new InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the delivery stream.
-     * 
-     */
     @Import(name="firehoseArn", required=true)
     private Output<String> firehoseArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delivery stream.
-     * 
-     */
     public Output<String> firehoseArn() {
         return this.firehoseArn;
     }
@@ -53,23 +45,11 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs e
             $ = new InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firehoseArn The Amazon Resource Name (ARN) of the delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseArn(Output<String> firehoseArn) {
             $.firehoseArn = firehoseArn;
             return this;
         }
 
-        /**
-         * @param firehoseArn The Amazon Resource Name (ARN) of the delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseArn(String firehoseArn) {
             return firehoseArn(Output.of(firehoseArn));
         }

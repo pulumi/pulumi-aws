@@ -15,137 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup vault lock configuration resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.VaultLockConfiguration;
- * import com.pulumi.aws.backup.VaultLockConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new VaultLockConfiguration("test", VaultLockConfigurationArgs.builder()
- *             .backupVaultName("example_backup_vault")
- *             .changeableForDays(3)
- *             .maxRetentionDays(1200)
- *             .minRetentionDays(7)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
- * ```
- * 
- */
 @ResourceType(type="aws:backup/vaultLockConfiguration:VaultLockConfiguration")
 public class VaultLockConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the vault.
-     * 
-     */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
-    /**
-     * @return The ARN of the vault.
-     * 
-     */
     public Output<String> backupVaultArn() {
         return this.backupVaultArn;
     }
-    /**
-     * Name of the backup vault to add a lock configuration for.
-     * 
-     */
     @Export(name="backupVaultName", refs={String.class}, tree="[0]")
     private Output<String> backupVaultName;
 
-    /**
-     * @return Name of the backup vault to add a lock configuration for.
-     * 
-     */
     public Output<String> backupVaultName() {
         return this.backupVaultName;
     }
-    /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-     * 
-     */
     @Export(name="changeableForDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> changeableForDays;
 
-    /**
-     * @return The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-     * 
-     */
     public Output<Optional<Integer>> changeableForDays() {
         return Codegen.optional(this.changeableForDays);
     }
-    /**
-     * The maximum retention period that the vault retains its recovery points.
-     * 
-     */
     @Export(name="maxRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetentionDays;
 
-    /**
-     * @return The maximum retention period that the vault retains its recovery points.
-     * 
-     */
     public Output<Optional<Integer>> maxRetentionDays() {
         return Codegen.optional(this.maxRetentionDays);
     }
-    /**
-     * The minimum retention period that the vault retains its recovery points.
-     * 
-     */
     @Export(name="minRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minRetentionDays;
 
-    /**
-     * @return The minimum retention period that the vault retains its recovery points.
-     * 
-     */
     public Output<Optional<Integer>> minRetentionDays() {
         return Codegen.optional(this.minRetentionDays);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

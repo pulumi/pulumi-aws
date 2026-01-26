@@ -15,173 +15,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
- * 
- * Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role.
- * When you register the S3 path, the service-linked role and a new inline policy are created on your behalf.
- * Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
- * When you register subsequent paths, Lake Formation adds the path to the existing policy.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.S3Functions;
- * import com.pulumi.aws.s3.inputs.GetBucketArgs;
- * import com.pulumi.aws.lakeformation.Resource;
- * import com.pulumi.aws.lakeformation.ResourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket("an-example-bucket")
- *             .build());
- * 
- *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
- *             .arn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:lakeformation/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
-     * 
-     */
     @Export(name="hybridAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hybridAccessEnabled;
 
-    /**
-     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
-     * 
-     */
     public Output<Boolean> hybridAccessEnabled() {
         return this.hybridAccessEnabled;
     }
-    /**
-     * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
-    /**
-     * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Output<String> lastModified() {
         return this.lastModified;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Role that has read/write access to the resource.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return Role that has read/write access to the resource.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-     * 
-     */
     @Export(name="useServiceLinkedRole", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useServiceLinkedRole;
 
-    /**
-     * @return Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-     * 
-     */
     public Output<Optional<Boolean>> useServiceLinkedRole() {
         return Codegen.optional(this.useServiceLinkedRole);
     }
-    /**
-     * Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-     * 
-     */
     @Export(name="withFederation", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> withFederation;
 
-    /**
-     * @return Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-     * 
-     */
     public Output<Boolean> withFederation() {
         return this.withFederation;
     }
-    /**
-     * Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
-     */
     @Export(name="withPrivilegedAccess", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> withPrivilegedAccess;
 
-    /**
-     * @return Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
-     */
     public Output<Boolean> withPrivilegedAccess() {
         return this.withPrivilegedAccess;
     }

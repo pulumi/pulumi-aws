@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsTimecodeConfig {
-    /**
-     * @return The source for the timecode that will be associated with the events outputs.
-     * 
-     */
     private String source;
-    /**
-     * @return Threshold in frames beyond which output timecode is resynchronized to the input timecode.
-     * 
-     */
     private @Nullable Integer syncThreshold;
 
     private ChannelEncoderSettingsTimecodeConfig() {}
-    /**
-     * @return The source for the timecode that will be associated with the events outputs.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Threshold in frames beyond which output timecode is resynchronized to the input timecode.
-     * 
-     */
     public Optional<Integer> syncThreshold() {
         return Optional.ofNullable(this.syncThreshold);
     }

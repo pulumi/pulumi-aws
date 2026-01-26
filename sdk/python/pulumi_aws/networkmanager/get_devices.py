@@ -59,9 +59,6 @@ class GetDevicesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of the devices.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -93,24 +90,7 @@ def get_devices(global_network_id: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevicesResult:
     """
-    Provides details about existing Network Manager devices.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_devices(global_network_id=global_network_id,
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the Global Network of the devices to retrieve.
-    :param _builtins.str site_id: ID of the site of the devices to retrieve.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the devices with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -130,24 +110,7 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[_builtins.str]] 
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevicesResult]:
     """
-    Provides details about existing Network Manager devices.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_devices(global_network_id=global_network_id,
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the Global Network of the devices to retrieve.
-    :param _builtins.str site_id: ID of the site of the devices to retrieve.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the devices with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id

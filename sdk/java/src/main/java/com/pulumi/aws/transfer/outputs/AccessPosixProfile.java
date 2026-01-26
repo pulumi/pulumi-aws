@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AccessPosixProfile {
-    /**
-     * @return The POSIX group ID used for all EFS operations by this user.
-     * 
-     */
     private Integer gid;
-    /**
-     * @return The secondary POSIX group IDs used for all EFS operations by this user.
-     * 
-     */
     private @Nullable List<Integer> secondaryGids;
-    /**
-     * @return The POSIX user ID used for all EFS operations by this user.
-     * 
-     */
     private Integer uid;
 
     private AccessPosixProfile() {}
-    /**
-     * @return The POSIX group ID used for all EFS operations by this user.
-     * 
-     */
     public Integer gid() {
         return this.gid;
     }
-    /**
-     * @return The secondary POSIX group IDs used for all EFS operations by this user.
-     * 
-     */
     public List<Integer> secondaryGids() {
         return this.secondaryGids == null ? List.of() : this.secondaryGids;
     }
-    /**
-     * @return The POSIX user ID used for all EFS operations by this user.
-     * 
-     */
     public Integer uid() {
         return this.uid;
     }

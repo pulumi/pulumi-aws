@@ -15,17 +15,9 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManag
 
     public static final UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs Empty = new UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs();
 
-    /**
-     * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     @Import(name="idleSettings")
     private @Nullable Output<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings;
 
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs>> idleSettings() {
         return Optional.ofNullable(this.idleSettings);
     }
@@ -54,23 +46,11 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManag
             $ = new UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(@Nullable Output<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings) {
             $.idleSettings = idleSettings;
             return this;
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs idleSettings) {
             return idleSettings(Output.of(idleSettings));
         }

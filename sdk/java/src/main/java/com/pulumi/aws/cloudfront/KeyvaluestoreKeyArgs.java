@@ -15,14 +15,14 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
     public static final KeyvaluestoreKeyArgs Empty = new KeyvaluestoreKeyArgs();
 
     /**
-     * Key to put.
+     * The key to put.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Key to put.
+     * @return The key to put.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     @Import(name="keyValueStoreArn", required=true)
     private Output<String> keyValueStoreArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Value Store.
+     * @return The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     public Output<String> keyValueStoreArn() {
@@ -45,14 +45,14 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Value to put.
+     * The value to put.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value to put.
+     * @return The value to put.
      * 
      */
     public Output<String> value() {
@@ -86,7 +86,7 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param key Key to put.
+         * @param key The key to put.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param key Key to put.
+         * @param key The key to put.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyValueStoreArn Amazon Resource Name (ARN) of the Key Value Store.
+         * @param keyValueStoreArn The Amazon Resource Name (ARN) of the Key Value Store.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyValueStoreArn Amazon Resource Name (ARN) of the Key Value Store.
+         * @param keyValueStoreArn The Amazon Resource Name (ARN) of the Key Value Store.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value Value to put.
+         * @param value The value to put.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value Value to put.
+         * @param value The value to put.
          * 
          * @return builder
          * 

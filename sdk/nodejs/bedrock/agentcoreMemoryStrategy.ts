@@ -7,145 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Bedrock AgentCore Memory Strategy. Memory strategies define how the agent processes and organizes information within a memory, such as semantic understanding, summarization, or custom processing logic.
- *
- * **Important Limitations:**
- *
- * - Each memory can have a maximum of 6 strategies total
- * - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
- * - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
- *
- * ## Example Usage
- *
- * ### Semantic Strategy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const semantic = new aws.bedrock.AgentcoreMemoryStrategy("semantic", {
- *     name: "semantic-strategy",
- *     memoryId: example.id,
- *     type: "SEMANTIC",
- *     description: "Semantic understanding strategy",
- *     namespaces: ["default"],
- * });
- * ```
- *
- * ### Summarization Strategy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const summary = new aws.bedrock.AgentcoreMemoryStrategy("summary", {
- *     name: "summary-strategy",
- *     memoryId: example.id,
- *     type: "SUMMARIZATION",
- *     description: "Text summarization strategy",
- *     namespaces: ["{sessionId}"],
- * });
- * ```
- *
- * ### User Preference Strategy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const userPref = new aws.bedrock.AgentcoreMemoryStrategy("user_pref", {
- *     name: "user-preference-strategy",
- *     memoryId: example.id,
- *     type: "USER_PREFERENCE",
- *     description: "User preference tracking strategy",
- *     namespaces: ["preferences"],
- * });
- * ```
- *
- * ### Custom Strategy with Semantic Override
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const customSemantic = new aws.bedrock.AgentcoreMemoryStrategy("custom_semantic", {
- *     name: "custom-semantic-strategy",
- *     memoryId: example.id,
- *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
- *     type: "CUSTOM",
- *     description: "Custom semantic processing strategy",
- *     namespaces: ["{sessionId}"],
- *     configuration: {
- *         type: "SEMANTIC_OVERRIDE",
- *         consolidation: {
- *             appendToPrompt: "Focus on extracting key semantic relationships and concepts",
- *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
- *         },
- *         extraction: {
- *             appendToPrompt: "Extract and categorize semantic information",
- *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
- *         },
- *     },
- * });
- * ```
- *
- * ### Custom Strategy with Summary Override
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const customSummary = new aws.bedrock.AgentcoreMemoryStrategy("custom_summary", {
- *     name: "custom-summary-strategy",
- *     memoryId: example.id,
- *     type: "CUSTOM",
- *     description: "Custom summarization strategy",
- *     namespaces: ["summaries"],
- *     configuration: {
- *         type: "SUMMARY_OVERRIDE",
- *         consolidation: {
- *             appendToPrompt: "Create concise summaries while preserving key details",
- *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
- *         },
- *     },
- * });
- * ```
- *
- * ### Custom Strategy with User Preference Override
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const customUserPref = new aws.bedrock.AgentcoreMemoryStrategy("custom_user_pref", {
- *     name: "custom-user-preference-strategy",
- *     memoryId: example.id,
- *     type: "CUSTOM",
- *     description: "Custom user preference tracking strategy",
- *     namespaces: ["user_prefs"],
- *     configuration: {
- *         type: "USER_PREFERENCE_OVERRIDE",
- *         consolidation: {
- *             appendToPrompt: "Consolidate user preferences and behavioral patterns",
- *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
- *         },
- *         extraction: {
- *             appendToPrompt: "Extract user preferences and interaction patterns",
- *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
- * ```
- */
 export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
     /**
      * Get an existing AgentcoreMemoryStrategy resource's state with the given name, ID, and optional extra
@@ -174,41 +35,15 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentcoreMemoryStrategy.__pulumiType;
     }
 
-    /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-     */
     declare public readonly configuration: pulumi.Output<outputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
-    /**
-     * Description of the memory strategy.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public readonly memoryExecutionRoleArn: pulumi.Output<string | undefined>;
-    /**
-     * ID of the memory to associate with this strategy. Changing this forces a new resource.
-     */
     declare public readonly memoryId: pulumi.Output<string>;
-    /**
-     * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
-     */
     declare public /*out*/ readonly memoryStrategyId: pulumi.Output<string>;
-    /**
-     * Name of the memory strategy.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly namespaces: pulumi.Output<string[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreMemoryStrategyTimeouts | undefined>;
-    /**
-     * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -265,41 +100,15 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentcoreMemoryStrategy resources.
  */
 export interface AgentcoreMemoryStrategyState {
-    /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-     */
     configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration>;
-    /**
-     * Description of the memory strategy.
-     */
     description?: pulumi.Input<string>;
     memoryExecutionRoleArn?: pulumi.Input<string>;
-    /**
-     * ID of the memory to associate with this strategy. Changing this forces a new resource.
-     */
     memoryId?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
-     */
     memoryStrategyId?: pulumi.Input<string>;
-    /**
-     * Name of the memory strategy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-     *
-     * The following arguments are optional:
-     */
     namespaces?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts>;
-    /**
-     * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -307,36 +116,13 @@ export interface AgentcoreMemoryStrategyState {
  * The set of arguments for constructing a AgentcoreMemoryStrategy resource.
  */
 export interface AgentcoreMemoryStrategyArgs {
-    /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-     */
     configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration>;
-    /**
-     * Description of the memory strategy.
-     */
     description?: pulumi.Input<string>;
     memoryExecutionRoleArn?: pulumi.Input<string>;
-    /**
-     * ID of the memory to associate with this strategy. Changing this forces a new resource.
-     */
     memoryId: pulumi.Input<string>;
-    /**
-     * Name of the memory strategy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-     *
-     * The following arguments are optional:
-     */
     namespaces: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts>;
-    /**
-     * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
-     */
     type: pulumi.Input<string>;
 }

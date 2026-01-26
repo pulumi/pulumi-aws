@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableBucketReplicationRule {
-    /**
-     * @return Replication destination. See Destination below for more details.
-     * 
-     */
     private @Nullable List<TableBucketReplicationRuleDestination> destinations;
 
     private TableBucketReplicationRule() {}
-    /**
-     * @return Replication destination. See Destination below for more details.
-     * 
-     */
     public List<TableBucketReplicationRuleDestination> destinations() {
         return this.destinations == null ? List.of() : this.destinations;
     }

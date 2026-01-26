@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class InferenceProfileModelSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the model.
-        /// </summary>
         [Input("copyFrom", required: true)]
         public Input<string> CopyFrom { get; set; } = null!;
 

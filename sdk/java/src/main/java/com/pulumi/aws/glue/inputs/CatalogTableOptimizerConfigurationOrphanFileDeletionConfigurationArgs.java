@@ -15,17 +15,9 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
 
     public static final CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs Empty = new CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs();
 
-    /**
-     * The configuration for an Iceberg orphan file deletion optimizer.
-     * 
-     */
     @Import(name="icebergConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs> icebergConfiguration;
 
-    /**
-     * @return The configuration for an Iceberg orphan file deletion optimizer.
-     * 
-     */
     public Optional<Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs>> icebergConfiguration() {
         return Optional.ofNullable(this.icebergConfiguration);
     }
@@ -54,23 +46,11 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
             $ = new CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param icebergConfiguration The configuration for an Iceberg orphan file deletion optimizer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergConfiguration(@Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs> icebergConfiguration) {
             $.icebergConfiguration = icebergConfiguration;
             return this;
         }
 
-        /**
-         * @param icebergConfiguration The configuration for an Iceberg orphan file deletion optimizer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs icebergConfiguration) {
             return icebergConfiguration(Output.of(icebergConfiguration));
         }

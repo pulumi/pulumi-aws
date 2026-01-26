@@ -9,56 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Shield
 {
-    /// <summary>
-    /// Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var config = new Config();
-    ///     // The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
-    ///     var distributionId = config.Require("distributionId");
-    ///     var example = new Aws.Shield.ApplicationLayerAutomaticResponse("example", new()
-    ///     {
-    ///         ResourceArn = Output.Tuple(currentGetPartition, currentGetCallerIdentity).Apply(values =&gt;
-    ///         {
-    ///             var currentGetPartition = values.Item1;
-    ///             var currentGetCallerIdentity = values.Item2;
-    ///             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudfront:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:distribution/{distributionId}";
-    ///         }),
-    ///         Action = "COUNT",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")]
     public partial class ApplicationLayerAutomaticResponse : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// One of `COUNT` or `BLOCK`
-        /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -111,15 +67,9 @@ namespace Pulumi.Aws.Shield
 
     public sealed class ApplicationLayerAutomaticResponseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// One of `COUNT` or `BLOCK`
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -134,15 +84,9 @@ namespace Pulumi.Aws.Shield
 
     public sealed class ApplicationLayerAutomaticResponseState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// One of `COUNT` or `BLOCK`
-        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
-        /// <summary>
-        /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

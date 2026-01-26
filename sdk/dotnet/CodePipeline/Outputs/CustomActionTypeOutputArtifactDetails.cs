@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class CustomActionTypeOutputArtifactDetails
     {
-        /// <summary>
-        /// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-        /// </summary>
         public readonly int MaximumCount;
-        /// <summary>
-        /// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-        /// </summary>
         public readonly int MinimumCount;
 
         [OutputConstructor]

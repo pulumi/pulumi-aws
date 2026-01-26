@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceFleetInstanceTypeConfigEbsConfig {
-    /**
-     * @return The number of I/O operations per second (IOPS) that the volume supports
-     * 
-     */
     private @Nullable Integer iops;
-    /**
-     * @return The volume size, in gibibytes (GiB).
-     * 
-     */
     private Integer size;
-    /**
-     * @return The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-     * 
-     */
     private String type;
-    /**
-     * @return The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-     * 
-     */
     private @Nullable Integer volumesPerInstance;
 
     private InstanceFleetInstanceTypeConfigEbsConfig() {}
-    /**
-     * @return The number of I/O operations per second (IOPS) that the volume supports
-     * 
-     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
-    /**
-     * @return The volume size, in gibibytes (GiB).
-     * 
-     */
     public Integer size() {
         return this.size;
     }
-    /**
-     * @return The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-     * 
-     */
     public Optional<Integer> volumesPerInstance() {
         return Optional.ofNullable(this.volumesPerInstance);
     }

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategoryRule {
-    /**
-     * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleInheritedValue inheritedValue;
-    /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRule rule;
-    /**
-     * @return You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return Default value for the cost category.
-     * 
-     */
     private @Nullable String value;
 
     private CostCategoryRule() {}
-    /**
-     * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-     * 
-     */
     public Optional<CostCategoryRuleInheritedValue> inheritedValue() {
         return Optional.ofNullable(this.inheritedValue);
     }
-    /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRule> rule() {
         return Optional.ofNullable(this.rule);
     }
-    /**
-     * @return You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return Default value for the cost category.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

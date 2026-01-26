@@ -9,83 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail domain entry (DNS record). Use this resource to define how DNS queries for your domain are handled.
-    /// 
-    /// &gt; **NOTE on `Id`:** In an effort to simplify imports, this resource `Id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `Id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.Domain("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///     });
-    /// 
-    ///     var exampleDomainEntry = new Aws.LightSail.DomainEntry("example", new()
-    ///     {
-    ///         DomainName = example.DomainName,
-    ///         Name = "www",
-    ///         Type = "A",
-    ///         Target = "127.0.0.1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lightsail Domain Entry using the id attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,example.com,A,127.0.0.1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/domainEntry:DomainEntry")]
     public partial class DomainEntry : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the Lightsail domain in which to create the entry.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the entry should be an alias. Default: `False`.
-        /// </summary>
         [Output("isAlias")]
         public Output<bool?> IsAlias { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the entry record.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Target of the domain entry.
-        /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -135,41 +76,21 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DomainEntryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Lightsail domain in which to create the entry.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the entry should be an alias. Default: `False`.
-        /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }
 
-        /// <summary>
-        /// Name of the entry record.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Target of the domain entry.
-        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
-        /// <summary>
-        /// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -181,41 +102,21 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DomainEntryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Lightsail domain in which to create the entry.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Whether the entry should be an alias. Default: `False`.
-        /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }
 
-        /// <summary>
-        /// Name of the entry record.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Target of the domain entry.
-        /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 
-        /// <summary>
-        /// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

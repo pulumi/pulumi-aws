@@ -14,32 +14,16 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
 
     public static final ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs Empty = new ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs();
 
-    /**
-     * Name of the secret.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the secret.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
-     * 
-     */
     @Import(name="valueFrom", required=true)
     private Output<String> valueFrom;
 
-    /**
-     * @return Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
-     * 
-     */
     public Output<String> valueFrom() {
         return this.valueFrom;
     }
@@ -69,44 +53,20 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
             $ = new ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param valueFrom Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueFrom(Output<String> valueFrom) {
             $.valueFrom = valueFrom;
             return this;
         }
 
-        /**
-         * @param valueFrom Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueFrom(String valueFrom) {
             return valueFrom(Output.of(valueFrom));
         }

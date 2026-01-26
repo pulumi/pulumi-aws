@@ -12,181 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone Glossary.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "datazone.amazonaws.com",
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "cloudformation.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"datazone:*",
-//							"ram:*",
-//							"sso:*",
-//							"kms:*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
-//				Name:             pulumi.String("example_name"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//				InlinePolicies: iam.RoleInlinePolicyArray{
-//					&iam.RoleInlinePolicyArgs{
-//						Name:   pulumi.String("example_name"),
-//						Policy: pulumi.String(json1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := datazone.NewDomain(ctx, "test", &datazone.DomainArgs{
-//				Name:                pulumi.String("example_name"),
-//				DomainExecutionRole: domainExecutionRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSecurityGroup(ctx, "test", &ec2.SecurityGroupArgs{
-//				Name: pulumi.String("example_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testProject, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainIdentifier: test.ID(),
-//				GlossaryTerms: pulumi.StringArray{
-//					pulumi.String("2N8w6XJCwZf"),
-//				},
-//				Name:              pulumi.String("example_name"),
-//				Description:       pulumi.String("desc"),
-//				SkipDeletionCheck: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datazone.NewGlossary(ctx, "test", &datazone.GlossaryArgs{
-//				Description:             pulumi.String("description"),
-//				Name:                    pulumi.String("example_name"),
-//				OwningProjectIdentifier: testProject.ID(),
-//				Status:                  pulumi.String("DISABLED"),
-//				DomainIdentifier:        testProject.DomainIdentifier,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datazone.NewGlossary(ctx, "test", &datazone.GlossaryArgs{
-//				Description:             pulumi.String("description"),
-//				Name:                    pulumi.String("example_name"),
-//				OwningProjectIdentifier: pulumi.Any(testAwsDatazoneProject.Id),
-//				Status:                  pulumi.String("DISABLED"),
-//				DomainIdentifier:        pulumi.Any(testAwsDatazoneProject.DomainIdentifier),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone Glossary using the import Datazone Glossary using a comma-delimited string combining the domain id, glossary id, and the id of the project it's under. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/glossary:Glossary example domain-id,glossary-id,owning-project-identifier
-// ```
 type Glossary struct {
 	pulumi.CustomResourceState
 
-	// Description of the glossary. Must have a length between 0 and 4096.
-	Description      pulumi.StringPtrOutput `pulumi:"description"`
-	DomainIdentifier pulumi.StringOutput    `pulumi:"domainIdentifier"`
-	// Name of the glossary. Must have length between 1 and 256.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-	//
-	// The following arguments are optional:
-	OwningProjectIdentifier pulumi.StringOutput `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of business glossary. Valid values are DISABLED and ENABLED.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
+	Description             pulumi.StringPtrOutput `pulumi:"description"`
+	DomainIdentifier        pulumi.StringOutput    `pulumi:"domainIdentifier"`
+	Name                    pulumi.StringOutput    `pulumi:"name"`
+	OwningProjectIdentifier pulumi.StringOutput    `pulumi:"owningProjectIdentifier"`
+	Region                  pulumi.StringOutput    `pulumi:"region"`
+	Status                  pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewGlossary registers a new resource with the given unique name, arguments, and options.
@@ -225,35 +59,21 @@ func GetGlossary(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Glossary resources.
 type glossaryState struct {
-	// Description of the glossary. Must have a length between 0 and 4096.
-	Description      *string `pulumi:"description"`
-	DomainIdentifier *string `pulumi:"domainIdentifier"`
-	// Name of the glossary. Must have length between 1 and 256.
-	Name *string `pulumi:"name"`
-	// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-	//
-	// The following arguments are optional:
+	Description             *string `pulumi:"description"`
+	DomainIdentifier        *string `pulumi:"domainIdentifier"`
+	Name                    *string `pulumi:"name"`
 	OwningProjectIdentifier *string `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of business glossary. Valid values are DISABLED and ENABLED.
-	Status *string `pulumi:"status"`
+	Region                  *string `pulumi:"region"`
+	Status                  *string `pulumi:"status"`
 }
 
 type GlossaryState struct {
-	// Description of the glossary. Must have a length between 0 and 4096.
-	Description      pulumi.StringPtrInput
-	DomainIdentifier pulumi.StringPtrInput
-	// Name of the glossary. Must have length between 1 and 256.
-	Name pulumi.StringPtrInput
-	// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-	//
-	// The following arguments are optional:
+	Description             pulumi.StringPtrInput
+	DomainIdentifier        pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
 	OwningProjectIdentifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of business glossary. Valid values are DISABLED and ENABLED.
-	Status pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
 }
 
 func (GlossaryState) ElementType() reflect.Type {
@@ -261,36 +81,22 @@ func (GlossaryState) ElementType() reflect.Type {
 }
 
 type glossaryArgs struct {
-	// Description of the glossary. Must have a length between 0 and 4096.
-	Description      *string `pulumi:"description"`
-	DomainIdentifier string  `pulumi:"domainIdentifier"`
-	// Name of the glossary. Must have length between 1 and 256.
-	Name *string `pulumi:"name"`
-	// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-	//
-	// The following arguments are optional:
-	OwningProjectIdentifier string `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of business glossary. Valid values are DISABLED and ENABLED.
-	Status *string `pulumi:"status"`
+	Description             *string `pulumi:"description"`
+	DomainIdentifier        string  `pulumi:"domainIdentifier"`
+	Name                    *string `pulumi:"name"`
+	OwningProjectIdentifier string  `pulumi:"owningProjectIdentifier"`
+	Region                  *string `pulumi:"region"`
+	Status                  *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Glossary resource.
 type GlossaryArgs struct {
-	// Description of the glossary. Must have a length between 0 and 4096.
-	Description      pulumi.StringPtrInput
-	DomainIdentifier pulumi.StringInput
-	// Name of the glossary. Must have length between 1 and 256.
-	Name pulumi.StringPtrInput
-	// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-	//
-	// The following arguments are optional:
+	Description             pulumi.StringPtrInput
+	DomainIdentifier        pulumi.StringInput
+	Name                    pulumi.StringPtrInput
 	OwningProjectIdentifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of business glossary. Valid values are DISABLED and ENABLED.
-	Status pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
 }
 
 func (GlossaryArgs) ElementType() reflect.Type {
@@ -380,7 +186,6 @@ func (o GlossaryOutput) ToGlossaryOutputWithContext(ctx context.Context) Glossar
 	return o
 }
 
-// Description of the glossary. Must have a length between 0 and 4096.
 func (o GlossaryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -389,24 +194,18 @@ func (o GlossaryOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
-// Name of the glossary. Must have length between 1 and 256.
 func (o GlossaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-//
-// The following arguments are optional:
 func (o GlossaryOutput) OwningProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringOutput { return v.OwningProjectIdentifier }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GlossaryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of business glossary. Valid values are DISABLED and ENABLED.
 func (o GlossaryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

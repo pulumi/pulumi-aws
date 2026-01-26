@@ -9,82 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Provides a resource to manage an API Gateway Documentation Version.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
-    ///     {
-    ///         Name = "example_api",
-    ///     });
-    /// 
-    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("example", new()
-    ///     {
-    ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
-    ///         {
-    ///             Type = "API",
-    ///         },
-    ///         Properties = "{\"description\":\"Example\"}",
-    ///         RestApiId = exampleRestApi.Id,
-    ///     });
-    /// 
-    ///     var example = new Aws.ApiGateway.DocumentationVersion("example", new()
-    ///     {
-    ///         Version = "example_version",
-    ///         RestApiId = exampleRestApi.Id,
-    ///         Description = "Example description",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleDocumentationPart,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/documentationVersion:DocumentationVersion")]
     public partial class DocumentationVersion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Description of the API documentation version.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the associated Rest API
-        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// Version identifier of the API documentation snapshot.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -134,27 +70,15 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class DocumentationVersionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the API documentation version.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated Rest API
-        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
-        /// <summary>
-        /// Version identifier of the API documentation snapshot.
-        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -166,27 +90,15 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class DocumentationVersionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the API documentation version.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated Rest API
-        /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
-        /// <summary>
-        /// Version identifier of the API documentation snapshot.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

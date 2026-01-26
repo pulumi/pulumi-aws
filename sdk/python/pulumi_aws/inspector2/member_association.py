@@ -23,8 +23,6 @@ class MemberAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MemberAssociation resource.
-        :param pulumi.Input[_builtins.str] account_id: ID of the account to associate
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         if region is not None:
@@ -33,9 +31,6 @@ class MemberAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the account to associate
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -45,9 +40,6 @@ class MemberAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -65,11 +57,6 @@ class _MemberAssociationState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MemberAssociation resources.
-        :param pulumi.Input[_builtins.str] account_id: ID of the account to associate
-        :param pulumi.Input[_builtins.str] delegated_admin_account_id: Account ID of the delegated administrator account
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: Status of the member relationship
-        :param pulumi.Input[_builtins.str] updated_at: Date and time of the last update of the relationship
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -85,9 +72,6 @@ class _MemberAssociationState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the account to associate
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -97,9 +81,6 @@ class _MemberAssociationState:
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccountId")
     def delegated_admin_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the delegated administrator account
-        """
         return pulumi.get(self, "delegated_admin_account_id")
 
     @delegated_admin_account_id.setter
@@ -109,9 +90,6 @@ class _MemberAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,9 +99,6 @@ class _MemberAssociationState:
     @_builtins.property
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the member relationship
-        """
         return pulumi.get(self, "relationship_status")
 
     @relationship_status.setter
@@ -133,9 +108,6 @@ class _MemberAssociationState:
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time of the last update of the relationship
-        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -153,31 +125,9 @@ class MemberAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for associating accounts to existing Inspector instances.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-        ```
-
+        Create a MemberAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: ID of the account to associate
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -186,27 +136,7 @@ class MemberAssociation(pulumi.CustomResource):
                  args: MemberAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for associating accounts to existing Inspector instances.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-        ```
-
+        Create a MemberAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MemberAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,11 +192,6 @@ class MemberAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: ID of the account to associate
-        :param pulumi.Input[_builtins.str] delegated_admin_account_id: Account ID of the delegated administrator account
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: Status of the member relationship
-        :param pulumi.Input[_builtins.str] updated_at: Date and time of the last update of the relationship
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -282,40 +207,25 @@ class MemberAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the account to associate
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccountId")
     def delegated_admin_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of the delegated administrator account
-        """
         return pulumi.get(self, "delegated_admin_account_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the member relationship
-        """
         return pulumi.get(self, "relationship_status")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time of the last update of the relationship
-        """
         return pulumi.get(self, "updated_at")
 

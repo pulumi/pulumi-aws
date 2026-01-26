@@ -14,62 +14,30 @@ public final class ClusterLogDeliveryConfigurationArgs extends com.pulumi.resour
 
     public static final ClusterLogDeliveryConfigurationArgs Empty = new ClusterLogDeliveryConfigurationArgs();
 
-    /**
-     * Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
-    /**
-     * @return Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-     * 
-     */
     public Output<String> destination() {
         return this.destination;
     }
 
-    /**
-     * For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-     * 
-     */
     @Import(name="destinationType", required=true)
     private Output<String> destinationType;
 
-    /**
-     * @return For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-     * 
-     */
     public Output<String> destinationType() {
         return this.destinationType;
     }
 
-    /**
-     * Valid values are `json` or `text`
-     * 
-     */
     @Import(name="logFormat", required=true)
     private Output<String> logFormat;
 
-    /**
-     * @return Valid values are `json` or `text`
-     * 
-     */
     public Output<String> logFormat() {
         return this.logFormat;
     }
 
-    /**
-     * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-     * 
-     */
     @Import(name="logType", required=true)
     private Output<String> logType;
 
-    /**
-     * @return Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-     * 
-     */
     public Output<String> logType() {
         return this.logType;
     }
@@ -101,86 +69,38 @@ public final class ClusterLogDeliveryConfigurationArgs extends com.pulumi.resour
             $ = new ClusterLogDeliveryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param destinationType For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationType(Output<String> destinationType) {
             $.destinationType = destinationType;
             return this;
         }
 
-        /**
-         * @param destinationType For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationType(String destinationType) {
             return destinationType(Output.of(destinationType));
         }
 
-        /**
-         * @param logFormat Valid values are `json` or `text`
-         * 
-         * @return builder
-         * 
-         */
         public Builder logFormat(Output<String> logFormat) {
             $.logFormat = logFormat;
             return this;
         }
 
-        /**
-         * @param logFormat Valid values are `json` or `text`
-         * 
-         * @return builder
-         * 
-         */
         public Builder logFormat(String logFormat) {
             return logFormat(Output.of(logFormat));
         }
 
-        /**
-         * @param logType Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logType(Output<String> logType) {
             $.logType = logType;
             return this;
         }
 
-        /**
-         * @param logType Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logType(String logType) {
             return logType(Output.of(logType));
         }

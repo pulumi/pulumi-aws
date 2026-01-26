@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class UserDefinedFunctionResourceUriGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
-        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
-        /// <summary>
-        /// The URI for accessing the resource.
-        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 

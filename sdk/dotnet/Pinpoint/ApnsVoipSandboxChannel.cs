@@ -9,116 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Provides a Pinpoint APNs VoIP Sandbox Channel resource.
-    /// 
-    /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var apnsVoipSandbox = new Aws.Pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         Certificate = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "./certificate.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PrivateKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "./private_key.key",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")]
     public partial class ApnsVoipSandboxChannel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
-        /// </summary>
         [Output("bundleId")]
         public Output<string?> BundleId { get; private set; } = null!;
 
-        /// <summary>
-        /// The pem encoded TLS Certificate from Apple.
-        /// </summary>
         [Output("certificate")]
         public Output<string?> Certificate { get; private set; } = null!;
 
-        /// <summary>
-        /// The default authentication method used for APNs.
-        /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-        /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-        /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-        /// 
-        /// One of the following sets of credentials is also required.
-        /// 
-        /// If you choose to use __Certificate credentials__ you will have to provide:
-        /// </summary>
         [Output("defaultAuthenticationMethod")]
         public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `True`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The Certificate Private Key file (ie. `.key` file).
-        /// 
-        /// If you choose to use __Key credentials__ you will have to provide:
-        /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        /// </summary>
         [Output("teamId")]
         public Output<string?> TeamId { get; private set; } = null!;
 
-        /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        /// </summary>
         [Output("tokenKey")]
         public Output<string?> TokenKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
-        /// </summary>
         [Output("tokenKeyId")]
         public Output<string?> TokenKeyId { get; private set; } = null!;
 
@@ -177,18 +97,11 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class ApnsVoipSandboxChannelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         [Input("bundleId")]
         private Input<string>? _bundleId;
-
-        /// <summary>
-        /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
-        /// </summary>
         public Input<string>? BundleId
         {
             get => _bundleId;
@@ -201,10 +114,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("certificate")]
         private Input<string>? _certificate;
-
-        /// <summary>
-        /// The pem encoded TLS Certificate from Apple.
-        /// </summary>
         public Input<string>? Certificate
         {
             get => _certificate;
@@ -215,33 +124,14 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The default authentication method used for APNs.
-        /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-        /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-        /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-        /// 
-        /// One of the following sets of credentials is also required.
-        /// 
-        /// If you choose to use __Certificate credentials__ you will have to provide:
-        /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("privateKey")]
         private Input<string>? _privateKey;
-
-        /// <summary>
-        /// The Certificate Private Key file (ie. `.key` file).
-        /// 
-        /// If you choose to use __Key credentials__ you will have to provide:
-        /// </summary>
         public Input<string>? PrivateKey
         {
             get => _privateKey;
@@ -252,18 +142,11 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("teamId")]
         private Input<string>? _teamId;
-
-        /// <summary>
-        /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        /// </summary>
         public Input<string>? TeamId
         {
             get => _teamId;
@@ -276,10 +159,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tokenKey")]
         private Input<string>? _tokenKey;
-
-        /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        /// </summary>
         public Input<string>? TokenKey
         {
             get => _tokenKey;
@@ -292,10 +171,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tokenKeyId")]
         private Input<string>? _tokenKeyId;
-
-        /// <summary>
-        /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
-        /// </summary>
         public Input<string>? TokenKeyId
         {
             get => _tokenKeyId;
@@ -314,18 +189,11 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class ApnsVoipSandboxChannelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         [Input("bundleId")]
         private Input<string>? _bundleId;
-
-        /// <summary>
-        /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
-        /// </summary>
         public Input<string>? BundleId
         {
             get => _bundleId;
@@ -338,10 +206,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("certificate")]
         private Input<string>? _certificate;
-
-        /// <summary>
-        /// The pem encoded TLS Certificate from Apple.
-        /// </summary>
         public Input<string>? Certificate
         {
             get => _certificate;
@@ -352,33 +216,14 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The default authentication method used for APNs.
-        /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-        /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-        /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-        /// 
-        /// One of the following sets of credentials is also required.
-        /// 
-        /// If you choose to use __Certificate credentials__ you will have to provide:
-        /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("privateKey")]
         private Input<string>? _privateKey;
-
-        /// <summary>
-        /// The Certificate Private Key file (ie. `.key` file).
-        /// 
-        /// If you choose to use __Key credentials__ you will have to provide:
-        /// </summary>
         public Input<string>? PrivateKey
         {
             get => _privateKey;
@@ -389,18 +234,11 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("teamId")]
         private Input<string>? _teamId;
-
-        /// <summary>
-        /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        /// </summary>
         public Input<string>? TeamId
         {
             get => _teamId;
@@ -413,10 +251,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tokenKey")]
         private Input<string>? _tokenKey;
-
-        /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        /// </summary>
         public Input<string>? TokenKey
         {
             get => _tokenKey;
@@ -429,10 +263,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tokenKeyId")]
         private Input<string>? _tokenKeyId;
-
-        /// <summary>
-        /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
-        /// </summary>
         public Input<string>? TokenKeyId
         {
             get => _tokenKeyId;

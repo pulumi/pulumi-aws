@@ -136,30 +136,7 @@ def get_custom_routing_accelerator(arn: Optional[_builtins.str] = None,
                                    tags: Optional[Mapping[str, _builtins.str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomRoutingAcceleratorResult:
     """
-    Provides information about a Global Accelerator custom routing accelerator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    accelerator_arn = config.get("acceleratorArn")
-    if accelerator_arn is None:
-        accelerator_arn = ""
-    accelerator_name = config.get("acceleratorName")
-    if accelerator_name is None:
-        accelerator_name = ""
-    example = aws.globalaccelerator.get_custom_routing_accelerator(arn=accelerator_arn,
-        name=accelerator_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the custom routing accelerator.
-    :param _builtins.str name: Unique name of the custom routing accelerator.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -184,30 +161,7 @@ def get_custom_routing_accelerator_output(arn: Optional[pulumi.Input[Optional[_b
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomRoutingAcceleratorResult]:
     """
-    Provides information about a Global Accelerator custom routing accelerator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    accelerator_arn = config.get("acceleratorArn")
-    if accelerator_arn is None:
-        accelerator_arn = ""
-    accelerator_name = config.get("acceleratorName")
-    if accelerator_name is None:
-        accelerator_name = ""
-    example = aws.globalaccelerator.get_custom_routing_accelerator(arn=accelerator_arn,
-        name=accelerator_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the custom routing accelerator.
-    :param _builtins.str name: Unique name of the custom routing accelerator.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

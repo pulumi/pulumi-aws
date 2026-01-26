@@ -9,175 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudFront Continuous Deployment Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var staging = new Aws.CloudFront.Distribution("staging", new()
-    ///     {
-    ///         Enabled = true,
-    ///         Staging = true,
-    ///     });
-    /// 
-    ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
-    ///         {
-    ///             Items = new[]
-    ///             {
-    ///                 staging.DomainName,
-    ///             },
-    ///             Quantity = 1,
-    ///         },
-    ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
-    ///         {
-    ///             Type = "SingleWeight",
-    ///             SingleWeightConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
-    ///             {
-    ///                 Weight = 0.01,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var production = new Aws.CloudFront.Distribution("production", new()
-    ///     {
-    ///         Enabled = true,
-    ///         ContinuousDeploymentPolicyId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Single Weight Config with Session Stickiness
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
-    ///         {
-    ///             Items = new[]
-    ///             {
-    ///                 staging.DomainName,
-    ///             },
-    ///             Quantity = 1,
-    ///         },
-    ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
-    ///         {
-    ///             Type = "SingleWeight",
-    ///             SingleWeightConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
-    ///             {
-    ///                 Weight = 0.01,
-    ///                 SessionStickinessConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs
-    ///                 {
-    ///                     IdleTtl = 300,
-    ///                     MaximumTtl = 600,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Single Header Config
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
-    ///         {
-    ///             Items = new[]
-    ///             {
-    ///                 staging.DomainName,
-    ///             },
-    ///             Quantity = 1,
-    ///         },
-    ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
-    ///         {
-    ///             Type = "SingleHeader",
-    ///             SingleHeaderConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs
-    ///             {
-    ///                 Header = "aws-cf-cd-example",
-    ///                 Value = "example",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")]
     public partial class ContinuousDeploymentPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The continuous deployment policy ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether this continuous deployment policy is enabled.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Current version of the continuous distribution policy.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time the continuous deployment policy was last modified.
-        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
-        /// </summary>
         [Output("stagingDistributionDnsNames")]
         public Output<Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames?> StagingDistributionDnsNames { get; private set; } = null!;
 
-        /// <summary>
-        /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.
-        /// </summary>
         [Output("trafficConfig")]
         public Output<Outputs.ContinuousDeploymentPolicyTrafficConfig?> TrafficConfig { get; private set; } = null!;
 
@@ -227,21 +76,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ContinuousDeploymentPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether this continuous deployment policy is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
-        /// </summary>
         [Input("stagingDistributionDnsNames")]
         public Input<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs>? StagingDistributionDnsNames { get; set; }
 
-        /// <summary>
-        /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.
-        /// </summary>
         [Input("trafficConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigArgs>? TrafficConfig { get; set; }
 
@@ -253,39 +93,21 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ContinuousDeploymentPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The continuous deployment policy ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Whether this continuous deployment policy is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Current version of the continuous distribution policy.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// Date and time the continuous deployment policy was last modified.
-        /// </summary>
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
 
-        /// <summary>
-        /// CloudFront domain name of the staging distribution. See `StagingDistributionDnsNames`.
-        /// </summary>
         [Input("stagingDistributionDnsNames")]
         public Input<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesGetArgs>? StagingDistributionDnsNames { get; set; }
 
-        /// <summary>
-        /// Parameters for routing production traffic from primary to staging distributions. See `TrafficConfig`.
-        /// </summary>
         [Input("trafficConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigGetArgs>? TrafficConfig { get; set; }
 

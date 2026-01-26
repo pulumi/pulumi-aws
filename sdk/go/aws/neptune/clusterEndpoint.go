@@ -12,66 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Neptune Cluster Endpoint Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/neptune"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewClusterEndpoint(ctx, "example", &neptune.ClusterEndpointArgs{
-//				ClusterIdentifier:         pulumi.Any(test.ClusterIdentifier),
-//				ClusterEndpointIdentifier: pulumi.String("example"),
-//				EndpointType:              pulumi.String("READER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
-//
-// ```sh
-// $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-// ```
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The identifier of the endpoint.
-	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
-	// The DB cluster identifier of the DB cluster associated with the endpoint.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The DNS address of the endpoint.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
-	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// List of DB instance identifiers that are part of the custom endpoint group.
-	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
-	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                       pulumi.StringOutput      `pulumi:"arn"`
+	ClusterEndpointIdentifier pulumi.StringOutput      `pulumi:"clusterEndpointIdentifier"`
+	ClusterIdentifier         pulumi.StringOutput      `pulumi:"clusterIdentifier"`
+	Endpoint                  pulumi.StringOutput      `pulumi:"endpoint"`
+	EndpointType              pulumi.StringOutput      `pulumi:"endpointType"`
+	ExcludedMembers           pulumi.StringArrayOutput `pulumi:"excludedMembers"`
+	Region                    pulumi.StringOutput      `pulumi:"region"`
+	StaticMembers             pulumi.StringArrayOutput `pulumi:"staticMembers"`
+	Tags                      pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewClusterEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -113,49 +66,29 @@ func GetClusterEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterEndpoint resources.
 type clusterEndpointState struct {
-	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-	Arn *string `pulumi:"arn"`
-	// The identifier of the endpoint.
-	ClusterEndpointIdentifier *string `pulumi:"clusterEndpointIdentifier"`
-	// The DB cluster identifier of the DB cluster associated with the endpoint.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The DNS address of the endpoint.
-	Endpoint *string `pulumi:"endpoint"`
-	// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-	EndpointType *string `pulumi:"endpointType"`
-	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-	ExcludedMembers []string `pulumi:"excludedMembers"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of DB instance identifiers that are part of the custom endpoint group.
-	StaticMembers []string `pulumi:"staticMembers"`
-	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                       *string           `pulumi:"arn"`
+	ClusterEndpointIdentifier *string           `pulumi:"clusterEndpointIdentifier"`
+	ClusterIdentifier         *string           `pulumi:"clusterIdentifier"`
+	Endpoint                  *string           `pulumi:"endpoint"`
+	EndpointType              *string           `pulumi:"endpointType"`
+	ExcludedMembers           []string          `pulumi:"excludedMembers"`
+	Region                    *string           `pulumi:"region"`
+	StaticMembers             []string          `pulumi:"staticMembers"`
+	Tags                      map[string]string `pulumi:"tags"`
+	TagsAll                   map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterEndpointState struct {
-	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-	Arn pulumi.StringPtrInput
-	// The identifier of the endpoint.
+	Arn                       pulumi.StringPtrInput
 	ClusterEndpointIdentifier pulumi.StringPtrInput
-	// The DB cluster identifier of the DB cluster associated with the endpoint.
-	ClusterIdentifier pulumi.StringPtrInput
-	// The DNS address of the endpoint.
-	Endpoint pulumi.StringPtrInput
-	// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-	EndpointType pulumi.StringPtrInput
-	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-	ExcludedMembers pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of DB instance identifiers that are part of the custom endpoint group.
-	StaticMembers pulumi.StringArrayInput
-	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ClusterIdentifier         pulumi.StringPtrInput
+	Endpoint                  pulumi.StringPtrInput
+	EndpointType              pulumi.StringPtrInput
+	ExcludedMembers           pulumi.StringArrayInput
+	Region                    pulumi.StringPtrInput
+	StaticMembers             pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
 }
 
 func (ClusterEndpointState) ElementType() reflect.Type {
@@ -163,38 +96,24 @@ func (ClusterEndpointState) ElementType() reflect.Type {
 }
 
 type clusterEndpointArgs struct {
-	// The identifier of the endpoint.
-	ClusterEndpointIdentifier string `pulumi:"clusterEndpointIdentifier"`
-	// The DB cluster identifier of the DB cluster associated with the endpoint.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-	EndpointType string `pulumi:"endpointType"`
-	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-	ExcludedMembers []string `pulumi:"excludedMembers"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of DB instance identifiers that are part of the custom endpoint group.
-	StaticMembers []string `pulumi:"staticMembers"`
-	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ClusterEndpointIdentifier string            `pulumi:"clusterEndpointIdentifier"`
+	ClusterIdentifier         string            `pulumi:"clusterIdentifier"`
+	EndpointType              string            `pulumi:"endpointType"`
+	ExcludedMembers           []string          `pulumi:"excludedMembers"`
+	Region                    *string           `pulumi:"region"`
+	StaticMembers             []string          `pulumi:"staticMembers"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterEndpoint resource.
 type ClusterEndpointArgs struct {
-	// The identifier of the endpoint.
 	ClusterEndpointIdentifier pulumi.StringInput
-	// The DB cluster identifier of the DB cluster associated with the endpoint.
-	ClusterIdentifier pulumi.StringInput
-	// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-	EndpointType pulumi.StringInput
-	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-	ExcludedMembers pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of DB instance identifiers that are part of the custom endpoint group.
-	StaticMembers pulumi.StringArrayInput
-	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ClusterIdentifier         pulumi.StringInput
+	EndpointType              pulumi.StringInput
+	ExcludedMembers           pulumi.StringArrayInput
+	Region                    pulumi.StringPtrInput
+	StaticMembers             pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (ClusterEndpointArgs) ElementType() reflect.Type {
@@ -284,52 +203,42 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
 func (o ClusterEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The identifier of the endpoint.
 func (o ClusterEndpointOutput) ClusterEndpointIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.ClusterEndpointIdentifier }).(pulumi.StringOutput)
 }
 
-// The DB cluster identifier of the DB cluster associated with the endpoint.
 func (o ClusterEndpointOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The DNS address of the endpoint.
 func (o ClusterEndpointOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
 func (o ClusterEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 func (o ClusterEndpointOutput) ExcludedMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringArrayOutput { return v.ExcludedMembers }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of DB instance identifiers that are part of the custom endpoint group.
 func (o ClusterEndpointOutput) StaticMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringArrayOutput { return v.StaticMembers }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,10 +13,6 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class EventActionEventRevisionPublished
     {
-        /// <summary>
-        /// The ID of the data set to monitor for revision publications.
-        /// Changing this value will recreate the resource.
-        /// </summary>
         public readonly string DataSetId;
 
         [OutputConstructor]

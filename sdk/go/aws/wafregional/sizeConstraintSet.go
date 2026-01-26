@@ -11,60 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewSizeConstraintSet(ctx, "size_constraint_set", &wafregional.SizeConstraintSetArgs{
-//				Name: pulumi.String("tfsize_constraints"),
-//				SizeConstraints: wafregional.SizeConstraintSetSizeConstraintArray{
-//					&wafregional.SizeConstraintSetSizeConstraintArgs{
-//						TextTransformation: pulumi.String("NONE"),
-//						ComparisonOperator: pulumi.String("EQ"),
-//						Size:               pulumi.Int(4096),
-//						FieldToMatch: &wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs{
-//							Type: pulumi.String("BODY"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Size Constraint Set using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type SizeConstraintSet struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name or description of the Size Constraint Set.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the parts of web requests that you want to inspect the size of.
+	Arn             pulumi.StringOutput                        `pulumi:"arn"`
+	Name            pulumi.StringOutput                        `pulumi:"name"`
+	Region          pulumi.StringOutput                        `pulumi:"region"`
 	SizeConstraints SizeConstraintSetSizeConstraintArrayOutput `pulumi:"sizeConstraints"`
 }
 
@@ -98,22 +50,16 @@ func GetSizeConstraintSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SizeConstraintSet resources.
 type sizeConstraintSetState struct {
-	Arn *string `pulumi:"arn"`
-	// The name or description of the Size Constraint Set.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the parts of web requests that you want to inspect the size of.
+	Arn             *string                           `pulumi:"arn"`
+	Name            *string                           `pulumi:"name"`
+	Region          *string                           `pulumi:"region"`
 	SizeConstraints []SizeConstraintSetSizeConstraint `pulumi:"sizeConstraints"`
 }
 
 type SizeConstraintSetState struct {
-	Arn pulumi.StringPtrInput
-	// The name or description of the Size Constraint Set.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the parts of web requests that you want to inspect the size of.
+	Arn             pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	SizeConstraints SizeConstraintSetSizeConstraintArrayInput
 }
 
@@ -122,21 +68,15 @@ func (SizeConstraintSetState) ElementType() reflect.Type {
 }
 
 type sizeConstraintSetArgs struct {
-	// The name or description of the Size Constraint Set.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the parts of web requests that you want to inspect the size of.
+	Name            *string                           `pulumi:"name"`
+	Region          *string                           `pulumi:"region"`
 	SizeConstraints []SizeConstraintSetSizeConstraint `pulumi:"sizeConstraints"`
 }
 
 // The set of arguments for constructing a SizeConstraintSet resource.
 type SizeConstraintSetArgs struct {
-	// The name or description of the Size Constraint Set.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the parts of web requests that you want to inspect the size of.
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	SizeConstraints SizeConstraintSetSizeConstraintArrayInput
 }
 
@@ -231,17 +171,14 @@ func (o SizeConstraintSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name or description of the Size Constraint Set.
 func (o SizeConstraintSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SizeConstraintSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the parts of web requests that you want to inspect the size of.
 func (o SizeConstraintSetOutput) SizeConstraints() SizeConstraintSetSizeConstraintArrayOutput {
 	return o.ApplyT(func(v *SizeConstraintSet) SizeConstraintSetSizeConstraintArrayOutput { return v.SizeConstraints }).(SizeConstraintSetSizeConstraintArrayOutput)
 }

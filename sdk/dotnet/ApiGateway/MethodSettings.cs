@@ -9,155 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
-    /// 
-    /// &gt; **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `StageName` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### End-to-end
-    /// 
-    /// ### Off
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
-    ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
-    ///         {
-    ///             LoggingLevel = "OFF",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Errors Only
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
-    ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
-    ///         {
-    ///             LoggingLevel = "ERROR",
-    ///             MetricsEnabled = true,
-    ///             DataTraceEnabled = false,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Errors and Info Logs
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
-    ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
-    ///         {
-    ///             LoggingLevel = "INFO",
-    ///             MetricsEnabled = true,
-    ///             DataTraceEnabled = false,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Full Request and Response Logs
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
-    ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
-    ///         {
-    ///             LoggingLevel = "INFO",
-    ///             MetricsEnabled = true,
-    ///             DataTraceEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/methodSettings:MethodSettings")]
     public partial class MethodSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        /// </summary>
         [Output("methodPath")]
         public Output<string> MethodPath { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the REST API
-        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
-        /// <summary>
-        /// Settings block, see below.
-        /// </summary>
         [Output("settings")]
         public Output<Outputs.MethodSettingsSettings> Settings { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the stage
-        /// </summary>
         [Output("stageName")]
         public Output<string> StageName { get; private set; } = null!;
 
@@ -207,33 +73,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class MethodSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        /// </summary>
         [Input("methodPath", required: true)]
         public Input<string> MethodPath { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the REST API
-        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
-        /// <summary>
-        /// Settings block, see below.
-        /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.MethodSettingsSettingsArgs> Settings { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the stage
-        /// </summary>
         [Input("stageName", required: true)]
         public Input<string> StageName { get; set; } = null!;
 
@@ -245,33 +96,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class MethodSettingsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        /// </summary>
         [Input("methodPath")]
         public Input<string>? MethodPath { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the REST API
-        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
-        /// <summary>
-        /// Settings block, see below.
-        /// </summary>
         [Input("settings")]
         public Input<Inputs.MethodSettingsSettingsGetArgs>? Settings { get; set; }
 
-        /// <summary>
-        /// Name of the stage
-        /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInCondition
     {
-        /// <summary>
-        /// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
-        /// </summary>
         public readonly string? Expression;
 
         [OutputConstructor]

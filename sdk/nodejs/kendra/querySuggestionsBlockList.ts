@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.QuerySuggestionsBlockList("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     roleArn: exampleAwsIamRole.arn,
- *     sourceS3Path: {
- *         bucket: exampleAwsS3Bucket.id,
- *         key: "example/suggestions.txt",
- *     },
- *     tags: {
- *         Name: "Example Kendra Index",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
- *
- * ```sh
- * $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
- * ```
- */
 export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     /**
      * Get an existing QuerySuggestionsBlockList resource's state with the given name, ID, and optional extra
@@ -68,37 +35,16 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
         return obj['__pulumiType'] === QuerySuggestionsBlockList.__pulumiType;
     }
 
-    /**
-     * ARN of the block list.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Identifier of the index for a block list.
-     */
     declare public readonly indexId: pulumi.Output<string>;
-    /**
-     * Name for the block list.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Unique identifier of the block list.
-     */
     declare public /*out*/ readonly querySuggestionsBlockListId: pulumi.Output<string>;
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * IAM (Identity and Access Management) role used to access the block list text file in S3.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * S3 path where your block list text file is located. See details below.
-     */
     declare public readonly sourceS3Path: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     declare public /*out*/ readonly status: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -157,37 +103,16 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QuerySuggestionsBlockList resources.
  */
 export interface QuerySuggestionsBlockListState {
-    /**
-     * ARN of the block list.
-     */
     arn?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    /**
-     * Identifier of the index for a block list.
-     */
     indexId?: pulumi.Input<string>;
-    /**
-     * Name for the block list.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the block list.
-     */
     querySuggestionsBlockListId?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
-    /**
-     * IAM (Identity and Access Management) role used to access the block list text file in S3.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * S3 path where your block list text file is located. See details below.
-     */
     sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -196,22 +121,10 @@ export interface QuerySuggestionsBlockListState {
  */
 export interface QuerySuggestionsBlockListArgs {
     description?: pulumi.Input<string>;
-    /**
-     * Identifier of the index for a block list.
-     */
     indexId: pulumi.Input<string>;
-    /**
-     * Name for the block list.
-     */
     name?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
-    /**
-     * IAM (Identity and Access Management) role used to access the block list text file in S3.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * S3 path where your block list text file is located. See details below.
-     */
     sourceS3Path: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

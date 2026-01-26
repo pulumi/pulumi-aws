@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule {
-    /**
-     * @return Defines the match conditions and actions for the rule. Detailed below.
-     * 
-     */
     private GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition ruleDefinition;
-    /**
-     * @return Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     private Integer ruleNumber;
 
     private GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule() {}
-    /**
-     * @return Defines the match conditions and actions for the rule. Detailed below.
-     * 
-     */
     public GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition ruleDefinition() {
         return this.ruleDefinition;
     }
-    /**
-     * @return Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     public Integer ruleNumber() {
         return this.ruleNumber;
     }

@@ -17,32 +17,16 @@ public final class RecommendationPreferencesPreferredResourceArgs extends com.pu
 
     public static final RecommendationPreferencesPreferredResourceArgs Empty = new RecommendationPreferencesPreferredResourceArgs();
 
-    /**
-     * The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     @Import(name="excludeLists")
     private @Nullable Output<List<String>> excludeLists;
 
-    /**
-     * @return The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     public Optional<Output<List<String>>> excludeLists() {
         return Optional.ofNullable(this.excludeLists);
     }
 
-    /**
-     * The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     @Import(name="includeLists")
     private @Nullable Output<List<String>> includeLists;
 
-    /**
-     * @return The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
-     * 
-     */
     public Optional<Output<List<String>>> includeLists() {
         return Optional.ofNullable(this.includeLists);
     }
@@ -80,64 +64,28 @@ public final class RecommendationPreferencesPreferredResourceArgs extends com.pu
             $ = new RecommendationPreferencesPreferredResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param excludeLists The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeLists(@Nullable Output<List<String>> excludeLists) {
             $.excludeLists = excludeLists;
             return this;
         }
 
-        /**
-         * @param excludeLists The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeLists(List<String> excludeLists) {
             return excludeLists(Output.of(excludeLists));
         }
 
-        /**
-         * @param excludeLists The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeLists(String... excludeLists) {
             return excludeLists(List.of(excludeLists));
         }
 
-        /**
-         * @param includeLists The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeLists(@Nullable Output<List<String>> includeLists) {
             $.includeLists = includeLists;
             return this;
         }
 
-        /**
-         * @param includeLists The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeLists(List<String> includeLists) {
             return includeLists(Output.of(includeLists));
         }
 
-        /**
-         * @param includeLists The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeLists(String... includeLists) {
             return includeLists(List.of(includeLists));
         }

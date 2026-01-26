@@ -9,262 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
-    /// <summary>
-    /// Provides an ECS cluster.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ecs.Cluster("foo", new()
-    ///     {
-    ///         Name = "white-hart",
-    ///         Settings = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.ClusterSettingArgs
-    ///             {
-    ///                 Name = "containerInsights",
-    ///                 Value = "enabled",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Execute Command Configuration with Override Logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var test = new Aws.Ecs.Cluster("test", new()
-    ///     {
-    ///         Name = "example",
-    ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
-    ///         {
-    ///             ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
-    ///             {
-    ///                 KmsKeyId = example.Arn,
-    ///                 Logging = "OVERRIDE",
-    ///                 LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
-    ///                 {
-    ///                     CloudWatchEncryptionEnabled = true,
-    ///                     CloudWatchLogGroupName = exampleLogGroup.Name,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Fargate Ephemeral Storage Encryption with Customer-Managed KMS Key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("example", new()
-    ///     {
-    ///         KeyId = example.Id,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Id"] = "ECSClusterFargatePolicy",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Enable IAM User Permissions",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = "*",
-    ///                     },
-    ///                     ["Action"] = "kms:*",
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Allow generate data key access for Fargate tasks.",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "fargate.amazonaws.com",
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "kms:GenerateDataKeyWithoutPlaintext",
-    ///                     },
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["kms:EncryptionContext:aws:ecs:clusterAccount"] = new[]
-    ///                             {
-    ///                                 current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                             },
-    ///                             ["kms:EncryptionContext:aws:ecs:clusterName"] = new[]
-    ///                             {
-    ///                                 "example",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Allow grant creation permission for Fargate tasks.",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "fargate.amazonaws.com",
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "kms:CreateGrant",
-    ///                     },
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["kms:EncryptionContext:aws:ecs:clusterAccount"] = new[]
-    ///                             {
-    ///                                 current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                             },
-    ///                             ["kms:EncryptionContext:aws:ecs:clusterName"] = new[]
-    ///                             {
-    ///                                 "example",
-    ///                             },
-    ///                         },
-    ///                         ["ForAllValues:StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["kms:GrantOperations"] = new[]
-    ///                             {
-    ///                                 "Decrypt",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2012-10-17",
-    ///         }),
-    ///     });
-    /// 
-    ///     var test = new Aws.Ecs.Cluster("test", new()
-    ///     {
-    ///         Name = "example",
-    ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
-    ///         {
-    ///             ManagedStorageConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationManagedStorageConfigurationArgs
-    ///             {
-    ///                 FargateEphemeralStorageKmsKeyId = example.Arn,
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleKeyPolicy,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import ECS clusters using the cluster name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecs/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN that identifies the cluster.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Execute command configuration for the cluster. See `Configuration` Block for details.
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.ClusterConfiguration?> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Default Service Connect namespace. See `ServiceConnectDefaults` Block for details.
-        /// </summary>
         [Output("serviceConnectDefaults")]
         public Output<Outputs.ClusterServiceConnectDefaults?> ServiceConnectDefaults { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `Setting` Block for details.
-        /// </summary>
         [Output("settings")]
         public Output<ImmutableArray<Outputs.ClusterSetting>> Settings { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -314,38 +82,20 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Execute command configuration for the cluster. See `Configuration` Block for details.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Default Service Connect namespace. See `ServiceConnectDefaults` Block for details.
-        /// </summary>
         [Input("serviceConnectDefaults")]
         public Input<Inputs.ClusterServiceConnectDefaultsArgs>? ServiceConnectDefaults { get; set; }
 
         [Input("settings")]
         private InputList<Inputs.ClusterSettingArgs>? _settings;
-
-        /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `Setting` Block for details.
-        /// </summary>
         public InputList<Inputs.ClusterSettingArgs> Settings
         {
             get => _settings ?? (_settings = new InputList<Inputs.ClusterSettingArgs>());
@@ -354,10 +104,6 @@ namespace Pulumi.Aws.Ecs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -372,44 +118,23 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN that identifies the cluster.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Execute command configuration for the cluster. See `Configuration` Block for details.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationGetArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Default Service Connect namespace. See `ServiceConnectDefaults` Block for details.
-        /// </summary>
         [Input("serviceConnectDefaults")]
         public Input<Inputs.ClusterServiceConnectDefaultsGetArgs>? ServiceConnectDefaults { get; set; }
 
         [Input("settings")]
         private InputList<Inputs.ClusterSettingGetArgs>? _settings;
-
-        /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `Setting` Block for details.
-        /// </summary>
         public InputList<Inputs.ClusterSettingGetArgs> Settings
         {
             get => _settings ?? (_settings = new InputList<Inputs.ClusterSettingGetArgs>());
@@ -418,10 +143,6 @@ namespace Pulumi.Aws.Ecs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -430,10 +151,6 @@ namespace Pulumi.Aws.Ecs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

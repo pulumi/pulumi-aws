@@ -18,51 +18,23 @@ public final class LogDeliveryConfigurationArgs extends com.pulumi.resources.Res
 
     public static final LogDeliveryConfigurationArgs Empty = new LogDeliveryConfigurationArgs();
 
-    /**
-     * Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-     * 
-     */
     @Import(name="logConfigurations")
     private @Nullable Output<List<LogDeliveryConfigurationLogConfigurationArgs>> logConfigurations;
 
-    /**
-     * @return Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-     * 
-     */
     public Optional<Output<List<LogDeliveryConfigurationLogConfigurationArgs>>> logConfigurations() {
         return Optional.ofNullable(this.logConfigurations);
     }
 
-    /**
-     * The AWS region.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return The AWS region.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the user pool for which to configure log delivery.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return The ID of the user pool for which to configure log delivery.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -93,79 +65,33 @@ public final class LogDeliveryConfigurationArgs extends com.pulumi.resources.Res
             $ = new LogDeliveryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logConfigurations Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logConfigurations(@Nullable Output<List<LogDeliveryConfigurationLogConfigurationArgs>> logConfigurations) {
             $.logConfigurations = logConfigurations;
             return this;
         }
 
-        /**
-         * @param logConfigurations Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logConfigurations(List<LogDeliveryConfigurationLogConfigurationArgs> logConfigurations) {
             return logConfigurations(Output.of(logConfigurations));
         }
 
-        /**
-         * @param logConfigurations Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logConfigurations(LogDeliveryConfigurationLogConfigurationArgs... logConfigurations) {
             return logConfigurations(List.of(logConfigurations));
         }
 
-        /**
-         * @param region The AWS region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region The AWS region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userPoolId The ID of the user pool for which to configure log delivery.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId The ID of the user pool for which to configure log delivery.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

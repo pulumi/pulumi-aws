@@ -791,9 +791,7 @@ func (o EnvironmentLastDeploymentFailureReasonArrayOutput) Index(i pulumi.IntInp
 }
 
 type EnvironmentProfileUserParameter struct {
-	// Name of the environment profile parameter.
-	Name *string `pulumi:"name"`
-	// Value of the environment profile parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -809,9 +807,7 @@ type EnvironmentProfileUserParameterInput interface {
 }
 
 type EnvironmentProfileUserParameterArgs struct {
-	// Name of the environment profile parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of the environment profile parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -866,12 +862,10 @@ func (o EnvironmentProfileUserParameterOutput) ToEnvironmentProfileUserParameter
 	return o
 }
 
-// Name of the environment profile parameter.
 func (o EnvironmentProfileUserParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentProfileUserParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Value of the environment profile parameter.
 func (o EnvironmentProfileUserParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentProfileUserParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -897,12 +891,10 @@ func (o EnvironmentProfileUserParameterArrayOutput) Index(i pulumi.IntInput) Env
 }
 
 type EnvironmentProvisionedResource struct {
-	// The name of the environment.
 	Name     string `pulumi:"name"`
 	Provider string `pulumi:"provider"`
 	Type     string `pulumi:"type"`
-	// The value of an environment profile parameter.
-	Value string `pulumi:"value"`
+	Value    string `pulumi:"value"`
 }
 
 // EnvironmentProvisionedResourceInput is an input type that accepts EnvironmentProvisionedResourceArgs and EnvironmentProvisionedResourceOutput values.
@@ -917,12 +909,10 @@ type EnvironmentProvisionedResourceInput interface {
 }
 
 type EnvironmentProvisionedResourceArgs struct {
-	// The name of the environment.
 	Name     pulumi.StringInput `pulumi:"name"`
 	Provider pulumi.StringInput `pulumi:"provider"`
 	Type     pulumi.StringInput `pulumi:"type"`
-	// The value of an environment profile parameter.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value    pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentProvisionedResourceArgs) ElementType() reflect.Type {
@@ -976,7 +966,6 @@ func (o EnvironmentProvisionedResourceOutput) ToEnvironmentProvisionedResourceOu
 	return o
 }
 
-// The name of the environment.
 func (o EnvironmentProvisionedResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentProvisionedResource) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -989,7 +978,6 @@ func (o EnvironmentProvisionedResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentProvisionedResource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value of an environment profile parameter.
 func (o EnvironmentProvisionedResourceOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentProvisionedResource) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1190,9 +1178,7 @@ func (o EnvironmentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type EnvironmentUserParameter struct {
-	// The name of an environment profile parameter.
-	Name *string `pulumi:"name"`
-	// The value of an environment profile parameter.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1208,9 +1194,7 @@ type EnvironmentUserParameterInput interface {
 }
 
 type EnvironmentUserParameterArgs struct {
-	// The name of an environment profile parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of an environment profile parameter.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1265,12 +1249,10 @@ func (o EnvironmentUserParameterOutput) ToEnvironmentUserParameterOutputWithCont
 	return o
 }
 
-// The name of an environment profile parameter.
 func (o EnvironmentUserParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentUserParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of an environment profile parameter.
 func (o EnvironmentUserParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentUserParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1296,9 +1278,7 @@ func (o EnvironmentUserParameterArrayOutput) Index(i pulumi.IntInput) Environmen
 }
 
 type FormTypeImport struct {
-	// Name of the form type. Must be the name of the structure in smithy document.
-	Name string `pulumi:"name"`
-	// Revision of the Form Type.
+	Name     string `pulumi:"name"`
 	Revision string `pulumi:"revision"`
 }
 
@@ -1314,9 +1294,7 @@ type FormTypeImportInput interface {
 }
 
 type FormTypeImportArgs struct {
-	// Name of the form type. Must be the name of the structure in smithy document.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Revision of the Form Type.
+	Name     pulumi.StringInput `pulumi:"name"`
 	Revision pulumi.StringInput `pulumi:"revision"`
 }
 
@@ -1371,12 +1349,10 @@ func (o FormTypeImportOutput) ToFormTypeImportOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name of the form type. Must be the name of the structure in smithy document.
 func (o FormTypeImportOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FormTypeImport) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Revision of the Form Type.
 func (o FormTypeImportOutput) Revision() pulumi.StringOutput {
 	return o.ApplyT(func(v FormTypeImport) string { return v.Revision }).(pulumi.StringOutput)
 }
@@ -1402,9 +1378,6 @@ func (o FormTypeImportArrayOutput) Index(i pulumi.IntInput) FormTypeImportOutput
 }
 
 type FormTypeModel struct {
-	// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-	//
-	// The following arguments are optional:
 	Smithy string `pulumi:"smithy"`
 }
 
@@ -1420,9 +1393,6 @@ type FormTypeModelInput interface {
 }
 
 type FormTypeModelArgs struct {
-	// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-	//
-	// The following arguments are optional:
 	Smithy pulumi.StringInput `pulumi:"smithy"`
 }
 
@@ -1503,9 +1473,6 @@ func (o FormTypeModelOutput) ToFormTypeModelPtrOutputWithContext(ctx context.Con
 	}).(FormTypeModelPtrOutput)
 }
 
-// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-//
-// The following arguments are optional:
 func (o FormTypeModelOutput) Smithy() pulumi.StringOutput {
 	return o.ApplyT(func(v FormTypeModel) string { return v.Smithy }).(pulumi.StringOutput)
 }
@@ -1534,9 +1501,6 @@ func (o FormTypeModelPtrOutput) Elem() FormTypeModelOutput {
 	}).(FormTypeModelOutput)
 }
 
-// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-//
-// The following arguments are optional:
 func (o FormTypeModelPtrOutput) Smithy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormTypeModel) *string {
 		if v == nil {
@@ -1684,7 +1648,6 @@ func (o FormTypeTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 }
 
 type GlossaryTermTermRelations struct {
-	// String array that calssifies the term relations.
 	Classifies []string `pulumi:"classifies"`
 	IsAs       []string `pulumi:"isAs"`
 }
@@ -1701,7 +1664,6 @@ type GlossaryTermTermRelationsInput interface {
 }
 
 type GlossaryTermTermRelationsArgs struct {
-	// String array that calssifies the term relations.
 	Classifies pulumi.StringArrayInput `pulumi:"classifies"`
 	IsAs       pulumi.StringArrayInput `pulumi:"isAs"`
 }
@@ -1783,7 +1745,6 @@ func (o GlossaryTermTermRelationsOutput) ToGlossaryTermTermRelationsPtrOutputWit
 	}).(GlossaryTermTermRelationsPtrOutput)
 }
 
-// String array that calssifies the term relations.
 func (o GlossaryTermTermRelationsOutput) Classifies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlossaryTermTermRelations) []string { return v.Classifies }).(pulumi.StringArrayOutput)
 }
@@ -1816,7 +1777,6 @@ func (o GlossaryTermTermRelationsPtrOutput) Elem() GlossaryTermTermRelationsOutp
 	}).(GlossaryTermTermRelationsOutput)
 }
 
-// String array that calssifies the term relations.
 func (o GlossaryTermTermRelationsPtrOutput) Classifies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GlossaryTermTermRelations) []string {
 		if v == nil {

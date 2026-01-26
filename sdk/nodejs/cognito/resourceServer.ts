@@ -7,51 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Cognito Resource Server.
- *
- * ## Example Usage
- *
- * ### Create a basic resource server
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
- * const resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     name: "example",
- *     userPoolId: pool.id,
- * });
- * ```
- *
- * ### Create a resource server with sample-scope
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
- * const resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     name: "example",
- *     scopes: [{
- *         scopeName: "sample-scope",
- *         scopeDescription: "a Sample Scope Description",
- *     }],
- *     userPoolId: pool.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
- * ```
- */
 export class ResourceServer extends pulumi.CustomResource {
     /**
      * Get an existing ResourceServer resource's state with the given name, ID, and optional extra
@@ -80,29 +35,11 @@ export class ResourceServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceServer.__pulumiType;
     }
 
-    /**
-     * An identifier for the resource server.
-     */
     declare public readonly identifier: pulumi.Output<string>;
-    /**
-     * A name for the resource server.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A list of all scopes configured for this resource server in the format identifier/scope_name.
-     */
     declare public /*out*/ readonly scopeIdentifiers: pulumi.Output<string[]>;
-    /**
-     * A list of Authorization Scope.
-     */
     declare public readonly scopes: pulumi.Output<outputs.cognito.ResourceServerScope[] | undefined>;
-    /**
-     * User pool the client belongs to.
-     */
     declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
@@ -148,29 +85,11 @@ export class ResourceServer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceServer resources.
  */
 export interface ResourceServerState {
-    /**
-     * An identifier for the resource server.
-     */
     identifier?: pulumi.Input<string>;
-    /**
-     * A name for the resource server.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of all scopes configured for this resource server in the format identifier/scope_name.
-     */
     scopeIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of Authorization Scope.
-     */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
-    /**
-     * User pool the client belongs to.
-     */
     userPoolId?: pulumi.Input<string>;
 }
 
@@ -178,24 +97,9 @@ export interface ResourceServerState {
  * The set of arguments for constructing a ResourceServer resource.
  */
 export interface ResourceServerArgs {
-    /**
-     * An identifier for the resource server.
-     */
     identifier: pulumi.Input<string>;
-    /**
-     * A name for the resource server.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of Authorization Scope.
-     */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
-    /**
-     * User pool the client belongs to.
-     */
     userPoolId: pulumi.Input<string>;
 }

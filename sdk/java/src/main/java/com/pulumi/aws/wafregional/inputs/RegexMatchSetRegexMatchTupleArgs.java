@@ -15,53 +15,23 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
 
     public static final RegexMatchSetRegexMatchTupleArgs Empty = new RegexMatchSetRegexMatchTupleArgs();
 
-    /**
-     * The part of a web request that you want to search, such as a specified header or a query string.
-     * 
-     */
     @Import(name="fieldToMatch", required=true)
     private Output<RegexMatchSetRegexMatchTupleFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return The part of a web request that you want to search, such as a specified header or a query string.
-     * 
-     */
     public Output<RegexMatchSetRegexMatchTupleFieldToMatchArgs> fieldToMatch() {
         return this.fieldToMatch;
     }
 
-    /**
-     * The ID of a Regex Pattern Set.
-     * 
-     */
     @Import(name="regexPatternSetId", required=true)
     private Output<String> regexPatternSetId;
 
-    /**
-     * @return The ID of a Regex Pattern Set.
-     * 
-     */
     public Output<String> regexPatternSetId() {
         return this.regexPatternSetId;
     }
 
-    /**
-     * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     @Import(name="textTransformation", required=true)
     private Output<String> textTransformation;
 
-    /**
-     * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     public Output<String> textTransformation() {
         return this.textTransformation;
     }
@@ -92,71 +62,29 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
             $ = new RegexMatchSetRegexMatchTupleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want to search, such as a specified header or a query string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(Output<RegexMatchSetRegexMatchTupleFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want to search, such as a specified header or a query string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
-        /**
-         * @param regexPatternSetId The ID of a Regex Pattern Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexPatternSetId(Output<String> regexPatternSetId) {
             $.regexPatternSetId = regexPatternSetId;
             return this;
         }
 
-        /**
-         * @param regexPatternSetId The ID of a Regex Pattern Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexPatternSetId(String regexPatternSetId) {
             return regexPatternSetId(Output.of(regexPatternSetId));
         }
 
-        /**
-         * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(Output<String> textTransformation) {
             $.textTransformation = textTransformation;
             return this;
         }
 
-        /**
-         * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(String textTransformation) {
             return textTransformation(Output.of(textTransformation));
         }

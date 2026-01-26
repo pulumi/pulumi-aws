@@ -17,62 +17,30 @@ public final class GuardrailTopicPolicyConfigTopicsConfigArgs extends com.pulumi
 
     public static final GuardrailTopicPolicyConfigTopicsConfigArgs Empty = new GuardrailTopicPolicyConfigTopicsConfigArgs();
 
-    /**
-     * Definition of topic in topic policy.
-     * 
-     */
     @Import(name="definition", required=true)
     private Output<String> definition;
 
-    /**
-     * @return Definition of topic in topic policy.
-     * 
-     */
     public Output<String> definition() {
         return this.definition;
     }
 
-    /**
-     * List of text examples.
-     * 
-     */
     @Import(name="examples")
     private @Nullable Output<List<String>> examples;
 
-    /**
-     * @return List of text examples.
-     * 
-     */
     public Optional<Output<List<String>>> examples() {
         return Optional.ofNullable(this.examples);
     }
 
-    /**
-     * Name of topic in topic policy.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of topic in topic policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Type of topic in a policy.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of topic in a policy.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -104,96 +72,42 @@ public final class GuardrailTopicPolicyConfigTopicsConfigArgs extends com.pulumi
             $ = new GuardrailTopicPolicyConfigTopicsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definition Definition of topic in topic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(Output<String> definition) {
             $.definition = definition;
             return this;
         }
 
-        /**
-         * @param definition Definition of topic in topic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(String definition) {
             return definition(Output.of(definition));
         }
 
-        /**
-         * @param examples List of text examples.
-         * 
-         * @return builder
-         * 
-         */
         public Builder examples(@Nullable Output<List<String>> examples) {
             $.examples = examples;
             return this;
         }
 
-        /**
-         * @param examples List of text examples.
-         * 
-         * @return builder
-         * 
-         */
         public Builder examples(List<String> examples) {
             return examples(Output.of(examples));
         }
 
-        /**
-         * @param examples List of text examples.
-         * 
-         * @return builder
-         * 
-         */
         public Builder examples(String... examples) {
             return examples(List.of(examples));
         }
 
-        /**
-         * @param name Name of topic in topic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of topic in topic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type Type of topic in a policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of topic in a policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

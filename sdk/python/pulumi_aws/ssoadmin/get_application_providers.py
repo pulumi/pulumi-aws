@@ -41,17 +41,11 @@ class GetApplicationProvidersResult:
     @_builtins.property
     @pulumi.getter(name="applicationProviders")
     def application_providers(self) -> Sequence['outputs.GetApplicationProvidersApplicationProviderResult']:
-        """
-        A list of application providers available in the current region. See `application_providers` below.
-        """
         return pulumi.get(self, "application_providers")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        AWS region.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -74,21 +68,7 @@ class AwaitableGetApplicationProvidersResult(GetApplicationProvidersResult):
 def get_application_providers(region: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationProvidersResult:
     """
-    Data source for managing AWS SSO Admin Application Providers.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application_providers()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -102,21 +82,7 @@ def get_application_providers(region: Optional[_builtins.str] = None,
 def get_application_providers_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationProvidersResult]:
     """
-    Data source for managing AWS SSO Admin Application Providers.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application_providers()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

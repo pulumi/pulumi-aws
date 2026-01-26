@@ -18,47 +18,23 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs();
 
-    /**
-     * ARN of the model used to create vector embeddings for the knowledge base.
-     * 
-     */
     @Import(name="embeddingModelArn", required=true)
     private Output<String> embeddingModelArn;
 
-    /**
-     * @return ARN of the model used to create vector embeddings for the knowledge base.
-     * 
-     */
     public Output<String> embeddingModelArn() {
         return this.embeddingModelArn;
     }
 
-    /**
-     * The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
-     * 
-     */
     @Import(name="embeddingModelConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs> embeddingModelConfiguration;
 
-    /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs>> embeddingModelConfiguration() {
         return Optional.ofNullable(this.embeddingModelConfiguration);
     }
 
-    /**
-     * supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
-     * 
-     */
     @Import(name="supplementalDataStorageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs> supplementalDataStorageConfiguration;
 
-    /**
-     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs>> supplementalDataStorageConfiguration() {
         return Optional.ofNullable(this.supplementalDataStorageConfiguration);
     }
@@ -89,65 +65,29 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param embeddingModelArn ARN of the model used to create vector embeddings for the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder embeddingModelArn(Output<String> embeddingModelArn) {
             $.embeddingModelArn = embeddingModelArn;
             return this;
         }
 
-        /**
-         * @param embeddingModelArn ARN of the model used to create vector embeddings for the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder embeddingModelArn(String embeddingModelArn) {
             return embeddingModelArn(Output.of(embeddingModelArn));
         }
 
-        /**
-         * @param embeddingModelConfiguration The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder embeddingModelConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs> embeddingModelConfiguration) {
             $.embeddingModelConfiguration = embeddingModelConfiguration;
             return this;
         }
 
-        /**
-         * @param embeddingModelConfiguration The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder embeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs embeddingModelConfiguration) {
             return embeddingModelConfiguration(Output.of(embeddingModelConfiguration));
         }
 
-        /**
-         * @param supplementalDataStorageConfiguration supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supplementalDataStorageConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs> supplementalDataStorageConfiguration) {
             $.supplementalDataStorageConfiguration = supplementalDataStorageConfiguration;
             return this;
         }
 
-        /**
-         * @param supplementalDataStorageConfiguration supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supplementalDataStorageConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs supplementalDataStorageConfiguration) {
             return supplementalDataStorageConfiguration(Output.of(supplementalDataStorageConfiguration));
         }

@@ -56,25 +56,16 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> _builtins.str:
-        """
-        Access permissions string used for this user.
-        """
         return pulumi.get(self, "access_string")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the user.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationModes")
     def authentication_modes(self) -> Sequence['outputs.GetUserAuthenticationModeResult']:
-        """
-        Denotes the user's authentication properties.
-        """
         return pulumi.get(self, "authentication_modes")
 
     @_builtins.property
@@ -88,9 +79,6 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> _builtins.str:
-        """
-        Minimum engine version supported for the user.
-        """
         return pulumi.get(self, "minimum_engine_version")
 
     @_builtins.property
@@ -101,9 +89,6 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the user.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -133,21 +118,7 @@ def get_user(region: Optional[_builtins.str] = None,
              user_name: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Provides information about a MemoryDB User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_user(user_name="my-user")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the user.
-    :param _builtins.str user_name: Name of the user.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -170,21 +141,7 @@ def get_user_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = No
                     user_name: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
-    Provides information about a MemoryDB User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_user(user_name="my-user")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the user.
-    :param _builtins.str user_name: Name of the user.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

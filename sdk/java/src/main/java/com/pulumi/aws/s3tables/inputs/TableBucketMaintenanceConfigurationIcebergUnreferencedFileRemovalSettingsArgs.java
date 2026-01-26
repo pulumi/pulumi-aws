@@ -14,36 +14,16 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
 
     public static final TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs Empty = new TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs();
 
-    /**
-     * Data objects marked for deletion are deleted after this many days.
-     * Must be at least `1`.
-     * 
-     */
     @Import(name="nonCurrentDays", required=true)
     private Output<Integer> nonCurrentDays;
 
-    /**
-     * @return Data objects marked for deletion are deleted after this many days.
-     * Must be at least `1`.
-     * 
-     */
     public Output<Integer> nonCurrentDays() {
         return this.nonCurrentDays;
     }
 
-    /**
-     * Unreferenced data objects are marked for deletion after this many days.
-     * Must be at least `1`.
-     * 
-     */
     @Import(name="unreferencedDays", required=true)
     private Output<Integer> unreferencedDays;
 
-    /**
-     * @return Unreferenced data objects are marked for deletion after this many days.
-     * Must be at least `1`.
-     * 
-     */
     public Output<Integer> unreferencedDays() {
         return this.unreferencedDays;
     }
@@ -73,48 +53,20 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
             $ = new TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nonCurrentDays Data objects marked for deletion are deleted after this many days.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonCurrentDays(Output<Integer> nonCurrentDays) {
             $.nonCurrentDays = nonCurrentDays;
             return this;
         }
 
-        /**
-         * @param nonCurrentDays Data objects marked for deletion are deleted after this many days.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonCurrentDays(Integer nonCurrentDays) {
             return nonCurrentDays(Output.of(nonCurrentDays));
         }
 
-        /**
-         * @param unreferencedDays Unreferenced data objects are marked for deletion after this many days.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unreferencedDays(Output<Integer> unreferencedDays) {
             $.unreferencedDays = unreferencedDays;
             return this;
         }
 
-        /**
-         * @param unreferencedDays Unreferenced data objects are marked for deletion after this many days.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unreferencedDays(Integer unreferencedDays) {
             return unreferencedDays(Output.of(unreferencedDays));
         }

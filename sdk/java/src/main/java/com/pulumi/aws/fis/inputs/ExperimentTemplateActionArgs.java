@@ -19,92 +19,44 @@ public final class ExperimentTemplateActionArgs extends com.pulumi.resources.Res
 
     public static final ExperimentTemplateActionArgs Empty = new ExperimentTemplateActionArgs();
 
-    /**
-     * ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     @Import(name="actionId", required=true)
     private Output<String> actionId;
 
-    /**
-     * @return ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     public Output<String> actionId() {
         return this.actionId;
     }
 
-    /**
-     * Description of the action.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the action.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Friendly name of the action.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Friendly name of the action.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Parameter(s) for the action, if applicable. See below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<ExperimentTemplateActionParameterArgs>> parameters;
 
-    /**
-     * @return Parameter(s) for the action, if applicable. See below.
-     * 
-     */
     public Optional<Output<List<ExperimentTemplateActionParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Set of action names that must complete before this action can be executed.
-     * 
-     */
     @Import(name="startAfters")
     private @Nullable Output<List<String>> startAfters;
 
-    /**
-     * @return Set of action names that must complete before this action can be executed.
-     * 
-     */
     public Optional<Output<List<String>>> startAfters() {
         return Optional.ofNullable(this.startAfters);
     }
 
-    /**
-     * Action&#39;s target, if applicable. See below.
-     * 
-     */
     @Import(name="target")
     private @Nullable Output<ExperimentTemplateActionTargetArgs> target;
 
-    /**
-     * @return Action&#39;s target, if applicable. See below.
-     * 
-     */
     public Optional<Output<ExperimentTemplateActionTargetArgs>> target() {
         return Optional.ofNullable(this.target);
     }
@@ -138,148 +90,64 @@ public final class ExperimentTemplateActionArgs extends com.pulumi.resources.Res
             $ = new ExperimentTemplateActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionId ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionId(Output<String> actionId) {
             $.actionId = actionId;
             return this;
         }
 
-        /**
-         * @param actionId ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionId(String actionId) {
             return actionId(Output.of(actionId));
         }
 
-        /**
-         * @param description Description of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Friendly name of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Friendly name of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parameters Parameter(s) for the action, if applicable. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<ExperimentTemplateActionParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Parameter(s) for the action, if applicable. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<ExperimentTemplateActionParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Parameter(s) for the action, if applicable. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(ExperimentTemplateActionParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param startAfters Set of action names that must complete before this action can be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startAfters(@Nullable Output<List<String>> startAfters) {
             $.startAfters = startAfters;
             return this;
         }
 
-        /**
-         * @param startAfters Set of action names that must complete before this action can be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startAfters(List<String> startAfters) {
             return startAfters(Output.of(startAfters));
         }
 
-        /**
-         * @param startAfters Set of action names that must complete before this action can be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startAfters(String... startAfters) {
             return startAfters(List.of(startAfters));
         }
 
-        /**
-         * @param target Action&#39;s target, if applicable. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(@Nullable Output<ExperimentTemplateActionTargetArgs> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target Action&#39;s target, if applicable. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(ExperimentTemplateActionTargetArgs target) {
             return target(Output.of(target));
         }

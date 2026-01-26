@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CodeCatalyst Source Repository.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codecatalyst.SourceRepository("example", {
- *     name: "example-repo",
- *     projectName: "example-project",
- *     spaceName: "example-space",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
- * ```
- */
 export class SourceRepository extends pulumi.CustomResource {
     /**
      * Get an existing SourceRepository resource's state with the given name, ID, and optional extra
@@ -58,27 +32,10 @@ export class SourceRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === SourceRepository.__pulumiType;
     }
 
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The name of the project in the CodeCatalyst space.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly projectName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the CodeCatalyst space.
-     */
     declare public readonly spaceName: pulumi.Output<string>;
 
     /**
@@ -122,27 +79,10 @@ export class SourceRepository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SourceRepository resources.
  */
 export interface SourceRepositoryState {
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the project in the CodeCatalyst space.
-     *
-     * The following arguments are optional:
-     */
     projectName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the CodeCatalyst space.
-     */
     spaceName?: pulumi.Input<string>;
 }
 
@@ -150,26 +90,9 @@ export interface SourceRepositoryState {
  * The set of arguments for constructing a SourceRepository resource.
  */
 export interface SourceRepositoryArgs {
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the project in the CodeCatalyst space.
-     *
-     * The following arguments are optional:
-     */
     projectName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the CodeCatalyst space.
-     */
     spaceName: pulumi.Input<string>;
 }

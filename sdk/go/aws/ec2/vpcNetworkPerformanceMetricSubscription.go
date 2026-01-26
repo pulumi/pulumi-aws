@@ -12,49 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an Infrastructure Performance subscription.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcNetworkPerformanceMetricSubscription(ctx, "example", &ec2.VpcNetworkPerformanceMetricSubscriptionArgs{
-//				Source:      pulumi.String("us-east-1"),
-//				Destination: pulumi.String("us-west-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type VpcNetworkPerformanceMetricSubscription struct {
 	pulumi.CustomResourceState
 
-	// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-	Destination pulumi.StringOutput `pulumi:"destination"`
-	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-	Metric pulumi.StringPtrOutput `pulumi:"metric"`
-	// The data aggregation time for the subscription.
-	Period pulumi.StringOutput `pulumi:"period"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-	Source pulumi.StringOutput `pulumi:"source"`
-	// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-	Statistic pulumi.StringPtrOutput `pulumi:"statistic"`
+	Destination pulumi.StringOutput    `pulumi:"destination"`
+	Metric      pulumi.StringPtrOutput `pulumi:"metric"`
+	Period      pulumi.StringOutput    `pulumi:"period"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Source      pulumi.StringOutput    `pulumi:"source"`
+	Statistic   pulumi.StringPtrOutput `pulumi:"statistic"`
 }
 
 // NewVpcNetworkPerformanceMetricSubscription registers a new resource with the given unique name, arguments, and options.
@@ -93,33 +59,21 @@ func GetVpcNetworkPerformanceMetricSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcNetworkPerformanceMetricSubscription resources.
 type vpcNetworkPerformanceMetricSubscriptionState struct {
-	// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
 	Destination *string `pulumi:"destination"`
-	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-	Metric *string `pulumi:"metric"`
-	// The data aggregation time for the subscription.
-	Period *string `pulumi:"period"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-	Source *string `pulumi:"source"`
-	// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-	Statistic *string `pulumi:"statistic"`
+	Metric      *string `pulumi:"metric"`
+	Period      *string `pulumi:"period"`
+	Region      *string `pulumi:"region"`
+	Source      *string `pulumi:"source"`
+	Statistic   *string `pulumi:"statistic"`
 }
 
 type VpcNetworkPerformanceMetricSubscriptionState struct {
-	// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
 	Destination pulumi.StringPtrInput
-	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-	Metric pulumi.StringPtrInput
-	// The data aggregation time for the subscription.
-	Period pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-	Source pulumi.StringPtrInput
-	// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-	Statistic pulumi.StringPtrInput
+	Metric      pulumi.StringPtrInput
+	Period      pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Source      pulumi.StringPtrInput
+	Statistic   pulumi.StringPtrInput
 }
 
 func (VpcNetworkPerformanceMetricSubscriptionState) ElementType() reflect.Type {
@@ -127,30 +81,20 @@ func (VpcNetworkPerformanceMetricSubscriptionState) ElementType() reflect.Type {
 }
 
 type vpcNetworkPerformanceMetricSubscriptionArgs struct {
-	// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-	Destination string `pulumi:"destination"`
-	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-	Metric *string `pulumi:"metric"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-	Source string `pulumi:"source"`
-	// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-	Statistic *string `pulumi:"statistic"`
+	Destination string  `pulumi:"destination"`
+	Metric      *string `pulumi:"metric"`
+	Region      *string `pulumi:"region"`
+	Source      string  `pulumi:"source"`
+	Statistic   *string `pulumi:"statistic"`
 }
 
 // The set of arguments for constructing a VpcNetworkPerformanceMetricSubscription resource.
 type VpcNetworkPerformanceMetricSubscriptionArgs struct {
-	// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
 	Destination pulumi.StringInput
-	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-	Metric pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-	Source pulumi.StringInput
-	// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-	Statistic pulumi.StringPtrInput
+	Metric      pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Source      pulumi.StringInput
+	Statistic   pulumi.StringPtrInput
 }
 
 func (VpcNetworkPerformanceMetricSubscriptionArgs) ElementType() reflect.Type {
@@ -240,32 +184,26 @@ func (o VpcNetworkPerformanceMetricSubscriptionOutput) ToVpcNetworkPerformanceMe
 	return o
 }
 
-// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
 
-// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringPtrOutput { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
-// The data aggregation time for the subscription.
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) Period() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Period }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
-// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringPtrOutput { return v.Statistic }).(pulumi.StringPtrOutput)
 }

@@ -4,62 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS EKS (Elastic Kubernetes) Pod Identity Association.
- *
- * Creates an EKS Pod Identity association between a service account in an Amazon EKS cluster and an IAM role with EKS Pod Identity. Use EKS Pod Identity to give temporary IAM credentials to pods and the credentials are rotated automatically.
- *
- * Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that EC2 instance profiles provide credentials to Amazon EC2 instances.
- *
- * If a pod uses a service account that has an association, Amazon EKS sets environment variables in the containers of the pod. The environment variables configure the Amazon Web Services SDKs, including the Command Line Interface, to use the EKS Pod Identity credentials.
- *
- * Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["pods.eks.amazonaws.com"],
- *         }],
- *         actions: [
- *             "sts:AssumeRole",
- *             "sts:TagSession",
- *         ],
- *     }],
- * });
- * const example = new aws.iam.Role("example", {
- *     name: "eks-pod-identity-example",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const exampleS3 = new aws.iam.RolePolicyAttachment("example_s3", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
- *     role: example.name,
- * });
- * const examplePodIdentityAssociation = new aws.eks.PodIdentityAssociation("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     namespace: "example",
- *     serviceAccount: "example-sa",
- *     roleArn: example.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `cluster_name` and `association_id` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
- * ```
- */
 export class PodIdentityAssociation extends pulumi.CustomResource {
     /**
      * Get an existing PodIdentityAssociation resource's state with the given name, ID, and optional extra
@@ -88,55 +32,17 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === PodIdentityAssociation.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the association.
-     */
     declare public /*out*/ readonly associationArn: pulumi.Output<string>;
-    /**
-     * The ID of the association.
-     */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
-    /**
-     * The name of the cluster to create the association in.
-     */
     declare public readonly clusterName: pulumi.Output<string>;
-    /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
-     */
     declare public readonly disableSessionTags: pulumi.Output<boolean>;
-    /**
-     * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
-     */
     declare public /*out*/ readonly externalId: pulumi.Output<string>;
-    /**
-     * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
-     */
     declare public readonly namespace: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly serviceAccount: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
-     */
     declare public readonly targetRoleArn: pulumi.Output<string | undefined>;
 
     /**
@@ -200,55 +106,17 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PodIdentityAssociation resources.
  */
 export interface PodIdentityAssociationState {
-    /**
-     * The Amazon Resource Name (ARN) of the association.
-     */
     associationArn?: pulumi.Input<string>;
-    /**
-     * The ID of the association.
-     */
     associationId?: pulumi.Input<string>;
-    /**
-     * The name of the cluster to create the association in.
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
-     */
     disableSessionTags?: pulumi.Input<boolean>;
-    /**
-     * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
-     */
     externalId?: pulumi.Input<string>;
-    /**
-     * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
-     *
-     * The following arguments are optional:
-     */
     serviceAccount?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
-     */
     targetRoleArn?: pulumi.Input<string>;
 }
 
@@ -256,38 +124,12 @@ export interface PodIdentityAssociationState {
  * The set of arguments for constructing a PodIdentityAssociation resource.
  */
 export interface PodIdentityAssociationArgs {
-    /**
-     * The name of the cluster to create the association in.
-     */
     clusterName: pulumi.Input<string>;
-    /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
-     */
     disableSessionTags?: pulumi.Input<boolean>;
-    /**
-     * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
-     */
     namespace: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
-     *
-     * The following arguments are optional:
-     */
     serviceAccount: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
-     */
     targetRoleArn?: pulumi.Input<string>;
 }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard {
-    /**
-     * @return The ARN of the CloudWatch dashboard.
-     * 
-     */
     private @Nullable String dashboardArn;
 
     private ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard() {}
-    /**
-     * @return The ARN of the CloudWatch dashboard.
-     * 
-     */
     public Optional<String> dashboardArn() {
         return Optional.ofNullable(this.dashboardArn);
     }

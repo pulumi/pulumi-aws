@@ -14,17 +14,9 @@ public final class EventEndpointRoutingConfigArgs extends com.pulumi.resources.R
 
     public static final EventEndpointRoutingConfigArgs Empty = new EventEndpointRoutingConfigArgs();
 
-    /**
-     * Parameters used for failover. This includes what triggers failover and what happens when it&#39;s triggered. Documented below.
-     * 
-     */
     @Import(name="failoverConfig", required=true)
     private Output<EventEndpointRoutingConfigFailoverConfigArgs> failoverConfig;
 
-    /**
-     * @return Parameters used for failover. This includes what triggers failover and what happens when it&#39;s triggered. Documented below.
-     * 
-     */
     public Output<EventEndpointRoutingConfigFailoverConfigArgs> failoverConfig() {
         return this.failoverConfig;
     }
@@ -53,23 +45,11 @@ public final class EventEndpointRoutingConfigArgs extends com.pulumi.resources.R
             $ = new EventEndpointRoutingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param failoverConfig Parameters used for failover. This includes what triggers failover and what happens when it&#39;s triggered. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failoverConfig(Output<EventEndpointRoutingConfigFailoverConfigArgs> failoverConfig) {
             $.failoverConfig = failoverConfig;
             return this;
         }
 
-        /**
-         * @param failoverConfig Parameters used for failover. This includes what triggers failover and what happens when it&#39;s triggered. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failoverConfig(EventEndpointRoutingConfigFailoverConfigArgs failoverConfig) {
             return failoverConfig(Output.of(failoverConfig));
         }

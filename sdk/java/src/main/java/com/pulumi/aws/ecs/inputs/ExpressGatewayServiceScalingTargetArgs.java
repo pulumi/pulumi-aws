@@ -15,62 +15,30 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
 
     public static final ExpressGatewayServiceScalingTargetArgs Empty = new ExpressGatewayServiceScalingTargetArgs();
 
-    /**
-     * Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
-     * 
-     */
     @Import(name="autoScalingMetric", required=true)
     private Output<String> autoScalingMetric;
 
-    /**
-     * @return Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
-     * 
-     */
     public Output<String> autoScalingMetric() {
         return this.autoScalingMetric;
     }
 
-    /**
-     * Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-     * 
-     */
     @Import(name="autoScalingTargetValue", required=true)
     private Output<Integer> autoScalingTargetValue;
 
-    /**
-     * @return Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-     * 
-     */
     public Output<Integer> autoScalingTargetValue() {
         return this.autoScalingTargetValue;
     }
 
-    /**
-     * Maximum number of tasks to run.
-     * 
-     */
     @Import(name="maxTaskCount", required=true)
     private Output<Integer> maxTaskCount;
 
-    /**
-     * @return Maximum number of tasks to run.
-     * 
-     */
     public Output<Integer> maxTaskCount() {
         return this.maxTaskCount;
     }
 
-    /**
-     * Minimum number of tasks to run.
-     * 
-     */
     @Import(name="minTaskCount", required=true)
     private Output<Integer> minTaskCount;
 
-    /**
-     * @return Minimum number of tasks to run.
-     * 
-     */
     public Output<Integer> minTaskCount() {
         return this.minTaskCount;
     }
@@ -102,86 +70,38 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
             $ = new ExpressGatewayServiceScalingTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoScalingMetric Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingMetric(Output<String> autoScalingMetric) {
             $.autoScalingMetric = autoScalingMetric;
             return this;
         }
 
-        /**
-         * @param autoScalingMetric Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingMetric(String autoScalingMetric) {
             return autoScalingMetric(Output.of(autoScalingMetric));
         }
 
-        /**
-         * @param autoScalingTargetValue Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingTargetValue(Output<Integer> autoScalingTargetValue) {
             $.autoScalingTargetValue = autoScalingTargetValue;
             return this;
         }
 
-        /**
-         * @param autoScalingTargetValue Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingTargetValue(Integer autoScalingTargetValue) {
             return autoScalingTargetValue(Output.of(autoScalingTargetValue));
         }
 
-        /**
-         * @param maxTaskCount Maximum number of tasks to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTaskCount(Output<Integer> maxTaskCount) {
             $.maxTaskCount = maxTaskCount;
             return this;
         }
 
-        /**
-         * @param maxTaskCount Maximum number of tasks to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTaskCount(Integer maxTaskCount) {
             return maxTaskCount(Output.of(maxTaskCount));
         }
 
-        /**
-         * @param minTaskCount Minimum number of tasks to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTaskCount(Output<Integer> minTaskCount) {
             $.minTaskCount = minTaskCount;
             return this;
         }
 
-        /**
-         * @param minTaskCount Minimum number of tasks to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTaskCount(Integer minTaskCount) {
             return minTaskCount(Output.of(minTaskCount));
         }

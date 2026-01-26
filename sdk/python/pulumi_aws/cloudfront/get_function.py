@@ -64,33 +64,21 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN identifying your CloudFront Function.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def code(self) -> _builtins.str:
-        """
-        Source code of the function
-        """
         return pulumi.get(self, "code")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> _builtins.str:
-        """
-        Comment.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> _builtins.str:
-        """
-        ETag hash of the function
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
@@ -104,17 +92,11 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter(name="keyValueStoreAssociations")
     def key_value_store_associations(self) -> Sequence[_builtins.str]:
-        """
-        List of `cloudfront.KeyValueStore` ARNs associated to the function.
-        """
         return pulumi.get(self, "key_value_store_associations")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> _builtins.str:
-        """
-        When this resource was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
@@ -125,9 +107,6 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter
     def runtime(self) -> _builtins.str:
-        """
-        Identifier of the function's runtime.
-        """
         return pulumi.get(self, "runtime")
 
     @_builtins.property
@@ -138,9 +117,6 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-        """
         return pulumi.get(self, "status")
 
 
@@ -167,23 +143,7 @@ def get_function(name: Optional[_builtins.str] = None,
                  stage: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
-    Provides information about a CloudFront Function.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.cloudfront.get_function(name=function_name,
-        stage="LIVE")
-    ```
-
-
-    :param _builtins.str name: Name of the CloudFront function.
-    :param _builtins.str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -207,23 +167,7 @@ def get_function_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                         stage: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
-    Provides information about a CloudFront Function.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.cloudfront.get_function(name=function_name,
-        stage="LIVE")
-    ```
-
-
-    :param _builtins.str name: Name of the CloudFront function.
-    :param _builtins.str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

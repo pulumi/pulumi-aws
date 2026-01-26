@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleConditionHttpHeader {
-    /**
-     * @return Name of the HTTP header to match.
-     * 
-     */
     private String httpHeaderName;
-    /**
-     * @return Set of regular expressions to compare against the request URL.
-     * 
-     */
     private List<String> regexValues;
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     private List<String> values;
 
     private GetListenerRuleConditionHttpHeader() {}
-    /**
-     * @return Name of the HTTP header to match.
-     * 
-     */
     public String httpHeaderName() {
         return this.httpHeaderName;
     }
-    /**
-     * @return Set of regular expressions to compare against the request URL.
-     * 
-     */
     public List<String> regexValues() {
         return this.regexValues;
     }
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

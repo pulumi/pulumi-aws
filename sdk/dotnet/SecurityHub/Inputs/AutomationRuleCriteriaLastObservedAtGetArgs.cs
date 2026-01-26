@@ -12,21 +12,12 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class AutomationRuleCriteriaLastObservedAtGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A configuration block of the date range for the date filter. See DateRange below for more details.
-        /// </summary>
         [Input("dateRange")]
         public Input<Inputs.AutomationRuleCriteriaLastObservedAtDateRangeGetArgs>? DateRange { get; set; }
 
-        /// <summary>
-        /// An end date for the date filter. Required with `Start` if `DateRange` is not specified.
-        /// </summary>
         [Input("end")]
         public Input<string>? End { get; set; }
 
-        /// <summary>
-        /// A start date for the date filter. Required with `End` if `DateRange` is not specified.
-        /// </summary>
         [Input("start")]
         public Input<string>? Start { get; set; }
 

@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceNetworkConfiguration {
-    /**
-     * @return Whether tasks receive public IP addresses
-     * 
-     */
     private Boolean assignPublicIp;
-    /**
-     * @return Security groups associated with tasks
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return Subnets associated with tasks
-     * 
-     */
     private List<String> subnets;
 
     private GetServiceNetworkConfiguration() {}
-    /**
-     * @return Whether tasks receive public IP addresses
-     * 
-     */
     public Boolean assignPublicIp() {
         return this.assignPublicIp;
     }
-    /**
-     * @return Security groups associated with tasks
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return Subnets associated with tasks
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

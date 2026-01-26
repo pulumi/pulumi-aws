@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainSoftwareUpdateOption {
-    /**
-     * @return Enabled or disabled.
-     * 
-     */
     private Boolean autoSoftwareUpdateEnabled;
 
     private GetDomainSoftwareUpdateOption() {}
-    /**
-     * @return Enabled or disabled.
-     * 
-     */
     public Boolean autoSoftwareUpdateEnabled() {
         return this.autoSoftwareUpdateEnabled;
     }

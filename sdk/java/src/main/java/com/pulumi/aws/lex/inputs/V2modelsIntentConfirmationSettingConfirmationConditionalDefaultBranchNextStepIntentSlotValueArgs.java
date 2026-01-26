@@ -15,17 +15,9 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
 
     public static final V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgs Empty = new V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgs();
 
-    /**
-     * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-     * 
-     */
     @Import(name="interpretedValue")
     private @Nullable Output<String> interpretedValue;
 
-    /**
-     * @return Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-     * 
-     */
     public Optional<Output<String>> interpretedValue() {
         return Optional.ofNullable(this.interpretedValue);
     }
@@ -54,23 +46,11 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
             $ = new V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param interpretedValue Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interpretedValue(@Nullable Output<String> interpretedValue) {
             $.interpretedValue = interpretedValue;
             return this;
         }
 
-        /**
-         * @param interpretedValue Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interpretedValue(String interpretedValue) {
             return interpretedValue(Output.of(interpretedValue));
         }

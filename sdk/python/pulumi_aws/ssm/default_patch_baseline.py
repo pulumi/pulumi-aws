@@ -24,26 +24,6 @@ class DefaultPatchBaselineArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultPatchBaseline resource.
-        :param pulumi.Input[_builtins.str] baseline_id: ID of the patch baseline.
-               Can be an ID or an ARN.
-               When specifying an AWS-provided patch baseline, must be the ARN.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system the patch baseline applies to.
-               Valid values are
-               `AMAZON_LINUX`,
-               `AMAZON_LINUX_2`,
-               `AMAZON_LINUX_2022`,
-               `AMAZON_LINUX_2023`,
-               `CENTOS`,
-               `DEBIAN`,
-               `MACOS`,
-               `ORACLE_LINUX`,
-               `RASPBIAN`,
-               `REDHAT_ENTERPRISE_LINUX`,
-               `ROCKY_LINUX`,
-               `SUSE`,
-               `UBUNTU`, and
-               `WINDOWS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "baseline_id", baseline_id)
         pulumi.set(__self__, "operating_system", operating_system)
@@ -53,11 +33,6 @@ class DefaultPatchBaselineArgs:
     @_builtins.property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the patch baseline.
-        Can be an ID or an ARN.
-        When specifying an AWS-provided patch baseline, must be the ARN.
-        """
         return pulumi.get(self, "baseline_id")
 
     @baseline_id.setter
@@ -67,24 +42,6 @@ class DefaultPatchBaselineArgs:
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Input[_builtins.str]:
-        """
-        The operating system the patch baseline applies to.
-        Valid values are
-        `AMAZON_LINUX`,
-        `AMAZON_LINUX_2`,
-        `AMAZON_LINUX_2022`,
-        `AMAZON_LINUX_2023`,
-        `CENTOS`,
-        `DEBIAN`,
-        `MACOS`,
-        `ORACLE_LINUX`,
-        `RASPBIAN`,
-        `REDHAT_ENTERPRISE_LINUX`,
-        `ROCKY_LINUX`,
-        `SUSE`,
-        `UBUNTU`, and
-        `WINDOWS`.
-        """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
@@ -94,9 +51,6 @@ class DefaultPatchBaselineArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,26 +66,6 @@ class _DefaultPatchBaselineState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultPatchBaseline resources.
-        :param pulumi.Input[_builtins.str] baseline_id: ID of the patch baseline.
-               Can be an ID or an ARN.
-               When specifying an AWS-provided patch baseline, must be the ARN.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system the patch baseline applies to.
-               Valid values are
-               `AMAZON_LINUX`,
-               `AMAZON_LINUX_2`,
-               `AMAZON_LINUX_2022`,
-               `AMAZON_LINUX_2023`,
-               `CENTOS`,
-               `DEBIAN`,
-               `MACOS`,
-               `ORACLE_LINUX`,
-               `RASPBIAN`,
-               `REDHAT_ENTERPRISE_LINUX`,
-               `ROCKY_LINUX`,
-               `SUSE`,
-               `UBUNTU`, and
-               `WINDOWS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if baseline_id is not None:
             pulumi.set(__self__, "baseline_id", baseline_id)
@@ -143,11 +77,6 @@ class _DefaultPatchBaselineState:
     @_builtins.property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the patch baseline.
-        Can be an ID or an ARN.
-        When specifying an AWS-provided patch baseline, must be the ARN.
-        """
         return pulumi.get(self, "baseline_id")
 
     @baseline_id.setter
@@ -157,24 +86,6 @@ class _DefaultPatchBaselineState:
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The operating system the patch baseline applies to.
-        Valid values are
-        `AMAZON_LINUX`,
-        `AMAZON_LINUX_2`,
-        `AMAZON_LINUX_2022`,
-        `AMAZON_LINUX_2023`,
-        `CENTOS`,
-        `DEBIAN`,
-        `MACOS`,
-        `ORACLE_LINUX`,
-        `RASPBIAN`,
-        `REDHAT_ENTERPRISE_LINUX`,
-        `ROCKY_LINUX`,
-        `SUSE`,
-        `UBUNTU`, and
-        `WINDOWS`.
-        """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
@@ -184,9 +95,6 @@ class _DefaultPatchBaselineState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -205,70 +113,9 @@ class DefaultPatchBaseline(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for registering an AWS Systems Manager Default Patch Baseline.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_patch_baseline = aws.ssm.PatchBaseline("example",
-            name="example",
-            approved_patches=["KB123456"])
-        example = aws.ssm.DefaultPatchBaseline("example",
-            baseline_id=example_patch_baseline.id,
-            operating_system=example_patch_baseline.operating_system)
-        ```
-
-        ## Import
-
-        Using the patch baseline ARN:
-
-        Using the operating system value:
-
-        __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
-
-        Using the patch baseline ID:
-
-        ```sh
-        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
-        ```
-        Using the patch baseline ARN:
-
-        ```sh
-        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
-        ```
-        Using the operating system value:
-
-        ```sh
-        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
-        ```
-
+        Create a DefaultPatchBaseline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] baseline_id: ID of the patch baseline.
-               Can be an ID or an ARN.
-               When specifying an AWS-provided patch baseline, must be the ARN.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system the patch baseline applies to.
-               Valid values are
-               `AMAZON_LINUX`,
-               `AMAZON_LINUX_2`,
-               `AMAZON_LINUX_2022`,
-               `AMAZON_LINUX_2023`,
-               `CENTOS`,
-               `DEBIAN`,
-               `MACOS`,
-               `ORACLE_LINUX`,
-               `RASPBIAN`,
-               `REDHAT_ENTERPRISE_LINUX`,
-               `ROCKY_LINUX`,
-               `SUSE`,
-               `UBUNTU`, and
-               `WINDOWS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -277,48 +124,7 @@ class DefaultPatchBaseline(pulumi.CustomResource):
                  args: DefaultPatchBaselineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for registering an AWS Systems Manager Default Patch Baseline.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_patch_baseline = aws.ssm.PatchBaseline("example",
-            name="example",
-            approved_patches=["KB123456"])
-        example = aws.ssm.DefaultPatchBaseline("example",
-            baseline_id=example_patch_baseline.id,
-            operating_system=example_patch_baseline.operating_system)
-        ```
-
-        ## Import
-
-        Using the patch baseline ARN:
-
-        Using the operating system value:
-
-        __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
-
-        Using the patch baseline ID:
-
-        ```sh
-        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
-        ```
-        Using the patch baseline ARN:
-
-        ```sh
-        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
-        ```
-        Using the operating system value:
-
-        ```sh
-        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
-        ```
-
+        Create a DefaultPatchBaseline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DefaultPatchBaselineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,26 +179,6 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] baseline_id: ID of the patch baseline.
-               Can be an ID or an ARN.
-               When specifying an AWS-provided patch baseline, must be the ARN.
-        :param pulumi.Input[_builtins.str] operating_system: The operating system the patch baseline applies to.
-               Valid values are
-               `AMAZON_LINUX`,
-               `AMAZON_LINUX_2`,
-               `AMAZON_LINUX_2022`,
-               `AMAZON_LINUX_2023`,
-               `CENTOS`,
-               `DEBIAN`,
-               `MACOS`,
-               `ORACLE_LINUX`,
-               `RASPBIAN`,
-               `REDHAT_ENTERPRISE_LINUX`,
-               `ROCKY_LINUX`,
-               `SUSE`,
-               `UBUNTU`, and
-               `WINDOWS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -406,41 +192,15 @@ class DefaultPatchBaseline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the patch baseline.
-        Can be an ID or an ARN.
-        When specifying an AWS-provided patch baseline, must be the ARN.
-        """
         return pulumi.get(self, "baseline_id")
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Output[_builtins.str]:
-        """
-        The operating system the patch baseline applies to.
-        Valid values are
-        `AMAZON_LINUX`,
-        `AMAZON_LINUX_2`,
-        `AMAZON_LINUX_2022`,
-        `AMAZON_LINUX_2023`,
-        `CENTOS`,
-        `DEBIAN`,
-        `MACOS`,
-        `ORACLE_LINUX`,
-        `RASPBIAN`,
-        `REDHAT_ENTERPRISE_LINUX`,
-        `ROCKY_LINUX`,
-        `SUSE`,
-        `UBUNTU`, and
-        `WINDOWS`.
-        """
         return pulumi.get(self, "operating_system")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

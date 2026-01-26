@@ -19,92 +19,44 @@ public final class ReportPlanArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ReportPlanArgs Empty = new ReportPlanArgs();
 
-    /**
-     * The description of the report plan with a maximum of 1,024 characters
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the report plan with a maximum of 1,024 characters
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-     * 
-     */
     @Import(name="reportDeliveryChannel", required=true)
     private Output<ReportPlanReportDeliveryChannelArgs> reportDeliveryChannel;
 
-    /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-     * 
-     */
     public Output<ReportPlanReportDeliveryChannelArgs> reportDeliveryChannel() {
         return this.reportDeliveryChannel;
     }
 
-    /**
-     * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-     * 
-     */
     @Import(name="reportSetting", required=true)
     private Output<ReportPlanReportSettingArgs> reportSetting;
 
-    /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-     * 
-     */
     public Output<ReportPlanReportSettingArgs> reportSetting() {
         return this.reportSetting;
     }
 
-    /**
-     * Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -138,128 +90,56 @@ public final class ReportPlanArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ReportPlanArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description of the report plan with a maximum of 1,024 characters
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the report plan with a maximum of 1,024 characters
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param reportDeliveryChannel An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reportDeliveryChannel(Output<ReportPlanReportDeliveryChannelArgs> reportDeliveryChannel) {
             $.reportDeliveryChannel = reportDeliveryChannel;
             return this;
         }
 
-        /**
-         * @param reportDeliveryChannel An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reportDeliveryChannel(ReportPlanReportDeliveryChannelArgs reportDeliveryChannel) {
             return reportDeliveryChannel(Output.of(reportDeliveryChannel));
         }
 
-        /**
-         * @param reportSetting An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reportSetting(Output<ReportPlanReportSettingArgs> reportSetting) {
             $.reportSetting = reportSetting;
             return this;
         }
 
-        /**
-         * @param reportSetting An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reportSetting(ReportPlanReportSettingArgs reportSetting) {
             return reportSetting(Output.of(reportSetting));
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

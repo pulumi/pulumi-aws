@@ -14,17 +14,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs Empty = new GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs();
 
-    /**
-     * Configures destinations to send audit findings to.
-     * 
-     */
     @Import(name="findingsDestination", required=true)
     private Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs> findingsDestination;
 
-    /**
-     * @return Configures destinations to send audit findings to.
-     * 
-     */
     public Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs> findingsDestination() {
         return this.findingsDestination;
     }
@@ -53,23 +45,11 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param findingsDestination Configures destinations to send audit findings to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingsDestination(Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs> findingsDestination) {
             $.findingsDestination = findingsDestination;
             return this;
         }
 
-        /**
-         * @param findingsDestination Configures destinations to send audit findings to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs findingsDestination) {
             return findingsDestination(Output.of(findingsDestination));
         }

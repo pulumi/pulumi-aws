@@ -4,46 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon S3 Vectors Vector Bucket policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.VectorsVectorBucketPolicy("example", {
- *     vectorBucketArn: exampleAwsS3vectorsVectorBucket.arn,
- *     policy: `{
- *   \\"Version\\": \\"2012-10-17\\",
- *   \\"Id\\": \\"writePolicy\\",
- *   \\"Statement\\": [{
- *     \\"Sid\\": \\"writeStatement\\",
- *     \\"Effect\\": \\"Allow\\",
- *     \\"Principal\\": {
- *       \\"AWS\\": \\"123456789012\\"
- *     },
- *     \\"Action\\": [
- *       \\"s3vectors:PutVectors\\"
- *     ],
- *     \\"Resource\\": \\"*\\"
- *   }]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `vector_bucket_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
- * ```
- */
 export class VectorsVectorBucketPolicy extends pulumi.CustomResource {
     /**
      * Get an existing VectorsVectorBucketPolicy resource's state with the given name, ID, and optional extra
@@ -72,19 +32,8 @@ export class VectorsVectorBucketPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === VectorsVectorBucketPolicy.__pulumiType;
     }
 
-    /**
-     * The policy document.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the vector bucket.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly vectorBucketArn: pulumi.Output<string>;
 
     /**
@@ -124,19 +73,8 @@ export class VectorsVectorBucketPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VectorsVectorBucketPolicy resources.
  */
 export interface VectorsVectorBucketPolicyState {
-    /**
-     * The policy document.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the vector bucket.
-     *
-     * The following arguments are optional:
-     */
     vectorBucketArn?: pulumi.Input<string>;
 }
 
@@ -144,18 +82,7 @@ export interface VectorsVectorBucketPolicyState {
  * The set of arguments for constructing a VectorsVectorBucketPolicy resource.
  */
 export interface VectorsVectorBucketPolicyArgs {
-    /**
-     * The policy document.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the vector bucket.
-     *
-     * The following arguments are optional:
-     */
     vectorBucketArn: pulumi.Input<string>;
 }

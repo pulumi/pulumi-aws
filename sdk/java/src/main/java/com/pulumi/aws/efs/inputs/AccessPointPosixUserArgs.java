@@ -17,47 +17,23 @@ public final class AccessPointPosixUserArgs extends com.pulumi.resources.Resourc
 
     public static final AccessPointPosixUserArgs Empty = new AccessPointPosixUserArgs();
 
-    /**
-     * POSIX group ID used for all file system operations using this access point.
-     * 
-     */
     @Import(name="gid", required=true)
     private Output<Integer> gid;
 
-    /**
-     * @return POSIX group ID used for all file system operations using this access point.
-     * 
-     */
     public Output<Integer> gid() {
         return this.gid;
     }
 
-    /**
-     * Secondary POSIX group IDs used for all file system operations using this access point.
-     * 
-     */
     @Import(name="secondaryGids")
     private @Nullable Output<List<Integer>> secondaryGids;
 
-    /**
-     * @return Secondary POSIX group IDs used for all file system operations using this access point.
-     * 
-     */
     public Optional<Output<List<Integer>>> secondaryGids() {
         return Optional.ofNullable(this.secondaryGids);
     }
 
-    /**
-     * POSIX user ID used for all file system operations using this access point.
-     * 
-     */
     @Import(name="uid", required=true)
     private Output<Integer> uid;
 
-    /**
-     * @return POSIX user ID used for all file system operations using this access point.
-     * 
-     */
     public Output<Integer> uid() {
         return this.uid;
     }
@@ -88,75 +64,33 @@ public final class AccessPointPosixUserArgs extends com.pulumi.resources.Resourc
             $ = new AccessPointPosixUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gid POSIX group ID used for all file system operations using this access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gid(Output<Integer> gid) {
             $.gid = gid;
             return this;
         }
 
-        /**
-         * @param gid POSIX group ID used for all file system operations using this access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gid(Integer gid) {
             return gid(Output.of(gid));
         }
 
-        /**
-         * @param secondaryGids Secondary POSIX group IDs used for all file system operations using this access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryGids(@Nullable Output<List<Integer>> secondaryGids) {
             $.secondaryGids = secondaryGids;
             return this;
         }
 
-        /**
-         * @param secondaryGids Secondary POSIX group IDs used for all file system operations using this access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryGids(List<Integer> secondaryGids) {
             return secondaryGids(Output.of(secondaryGids));
         }
 
-        /**
-         * @param secondaryGids Secondary POSIX group IDs used for all file system operations using this access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryGids(Integer... secondaryGids) {
             return secondaryGids(List.of(secondaryGids));
         }
 
-        /**
-         * @param uid POSIX user ID used for all file system operations using this access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uid(Output<Integer> uid) {
             $.uid = uid;
             return this;
         }
 
-        /**
-         * @param uid POSIX user ID used for all file system operations using this access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uid(Integer uid) {
             return uid(Output.of(uid));
         }

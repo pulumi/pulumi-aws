@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class MetricStreamStatisticsConfigurationIncludeMetricArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the metric.
-        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 

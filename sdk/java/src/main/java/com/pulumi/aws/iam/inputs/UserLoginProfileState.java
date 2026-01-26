@@ -17,107 +17,51 @@ public final class UserLoginProfileState extends com.pulumi.resources.ResourceAr
 
     public static final UserLoginProfileState Empty = new UserLoginProfileState();
 
-    /**
-     * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-     * 
-     */
     @Import(name="encryptedPassword")
     private @Nullable Output<String> encryptedPassword;
 
-    /**
-     * @return The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-     * 
-     */
     public Optional<Output<String>> encryptedPassword() {
         return Optional.ofNullable(this.encryptedPassword);
     }
 
-    /**
-     * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-     * 
-     */
     @Import(name="keyFingerprint")
     private @Nullable Output<String> keyFingerprint;
 
-    /**
-     * @return The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-     * 
-     */
     public Optional<Output<String>> keyFingerprint() {
         return Optional.ofNullable(this.keyFingerprint);
     }
 
-    /**
-     * The plain text password, only available when `pgpKey` is not provided.
-     * 
-     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
-    /**
-     * @return The plain text password, only available when `pgpKey` is not provided.
-     * 
-     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
-    /**
-     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-     * 
-     */
     @Import(name="passwordLength")
     private @Nullable Output<Integer> passwordLength;
 
-    /**
-     * @return The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-     * 
-     */
     public Optional<Output<Integer>> passwordLength() {
         return Optional.ofNullable(this.passwordLength);
     }
 
-    /**
-     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-     * 
-     */
     @Import(name="passwordResetRequired")
     private @Nullable Output<Boolean> passwordResetRequired;
 
-    /**
-     * @return Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-     * 
-     */
     public Optional<Output<Boolean>> passwordResetRequired() {
         return Optional.ofNullable(this.passwordResetRequired);
     }
 
-    /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-     * 
-     */
     @Import(name="pgpKey")
     private @Nullable Output<String> pgpKey;
 
-    /**
-     * @return Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-     * 
-     */
     public Optional<Output<String>> pgpKey() {
         return Optional.ofNullable(this.pgpKey);
     }
 
-    /**
-     * The IAM user&#39;s name.
-     * 
-     */
     @Import(name="user")
     private @Nullable Output<String> user;
 
-    /**
-     * @return The IAM user&#39;s name.
-     * 
-     */
     public Optional<Output<String>> user() {
         return Optional.ofNullable(this.user);
     }
@@ -152,149 +96,65 @@ public final class UserLoginProfileState extends com.pulumi.resources.ResourceAr
             $ = new UserLoginProfileState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptedPassword The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptedPassword(@Nullable Output<String> encryptedPassword) {
             $.encryptedPassword = encryptedPassword;
             return this;
         }
 
-        /**
-         * @param encryptedPassword The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptedPassword(String encryptedPassword) {
             return encryptedPassword(Output.of(encryptedPassword));
         }
 
-        /**
-         * @param keyFingerprint The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyFingerprint(@Nullable Output<String> keyFingerprint) {
             $.keyFingerprint = keyFingerprint;
             return this;
         }
 
-        /**
-         * @param keyFingerprint The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyFingerprint(String keyFingerprint) {
             return keyFingerprint(Output.of(keyFingerprint));
         }
 
-        /**
-         * @param password The plain text password, only available when `pgpKey` is not provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password The plain text password, only available when `pgpKey` is not provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param passwordLength The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordLength(@Nullable Output<Integer> passwordLength) {
             $.passwordLength = passwordLength;
             return this;
         }
 
-        /**
-         * @param passwordLength The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordLength(Integer passwordLength) {
             return passwordLength(Output.of(passwordLength));
         }
 
-        /**
-         * @param passwordResetRequired Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordResetRequired(@Nullable Output<Boolean> passwordResetRequired) {
             $.passwordResetRequired = passwordResetRequired;
             return this;
         }
 
-        /**
-         * @param passwordResetRequired Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordResetRequired(Boolean passwordResetRequired) {
             return passwordResetRequired(Output.of(passwordResetRequired));
         }
 
-        /**
-         * @param pgpKey Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pgpKey(@Nullable Output<String> pgpKey) {
             $.pgpKey = pgpKey;
             return this;
         }
 
-        /**
-         * @param pgpKey Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pgpKey(String pgpKey) {
             return pgpKey(Output.of(pgpKey));
         }
 
-        /**
-         * @param user The IAM user&#39;s name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(@Nullable Output<String> user) {
             $.user = user;
             return this;
         }
 
-        /**
-         * @param user The IAM user&#39;s name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(String user) {
             return user(Output.of(user));
         }

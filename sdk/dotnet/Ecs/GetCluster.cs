@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Ecs
 {
     public static class GetCluster
     {
-        /// <summary>
-        /// The ECS Cluster data source allows access to details of a specific
-        /// cluster within an AWS ECS service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterName = "ecs-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECS Cluster data source allows access to details of a specific
-        /// cluster within an AWS ECS service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterName = "ecs-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECS Cluster data source allows access to details of a specific
-        /// cluster within an AWS ECS service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterName = "ecs-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
@@ -90,24 +24,14 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the ECS Cluster
-        /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -122,24 +46,14 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the ECS Cluster
-        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -156,43 +70,19 @@ namespace Pulumi.Aws.Ecs
     [OutputType]
     public sealed class GetClusterResult
     {
-        /// <summary>
-        /// ARN of the ECS Cluster
-        /// </summary>
         public readonly string Arn;
         public readonly string ClusterName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Number of pending tasks for the ECS Cluster
-        /// </summary>
         public readonly int PendingTasksCount;
         public readonly string Region;
-        /// <summary>
-        /// The number of registered container instances for the ECS Cluster
-        /// </summary>
         public readonly int RegisteredContainerInstancesCount;
-        /// <summary>
-        /// Number of running tasks for the ECS Cluster
-        /// </summary>
         public readonly int RunningTasksCount;
-        /// <summary>
-        /// The default Service Connect namespace
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterServiceConnectDefaultResult> ServiceConnectDefaults;
-        /// <summary>
-        /// Settings associated with the ECS Cluster
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterSettingResult> Settings;
-        /// <summary>
-        /// Status of the ECS Cluster
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

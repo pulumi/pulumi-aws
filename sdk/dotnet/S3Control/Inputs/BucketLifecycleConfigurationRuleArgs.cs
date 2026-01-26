@@ -12,33 +12,18 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class BucketLifecycleConfigurationRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block containing settings for abort incomplete multipart upload.
-        /// </summary>
         [Input("abortIncompleteMultipartUpload")]
         public Input<Inputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs>? AbortIncompleteMultipartUpload { get; set; }
 
-        /// <summary>
-        /// Configuration block containing settings for expiration of objects.
-        /// </summary>
         [Input("expiration")]
         public Input<Inputs.BucketLifecycleConfigurationRuleExpirationArgs>? Expiration { get; set; }
 
-        /// <summary>
-        /// Configuration block containing settings for filtering.
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketLifecycleConfigurationRuleFilterArgs>? Filter { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the rule.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

@@ -63,17 +63,11 @@ class GetVpcLinkResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the VPC link.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Set to the ID of the found API Gateway VPC Link.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -89,33 +83,21 @@ class GetVpcLinkResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the VPC link.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        Status message of the VPC link.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-        """
         return pulumi.get(self, "target_arns")
 
 
@@ -141,25 +123,7 @@ def get_vpc_link(name: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcLinkResult:
     """
-    Use this data source to get the id of a VPC Link in
-    API Gateway. To fetch the VPC Link you must provide a name to match against.
-    As there is no unique name constraint on API Gateway VPC Links this data source will
-    error if there is more than one match.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
-    ```
-
-
-    :param _builtins.str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-           If multiple API Gateway VPC Links are found with this name, an error will be returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -183,25 +147,7 @@ def get_vpc_link_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
-    Use this data source to get the id of a VPC Link in
-    API Gateway. To fetch the VPC Link you must provide a name to match against.
-    As there is no unique name constraint on API Gateway VPC Links this data source will
-    error if there is more than one match.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
-    ```
-
-
-    :param _builtins.str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-           If multiple API Gateway VPC Links are found with this name, an error will be returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

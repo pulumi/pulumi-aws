@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Athena Named Query data source.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/athena"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.LookupNamedQuery(ctx, &athena.LookupNamedQueryArgs{
-//				Name: "athenaQueryName",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...pulumi.InvokeOption) (*LookupNamedQueryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamedQueryResult
@@ -50,19 +23,14 @@ func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...p
 
 // A collection of arguments for invoking getNamedQuery.
 type LookupNamedQueryArgs struct {
-	// The plain language name for the query. Maximum length of 128.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The workgroup to which the query belongs. Defaults to `primary`.
+	Name      string  `pulumi:"name"`
+	Region    *string `pulumi:"region"`
 	Workgroup *string `pulumi:"workgroup"`
 }
 
 // A collection of values returned by getNamedQuery.
 type LookupNamedQueryResult struct {
-	// Database to which the query belongs.
-	Database string `pulumi:"database"`
-	// Brief explanation of the query.
+	Database    string `pulumi:"database"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string  `pulumi:"id"`
@@ -83,11 +51,8 @@ func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs
 
 // A collection of arguments for invoking getNamedQuery.
 type LookupNamedQueryOutputArgs struct {
-	// The plain language name for the query. Maximum length of 128.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The workgroup to which the query belongs. Defaults to `primary`.
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	Workgroup pulumi.StringPtrInput `pulumi:"workgroup"`
 }
 
@@ -110,12 +75,10 @@ func (o LookupNamedQueryResultOutput) ToLookupNamedQueryResultOutputWithContext(
 	return o
 }
 
-// Database to which the query belongs.
 func (o LookupNamedQueryResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// Brief explanation of the query.
 func (o LookupNamedQueryResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Description }).(pulumi.StringOutput)
 }

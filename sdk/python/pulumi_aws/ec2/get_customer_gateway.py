@@ -66,41 +66,26 @@ class GetCustomerGatewayResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the customer gateway.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> _builtins.int:
-        """
-        Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-        """
         return pulumi.get(self, "bgp_asn")
 
     @_builtins.property
     @pulumi.getter(name="bgpAsnExtended")
     def bgp_asn_extended(self) -> _builtins.int:
-        """
-        Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-        """
         return pulumi.get(self, "bgp_asn_extended")
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
-        """
-        ARN for the customer gateway certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> _builtins.str:
-        """
-        Name for the customer gateway device.
-        """
         return pulumi.get(self, "device_name")
 
     @_builtins.property
@@ -116,9 +101,6 @@ class GetCustomerGatewayResult:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
-        """
-        IP address of the gateway's Internet-routable external interface.
-        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
@@ -129,17 +111,11 @@ class GetCustomerGatewayResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of key-value pairs assigned to the gateway.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
-        """
         return pulumi.get(self, "type")
 
 
@@ -168,35 +144,7 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerGatewayResult:
     """
-    Get an existing AWS Customer Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_customer_gateway(filters=[{
-        "name": "tag:Name",
-        "values": ["foo-prod"],
-    }])
-    main = aws.ec2.VpnGateway("main",
-        vpc_id=main_aws_vpc["id"],
-        amazon_side_asn="7224")
-    transit = aws.ec2.VpnConnection("transit",
-        vpn_gateway_id=main.id,
-        customer_gateway_id=foo.id,
-        type=foo.type,
-        static_routes_only=False)
-    ```
-
-
-    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-           
-           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
-    :param _builtins.str id: ID of the gateway.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -224,35 +172,7 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
-    Get an existing AWS Customer Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_customer_gateway(filters=[{
-        "name": "tag:Name",
-        "values": ["foo-prod"],
-    }])
-    main = aws.ec2.VpnGateway("main",
-        vpc_id=main_aws_vpc["id"],
-        amazon_side_asn="7224")
-    transit = aws.ec2.VpnConnection("transit",
-        vpn_gateway_id=main.id,
-        customer_gateway_id=foo.id,
-        type=foo.type,
-        static_routes_only=False)
-    ```
-
-
-    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-           
-           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
-    :param _builtins.str id: ID of the gateway.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

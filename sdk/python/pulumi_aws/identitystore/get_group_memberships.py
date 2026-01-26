@@ -47,17 +47,11 @@ class GetGroupMembershipsResult:
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> _builtins.str:
-        """
-        Group identifier.
-        """
         return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="groupMemberships")
     def group_memberships(self) -> Sequence['outputs.GetGroupMembershipsGroupMembershipResult']:
-        """
-        A list of group membership objects. See `group_memberships` below.
-        """
         return pulumi.get(self, "group_memberships")
 
     @_builtins.property
@@ -71,9 +65,6 @@ class GetGroupMembershipsResult:
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> _builtins.str:
-        """
-        Identity store identifier.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @_builtins.property
@@ -100,32 +91,7 @@ def get_group_memberships(group_id: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupMembershipsResult:
     """
-    Use this data source to get a list of members in an Identity Store Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
-            "unique_attribute": {
-                "attribute_path": "DisplayName",
-                "attribute_value": "ExampleGroup",
-            },
-        })
-    example_get_group_memberships = aws.identitystore.get_group_memberships(identity_store_id=example.identity_store_ids[0],
-        group_id=example_get_group.group_id)
-    ```
-
-
-    :param _builtins.str group_id: The identifier for a group in the Identity Store.
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['groupId'] = group_id
@@ -145,32 +111,7 @@ def get_group_memberships_output(group_id: Optional[pulumi.Input[_builtins.str]]
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMembershipsResult]:
     """
-    Use this data source to get a list of members in an Identity Store Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
-            "unique_attribute": {
-                "attribute_path": "DisplayName",
-                "attribute_value": "ExampleGroup",
-            },
-        })
-    example_get_group_memberships = aws.identitystore.get_group_memberships(identity_store_id=example.identity_store_ids[0],
-        group_id=example_get_group.group_id)
-    ```
-
-
-    :param _builtins.str group_id: The identifier for a group in the Identity Store.
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['groupId'] = group_id

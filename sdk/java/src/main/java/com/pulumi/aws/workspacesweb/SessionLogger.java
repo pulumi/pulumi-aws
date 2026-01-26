@@ -18,375 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Session Logger.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.workspacesweb.SessionLogger;
- * import com.pulumi.aws.workspacesweb.SessionLoggerArgs;
- * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerEventFilterArgs;
- * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerEventFilterAllArgs;
- * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerLogConfigurationArgs;
- * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerLogConfigurationS3Args;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
- *             .bucket("example-session-logs")
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("workspaces-web.amazonaws.com")
- *                     .build())
- *                 .actions("s3:PutObject")
- *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
- *                 .build())
- *             .build());
- * 
- *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleBucket.id())
- *             .policy(example.applyValue(_example -> _example.json()))
- *             .build());
- * 
- *         var exampleSessionLogger = new SessionLogger("exampleSessionLogger", SessionLoggerArgs.builder()
- *             .displayName("example-session-logger")
- *             .eventFilter(SessionLoggerEventFilterArgs.builder()
- *                 .all(SessionLoggerEventFilterAllArgs.builder()
- *                     .build())
- *                 .build())
- *             .logConfiguration(SessionLoggerLogConfigurationArgs.builder()
- *                 .s3(SessionLoggerLogConfigurationS3Args.builder()
- *                     .bucket(exampleBucket.id())
- *                     .folderStructure("Flat")
- *                     .logFileFormat("Json")
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketPolicy)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Complete Configuration with KMS Encryption
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.workspacesweb.SessionLogger;
- * import com.pulumi.aws.workspacesweb.SessionLoggerArgs;
- * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerEventFilterArgs;
- * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerLogConfigurationArgs;
- * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerLogConfigurationS3Args;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
- *             .bucket("example-session-logs")
- *             .forceDestroy(true)
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("workspaces-web.amazonaws.com")
- *                     .build())
- *                 .actions("s3:PutObject")
- *                 .resources(                
- *                     exampleBucket.arn(),
- *                     exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
- *                 .build())
- *             .build());
- * 
- *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleBucket.id())
- *             .policy(example.applyValue(_example -> _example.json()))
- *             .build());
- * 
- *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var kmsKeyPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers(String.format("arn:%s:iam::%s:root", current.partition(),currentGetCallerIdentity.accountId()))
- *                         .build())
- *                     .actions("kms:*")
- *                     .resources("*")
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("workspaces-web.amazonaws.com")
- *                         .build())
- *                     .actions(                    
- *                         "kms:Encrypt",
- *                         "kms:GenerateDataKey*",
- *                         "kms:ReEncrypt*",
- *                         "kms:Decrypt")
- *                     .resources("*")
- *                     .build())
- *             .build());
- * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
- *             .description("KMS key for WorkSpaces Web Session Logger")
- *             .policy(kmsKeyPolicy.json())
- *             .build());
- * 
- *         var exampleSessionLogger = new SessionLogger("exampleSessionLogger", SessionLoggerArgs.builder()
- *             .displayName("example-session-logger")
- *             .customerManagedKey(exampleKey.arn())
- *             .additionalEncryptionContext(Map.ofEntries(
- *                 Map.entry("Environment", "Production"),
- *                 Map.entry("Application", "WorkSpacesWeb")
- *             ))
- *             .eventFilter(SessionLoggerEventFilterArgs.builder()
- *                 .includes(                
- *                     "SessionStart",
- *                     "SessionEnd")
- *                 .build())
- *             .logConfiguration(SessionLoggerLogConfigurationArgs.builder()
- *                 .s3(SessionLoggerLogConfigurationS3Args.builder()
- *                     .bucket(exampleBucket.id())
- *                     .bucketOwner(currentGetCallerIdentity.accountId())
- *                     .folderStructure("NestedByDate")
- *                     .keyPrefix("workspaces-web-logs/")
- *                     .logFileFormat("JsonLines")
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "example-session-logger"),
- *                 Map.entry("Environment", "Production")
- *             ))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleBucketPolicy,
- *                     exampleKey)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web Session Logger using the `session_logger_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/sessionLogger:SessionLogger")
 public class SessionLogger extends com.pulumi.resources.CustomResource {
-    /**
-     * Map of additional encryption context key-value pairs.
-     * 
-     */
     @Export(name="additionalEncryptionContext", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalEncryptionContext;
 
-    /**
-     * @return Map of additional encryption context key-value pairs.
-     * 
-     */
     public Output<Optional<Map<String,String>>> additionalEncryptionContext() {
         return Codegen.optional(this.additionalEncryptionContext);
     }
-    /**
-     * List of ARNs of the web portals associated with the session logger.
-     * 
-     */
     @Export(name="associatedPortalArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> associatedPortalArns;
 
-    /**
-     * @return List of ARNs of the web portals associated with the session logger.
-     * 
-     */
     public Output<List<String>> associatedPortalArns() {
         return this.associatedPortalArns;
     }
-    /**
-     * ARN of the customer managed KMS key used to encrypt sensitive information.
-     * 
-     */
     @Export(name="customerManagedKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerManagedKey;
 
-    /**
-     * @return ARN of the customer managed KMS key used to encrypt sensitive information.
-     * 
-     */
     public Output<Optional<String>> customerManagedKey() {
         return Codegen.optional(this.customerManagedKey);
     }
-    /**
-     * Human-readable display name for the session logger resource. Forces replacement if changed.
-     * 
-     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
-    /**
-     * @return Human-readable display name for the session logger resource. Forces replacement if changed.
-     * 
-     */
     public Output<Optional<String>> displayName() {
         return Codegen.optional(this.displayName);
     }
-    /**
-     * Event filter that determines which events are logged. See Event Filter below.
-     * 
-     */
     @Export(name="eventFilter", refs={SessionLoggerEventFilter.class}, tree="[0]")
     private Output</* @Nullable */ SessionLoggerEventFilter> eventFilter;
 
-    /**
-     * @return Event filter that determines which events are logged. See Event Filter below.
-     * 
-     */
     public Output<Optional<SessionLoggerEventFilter>> eventFilter() {
         return Codegen.optional(this.eventFilter);
     }
-    /**
-     * Configuration block for specifying where logs are delivered. See Log Configuration below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="logConfiguration", refs={SessionLoggerLogConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ SessionLoggerLogConfiguration> logConfiguration;
 
-    /**
-     * @return Configuration block for specifying where logs are delivered. See Log Configuration below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<SessionLoggerLogConfiguration>> logConfiguration() {
         return Codegen.optional(this.logConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the session logger.
-     * 
-     */
     @Export(name="sessionLoggerArn", refs={String.class}, tree="[0]")
     private Output<String> sessionLoggerArn;
 
-    /**
-     * @return ARN of the session logger.
-     * 
-     */
     public Output<String> sessionLoggerArn() {
         return this.sessionLoggerArn;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -110,81 +110,51 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> Sequence['outputs.GetClusterAccessConfigResult']:
-        """
-        Configuration block for access config.
-        """
         return pulumi.get(self, "access_configs")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the cluster.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorities")
     def certificate_authorities(self) -> Sequence['outputs.GetClusterCertificateAuthorityResult']:
-        """
-        Nested attribute containing `certificate-authority-data` for your cluster.
-        """
         return pulumi.get(self, "certificate_authorities")
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> _builtins.str:
-        """
-        The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
-        """
         return pulumi.get(self, "cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="computeConfigs")
     def compute_configs(self) -> Sequence['outputs.GetClusterComputeConfigResult']:
-        """
-        Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
-        """
         return pulumi.get(self, "compute_configs")
 
     @_builtins.property
     @pulumi.getter(name="controlPlaneScalingConfigs")
     def control_plane_scaling_configs(self) -> Sequence['outputs.GetClusterControlPlaneScalingConfigResult']:
-        """
-        Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information.
-        """
         return pulumi.get(self, "control_plane_scaling_configs")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Unix epoch time stamp in seconds for when the cluster was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> _builtins.bool:
-        """
-        Whether deletion protection for the cluster is enabled.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="enabledClusterLogTypes")
     def enabled_cluster_log_types(self) -> Sequence[_builtins.str]:
-        """
-        The enabled control plane logs.
-        """
         return pulumi.get(self, "enabled_cluster_log_types")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Endpoint for your Kubernetes API server.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
@@ -198,17 +168,11 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetClusterIdentityResult']:
-        """
-        Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
-        """
         return pulumi.get(self, "identities")
 
     @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfigs")
     def kubernetes_network_configs(self) -> Sequence['outputs.GetClusterKubernetesNetworkConfigResult']:
-        """
-        Nested list containing Kubernetes Network Configuration.
-        """
         return pulumi.get(self, "kubernetes_network_configs")
 
     @_builtins.property
@@ -219,17 +183,11 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="outpostConfigs")
     def outpost_configs(self) -> Sequence['outputs.GetClusterOutpostConfigResult']:
-        """
-        Contains Outpost Configuration.
-        """
         return pulumi.get(self, "outpost_configs")
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> _builtins.str:
-        """
-        Platform version for the cluster.
-        """
         return pulumi.get(self, "platform_version")
 
     @_builtins.property
@@ -240,73 +198,46 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="remoteNetworkConfigs")
     def remote_network_configs(self) -> Sequence['outputs.GetClusterRemoteNetworkConfigResult']:
-        """
-        Contains remote network configuration for EKS Hybrid Nodes.
-        """
         return pulumi.get(self, "remote_network_configs")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="storageConfigs")
     def storage_configs(self) -> Sequence['outputs.GetClusterStorageConfigResult']:
-        """
-        Contains storage configuration for EKS Auto Mode enabled cluster.
-        """
         return pulumi.get(self, "storage_configs")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="upgradePolicies")
     def upgrade_policies(self) -> Sequence['outputs.GetClusterUpgradePolicyResult']:
-        """
-        Configuration block for the support policy to use for the cluster.
-        """
         return pulumi.get(self, "upgrade_policies")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Kubernetes server version for the cluster.
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> 'outputs.GetClusterVpcConfigResult':
-        """
-        Nested list containing VPC configuration for the cluster.
-        """
         return pulumi.get(self, "vpc_config")
 
     @_builtins.property
     @pulumi.getter(name="zonalShiftConfigs")
     def zonal_shift_configs(self) -> Sequence['outputs.GetClusterZonalShiftConfigResult']:
-        """
-        Contains Zonal Shift Configuration.
-        """
         return pulumi.get(self, "zonal_shift_configs")
 
 
@@ -349,23 +280,7 @@ def get_cluster(name: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Retrieve information about an EKS Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster(name="example")
-    pulumi.export("endpoint", example.endpoint)
-    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-    ```
-
-
-    :param _builtins.str name: Name of the cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -406,23 +321,7 @@ def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Retrieve information about an EKS Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster(name="example")
-    pulumi.export("endpoint", example.endpoint)
-    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-    ```
-
-
-    :param _builtins.str name: Name of the cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

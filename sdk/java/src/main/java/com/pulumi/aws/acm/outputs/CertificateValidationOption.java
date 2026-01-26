@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CertificateValidationOption {
-    /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
-     * 
-     */
     private String domainName;
-    /**
-     * @return Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
-     * 
-     */
     private String validationDomain;
 
     private CertificateValidationOption() {}
-    /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
-     * 
-     */
     public String validationDomain() {
         return this.validationDomain;
     }

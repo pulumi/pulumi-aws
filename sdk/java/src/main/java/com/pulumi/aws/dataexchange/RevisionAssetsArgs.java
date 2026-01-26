@@ -21,51 +21,23 @@ public final class RevisionAssetsArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RevisionAssetsArgs Empty = new RevisionAssetsArgs();
 
-    /**
-     * A block to define the asset associated with the revision. See Asset for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="assets")
     private @Nullable Output<List<RevisionAssetsAssetArgs>> assets;
 
-    /**
-     * @return A block to define the asset associated with the revision. See Asset for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<RevisionAssetsAssetArgs>>> assets() {
         return Optional.ofNullable(this.assets);
     }
 
-    /**
-     * A comment for the revision. Maximum length is 16,348 characters.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return A comment for the revision. Maximum length is 16,348 characters.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Unique identifier for the data set associated with the revision.
-     * 
-     */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
-    /**
-     * @return Unique identifier for the data set associated with the revision.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
@@ -84,32 +56,16 @@ public final class RevisionAssetsArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.forceDestroy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -152,81 +108,33 @@ public final class RevisionAssetsArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RevisionAssetsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param assets A block to define the asset associated with the revision. See Asset for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assets(@Nullable Output<List<RevisionAssetsAssetArgs>> assets) {
             $.assets = assets;
             return this;
         }
 
-        /**
-         * @param assets A block to define the asset associated with the revision. See Asset for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assets(List<RevisionAssetsAssetArgs> assets) {
             return assets(Output.of(assets));
         }
 
-        /**
-         * @param assets A block to define the asset associated with the revision. See Asset for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assets(RevisionAssetsAssetArgs... assets) {
             return assets(List.of(assets));
         }
 
-        /**
-         * @param comment A comment for the revision. Maximum length is 16,348 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment A comment for the revision. Maximum length is 16,348 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param dataSetId Unique identifier for the data set associated with the revision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(Output<String> dataSetId) {
             $.dataSetId = dataSetId;
             return this;
         }
 
-        /**
-         * @param dataSetId Unique identifier for the data set associated with the revision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
         }
@@ -249,44 +157,20 @@ public final class RevisionAssetsArgs extends com.pulumi.resources.ResourceArgs 
             return forceDestroy(Output.of(forceDestroy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

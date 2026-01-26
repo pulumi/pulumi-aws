@@ -27,10 +27,6 @@ class IdentitySourceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy_store_id", policy_store_id)
         if configuration is not None:
@@ -43,9 +39,6 @@ class IdentitySourceArgs:
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the ID of the policy store in which you want to store this identity source.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
@@ -55,9 +48,6 @@ class IdentitySourceArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationArgs']]:
-        """
-        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -67,9 +57,6 @@ class IdentitySourceArgs:
     @_builtins.property
     @pulumi.getter(name="principalEntityType")
     def principal_entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-        """
         return pulumi.get(self, "principal_entity_type")
 
     @principal_entity_type.setter
@@ -79,9 +66,6 @@ class IdentitySourceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -98,10 +82,6 @@ class _IdentitySourceState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentitySource resources.
-        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -115,9 +95,6 @@ class _IdentitySourceState:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationArgs']]:
-        """
-        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -127,9 +104,6 @@ class _IdentitySourceState:
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the ID of the policy store in which you want to store this identity source.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
@@ -139,9 +113,6 @@ class _IdentitySourceState:
     @_builtins.property
     @pulumi.getter(name="principalEntityType")
     def principal_entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-        """
         return pulumi.get(self, "principal_entity_type")
 
     @principal_entity_type.setter
@@ -151,9 +122,6 @@ class _IdentitySourceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -173,78 +141,9 @@ class IdentitySource(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Verified Permissions Identity Source.
-
-        ## Example Usage
-
-        ### Cognito User Pool Configuration Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
-            "mode": "STRICT",
-        })
-        example_user_pool = aws.cognito.UserPool("example", name="example")
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            user_pool_id=example_user_pool.id,
-            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
-        example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
-            configuration={
-                "cognito_user_pool_configuration": {
-                    "user_pool_arn": example_user_pool.arn,
-                    "client_ids": [example_user_pool_client.id],
-                },
-            })
-        ```
-
-        ### OpenID Connect Configuration Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
-            "mode": "STRICT",
-        })
-        example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
-            configuration={
-                "open_id_connect_configuration": {
-                    "issuer": "https://auth.example.com",
-                    "token_selection": {
-                        "access_token_only": {
-                            "audiences": ["https://myapp.example.com"],
-                            "principal_id_claim": "sub",
-                        },
-                    },
-                    "entity_id_prefix": "MyOIDCProvider",
-                    "group_configuration": {
-                        "group_claim": "groups",
-                        "group_entity_type": "MyCorp::UserGroup",
-                    },
-                },
-            },
-            principal_entity_type="MyCorp::User")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Identity Source using the `policy_store_id:identity_source_id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedpermissions/identitySource:IdentitySource example policy-store-id-12345678:identity-source-id-12345678
-        ```
-
+        Create a IdentitySource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -253,72 +152,7 @@ class IdentitySource(pulumi.CustomResource):
                  args: IdentitySourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Verified Permissions Identity Source.
-
-        ## Example Usage
-
-        ### Cognito User Pool Configuration Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
-            "mode": "STRICT",
-        })
-        example_user_pool = aws.cognito.UserPool("example", name="example")
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            user_pool_id=example_user_pool.id,
-            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
-        example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
-            configuration={
-                "cognito_user_pool_configuration": {
-                    "user_pool_arn": example_user_pool.arn,
-                    "client_ids": [example_user_pool_client.id],
-                },
-            })
-        ```
-
-        ### OpenID Connect Configuration Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
-            "mode": "STRICT",
-        })
-        example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
-            configuration={
-                "open_id_connect_configuration": {
-                    "issuer": "https://auth.example.com",
-                    "token_selection": {
-                        "access_token_only": {
-                            "audiences": ["https://myapp.example.com"],
-                            "principal_id_claim": "sub",
-                        },
-                    },
-                    "entity_id_prefix": "MyOIDCProvider",
-                    "group_configuration": {
-                        "group_claim": "groups",
-                        "group_entity_type": "MyCorp::UserGroup",
-                    },
-                },
-            },
-            principal_entity_type="MyCorp::User")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Identity Source using the `policy_store_id:identity_source_id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedpermissions/identitySource:IdentitySource example policy-store-id-12345678:identity-source-id-12345678
-        ```
-
+        Create a IdentitySource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IdentitySourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -374,10 +208,6 @@ class IdentitySource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -392,32 +222,20 @@ class IdentitySource(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.IdentitySourceConfiguration']]:
-        """
-        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the ID of the policy store in which you want to store this identity source.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @_builtins.property
     @pulumi.getter(name="principalEntityType")
     def principal_entity_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-        """
         return pulumi.get(self, "principal_entity_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

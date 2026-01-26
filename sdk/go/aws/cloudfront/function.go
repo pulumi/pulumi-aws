@@ -12,46 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudFront Function resource. With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
-//
-// See [CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
-//
-// > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Functions using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/function:Function test my_test_function
-// ```
 type Function struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Source code of the function
-	Code pulumi.StringOutput `pulumi:"code"`
-	// Comment.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
+	Arn                       pulumi.StringOutput      `pulumi:"arn"`
+	Code                      pulumi.StringOutput      `pulumi:"code"`
+	Comment                   pulumi.StringPtrOutput   `pulumi:"comment"`
+	Etag                      pulumi.StringOutput      `pulumi:"etag"`
 	KeyValueStoreAssociations pulumi.StringArrayOutput `pulumi:"keyValueStoreAssociations"`
-	// ETag hash of any `LIVE` stage of the function.
-	LiveStageEtag pulumi.StringOutput `pulumi:"liveStageEtag"`
-	// Unique name for your CloudFront Function.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
-	// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-	//
-	// The following arguments are optional:
-	Runtime pulumi.StringOutput `pulumi:"runtime"`
-	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	LiveStageEtag             pulumi.StringOutput      `pulumi:"liveStageEtag"`
+	Name                      pulumi.StringOutput      `pulumi:"name"`
+	Publish                   pulumi.BoolPtrOutput     `pulumi:"publish"`
+	Runtime                   pulumi.StringOutput      `pulumi:"runtime"`
+	Status                    pulumi.StringOutput      `pulumi:"status"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -90,53 +63,29 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
-	Arn *string `pulumi:"arn"`
-	// Source code of the function
-	Code *string `pulumi:"code"`
-	// Comment.
-	Comment *string `pulumi:"comment"`
-	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-	Etag *string `pulumi:"etag"`
-	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
+	Arn                       *string  `pulumi:"arn"`
+	Code                      *string  `pulumi:"code"`
+	Comment                   *string  `pulumi:"comment"`
+	Etag                      *string  `pulumi:"etag"`
 	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
-	// ETag hash of any `LIVE` stage of the function.
-	LiveStageEtag *string `pulumi:"liveStageEtag"`
-	// Unique name for your CloudFront Function.
-	Name *string `pulumi:"name"`
-	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-	Publish *bool `pulumi:"publish"`
-	// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-	//
-	// The following arguments are optional:
-	Runtime *string `pulumi:"runtime"`
-	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-	Status *string `pulumi:"status"`
+	LiveStageEtag             *string  `pulumi:"liveStageEtag"`
+	Name                      *string  `pulumi:"name"`
+	Publish                   *bool    `pulumi:"publish"`
+	Runtime                   *string  `pulumi:"runtime"`
+	Status                    *string  `pulumi:"status"`
 }
 
 type FunctionState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
-	Arn pulumi.StringPtrInput
-	// Source code of the function
-	Code pulumi.StringPtrInput
-	// Comment.
-	Comment pulumi.StringPtrInput
-	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-	Etag pulumi.StringPtrInput
-	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
+	Arn                       pulumi.StringPtrInput
+	Code                      pulumi.StringPtrInput
+	Comment                   pulumi.StringPtrInput
+	Etag                      pulumi.StringPtrInput
 	KeyValueStoreAssociations pulumi.StringArrayInput
-	// ETag hash of any `LIVE` stage of the function.
-	LiveStageEtag pulumi.StringPtrInput
-	// Unique name for your CloudFront Function.
-	Name pulumi.StringPtrInput
-	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-	Publish pulumi.BoolPtrInput
-	// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-	//
-	// The following arguments are optional:
-	Runtime pulumi.StringPtrInput
-	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-	Status pulumi.StringPtrInput
+	LiveStageEtag             pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	Publish                   pulumi.BoolPtrInput
+	Runtime                   pulumi.StringPtrInput
+	Status                    pulumi.StringPtrInput
 }
 
 func (FunctionState) ElementType() reflect.Type {
@@ -144,38 +93,22 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// Source code of the function
-	Code string `pulumi:"code"`
-	// Comment.
-	Comment *string `pulumi:"comment"`
-	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
+	Code                      string   `pulumi:"code"`
+	Comment                   *string  `pulumi:"comment"`
 	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
-	// Unique name for your CloudFront Function.
-	Name *string `pulumi:"name"`
-	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-	Publish *bool `pulumi:"publish"`
-	// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-	//
-	// The following arguments are optional:
-	Runtime string `pulumi:"runtime"`
+	Name                      *string  `pulumi:"name"`
+	Publish                   *bool    `pulumi:"publish"`
+	Runtime                   string   `pulumi:"runtime"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// Source code of the function
-	Code pulumi.StringInput
-	// Comment.
-	Comment pulumi.StringPtrInput
-	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
+	Code                      pulumi.StringInput
+	Comment                   pulumi.StringPtrInput
 	KeyValueStoreAssociations pulumi.StringArrayInput
-	// Unique name for your CloudFront Function.
-	Name pulumi.StringPtrInput
-	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-	Publish pulumi.BoolPtrInput
-	// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-	//
-	// The following arguments are optional:
-	Runtime pulumi.StringInput
+	Name                      pulumi.StringPtrInput
+	Publish                   pulumi.BoolPtrInput
+	Runtime                   pulumi.StringInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {
@@ -265,54 +198,42 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
-// Amazon Resource Name (ARN) identifying your CloudFront Function.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Source code of the function
 func (o FunctionOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Code }).(pulumi.StringOutput)
 }
 
-// Comment.
 func (o FunctionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 func (o FunctionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
 func (o FunctionOutput) KeyValueStoreAssociations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.KeyValueStoreAssociations }).(pulumi.StringArrayOutput)
 }
 
-// ETag hash of any `LIVE` stage of the function.
 func (o FunctionOutput) LiveStageEtag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.LiveStageEtag }).(pulumi.StringOutput)
 }
 
-// Unique name for your CloudFront Function.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 func (o FunctionOutput) Publish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
 }
 
-// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-//
-// The following arguments are optional:
 func (o FunctionOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Runtime }).(pulumi.StringOutput)
 }
 
-// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 func (o FunctionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

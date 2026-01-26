@@ -9,72 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GuardDuty
 {
-    /// <summary>
-    /// Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.GuardDuty.Detector("primary");
-    /// 
-    ///     var memberDetector = new Aws.GuardDuty.Detector("member");
-    /// 
-    ///     var memberMember = new Aws.GuardDuty.Member("member", new()
-    ///     {
-    ///         AccountId = memberDetector.AccountId,
-    ///         DetectorId = primary.Id,
-    ///         Email = "required@example.com",
-    ///         Invite = true,
-    ///     });
-    /// 
-    ///     var member = new Aws.GuardDuty.InviteAccepter("member", new()
-    ///     {
-    ///         DetectorId = memberDetector.Id,
-    ///         MasterAccountId = primary.AccountId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             memberMember,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:guardduty/inviteAccepter:InviteAccepter")]
     public partial class InviteAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The detector ID of the member GuardDuty account.
-        /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account ID for primary account.
-        /// </summary>
         [Output("masterAccountId")]
         public Output<string> MasterAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -124,21 +67,12 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class InviteAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The detector ID of the member GuardDuty account.
-        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID for primary account.
-        /// </summary>
         [Input("masterAccountId", required: true)]
         public Input<string> MasterAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -150,21 +84,12 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class InviteAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The detector ID of the member GuardDuty account.
-        /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
-        /// <summary>
-        /// AWS account ID for primary account.
-        /// </summary>
         [Input("masterAccountId")]
         public Input<string>? MasterAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -17,47 +17,23 @@ public final class ConnectionFunctionConnectionFunctionConfigArgs extends com.pu
 
     public static final ConnectionFunctionConnectionFunctionConfigArgs Empty = new ConnectionFunctionConnectionFunctionConfigArgs();
 
-    /**
-     * Comment to describe the function.
-     * 
-     */
     @Import(name="comment", required=true)
     private Output<String> comment;
 
-    /**
-     * @return Comment to describe the function.
-     * 
-     */
     public Output<String> comment() {
         return this.comment;
     }
 
-    /**
-     * Key value store associations. See `keyValueStoreAssociation` below.
-     * 
-     */
     @Import(name="keyValueStoreAssociation")
     private @Nullable Output<ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs> keyValueStoreAssociation;
 
-    /**
-     * @return Key value store associations. See `keyValueStoreAssociation` below.
-     * 
-     */
     public Optional<Output<ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs>> keyValueStoreAssociation() {
         return Optional.ofNullable(this.keyValueStoreAssociation);
     }
 
-    /**
-     * Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     */
     @Import(name="runtime", required=true)
     private Output<String> runtime;
 
-    /**
-     * @return Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     */
     public Output<String> runtime() {
         return this.runtime;
     }
@@ -88,65 +64,29 @@ public final class ConnectionFunctionConnectionFunctionConfigArgs extends com.pu
             $ = new ConnectionFunctionConnectionFunctionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment Comment to describe the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment to describe the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param keyValueStoreAssociation Key value store associations. See `keyValueStoreAssociation` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueStoreAssociation(@Nullable Output<ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs> keyValueStoreAssociation) {
             $.keyValueStoreAssociation = keyValueStoreAssociation;
             return this;
         }
 
-        /**
-         * @param keyValueStoreAssociation Key value store associations. See `keyValueStoreAssociation` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueStoreAssociation(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs keyValueStoreAssociation) {
             return keyValueStoreAssociation(Output.of(keyValueStoreAssociation));
         }
 
-        /**
-         * @param runtime Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtime(Output<String> runtime) {
             $.runtime = runtime;
             return this;
         }
 
-        /**
-         * @param runtime Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtime(String runtime) {
             return runtime(Output.of(runtime));
         }

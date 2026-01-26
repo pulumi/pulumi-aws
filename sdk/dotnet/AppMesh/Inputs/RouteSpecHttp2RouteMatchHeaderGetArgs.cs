@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecHttp2RouteMatchHeaderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If `True`, the match is on the opposite of the `Match` method and value. Default is `False`.
-        /// </summary>
         [Input("invert")]
         public Input<bool>? Invert { get; set; }
 
-        /// <summary>
-        /// Method and value to match the header value sent with a request. Specify one match method.
-        /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecHttp2RouteMatchHeaderMatchGetArgs>? Match { get; set; }
 
-        /// <summary>
-        /// Name for the HTTP header in the client request that will be matched on.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

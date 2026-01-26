@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventSourceMappingDocumentDbEventSourceConfig {
-    /**
-     * @return Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-     * 
-     */
     private @Nullable String collectionName;
-    /**
-     * @return Name of the database to consume within the DocumentDB cluster.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-     * 
-     */
     private @Nullable String fullDocument;
 
     private EventSourceMappingDocumentDbEventSourceConfig() {}
-    /**
-     * @return Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-     * 
-     */
     public Optional<String> collectionName() {
         return Optional.ofNullable(this.collectionName);
     }
-    /**
-     * @return Name of the database to consume within the DocumentDB cluster.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-     * 
-     */
     public Optional<String> fullDocument() {
         return Optional.ofNullable(this.fullDocument);
     }

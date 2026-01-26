@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationCloudwatchLoggingOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The ARN of the CloudWatch Log Stream.
-        /// </summary>
         [Input("logStreamArn", required: true)]
         public Input<string> LogStreamArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM Role used to send application messages.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

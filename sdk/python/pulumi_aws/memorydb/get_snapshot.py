@@ -59,25 +59,16 @@ class GetSnapshotResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="clusterConfigurations")
     def cluster_configurations(self) -> Sequence['outputs.GetSnapshotClusterConfigurationResult']:
-        """
-        The configuration of the cluster from which the snapshot was taken.
-        """
         return pulumi.get(self, "cluster_configurations")
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> _builtins.str:
-        """
-        Name of the MemoryDB cluster that this snapshot was taken from.
-        """
         return pulumi.get(self, "cluster_name")
 
     @_builtins.property
@@ -91,17 +82,11 @@ class GetSnapshotResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        ARN of the KMS key used to encrypt the snapshot at rest.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the cluster.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -112,17 +97,11 @@ class GetSnapshotResult:
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the snapshot.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -148,21 +127,7 @@ def get_snapshot(name: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Provides information about a MemoryDB Snapshot.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_snapshot(name="my-snapshot")
-    ```
-
-
-    :param _builtins.str name: Name of the snapshot.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the snapshot.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -186,21 +151,7 @@ def get_snapshot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
-    Provides information about a MemoryDB Snapshot.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_snapshot(name="my-snapshot")
-    ```
-
-
-    :param _builtins.str name: Name of the snapshot.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the snapshot.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -11,84 +11,12 @@ namespace Pulumi.Aws.Sfn
 {
     public static class GetAlias
     {
-        /// <summary>
-        /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "my_sfn_alias",
-        ///         StatemachineArn = sfnTest.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:sfn/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "my_sfn_alias",
-        ///         StatemachineArn = sfnTest.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:sfn/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "my_sfn_alias",
-        ///         StatemachineArn = sfnTest.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:sfn/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
@@ -96,27 +24,15 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Description of state machine alias.
-        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
-        /// <summary>
-        /// Name of the State Machine alias.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the State Machine.
-        /// </summary>
         [Input("statemachineArn", required: true)]
         public string StatemachineArn { get; set; } = null!;
 
@@ -128,27 +44,15 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Description of state machine alias.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the State Machine alias.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the State Machine.
-        /// </summary>
         [Input("statemachineArn", required: true)]
         public Input<string> StatemachineArn { get; set; } = null!;
 
@@ -162,17 +66,8 @@ namespace Pulumi.Aws.Sfn
     [OutputType]
     public sealed class GetAliasResult
     {
-        /// <summary>
-        /// ARN identifying the State Machine alias.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Date the state machine Alias was created.
-        /// </summary>
         public readonly string CreationDate;
-        /// <summary>
-        /// Description of state machine alias.
-        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -180,9 +75,6 @@ namespace Pulumi.Aws.Sfn
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Routing Configuration of state machine alias
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetAliasRoutingConfigurationResult> RoutingConfigurations;
         public readonly string StatemachineArn;
 

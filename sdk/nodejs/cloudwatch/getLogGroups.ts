@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get a list of AWS Cloudwatch Log Groups
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getLogGroups({
- *     logGroupNamePrefix: "/MyImportantLogs",
- * });
- * ```
- */
 export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,13 +17,7 @@ export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getLogGroups.
  */
 export interface GetLogGroupsArgs {
-    /**
-     * Group prefix of the Cloudwatch log groups to list
-     */
     logGroupNamePrefix?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -45,35 +25,15 @@ export interface GetLogGroupsArgs {
  * A collection of values returned by getLogGroups.
  */
 export interface GetLogGroupsResult {
-    /**
-     * Set of ARNs of the Cloudwatch log groups
-     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly logGroupNamePrefix?: string;
-    /**
-     * Set of names of the Cloudwatch log groups
-     */
     readonly logGroupNames: string[];
     readonly region: string;
 }
-/**
- * Use this data source to get a list of AWS Cloudwatch Log Groups
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getLogGroups({
- *     logGroupNamePrefix: "/MyImportantLogs",
- * });
- * ```
- */
 export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,12 +47,6 @@ export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getLogGroups.
  */
 export interface GetLogGroupsOutputArgs {
-    /**
-     * Group prefix of the Cloudwatch log groups to list
-     */
     logGroupNamePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

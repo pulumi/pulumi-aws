@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web Browser Settings Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
- * const exampleBrowserSettings = new aws.workspacesweb.BrowserSettings("example", {browserPolicy: JSON.stringify({
- *     chromePolicies: {
- *         DefaultDownloadDirectory: {
- *             value: "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
- *         },
- *     },
- * })});
- * const exampleBrowserSettingsAssociation = new aws.workspacesweb.BrowserSettingsAssociation("example", {
- *     browserSettingsArn: exampleBrowserSettings.browserSettingsArn,
- *     portalArn: example.portalArn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web Browser Settings Association using the `browser_settings_arn,portal_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation example arn:aws:workspaces-web:us-west-2:123456789012:browserSettings/browser_settings-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
- * ```
- */
 export class BrowserSettingsAssociation extends pulumi.CustomResource {
     /**
      * Get an existing BrowserSettingsAssociation resource's state with the given name, ID, and optional extra
@@ -65,19 +32,8 @@ export class BrowserSettingsAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === BrowserSettingsAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the browser settings to associate with the portal. Forces replacement if changed.
-     */
     declare public readonly browserSettingsArn: pulumi.Output<string>;
-    /**
-     * ARN of the portal to associate with the browser settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly portalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -117,19 +73,8 @@ export class BrowserSettingsAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BrowserSettingsAssociation resources.
  */
 export interface BrowserSettingsAssociationState {
-    /**
-     * ARN of the browser settings to associate with the portal. Forces replacement if changed.
-     */
     browserSettingsArn?: pulumi.Input<string>;
-    /**
-     * ARN of the portal to associate with the browser settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -137,18 +82,7 @@ export interface BrowserSettingsAssociationState {
  * The set of arguments for constructing a BrowserSettingsAssociation resource.
  */
 export interface BrowserSettingsAssociationArgs {
-    /**
-     * ARN of the browser settings to associate with the portal. Forces replacement if changed.
-     */
     browserSettingsArn: pulumi.Input<string>;
-    /**
-     * ARN of the portal to associate with the browser settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

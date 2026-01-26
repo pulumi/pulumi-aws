@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class TableSchemaDefinitionColumn
     {
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

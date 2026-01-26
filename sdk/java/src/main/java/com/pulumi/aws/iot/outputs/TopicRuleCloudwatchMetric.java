@@ -12,77 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleCloudwatchMetric {
-    /**
-     * @return The CloudWatch metric name.
-     * 
-     */
     private String metricName;
-    /**
-     * @return The CloudWatch metric namespace name.
-     * 
-     */
     private String metricNamespace;
-    /**
-     * @return An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-     * 
-     */
     private @Nullable String metricTimestamp;
-    /**
-     * @return The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-     * 
-     */
     private String metricUnit;
-    /**
-     * @return The CloudWatch metric value.
-     * 
-     */
     private String metricValue;
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch metric.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleCloudwatchMetric() {}
-    /**
-     * @return The CloudWatch metric name.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return The CloudWatch metric namespace name.
-     * 
-     */
     public String metricNamespace() {
         return this.metricNamespace;
     }
-    /**
-     * @return An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-     * 
-     */
     public Optional<String> metricTimestamp() {
         return Optional.ofNullable(this.metricTimestamp);
     }
-    /**
-     * @return The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-     * 
-     */
     public String metricUnit() {
         return this.metricUnit;
     }
-    /**
-     * @return The CloudWatch metric value.
-     * 
-     */
     public String metricValue() {
         return this.metricValue;
     }
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch metric.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

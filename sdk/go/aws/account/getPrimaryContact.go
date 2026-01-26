@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for the primary contact information associated with an AWS Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/account"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := account.LookupPrimaryContact(ctx, &account.LookupPrimaryContactArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPrimaryContact(ctx *pulumi.Context, args *LookupPrimaryContactArgs, opts ...pulumi.InvokeOption) (*LookupPrimaryContactResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrimaryContactResult
@@ -48,39 +23,26 @@ func LookupPrimaryContact(ctx *pulumi.Context, args *LookupPrimaryContactArgs, o
 
 // A collection of arguments for invoking getPrimaryContact.
 type LookupPrimaryContactArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId *string `pulumi:"accountId"`
 }
 
 // A collection of values returned by getPrimaryContact.
 type LookupPrimaryContactResult struct {
-	AccountId string `pulumi:"accountId"`
-	// The first line of the primary contact address.
-	AddressLine1 string `pulumi:"addressLine1"`
-	// The second line of the primary contact address.
-	AddressLine2 string `pulumi:"addressLine2"`
-	// The third line of the primary contact address.
-	AddressLine3 string `pulumi:"addressLine3"`
-	// The city of the primary contact address.
-	City string `pulumi:"city"`
-	// The name of the company associated with the primary contact information.
-	CompanyName string `pulumi:"companyName"`
-	// The ISO-3166 two-letter country code for the primary contact address.
-	CountryCode string `pulumi:"countryCode"`
-	// The district or county of the primary contact address.
+	AccountId        string `pulumi:"accountId"`
+	AddressLine1     string `pulumi:"addressLine1"`
+	AddressLine2     string `pulumi:"addressLine2"`
+	AddressLine3     string `pulumi:"addressLine3"`
+	City             string `pulumi:"city"`
+	CompanyName      string `pulumi:"companyName"`
+	CountryCode      string `pulumi:"countryCode"`
 	DistrictOrCounty string `pulumi:"districtOrCounty"`
-	// The full name of the primary contact address.
-	FullName string `pulumi:"fullName"`
+	FullName         string `pulumi:"fullName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The phone number of the primary contact information.
-	PhoneNumber string `pulumi:"phoneNumber"`
-	// The postal code of the primary contact address.
-	PostalCode string `pulumi:"postalCode"`
-	// The state or region of the primary contact address.
+	Id            string `pulumi:"id"`
+	PhoneNumber   string `pulumi:"phoneNumber"`
+	PostalCode    string `pulumi:"postalCode"`
 	StateOrRegion string `pulumi:"stateOrRegion"`
-	// The URL of the website associated with the primary contact information.
-	WebsiteUrl string `pulumi:"websiteUrl"`
+	WebsiteUrl    string `pulumi:"websiteUrl"`
 }
 
 func LookupPrimaryContactOutput(ctx *pulumi.Context, args LookupPrimaryContactOutputArgs, opts ...pulumi.InvokeOption) LookupPrimaryContactResultOutput {
@@ -94,7 +56,6 @@ func LookupPrimaryContactOutput(ctx *pulumi.Context, args LookupPrimaryContactOu
 
 // A collection of arguments for invoking getPrimaryContact.
 type LookupPrimaryContactOutputArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 }
 
@@ -121,42 +82,34 @@ func (o LookupPrimaryContactResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The first line of the primary contact address.
 func (o LookupPrimaryContactResultOutput) AddressLine1() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.AddressLine1 }).(pulumi.StringOutput)
 }
 
-// The second line of the primary contact address.
 func (o LookupPrimaryContactResultOutput) AddressLine2() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.AddressLine2 }).(pulumi.StringOutput)
 }
 
-// The third line of the primary contact address.
 func (o LookupPrimaryContactResultOutput) AddressLine3() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.AddressLine3 }).(pulumi.StringOutput)
 }
 
-// The city of the primary contact address.
 func (o LookupPrimaryContactResultOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.City }).(pulumi.StringOutput)
 }
 
-// The name of the company associated with the primary contact information.
 func (o LookupPrimaryContactResultOutput) CompanyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.CompanyName }).(pulumi.StringOutput)
 }
 
-// The ISO-3166 two-letter country code for the primary contact address.
 func (o LookupPrimaryContactResultOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The district or county of the primary contact address.
 func (o LookupPrimaryContactResultOutput) DistrictOrCounty() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.DistrictOrCounty }).(pulumi.StringOutput)
 }
 
-// The full name of the primary contact address.
 func (o LookupPrimaryContactResultOutput) FullName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.FullName }).(pulumi.StringOutput)
 }
@@ -166,22 +119,18 @@ func (o LookupPrimaryContactResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The phone number of the primary contact information.
 func (o LookupPrimaryContactResultOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// The postal code of the primary contact address.
 func (o LookupPrimaryContactResultOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The state or region of the primary contact address.
 func (o LookupPrimaryContactResultOutput) StateOrRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.StateOrRegion }).(pulumi.StringOutput)
 }
 
-// The URL of the website associated with the primary contact information.
 func (o LookupPrimaryContactResultOutput) WebsiteUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.WebsiteUrl }).(pulumi.StringOutput)
 }

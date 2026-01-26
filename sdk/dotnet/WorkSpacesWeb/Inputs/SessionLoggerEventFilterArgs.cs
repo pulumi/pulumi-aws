@@ -12,18 +12,11 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class SessionLoggerEventFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Block that specifies to monitor all events. Set to `{}` to monitor all events.
-        /// </summary>
         [Input("all")]
         public Input<Inputs.SessionLoggerEventFilterAllArgs>? All { get; set; }
 
         [Input("includes")]
         private InputList<string>? _includes;
-
-        /// <summary>
-        /// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-        /// </summary>
         public InputList<string> Includes
         {
             get => _includes ?? (_includes = new InputList<string>());

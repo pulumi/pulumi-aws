@@ -16,17 +16,9 @@ public final class WebAclDataProtectionConfigArgs extends com.pulumi.resources.R
 
     public static final WebAclDataProtectionConfigArgs Empty = new WebAclDataProtectionConfigArgs();
 
-    /**
-     * A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
-     * 
-     */
     @Import(name="dataProtections")
     private @Nullable Output<List<WebAclDataProtectionConfigDataProtectionArgs>> dataProtections;
 
-    /**
-     * @return A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
-     * 
-     */
     public Optional<Output<List<WebAclDataProtectionConfigDataProtectionArgs>>> dataProtections() {
         return Optional.ofNullable(this.dataProtections);
     }
@@ -55,33 +47,15 @@ public final class WebAclDataProtectionConfigArgs extends com.pulumi.resources.R
             $ = new WebAclDataProtectionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataProtections A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataProtections(@Nullable Output<List<WebAclDataProtectionConfigDataProtectionArgs>> dataProtections) {
             $.dataProtections = dataProtections;
             return this;
         }
 
-        /**
-         * @param dataProtections A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataProtections(List<WebAclDataProtectionConfigDataProtectionArgs> dataProtections) {
             return dataProtections(Output.of(dataProtections));
         }
 
-        /**
-         * @param dataProtections A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataProtections(WebAclDataProtectionConfigDataProtectionArgs... dataProtections) {
             return dataProtections(List.of(dataProtections));
         }

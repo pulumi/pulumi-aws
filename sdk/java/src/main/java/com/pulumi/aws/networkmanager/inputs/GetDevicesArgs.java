@@ -17,47 +17,23 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDevicesArgs Empty = new GetDevicesArgs();
 
-    /**
-     * ID of the Global Network of the devices to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the devices to retrieve.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * ID of the site of the devices to retrieve.
-     * 
-     */
     @Import(name="siteId")
     private @Nullable Output<String> siteId;
 
-    /**
-     * @return ID of the site of the devices to retrieve.
-     * 
-     */
     public Optional<Output<String>> siteId() {
         return Optional.ofNullable(this.siteId);
     }
 
-    /**
-     * Restricts the list to the devices with these tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Restricts the list to the devices with these tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDevicesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the devices to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the devices to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param siteId ID of the site of the devices to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(@Nullable Output<String> siteId) {
             $.siteId = siteId;
             return this;
         }
 
-        /**
-         * @param siteId ID of the site of the devices to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(String siteId) {
             return siteId(Output.of(siteId));
         }
 
-        /**
-         * @param tags Restricts the list to the devices with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Restricts the list to the devices with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

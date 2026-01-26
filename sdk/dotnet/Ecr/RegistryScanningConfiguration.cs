@@ -9,121 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    /// <summary>
-    /// Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var configuration = new Aws.Ecr.RegistryScanningConfiguration("configuration", new()
-    ///     {
-    ///         ScanType = "ENHANCED",
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
-    ///             {
-    ///                 ScanFrequency = "CONTINUOUS_SCAN",
-    ///                 RepositoryFilters = new[]
-    ///                 {
-    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
-    ///                     {
-    ///                         Filter = "example",
-    ///                         FilterType = "WILDCARD",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Multiple rules
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ecr.RegistryScanningConfiguration("test", new()
-    ///     {
-    ///         ScanType = "ENHANCED",
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
-    ///             {
-    ///                 ScanFrequency = "SCAN_ON_PUSH",
-    ///                 RepositoryFilters = new[]
-    ///                 {
-    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
-    ///                     {
-    ///                         Filter = "*",
-    ///                         FilterType = "WILDCARD",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
-    ///             {
-    ///                 ScanFrequency = "CONTINUOUS_SCAN",
-    ///                 RepositoryFilters = new[]
-    ///                 {
-    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
-    ///                     {
-    ///                         Filter = "example",
-    ///                         FilterType = "WILDCARD",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")]
     public partial class RegistryScanningConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry ID the scanning configuration applies to.
-        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
-        /// <summary>
-        /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RegistryScanningConfigurationRule>> Rules { get; private set; } = null!;
 
-        /// <summary>
-        /// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
-        /// </summary>
         [Output("scanType")]
         public Output<string> ScanType { get; private set; } = null!;
 
@@ -173,27 +70,17 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class RegistryScanningConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RegistryScanningConfigurationRuleArgs>? _rules;
-
-        /// <summary>
-        /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
-        /// </summary>
         public InputList<Inputs.RegistryScanningConfigurationRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.RegistryScanningConfigurationRuleArgs>());
             set => _rules = value;
         }
 
-        /// <summary>
-        /// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
-        /// </summary>
         [Input("scanType", required: true)]
         public Input<string> ScanType { get; set; } = null!;
 
@@ -205,33 +92,20 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class RegistryScanningConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The registry ID the scanning configuration applies to.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RegistryScanningConfigurationRuleGetArgs>? _rules;
-
-        /// <summary>
-        /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
-        /// </summary>
         public InputList<Inputs.RegistryScanningConfigurationRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.RegistryScanningConfigurationRuleGetArgs>());
             set => _rules = value;
         }
 
-        /// <summary>
-        /// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
-        /// </summary>
         [Input("scanType")]
         public Input<string>? ScanType { get; set; }
 

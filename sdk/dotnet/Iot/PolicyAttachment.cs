@@ -9,81 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Provides an IoT policy attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pubsub = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "iot:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var pubsubPolicy = new Aws.Iot.Policy("pubsub", new()
-    ///     {
-    ///         Name = "PubSubToAnyTopic",
-    ///         PolicyDocument = pubsub.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         Csr = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "csr.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Active = true,
-    ///     });
-    /// 
-    ///     var att = new Aws.Iot.PolicyAttachment("att", new()
-    ///     {
-    ///         Policy = pubsubPolicy.Name,
-    ///         Target = cert.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the policy to attach.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The identity to which the policy is attached.
-        /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
 
@@ -133,21 +67,12 @@ namespace Pulumi.Aws.Iot
 
     public sealed class PolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the policy to attach.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The identity to which the policy is attached.
-        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
@@ -159,21 +84,12 @@ namespace Pulumi.Aws.Iot
 
     public sealed class PolicyAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the policy to attach.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The identity to which the policy is attached.
-        /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 

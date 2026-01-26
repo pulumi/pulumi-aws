@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetDeadLetterConfig
     {
-        /// <summary>
-        /// ARN of the SQS queue specified as the target for the dead-letter queue.
-        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

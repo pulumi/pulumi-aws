@@ -38,13 +38,7 @@ MYPY = False
 if not MYPY:
     class ClusterClusterEndpointArgsDict(TypedDict):
         address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS hostname of the node.
-        """
         port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
 elif False:
     ClusterClusterEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53,10 +47,6 @@ class ClusterClusterEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address: DNS hostname of the node.
-        :param pulumi.Input[_builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
@@ -65,9 +55,6 @@ class ClusterClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DNS hostname of the node.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -77,9 +64,6 @@ class ClusterClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -90,21 +74,9 @@ class ClusterClusterEndpointArgs:
 if not MYPY:
     class ClusterShardArgsDict(TypedDict):
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgsDict']]]]
-        """
-        Set of nodes in this shard.
-        """
         num_nodes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of individual nodes in this shard.
-        """
         slots: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Keyspace for this shard. Example: `0-16383`.
-        """
 elif False:
     ClusterShardArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -115,12 +87,6 @@ class ClusterShardArgs:
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]]] = None,
                  num_nodes: Optional[pulumi.Input[_builtins.int]] = None,
                  slots: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]] nodes: Set of nodes in this shard.
-        :param pulumi.Input[_builtins.int] num_nodes: Number of individual nodes in this shard.
-        :param pulumi.Input[_builtins.str] slots: Keyspace for this shard. Example: `0-16383`.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nodes is not None:
@@ -133,9 +99,6 @@ class ClusterShardArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -145,9 +108,6 @@ class ClusterShardArgs:
     @_builtins.property
     @pulumi.getter
     def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]]]:
-        """
-        Set of nodes in this shard.
-        """
         return pulumi.get(self, "nodes")
 
     @nodes.setter
@@ -157,9 +117,6 @@ class ClusterShardArgs:
     @_builtins.property
     @pulumi.getter(name="numNodes")
     def num_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of individual nodes in this shard.
-        """
         return pulumi.get(self, "num_nodes")
 
     @num_nodes.setter
@@ -169,9 +126,6 @@ class ClusterShardArgs:
     @_builtins.property
     @pulumi.getter
     def slots(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Keyspace for this shard. Example: `0-16383`.
-        """
         return pulumi.get(self, "slots")
 
     @slots.setter
@@ -182,18 +136,9 @@ class ClusterShardArgs:
 if not MYPY:
     class ClusterShardNodeArgsDict(TypedDict):
         availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which the node resides.
-        """
         create_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        """
         endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArgsDict']]]]
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
 elif False:
     ClusterShardNodeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -204,11 +149,6 @@ class ClusterShardNodeArgs:
                  create_time: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which the node resides.
-        :param pulumi.Input[_builtins.str] create_time: The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if create_time is not None:
@@ -221,9 +161,6 @@ class ClusterShardNodeArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Availability Zone in which the node resides.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -233,9 +170,6 @@ class ClusterShardNodeArgs:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -254,9 +188,6 @@ class ClusterShardNodeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -267,13 +198,7 @@ class ClusterShardNodeArgs:
 if not MYPY:
     class ClusterShardNodeEndpointArgsDict(TypedDict):
         address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS hostname of the node.
-        """
         port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
 elif False:
     ClusterShardNodeEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -282,10 +207,6 @@ class ClusterShardNodeEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address: DNS hostname of the node.
-        :param pulumi.Input[_builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
@@ -294,9 +215,6 @@ class ClusterShardNodeEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DNS hostname of the node.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -306,9 +224,6 @@ class ClusterShardNodeEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -391,13 +306,7 @@ class MultiRegionClusterTimeoutsArgs:
 if not MYPY:
     class ParameterGroupParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the parameter.
-        """
 elif False:
     ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -406,19 +315,12 @@ class ParameterGroupParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -428,9 +330,6 @@ class ParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -441,61 +340,19 @@ class ParameterGroupParameterArgs:
 if not MYPY:
     class SnapshotClusterConfigurationArgsDict(TypedDict):
         description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description for the cluster.
-        """
         engine: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The engine that will run on cluster nodes.
-        """
         engine_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version number of the engine used by the cluster.
-        """
         maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The weekly time range during which maintenance on the cluster is performed.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         node_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Compute and memory capacity of the nodes in the cluster.
-        """
         num_shards: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of shards in the cluster.
-        """
         parameter_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the parameter group associated with the cluster.
-        """
         port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port number on which the cluster accepts connections.
-        """
         snapshot_retention_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of days for which MemoryDB retains automatic snapshots before deleting them.
-        """
         snapshot_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-        """
         subnet_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the subnet group used by the cluster.
-        """
         topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the SNS topic to which cluster notifications are sent.
-        """
         vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The VPC in which the cluster exists.
-        """
 elif False:
     SnapshotClusterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -516,22 +373,6 @@ class SnapshotClusterConfigurationArgs:
                  subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] description: Description for the cluster.
-        :param pulumi.Input[_builtins.str] engine: The engine that will run on cluster nodes.
-        :param pulumi.Input[_builtins.str] engine_version: Version number of the engine used by the cluster.
-        :param pulumi.Input[_builtins.str] maintenance_window: The weekly time range during which maintenance on the cluster is performed.
-        :param pulumi.Input[_builtins.str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] node_type: Compute and memory capacity of the nodes in the cluster.
-        :param pulumi.Input[_builtins.int] num_shards: Number of shards in the cluster.
-        :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group associated with the cluster.
-        :param pulumi.Input[_builtins.int] port: Port number on which the cluster accepts connections.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which MemoryDB retains automatic snapshots before deleting them.
-        :param pulumi.Input[_builtins.str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-        :param pulumi.Input[_builtins.str] subnet_group_name: Name of the subnet group used by the cluster.
-        :param pulumi.Input[_builtins.str] topic_arn: ARN of the SNS topic to which cluster notifications are sent.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC in which the cluster exists.
-        """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if engine is not None:
@@ -564,9 +405,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description for the cluster.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -576,9 +414,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The engine that will run on cluster nodes.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -588,9 +423,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version number of the engine used by the cluster.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -600,9 +432,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The weekly time range during which maintenance on the cluster is performed.
-        """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
@@ -612,9 +441,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -624,9 +450,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compute and memory capacity of the nodes in the cluster.
-        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -636,9 +459,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of shards in the cluster.
-        """
         return pulumi.get(self, "num_shards")
 
     @num_shards.setter
@@ -648,9 +468,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the parameter group associated with the cluster.
-        """
         return pulumi.get(self, "parameter_group_name")
 
     @parameter_group_name.setter
@@ -660,9 +477,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Port number on which the cluster accepts connections.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -672,9 +486,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of days for which MemoryDB retains automatic snapshots before deleting them.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
@@ -684,9 +495,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-        """
         return pulumi.get(self, "snapshot_window")
 
     @snapshot_window.setter
@@ -696,9 +504,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the subnet group used by the cluster.
-        """
         return pulumi.get(self, "subnet_group_name")
 
     @subnet_group_name.setter
@@ -708,9 +513,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the SNS topic to which cluster notifications are sent.
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -720,9 +522,6 @@ class SnapshotClusterConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The VPC in which the cluster exists.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -733,17 +532,8 @@ class SnapshotClusterConfigurationArgs:
 if not MYPY:
     class UserAuthenticationModeArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        Specifies the authentication type. Valid values are: `password` or `iam`.
-        """
         password_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of passwords belonging to the user if `type` is set to `password`.
-        """
         passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-        """
 elif False:
     UserAuthenticationModeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -753,11 +543,6 @@ class UserAuthenticationModeArgs:
                  type: pulumi.Input[_builtins.str],
                  password_count: Optional[pulumi.Input[_builtins.int]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Specifies the authentication type. Valid values are: `password` or `iam`.
-        :param pulumi.Input[_builtins.int] password_count: Number of passwords belonging to the user if `type` is set to `password`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-        """
         pulumi.set(__self__, "type", type)
         if password_count is not None:
             pulumi.set(__self__, "password_count", password_count)
@@ -767,9 +552,6 @@ class UserAuthenticationModeArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the authentication type. Valid values are: `password` or `iam`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -779,9 +561,6 @@ class UserAuthenticationModeArgs:
     @_builtins.property
     @pulumi.getter(name="passwordCount")
     def password_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of passwords belonging to the user if `type` is set to `password`.
-        """
         return pulumi.get(self, "password_count")
 
     @password_count.setter
@@ -791,9 +570,6 @@ class UserAuthenticationModeArgs:
     @_builtins.property
     @pulumi.getter
     def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
     @passwords.setter

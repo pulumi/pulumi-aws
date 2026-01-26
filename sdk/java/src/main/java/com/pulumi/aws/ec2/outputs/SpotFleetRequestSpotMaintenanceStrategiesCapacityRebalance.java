@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
-    /**
-     * @return The replacement strategy to use. Only available for spot fleets with `fleetType` set to `maintain`. Valid values: `launch`.
-     * 
-     */
     private @Nullable String replacementStrategy;
 
     private SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance() {}
-    /**
-     * @return The replacement strategy to use. Only available for spot fleets with `fleetType` set to `maintain`. Valid values: `launch`.
-     * 
-     */
     public Optional<String> replacementStrategy() {
         return Optional.ofNullable(this.replacementStrategy);
     }

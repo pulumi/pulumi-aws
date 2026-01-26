@@ -11,15 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific EC2 Customer-Owned IP Pool.
-//
-// This data source can prove useful when a module accepts a coip pool id as
-// an input variable and needs to, for example, determine the CIDR block of that
-// COIP Pool.
-//
-// ## Example Usage
-//
-// The following example returns a specific coip pool ID
 func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoipPoolResult
@@ -32,34 +23,24 @@ func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getCoipPool.
 type GetCoipPoolArgs struct {
-	Filters []GetCoipPoolFilter `pulumi:"filters"`
-	// Local Gateway Route Table Id assigned to desired COIP Pool
-	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
-	// ID of the specific COIP Pool to retrieve.
-	PoolId *string `pulumi:"poolId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired COIP Pool.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags map[string]string `pulumi:"tags"`
+	Filters                  []GetCoipPoolFilter `pulumi:"filters"`
+	LocalGatewayRouteTableId *string             `pulumi:"localGatewayRouteTableId"`
+	PoolId                   *string             `pulumi:"poolId"`
+	Region                   *string             `pulumi:"region"`
+	Tags                     map[string]string   `pulumi:"tags"`
 }
 
 // A collection of values returned by getCoipPool.
 type GetCoipPoolResult struct {
-	// ARN of the COIP pool
 	Arn     string              `pulumi:"arn"`
 	Filters []GetCoipPoolFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string `pulumi:"id"`
-	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
-	// Set of CIDR blocks in pool
-	PoolCidrs []string          `pulumi:"poolCidrs"`
-	PoolId    string            `pulumi:"poolId"`
-	Region    string            `pulumi:"region"`
-	Tags      map[string]string `pulumi:"tags"`
+	Id                       string            `pulumi:"id"`
+	LocalGatewayRouteTableId string            `pulumi:"localGatewayRouteTableId"`
+	PoolCidrs                []string          `pulumi:"poolCidrs"`
+	PoolId                   string            `pulumi:"poolId"`
+	Region                   string            `pulumi:"region"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 func GetCoipPoolOutput(ctx *pulumi.Context, args GetCoipPoolOutputArgs, opts ...pulumi.InvokeOption) GetCoipPoolResultOutput {
@@ -73,19 +54,11 @@ func GetCoipPoolOutput(ctx *pulumi.Context, args GetCoipPoolOutputArgs, opts ...
 
 // A collection of arguments for invoking getCoipPool.
 type GetCoipPoolOutputArgs struct {
-	Filters GetCoipPoolFilterArrayInput `pulumi:"filters"`
-	// Local Gateway Route Table Id assigned to desired COIP Pool
-	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
-	// ID of the specific COIP Pool to retrieve.
-	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired COIP Pool.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Filters                  GetCoipPoolFilterArrayInput `pulumi:"filters"`
+	LocalGatewayRouteTableId pulumi.StringPtrInput       `pulumi:"localGatewayRouteTableId"`
+	PoolId                   pulumi.StringPtrInput       `pulumi:"poolId"`
+	Region                   pulumi.StringPtrInput       `pulumi:"region"`
+	Tags                     pulumi.StringMapInput       `pulumi:"tags"`
 }
 
 func (GetCoipPoolOutputArgs) ElementType() reflect.Type {
@@ -107,7 +80,6 @@ func (o GetCoipPoolResultOutput) ToGetCoipPoolResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the COIP pool
 func (o GetCoipPoolResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -125,7 +97,6 @@ func (o GetCoipPoolResultOutput) LocalGatewayRouteTableId() pulumi.StringOutput 
 	return o.ApplyT(func(v GetCoipPoolResult) string { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
 }
 
-// Set of CIDR blocks in pool
 func (o GetCoipPoolResultOutput) PoolCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolResult) []string { return v.PoolCidrs }).(pulumi.StringArrayOutput)
 }

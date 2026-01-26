@@ -13,29 +13,10 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerCatalogTarget
     {
-        /// <summary>
-        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
-        /// </summary>
         public readonly string? ConnectionName;
-        /// <summary>
-        /// The name of the Glue database to be synchronized.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// A valid Amazon SQS ARN.
-        /// 
-        /// &gt; **Note:** `DeletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-        /// 
-        /// &gt; **Note:** `Configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
-        /// </summary>
         public readonly string? DlqEventQueueArn;
-        /// <summary>
-        /// A valid Amazon SQS ARN.
-        /// </summary>
         public readonly string? EventQueueArn;
-        /// <summary>
-        /// A list of catalog tables to be synchronized.
-        /// </summary>
         public readonly ImmutableArray<string> Tables;
 
         [OutputConstructor]

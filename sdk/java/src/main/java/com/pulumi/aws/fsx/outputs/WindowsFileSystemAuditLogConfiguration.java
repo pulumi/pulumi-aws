@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WindowsFileSystemAuditLogConfiguration {
-    /**
-     * @return The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
-     * 
-     */
     private @Nullable String auditLogDestination;
-    /**
-     * @return Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
-     * 
-     */
     private @Nullable String fileAccessAuditLogLevel;
-    /**
-     * @return Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
-     * 
-     */
     private @Nullable String fileShareAccessAuditLogLevel;
 
     private WindowsFileSystemAuditLogConfiguration() {}
-    /**
-     * @return The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
-     * 
-     */
     public Optional<String> auditLogDestination() {
         return Optional.ofNullable(this.auditLogDestination);
     }
-    /**
-     * @return Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
-     * 
-     */
     public Optional<String> fileAccessAuditLogLevel() {
         return Optional.ofNullable(this.fileAccessAuditLogLevel);
     }
-    /**
-     * @return Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
-     * 
-     */
     public Optional<String> fileShareAccessAuditLogLevel() {
         return Optional.ofNullable(this.fileShareAccessAuditLogLevel);
     }

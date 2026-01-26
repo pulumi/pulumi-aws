@@ -17,193 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a MemoryDB Snapshot.
- * 
- * More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.memorydb.Snapshot;
- * import com.pulumi.aws.memorydb.SnapshotArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Snapshot("example", SnapshotArgs.builder()
- *             .clusterName(exampleAwsMemorydbCluster.name())
- *             .name("my-snapshot")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a snapshot using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
- * ```
- * 
- */
 @ResourceType(type="aws:memorydb/snapshot:Snapshot")
 public class Snapshot extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the snapshot.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the snapshot.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The configuration of the cluster from which the snapshot was taken.
-     * 
-     */
     @Export(name="clusterConfigurations", refs={List.class,SnapshotClusterConfiguration.class}, tree="[0,1]")
     private Output<List<SnapshotClusterConfiguration>> clusterConfigurations;
 
-    /**
-     * @return The configuration of the cluster from which the snapshot was taken.
-     * 
-     */
     public Output<List<SnapshotClusterConfiguration>> clusterConfigurations() {
         return this.clusterConfigurations;
     }
-    /**
-     * Name of the MemoryDB cluster to take a snapshot of.
-     * 
-     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the MemoryDB cluster to take a snapshot of.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
-    /**
-     * ARN of the KMS key used to encrypt the snapshot at rest.
-     * 
-     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
-    /**
-     * @return ARN of the KMS key used to encrypt the snapshot at rest.
-     * 
-     */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
-    /**
-     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-     * 
-     */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
-    /**
-     * @return Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

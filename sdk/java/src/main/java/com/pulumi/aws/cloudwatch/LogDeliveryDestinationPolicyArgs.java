@@ -16,47 +16,23 @@ public final class LogDeliveryDestinationPolicyArgs extends com.pulumi.resources
 
     public static final LogDeliveryDestinationPolicyArgs Empty = new LogDeliveryDestinationPolicyArgs();
 
-    /**
-     * The name of the delivery destination to assign this policy to.
-     * 
-     */
     @Import(name="deliveryDestinationName", required=true)
     private Output<String> deliveryDestinationName;
 
-    /**
-     * @return The name of the delivery destination to assign this policy to.
-     * 
-     */
     public Output<String> deliveryDestinationName() {
         return this.deliveryDestinationName;
     }
 
-    /**
-     * The contents of the policy.
-     * 
-     */
     @Import(name="deliveryDestinationPolicy", required=true)
     private Output<String> deliveryDestinationPolicy;
 
-    /**
-     * @return The contents of the policy.
-     * 
-     */
     public Output<String> deliveryDestinationPolicy() {
         return this.deliveryDestinationPolicy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class LogDeliveryDestinationPolicyArgs extends com.pulumi.resources
             $ = new LogDeliveryDestinationPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryDestinationName The name of the delivery destination to assign this policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationName(Output<String> deliveryDestinationName) {
             $.deliveryDestinationName = deliveryDestinationName;
             return this;
         }
 
-        /**
-         * @param deliveryDestinationName The name of the delivery destination to assign this policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationName(String deliveryDestinationName) {
             return deliveryDestinationName(Output.of(deliveryDestinationName));
         }
 
-        /**
-         * @param deliveryDestinationPolicy The contents of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationPolicy(Output<String> deliveryDestinationPolicy) {
             $.deliveryDestinationPolicy = deliveryDestinationPolicy;
             return this;
         }
 
-        /**
-         * @param deliveryDestinationPolicy The contents of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationPolicy(String deliveryDestinationPolicy) {
             return deliveryDestinationPolicy(Output.of(deliveryDestinationPolicy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

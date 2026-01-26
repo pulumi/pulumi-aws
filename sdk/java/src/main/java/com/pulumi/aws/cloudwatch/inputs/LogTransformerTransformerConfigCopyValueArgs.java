@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigCopyValueArgs extends com.pulu
 
     public static final LogTransformerTransformerConfigCopyValueArgs Empty = new LogTransformerTransformerConfigCopyValueArgs();
 
-    /**
-     * Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
-     * 
-     */
     @Import(name="entries", required=true)
     private Output<List<LogTransformerTransformerConfigCopyValueEntryArgs>> entries;
 
-    /**
-     * @return Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
-     * 
-     */
     public Output<List<LogTransformerTransformerConfigCopyValueEntryArgs>> entries() {
         return this.entries;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigCopyValueArgs extends com.pulu
             $ = new LogTransformerTransformerConfigCopyValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entries Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(Output<List<LogTransformerTransformerConfigCopyValueEntryArgs>> entries) {
             $.entries = entries;
             return this;
         }
 
-        /**
-         * @param entries Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(List<LogTransformerTransformerConfigCopyValueEntryArgs> entries) {
             return entries(Output.of(entries));
         }
 
-        /**
-         * @param entries Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(LogTransformerTransformerConfigCopyValueEntryArgs... entries) {
             return entries(List.of(entries));
         }

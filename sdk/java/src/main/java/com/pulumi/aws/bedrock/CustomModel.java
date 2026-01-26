@@ -23,271 +23,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
- * import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
- * import com.pulumi.aws.bedrock.CustomModel;
- * import com.pulumi.aws.bedrock.CustomModelArgs;
- * import com.pulumi.aws.bedrock.inputs.CustomModelOutputDataConfigArgs;
- * import com.pulumi.aws.bedrock.inputs.CustomModelTrainingDataConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
- *             .modelId("amazon.titan-text-express-v1")
- *             .build());
- * 
- *         var exampleCustomModel = new CustomModel("exampleCustomModel", CustomModelArgs.builder()
- *             .customModelName("example-model")
- *             .jobName("example-job-1")
- *             .baseModelIdentifier(example.modelArn())
- *             .roleArn(exampleAwsIamRole.arn())
- *             .hyperparameters(Map.ofEntries(
- *                 Map.entry("epochCount", "1"),
- *                 Map.entry("batchSize", "1"),
- *                 Map.entry("learningRate", "0.005"),
- *                 Map.entry("learningRateWarmupSteps", "0")
- *             ))
- *             .outputDataConfig(CustomModelOutputDataConfigArgs.builder()
- *                 .s3Uri(String.format("s3://%s/data/", output.id()))
- *                 .build())
- *             .trainingDataConfig(CustomModelTrainingDataConfigArgs.builder()
- *                 .s3Uri(String.format("s3://%s/data/train.jsonl", training.id()))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model.
- * 
- * Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
- * 
- * % pulumi import aws_bedrock_custom_model.example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
- * 
- */
 @ResourceType(type="aws:bedrock/customModel:CustomModel")
 public class CustomModel extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the base model.
-     * 
-     */
     @Export(name="baseModelIdentifier", refs={String.class}, tree="[0]")
     private Output<String> baseModelIdentifier;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the base model.
-     * 
-     */
     public Output<String> baseModelIdentifier() {
         return this.baseModelIdentifier;
     }
-    /**
-     * The ARN of the output model.
-     * 
-     */
     @Export(name="customModelArn", refs={String.class}, tree="[0]")
     private Output<String> customModelArn;
 
-    /**
-     * @return The ARN of the output model.
-     * 
-     */
     public Output<String> customModelArn() {
         return this.customModelArn;
     }
-    /**
-     * The custom model is encrypted at rest using this key. Specify the key ARN.
-     * 
-     */
     @Export(name="customModelKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customModelKmsKeyId;
 
-    /**
-     * @return The custom model is encrypted at rest using this key. Specify the key ARN.
-     * 
-     */
     public Output<Optional<String>> customModelKmsKeyId() {
         return Codegen.optional(this.customModelKmsKeyId);
     }
-    /**
-     * Name for the custom model.
-     * 
-     */
     @Export(name="customModelName", refs={String.class}, tree="[0]")
     private Output<String> customModelName;
 
-    /**
-     * @return Name for the custom model.
-     * 
-     */
     public Output<String> customModelName() {
         return this.customModelName;
     }
-    /**
-     * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
-     * 
-     */
     @Export(name="customizationType", refs={String.class}, tree="[0]")
     private Output<String> customizationType;
 
-    /**
-     * @return The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
-     * 
-     */
     public Output<String> customizationType() {
         return this.customizationType;
     }
-    /**
-     * [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
-     * 
-     */
     @Export(name="hyperparameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> hyperparameters;
 
-    /**
-     * @return [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
-     * 
-     */
     public Output<Map<String,String>> hyperparameters() {
         return this.hyperparameters;
     }
-    /**
-     * The ARN of the customization job.
-     * 
-     */
     @Export(name="jobArn", refs={String.class}, tree="[0]")
     private Output<String> jobArn;
 
-    /**
-     * @return The ARN of the customization job.
-     * 
-     */
     public Output<String> jobArn() {
         return this.jobArn;
     }
-    /**
-     * A name for the customization job.
-     * 
-     */
     @Export(name="jobName", refs={String.class}, tree="[0]")
     private Output<String> jobName;
 
-    /**
-     * @return A name for the customization job.
-     * 
-     */
     public Output<String> jobName() {
         return this.jobName;
     }
-    /**
-     * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
-     * 
-     */
     @Export(name="jobStatus", refs={String.class}, tree="[0]")
     private Output<String> jobStatus;
 
-    /**
-     * @return The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
-     * 
-     */
     public Output<String> jobStatus() {
         return this.jobStatus;
     }
-    /**
-     * S3 location for the output data.
-     * 
-     */
     @Export(name="outputDataConfig", refs={CustomModelOutputDataConfig.class}, tree="[0]")
     private Output</* @Nullable */ CustomModelOutputDataConfig> outputDataConfig;
 
-    /**
-     * @return S3 location for the output data.
-     * 
-     */
     public Output<Optional<CustomModelOutputDataConfig>> outputDataConfig() {
         return Codegen.optional(this.outputDataConfig);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -297,73 +115,33 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
     public Output<Optional<CustomModelTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Information about the training dataset.
-     * 
-     */
     @Export(name="trainingDataConfig", refs={CustomModelTrainingDataConfig.class}, tree="[0]")
     private Output</* @Nullable */ CustomModelTrainingDataConfig> trainingDataConfig;
 
-    /**
-     * @return Information about the training dataset.
-     * 
-     */
     public Output<Optional<CustomModelTrainingDataConfig>> trainingDataConfig() {
         return Codegen.optional(this.trainingDataConfig);
     }
-    /**
-     * Metrics associated with the customization job.
-     * 
-     */
     @Export(name="trainingMetrics", refs={List.class,CustomModelTrainingMetric.class}, tree="[0,1]")
     private Output<List<CustomModelTrainingMetric>> trainingMetrics;
 
-    /**
-     * @return Metrics associated with the customization job.
-     * 
-     */
     public Output<List<CustomModelTrainingMetric>> trainingMetrics() {
         return this.trainingMetrics;
     }
-    /**
-     * Information about the validation dataset.
-     * 
-     */
     @Export(name="validationDataConfig", refs={CustomModelValidationDataConfig.class}, tree="[0]")
     private Output</* @Nullable */ CustomModelValidationDataConfig> validationDataConfig;
 
-    /**
-     * @return Information about the validation dataset.
-     * 
-     */
     public Output<Optional<CustomModelValidationDataConfig>> validationDataConfig() {
         return Codegen.optional(this.validationDataConfig);
     }
-    /**
-     * The loss metric for each validator that you provided.
-     * 
-     */
     @Export(name="validationMetrics", refs={List.class,CustomModelValidationMetric.class}, tree="[0,1]")
     private Output<List<CustomModelValidationMetric>> validationMetrics;
 
-    /**
-     * @return The loss metric for each validator that you provided.
-     * 
-     */
     public Output<List<CustomModelValidationMetric>> validationMetrics() {
         return this.validationMetrics;
     }
-    /**
-     * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
-     * 
-     */
     @Export(name="vpcConfig", refs={CustomModelVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ CustomModelVpcConfig> vpcConfig;
 
-    /**
-     * @return Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
-     * 
-     */
     public Output<Optional<CustomModelVpcConfig>> vpcConfig() {
         return Codegen.optional(this.vpcConfig);
     }

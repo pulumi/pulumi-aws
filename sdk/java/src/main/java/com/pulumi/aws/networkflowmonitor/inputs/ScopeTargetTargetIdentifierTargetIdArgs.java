@@ -14,17 +14,9 @@ public final class ScopeTargetTargetIdentifierTargetIdArgs extends com.pulumi.re
 
     public static final ScopeTargetTargetIdentifierTargetIdArgs Empty = new ScopeTargetTargetIdentifierTargetIdArgs();
 
-    /**
-     * AWS account ID.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
@@ -53,23 +45,11 @@ public final class ScopeTargetTargetIdentifierTargetIdArgs extends com.pulumi.re
             $ = new ScopeTargetTargetIdentifierTargetIdArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

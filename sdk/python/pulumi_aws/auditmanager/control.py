@@ -31,16 +31,6 @@ class ControlArgs:
                  testing_information: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Control resource.
-        :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
-        :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the control.
-        :param pulumi.Input[_builtins.str] name: Name of the control.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] testing_information: Steps to follow to determine if the control is satisfied.
         """
         if action_plan_instructions is not None:
             pulumi.set(__self__, "action_plan_instructions", action_plan_instructions)
@@ -62,9 +52,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter(name="actionPlanInstructions")
     def action_plan_instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Recommended actions to carry out if the control isn't fulfilled.
-        """
         return pulumi.get(self, "action_plan_instructions")
 
     @action_plan_instructions.setter
@@ -74,9 +61,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter(name="actionPlanTitle")
     def action_plan_title(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Title of the action plan for remediating the control.
-        """
         return pulumi.get(self, "action_plan_title")
 
     @action_plan_title.setter
@@ -86,11 +70,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter(name="controlMappingSources")
     def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
-        """
-        Data mapping sources. See `control_mapping_sources` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "control_mapping_sources")
 
     @control_mapping_sources.setter
@@ -100,9 +79,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the control.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -112,9 +88,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the control.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -124,9 +97,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +106,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -148,9 +115,6 @@ class ControlArgs:
     @_builtins.property
     @pulumi.getter(name="testingInformation")
     def testing_information(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Steps to follow to determine if the control is satisfied.
-        """
         return pulumi.get(self, "testing_information")
 
     @testing_information.setter
@@ -174,19 +138,6 @@ class _ControlState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Control resources.
-        :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
-        :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the control.
-               * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the control.
-        :param pulumi.Input[_builtins.str] name: Name of the control.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] testing_information: Steps to follow to determine if the control is satisfied.
-        :param pulumi.Input[_builtins.str] type: Type of control, such as a custom control or a standard control.
         """
         if action_plan_instructions is not None:
             pulumi.set(__self__, "action_plan_instructions", action_plan_instructions)
@@ -214,9 +165,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter(name="actionPlanInstructions")
     def action_plan_instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Recommended actions to carry out if the control isn't fulfilled.
-        """
         return pulumi.get(self, "action_plan_instructions")
 
     @action_plan_instructions.setter
@@ -226,9 +174,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter(name="actionPlanTitle")
     def action_plan_title(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Title of the action plan for remediating the control.
-        """
         return pulumi.get(self, "action_plan_title")
 
     @action_plan_title.setter
@@ -238,10 +183,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the control.
-        * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -251,11 +192,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter(name="controlMappingSources")
     def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
-        """
-        Data mapping sources. See `control_mapping_sources` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "control_mapping_sources")
 
     @control_mapping_sources.setter
@@ -265,9 +201,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the control.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -277,9 +210,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the control.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -289,9 +219,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -301,9 +228,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -322,9 +246,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter(name="testingInformation")
     def testing_information(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Steps to follow to determine if the control is satisfied.
-        """
         return pulumi.get(self, "testing_information")
 
     @testing_information.setter
@@ -334,9 +255,6 @@ class _ControlState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of control, such as a custom control or a standard control.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -360,45 +278,9 @@ class Control(pulumi.CustomResource):
                  testing_information: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Audit Manager Control.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.Control("example",
-            name="example",
-            control_mapping_sources=[{
-                "source_name": "example",
-                "source_set_up_option": "Procedural_Controls_Mapping",
-                "source_type": "MANUAL",
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/control:Control example abc123-de45
-        ```
-
+        Create a Control resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
-        :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the control.
-        :param pulumi.Input[_builtins.str] name: Name of the control.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] testing_information: Steps to follow to determine if the control is satisfied.
         """
         ...
     @overload
@@ -407,33 +289,7 @@ class Control(pulumi.CustomResource):
                  args: Optional[ControlArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Audit Manager Control.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.Control("example",
-            name="example",
-            control_mapping_sources=[{
-                "source_name": "example",
-                "source_set_up_option": "Procedural_Controls_Mapping",
-                "source_type": "MANUAL",
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/control:Control example abc123-de45
-        ```
-
+        Create a Control resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -505,19 +361,6 @@ class Control(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
-        :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the control.
-               * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the control.
-        :param pulumi.Input[_builtins.str] name: Name of the control.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] testing_information: Steps to follow to determine if the control is satisfied.
-        :param pulumi.Input[_builtins.str] type: Type of control, such as a custom control or a standard control.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,68 +382,41 @@ class Control(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="actionPlanInstructions")
     def action_plan_instructions(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Recommended actions to carry out if the control isn't fulfilled.
-        """
         return pulumi.get(self, "action_plan_instructions")
 
     @_builtins.property
     @pulumi.getter(name="actionPlanTitle")
     def action_plan_title(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Title of the action plan for remediating the control.
-        """
         return pulumi.get(self, "action_plan_title")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the control.
-        * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="controlMappingSources")
     def control_mapping_sources(self) -> pulumi.Output[Optional[Sequence['outputs.ControlControlMappingSource']]]:
-        """
-        Data mapping sources. See `control_mapping_sources` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "control_mapping_sources")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the control.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the control.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -611,16 +427,10 @@ class Control(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="testingInformation")
     def testing_information(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Steps to follow to determine if the control is satisfied.
-        """
         return pulumi.get(self, "testing_information")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of control, such as a custom control or a standard control.
-        """
         return pulumi.get(self, "type")
 

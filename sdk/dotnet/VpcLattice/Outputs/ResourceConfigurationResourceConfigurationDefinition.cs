@@ -13,17 +13,8 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ResourceConfigurationResourceConfigurationDefinition
     {
-        /// <summary>
-        /// Resource DNS Configuration. See `ArnResource` Block for details.
-        /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource? ArnResource;
-        /// <summary>
-        /// Resource DNS Configuration. See `DnsResource` Block for details.
-        /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource? DnsResource;
-        /// <summary>
-        /// Resource DNS Configuration. See `IpResource` Block for details.
-        /// </summary>
         public readonly Outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource? IpResource;
 
         [OutputConstructor]

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class IdcApplicationServiceIntegrationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// List of scopes set up for Lake Formation integration. Refer to the LakeFormation documentation for more details.
-        /// </summary>
         [Input("lakeFormation")]
         public Input<Inputs.IdcApplicationServiceIntegrationLakeFormationGetArgs>? LakeFormation { get; set; }
 
-        /// <summary>
-        /// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        /// </summary>
         [Input("redshift")]
         public Input<Inputs.IdcApplicationServiceIntegrationRedshiftGetArgs>? Redshift { get; set; }
 
-        /// <summary>
-        /// List of scopes set up for S3 Access Grants integration. Refer to the S3AccessGrants documentation for more details.
-        /// </summary>
         [Input("s3AccessGrants")]
         public Input<Inputs.IdcApplicationServiceIntegrationS3AccessGrantsGetArgs>? S3AccessGrants { get; set; }
 

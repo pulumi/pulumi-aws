@@ -18,47 +18,23 @@ public final class ClusterPeeringArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ClusterPeeringArgs Empty = new ClusterPeeringArgs();
 
-    /**
-     * List of DSQL Cluster ARNs to be peered to this cluster.
-     * 
-     */
     @Import(name="clusters", required=true)
     private Output<List<String>> clusters;
 
-    /**
-     * @return List of DSQL Cluster ARNs to be peered to this cluster.
-     * 
-     */
     public Output<List<String>> clusters() {
         return this.clusters;
     }
 
-    /**
-     * DSQL Cluster Identifier.
-     * 
-     */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
-    /**
-     * @return DSQL Cluster Identifier.
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,17 +46,9 @@ public final class ClusterPeeringArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Witness region for a multi-region cluster.
-     * 
-     */
     @Import(name="witnessRegion", required=true)
     private Output<String> witnessRegion;
 
-    /**
-     * @return Witness region for a multi-region cluster.
-     * 
-     */
     public Output<String> witnessRegion() {
         return this.witnessRegion;
     }
@@ -113,75 +81,33 @@ public final class ClusterPeeringArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ClusterPeeringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusters List of DSQL Cluster ARNs to be peered to this cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusters(Output<List<String>> clusters) {
             $.clusters = clusters;
             return this;
         }
 
-        /**
-         * @param clusters List of DSQL Cluster ARNs to be peered to this cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusters(List<String> clusters) {
             return clusters(Output.of(clusters));
         }
 
-        /**
-         * @param clusters List of DSQL Cluster ARNs to be peered to this cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusters(String... clusters) {
             return clusters(List.of(clusters));
         }
 
-        /**
-         * @param identifier DSQL Cluster Identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
-        /**
-         * @param identifier DSQL Cluster Identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -195,23 +121,11 @@ public final class ClusterPeeringArgs extends com.pulumi.resources.ResourceArgs 
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param witnessRegion Witness region for a multi-region cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder witnessRegion(Output<String> witnessRegion) {
             $.witnessRegion = witnessRegion;
             return this;
         }
 
-        /**
-         * @param witnessRegion Witness region for a multi-region cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder witnessRegion(String witnessRegion) {
             return witnessRegion(Output.of(witnessRegion));
         }

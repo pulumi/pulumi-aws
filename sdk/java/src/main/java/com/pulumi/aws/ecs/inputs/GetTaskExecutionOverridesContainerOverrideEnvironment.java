@@ -13,32 +13,16 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironment extends
 
     public static final GetTaskExecutionOverridesContainerOverrideEnvironment Empty = new GetTaskExecutionOverridesContainerOverrideEnvironment();
 
-    /**
-     * The name of the key-value pair. For environment variables, this is the name of the environment variable.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return The name of the key-value pair. For environment variables, this is the name of the environment variable.
-     * 
-     */
     public String key() {
         return this.key;
     }
 
-    /**
-     * The value of the key-value pair. For environment variables, this is the value of the environment variable.
-     * 
-     */
     @Import(name="value", required=true)
     private String value;
 
-    /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
-     * 
-     */
     public String value() {
         return this.value;
     }
@@ -68,23 +52,11 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironment extends
             $ = new GetTaskExecutionOverridesContainerOverrideEnvironment(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key The name of the key-value pair. For environment variables, this is the name of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             $.value = value;
             return this;

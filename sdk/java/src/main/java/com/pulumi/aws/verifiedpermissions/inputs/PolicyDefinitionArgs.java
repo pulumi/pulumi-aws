@@ -16,32 +16,16 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
 
     public static final PolicyDefinitionArgs Empty = new PolicyDefinitionArgs();
 
-    /**
-     * The static policy statement. See Static below.
-     * 
-     */
     @Import(name="static")
     private @Nullable Output<PolicyDefinitionStaticArgs> static_;
 
-    /**
-     * @return The static policy statement. See Static below.
-     * 
-     */
     public Optional<Output<PolicyDefinitionStaticArgs>> static_() {
         return Optional.ofNullable(this.static_);
     }
 
-    /**
-     * The template linked policy. See Template Linked below.
-     * 
-     */
     @Import(name="templateLinked")
     private @Nullable Output<PolicyDefinitionTemplateLinkedArgs> templateLinked;
 
-    /**
-     * @return The template linked policy. See Template Linked below.
-     * 
-     */
     public Optional<Output<PolicyDefinitionTemplateLinkedArgs>> templateLinked() {
         return Optional.ofNullable(this.templateLinked);
     }
@@ -71,44 +55,20 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
             $ = new PolicyDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param static_ The static policy statement. See Static below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder static_(@Nullable Output<PolicyDefinitionStaticArgs> static_) {
             $.static_ = static_;
             return this;
         }
 
-        /**
-         * @param static_ The static policy statement. See Static below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder static_(PolicyDefinitionStaticArgs static_) {
             return static_(Output.of(static_));
         }
 
-        /**
-         * @param templateLinked The template linked policy. See Template Linked below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateLinked(@Nullable Output<PolicyDefinitionTemplateLinkedArgs> templateLinked) {
             $.templateLinked = templateLinked;
             return this;
         }
 
-        /**
-         * @param templateLinked The template linked policy. See Template Linked below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateLinked(PolicyDefinitionTemplateLinkedArgs templateLinked) {
             return templateLinked(Output.of(templateLinked));
         }

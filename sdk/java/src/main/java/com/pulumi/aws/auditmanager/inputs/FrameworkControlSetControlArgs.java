@@ -14,17 +14,9 @@ public final class FrameworkControlSetControlArgs extends com.pulumi.resources.R
 
     public static final FrameworkControlSetControlArgs Empty = new FrameworkControlSetControlArgs();
 
-    /**
-     * Unique identifier of the control.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Unique identifier of the control.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -53,23 +45,11 @@ public final class FrameworkControlSetControlArgs extends com.pulumi.resources.R
             $ = new FrameworkControlSetControlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Unique identifier of the control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Unique identifier of the control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

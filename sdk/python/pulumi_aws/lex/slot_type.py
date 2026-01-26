@@ -29,19 +29,6 @@ class SlotTypeArgs:
                  value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SlotType resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
-               the slot type can take. Each value can have a list of synonyms, which are additional values that help
-               train the machine learning model about the values that it resolves for a slot. Attributes are
-               documented under enumeration_value.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
-               update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[_builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
-               uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-               value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-               if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         """
         pulumi.set(__self__, "enumeration_values", enumeration_values)
         if create_version is not None:
@@ -58,12 +45,6 @@ class SlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="enumerationValues")
     def enumeration_values(self) -> pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]:
-        """
-        A list of EnumerationValue objects that defines the values that
-        the slot type can take. Each value can have a list of synonyms, which are additional values that help
-        train the machine learning model about the values that it resolves for a slot. Attributes are
-        documented under enumeration_value.
-        """
         return pulumi.get(self, "enumeration_values")
 
     @enumeration_values.setter
@@ -73,10 +54,6 @@ class SlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines if a new slot type version is created when the initial resource is created and on each
-        update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
@@ -86,9 +63,6 @@ class SlotTypeArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the slot type. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,9 +72,6 @@ class SlotTypeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -110,9 +81,6 @@ class SlotTypeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -122,12 +90,6 @@ class SlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="valueSelectionStrategy")
     def value_selection_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines the slot resolution strategy that Amazon Lex
-        uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-        value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-        if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-        """
         return pulumi.get(self, "value_selection_strategy")
 
     @value_selection_strategy.setter
@@ -150,24 +112,6 @@ class _SlotTypeState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SlotType resources.
-        :param pulumi.Input[_builtins.str] checksum: Checksum identifying the version of the slot type that was created. The checksum is
-               not included as an argument because the resource will add it automatically when updating the slot type.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
-               update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] created_date: The date when the slot type version was created.
-        :param pulumi.Input[_builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
-               the slot type can take. Each value can have a list of synonyms, which are additional values that help
-               train the machine learning model about the values that it resolves for a slot. Attributes are
-               documented under enumeration_value.
-        :param pulumi.Input[_builtins.str] last_updated_date: The date when the `$LATEST` version of this slot type was updated.
-        :param pulumi.Input[_builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
-               uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-               value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-               if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-        :param pulumi.Input[_builtins.str] version: The version of the slot type.
         """
         if checksum is not None:
             pulumi.set(__self__, "checksum", checksum)
@@ -193,10 +137,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Checksum identifying the version of the slot type that was created. The checksum is
-        not included as an argument because the resource will add it automatically when updating the slot type.
-        """
         return pulumi.get(self, "checksum")
 
     @checksum.setter
@@ -206,10 +146,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines if a new slot type version is created when the initial resource is created and on each
-        update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
@@ -219,9 +155,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date when the slot type version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -231,9 +164,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the slot type. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -243,12 +173,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter(name="enumerationValues")
     def enumeration_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]]:
-        """
-        A list of EnumerationValue objects that defines the values that
-        the slot type can take. Each value can have a list of synonyms, which are additional values that help
-        train the machine learning model about the values that it resolves for a slot. Attributes are
-        documented under enumeration_value.
-        """
         return pulumi.get(self, "enumeration_values")
 
     @enumeration_values.setter
@@ -258,9 +182,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date when the `$LATEST` version of this slot type was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
@@ -270,9 +191,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -282,9 +200,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -294,12 +209,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter(name="valueSelectionStrategy")
     def value_selection_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines the slot resolution strategy that Amazon Lex
-        uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-        value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-        if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-        """
         return pulumi.get(self, "value_selection_strategy")
 
     @value_selection_strategy.setter
@@ -309,9 +218,6 @@ class _SlotTypeState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the slot type.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -333,61 +239,9 @@ class SlotType(pulumi.CustomResource):
                  value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Amazon Lex Slot Type resource. For more information see
-        [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        flower_types = aws.lex.SlotType("flower_types",
-            create_version=True,
-            description="Types of flowers to order",
-            enumeration_values=[
-                {
-                    "synonyms": [
-                        "Lirium",
-                        "Martagon",
-                    ],
-                    "value": "lilies",
-                },
-                {
-                    "synonyms": [
-                        "Eduardoregelia",
-                        "Podonix",
-                    ],
-                    "value": "tulips",
-                },
-            ],
-            name="FlowerTypes",
-            value_selection_strategy="ORIGINAL_VALUE")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import slot types using their name. For example:
-
-        ```sh
-        $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
-        ```
-
+        Create a SlotType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
-               update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
-               the slot type can take. Each value can have a list of synonyms, which are additional values that help
-               train the machine learning model about the values that it resolves for a slot. Attributes are
-               documented under enumeration_value.
-        :param pulumi.Input[_builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
-               uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-               value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-               if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         """
         ...
     @overload
@@ -396,46 +250,7 @@ class SlotType(pulumi.CustomResource):
                  args: SlotTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Lex Slot Type resource. For more information see
-        [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        flower_types = aws.lex.SlotType("flower_types",
-            create_version=True,
-            description="Types of flowers to order",
-            enumeration_values=[
-                {
-                    "synonyms": [
-                        "Lirium",
-                        "Martagon",
-                    ],
-                    "value": "lilies",
-                },
-                {
-                    "synonyms": [
-                        "Eduardoregelia",
-                        "Podonix",
-                    ],
-                    "value": "tulips",
-                },
-            ],
-            name="FlowerTypes",
-            value_selection_strategy="ORIGINAL_VALUE")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import slot types using their name. For example:
-
-        ```sh
-        $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
-        ```
-
+        Create a SlotType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SlotTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -505,24 +320,6 @@ class SlotType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] checksum: Checksum identifying the version of the slot type that was created. The checksum is
-               not included as an argument because the resource will add it automatically when updating the slot type.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
-               update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] created_date: The date when the slot type version was created.
-        :param pulumi.Input[_builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
-               the slot type can take. Each value can have a list of synonyms, which are additional values that help
-               train the machine learning model about the values that it resolves for a slot. Attributes are
-               documented under enumeration_value.
-        :param pulumi.Input[_builtins.str] last_updated_date: The date when the `$LATEST` version of this slot type was updated.
-        :param pulumi.Input[_builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
-               uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-               value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-               if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-        :param pulumi.Input[_builtins.str] version: The version of the slot type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -543,88 +340,50 @@ class SlotType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> pulumi.Output[_builtins.str]:
-        """
-        Checksum identifying the version of the slot type that was created. The checksum is
-        not included as an argument because the resource will add it automatically when updating the slot type.
-        """
         return pulumi.get(self, "checksum")
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Determines if a new slot type version is created when the initial resource is created and on each
-        update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date when the slot type version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the slot type. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="enumerationValues")
     def enumeration_values(self) -> pulumi.Output[Sequence['outputs.SlotTypeEnumerationValue']]:
-        """
-        A list of EnumerationValue objects that defines the values that
-        the slot type can take. Each value can have a list of synonyms, which are additional values that help
-        train the machine learning model about the values that it resolves for a slot. Attributes are
-        documented under enumeration_value.
-        """
         return pulumi.get(self, "enumeration_values")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date when the `$LATEST` version of this slot type was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="valueSelectionStrategy")
     def value_selection_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Determines the slot resolution strategy that Amazon Lex
-        uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-        value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-        if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-        """
         return pulumi.get(self, "value_selection_strategy")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the slot type.
-        """
         return pulumi.get(self, "version")
 

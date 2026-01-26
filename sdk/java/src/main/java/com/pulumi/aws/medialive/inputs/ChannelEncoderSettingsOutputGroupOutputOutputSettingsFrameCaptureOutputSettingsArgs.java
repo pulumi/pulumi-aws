@@ -15,17 +15,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs();
 
-    /**
-     * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     @Import(name="nameModifier")
     private @Nullable Output<String> nameModifier;
 
-    /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     public Optional<Output<String>> nameModifier() {
         return Optional.ofNullable(this.nameModifier);
     }
@@ -54,23 +46,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameModifier(@Nullable Output<String> nameModifier) {
             $.nameModifier = nameModifier;
             return this;
         }
 
-        /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameModifier(String nameModifier) {
             return nameModifier(Output.of(nameModifier));
         }

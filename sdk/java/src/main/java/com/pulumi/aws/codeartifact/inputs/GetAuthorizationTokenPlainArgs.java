@@ -16,62 +16,30 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
 
     public static final GetAuthorizationTokenPlainArgs Empty = new GetAuthorizationTokenPlainArgs();
 
-    /**
-     * Name of the domain that is in scope for the generated authorization token.
-     * 
-     */
     @Import(name="domain", required=true)
     private String domain;
 
-    /**
-     * @return Name of the domain that is in scope for the generated authorization token.
-     * 
-     */
     public String domain() {
         return this.domain;
     }
 
-    /**
-     * Account number of the AWS account that owns the domain.
-     * 
-     */
     @Import(name="domainOwner")
     private @Nullable String domainOwner;
 
-    /**
-     * @return Account number of the AWS account that owns the domain.
-     * 
-     */
     public Optional<String> domainOwner() {
         return Optional.ofNullable(this.domainOwner);
     }
 
-    /**
-     * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-     * 
-     */
     @Import(name="durationSeconds")
     private @Nullable Integer durationSeconds;
 
-    /**
-     * @return Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-     * 
-     */
     public Optional<Integer> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,45 +71,21 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
             $ = new GetAuthorizationTokenPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain Name of the domain that is in scope for the generated authorization token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domainOwner Account number of the AWS account that owns the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainOwner(@Nullable String domainOwner) {
             $.domainOwner = domainOwner;
             return this;
         }
 
-        /**
-         * @param durationSeconds Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
             $.durationSeconds = durationSeconds;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

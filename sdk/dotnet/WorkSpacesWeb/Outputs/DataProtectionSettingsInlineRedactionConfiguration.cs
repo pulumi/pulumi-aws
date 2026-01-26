@@ -13,21 +13,9 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class DataProtectionSettingsInlineRedactionConfiguration
     {
-        /// <summary>
-        /// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        /// </summary>
         public readonly int? GlobalConfidenceLevel;
-        /// <summary>
-        /// The global enforced URL configuration for the inline redaction configuration.
-        /// </summary>
         public readonly ImmutableArray<string> GlobalEnforcedUrls;
-        /// <summary>
-        /// The global exempt URL configuration for the inline redaction configuration.
-        /// </summary>
         public readonly ImmutableArray<string> GlobalExemptUrls;
-        /// <summary>
-        /// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> InlineRedactionPatterns;
 
         [OutputConstructor]

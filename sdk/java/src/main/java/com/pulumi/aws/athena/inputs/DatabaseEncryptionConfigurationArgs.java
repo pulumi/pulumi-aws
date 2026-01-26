@@ -16,32 +16,16 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
 
     public static final DatabaseEncryptionConfigurationArgs Empty = new DatabaseEncryptionConfigurationArgs();
 
-    /**
-     * Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-     * 
-     */
     @Import(name="encryptionOption", required=true)
     private Output<String> encryptionOption;
 
-    /**
-     * @return Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-     * 
-     */
     public Output<String> encryptionOption() {
         return this.encryptionOption;
     }
 
-    /**
-     * KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-     * 
-     */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
-    /**
-     * @return KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-     * 
-     */
     public Optional<Output<String>> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
@@ -71,44 +55,20 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
             $ = new DatabaseEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionOption Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(Output<String> encryptionOption) {
             $.encryptionOption = encryptionOption;
             return this;
         }
 
-        /**
-         * @param encryptionOption Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(String encryptionOption) {
             return encryptionOption(Output.of(encryptionOption));
         }
 
-        /**
-         * @param kmsKey KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(@Nullable Output<String> kmsKey) {
             $.kmsKey = kmsKey;
             return this;
         }
 
-        /**
-         * @param kmsKey KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(String kmsKey) {
             return kmsKey(Output.of(kmsKey));
         }

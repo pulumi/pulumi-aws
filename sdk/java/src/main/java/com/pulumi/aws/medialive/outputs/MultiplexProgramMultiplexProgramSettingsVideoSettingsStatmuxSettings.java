@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
-    /**
-     * @return Maximum bitrate.
-     * 
-     */
     private @Nullable Integer maximumBitrate;
-    /**
-     * @return Minimum bitrate.
-     * 
-     */
     private @Nullable Integer minimumBitrate;
-    /**
-     * @return Priority value.
-     * 
-     */
     private @Nullable Integer priority;
 
     private MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings() {}
-    /**
-     * @return Maximum bitrate.
-     * 
-     */
     public Optional<Integer> maximumBitrate() {
         return Optional.ofNullable(this.maximumBitrate);
     }
-    /**
-     * @return Minimum bitrate.
-     * 
-     */
     public Optional<Integer> minimumBitrate() {
         return Optional.ofNullable(this.minimumBitrate);
     }
-    /**
-     * @return Priority value.
-     * 
-     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }

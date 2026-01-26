@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration {
-    /**
-     * @return KMS key ARN when `sseAlgorithm` is `aws:kms`.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-     * 
-     */
     private String sseAlgorithm;
 
     private BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration() {}
-    /**
-     * @return KMS key ARN when `sseAlgorithm` is `aws:kms`.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-     * 
-     */
     public String sseAlgorithm() {
         return this.sseAlgorithm;
     }

@@ -25,9 +25,6 @@ class AccessGrantsInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrantsInstance resource.
-        :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -50,9 +47,6 @@ class AccessGrantsInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="identityCenterArn")
     def identity_center_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-        """
         return pulumi.get(self, "identity_center_arn")
 
     @identity_center_arn.setter
@@ -62,9 +56,6 @@ class AccessGrantsInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -74,9 +65,6 @@ class AccessGrantsInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -97,13 +85,6 @@ class _AccessGrantsInstanceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessGrantsInstance resources.
-        :param pulumi.Input[_builtins.str] access_grants_instance_arn: Amazon Resource Name (ARN) of the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] identity_center_application_arn: The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-        :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_grants_instance_arn is not None:
             pulumi.set(__self__, "access_grants_instance_arn", access_grants_instance_arn)
@@ -125,9 +106,6 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter(name="accessGrantsInstanceArn")
     def access_grants_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the S3 Access Grants instance.
-        """
         return pulumi.get(self, "access_grants_instance_arn")
 
     @access_grants_instance_arn.setter
@@ -137,9 +115,6 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter(name="accessGrantsInstanceId")
     def access_grants_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique ID of the S3 Access Grants instance.
-        """
         return pulumi.get(self, "access_grants_instance_id")
 
     @access_grants_instance_id.setter
@@ -158,9 +133,6 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @identity_center_application_arn.setter
@@ -170,9 +142,6 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter(name="identityCenterArn")
     def identity_center_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-        """
         return pulumi.get(self, "identity_center_arn")
 
     @identity_center_arn.setter
@@ -182,9 +151,6 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -194,9 +160,6 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -206,9 +169,6 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -228,42 +188,9 @@ class AccessGrantsInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an S3 Access Grants instance, which serves as a logical grouping for access grants.
-        You can have one S3 Access Grants instance per Region in your account.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        ```
-
-        ### AWS IAM Identity Center
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
-        ```
-
+        Create a AccessGrantsInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -272,37 +199,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
                  args: Optional[AccessGrantsInstanceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an S3 Access Grants instance, which serves as a logical grouping for access grants.
-        You can have one S3 Access Grants instance per Region in your account.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        ```
-
-        ### AWS IAM Identity Center
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
-        ```
-
+        Create a AccessGrantsInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccessGrantsInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,13 +261,6 @@ class AccessGrantsInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_grants_instance_arn: Amazon Resource Name (ARN) of the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] identity_center_application_arn: The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-        :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -389,17 +279,11 @@ class AccessGrantsInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessGrantsInstanceArn")
     def access_grants_instance_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the S3 Access Grants instance.
-        """
         return pulumi.get(self, "access_grants_instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="accessGrantsInstanceId")
     def access_grants_instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique ID of the S3 Access Grants instance.
-        """
         return pulumi.get(self, "access_grants_instance_id")
 
     @_builtins.property
@@ -410,40 +294,25 @@ class AccessGrantsInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @_builtins.property
     @pulumi.getter(name="identityCenterArn")
     def identity_center_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-        """
         return pulumi.get(self, "identity_center_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

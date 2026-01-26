@@ -15,17 +15,9 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement
 
     public static final SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs Empty = new SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs();
 
-    /**
-     * The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-     * 
-     */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
-    /**
-     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-     * 
-     */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
         return Optional.ofNullable(this.idleTimeoutInMinutes);
     }
@@ -54,23 +46,11 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement
             $ = new SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleTimeoutInMinutes The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutInMinutes(@Nullable Output<Integer> idleTimeoutInMinutes) {
             $.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
 
-        /**
-         * @param idleTimeoutInMinutes The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
             return idleTimeoutInMinutes(Output.of(idleTimeoutInMinutes));
         }

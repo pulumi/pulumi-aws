@@ -9,239 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amp
 {
-    /// <summary>
-    /// Manages an Amazon Managed Service for Prometheus (AMP) Resource Policy.
-    /// 
-    /// Resource-based policies allow you to grant permissions to other AWS accounts or services to access your Prometheus workspace. This enables cross-account access and fine-grained permissions for workspace sharing.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Resource Policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleWorkspace = new Aws.Amp.Workspace("example", new()
-    ///     {
-    ///         Alias = "example-workspace",
-    ///     });
-    /// 
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "aps:RemoteWrite",
-    ///                     "aps:QueryMetrics",
-    ///                     "aps:GetSeries",
-    ///                     "aps:GetLabels",
-    ///                     "aps:GetMetricMetadata",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleWorkspace.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleResourcePolicy = new Aws.Amp.ResourcePolicy("example", new()
-    ///     {
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Cross-Account Access
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amp.Workspace("example", new()
-    ///     {
-    ///         Alias = "example-workspace",
-    ///     });
-    /// 
-    ///     var crossAccount = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "arn:aws:iam::123456789012:root",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "aps:RemoteWrite",
-    ///                     "aps:QueryMetrics",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     example.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var crossAccountResourcePolicy = new Aws.Amp.ResourcePolicy("cross_account", new()
-    ///     {
-    ///         WorkspaceId = example.Id,
-    ///         PolicyDocument = crossAccount.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Service-Specific Access
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amp.Workspace("example", new()
-    ///     {
-    ///         Alias = "example-workspace",
-    ///     });
-    /// 
-    ///     var serviceAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "grafana.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "aps:QueryMetrics",
-    ///                     "aps:GetSeries",
-    ///                     "aps:GetLabels",
-    ///                     "aps:GetMetricMetadata",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     example.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var serviceAccessResourcePolicy = new Aws.Amp.ResourcePolicy("service_access", new()
-    ///     {
-    ///         WorkspaceId = example.Id,
-    ///         PolicyDocument = serviceAccess.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Supported Actions
-    /// 
-    /// The following actions are supported in resource policies for Prometheus workspaces:
-    /// 
-    /// * `aps:RemoteWrite` - Allows writing metrics to the workspace
-    /// * `aps:QueryMetrics` - Allows querying metrics from the workspace
-    /// * `aps:GetSeries` - Allows retrieving time series data
-    /// * `aps:GetLabels` - Allows retrieving label names and values
-    /// * `aps:GetMetricMetadata` - Allows retrieving metric metadata
-    /// 
-    /// ## Notes
-    /// 
-    /// * Only Prometheus-compatible APIs can be used for workspace sharing. Non-Prometheus-compatible APIs added to the policy will be ignored.
-    /// * If your workspace uses customer-managed KMS keys for encryption, you must grant the principals in your resource-based policy access to those KMS keys through KMS grants.
-    /// * The resource ARN in the policy document must match the workspace ARN that the policy is being attached to.
-    /// * Resource policies enable cross-account access and fine-grained permissions for Prometheus workspaces.
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AMP Resource Policies using the workspace ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:amp/resourcePolicy:ResourcePolicy example ws-12345678-90ab-cdef-1234-567890abcdef
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:amp/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The revision ID of the current resource-based policy.
-        /// </summary>
         [Output("revisionId")]
         public Output<string> RevisionId { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.ResourcePolicyTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the workspace to attach the resource-based policy to.
-        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -291,32 +73,18 @@ namespace Pulumi.Aws.Amp
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The revision ID of the current resource-based policy.
-        /// </summary>
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.ResourcePolicyTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the workspace to attach the resource-based policy to.
-        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -328,32 +96,18 @@ namespace Pulumi.Aws.Amp
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The revision ID of the current resource-based policy.
-        /// </summary>
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.ResourcePolicyTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the workspace to attach the resource-based policy to.
-        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

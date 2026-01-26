@@ -14,17 +14,9 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
 
     public static final V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs Empty = new V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs();
 
-    /**
-     * Expression string that is evaluated.
-     * 
-     */
     @Import(name="expressionString", required=true)
     private Output<String> expressionString;
 
-    /**
-     * @return Expression string that is evaluated.
-     * 
-     */
     public Output<String> expressionString() {
         return this.expressionString;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
             $ = new V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expressionString Expression string that is evaluated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionString(Output<String> expressionString) {
             $.expressionString = expressionString;
             return this;
         }
 
-        /**
-         * @param expressionString Expression string that is evaluated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionString(String expressionString) {
             return expressionString(Output.of(expressionString));
         }

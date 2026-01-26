@@ -12,142 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a QuickSight Refresh Schedule.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId:  pulumi.String("dataset-id"),
-//				ScheduleId: pulumi.String("schedule-id"),
-//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("FULL_REFRESH"),
-//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval: pulumi.String("HOURLY"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Weekly Refresh
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId:  pulumi.String("dataset-id"),
-//				ScheduleId: pulumi.String("schedule-id"),
-//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
-//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval:     pulumi.String("WEEKLY"),
-//						TimeOfTheDay: pulumi.String("01:00"),
-//						Timezone:     pulumi.String("Europe/London"),
-//						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
-//							DayOfWeek: pulumi.String("MONDAY"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Monthly Refresh
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId:  pulumi.String("dataset-id"),
-//				ScheduleId: pulumi.String("schedule-id"),
-//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
-//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval:     pulumi.String("MONTHLY"),
-//						TimeOfTheDay: pulumi.String("01:00"),
-//						Timezone:     pulumi.String("Europe/London"),
-//						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
-//							DayOfMonth: pulumi.String("1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
-// ```
 type RefreshSchedule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the refresh schedule.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The ID of the dataset.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-	//
-	// The following arguments are optional:
-	Schedule RefreshScheduleSchedulePtrOutput `pulumi:"schedule"`
-	// The ID of the refresh schedule.
-	ScheduleId pulumi.StringOutput `pulumi:"scheduleId"`
+	Arn          pulumi.StringOutput              `pulumi:"arn"`
+	AwsAccountId pulumi.StringOutput              `pulumi:"awsAccountId"`
+	DataSetId    pulumi.StringOutput              `pulumi:"dataSetId"`
+	Region       pulumi.StringOutput              `pulumi:"region"`
+	Schedule     RefreshScheduleSchedulePtrOutput `pulumi:"schedule"`
+	ScheduleId   pulumi.StringOutput              `pulumi:"scheduleId"`
 }
 
 // NewRefreshSchedule registers a new resource with the given unique name, arguments, and options.
@@ -186,35 +59,21 @@ func GetRefreshSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RefreshSchedule resources.
 type refreshScheduleState struct {
-	// Amazon Resource Name (ARN) of the refresh schedule.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the dataset.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-	//
-	// The following arguments are optional:
-	Schedule *RefreshScheduleSchedule `pulumi:"schedule"`
-	// The ID of the refresh schedule.
-	ScheduleId *string `pulumi:"scheduleId"`
+	Arn          *string                  `pulumi:"arn"`
+	AwsAccountId *string                  `pulumi:"awsAccountId"`
+	DataSetId    *string                  `pulumi:"dataSetId"`
+	Region       *string                  `pulumi:"region"`
+	Schedule     *RefreshScheduleSchedule `pulumi:"schedule"`
+	ScheduleId   *string                  `pulumi:"scheduleId"`
 }
 
 type RefreshScheduleState struct {
-	// Amazon Resource Name (ARN) of the refresh schedule.
 	Arn          pulumi.StringPtrInput
 	AwsAccountId pulumi.StringPtrInput
-	// The ID of the dataset.
-	DataSetId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-	//
-	// The following arguments are optional:
-	Schedule RefreshScheduleSchedulePtrInput
-	// The ID of the refresh schedule.
-	ScheduleId pulumi.StringPtrInput
+	DataSetId    pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Schedule     RefreshScheduleSchedulePtrInput
+	ScheduleId   pulumi.StringPtrInput
 }
 
 func (RefreshScheduleState) ElementType() reflect.Type {
@@ -222,32 +81,20 @@ func (RefreshScheduleState) ElementType() reflect.Type {
 }
 
 type refreshScheduleArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the dataset.
-	DataSetId string `pulumi:"dataSetId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-	//
-	// The following arguments are optional:
-	Schedule *RefreshScheduleSchedule `pulumi:"schedule"`
-	// The ID of the refresh schedule.
-	ScheduleId string `pulumi:"scheduleId"`
+	AwsAccountId *string                  `pulumi:"awsAccountId"`
+	DataSetId    string                   `pulumi:"dataSetId"`
+	Region       *string                  `pulumi:"region"`
+	Schedule     *RefreshScheduleSchedule `pulumi:"schedule"`
+	ScheduleId   string                   `pulumi:"scheduleId"`
 }
 
 // The set of arguments for constructing a RefreshSchedule resource.
 type RefreshScheduleArgs struct {
 	AwsAccountId pulumi.StringPtrInput
-	// The ID of the dataset.
-	DataSetId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-	//
-	// The following arguments are optional:
-	Schedule RefreshScheduleSchedulePtrInput
-	// The ID of the refresh schedule.
-	ScheduleId pulumi.StringInput
+	DataSetId    pulumi.StringInput
+	Region       pulumi.StringPtrInput
+	Schedule     RefreshScheduleSchedulePtrInput
+	ScheduleId   pulumi.StringInput
 }
 
 func (RefreshScheduleArgs) ElementType() reflect.Type {
@@ -337,7 +184,6 @@ func (o RefreshScheduleOutput) ToRefreshScheduleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the refresh schedule.
 func (o RefreshScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -346,24 +192,18 @@ func (o RefreshScheduleOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the dataset.
 func (o RefreshScheduleOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RefreshScheduleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-//
-// The following arguments are optional:
 func (o RefreshScheduleOutput) Schedule() RefreshScheduleSchedulePtrOutput {
 	return o.ApplyT(func(v *RefreshSchedule) RefreshScheduleSchedulePtrOutput { return v.Schedule }).(RefreshScheduleSchedulePtrOutput)
 }
 
-// The ID of the refresh schedule.
 func (o RefreshScheduleOutput) ScheduleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.ScheduleId }).(pulumi.StringOutput)
 }

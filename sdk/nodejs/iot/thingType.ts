@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates and manages an AWS IoT Thing Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.iot.ThingType("foo", {name: "my_iot_thing"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IOT Thing Types using the name. For example:
- *
- * ```sh
- * $ pulumi import aws:iot/thingType:ThingType example example
- * ```
- */
 export class ThingType extends pulumi.CustomResource {
     /**
      * Get an existing ThingType resource's state with the given name, ID, and optional extra
@@ -55,33 +35,12 @@ export class ThingType extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThingType.__pulumiType;
     }
 
-    /**
-     * The ARN of the created AWS IoT Thing Type.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     */
     declare public readonly deprecated: pulumi.Output<boolean | undefined>;
-    /**
-     * The name of the thing type.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * , Configuration block that can contain the following properties of the thing type:
-     */
     declare public readonly properties: pulumi.Output<outputs.iot.ThingTypeProperties | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -123,33 +82,12 @@ export class ThingType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ThingType resources.
  */
 export interface ThingTypeState {
-    /**
-     * The ARN of the created AWS IoT Thing Type.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     */
     deprecated?: pulumi.Input<boolean>;
-    /**
-     * The name of the thing type.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * , Configuration block that can contain the following properties of the thing type:
-     */
     properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -157,24 +95,9 @@ export interface ThingTypeState {
  * The set of arguments for constructing a ThingType resource.
  */
 export interface ThingTypeArgs {
-    /**
-     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     */
     deprecated?: pulumi.Input<boolean>;
-    /**
-     * The name of the thing type.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * , Configuration block that can contain the following properties of the thing type:
-     */
     properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

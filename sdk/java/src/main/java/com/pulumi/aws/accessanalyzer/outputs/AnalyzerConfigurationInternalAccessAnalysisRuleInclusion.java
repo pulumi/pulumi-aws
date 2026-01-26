@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyzerConfigurationInternalAccessAnalysisRuleInclusion {
-    /**
-     * @return List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-     * 
-     */
     private @Nullable List<String> accountIds;
-    /**
-     * @return List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
-     * 
-     */
     private @Nullable List<String> resourceArns;
-    /**
-     * @return List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
-     * 
-     */
     private @Nullable List<String> resourceTypes;
 
     private AnalyzerConfigurationInternalAccessAnalysisRuleInclusion() {}
-    /**
-     * @return List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-     * 
-     */
     public List<String> accountIds() {
         return this.accountIds == null ? List.of() : this.accountIds;
     }
-    /**
-     * @return List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
-     * 
-     */
     public List<String> resourceArns() {
         return this.resourceArns == null ? List.of() : this.resourceArns;
     }
-    /**
-     * @return List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
-     * 
-     */
     public List<String> resourceTypes() {
         return this.resourceTypes == null ? List.of() : this.resourceTypes;
     }

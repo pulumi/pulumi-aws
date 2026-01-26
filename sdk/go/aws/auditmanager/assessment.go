@@ -12,96 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Audit Manager Assessment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
-//				Name: pulumi.String("example"),
-//				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
-//					Destination:     pulumi.Sprintf("s3://%v", testAwsS3Bucket.Id),
-//					DestinationType: pulumi.String("S3"),
-//				},
-//				FrameworkId: pulumi.Any(testAwsAuditmanagerFramework.Id),
-//				Roles: auditmanager.AssessmentRoleArray{
-//					&auditmanager.AssessmentRoleArgs{
-//						RoleArn:  pulumi.Any(testAwsIamRole.Arn),
-//						RoleType: pulumi.String("PROCESS_OWNER"),
-//					},
-//				},
-//				Scope: &auditmanager.AssessmentScopeArgs{
-//					AwsAccounts: auditmanager.AssessmentScopeAwsAccountArray{
-//						&auditmanager.AssessmentScopeAwsAccountArgs{
-//							Id: pulumi.Any(current.AccountId),
-//						},
-//					},
-//					AwsServices: auditmanager.AssessmentScopeAwsServiceArray{
-//						&auditmanager.AssessmentScopeAwsServiceArgs{
-//							ServiceName: pulumi.String("S3"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
-// ```
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the assessment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
+	Arn                          pulumi.StringOutput                             `pulumi:"arn"`
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
-	// Description of the assessment.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Unique identifier of the framework the assessment will be created from.
-	FrameworkId pulumi.StringOutput `pulumi:"frameworkId"`
-	// Name of the assessment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// List of roles for the assessment. See `roles` below.
-	Roles AssessmentRoleArrayOutput `pulumi:"roles"`
-	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-	RolesAlls AssessmentRolesAllArrayOutput `pulumi:"rolesAlls"`
-	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-	//
-	// The following arguments are optional:
-	Scope AssessmentScopePtrOutput `pulumi:"scope"`
-	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Description                  pulumi.StringPtrOutput                          `pulumi:"description"`
+	FrameworkId                  pulumi.StringOutput                             `pulumi:"frameworkId"`
+	Name                         pulumi.StringOutput                             `pulumi:"name"`
+	Region                       pulumi.StringOutput                             `pulumi:"region"`
+	Roles                        AssessmentRoleArrayOutput                       `pulumi:"roles"`
+	RolesAlls                    AssessmentRolesAllArrayOutput                   `pulumi:"rolesAlls"`
+	Scope                        AssessmentScopePtrOutput                        `pulumi:"scope"`
+	Status                       pulumi.StringOutput                             `pulumi:"status"`
+	Tags                         pulumi.StringMapOutput                          `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput                          `pulumi:"tagsAll"`
 }
 
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
@@ -137,59 +62,33 @@ func GetAssessment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assessment resources.
 type assessmentState struct {
-	// Amazon Resource Name (ARN) of the assessment.
-	Arn *string `pulumi:"arn"`
-	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
+	Arn                          *string                                 `pulumi:"arn"`
 	AssessmentReportsDestination *AssessmentAssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	// Description of the assessment.
-	Description *string `pulumi:"description"`
-	// Unique identifier of the framework the assessment will be created from.
-	FrameworkId *string `pulumi:"frameworkId"`
-	// Name of the assessment.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of roles for the assessment. See `roles` below.
-	Roles []AssessmentRole `pulumi:"roles"`
-	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-	RolesAlls []AssessmentRolesAll `pulumi:"rolesAlls"`
-	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-	//
-	// The following arguments are optional:
-	Scope *AssessmentScope `pulumi:"scope"`
-	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-	Status *string `pulumi:"status"`
-	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Description                  *string                                 `pulumi:"description"`
+	FrameworkId                  *string                                 `pulumi:"frameworkId"`
+	Name                         *string                                 `pulumi:"name"`
+	Region                       *string                                 `pulumi:"region"`
+	Roles                        []AssessmentRole                        `pulumi:"roles"`
+	RolesAlls                    []AssessmentRolesAll                    `pulumi:"rolesAlls"`
+	Scope                        *AssessmentScope                        `pulumi:"scope"`
+	Status                       *string                                 `pulumi:"status"`
+	Tags                         map[string]string                       `pulumi:"tags"`
+	TagsAll                      map[string]string                       `pulumi:"tagsAll"`
 }
 
 type AssessmentState struct {
-	// Amazon Resource Name (ARN) of the assessment.
-	Arn pulumi.StringPtrInput
-	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
+	Arn                          pulumi.StringPtrInput
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrInput
-	// Description of the assessment.
-	Description pulumi.StringPtrInput
-	// Unique identifier of the framework the assessment will be created from.
-	FrameworkId pulumi.StringPtrInput
-	// Name of the assessment.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of roles for the assessment. See `roles` below.
-	Roles AssessmentRoleArrayInput
-	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-	RolesAlls AssessmentRolesAllArrayInput
-	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-	//
-	// The following arguments are optional:
-	Scope AssessmentScopePtrInput
-	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-	Status pulumi.StringPtrInput
-	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Description                  pulumi.StringPtrInput
+	FrameworkId                  pulumi.StringPtrInput
+	Name                         pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	Roles                        AssessmentRoleArrayInput
+	RolesAlls                    AssessmentRolesAllArrayInput
+	Scope                        AssessmentScopePtrInput
+	Status                       pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
 }
 
 func (AssessmentState) ElementType() reflect.Type {
@@ -197,46 +96,26 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
-	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 	AssessmentReportsDestination *AssessmentAssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	// Description of the assessment.
-	Description *string `pulumi:"description"`
-	// Unique identifier of the framework the assessment will be created from.
-	FrameworkId string `pulumi:"frameworkId"`
-	// Name of the assessment.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of roles for the assessment. See `roles` below.
-	Roles []AssessmentRole `pulumi:"roles"`
-	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-	//
-	// The following arguments are optional:
-	Scope *AssessmentScope `pulumi:"scope"`
-	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description                  *string                                 `pulumi:"description"`
+	FrameworkId                  string                                  `pulumi:"frameworkId"`
+	Name                         *string                                 `pulumi:"name"`
+	Region                       *string                                 `pulumi:"region"`
+	Roles                        []AssessmentRole                        `pulumi:"roles"`
+	Scope                        *AssessmentScope                        `pulumi:"scope"`
+	Tags                         map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
-	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrInput
-	// Description of the assessment.
-	Description pulumi.StringPtrInput
-	// Unique identifier of the framework the assessment will be created from.
-	FrameworkId pulumi.StringInput
-	// Name of the assessment.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of roles for the assessment. See `roles` below.
-	Roles AssessmentRoleArrayInput
-	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-	//
-	// The following arguments are optional:
-	Scope AssessmentScopePtrInput
-	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description                  pulumi.StringPtrInput
+	FrameworkId                  pulumi.StringInput
+	Name                         pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	Roles                        AssessmentRoleArrayInput
+	Scope                        AssessmentScopePtrInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (AssessmentArgs) ElementType() reflect.Type {
@@ -326,61 +205,48 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
-// Amazon Resource Name (ARN) of the assessment.
 func (o AssessmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 func (o AssessmentOutput) AssessmentReportsDestination() AssessmentAssessmentReportsDestinationPtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentAssessmentReportsDestinationPtrOutput {
 		return v.AssessmentReportsDestination
 	}).(AssessmentAssessmentReportsDestinationPtrOutput)
 }
 
-// Description of the assessment.
 func (o AssessmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifier of the framework the assessment will be created from.
 func (o AssessmentOutput) FrameworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.FrameworkId }).(pulumi.StringOutput)
 }
 
-// Name of the assessment.
 func (o AssessmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssessmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of roles for the assessment. See `roles` below.
 func (o AssessmentOutput) Roles() AssessmentRoleArrayOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentRoleArrayOutput { return v.Roles }).(AssessmentRoleArrayOutput)
 }
 
-// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
 func (o AssessmentOutput) RolesAlls() AssessmentRolesAllArrayOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentRolesAllArrayOutput { return v.RolesAlls }).(AssessmentRolesAllArrayOutput)
 }
 
-// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-//
-// The following arguments are optional:
 func (o AssessmentOutput) Scope() AssessmentScopePtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentScopePtrOutput { return v.Scope }).(AssessmentScopePtrOutput)
 }
 
-// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 func (o AssessmentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AssessmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

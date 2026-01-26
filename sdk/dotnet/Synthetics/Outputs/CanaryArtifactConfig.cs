@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Synthetics.Outputs
     [OutputType]
     public sealed class CanaryArtifactConfig
     {
-        /// <summary>
-        /// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
-        /// </summary>
         public readonly Outputs.CanaryArtifactConfigS3Encryption? S3Encryption;
 
         [OutputConstructor]

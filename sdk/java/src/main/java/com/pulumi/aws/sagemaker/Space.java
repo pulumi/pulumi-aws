@@ -18,221 +18,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker AI Space resource.
- * 
- * ## Example Usage
- * 
- * ### Basic usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Space;
- * import com.pulumi.aws.sagemaker.SpaceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Space("example", SpaceArgs.builder()
- *             .domainId(test.id())
- *             .spaceName("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/space:Space")
 public class Space extends com.pulumi.resources.CustomResource {
-    /**
-     * The space&#39;s Amazon Resource Name (ARN).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The space&#39;s Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ID of the associated Domain.
-     * 
-     */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
-    /**
-     * @return The ID of the associated Domain.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
-    /**
-     * The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-     * 
-     */
     @Export(name="homeEfsFileSystemUid", refs={String.class}, tree="[0]")
     private Output<String> homeEfsFileSystemUid;
 
-    /**
-     * @return The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-     * 
-     */
     public Output<String> homeEfsFileSystemUid() {
         return this.homeEfsFileSystemUid;
     }
-    /**
-     * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
-     * 
-     */
     @Export(name="ownershipSettings", refs={SpaceOwnershipSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceOwnershipSettings> ownershipSettings;
 
-    /**
-     * @return A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
-     * 
-     */
     public Output<Optional<SpaceOwnershipSettings>> ownershipSettings() {
         return Codegen.optional(this.ownershipSettings);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the space that appears in the SageMaker AI Studio UI.
-     * 
-     */
     @Export(name="spaceDisplayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spaceDisplayName;
 
-    /**
-     * @return The name of the space that appears in the SageMaker AI Studio UI.
-     * 
-     */
     public Output<Optional<String>> spaceDisplayName() {
         return Codegen.optional(this.spaceDisplayName);
     }
-    /**
-     * The name of the space.
-     * 
-     */
     @Export(name="spaceName", refs={String.class}, tree="[0]")
     private Output<String> spaceName;
 
-    /**
-     * @return The name of the space.
-     * 
-     */
     public Output<String> spaceName() {
         return this.spaceName;
     }
-    /**
-     * A collection of space settings. See `spaceSettings` Block below.
-     * 
-     */
     @Export(name="spaceSettings", refs={SpaceSpaceSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceSpaceSettings> spaceSettings;
 
-    /**
-     * @return A collection of space settings. See `spaceSettings` Block below.
-     * 
-     */
     public Output<Optional<SpaceSpaceSettings>> spaceSettings() {
         return Codegen.optional(this.spaceSettings);
     }
-    /**
-     * A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
-     * 
-     */
     @Export(name="spaceSharingSettings", refs={SpaceSpaceSharingSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceSpaceSharingSettings> spaceSharingSettings;
 
-    /**
-     * @return A collection of space sharing settings. Required if `ownershipSettings` is set. See `spaceSharingSettings` Block below.
-     * 
-     */
     public Output<Optional<SpaceSpaceSharingSettings>> spaceSharingSettings() {
         return Codegen.optional(this.spaceSharingSettings);
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-     * 
-     */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
-    /**
-     * @return Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }

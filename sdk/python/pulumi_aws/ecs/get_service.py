@@ -134,25 +134,16 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the task set
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRebalancing")
     def availability_zone_rebalancing(self) -> _builtins.str:
-        """
-        Whether Availability Zone rebalancing is enabled
-        """
         return pulumi.get(self, "availability_zone_rebalancing")
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Sequence['outputs.GetServiceCapacityProviderStrategyResult']:
-        """
-        Capacity provider strategy for the service. See `capacity_provider_strategy` Block for details.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @_builtins.property
@@ -163,89 +154,56 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Time when task set was created (RFC3339 format)
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> _builtins.str:
-        """
-        Principal that created the service
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfigurations")
     def deployment_configurations(self) -> Sequence['outputs.GetServiceDeploymentConfigurationResult']:
-        """
-        Deployment configuration for the service. See `deployment_configuration` Block for details.
-        """
         return pulumi.get(self, "deployment_configurations")
 
     @_builtins.property
     @pulumi.getter(name="deploymentControllers")
     def deployment_controllers(self) -> Sequence['outputs.GetServiceDeploymentControllerResult']:
-        """
-        Deployment controller configuration. See `deployment_controller` Block for details.
-        """
         return pulumi.get(self, "deployment_controllers")
 
     @_builtins.property
     @pulumi.getter
     def deployments(self) -> Sequence['outputs.GetServiceDeploymentResult']:
-        """
-        Current deployments for the service. See `deployments` Block for details.
-        """
         return pulumi.get(self, "deployments")
 
     @_builtins.property
     @pulumi.getter(name="desiredCount")
     def desired_count(self) -> _builtins.int:
-        """
-        Desired number of tasks
-        """
         return pulumi.get(self, "desired_count")
 
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> _builtins.bool:
-        """
-        Whether ECS managed tags are enabled
-        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> _builtins.bool:
-        """
-        Whether execute command functionality is enabled
-        """
         return pulumi.get(self, "enable_execute_command")
 
     @_builtins.property
     @pulumi.getter
     def events(self) -> Sequence['outputs.GetServiceEventResult']:
-        """
-        Recent service events. See `events` Block for details.
-        """
         return pulumi.get(self, "events")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
     def health_check_grace_period_seconds(self) -> _builtins.int:
-        """
-        Grace period for health checks
-        """
         return pulumi.get(self, "health_check_grace_period_seconds")
 
     @_builtins.property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> _builtins.str:
-        """
-        ARN of the IAM role associated with the service
-        """
         return pulumi.get(self, "iam_role")
 
     @_builtins.property
@@ -259,73 +217,46 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> _builtins.str:
-        """
-        Launch type for the ECS Service
-        """
         return pulumi.get(self, "launch_type")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Sequence['outputs.GetServiceLoadBalancerResult']:
-        """
-        Load balancers for the ECS Service. See `load_balancer` Block for details.
-        """
         return pulumi.get(self, "load_balancers")
 
     @_builtins.property
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> Sequence['outputs.GetServiceNetworkConfigurationResult']:
-        """
-        Network configuration for the service. See `network_configuration` Block for details.
-        """
         return pulumi.get(self, "network_configurations")
 
     @_builtins.property
     @pulumi.getter(name="orderedPlacementStrategies")
     def ordered_placement_strategies(self) -> Sequence['outputs.GetServiceOrderedPlacementStrategyResult']:
-        """
-        Placement strategy for tasks. See `ordered_placement_strategy` Block for details.
-        """
         return pulumi.get(self, "ordered_placement_strategies")
 
     @_builtins.property
     @pulumi.getter(name="pendingCount")
     def pending_count(self) -> _builtins.int:
-        """
-        Number of pending tasks
-        """
         return pulumi.get(self, "pending_count")
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Sequence['outputs.GetServicePlacementConstraintResult']:
-        """
-        Placement constraints for tasks. See `placement_constraints` Block for details.
-        """
         return pulumi.get(self, "placement_constraints")
 
     @_builtins.property
     @pulumi.getter(name="platformFamily")
     def platform_family(self) -> _builtins.str:
-        """
-        Platform family for Fargate tasks
-        """
         return pulumi.get(self, "platform_family")
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> _builtins.str:
-        """
-        Platform version for Fargate tasks
-        """
         return pulumi.get(self, "platform_version")
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> _builtins.str:
-        """
-        Whether tags are propagated from task definition or service
-        """
         return pulumi.get(self, "propagate_tags")
 
     @_builtins.property
@@ -336,17 +267,11 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter(name="runningCount")
     def running_count(self) -> _builtins.int:
-        """
-        Number of running tasks
-        """
         return pulumi.get(self, "running_count")
 
     @_builtins.property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> _builtins.str:
-        """
-        Scheduling strategy for the ECS Service
-        """
         return pulumi.get(self, "scheduling_strategy")
 
     @_builtins.property
@@ -357,41 +282,26 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> Sequence['outputs.GetServiceServiceRegistryResult']:
-        """
-        Service discovery registries. See `service_registries` Block for details.
-        """
         return pulumi.get(self, "service_registries")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Task set status
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> _builtins.str:
-        """
-        Task definition ARN
-        """
         return pulumi.get(self, "task_definition")
 
     @_builtins.property
     @pulumi.getter(name="taskSets")
     def task_sets(self) -> Sequence['outputs.GetServiceTaskSetResult']:
-        """
-        Task sets for the service. See `task_sets` Block for details.
-        """
         return pulumi.get(self, "task_sets")
 
 
@@ -443,24 +353,7 @@ def get_service(cluster_arn: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    The ECS Service data source allows access to details of a specific
-    Service within a AWS ECS Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecs.get_service(service_name="example",
-        cluster_arn=example_aws_ecs_cluster["arn"])
-    ```
-
-
-    :param _builtins.str cluster_arn: ARN of the ECS Cluster
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_name: Name of the ECS Service
-    :param Mapping[str, _builtins.str] tags: Resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
@@ -511,24 +404,7 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
-    The ECS Service data source allows access to details of a specific
-    Service within a AWS ECS Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecs.get_service(service_name="example",
-        cluster_arn=example_aws_ecs_cluster["arn"])
-    ```
-
-
-    :param _builtins.str cluster_arn: ARN of the ECS Cluster
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_name: Name of the ECS Service
-    :param Mapping[str, _builtins.str] tags: Resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn

@@ -32,17 +32,9 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
         return Optional.ofNullable(this.hostPath);
     }
 
-    /**
-     * Name of the job definition.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the job definition.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -99,23 +91,11 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
             return hostPath(Output.of(hostPath));
         }
 
-        /**
-         * @param name Name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

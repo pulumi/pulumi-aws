@@ -18,94 +18,44 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
     public static final FleetOnDemandOptionsArgs Empty = new FleetOnDemandOptionsArgs();
 
-    /**
-     * The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
-     * 
-     */
     @Import(name="allocationStrategy")
     private @Nullable Output<String> allocationStrategy;
 
-    /**
-     * @return The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
-     * 
-     */
     public Optional<Output<String>> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
 
-    /**
-     * The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
-     * 
-     */
     @Import(name="capacityReservationOptions")
     private @Nullable Output<FleetOnDemandOptionsCapacityReservationOptionsArgs> capacityReservationOptions;
 
-    /**
-     * @return The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Output<FleetOnDemandOptionsCapacityReservationOptionsArgs>> capacityReservationOptions() {
         return Optional.ofNullable(this.capacityReservationOptions);
     }
 
-    /**
-     * The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
-     * 
-     */
     @Import(name="maxTotalPrice")
     private @Nullable Output<String> maxTotalPrice;
 
-    /**
-     * @return The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
-     * 
-     */
     public Optional<Output<String>> maxTotalPrice() {
         return Optional.ofNullable(this.maxTotalPrice);
     }
 
-    /**
-     * The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
-     * 
-     */
     @Import(name="minTargetCapacity")
     private @Nullable Output<Integer> minTargetCapacity;
 
-    /**
-     * @return The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
-     * 
-     */
     public Optional<Output<Integer>> minTargetCapacity() {
         return Optional.ofNullable(this.minTargetCapacity);
     }
 
-    /**
-     * Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     @Import(name="singleAvailabilityZone")
     private @Nullable Output<Boolean> singleAvailabilityZone;
 
-    /**
-     * @return Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Output<Boolean>> singleAvailabilityZone() {
         return Optional.ofNullable(this.singleAvailabilityZone);
     }
 
-    /**
-     * Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     @Import(name="singleInstanceType")
     private @Nullable Output<Boolean> singleInstanceType;
 
-    /**
-     * @return Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Output<Boolean>> singleInstanceType() {
         return Optional.ofNullable(this.singleInstanceType);
     }
@@ -139,130 +89,56 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
             $ = new FleetOnDemandOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationStrategy The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(@Nullable Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
-        /**
-         * @param allocationStrategy The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }
 
-        /**
-         * @param capacityReservationOptions The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationOptions(@Nullable Output<FleetOnDemandOptionsCapacityReservationOptionsArgs> capacityReservationOptions) {
             $.capacityReservationOptions = capacityReservationOptions;
             return this;
         }
 
-        /**
-         * @param capacityReservationOptions The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationOptions(FleetOnDemandOptionsCapacityReservationOptionsArgs capacityReservationOptions) {
             return capacityReservationOptions(Output.of(capacityReservationOptions));
         }
 
-        /**
-         * @param maxTotalPrice The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTotalPrice(@Nullable Output<String> maxTotalPrice) {
             $.maxTotalPrice = maxTotalPrice;
             return this;
         }
 
-        /**
-         * @param maxTotalPrice The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTotalPrice(String maxTotalPrice) {
             return maxTotalPrice(Output.of(maxTotalPrice));
         }
 
-        /**
-         * @param minTargetCapacity The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-         * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTargetCapacity(@Nullable Output<Integer> minTargetCapacity) {
             $.minTargetCapacity = minTargetCapacity;
             return this;
         }
 
-        /**
-         * @param minTargetCapacity The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-         * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTargetCapacity(Integer minTargetCapacity) {
             return minTargetCapacity(Output.of(minTargetCapacity));
         }
 
-        /**
-         * @param singleAvailabilityZone Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleAvailabilityZone(@Nullable Output<Boolean> singleAvailabilityZone) {
             $.singleAvailabilityZone = singleAvailabilityZone;
             return this;
         }
 
-        /**
-         * @param singleAvailabilityZone Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleAvailabilityZone(Boolean singleAvailabilityZone) {
             return singleAvailabilityZone(Output.of(singleAvailabilityZone));
         }
 
-        /**
-         * @param singleInstanceType Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleInstanceType(@Nullable Output<Boolean> singleInstanceType) {
             $.singleInstanceType = singleInstanceType;
             return this;
         }
 
-        /**
-         * @param singleInstanceType Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleInstanceType(Boolean singleInstanceType) {
             return singleInstanceType(Output.of(singleInstanceType));
         }

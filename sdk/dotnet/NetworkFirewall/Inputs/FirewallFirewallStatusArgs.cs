@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("syncStates")]
         private InputList<Inputs.FirewallFirewallStatusSyncStateArgs>? _syncStates;
-
-        /// <summary>
-        /// Set of subnets configured for use by the firewall.
-        /// </summary>
         public InputList<Inputs.FirewallFirewallStatusSyncStateArgs> SyncStates
         {
             get => _syncStates ?? (_syncStates = new InputList<Inputs.FirewallFirewallStatusSyncStateArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("transitGatewayAttachmentSyncStates")]
         private InputList<Inputs.FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs>? _transitGatewayAttachmentSyncStates;
-
-        /// <summary>
-        /// Set of transit gateway configured for use by the firewall.
-        /// </summary>
         public InputList<Inputs.FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs> TransitGatewayAttachmentSyncStates
         {
             get => _transitGatewayAttachmentSyncStates ?? (_transitGatewayAttachmentSyncStates = new InputList<Inputs.FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs>());

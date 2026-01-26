@@ -11,51 +11,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDatabaseResult {
-    /**
-     * @return The ARN that uniquely identifies this database.
-     * 
-     */
     private String arn;
-    /**
-     * @return Creation time of database.
-     * 
-     */
     private String createdTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The ARN of the KMS key used to encrypt the data stored in the database.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Last time database was updated.
-     * 
-     */
     private String lastUpdatedTime;
     private String name;
     private String region;
-    /**
-     * @return Total number of tables in the Timestream database.
-     * 
-     */
     private Integer tableCount;
 
     private GetDatabaseResult() {}
-    /**
-     * @return The ARN that uniquely identifies this database.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Creation time of database.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
@@ -66,17 +38,9 @@ public final class GetDatabaseResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The ARN of the KMS key used to encrypt the data stored in the database.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Last time database was updated.
-     * 
-     */
     public String lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
@@ -86,10 +50,6 @@ public final class GetDatabaseResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Total number of tables in the Timestream database.
-     * 
-     */
     public Integer tableCount() {
         return this.tableCount;
     }

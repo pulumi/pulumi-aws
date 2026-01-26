@@ -15,17 +15,9 @@ public final class TableSchemaArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableSchemaArgs Empty = new TableSchemaArgs();
 
-    /**
-     * A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
-     * 
-     */
     @Import(name="compositePartitionKey")
     private @Nullable Output<TableSchemaCompositePartitionKeyArgs> compositePartitionKey;
 
-    /**
-     * @return A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
-     * 
-     */
     public Optional<Output<TableSchemaCompositePartitionKeyArgs>> compositePartitionKey() {
         return Optional.ofNullable(this.compositePartitionKey);
     }
@@ -54,23 +46,11 @@ public final class TableSchemaArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableSchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param compositePartitionKey A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compositePartitionKey(@Nullable Output<TableSchemaCompositePartitionKeyArgs> compositePartitionKey) {
             $.compositePartitionKey = compositePartitionKey;
             return this;
         }
 
-        /**
-         * @param compositePartitionKey A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compositePartitionKey(TableSchemaCompositePartitionKeyArgs compositePartitionKey) {
             return compositePartitionKey(Output.of(compositePartitionKey));
         }

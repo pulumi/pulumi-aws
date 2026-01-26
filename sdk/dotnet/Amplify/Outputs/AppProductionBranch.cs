@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Amplify.Outputs
     [OutputType]
     public sealed class AppProductionBranch
     {
-        /// <summary>
-        /// Branch name for the production branch.
-        /// </summary>
         public readonly string? BranchName;
-        /// <summary>
-        /// Last deploy time of the production branch.
-        /// </summary>
         public readonly string? LastDeployTime;
-        /// <summary>
-        /// Status of the production branch.
-        /// </summary>
         public readonly string? Status;
-        /// <summary>
-        /// Thumbnail URL for the production branch.
-        /// </summary>
         public readonly string? ThumbnailUrl;
 
         [OutputConstructor]

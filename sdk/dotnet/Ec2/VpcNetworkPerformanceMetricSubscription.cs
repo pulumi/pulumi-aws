@@ -9,64 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to manage an Infrastructure Performance subscription.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.VpcNetworkPerformanceMetricSubscription("example", new()
-    ///     {
-    ///         Source = "us-east-1",
-    ///         Destination = "us-west-1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")]
     public partial class VpcNetworkPerformanceMetricSubscription : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
 
-        /// <summary>
-        /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        /// </summary>
         [Output("metric")]
         public Output<string?> Metric { get; private set; } = null!;
 
-        /// <summary>
-        /// The data aggregation time for the subscription.
-        /// </summary>
         [Output("period")]
         public Output<string> Period { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
-        /// <summary>
-        /// The statistic used for the enabled subscription. Valid values: `P50`. Default: `P50`.
-        /// </summary>
         [Output("statistic")]
         public Output<string?> Statistic { get; private set; } = null!;
 
@@ -116,33 +76,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcNetworkPerformanceMetricSubscriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
-        /// <summary>
-        /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
-        /// <summary>
-        /// The statistic used for the enabled subscription. Valid values: `P50`. Default: `P50`.
-        /// </summary>
         [Input("statistic")]
         public Input<string>? Statistic { get; set; }
 
@@ -154,39 +99,21 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcNetworkPerformanceMetricSubscriptionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
-        /// <summary>
-        /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
-        /// <summary>
-        /// The data aggregation time for the subscription.
-        /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
-        /// <summary>
-        /// The statistic used for the enabled subscription. Valid values: `P50`. Default: `P50`.
-        /// </summary>
         [Input("statistic")]
         public Input<string>? Statistic { get; set; }
 

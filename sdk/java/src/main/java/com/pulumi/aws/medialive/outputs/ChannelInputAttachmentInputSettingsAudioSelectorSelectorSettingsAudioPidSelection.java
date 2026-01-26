@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
-    /**
-     * @return Selects a specific PID from within a source.
-     * 
-     */
     private Integer pid;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection() {}
-    /**
-     * @return Selects a specific PID from within a source.
-     * 
-     */
     public Integer pid() {
         return this.pid;
     }

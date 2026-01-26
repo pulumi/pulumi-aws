@@ -25,10 +25,6 @@ class BucketRequestPaymentConfigurationV2Args:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketRequestPaymentConfigurationV2 resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "payer", payer)
@@ -40,9 +36,6 @@ class BucketRequestPaymentConfigurationV2Args:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -52,9 +45,6 @@ class BucketRequestPaymentConfigurationV2Args:
     @_builtins.property
     @pulumi.getter
     def payer(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        """
         return pulumi.get(self, "payer")
 
     @payer.setter
@@ -64,9 +54,6 @@ class BucketRequestPaymentConfigurationV2Args:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -76,9 +63,6 @@ class BucketRequestPaymentConfigurationV2Args:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,10 +79,6 @@ class _BucketRequestPaymentConfigurationV2State:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketRequestPaymentConfigurationV2 resources.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -112,9 +92,6 @@ class _BucketRequestPaymentConfigurationV2State:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -124,9 +101,6 @@ class _BucketRequestPaymentConfigurationV2State:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -136,9 +110,6 @@ class _BucketRequestPaymentConfigurationV2State:
     @_builtins.property
     @pulumi.getter
     def payer(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        """
         return pulumi.get(self, "payer")
 
     @payer.setter
@@ -148,9 +119,6 @@ class _BucketRequestPaymentConfigurationV2State:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -175,46 +143,9 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
-
-        > **NOTE:** Destroying an `s3.BucketRequestPaymentConfiguration` resource resets the bucket's `payer` to the S3 default: the bucket owner.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketRequestPaymentConfiguration("example",
-            bucket=example_aws_s3_bucket["id"],
-            payer="Requester")
-        ```
-
-        ## Import
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        __Using `pulumi import` to import__ S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-
-        ```sh
-        $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
-        ```
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        ```sh
-        $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
-        ```
-
+        Create a BucketRequestPaymentConfigurationV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -223,40 +154,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
                  args: BucketRequestPaymentConfigurationV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
-
-        > **NOTE:** Destroying an `s3.BucketRequestPaymentConfiguration` resource resets the bucket's `payer` to the S3 default: the bucket owner.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketRequestPaymentConfiguration("example",
-            bucket=example_aws_s3_bucket["id"],
-            payer="Requester")
-        ```
-
-        ## Import
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        __Using `pulumi import` to import__ S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-
-        ```sh
-        $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
-        ```
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        ```sh
-        $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
-        ```
-
+        Create a BucketRequestPaymentConfigurationV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketRequestPaymentConfigurationV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,10 +215,6 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,32 +229,20 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @_builtins.property
     @pulumi.getter
     def payer(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        """
         return pulumi.get(self, "payer")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

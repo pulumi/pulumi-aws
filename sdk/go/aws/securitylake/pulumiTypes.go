@@ -14,17 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AwsLogSourceSource struct {
-	// Specify the AWS account information where you want to enable Security Lake.
-	// If not specified, uses all accounts included in the Security Lake.
-	Accounts []string `pulumi:"accounts"`
-	// Specify the Regions where you want to enable Security Lake.
-	Regions []string `pulumi:"regions"`
-	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-	SourceName string `pulumi:"sourceName"`
-	// The version for a AWS source.
-	// If not specified, the version will be the default.
-	// This must be a Regionally unique value.
-	SourceVersion *string `pulumi:"sourceVersion"`
+	Accounts      []string `pulumi:"accounts"`
+	Regions       []string `pulumi:"regions"`
+	SourceName    string   `pulumi:"sourceName"`
+	SourceVersion *string  `pulumi:"sourceVersion"`
 }
 
 // AwsLogSourceSourceInput is an input type that accepts AwsLogSourceSourceArgs and AwsLogSourceSourceOutput values.
@@ -39,17 +32,10 @@ type AwsLogSourceSourceInput interface {
 }
 
 type AwsLogSourceSourceArgs struct {
-	// Specify the AWS account information where you want to enable Security Lake.
-	// If not specified, uses all accounts included in the Security Lake.
-	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// Specify the Regions where you want to enable Security Lake.
-	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// The version for a AWS source.
-	// If not specified, the version will be the default.
-	// This must be a Regionally unique value.
-	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
+	Accounts      pulumi.StringArrayInput `pulumi:"accounts"`
+	Regions       pulumi.StringArrayInput `pulumi:"regions"`
+	SourceName    pulumi.StringInput      `pulumi:"sourceName"`
+	SourceVersion pulumi.StringPtrInput   `pulumi:"sourceVersion"`
 }
 
 func (AwsLogSourceSourceArgs) ElementType() reflect.Type {
@@ -129,25 +115,18 @@ func (o AwsLogSourceSourceOutput) ToAwsLogSourceSourcePtrOutputWithContext(ctx c
 	}).(AwsLogSourceSourcePtrOutput)
 }
 
-// Specify the AWS account information where you want to enable Security Lake.
-// If not specified, uses all accounts included in the Security Lake.
 func (o AwsLogSourceSourceOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// Specify the Regions where you want to enable Security Lake.
 func (o AwsLogSourceSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
 func (o AwsLogSourceSourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// The version for a AWS source.
-// If not specified, the version will be the default.
-// This must be a Regionally unique value.
 func (o AwsLogSourceSourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
@@ -176,8 +155,6 @@ func (o AwsLogSourceSourcePtrOutput) Elem() AwsLogSourceSourceOutput {
 	}).(AwsLogSourceSourceOutput)
 }
 
-// Specify the AWS account information where you want to enable Security Lake.
-// If not specified, uses all accounts included in the Security Lake.
 func (o AwsLogSourceSourcePtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsLogSourceSource) []string {
 		if v == nil {
@@ -187,7 +164,6 @@ func (o AwsLogSourceSourcePtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify the Regions where you want to enable Security Lake.
 func (o AwsLogSourceSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsLogSourceSource) []string {
 		if v == nil {
@@ -197,7 +173,6 @@ func (o AwsLogSourceSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
 func (o AwsLogSourceSourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsLogSourceSource) *string {
 		if v == nil {
@@ -207,9 +182,6 @@ func (o AwsLogSourceSourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version for a AWS source.
-// If not specified, the version will be the default.
-// This must be a Regionally unique value.
 func (o AwsLogSourceSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsLogSourceSource) *string {
 		if v == nil {
@@ -220,12 +192,9 @@ func (o AwsLogSourceSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 }
 
 type CustomLogSourceAttribute struct {
-	// The ARN of the AWS Glue crawler.
-	CrawlerArn string `pulumi:"crawlerArn"`
-	// The ARN of the AWS Glue database where results are written.
+	CrawlerArn  string `pulumi:"crawlerArn"`
 	DatabaseArn string `pulumi:"databaseArn"`
-	// The ARN of the AWS Glue table.
-	TableArn string `pulumi:"tableArn"`
+	TableArn    string `pulumi:"tableArn"`
 }
 
 // CustomLogSourceAttributeInput is an input type that accepts CustomLogSourceAttributeArgs and CustomLogSourceAttributeOutput values.
@@ -240,12 +209,9 @@ type CustomLogSourceAttributeInput interface {
 }
 
 type CustomLogSourceAttributeArgs struct {
-	// The ARN of the AWS Glue crawler.
-	CrawlerArn pulumi.StringInput `pulumi:"crawlerArn"`
-	// The ARN of the AWS Glue database where results are written.
+	CrawlerArn  pulumi.StringInput `pulumi:"crawlerArn"`
 	DatabaseArn pulumi.StringInput `pulumi:"databaseArn"`
-	// The ARN of the AWS Glue table.
-	TableArn pulumi.StringInput `pulumi:"tableArn"`
+	TableArn    pulumi.StringInput `pulumi:"tableArn"`
 }
 
 func (CustomLogSourceAttributeArgs) ElementType() reflect.Type {
@@ -299,17 +265,14 @@ func (o CustomLogSourceAttributeOutput) ToCustomLogSourceAttributeOutputWithCont
 	return o
 }
 
-// The ARN of the AWS Glue crawler.
 func (o CustomLogSourceAttributeOutput) CrawlerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceAttribute) string { return v.CrawlerArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS Glue database where results are written.
 func (o CustomLogSourceAttributeOutput) DatabaseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceAttribute) string { return v.DatabaseArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS Glue table.
 func (o CustomLogSourceAttributeOutput) TableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceAttribute) string { return v.TableArn }).(pulumi.StringOutput)
 }
@@ -335,10 +298,8 @@ func (o CustomLogSourceAttributeArrayOutput) Index(i pulumi.IntInput) CustomLogS
 }
 
 type CustomLogSourceConfiguration struct {
-	// The configuration for the Glue Crawler for the third-party custom source.
 	CrawlerConfiguration *CustomLogSourceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	// The identity of the log provider for the third-party custom source.
-	ProviderIdentity *CustomLogSourceConfigurationProviderIdentity `pulumi:"providerIdentity"`
+	ProviderIdentity     *CustomLogSourceConfigurationProviderIdentity     `pulumi:"providerIdentity"`
 }
 
 // CustomLogSourceConfigurationInput is an input type that accepts CustomLogSourceConfigurationArgs and CustomLogSourceConfigurationOutput values.
@@ -353,10 +314,8 @@ type CustomLogSourceConfigurationInput interface {
 }
 
 type CustomLogSourceConfigurationArgs struct {
-	// The configuration for the Glue Crawler for the third-party custom source.
 	CrawlerConfiguration CustomLogSourceConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	// The identity of the log provider for the third-party custom source.
-	ProviderIdentity CustomLogSourceConfigurationProviderIdentityPtrInput `pulumi:"providerIdentity"`
+	ProviderIdentity     CustomLogSourceConfigurationProviderIdentityPtrInput     `pulumi:"providerIdentity"`
 }
 
 func (CustomLogSourceConfigurationArgs) ElementType() reflect.Type {
@@ -436,14 +395,12 @@ func (o CustomLogSourceConfigurationOutput) ToCustomLogSourceConfigurationPtrOut
 	}).(CustomLogSourceConfigurationPtrOutput)
 }
 
-// The configuration for the Glue Crawler for the third-party custom source.
 func (o CustomLogSourceConfigurationOutput) CrawlerConfiguration() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v CustomLogSourceConfiguration) *CustomLogSourceConfigurationCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The identity of the log provider for the third-party custom source.
 func (o CustomLogSourceConfigurationOutput) ProviderIdentity() CustomLogSourceConfigurationProviderIdentityPtrOutput {
 	return o.ApplyT(func(v CustomLogSourceConfiguration) *CustomLogSourceConfigurationProviderIdentity {
 		return v.ProviderIdentity
@@ -474,7 +431,6 @@ func (o CustomLogSourceConfigurationPtrOutput) Elem() CustomLogSourceConfigurati
 	}).(CustomLogSourceConfigurationOutput)
 }
 
-// The configuration for the Glue Crawler for the third-party custom source.
 func (o CustomLogSourceConfigurationPtrOutput) CrawlerConfiguration() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfiguration) *CustomLogSourceConfigurationCrawlerConfiguration {
 		if v == nil {
@@ -484,7 +440,6 @@ func (o CustomLogSourceConfigurationPtrOutput) CrawlerConfiguration() CustomLogS
 	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The identity of the log provider for the third-party custom source.
 func (o CustomLogSourceConfigurationPtrOutput) ProviderIdentity() CustomLogSourceConfigurationProviderIdentityPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfiguration) *CustomLogSourceConfigurationProviderIdentity {
 		if v == nil {
@@ -495,7 +450,6 @@ func (o CustomLogSourceConfigurationPtrOutput) ProviderIdentity() CustomLogSourc
 }
 
 type CustomLogSourceConfigurationCrawlerConfiguration struct {
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -511,7 +465,6 @@ type CustomLogSourceConfigurationCrawlerConfigurationInput interface {
 }
 
 type CustomLogSourceConfigurationCrawlerConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -592,7 +545,6 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) ToCustomLogSourc
 	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceConfigurationCrawlerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -621,7 +573,6 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) Elem() Custom
 	}).(CustomLogSourceConfigurationCrawlerConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfigurationCrawlerConfiguration) *string {
 		if v == nil {
@@ -632,10 +583,8 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) RoleArn() pul
 }
 
 type CustomLogSourceConfigurationProviderIdentity struct {
-	// The external ID used to estalish trust relationship with the AWS identity.
 	ExternalId string `pulumi:"externalId"`
-	// The AWS identity principal.
-	Principal string `pulumi:"principal"`
+	Principal  string `pulumi:"principal"`
 }
 
 // CustomLogSourceConfigurationProviderIdentityInput is an input type that accepts CustomLogSourceConfigurationProviderIdentityArgs and CustomLogSourceConfigurationProviderIdentityOutput values.
@@ -650,10 +599,8 @@ type CustomLogSourceConfigurationProviderIdentityInput interface {
 }
 
 type CustomLogSourceConfigurationProviderIdentityArgs struct {
-	// The external ID used to estalish trust relationship with the AWS identity.
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// The AWS identity principal.
-	Principal pulumi.StringInput `pulumi:"principal"`
+	Principal  pulumi.StringInput `pulumi:"principal"`
 }
 
 func (CustomLogSourceConfigurationProviderIdentityArgs) ElementType() reflect.Type {
@@ -733,12 +680,10 @@ func (o CustomLogSourceConfigurationProviderIdentityOutput) ToCustomLogSourceCon
 	}).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
 }
 
-// The external ID used to estalish trust relationship with the AWS identity.
 func (o CustomLogSourceConfigurationProviderIdentityOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceConfigurationProviderIdentity) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// The AWS identity principal.
 func (o CustomLogSourceConfigurationProviderIdentityOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceConfigurationProviderIdentity) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -767,7 +712,6 @@ func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Elem() CustomLogS
 	}).(CustomLogSourceConfigurationProviderIdentityOutput)
 }
 
-// The external ID used to estalish trust relationship with the AWS identity.
 func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfigurationProviderIdentity) *string {
 		if v == nil {
@@ -777,7 +721,6 @@ func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) ExternalId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS identity principal.
 func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Principal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfigurationProviderIdentity) *string {
 		if v == nil {
@@ -788,10 +731,8 @@ func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Principal() pulum
 }
 
 type CustomLogSourceProviderDetail struct {
-	// The location of the partition in the Amazon S3 bucket for Security Lake.
 	Location string `pulumi:"location"`
-	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn  string `pulumi:"roleArn"`
 }
 
 // CustomLogSourceProviderDetailInput is an input type that accepts CustomLogSourceProviderDetailArgs and CustomLogSourceProviderDetailOutput values.
@@ -806,10 +747,8 @@ type CustomLogSourceProviderDetailInput interface {
 }
 
 type CustomLogSourceProviderDetailArgs struct {
-	// The location of the partition in the Amazon S3 bucket for Security Lake.
 	Location pulumi.StringInput `pulumi:"location"`
-	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (CustomLogSourceProviderDetailArgs) ElementType() reflect.Type {
@@ -863,12 +802,10 @@ func (o CustomLogSourceProviderDetailOutput) ToCustomLogSourceProviderDetailOutp
 	return o
 }
 
-// The location of the partition in the Amazon S3 bucket for Security Lake.
 func (o CustomLogSourceProviderDetailOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceProviderDetail) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 func (o CustomLogSourceProviderDetailOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceProviderDetail) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -894,13 +831,9 @@ func (o CustomLogSourceProviderDetailArrayOutput) Index(i pulumi.IntInput) Custo
 }
 
 type DataLakeConfiguration struct {
-	// Provides encryption details of Amazon Security Lake object.
 	EncryptionConfigurations []DataLakeConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// Provides lifecycle details of Amazon Security Lake object.
-	LifecycleConfiguration *DataLakeConfigurationLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
-	// The AWS Regions where Security Lake is automatically enabled.
-	Region string `pulumi:"region"`
-	// Provides replication details of Amazon Security Lake object.
+	LifecycleConfiguration   *DataLakeConfigurationLifecycleConfiguration   `pulumi:"lifecycleConfiguration"`
+	Region                   string                                         `pulumi:"region"`
 	ReplicationConfiguration *DataLakeConfigurationReplicationConfiguration `pulumi:"replicationConfiguration"`
 }
 
@@ -916,14 +849,10 @@ type DataLakeConfigurationInput interface {
 }
 
 type DataLakeConfigurationArgs struct {
-	// Provides encryption details of Amazon Security Lake object.
 	EncryptionConfigurations DataLakeConfigurationEncryptionConfigurationArrayInput `pulumi:"encryptionConfigurations"`
-	// Provides lifecycle details of Amazon Security Lake object.
-	LifecycleConfiguration DataLakeConfigurationLifecycleConfigurationPtrInput `pulumi:"lifecycleConfiguration"`
-	// The AWS Regions where Security Lake is automatically enabled.
-	Region pulumi.StringInput `pulumi:"region"`
-	// Provides replication details of Amazon Security Lake object.
-	ReplicationConfiguration DataLakeConfigurationReplicationConfigurationPtrInput `pulumi:"replicationConfiguration"`
+	LifecycleConfiguration   DataLakeConfigurationLifecycleConfigurationPtrInput    `pulumi:"lifecycleConfiguration"`
+	Region                   pulumi.StringInput                                     `pulumi:"region"`
+	ReplicationConfiguration DataLakeConfigurationReplicationConfigurationPtrInput  `pulumi:"replicationConfiguration"`
 }
 
 func (DataLakeConfigurationArgs) ElementType() reflect.Type {
@@ -1003,26 +932,22 @@ func (o DataLakeConfigurationOutput) ToDataLakeConfigurationPtrOutputWithContext
 	}).(DataLakeConfigurationPtrOutput)
 }
 
-// Provides encryption details of Amazon Security Lake object.
 func (o DataLakeConfigurationOutput) EncryptionConfigurations() DataLakeConfigurationEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v DataLakeConfiguration) []DataLakeConfigurationEncryptionConfiguration {
 		return v.EncryptionConfigurations
 	}).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
 }
 
-// Provides lifecycle details of Amazon Security Lake object.
 func (o DataLakeConfigurationOutput) LifecycleConfiguration() DataLakeConfigurationLifecycleConfigurationPtrOutput {
 	return o.ApplyT(func(v DataLakeConfiguration) *DataLakeConfigurationLifecycleConfiguration {
 		return v.LifecycleConfiguration
 	}).(DataLakeConfigurationLifecycleConfigurationPtrOutput)
 }
 
-// The AWS Regions where Security Lake is automatically enabled.
 func (o DataLakeConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeConfiguration) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Provides replication details of Amazon Security Lake object.
 func (o DataLakeConfigurationOutput) ReplicationConfiguration() DataLakeConfigurationReplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v DataLakeConfiguration) *DataLakeConfigurationReplicationConfiguration {
 		return v.ReplicationConfiguration
@@ -1053,7 +978,6 @@ func (o DataLakeConfigurationPtrOutput) Elem() DataLakeConfigurationOutput {
 	}).(DataLakeConfigurationOutput)
 }
 
-// Provides encryption details of Amazon Security Lake object.
 func (o DataLakeConfigurationPtrOutput) EncryptionConfigurations() DataLakeConfigurationEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *DataLakeConfiguration) []DataLakeConfigurationEncryptionConfiguration {
 		if v == nil {
@@ -1063,7 +987,6 @@ func (o DataLakeConfigurationPtrOutput) EncryptionConfigurations() DataLakeConfi
 	}).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
 }
 
-// Provides lifecycle details of Amazon Security Lake object.
 func (o DataLakeConfigurationPtrOutput) LifecycleConfiguration() DataLakeConfigurationLifecycleConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataLakeConfiguration) *DataLakeConfigurationLifecycleConfiguration {
 		if v == nil {
@@ -1073,7 +996,6 @@ func (o DataLakeConfigurationPtrOutput) LifecycleConfiguration() DataLakeConfigu
 	}).(DataLakeConfigurationLifecycleConfigurationPtrOutput)
 }
 
-// The AWS Regions where Security Lake is automatically enabled.
 func (o DataLakeConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataLakeConfiguration) *string {
 		if v == nil {
@@ -1083,7 +1005,6 @@ func (o DataLakeConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provides replication details of Amazon Security Lake object.
 func (o DataLakeConfigurationPtrOutput) ReplicationConfiguration() DataLakeConfigurationReplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataLakeConfiguration) *DataLakeConfigurationReplicationConfiguration {
 		if v == nil {
@@ -1094,7 +1015,6 @@ func (o DataLakeConfigurationPtrOutput) ReplicationConfiguration() DataLakeConfi
 }
 
 type DataLakeConfigurationEncryptionConfiguration struct {
-	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -1110,7 +1030,6 @@ type DataLakeConfigurationEncryptionConfigurationInput interface {
 }
 
 type DataLakeConfigurationEncryptionConfigurationArgs struct {
-	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -1165,7 +1084,6 @@ func (o DataLakeConfigurationEncryptionConfigurationOutput) ToDataLakeConfigurat
 	return o
 }
 
-// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
 func (o DataLakeConfigurationEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeConfigurationEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -1191,9 +1109,7 @@ func (o DataLakeConfigurationEncryptionConfigurationArrayOutput) Index(i pulumi.
 }
 
 type DataLakeConfigurationLifecycleConfiguration struct {
-	// Provides data expiration details of Amazon Security Lake object.
-	Expiration *DataLakeConfigurationLifecycleConfigurationExpiration `pulumi:"expiration"`
-	// Provides data storage transition details of Amazon Security Lake object.
+	Expiration  *DataLakeConfigurationLifecycleConfigurationExpiration  `pulumi:"expiration"`
 	Transitions []DataLakeConfigurationLifecycleConfigurationTransition `pulumi:"transitions"`
 }
 
@@ -1209,9 +1125,7 @@ type DataLakeConfigurationLifecycleConfigurationInput interface {
 }
 
 type DataLakeConfigurationLifecycleConfigurationArgs struct {
-	// Provides data expiration details of Amazon Security Lake object.
-	Expiration DataLakeConfigurationLifecycleConfigurationExpirationPtrInput `pulumi:"expiration"`
-	// Provides data storage transition details of Amazon Security Lake object.
+	Expiration  DataLakeConfigurationLifecycleConfigurationExpirationPtrInput   `pulumi:"expiration"`
 	Transitions DataLakeConfigurationLifecycleConfigurationTransitionArrayInput `pulumi:"transitions"`
 }
 
@@ -1292,14 +1206,12 @@ func (o DataLakeConfigurationLifecycleConfigurationOutput) ToDataLakeConfigurati
 	}).(DataLakeConfigurationLifecycleConfigurationPtrOutput)
 }
 
-// Provides data expiration details of Amazon Security Lake object.
 func (o DataLakeConfigurationLifecycleConfigurationOutput) Expiration() DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput {
 	return o.ApplyT(func(v DataLakeConfigurationLifecycleConfiguration) *DataLakeConfigurationLifecycleConfigurationExpiration {
 		return v.Expiration
 	}).(DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput)
 }
 
-// Provides data storage transition details of Amazon Security Lake object.
 func (o DataLakeConfigurationLifecycleConfigurationOutput) Transitions() DataLakeConfigurationLifecycleConfigurationTransitionArrayOutput {
 	return o.ApplyT(func(v DataLakeConfigurationLifecycleConfiguration) []DataLakeConfigurationLifecycleConfigurationTransition {
 		return v.Transitions
@@ -1330,7 +1242,6 @@ func (o DataLakeConfigurationLifecycleConfigurationPtrOutput) Elem() DataLakeCon
 	}).(DataLakeConfigurationLifecycleConfigurationOutput)
 }
 
-// Provides data expiration details of Amazon Security Lake object.
 func (o DataLakeConfigurationLifecycleConfigurationPtrOutput) Expiration() DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput {
 	return o.ApplyT(func(v *DataLakeConfigurationLifecycleConfiguration) *DataLakeConfigurationLifecycleConfigurationExpiration {
 		if v == nil {
@@ -1340,7 +1251,6 @@ func (o DataLakeConfigurationLifecycleConfigurationPtrOutput) Expiration() DataL
 	}).(DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput)
 }
 
-// Provides data storage transition details of Amazon Security Lake object.
 func (o DataLakeConfigurationLifecycleConfigurationPtrOutput) Transitions() DataLakeConfigurationLifecycleConfigurationTransitionArrayOutput {
 	return o.ApplyT(func(v *DataLakeConfigurationLifecycleConfiguration) []DataLakeConfigurationLifecycleConfigurationTransition {
 		if v == nil {
@@ -1351,7 +1261,6 @@ func (o DataLakeConfigurationLifecycleConfigurationPtrOutput) Transitions() Data
 }
 
 type DataLakeConfigurationLifecycleConfigurationExpiration struct {
-	// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
 	Days *int `pulumi:"days"`
 }
 
@@ -1367,7 +1276,6 @@ type DataLakeConfigurationLifecycleConfigurationExpirationInput interface {
 }
 
 type DataLakeConfigurationLifecycleConfigurationExpirationArgs struct {
-	// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -1448,7 +1356,6 @@ func (o DataLakeConfigurationLifecycleConfigurationExpirationOutput) ToDataLakeC
 	}).(DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput)
 }
 
-// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
 func (o DataLakeConfigurationLifecycleConfigurationExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataLakeConfigurationLifecycleConfigurationExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -1477,7 +1384,6 @@ func (o DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput) Elem() D
 	}).(DataLakeConfigurationLifecycleConfigurationExpirationOutput)
 }
 
-// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
 func (o DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataLakeConfigurationLifecycleConfigurationExpiration) *int {
 		if v == nil {
@@ -1488,9 +1394,7 @@ func (o DataLakeConfigurationLifecycleConfigurationExpirationPtrOutput) Days() p
 }
 
 type DataLakeConfigurationLifecycleConfigurationTransition struct {
-	// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-	Days *int `pulumi:"days"`
-	// The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
+	Days         *int    `pulumi:"days"`
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -1506,9 +1410,7 @@ type DataLakeConfigurationLifecycleConfigurationTransitionInput interface {
 }
 
 type DataLakeConfigurationLifecycleConfigurationTransitionArgs struct {
-	// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
+	Days         pulumi.IntPtrInput    `pulumi:"days"`
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -1563,12 +1465,10 @@ func (o DataLakeConfigurationLifecycleConfigurationTransitionOutput) ToDataLakeC
 	return o
 }
 
-// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
 func (o DataLakeConfigurationLifecycleConfigurationTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataLakeConfigurationLifecycleConfigurationTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
 func (o DataLakeConfigurationLifecycleConfigurationTransitionOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataLakeConfigurationLifecycleConfigurationTransition) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
@@ -1594,10 +1494,8 @@ func (o DataLakeConfigurationLifecycleConfigurationTransitionArrayOutput) Index(
 }
 
 type DataLakeConfigurationReplicationConfiguration struct {
-	// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
 	Regions []string `pulumi:"regions"`
-	// Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn *string  `pulumi:"roleArn"`
 }
 
 // DataLakeConfigurationReplicationConfigurationInput is an input type that accepts DataLakeConfigurationReplicationConfigurationArgs and DataLakeConfigurationReplicationConfigurationOutput values.
@@ -1612,10 +1510,8 @@ type DataLakeConfigurationReplicationConfigurationInput interface {
 }
 
 type DataLakeConfigurationReplicationConfigurationArgs struct {
-	// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrInput   `pulumi:"roleArn"`
 }
 
 func (DataLakeConfigurationReplicationConfigurationArgs) ElementType() reflect.Type {
@@ -1695,12 +1591,10 @@ func (o DataLakeConfigurationReplicationConfigurationOutput) ToDataLakeConfigura
 	}).(DataLakeConfigurationReplicationConfigurationPtrOutput)
 }
 
-// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
 func (o DataLakeConfigurationReplicationConfigurationOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataLakeConfigurationReplicationConfiguration) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
 func (o DataLakeConfigurationReplicationConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataLakeConfigurationReplicationConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -1729,7 +1623,6 @@ func (o DataLakeConfigurationReplicationConfigurationPtrOutput) Elem() DataLakeC
 	}).(DataLakeConfigurationReplicationConfigurationOutput)
 }
 
-// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
 func (o DataLakeConfigurationReplicationConfigurationPtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeConfigurationReplicationConfiguration) []string {
 		if v == nil {
@@ -1739,7 +1632,6 @@ func (o DataLakeConfigurationReplicationConfigurationPtrOutput) Regions() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
 func (o DataLakeConfigurationReplicationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataLakeConfigurationReplicationConfiguration) *string {
 		if v == nil {
@@ -1925,11 +1817,8 @@ func (o DataLakeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type SubscriberNotificationConfiguration struct {
-	// The configurations for HTTPS subscriber notification.
 	HttpsNotificationConfiguration *SubscriberNotificationConfigurationHttpsNotificationConfiguration `pulumi:"httpsNotificationConfiguration"`
-	// The configurations for SQS subscriber notification.
-	// There are no parameters within `sqsNotificationConfiguration`.
-	SqsNotificationConfiguration *SubscriberNotificationConfigurationSqsNotificationConfiguration `pulumi:"sqsNotificationConfiguration"`
+	SqsNotificationConfiguration   *SubscriberNotificationConfigurationSqsNotificationConfiguration   `pulumi:"sqsNotificationConfiguration"`
 }
 
 // SubscriberNotificationConfigurationInput is an input type that accepts SubscriberNotificationConfigurationArgs and SubscriberNotificationConfigurationOutput values.
@@ -1944,11 +1833,8 @@ type SubscriberNotificationConfigurationInput interface {
 }
 
 type SubscriberNotificationConfigurationArgs struct {
-	// The configurations for HTTPS subscriber notification.
 	HttpsNotificationConfiguration SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrInput `pulumi:"httpsNotificationConfiguration"`
-	// The configurations for SQS subscriber notification.
-	// There are no parameters within `sqsNotificationConfiguration`.
-	SqsNotificationConfiguration SubscriberNotificationConfigurationSqsNotificationConfigurationPtrInput `pulumi:"sqsNotificationConfiguration"`
+	SqsNotificationConfiguration   SubscriberNotificationConfigurationSqsNotificationConfigurationPtrInput   `pulumi:"sqsNotificationConfiguration"`
 }
 
 func (SubscriberNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -2028,15 +1914,12 @@ func (o SubscriberNotificationConfigurationOutput) ToSubscriberNotificationConfi
 	}).(SubscriberNotificationConfigurationPtrOutput)
 }
 
-// The configurations for HTTPS subscriber notification.
 func (o SubscriberNotificationConfigurationOutput) HttpsNotificationConfiguration() SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfiguration) *SubscriberNotificationConfigurationHttpsNotificationConfiguration {
 		return v.HttpsNotificationConfiguration
 	}).(SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput)
 }
 
-// The configurations for SQS subscriber notification.
-// There are no parameters within `sqsNotificationConfiguration`.
 func (o SubscriberNotificationConfigurationOutput) SqsNotificationConfiguration() SubscriberNotificationConfigurationSqsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfiguration) *SubscriberNotificationConfigurationSqsNotificationConfiguration {
 		return v.SqsNotificationConfiguration
@@ -2067,7 +1950,6 @@ func (o SubscriberNotificationConfigurationPtrOutput) Elem() SubscriberNotificat
 	}).(SubscriberNotificationConfigurationOutput)
 }
 
-// The configurations for HTTPS subscriber notification.
 func (o SubscriberNotificationConfigurationPtrOutput) HttpsNotificationConfiguration() SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfiguration) *SubscriberNotificationConfigurationHttpsNotificationConfiguration {
 		if v == nil {
@@ -2077,8 +1959,6 @@ func (o SubscriberNotificationConfigurationPtrOutput) HttpsNotificationConfigura
 	}).(SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput)
 }
 
-// The configurations for SQS subscriber notification.
-// There are no parameters within `sqsNotificationConfiguration`.
 func (o SubscriberNotificationConfigurationPtrOutput) SqsNotificationConfiguration() SubscriberNotificationConfigurationSqsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfiguration) *SubscriberNotificationConfigurationSqsNotificationConfiguration {
 		if v == nil {
@@ -2089,19 +1969,11 @@ func (o SubscriberNotificationConfigurationPtrOutput) SqsNotificationConfigurati
 }
 
 type SubscriberNotificationConfigurationHttpsNotificationConfiguration struct {
-	// The API key name for the notification subscription.
-	AuthorizationApiKeyName *string `pulumi:"authorizationApiKeyName"`
-	// The API key value for the notification subscription.
+	AuthorizationApiKeyName  *string `pulumi:"authorizationApiKeyName"`
 	AuthorizationApiKeyValue *string `pulumi:"authorizationApiKeyValue"`
-	// The subscription endpoint in Security Lake.
-	// If you prefer notification with an HTTPS endpoint, populate this field.
-	Endpoint string `pulumi:"endpoint"`
-	// The HTTP method used for the notification subscription.
-	// Valid values are `POST` and `PUT`.
-	HttpMethod *string `pulumi:"httpMethod"`
-	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-	// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-	TargetRoleArn string `pulumi:"targetRoleArn"`
+	Endpoint                 string  `pulumi:"endpoint"`
+	HttpMethod               *string `pulumi:"httpMethod"`
+	TargetRoleArn            string  `pulumi:"targetRoleArn"`
 }
 
 // SubscriberNotificationConfigurationHttpsNotificationConfigurationInput is an input type that accepts SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs and SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput values.
@@ -2116,19 +1988,11 @@ type SubscriberNotificationConfigurationHttpsNotificationConfigurationInput inte
 }
 
 type SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs struct {
-	// The API key name for the notification subscription.
-	AuthorizationApiKeyName pulumi.StringPtrInput `pulumi:"authorizationApiKeyName"`
-	// The API key value for the notification subscription.
+	AuthorizationApiKeyName  pulumi.StringPtrInput `pulumi:"authorizationApiKeyName"`
 	AuthorizationApiKeyValue pulumi.StringPtrInput `pulumi:"authorizationApiKeyValue"`
-	// The subscription endpoint in Security Lake.
-	// If you prefer notification with an HTTPS endpoint, populate this field.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The HTTP method used for the notification subscription.
-	// Valid values are `POST` and `PUT`.
-	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
-	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-	// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-	TargetRoleArn pulumi.StringInput `pulumi:"targetRoleArn"`
+	Endpoint                 pulumi.StringInput    `pulumi:"endpoint"`
+	HttpMethod               pulumi.StringPtrInput `pulumi:"httpMethod"`
+	TargetRoleArn            pulumi.StringInput    `pulumi:"targetRoleArn"`
 }
 
 func (SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -2208,34 +2072,26 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput)
 	}).(SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput)
 }
 
-// The API key name for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) AuthorizationApiKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		return v.AuthorizationApiKeyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API key value for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) AuthorizationApiKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		return v.AuthorizationApiKeyValue
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription endpoint in Security Lake.
-// If you prefer notification with an HTTPS endpoint, populate this field.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The HTTP method used for the notification subscription.
-// Valid values are `POST` and `PUT`.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) TargetRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) string {
 		return v.TargetRoleArn
@@ -2266,7 +2122,6 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput)
 }
 
-// The API key name for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) AuthorizationApiKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2276,7 +2131,6 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The API key value for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) AuthorizationApiKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2286,8 +2140,6 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription endpoint in Security Lake.
-// If you prefer notification with an HTTPS endpoint, populate this field.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2297,8 +2149,6 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP method used for the notification subscription.
-// Valid values are `POST` and `PUT`.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2308,8 +2158,6 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2438,9 +2286,7 @@ func (o SubscriberNotificationConfigurationSqsNotificationConfigurationPtrOutput
 }
 
 type SubscriberSource struct {
-	// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-	AwsLogSourceResource *SubscriberSourceAwsLogSourceResource `pulumi:"awsLogSourceResource"`
-	// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
+	AwsLogSourceResource    *SubscriberSourceAwsLogSourceResource    `pulumi:"awsLogSourceResource"`
 	CustomLogSourceResource *SubscriberSourceCustomLogSourceResource `pulumi:"customLogSourceResource"`
 }
 
@@ -2456,9 +2302,7 @@ type SubscriberSourceInput interface {
 }
 
 type SubscriberSourceArgs struct {
-	// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-	AwsLogSourceResource SubscriberSourceAwsLogSourceResourcePtrInput `pulumi:"awsLogSourceResource"`
-	// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
+	AwsLogSourceResource    SubscriberSourceAwsLogSourceResourcePtrInput    `pulumi:"awsLogSourceResource"`
 	CustomLogSourceResource SubscriberSourceCustomLogSourceResourcePtrInput `pulumi:"customLogSourceResource"`
 }
 
@@ -2513,12 +2357,10 @@ func (o SubscriberSourceOutput) ToSubscriberSourceOutputWithContext(ctx context.
 	return o
 }
 
-// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
 func (o SubscriberSourceOutput) AwsLogSourceResource() SubscriberSourceAwsLogSourceResourcePtrOutput {
 	return o.ApplyT(func(v SubscriberSource) *SubscriberSourceAwsLogSourceResource { return v.AwsLogSourceResource }).(SubscriberSourceAwsLogSourceResourcePtrOutput)
 }
 
-// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
 func (o SubscriberSourceOutput) CustomLogSourceResource() SubscriberSourceCustomLogSourceResourcePtrOutput {
 	return o.ApplyT(func(v SubscriberSource) *SubscriberSourceCustomLogSourceResource { return v.CustomLogSourceResource }).(SubscriberSourceCustomLogSourceResourcePtrOutput)
 }
@@ -2544,9 +2386,7 @@ func (o SubscriberSourceArrayOutput) Index(i pulumi.IntInput) SubscriberSourceOu
 }
 
 type SubscriberSourceAwsLogSourceResource struct {
-	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-	SourceName string `pulumi:"sourceName"`
-	// The version for a AWS source. This must be a Regionally unique value.
+	SourceName    string  `pulumi:"sourceName"`
 	SourceVersion *string `pulumi:"sourceVersion"`
 }
 
@@ -2562,9 +2402,7 @@ type SubscriberSourceAwsLogSourceResourceInput interface {
 }
 
 type SubscriberSourceAwsLogSourceResourceArgs struct {
-	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// The version for a AWS source. This must be a Regionally unique value.
+	SourceName    pulumi.StringInput    `pulumi:"sourceName"`
 	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
 }
 
@@ -2645,12 +2483,10 @@ func (o SubscriberSourceAwsLogSourceResourceOutput) ToSubscriberSourceAwsLogSour
 	}).(SubscriberSourceAwsLogSourceResourcePtrOutput)
 }
 
-// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
 func (o SubscriberSourceAwsLogSourceResourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// The version for a AWS source. This must be a Regionally unique value.
 func (o SubscriberSourceAwsLogSourceResourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
@@ -2679,7 +2515,6 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) Elem() SubscriberSourceAw
 	}).(SubscriberSourceAwsLogSourceResourceOutput)
 }
 
-// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
 func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceAwsLogSourceResource) *string {
 		if v == nil {
@@ -2689,7 +2524,6 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version for a AWS source. This must be a Regionally unique value.
 func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceAwsLogSourceResource) *string {
 		if v == nil {
@@ -2700,14 +2534,10 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceVersion() pulumi.St
 }
 
 type SubscriberSourceCustomLogSourceResource struct {
-	// The attributes of the third-party custom source. See `attributes` Block below.
-	Attributes []SubscriberSourceCustomLogSourceResourceAttribute `pulumi:"attributes"`
-	// The details of the log provider for the third-party custom source. See `provider` Block below.
-	Providers []SubscriberSourceCustomLogSourceResourceProvider `pulumi:"providers"`
-	// The name for a third-party custom source. This must be a Regionally unique value.
-	SourceName string `pulumi:"sourceName"`
-	// The version for a third-party custom source. This must be a Regionally unique value.
-	SourceVersion *string `pulumi:"sourceVersion"`
+	Attributes    []SubscriberSourceCustomLogSourceResourceAttribute `pulumi:"attributes"`
+	Providers     []SubscriberSourceCustomLogSourceResourceProvider  `pulumi:"providers"`
+	SourceName    string                                             `pulumi:"sourceName"`
+	SourceVersion *string                                            `pulumi:"sourceVersion"`
 }
 
 // SubscriberSourceCustomLogSourceResourceInput is an input type that accepts SubscriberSourceCustomLogSourceResourceArgs and SubscriberSourceCustomLogSourceResourceOutput values.
@@ -2722,14 +2552,10 @@ type SubscriberSourceCustomLogSourceResourceInput interface {
 }
 
 type SubscriberSourceCustomLogSourceResourceArgs struct {
-	// The attributes of the third-party custom source. See `attributes` Block below.
-	Attributes SubscriberSourceCustomLogSourceResourceAttributeArrayInput `pulumi:"attributes"`
-	// The details of the log provider for the third-party custom source. See `provider` Block below.
-	Providers SubscriberSourceCustomLogSourceResourceProviderArrayInput `pulumi:"providers"`
-	// The name for a third-party custom source. This must be a Regionally unique value.
-	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// The version for a third-party custom source. This must be a Regionally unique value.
-	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
+	Attributes    SubscriberSourceCustomLogSourceResourceAttributeArrayInput `pulumi:"attributes"`
+	Providers     SubscriberSourceCustomLogSourceResourceProviderArrayInput  `pulumi:"providers"`
+	SourceName    pulumi.StringInput                                         `pulumi:"sourceName"`
+	SourceVersion pulumi.StringPtrInput                                      `pulumi:"sourceVersion"`
 }
 
 func (SubscriberSourceCustomLogSourceResourceArgs) ElementType() reflect.Type {
@@ -2809,26 +2635,22 @@ func (o SubscriberSourceCustomLogSourceResourceOutput) ToSubscriberSourceCustomL
 	}).(SubscriberSourceCustomLogSourceResourcePtrOutput)
 }
 
-// The attributes of the third-party custom source. See `attributes` Block below.
 func (o SubscriberSourceCustomLogSourceResourceOutput) Attributes() SubscriberSourceCustomLogSourceResourceAttributeArrayOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceAttribute {
 		return v.Attributes
 	}).(SubscriberSourceCustomLogSourceResourceAttributeArrayOutput)
 }
 
-// The details of the log provider for the third-party custom source. See `provider` Block below.
 func (o SubscriberSourceCustomLogSourceResourceOutput) Providers() SubscriberSourceCustomLogSourceResourceProviderArrayOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceProvider {
 		return v.Providers
 	}).(SubscriberSourceCustomLogSourceResourceProviderArrayOutput)
 }
 
-// The name for a third-party custom source. This must be a Regionally unique value.
 func (o SubscriberSourceCustomLogSourceResourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// The version for a third-party custom source. This must be a Regionally unique value.
 func (o SubscriberSourceCustomLogSourceResourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
@@ -2857,7 +2679,6 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Elem() SubscriberSourc
 	}).(SubscriberSourceCustomLogSourceResourceOutput)
 }
 
-// The attributes of the third-party custom source. See `attributes` Block below.
 func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Attributes() SubscriberSourceCustomLogSourceResourceAttributeArrayOutput {
 	return o.ApplyT(func(v *SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceAttribute {
 		if v == nil {
@@ -2867,7 +2688,6 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Attributes() Subscribe
 	}).(SubscriberSourceCustomLogSourceResourceAttributeArrayOutput)
 }
 
-// The details of the log provider for the third-party custom source. See `provider` Block below.
 func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Providers() SubscriberSourceCustomLogSourceResourceProviderArrayOutput {
 	return o.ApplyT(func(v *SubscriberSourceCustomLogSourceResource) []SubscriberSourceCustomLogSourceResourceProvider {
 		if v == nil {
@@ -2877,7 +2697,6 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) Providers() Subscriber
 	}).(SubscriberSourceCustomLogSourceResourceProviderArrayOutput)
 }
 
-// The name for a third-party custom source. This must be a Regionally unique value.
 func (o SubscriberSourceCustomLogSourceResourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceCustomLogSourceResource) *string {
 		if v == nil {
@@ -2887,7 +2706,6 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) SourceName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version for a third-party custom source. This must be a Regionally unique value.
 func (o SubscriberSourceCustomLogSourceResourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSourceCustomLogSourceResource) *string {
 		if v == nil {
@@ -2898,12 +2716,9 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) SourceVersion() pulumi
 }
 
 type SubscriberSourceCustomLogSourceResourceAttribute struct {
-	// The ARN of the AWS Glue crawler.
-	CrawlerArn string `pulumi:"crawlerArn"`
-	// The ARN of the AWS Glue database where results are written.
+	CrawlerArn  string `pulumi:"crawlerArn"`
 	DatabaseArn string `pulumi:"databaseArn"`
-	// The ARN of the AWS Glue table.
-	TableArn string `pulumi:"tableArn"`
+	TableArn    string `pulumi:"tableArn"`
 }
 
 // SubscriberSourceCustomLogSourceResourceAttributeInput is an input type that accepts SubscriberSourceCustomLogSourceResourceAttributeArgs and SubscriberSourceCustomLogSourceResourceAttributeOutput values.
@@ -2918,12 +2733,9 @@ type SubscriberSourceCustomLogSourceResourceAttributeInput interface {
 }
 
 type SubscriberSourceCustomLogSourceResourceAttributeArgs struct {
-	// The ARN of the AWS Glue crawler.
-	CrawlerArn pulumi.StringInput `pulumi:"crawlerArn"`
-	// The ARN of the AWS Glue database where results are written.
+	CrawlerArn  pulumi.StringInput `pulumi:"crawlerArn"`
 	DatabaseArn pulumi.StringInput `pulumi:"databaseArn"`
-	// The ARN of the AWS Glue table.
-	TableArn pulumi.StringInput `pulumi:"tableArn"`
+	TableArn    pulumi.StringInput `pulumi:"tableArn"`
 }
 
 func (SubscriberSourceCustomLogSourceResourceAttributeArgs) ElementType() reflect.Type {
@@ -2977,17 +2789,14 @@ func (o SubscriberSourceCustomLogSourceResourceAttributeOutput) ToSubscriberSour
 	return o
 }
 
-// The ARN of the AWS Glue crawler.
 func (o SubscriberSourceCustomLogSourceResourceAttributeOutput) CrawlerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResourceAttribute) string { return v.CrawlerArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS Glue database where results are written.
 func (o SubscriberSourceCustomLogSourceResourceAttributeOutput) DatabaseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResourceAttribute) string { return v.DatabaseArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS Glue table.
 func (o SubscriberSourceCustomLogSourceResourceAttributeOutput) TableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResourceAttribute) string { return v.TableArn }).(pulumi.StringOutput)
 }
@@ -3013,10 +2822,8 @@ func (o SubscriberSourceCustomLogSourceResourceAttributeArrayOutput) Index(i pul
 }
 
 type SubscriberSourceCustomLogSourceResourceProvider struct {
-	// The location of the partition in the Amazon S3 bucket for Security Lake.
 	Location string `pulumi:"location"`
-	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn  string `pulumi:"roleArn"`
 }
 
 // SubscriberSourceCustomLogSourceResourceProviderInput is an input type that accepts SubscriberSourceCustomLogSourceResourceProviderArgs and SubscriberSourceCustomLogSourceResourceProviderOutput values.
@@ -3031,10 +2838,8 @@ type SubscriberSourceCustomLogSourceResourceProviderInput interface {
 }
 
 type SubscriberSourceCustomLogSourceResourceProviderArgs struct {
-	// The location of the partition in the Amazon S3 bucket for Security Lake.
 	Location pulumi.StringInput `pulumi:"location"`
-	// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (SubscriberSourceCustomLogSourceResourceProviderArgs) ElementType() reflect.Type {
@@ -3088,12 +2893,10 @@ func (o SubscriberSourceCustomLogSourceResourceProviderOutput) ToSubscriberSourc
 	return o
 }
 
-// The location of the partition in the Amazon S3 bucket for Security Lake.
 func (o SubscriberSourceCustomLogSourceResourceProviderOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResourceProvider) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
 func (o SubscriberSourceCustomLogSourceResourceProviderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResourceProvider) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3119,10 +2922,8 @@ func (o SubscriberSourceCustomLogSourceResourceProviderArrayOutput) Index(i pulu
 }
 
 type SubscriberSubscriberIdentity struct {
-	// The AWS Regions where Security Lake is automatically enabled.
 	ExternalId string `pulumi:"externalId"`
-	// Provides encryption details of Amazon Security Lake object.
-	Principal string `pulumi:"principal"`
+	Principal  string `pulumi:"principal"`
 }
 
 // SubscriberSubscriberIdentityInput is an input type that accepts SubscriberSubscriberIdentityArgs and SubscriberSubscriberIdentityOutput values.
@@ -3137,10 +2938,8 @@ type SubscriberSubscriberIdentityInput interface {
 }
 
 type SubscriberSubscriberIdentityArgs struct {
-	// The AWS Regions where Security Lake is automatically enabled.
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// Provides encryption details of Amazon Security Lake object.
-	Principal pulumi.StringInput `pulumi:"principal"`
+	Principal  pulumi.StringInput `pulumi:"principal"`
 }
 
 func (SubscriberSubscriberIdentityArgs) ElementType() reflect.Type {
@@ -3220,12 +3019,10 @@ func (o SubscriberSubscriberIdentityOutput) ToSubscriberSubscriberIdentityPtrOut
 	}).(SubscriberSubscriberIdentityPtrOutput)
 }
 
-// The AWS Regions where Security Lake is automatically enabled.
 func (o SubscriberSubscriberIdentityOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSubscriberIdentity) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// Provides encryption details of Amazon Security Lake object.
 func (o SubscriberSubscriberIdentityOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSubscriberIdentity) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -3254,7 +3051,6 @@ func (o SubscriberSubscriberIdentityPtrOutput) Elem() SubscriberSubscriberIdenti
 	}).(SubscriberSubscriberIdentityOutput)
 }
 
-// The AWS Regions where Security Lake is automatically enabled.
 func (o SubscriberSubscriberIdentityPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSubscriberIdentity) *string {
 		if v == nil {
@@ -3264,7 +3060,6 @@ func (o SubscriberSubscriberIdentityPtrOutput) ExternalId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provides encryption details of Amazon Security Lake object.
 func (o SubscriberSubscriberIdentityPtrOutput) Principal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSubscriberIdentity) *string {
 		if v == nil {

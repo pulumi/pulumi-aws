@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RegistryScanningConfigurationRule {
-    /**
-     * @return One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
-     * 
-     */
     private List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters;
-    /**
-     * @return The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-     * 
-     */
     private String scanFrequency;
 
     private RegistryScanningConfigurationRule() {}
-    /**
-     * @return One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
-     * 
-     */
     public List<RegistryScanningConfigurationRuleRepositoryFilter> repositoryFilters() {
         return this.repositoryFilters;
     }
-    /**
-     * @return The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-     * 
-     */
     public String scanFrequency() {
         return this.scanFrequency;
     }

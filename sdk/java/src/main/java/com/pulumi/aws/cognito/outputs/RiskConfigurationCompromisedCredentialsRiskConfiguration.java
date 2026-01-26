@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RiskConfigurationCompromisedCredentialsRiskConfiguration {
-    /**
-     * @return The compromised credentials risk configuration actions. See details below.
-     * 
-     */
     private RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions;
-    /**
-     * @return Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-     * 
-     */
     private @Nullable List<String> eventFilters;
 
     private RiskConfigurationCompromisedCredentialsRiskConfiguration() {}
-    /**
-     * @return The compromised credentials risk configuration actions. See details below.
-     * 
-     */
     public RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions() {
         return this.actions;
     }
-    /**
-     * @return Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-     * 
-     */
     public List<String> eventFilters() {
         return this.eventFilters == null ? List.of() : this.eventFilters;
     }

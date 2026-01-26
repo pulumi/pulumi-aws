@@ -21,75 +21,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Lambda Capacity Provider.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.CapacityProvider;
- * import com.pulumi.aws.lambda.CapacityProviderArgs;
- * import com.pulumi.aws.lambda.inputs.CapacityProviderVpcConfigArgs;
- * import com.pulumi.aws.lambda.inputs.CapacityProviderPermissionsConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
- *             .name("example")
- *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .build())
- *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
- *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/capacityProvider:CapacityProvider")
 public class CapacityProvider extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Capacity Provider.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Capacity Provider.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -99,17 +35,9 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     public Output<List<CapacityProviderCapacityProviderScalingConfig>> capacityProviderScalingConfigs() {
         return this.capacityProviderScalingConfigs;
     }
-    /**
-     * Configuration block for instance requirements settings. See Instance Requirements below.
-     * 
-     */
     @Export(name="instanceRequirements", refs={List.class,CapacityProviderInstanceRequirement.class}, tree="[0,1]")
     private Output<List<CapacityProviderInstanceRequirement>> instanceRequirements;
 
-    /**
-     * @return Configuration block for instance requirements settings. See Instance Requirements below.
-     * 
-     */
     public Output<List<CapacityProviderInstanceRequirement>> instanceRequirements() {
         return this.instanceRequirements;
     }
@@ -119,77 +47,33 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
-    /**
-     * The name of the Capacity Provider.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Capacity Provider.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Configuration block for permissions settings. See Permissions Config below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="permissionsConfig", refs={CapacityProviderPermissionsConfig.class}, tree="[0]")
     private Output</* @Nullable */ CapacityProviderPermissionsConfig> permissionsConfig;
 
-    /**
-     * @return Configuration block for permissions settings. See Permissions Config below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<CapacityProviderPermissionsConfig>> permissionsConfig() {
         return Codegen.optional(this.permissionsConfig);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -199,17 +83,9 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     public Output<Optional<CapacityProviderTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Configuration block for VPC settings. See VPC Config below.
-     * 
-     */
     @Export(name="vpcConfig", refs={CapacityProviderVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ CapacityProviderVpcConfig> vpcConfig;
 
-    /**
-     * @return Configuration block for VPC settings. See VPC Config below.
-     * 
-     */
     public Output<Optional<CapacityProviderVpcConfig>> vpcConfig() {
         return Codegen.optional(this.vpcConfig);
     }

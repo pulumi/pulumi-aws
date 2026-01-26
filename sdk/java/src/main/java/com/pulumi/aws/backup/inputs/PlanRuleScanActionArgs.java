@@ -14,32 +14,16 @@ public final class PlanRuleScanActionArgs extends com.pulumi.resources.ResourceA
 
     public static final PlanRuleScanActionArgs Empty = new PlanRuleScanActionArgs();
 
-    /**
-     * Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     @Import(name="malwareScanner", required=true)
     private Output<String> malwareScanner;
 
-    /**
-     * @return Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     public Output<String> malwareScanner() {
         return this.malwareScanner;
     }
 
-    /**
-     * Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-     * 
-     */
     @Import(name="scanMode", required=true)
     private Output<String> scanMode;
 
-    /**
-     * @return Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-     * 
-     */
     public Output<String> scanMode() {
         return this.scanMode;
     }
@@ -69,44 +53,20 @@ public final class PlanRuleScanActionArgs extends com.pulumi.resources.ResourceA
             $ = new PlanRuleScanActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param malwareScanner Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareScanner(Output<String> malwareScanner) {
             $.malwareScanner = malwareScanner;
             return this;
         }
 
-        /**
-         * @param malwareScanner Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareScanner(String malwareScanner) {
             return malwareScanner(Output.of(malwareScanner));
         }
 
-        /**
-         * @param scanMode Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanMode(Output<String> scanMode) {
             $.scanMode = scanMode;
             return this;
         }
 
-        /**
-         * @param scanMode Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanMode(String scanMode) {
             return scanMode(Output.of(scanMode));
         }

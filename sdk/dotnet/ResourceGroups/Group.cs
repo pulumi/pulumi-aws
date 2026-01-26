@@ -9,98 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ResourceGroups
 {
-    /// <summary>
-    /// Provides a Resource Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.ResourceGroups.Group("test", new()
-    ///     {
-    ///         Name = "test-group",
-    ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
-    ///         {
-    ///             Query = @"{
-    ///   \""ResourceTypeFilters\"": [
-    ///     \""AWS::EC2::Instance\""
-    ///   ],
-    ///   \""TagFilters\"": [
-    ///     {
-    ///       \""Key\"": \""Stage\"",
-    ///       \""Values\"": [\""Test\""]
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import resource groups using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:resourcegroups/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN assigned by AWS for this resource group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
-        /// </summary>
         [Output("configurations")]
         public Output<ImmutableArray<Outputs.GroupConfiguration>> Configurations { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the resource group.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `Aws`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A `ResourceQuery` block. Resource queries are documented below.
-        /// </summary>
         [Output("resourceQuery")]
         public Output<Outputs.GroupResourceQuery?> ResourceQuery { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -152,46 +84,26 @@ namespace Pulumi.Aws.ResourceGroups
     {
         [Input("configurations")]
         private InputList<Inputs.GroupConfigurationArgs>? _configurations;
-
-        /// <summary>
-        /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
-        /// </summary>
         public InputList<Inputs.GroupConfigurationArgs> Configurations
         {
             get => _configurations ?? (_configurations = new InputList<Inputs.GroupConfigurationArgs>());
             set => _configurations = value;
         }
 
-        /// <summary>
-        /// A description of the resource group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `Aws`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A `ResourceQuery` block. Resource queries are documented below.
-        /// </summary>
         [Input("resourceQuery")]
         public Input<Inputs.GroupResourceQueryArgs>? ResourceQuery { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -206,54 +118,31 @@ namespace Pulumi.Aws.ResourceGroups
 
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN assigned by AWS for this resource group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("configurations")]
         private InputList<Inputs.GroupConfigurationGetArgs>? _configurations;
-
-        /// <summary>
-        /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
-        /// </summary>
         public InputList<Inputs.GroupConfigurationGetArgs> Configurations
         {
             get => _configurations ?? (_configurations = new InputList<Inputs.GroupConfigurationGetArgs>());
             set => _configurations = value;
         }
 
-        /// <summary>
-        /// A description of the resource group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `Aws`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A `ResourceQuery` block. Resource queries are documented below.
-        /// </summary>
         [Input("resourceQuery")]
         public Input<Inputs.GroupResourceQueryGetArgs>? ResourceQuery { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -262,10 +151,6 @@ namespace Pulumi.Aws.ResourceGroups
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

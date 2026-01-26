@@ -16,36 +16,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterSnapshotResult {
-    /**
-     * @return Allocated storage size in gigabytes (GB).
-     * 
-     */
     private Integer allocatedStorage;
-    /**
-     * @return List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-     * 
-     */
     private List<String> availabilityZones;
-    /**
-     * @return Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
-     * 
-     */
     private @Nullable String dbClusterIdentifier;
-    /**
-     * @return The ARN for the DB Cluster Snapshot.
-     * 
-     */
     private String dbClusterSnapshotArn;
     private @Nullable String dbClusterSnapshotIdentifier;
-    /**
-     * @return Name of the database engine.
-     * 
-     */
     private String engine;
-    /**
-     * @return Version of the database engine for this DB cluster snapshot.
-     * 
-     */
     private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -54,94 +30,38 @@ public final class GetClusterSnapshotResult {
     private String id;
     private @Nullable Boolean includePublic;
     private @Nullable Boolean includeShared;
-    /**
-     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return License model information for the restored DB cluster.
-     * 
-     */
     private String licenseModel;
     private @Nullable Boolean mostRecent;
-    /**
-     * @return Port that the DB cluster was listening on at the time of the snapshot.
-     * 
-     */
     private Integer port;
     private String region;
-    /**
-     * @return Time when the snapshot was taken, in Universal Coordinated Time (UTC).
-     * 
-     */
     private String snapshotCreateTime;
     private @Nullable String snapshotType;
     private String sourceDbClusterSnapshotArn;
-    /**
-     * @return Status of this DB Cluster Snapshot.
-     * 
-     */
     private String status;
-    /**
-     * @return Whether the DB cluster snapshot is encrypted.
-     * 
-     */
     private Boolean storageEncrypted;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return VPC ID associated with the DB cluster snapshot.
-     * 
-     */
     private String vpcId;
 
     private GetClusterSnapshotResult() {}
-    /**
-     * @return Allocated storage size in gigabytes (GB).
-     * 
-     */
     public Integer allocatedStorage() {
         return this.allocatedStorage;
     }
-    /**
-     * @return List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * @return Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
-     * 
-     */
     public Optional<String> dbClusterIdentifier() {
         return Optional.ofNullable(this.dbClusterIdentifier);
     }
-    /**
-     * @return The ARN for the DB Cluster Snapshot.
-     * 
-     */
     public String dbClusterSnapshotArn() {
         return this.dbClusterSnapshotArn;
     }
     public Optional<String> dbClusterSnapshotIdentifier() {
         return Optional.ofNullable(this.dbClusterSnapshotIdentifier);
     }
-    /**
-     * @return Name of the database engine.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return Version of the database engine for this DB cluster snapshot.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
@@ -158,37 +78,21 @@ public final class GetClusterSnapshotResult {
     public Optional<Boolean> includeShared() {
         return Optional.ofNullable(this.includeShared);
     }
-    /**
-     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return License model information for the restored DB cluster.
-     * 
-     */
     public String licenseModel() {
         return this.licenseModel;
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
-    /**
-     * @return Port that the DB cluster was listening on at the time of the snapshot.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Time when the snapshot was taken, in Universal Coordinated Time (UTC).
-     * 
-     */
     public String snapshotCreateTime() {
         return this.snapshotCreateTime;
     }
@@ -198,31 +102,15 @@ public final class GetClusterSnapshotResult {
     public String sourceDbClusterSnapshotArn() {
         return this.sourceDbClusterSnapshotArn;
     }
-    /**
-     * @return Status of this DB Cluster Snapshot.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Whether the DB cluster snapshot is encrypted.
-     * 
-     */
     public Boolean storageEncrypted() {
         return this.storageEncrypted;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return VPC ID associated with the DB cluster snapshot.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

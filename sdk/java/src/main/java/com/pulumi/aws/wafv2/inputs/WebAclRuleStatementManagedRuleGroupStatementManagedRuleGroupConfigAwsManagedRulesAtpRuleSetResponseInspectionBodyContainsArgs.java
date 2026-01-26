@@ -15,32 +15,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs();
 
-    /**
-     * Strings in the body of the response that indicate a failed login attempt.
-     * 
-     */
     @Import(name="failureStrings", required=true)
     private Output<List<String>> failureStrings;
 
-    /**
-     * @return Strings in the body of the response that indicate a failed login attempt.
-     * 
-     */
     public Output<List<String>> failureStrings() {
         return this.failureStrings;
     }
 
-    /**
-     * Strings in the body of the response that indicate a successful login attempt.
-     * 
-     */
     @Import(name="successStrings", required=true)
     private Output<List<String>> successStrings;
 
-    /**
-     * @return Strings in the body of the response that indicate a successful login attempt.
-     * 
-     */
     public Output<List<String>> successStrings() {
         return this.successStrings;
     }
@@ -70,64 +54,28 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param failureStrings Strings in the body of the response that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureStrings(Output<List<String>> failureStrings) {
             $.failureStrings = failureStrings;
             return this;
         }
 
-        /**
-         * @param failureStrings Strings in the body of the response that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureStrings(List<String> failureStrings) {
             return failureStrings(Output.of(failureStrings));
         }
 
-        /**
-         * @param failureStrings Strings in the body of the response that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureStrings(String... failureStrings) {
             return failureStrings(List.of(failureStrings));
         }
 
-        /**
-         * @param successStrings Strings in the body of the response that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successStrings(Output<List<String>> successStrings) {
             $.successStrings = successStrings;
             return this;
         }
 
-        /**
-         * @param successStrings Strings in the body of the response that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successStrings(List<String> successStrings) {
             return successStrings(Output.of(successStrings));
         }
 
-        /**
-         * @param successStrings Strings in the body of the response that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successStrings(String... successStrings) {
             return successStrings(List.of(successStrings));
         }

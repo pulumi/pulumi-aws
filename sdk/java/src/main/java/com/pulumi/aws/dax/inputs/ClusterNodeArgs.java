@@ -37,17 +37,9 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The port used by the configuration endpoint
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port used by the configuration endpoint
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
@@ -106,23 +98,11 @@ public final class ClusterNodeArgs extends com.pulumi.resources.ResourceArgs {
             return id(Output.of(id));
         }
 
-        /**
-         * @param port The port used by the configuration endpoint
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port used by the configuration endpoint
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }

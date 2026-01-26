@@ -15,184 +15,71 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ## Import
- * 
- * Provisioned Clusters:
- * 
- * __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
- * 
- * Instances:
- * 
- * ```sh
- * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
- * ```
- * Provisioned Clusters:
- * 
- * ```sh
- * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
- * ```
- * 
- */
 @ResourceType(type="aws:rds/proxyTarget:ProxyTarget")
 public class ProxyTarget extends com.pulumi.resources.CustomResource {
-    /**
-     * DB cluster identifier.
-     * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-     * 
-     */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbClusterIdentifier;
 
-    /**
-     * @return DB cluster identifier.
-     * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-     * 
-     */
     public Output<Optional<String>> dbClusterIdentifier() {
         return Codegen.optional(this.dbClusterIdentifier);
     }
-    /**
-     * DB instance identifier.
-     * 
-     */
     @Export(name="dbInstanceIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbInstanceIdentifier;
 
-    /**
-     * @return DB instance identifier.
-     * 
-     */
     public Output<Optional<String>> dbInstanceIdentifier() {
         return Codegen.optional(this.dbInstanceIdentifier);
     }
-    /**
-     * The name of the DB proxy.
-     * 
-     */
     @Export(name="dbProxyName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyName;
 
-    /**
-     * @return The name of the DB proxy.
-     * 
-     */
     public Output<String> dbProxyName() {
         return this.dbProxyName;
     }
-    /**
-     * Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * Port for the target RDS DB Instance or Aurora DB Cluster.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
-    /**
-     * @return Port for the target RDS DB Instance or Aurora DB Cluster.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
-    /**
-     * Identifier representing the DB Instance or DB Cluster target.
-     * 
-     */
     @Export(name="rdsResourceId", refs={String.class}, tree="[0]")
     private Output<String> rdsResourceId;
 
-    /**
-     * @return Identifier representing the DB Instance or DB Cluster target.
-     * 
-     */
     public Output<String> rdsResourceId() {
         return this.rdsResourceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
-     * 
-     */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
-     * 
-     */
     public Output<String> targetArn() {
         return this.targetArn;
     }
-    /**
-     * The name of the target group.
-     * 
-     */
     @Export(name="targetGroupName", refs={String.class}, tree="[0]")
     private Output<String> targetGroupName;
 
-    /**
-     * @return The name of the target group.
-     * 
-     */
     public Output<String> targetGroupName() {
         return this.targetGroupName;
     }
-    /**
-     * DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-     * 
-     */
     @Export(name="trackedClusterId", refs={String.class}, tree="[0]")
     private Output<String> trackedClusterId;
 
-    /**
-     * @return DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-     * 
-     */
     public Output<String> trackedClusterId() {
         return this.trackedClusterId;
     }
-    /**
-     * Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

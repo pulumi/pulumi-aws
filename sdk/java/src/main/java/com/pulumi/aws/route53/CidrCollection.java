@@ -14,92 +14,23 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route53 CIDR collection resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.CidrCollection;
- * import com.pulumi.aws.route53.CidrCollectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CidrCollection("example", CidrCollectionArgs.builder()
- *             .name("collection-1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CIDR collections using their ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
- * ```
- * 
- */
 @ResourceType(type="aws:route53/cidrCollection:CidrCollection")
 public class CidrCollection extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the CIDR collection.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the CIDR collection.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Unique name for the CIDR collection.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name for the CIDR collection.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The lastest version of the CIDR collection.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The lastest version of the CIDR collection.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

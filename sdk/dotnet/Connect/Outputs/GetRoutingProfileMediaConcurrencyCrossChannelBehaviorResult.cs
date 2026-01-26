@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class GetRoutingProfileMediaConcurrencyCrossChannelBehaviorResult
     {
-        /// <summary>
-        /// Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
-        /// </summary>
         public readonly string BehaviorType;
 
         [OutputConstructor]

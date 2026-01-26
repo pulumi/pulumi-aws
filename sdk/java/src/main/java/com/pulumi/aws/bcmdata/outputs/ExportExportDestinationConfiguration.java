@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExportExportDestinationConfiguration {
-    /**
-     * @return Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
-     * 
-     */
     private @Nullable List<ExportExportDestinationConfigurationS3Destination> s3Destinations;
 
     private ExportExportDestinationConfiguration() {}
-    /**
-     * @return Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
-     * 
-     */
     public List<ExportExportDestinationConfigurationS3Destination> s3Destinations() {
         return this.s3Destinations == null ? List.of() : this.s3Destinations;
     }

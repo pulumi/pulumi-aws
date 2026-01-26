@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotMultipleValuesSetting {
-    /**
-     * @return Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
-     * 
-     */
     private @Nullable Boolean allowMultipleValues;
 
     private V2modelsSlotMultipleValuesSetting() {}
-    /**
-     * @return Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
-     * 
-     */
     public Optional<Boolean> allowMultipleValues() {
         return Optional.ofNullable(this.allowMultipleValues);
     }

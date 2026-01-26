@@ -14,32 +14,16 @@ public final class VectorsVectorBucketEncryptionConfigurationArgs extends com.pu
 
     public static final VectorsVectorBucketEncryptionConfigurationArgs Empty = new VectorsVectorBucketEncryptionConfigurationArgs();
 
-    /**
-     * AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
-     * 
-     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
 
-    /**
-     * Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-     * 
-     */
     @Import(name="sseType", required=true)
     private Output<String> sseType;
 
-    /**
-     * @return Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-     * 
-     */
     public Output<String> sseType() {
         return this.sseType;
     }
@@ -69,44 +53,20 @@ public final class VectorsVectorBucketEncryptionConfigurationArgs extends com.pu
             $ = new VectorsVectorBucketEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param sseType Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseType(Output<String> sseType) {
             $.sseType = sseType;
             return this;
         }
 
-        /**
-         * @param sseType Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseType(String sseType) {
             return sseType(Output.of(sseType));
         }

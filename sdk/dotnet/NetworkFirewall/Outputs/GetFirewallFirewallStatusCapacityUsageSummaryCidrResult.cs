@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult
     {
-        /// <summary>
-        /// Available number of CIDR blocks available for use by the IP set references in a firewall.
-        /// </summary>
         public readonly int AvailableCidrCount;
-        /// <summary>
-        /// The list of IP set references used by a firewall.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult> IpSetReferences;
-        /// <summary>
-        /// Number of CIDR blocks used by the IP set references in a firewall.
-        /// </summary>
         public readonly int UtilizedCidrCount;
 
         [OutputConstructor]

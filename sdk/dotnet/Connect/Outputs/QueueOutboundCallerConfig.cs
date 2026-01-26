@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class QueueOutboundCallerConfig
     {
-        /// <summary>
-        /// Specifies the caller ID name.
-        /// </summary>
         public readonly string? OutboundCallerIdName;
-        /// <summary>
-        /// Specifies the caller ID number.
-        /// </summary>
         public readonly string? OutboundCallerIdNumberId;
-        /// <summary>
-        /// Specifies outbound whisper flow to be used during an outbound call.
-        /// </summary>
         public readonly string? OutboundFlowId;
 
         [OutputConstructor]

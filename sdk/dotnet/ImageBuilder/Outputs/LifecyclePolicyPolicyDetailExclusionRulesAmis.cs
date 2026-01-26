@@ -13,25 +13,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailExclusionRulesAmis
     {
-        /// <summary>
-        /// Configures whether public AMIs are excluded from the lifecycle action.
-        /// </summary>
         public readonly bool? IsPublic;
-        /// <summary>
-        /// Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched? LastLaunched;
-        /// <summary>
-        /// Configures AWS Regions that are excluded from the lifecycle action.
-        /// </summary>
         public readonly ImmutableArray<string> Regions;
-        /// <summary>
-        /// Specifies AWS accounts whose resources are excluded from the lifecycle action.
-        /// </summary>
         public readonly ImmutableArray<string> SharedAccounts;
-        /// <summary>
-        /// Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? TagMap;
 
         [OutputConstructor]

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class LustreFileSystemDataReadCacheConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `SizingMode` is `USER_PROVISIONED`.
-        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
-        /// <summary>
-        /// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-        /// </summary>
         [Input("sizingMode", required: true)]
         public Input<string> SizingMode { get; set; } = null!;
 

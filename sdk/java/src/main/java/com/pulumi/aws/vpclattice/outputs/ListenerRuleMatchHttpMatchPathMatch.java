@@ -13,33 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleMatchHttpMatchPathMatch {
-    /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
-     * 
-     */
     private @Nullable Boolean caseSensitive;
-    /**
-     * @return The header match type.
-     * See Path Match `match` Block for details.
-     * 
-     */
     private ListenerRuleMatchHttpMatchPathMatchMatch match;
 
     private ListenerRuleMatchHttpMatchPathMatch() {}
-    /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
-     * 
-     */
     public Optional<Boolean> caseSensitive() {
         return Optional.ofNullable(this.caseSensitive);
     }
-    /**
-     * @return The header match type.
-     * See Path Match `match` Block for details.
-     * 
-     */
     public ListenerRuleMatchHttpMatchPathMatchMatch match() {
         return this.match;
     }

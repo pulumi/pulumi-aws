@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a Global Accelerator custom routing accelerator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const acceleratorArn = config.get("acceleratorArn") || "";
- * const acceleratorName = config.get("acceleratorName") || "";
- * const example = aws.globalaccelerator.getCustomRoutingAccelerator({
- *     arn: acceleratorArn,
- *     name: acceleratorName,
- * });
- * ```
- */
 export function getCustomRoutingAccelerator(args?: GetCustomRoutingAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomRoutingAcceleratorResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,15 +21,7 @@ export function getCustomRoutingAccelerator(args?: GetCustomRoutingAcceleratorAr
  * A collection of arguments for invoking getCustomRoutingAccelerator.
  */
 export interface GetCustomRoutingAcceleratorArgs {
-    /**
-     * Full ARN of the custom routing accelerator.
-     */
     arn?: string;
-    /**
-     * Unique name of the custom routing accelerator.
-     *
-     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     */
     name?: string;
     tags?: {[key: string]: string};
 }
@@ -70,24 +44,6 @@ export interface GetCustomRoutingAcceleratorResult {
     readonly name: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Provides information about a Global Accelerator custom routing accelerator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const acceleratorArn = config.get("acceleratorArn") || "";
- * const acceleratorName = config.get("acceleratorName") || "";
- * const example = aws.globalaccelerator.getCustomRoutingAccelerator({
- *     arn: acceleratorArn,
- *     name: acceleratorName,
- * });
- * ```
- */
 export function getCustomRoutingAcceleratorOutput(args?: GetCustomRoutingAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomRoutingAcceleratorResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -102,15 +58,7 @@ export function getCustomRoutingAcceleratorOutput(args?: GetCustomRoutingAcceler
  * A collection of arguments for invoking getCustomRoutingAccelerator.
  */
 export interface GetCustomRoutingAcceleratorOutputArgs {
-    /**
-     * Full ARN of the custom routing accelerator.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Unique name of the custom routing accelerator.
-     *
-     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

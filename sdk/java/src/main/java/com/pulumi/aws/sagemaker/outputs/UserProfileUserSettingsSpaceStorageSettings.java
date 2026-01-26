@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsSpaceStorageSettings {
-    /**
-     * @return The default EBS storage settings for a private space. See Default EBS Storage Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings defaultEbsStorageSettings;
 
     private UserProfileUserSettingsSpaceStorageSettings() {}
-    /**
-     * @return The default EBS storage settings for a private space. See Default EBS Storage Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings> defaultEbsStorageSettings() {
         return Optional.ofNullable(this.defaultEbsStorageSettings);
     }

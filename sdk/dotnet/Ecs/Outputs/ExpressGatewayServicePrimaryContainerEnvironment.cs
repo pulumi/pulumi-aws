@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ExpressGatewayServicePrimaryContainerEnvironment
     {
-        /// <summary>
-        /// Name of the environment variable.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value of the environment variable.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

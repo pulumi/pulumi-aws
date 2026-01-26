@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Workspaces.Inputs
 
     public sealed class WorkspaceWorkspacePropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
-        /// </summary>
         [Input("computeTypeName")]
         public Input<string>? ComputeTypeName { get; set; }
 
-        /// <summary>
-        /// The size of the root volume.
-        /// </summary>
         [Input("rootVolumeSizeGib")]
         public Input<int>? RootVolumeSizeGib { get; set; }
 
-        /// <summary>
-        /// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-        /// </summary>
         [Input("runningMode")]
         public Input<string>? RunningMode { get; set; }
 
-        /// <summary>
-        /// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-        /// </summary>
         [Input("runningModeAutoStopTimeoutInMinutes")]
         public Input<int>? RunningModeAutoStopTimeoutInMinutes { get; set; }
 
-        /// <summary>
-        /// The size of the user storage.
-        /// </summary>
         [Input("userVolumeSizeGib")]
         public Input<int>? UserVolumeSizeGib { get; set; }
 

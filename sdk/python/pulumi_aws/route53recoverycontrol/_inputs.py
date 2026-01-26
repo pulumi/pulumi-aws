@@ -26,13 +26,7 @@ MYPY = False
 if not MYPY:
     class ClusterClusterEndpointArgsDict(TypedDict):
         endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cluster endpoint.
-        """
         region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region of the endpoint.
-        """
 elif False:
     ClusterClusterEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -41,10 +35,6 @@ class ClusterClusterEndpointArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] endpoint: Cluster endpoint.
-        :param pulumi.Input[_builtins.str] region: Region of the endpoint.
-        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -53,9 +43,6 @@ class ClusterClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Cluster endpoint.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -65,9 +52,6 @@ class ClusterClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region of the endpoint.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,17 +62,8 @@ class ClusterClusterEndpointArgs:
 if not MYPY:
     class SafetyRuleRuleConfigArgsDict(TypedDict):
         inverted: pulumi.Input[_builtins.bool]
-        """
-        Logical negation of the rule.
-        """
         threshold: pulumi.Input[_builtins.int]
-        """
-        Number of controls that must be set when you specify an `ATLEAST` type rule.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-        """
 elif False:
     SafetyRuleRuleConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -98,11 +73,6 @@ class SafetyRuleRuleConfigArgs:
                  inverted: pulumi.Input[_builtins.bool],
                  threshold: pulumi.Input[_builtins.int],
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.bool] inverted: Logical negation of the rule.
-        :param pulumi.Input[_builtins.int] threshold: Number of controls that must be set when you specify an `ATLEAST` type rule.
-        :param pulumi.Input[_builtins.str] type: Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-        """
         pulumi.set(__self__, "inverted", inverted)
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
@@ -110,9 +80,6 @@ class SafetyRuleRuleConfigArgs:
     @_builtins.property
     @pulumi.getter
     def inverted(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Logical negation of the rule.
-        """
         return pulumi.get(self, "inverted")
 
     @inverted.setter
@@ -122,9 +89,6 @@ class SafetyRuleRuleConfigArgs:
     @_builtins.property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[_builtins.int]:
-        """
-        Number of controls that must be set when you specify an `ATLEAST` type rule.
-        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -134,9 +98,6 @@ class SafetyRuleRuleConfigArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter

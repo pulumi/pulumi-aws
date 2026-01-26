@@ -16,92 +16,44 @@ public final class GetCatalogTablePlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetCatalogTablePlainArgs Empty = new GetCatalogTablePlainArgs();
 
-    /**
-     * ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable String catalogId;
 
-    /**
-     * @return ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Name of the metadata database where the table metadata resides.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private String databaseName;
 
-    /**
-     * @return Name of the metadata database where the table metadata resides.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Name of the table.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the table.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
-     * 
-     */
     @Import(name="queryAsOfTime")
     private @Nullable String queryAsOfTime;
 
-    /**
-     * @return The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
-     * 
-     */
     public Optional<String> queryAsOfTime() {
         return Optional.ofNullable(this.queryAsOfTime);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The transaction ID at which to read the table contents.
-     * 
-     */
     @Import(name="transactionId")
     private @Nullable Integer transactionId;
 
-    /**
-     * @return The transaction ID at which to read the table contents.
-     * 
-     */
     public Optional<Integer> transactionId() {
         return Optional.ofNullable(this.transactionId);
     }
@@ -135,67 +87,31 @@ public final class GetCatalogTablePlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetCatalogTablePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the metadata database where the table metadata resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param name Name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param queryAsOfTime The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryAsOfTime(@Nullable String queryAsOfTime) {
             $.queryAsOfTime = queryAsOfTime;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param transactionId The transaction ID at which to read the table contents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transactionId(@Nullable Integer transactionId) {
             $.transactionId = transactionId;
             return this;

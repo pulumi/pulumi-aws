@@ -25,10 +25,6 @@ class AttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Attachment resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[_builtins.str] elb: Name of the ELB.
-        :param pulumi.Input[_builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
@@ -41,9 +37,6 @@ class AttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of ASG to associate with the ELB.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -53,9 +46,6 @@ class AttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def elb(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the ELB.
-        """
         return pulumi.get(self, "elb")
 
     @elb.setter
@@ -65,9 +55,6 @@ class AttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="lbTargetGroupArn")
     def lb_target_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of a load balancer target group.
-        """
         return pulumi.get(self, "lb_target_group_arn")
 
     @lb_target_group_arn.setter
@@ -77,9 +64,6 @@ class AttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,10 +80,6 @@ class _AttachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Attachment resources.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[_builtins.str] elb: Name of the ELB.
-        :param pulumi.Input[_builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if autoscaling_group_name is not None:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
@@ -113,9 +93,6 @@ class _AttachmentState:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of ASG to associate with the ELB.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -125,9 +102,6 @@ class _AttachmentState:
     @_builtins.property
     @pulumi.getter
     def elb(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the ELB.
-        """
         return pulumi.get(self, "elb")
 
     @elb.setter
@@ -137,9 +111,6 @@ class _AttachmentState:
     @_builtins.property
     @pulumi.getter(name="lbTargetGroupArn")
     def lb_target_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of a load balancer target group.
-        """
         return pulumi.get(self, "lb_target_group_arn")
 
     @lb_target_group_arn.setter
@@ -149,9 +120,6 @@ class _AttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -171,38 +139,9 @@ class Attachment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches a load balancer to an Auto Scaling group.
-
-        > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=example_aws_autoscaling_group["id"],
-            elb=example_aws_elb["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new ALB Target Group attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=example_aws_autoscaling_group["id"],
-            lb_target_group_arn=example_aws_lb_target_group["arn"])
-        ```
-
+        Create a Attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[_builtins.str] elb: Name of the ELB.
-        :param pulumi.Input[_builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -211,32 +150,7 @@ class Attachment(pulumi.CustomResource):
                  args: AttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a load balancer to an Auto Scaling group.
-
-        > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=example_aws_autoscaling_group["id"],
-            elb=example_aws_elb["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new ALB Target Group attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=example_aws_autoscaling_group["id"],
-            lb_target_group_arn=example_aws_lb_target_group["arn"])
-        ```
-
+        Create a Attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,10 +206,6 @@ class Attachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[_builtins.str] elb: Name of the ELB.
-        :param pulumi.Input[_builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,32 +220,20 @@ class Attachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of ASG to associate with the ELB.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @_builtins.property
     @pulumi.getter
     def elb(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of the ELB.
-        """
         return pulumi.get(self, "elb")
 
     @_builtins.property
     @pulumi.getter(name="lbTargetGroupArn")
     def lb_target_group_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of a load balancer target group.
-        """
         return pulumi.get(self, "lb_target_group_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

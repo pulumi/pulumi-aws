@@ -4,76 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Connect instance resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- *
- * !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits). For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance. Use care when creating or deleting instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Instance("test", {
- *     identityManagementType: "CONNECT_MANAGED",
- *     inboundCallsEnabled: true,
- *     instanceAlias: "friendly-name-connect",
- *     outboundCallsEnabled: true,
- *     tags: {
- *         hello: "world",
- *     },
- * });
- * ```
- *
- * ### With Existing Active Directory
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Instance("test", {
- *     directoryId: testAwsDirectoryServiceDirectory.id,
- *     identityManagementType: "EXISTING_DIRECTORY",
- *     inboundCallsEnabled: true,
- *     instanceAlias: "friendly-name-connect",
- *     outboundCallsEnabled: true,
- * });
- * ```
- *
- * ### With SAML
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Instance("test", {
- *     identityManagementType: "SAML",
- *     inboundCallsEnabled: true,
- *     instanceAlias: "friendly-name-connect",
- *     outboundCallsEnabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `id` - (String) ID of the connect instance.
- *
- * #### Optional
- *
- * - `account_id` (String) AWS Account where this resource is managed.
- *
- * - `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import Connect instances using the `id`. For example:
- *
- * % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
- */
 export class Instance extends pulumi.CustomResource {
     /**
      * Get an existing Instance resource's state with the given name, ID, and optional extra
@@ -102,74 +32,22 @@ export class Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Instance.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the instance.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
-     */
     declare public readonly autoResolveBestVoicesEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies whether contact flow logs are enabled. Defaults to `false`.
-     */
     declare public readonly contactFlowLogsEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies whether contact lens is enabled. Defaults to `true`.
-     */
     declare public readonly contactLensEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * When the instance was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
-     */
     declare public readonly directoryId: pulumi.Output<string | undefined>;
-    /**
-     * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
-     */
     declare public readonly earlyMediaEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
-     */
     declare public readonly identityManagementType: pulumi.Output<string>;
-    /**
-     * Specifies whether inbound calls are enabled.
-     */
     declare public readonly inboundCallsEnabled: pulumi.Output<boolean>;
-    /**
-     * Specifies the name of the instance. Required if `directoryId` not specified.
-     */
     declare public readonly instanceAlias: pulumi.Output<string | undefined>;
-    /**
-     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
-     */
     declare public readonly multiPartyConferenceEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies whether outbound calls are enabled.
-     */
     declare public readonly outboundCallsEnabled: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The service role of the instance.
-     */
     declare public /*out*/ readonly serviceRole: pulumi.Output<string>;
-    /**
-     * The state of the instance.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -240,74 +118,22 @@ export class Instance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Instance resources.
  */
 export interface InstanceState {
-    /**
-     * Amazon Resource Name (ARN) of the instance.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
-     */
     autoResolveBestVoicesEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether contact flow logs are enabled. Defaults to `false`.
-     */
     contactFlowLogsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether contact lens is enabled. Defaults to `true`.
-     */
     contactLensEnabled?: pulumi.Input<boolean>;
-    /**
-     * When the instance was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
-     */
     directoryId?: pulumi.Input<string>;
-    /**
-     * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
-     */
     earlyMediaEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
-     */
     identityManagementType?: pulumi.Input<string>;
-    /**
-     * Specifies whether inbound calls are enabled.
-     */
     inboundCallsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies the name of the instance. Required if `directoryId` not specified.
-     */
     instanceAlias?: pulumi.Input<string>;
-    /**
-     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
-     */
     multiPartyConferenceEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether outbound calls are enabled.
-     */
     outboundCallsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The service role of the instance.
-     */
     serviceRole?: pulumi.Input<string>;
-    /**
-     * The state of the instance.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -315,53 +141,16 @@ export interface InstanceState {
  * The set of arguments for constructing a Instance resource.
  */
 export interface InstanceArgs {
-    /**
-     * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
-     */
     autoResolveBestVoicesEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether contact flow logs are enabled. Defaults to `false`.
-     */
     contactFlowLogsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether contact lens is enabled. Defaults to `true`.
-     */
     contactLensEnabled?: pulumi.Input<boolean>;
-    /**
-     * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
-     */
     directoryId?: pulumi.Input<string>;
-    /**
-     * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
-     */
     earlyMediaEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
-     */
     identityManagementType: pulumi.Input<string>;
-    /**
-     * Specifies whether inbound calls are enabled.
-     */
     inboundCallsEnabled: pulumi.Input<boolean>;
-    /**
-     * Specifies the name of the instance. Required if `directoryId` not specified.
-     */
     instanceAlias?: pulumi.Input<string>;
-    /**
-     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
-     */
     multiPartyConferenceEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether outbound calls are enabled.
-     */
     outboundCallsEnabled: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

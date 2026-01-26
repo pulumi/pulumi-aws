@@ -51,9 +51,6 @@ class GetContainerRecipesResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of ARNs of the matched Image Builder Container Recipes.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetContainerRecipesResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        Set of names of the matched Image Builder Container Recipes.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -107,25 +101,7 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerRecipesResult:
     """
-    Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_container_recipes(owner="Self",
-        filters=[{
-            "name": "platform",
-            "values": ["Linux"],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -146,25 +122,7 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipesResult]:
     """
-    Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_container_recipes(owner="Self",
-        filters=[{
-            "name": "platform",
-            "values": ["Linux"],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

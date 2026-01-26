@@ -12,70 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an API Gateway Gateway Response for a REST API Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := apigateway.NewRestApi(ctx, "main", &apigateway.RestApiArgs{
-//				Name: pulumi.String("MyDemoAPI"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
-//				RestApiId:    main.ID(),
-//				StatusCode:   pulumi.String("401"),
-//				ResponseType: pulumi.String("UNAUTHORIZED"),
-//				ResponseTemplates: pulumi.StringMap{
-//					"application/json": pulumi.String("{\"message\":$context.error.messageString}"),
-//				},
-//				ResponseParameters: pulumi.StringMap{
-//					"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-// ```
 type Response struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of parameters (paths, query strings and headers) of the Gateway Response.
+	Region             pulumi.StringOutput    `pulumi:"region"`
 	ResponseParameters pulumi.StringMapOutput `pulumi:"responseParameters"`
-	// Map of templates used to transform the response body.
-	ResponseTemplates pulumi.StringMapOutput `pulumi:"responseTemplates"`
-	// Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
-	ResponseType pulumi.StringOutput `pulumi:"responseType"`
-	// String identifier of the associated REST API.
-	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
-	// HTTP status code of the Gateway Response.
-	StatusCode pulumi.StringPtrOutput `pulumi:"statusCode"`
+	ResponseTemplates  pulumi.StringMapOutput `pulumi:"responseTemplates"`
+	ResponseType       pulumi.StringOutput    `pulumi:"responseType"`
+	RestApiId          pulumi.StringOutput    `pulumi:"restApiId"`
+	StatusCode         pulumi.StringPtrOutput `pulumi:"statusCode"`
 }
 
 // NewResponse registers a new resource with the given unique name, arguments, and options.
@@ -114,33 +59,21 @@ func GetResponse(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Response resources.
 type responseState struct {
-	// Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of parameters (paths, query strings and headers) of the Gateway Response.
+	Region             *string           `pulumi:"region"`
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
-	// Map of templates used to transform the response body.
-	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
-	// Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
-	ResponseType *string `pulumi:"responseType"`
-	// String identifier of the associated REST API.
-	RestApiId *string `pulumi:"restApiId"`
-	// HTTP status code of the Gateway Response.
-	StatusCode *string `pulumi:"statusCode"`
+	ResponseTemplates  map[string]string `pulumi:"responseTemplates"`
+	ResponseType       *string           `pulumi:"responseType"`
+	RestApiId          *string           `pulumi:"restApiId"`
+	StatusCode         *string           `pulumi:"statusCode"`
 }
 
 type ResponseState struct {
-	// Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of parameters (paths, query strings and headers) of the Gateway Response.
+	Region             pulumi.StringPtrInput
 	ResponseParameters pulumi.StringMapInput
-	// Map of templates used to transform the response body.
-	ResponseTemplates pulumi.StringMapInput
-	// Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
-	ResponseType pulumi.StringPtrInput
-	// String identifier of the associated REST API.
-	RestApiId pulumi.StringPtrInput
-	// HTTP status code of the Gateway Response.
-	StatusCode pulumi.StringPtrInput
+	ResponseTemplates  pulumi.StringMapInput
+	ResponseType       pulumi.StringPtrInput
+	RestApiId          pulumi.StringPtrInput
+	StatusCode         pulumi.StringPtrInput
 }
 
 func (ResponseState) ElementType() reflect.Type {
@@ -148,34 +81,22 @@ func (ResponseState) ElementType() reflect.Type {
 }
 
 type responseArgs struct {
-	// Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of parameters (paths, query strings and headers) of the Gateway Response.
+	Region             *string           `pulumi:"region"`
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
-	// Map of templates used to transform the response body.
-	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
-	// Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
-	ResponseType string `pulumi:"responseType"`
-	// String identifier of the associated REST API.
-	RestApiId string `pulumi:"restApiId"`
-	// HTTP status code of the Gateway Response.
-	StatusCode *string `pulumi:"statusCode"`
+	ResponseTemplates  map[string]string `pulumi:"responseTemplates"`
+	ResponseType       string            `pulumi:"responseType"`
+	RestApiId          string            `pulumi:"restApiId"`
+	StatusCode         *string           `pulumi:"statusCode"`
 }
 
 // The set of arguments for constructing a Response resource.
 type ResponseArgs struct {
-	// Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of parameters (paths, query strings and headers) of the Gateway Response.
+	Region             pulumi.StringPtrInput
 	ResponseParameters pulumi.StringMapInput
-	// Map of templates used to transform the response body.
-	ResponseTemplates pulumi.StringMapInput
-	// Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
-	ResponseType pulumi.StringInput
-	// String identifier of the associated REST API.
-	RestApiId pulumi.StringInput
-	// HTTP status code of the Gateway Response.
-	StatusCode pulumi.StringPtrInput
+	ResponseTemplates  pulumi.StringMapInput
+	ResponseType       pulumi.StringInput
+	RestApiId          pulumi.StringInput
+	StatusCode         pulumi.StringPtrInput
 }
 
 func (ResponseArgs) ElementType() reflect.Type {
@@ -265,32 +186,26 @@ func (o ResponseOutput) ToResponseOutputWithContext(ctx context.Context) Respons
 	return o
 }
 
-// Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
 func (o ResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of parameters (paths, query strings and headers) of the Gateway Response.
 func (o ResponseOutput) ResponseParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringMapOutput { return v.ResponseParameters }).(pulumi.StringMapOutput)
 }
 
-// Map of templates used to transform the response body.
 func (o ResponseOutput) ResponseTemplates() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringMapOutput { return v.ResponseTemplates }).(pulumi.StringMapOutput)
 }
 
-// Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
 func (o ResponseOutput) ResponseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringOutput { return v.ResponseType }).(pulumi.StringOutput)
 }
 
-// String identifier of the associated REST API.
 func (o ResponseOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
-// HTTP status code of the Gateway Response.
 func (o ResponseOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringPtrOutput { return v.StatusCode }).(pulumi.StringPtrOutput)
 }

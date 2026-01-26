@@ -15,243 +15,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.AccessKey;
- * import com.pulumi.aws.iam.AccessKeyArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.UserPolicy;
- * import com.pulumi.aws.iam.UserPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lbUser = new User("lbUser", UserArgs.builder()
- *             .name("loadbalancer")
- *             .path("/system/")
- *             .build());
- * 
- *         var lb = new AccessKey("lb", AccessKeyArgs.builder()
- *             .user(lbUser.name())
- *             .pgpKey("keybase:some_person_that_exists")
- *             .build());
- * 
- *         final var lbRo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("ec2:Describe*")
- *                 .resources("*")
- *                 .build())
- *             .build());
- * 
- *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()
- *             .name("test")
- *             .user(lbUser.name())
- *             .policy(lbRo.json())
- *             .build());
- * 
- *         ctx.export("secret", lb.encryptedSecret());
- *     }
- * }
- * }
- * </pre>
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.AccessKey;
- * import com.pulumi.aws.iam.AccessKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()
- *             .name("test")
- *             .path("/test/")
- *             .build());
- * 
- *         var testAccessKey = new AccessKey("testAccessKey", AccessKeyArgs.builder()
- *             .user(test.name())
- *             .build());
- * 
- *         ctx.export("awsIamSmtpPasswordV4", testAccessKey.sesSmtpPasswordV4());
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM Access Keys using the identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
- * ```
- * Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
- * 
- */
 @ResourceType(type="aws:iam/accessKey:AccessKey")
 public class AccessKey extends com.pulumi.resources.CustomResource {
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-     * 
-     */
     @Export(name="createDate", refs={String.class}, tree="[0]")
     private Output<String> createDate;
 
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-     * 
-     */
     public Output<String> createDate() {
         return this.createDate;
     }
-    /**
-     * Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
-     * 
-     */
     @Export(name="encryptedSecret", refs={String.class}, tree="[0]")
     private Output<String> encryptedSecret;
 
-    /**
-     * @return Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
-     * 
-     */
     public Output<String> encryptedSecret() {
         return this.encryptedSecret;
     }
-    /**
-     * Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
-     * 
-     */
     @Export(name="encryptedSesSmtpPasswordV4", refs={String.class}, tree="[0]")
     private Output<String> encryptedSesSmtpPasswordV4;
 
-    /**
-     * @return Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
-     * 
-     */
     public Output<String> encryptedSesSmtpPasswordV4() {
         return this.encryptedSesSmtpPasswordV4;
     }
-    /**
-     * Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
-     * 
-     */
     @Export(name="keyFingerprint", refs={String.class}, tree="[0]")
     private Output<String> keyFingerprint;
 
-    /**
-     * @return Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
-     * 
-     */
     public Output<String> keyFingerprint() {
         return this.keyFingerprint;
     }
-    /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
-     * 
-     */
     @Export(name="pgpKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pgpKey;
 
-    /**
-     * @return Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
-     * 
-     */
     public Output<Optional<String>> pgpKey() {
         return Codegen.optional(this.pgpKey);
     }
-    /**
-     * Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
-     * 
-     */
     @Export(name="secret", refs={String.class}, tree="[0]")
     private Output<String> secret;
 
-    /**
-     * @return Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
-     * 
-     */
     public Output<String> secret() {
         return this.secret;
     }
-    /**
-     * Secret access key converted into an SES SMTP password by applying [AWS&#39;s documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
-     * 
-     */
     @Export(name="sesSmtpPasswordV4", refs={String.class}, tree="[0]")
     private Output<String> sesSmtpPasswordV4;
 
-    /**
-     * @return Secret access key converted into an SES SMTP password by applying [AWS&#39;s documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
-     * 
-     */
     public Output<String> sesSmtpPasswordV4() {
         return this.sesSmtpPasswordV4;
     }
-    /**
-     * Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * IAM user to associate with this access key.
-     * 
-     */
     @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
-    /**
-     * @return IAM user to associate with this access key.
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }

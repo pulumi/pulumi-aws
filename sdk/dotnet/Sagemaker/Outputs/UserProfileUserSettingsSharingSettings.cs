@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettingsSharingSettings
     {
-        /// <summary>
-        /// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
-        /// </summary>
         public readonly string? NotebookOutputOption;
-        /// <summary>
-        /// When `NotebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-        /// </summary>
         public readonly string? S3KmsKeyId;
-        /// <summary>
-        /// When `NotebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
-        /// </summary>
         public readonly string? S3OutputPath;
 
         [OutputConstructor]

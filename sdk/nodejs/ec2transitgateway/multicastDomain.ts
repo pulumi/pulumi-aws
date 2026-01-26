@@ -4,125 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EC2 Transit Gateway Multicast Domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const amazonLinux = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["amzn-ami-hvm-*-x86_64-gp2"],
- *         },
- *         {
- *             name: "owner-alias",
- *             values: ["amazon"],
- *         },
- *     ],
- * });
- * const vpc1 = new aws.ec2.Vpc("vpc1", {cidrBlock: "10.0.0.0/16"});
- * const vpc2 = new aws.ec2.Vpc("vpc2", {cidrBlock: "10.1.0.0/16"});
- * const subnet1 = new aws.ec2.Subnet("subnet1", {
- *     vpcId: vpc1.id,
- *     cidrBlock: "10.0.1.0/24",
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * const subnet2 = new aws.ec2.Subnet("subnet2", {
- *     vpcId: vpc1.id,
- *     cidrBlock: "10.0.2.0/24",
- *     availabilityZone: available.then(available => available.names?.[1]),
- * });
- * const subnet3 = new aws.ec2.Subnet("subnet3", {
- *     vpcId: vpc2.id,
- *     cidrBlock: "10.1.1.0/24",
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * const instance1 = new aws.ec2.Instance("instance1", {
- *     ami: amazonLinux.then(amazonLinux => amazonLinux.id),
- *     instanceType: aws.ec2.InstanceType.T2_Micro,
- *     subnetId: subnet1.id,
- * });
- * const instance2 = new aws.ec2.Instance("instance2", {
- *     ami: amazonLinux.then(amazonLinux => amazonLinux.id),
- *     instanceType: aws.ec2.InstanceType.T2_Micro,
- *     subnetId: subnet2.id,
- * });
- * const instance3 = new aws.ec2.Instance("instance3", {
- *     ami: amazonLinux.then(amazonLinux => amazonLinux.id),
- *     instanceType: aws.ec2.InstanceType.T2_Micro,
- *     subnetId: subnet3.id,
- * });
- * const tgw = new aws.ec2transitgateway.TransitGateway("tgw", {multicastSupport: "enable"});
- * const attachment1 = new aws.ec2transitgateway.VpcAttachment("attachment1", {
- *     subnetIds: [
- *         subnet1.id,
- *         subnet2.id,
- *     ],
- *     transitGatewayId: tgw.id,
- *     vpcId: vpc1.id,
- * });
- * const attachment2 = new aws.ec2transitgateway.VpcAttachment("attachment2", {
- *     subnetIds: [subnet3.id],
- *     transitGatewayId: tgw.id,
- *     vpcId: vpc2.id,
- * });
- * const domain = new aws.ec2transitgateway.MulticastDomain("domain", {
- *     transitGatewayId: tgw.id,
- *     staticSourcesSupport: "enable",
- *     tags: {
- *         Name: "Transit_Gateway_Multicast_Domain_Example",
- *     },
- * });
- * const association3 = new aws.ec2transitgateway.MulticastDomainAssociation("association3", {
- *     subnetId: subnet3.id,
- *     transitGatewayAttachmentId: attachment2.id,
- *     transitGatewayMulticastDomainId: domain.id,
- * });
- * const source = new aws.ec2transitgateway.MulticastGroupSource("source", {
- *     groupIpAddress: "224.0.0.1",
- *     networkInterfaceId: instance3.primaryNetworkInterfaceId,
- *     transitGatewayMulticastDomainId: association3.transitGatewayMulticastDomainId,
- * });
- * const association1 = new aws.ec2transitgateway.MulticastDomainAssociation("association1", {
- *     subnetId: subnet1.id,
- *     transitGatewayAttachmentId: attachment1.id,
- *     transitGatewayMulticastDomainId: domain.id,
- * });
- * const association2 = new aws.ec2transitgateway.MulticastDomainAssociation("association2", {
- *     subnetId: subnet2.id,
- *     transitGatewayAttachmentId: attachment2.id,
- *     transitGatewayMulticastDomainId: domain.id,
- * });
- * const member1 = new aws.ec2transitgateway.MulticastGroupMember("member1", {
- *     groupIpAddress: "224.0.0.1",
- *     networkInterfaceId: instance1.primaryNetworkInterfaceId,
- *     transitGatewayMulticastDomainId: association1.transitGatewayMulticastDomainId,
- * });
- * const member2 = new aws.ec2transitgateway.MulticastGroupMember("member2", {
- *     groupIpAddress: "224.0.0.1",
- *     networkInterfaceId: instance2.primaryNetworkInterfaceId,
- *     transitGatewayMulticastDomainId: association1.transitGatewayMulticastDomainId,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
- * ```
- */
 export class MulticastDomain extends pulumi.CustomResource {
     /**
      * Get an existing MulticastDomain resource's state with the given name, ID, and optional extra
@@ -151,41 +32,14 @@ export class MulticastDomain extends pulumi.CustomResource {
         return obj['__pulumiType'] === MulticastDomain.__pulumiType;
     }
 
-    /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     declare public readonly autoAcceptSharedAssociations: pulumi.Output<string | undefined>;
-    /**
-     * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     declare public readonly igmpv2Support: pulumi.Output<string | undefined>;
-    /**
-     * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     declare public readonly staticSourcesSupport: pulumi.Output<string | undefined>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-     */
     declare public readonly transitGatewayId: pulumi.Output<string>;
 
     /**
@@ -234,41 +88,14 @@ export class MulticastDomain extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MulticastDomain resources.
  */
 export interface MulticastDomainState {
-    /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     autoAcceptSharedAssociations?: pulumi.Input<string>;
-    /**
-     * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     igmpv2Support?: pulumi.Input<string>;
-    /**
-     * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     staticSourcesSupport?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-     */
     transitGatewayId?: pulumi.Input<string>;
 }
 
@@ -276,28 +103,10 @@ export interface MulticastDomainState {
  * The set of arguments for constructing a MulticastDomain resource.
  */
 export interface MulticastDomainArgs {
-    /**
-     * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     autoAcceptSharedAssociations?: pulumi.Input<string>;
-    /**
-     * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     igmpv2Support?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     staticSourcesSupport?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-     */
     transitGatewayId: pulumi.Input<string>;
 }

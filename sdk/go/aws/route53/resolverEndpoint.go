@@ -12,96 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver endpoint resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
-//				Name:                 pulumi.String("foo"),
-//				Direction:            pulumi.String("INBOUND"),
-//				ResolverEndpointType: pulumi.String("IPV4"),
-//				SecurityGroupIds: pulumi.StringArray{
-//					sg1.Id,
-//					sg2.Id,
-//				},
-//				IpAddresses: route53.ResolverEndpointIpAddressArray{
-//					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(sn1.Id),
-//					},
-//					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(sn2.Id),
-//						Ip:       pulumi.String("10.0.64.4"),
-//					},
-//				},
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("Do53"),
-//					pulumi.String("DoH"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-// ```
 type ResolverEndpoint struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Route 53 Resolver endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-	Direction pulumi.StringOutput `pulumi:"direction"`
-	// ID of the VPC that you want to create the resolver endpoint in.
-	HostVpcId pulumi.StringOutput `pulumi:"hostVpcId"`
-	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-	IpAddresses ResolverEndpointIpAddressArrayOutput `pulumi:"ipAddresses"`
-	// Friendly name of the Route 53 Resolver endpoint.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Protocols you want to use for the Route 53 Resolver endpoint.
-	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Endpoint IP type. This endpoint type is applied to all IP addresses.
-	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-	ResolverEndpointType pulumi.StringOutput `pulumi:"resolverEndpointType"`
-	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	RniEnhancedMetricsEnabled pulumi.BoolOutput `pulumi:"rniEnhancedMetricsEnabled"`
-	// ID of one or more security groups that you want to use to control access to this VPC.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	TargetNameServerMetricsEnabled pulumi.BoolOutput `pulumi:"targetNameServerMetricsEnabled"`
+	Arn                            pulumi.StringOutput                  `pulumi:"arn"`
+	Direction                      pulumi.StringOutput                  `pulumi:"direction"`
+	HostVpcId                      pulumi.StringOutput                  `pulumi:"hostVpcId"`
+	IpAddresses                    ResolverEndpointIpAddressArrayOutput `pulumi:"ipAddresses"`
+	Name                           pulumi.StringOutput                  `pulumi:"name"`
+	Protocols                      pulumi.StringArrayOutput             `pulumi:"protocols"`
+	Region                         pulumi.StringOutput                  `pulumi:"region"`
+	ResolverEndpointType           pulumi.StringOutput                  `pulumi:"resolverEndpointType"`
+	RniEnhancedMetricsEnabled      pulumi.BoolOutput                    `pulumi:"rniEnhancedMetricsEnabled"`
+	SecurityGroupIds               pulumi.StringArrayOutput             `pulumi:"securityGroupIds"`
+	Tags                           pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	TargetNameServerMetricsEnabled pulumi.BoolOutput                    `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -143,68 +69,34 @@ func GetResolverEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverEndpoint resources.
 type resolverEndpointState struct {
-	// ARN of the Route 53 Resolver endpoint.
-	Arn *string `pulumi:"arn"`
-	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-	Direction *string `pulumi:"direction"`
-	// ID of the VPC that you want to create the resolver endpoint in.
-	HostVpcId *string `pulumi:"hostVpcId"`
-	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
-	// Friendly name of the Route 53 Resolver endpoint.
-	Name *string `pulumi:"name"`
-	// Protocols you want to use for the Route 53 Resolver endpoint.
-	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-	Protocols []string `pulumi:"protocols"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Endpoint IP type. This endpoint type is applied to all IP addresses.
-	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
-	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	RniEnhancedMetricsEnabled *bool `pulumi:"rniEnhancedMetricsEnabled"`
-	// ID of one or more security groups that you want to use to control access to this VPC.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	TargetNameServerMetricsEnabled *bool `pulumi:"targetNameServerMetricsEnabled"`
+	Arn                            *string                     `pulumi:"arn"`
+	Direction                      *string                     `pulumi:"direction"`
+	HostVpcId                      *string                     `pulumi:"hostVpcId"`
+	IpAddresses                    []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
+	Name                           *string                     `pulumi:"name"`
+	Protocols                      []string                    `pulumi:"protocols"`
+	Region                         *string                     `pulumi:"region"`
+	ResolverEndpointType           *string                     `pulumi:"resolverEndpointType"`
+	RniEnhancedMetricsEnabled      *bool                       `pulumi:"rniEnhancedMetricsEnabled"`
+	SecurityGroupIds               []string                    `pulumi:"securityGroupIds"`
+	Tags                           map[string]string           `pulumi:"tags"`
+	TagsAll                        map[string]string           `pulumi:"tagsAll"`
+	TargetNameServerMetricsEnabled *bool                       `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 type ResolverEndpointState struct {
-	// ARN of the Route 53 Resolver endpoint.
-	Arn pulumi.StringPtrInput
-	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-	Direction pulumi.StringPtrInput
-	// ID of the VPC that you want to create the resolver endpoint in.
-	HostVpcId pulumi.StringPtrInput
-	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-	IpAddresses ResolverEndpointIpAddressArrayInput
-	// Friendly name of the Route 53 Resolver endpoint.
-	Name pulumi.StringPtrInput
-	// Protocols you want to use for the Route 53 Resolver endpoint.
-	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-	Protocols pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Endpoint IP type. This endpoint type is applied to all IP addresses.
-	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-	ResolverEndpointType pulumi.StringPtrInput
-	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	RniEnhancedMetricsEnabled pulumi.BoolPtrInput
-	// ID of one or more security groups that you want to use to control access to this VPC.
-	SecurityGroupIds pulumi.StringArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	Arn                            pulumi.StringPtrInput
+	Direction                      pulumi.StringPtrInput
+	HostVpcId                      pulumi.StringPtrInput
+	IpAddresses                    ResolverEndpointIpAddressArrayInput
+	Name                           pulumi.StringPtrInput
+	Protocols                      pulumi.StringArrayInput
+	Region                         pulumi.StringPtrInput
+	ResolverEndpointType           pulumi.StringPtrInput
+	RniEnhancedMetricsEnabled      pulumi.BoolPtrInput
+	SecurityGroupIds               pulumi.StringArrayInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 	TargetNameServerMetricsEnabled pulumi.BoolPtrInput
 }
 
@@ -213,57 +105,29 @@ func (ResolverEndpointState) ElementType() reflect.Type {
 }
 
 type resolverEndpointArgs struct {
-	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-	Direction string `pulumi:"direction"`
-	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
-	// Friendly name of the Route 53 Resolver endpoint.
-	Name *string `pulumi:"name"`
-	// Protocols you want to use for the Route 53 Resolver endpoint.
-	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-	Protocols []string `pulumi:"protocols"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Endpoint IP type. This endpoint type is applied to all IP addresses.
-	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
-	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	RniEnhancedMetricsEnabled *bool `pulumi:"rniEnhancedMetricsEnabled"`
-	// ID of one or more security groups that you want to use to control access to this VPC.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	TargetNameServerMetricsEnabled *bool `pulumi:"targetNameServerMetricsEnabled"`
+	Direction                      string                      `pulumi:"direction"`
+	IpAddresses                    []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
+	Name                           *string                     `pulumi:"name"`
+	Protocols                      []string                    `pulumi:"protocols"`
+	Region                         *string                     `pulumi:"region"`
+	ResolverEndpointType           *string                     `pulumi:"resolverEndpointType"`
+	RniEnhancedMetricsEnabled      *bool                       `pulumi:"rniEnhancedMetricsEnabled"`
+	SecurityGroupIds               []string                    `pulumi:"securityGroupIds"`
+	Tags                           map[string]string           `pulumi:"tags"`
+	TargetNameServerMetricsEnabled *bool                       `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 // The set of arguments for constructing a ResolverEndpoint resource.
 type ResolverEndpointArgs struct {
-	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-	Direction pulumi.StringInput
-	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-	IpAddresses ResolverEndpointIpAddressArrayInput
-	// Friendly name of the Route 53 Resolver endpoint.
-	Name pulumi.StringPtrInput
-	// Protocols you want to use for the Route 53 Resolver endpoint.
-	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-	Protocols pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Endpoint IP type. This endpoint type is applied to all IP addresses.
-	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-	ResolverEndpointType pulumi.StringPtrInput
-	// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-	RniEnhancedMetricsEnabled pulumi.BoolPtrInput
-	// ID of one or more security groups that you want to use to control access to this VPC.
-	SecurityGroupIds pulumi.StringArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
+	Direction                      pulumi.StringInput
+	IpAddresses                    ResolverEndpointIpAddressArrayInput
+	Name                           pulumi.StringPtrInput
+	Protocols                      pulumi.StringArrayInput
+	Region                         pulumi.StringPtrInput
+	ResolverEndpointType           pulumi.StringPtrInput
+	RniEnhancedMetricsEnabled      pulumi.BoolPtrInput
+	SecurityGroupIds               pulumi.StringArrayInput
+	Tags                           pulumi.StringMapInput
 	TargetNameServerMetricsEnabled pulumi.BoolPtrInput
 }
 
@@ -354,71 +218,54 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the Route 53 Resolver endpoint.
 func (o ResolverEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
 func (o ResolverEndpointOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
 }
 
-// ID of the VPC that you want to create the resolver endpoint in.
 func (o ResolverEndpointOutput) HostVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.HostVpcId }).(pulumi.StringOutput)
 }
 
-// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 func (o ResolverEndpointOutput) IpAddresses() ResolverEndpointIpAddressArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) ResolverEndpointIpAddressArrayOutput { return v.IpAddresses }).(ResolverEndpointIpAddressArrayOutput)
 }
 
-// Friendly name of the Route 53 Resolver endpoint.
 func (o ResolverEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Protocols you want to use for the Route 53 Resolver endpoint.
-// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 func (o ResolverEndpointOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Endpoint IP type. This endpoint type is applied to all IP addresses.
-// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 func (o ResolverEndpointOutput) ResolverEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }
 
-// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
 func (o ResolverEndpointOutput) RniEnhancedMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.BoolOutput { return v.RniEnhancedMetricsEnabled }).(pulumi.BoolOutput)
 }
 
-// ID of one or more security groups that you want to use to control access to this VPC.
 func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
 func (o ResolverEndpointOutput) TargetNameServerMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.BoolOutput { return v.TargetNameServerMetricsEnabled }).(pulumi.BoolOutput)
 }

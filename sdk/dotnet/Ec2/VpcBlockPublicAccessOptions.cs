@@ -9,61 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Resource for managing an AWS VPC Block Public Access Options.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.VpcBlockPublicAccessOptions("example", new()
-    ///     {
-    ///         InternetGatewayBlockMode = "block-bidirectional",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Block Public Access Options using the `aws_region`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")]
     public partial class VpcBlockPublicAccessOptions : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account id to which these options apply.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS region to which these options apply.
-        /// </summary>
         [Output("awsRegion")]
         public Output<string> AwsRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `Off`. If this resource is deleted, then this value will be set to `Off` in the AWS account and region.
-        /// </summary>
         [Output("internetGatewayBlockMode")]
         public Output<string> InternetGatewayBlockMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -116,15 +73,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcBlockPublicAccessOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `Off`. If this resource is deleted, then this value will be set to `Off` in the AWS account and region.
-        /// </summary>
         [Input("internetGatewayBlockMode", required: true)]
         public Input<string> InternetGatewayBlockMode { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -139,27 +90,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcBlockPublicAccessOptionsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account id to which these options apply.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The AWS region to which these options apply.
-        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
-        /// <summary>
-        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `Off`. If this resource is deleted, then this value will be set to `Off` in the AWS account and region.
-        /// </summary>
         [Input("internetGatewayBlockMode")]
         public Input<string>? InternetGatewayBlockMode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

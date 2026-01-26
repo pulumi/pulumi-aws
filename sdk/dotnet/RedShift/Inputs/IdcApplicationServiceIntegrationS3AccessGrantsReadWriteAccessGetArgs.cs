@@ -12,9 +12,6 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Determines whether read/write scope is enabled or disabled.
-        /// </summary>
         [Input("authorization", required: true)]
         public Input<string> Authorization { get; set; } = null!;
 

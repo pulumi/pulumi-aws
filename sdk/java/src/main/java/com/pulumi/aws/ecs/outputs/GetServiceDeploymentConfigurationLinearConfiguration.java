@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeploymentConfigurationLinearConfiguration {
-    /**
-     * @return Time to wait between deployment steps
-     * 
-     */
     private String stepBakeTimeInMinutes;
-    /**
-     * @return Percentage of traffic to shift in each step
-     * 
-     */
     private Double stepPercent;
 
     private GetServiceDeploymentConfigurationLinearConfiguration() {}
-    /**
-     * @return Time to wait between deployment steps
-     * 
-     */
     public String stepBakeTimeInMinutes() {
         return this.stepBakeTimeInMinutes;
     }
-    /**
-     * @return Percentage of traffic to shift in each step
-     * 
-     */
     public Double stepPercent() {
         return this.stepPercent;
     }

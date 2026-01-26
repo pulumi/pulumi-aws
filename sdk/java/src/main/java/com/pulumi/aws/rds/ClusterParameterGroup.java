@@ -17,191 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an RDS DB cluster parameter group resource. Documentation of the available parameters for various Aurora engines can be found at:
- * 
- * * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
- * * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.ClusterParameterGroup;
- * import com.pulumi.aws.rds.ClusterParameterGroupArgs;
- * import com.pulumi.aws.rds.inputs.ClusterParameterGroupParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new ClusterParameterGroup("default", ClusterParameterGroupArgs.builder()
- *             .name("rds-cluster-pg")
- *             .family("aurora5.6")
- *             .description("RDS default cluster parameter group")
- *             .parameters(            
- *                 ClusterParameterGroupParameterArgs.builder()
- *                     .name("character_set_server")
- *                     .value("utf8")
- *                     .build(),
- *                 ClusterParameterGroupParameterArgs.builder()
- *                     .name("character_set_client")
- *                     .value("utf8")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
- * ```
- * 
- */
 @ResourceType(type="aws:rds/clusterParameterGroup:ClusterParameterGroup")
 public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the db cluster parameter group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the db cluster parameter group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The family of the DB cluster parameter group.
-     * 
-     */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
-    /**
-     * @return The family of the DB cluster parameter group.
-     * 
-     */
     public Output<String> family() {
         return this.family;
     }
-    /**
-     * The name of the DB parameter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the DB parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
-     * 
-     */
     @Export(name="parameters", refs={List.class,ClusterParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterParameterGroupParameter>> parameters;
 
-    /**
-     * @return A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
-     * 
-     */
     public Output<Optional<List<ClusterParameterGroupParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

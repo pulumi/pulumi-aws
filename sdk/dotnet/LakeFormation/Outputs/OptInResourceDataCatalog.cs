@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceDataCatalog
     {
-        /// <summary>
-        /// Identifier for the catalog resource.
-        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

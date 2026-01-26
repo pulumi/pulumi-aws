@@ -13,148 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS IdentityStore Group Membership.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
- * import com.pulumi.aws.identitystore.User;
- * import com.pulumi.aws.identitystore.UserArgs;
- * import com.pulumi.aws.identitystore.inputs.UserNameArgs;
- * import com.pulumi.aws.identitystore.Group;
- * import com.pulumi.aws.identitystore.GroupArgs;
- * import com.pulumi.aws.identitystore.GroupMembership;
- * import com.pulumi.aws.identitystore.GroupMembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
- *             .build());
- * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .identityStoreId(example.identityStoreIds()[0])
- *             .displayName("John Doe")
- *             .userName("john.doe}{@literal @}{@code example.com")
- *             .name(UserNameArgs.builder()
- *                 .familyName("Doe")
- *                 .givenName("John")
- *                 .build())
- *             .build());
- * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .identityStoreId(example.identityStoreIds()[0])
- *             .displayName("MyGroup")
- *             .description("Some group name")
- *             .build());
- * 
- *         var exampleGroupMembership = new GroupMembership("exampleGroupMembership", GroupMembershipArgs.builder()
- *             .identityStoreId(example.identityStoreIds()[0])
- *             .groupId(exampleGroup.groupId())
- *             .memberId(exampleUser.userId())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
- * ```
- * 
- */
 @ResourceType(type="aws:identitystore/groupMembership:GroupMembership")
 public class GroupMembership extends com.pulumi.resources.CustomResource {
-    /**
-     * The identifier for a group in the Identity Store.
-     * 
-     */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
-    /**
-     * @return The identifier for a group in the Identity Store.
-     * 
-     */
     public Output<String> groupId() {
         return this.groupId;
     }
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     @Export(name="identityStoreId", refs={String.class}, tree="[0]")
     private Output<String> identityStoreId;
 
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     public Output<String> identityStoreId() {
         return this.identityStoreId;
     }
-    /**
-     * The identifier for a user in the Identity Store.
-     * 
-     */
     @Export(name="memberId", refs={String.class}, tree="[0]")
     private Output<String> memberId;
 
-    /**
-     * @return The identifier for a user in the Identity Store.
-     * 
-     */
     public Output<String> memberId() {
         return this.memberId;
     }
-    /**
-     * The identifier of the newly created group membership in the Identity Store.
-     * 
-     */
     @Export(name="membershipId", refs={String.class}, tree="[0]")
     private Output<String> membershipId;
 
-    /**
-     * @return The identifier of the newly created group membership in the Identity Store.
-     * 
-     */
     public Output<String> membershipId() {
         return this.membershipId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

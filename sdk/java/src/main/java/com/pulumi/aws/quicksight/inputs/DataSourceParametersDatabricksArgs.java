@@ -15,47 +15,23 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
 
     public static final DataSourceParametersDatabricksArgs Empty = new DataSourceParametersDatabricksArgs();
 
-    /**
-     * The host name of the Databricks data source.
-     * 
-     */
     @Import(name="host", required=true)
     private Output<String> host;
 
-    /**
-     * @return The host name of the Databricks data source.
-     * 
-     */
     public Output<String> host() {
         return this.host;
     }
 
-    /**
-     * The port for the Databricks data source.
-     * 
-     */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
-    /**
-     * @return The port for the Databricks data source.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
 
-    /**
-     * The HTTP path of the Databricks data source.
-     * 
-     */
     @Import(name="sqlEndpointPath", required=true)
     private Output<String> sqlEndpointPath;
 
-    /**
-     * @return The HTTP path of the Databricks data source.
-     * 
-     */
     public Output<String> sqlEndpointPath() {
         return this.sqlEndpointPath;
     }
@@ -86,65 +62,29 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
             $ = new DataSourceParametersDatabricksArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param host The host name of the Databricks data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder host(Output<String> host) {
             $.host = host;
             return this;
         }
 
-        /**
-         * @param host The host name of the Databricks data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder host(String host) {
             return host(Output.of(host));
         }
 
-        /**
-         * @param port The port for the Databricks data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port for the Databricks data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param sqlEndpointPath The HTTP path of the Databricks data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlEndpointPath(Output<String> sqlEndpointPath) {
             $.sqlEndpointPath = sqlEndpointPath;
             return this;
         }
 
-        /**
-         * @param sqlEndpointPath The HTTP path of the Databricks data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlEndpointPath(String sqlEndpointPath) {
             return sqlEndpointPath(Output.of(sqlEndpointPath));
         }

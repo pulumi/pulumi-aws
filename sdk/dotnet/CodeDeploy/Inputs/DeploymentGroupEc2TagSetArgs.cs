@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
     {
         [Input("ec2TagFilters")]
         private InputList<Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs>? _ec2TagFilters;
-
-        /// <summary>
-        /// Tag filters associated with the deployment group. See the AWS docs for details.
-        /// </summary>
         public InputList<Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs> Ec2TagFilters
         {
             get => _ec2TagFilters ?? (_ec2TagFilters = new InputList<Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs>());

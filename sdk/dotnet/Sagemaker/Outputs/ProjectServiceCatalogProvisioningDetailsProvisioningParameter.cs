@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ProjectServiceCatalogProvisioningDetailsProvisioningParameter
     {
-        /// <summary>
-        /// The key that identifies a provisioning parameter.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The value of the provisioning parameter.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -19,247 +19,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
- * scales elastically for real-time processing of streaming big data.
- * 
- * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesis.Stream;
- * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testStream = new Stream("testStream", StreamArgs.builder()
- *             .name("kinesis-test")
- *             .shardCount(1)
- *             .retentionPeriod(48)
- *             .shardLevelMetrics(            
- *                 "IncomingBytes",
- *                 "OutgoingBytes")
- *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
- *                 .streamMode("PROVISIONED")
- *                 .build())
- *             .tags(Map.of("Environment", "test"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
- * ```
- * 
- */
 @ResourceType(type="aws:kinesis/stream:Stream")
 public class Stream extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-     * 
-     */
     @Export(name="encryptionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptionType;
 
-    /**
-     * @return The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-     * 
-     */
     public Output<Optional<String>> encryptionType() {
         return Codegen.optional(this.encryptionType);
     }
-    /**
-     * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-     * 
-     */
     @Export(name="enforceConsumerDeletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceConsumerDeletion;
 
-    /**
-     * @return A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> enforceConsumerDeletion() {
         return Codegen.optional(this.enforceConsumerDeletion);
     }
-    /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
-    /**
-     * @return The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
-     * 
-     */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
-    /**
-     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
-     * 
-     */
     @Export(name="maxRecordSizeInKib", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxRecordSizeInKib;
 
-    /**
-     * @return The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
-     * 
-     */
     public Output<Integer> maxRecordSizeInKib() {
         return this.maxRecordSizeInKib;
     }
-    /**
-     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream&#39;s retention period is 8760 hours. Minimum value is 24. Default is 24.
-     * 
-     */
     @Export(name="retentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionPeriod;
 
-    /**
-     * @return Length of time data records are accessible after they are added to the stream. The maximum value of a stream&#39;s retention period is 8760 hours. Minimum value is 24. Default is 24.
-     * 
-     */
     public Output<Optional<Integer>> retentionPeriod() {
         return Codegen.optional(this.retentionPeriod);
     }
-    /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-     * 
-     */
     @Export(name="shardCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> shardCount;
 
-    /**
-     * @return The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-     * 
-     */
     public Output<Optional<Integer>> shardCount() {
         return Codegen.optional(this.shardCount);
     }
-    /**
-     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-     * 
-     */
     @Export(name="shardLevelMetrics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> shardLevelMetrics;
 
-    /**
-     * @return A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-     * 
-     */
     public Output<Optional<List<String>>> shardLevelMetrics() {
         return Codegen.optional(this.shardLevelMetrics);
     }
-    /**
-     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-     * 
-     */
     @Export(name="streamModeDetails", refs={StreamStreamModeDetails.class}, tree="[0]")
     private Output<StreamStreamModeDetails> streamModeDetails;
 
-    /**
-     * @return Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-     * 
-     */
     public Output<StreamStreamModeDetails> streamModeDetails() {
         return this.streamModeDetails;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

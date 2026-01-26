@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference {
-    /**
-     * @return Name of the customer managed IAM Policy to be attached.
-     * 
-     */
     private String name;
-    /**
-     * @return The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-     * 
-     */
     private @Nullable String path;
 
     private CustomerManagedPolicyAttachmentCustomerManagedPolicyReference() {}
-    /**
-     * @return Name of the customer managed IAM Policy to be attached.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }

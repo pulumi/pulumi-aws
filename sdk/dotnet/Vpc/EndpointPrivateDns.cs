@@ -9,59 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpc
 {
-    /// <summary>
-    /// Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
-    /// 
-    /// &gt; When using this resource, the `PrivateDnsEnabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
-    /// Setting the value both places can lead to unintended behavior and persistent differences.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Vpc.EndpointPrivateDns("example", new()
-    ///     {
-    ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
-    ///         PrivateDnsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `vpc_endpoint_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpc/endpointPrivateDns:EndpointPrivateDns")]
     public partial class EndpointPrivateDns : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-        /// </summary>
         [Output("privateDnsEnabled")]
         public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// VPC endpoint identifier.
-        /// </summary>
         [Output("vpcEndpointId")]
         public Output<string> VpcEndpointId { get; private set; } = null!;
 
@@ -111,21 +67,12 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class EndpointPrivateDnsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-        /// </summary>
         [Input("privateDnsEnabled", required: true)]
         public Input<bool> PrivateDnsEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// VPC endpoint identifier.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
@@ -137,21 +84,12 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class EndpointPrivateDnsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-        /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// VPC endpoint identifier.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 

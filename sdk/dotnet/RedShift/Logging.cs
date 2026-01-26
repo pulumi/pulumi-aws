@@ -9,102 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Resource for managing an AWS Redshift Logging configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.Logging("example", new()
-    ///     {
-    ///         ClusterIdentifier = exampleAwsRedshiftCluster.Id,
-    ///         LogDestinationType = "cloudwatch",
-    ///         LogExports = new[]
-    ///         {
-    ///             "connectionlog",
-    ///             "userlog",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### S3 Destination Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.Logging("example", new()
-    ///     {
-    ///         ClusterIdentifier = exampleAwsRedshiftCluster.Id,
-    ///         LogDestinationType = "s3",
-    ///         BucketName = exampleAwsS3Bucket.Id,
-    ///         S3KeyPrefix = "example-prefix/",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Logging using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/logging:Logging")]
     public partial class Logging : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of an existing S3 bucket where the log files are to be stored. Required when `LogDestinationType` is `S3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        /// </summary>
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the source cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Log destination type. Valid values are `S3` and `Cloudwatch`.
-        /// </summary>
         [Output("logDestinationType")]
         public Output<string?> LogDestinationType { get; private set; } = null!;
 
-        /// <summary>
-        /// Collection of exported log types. Required when `LogDestinationType` is `Cloudwatch`. Valid values are `Connectionlog`, `Useractivitylog`, and `Userlog`.
-        /// </summary>
         [Output("logExports")]
         public Output<ImmutableArray<string>> LogExports { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Prefix applied to the log file names.
-        /// </summary>
         [Output("s3KeyPrefix")]
         public Output<string?> S3KeyPrefix { get; private set; } = null!;
 
@@ -154,47 +76,26 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class LoggingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of an existing S3 bucket where the log files are to be stored. Required when `LogDestinationType` is `S3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// Identifier of the source cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Log destination type. Valid values are `S3` and `Cloudwatch`.
-        /// </summary>
         [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }
 
         [Input("logExports")]
         private InputList<string>? _logExports;
-
-        /// <summary>
-        /// Collection of exported log types. Required when `LogDestinationType` is `Cloudwatch`. Valid values are `Connectionlog`, `Useractivitylog`, and `Userlog`.
-        /// </summary>
         public InputList<string> LogExports
         {
             get => _logExports ?? (_logExports = new InputList<string>());
             set => _logExports = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Prefix applied to the log file names.
-        /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 
@@ -206,47 +107,26 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class LoggingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of an existing S3 bucket where the log files are to be stored. Required when `LogDestinationType` is `S3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// Identifier of the source cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// Log destination type. Valid values are `S3` and `Cloudwatch`.
-        /// </summary>
         [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }
 
         [Input("logExports")]
         private InputList<string>? _logExports;
-
-        /// <summary>
-        /// Collection of exported log types. Required when `LogDestinationType` is `Cloudwatch`. Valid values are `Connectionlog`, `Useractivitylog`, and `Userlog`.
-        /// </summary>
         public InputList<string> LogExports
         {
             get => _logExports ?? (_logExports = new InputList<string>());
             set => _logExports = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Prefix applied to the log file names.
-        /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 

@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 public final class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
     private @Nullable List<String> exclusionFilters;
     private @Nullable List<String> inclusionFilters;
-    /**
-     * @return The supported object type or content type of the data source.
-     * 
-     */
     private String objectType;
 
     private AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter() {}
@@ -27,10 +23,6 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     public List<String> inclusionFilters() {
         return this.inclusionFilters == null ? List.of() : this.inclusionFilters;
     }
-    /**
-     * @return The supported object type or content type of the data source.
-     * 
-     */
     public String objectType() {
         return this.objectType;
     }

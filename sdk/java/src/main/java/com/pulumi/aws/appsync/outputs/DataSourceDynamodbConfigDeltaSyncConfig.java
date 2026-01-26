@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceDynamodbConfigDeltaSyncConfig {
-    /**
-     * @return The number of minutes that an Item is stored in the data source.
-     * 
-     */
     private @Nullable Integer baseTableTtl;
-    /**
-     * @return The table name.
-     * 
-     */
     private String deltaSyncTableName;
-    /**
-     * @return The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-     * 
-     */
     private @Nullable Integer deltaSyncTableTtl;
 
     private DataSourceDynamodbConfigDeltaSyncConfig() {}
-    /**
-     * @return The number of minutes that an Item is stored in the data source.
-     * 
-     */
     public Optional<Integer> baseTableTtl() {
         return Optional.ofNullable(this.baseTableTtl);
     }
-    /**
-     * @return The table name.
-     * 
-     */
     public String deltaSyncTableName() {
         return this.deltaSyncTableName;
     }
-    /**
-     * @return The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-     * 
-     */
     public Optional<Integer> deltaSyncTableTtl() {
         return Optional.ofNullable(this.deltaSyncTableTtl);
     }

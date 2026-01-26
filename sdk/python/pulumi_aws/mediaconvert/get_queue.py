@@ -49,9 +49,6 @@ class GetQueueResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Arn of the queue.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -62,9 +59,6 @@ class GetQueueResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The same as `id`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -75,17 +69,11 @@ class GetQueueResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The status of the queue.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -108,21 +96,7 @@ def get_queue(id: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
-    Retrieve information about a AWS Elemental MediaConvert Queue.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mediaconvert.get_queue(id="tf-example-queue")
-    ```
-
-
-    :param _builtins.str id: Unique identifier of the queue. The same as `name`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -143,21 +117,7 @@ def get_queue_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
-    Retrieve information about a AWS Elemental MediaConvert Queue.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mediaconvert.get_queue(id="tf-example-queue")
-    ```
-
-
-    :param _builtins.str id: Unique identifier of the queue. The same as `name`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

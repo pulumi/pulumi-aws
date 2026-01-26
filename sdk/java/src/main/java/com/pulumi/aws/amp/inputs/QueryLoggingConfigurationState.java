@@ -18,32 +18,16 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
 
     public static final QueryLoggingConfigurationState Empty = new QueryLoggingConfigurationState();
 
-    /**
-     * Configuration block for the logging destinations. See `destinations`.
-     * 
-     */
     @Import(name="destinations")
     private @Nullable Output<List<QueryLoggingConfigurationDestinationArgs>> destinations;
 
-    /**
-     * @return Configuration block for the logging destinations. See `destinations`.
-     * 
-     */
     public Optional<Output<List<QueryLoggingConfigurationDestinationArgs>>> destinations() {
         return Optional.ofNullable(this.destinations);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -55,21 +39,9 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The ID of the AMP workspace for which to configure query logging.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
-    /**
-     * @return The ID of the AMP workspace for which to configure query logging.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
@@ -101,54 +73,24 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
             $ = new QueryLoggingConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinations Configuration block for the logging destinations. See `destinations`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(@Nullable Output<List<QueryLoggingConfigurationDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
 
-        /**
-         * @param destinations Configuration block for the logging destinations. See `destinations`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(List<QueryLoggingConfigurationDestinationArgs> destinations) {
             return destinations(Output.of(destinations));
         }
 
-        /**
-         * @param destinations Configuration block for the logging destinations. See `destinations`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(QueryLoggingConfigurationDestinationArgs... destinations) {
             return destinations(List.of(destinations));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -162,27 +104,11 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param workspaceId The ID of the AMP workspace for which to configure query logging.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId The ID of the AMP workspace for which to configure query logging.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

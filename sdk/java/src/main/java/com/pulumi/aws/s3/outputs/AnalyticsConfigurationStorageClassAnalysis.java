@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalyticsConfigurationStorageClassAnalysis {
-    /**
-     * @return Data export configuration (documented below).
-     * 
-     */
     private AnalyticsConfigurationStorageClassAnalysisDataExport dataExport;
 
     private AnalyticsConfigurationStorageClassAnalysis() {}
-    /**
-     * @return Data export configuration (documented below).
-     * 
-     */
     public AnalyticsConfigurationStorageClassAnalysisDataExport dataExport() {
         return this.dataExport;
     }

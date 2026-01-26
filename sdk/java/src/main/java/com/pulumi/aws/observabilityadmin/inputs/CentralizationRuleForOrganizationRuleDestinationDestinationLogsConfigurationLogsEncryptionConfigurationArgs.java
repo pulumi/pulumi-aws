@@ -16,47 +16,23 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
 
     public static final CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs Empty = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs();
 
-    /**
-     * Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     @Import(name="encryptionConflictResolutionStrategy")
     private @Nullable Output<String> encryptionConflictResolutionStrategy;
 
-    /**
-     * @return Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     public Optional<Output<String>> encryptionConflictResolutionStrategy() {
         return Optional.ofNullable(this.encryptionConflictResolutionStrategy);
     }
 
-    /**
-     * Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-     * 
-     */
     @Import(name="encryptionStrategy", required=true)
     private Output<String> encryptionStrategy;
 
-    /**
-     * @return Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-     * 
-     */
     public Output<String> encryptionStrategy() {
         return this.encryptionStrategy;
     }
 
-    /**
-     * ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -87,65 +63,29 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
             $ = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionConflictResolutionStrategy Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConflictResolutionStrategy(@Nullable Output<String> encryptionConflictResolutionStrategy) {
             $.encryptionConflictResolutionStrategy = encryptionConflictResolutionStrategy;
             return this;
         }
 
-        /**
-         * @param encryptionConflictResolutionStrategy Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConflictResolutionStrategy(String encryptionConflictResolutionStrategy) {
             return encryptionConflictResolutionStrategy(Output.of(encryptionConflictResolutionStrategy));
         }
 
-        /**
-         * @param encryptionStrategy Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionStrategy(Output<String> encryptionStrategy) {
             $.encryptionStrategy = encryptionStrategy;
             return this;
         }
 
-        /**
-         * @param encryptionStrategy Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionStrategy(String encryptionStrategy) {
             return encryptionStrategy(Output.of(encryptionStrategy));
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

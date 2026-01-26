@@ -12,17 +12,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class GetPermissionsDatabaseInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the database resource. Unique to the Data Catalog.
-        /// 
-        /// The following argument is optional:
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

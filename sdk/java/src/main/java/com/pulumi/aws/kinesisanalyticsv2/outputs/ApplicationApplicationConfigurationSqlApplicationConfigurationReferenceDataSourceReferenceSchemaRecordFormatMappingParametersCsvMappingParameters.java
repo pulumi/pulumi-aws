@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
-    /**
-     * @return The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-     * 
-     */
     private String recordColumnDelimiter;
-    /**
-     * @return The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
-     * 
-     */
     private String recordRowDelimiter;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters() {}
-    /**
-     * @return The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-     * 
-     */
     public String recordColumnDelimiter() {
         return this.recordColumnDelimiter;
     }
-    /**
-     * @return The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
-     * 
-     */
     public String recordRowDelimiter() {
         return this.recordRowDelimiter;
     }

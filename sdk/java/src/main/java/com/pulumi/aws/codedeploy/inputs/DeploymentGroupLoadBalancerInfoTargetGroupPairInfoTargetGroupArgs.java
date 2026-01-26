@@ -14,17 +14,9 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
 
     public static final DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs Empty = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs();
 
-    /**
-     * Name of the target group.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the target group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,23 +45,11 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
             $ = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

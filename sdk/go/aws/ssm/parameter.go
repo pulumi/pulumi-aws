@@ -12,149 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SSM Parameter resource.
-//
-// > **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
-//
-// ## Example Usage
-//
-// ### Basic example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
-//				Name:  pulumi.String("foo"),
-//				Type:  pulumi.String(ssm.ParameterTypeString),
-//				Value: pulumi.String("bar"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Encrypted string using default SSM KMS key
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
-//				AllocatedStorage:   pulumi.Int(10),
-//				StorageType:        pulumi.String(rds.StorageTypeGP2),
-//				Engine:             pulumi.String("mysql"),
-//				EngineVersion:      pulumi.String("5.7.16"),
-//				InstanceClass:      pulumi.String(rds.InstanceType_T2_Micro),
-//				DbName:             pulumi.String("mydb"),
-//				Username:           pulumi.String("foo"),
-//				Password:           pulumi.Any(databaseMasterPassword),
-//				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
-//				ParameterGroupName: pulumi.String("default.mysql5.7"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewParameter(ctx, "secret", &ssm.ParameterArgs{
-//				Name:        pulumi.String("/production/database/password/master"),
-//				Description: pulumi.String("The parameter description"),
-//				Type:        pulumi.String(ssm.ParameterTypeSecureString),
-//				Value:       pulumi.Any(databaseMasterPassword),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `name` - (String) Name of the parameter.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
-//
-// % pulumi import aws_ssm_parameter.example /my_path/my_paramname
 type Parameter struct {
 	pulumi.CustomResourceState
 
-	// Regular expression used to validate the parameter value.
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
-	// ARN of the parameter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-	DataType pulumi.StringOutput `pulumi:"dataType"`
-	// Description of the parameter.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Indicates whether the resource has a `valueWo` set.
-	HasValueWo pulumi.BoolOutput `pulumi:"hasValueWo"`
-	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-	InsecureValue pulumi.StringOutput `pulumi:"insecureValue"`
-	// KMS key ID or ARN for encrypting a SecureString.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-	Overwrite pulumi.BoolPtrOutput `pulumi:"overwrite"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier pulumi.StringOutput `pulumi:"tier"`
-	// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-	Value pulumi.StringOutput `pulumi:"value"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	DataType       pulumi.StringOutput    `pulumi:"dataType"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	HasValueWo     pulumi.BoolOutput      `pulumi:"hasValueWo"`
+	InsecureValue  pulumi.StringOutput    `pulumi:"insecureValue"`
+	KeyId          pulumi.StringOutput    `pulumi:"keyId"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	Overwrite      pulumi.BoolPtrOutput   `pulumi:"overwrite"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tier           pulumi.StringOutput    `pulumi:"tier"`
+	Type           pulumi.StringOutput    `pulumi:"type"`
+	Value          pulumi.StringOutput    `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
-	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-	//
-	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-	ValueWoVersion pulumi.IntPtrOutput `pulumi:"valueWoVersion"`
-	// Version of the parameter.
-	Version pulumi.IntOutput `pulumi:"version"`
+	ValueWo        pulumi.StringPtrOutput `pulumi:"valueWo"`
+	ValueWoVersion pulumi.IntPtrOutput    `pulumi:"valueWoVersion"`
+	Version        pulumi.IntOutput       `pulumi:"version"`
 }
 
 // NewParameter registers a new resource with the given unique name, arguments, and options.
@@ -201,91 +80,47 @@ func GetParameter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Parameter resources.
 type parameterState struct {
-	// Regular expression used to validate the parameter value.
-	AllowedPattern *string `pulumi:"allowedPattern"`
-	// ARN of the parameter.
-	Arn *string `pulumi:"arn"`
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-	DataType *string `pulumi:"dataType"`
-	// Description of the parameter.
-	Description *string `pulumi:"description"`
-	// Indicates whether the resource has a `valueWo` set.
-	HasValueWo *bool `pulumi:"hasValueWo"`
-	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-	InsecureValue *string `pulumi:"insecureValue"`
-	// KMS key ID or ARN for encrypting a SecureString.
-	KeyId *string `pulumi:"keyId"`
-	// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-	Name *string `pulumi:"name"`
-	// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-	Overwrite *bool `pulumi:"overwrite"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier *string `pulumi:"tier"`
-	// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-	//
-	// The following arguments are optional:
-	Type *string `pulumi:"type"`
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-	Value *string `pulumi:"value"`
+	AllowedPattern *string           `pulumi:"allowedPattern"`
+	Arn            *string           `pulumi:"arn"`
+	DataType       *string           `pulumi:"dataType"`
+	Description    *string           `pulumi:"description"`
+	HasValueWo     *bool             `pulumi:"hasValueWo"`
+	InsecureValue  *string           `pulumi:"insecureValue"`
+	KeyId          *string           `pulumi:"keyId"`
+	Name           *string           `pulumi:"name"`
+	Overwrite      *bool             `pulumi:"overwrite"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
+	Tier           *string           `pulumi:"tier"`
+	Type           *string           `pulumi:"type"`
+	Value          *string           `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
-	ValueWo *string `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-	//
-	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-	ValueWoVersion *int `pulumi:"valueWoVersion"`
-	// Version of the parameter.
-	Version *int `pulumi:"version"`
+	ValueWo        *string `pulumi:"valueWo"`
+	ValueWoVersion *int    `pulumi:"valueWoVersion"`
+	Version        *int    `pulumi:"version"`
 }
 
 type ParameterState struct {
-	// Regular expression used to validate the parameter value.
 	AllowedPattern pulumi.StringPtrInput
-	// ARN of the parameter.
-	Arn pulumi.StringPtrInput
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-	DataType pulumi.StringPtrInput
-	// Description of the parameter.
-	Description pulumi.StringPtrInput
-	// Indicates whether the resource has a `valueWo` set.
-	HasValueWo pulumi.BoolPtrInput
-	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-	InsecureValue pulumi.StringPtrInput
-	// KMS key ID or ARN for encrypting a SecureString.
-	KeyId pulumi.StringPtrInput
-	// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-	Name pulumi.StringPtrInput
-	// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-	Overwrite pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier pulumi.StringPtrInput
-	// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringPtrInput
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-	Value pulumi.StringPtrInput
+	Arn            pulumi.StringPtrInput
+	DataType       pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	HasValueWo     pulumi.BoolPtrInput
+	InsecureValue  pulumi.StringPtrInput
+	KeyId          pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Overwrite      pulumi.BoolPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
+	Tier           pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
+	Value          pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
-	ValueWo pulumi.StringPtrInput
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-	//
-	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+	ValueWo        pulumi.StringPtrInput
 	ValueWoVersion pulumi.IntPtrInput
-	// Version of the parameter.
-	Version pulumi.IntPtrInput
+	Version        pulumi.IntPtrInput
 }
 
 func (ParameterState) ElementType() reflect.Type {
@@ -293,79 +128,41 @@ func (ParameterState) ElementType() reflect.Type {
 }
 
 type parameterArgs struct {
-	// Regular expression used to validate the parameter value.
-	AllowedPattern *string `pulumi:"allowedPattern"`
-	// ARN of the parameter.
-	Arn *string `pulumi:"arn"`
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-	DataType *string `pulumi:"dataType"`
-	// Description of the parameter.
-	Description *string `pulumi:"description"`
-	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-	InsecureValue *string `pulumi:"insecureValue"`
-	// KMS key ID or ARN for encrypting a SecureString.
-	KeyId *string `pulumi:"keyId"`
-	// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-	Name *string `pulumi:"name"`
-	// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-	Overwrite *bool `pulumi:"overwrite"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier *string `pulumi:"tier"`
-	// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-	//
-	// The following arguments are optional:
-	Type string `pulumi:"type"`
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-	Value *string `pulumi:"value"`
+	AllowedPattern *string           `pulumi:"allowedPattern"`
+	Arn            *string           `pulumi:"arn"`
+	DataType       *string           `pulumi:"dataType"`
+	Description    *string           `pulumi:"description"`
+	InsecureValue  *string           `pulumi:"insecureValue"`
+	KeyId          *string           `pulumi:"keyId"`
+	Name           *string           `pulumi:"name"`
+	Overwrite      *bool             `pulumi:"overwrite"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
+	Tier           *string           `pulumi:"tier"`
+	Type           string            `pulumi:"type"`
+	Value          *string           `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
-	ValueWo *string `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-	//
-	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-	ValueWoVersion *int `pulumi:"valueWoVersion"`
+	ValueWo        *string `pulumi:"valueWo"`
+	ValueWoVersion *int    `pulumi:"valueWoVersion"`
 }
 
 // The set of arguments for constructing a Parameter resource.
 type ParameterArgs struct {
-	// Regular expression used to validate the parameter value.
 	AllowedPattern pulumi.StringPtrInput
-	// ARN of the parameter.
-	Arn pulumi.StringPtrInput
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-	DataType pulumi.StringPtrInput
-	// Description of the parameter.
-	Description pulumi.StringPtrInput
-	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-	InsecureValue pulumi.StringPtrInput
-	// KMS key ID or ARN for encrypting a SecureString.
-	KeyId pulumi.StringPtrInput
-	// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-	Name pulumi.StringPtrInput
-	// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-	Overwrite pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier pulumi.StringPtrInput
-	// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringInput
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-	Value pulumi.StringPtrInput
+	Arn            pulumi.StringPtrInput
+	DataType       pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	InsecureValue  pulumi.StringPtrInput
+	KeyId          pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Overwrite      pulumi.BoolPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	Tier           pulumi.StringPtrInput
+	Type           pulumi.StringInput
+	Value          pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
-	ValueWo pulumi.StringPtrInput
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-	//
-	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+	ValueWo        pulumi.StringPtrInput
 	ValueWoVersion pulumi.IntPtrInput
 }
 
@@ -456,97 +253,75 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 	return o
 }
 
-// Regular expression used to validate the parameter value.
 func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.AllowedPattern }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the parameter.
 func (o ParameterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
 func (o ParameterOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.DataType }).(pulumi.StringOutput)
 }
 
-// Description of the parameter.
 func (o ParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the resource has a `valueWo` set.
 func (o ParameterOutput) HasValueWo() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.BoolOutput { return v.HasValueWo }).(pulumi.BoolOutput)
 }
 
-// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
 func (o ParameterOutput) InsecureValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.InsecureValue }).(pulumi.StringOutput)
 }
 
-// KMS key ID or ARN for encrypting a SecureString.
 func (o ParameterOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
 func (o ParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
 func (o ParameterOutput) Overwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.BoolPtrOutput { return v.Overwrite }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ParameterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ParameterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 func (o ParameterOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }
 
-// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-//
-// The following arguments are optional:
 func (o ParameterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 func (o ParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
 func (o ParameterOutput) ValueWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-//
-// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 func (o ParameterOutput) ValueWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.IntPtrOutput { return v.ValueWoVersion }).(pulumi.IntPtrOutput)
 }
 
-// Version of the parameter.
 func (o ParameterOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

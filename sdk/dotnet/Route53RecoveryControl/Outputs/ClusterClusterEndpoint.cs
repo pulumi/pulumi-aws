@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Route53RecoveryControl.Outputs
     [OutputType]
     public sealed class ClusterClusterEndpoint
     {
-        /// <summary>
-        /// Cluster endpoint.
-        /// </summary>
         public readonly string? Endpoint;
-        /// <summary>
-        /// Region of the endpoint.
-        /// </summary>
         public readonly string? Region;
 
         [OutputConstructor]

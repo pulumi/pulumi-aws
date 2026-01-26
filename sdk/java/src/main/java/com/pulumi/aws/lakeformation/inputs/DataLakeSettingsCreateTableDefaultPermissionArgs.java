@@ -16,32 +16,16 @@ public final class DataLakeSettingsCreateTableDefaultPermissionArgs extends com.
 
     public static final DataLakeSettingsCreateTableDefaultPermissionArgs Empty = new DataLakeSettingsCreateTableDefaultPermissionArgs();
 
-    /**
-     * List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-     * 
-     */
     @Import(name="permissions")
     private @Nullable Output<List<String>> permissions;
 
-    /**
-     * @return List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-     * 
-     */
     public Optional<Output<List<String>>> permissions() {
         return Optional.ofNullable(this.permissions);
     }
 
-    /**
-     * Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `[&#34;ALL&#34;]`.
-     * 
-     */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
-    /**
-     * @return Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `[&#34;ALL&#34;]`.
-     * 
-     */
     public Optional<Output<String>> principal() {
         return Optional.ofNullable(this.principal);
     }
@@ -71,54 +55,24 @@ public final class DataLakeSettingsCreateTableDefaultPermissionArgs extends com.
             $ = new DataLakeSettingsCreateTableDefaultPermissionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param permissions List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(@Nullable Output<List<String>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(List<String> permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param permissions List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
 
-        /**
-         * @param principal Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `[&#34;ALL&#34;]`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(@Nullable Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `[&#34;ALL&#34;]`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainAutoTuneOptionsMaintenanceScheduleDuration {
-    /**
-     * @return Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
-     * 
-     */
     private String unit;
-    /**
-     * @return An integer specifying the value of the duration of an Auto-Tune maintenance window.
-     * 
-     */
     private Integer value;
 
     private DomainAutoTuneOptionsMaintenanceScheduleDuration() {}
-    /**
-     * @return Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return An integer specifying the value of the duration of an Auto-Tune maintenance window.
-     * 
-     */
     public Integer value() {
         return this.value;
     }

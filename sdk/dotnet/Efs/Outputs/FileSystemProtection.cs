@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class FileSystemProtection
     {
-        /// <summary>
-        /// Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-        /// </summary>
         public readonly string? ReplicationOverwrite;
 
         [OutputConstructor]

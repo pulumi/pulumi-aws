@@ -12,343 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
-//
-// ## Example Usage
-//
-// ### Encryption Security Policy
-//
-// ### Applies to a single collection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/example-collection",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("encryption"),
-//				Description: pulumi.String("encryption security policy for example-collection"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Applies to multiple collections
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/example*",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("encryption"),
-//				Description: pulumi.String("encryption security policy for collections that begin with \"example\""),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Using a customer managed key
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/customer-managed-key-collection",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": false,
-//				"KmsARN":      "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("encryption"),
-//				Description: pulumi.String("encryption security policy using customer KMS key"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Network Security Policy
-//
-// ### Allow public access to the collection endpoint and the Dashboards endpoint
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Description": "Public access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": true,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("network"),
-//				Description: pulumi.String("Public access"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Allow VPC access to the collection endpoint and the Dashboards endpoint
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Description": "VPC access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": false,
-//					"SourceVPCEs": []string{
-//						"vpce-050f79086ee71ac05",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("network"),
-//				Description: pulumi.String("VPC access"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Mixed access for different collections
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]interface{}{
-//				map[string]interface{}{
-//					"Description": "Marketing access",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/marketing*",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
-//								"collection/marketing*",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": false,
-//					"SourceVPCEs": []string{
-//						"vpce-050f79086ee71ac05",
-//					},
-//				},
-//				map[string]interface{}{
-//					"Description": "Sales access",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/finance",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": true,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("network"),
-//				Description: pulumi.String("Mixed access for marketing and sales"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
-// ```
 type ServerlessSecurityPolicy struct {
 	pulumi.CustomResourceState
 
@@ -356,15 +19,12 @@ type ServerlessSecurityPolicy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -408,15 +68,12 @@ type serverlessSecurityPolicyState struct {
 	Description *string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy *string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion *string `pulumi:"policyVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region        *string `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
-	//
-	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -425,15 +82,12 @@ type ServerlessSecurityPolicyState struct {
 	Description pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringPtrInput
 	// Version of the policy.
 	PolicyVersion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 	// Type of security policy. One of `encryption` or `network`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -446,13 +100,10 @@ type serverlessSecurityPolicyArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// JSON policy document to use as the content for the new policy.
+	Policy string  `pulumi:"policy"`
 	Region *string `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
-	//
-	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -462,13 +113,10 @@ type ServerlessSecurityPolicyArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of security policy. One of `encryption` or `network`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -569,7 +217,7 @@ func (o ServerlessSecurityPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// JSON policy document to use as the content for the new policy
+// JSON policy document to use as the content for the new policy.
 func (o ServerlessSecurityPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
@@ -579,14 +227,11 @@ func (o ServerlessSecurityPolicyOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessSecurityPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of security policy. One of `encryption` or `network`.
-//
-// The following arguments are optional:
 func (o ServerlessSecurityPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

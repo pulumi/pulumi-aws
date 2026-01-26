@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkteamWorkerAccessConfigurationS3Presign
     {
-        /// <summary>
-        /// Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-        /// </summary>
         public readonly Outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints? IamPolicyConstraints;
 
         [OutputConstructor]

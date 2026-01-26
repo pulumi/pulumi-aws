@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
-    /**
-     * @return Instructions for interpreting the contents of the document.
-     * 
-     */
     private String parsingPromptString;
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt() {}
-    /**
-     * @return Instructions for interpreting the contents of the document.
-     * 
-     */
     public String parsingPromptString() {
         return this.parsingPromptString;
     }

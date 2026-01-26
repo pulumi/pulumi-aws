@@ -9,85 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Enable origination settings to control inbound calling to your SIP infrastructure.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
-    ///     {
-    ///         Name = "test",
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorOrigination = new Aws.Chime.VoiceConnectorOrigination("default", new()
-    ///     {
-    ///         Disabled = false,
-    ///         VoiceConnectorId = @default.Id,
-    ///         Routes = new[]
-    ///         {
-    ///             new Aws.Chime.Inputs.VoiceConnectorOriginationRouteArgs
-    ///             {
-    ///                 Host = "127.0.0.1",
-    ///                 Port = 8081,
-    ///                 Protocol = "TCP",
-    ///                 Priority = 1,
-    ///                 Weight = 1,
-    ///             },
-    ///             new Aws.Chime.Inputs.VoiceConnectorOriginationRouteArgs
-    ///             {
-    ///                 Host = "127.0.0.2",
-    ///                 Port = 8082,
-    ///                 Protocol = "TCP",
-    ///                 Priority = 2,
-    ///                 Weight = 10,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination default abcdef1ghij2klmno3pqr4
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination")]
     public partial class VoiceConnectorOrigination : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-        /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-        /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.VoiceConnectorOriginationRoute>> Routes { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Output("voiceConnectorId")]
         public Output<string> VoiceConnectorId { get; private set; } = null!;
 
@@ -141,33 +74,20 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorOriginationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("routes", required: true)]
         private InputList<Inputs.VoiceConnectorOriginationRouteArgs>? _routes;
-
-        /// <summary>
-        /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-        /// </summary>
         public InputList<Inputs.VoiceConnectorOriginationRouteArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.VoiceConnectorOriginationRouteArgs>());
             set => _routes = value;
         }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId", required: true)]
         public Input<string> VoiceConnectorId { get; set; } = null!;
 
@@ -179,33 +99,20 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorOriginationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.VoiceConnectorOriginationRouteGetArgs>? _routes;
-
-        /// <summary>
-        /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-        /// </summary>
         public InputList<Inputs.VoiceConnectorOriginationRouteGetArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.VoiceConnectorOriginationRouteGetArgs>());
             set => _routes = value;
         }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId")]
         public Input<string>? VoiceConnectorId { get; set; }
 

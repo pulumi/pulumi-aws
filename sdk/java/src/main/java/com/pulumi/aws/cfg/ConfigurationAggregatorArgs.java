@@ -18,81 +18,37 @@ public final class ConfigurationAggregatorArgs extends com.pulumi.resources.Reso
 
     public static final ConfigurationAggregatorArgs Empty = new ConfigurationAggregatorArgs();
 
-    /**
-     * The account(s) to aggregate config data from as documented below.
-     * 
-     */
     @Import(name="accountAggregationSource")
     private @Nullable Output<ConfigurationAggregatorAccountAggregationSourceArgs> accountAggregationSource;
 
-    /**
-     * @return The account(s) to aggregate config data from as documented below.
-     * 
-     */
     public Optional<Output<ConfigurationAggregatorAccountAggregationSourceArgs>> accountAggregationSource() {
         return Optional.ofNullable(this.accountAggregationSource);
     }
 
-    /**
-     * The name of the configuration aggregator.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the configuration aggregator.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The organization to aggregate config data from as documented below.
-     * 
-     */
     @Import(name="organizationAggregationSource")
     private @Nullable Output<ConfigurationAggregatorOrganizationAggregationSourceArgs> organizationAggregationSource;
 
-    /**
-     * @return The organization to aggregate config data from as documented below.
-     * 
-     */
     public Optional<Output<ConfigurationAggregatorOrganizationAggregationSourceArgs>> organizationAggregationSource() {
         return Optional.ofNullable(this.organizationAggregationSource);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -125,111 +81,47 @@ public final class ConfigurationAggregatorArgs extends com.pulumi.resources.Reso
             $ = new ConfigurationAggregatorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountAggregationSource The account(s) to aggregate config data from as documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountAggregationSource(@Nullable Output<ConfigurationAggregatorAccountAggregationSourceArgs> accountAggregationSource) {
             $.accountAggregationSource = accountAggregationSource;
             return this;
         }
 
-        /**
-         * @param accountAggregationSource The account(s) to aggregate config data from as documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountAggregationSource(ConfigurationAggregatorAccountAggregationSourceArgs accountAggregationSource) {
             return accountAggregationSource(Output.of(accountAggregationSource));
         }
 
-        /**
-         * @param name The name of the configuration aggregator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the configuration aggregator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param organizationAggregationSource The organization to aggregate config data from as documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationAggregationSource(@Nullable Output<ConfigurationAggregatorOrganizationAggregationSourceArgs> organizationAggregationSource) {
             $.organizationAggregationSource = organizationAggregationSource;
             return this;
         }
 
-        /**
-         * @param organizationAggregationSource The organization to aggregate config data from as documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs organizationAggregationSource) {
             return organizationAggregationSource(Output.of(organizationAggregationSource));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

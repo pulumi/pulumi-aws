@@ -13,38 +13,12 @@ namespace Pulumi.Aws.AutoScalingPlans.Outputs
     [OutputType]
     public sealed class ScalingPlanScalingInstructionTargetTrackingConfiguration
     {
-        /// <summary>
-        /// Customized metric. You can specify either `CustomizedScalingMetricSpecification` or `PredefinedScalingMetricSpecification`.
-        /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
-        /// </summary>
         public readonly Outputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification? CustomizedScalingMetricSpecification;
-        /// <summary>
-        /// Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `False`.
-        /// </summary>
         public readonly bool? DisableScaleIn;
-        /// <summary>
-        /// Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
-        /// This value is used only if the resource is an Auto Scaling group.
-        /// </summary>
         public readonly int? EstimatedInstanceWarmup;
-        /// <summary>
-        /// Predefined metric. You can specify either `PredefinedScalingMetricSpecification` or `CustomizedScalingMetricSpecification`.
-        /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
-        /// </summary>
         public readonly Outputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification? PredefinedScalingMetricSpecification;
-        /// <summary>
-        /// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-        /// This value is not used if the scalable resource is an Auto Scaling group.
-        /// </summary>
         public readonly int? ScaleInCooldown;
-        /// <summary>
-        /// Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
-        /// This value is not used if the scalable resource is an Auto Scaling group.
-        /// </summary>
         public readonly int? ScaleOutCooldown;
-        /// <summary>
-        /// Target value for the metric.
-        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

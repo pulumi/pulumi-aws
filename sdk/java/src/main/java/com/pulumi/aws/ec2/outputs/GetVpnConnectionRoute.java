@@ -12,10 +12,6 @@ import java.util.Objects;
 public final class GetVpnConnectionRoute {
     private String destinationCidrBlock;
     private String source;
-    /**
-     * @return Current state of the VPN connection.
-     * 
-     */
     private String state;
 
     private GetVpnConnectionRoute() {}
@@ -25,10 +21,6 @@ public final class GetVpnConnectionRoute {
     public String source() {
         return this.source;
     }
-    /**
-     * @return Current state of the VPN connection.
-     * 
-     */
     public String state() {
         return this.state;
     }

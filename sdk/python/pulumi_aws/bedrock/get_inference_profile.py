@@ -65,17 +65,11 @@ class GetInferenceProfileResult:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        The time at which the inference profile was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the inference profile.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -89,9 +83,6 @@ class GetInferenceProfileResult:
     @_builtins.property
     @pulumi.getter(name="inferenceProfileArn")
     def inference_profile_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the inference profile.
-        """
         return pulumi.get(self, "inference_profile_arn")
 
     @_builtins.property
@@ -102,17 +93,11 @@ class GetInferenceProfileResult:
     @_builtins.property
     @pulumi.getter(name="inferenceProfileName")
     def inference_profile_name(self) -> _builtins.str:
-        """
-        The unique identifier of the inference profile.
-        """
         return pulumi.get(self, "inference_profile_name")
 
     @_builtins.property
     @pulumi.getter
     def models(self) -> Sequence['outputs.GetInferenceProfileModelResult']:
-        """
-        A list of information about each model in the inference profile. See `models`.
-        """
         return pulumi.get(self, "models")
 
     @_builtins.property
@@ -123,25 +108,16 @@ class GetInferenceProfileResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> _builtins.str:
-        """
-        The time at which the inference profile was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -168,23 +144,7 @@ def get_inference_profile(inference_profile_id: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceProfileResult:
     """
-    Data source for managing an AWS Bedrock Inference Profile.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_inference_profiles()
-    test_get_inference_profile = aws.bedrock.get_inference_profile(inference_profile_id=test.inference_profile_summaries[0].inference_profile_id)
-    ```
-
-
-    :param _builtins.str inference_profile_id: Inference Profile identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['inferenceProfileId'] = inference_profile_id
@@ -208,23 +168,7 @@ def get_inference_profile_output(inference_profile_id: Optional[pulumi.Input[_bu
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceProfileResult]:
     """
-    Data source for managing an AWS Bedrock Inference Profile.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_inference_profiles()
-    test_get_inference_profile = aws.bedrock.get_inference_profile(inference_profile_id=test.inference_profile_summaries[0].inference_profile_id)
-    ```
-
-
-    :param _builtins.str inference_profile_id: Inference Profile identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['inferenceProfileId'] = inference_profile_id

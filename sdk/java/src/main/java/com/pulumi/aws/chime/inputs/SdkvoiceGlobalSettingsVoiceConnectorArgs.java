@@ -15,17 +15,9 @@ public final class SdkvoiceGlobalSettingsVoiceConnectorArgs extends com.pulumi.r
 
     public static final SdkvoiceGlobalSettingsVoiceConnectorArgs Empty = new SdkvoiceGlobalSettingsVoiceConnectorArgs();
 
-    /**
-     * The S3 bucket that stores the Voice Connector&#39;s call detail records.
-     * 
-     */
     @Import(name="cdrBucket")
     private @Nullable Output<String> cdrBucket;
 
-    /**
-     * @return The S3 bucket that stores the Voice Connector&#39;s call detail records.
-     * 
-     */
     public Optional<Output<String>> cdrBucket() {
         return Optional.ofNullable(this.cdrBucket);
     }
@@ -54,23 +46,11 @@ public final class SdkvoiceGlobalSettingsVoiceConnectorArgs extends com.pulumi.r
             $ = new SdkvoiceGlobalSettingsVoiceConnectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cdrBucket The S3 bucket that stores the Voice Connector&#39;s call detail records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cdrBucket(@Nullable Output<String> cdrBucket) {
             $.cdrBucket = cdrBucket;
             return this;
         }
 
-        /**
-         * @param cdrBucket The S3 bucket that stores the Voice Connector&#39;s call detail records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cdrBucket(String cdrBucket) {
             return cdrBucket(Output.of(cdrBucket));
         }

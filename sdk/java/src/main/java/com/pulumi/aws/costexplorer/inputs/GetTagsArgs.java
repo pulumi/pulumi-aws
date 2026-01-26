@@ -20,77 +20,37 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsArgs Empty = new GetTagsArgs();
 
-    /**
-     * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-     * 
-     */
     @Import(name="filter")
     private @Nullable Output<GetTagsFilterArgs> filter;
 
-    /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-     * 
-     */
     public Optional<Output<GetTagsFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    /**
-     * Value that you want to search for.
-     * 
-     */
     @Import(name="searchString")
     private @Nullable Output<String> searchString;
 
-    /**
-     * @return Value that you want to search for.
-     * 
-     */
     public Optional<Output<String>> searchString() {
         return Optional.ofNullable(this.searchString);
     }
 
-    /**
-     * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-     * 
-     */
     @Import(name="sortBies")
     private @Nullable Output<List<GetTagsSortByArgs>> sortBies;
 
-    /**
-     * @return Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-     * 
-     */
     public Optional<Output<List<GetTagsSortByArgs>>> sortBies() {
         return Optional.ofNullable(this.sortBies);
     }
 
-    /**
-     * Key of the tag that you want to return values for.
-     * 
-     */
     @Import(name="tagKey")
     private @Nullable Output<String> tagKey;
 
-    /**
-     * @return Key of the tag that you want to return values for.
-     * 
-     */
     public Optional<Output<String>> tagKey() {
         return Optional.ofNullable(this.tagKey);
     }
 
-    /**
-     * Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-     * 
-     */
     @Import(name="timePeriod", required=true)
     private Output<GetTagsTimePeriodArgs> timePeriod;
 
-    /**
-     * @return Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-     * 
-     */
     public Output<GetTagsTimePeriodArgs> timePeriod() {
         return this.timePeriod;
     }
@@ -123,117 +83,51 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filter Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(@Nullable Output<GetTagsFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(GetTagsFilterArgs filter) {
             return filter(Output.of(filter));
         }
 
-        /**
-         * @param searchString Value that you want to search for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder searchString(@Nullable Output<String> searchString) {
             $.searchString = searchString;
             return this;
         }
 
-        /**
-         * @param searchString Value that you want to search for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder searchString(String searchString) {
             return searchString(Output.of(searchString));
         }
 
-        /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortBies(@Nullable Output<List<GetTagsSortByArgs>> sortBies) {
             $.sortBies = sortBies;
             return this;
         }
 
-        /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortBies(List<GetTagsSortByArgs> sortBies) {
             return sortBies(Output.of(sortBies));
         }
 
-        /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortBies(GetTagsSortByArgs... sortBies) {
             return sortBies(List.of(sortBies));
         }
 
-        /**
-         * @param tagKey Key of the tag that you want to return values for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(@Nullable Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param tagKey Key of the tag that you want to return values for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }
 
-        /**
-         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timePeriod(Output<GetTagsTimePeriodArgs> timePeriod) {
             $.timePeriod = timePeriod;
             return this;
         }
 
-        /**
-         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timePeriod(GetTagsTimePeriodArgs timePeriod) {
             return timePeriod(Output.of(timePeriod));
         }

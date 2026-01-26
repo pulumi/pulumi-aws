@@ -15,47 +15,23 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
 
     public static final DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs Empty = new DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs();
 
-    /**
-     * The ID of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     @Import(name="launchTemplateId")
     private @Nullable Output<String> launchTemplateId;
 
-    /**
-     * @return The ID of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public Optional<Output<String>> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
 
-    /**
-     * The name of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     @Import(name="launchTemplateName")
     private @Nullable Output<String> launchTemplateName;
 
-    /**
-     * @return The name of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public Optional<Output<String>> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }
 
-    /**
-     * The version of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     @Import(name="launchTemplateVersion")
     private @Nullable Output<String> launchTemplateVersion;
 
-    /**
-     * @return The version of the launch template to use for faster launching for a Windows AMI.
-     * 
-     */
     public Optional<Output<String>> launchTemplateVersion() {
         return Optional.ofNullable(this.launchTemplateVersion);
     }
@@ -86,65 +62,29 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
             $ = new DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param launchTemplateId The ID of the launch template to use for faster launching for a Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(@Nullable Output<String> launchTemplateId) {
             $.launchTemplateId = launchTemplateId;
             return this;
         }
 
-        /**
-         * @param launchTemplateId The ID of the launch template to use for faster launching for a Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(String launchTemplateId) {
             return launchTemplateId(Output.of(launchTemplateId));
         }
 
-        /**
-         * @param launchTemplateName The name of the launch template to use for faster launching for a Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateName(@Nullable Output<String> launchTemplateName) {
             $.launchTemplateName = launchTemplateName;
             return this;
         }
 
-        /**
-         * @param launchTemplateName The name of the launch template to use for faster launching for a Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateName(String launchTemplateName) {
             return launchTemplateName(Output.of(launchTemplateName));
         }
 
-        /**
-         * @param launchTemplateVersion The version of the launch template to use for faster launching for a Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateVersion(@Nullable Output<String> launchTemplateVersion) {
             $.launchTemplateVersion = launchTemplateVersion;
             return this;
         }
 
-        /**
-         * @param launchTemplateVersion The version of the launch template to use for faster launching for a Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateVersion(String launchTemplateVersion) {
             return launchTemplateVersion(Output.of(launchTemplateVersion));
         }

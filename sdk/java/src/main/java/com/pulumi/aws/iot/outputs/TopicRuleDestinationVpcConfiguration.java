@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleDestinationVpcConfiguration {
-    /**
-     * @return The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The security groups of the VPC destination.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return The subnet IDs of the VPC destination.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     private String vpcId;
 
     private TopicRuleDestinationVpcConfiguration() {}
-    /**
-     * @return The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The security groups of the VPC destination.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return The subnet IDs of the VPC destination.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

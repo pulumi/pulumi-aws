@@ -38,13 +38,7 @@ MYPY = False
 if not MYPY:
     class ApplicationDefinitionArgsDict(TypedDict):
         content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        JSON application definition. Either this or `s3_location` must be specified.
-        """
         s3_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the application definition in S3. Either this or `content` must be specified.
-        """
 elif False:
     ApplicationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53,10 +47,6 @@ class ApplicationDefinitionArgs:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_location: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] content: JSON application definition. Either this or `s3_location` must be specified.
-        :param pulumi.Input[_builtins.str] s3_location: Location of the application definition in S3. Either this or `content` must be specified.
-        """
         if content is not None:
             pulumi.set(__self__, "content", content)
         if s3_location is not None:
@@ -65,9 +55,6 @@ class ApplicationDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON application definition. Either this or `s3_location` must be specified.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -77,9 +64,6 @@ class ApplicationDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of the application definition in S3. Either this or `content` must be specified.
-        """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
@@ -234,9 +218,6 @@ class DeploymentTimeoutsArgs:
 if not MYPY:
     class EnvironmentHighAvailabilityConfigArgsDict(TypedDict):
         desired_capacity: pulumi.Input[_builtins.int]
-        """
-        Desired number of instances for the Environment.
-        """
 elif False:
     EnvironmentHighAvailabilityConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -244,17 +225,11 @@ elif False:
 class EnvironmentHighAvailabilityConfigArgs:
     def __init__(__self__, *,
                  desired_capacity: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] desired_capacity: Desired number of instances for the Environment.
-        """
         pulumi.set(__self__, "desired_capacity", desired_capacity)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> pulumi.Input[_builtins.int]:
-        """
-        Desired number of instances for the Environment.
-        """
         return pulumi.get(self, "desired_capacity")
 
     @desired_capacity.setter
@@ -301,13 +276,7 @@ class EnvironmentStorageConfigurationArgs:
 if not MYPY:
     class EnvironmentStorageConfigurationEfsArgsDict(TypedDict):
         file_system_id: pulumi.Input[_builtins.str]
-        """
-        Id of the EFS filesystem to mount.
-        """
         mount_point: pulumi.Input[_builtins.str]
-        """
-        Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
 elif False:
     EnvironmentStorageConfigurationEfsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -316,19 +285,12 @@ class EnvironmentStorageConfigurationEfsArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[_builtins.str],
                  mount_point: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] file_system_id: Id of the EFS filesystem to mount.
-        :param pulumi.Input[_builtins.str] mount_point: Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "mount_point", mount_point)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Id of the EFS filesystem to mount.
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -338,9 +300,6 @@ class EnvironmentStorageConfigurationEfsArgs:
     @_builtins.property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[_builtins.str]:
-        """
-        Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -351,13 +310,7 @@ class EnvironmentStorageConfigurationEfsArgs:
 if not MYPY:
     class EnvironmentStorageConfigurationFsxArgsDict(TypedDict):
         file_system_id: pulumi.Input[_builtins.str]
-        """
-        Id of the FSX filesystem to mount.
-        """
         mount_point: pulumi.Input[_builtins.str]
-        """
-        Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
 elif False:
     EnvironmentStorageConfigurationFsxArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -366,19 +319,12 @@ class EnvironmentStorageConfigurationFsxArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[_builtins.str],
                  mount_point: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] file_system_id: Id of the FSX filesystem to mount.
-        :param pulumi.Input[_builtins.str] mount_point: Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "mount_point", mount_point)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Id of the FSX filesystem to mount.
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -388,9 +334,6 @@ class EnvironmentStorageConfigurationFsxArgs:
     @_builtins.property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[_builtins.str]:
-        """
-        Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter

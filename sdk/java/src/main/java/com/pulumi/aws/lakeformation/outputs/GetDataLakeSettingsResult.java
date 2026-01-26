@@ -17,114 +17,46 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataLakeSettingsResult {
-    /**
-     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles).
-     * 
-     */
     private List<String> admins;
-    /**
-     * @return Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-     * 
-     */
     private Boolean allowExternalDataFiltering;
-    /**
-     * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     * 
-     */
     private Boolean allowFullTableExternalDataAccess;
-    /**
-     * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
-     * 
-     */
     private List<String> authorizedSessionTagValueLists;
     private @Nullable String catalogId;
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-     * 
-     */
     private List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-     * 
-     */
     private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
-    /**
-     * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-     * 
-     */
     private List<String> externalDataFilteringAllowLists;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`.
-     * 
-     */
     private Map<String,String> parameters;
-    /**
-     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-     * 
-     */
     private List<String> readOnlyAdmins;
     private String region;
-    /**
-     * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
-     * 
-     */
     private List<String> trustedResourceOwners;
 
     private GetDataLakeSettingsResult() {}
-    /**
-     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles).
-     * 
-     */
     public List<String> admins() {
         return this.admins;
     }
-    /**
-     * @return Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-     * 
-     */
     public Boolean allowExternalDataFiltering() {
         return this.allowExternalDataFiltering;
     }
-    /**
-     * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     * 
-     */
     public Boolean allowFullTableExternalDataAccess() {
         return this.allowFullTableExternalDataAccess;
     }
-    /**
-     * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
-     * 
-     */
     public List<String> authorizedSessionTagValueLists() {
         return this.authorizedSessionTagValueLists;
     }
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-     * 
-     */
     public List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions() {
         return this.createDatabaseDefaultPermissions;
     }
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-     * 
-     */
     public List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions() {
         return this.createTableDefaultPermissions;
     }
-    /**
-     * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-     * 
-     */
     public List<String> externalDataFilteringAllowLists() {
         return this.externalDataFilteringAllowLists;
     }
@@ -135,27 +67,15 @@ public final class GetDataLakeSettingsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters;
     }
-    /**
-     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-     * 
-     */
     public List<String> readOnlyAdmins() {
         return this.readOnlyAdmins;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
-     * 
-     */
     public List<String> trustedResourceOwners() {
         return this.trustedResourceOwners;
     }

@@ -15,32 +15,16 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
 
     public static final GetResponseHeadersPolicyArgs Empty = new GetResponseHeadersPolicyArgs();
 
-    /**
-     * Identifier for the response headers policy.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier for the response headers policy.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Unique name to identify the response headers policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name to identify the response headers policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -70,44 +54,20 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
             $ = new GetResponseHeadersPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Unique name to identify the response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name to identify the response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -12,96 +12,40 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateResult {
-    /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
-     * 
-     */
     private String certificateArn;
-    /**
-     * @return The date that the certificate was created.
-     * 
-     */
     private String certificateCreationDate;
     private String certificateId;
-    /**
-     * @return The owner of the certificate.
-     * 
-     */
     private String certificateOwner;
-    /**
-     * @return The contents of a .pem file, which contains an X.509 certificate.
-     * 
-     */
     private String certificatePem;
-    /**
-     * @return The owner of the certificate.
-     * 
-     */
     private String certificateWallet;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The key length of the cryptographic algorithm being used.
-     * 
-     */
     private Integer keyLength;
     private String region;
-    /**
-     * @return The algorithm for the certificate.
-     * 
-     */
     private String signingAlgorithm;
     private Map<String,String> tags;
-    /**
-     * @return The beginning date that the certificate is valid.
-     * 
-     */
     private String validFromDate;
-    /**
-     * @return The final date that the certificate is valid.
-     * 
-     */
     private String validToDate;
 
     private GetCertificateResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
-     * 
-     */
     public String certificateArn() {
         return this.certificateArn;
     }
-    /**
-     * @return The date that the certificate was created.
-     * 
-     */
     public String certificateCreationDate() {
         return this.certificateCreationDate;
     }
     public String certificateId() {
         return this.certificateId;
     }
-    /**
-     * @return The owner of the certificate.
-     * 
-     */
     public String certificateOwner() {
         return this.certificateOwner;
     }
-    /**
-     * @return The contents of a .pem file, which contains an X.509 certificate.
-     * 
-     */
     public String certificatePem() {
         return this.certificatePem;
     }
-    /**
-     * @return The owner of the certificate.
-     * 
-     */
     public String certificateWallet() {
         return this.certificateWallet;
     }
@@ -112,37 +56,21 @@ public final class GetCertificateResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The key length of the cryptographic algorithm being used.
-     * 
-     */
     public Integer keyLength() {
         return this.keyLength;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The algorithm for the certificate.
-     * 
-     */
     public String signingAlgorithm() {
         return this.signingAlgorithm;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The beginning date that the certificate is valid.
-     * 
-     */
     public String validFromDate() {
         return this.validFromDate;
     }
-    /**
-     * @return The final date that the certificate is valid.
-     * 
-     */
     public String validToDate() {
         return this.validToDate;
     }

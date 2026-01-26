@@ -16,89 +16,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Collection.
- * 
- * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
- * 
- * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicy;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicyArgs;
- * import com.pulumi.aws.opensearch.ServerlessCollection;
- * import com.pulumi.aws.opensearch.ServerlessCollectionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
- *             .name("example")
- *             .type("encryption")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Rules", jsonArray(jsonObject(
- *                         jsonProperty("Resource", jsonArray("collection/example")),
- *                         jsonProperty("ResourceType", "collection")
- *                     ))),
- *                     jsonProperty("AWSOwnedKey", true)
- *                 )))
- *             .build());
- * 
- *         var exampleServerlessCollection = new ServerlessCollection("exampleServerlessCollection", ServerlessCollectionArgs.builder()
- *             .name("example")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/serverlessCollection:ServerlessCollection")
 public class ServerlessCollection extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the collection.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the collection.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -161,8 +83,6 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
     /**
      * Name of the collection.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
@@ -170,23 +90,13 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
     /**
      * @return Name of the collection.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -204,17 +114,9 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
     public Output<String> standbyReplicas() {
         return this.standbyReplicas;
     }
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

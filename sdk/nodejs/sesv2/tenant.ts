@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS SESv2 (Simple Email V2) Tenant.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.Tenant("example", {
- *     tenantName: "example-tenant",
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import an SESv2 Tenant using the `tenant_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sesv2/tenant:Tenant example example-tenant
- * ```
- */
 export class Tenant extends pulumi.CustomResource {
     /**
      * Get an existing Tenant resource's state with the given name, ID, and optional extra
@@ -59,35 +32,12 @@ export class Tenant extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tenant.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Current sending status of the tenant.
-     */
     declare public /*out*/ readonly sendingStatus: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the tenant.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the tenant, including provider default tags.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the Tenant.
-     */
     declare public /*out*/ readonly tenantArn: pulumi.Output<string>;
-    /**
-     * ID of the Tenant.
-     */
     declare public /*out*/ readonly tenantId: pulumi.Output<string>;
-    /**
-     * Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly tenantName: pulumi.Output<string>;
 
     /**
@@ -132,35 +82,12 @@ export class Tenant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tenant resources.
  */
 export interface TenantState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Current sending status of the tenant.
-     */
     sendingStatus?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the tenant.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the tenant, including provider default tags.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the Tenant.
-     */
     tenantArn?: pulumi.Input<string>;
-    /**
-     * ID of the Tenant.
-     */
     tenantId?: pulumi.Input<string>;
-    /**
-     * Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-     *
-     * The following arguments are optional:
-     */
     tenantName?: pulumi.Input<string>;
 }
 
@@ -168,18 +95,7 @@ export interface TenantState {
  * The set of arguments for constructing a Tenant resource.
  */
 export interface TenantArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the tenant.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-     *
-     * The following arguments are optional:
-     */
     tenantName: pulumi.Input<string>;
 }

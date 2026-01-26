@@ -18,202 +18,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DataZone Form Type.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
- * import com.pulumi.aws.datazone.Domain;
- * import com.pulumi.aws.datazone.DomainArgs;
- * import com.pulumi.aws.ec2.SecurityGroup;
- * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.datazone.Project;
- * import com.pulumi.aws.datazone.ProjectArgs;
- * import com.pulumi.aws.datazone.FormType;
- * import com.pulumi.aws.datazone.FormTypeArgs;
- * import com.pulumi.aws.datazone.inputs.FormTypeModelArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()
- *             .name("example-role")
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "sts:AssumeRole", 
- *                                 "sts:TagSession"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "datazone.amazonaws.com")
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "sts:AssumeRole", 
- *                                 "sts:TagSession"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "cloudformation.amazonaws.com")
- *                             ))
- *                         )
- *                     ))
- *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("example-policy")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "datazone:*", 
- *                                 "ram:*", 
- *                                 "sso:*", 
- *                                 "kms:*"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Resource", "*")
- *                         )))
- *                     )))
- *                 .build())
- *             .build());
- * 
- *         var test = new Domain("test", DomainArgs.builder()
- *             .name("example")
- *             .domainExecutionRole(domainExecutionRole.arn())
- *             .build());
- * 
- *         var testSecurityGroup = new SecurityGroup("testSecurityGroup", SecurityGroupArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var testProject = new Project("testProject", ProjectArgs.builder()
- *             .domainIdentifier(test.id())
- *             .glossaryTerms("2N8w6XJCwZf")
- *             .name("example name")
- *             .description("desc")
- *             .skipDeletionCheck(true)
- *             .build());
- * 
- *         var testFormType = new FormType("testFormType", FormTypeArgs.builder()
- *             .description("desc")
- *             .name("SageMakerModelFormType")
- *             .domainIdentifier(test.id())
- *             .owningProjectIdentifier(testProject.id())
- *             .status("DISABLED")
- *             .model(FormTypeModelArgs.builder()
- *                 .smithy("""
- * \tstructure SageMakerModelFormType }{{@code
- * \t\t\t}{@literal @}{@code required
- * \t\t\t}{@literal @}{@code amazon.datazone#searchable
- * \t\t\tmodelName: String
- * 
- * \t\t\t}{@literal @}{@code required
- * \t\t\tmodelArn: String
- * 
- * \t\t\t}{@literal @}{@code required
- * \t\t\tcreationTime: String
- * \t\t\t}}{@code
- *                 """)
- *                 .build())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
- * 
- * ```sh
- * $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
- * ```
- * 
- */
 @ResourceType(type="aws:datazone/formType:FormType")
 public class FormType extends com.pulumi.resources.CustomResource {
-    /**
-     * Creation time of the Form Type.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Creation time of the Form Type.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Creator of the Form Type.
-     * 
-     */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
-    /**
-     * @return Creator of the Form Type.
-     * 
-     */
     public Output<String> createdBy() {
         return this.createdBy;
     }
-    /**
-     * Description of form type. Must have a length of between 1 and 2048 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of form type. Must have a length of between 1 and 2048 characters.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Identifier of the domain.
-     * 
-     */
     @Export(name="domainIdentifier", refs={String.class}, tree="[0]")
     private Output<String> domainIdentifier;
 
-    /**
-     * @return Identifier of the domain.
-     * 
-     */
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
@@ -223,101 +50,45 @@ public class FormType extends com.pulumi.resources.CustomResource {
     public Output<List<FormTypeImport>> imports() {
         return this.imports;
     }
-    /**
-     * Object of the model of the form type that contains the following attributes.
-     * 
-     */
     @Export(name="model", refs={FormTypeModel.class}, tree="[0]")
     private Output</* @Nullable */ FormTypeModel> model;
 
-    /**
-     * @return Object of the model of the form type that contains the following attributes.
-     * 
-     */
     public Output<Optional<FormTypeModel>> model() {
         return Codegen.optional(this.model);
     }
-    /**
-     * Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Origin domain id of the Form Type.
-     * 
-     */
     @Export(name="originDomainId", refs={String.class}, tree="[0]")
     private Output<String> originDomainId;
 
-    /**
-     * @return Origin domain id of the Form Type.
-     * 
-     */
     public Output<String> originDomainId() {
         return this.originDomainId;
     }
-    /**
-     * Origin project id of the Form Type.
-     * 
-     */
     @Export(name="originProjectId", refs={String.class}, tree="[0]")
     private Output<String> originProjectId;
 
-    /**
-     * @return Origin project id of the Form Type.
-     * 
-     */
     public Output<String> originProjectId() {
         return this.originProjectId;
     }
-    /**
-     * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-     * 
-     */
     @Export(name="owningProjectIdentifier", refs={String.class}, tree="[0]")
     private Output<String> owningProjectIdentifier;
 
-    /**
-     * @return Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-     * 
-     */
     public Output<String> owningProjectIdentifier() {
         return this.owningProjectIdentifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Revision of the Form Type.
-     * 
-     */
     @Export(name="revision", refs={String.class}, tree="[0]")
     private Output<String> revision;
 
-    /**
-     * @return Revision of the Form Type.
-     * 
-     */
     public Output<String> revision() {
         return this.revision;
     }

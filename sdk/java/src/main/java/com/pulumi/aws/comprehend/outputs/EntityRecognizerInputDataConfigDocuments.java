@@ -12,32 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EntityRecognizerInputDataConfigDocuments {
-    /**
-     * @return Specifies how the input files should be processed.
-     * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-     * 
-     */
     private @Nullable String inputFormat;
-    /**
-     * @return Location of training documents.
-     * 
-     */
     private String s3Uri;
     private @Nullable String testS3Uri;
 
     private EntityRecognizerInputDataConfigDocuments() {}
-    /**
-     * @return Specifies how the input files should be processed.
-     * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-     * 
-     */
     public Optional<String> inputFormat() {
         return Optional.ofNullable(this.inputFormat);
     }
-    /**
-     * @return Location of training documents.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

@@ -16,32 +16,16 @@ public final class FunctionDurableConfigArgs extends com.pulumi.resources.Resour
 
     public static final FunctionDurableConfigArgs Empty = new FunctionDurableConfigArgs();
 
-    /**
-     * Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-     * 
-     */
     @Import(name="executionTimeout", required=true)
     private Output<Integer> executionTimeout;
 
-    /**
-     * @return Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-     * 
-     */
     public Output<Integer> executionTimeout() {
         return this.executionTimeout;
     }
 
-    /**
-     * Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
-     * 
-     */
     @Import(name="retentionPeriod")
     private @Nullable Output<Integer> retentionPeriod;
 
-    /**
-     * @return Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
-     * 
-     */
     public Optional<Output<Integer>> retentionPeriod() {
         return Optional.ofNullable(this.retentionPeriod);
     }
@@ -71,44 +55,20 @@ public final class FunctionDurableConfigArgs extends com.pulumi.resources.Resour
             $ = new FunctionDurableConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param executionTimeout Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionTimeout(Output<Integer> executionTimeout) {
             $.executionTimeout = executionTimeout;
             return this;
         }
 
-        /**
-         * @param executionTimeout Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionTimeout(Integer executionTimeout) {
             return executionTimeout(Output.of(executionTimeout));
         }
 
-        /**
-         * @param retentionPeriod Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(@Nullable Output<Integer> retentionPeriod) {
             $.retentionPeriod = retentionPeriod;
             return this;
         }
 
-        /**
-         * @param retentionPeriod Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(Integer retentionPeriod) {
             return retentionPeriod(Output.of(retentionPeriod));
         }

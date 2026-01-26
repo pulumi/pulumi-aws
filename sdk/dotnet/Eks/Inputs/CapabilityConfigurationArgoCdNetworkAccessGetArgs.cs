@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Eks.Inputs
     {
         [Input("vpceIds")]
         private InputList<string>? _vpceIds;
-
-        /// <summary>
-        /// VPC Endpoint IDs.
-        /// </summary>
         public InputList<string> VpceIds
         {
             get => _vpceIds ?? (_vpceIds = new InputList<string>());

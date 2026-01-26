@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserAlternateIdentifier {
-    /**
-     * @return Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-     * 
-     */
     private @Nullable GetUserAlternateIdentifierExternalId externalId;
-    /**
-     * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
-     * 
-     * &gt; Exactly one of the above arguments must be provided.
-     * 
-     */
     private @Nullable GetUserAlternateIdentifierUniqueAttribute uniqueAttribute;
 
     private GetUserAlternateIdentifier() {}
-    /**
-     * @return Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-     * 
-     */
     public Optional<GetUserAlternateIdentifierExternalId> externalId() {
         return Optional.ofNullable(this.externalId);
     }
-    /**
-     * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
-     * 
-     * &gt; Exactly one of the above arguments must be provided.
-     * 
-     */
     public Optional<GetUserAlternateIdentifierUniqueAttribute> uniqueAttribute() {
         return Optional.ofNullable(this.uniqueAttribute);
     }

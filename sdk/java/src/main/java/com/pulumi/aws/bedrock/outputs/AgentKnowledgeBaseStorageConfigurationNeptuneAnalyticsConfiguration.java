@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     private @Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping;
-    /**
-     * @return ARN of the Neptune Analytics vector store.
-     * 
-     */
     private String graphArn;
 
     private AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration() {}
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
-    /**
-     * @return ARN of the Neptune Analytics vector store.
-     * 
-     */
     public String graphArn() {
         return this.graphArn;
     }

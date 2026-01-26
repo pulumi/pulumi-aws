@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketLoggingTargetGrantArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the person being granted permissions. See below.
-        /// </summary>
         [Input("grantee", required: true)]
         public Input<Inputs.BucketLoggingTargetGrantGranteeArgs> Grantee { get; set; } = null!;
 
-        /// <summary>
-        /// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-        /// </summary>
         [Input("permission", required: true)]
         public Input<string> Permission { get; set; } = null!;
 

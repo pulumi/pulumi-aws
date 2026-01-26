@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class CoreNetworkSegment
     {
-        /// <summary>
-        /// Regions where the edges are located.
-        /// </summary>
         public readonly ImmutableArray<string> EdgeLocations;
-        /// <summary>
-        /// Name of a core network segment.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Shared segments of a core network.
-        /// </summary>
         public readonly ImmutableArray<string> SharedSegments;
 
         [OutputConstructor]

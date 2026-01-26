@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceHttpConfigAuthorizationConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-        /// </summary>
         [Input("authorizationType")]
         public Input<string>? AuthorizationType { get; set; }
 
-        /// <summary>
-        /// Identity and Access Management (IAM) settings. See `AwsIamConfig` Block for details.
-        /// </summary>
         [Input("awsIamConfig")]
         public Input<Inputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfigGetArgs>? AwsIamConfig { get; set; }
 

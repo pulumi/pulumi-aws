@@ -15,32 +15,16 @@ public final class CatalogTableStorageDescriptorSortColumnArgs extends com.pulum
 
     public static final CatalogTableStorageDescriptorSortColumnArgs Empty = new CatalogTableStorageDescriptorSortColumnArgs();
 
-    /**
-     * Name of the column.
-     * 
-     */
     @Import(name="column", required=true)
     private Output<String> column;
 
-    /**
-     * @return Name of the column.
-     * 
-     */
     public Output<String> column() {
         return this.column;
     }
 
-    /**
-     * Whether the column is sorted in ascending (`1`) or descending order (`0`).
-     * 
-     */
     @Import(name="sortOrder", required=true)
     private Output<Integer> sortOrder;
 
-    /**
-     * @return Whether the column is sorted in ascending (`1`) or descending order (`0`).
-     * 
-     */
     public Output<Integer> sortOrder() {
         return this.sortOrder;
     }
@@ -70,44 +54,20 @@ public final class CatalogTableStorageDescriptorSortColumnArgs extends com.pulum
             $ = new CatalogTableStorageDescriptorSortColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param column Name of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder column(Output<String> column) {
             $.column = column;
             return this;
         }
 
-        /**
-         * @param column Name of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder column(String column) {
             return column(Output.of(column));
         }
 
-        /**
-         * @param sortOrder Whether the column is sorted in ascending (`1`) or descending order (`0`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortOrder(Output<Integer> sortOrder) {
             $.sortOrder = sortOrder;
             return this;
         }
 
-        /**
-         * @param sortOrder Whether the column is sorted in ascending (`1`) or descending order (`0`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortOrder(Integer sortOrder) {
             return sortOrder(Output.of(sortOrder));
         }

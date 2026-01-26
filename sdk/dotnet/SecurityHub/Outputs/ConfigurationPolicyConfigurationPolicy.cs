@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class ConfigurationPolicyConfigurationPolicy
     {
-        /// <summary>
-        /// A list that defines which security standards are enabled in the configuration policy. It must be defined if `ServiceEnabled` is set to true.
-        /// </summary>
         public readonly ImmutableArray<string> EnabledStandardArns;
-        /// <summary>
-        /// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration? SecurityControlsConfiguration;
-        /// <summary>
-        /// Indicates whether Security Hub is enabled in the policy.
-        /// </summary>
         public readonly bool ServiceEnabled;
 
         [OutputConstructor]

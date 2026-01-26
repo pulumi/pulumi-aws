@@ -9,100 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Creates an Amazon CloudFront VPC origin.
-    /// 
-    /// For information about CloudFront VPC origins, see
-    /// [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Application Load Balancer
-    /// 
-    /// The following example below creates a CloudFront VPC origin for a Application Load Balancer.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var alb = new Aws.CloudFront.VpcOrigin("alb", new()
-    ///     {
-    ///         VpcOriginEndpointConfig = new Aws.CloudFront.Inputs.VpcOriginVpcOriginEndpointConfigArgs
-    ///         {
-    ///             Name = "example-vpc-origin",
-    ///             Arn = @this.Arn,
-    ///             HttpPort = 8080,
-    ///             HttpsPort = 8443,
-    ///             OriginProtocolPolicy = "https-only",
-    ///             OriginSslProtocols = new Aws.CloudFront.Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     "TLSv1.2",
-    ///                 },
-    ///                 Quantity = 1,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = aws_cloudfront_vpc_origin.origin
-    /// 
-    ///   id = "vo_JQEa410sssUFoY6wMkx69j"
-    /// 
-    /// }
-    /// 
-    /// Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
-    /// 
-    /// % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
-    /// </summary>
     [AwsResourceType("aws:cloudfront/vpcOrigin:VpcOrigin")]
     public partial class VpcOrigin : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The VPC origin ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The current version of the origin.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.VpcOriginTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC origin endpoint configuration.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("vpcOriginEndpointConfig")]
         public Output<Outputs.VpcOriginVpcOriginEndpointConfig?> VpcOriginEndpointConfig { get; private set; } = null!;
 
@@ -154,10 +78,6 @@ namespace Pulumi.Aws.CloudFront
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -167,11 +87,6 @@ namespace Pulumi.Aws.CloudFront
         [Input("timeouts")]
         public Input<Inputs.VpcOriginTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The VPC origin endpoint configuration.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vpcOriginEndpointConfig")]
         public Input<Inputs.VpcOriginVpcOriginEndpointConfigArgs>? VpcOriginEndpointConfig { get; set; }
 
@@ -183,24 +98,14 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class VpcOriginState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The VPC origin ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The current version of the origin.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -209,10 +114,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -222,11 +123,6 @@ namespace Pulumi.Aws.CloudFront
         [Input("timeouts")]
         public Input<Inputs.VpcOriginTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The VPC origin endpoint configuration.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vpcOriginEndpointConfig")]
         public Input<Inputs.VpcOriginVpcOriginEndpointConfigGetArgs>? VpcOriginEndpointConfig { get; set; }
 

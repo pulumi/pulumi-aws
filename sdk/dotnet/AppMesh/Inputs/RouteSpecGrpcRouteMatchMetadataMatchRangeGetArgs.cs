@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecGrpcRouteMatchMetadataMatchRangeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// End of the range.
-        /// </summary>
         [Input("end", required: true)]
         public Input<int> End { get; set; } = null!;
 
-        /// <summary>
-        /// Start of the range.
-        /// </summary>
         [Input("start", required: true)]
         public Input<int> Start { get; set; } = null!;
 

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RemediationConfigurationParameter {
-    /**
-     * @return Name of the attribute.
-     * 
-     */
     private String name;
-    /**
-     * @return Value is dynamic and changes at run-time.
-     * 
-     */
     private @Nullable String resourceValue;
-    /**
-     * @return Value is static and does not change at run-time.
-     * 
-     */
     private @Nullable String staticValue;
-    /**
-     * @return List of static values.
-     * 
-     */
     private @Nullable List<String> staticValues;
 
     private RemediationConfigurationParameter() {}
-    /**
-     * @return Name of the attribute.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value is dynamic and changes at run-time.
-     * 
-     */
     public Optional<String> resourceValue() {
         return Optional.ofNullable(this.resourceValue);
     }
-    /**
-     * @return Value is static and does not change at run-time.
-     * 
-     */
     public Optional<String> staticValue() {
         return Optional.ofNullable(this.staticValue);
     }
-    /**
-     * @return List of static values.
-     * 
-     */
     public List<String> staticValues() {
         return this.staticValues == null ? List.of() : this.staticValues;
     }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleRepublish {
-    /**
-     * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-     * 
-     */
     private @Nullable Integer qos;
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The name of the MQTT topic the message should be republished to.
-     * 
-     */
     private String topic;
 
     private TopicRuleRepublish() {}
-    /**
-     * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-     * 
-     */
     public Optional<Integer> qos() {
         return Optional.ofNullable(this.qos);
     }
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The name of the MQTT topic the message should be republished to.
-     * 
-     */
     public String topic() {
         return this.topic;
     }

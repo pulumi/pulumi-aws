@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
-    /**
-     * @return Message to send to the user.
-     * 
-     */
     private String value;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage() {}
-    /**
-     * @return Message to send to the user.
-     * 
-     */
     public String value() {
         return this.value;
     }

@@ -10,77 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
-    /**
-     * @return The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
-     * 
-     */
     private String destination;
-    /**
-     * @return The destination port to inspect for. To match with any address, specify `ANY`.
-     * 
-     */
     private String destinationPort;
-    /**
-     * @return The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
-     * 
-     */
     private String direction;
-    /**
-     * @return The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-     * 
-     */
     private String protocol;
-    /**
-     * @return The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
-     * 
-     */
     private String source;
-    /**
-     * @return The source port to inspect for. To match with any address, specify `ANY`.
-     * 
-     */
     private String sourcePort;
 
     private RuleGroupRuleGroupRulesSourceStatefulRuleHeader() {}
-    /**
-     * @return The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
-     * 
-     */
     public String destination() {
         return this.destination;
     }
-    /**
-     * @return The destination port to inspect for. To match with any address, specify `ANY`.
-     * 
-     */
     public String destinationPort() {
         return this.destinationPort;
     }
-    /**
-     * @return The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
-     * 
-     */
     public String direction() {
         return this.direction;
     }
-    /**
-     * @return The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return The source port to inspect for. To match with any address, specify `ANY`.
-     * 
-     */
     public String sourcePort() {
         return this.sourcePort;
     }

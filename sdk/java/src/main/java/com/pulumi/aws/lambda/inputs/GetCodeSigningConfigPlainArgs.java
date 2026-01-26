@@ -15,36 +15,16 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
 
     public static final GetCodeSigningConfigPlainArgs Empty = new GetCodeSigningConfigPlainArgs();
 
-    /**
-     * ARN of the code signing configuration.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return ARN of the code signing configuration.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -74,25 +54,11 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
             $ = new GetCodeSigningConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the code signing configuration.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

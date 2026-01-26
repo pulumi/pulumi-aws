@@ -19,132 +19,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import the Managed Scraper using its identifier.
- * For example:
- * 
- * ```sh
- * $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
- * ```
- * 
- */
 @ResourceType(type="aws:amp/scraper:Scraper")
 public class Scraper extends com.pulumi.resources.CustomResource {
-    /**
-     * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-     * 
-     */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alias;
 
-    /**
-     * @return a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-     * 
-     */
     public Output<Optional<String>> alias() {
         return Codegen.optional(this.alias);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the new scraper.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the new scraper.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block for the managed scraper to send metrics to. See `destination`.
-     * 
-     */
     @Export(name="destination", refs={ScraperDestination.class}, tree="[0]")
     private Output</* @Nullable */ ScraperDestination> destination;
 
-    /**
-     * @return Configuration block for the managed scraper to send metrics to. See `destination`.
-     * 
-     */
     public Output<Optional<ScraperDestination>> destination() {
         return Codegen.optional(this.destination);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
-     * 
-     */
     @Export(name="roleConfiguration", refs={ScraperRoleConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ScraperRoleConfiguration> roleConfiguration;
 
-    /**
-     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
-     * 
-     */
     public Output<Optional<ScraperRoleConfiguration>> roleConfiguration() {
         return Codegen.optional(this.roleConfiguration);
     }
-    /**
-     * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-     * 
-     */
     @Export(name="scrapeConfiguration", refs={String.class}, tree="[0]")
     private Output<String> scrapeConfiguration;
 
-    /**
-     * @return The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-     * 
-     */
     public Output<String> scrapeConfiguration() {
         return this.scrapeConfiguration;
     }
-    /**
-     * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="source", refs={ScraperSource.class}, tree="[0]")
     private Output</* @Nullable */ ScraperSource> source;
 
-    /**
-     * @return Configuration block to specify where the managed scraper will collect metrics from. See `source`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<ScraperSource>> source() {
         return Codegen.optional(this.source);
     }

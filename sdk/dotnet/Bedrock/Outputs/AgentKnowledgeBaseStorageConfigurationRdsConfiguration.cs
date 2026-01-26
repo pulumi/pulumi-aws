@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseStorageConfigurationRdsConfiguration
     {
-        /// <summary>
-        /// ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-        /// </summary>
         public readonly string CredentialsSecretArn;
-        /// <summary>
-        /// Name of your Amazon RDS database.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// Names of the fields to which to map information about the vector store. This block supports the following arguments:
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping? FieldMapping;
-        /// <summary>
-        /// ARN of the vector store.
-        /// </summary>
         public readonly string ResourceArn;
-        /// <summary>
-        /// Name of the table in the database.
-        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

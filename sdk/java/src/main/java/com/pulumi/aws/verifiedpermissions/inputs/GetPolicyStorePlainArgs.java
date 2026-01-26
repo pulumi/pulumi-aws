@@ -15,32 +15,16 @@ public final class GetPolicyStorePlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetPolicyStorePlainArgs Empty = new GetPolicyStorePlainArgs();
 
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetPolicyStorePlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetPolicyStorePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

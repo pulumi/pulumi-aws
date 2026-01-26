@@ -4,62 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route53 query logging configuration resource.
- *
- * > **NOTE:** There are restrictions on the configuration of query logging. Notably,
- * the CloudWatch log group must be in the `us-east-1` region,
- * a permissive CloudWatch log resource policy must be in place, and
- * the Route53 hosted zone must be public.
- * See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Example Route53 zone with query logging
- * const exampleCom = new aws.route53.Zone("example_com", {name: "example.com"});
- * const awsRoute53ExampleCom = new aws.cloudwatch.LogGroup("aws_route53_example_com", {
- *     name: pulumi.interpolate`/aws/route53/${exampleCom.name}`,
- *     retentionInDays: 30,
- * });
- * // Example CloudWatch log resource policy to allow Route53 to write logs
- * // to any log group under /aws/route53/*
- * const route53_query_logging_policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
- *         principals: [{
- *             identifiers: ["route53.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
- *     policyDocument: route53_query_logging_policy.then(route53_query_logging_policy => route53_query_logging_policy.json),
- *     policyName: "route53-query-logging-policy",
- * });
- * const exampleComQueryLog = new aws.route53.QueryLog("example_com", {
- *     cloudwatchLogGroupArn: awsRoute53ExampleCom.arn,
- *     zoneId: exampleCom.zoneId,
- * }, {
- *     dependsOn: [route53_query_logging_policyLogResourcePolicy],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
- * ```
- */
 export class QueryLog extends pulumi.CustomResource {
     /**
      * Get an existing QueryLog resource's state with the given name, ID, and optional extra
@@ -88,17 +32,8 @@ export class QueryLog extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueryLog.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Query Logging Config.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * CloudWatch log group ARN to send query logs.
-     */
     declare public readonly cloudwatchLogGroupArn: pulumi.Output<string>;
-    /**
-     * Route53 hosted zone ID to enable query logs.
-     */
     declare public readonly zoneId: pulumi.Output<string>;
 
     /**
@@ -138,17 +73,8 @@ export class QueryLog extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueryLog resources.
  */
 export interface QueryLogState {
-    /**
-     * The Amazon Resource Name (ARN) of the Query Logging Config.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * CloudWatch log group ARN to send query logs.
-     */
     cloudwatchLogGroupArn?: pulumi.Input<string>;
-    /**
-     * Route53 hosted zone ID to enable query logs.
-     */
     zoneId?: pulumi.Input<string>;
 }
 
@@ -156,12 +82,6 @@ export interface QueryLogState {
  * The set of arguments for constructing a QueryLog resource.
  */
 export interface QueryLogArgs {
-    /**
-     * CloudWatch log group ARN to send query logs.
-     */
     cloudwatchLogGroupArn: pulumi.Input<string>;
-    /**
-     * Route53 hosted zone ID to enable query logs.
-     */
     zoneId: pulumi.Input<string>;
 }

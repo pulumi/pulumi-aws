@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OntapVolumeSnaplockConfiguration {
-    /**
-     * @return Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
-     * 
-     */
     private @Nullable Boolean auditLogVolume;
-    /**
-     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
-     * 
-     */
     private @Nullable OntapVolumeSnaplockConfigurationAutocommitPeriod autocommitPeriod;
-    /**
-     * @return Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
-     * 
-     */
     private @Nullable String privilegedDelete;
-    /**
-     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
-     * 
-     */
     private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriod retentionPeriod;
-    /**
-     * @return Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
-     * 
-     */
     private String snaplockType;
-    /**
-     * @return Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
-     * 
-     */
     private @Nullable Boolean volumeAppendModeEnabled;
 
     private OntapVolumeSnaplockConfiguration() {}
-    /**
-     * @return Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
-     * 
-     */
     public Optional<Boolean> auditLogVolume() {
         return Optional.ofNullable(this.auditLogVolume);
     }
-    /**
-     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
-     * 
-     */
     public Optional<OntapVolumeSnaplockConfigurationAutocommitPeriod> autocommitPeriod() {
         return Optional.ofNullable(this.autocommitPeriod);
     }
-    /**
-     * @return Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
-     * 
-     */
     public Optional<String> privilegedDelete() {
         return Optional.ofNullable(this.privilegedDelete);
     }
-    /**
-     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
-     * 
-     */
     public Optional<OntapVolumeSnaplockConfigurationRetentionPeriod> retentionPeriod() {
         return Optional.ofNullable(this.retentionPeriod);
     }
-    /**
-     * @return Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
-     * 
-     */
     public String snaplockType() {
         return this.snaplockType;
     }
-    /**
-     * @return Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
-     * 
-     */
     public Optional<Boolean> volumeAppendModeEnabled() {
         return Optional.ofNullable(this.volumeAppendModeEnabled);
     }

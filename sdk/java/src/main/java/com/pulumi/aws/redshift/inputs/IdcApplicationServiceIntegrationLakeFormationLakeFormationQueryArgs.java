@@ -14,17 +14,9 @@ public final class IdcApplicationServiceIntegrationLakeFormationLakeFormationQue
 
     public static final IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs Empty = new IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs();
 
-    /**
-     * Determines whether the query scope is enabled or disabled.
-     * 
-     */
     @Import(name="authorization", required=true)
     private Output<String> authorization;
 
-    /**
-     * @return Determines whether the query scope is enabled or disabled.
-     * 
-     */
     public Output<String> authorization() {
         return this.authorization;
     }
@@ -53,23 +45,11 @@ public final class IdcApplicationServiceIntegrationLakeFormationLakeFormationQue
             $ = new IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorization Determines whether the query scope is enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorization(Output<String> authorization) {
             $.authorization = authorization;
             return this;
         }
 
-        /**
-         * @param authorization Determines whether the query scope is enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorization(String authorization) {
             return authorization(Output.of(authorization));
         }

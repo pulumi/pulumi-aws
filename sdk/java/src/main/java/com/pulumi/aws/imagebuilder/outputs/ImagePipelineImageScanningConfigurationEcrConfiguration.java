@@ -13,20 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ImagePipelineImageScanningConfigurationEcrConfiguration {
     private @Nullable List<String> containerTags;
-    /**
-     * @return The name of the repository to scan
-     * 
-     */
     private @Nullable String repositoryName;
 
     private ImagePipelineImageScanningConfigurationEcrConfiguration() {}
     public List<String> containerTags() {
         return this.containerTags == null ? List.of() : this.containerTags;
     }
-    /**
-     * @return The name of the repository to scan
-     * 
-     */
     public Optional<String> repositoryName() {
         return Optional.ofNullable(this.repositoryName);
     }

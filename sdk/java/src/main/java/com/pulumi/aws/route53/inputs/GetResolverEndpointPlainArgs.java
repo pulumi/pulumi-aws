@@ -16,51 +16,23 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetResolverEndpointPlainArgs Empty = new GetResolverEndpointPlainArgs();
 
-    /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetResolverEndpointFilter> filters;
 
-    /**
-     * @return One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
-     * 
-     */
     public Optional<List<GetResolverEndpointFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the Route53 Resolver Endpoint.
-     * 
-     */
     @Import(name="resolverEndpointId")
     private @Nullable String resolverEndpointId;
 
-    /**
-     * @return ID of the Route53 Resolver Endpoint.
-     * 
-     */
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
     }
@@ -91,48 +63,20 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
             $ = new GetResolverEndpointPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [Route53resolver Filter value in the AWS API reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetResolverEndpointFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [Route53resolver Filter value in the AWS API reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetResolverEndpointFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resolverEndpointId ID of the Route53 Resolver Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverEndpointId(@Nullable String resolverEndpointId) {
             $.resolverEndpointId = resolverEndpointId;
             return this;

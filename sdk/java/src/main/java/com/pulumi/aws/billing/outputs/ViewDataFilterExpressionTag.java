@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ViewDataFilterExpressionTag {
-    /**
-     * @return Key of the tag.
-     * 
-     */
     private String key;
-    /**
-     * @return List of values for the tag.
-     * 
-     */
     private List<String> values;
 
     private ViewDataFilterExpressionTag() {}
-    /**
-     * @return Key of the tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return List of values for the tag.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

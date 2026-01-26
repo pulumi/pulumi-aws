@@ -9,143 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ComputeOptimizer
 {
-    /// <summary>
-    /// Manages AWS Compute Optimizer recommendation preferences.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Lookback Period Preference
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ComputeOptimizer.RecommendationPreferences("example", new()
-    ///     {
-    ///         ResourceType = "Ec2Instance",
-    ///         Scope = new Aws.ComputeOptimizer.Inputs.RecommendationPreferencesScopeArgs
-    ///         {
-    ///             Name = "AccountId",
-    ///             Value = "123456789012",
-    ///         },
-    ///         LookBackPeriod = "DAYS_32",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Multiple Preferences
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ComputeOptimizer.RecommendationPreferences("example", new()
-    ///     {
-    ///         ResourceType = "Ec2Instance",
-    ///         Scope = new Aws.ComputeOptimizer.Inputs.RecommendationPreferencesScopeArgs
-    ///         {
-    ///             Name = "AccountId",
-    ///             Value = "123456789012",
-    ///         },
-    ///         EnhancedInfrastructureMetrics = "Active",
-    ///         ExternalMetricsPreference = new Aws.ComputeOptimizer.Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs
-    ///         {
-    ///             Source = "Datadog",
-    ///         },
-    ///         PreferredResources = new[]
-    ///         {
-    ///             new Aws.ComputeOptimizer.Inputs.RecommendationPreferencesPreferredResourceArgs
-    ///             {
-    ///                 IncludeLists = new[]
-    ///                 {
-    ///                     "m5.xlarge",
-    ///                     "r5",
-    ///                 },
-    ///                 Name = "Ec2InstanceTypes",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import recommendation preferences using the resource type, scope name and scope value. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:computeoptimizer/recommendationPreferences:RecommendationPreferences example Ec2Instance,AccountId,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:computeoptimizer/recommendationPreferences:RecommendationPreferences")]
     public partial class RecommendationPreferences : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Output("enhancedInfrastructureMetrics")]
         public Output<string?> EnhancedInfrastructureMetrics { get; private set; } = null!;
 
-        /// <summary>
-        /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
-        /// </summary>
         [Output("externalMetricsPreference")]
         public Output<Outputs.RecommendationPreferencesExternalMetricsPreference?> ExternalMetricsPreference { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Output("inferredWorkloadTypes")]
         public Output<string?> InferredWorkloadTypes { get; private set; } = null!;
 
-        /// <summary>
-        /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
-        /// </summary>
         [Output("lookBackPeriod")]
         public Output<string> LookBackPeriod { get; private set; } = null!;
 
-        /// <summary>
-        /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-        /// </summary>
         [Output("preferredResources")]
         public Output<ImmutableArray<Outputs.RecommendationPreferencesPreferredResource>> PreferredResources { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
-        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
-        /// </summary>
         [Output("savingsEstimationMode")]
         public Output<string?> SavingsEstimationMode { get; private set; } = null!;
 
-        /// <summary>
-        /// The scope of the recommendation preferences. See Scope below.
-        /// </summary>
         [Output("scope")]
         public Output<Outputs.RecommendationPreferencesScope?> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
-        /// </summary>
         [Output("utilizationPreferences")]
         public Output<ImmutableArray<Outputs.RecommendationPreferencesUtilizationPreference>> UtilizationPreferences { get; private set; } = null!;
 
@@ -195,72 +88,40 @@ namespace Pulumi.Aws.ComputeOptimizer
 
     public sealed class RecommendationPreferencesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Input("enhancedInfrastructureMetrics")]
         public Input<string>? EnhancedInfrastructureMetrics { get; set; }
 
-        /// <summary>
-        /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
-        /// </summary>
         [Input("externalMetricsPreference")]
         public Input<Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs>? ExternalMetricsPreference { get; set; }
 
-        /// <summary>
-        /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Input("inferredWorkloadTypes")]
         public Input<string>? InferredWorkloadTypes { get; set; }
 
-        /// <summary>
-        /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
-        /// </summary>
         [Input("lookBackPeriod")]
         public Input<string>? LookBackPeriod { get; set; }
 
         [Input("preferredResources")]
         private InputList<Inputs.RecommendationPreferencesPreferredResourceArgs>? _preferredResources;
-
-        /// <summary>
-        /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-        /// </summary>
         public InputList<Inputs.RecommendationPreferencesPreferredResourceArgs> PreferredResources
         {
             get => _preferredResources ?? (_preferredResources = new InputList<Inputs.RecommendationPreferencesPreferredResourceArgs>());
             set => _preferredResources = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
-        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
-        /// <summary>
-        /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
-        /// </summary>
         [Input("savingsEstimationMode")]
         public Input<string>? SavingsEstimationMode { get; set; }
 
-        /// <summary>
-        /// The scope of the recommendation preferences. See Scope below.
-        /// </summary>
         [Input("scope")]
         public Input<Inputs.RecommendationPreferencesScopeArgs>? Scope { get; set; }
 
         [Input("utilizationPreferences")]
         private InputList<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>? _utilizationPreferences;
-
-        /// <summary>
-        /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
-        /// </summary>
         public InputList<Inputs.RecommendationPreferencesUtilizationPreferenceArgs> UtilizationPreferences
         {
             get => _utilizationPreferences ?? (_utilizationPreferences = new InputList<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>());
@@ -275,72 +136,40 @@ namespace Pulumi.Aws.ComputeOptimizer
 
     public sealed class RecommendationPreferencesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Input("enhancedInfrastructureMetrics")]
         public Input<string>? EnhancedInfrastructureMetrics { get; set; }
 
-        /// <summary>
-        /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
-        /// </summary>
         [Input("externalMetricsPreference")]
         public Input<Inputs.RecommendationPreferencesExternalMetricsPreferenceGetArgs>? ExternalMetricsPreference { get; set; }
 
-        /// <summary>
-        /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Input("inferredWorkloadTypes")]
         public Input<string>? InferredWorkloadTypes { get; set; }
 
-        /// <summary>
-        /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
-        /// </summary>
         [Input("lookBackPeriod")]
         public Input<string>? LookBackPeriod { get; set; }
 
         [Input("preferredResources")]
         private InputList<Inputs.RecommendationPreferencesPreferredResourceGetArgs>? _preferredResources;
-
-        /// <summary>
-        /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-        /// </summary>
         public InputList<Inputs.RecommendationPreferencesPreferredResourceGetArgs> PreferredResources
         {
             get => _preferredResources ?? (_preferredResources = new InputList<Inputs.RecommendationPreferencesPreferredResourceGetArgs>());
             set => _preferredResources = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
-        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
-        /// <summary>
-        /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
-        /// </summary>
         [Input("savingsEstimationMode")]
         public Input<string>? SavingsEstimationMode { get; set; }
 
-        /// <summary>
-        /// The scope of the recommendation preferences. See Scope below.
-        /// </summary>
         [Input("scope")]
         public Input<Inputs.RecommendationPreferencesScopeGetArgs>? Scope { get; set; }
 
         [Input("utilizationPreferences")]
         private InputList<Inputs.RecommendationPreferencesUtilizationPreferenceGetArgs>? _utilizationPreferences;
-
-        /// <summary>
-        /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
-        /// </summary>
         public InputList<Inputs.RecommendationPreferencesUtilizationPreferenceGetArgs> UtilizationPreferences
         {
             get => _utilizationPreferences ?? (_utilizationPreferences = new InputList<Inputs.RecommendationPreferencesUtilizationPreferenceGetArgs>());

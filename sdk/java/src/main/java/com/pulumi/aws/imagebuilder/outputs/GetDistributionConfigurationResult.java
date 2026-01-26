@@ -14,76 +14,32 @@ import java.util.Objects;
 @CustomType
 public final class GetDistributionConfigurationResult {
     private String arn;
-    /**
-     * @return Date the distribution configuration was created.
-     * 
-     */
     private String dateCreated;
-    /**
-     * @return Date the distribution configuration was updated.
-     * 
-     */
     private String dateUpdated;
-    /**
-     * @return Description of the container distribution configuration.
-     * 
-     */
     private String description;
-    /**
-     * @return Set of distributions.
-     * 
-     */
     private List<GetDistributionConfigurationDistribution> distributions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the distribution configuration.
-     * 
-     */
     private String name;
-    /**
-     * @return AWS Region of distribution.
-     * 
-     */
     private String region;
-    /**
-     * @return Key-value map of resource tags for the distribution configuration.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetDistributionConfigurationResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Date the distribution configuration was created.
-     * 
-     */
     public String dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * @return Date the distribution configuration was updated.
-     * 
-     */
     public String dateUpdated() {
         return this.dateUpdated;
     }
-    /**
-     * @return Description of the container distribution configuration.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Set of distributions.
-     * 
-     */
     public List<GetDistributionConfigurationDistribution> distributions() {
         return this.distributions;
     }
@@ -94,24 +50,12 @@ public final class GetDistributionConfigurationResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the distribution configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return AWS Region of distribution.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the distribution configuration.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

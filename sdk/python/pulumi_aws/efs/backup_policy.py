@@ -26,9 +26,6 @@ class BackupPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
-        :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_policy", backup_policy)
         pulumi.set(__self__, "file_system_id", file_system_id)
@@ -38,9 +35,6 @@ class BackupPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> pulumi.Input['BackupPolicyBackupPolicyArgs']:
-        """
-        A backup_policy object (documented below).
-        """
         return pulumi.get(self, "backup_policy")
 
     @backup_policy.setter
@@ -50,9 +44,6 @@ class BackupPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the EFS file system.
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -62,9 +53,6 @@ class BackupPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +68,6 @@ class _BackupPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicy resources.
-        :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if backup_policy is not None:
             pulumi.set(__self__, "backup_policy", backup_policy)
@@ -94,9 +79,6 @@ class _BackupPolicyState:
     @_builtins.property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']]:
-        """
-        A backup_policy object (documented below).
-        """
         return pulumi.get(self, "backup_policy")
 
     @backup_policy.setter
@@ -106,9 +88,6 @@ class _BackupPolicyState:
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the EFS file system.
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -118,9 +97,6 @@ class _BackupPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -139,36 +115,9 @@ class BackupPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Elastic File System (EFS) Backup Policy resource.
-        Backup policies turn automatic backups on or off for an existing file system.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fs = aws.efs.FileSystem("fs", creation_token="my-product")
-        policy = aws.efs.BackupPolicy("policy",
-            file_system_id=fs.id,
-            backup_policy={
-                "status": "ENABLED",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the EFS backup policies using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-        ```
-
+        Create a BackupPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -177,31 +126,7 @@ class BackupPolicy(pulumi.CustomResource):
                  args: BackupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic File System (EFS) Backup Policy resource.
-        Backup policies turn automatic backups on or off for an existing file system.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fs = aws.efs.FileSystem("fs", creation_token="my-product")
-        policy = aws.efs.BackupPolicy("policy",
-            file_system_id=fs.id,
-            backup_policy={
-                "status": "ENABLED",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the EFS backup policies using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-        ```
-
+        Create a BackupPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,9 +181,6 @@ class BackupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -272,24 +194,15 @@ class BackupPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> pulumi.Output['outputs.BackupPolicyBackupPolicy']:
-        """
-        A backup_policy object (documented below).
-        """
         return pulumi.get(self, "backup_policy")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the EFS file system.
-        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

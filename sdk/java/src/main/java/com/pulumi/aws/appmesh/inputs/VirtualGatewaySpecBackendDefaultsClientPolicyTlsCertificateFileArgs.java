@@ -14,32 +14,16 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
 
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs();
 
-    /**
-     * Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="certificateChain", required=true)
     private Output<String> certificateChain;
 
-    /**
-     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> certificateChain() {
         return this.certificateChain;
     }
 
-    /**
-     * Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
-    /**
-     * @return Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> privateKey() {
         return this.privateKey;
     }
@@ -69,44 +53,20 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
             $ = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(Output<String> certificateChain) {
             $.certificateChain = certificateChain;
             return this;
         }
 
-        /**
-         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(String certificateChain) {
             return certificateChain(Output.of(certificateChain));
         }
 
-        /**
-         * @param privateKey Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
 
-        /**
-         * @param privateKey Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
         }

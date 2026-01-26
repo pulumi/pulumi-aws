@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandling {
-    /**
-     * @return Headers to insert into the request. See below.
-     * 
-     */
     private @Nullable List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandling() {}
-    /**
-     * @return Headers to insert into the request. See below.
-     * 
-     */
     public List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders == null ? List.of() : this.insertHeaders;
     }

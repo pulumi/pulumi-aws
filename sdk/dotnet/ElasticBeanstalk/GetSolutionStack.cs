@@ -11,78 +11,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
 {
     public static class GetSolutionStack
     {
-        /// <summary>
-        /// Use this data source to get the name of a elastic beanstalk solution stack.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var multiDocker = Aws.ElasticBeanstalk.GetSolutionStack.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSolutionStackResult> InvokeAsync(GetSolutionStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the name of a elastic beanstalk solution stack.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var multiDocker = Aws.ElasticBeanstalk.GetSolutionStack.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSolutionStackResult> Invoke(GetSolutionStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the name of a elastic beanstalk solution stack.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var multiDocker = Aws.ElasticBeanstalk.GetSolutionStack.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSolutionStackResult> Invoke(GetSolutionStackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackInvokeArgs(), options.WithDefaults());
     }
@@ -90,28 +24,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
     public sealed class GetSolutionStackArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// If more than one result is returned, use the most
-        /// recent solution stack.
-        /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
-        /// <summary>
-        /// Regex string to apply to the solution stack list returned
-        /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-        /// AWS documentation for reference solution stack names.
-        /// 
-        /// &gt; **NOTE:** If more or less than a single match is returned by the search,
-        /// this call will fail. Ensure that your search is specific enough to return
-        /// a single solution stack, or use `MostRecent` to choose the most recent one.
-        /// </summary>
         [Input("nameRegex", required: true)]
         public string NameRegex { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -123,28 +41,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
     public sealed class GetSolutionStackInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// If more than one result is returned, use the most
-        /// recent solution stack.
-        /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
-        /// <summary>
-        /// Regex string to apply to the solution stack list returned
-        /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-        /// AWS documentation for reference solution stack names.
-        /// 
-        /// &gt; **NOTE:** If more or less than a single match is returned by the search,
-        /// this call will fail. Ensure that your search is specific enough to return
-        /// a single solution stack, or use `MostRecent` to choose the most recent one.
-        /// </summary>
         [Input("nameRegex", required: true)]
         public Input<string> NameRegex { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -163,9 +65,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public readonly string Id;
         public readonly bool? MostRecent;
-        /// <summary>
-        /// Name of the solution stack.
-        /// </summary>
         public readonly string Name;
         public readonly string NameRegex;
         public readonly string Region;

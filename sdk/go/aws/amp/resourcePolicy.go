@@ -12,235 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon Managed Service for Prometheus (AMP) Resource Policy.
-//
-// Resource-based policies allow you to grant permissions to other AWS accounts or services to access your Prometheus workspace. This enables cross-account access and fine-grained permissions for workspace sharing.
-//
-// ## Example Usage
-//
-// ### Basic Resource Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleWorkspace, err := amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-// Alias: pulumi.String("example-workspace"),
-// })
-// if err != nil {
-// return err
-// }
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example := exampleWorkspace.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// current.AccountId,
-// },
-// },
-// },
-// Actions: []string{
-// "aps:RemoteWrite",
-// "aps:QueryMetrics",
-// "aps:GetSeries",
-// "aps:GetLabels",
-// "aps:GetMetricMetadata",
-// },
-// Resources: []string{
-// arn,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
-// WorkspaceId: exampleWorkspace.ID(),
-// PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ### Cross-Account Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-//				Alias: pulumi.String("example-workspace"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			crossAccount := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("arn:aws:iam::123456789012:root"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("aps:RemoteWrite"),
-//							pulumi.String("aps:QueryMetrics"),
-//						},
-//						Resources: pulumi.StringArray{
-//							example.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = amp.NewResourcePolicy(ctx, "cross_account", &amp.ResourcePolicyArgs{
-//				WorkspaceId: example.ID(),
-//				PolicyDocument: pulumi.String(crossAccount.ApplyT(func(crossAccount iam.GetPolicyDocumentResult) (*string, error) {
-//					return &crossAccount.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Service-Specific Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-//				Alias: pulumi.String("example-workspace"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			serviceAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("grafana.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("aps:QueryMetrics"),
-//							pulumi.String("aps:GetSeries"),
-//							pulumi.String("aps:GetLabels"),
-//							pulumi.String("aps:GetMetricMetadata"),
-//						},
-//						Resources: pulumi.StringArray{
-//							example.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = amp.NewResourcePolicy(ctx, "service_access", &amp.ResourcePolicyArgs{
-//				WorkspaceId: example.ID(),
-//				PolicyDocument: pulumi.String(serviceAccess.ApplyT(func(serviceAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &serviceAccess.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Supported Actions
-//
-// The following actions are supported in resource policies for Prometheus workspaces:
-//
-// * `aps:RemoteWrite` - Allows writing metrics to the workspace
-// * `aps:QueryMetrics` - Allows querying metrics from the workspace
-// * `aps:GetSeries` - Allows retrieving time series data
-// * `aps:GetLabels` - Allows retrieving label names and values
-// * `aps:GetMetricMetadata` - Allows retrieving metric metadata
-//
-// ## Notes
-//
-// * Only Prometheus-compatible APIs can be used for workspace sharing. Non-Prometheus-compatible APIs added to the policy will be ignored.
-// * If your workspace uses customer-managed KMS keys for encryption, you must grant the principals in your resource-based policy access to those KMS keys through KMS grants.
-// * The resource ARN in the policy document must match the workspace ARN that the policy is being attached to.
-// * Resource policies enable cross-account access and fine-grained permissions for Prometheus workspaces.
-//
-// ## Import
-//
-// Using `pulumi import`, import AMP Resource Policies using the workspace ID. For example:
-//
-// ```sh
-// $ pulumi import aws:amp/resourcePolicy:ResourcePolicy example ws-12345678-90ab-cdef-1234-567890abcdef
-// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
-	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The revision ID of the current resource-based policy.
-	RevisionId pulumi.StringOutput             `pulumi:"revisionId"`
-	Timeouts   ResourcePolicyTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the workspace to attach the resource-based policy to.
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	PolicyDocument pulumi.StringOutput             `pulumi:"policyDocument"`
+	Region         pulumi.StringOutput             `pulumi:"region"`
+	RevisionId     pulumi.StringOutput             `pulumi:"revisionId"`
+	Timeouts       ResourcePolicyTimeoutsPtrOutput `pulumi:"timeouts"`
+	WorkspaceId    pulumi.StringOutput             `pulumi:"workspaceId"`
 }
 
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -279,31 +58,19 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
-	PolicyDocument *string `pulumi:"policyDocument"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The revision ID of the current resource-based policy.
-	RevisionId *string                 `pulumi:"revisionId"`
-	Timeouts   *ResourcePolicyTimeouts `pulumi:"timeouts"`
-	// The ID of the workspace to attach the resource-based policy to.
-	WorkspaceId *string `pulumi:"workspaceId"`
+	PolicyDocument *string                 `pulumi:"policyDocument"`
+	Region         *string                 `pulumi:"region"`
+	RevisionId     *string                 `pulumi:"revisionId"`
+	Timeouts       *ResourcePolicyTimeouts `pulumi:"timeouts"`
+	WorkspaceId    *string                 `pulumi:"workspaceId"`
 }
 
 type ResourcePolicyState struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
 	PolicyDocument pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The revision ID of the current resource-based policy.
-	RevisionId pulumi.StringPtrInput
-	Timeouts   ResourcePolicyTimeoutsPtrInput
-	// The ID of the workspace to attach the resource-based policy to.
-	WorkspaceId pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	RevisionId     pulumi.StringPtrInput
+	Timeouts       ResourcePolicyTimeoutsPtrInput
+	WorkspaceId    pulumi.StringPtrInput
 }
 
 func (ResourcePolicyState) ElementType() reflect.Type {
@@ -311,32 +78,20 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
-	PolicyDocument string `pulumi:"policyDocument"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The revision ID of the current resource-based policy.
-	RevisionId *string                 `pulumi:"revisionId"`
-	Timeouts   *ResourcePolicyTimeouts `pulumi:"timeouts"`
-	// The ID of the workspace to attach the resource-based policy to.
-	WorkspaceId string `pulumi:"workspaceId"`
+	PolicyDocument string                  `pulumi:"policyDocument"`
+	Region         *string                 `pulumi:"region"`
+	RevisionId     *string                 `pulumi:"revisionId"`
+	Timeouts       *ResourcePolicyTimeouts `pulumi:"timeouts"`
+	WorkspaceId    string                  `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
 	PolicyDocument pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The revision ID of the current resource-based policy.
-	RevisionId pulumi.StringPtrInput
-	Timeouts   ResourcePolicyTimeoutsPtrInput
-	// The ID of the workspace to attach the resource-based policy to.
-	WorkspaceId pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	RevisionId     pulumi.StringPtrInput
+	Timeouts       ResourcePolicyTimeoutsPtrInput
+	WorkspaceId    pulumi.StringInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
@@ -426,19 +181,14 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-//
-// The following arguments are optional:
 func (o ResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The revision ID of the current resource-based policy.
 func (o ResourcePolicyOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
@@ -447,7 +197,6 @@ func (o ResourcePolicyOutput) Timeouts() ResourcePolicyTimeoutsPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicy) ResourcePolicyTimeoutsPtrOutput { return v.Timeouts }).(ResourcePolicyTimeoutsPtrOutput)
 }
 
-// The ID of the workspace to attach the resource-based policy to.
 func (o ResourcePolicyOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

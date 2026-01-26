@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Rekognition Collection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rekognition.Collection("example", {
- *     collectionId: "my-collection",
- *     tags: {
- *         example: "1",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Rekognition Collection using the `collection_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
- * ```
- */
 export class Collection extends pulumi.CustomResource {
     /**
      * Get an existing Collection resource's state with the given name, ID, and optional extra
@@ -60,31 +35,14 @@ export class Collection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Collection.__pulumiType;
     }
 
-    /**
-     * ARN of the Collection.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the collection
-     *
-     * The following arguments are optional:
+     * The name of the Rekognition collection
      */
     declare public readonly collectionId: pulumi.Output<string>;
-    /**
-     * The Face Model Version that the collection was initialized with
-     */
     declare public /*out*/ readonly faceModelVersion: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.rekognition.CollectionTimeouts | undefined>;
 
@@ -130,31 +88,14 @@ export class Collection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Collection resources.
  */
 export interface CollectionState {
-    /**
-     * ARN of the Collection.
-     */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the collection
-     *
-     * The following arguments are optional:
+     * The name of the Rekognition collection
      */
     collectionId?: pulumi.Input<string>;
-    /**
-     * The Face Model Version that the collection was initialized with
-     */
     faceModelVersion?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.rekognition.CollectionTimeouts>;
 }
@@ -164,18 +105,10 @@ export interface CollectionState {
  */
 export interface CollectionArgs {
     /**
-     * The name of the collection
-     *
-     * The following arguments are optional:
+     * The name of the Rekognition collection
      */
     collectionId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.rekognition.CollectionTimeouts>;
 }

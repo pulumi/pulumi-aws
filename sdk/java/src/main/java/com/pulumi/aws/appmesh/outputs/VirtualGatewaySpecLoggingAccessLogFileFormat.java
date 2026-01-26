@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecLoggingAccessLogFileFormat {
-    /**
-     * @return The logging format for JSON.
-     * 
-     */
     private @Nullable List<VirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons;
-    /**
-     * @return The logging format for text. Must be between 1 and 1000 characters in length.
-     * 
-     */
     private @Nullable String text;
 
     private VirtualGatewaySpecLoggingAccessLogFileFormat() {}
-    /**
-     * @return The logging format for JSON.
-     * 
-     */
     public List<VirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons() {
         return this.jsons == null ? List.of() : this.jsons;
     }
-    /**
-     * @return The logging format for text. Must be between 1 and 1000 characters in length.
-     * 
-     */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }

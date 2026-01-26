@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScraperDestinationAmp {
-    /**
-     * @return The Amazon Resource Name (ARN) of the prometheus workspace.
-     * 
-     */
     private String workspaceArn;
 
     private ScraperDestinationAmp() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the prometheus workspace.
-     * 
-     */
     public String workspaceArn() {
         return this.workspaceArn;
     }

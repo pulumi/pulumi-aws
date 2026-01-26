@@ -15,47 +15,23 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetResourcePlainArgs Empty = new GetResourcePlainArgs();
 
-    /**
-     * Full path of the resource.  If no path is found, an error will be returned.
-     * 
-     */
     @Import(name="path", required=true)
     private String path;
 
-    /**
-     * @return Full path of the resource.  If no path is found, an error will be returned.
-     * 
-     */
     public String path() {
         return this.path;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * REST API id that owns the resource. If no REST API is found, an error will be returned.
-     * 
-     */
     @Import(name="restApiId", required=true)
     private String restApiId;
 
-    /**
-     * @return REST API id that owns the resource. If no REST API is found, an error will be returned.
-     * 
-     */
     public String restApiId() {
         return this.restApiId;
     }
@@ -86,34 +62,16 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetResourcePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param path Full path of the resource.  If no path is found, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param restApiId REST API id that owns the resource. If no REST API is found, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             $.restApiId = restApiId;
             return this;

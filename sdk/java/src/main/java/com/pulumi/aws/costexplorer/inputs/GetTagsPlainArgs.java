@@ -19,77 +19,37 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsPlainArgs Empty = new GetTagsPlainArgs();
 
-    /**
-     * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-     * 
-     */
     @Import(name="filter")
     private @Nullable GetTagsFilter filter;
 
-    /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-     * 
-     */
     public Optional<GetTagsFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    /**
-     * Value that you want to search for.
-     * 
-     */
     @Import(name="searchString")
     private @Nullable String searchString;
 
-    /**
-     * @return Value that you want to search for.
-     * 
-     */
     public Optional<String> searchString() {
         return Optional.ofNullable(this.searchString);
     }
 
-    /**
-     * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-     * 
-     */
     @Import(name="sortBies")
     private @Nullable List<GetTagsSortBy> sortBies;
 
-    /**
-     * @return Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-     * 
-     */
     public Optional<List<GetTagsSortBy>> sortBies() {
         return Optional.ofNullable(this.sortBies);
     }
 
-    /**
-     * Key of the tag that you want to return values for.
-     * 
-     */
     @Import(name="tagKey")
     private @Nullable String tagKey;
 
-    /**
-     * @return Key of the tag that you want to return values for.
-     * 
-     */
     public Optional<String> tagKey() {
         return Optional.ofNullable(this.tagKey);
     }
 
-    /**
-     * Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-     * 
-     */
     @Import(name="timePeriod", required=true)
     private GetTagsTimePeriod timePeriod;
 
-    /**
-     * @return Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-     * 
-     */
     public GetTagsTimePeriod timePeriod() {
         return this.timePeriod;
     }
@@ -122,66 +82,30 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filter Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(@Nullable GetTagsFilter filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param searchString Value that you want to search for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder searchString(@Nullable String searchString) {
             $.searchString = searchString;
             return this;
         }
 
-        /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortBies(@Nullable List<GetTagsSortBy> sortBies) {
             $.sortBies = sortBies;
             return this;
         }
 
-        /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortBies(GetTagsSortBy... sortBies) {
             return sortBies(List.of(sortBies));
         }
 
-        /**
-         * @param tagKey Key of the tag that you want to return values for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(@Nullable String tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timePeriod(GetTagsTimePeriod timePeriod) {
             $.timePeriod = timePeriod;
             return this;

@@ -15,240 +15,65 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
- * 
- * Certificates created using `aws.acmpca.Certificate` are not eligible for automatic renewal,
- * and must be replaced instead.
- * To issue a renewable certificate using an ACM PCA, create a `aws.acm.Certificate`
- * with the parameter `certificateAuthorityArn`.
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.acmpca.CertificateAuthority;
- * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
- * import com.pulumi.tls.PrivateKey;
- * import com.pulumi.tls.PrivateKeyArgs;
- * import com.pulumi.tls.CertRequest;
- * import com.pulumi.tls.CertRequestArgs;
- * import com.pulumi.aws.acmpca.Certificate;
- * import com.pulumi.aws.acmpca.CertificateArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
- *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
- *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName("example.com")
- *                     .build())
- *                 .build())
- *             .permanentDeletionTimeInDays(7)
- *             .build());
- * 
- *         var key = new PrivateKey("key", PrivateKeyArgs.builder()
- *             .algorithm("RSA")
- *             .build());
- * 
- *         var csr = new CertRequest("csr", CertRequestArgs.builder()
- *             .privateKeyPem(key.privateKeyPem())
- *             .subject(CertRequestSubjectArgs.builder()
- *                 .commonName("example")
- *                 .build())
- *             .build());
- * 
- *         var example = new Certificate("example", CertificateArgs.builder()
- *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
- *             .certificateSigningRequest(csr.certRequestPem())
- *             .signingAlgorithm("SHA256WITHRSA")
- *             .validity(CertificateValidityArgs.builder()
- *                 .type("YEARS")
- *                 .value("1")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate.
- * 
- * Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
- * 
- * % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
- * 
- */
 @ResourceType(type="aws:acmpca/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-     * 
-     */
     @Export(name="apiPassthrough", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiPassthrough;
 
-    /**
-     * @return Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-     * 
-     */
     public Output<Optional<String>> apiPassthrough() {
         return Codegen.optional(this.apiPassthrough);
     }
-    /**
-     * ARN of the certificate.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the certificate.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * PEM-encoded certificate value.
-     * 
-     */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
-    /**
-     * @return PEM-encoded certificate value.
-     * 
-     */
     public Output<String> certificate() {
         return this.certificate;
     }
-    /**
-     * ARN of the certificate authority.
-     * 
-     */
     @Export(name="certificateAuthorityArn", refs={String.class}, tree="[0]")
     private Output<String> certificateAuthorityArn;
 
-    /**
-     * @return ARN of the certificate authority.
-     * 
-     */
     public Output<String> certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
-    /**
-     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-     * 
-     */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output<String> certificateChain;
 
-    /**
-     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-     * 
-     */
     public Output<String> certificateChain() {
         return this.certificateChain;
     }
-    /**
-     * Certificate Signing Request in PEM format.
-     * 
-     */
     @Export(name="certificateSigningRequest", refs={String.class}, tree="[0]")
     private Output<String> certificateSigningRequest;
 
-    /**
-     * @return Certificate Signing Request in PEM format.
-     * 
-     */
     public Output<String> certificateSigningRequest() {
         return this.certificateSigningRequest;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-     * 
-     */
     @Export(name="signingAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> signingAlgorithm;
 
-    /**
-     * @return Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-     * 
-     */
     public Output<String> signingAlgorithm() {
         return this.signingAlgorithm;
     }
-    /**
-     * Template to use when issuing a certificate.
-     * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-     * 
-     */
     @Export(name="templateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateArn;
 
-    /**
-     * @return Template to use when issuing a certificate.
-     * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-     * 
-     */
     public Output<Optional<String>> templateArn() {
         return Codegen.optional(this.templateArn);
     }
-    /**
-     * Configures end of the validity period for the certificate. See validity block below.
-     * 
-     */
     @Export(name="validity", refs={CertificateValidity.class}, tree="[0]")
     private Output<CertificateValidity> validity;
 
-    /**
-     * @return Configures end of the validity period for the certificate. See validity block below.
-     * 
-     */
     public Output<CertificateValidity> validity() {
         return this.validity;
     }

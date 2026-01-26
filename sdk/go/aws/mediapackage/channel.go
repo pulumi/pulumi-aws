@@ -12,59 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Elemental MediaPackage Channel.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mediapackage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediapackage.NewChannel(ctx, "kittens", &mediapackage.ChannelArgs{
-//				ChannelId:   pulumi.String("kitten-channel"),
-//				Description: pulumi.String("A channel dedicated to amusing videos of kittens."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Media Package Channels using the channel ID. For example:
-//
-// ```sh
-// $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
-// ```
 type Channel struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the channel
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A unique identifier describing the channel
-	ChannelId pulumi.StringOutput `pulumi:"channelId"`
-	// A description of the channel
-	Description pulumi.StringOutput `pulumi:"description"`
-	// A single item list of HLS ingest information
-	HlsIngests ChannelHlsIngestArrayOutput `pulumi:"hlsIngests"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn         pulumi.StringOutput         `pulumi:"arn"`
+	ChannelId   pulumi.StringOutput         `pulumi:"channelId"`
+	Description pulumi.StringOutput         `pulumi:"description"`
+	HlsIngests  ChannelHlsIngestArrayOutput `pulumi:"hlsIngests"`
+	Region      pulumi.StringOutput         `pulumi:"region"`
+	Tags        pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput      `pulumi:"tagsAll"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -103,37 +60,23 @@ func GetChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Channel resources.
 type channelState struct {
-	// The ARN of the channel
-	Arn *string `pulumi:"arn"`
-	// A unique identifier describing the channel
-	ChannelId *string `pulumi:"channelId"`
-	// A description of the channel
-	Description *string `pulumi:"description"`
-	// A single item list of HLS ingest information
-	HlsIngests []ChannelHlsIngest `pulumi:"hlsIngests"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string            `pulumi:"arn"`
+	ChannelId   *string            `pulumi:"channelId"`
+	Description *string            `pulumi:"description"`
+	HlsIngests  []ChannelHlsIngest `pulumi:"hlsIngests"`
+	Region      *string            `pulumi:"region"`
+	Tags        map[string]string  `pulumi:"tags"`
+	TagsAll     map[string]string  `pulumi:"tagsAll"`
 }
 
 type ChannelState struct {
-	// The ARN of the channel
-	Arn pulumi.StringPtrInput
-	// A unique identifier describing the channel
-	ChannelId pulumi.StringPtrInput
-	// A description of the channel
+	Arn         pulumi.StringPtrInput
+	ChannelId   pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// A single item list of HLS ingest information
-	HlsIngests ChannelHlsIngestArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	HlsIngests  ChannelHlsIngestArrayInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (ChannelState) ElementType() reflect.Type {
@@ -141,26 +84,18 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	// A unique identifier describing the channel
-	ChannelId string `pulumi:"channelId"`
-	// A description of the channel
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ChannelId   string            `pulumi:"channelId"`
+	Description *string           `pulumi:"description"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
-	// A unique identifier describing the channel
-	ChannelId pulumi.StringInput
-	// A description of the channel
+	ChannelId   pulumi.StringInput
 	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -250,37 +185,30 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
-// The ARN of the channel
 func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A unique identifier describing the channel
 func (o ChannelOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
 }
 
-// A description of the channel
 func (o ChannelOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// A single item list of HLS ingest information
 func (o ChannelOutput) HlsIngests() ChannelHlsIngestArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelHlsIngestArrayOutput { return v.HlsIngests }).(ChannelHlsIngestArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ChannelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

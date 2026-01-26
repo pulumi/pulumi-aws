@@ -28,22 +28,6 @@ class VolumeAttachmentArgs:
                  stop_instance_before_detaching: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
-        :param pulumi.Input[_builtins.str] device_name: The device name to expose to the instance (for
-               example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        :param pulumi.Input[_builtins.str] instance_id: ID of the Instance to attach to
-        :param pulumi.Input[_builtins.str] volume_id: ID of the Volume to be attached
-        :param pulumi.Input[_builtins.bool] force_detach: Set to `true` if you want to force the
-               volume to detach. Useful if previous attempts failed, but use this option only
-               as a last resort, as this can result in **data loss**. See
-               [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Set this to true if you do not wish
-               to detach the volume from the instance to which it is attached at destroy
-               time, and instead just remove the attachment from this provider state. This is
-               useful when destroying an instance which has volumes created by some other
-               means attached.
-        :param pulumi.Input[_builtins.bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
-               before trying to detach the volume. Stops the instance, if it is not already stopped.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -60,10 +44,6 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The device name to expose to the instance (for
-        example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -73,9 +53,6 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Instance to attach to
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -85,9 +62,6 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Volume to be attached
-        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -97,12 +71,6 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="forceDetach")
     def force_detach(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to `true` if you want to force the
-        volume to detach. Useful if previous attempts failed, but use this option only
-        as a last resort, as this can result in **data loss**. See
-        [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        """
         return pulumi.get(self, "force_detach")
 
     @force_detach.setter
@@ -112,9 +80,6 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -124,13 +89,6 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this to true if you do not wish
-        to detach the volume from the instance to which it is attached at destroy
-        time, and instead just remove the attachment from this provider state. This is
-        useful when destroying an instance which has volumes created by some other
-        means attached.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -140,10 +98,6 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="stopInstanceBeforeDetaching")
     def stop_instance_before_detaching(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this to true to ensure that the target instance is stopped
-        before trying to detach the volume. Stops the instance, if it is not already stopped.
-        """
         return pulumi.get(self, "stop_instance_before_detaching")
 
     @stop_instance_before_detaching.setter
@@ -163,22 +117,6 @@ class _VolumeAttachmentState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VolumeAttachment resources.
-        :param pulumi.Input[_builtins.str] device_name: The device name to expose to the instance (for
-               example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        :param pulumi.Input[_builtins.bool] force_detach: Set to `true` if you want to force the
-               volume to detach. Useful if previous attempts failed, but use this option only
-               as a last resort, as this can result in **data loss**. See
-               [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        :param pulumi.Input[_builtins.str] instance_id: ID of the Instance to attach to
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Set this to true if you do not wish
-               to detach the volume from the instance to which it is attached at destroy
-               time, and instead just remove the attachment from this provider state. This is
-               useful when destroying an instance which has volumes created by some other
-               means attached.
-        :param pulumi.Input[_builtins.bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
-               before trying to detach the volume. Stops the instance, if it is not already stopped.
-        :param pulumi.Input[_builtins.str] volume_id: ID of the Volume to be attached
         """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
@@ -198,10 +136,6 @@ class _VolumeAttachmentState:
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The device name to expose to the instance (for
-        example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -211,12 +145,6 @@ class _VolumeAttachmentState:
     @_builtins.property
     @pulumi.getter(name="forceDetach")
     def force_detach(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to `true` if you want to force the
-        volume to detach. Useful if previous attempts failed, but use this option only
-        as a last resort, as this can result in **data loss**. See
-        [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        """
         return pulumi.get(self, "force_detach")
 
     @force_detach.setter
@@ -226,9 +154,6 @@ class _VolumeAttachmentState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Instance to attach to
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -238,9 +163,6 @@ class _VolumeAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -250,13 +172,6 @@ class _VolumeAttachmentState:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this to true if you do not wish
-        to detach the volume from the instance to which it is attached at destroy
-        time, and instead just remove the attachment from this provider state. This is
-        useful when destroying an instance which has volumes created by some other
-        means attached.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -266,10 +181,6 @@ class _VolumeAttachmentState:
     @_builtins.property
     @pulumi.getter(name="stopInstanceBeforeDetaching")
     def stop_instance_before_detaching(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this to true to ensure that the target instance is stopped
-        before trying to detach the volume. Stops the instance, if it is not already stopped.
-        """
         return pulumi.get(self, "stop_instance_before_detaching")
 
     @stop_instance_before_detaching.setter
@@ -279,9 +190,6 @@ class _VolumeAttachmentState:
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Volume to be attached
-        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -304,59 +212,9 @@ class VolumeAttachment(pulumi.CustomResource):
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AWS EBS Volume Attachment as a top level resource, to attach and
-        detach volumes from AWS Instances.
-
-        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `ec2.VolumeAttachment` resources for a given instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        web = aws.ec2.Instance("web",
-            ami="ami-21f78e11",
-            availability_zone="us-west-2a",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            tags={
-                "Name": "HelloWorld",
-            })
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=1)
-        ebs_att = aws.ec2.VolumeAttachment("ebs_att",
-            device_name="/dev/sdh",
-            volume_id=example.id,
-            instance_id=web.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
-        ```
-
+        Create a VolumeAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] device_name: The device name to expose to the instance (for
-               example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        :param pulumi.Input[_builtins.bool] force_detach: Set to `true` if you want to force the
-               volume to detach. Useful if previous attempts failed, but use this option only
-               as a last resort, as this can result in **data loss**. See
-               [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        :param pulumi.Input[_builtins.str] instance_id: ID of the Instance to attach to
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Set this to true if you do not wish
-               to detach the volume from the instance to which it is attached at destroy
-               time, and instead just remove the attachment from this provider state. This is
-               useful when destroying an instance which has volumes created by some other
-               means attached.
-        :param pulumi.Input[_builtins.bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
-               before trying to detach the volume. Stops the instance, if it is not already stopped.
-        :param pulumi.Input[_builtins.str] volume_id: ID of the Volume to be attached
         """
         ...
     @overload
@@ -365,41 +223,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  args: VolumeAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS EBS Volume Attachment as a top level resource, to attach and
-        detach volumes from AWS Instances.
-
-        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `ec2.VolumeAttachment` resources for a given instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        web = aws.ec2.Instance("web",
-            ami="ami-21f78e11",
-            availability_zone="us-west-2a",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            tags={
-                "Name": "HelloWorld",
-            })
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=1)
-        ebs_att = aws.ec2.VolumeAttachment("ebs_att",
-            device_name="/dev/sdh",
-            volume_id=example.id,
-            instance_id=web.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
-        ```
-
+        Create a VolumeAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -468,22 +292,6 @@ class VolumeAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] device_name: The device name to expose to the instance (for
-               example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        :param pulumi.Input[_builtins.bool] force_detach: Set to `true` if you want to force the
-               volume to detach. Useful if previous attempts failed, but use this option only
-               as a last resort, as this can result in **data loss**. See
-               [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        :param pulumi.Input[_builtins.str] instance_id: ID of the Instance to attach to
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Set this to true if you do not wish
-               to detach the volume from the instance to which it is attached at destroy
-               time, and instead just remove the attachment from this provider state. This is
-               useful when destroying an instance which has volumes created by some other
-               means attached.
-        :param pulumi.Input[_builtins.bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
-               before trying to detach the volume. Stops the instance, if it is not already stopped.
-        :param pulumi.Input[_builtins.str] volume_id: ID of the Volume to be attached
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -501,65 +309,35 @@ class VolumeAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The device name to expose to the instance (for
-        example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-        """
         return pulumi.get(self, "device_name")
 
     @_builtins.property
     @pulumi.getter(name="forceDetach")
     def force_detach(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set to `true` if you want to force the
-        volume to detach. Useful if previous attempts failed, but use this option only
-        as a last resort, as this can result in **data loss**. See
-        [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-        """
         return pulumi.get(self, "force_detach")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Instance to attach to
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set this to true if you do not wish
-        to detach the volume from the instance to which it is attached at destroy
-        time, and instead just remove the attachment from this provider state. This is
-        useful when destroying an instance which has volumes created by some other
-        means attached.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @_builtins.property
     @pulumi.getter(name="stopInstanceBeforeDetaching")
     def stop_instance_before_detaching(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set this to true to ensure that the target instance is stopped
-        before trying to detach the volume. Stops the instance, if it is not already stopped.
-        """
         return pulumi.get(self, "stop_instance_before_detaching")
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Volume to be attached
-        """
         return pulumi.get(self, "volume_id")
 

@@ -15,32 +15,16 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
 
     public static final DataSourceParametersTwitterArgs Empty = new DataSourceParametersTwitterArgs();
 
-    /**
-     * The maximum number of rows to query.
-     * 
-     */
     @Import(name="maxRows", required=true)
     private Output<Integer> maxRows;
 
-    /**
-     * @return The maximum number of rows to query.
-     * 
-     */
     public Output<Integer> maxRows() {
         return this.maxRows;
     }
 
-    /**
-     * The Twitter query to retrieve the data.
-     * 
-     */
     @Import(name="query", required=true)
     private Output<String> query;
 
-    /**
-     * @return The Twitter query to retrieve the data.
-     * 
-     */
     public Output<String> query() {
         return this.query;
     }
@@ -70,44 +54,20 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
             $ = new DataSourceParametersTwitterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxRows The maximum number of rows to query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRows(Output<Integer> maxRows) {
             $.maxRows = maxRows;
             return this;
         }
 
-        /**
-         * @param maxRows The maximum number of rows to query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRows(Integer maxRows) {
             return maxRows(Output.of(maxRows));
         }
 
-        /**
-         * @param query The Twitter query to retrieve the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
-        /**
-         * @param query The Twitter query to retrieve the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

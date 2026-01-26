@@ -9,63 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Resource for managing an AWS VPC NAT Gateway EIP Association.
-    /// 
-    /// !&gt; **WARNING:** You should not use the `aws.ec2.NatGatewayEipAssociation` resource in conjunction with an `aws.ec2.NatGateway` resource that has `SecondaryAllocationIds` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.NatGatewayEipAssociation("example", new()
-    ///     {
-    ///         AllocationId = exampleAwsEip.Id,
-    ///         NatGatewayId = exampleAwsNatGateway.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC NAT Gateway EIP Association using the `nat_gateway_id,allocation_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation")]
     public partial class NatGatewayEipAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        /// </summary>
         [Output("allocationId")]
         public Output<string> AllocationId { get; private set; } = null!;
 
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("natGatewayId")]
         public Output<string> NatGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -118,23 +73,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NatGatewayEipAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        /// </summary>
         [Input("allocationId", required: true)]
         public Input<string> AllocationId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("natGatewayId", required: true)]
         public Input<string> NatGatewayId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -149,26 +93,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NatGatewayEipAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
 
-        /// <summary>
-        /// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("natGatewayId")]
         public Input<string>? NatGatewayId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

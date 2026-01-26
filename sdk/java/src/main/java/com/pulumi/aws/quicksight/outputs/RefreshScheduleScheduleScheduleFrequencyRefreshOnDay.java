@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
-    /**
-     * @return The day of the month that you want to schedule refresh on.
-     * 
-     */
     private @Nullable String dayOfMonth;
-    /**
-     * @return The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
-     * 
-     */
     private @Nullable String dayOfWeek;
 
     private RefreshScheduleScheduleScheduleFrequencyRefreshOnDay() {}
-    /**
-     * @return The day of the month that you want to schedule refresh on.
-     * 
-     */
     public Optional<String> dayOfMonth() {
         return Optional.ofNullable(this.dayOfMonth);
     }
-    /**
-     * @return The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
-     * 
-     */
     public Optional<String> dayOfWeek() {
         return Optional.ofNullable(this.dayOfWeek);
     }

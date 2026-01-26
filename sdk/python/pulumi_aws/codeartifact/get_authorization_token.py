@@ -52,9 +52,6 @@ class GetAuthorizationTokenResult:
     @_builtins.property
     @pulumi.getter(name="authorizationToken")
     def authorization_token(self) -> _builtins.str:
-        """
-        Temporary authorization token.
-        """
         return pulumi.get(self, "authorization_token")
 
     @_builtins.property
@@ -75,9 +72,6 @@ class GetAuthorizationTokenResult:
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> _builtins.str:
-        """
-        Time in UTC RFC3339 format when the authorization token expires.
-        """
         return pulumi.get(self, "expiration")
 
     @_builtins.property
@@ -115,22 +109,7 @@ def get_authorization_token(domain: Optional[_builtins.str] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
     """
-    The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.codeartifact.get_authorization_token(domain=test_aws_codeartifact_domain["domain"])
-    ```
-
-
-    :param _builtins.str domain: Name of the domain that is in scope for the generated authorization token.
-    :param _builtins.str domain_owner: Account number of the AWS account that owns the domain.
-    :param _builtins.int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -154,22 +133,7 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[_builtins.str]]
                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
-    The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.codeartifact.get_authorization_token(domain=test_aws_codeartifact_domain["domain"])
-    ```
-
-
-    :param _builtins.str domain: Name of the domain that is in scope for the generated authorization token.
-    :param _builtins.str domain_owner: Account number of the AWS account that owns the domain.
-    :param _builtins.int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain

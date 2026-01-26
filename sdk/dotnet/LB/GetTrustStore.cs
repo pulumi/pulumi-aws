@@ -11,105 +11,12 @@ namespace Pulumi.Aws.LB
 {
     public static class GetTrustStore
     {
-        /// <summary>
-        /// &gt; **Note:** `AwsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
-        /// 
-        /// Provides information about a Load Balancer Trust Store.
-        /// 
-        /// This data source can prove useful when a module accepts an LB Trust Store as an
-        /// input variable and needs to know its attributes. It can also be used to get the ARN of
-        /// an LB Trust Store for use in other resources, given LB Trust Store name.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbTsArn = config.Get("lbTsArn") ?? "";
-        ///     var lbTsName = config.Get("lbTsName") ?? "";
-        ///     var test = Aws.LB.GetTrustStore.Invoke(new()
-        ///     {
-        ///         Arn = lbTsArn,
-        ///         Name = lbTsName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetTrustStoreResult> InvokeAsync(GetTrustStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// &gt; **Note:** `AwsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
-        /// 
-        /// Provides information about a Load Balancer Trust Store.
-        /// 
-        /// This data source can prove useful when a module accepts an LB Trust Store as an
-        /// input variable and needs to know its attributes. It can also be used to get the ARN of
-        /// an LB Trust Store for use in other resources, given LB Trust Store name.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbTsArn = config.Get("lbTsArn") ?? "";
-        ///     var lbTsName = config.Get("lbTsName") ?? "";
-        ///     var test = Aws.LB.GetTrustStore.Invoke(new()
-        ///     {
-        ///         Arn = lbTsArn,
-        ///         Name = lbTsName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// &gt; **Note:** `AwsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
-        /// 
-        /// Provides information about a Load Balancer Trust Store.
-        /// 
-        /// This data source can prove useful when a module accepts an LB Trust Store as an
-        /// input variable and needs to know its attributes. It can also be used to get the ARN of
-        /// an LB Trust Store for use in other resources, given LB Trust Store name.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbTsArn = config.Get("lbTsArn") ?? "";
-        ///     var lbTsName = config.Get("lbTsName") ?? "";
-        ///     var test = Aws.LB.GetTrustStore.Invoke(new()
-        ///     {
-        ///         Arn = lbTsArn,
-        ///         Name = lbTsName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
     }
@@ -117,23 +24,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetTrustStoreArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Full ARN of the trust store.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
-        /// <summary>
-        /// Unique name of the trust store.
-        /// 
-        /// &gt; **NOTE:** When both `Arn` and `Name` are specified, `Arn` takes precedence.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -145,23 +41,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetTrustStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Full ARN of the trust store.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Unique name of the trust store.
-        /// 
-        /// &gt; **NOTE:** When both `Arn` and `Name` are specified, `Arn` takes precedence.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

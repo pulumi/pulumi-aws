@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class InstanceLaunchTemplate
     {
-        /// <summary>
-        /// ID of the launch template. Conflicts with `Name`.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Name of the launch template. Conflicts with `Id`.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

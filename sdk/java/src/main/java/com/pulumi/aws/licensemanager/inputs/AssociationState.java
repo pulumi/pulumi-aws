@@ -15,47 +15,23 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
 
     public static final AssociationState Empty = new AssociationState();
 
-    /**
-     * ARN of the license configuration.
-     * 
-     */
     @Import(name="licenseConfigurationArn")
     private @Nullable Output<String> licenseConfigurationArn;
 
-    /**
-     * @return ARN of the license configuration.
-     * 
-     */
     public Optional<Output<String>> licenseConfigurationArn() {
         return Optional.ofNullable(this.licenseConfigurationArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the resource associated with the license configuration.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource associated with the license configuration.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
@@ -86,65 +62,29 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
             $ = new AssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param licenseConfigurationArn ARN of the license configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseConfigurationArn(@Nullable Output<String> licenseConfigurationArn) {
             $.licenseConfigurationArn = licenseConfigurationArn;
             return this;
         }
 
-        /**
-         * @param licenseConfigurationArn ARN of the license configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseConfigurationArn(String licenseConfigurationArn) {
             return licenseConfigurationArn(Output.of(licenseConfigurationArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn ARN of the resource associated with the license configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the resource associated with the license configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

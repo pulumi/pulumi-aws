@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableWarmThroughputGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-        /// </summary>
         [Input("readUnitsPerSecond")]
         public Input<int>? ReadUnitsPerSecond { get; set; }
 
-        /// <summary>
-        /// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-        /// </summary>
         [Input("writeUnitsPerSecond")]
         public Input<int>? WriteUnitsPerSecond { get; set; }
 

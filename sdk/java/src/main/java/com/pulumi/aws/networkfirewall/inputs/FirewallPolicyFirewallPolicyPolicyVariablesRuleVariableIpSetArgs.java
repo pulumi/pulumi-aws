@@ -15,17 +15,9 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetA
 
     public static final FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs Empty = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs();
 
-    /**
-     * Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-     * 
-     */
     @Import(name="definitions", required=true)
     private Output<List<String>> definitions;
 
-    /**
-     * @return Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-     * 
-     */
     public Output<List<String>> definitions() {
         return this.definitions;
     }
@@ -54,33 +46,15 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetA
             $ = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definitions Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(Output<List<String>> definitions) {
             $.definitions = definitions;
             return this;
         }
 
-        /**
-         * @param definitions Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(List<String> definitions) {
             return definitions(Output.of(definitions));
         }
 
-        /**
-         * @param definitions Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(String... definitions) {
             return definitions(List.of(definitions));
         }

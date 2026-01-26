@@ -15,32 +15,16 @@ public final class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailCom
 
     public static final NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs Empty = new NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs();
 
-    /**
-     * ARN of the Network Insights Analysis.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Network Insights Analysis.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ID of the Network Insights Analysis.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return ID of the Network Insights Analysis.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -78,44 +62,20 @@ public final class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailCom
             $ = new NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Network Insights Analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Network Insights Analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param id ID of the Network Insights Analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the Network Insights Analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

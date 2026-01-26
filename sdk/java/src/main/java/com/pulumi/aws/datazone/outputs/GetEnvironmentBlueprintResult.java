@@ -11,48 +11,24 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEnvironmentBlueprintResult {
-    /**
-     * @return Provider of the blueprint
-     * 
-     */
     private String blueprintProvider;
-    /**
-     * @return Description of the blueprint
-     * 
-     */
     private String description;
     private String domainId;
-    /**
-     * @return ID of the environment blueprint
-     * 
-     */
     private String id;
     private Boolean managed;
     private String name;
     private String region;
 
     private GetEnvironmentBlueprintResult() {}
-    /**
-     * @return Provider of the blueprint
-     * 
-     */
     public String blueprintProvider() {
         return this.blueprintProvider;
     }
-    /**
-     * @return Description of the blueprint
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String domainId() {
         return this.domainId;
     }
-    /**
-     * @return ID of the environment blueprint
-     * 
-     */
     public String id() {
         return this.id;
     }

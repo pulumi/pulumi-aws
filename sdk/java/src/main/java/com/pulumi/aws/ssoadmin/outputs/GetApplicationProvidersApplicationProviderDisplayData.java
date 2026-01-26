@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationProvidersApplicationProviderDisplayData {
-    /**
-     * @return Description of the application provider.
-     * 
-     */
     private String description;
-    /**
-     * @return Name of the application provider.
-     * 
-     */
     private String displayName;
-    /**
-     * @return URL that points to an icon that represents the application provider.
-     * 
-     */
     private String iconUrl;
 
     private GetApplicationProvidersApplicationProviderDisplayData() {}
-    /**
-     * @return Description of the application provider.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Name of the application provider.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return URL that points to an icon that represents the application provider.
-     * 
-     */
     public String iconUrl() {
         return this.iconUrl;
     }

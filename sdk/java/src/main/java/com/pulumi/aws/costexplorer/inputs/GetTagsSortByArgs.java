@@ -15,32 +15,16 @@ public final class GetTagsSortByArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetTagsSortByArgs Empty = new GetTagsSortByArgs();
 
-    /**
-     * key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-     * 
-     */
     @Import(name="sortOrder")
     private @Nullable Output<String> sortOrder;
 
-    /**
-     * @return order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-     * 
-     */
     public Optional<Output<String>> sortOrder() {
         return Optional.ofNullable(this.sortOrder);
     }
@@ -70,44 +54,20 @@ public final class GetTagsSortByArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GetTagsSortByArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param sortOrder order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortOrder(@Nullable Output<String> sortOrder) {
             $.sortOrder = sortOrder;
             return this;
         }
 
-        /**
-         * @param sortOrder order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortOrder(String sortOrder) {
             return sortOrder(Output.of(sortOrder));
         }

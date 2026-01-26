@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebhookScopeConfiguration {
-    /**
-     * @return The domain of the GitHub Enterprise organization. Required if your project&#39;s source type is GITHUB_ENTERPRISE.
-     * 
-     */
     private @Nullable String domain;
-    /**
-     * @return The name of either the enterprise or organization.
-     * 
-     */
     private String name;
-    /**
-     * @return The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
-     * 
-     */
     private String scope;
 
     private WebhookScopeConfiguration() {}
-    /**
-     * @return The domain of the GitHub Enterprise organization. Required if your project&#39;s source type is GITHUB_ENTERPRISE.
-     * 
-     */
     public Optional<String> domain() {
         return Optional.ofNullable(this.domain);
     }
-    /**
-     * @return The name of either the enterprise or organization.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
-     * 
-     */
     public String scope() {
         return this.scope;
     }

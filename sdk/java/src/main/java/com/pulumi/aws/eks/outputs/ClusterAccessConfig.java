@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterAccessConfig {
-    /**
-     * @return The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-     * 
-     */
     private @Nullable String authenticationMode;
-    /**
-     * @return Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-     * 
-     */
     private @Nullable Boolean bootstrapClusterCreatorAdminPermissions;
 
     private ClusterAccessConfig() {}
-    /**
-     * @return The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-     * 
-     */
     public Optional<String> authenticationMode() {
         return Optional.ofNullable(this.authenticationMode);
     }
-    /**
-     * @return Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-     * 
-     */
     public Optional<Boolean> bootstrapClusterCreatorAdminPermissions() {
         return Optional.ofNullable(this.bootstrapClusterCreatorAdminPermissions);
     }

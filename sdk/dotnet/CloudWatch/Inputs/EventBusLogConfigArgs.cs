@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventBusLogConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-        /// </summary>
         [Input("includeDetail")]
         public Input<string>? IncludeDetail { get; set; }
 
-        /// <summary>
-        /// Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-        /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
 

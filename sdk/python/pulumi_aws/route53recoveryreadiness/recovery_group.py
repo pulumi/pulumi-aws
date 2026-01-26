@@ -24,11 +24,6 @@ class RecoveryGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RecoveryGroup resource.
-        :param pulumi.Input[_builtins.str] recovery_group_name: A unique name describing the recovery group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "recovery_group_name", recovery_group_name)
         if cells is not None:
@@ -39,11 +34,6 @@ class RecoveryGroupArgs:
     @_builtins.property
     @pulumi.getter(name="recoveryGroupName")
     def recovery_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A unique name describing the recovery group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "recovery_group_name")
 
     @recovery_group_name.setter
@@ -53,9 +43,6 @@ class RecoveryGroupArgs:
     @_builtins.property
     @pulumi.getter
     def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of cell arns to add as nested fault domains within this recovery group
-        """
         return pulumi.get(self, "cells")
 
     @cells.setter
@@ -65,9 +52,6 @@ class RecoveryGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -85,13 +69,6 @@ class _RecoveryGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RecoveryGroup resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the recovery group
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
-        :param pulumi.Input[_builtins.str] recovery_group_name: A unique name describing the recovery group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -107,9 +84,6 @@ class _RecoveryGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the recovery group
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -119,9 +93,6 @@ class _RecoveryGroupState:
     @_builtins.property
     @pulumi.getter
     def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of cell arns to add as nested fault domains within this recovery group
-        """
         return pulumi.get(self, "cells")
 
     @cells.setter
@@ -131,11 +102,6 @@ class _RecoveryGroupState:
     @_builtins.property
     @pulumi.getter(name="recoveryGroupName")
     def recovery_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique name describing the recovery group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "recovery_group_name")
 
     @recovery_group_name.setter
@@ -145,9 +111,6 @@ class _RecoveryGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -157,9 +120,6 @@ class _RecoveryGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -178,32 +138,9 @@ class RecoveryGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an AWS Route 53 Recovery Readiness Recovery Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoveryreadiness.RecoveryGroup("example", recovery_group_name="my-high-availability-app")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
-
-        ```sh
-        $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
-        ```
-
+        Create a RecoveryGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
-        :param pulumi.Input[_builtins.str] recovery_group_name: A unique name describing the recovery group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
     @overload
@@ -212,25 +149,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  args: RecoveryGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Route 53 Recovery Readiness Recovery Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoveryreadiness.RecoveryGroup("example", recovery_group_name="my-high-availability-app")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
-
-        ```sh
-        $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
-        ```
-
+        Create a RecoveryGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RecoveryGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,13 +206,6 @@ class RecoveryGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the recovery group
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
-        :param pulumi.Input[_builtins.str] recovery_group_name: A unique name describing the recovery group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,42 +221,25 @@ class RecoveryGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the recovery group
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def cells(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of cell arns to add as nested fault domains within this recovery group
-        """
         return pulumi.get(self, "cells")
 
     @_builtins.property
     @pulumi.getter(name="recoveryGroupName")
     def recovery_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A unique name describing the recovery group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "recovery_group_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

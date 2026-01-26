@@ -13,121 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.opensearch.OutboundConnection;
- * import com.pulumi.aws.opensearch.OutboundConnectionArgs;
- * import com.pulumi.aws.opensearch.inputs.OutboundConnectionLocalDomainInfoArgs;
- * import com.pulumi.aws.opensearch.inputs.OutboundConnectionRemoteDomainInfoArgs;
- * import com.pulumi.aws.opensearch.InboundConnectionAccepter;
- * import com.pulumi.aws.opensearch.InboundConnectionAccepterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()
- *             .connectionAlias("outbound_connection")
- *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
- *                 .ownerId(current.accountId())
- *                 .region(currentGetRegion.region())
- *                 .domainName(localDomain.domainName())
- *                 .build())
- *             .remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs.builder()
- *                 .ownerId(current.accountId())
- *                 .region(currentGetRegion.region())
- *                 .domainName(remoteDomain.domainName())
- *                 .build())
- *             .build());
- * 
- *         var fooInboundConnectionAccepter = new InboundConnectionAccepter("fooInboundConnectionAccepter", InboundConnectionAccepterArgs.builder()
- *             .connectionId(foo.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")
 public class InboundConnectionAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the ID of the connection to accept.
-     * 
-     */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
-    /**
-     * @return Specifies the ID of the connection to accept.
-     * 
-     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
-    /**
-     * Status of the connection request.
-     * 
-     */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
-    /**
-     * @return Status of the connection request.
-     * 
-     */
     public Output<String> connectionStatus() {
         return this.connectionStatus;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

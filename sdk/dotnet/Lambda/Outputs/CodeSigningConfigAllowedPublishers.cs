@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class CodeSigningConfigAllowedPublishers
     {
-        /// <summary>
-        /// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-        /// </summary>
         public readonly ImmutableArray<string> SigningProfileVersionArns;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfigurationTemplateConfiguration
     {
-        /// <summary>
-        /// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-        /// </summary>
         public readonly string Template;
 
         [OutputConstructor]

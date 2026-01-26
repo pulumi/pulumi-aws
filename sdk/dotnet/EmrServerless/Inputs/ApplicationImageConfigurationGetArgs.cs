@@ -12,9 +12,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationImageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The image URI.
-        /// </summary>
         [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;
 

@@ -15,32 +15,16 @@ public final class GuardrailContextualGroundingPolicyConfigFiltersConfigArgs ext
 
     public static final GuardrailContextualGroundingPolicyConfigFiltersConfigArgs Empty = new GuardrailContextualGroundingPolicyConfigFiltersConfigArgs();
 
-    /**
-     * The threshold for this filter.
-     * 
-     */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
-    /**
-     * @return The threshold for this filter.
-     * 
-     */
     public Output<Double> threshold() {
         return this.threshold;
     }
 
-    /**
-     * Type of contextual grounding filter.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of contextual grounding filter.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -70,44 +54,20 @@ public final class GuardrailContextualGroundingPolicyConfigFiltersConfigArgs ext
             $ = new GuardrailContextualGroundingPolicyConfigFiltersConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param threshold The threshold for this filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
-        /**
-         * @param threshold The threshold for this filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Double threshold) {
             return threshold(Output.of(threshold));
         }
 
-        /**
-         * @param type Type of contextual grounding filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of contextual grounding filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

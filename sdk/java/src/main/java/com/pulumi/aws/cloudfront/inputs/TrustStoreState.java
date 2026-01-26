@@ -19,111 +19,51 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
 
     public static final TrustStoreState Empty = new TrustStoreState();
 
-    /**
-     * ARN of the trust store.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the trust store.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="caCertificatesBundleSource")
     private @Nullable Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource;
 
-    /**
-     * @return Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<TrustStoreCaCertificatesBundleSourceArgs>> caCertificatesBundleSource() {
         return Optional.ofNullable(this.caCertificatesBundleSource);
     }
 
-    /**
-     * ETag of the trust store.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return ETag of the trust store.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * Name of the trust store. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the trust store. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Number of CA certificates in the trust store.
-     * 
-     */
     @Import(name="numberOfCaCertificates")
     private @Nullable Output<Integer> numberOfCaCertificates;
 
-    /**
-     * @return Number of CA certificates in the trust store.
-     * 
-     */
     public Optional<Output<Integer>> numberOfCaCertificates() {
         return Optional.ofNullable(this.numberOfCaCertificates);
     }
 
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -166,153 +106,65 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
             $ = new TrustStoreState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param caCertificatesBundleSource Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder caCertificatesBundleSource(@Nullable Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource) {
             $.caCertificatesBundleSource = caCertificatesBundleSource;
             return this;
         }
 
-        /**
-         * @param caCertificatesBundleSource Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder caCertificatesBundleSource(TrustStoreCaCertificatesBundleSourceArgs caCertificatesBundleSource) {
             return caCertificatesBundleSource(Output.of(caCertificatesBundleSource));
         }
 
-        /**
-         * @param etag ETag of the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag ETag of the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param name Name of the trust store. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the trust store. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param numberOfCaCertificates Number of CA certificates in the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfCaCertificates(@Nullable Output<Integer> numberOfCaCertificates) {
             $.numberOfCaCertificates = numberOfCaCertificates;
             return this;
         }
 
-        /**
-         * @param numberOfCaCertificates Number of CA certificates in the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfCaCertificates(Integer numberOfCaCertificates) {
             return numberOfCaCertificates(Output.of(numberOfCaCertificates));
         }
 
-        /**
-         * @param tags Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

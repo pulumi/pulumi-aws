@@ -16,47 +16,23 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
     public static final ReplicationConfigurationState Empty = new ReplicationConfigurationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The registry ID where the replication configuration was created.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
-    /**
-     * @return The registry ID where the replication configuration was created.
-     * 
-     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     * 
-     */
     @Import(name="replicationConfiguration")
     private @Nullable Output<ReplicationConfigurationReplicationConfigurationArgs> replicationConfiguration;
 
-    /**
-     * @return Replication configuration for a registry. See Replication Configuration.
-     * 
-     */
     public Optional<Output<ReplicationConfigurationReplicationConfigurationArgs>> replicationConfiguration() {
         return Optional.ofNullable(this.replicationConfiguration);
     }
@@ -87,65 +63,29 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
             $ = new ReplicationConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param registryId The registry ID where the replication configuration was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId The registry ID where the replication configuration was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }
 
-        /**
-         * @param replicationConfiguration Replication configuration for a registry. See Replication Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationConfiguration(@Nullable Output<ReplicationConfigurationReplicationConfigurationArgs> replicationConfiguration) {
             $.replicationConfiguration = replicationConfiguration;
             return this;
         }
 
-        /**
-         * @param replicationConfiguration Replication configuration for a registry. See Replication Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs replicationConfiguration) {
             return replicationConfiguration(Output.of(replicationConfiguration));
         }

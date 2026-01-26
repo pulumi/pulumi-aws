@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogDeliveryDestinationDeliveryDestinationConfiguration {
-    /**
-     * @return The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
-     * 
-     */
     private @Nullable String destinationResourceArn;
 
     private LogDeliveryDestinationDeliveryDestinationConfiguration() {}
-    /**
-     * @return The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
-     * 
-     */
     public Optional<String> destinationResourceArn() {
         return Optional.ofNullable(this.destinationResourceArn);
     }

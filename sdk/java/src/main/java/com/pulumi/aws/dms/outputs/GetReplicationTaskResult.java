@@ -12,82 +12,30 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationTaskResult {
-    /**
-     * @return (Conflicts with `cdcStartTime`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
-     * 
-     */
     private String cdcStartPosition;
-    /**
-     * @return (Conflicts with `cdcStartPosition`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-     * 
-     */
     private String cdcStartTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-     * 
-     */
     private String migrationType;
     private String region;
-    /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
-     * 
-     */
     private String replicationInstanceArn;
-    /**
-     * @return The Amazon Resource Name (ARN) for the replication task.
-     * 
-     */
     private String replicationTaskArn;
     private String replicationTaskId;
-    /**
-     * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-     * 
-     */
     private String replicationTaskSettings;
-    /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-     * 
-     */
     private String sourceEndpointArn;
-    /**
-     * @return Whether to run or stop the replication task.
-     * 
-     */
     private Boolean startReplicationTask;
-    /**
-     * @return Replication Task status.
-     * 
-     */
     private String status;
-    /**
-     * @return An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-     * 
-     */
     private String tableMappings;
     private Map<String,String> tags;
-    /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-     * 
-     */
     private String targetEndpointArn;
 
     private GetReplicationTaskResult() {}
-    /**
-     * @return (Conflicts with `cdcStartTime`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
-     * 
-     */
     public String cdcStartPosition() {
         return this.cdcStartPosition;
     }
-    /**
-     * @return (Conflicts with `cdcStartPosition`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-     * 
-     */
     public String cdcStartTime() {
         return this.cdcStartTime;
     }
@@ -98,75 +46,39 @@ public final class GetReplicationTaskResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-     * 
-     */
     public String migrationType() {
         return this.migrationType;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
-     * 
-     */
     public String replicationInstanceArn() {
         return this.replicationInstanceArn;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) for the replication task.
-     * 
-     */
     public String replicationTaskArn() {
         return this.replicationTaskArn;
     }
     public String replicationTaskId() {
         return this.replicationTaskId;
     }
-    /**
-     * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-     * 
-     */
     public String replicationTaskSettings() {
         return this.replicationTaskSettings;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-     * 
-     */
     public String sourceEndpointArn() {
         return this.sourceEndpointArn;
     }
-    /**
-     * @return Whether to run or stop the replication task.
-     * 
-     */
     public Boolean startReplicationTask() {
         return this.startReplicationTask;
     }
-    /**
-     * @return Replication Task status.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-     * 
-     */
     public String tableMappings() {
         return this.tableMappings;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-     * 
-     */
     public String targetEndpointArn() {
         return this.targetEndpointArn;
     }

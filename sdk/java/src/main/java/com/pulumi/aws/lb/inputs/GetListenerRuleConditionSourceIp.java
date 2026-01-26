@@ -14,17 +14,9 @@ public final class GetListenerRuleConditionSourceIp extends com.pulumi.resources
 
     public static final GetListenerRuleConditionSourceIp Empty = new GetListenerRuleConditionSourceIp();
 
-    /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -53,23 +45,11 @@ public final class GetListenerRuleConditionSourceIp extends com.pulumi.resources
             $ = new GetListenerRuleConditionSourceIp(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

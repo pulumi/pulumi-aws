@@ -11,15 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCustomKeyStoreResult {
     private String cloudHsmClusterId;
-    /**
-     * @return Indicates whether the custom key store is connected to its CloudHSM cluster.
-     * 
-     */
     private String connectionState;
-    /**
-     * @return The date and time when the custom key store was created.
-     * 
-     */
     private String creationDate;
     private String customKeyStoreId;
     private String customKeyStoreName;
@@ -29,27 +21,15 @@ public final class GetCustomKeyStoreResult {
      */
     private String id;
     private String region;
-    /**
-     * @return The trust anchor certificate of the associated CloudHSM cluster.
-     * 
-     */
     private String trustAnchorCertificate;
 
     private GetCustomKeyStoreResult() {}
     public String cloudHsmClusterId() {
         return this.cloudHsmClusterId;
     }
-    /**
-     * @return Indicates whether the custom key store is connected to its CloudHSM cluster.
-     * 
-     */
     public String connectionState() {
         return this.connectionState;
     }
-    /**
-     * @return The date and time when the custom key store was created.
-     * 
-     */
     public String creationDate() {
         return this.creationDate;
     }
@@ -69,10 +49,6 @@ public final class GetCustomKeyStoreResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The trust anchor certificate of the associated CloudHSM cluster.
-     * 
-     */
     public String trustAnchorCertificate() {
         return this.trustAnchorCertificate;
     }

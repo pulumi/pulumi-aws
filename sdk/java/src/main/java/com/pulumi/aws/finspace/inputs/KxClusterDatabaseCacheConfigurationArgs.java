@@ -17,32 +17,16 @@ public final class KxClusterDatabaseCacheConfigurationArgs extends com.pulumi.re
 
     public static final KxClusterDatabaseCacheConfigurationArgs Empty = new KxClusterDatabaseCacheConfigurationArgs();
 
-    /**
-     * Type of disk cache.
-     * 
-     */
     @Import(name="cacheType", required=true)
     private Output<String> cacheType;
 
-    /**
-     * @return Type of disk cache.
-     * 
-     */
     public Output<String> cacheType() {
         return this.cacheType;
     }
 
-    /**
-     * Paths within the database to cache.
-     * 
-     */
     @Import(name="dbPaths")
     private @Nullable Output<List<String>> dbPaths;
 
-    /**
-     * @return Paths within the database to cache.
-     * 
-     */
     public Optional<Output<List<String>>> dbPaths() {
         return Optional.ofNullable(this.dbPaths);
     }
@@ -72,54 +56,24 @@ public final class KxClusterDatabaseCacheConfigurationArgs extends com.pulumi.re
             $ = new KxClusterDatabaseCacheConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cacheType Type of disk cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheType(Output<String> cacheType) {
             $.cacheType = cacheType;
             return this;
         }
 
-        /**
-         * @param cacheType Type of disk cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheType(String cacheType) {
             return cacheType(Output.of(cacheType));
         }
 
-        /**
-         * @param dbPaths Paths within the database to cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbPaths(@Nullable Output<List<String>> dbPaths) {
             $.dbPaths = dbPaths;
             return this;
         }
 
-        /**
-         * @param dbPaths Paths within the database to cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbPaths(List<String> dbPaths) {
             return dbPaths(Output.of(dbPaths));
         }
 
-        /**
-         * @param dbPaths Paths within the database to cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbPaths(String... dbPaths) {
             return dbPaths(List.of(dbPaths));
         }

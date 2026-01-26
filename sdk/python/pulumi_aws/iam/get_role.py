@@ -68,33 +68,21 @@ class GetRoleResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the role.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="assumeRolePolicy")
     def assume_role_policy(self) -> _builtins.str:
-        """
-        Policy document associated with the role.
-        """
         return pulumi.get(self, "assume_role_policy")
 
     @_builtins.property
     @pulumi.getter(name="createDate")
     def create_date(self) -> _builtins.str:
-        """
-        Creation date of the role in RFC 3339 format.
-        """
         return pulumi.get(self, "create_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description for the role.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -108,9 +96,6 @@ class GetRoleResult:
     @_builtins.property
     @pulumi.getter(name="maxSessionDuration")
     def max_session_duration(self) -> _builtins.int:
-        """
-        Maximum session duration.
-        """
         return pulumi.get(self, "max_session_duration")
 
     @_builtins.property
@@ -121,41 +106,26 @@ class GetRoleResult:
     @_builtins.property
     @pulumi.getter
     def path(self) -> _builtins.str:
-        """
-        Path to the role.
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> _builtins.str:
-        """
-        The ARN of the policy that is used to set the permissions boundary for the role.
-        """
         return pulumi.get(self, "permissions_boundary")
 
     @_builtins.property
     @pulumi.getter(name="roleLastUseds")
     def role_last_useds(self) -> Sequence['outputs.GetRoleRoleLastUsedResult']:
-        """
-        Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-        """
         return pulumi.get(self, "role_last_useds")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags attached to the role.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> _builtins.str:
-        """
-        Stable and unique string identifying the role.
-        """
         return pulumi.get(self, "unique_id")
 
 
@@ -183,22 +153,7 @@ def get_role(name: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleResult:
     """
-    This data source can be used to fetch information about a specific
-    IAM role. By using this data source, you can reference IAM role
-    properties without having to hard code ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_role(name="an_example_role_name")
-    ```
-
-
-    :param _builtins.str name: Friendly IAM role name to match.
-    :param Mapping[str, _builtins.str] tags: Tags attached to the role.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -223,22 +178,7 @@ def get_role_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
-    This data source can be used to fetch information about a specific
-    IAM role. By using this data source, you can reference IAM role
-    properties without having to hard code ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_role(name="an_example_role_name")
-    ```
-
-
-    :param _builtins.str name: Friendly IAM role name to match.
-    :param Mapping[str, _builtins.str] tags: Tags attached to the role.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

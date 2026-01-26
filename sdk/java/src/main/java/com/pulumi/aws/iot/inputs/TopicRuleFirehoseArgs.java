@@ -17,62 +17,30 @@ public final class TopicRuleFirehoseArgs extends com.pulumi.resources.ResourceAr
 
     public static final TopicRuleFirehoseArgs Empty = new TopicRuleFirehoseArgs();
 
-    /**
-     * The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
-     * 
-     */
     @Import(name="batchMode")
     private @Nullable Output<Boolean> batchMode;
 
-    /**
-     * @return The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
-     * 
-     */
     public Optional<Output<Boolean>> batchMode() {
         return Optional.ofNullable(this.batchMode);
     }
 
-    /**
-     * The delivery stream name.
-     * 
-     */
     @Import(name="deliveryStreamName", required=true)
     private Output<String> deliveryStreamName;
 
-    /**
-     * @return The delivery stream name.
-     * 
-     */
     public Output<String> deliveryStreamName() {
         return this.deliveryStreamName;
     }
 
-    /**
-     * The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
-     * 
-     */
     @Import(name="separator")
     private @Nullable Output<String> separator;
 
-    /**
-     * @return A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
-     * 
-     */
     public Optional<Output<String>> separator() {
         return Optional.ofNullable(this.separator);
     }
@@ -104,86 +72,38 @@ public final class TopicRuleFirehoseArgs extends com.pulumi.resources.ResourceAr
             $ = new TopicRuleFirehoseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param batchMode The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchMode(@Nullable Output<Boolean> batchMode) {
             $.batchMode = batchMode;
             return this;
         }
 
-        /**
-         * @param batchMode The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchMode(Boolean batchMode) {
             return batchMode(Output.of(batchMode));
         }
 
-        /**
-         * @param deliveryStreamName The delivery stream name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStreamName(Output<String> deliveryStreamName) {
             $.deliveryStreamName = deliveryStreamName;
             return this;
         }
 
-        /**
-         * @param deliveryStreamName The delivery stream name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStreamName(String deliveryStreamName) {
             return deliveryStreamName(Output.of(deliveryStreamName));
         }
 
-        /**
-         * @param roleArn The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param separator A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
-         * 
-         * @return builder
-         * 
-         */
         public Builder separator(@Nullable Output<String> separator) {
             $.separator = separator;
             return this;
         }
 
-        /**
-         * @param separator A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
-         * 
-         * @return builder
-         * 
-         */
         public Builder separator(String separator) {
             return separator(Output.of(separator));
         }

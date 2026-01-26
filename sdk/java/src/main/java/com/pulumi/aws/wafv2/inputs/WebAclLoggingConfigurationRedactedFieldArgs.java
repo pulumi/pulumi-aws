@@ -18,62 +18,30 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
 
     public static final WebAclLoggingConfigurationRedactedFieldArgs Empty = new WebAclLoggingConfigurationRedactedFieldArgs();
 
-    /**
-     * HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     @Import(name="method")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldMethodArgs> method;
 
-    /**
-     * @return HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldMethodArgs>> method() {
         return Optional.ofNullable(this.method);
     }
 
-    /**
-     * Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     @Import(name="queryString")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldQueryStringArgs> queryString;
 
-    /**
-     * @return Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldQueryStringArgs>> queryString() {
         return Optional.ofNullable(this.queryString);
     }
 
-    /**
-     * &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
-     * 
-     */
     @Import(name="singleHeader")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs> singleHeader;
 
-    /**
-     * @return &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs>> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
 
-    /**
-     * Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
-     * 
-     */
     @Import(name="uriPath")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldUriPathArgs> uriPath;
 
-    /**
-     * @return Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldUriPathArgs>> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }
@@ -105,86 +73,38 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
             $ = new WebAclLoggingConfigurationRedactedFieldArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param method HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(@Nullable Output<WebAclLoggingConfigurationRedactedFieldMethodArgs> method) {
             $.method = method;
             return this;
         }
 
-        /**
-         * @param method HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(WebAclLoggingConfigurationRedactedFieldMethodArgs method) {
             return method(Output.of(method));
         }
 
-        /**
-         * @param queryString Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(@Nullable Output<WebAclLoggingConfigurationRedactedFieldQueryStringArgs> queryString) {
             $.queryString = queryString;
             return this;
         }
 
-        /**
-         * @param queryString Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(WebAclLoggingConfigurationRedactedFieldQueryStringArgs queryString) {
             return queryString(Output.of(queryString));
         }
 
-        /**
-         * @param singleHeader &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleHeader(@Nullable Output<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs> singleHeader) {
             $.singleHeader = singleHeader;
             return this;
         }
 
-        /**
-         * @param singleHeader &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs singleHeader) {
             return singleHeader(Output.of(singleHeader));
         }
 
-        /**
-         * @param uriPath Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uriPath(@Nullable Output<WebAclLoggingConfigurationRedactedFieldUriPathArgs> uriPath) {
             $.uriPath = uriPath;
             return this;
         }
 
-        /**
-         * @param uriPath Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uriPath(WebAclLoggingConfigurationRedactedFieldUriPathArgs uriPath) {
             return uriPath(Output.of(uriPath));
         }

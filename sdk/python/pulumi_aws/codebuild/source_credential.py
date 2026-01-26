@@ -26,16 +26,6 @@ class SourceCredentialArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceCredential resource.
-        :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-               repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
-        :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-               app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
-               Connection ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-               other types of source providers or connections.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "server_type", server_type)
@@ -48,11 +38,6 @@ class SourceCredentialArgs:
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-        repository. Valid values are `BASIC_AUTH`,
-        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
@@ -62,9 +47,6 @@ class SourceCredentialArgs:
     @_builtins.property
     @pulumi.getter(name="serverType")
     def server_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The source provider used for this project.
-        """
         return pulumi.get(self, "server_type")
 
     @server_type.setter
@@ -74,11 +56,6 @@ class SourceCredentialArgs:
     @_builtins.property
     @pulumi.getter
     def token(self) -> pulumi.Input[_builtins.str]:
-        """
-        For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-        app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
-        Connection ARN.
-        """
         return pulumi.get(self, "token")
 
     @token.setter
@@ -88,9 +65,6 @@ class SourceCredentialArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,10 +74,6 @@ class SourceCredentialArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-        other types of source providers or connections.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -122,17 +92,6 @@ class _SourceCredentialState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceCredential resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of Source Credential.
-        :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-               repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
-        :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-               app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
-               Connection ARN.
-        :param pulumi.Input[_builtins.str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-               other types of source providers or connections.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -150,9 +109,6 @@ class _SourceCredentialState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of Source Credential.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -162,11 +118,6 @@ class _SourceCredentialState:
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-        repository. Valid values are `BASIC_AUTH`,
-        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
@@ -176,9 +127,6 @@ class _SourceCredentialState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +136,6 @@ class _SourceCredentialState:
     @_builtins.property
     @pulumi.getter(name="serverType")
     def server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The source provider used for this project.
-        """
         return pulumi.get(self, "server_type")
 
     @server_type.setter
@@ -200,11 +145,6 @@ class _SourceCredentialState:
     @_builtins.property
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-        app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
-        Connection ARN.
-        """
         return pulumi.get(self, "token")
 
     @token.setter
@@ -214,10 +154,6 @@ class _SourceCredentialState:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-        other types of source providers or connections.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -238,74 +174,9 @@ class SourceCredential(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CodeBuild Source Credentials Resource.
-
-        > **NOTE:
-        ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
-        Therefore, when you define `codebuild.SourceCredential`,
-        `codebuild.Project` resource defined in the same module will use it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="PERSONAL_ACCESS_TOKEN",
-            server_type="GITHUB",
-            token="example")
-        ```
-
-        ### Bitbucket Server Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="BASIC_AUTH",
-            server_type="BITBUCKET",
-            token="example",
-            user_name="test-user")
-        ```
-
-        ### AWS CodeStar Connection Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="CODECONNECTIONS",
-            server_type="GITHUB",
-            token="arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild source credential.
-
-        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
-
-        % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
-
+        Create a SourceCredential resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-               repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
-        :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-               app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
-               Connection ARN.
-        :param pulumi.Input[_builtins.str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-               other types of source providers or connections.
         """
         ...
     @overload
@@ -314,62 +185,7 @@ class SourceCredential(pulumi.CustomResource):
                  args: SourceCredentialArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeBuild Source Credentials Resource.
-
-        > **NOTE:
-        ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
-        Therefore, when you define `codebuild.SourceCredential`,
-        `codebuild.Project` resource defined in the same module will use it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="PERSONAL_ACCESS_TOKEN",
-            server_type="GITHUB",
-            token="example")
-        ```
-
-        ### Bitbucket Server Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="BASIC_AUTH",
-            server_type="BITBUCKET",
-            token="example",
-            user_name="test-user")
-        ```
-
-        ### AWS CodeStar Connection Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="CODECONNECTIONS",
-            server_type="GITHUB",
-            token="arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild source credential.
-
-        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
-
-        % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
-
+        Create a SourceCredential resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SourceCredentialArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -436,17 +252,6 @@ class SourceCredential(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of Source Credential.
-        :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-               repository. Valid values are `BASIC_AUTH`,
-               `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_type: The source provider used for this project.
-        :param pulumi.Input[_builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-               app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
-               Connection ARN.
-        :param pulumi.Input[_builtins.str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-               other types of source providers or connections.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -463,53 +268,30 @@ class SourceCredential(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of Source Credential.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-        repository. Valid values are `BASIC_AUTH`,
-        `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serverType")
     def server_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The source provider used for this project.
-        """
         return pulumi.get(self, "server_type")
 
     @_builtins.property
     @pulumi.getter
     def token(self) -> pulumi.Output[_builtins.str]:
-        """
-        For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-        app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
-        Connection ARN.
-        """
         return pulumi.get(self, "token")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-        other types of source providers or connections.
-        """
         return pulumi.get(self, "user_name")
 

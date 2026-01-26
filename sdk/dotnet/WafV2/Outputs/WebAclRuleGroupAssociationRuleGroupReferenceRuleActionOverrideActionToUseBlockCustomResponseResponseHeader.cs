@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockCustomResponseResponseHeader
     {
-        /// <summary>
-        /// Name of the response header.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value of the response header.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

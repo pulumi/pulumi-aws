@@ -7,27 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following returns all managed prefix lists filtered by tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testEnv = aws.ec2.getManagedPrefixLists({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
- *     id: _arg0_.ids[__index],
- * })));
- * ```
- */
 export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,21 +21,8 @@ export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: p
  * A collection of arguments for invoking getManagedPrefixLists.
  */
 export interface GetManagedPrefixListsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetManagedPrefixListsFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired .
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     */
     tags?: {[key: string]: string};
 }
 
@@ -69,34 +35,10 @@ export interface GetManagedPrefixListsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the managed prefix list ids found.
-     */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following returns all managed prefix lists filtered by tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testEnv = aws.ec2.getManagedPrefixLists({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
- *     id: _arg0_.ids[__index],
- * })));
- * ```
- */
 export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrefixListsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,20 +53,7 @@ export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputAr
  * A collection of arguments for invoking getManagedPrefixLists.
  */
 export interface GetManagedPrefixListsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListsFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired .
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

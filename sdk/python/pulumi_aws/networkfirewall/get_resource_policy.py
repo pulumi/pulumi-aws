@@ -51,9 +51,6 @@ class GetResourcePolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        The [policy][1] for the resource.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
@@ -83,20 +80,7 @@ def get_resource_policy(region: Optional[_builtins.str] = None,
                         resource_arn: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
-    Retrieve information about a Network Firewall resource policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_resource_policy(resource_arn=resource_policy_arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -113,20 +97,7 @@ def get_resource_policy_output(region: Optional[pulumi.Input[Optional[_builtins.
                                resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
-    Retrieve information about a Network Firewall resource policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_resource_policy(resource_arn=resource_policy_arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventEndpointRoutingConfigFailoverConfig {
-    /**
-     * @return Parameters used for the primary Region. Documented below.
-     * 
-     */
     private EventEndpointRoutingConfigFailoverConfigPrimary primary;
-    /**
-     * @return Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-     * 
-     */
     private EventEndpointRoutingConfigFailoverConfigSecondary secondary;
 
     private EventEndpointRoutingConfigFailoverConfig() {}
-    /**
-     * @return Parameters used for the primary Region. Documented below.
-     * 
-     */
     public EventEndpointRoutingConfigFailoverConfigPrimary primary() {
         return this.primary;
     }
-    /**
-     * @return Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-     * 
-     */
     public EventEndpointRoutingConfigFailoverConfigSecondary secondary() {
         return this.secondary;
     }

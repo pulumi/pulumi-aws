@@ -21,126 +21,58 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
 
     public static final ChannelNamespaceArgs Empty = new ChannelNamespaceArgs();
 
-    /**
-     * Event API ID.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return Event API ID.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * Event handler functions that run custom business logic to process published events and subscribe requests.
-     * 
-     */
     @Import(name="codeHandlers")
     private @Nullable Output<String> codeHandlers;
 
-    /**
-     * @return Event handler functions that run custom business logic to process published events and subscribe requests.
-     * 
-     */
     public Optional<Output<String>> codeHandlers() {
         return Optional.ofNullable(this.codeHandlers);
     }
 
-    /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-     * 
-     */
     @Import(name="handlerConfigs")
     private @Nullable Output<ChannelNamespaceHandlerConfigsArgs> handlerConfigs;
 
-    /**
-     * @return Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-     * 
-     */
     public Optional<Output<ChannelNamespaceHandlerConfigsArgs>> handlerConfigs() {
         return Optional.ofNullable(this.handlerConfigs);
     }
 
-    /**
-     * Name of the channel namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the channel namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     * 
-     */
     @Import(name="publishAuthModes")
     private @Nullable Output<List<ChannelNamespacePublishAuthModeArgs>> publishAuthModes;
 
-    /**
-     * @return Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     * 
-     */
     public Optional<Output<List<ChannelNamespacePublishAuthModeArgs>>> publishAuthModes() {
         return Optional.ofNullable(this.publishAuthModes);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     * 
-     */
     @Import(name="subscribeAuthModes")
     private @Nullable Output<List<ChannelNamespaceSubscribeAuthModeArgs>> subscribeAuthModes;
 
-    /**
-     * @return Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     * 
-     */
     public Optional<Output<List<ChannelNamespaceSubscribeAuthModeArgs>>> subscribeAuthModes() {
         return Optional.ofNullable(this.subscribeAuthModes);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -176,194 +108,82 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
             $ = new ChannelNamespaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId Event API ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId Event API ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param codeHandlers Event handler functions that run custom business logic to process published events and subscribe requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeHandlers(@Nullable Output<String> codeHandlers) {
             $.codeHandlers = codeHandlers;
             return this;
         }
 
-        /**
-         * @param codeHandlers Event handler functions that run custom business logic to process published events and subscribe requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeHandlers(String codeHandlers) {
             return codeHandlers(Output.of(codeHandlers));
         }
 
-        /**
-         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handlerConfigs(@Nullable Output<ChannelNamespaceHandlerConfigsArgs> handlerConfigs) {
             $.handlerConfigs = handlerConfigs;
             return this;
         }
 
-        /**
-         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handlerConfigs(ChannelNamespaceHandlerConfigsArgs handlerConfigs) {
             return handlerConfigs(Output.of(handlerConfigs));
         }
 
-        /**
-         * @param name Name of the channel namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the channel namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publishAuthModes(@Nullable Output<List<ChannelNamespacePublishAuthModeArgs>> publishAuthModes) {
             $.publishAuthModes = publishAuthModes;
             return this;
         }
 
-        /**
-         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publishAuthModes(List<ChannelNamespacePublishAuthModeArgs> publishAuthModes) {
             return publishAuthModes(Output.of(publishAuthModes));
         }
 
-        /**
-         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publishAuthModes(ChannelNamespacePublishAuthModeArgs... publishAuthModes) {
             return publishAuthModes(List.of(publishAuthModes));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribeAuthModes(@Nullable Output<List<ChannelNamespaceSubscribeAuthModeArgs>> subscribeAuthModes) {
             $.subscribeAuthModes = subscribeAuthModes;
             return this;
         }
 
-        /**
-         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribeAuthModes(List<ChannelNamespaceSubscribeAuthModeArgs> subscribeAuthModes) {
             return subscribeAuthModes(Output.of(subscribeAuthModes));
         }
 
-        /**
-         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribeAuthModes(ChannelNamespaceSubscribeAuthModeArgs... subscribeAuthModes) {
             return subscribeAuthModes(List.of(subscribeAuthModes));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

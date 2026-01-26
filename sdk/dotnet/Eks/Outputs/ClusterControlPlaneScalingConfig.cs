@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterControlPlaneScalingConfig
     {
-        /// <summary>
-        /// The control plane scaling tier. Valid values are `Standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `Standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
-        /// </summary>
         public readonly string? Tier;
 
         [OutputConstructor]

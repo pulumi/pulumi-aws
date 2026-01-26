@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GroupAvailabilityZoneDistribution struct {
-	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
 	CapacityDistributionStrategy *string `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -30,7 +29,6 @@ type GroupAvailabilityZoneDistributionInput interface {
 }
 
 type GroupAvailabilityZoneDistributionArgs struct {
-	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
 	CapacityDistributionStrategy pulumi.StringPtrInput `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -111,7 +109,6 @@ func (o GroupAvailabilityZoneDistributionOutput) ToGroupAvailabilityZoneDistribu
 	}).(GroupAvailabilityZoneDistributionPtrOutput)
 }
 
-// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
 func (o GroupAvailabilityZoneDistributionOutput) CapacityDistributionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupAvailabilityZoneDistribution) *string { return v.CapacityDistributionStrategy }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +137,6 @@ func (o GroupAvailabilityZoneDistributionPtrOutput) Elem() GroupAvailabilityZone
 	}).(GroupAvailabilityZoneDistributionOutput)
 }
 
-// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
 func (o GroupAvailabilityZoneDistributionPtrOutput) CapacityDistributionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupAvailabilityZoneDistribution) *string {
 		if v == nil {
@@ -151,10 +147,8 @@ func (o GroupAvailabilityZoneDistributionPtrOutput) CapacityDistributionStrategy
 }
 
 type GroupCapacityReservationSpecification struct {
-	// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
-	// Describes a target Capacity Reservation or Capacity Reservation resource group.
-	CapacityReservationTarget *GroupCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+	CapacityReservationPreference *string                                                         `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     *GroupCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
 }
 
 // GroupCapacityReservationSpecificationInput is an input type that accepts GroupCapacityReservationSpecificationArgs and GroupCapacityReservationSpecificationOutput values.
@@ -169,10 +163,8 @@ type GroupCapacityReservationSpecificationInput interface {
 }
 
 type GroupCapacityReservationSpecificationArgs struct {
-	// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
-	// Describes a target Capacity Reservation or Capacity Reservation resource group.
-	CapacityReservationTarget GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+	CapacityReservationPreference pulumi.StringPtrInput                                                  `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
 }
 
 func (GroupCapacityReservationSpecificationArgs) ElementType() reflect.Type {
@@ -252,12 +244,10 @@ func (o GroupCapacityReservationSpecificationOutput) ToGroupCapacityReservationS
 	}).(GroupCapacityReservationSpecificationPtrOutput)
 }
 
-// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
 func (o GroupCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
 }
 
-// Describes a target Capacity Reservation or Capacity Reservation resource group.
 func (o GroupCapacityReservationSpecificationOutput) CapacityReservationTarget() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v GroupCapacityReservationSpecification) *GroupCapacityReservationSpecificationCapacityReservationTarget {
 		return v.CapacityReservationTarget
@@ -288,7 +278,6 @@ func (o GroupCapacityReservationSpecificationPtrOutput) Elem() GroupCapacityRese
 	}).(GroupCapacityReservationSpecificationOutput)
 }
 
-// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
 func (o GroupCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupCapacityReservationSpecification) *string {
 		if v == nil {
@@ -298,7 +287,6 @@ func (o GroupCapacityReservationSpecificationPtrOutput) CapacityReservationPrefe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a target Capacity Reservation or Capacity Reservation resource group.
 func (o GroupCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v *GroupCapacityReservationSpecification) *GroupCapacityReservationSpecificationCapacityReservationTarget {
 		if v == nil {
@@ -309,9 +297,7 @@ func (o GroupCapacityReservationSpecificationPtrOutput) CapacityReservationTarge
 }
 
 type GroupCapacityReservationSpecificationCapacityReservationTarget struct {
-	// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
-	CapacityReservationIds []string `pulumi:"capacityReservationIds"`
-	// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
+	CapacityReservationIds               []string `pulumi:"capacityReservationIds"`
 	CapacityReservationResourceGroupArns []string `pulumi:"capacityReservationResourceGroupArns"`
 }
 
@@ -327,9 +313,7 @@ type GroupCapacityReservationSpecificationCapacityReservationTargetInput interfa
 }
 
 type GroupCapacityReservationSpecificationCapacityReservationTargetArgs struct {
-	// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
-	CapacityReservationIds pulumi.StringArrayInput `pulumi:"capacityReservationIds"`
-	// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
+	CapacityReservationIds               pulumi.StringArrayInput `pulumi:"capacityReservationIds"`
 	CapacityReservationResourceGroupArns pulumi.StringArrayInput `pulumi:"capacityReservationResourceGroupArns"`
 }
 
@@ -410,14 +394,12 @@ func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) To
 	}).(GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
 
-// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
 func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
 		return v.CapacityReservationIds
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
 func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
 		return v.CapacityReservationResourceGroupArns
@@ -448,7 +430,6 @@ func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 	}).(GroupCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
-// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
 func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
 		if v == nil {
@@ -458,7 +439,6 @@ func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
 func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
 		if v == nil {
@@ -469,10 +449,9 @@ func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
 
 type GroupInitialLifecycleHook struct {
-	DefaultResult       *string `pulumi:"defaultResult"`
-	HeartbeatTimeout    *int    `pulumi:"heartbeatTimeout"`
-	LifecycleTransition string  `pulumi:"lifecycleTransition"`
-	// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
+	DefaultResult         *string `pulumi:"defaultResult"`
+	HeartbeatTimeout      *int    `pulumi:"heartbeatTimeout"`
+	LifecycleTransition   string  `pulumi:"lifecycleTransition"`
 	Name                  string  `pulumi:"name"`
 	NotificationMetadata  *string `pulumi:"notificationMetadata"`
 	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
@@ -491,10 +470,9 @@ type GroupInitialLifecycleHookInput interface {
 }
 
 type GroupInitialLifecycleHookArgs struct {
-	DefaultResult       pulumi.StringPtrInput `pulumi:"defaultResult"`
-	HeartbeatTimeout    pulumi.IntPtrInput    `pulumi:"heartbeatTimeout"`
-	LifecycleTransition pulumi.StringInput    `pulumi:"lifecycleTransition"`
-	// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
+	DefaultResult         pulumi.StringPtrInput `pulumi:"defaultResult"`
+	HeartbeatTimeout      pulumi.IntPtrInput    `pulumi:"heartbeatTimeout"`
+	LifecycleTransition   pulumi.StringInput    `pulumi:"lifecycleTransition"`
 	Name                  pulumi.StringInput    `pulumi:"name"`
 	NotificationMetadata  pulumi.StringPtrInput `pulumi:"notificationMetadata"`
 	NotificationTargetArn pulumi.StringPtrInput `pulumi:"notificationTargetArn"`
@@ -564,7 +542,6 @@ func (o GroupInitialLifecycleHookOutput) LifecycleTransition() pulumi.StringOutp
 	return o.ApplyT(func(v GroupInitialLifecycleHook) string { return v.LifecycleTransition }).(pulumi.StringOutput)
 }
 
-// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
 func (o GroupInitialLifecycleHookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupInitialLifecycleHook) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -602,9 +579,7 @@ func (o GroupInitialLifecycleHookArrayOutput) Index(i pulumi.IntInput) GroupInit
 }
 
 type GroupInstanceMaintenancePolicy struct {
-	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 	MaxHealthyPercentage int `pulumi:"maxHealthyPercentage"`
-	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage int `pulumi:"minHealthyPercentage"`
 }
 
@@ -620,9 +595,7 @@ type GroupInstanceMaintenancePolicyInput interface {
 }
 
 type GroupInstanceMaintenancePolicyArgs struct {
-	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 	MaxHealthyPercentage pulumi.IntInput `pulumi:"maxHealthyPercentage"`
-	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage pulumi.IntInput `pulumi:"minHealthyPercentage"`
 }
 
@@ -703,12 +676,10 @@ func (o GroupInstanceMaintenancePolicyOutput) ToGroupInstanceMaintenancePolicyPt
 	}).(GroupInstanceMaintenancePolicyPtrOutput)
 }
 
-// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 func (o GroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v GroupInstanceMaintenancePolicy) int { return v.MaxHealthyPercentage }).(pulumi.IntOutput)
 }
 
-// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GroupInstanceMaintenancePolicyOutput) MinHealthyPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v GroupInstanceMaintenancePolicy) int { return v.MinHealthyPercentage }).(pulumi.IntOutput)
 }
@@ -737,7 +708,6 @@ func (o GroupInstanceMaintenancePolicyPtrOutput) Elem() GroupInstanceMaintenance
 	}).(GroupInstanceMaintenancePolicyOutput)
 }
 
-// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 func (o GroupInstanceMaintenancePolicyPtrOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceMaintenancePolicy) *int {
 		if v == nil {
@@ -747,7 +717,6 @@ func (o GroupInstanceMaintenancePolicyPtrOutput) MaxHealthyPercentage() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GroupInstanceMaintenancePolicyPtrOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceMaintenancePolicy) *int {
 		if v == nil {
@@ -758,20 +727,9 @@ func (o GroupInstanceMaintenancePolicyPtrOutput) MinHealthyPercentage() pulumi.I
 }
 
 type GroupInstanceRefresh struct {
-	// Override default parameters for Instance Refresh.
 	Preferences *GroupInstanceRefreshPreferences `pulumi:"preferences"`
-	// Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
-	Strategy string `pulumi:"strategy"`
-	// Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
-	//
-	// > **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
-	//
-	// > **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `launchTemplate` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latestVersion` attribute of the `ec2.LaunchTemplate` resource.
-	//
-	// > **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
-	//
-	// > **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
-	Triggers []string `pulumi:"triggers"`
+	Strategy    string                           `pulumi:"strategy"`
+	Triggers    []string                         `pulumi:"triggers"`
 }
 
 // GroupInstanceRefreshInput is an input type that accepts GroupInstanceRefreshArgs and GroupInstanceRefreshOutput values.
@@ -786,20 +744,9 @@ type GroupInstanceRefreshInput interface {
 }
 
 type GroupInstanceRefreshArgs struct {
-	// Override default parameters for Instance Refresh.
 	Preferences GroupInstanceRefreshPreferencesPtrInput `pulumi:"preferences"`
-	// Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
-	Strategy pulumi.StringInput `pulumi:"strategy"`
-	// Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
-	//
-	// > **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
-	//
-	// > **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `launchTemplate` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latestVersion` attribute of the `ec2.LaunchTemplate` resource.
-	//
-	// > **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
-	//
-	// > **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
-	Triggers pulumi.StringArrayInput `pulumi:"triggers"`
+	Strategy    pulumi.StringInput                      `pulumi:"strategy"`
+	Triggers    pulumi.StringArrayInput                 `pulumi:"triggers"`
 }
 
 func (GroupInstanceRefreshArgs) ElementType() reflect.Type {
@@ -879,25 +826,14 @@ func (o GroupInstanceRefreshOutput) ToGroupInstanceRefreshPtrOutputWithContext(c
 	}).(GroupInstanceRefreshPtrOutput)
 }
 
-// Override default parameters for Instance Refresh.
 func (o GroupInstanceRefreshOutput) Preferences() GroupInstanceRefreshPreferencesPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefresh) *GroupInstanceRefreshPreferences { return v.Preferences }).(GroupInstanceRefreshPreferencesPtrOutput)
 }
 
-// Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
 func (o GroupInstanceRefreshOutput) Strategy() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupInstanceRefresh) string { return v.Strategy }).(pulumi.StringOutput)
 }
 
-// Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
-//
-// > **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
-//
-// > **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `launchTemplate` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latestVersion` attribute of the `ec2.LaunchTemplate` resource.
-//
-// > **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
-//
-// > **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
 func (o GroupInstanceRefreshOutput) Triggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupInstanceRefresh) []string { return v.Triggers }).(pulumi.StringArrayOutput)
 }
@@ -926,7 +862,6 @@ func (o GroupInstanceRefreshPtrOutput) Elem() GroupInstanceRefreshOutput {
 	}).(GroupInstanceRefreshOutput)
 }
 
-// Override default parameters for Instance Refresh.
 func (o GroupInstanceRefreshPtrOutput) Preferences() GroupInstanceRefreshPreferencesPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefresh) *GroupInstanceRefreshPreferences {
 		if v == nil {
@@ -936,7 +871,6 @@ func (o GroupInstanceRefreshPtrOutput) Preferences() GroupInstanceRefreshPrefere
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
 }
 
-// Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
 func (o GroupInstanceRefreshPtrOutput) Strategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefresh) *string {
 		if v == nil {
@@ -946,15 +880,6 @@ func (o GroupInstanceRefreshPtrOutput) Strategy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
-//
-// > **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launchConfiguration`, `launchTemplate`, `mixedInstancesPolicy`. Additional properties can be specified in the `triggers` property of `instanceRefresh`.
-//
-// > **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `launchTemplate` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latestVersion` attribute of the `ec2.LaunchTemplate` resource.
-//
-// > **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
-//
-// > **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
 func (o GroupInstanceRefreshPtrOutput) Triggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupInstanceRefresh) []string {
 		if v == nil {
@@ -965,26 +890,16 @@ func (o GroupInstanceRefreshPtrOutput) Triggers() pulumi.StringArrayOutput {
 }
 
 type GroupInstanceRefreshPreferences struct {
-	// Alarm Specification for Instance Refresh.
-	AlarmSpecification *GroupInstanceRefreshPreferencesAlarmSpecification `pulumi:"alarmSpecification"`
-	// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
-	AutoRollback *bool `pulumi:"autoRollback"`
-	// Number of seconds to wait after a checkpoint. Defaults to `3600`.
-	CheckpointDelay *string `pulumi:"checkpointDelay"`
-	// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
-	CheckpointPercentages []int `pulumi:"checkpointPercentages"`
-	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
-	InstanceWarmup *string `pulumi:"instanceWarmup"`
-	// Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
-	MaxHealthyPercentage *int `pulumi:"maxHealthyPercentage"`
-	// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
-	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
-	ScaleInProtectedInstances *string `pulumi:"scaleInProtectedInstances"`
-	// Skip replacing instances that already have your desired configuration. Defaults to `false`.
-	SkipMatching *bool `pulumi:"skipMatching"`
-	// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
-	StandbyInstances *string `pulumi:"standbyInstances"`
+	AlarmSpecification        *GroupInstanceRefreshPreferencesAlarmSpecification `pulumi:"alarmSpecification"`
+	AutoRollback              *bool                                              `pulumi:"autoRollback"`
+	CheckpointDelay           *string                                            `pulumi:"checkpointDelay"`
+	CheckpointPercentages     []int                                              `pulumi:"checkpointPercentages"`
+	InstanceWarmup            *string                                            `pulumi:"instanceWarmup"`
+	MaxHealthyPercentage      *int                                               `pulumi:"maxHealthyPercentage"`
+	MinHealthyPercentage      *int                                               `pulumi:"minHealthyPercentage"`
+	ScaleInProtectedInstances *string                                            `pulumi:"scaleInProtectedInstances"`
+	SkipMatching              *bool                                              `pulumi:"skipMatching"`
+	StandbyInstances          *string                                            `pulumi:"standbyInstances"`
 }
 
 // GroupInstanceRefreshPreferencesInput is an input type that accepts GroupInstanceRefreshPreferencesArgs and GroupInstanceRefreshPreferencesOutput values.
@@ -999,26 +914,16 @@ type GroupInstanceRefreshPreferencesInput interface {
 }
 
 type GroupInstanceRefreshPreferencesArgs struct {
-	// Alarm Specification for Instance Refresh.
-	AlarmSpecification GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput `pulumi:"alarmSpecification"`
-	// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
-	AutoRollback pulumi.BoolPtrInput `pulumi:"autoRollback"`
-	// Number of seconds to wait after a checkpoint. Defaults to `3600`.
-	CheckpointDelay pulumi.StringPtrInput `pulumi:"checkpointDelay"`
-	// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
-	CheckpointPercentages pulumi.IntArrayInput `pulumi:"checkpointPercentages"`
-	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
-	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
-	// Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
-	MaxHealthyPercentage pulumi.IntPtrInput `pulumi:"maxHealthyPercentage"`
-	// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
-	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
-	ScaleInProtectedInstances pulumi.StringPtrInput `pulumi:"scaleInProtectedInstances"`
-	// Skip replacing instances that already have your desired configuration. Defaults to `false`.
-	SkipMatching pulumi.BoolPtrInput `pulumi:"skipMatching"`
-	// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
-	StandbyInstances pulumi.StringPtrInput `pulumi:"standbyInstances"`
+	AlarmSpecification        GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput `pulumi:"alarmSpecification"`
+	AutoRollback              pulumi.BoolPtrInput                                       `pulumi:"autoRollback"`
+	CheckpointDelay           pulumi.StringPtrInput                                     `pulumi:"checkpointDelay"`
+	CheckpointPercentages     pulumi.IntArrayInput                                      `pulumi:"checkpointPercentages"`
+	InstanceWarmup            pulumi.StringPtrInput                                     `pulumi:"instanceWarmup"`
+	MaxHealthyPercentage      pulumi.IntPtrInput                                        `pulumi:"maxHealthyPercentage"`
+	MinHealthyPercentage      pulumi.IntPtrInput                                        `pulumi:"minHealthyPercentage"`
+	ScaleInProtectedInstances pulumi.StringPtrInput                                     `pulumi:"scaleInProtectedInstances"`
+	SkipMatching              pulumi.BoolPtrInput                                       `pulumi:"skipMatching"`
+	StandbyInstances          pulumi.StringPtrInput                                     `pulumi:"standbyInstances"`
 }
 
 func (GroupInstanceRefreshPreferencesArgs) ElementType() reflect.Type {
@@ -1098,54 +1003,44 @@ func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferences
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
 }
 
-// Alarm Specification for Instance Refresh.
 func (o GroupInstanceRefreshPreferencesOutput) AlarmSpecification() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *GroupInstanceRefreshPreferencesAlarmSpecification {
 		return v.AlarmSpecification
 	}).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
 }
 
-// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 func (o GroupInstanceRefreshPreferencesOutput) AutoRollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *bool { return v.AutoRollback }).(pulumi.BoolPtrOutput)
 }
 
-// Number of seconds to wait after a checkpoint. Defaults to `3600`.
 func (o GroupInstanceRefreshPreferencesOutput) CheckpointDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.CheckpointDelay }).(pulumi.StringPtrOutput)
 }
 
-// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
 func (o GroupInstanceRefreshPreferencesOutput) CheckpointPercentages() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) []int { return v.CheckpointPercentages }).(pulumi.IntArrayOutput)
 }
 
-// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 func (o GroupInstanceRefreshPreferencesOutput) InstanceWarmup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.InstanceWarmup }).(pulumi.StringPtrOutput)
 }
 
-// Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
 func (o GroupInstanceRefreshPreferencesOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MaxHealthyPercentage }).(pulumi.IntPtrOutput)
 }
 
-// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
 func (o GroupInstanceRefreshPreferencesOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
 }
 
-// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
 func (o GroupInstanceRefreshPreferencesOutput) ScaleInProtectedInstances() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.ScaleInProtectedInstances }).(pulumi.StringPtrOutput)
 }
 
-// Skip replacing instances that already have your desired configuration. Defaults to `false`.
 func (o GroupInstanceRefreshPreferencesOutput) SkipMatching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *bool { return v.SkipMatching }).(pulumi.BoolPtrOutput)
 }
 
-// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
 func (o GroupInstanceRefreshPreferencesOutput) StandbyInstances() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.StandbyInstances }).(pulumi.StringPtrOutput)
 }
@@ -1174,7 +1069,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) Elem() GroupInstanceRefreshPre
 	}).(GroupInstanceRefreshPreferencesOutput)
 }
 
-// Alarm Specification for Instance Refresh.
 func (o GroupInstanceRefreshPreferencesPtrOutput) AlarmSpecification() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *GroupInstanceRefreshPreferencesAlarmSpecification {
 		if v == nil {
@@ -1184,7 +1078,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) AlarmSpecification() GroupInst
 	}).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
 }
 
-// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) AutoRollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *bool {
 		if v == nil {
@@ -1194,7 +1087,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) AutoRollback() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Number of seconds to wait after a checkpoint. Defaults to `3600`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) CheckpointDelay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *string {
 		if v == nil {
@@ -1204,7 +1096,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) CheckpointDelay() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) CheckpointPercentages() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) []int {
 		if v == nil {
@@ -1214,7 +1105,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) CheckpointPercentages() pulumi
 	}).(pulumi.IntArrayOutput)
 }
 
-// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 func (o GroupInstanceRefreshPreferencesPtrOutput) InstanceWarmup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *string {
 		if v == nil {
@@ -1224,7 +1114,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) InstanceWarmup() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *int {
 		if v == nil {
@@ -1234,7 +1123,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) MaxHealthyPercentage() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *int {
 		if v == nil {
@@ -1244,7 +1132,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) MinHealthyPercentage() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) ScaleInProtectedInstances() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *string {
 		if v == nil {
@@ -1254,7 +1141,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) ScaleInProtectedInstances() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Skip replacing instances that already have your desired configuration. Defaults to `false`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) SkipMatching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *bool {
 		if v == nil {
@@ -1264,7 +1150,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) SkipMatching() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) StandbyInstances() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *string {
 		if v == nil {
@@ -1275,7 +1160,6 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) StandbyInstances() pulumi.Stri
 }
 
 type GroupInstanceRefreshPreferencesAlarmSpecification struct {
-	// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 	Alarms []string `pulumi:"alarms"`
 }
 
@@ -1291,7 +1175,6 @@ type GroupInstanceRefreshPreferencesAlarmSpecificationInput interface {
 }
 
 type GroupInstanceRefreshPreferencesAlarmSpecificationArgs struct {
-	// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
 }
 
@@ -1372,7 +1255,6 @@ func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) ToGroupInstance
 	}).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
 }
 
-// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferencesAlarmSpecification) []string { return v.Alarms }).(pulumi.StringArrayOutput)
 }
@@ -1401,7 +1283,6 @@ func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) Elem() Group
 	}).(GroupInstanceRefreshPreferencesAlarmSpecificationOutput)
 }
 
-// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferencesAlarmSpecification) []string {
 		if v == nil {
@@ -1412,11 +1293,8 @@ func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) Alarms() pul
 }
 
 type GroupLaunchTemplate struct {
-	// ID of the launch template. Conflicts with `name`.
-	Id *string `pulumi:"id"`
-	// Name of the launch template. Conflicts with `id`.
-	Name *string `pulumi:"name"`
-	// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
+	Id      *string `pulumi:"id"`
+	Name    *string `pulumi:"name"`
 	Version *string `pulumi:"version"`
 }
 
@@ -1432,11 +1310,8 @@ type GroupLaunchTemplateInput interface {
 }
 
 type GroupLaunchTemplateArgs struct {
-	// ID of the launch template. Conflicts with `name`.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the launch template. Conflicts with `id`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
+	Id      pulumi.StringPtrInput `pulumi:"id"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1517,17 +1392,14 @@ func (o GroupLaunchTemplateOutput) ToGroupLaunchTemplatePtrOutputWithContext(ctx
 	}).(GroupLaunchTemplatePtrOutput)
 }
 
-// ID of the launch template. Conflicts with `name`.
 func (o GroupLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template. Conflicts with `id`.
 func (o GroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
 func (o GroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1556,7 +1428,6 @@ func (o GroupLaunchTemplatePtrOutput) Elem() GroupLaunchTemplateOutput {
 	}).(GroupLaunchTemplateOutput)
 }
 
-// ID of the launch template. Conflicts with `name`.
 func (o GroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupLaunchTemplate) *string {
 		if v == nil {
@@ -1566,7 +1437,6 @@ func (o GroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template. Conflicts with `id`.
 func (o GroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupLaunchTemplate) *string {
 		if v == nil {
@@ -1576,7 +1446,6 @@ func (o GroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
 func (o GroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupLaunchTemplate) *string {
 		if v == nil {
@@ -1587,10 +1456,8 @@ func (o GroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type GroupMixedInstancesPolicy struct {
-	// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
 	InstancesDistribution *GroupMixedInstancesPolicyInstancesDistribution `pulumi:"instancesDistribution"`
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-	LaunchTemplate GroupMixedInstancesPolicyLaunchTemplate `pulumi:"launchTemplate"`
+	LaunchTemplate        GroupMixedInstancesPolicyLaunchTemplate         `pulumi:"launchTemplate"`
 }
 
 // GroupMixedInstancesPolicyInput is an input type that accepts GroupMixedInstancesPolicyArgs and GroupMixedInstancesPolicyOutput values.
@@ -1605,10 +1472,8 @@ type GroupMixedInstancesPolicyInput interface {
 }
 
 type GroupMixedInstancesPolicyArgs struct {
-	// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
 	InstancesDistribution GroupMixedInstancesPolicyInstancesDistributionPtrInput `pulumi:"instancesDistribution"`
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-	LaunchTemplate GroupMixedInstancesPolicyLaunchTemplateInput `pulumi:"launchTemplate"`
+	LaunchTemplate        GroupMixedInstancesPolicyLaunchTemplateInput           `pulumi:"launchTemplate"`
 }
 
 func (GroupMixedInstancesPolicyArgs) ElementType() reflect.Type {
@@ -1688,14 +1553,12 @@ func (o GroupMixedInstancesPolicyOutput) ToGroupMixedInstancesPolicyPtrOutputWit
 	}).(GroupMixedInstancesPolicyPtrOutput)
 }
 
-// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
 func (o GroupMixedInstancesPolicyOutput) InstancesDistribution() GroupMixedInstancesPolicyInstancesDistributionPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicy) *GroupMixedInstancesPolicyInstancesDistribution {
 		return v.InstancesDistribution
 	}).(GroupMixedInstancesPolicyInstancesDistributionPtrOutput)
 }
 
-// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
 func (o GroupMixedInstancesPolicyOutput) LaunchTemplate() GroupMixedInstancesPolicyLaunchTemplateOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicy) GroupMixedInstancesPolicyLaunchTemplate { return v.LaunchTemplate }).(GroupMixedInstancesPolicyLaunchTemplateOutput)
 }
@@ -1724,7 +1587,6 @@ func (o GroupMixedInstancesPolicyPtrOutput) Elem() GroupMixedInstancesPolicyOutp
 	}).(GroupMixedInstancesPolicyOutput)
 }
 
-// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
 func (o GroupMixedInstancesPolicyPtrOutput) InstancesDistribution() GroupMixedInstancesPolicyInstancesDistributionPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicy) *GroupMixedInstancesPolicyInstancesDistribution {
 		if v == nil {
@@ -1734,7 +1596,6 @@ func (o GroupMixedInstancesPolicyPtrOutput) InstancesDistribution() GroupMixedIn
 	}).(GroupMixedInstancesPolicyInstancesDistributionPtrOutput)
 }
 
-// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
 func (o GroupMixedInstancesPolicyPtrOutput) LaunchTemplate() GroupMixedInstancesPolicyLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicy) *GroupMixedInstancesPolicyLaunchTemplate {
 		if v == nil {
@@ -1745,18 +1606,12 @@ func (o GroupMixedInstancesPolicyPtrOutput) LaunchTemplate() GroupMixedInstances
 }
 
 type GroupMixedInstancesPolicyInstancesDistribution struct {
-	// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
-	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-	OnDemandBaseCapacity *int `pulumi:"onDemandBaseCapacity"`
-	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-	OnDemandPercentageAboveBaseCapacity *int `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-	SpotAllocationStrategy *string `pulumi:"spotAllocationStrategy"`
-	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-	SpotInstancePools *int `pulumi:"spotInstancePools"`
-	// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-	SpotMaxPrice *string `pulumi:"spotMaxPrice"`
+	OnDemandAllocationStrategy          *string `pulumi:"onDemandAllocationStrategy"`
+	OnDemandBaseCapacity                *int    `pulumi:"onDemandBaseCapacity"`
+	OnDemandPercentageAboveBaseCapacity *int    `pulumi:"onDemandPercentageAboveBaseCapacity"`
+	SpotAllocationStrategy              *string `pulumi:"spotAllocationStrategy"`
+	SpotInstancePools                   *int    `pulumi:"spotInstancePools"`
+	SpotMaxPrice                        *string `pulumi:"spotMaxPrice"`
 }
 
 // GroupMixedInstancesPolicyInstancesDistributionInput is an input type that accepts GroupMixedInstancesPolicyInstancesDistributionArgs and GroupMixedInstancesPolicyInstancesDistributionOutput values.
@@ -1771,18 +1626,12 @@ type GroupMixedInstancesPolicyInstancesDistributionInput interface {
 }
 
 type GroupMixedInstancesPolicyInstancesDistributionArgs struct {
-	// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-	OnDemandAllocationStrategy pulumi.StringPtrInput `pulumi:"onDemandAllocationStrategy"`
-	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-	OnDemandBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandBaseCapacity"`
-	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-	OnDemandPercentageAboveBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-	SpotAllocationStrategy pulumi.StringPtrInput `pulumi:"spotAllocationStrategy"`
-	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-	SpotInstancePools pulumi.IntPtrInput `pulumi:"spotInstancePools"`
-	// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-	SpotMaxPrice pulumi.StringPtrInput `pulumi:"spotMaxPrice"`
+	OnDemandAllocationStrategy          pulumi.StringPtrInput `pulumi:"onDemandAllocationStrategy"`
+	OnDemandBaseCapacity                pulumi.IntPtrInput    `pulumi:"onDemandBaseCapacity"`
+	OnDemandPercentageAboveBaseCapacity pulumi.IntPtrInput    `pulumi:"onDemandPercentageAboveBaseCapacity"`
+	SpotAllocationStrategy              pulumi.StringPtrInput `pulumi:"spotAllocationStrategy"`
+	SpotInstancePools                   pulumi.IntPtrInput    `pulumi:"spotInstancePools"`
+	SpotMaxPrice                        pulumi.StringPtrInput `pulumi:"spotMaxPrice"`
 }
 
 func (GroupMixedInstancesPolicyInstancesDistributionArgs) ElementType() reflect.Type {
@@ -1862,34 +1711,28 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) ToGroupMixedInstan
 	}).(GroupMixedInstancesPolicyInstancesDistributionPtrOutput)
 }
 
-// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *string { return v.OnDemandAllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
-// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandBaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *int { return v.OnDemandBaseCapacity }).(pulumi.IntPtrOutput)
 }
 
-// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercentageAboveBaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *int {
 		return v.OnDemandPercentageAboveBaseCapacity
 	}).(pulumi.IntPtrOutput)
 }
 
-// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) SpotAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *string { return v.SpotAllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
-// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) SpotInstancePools() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *int { return v.SpotInstancePools }).(pulumi.IntPtrOutput)
 }
 
-// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) SpotMaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *string { return v.SpotMaxPrice }).(pulumi.StringPtrOutput)
 }
@@ -1918,7 +1761,6 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) Elem() GroupMix
 	}).(GroupMixedInstancesPolicyInstancesDistributionOutput)
 }
 
-// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *string {
 		if v == nil {
@@ -1928,7 +1770,6 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandAllocat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandBaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *int {
 		if v == nil {
@@ -1938,7 +1779,6 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandBaseCap
 	}).(pulumi.IntPtrOutput)
 }
 
-// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandPercentageAboveBaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *int {
 		if v == nil {
@@ -1948,7 +1788,6 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandPercent
 	}).(pulumi.IntPtrOutput)
 }
 
-// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *string {
 		if v == nil {
@@ -1958,7 +1797,6 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotAllocationS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotInstancePools() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *int {
 		if v == nil {
@@ -1968,7 +1806,6 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotInstancePoo
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotMaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *string {
 		if v == nil {
@@ -1979,10 +1816,8 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotMaxPrice() 
 }
 
 type GroupMixedInstancesPolicyLaunchTemplate struct {
-	// Override the instance launch template specification in the Launch Template.
 	LaunchTemplateSpecification GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
-	// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-	Overrides []GroupMixedInstancesPolicyLaunchTemplateOverride `pulumi:"overrides"`
+	Overrides                   []GroupMixedInstancesPolicyLaunchTemplateOverride                  `pulumi:"overrides"`
 }
 
 // GroupMixedInstancesPolicyLaunchTemplateInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateArgs and GroupMixedInstancesPolicyLaunchTemplateOutput values.
@@ -1997,10 +1832,8 @@ type GroupMixedInstancesPolicyLaunchTemplateInput interface {
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateArgs struct {
-	// Override the instance launch template specification in the Launch Template.
 	LaunchTemplateSpecification GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput `pulumi:"launchTemplateSpecification"`
-	// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-	Overrides GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput `pulumi:"overrides"`
+	Overrides                   GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput               `pulumi:"overrides"`
 }
 
 func (GroupMixedInstancesPolicyLaunchTemplateArgs) ElementType() reflect.Type {
@@ -2080,14 +1913,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOutput) ToGroupMixedInstancesPoli
 	}).(GroupMixedInstancesPolicyLaunchTemplatePtrOutput)
 }
 
-// Override the instance launch template specification in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOutput) LaunchTemplateSpecification() GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplate) GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecification
 	}).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput)
 }
 
-// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
 func (o GroupMixedInstancesPolicyLaunchTemplateOutput) Overrides() GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplate) []GroupMixedInstancesPolicyLaunchTemplateOverride {
 		return v.Overrides
@@ -2118,7 +1949,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) Elem() GroupMixedInsta
 	}).(GroupMixedInstancesPolicyLaunchTemplateOutput)
 }
 
-// Override the instance launch template specification in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) LaunchTemplateSpecification() GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplate) *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
 		if v == nil {
@@ -2128,7 +1958,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) LaunchTemplateSpecific
 	}).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput)
 }
 
-// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
 func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) Overrides() GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplate) []GroupMixedInstancesPolicyLaunchTemplateOverride {
 		if v == nil {
@@ -2139,9 +1968,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) Overrides() GroupMixed
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification struct {
-	// ID of the launch template. Conflicts with `launchTemplateName`.
-	LaunchTemplateId *string `pulumi:"launchTemplateId"`
-	// Name of the launch template. Conflicts with `launchTemplateId`.
+	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
 	Version            *string `pulumi:"version"`
 }
@@ -2158,9 +1985,7 @@ type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput int
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs struct {
-	// ID of the launch template. Conflicts with `launchTemplateName`.
-	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
-	// Name of the launch template. Conflicts with `launchTemplateId`.
+	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
 	Version            pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -2242,14 +2067,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput
 	}).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput)
 }
 
-// ID of the launch template. Conflicts with `launchTemplateName`.
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template. Conflicts with `launchTemplateId`.
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateName
@@ -2284,7 +2107,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOut
 	}).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput)
 }
 
-// ID of the launch template. Conflicts with `launchTemplateName`.
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2294,7 +2116,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template. Conflicts with `launchTemplateId`.
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2314,14 +2135,10 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOut
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverride struct {
-	// Override the instance type in the Launch Template with instance types that satisfy the requirements.
-	InstanceRequirements *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements `pulumi:"instanceRequirements"`
-	// Override the instance type in the Launch Template.
-	InstanceType *string `pulumi:"instanceType"`
-	// Override the instance launch template specification in the Launch Template.
+	InstanceRequirements        *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements        `pulumi:"instanceRequirements"`
+	InstanceType                *string                                                                     `pulumi:"instanceType"`
 	LaunchTemplateSpecification *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
-	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
-	WeightedCapacity *string `pulumi:"weightedCapacity"`
+	WeightedCapacity            *string                                                                     `pulumi:"weightedCapacity"`
 }
 
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideOutput values.
@@ -2336,14 +2153,10 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInput interface {
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideArgs struct {
-	// Override the instance type in the Launch Template with instance types that satisfy the requirements.
-	InstanceRequirements GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
-	// Override the instance type in the Launch Template.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// Override the instance launch template specification in the Launch Template.
+	InstanceRequirements        GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput        `pulumi:"instanceRequirements"`
+	InstanceType                pulumi.StringPtrInput                                                              `pulumi:"instanceType"`
 	LaunchTemplateSpecification GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrInput `pulumi:"launchTemplateSpecification"`
-	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
-	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
+	WeightedCapacity            pulumi.StringPtrInput                                                              `pulumi:"weightedCapacity"`
 }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ElementType() reflect.Type {
@@ -2397,26 +2210,22 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGroupMixedInsta
 	return o
 }
 
-// Override the instance type in the Launch Template with instance types that satisfy the requirements.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceRequirements() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements {
 		return v.InstanceRequirements
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput)
 }
 
-// Override the instance type in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// Override the instance launch template specification in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) LaunchTemplateSpecification() GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecification
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput)
 }
 
-// Number of capacity units, which gives the instance type a proportional weight to other instance types.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) WeightedCapacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
 }
@@ -2442,64 +2251,30 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) Index(i pulu
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct {
-	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
-	AcceleratorCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
-	// List of accelerator manufacturer names. Default is any manufacturer.
-	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
-	AcceleratorNames []string `pulumi:"acceleratorNames"`
-	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
-	AcceleratorTotalMemoryMib *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
-	// List of accelerator types. Default is any accelerator type.
-	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
-	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
-	//
-	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
-	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-	BareMetal *string `pulumi:"bareMetal"`
-	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
-	BaselineEbsBandwidthMbps *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
-	BurstablePerformance *string `pulumi:"burstablePerformance"`
-	// List of CPU manufacturer names. Default is any manufacturer.
-	//
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	CpuManufacturers []string `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-	//
-	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
-	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
-	// List of instance generation names. Default is any generation.
-	InstanceGenerations []string `pulumi:"instanceGenerations"`
-	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
-	LocalStorage *string `pulumi:"localStorage"`
-	// List of local storage type names. Default any storage type.
-	LocalStorageTypes []string `pulumi:"localStorageTypes"`
-	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-	MemoryGibPerVcpu *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
-	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-	MemoryMib *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
-	// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-	NetworkBandwidthGbps *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps `pulumi:"networkBandwidthGbps"`
-	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
-	NetworkInterfaceCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
-	// Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-	//
-	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
-	// Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
-	//
-	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-	TotalLocalStorageGb *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
-	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-	VcpuCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount `pulumi:"vcpuCount"`
+	AcceleratorCount                               *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       []string                                                                                      `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []string                                                                                      `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMib                      *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
+	AcceleratorTypes                               []string                                                                                      `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                                                                      `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      *string                                                                                       `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           *string                                                                                       `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []string                                                                                      `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                                                                      `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []string                                                                                      `pulumi:"instanceGenerations"`
+	LocalStorage                                   *string                                                                                       `pulumi:"localStorage"`
+	LocalStorageTypes                              []string                                                                                      `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                                                          `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpu                               *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu          `pulumi:"memoryGibPerVcpu"`
+	MemoryMib                                      *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib                 `pulumi:"memoryMib"`
+	NetworkBandwidthGbps                           *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps      `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      *int                                                                                          `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        *bool                                                                                         `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          *int                                                                                          `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb       `pulumi:"totalLocalStorageGb"`
+	VcpuCount                                      *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount                 `pulumi:"vcpuCount"`
 }
 
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput values.
@@ -2514,64 +2289,30 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput in
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs struct {
-	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
-	AcceleratorCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
-	// List of accelerator manufacturer names. Default is any manufacturer.
-	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
-	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
-	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
-	AcceleratorTotalMemoryMib GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
-	// List of accelerator types. Default is any accelerator type.
-	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
-	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
-	//
-	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
-	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
-	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
-	BaselineEbsBandwidthMbps GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
-	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
-	// List of CPU manufacturer names. Default is any manufacturer.
-	//
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-	//
-	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
-	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
-	// List of instance generation names. Default is any generation.
-	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
-	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
-	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
-	// List of local storage type names. Default any storage type.
-	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
-	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-	MemoryGibPerVcpu GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
-	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-	MemoryMib GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput `pulumi:"memoryMib"`
-	// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-	NetworkBandwidthGbps GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput `pulumi:"networkBandwidthGbps"`
-	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
-	NetworkInterfaceCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
-	// Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-	//
-	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
-	// Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
-	//
-	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-	TotalLocalStorageGb GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
-	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-	VcpuCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput `pulumi:"vcpuCount"`
+	AcceleratorCount                               GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       pulumi.StringArrayInput                                                                              `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               pulumi.StringArrayInput                                                                              `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMib                      GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
+	AcceleratorTypes                               pulumi.StringArrayInput                                                                              `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                                                              `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      pulumi.StringPtrInput                                                                                `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           pulumi.StringPtrInput                                                                                `pulumi:"burstablePerformance"`
+	CpuManufacturers                               pulumi.StringArrayInput                                                                              `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                                              `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            pulumi.StringArrayInput                                                                              `pulumi:"instanceGenerations"`
+	LocalStorage                                   pulumi.StringPtrInput                                                                                `pulumi:"localStorage"`
+	LocalStorageTypes                              pulumi.StringArrayInput                                                                              `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                                                   `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpu                               GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput          `pulumi:"memoryGibPerVcpu"`
+	MemoryMib                                      GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput                 `pulumi:"memoryMib"`
+	NetworkBandwidthGbps                           GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput      `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                                                   `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolPtrInput                                                                                  `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                                                   `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput       `pulumi:"totalLocalStorageGb"`
+	VcpuCount                                      GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput                 `pulumi:"vcpuCount"`
 }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ElementType() reflect.Type {
@@ -2651,178 +2392,144 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput)
 }
 
-// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
 		return v.AcceleratorCount
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
 }
 
-// List of accelerator manufacturer names. Default is any manufacturer.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AcceleratorManufacturers
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AcceleratorNames
 	}).(pulumi.StringArrayOutput)
 }
 
-// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorTotalMemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
 		return v.AcceleratorTotalMemoryMib
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// List of accelerator types. Default is any accelerator type.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AcceleratorTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
-//
-// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AllowedInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		return v.BareMetal
 	}).(pulumi.StringPtrOutput)
 }
 
-// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) BaselineEbsBandwidthMbps() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
 		return v.BaselineEbsBandwidthMbps
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		return v.BurstablePerformance
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of CPU manufacturer names. Default is any manufacturer.
-//
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.CpuManufacturers
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-//
-// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.ExcludedInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance generation names. Default is any generation.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.InstanceGenerations
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		return v.LocalStorage
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of local storage type names. Default any storage type.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
 	}).(pulumi.IntPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) MemoryGibPerVcpu() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
 		return v.MemoryGibPerVcpu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) MemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
 		return v.MemoryMib
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) NetworkBandwidthGbps() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps {
 		return v.NetworkBandwidthGbps
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
-// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) NetworkInterfaceCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
 		return v.NetworkInterfaceCount
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
 }
 
-// Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-//
-// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
 		return v.OnDemandMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *bool {
 		return v.RequireHibernateSupport
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
-//
-// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
 		return v.SpotMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
 }
 
-// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) TotalLocalStorageGb() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
 		return v.TotalLocalStorageGb
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) VcpuCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
 		return v.VcpuCount
@@ -2853,7 +2560,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput)
 }
 
-// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
 		if v == nil {
@@ -2863,7 +2569,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
 }
 
-// List of accelerator manufacturer names. Default is any manufacturer.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2873,7 +2578,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2883,7 +2587,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
 		if v == nil {
@@ -2893,7 +2596,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// List of accelerator types. Default is any accelerator type.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2903,9 +2605,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
-//
-// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2915,7 +2614,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		if v == nil {
@@ -2925,7 +2623,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
 		if v == nil {
@@ -2935,7 +2632,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		if v == nil {
@@ -2945,9 +2641,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of CPU manufacturer names. Default is any manufacturer.
-//
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2957,9 +2650,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-//
-// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2969,7 +2659,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance generation names. Default is any generation.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2979,7 +2668,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		if v == nil {
@@ -2989,7 +2677,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of local storage type names. Default any storage type.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2999,7 +2686,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
 		if v == nil {
@@ -3009,7 +2695,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) MemoryGibPerVcpu() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
 		if v == nil {
@@ -3019,7 +2704,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) MemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
 		if v == nil {
@@ -3029,7 +2713,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) NetworkBandwidthGbps() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps {
 		if v == nil {
@@ -3039,7 +2722,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
-// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) NetworkInterfaceCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
 		if v == nil {
@@ -3049,9 +2731,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
 }
 
-// Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-//
-// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
 		if v == nil {
@@ -3061,7 +2740,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *bool {
 		if v == nil {
@@ -3071,9 +2749,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
-//
-// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
 		if v == nil {
@@ -3083,7 +2758,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) TotalLocalStorageGb() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
 		if v == nil {
@@ -3093,7 +2767,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) VcpuCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
 		if v == nil {
@@ -4472,9 +4145,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuC
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification struct {
-	// ID of the launch template. Conflicts with `launchTemplateName`.
-	LaunchTemplateId *string `pulumi:"launchTemplateId"`
-	// Name of the launch template. Conflicts with `launchTemplateId`.
+	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
 	Version            *string `pulumi:"version"`
 }
@@ -4491,9 +4162,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationI
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs struct {
-	// ID of the launch template. Conflicts with `launchTemplateName`.
-	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
-	// Name of the launch template. Conflicts with `launchTemplateId`.
+	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
 	Version            pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -4575,14 +4244,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput)
 }
 
-// ID of the launch template. Conflicts with `launchTemplateName`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template. Conflicts with `launchTemplateId`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *string {
 		return v.LaunchTemplateName
@@ -4619,7 +4286,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput)
 }
 
-// ID of the launch template. Conflicts with `launchTemplateName`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -4629,7 +4295,6 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template. Conflicts with `launchTemplateId`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -4649,17 +4314,9 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 }
 
 type GroupTag struct {
-	// Key
-	Key string `pulumi:"key"`
-	// Enables propagation of the tag to
-	// Amazon EC2 instances launched via this ASG
-	//
-	// To declare multiple tags, additional `tag` blocks can be specified.
-	//
-	// > **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `minSize` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.
-	PropagateAtLaunch bool `pulumi:"propagateAtLaunch"`
-	// Value
-	Value string `pulumi:"value"`
+	Key               string `pulumi:"key"`
+	PropagateAtLaunch bool   `pulumi:"propagateAtLaunch"`
+	Value             string `pulumi:"value"`
 }
 
 // GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
@@ -4674,17 +4331,9 @@ type GroupTagInput interface {
 }
 
 type GroupTagArgs struct {
-	// Key
-	Key pulumi.StringInput `pulumi:"key"`
-	// Enables propagation of the tag to
-	// Amazon EC2 instances launched via this ASG
-	//
-	// To declare multiple tags, additional `tag` blocks can be specified.
-	//
-	// > **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `minSize` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.
-	PropagateAtLaunch pulumi.BoolInput `pulumi:"propagateAtLaunch"`
-	// Value
-	Value pulumi.StringInput `pulumi:"value"`
+	Key               pulumi.StringInput `pulumi:"key"`
+	PropagateAtLaunch pulumi.BoolInput   `pulumi:"propagateAtLaunch"`
+	Value             pulumi.StringInput `pulumi:"value"`
 }
 
 func (GroupTagArgs) ElementType() reflect.Type {
@@ -4738,22 +4387,14 @@ func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTa
 	return o
 }
 
-// Key
 func (o GroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Enables propagation of the tag to
-// Amazon EC2 instances launched via this ASG
-//
-// To declare multiple tags, additional `tag` blocks can be specified.
-//
-// > **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `minSize` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.
 func (o GroupTagOutput) PropagateAtLaunch() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupTag) bool { return v.PropagateAtLaunch }).(pulumi.BoolOutput)
 }
 
-// Value
 func (o GroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4779,14 +4420,8 @@ func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
 }
 
 type GroupTrafficSource struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-	Identifier string `pulumi:"identifier"`
-	// Provides additional context for the value of Identifier.
-	// The following lists the valid values:
-	// `elb` if `identifier` is the name of a Classic Load Balancer.
-	// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-	// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-	Type *string `pulumi:"type"`
+	Identifier string  `pulumi:"identifier"`
+	Type       *string `pulumi:"type"`
 }
 
 // GroupTrafficSourceInput is an input type that accepts GroupTrafficSourceArgs and GroupTrafficSourceOutput values.
@@ -4801,14 +4436,8 @@ type GroupTrafficSourceInput interface {
 }
 
 type GroupTrafficSourceArgs struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
-	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// Provides additional context for the value of Identifier.
-	// The following lists the valid values:
-	// `elb` if `identifier` is the name of a Classic Load Balancer.
-	// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-	// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Identifier pulumi.StringInput    `pulumi:"identifier"`
+	Type       pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GroupTrafficSourceArgs) ElementType() reflect.Type {
@@ -4862,16 +4491,10 @@ func (o GroupTrafficSourceOutput) ToGroupTrafficSourceOutputWithContext(ctx cont
 	return o
 }
 
-// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 func (o GroupTrafficSourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupTrafficSource) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Provides additional context for the value of Identifier.
-// The following lists the valid values:
-// `elb` if `identifier` is the name of a Classic Load Balancer.
-// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
 func (o GroupTrafficSourceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupTrafficSource) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4897,14 +4520,10 @@ func (o GroupTrafficSourceArrayOutput) Index(i pulumi.IntInput) GroupTrafficSour
 }
 
 type GroupWarmPool struct {
-	// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
-	InstanceReusePolicy *GroupWarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicy"`
-	// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
-	MaxGroupPreparedCapacity *int `pulumi:"maxGroupPreparedCapacity"`
-	// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-	MinSize *int `pulumi:"minSize"`
-	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
-	PoolState *string `pulumi:"poolState"`
+	InstanceReusePolicy      *GroupWarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicy"`
+	MaxGroupPreparedCapacity *int                              `pulumi:"maxGroupPreparedCapacity"`
+	MinSize                  *int                              `pulumi:"minSize"`
+	PoolState                *string                           `pulumi:"poolState"`
 }
 
 // GroupWarmPoolInput is an input type that accepts GroupWarmPoolArgs and GroupWarmPoolOutput values.
@@ -4919,14 +4538,10 @@ type GroupWarmPoolInput interface {
 }
 
 type GroupWarmPoolArgs struct {
-	// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
-	InstanceReusePolicy GroupWarmPoolInstanceReusePolicyPtrInput `pulumi:"instanceReusePolicy"`
-	// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
-	MaxGroupPreparedCapacity pulumi.IntPtrInput `pulumi:"maxGroupPreparedCapacity"`
-	// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
-	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
-	PoolState pulumi.StringPtrInput `pulumi:"poolState"`
+	InstanceReusePolicy      GroupWarmPoolInstanceReusePolicyPtrInput `pulumi:"instanceReusePolicy"`
+	MaxGroupPreparedCapacity pulumi.IntPtrInput                       `pulumi:"maxGroupPreparedCapacity"`
+	MinSize                  pulumi.IntPtrInput                       `pulumi:"minSize"`
+	PoolState                pulumi.StringPtrInput                    `pulumi:"poolState"`
 }
 
 func (GroupWarmPoolArgs) ElementType() reflect.Type {
@@ -5006,22 +4621,18 @@ func (o GroupWarmPoolOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.Con
 	}).(GroupWarmPoolPtrOutput)
 }
 
-// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
 func (o GroupWarmPoolOutput) InstanceReusePolicy() GroupWarmPoolInstanceReusePolicyPtrOutput {
 	return o.ApplyT(func(v GroupWarmPool) *GroupWarmPoolInstanceReusePolicy { return v.InstanceReusePolicy }).(GroupWarmPoolInstanceReusePolicyPtrOutput)
 }
 
-// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
 func (o GroupWarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupWarmPool) *int { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 func (o GroupWarmPoolOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupWarmPool) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
-// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
 func (o GroupWarmPoolOutput) PoolState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupWarmPool) *string { return v.PoolState }).(pulumi.StringPtrOutput)
 }
@@ -5050,7 +4661,6 @@ func (o GroupWarmPoolPtrOutput) Elem() GroupWarmPoolOutput {
 	}).(GroupWarmPoolOutput)
 }
 
-// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
 func (o GroupWarmPoolPtrOutput) InstanceReusePolicy() GroupWarmPoolInstanceReusePolicyPtrOutput {
 	return o.ApplyT(func(v *GroupWarmPool) *GroupWarmPoolInstanceReusePolicy {
 		if v == nil {
@@ -5060,7 +4670,6 @@ func (o GroupWarmPoolPtrOutput) InstanceReusePolicy() GroupWarmPoolInstanceReuse
 	}).(GroupWarmPoolInstanceReusePolicyPtrOutput)
 }
 
-// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
 func (o GroupWarmPoolPtrOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupWarmPool) *int {
 		if v == nil {
@@ -5070,7 +4679,6 @@ func (o GroupWarmPoolPtrOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 func (o GroupWarmPoolPtrOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupWarmPool) *int {
 		if v == nil {
@@ -5080,7 +4688,6 @@ func (o GroupWarmPoolPtrOutput) MinSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
 func (o GroupWarmPoolPtrOutput) PoolState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupWarmPool) *string {
 		if v == nil {
@@ -5091,7 +4698,6 @@ func (o GroupWarmPoolPtrOutput) PoolState() pulumi.StringPtrOutput {
 }
 
 type GroupWarmPoolInstanceReusePolicy struct {
-	// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	ReuseOnScaleIn *bool `pulumi:"reuseOnScaleIn"`
 }
 
@@ -5107,7 +4713,6 @@ type GroupWarmPoolInstanceReusePolicyInput interface {
 }
 
 type GroupWarmPoolInstanceReusePolicyArgs struct {
-	// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	ReuseOnScaleIn pulumi.BoolPtrInput `pulumi:"reuseOnScaleIn"`
 }
 
@@ -5188,7 +4793,6 @@ func (o GroupWarmPoolInstanceReusePolicyOutput) ToGroupWarmPoolInstanceReusePoli
 	}).(GroupWarmPoolInstanceReusePolicyPtrOutput)
 }
 
-// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 func (o GroupWarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupWarmPoolInstanceReusePolicy) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
 }
@@ -5217,7 +4821,6 @@ func (o GroupWarmPoolInstanceReusePolicyPtrOutput) Elem() GroupWarmPoolInstanceR
 	}).(GroupWarmPoolInstanceReusePolicyOutput)
 }
 
-// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupWarmPoolInstanceReusePolicy) *bool {
 		if v == nil {
@@ -5228,16 +4831,11 @@ func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ReuseOnScaleIn() pulumi.BoolP
 }
 
 type PolicyPredictiveScalingConfiguration struct {
-	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
-	MaxCapacityBreachBehavior *string `pulumi:"maxCapacityBreachBehavior"`
-	// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
-	MaxCapacityBuffer *string `pulumi:"maxCapacityBuffer"`
-	// This structure includes the metrics and target utilization to use for predictive scaling.
-	MetricSpecification PolicyPredictiveScalingConfigurationMetricSpecification `pulumi:"metricSpecification"`
-	// Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
-	Mode *string `pulumi:"mode"`
-	// Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
-	SchedulingBufferTime *string `pulumi:"schedulingBufferTime"`
+	MaxCapacityBreachBehavior *string                                                 `pulumi:"maxCapacityBreachBehavior"`
+	MaxCapacityBuffer         *string                                                 `pulumi:"maxCapacityBuffer"`
+	MetricSpecification       PolicyPredictiveScalingConfigurationMetricSpecification `pulumi:"metricSpecification"`
+	Mode                      *string                                                 `pulumi:"mode"`
+	SchedulingBufferTime      *string                                                 `pulumi:"schedulingBufferTime"`
 }
 
 // PolicyPredictiveScalingConfigurationInput is an input type that accepts PolicyPredictiveScalingConfigurationArgs and PolicyPredictiveScalingConfigurationOutput values.
@@ -5252,16 +4850,11 @@ type PolicyPredictiveScalingConfigurationInput interface {
 }
 
 type PolicyPredictiveScalingConfigurationArgs struct {
-	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
-	MaxCapacityBreachBehavior pulumi.StringPtrInput `pulumi:"maxCapacityBreachBehavior"`
-	// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
-	MaxCapacityBuffer pulumi.StringPtrInput `pulumi:"maxCapacityBuffer"`
-	// This structure includes the metrics and target utilization to use for predictive scaling.
-	MetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationInput `pulumi:"metricSpecification"`
-	// Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
-	SchedulingBufferTime pulumi.StringPtrInput `pulumi:"schedulingBufferTime"`
+	MaxCapacityBreachBehavior pulumi.StringPtrInput                                        `pulumi:"maxCapacityBreachBehavior"`
+	MaxCapacityBuffer         pulumi.StringPtrInput                                        `pulumi:"maxCapacityBuffer"`
+	MetricSpecification       PolicyPredictiveScalingConfigurationMetricSpecificationInput `pulumi:"metricSpecification"`
+	Mode                      pulumi.StringPtrInput                                        `pulumi:"mode"`
+	SchedulingBufferTime      pulumi.StringPtrInput                                        `pulumi:"schedulingBufferTime"`
 }
 
 func (PolicyPredictiveScalingConfigurationArgs) ElementType() reflect.Type {
@@ -5341,29 +4934,24 @@ func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingCon
 	}).(PolicyPredictiveScalingConfigurationPtrOutput)
 }
 
-// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
 func (o PolicyPredictiveScalingConfigurationOutput) MaxCapacityBreachBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.MaxCapacityBreachBehavior }).(pulumi.StringPtrOutput)
 }
 
-// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
 func (o PolicyPredictiveScalingConfigurationOutput) MaxCapacityBuffer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.MaxCapacityBuffer }).(pulumi.StringPtrOutput)
 }
 
-// This structure includes the metrics and target utilization to use for predictive scaling.
 func (o PolicyPredictiveScalingConfigurationOutput) MetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) PolicyPredictiveScalingConfigurationMetricSpecification {
 		return v.MetricSpecification
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput)
 }
 
-// Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
 func (o PolicyPredictiveScalingConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
 func (o PolicyPredictiveScalingConfigurationOutput) SchedulingBufferTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *string { return v.SchedulingBufferTime }).(pulumi.StringPtrOutput)
 }
@@ -5392,7 +4980,6 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) Elem() PolicyPredictiveSc
 	}).(PolicyPredictiveScalingConfigurationOutput)
 }
 
-// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
 func (o PolicyPredictiveScalingConfigurationPtrOutput) MaxCapacityBreachBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
 		if v == nil {
@@ -5402,7 +4989,6 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) MaxCapacityBreachBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
 func (o PolicyPredictiveScalingConfigurationPtrOutput) MaxCapacityBuffer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
 		if v == nil {
@@ -5412,7 +4998,6 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) MaxCapacityBuffer() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// This structure includes the metrics and target utilization to use for predictive scaling.
 func (o PolicyPredictiveScalingConfigurationPtrOutput) MetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *PolicyPredictiveScalingConfigurationMetricSpecification {
 		if v == nil {
@@ -5422,7 +5007,6 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) MetricSpecification() Pol
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
 }
 
-// Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
 func (o PolicyPredictiveScalingConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
 		if v == nil {
@@ -5432,7 +5016,6 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) Mode() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
 func (o PolicyPredictiveScalingConfigurationPtrOutput) SchedulingBufferTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) *string {
 		if v == nil {
@@ -5443,20 +5026,13 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) SchedulingBufferTime() pu
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecification struct {
-	// Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
 	CustomizedCapacityMetricSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification `pulumi:"customizedCapacityMetricSpecification"`
-	// Customized load metric specification.
-	CustomizedLoadMetricSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification `pulumi:"customizedLoadMetricSpecification"`
-	// Customized scaling metric specification.
-	CustomizedScalingMetricSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification `pulumi:"customizedScalingMetricSpecification"`
-	// Predefined load metric specification.
-	PredefinedLoadMetricSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification `pulumi:"predefinedLoadMetricSpecification"`
-	// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
-	PredefinedMetricPairSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification `pulumi:"predefinedMetricPairSpecification"`
-	// Predefined scaling metric specification.
-	PredefinedScalingMetricSpecification *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification `pulumi:"predefinedScalingMetricSpecification"`
-	// Target value for the metric.
-	TargetValue float64 `pulumi:"targetValue"`
+	CustomizedLoadMetricSpecification     *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification     `pulumi:"customizedLoadMetricSpecification"`
+	CustomizedScalingMetricSpecification  *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification  `pulumi:"customizedScalingMetricSpecification"`
+	PredefinedLoadMetricSpecification     *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification     `pulumi:"predefinedLoadMetricSpecification"`
+	PredefinedMetricPairSpecification     *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification     `pulumi:"predefinedMetricPairSpecification"`
+	PredefinedScalingMetricSpecification  *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification  `pulumi:"predefinedScalingMetricSpecification"`
+	TargetValue                           float64                                                                                       `pulumi:"targetValue"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationOutput values.
@@ -5471,20 +5047,13 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationInput interface {
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationArgs struct {
-	// Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
 	CustomizedCapacityMetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrInput `pulumi:"customizedCapacityMetricSpecification"`
-	// Customized load metric specification.
-	CustomizedLoadMetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrInput `pulumi:"customizedLoadMetricSpecification"`
-	// Customized scaling metric specification.
-	CustomizedScalingMetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrInput `pulumi:"customizedScalingMetricSpecification"`
-	// Predefined load metric specification.
-	PredefinedLoadMetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput `pulumi:"predefinedLoadMetricSpecification"`
-	// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
-	PredefinedMetricPairSpecification PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput `pulumi:"predefinedMetricPairSpecification"`
-	// Predefined scaling metric specification.
-	PredefinedScalingMetricSpecification PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput `pulumi:"predefinedScalingMetricSpecification"`
-	// Target value for the metric.
-	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+	CustomizedLoadMetricSpecification     PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrInput     `pulumi:"customizedLoadMetricSpecification"`
+	CustomizedScalingMetricSpecification  PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrInput  `pulumi:"customizedScalingMetricSpecification"`
+	PredefinedLoadMetricSpecification     PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrInput     `pulumi:"predefinedLoadMetricSpecification"`
+	PredefinedMetricPairSpecification     PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrInput     `pulumi:"predefinedMetricPairSpecification"`
+	PredefinedScalingMetricSpecification  PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrInput  `pulumi:"predefinedScalingMetricSpecification"`
+	TargetValue                           pulumi.Float64Input                                                                                  `pulumi:"targetValue"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ElementType() reflect.Type {
@@ -5564,49 +5133,42 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyP
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
 }
 
-// Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) CustomizedCapacityMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification {
 		return v.CustomizedCapacityMetricSpecification
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput)
 }
 
-// Customized load metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) CustomizedLoadMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
 		return v.CustomizedLoadMetricSpecification
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput)
 }
 
-// Customized scaling metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) CustomizedScalingMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification {
 		return v.CustomizedScalingMetricSpecification
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput)
 }
 
-// Predefined load metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) PredefinedLoadMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
 		return v.PredefinedLoadMetricSpecification
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
 }
 
-// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) PredefinedMetricPairSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
 		return v.PredefinedMetricPairSpecification
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
 }
 
-// Predefined scaling metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) PredefinedScalingMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
 		return v.PredefinedScalingMetricSpecification
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
 }
 
-// Target value for the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -5635,7 +5197,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Elem()
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput)
 }
 
-// Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) CustomizedCapacityMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification {
 		if v == nil {
@@ -5645,7 +5206,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Custom
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput)
 }
 
-// Customized load metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) CustomizedLoadMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
 		if v == nil {
@@ -5655,7 +5215,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Custom
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput)
 }
 
-// Customized scaling metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) CustomizedScalingMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification {
 		if v == nil {
@@ -5665,7 +5224,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Custom
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput)
 }
 
-// Predefined load metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) PredefinedLoadMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
 		if v == nil {
@@ -5675,7 +5233,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Predef
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
 }
 
-// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) PredefinedMetricPairSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
 		if v == nil {
@@ -5685,7 +5242,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Predef
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
 }
 
-// Predefined scaling metric specification.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) PredefinedScalingMetricSpecification() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
 		if v == nil {
@@ -5695,7 +5251,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Predef
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
 }
 
-// Target value for the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) *float64 {
 		if v == nil {
@@ -5706,7 +5261,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Target
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification struct {
-	// List of up to 10 structures that defines custom capacity metric in predictive scaling policy
 	MetricDataQueries []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery `pulumi:"metricDataQueries"`
 }
 
@@ -5722,7 +5276,6 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs struct {
-	// List of up to 10 structures that defines custom capacity metric in predictive scaling policy
 	MetricDataQueries PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
 }
 
@@ -5803,7 +5356,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput)
 }
 
-// List of up to 10 structures that defines custom capacity metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
 		return v.MetricDataQueries
@@ -5834,7 +5386,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput)
 }
 
-// List of up to 10 structures that defines custom capacity metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
 		if v == nil {
@@ -5845,16 +5396,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression *string `pulumi:"expression"`
-	// Short name for the metric used in predictive scaling policy.
-	Id string `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label *string `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression *string                                                                                                                `pulumi:"expression"`
+	Id         string                                                                                                                 `pulumi:"id"`
+	Label      *string                                                                                                                `pulumi:"label"`
 	MetricStat *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData *bool `pulumi:"returnData"`
+	ReturnData *bool                                                                                                                  `pulumi:"returnData"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput values.
@@ -5869,16 +5415,11 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Short name for the metric used in predictive scaling policy.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression pulumi.StringPtrInput                                                                                                         `pulumi:"expression"`
+	Id         pulumi.StringInput                                                                                                            `pulumi:"id"`
+	Label      pulumi.StringPtrInput                                                                                                         `pulumi:"label"`
 	MetricStat PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrInput `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
+	ReturnData pulumi.BoolPtrInput                                                                                                           `pulumi:"returnData"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs) ElementType() reflect.Type {
@@ -5932,35 +5473,30 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return o
 }
 
-// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery) *string {
 		return v.Expression
 	}).(pulumi.StringPtrOutput)
 }
 
-// Short name for the metric used in predictive scaling policy.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery) string {
 		return v.Id
 	}).(pulumi.StringOutput)
 }
 
-// Human-readable label for this metric or expression.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery) *string {
 		return v.Label
 	}).(pulumi.StringPtrOutput)
 }
 
-// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) MetricStat() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat {
 		return v.MetricStat
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
-// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery) *bool {
 		return v.ReturnData
@@ -5988,12 +5524,9 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric `pulumi:"metric"`
-	// Statistic of the metrics to return.
-	Stat string `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit *string `pulumi:"unit"`
+	Stat   string                                                                                                                      `pulumi:"stat"`
+	Unit   *string                                                                                                                     `pulumi:"unit"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput values.
@@ -6008,12 +5541,9 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricInput `pulumi:"metric"`
-	// Statistic of the metrics to return.
-	Stat pulumi.StringInput `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	Stat   pulumi.StringInput                                                                                                               `pulumi:"stat"`
+	Unit   pulumi.StringPtrInput                                                                                                            `pulumi:"unit"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs) ElementType() reflect.Type {
@@ -6093,21 +5623,18 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput) Metric() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric {
 		return v.Metric
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat) string {
 		return v.Stat
 	}).(pulumi.StringOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat) *string {
 		return v.Unit
@@ -6138,7 +5665,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput) Metric() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric {
 		if v == nil {
@@ -6148,7 +5674,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat) *string {
 		if v == nil {
@@ -6158,7 +5683,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat) *string {
 		if v == nil {
@@ -6169,12 +5693,9 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric struct {
-	// Dimensions of the metric.
 	Dimensions []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace string `pulumi:"namespace"`
+	MetricName string                                                                                                                                 `pulumi:"metricName"`
+	Namespace  string                                                                                                                                 `pulumi:"namespace"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput values.
@@ -6189,12 +5710,9 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs struct {
-	// Dimensions of the metric.
 	Dimensions PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	MetricName pulumi.StringInput                                                                                                                             `pulumi:"metricName"`
+	Namespace  pulumi.StringInput                                                                                                                             `pulumi:"namespace"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs) ElementType() reflect.Type {
@@ -6274,21 +5792,18 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput) Dimensions() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension {
 		return v.Dimensions
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric) string {
 		return v.MetricName
 	}).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric) string {
 		return v.Namespace
@@ -6319,7 +5834,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Dimensions() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension {
 		if v == nil {
@@ -6329,7 +5843,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric) *string {
 		if v == nil {
@@ -6339,7 +5852,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(pulumi.StringPtrOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric) *string {
 		if v == nil {
@@ -6350,9 +5862,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// Value of the dimension.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -6368,9 +5878,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMe
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the dimension.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6425,14 +5933,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return o
 }
 
-// Name of the dimension.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// Value of the dimension.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension) string {
 		return v.Value
@@ -6460,7 +5966,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification struct {
-	// List of up to 10 structures that defines custom load metric in predictive scaling policy
 	MetricDataQueries []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery `pulumi:"metricDataQueries"`
 }
 
@@ -6476,7 +5981,6 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs struct {
-	// List of up to 10 structures that defines custom load metric in predictive scaling policy
 	MetricDataQueries PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
 }
 
@@ -6557,7 +6061,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput)
 }
 
-// List of up to 10 structures that defines custom load metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery {
 		return v.MetricDataQueries
@@ -6588,7 +6091,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput)
 }
 
-// List of up to 10 structures that defines custom load metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery {
 		if v == nil {
@@ -6599,16 +6101,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression *string `pulumi:"expression"`
-	// Short name for the metric used in predictive scaling policy.
-	Id string `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label *string `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression *string                                                                                                            `pulumi:"expression"`
+	Id         string                                                                                                             `pulumi:"id"`
+	Label      *string                                                                                                            `pulumi:"label"`
 	MetricStat *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData *bool `pulumi:"returnData"`
+	ReturnData *bool                                                                                                              `pulumi:"returnData"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput values.
@@ -6623,16 +6120,11 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Short name for the metric used in predictive scaling policy.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression pulumi.StringPtrInput                                                                                                     `pulumi:"expression"`
+	Id         pulumi.StringInput                                                                                                        `pulumi:"id"`
+	Label      pulumi.StringPtrInput                                                                                                     `pulumi:"label"`
 	MetricStat PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrInput `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
+	ReturnData pulumi.BoolPtrInput                                                                                                       `pulumi:"returnData"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs) ElementType() reflect.Type {
@@ -6686,35 +6178,30 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return o
 }
 
-// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery) *string {
 		return v.Expression
 	}).(pulumi.StringPtrOutput)
 }
 
-// Short name for the metric used in predictive scaling policy.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery) string {
 		return v.Id
 	}).(pulumi.StringOutput)
 }
 
-// Human-readable label for this metric or expression.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery) *string {
 		return v.Label
 	}).(pulumi.StringPtrOutput)
 }
 
-// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) MetricStat() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat {
 		return v.MetricStat
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
-// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery) *bool {
 		return v.ReturnData
@@ -6742,12 +6229,9 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric `pulumi:"metric"`
-	// Statistic of the metrics to return.
-	Stat string `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit *string `pulumi:"unit"`
+	Stat   string                                                                                                                  `pulumi:"stat"`
+	Unit   *string                                                                                                                 `pulumi:"unit"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput values.
@@ -6762,12 +6246,9 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricInput `pulumi:"metric"`
-	// Statistic of the metrics to return.
-	Stat pulumi.StringInput `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	Stat   pulumi.StringInput                                                                                                           `pulumi:"stat"`
+	Unit   pulumi.StringPtrInput                                                                                                        `pulumi:"unit"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs) ElementType() reflect.Type {
@@ -6847,21 +6328,18 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput) Metric() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric {
 		return v.Metric
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat) string {
 		return v.Stat
 	}).(pulumi.StringOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat) *string {
 		return v.Unit
@@ -6892,7 +6370,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput) Metric() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric {
 		if v == nil {
@@ -6902,7 +6379,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat) *string {
 		if v == nil {
@@ -6912,7 +6388,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat) *string {
 		if v == nil {
@@ -6923,12 +6398,9 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric struct {
-	// Dimensions of the metric.
 	Dimensions []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace string `pulumi:"namespace"`
+	MetricName string                                                                                                                             `pulumi:"metricName"`
+	Namespace  string                                                                                                                             `pulumi:"namespace"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput values.
@@ -6943,12 +6415,9 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs struct {
-	// Dimensions of the metric.
 	Dimensions PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	MetricName pulumi.StringInput                                                                                                                         `pulumi:"metricName"`
+	Namespace  pulumi.StringInput                                                                                                                         `pulumi:"namespace"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs) ElementType() reflect.Type {
@@ -7028,21 +6497,18 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput) Dimensions() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension {
 		return v.Dimensions
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric) string {
 		return v.MetricName
 	}).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric) string {
 		return v.Namespace
@@ -7073,7 +6539,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Dimensions() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension {
 		if v == nil {
@@ -7083,7 +6548,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric) *string {
 		if v == nil {
@@ -7093,7 +6557,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(pulumi.StringPtrOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric) *string {
 		if v == nil {
@@ -7104,9 +6567,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// Value of the dimension.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -7122,9 +6583,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetric
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the dimension.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7179,14 +6638,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return o
 }
 
-// Name of the dimension.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// Value of the dimension.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension) string {
 		return v.Value
@@ -7214,7 +6671,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification struct {
-	// List of up to 10 structures that defines custom scaling metric in predictive scaling policy
 	MetricDataQueries []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery `pulumi:"metricDataQueries"`
 }
 
@@ -7230,7 +6686,6 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs struct {
-	// List of up to 10 structures that defines custom scaling metric in predictive scaling policy
 	MetricDataQueries PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
 }
 
@@ -7311,7 +6766,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput)
 }
 
-// List of up to 10 structures that defines custom scaling metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery {
 		return v.MetricDataQueries
@@ -7342,7 +6796,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput)
 }
 
-// List of up to 10 structures that defines custom scaling metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery {
 		if v == nil {
@@ -7353,16 +6806,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression *string `pulumi:"expression"`
-	// Short name for the metric used in predictive scaling policy.
-	Id string `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label *string `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression *string                                                                                                               `pulumi:"expression"`
+	Id         string                                                                                                                `pulumi:"id"`
+	Label      *string                                                                                                               `pulumi:"label"`
 	MetricStat *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData *bool `pulumi:"returnData"`
+	ReturnData *bool                                                                                                                 `pulumi:"returnData"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput values.
@@ -7377,16 +6825,11 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Short name for the metric used in predictive scaling policy.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression pulumi.StringPtrInput                                                                                                        `pulumi:"expression"`
+	Id         pulumi.StringInput                                                                                                           `pulumi:"id"`
+	Label      pulumi.StringPtrInput                                                                                                        `pulumi:"label"`
 	MetricStat PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrInput `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
+	ReturnData pulumi.BoolPtrInput                                                                                                          `pulumi:"returnData"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs) ElementType() reflect.Type {
@@ -7440,35 +6883,30 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return o
 }
 
-// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery) *string {
 		return v.Expression
 	}).(pulumi.StringPtrOutput)
 }
 
-// Short name for the metric used in predictive scaling policy.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery) string {
 		return v.Id
 	}).(pulumi.StringOutput)
 }
 
-// Human-readable label for this metric or expression.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery) *string {
 		return v.Label
 	}).(pulumi.StringPtrOutput)
 }
 
-// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) MetricStat() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat {
 		return v.MetricStat
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
-// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery) *bool {
 		return v.ReturnData
@@ -7496,12 +6934,9 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric `pulumi:"metric"`
-	// Statistic of the metrics to return.
-	Stat string `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit *string `pulumi:"unit"`
+	Stat   string                                                                                                                     `pulumi:"stat"`
+	Unit   *string                                                                                                                    `pulumi:"unit"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput values.
@@ -7516,12 +6951,9 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricInput `pulumi:"metric"`
-	// Statistic of the metrics to return.
-	Stat pulumi.StringInput `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	Stat   pulumi.StringInput                                                                                                              `pulumi:"stat"`
+	Unit   pulumi.StringPtrInput                                                                                                           `pulumi:"unit"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs) ElementType() reflect.Type {
@@ -7601,21 +7033,18 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput) Metric() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric {
 		return v.Metric
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat) string {
 		return v.Stat
 	}).(pulumi.StringOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat) *string {
 		return v.Unit
@@ -7646,7 +7075,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput) Metric() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric {
 		if v == nil {
@@ -7656,7 +7084,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat) *string {
 		if v == nil {
@@ -7666,7 +7093,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat) *string {
 		if v == nil {
@@ -7677,12 +7103,9 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric struct {
-	// Dimensions of the metric.
 	Dimensions []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace string `pulumi:"namespace"`
+	MetricName string                                                                                                                                `pulumi:"metricName"`
+	Namespace  string                                                                                                                                `pulumi:"namespace"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput values.
@@ -7697,12 +7120,9 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs struct {
-	// Dimensions of the metric.
 	Dimensions PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	MetricName pulumi.StringInput                                                                                                                            `pulumi:"metricName"`
+	Namespace  pulumi.StringInput                                                                                                                            `pulumi:"namespace"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs) ElementType() reflect.Type {
@@ -7782,21 +7202,18 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput) Dimensions() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension {
 		return v.Dimensions
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric) string {
 		return v.MetricName
 	}).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric) string {
 		return v.Namespace
@@ -7827,7 +7244,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Dimensions() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension {
 		if v == nil {
@@ -7837,7 +7253,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric) *string {
 		if v == nil {
@@ -7847,7 +7262,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(pulumi.StringPtrOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric) *string {
 		if v == nil {
@@ -7858,9 +7272,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// Value of the dimension.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -7876,9 +7288,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the dimension.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7933,14 +7343,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return o
 }
 
-// Name of the dimension.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// Value of the dimension.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension) string {
 		return v.Value
@@ -7968,10 +7376,8 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification struct {
-	// Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
-	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
-	ResourceLabel *string `pulumi:"resourceLabel"`
+	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
+	ResourceLabel        *string `pulumi:"resourceLabel"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput values.
@@ -7986,10 +7392,8 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetric
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs struct {
-	// Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
-	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
-	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
+	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
+	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ElementType() reflect.Type {
@@ -8069,14 +7473,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
 }
 
-// Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		return v.ResourceLabel
@@ -8107,7 +7509,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput)
 }
 
-// Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		if v == nil {
@@ -8117,7 +7518,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		if v == nil {
@@ -8128,10 +7528,8 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification struct {
-	// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
-	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
-	ResourceLabel *string `pulumi:"resourceLabel"`
+	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
+	ResourceLabel        *string `pulumi:"resourceLabel"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput values.
@@ -8146,10 +7544,8 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPair
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs struct {
-	// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
-	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
-	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
+	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
+	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ElementType() reflect.Type {
@@ -8229,14 +7625,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
 }
 
-// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		return v.ResourceLabel
@@ -8267,7 +7661,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput)
 }
 
-// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		if v == nil {
@@ -8277,7 +7670,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		if v == nil {
@@ -8288,10 +7680,8 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification struct {
-	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
-	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
-	ResourceLabel *string `pulumi:"resourceLabel"`
+	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
+	ResourceLabel        *string `pulumi:"resourceLabel"`
 }
 
 // PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs and PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput values.
@@ -8306,10 +7696,8 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMet
 }
 
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs struct {
-	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
-	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
-	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
+	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
+	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ElementType() reflect.Type {
@@ -8389,14 +7777,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
 }
 
-// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		return v.ResourceLabel
@@ -8427,7 +7813,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput)
 }
 
-// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		if v == nil {
@@ -8437,7 +7822,6 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		if v == nil {
@@ -8448,23 +7832,9 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 }
 
 type PolicyStepAdjustment struct {
-	// Lower bound for the
-	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound *string `pulumi:"metricIntervalLowerBound"`
-	// Upper bound for the
-	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as positive infinity. The upper bound
-	// must be greater than the lower bound.
-	//
-	// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
-	//
-	// The following arguments are only available to "TargetTrackingScaling" type policies:
 	MetricIntervalUpperBound *string `pulumi:"metricIntervalUpperBound"`
-	// Number of members by which to
-	// scale, when the adjustment bounds are breached. A positive value scales
-	// up. A negative value scales down.
-	ScalingAdjustment int `pulumi:"scalingAdjustment"`
+	ScalingAdjustment        int     `pulumi:"scalingAdjustment"`
 }
 
 // PolicyStepAdjustmentInput is an input type that accepts PolicyStepAdjustmentArgs and PolicyStepAdjustmentOutput values.
@@ -8479,23 +7849,9 @@ type PolicyStepAdjustmentInput interface {
 }
 
 type PolicyStepAdjustmentArgs struct {
-	// Lower bound for the
-	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound pulumi.StringPtrInput `pulumi:"metricIntervalLowerBound"`
-	// Upper bound for the
-	// difference between the alarm threshold and the CloudWatch metric.
-	// Without a value, AWS will treat this bound as positive infinity. The upper bound
-	// must be greater than the lower bound.
-	//
-	// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
-	//
-	// The following arguments are only available to "TargetTrackingScaling" type policies:
 	MetricIntervalUpperBound pulumi.StringPtrInput `pulumi:"metricIntervalUpperBound"`
-	// Number of members by which to
-	// scale, when the adjustment bounds are breached. A positive value scales
-	// up. A negative value scales down.
-	ScalingAdjustment pulumi.IntInput `pulumi:"scalingAdjustment"`
+	ScalingAdjustment        pulumi.IntInput       `pulumi:"scalingAdjustment"`
 }
 
 func (PolicyStepAdjustmentArgs) ElementType() reflect.Type {
@@ -8549,28 +7905,14 @@ func (o PolicyStepAdjustmentOutput) ToPolicyStepAdjustmentOutputWithContext(ctx 
 	return o
 }
 
-// Lower bound for the
-// difference between the alarm threshold and the CloudWatch metric.
-// Without a value, AWS will treat this bound as negative infinity.
 func (o PolicyStepAdjustmentOutput) MetricIntervalLowerBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepAdjustment) *string { return v.MetricIntervalLowerBound }).(pulumi.StringPtrOutput)
 }
 
-// Upper bound for the
-// difference between the alarm threshold and the CloudWatch metric.
-// Without a value, AWS will treat this bound as positive infinity. The upper bound
-// must be greater than the lower bound.
-//
-// Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
-//
-// The following arguments are only available to "TargetTrackingScaling" type policies:
 func (o PolicyStepAdjustmentOutput) MetricIntervalUpperBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepAdjustment) *string { return v.MetricIntervalUpperBound }).(pulumi.StringPtrOutput)
 }
 
-// Number of members by which to
-// scale, when the adjustment bounds are breached. A positive value scales
-// up. A negative value scales down.
 func (o PolicyStepAdjustmentOutput) ScalingAdjustment() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyStepAdjustment) int { return v.ScalingAdjustment }).(pulumi.IntOutput)
 }
@@ -8596,14 +7938,10 @@ func (o PolicyStepAdjustmentArrayOutput) Index(i pulumi.IntInput) PolicyStepAdju
 }
 
 type PolicyTargetTrackingConfiguration struct {
-	// Customized metric. Conflicts with `predefinedMetricSpecification`.
 	CustomizedMetricSpecification *PolicyTargetTrackingConfigurationCustomizedMetricSpecification `pulumi:"customizedMetricSpecification"`
-	// Whether scale in by the target tracking policy is disabled.
-	DisableScaleIn *bool `pulumi:"disableScaleIn"`
-	// Predefined metric. Conflicts with `customizedMetricSpecification`.
+	DisableScaleIn                *bool                                                           `pulumi:"disableScaleIn"`
 	PredefinedMetricSpecification *PolicyTargetTrackingConfigurationPredefinedMetricSpecification `pulumi:"predefinedMetricSpecification"`
-	// Target value for the metric.
-	TargetValue float64 `pulumi:"targetValue"`
+	TargetValue                   float64                                                         `pulumi:"targetValue"`
 }
 
 // PolicyTargetTrackingConfigurationInput is an input type that accepts PolicyTargetTrackingConfigurationArgs and PolicyTargetTrackingConfigurationOutput values.
@@ -8618,14 +7956,10 @@ type PolicyTargetTrackingConfigurationInput interface {
 }
 
 type PolicyTargetTrackingConfigurationArgs struct {
-	// Customized metric. Conflicts with `predefinedMetricSpecification`.
 	CustomizedMetricSpecification PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput `pulumi:"customizedMetricSpecification"`
-	// Whether scale in by the target tracking policy is disabled.
-	DisableScaleIn pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
-	// Predefined metric. Conflicts with `customizedMetricSpecification`.
+	DisableScaleIn                pulumi.BoolPtrInput                                                    `pulumi:"disableScaleIn"`
 	PredefinedMetricSpecification PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput `pulumi:"predefinedMetricSpecification"`
-	// Target value for the metric.
-	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+	TargetValue                   pulumi.Float64Input                                                    `pulumi:"targetValue"`
 }
 
 func (PolicyTargetTrackingConfigurationArgs) ElementType() reflect.Type {
@@ -8705,26 +8039,22 @@ func (o PolicyTargetTrackingConfigurationOutput) ToPolicyTargetTrackingConfigura
 	}).(PolicyTargetTrackingConfigurationPtrOutput)
 }
 
-// Customized metric. Conflicts with `predefinedMetricSpecification`.
 func (o PolicyTargetTrackingConfigurationOutput) CustomizedMetricSpecification() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfiguration) *PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
 		return v.CustomizedMetricSpecification
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
-// Whether scale in by the target tracking policy is disabled.
 func (o PolicyTargetTrackingConfigurationOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
 }
 
-// Predefined metric. Conflicts with `customizedMetricSpecification`.
 func (o PolicyTargetTrackingConfigurationOutput) PredefinedMetricSpecification() PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfiguration) *PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
 		return v.PredefinedMetricSpecification
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
-// Target value for the metric.
 func (o PolicyTargetTrackingConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v PolicyTargetTrackingConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -8753,7 +8083,6 @@ func (o PolicyTargetTrackingConfigurationPtrOutput) Elem() PolicyTargetTrackingC
 	}).(PolicyTargetTrackingConfigurationOutput)
 }
 
-// Customized metric. Conflicts with `predefinedMetricSpecification`.
 func (o PolicyTargetTrackingConfigurationPtrOutput) CustomizedMetricSpecification() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfiguration) *PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
 		if v == nil {
@@ -8763,7 +8092,6 @@ func (o PolicyTargetTrackingConfigurationPtrOutput) CustomizedMetricSpecificatio
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
-// Whether scale in by the target tracking policy is disabled.
 func (o PolicyTargetTrackingConfigurationPtrOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfiguration) *bool {
 		if v == nil {
@@ -8773,7 +8101,6 @@ func (o PolicyTargetTrackingConfigurationPtrOutput) DisableScaleIn() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Predefined metric. Conflicts with `customizedMetricSpecification`.
 func (o PolicyTargetTrackingConfigurationPtrOutput) PredefinedMetricSpecification() PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfiguration) *PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
 		if v == nil {
@@ -8783,7 +8110,6 @@ func (o PolicyTargetTrackingConfigurationPtrOutput) PredefinedMetricSpecificatio
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
-// Target value for the metric.
 func (o PolicyTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfiguration) *float64 {
 		if v == nil {
@@ -8794,20 +8120,13 @@ func (o PolicyTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.Float64
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecification struct {
-	// Dimensions of the metric.
 	MetricDimensions []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension `pulumi:"metricDimensions"`
-	// Name of the metric.
-	MetricName *string `pulumi:"metricName"`
-	// Metrics to include, as a metric data query.
-	Metrics []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric `pulumi:"metrics"`
-	// Namespace of the metric.
-	Namespace *string `pulumi:"namespace"`
-	// The period of the metric in seconds.
-	Period *int `pulumi:"period"`
-	// Statistic of the metric.
-	Statistic *string `pulumi:"statistic"`
-	// Unit of the metric.
-	Unit *string `pulumi:"unit"`
+	MetricName       *string                                                                         `pulumi:"metricName"`
+	Metrics          []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric          `pulumi:"metrics"`
+	Namespace        *string                                                                         `pulumi:"namespace"`
+	Period           *int                                                                            `pulumi:"period"`
+	Statistic        *string                                                                         `pulumi:"statistic"`
+	Unit             *string                                                                         `pulumi:"unit"`
 }
 
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput values.
@@ -8822,20 +8141,13 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput interfa
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs struct {
-	// Dimensions of the metric.
 	MetricDimensions PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput `pulumi:"metricDimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// Metrics to include, as a metric data query.
-	Metrics PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayInput `pulumi:"metrics"`
-	// Namespace of the metric.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// The period of the metric in seconds.
-	Period pulumi.IntPtrInput `pulumi:"period"`
-	// Statistic of the metric.
-	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
-	// Unit of the metric.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	MetricName       pulumi.StringPtrInput                                                                   `pulumi:"metricName"`
+	Metrics          PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayInput          `pulumi:"metrics"`
+	Namespace        pulumi.StringPtrInput                                                                   `pulumi:"namespace"`
+	Period           pulumi.IntPtrInput                                                                      `pulumi:"period"`
+	Statistic        pulumi.StringPtrInput                                                                   `pulumi:"statistic"`
+	Unit             pulumi.StringPtrInput                                                                   `pulumi:"unit"`
 }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs) ElementType() reflect.Type {
@@ -8915,41 +8227,34 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) To
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) MetricDimensions() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension {
 		return v.MetricDimensions
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
-// Metrics to include, as a metric data query.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Metrics() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric {
 		return v.Metrics
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The period of the metric in seconds.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *int { return v.Period }).(pulumi.IntPtrOutput)
 }
 
-// Statistic of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string { return v.Statistic }).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -8978,7 +8283,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) MetricDimensions() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension {
 		if v == nil {
@@ -8988,7 +8292,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string {
 		if v == nil {
@@ -8998,7 +8301,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metrics to include, as a metric data query.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Metrics() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric {
 		if v == nil {
@@ -9008,7 +8310,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string {
 		if v == nil {
@@ -9018,7 +8319,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The period of the metric in seconds.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *int {
 		if v == nil {
@@ -9028,7 +8328,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-// Statistic of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string {
 		if v == nil {
@@ -9038,7 +8337,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string {
 		if v == nil {
@@ -9049,16 +8347,11 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression *string `pulumi:"expression"`
-	// Short name for the metric used in target tracking scaling policy.
-	Id string `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label *string `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression *string                                                                         `pulumi:"expression"`
+	Id         string                                                                          `pulumi:"id"`
+	Label      *string                                                                         `pulumi:"label"`
 	MetricStat *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData *bool `pulumi:"returnData"`
+	ReturnData *bool                                                                           `pulumi:"returnData"`
 }
 
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput values.
@@ -9073,16 +8366,11 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricInput i
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs struct {
-	// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Short name for the metric used in target tracking scaling policy.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Human-readable label for this metric or expression.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
+	Expression pulumi.StringPtrInput                                                                  `pulumi:"expression"`
+	Id         pulumi.StringInput                                                                     `pulumi:"id"`
+	Label      pulumi.StringPtrInput                                                                  `pulumi:"label"`
 	MetricStat PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrInput `pulumi:"metricStat"`
-	// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
+	ReturnData pulumi.BoolPtrInput                                                                    `pulumi:"returnData"`
 }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs) ElementType() reflect.Type {
@@ -9136,31 +8424,26 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutp
 	return o
 }
 
-// Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric) *string {
 		return v.Expression
 	}).(pulumi.StringPtrOutput)
 }
 
-// Short name for the metric used in target tracking scaling policy.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Human-readable label for this metric or expression.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) MetricStat() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric) *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat {
 		return v.MetricStat
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput)
 }
 
-// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric) *bool {
 		return v.ReturnData
@@ -9188,9 +8471,7 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArra
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// Value of the dimension.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -9206,9 +8487,7 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensi
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the dimension.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9263,14 +8542,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 	return o
 }
 
-// Name of the dimension.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// Value of the dimension.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension) string {
 		return v.Value
@@ -9298,14 +8575,10 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric `pulumi:"metric"`
-	// The period of the metric in seconds.
-	Period *int `pulumi:"period"`
-	// Statistic of the metrics to return.
-	Stat string `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit *string `pulumi:"unit"`
+	Period *int                                                                                 `pulumi:"period"`
+	Stat   string                                                                               `pulumi:"stat"`
+	Unit   *string                                                                              `pulumi:"unit"`
 }
 
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput values.
@@ -9320,14 +8593,10 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricS
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs struct {
-	// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 	Metric PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricInput `pulumi:"metric"`
-	// The period of the metric in seconds.
-	Period pulumi.IntPtrInput `pulumi:"period"`
-	// Statistic of the metrics to return.
-	Stat pulumi.StringInput `pulumi:"stat"`
-	// Unit of the metrics to return.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	Period pulumi.IntPtrInput                                                                        `pulumi:"period"`
+	Stat   pulumi.StringInput                                                                        `pulumi:"stat"`
+	Unit   pulumi.StringPtrInput                                                                     `pulumi:"unit"`
 }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs) ElementType() reflect.Type {
@@ -9407,28 +8676,24 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) Metric() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric {
 		return v.Metric
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput)
 }
 
-// The period of the metric in seconds.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) *int {
 		return v.Period
 	}).(pulumi.IntPtrOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) string {
 		return v.Stat
 	}).(pulumi.StringOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) *string {
 		return v.Unit
@@ -9459,7 +8724,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput)
 }
 
-// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) Metric() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric {
 		if v == nil {
@@ -9469,7 +8733,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput)
 }
 
-// The period of the metric in seconds.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) *int {
 		if v == nil {
@@ -9479,7 +8742,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Statistic of the metrics to return.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) *string {
 		if v == nil {
@@ -9489,7 +8751,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metrics to return.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) *string {
 		if v == nil {
@@ -9500,12 +8761,9 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric struct {
-	// Dimensions of the metric.
 	Dimensions []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace string `pulumi:"namespace"`
+	MetricName string                                                                                          `pulumi:"metricName"`
+	Namespace  string                                                                                          `pulumi:"namespace"`
 }
 
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput values.
@@ -9520,12 +8778,9 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricS
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs struct {
-	// Dimensions of the metric.
 	Dimensions PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	MetricName pulumi.StringInput                                                                                      `pulumi:"metricName"`
+	Namespace  pulumi.StringInput                                                                                      `pulumi:"namespace"`
 }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs) ElementType() reflect.Type {
@@ -9605,21 +8860,18 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) Dimensions() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension {
 		return v.Dimensions
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) string {
 		return v.MetricName
 	}).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) string {
 		return v.Namespace
@@ -9650,7 +8902,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput)
 }
 
-// Dimensions of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) Dimensions() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension {
 		if v == nil {
@@ -9660,7 +8911,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) *string {
 		if v == nil {
@@ -9670,7 +8920,6 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Namespace of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) *string {
 		if v == nil {
@@ -9681,9 +8930,7 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// Value of the dimension.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -9699,9 +8946,7 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricS
 }
 
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the dimension.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9756,14 +9001,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	return o
 }
 
-// Name of the dimension.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// Value of the dimension.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension) string {
 		return v.Value
@@ -9791,10 +9034,8 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 }
 
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecification struct {
-	// Metric type.
-	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Identifies the resource associated with the metric type.
-	ResourceLabel *string `pulumi:"resourceLabel"`
+	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
+	ResourceLabel        *string `pulumi:"resourceLabel"`
 }
 
 // PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs and PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput values.
@@ -9809,10 +9050,8 @@ type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput interfa
 }
 
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs struct {
-	// Metric type.
-	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Identifies the resource associated with the metric type.
-	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
+	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
+	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
 func (PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs) ElementType() reflect.Type {
@@ -9892,14 +9131,12 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) To
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
-// Metric type.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Identifies the resource associated with the metric type.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
 }
@@ -9928,7 +9165,6 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput)
 }
 
-// Metric type.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string {
 		if v == nil {
@@ -9938,7 +9174,6 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the resource associated with the metric type.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string {
 		if v == nil {
@@ -9949,12 +9184,9 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
 type TagTag struct {
-	// Tag name.
-	Key string `pulumi:"key"`
-	// Whether to propagate the tags to instances launched by the ASG.
-	PropagateAtLaunch bool `pulumi:"propagateAtLaunch"`
-	// Tag value.
-	Value string `pulumi:"value"`
+	Key               string `pulumi:"key"`
+	PropagateAtLaunch bool   `pulumi:"propagateAtLaunch"`
+	Value             string `pulumi:"value"`
 }
 
 // TagTagInput is an input type that accepts TagTagArgs and TagTagOutput values.
@@ -9969,12 +9201,9 @@ type TagTagInput interface {
 }
 
 type TagTagArgs struct {
-	// Tag name.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Whether to propagate the tags to instances launched by the ASG.
-	PropagateAtLaunch pulumi.BoolInput `pulumi:"propagateAtLaunch"`
-	// Tag value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Key               pulumi.StringInput `pulumi:"key"`
+	PropagateAtLaunch pulumi.BoolInput   `pulumi:"propagateAtLaunch"`
+	Value             pulumi.StringInput `pulumi:"value"`
 }
 
 func (TagTagArgs) ElementType() reflect.Type {
@@ -10054,17 +9283,14 @@ func (o TagTagOutput) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPt
 	}).(TagTagPtrOutput)
 }
 
-// Tag name.
 func (o TagTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TagTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Whether to propagate the tags to instances launched by the ASG.
 func (o TagTagOutput) PropagateAtLaunch() pulumi.BoolOutput {
 	return o.ApplyT(func(v TagTag) bool { return v.PropagateAtLaunch }).(pulumi.BoolOutput)
 }
 
-// Tag value.
 func (o TagTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10093,7 +9319,6 @@ func (o TagTagPtrOutput) Elem() TagTagOutput {
 	}).(TagTagOutput)
 }
 
-// Tag name.
 func (o TagTagPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagTag) *string {
 		if v == nil {
@@ -10103,7 +9328,6 @@ func (o TagTagPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to propagate the tags to instances launched by the ASG.
 func (o TagTagPtrOutput) PropagateAtLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagTag) *bool {
 		if v == nil {
@@ -10113,7 +9337,6 @@ func (o TagTagPtrOutput) PropagateAtLaunch() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Tag value.
 func (o TagTagPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagTag) *string {
 		if v == nil {
@@ -10124,14 +9347,8 @@ func (o TagTagPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TrafficSourceAttachmentTrafficSource struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 	Identifier string `pulumi:"identifier"`
-	// Provides additional context for the value of `identifier`.
-	// The following lists the valid values:
-	// `elb` if `identifier` is the name of a Classic Load Balancer.
-	// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-	// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-	Type string `pulumi:"type"`
+	Type       string `pulumi:"type"`
 }
 
 // TrafficSourceAttachmentTrafficSourceInput is an input type that accepts TrafficSourceAttachmentTrafficSourceArgs and TrafficSourceAttachmentTrafficSourceOutput values.
@@ -10146,14 +9363,8 @@ type TrafficSourceAttachmentTrafficSourceInput interface {
 }
 
 type TrafficSourceAttachmentTrafficSourceArgs struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// Provides additional context for the value of `identifier`.
-	// The following lists the valid values:
-	// `elb` if `identifier` is the name of a Classic Load Balancer.
-	// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-	// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput `pulumi:"type"`
 }
 
 func (TrafficSourceAttachmentTrafficSourceArgs) ElementType() reflect.Type {
@@ -10233,16 +9444,10 @@ func (o TrafficSourceAttachmentTrafficSourceOutput) ToTrafficSourceAttachmentTra
 	}).(TrafficSourceAttachmentTrafficSourcePtrOutput)
 }
 
-// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 func (o TrafficSourceAttachmentTrafficSourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficSourceAttachmentTrafficSource) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Provides additional context for the value of `identifier`.
-// The following lists the valid values:
-// `elb` if `identifier` is the name of a Classic Load Balancer.
-// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
 func (o TrafficSourceAttachmentTrafficSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficSourceAttachmentTrafficSource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10271,7 +9476,6 @@ func (o TrafficSourceAttachmentTrafficSourcePtrOutput) Elem() TrafficSourceAttac
 	}).(TrafficSourceAttachmentTrafficSourceOutput)
 }
 
-// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 func (o TrafficSourceAttachmentTrafficSourcePtrOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficSourceAttachmentTrafficSource) *string {
 		if v == nil {
@@ -10281,11 +9485,6 @@ func (o TrafficSourceAttachmentTrafficSourcePtrOutput) Identifier() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provides additional context for the value of `identifier`.
-// The following lists the valid values:
-// `elb` if `identifier` is the name of a Classic Load Balancer.
-// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
 func (o TrafficSourceAttachmentTrafficSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficSourceAttachmentTrafficSource) *string {
 		if v == nil {
@@ -10296,9 +9495,7 @@ func (o TrafficSourceAttachmentTrafficSourcePtrOutput) Type() pulumi.StringPtrOu
 }
 
 type GetAmiIdsFilter struct {
-	// Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
-	Name string `pulumi:"name"`
-	// Value of the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -10314,9 +9511,7 @@ type GetAmiIdsFilterInput interface {
 }
 
 type GetAmiIdsFilterArgs struct {
-	// Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -10371,12 +9566,10 @@ func (o GetAmiIdsFilterOutput) ToGetAmiIdsFilterOutputWithContext(ctx context.Co
 	return o
 }
 
-// Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
 func (o GetAmiIdsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiIdsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of the filter.
 func (o GetAmiIdsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10402,9 +9595,7 @@ func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutp
 }
 
 type GetGroupInstanceMaintenancePolicy struct {
-	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 	MaxHealthyPercentage int `pulumi:"maxHealthyPercentage"`
-	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage int `pulumi:"minHealthyPercentage"`
 }
 
@@ -10420,9 +9611,7 @@ type GetGroupInstanceMaintenancePolicyInput interface {
 }
 
 type GetGroupInstanceMaintenancePolicyArgs struct {
-	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 	MaxHealthyPercentage pulumi.IntInput `pulumi:"maxHealthyPercentage"`
-	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage pulumi.IntInput `pulumi:"minHealthyPercentage"`
 }
 
@@ -10477,12 +9666,10 @@ func (o GetGroupInstanceMaintenancePolicyOutput) ToGetGroupInstanceMaintenancePo
 	return o
 }
 
-// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 func (o GetGroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupInstanceMaintenancePolicy) int { return v.MaxHealthyPercentage }).(pulumi.IntOutput)
 }
 
-// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GetGroupInstanceMaintenancePolicyOutput) MinHealthyPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupInstanceMaintenancePolicy) int { return v.MinHealthyPercentage }).(pulumi.IntOutput)
 }
@@ -10508,11 +9695,8 @@ func (o GetGroupInstanceMaintenancePolicyArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetGroupLaunchTemplate struct {
-	// ID of the launch template.
-	Id string `pulumi:"id"`
-	// Specify the exact name of the desired autoscaling group.
-	Name string `pulumi:"name"`
-	// Template version.
+	Id      string `pulumi:"id"`
+	Name    string `pulumi:"name"`
 	Version string `pulumi:"version"`
 }
 
@@ -10528,11 +9712,8 @@ type GetGroupLaunchTemplateInput interface {
 }
 
 type GetGroupLaunchTemplateArgs struct {
-	// ID of the launch template.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Specify the exact name of the desired autoscaling group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Template version.
+	Id      pulumi.StringInput `pulumi:"id"`
+	Name    pulumi.StringInput `pulumi:"name"`
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -10587,17 +9768,14 @@ func (o GetGroupLaunchTemplateOutput) ToGetGroupLaunchTemplateOutputWithContext(
 	return o
 }
 
-// ID of the launch template.
 func (o GetGroupLaunchTemplateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupLaunchTemplate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Specify the exact name of the desired autoscaling group.
 func (o GetGroupLaunchTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupLaunchTemplate) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Template version.
 func (o GetGroupLaunchTemplateOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupLaunchTemplate) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -10623,10 +9801,8 @@ func (o GetGroupLaunchTemplateArrayOutput) Index(i pulumi.IntInput) GetGroupLaun
 }
 
 type GetGroupMixedInstancesPolicy struct {
-	// List of instances distribution objects.
 	InstancesDistributions []GetGroupMixedInstancesPolicyInstancesDistribution `pulumi:"instancesDistributions"`
-	// List of launch templates along with the overrides.
-	LaunchTemplates []GetGroupMixedInstancesPolicyLaunchTemplate `pulumi:"launchTemplates"`
+	LaunchTemplates        []GetGroupMixedInstancesPolicyLaunchTemplate        `pulumi:"launchTemplates"`
 }
 
 // GetGroupMixedInstancesPolicyInput is an input type that accepts GetGroupMixedInstancesPolicyArgs and GetGroupMixedInstancesPolicyOutput values.
@@ -10641,10 +9817,8 @@ type GetGroupMixedInstancesPolicyInput interface {
 }
 
 type GetGroupMixedInstancesPolicyArgs struct {
-	// List of instances distribution objects.
 	InstancesDistributions GetGroupMixedInstancesPolicyInstancesDistributionArrayInput `pulumi:"instancesDistributions"`
-	// List of launch templates along with the overrides.
-	LaunchTemplates GetGroupMixedInstancesPolicyLaunchTemplateArrayInput `pulumi:"launchTemplates"`
+	LaunchTemplates        GetGroupMixedInstancesPolicyLaunchTemplateArrayInput        `pulumi:"launchTemplates"`
 }
 
 func (GetGroupMixedInstancesPolicyArgs) ElementType() reflect.Type {
@@ -10698,14 +9872,12 @@ func (o GetGroupMixedInstancesPolicyOutput) ToGetGroupMixedInstancesPolicyOutput
 	return o
 }
 
-// List of instances distribution objects.
 func (o GetGroupMixedInstancesPolicyOutput) InstancesDistributions() GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicy) []GetGroupMixedInstancesPolicyInstancesDistribution {
 		return v.InstancesDistributions
 	}).(GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput)
 }
 
-// List of launch templates along with the overrides.
 func (o GetGroupMixedInstancesPolicyOutput) LaunchTemplates() GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicy) []GetGroupMixedInstancesPolicyLaunchTemplate {
 		return v.LaunchTemplates
@@ -10733,17 +9905,12 @@ func (o GetGroupMixedInstancesPolicyArrayOutput) Index(i pulumi.IntInput) GetGro
 }
 
 type GetGroupMixedInstancesPolicyInstancesDistribution struct {
-	// Strategy used when launching on-demand instances.
-	OnDemandAllocationStrategy string `pulumi:"onDemandAllocationStrategy"`
-	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-	OnDemandBaseCapacity                int `pulumi:"onDemandBaseCapacity"`
-	OnDemandPercentageAboveBaseCapacity int `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// Strategy used when launching Spot instances.
-	SpotAllocationStrategy string `pulumi:"spotAllocationStrategy"`
-	// Number of Spot pools per availability zone to allocate capacity.
-	SpotInstancePools int `pulumi:"spotInstancePools"`
-	// Maximum price per unit hour that the user is willing to pay for the Spot instances.
-	SpotMaxPrice string `pulumi:"spotMaxPrice"`
+	OnDemandAllocationStrategy          string `pulumi:"onDemandAllocationStrategy"`
+	OnDemandBaseCapacity                int    `pulumi:"onDemandBaseCapacity"`
+	OnDemandPercentageAboveBaseCapacity int    `pulumi:"onDemandPercentageAboveBaseCapacity"`
+	SpotAllocationStrategy              string `pulumi:"spotAllocationStrategy"`
+	SpotInstancePools                   int    `pulumi:"spotInstancePools"`
+	SpotMaxPrice                        string `pulumi:"spotMaxPrice"`
 }
 
 // GetGroupMixedInstancesPolicyInstancesDistributionInput is an input type that accepts GetGroupMixedInstancesPolicyInstancesDistributionArgs and GetGroupMixedInstancesPolicyInstancesDistributionOutput values.
@@ -10758,17 +9925,12 @@ type GetGroupMixedInstancesPolicyInstancesDistributionInput interface {
 }
 
 type GetGroupMixedInstancesPolicyInstancesDistributionArgs struct {
-	// Strategy used when launching on-demand instances.
-	OnDemandAllocationStrategy pulumi.StringInput `pulumi:"onDemandAllocationStrategy"`
-	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-	OnDemandBaseCapacity                pulumi.IntInput `pulumi:"onDemandBaseCapacity"`
-	OnDemandPercentageAboveBaseCapacity pulumi.IntInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// Strategy used when launching Spot instances.
-	SpotAllocationStrategy pulumi.StringInput `pulumi:"spotAllocationStrategy"`
-	// Number of Spot pools per availability zone to allocate capacity.
-	SpotInstancePools pulumi.IntInput `pulumi:"spotInstancePools"`
-	// Maximum price per unit hour that the user is willing to pay for the Spot instances.
-	SpotMaxPrice pulumi.StringInput `pulumi:"spotMaxPrice"`
+	OnDemandAllocationStrategy          pulumi.StringInput `pulumi:"onDemandAllocationStrategy"`
+	OnDemandBaseCapacity                pulumi.IntInput    `pulumi:"onDemandBaseCapacity"`
+	OnDemandPercentageAboveBaseCapacity pulumi.IntInput    `pulumi:"onDemandPercentageAboveBaseCapacity"`
+	SpotAllocationStrategy              pulumi.StringInput `pulumi:"spotAllocationStrategy"`
+	SpotInstancePools                   pulumi.IntInput    `pulumi:"spotInstancePools"`
+	SpotMaxPrice                        pulumi.StringInput `pulumi:"spotMaxPrice"`
 }
 
 func (GetGroupMixedInstancesPolicyInstancesDistributionArgs) ElementType() reflect.Type {
@@ -10822,12 +9984,10 @@ func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) ToGetGroupMixed
 	return o
 }
 
-// Strategy used when launching on-demand instances.
 func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandAllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) string { return v.OnDemandAllocationStrategy }).(pulumi.StringOutput)
 }
 
-// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
 func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandBaseCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) int { return v.OnDemandBaseCapacity }).(pulumi.IntOutput)
 }
@@ -10838,17 +9998,14 @@ func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercent
 	}).(pulumi.IntOutput)
 }
 
-// Strategy used when launching Spot instances.
 func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotAllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) string { return v.SpotAllocationStrategy }).(pulumi.StringOutput)
 }
 
-// Number of Spot pools per availability zone to allocate capacity.
 func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotInstancePools() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) int { return v.SpotInstancePools }).(pulumi.IntOutput)
 }
 
-// Maximum price per unit hour that the user is willing to pay for the Spot instances.
 func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) SpotMaxPrice() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) string { return v.SpotMaxPrice }).(pulumi.StringOutput)
 }
@@ -10874,10 +10031,8 @@ func (o GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput) Index(i pu
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplate struct {
-	// List of overriding launch template specification objects.
 	LaunchTemplateSpecifications []GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification `pulumi:"launchTemplateSpecifications"`
-	// List of properties overriding the same properties in the launch template.
-	Overrides []GetGroupMixedInstancesPolicyLaunchTemplateOverride `pulumi:"overrides"`
+	Overrides                    []GetGroupMixedInstancesPolicyLaunchTemplateOverride                    `pulumi:"overrides"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateArgs and GetGroupMixedInstancesPolicyLaunchTemplateOutput values.
@@ -10892,10 +10047,8 @@ type GetGroupMixedInstancesPolicyLaunchTemplateInput interface {
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateArgs struct {
-	// List of overriding launch template specification objects.
 	LaunchTemplateSpecifications GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayInput `pulumi:"launchTemplateSpecifications"`
-	// List of properties overriding the same properties in the launch template.
-	Overrides GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput `pulumi:"overrides"`
+	Overrides                    GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput                    `pulumi:"overrides"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateArgs) ElementType() reflect.Type {
@@ -10949,14 +10102,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOutput) ToGetGroupMixedInstanc
 	return o
 }
 
-// List of overriding launch template specification objects.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOutput) LaunchTemplateSpecifications() GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplate) []GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecifications
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput)
 }
 
-// List of properties overriding the same properties in the launch template.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOutput) Overrides() GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplate) []GetGroupMixedInstancesPolicyLaunchTemplateOverride {
 		return v.Overrides
@@ -10984,12 +10135,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput) Index(i pulumi.In
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification struct {
-	// ID of the launch template.
-	LaunchTemplateId string `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	LaunchTemplateId   string `pulumi:"launchTemplateId"`
 	LaunchTemplateName string `pulumi:"launchTemplateName"`
-	// Template version.
-	Version string `pulumi:"version"`
+	Version            string `pulumi:"version"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs and GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput values.
@@ -11004,12 +10152,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput 
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs struct {
-	// ID of the launch template.
-	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	LaunchTemplateId   pulumi.StringInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
-	// Template version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version            pulumi.StringInput `pulumi:"version"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
@@ -11063,21 +10208,18 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOut
 	return o
 }
 
-// ID of the launch template.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) string {
 		return v.LaunchTemplateId
 	}).(pulumi.StringOutput)
 }
 
-// Name of the launch template.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) string {
 		return v.LaunchTemplateName
 	}).(pulumi.StringOutput)
 }
 
-// Template version.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -11103,15 +10245,10 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArr
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverride struct {
-	// List of instance requirements objects.
-	// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
-	InstanceRequirements []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement `pulumi:"instanceRequirements"`
-	// Overriding instance type.
-	InstanceType string `pulumi:"instanceType"`
-	// List of overriding launch template specification objects.
+	InstanceRequirements         []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement         `pulumi:"instanceRequirements"`
+	InstanceType                 string                                                                          `pulumi:"instanceType"`
 	LaunchTemplateSpecifications []GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification `pulumi:"launchTemplateSpecifications"`
-	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
-	WeightedCapacity string `pulumi:"weightedCapacity"`
+	WeightedCapacity             string                                                                          `pulumi:"weightedCapacity"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput values.
@@ -11126,15 +10263,10 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInput interface {
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs struct {
-	// List of instance requirements objects.
-	// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
-	InstanceRequirements GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayInput `pulumi:"instanceRequirements"`
-	// Overriding instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// List of overriding launch template specification objects.
+	InstanceRequirements         GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayInput         `pulumi:"instanceRequirements"`
+	InstanceType                 pulumi.StringInput                                                                      `pulumi:"instanceType"`
 	LaunchTemplateSpecifications GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayInput `pulumi:"launchTemplateSpecifications"`
-	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
-	WeightedCapacity pulumi.StringInput `pulumi:"weightedCapacity"`
+	WeightedCapacity             pulumi.StringInput                                                                      `pulumi:"weightedCapacity"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ElementType() reflect.Type {
@@ -11188,27 +10320,22 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGetGroupMixe
 	return o
 }
 
-// List of instance requirements objects.
-// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceRequirements() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement {
 		return v.InstanceRequirements
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutput)
 }
 
-// Overriding instance type.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// List of overriding launch template specification objects.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) LaunchTemplateSpecifications() GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecifications
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput)
 }
 
-// Number of capacity units, which gives the instance type a proportional weight to other instance types.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) WeightedCapacity() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) string { return v.WeightedCapacity }).(pulumi.StringOutput)
 }
@@ -11234,53 +10361,30 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) Index(i p
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struct {
-	AcceleratorCounts []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount `pulumi:"acceleratorCounts"`
-	// List of accelerator manufacturer names.
-	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names.
-	AcceleratorNames []string `pulumi:"acceleratorNames"`
-	// List of objects describing the minimum and maximum total memory of the accelerators.
-	AcceleratorTotalMemoryMibs []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMibs"`
-	// List of accelerator types.
-	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
-	// List of instance types to apply the specified attributes against.
-	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicates whether bare metal instances are included, excluded, or required.
-	BareMetal string `pulumi:"bareMetal"`
-	// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
-	BaselineEbsBandwidthMbps []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicates whether burstable performance instance types are included, excluded, or required.
-	BurstablePerformance string `pulumi:"burstablePerformance"`
-	// List of CPU manufacturer names.
-	CpuManufacturers []string `pulumi:"cpuManufacturers"`
-	// List of excluded instance types.
-	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
-	// List of instance generation names.
-	InstanceGenerations []string `pulumi:"instanceGenerations"`
-	// Indicates whether instance types with instance store volumes are included, excluded, or required.
-	LocalStorage string `pulumi:"localStorage"`
-	// List of local storage type names.
-	LocalStorageTypes []string `pulumi:"localStorageTypes"`
-	// Price protection threshold for Spot Instances.
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
-	MemoryGibPerVcpus []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus `pulumi:"memoryGibPerVcpus"`
-	// List of objects describing the minimum and maximum amount of memory (MiB).
-	MemoryMibs []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib `pulumi:"memoryMibs"`
-	// List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
-	NetworkBandwidthGbps []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp `pulumi:"networkBandwidthGbps"`
-	// List of objects describing the minimum and maximum amount of network interfaces.
-	NetworkInterfaceCounts []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount `pulumi:"networkInterfaceCounts"`
-	// Price protection threshold for On-Demand Instances.
-	OnDemandMaxPricePercentageOverLowestPrice int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicates whether instance types must support On-Demand Instance Hibernation.
-	RequireHibernateSupport bool `pulumi:"requireHibernateSupport"`
-	// Price protection threshold for Spot Instances.
-	SpotMaxPricePercentageOverLowestPrice int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	// List of objects describing the minimum and maximum total storage (GB).
-	TotalLocalStorageGbs []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb `pulumi:"totalLocalStorageGbs"`
-	// List of objects describing the minimum and maximum number of vCPUs.
-	VcpuCounts []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount `pulumi:"vcpuCounts"`
+	AcceleratorCounts                              []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount          `pulumi:"acceleratorCounts"`
+	AcceleratorManufacturers                       []string                                                                                         `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []string                                                                                         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMibs                     []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMibs"`
+	AcceleratorTypes                               []string                                                                                         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                                                                         `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      string                                                                                           `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp   `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           string                                                                                           `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []string                                                                                         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                                                                         `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []string                                                                                         `pulumi:"instanceGenerations"`
+	LocalStorage                                   string                                                                                           `pulumi:"localStorage"`
+	LocalStorageTypes                              []string                                                                                         `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice int                                                                                              `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpus                              []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus         `pulumi:"memoryGibPerVcpus"`
+	MemoryMibs                                     []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib                 `pulumi:"memoryMibs"`
+	NetworkBandwidthGbps                           []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp       `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCounts                         []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount     `pulumi:"networkInterfaceCounts"`
+	OnDemandMaxPricePercentageOverLowestPrice      int                                                                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        bool                                                                                             `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          int                                                                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGbs                           []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb       `pulumi:"totalLocalStorageGbs"`
+	VcpuCounts                                     []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount                 `pulumi:"vcpuCounts"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput values.
@@ -11295,53 +10399,30 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementInput 
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs struct {
-	AcceleratorCounts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayInput `pulumi:"acceleratorCounts"`
-	// List of accelerator manufacturer names.
-	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names.
-	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
-	// List of objects describing the minimum and maximum total memory of the accelerators.
-	AcceleratorTotalMemoryMibs GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayInput `pulumi:"acceleratorTotalMemoryMibs"`
-	// List of accelerator types.
-	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
-	// List of instance types to apply the specified attributes against.
-	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicates whether bare metal instances are included, excluded, or required.
-	BareMetal pulumi.StringInput `pulumi:"bareMetal"`
-	// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
-	BaselineEbsBandwidthMbps GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayInput `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicates whether burstable performance instance types are included, excluded, or required.
-	BurstablePerformance pulumi.StringInput `pulumi:"burstablePerformance"`
-	// List of CPU manufacturer names.
-	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
-	// List of excluded instance types.
-	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
-	// List of instance generation names.
-	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
-	// Indicates whether instance types with instance store volumes are included, excluded, or required.
-	LocalStorage pulumi.StringInput `pulumi:"localStorage"`
-	// List of local storage type names.
-	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
-	// Price protection threshold for Spot Instances.
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
-	MemoryGibPerVcpus GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayInput `pulumi:"memoryGibPerVcpus"`
-	// List of objects describing the minimum and maximum amount of memory (MiB).
-	MemoryMibs GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayInput `pulumi:"memoryMibs"`
-	// List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
-	NetworkBandwidthGbps GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayInput `pulumi:"networkBandwidthGbps"`
-	// List of objects describing the minimum and maximum amount of network interfaces.
-	NetworkInterfaceCounts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayInput `pulumi:"networkInterfaceCounts"`
-	// Price protection threshold for On-Demand Instances.
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicates whether instance types must support On-Demand Instance Hibernation.
-	RequireHibernateSupport pulumi.BoolInput `pulumi:"requireHibernateSupport"`
-	// Price protection threshold for Spot Instances.
-	SpotMaxPricePercentageOverLowestPrice pulumi.IntInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	// List of objects describing the minimum and maximum total storage (GB).
-	TotalLocalStorageGbs GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayInput `pulumi:"totalLocalStorageGbs"`
-	// List of objects describing the minimum and maximum number of vCPUs.
-	VcpuCounts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayInput `pulumi:"vcpuCounts"`
+	AcceleratorCounts                              GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayInput          `pulumi:"acceleratorCounts"`
+	AcceleratorManufacturers                       pulumi.StringArrayInput                                                                                  `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               pulumi.StringArrayInput                                                                                  `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMibs                     GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayInput `pulumi:"acceleratorTotalMemoryMibs"`
+	AcceleratorTypes                               pulumi.StringArrayInput                                                                                  `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                                                                  `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      pulumi.StringInput                                                                                       `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           pulumi.StringInput                                                                                       `pulumi:"burstablePerformance"`
+	CpuManufacturers                               pulumi.StringArrayInput                                                                                  `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                                                  `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            pulumi.StringArrayInput                                                                                  `pulumi:"instanceGenerations"`
+	LocalStorage                                   pulumi.StringInput                                                                                       `pulumi:"localStorage"`
+	LocalStorageTypes                              pulumi.StringArrayInput                                                                                  `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntInput                                                                                          `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpus                              GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayInput         `pulumi:"memoryGibPerVcpus"`
+	MemoryMibs                                     GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayInput                 `pulumi:"memoryMibs"`
+	NetworkBandwidthGbps                           GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayInput       `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCounts                         GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayInput     `pulumi:"networkInterfaceCounts"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntInput                                                                                          `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolInput                                                                                         `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntInput                                                                                          `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGbs                           GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayInput       `pulumi:"totalLocalStorageGbs"`
+	VcpuCounts                                     GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayInput                 `pulumi:"vcpuCounts"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs) ElementType() reflect.Type {
@@ -11401,161 +10482,138 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput)
 }
 
-// List of accelerator manufacturer names.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.AcceleratorManufacturers
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.AcceleratorNames
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of objects describing the minimum and maximum total memory of the accelerators.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) AcceleratorTotalMemoryMibs() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib {
 		return v.AcceleratorTotalMemoryMibs
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput)
 }
 
-// List of accelerator types.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.AcceleratorTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to apply the specified attributes against.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.AllowedInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether bare metal instances are included, excluded, or required.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BareMetal() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
 		return v.BareMetal
 	}).(pulumi.StringOutput)
 }
 
-// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BaselineEbsBandwidthMbps() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp {
 		return v.BaselineEbsBandwidthMbps
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput)
 }
 
-// Indicates whether burstable performance instance types are included, excluded, or required.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BurstablePerformance() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
 		return v.BurstablePerformance
 	}).(pulumi.StringOutput)
 }
 
-// List of CPU manufacturer names.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.CpuManufacturers
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of excluded instance types.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.ExcludedInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance generation names.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.InstanceGenerations
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether instance types with instance store volumes are included, excluded, or required.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) LocalStorage() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
 		return v.LocalStorage
 	}).(pulumi.StringOutput)
 }
 
-// List of local storage type names.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// Price protection threshold for Spot Instances.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
 	}).(pulumi.IntOutput)
 }
 
-// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) MemoryGibPerVcpus() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus {
 		return v.MemoryGibPerVcpus
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput)
 }
 
-// List of objects describing the minimum and maximum amount of memory (MiB).
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) MemoryMibs() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib {
 		return v.MemoryMibs
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput)
 }
 
-// List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) NetworkBandwidthGbps() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp {
 		return v.NetworkBandwidthGbps
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput)
 }
 
-// List of objects describing the minimum and maximum amount of network interfaces.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) NetworkInterfaceCounts() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount {
 		return v.NetworkInterfaceCounts
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput)
 }
 
-// Price protection threshold for On-Demand Instances.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) int {
 		return v.OnDemandMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntOutput)
 }
 
-// Indicates whether instance types must support On-Demand Instance Hibernation.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) RequireHibernateSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) bool {
 		return v.RequireHibernateSupport
 	}).(pulumi.BoolOutput)
 }
 
-// Price protection threshold for Spot Instances.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) int {
 		return v.SpotMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntOutput)
 }
 
-// List of objects describing the minimum and maximum total storage (GB).
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) TotalLocalStorageGbs() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb {
 		return v.TotalLocalStorageGbs
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput)
 }
 
-// List of objects describing the minimum and maximum number of vCPUs.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) VcpuCounts() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount {
 		return v.VcpuCounts
@@ -11583,9 +10641,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArr
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount struct {
-	// Maximum.
 	Max int `pulumi:"max"`
-	// Minimum.
 	Min int `pulumi:"min"`
 }
 
@@ -11601,9 +10657,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccele
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArgs struct {
-	// Maximum.
 	Max pulumi.IntInput `pulumi:"max"`
-	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -11658,14 +10712,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) Max() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount) int {
 		return v.Max
 	}).(pulumi.IntOutput)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount) int {
 		return v.Min
@@ -11693,9 +10745,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib struct {
-	// Maximum.
 	Max int `pulumi:"max"`
-	// Minimum.
 	Min int `pulumi:"min"`
 }
 
@@ -11711,9 +10761,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccele
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArgs struct {
-	// Maximum.
 	Max pulumi.IntInput `pulumi:"max"`
-	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -11768,14 +10816,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) Max() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib) int {
 		return v.Max
 	}).(pulumi.IntOutput)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib) int {
 		return v.Min
@@ -11803,9 +10849,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp struct {
-	// Maximum.
 	Max int `pulumi:"max"`
-	// Minimum.
 	Min int `pulumi:"min"`
 }
 
@@ -11821,9 +10865,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaseli
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArgs struct {
-	// Maximum.
 	Max pulumi.IntInput `pulumi:"max"`
-	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -11878,14 +10920,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) Max() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp) int {
 		return v.Max
 	}).(pulumi.IntOutput)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp) int {
 		return v.Min
@@ -11913,9 +10953,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus struct {
-	// Maximum.
 	Max float64 `pulumi:"max"`
-	// Minimum.
 	Min float64 `pulumi:"min"`
 }
 
@@ -11931,9 +10969,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemory
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArgs struct {
-	// Maximum.
 	Max pulumi.Float64Input `pulumi:"max"`
-	// Minimum.
 	Min pulumi.Float64Input `pulumi:"min"`
 }
 
@@ -11988,14 +11024,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) Max() pulumi.Float64Output {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus) float64 {
 		return v.Max
 	}).(pulumi.Float64Output)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) Min() pulumi.Float64Output {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus) float64 {
 		return v.Min
@@ -12023,9 +11057,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib struct {
-	// Maximum.
 	Max int `pulumi:"max"`
-	// Minimum.
 	Min int `pulumi:"min"`
 }
 
@@ -12041,9 +11073,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemory
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArgs struct {
-	// Maximum.
 	Max pulumi.IntInput `pulumi:"max"`
-	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -12098,14 +11128,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) Max() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib) int {
 		return v.Max
 	}).(pulumi.IntOutput)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib) int {
 		return v.Min
@@ -12133,9 +11161,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp struct {
-	// Maximum.
 	Max float64 `pulumi:"max"`
-	// Minimum.
 	Min float64 `pulumi:"min"`
 }
 
@@ -12151,9 +11177,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwor
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArgs struct {
-	// Maximum.
 	Max pulumi.Float64Input `pulumi:"max"`
-	// Minimum.
 	Min pulumi.Float64Input `pulumi:"min"`
 }
 
@@ -12208,14 +11232,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) Max() pulumi.Float64Output {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp) float64 {
 		return v.Max
 	}).(pulumi.Float64Output)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) Min() pulumi.Float64Output {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp) float64 {
 		return v.Min
@@ -12243,9 +11265,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount struct {
-	// Maximum.
 	Max int `pulumi:"max"`
-	// Minimum.
 	Min int `pulumi:"min"`
 }
 
@@ -12261,9 +11281,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwor
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArgs struct {
-	// Maximum.
 	Max pulumi.IntInput `pulumi:"max"`
-	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -12318,14 +11336,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) Max() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount) int {
 		return v.Max
 	}).(pulumi.IntOutput)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount) int {
 		return v.Min
@@ -12353,9 +11369,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb struct {
-	// Maximum.
 	Max float64 `pulumi:"max"`
-	// Minimum.
 	Min float64 `pulumi:"min"`
 }
 
@@ -12371,9 +11385,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalL
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArgs struct {
-	// Maximum.
 	Max pulumi.Float64Input `pulumi:"max"`
-	// Minimum.
 	Min pulumi.Float64Input `pulumi:"min"`
 }
 
@@ -12428,14 +11440,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) Max() pulumi.Float64Output {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb) float64 {
 		return v.Max
 	}).(pulumi.Float64Output)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) Min() pulumi.Float64Output {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb) float64 {
 		return v.Min
@@ -12463,9 +11473,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount struct {
-	// Maximum.
 	Max int `pulumi:"max"`
-	// Minimum.
 	Min int `pulumi:"min"`
 }
 
@@ -12481,9 +11489,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCo
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArgs struct {
-	// Maximum.
 	Max pulumi.IntInput `pulumi:"max"`
-	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -12538,14 +11544,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 	return o
 }
 
-// Maximum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) Max() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount) int {
 		return v.Max
 	}).(pulumi.IntOutput)
 }
 
-// Minimum.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount) int {
 		return v.Min
@@ -12573,12 +11577,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification struct {
-	// ID of the launch template.
-	LaunchTemplateId string `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	LaunchTemplateId   string `pulumi:"launchTemplateId"`
 	LaunchTemplateName string `pulumi:"launchTemplateName"`
-	// Template version.
-	Version string `pulumi:"version"`
+	Version            string `pulumi:"version"`
 }
 
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs and GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput values.
@@ -12593,12 +11594,9 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs struct {
-	// ID of the launch template.
-	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	LaunchTemplateId   pulumi.StringInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
-	// Template version.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version            pulumi.StringInput `pulumi:"version"`
 }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
@@ -12652,21 +11650,18 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 	return o
 }
 
-// ID of the launch template.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) string {
 		return v.LaunchTemplateId
 	}).(pulumi.StringOutput)
 }
 
-// Name of the launch template.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) string {
 		return v.LaunchTemplateName
 	}).(pulumi.StringOutput)
 }
 
-// Template version.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) string {
 		return v.Version
@@ -12694,12 +11689,9 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 }
 
 type GetGroupTag struct {
-	// Key.
-	Key string `pulumi:"key"`
-	// Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-	PropagateAtLaunch bool `pulumi:"propagateAtLaunch"`
-	// Value.
-	Value string `pulumi:"value"`
+	Key               string `pulumi:"key"`
+	PropagateAtLaunch bool   `pulumi:"propagateAtLaunch"`
+	Value             string `pulumi:"value"`
 }
 
 // GetGroupTagInput is an input type that accepts GetGroupTagArgs and GetGroupTagOutput values.
@@ -12714,12 +11706,9 @@ type GetGroupTagInput interface {
 }
 
 type GetGroupTagArgs struct {
-	// Key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-	PropagateAtLaunch pulumi.BoolInput `pulumi:"propagateAtLaunch"`
-	// Value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Key               pulumi.StringInput `pulumi:"key"`
+	PropagateAtLaunch pulumi.BoolInput   `pulumi:"propagateAtLaunch"`
+	Value             pulumi.StringInput `pulumi:"value"`
 }
 
 func (GetGroupTagArgs) ElementType() reflect.Type {
@@ -12773,17 +11762,14 @@ func (o GetGroupTagOutput) ToGetGroupTagOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// Key.
 func (o GetGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
 func (o GetGroupTagOutput) PropagateAtLaunch() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGroupTag) bool { return v.PropagateAtLaunch }).(pulumi.BoolOutput)
 }
 
-// Value.
 func (o GetGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -12809,10 +11795,8 @@ func (o GetGroupTagArrayOutput) Index(i pulumi.IntInput) GetGroupTagOutput {
 }
 
 type GetGroupTrafficSource struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 	Identifier string `pulumi:"identifier"`
-	// Traffic source type.
-	Type string `pulumi:"type"`
+	Type       string `pulumi:"type"`
 }
 
 // GetGroupTrafficSourceInput is an input type that accepts GetGroupTrafficSourceArgs and GetGroupTrafficSourceOutput values.
@@ -12827,10 +11811,8 @@ type GetGroupTrafficSourceInput interface {
 }
 
 type GetGroupTrafficSourceArgs struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// Traffic source type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetGroupTrafficSourceArgs) ElementType() reflect.Type {
@@ -12884,12 +11866,10 @@ func (o GetGroupTrafficSourceOutput) ToGetGroupTrafficSourceOutputWithContext(ct
 	return o
 }
 
-// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 func (o GetGroupTrafficSourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupTrafficSource) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Traffic source type.
 func (o GetGroupTrafficSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupTrafficSource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12915,13 +11895,10 @@ func (o GetGroupTrafficSourceArrayOutput) Index(i pulumi.IntInput) GetGroupTraff
 }
 
 type GetGroupWarmPool struct {
-	// List of instance reuse policy objects.
 	InstanceReusePolicies    []GetGroupWarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicies"`
 	MaxGroupPreparedCapacity int                                   `pulumi:"maxGroupPreparedCapacity"`
-	// Minimum number of instances to maintain in the warm pool.
-	MinSize int `pulumi:"minSize"`
-	// Instance state to transition to after the lifecycle actions are complete.
-	PoolState string `pulumi:"poolState"`
+	MinSize                  int                                   `pulumi:"minSize"`
+	PoolState                string                                `pulumi:"poolState"`
 }
 
 // GetGroupWarmPoolInput is an input type that accepts GetGroupWarmPoolArgs and GetGroupWarmPoolOutput values.
@@ -12936,13 +11913,10 @@ type GetGroupWarmPoolInput interface {
 }
 
 type GetGroupWarmPoolArgs struct {
-	// List of instance reuse policy objects.
 	InstanceReusePolicies    GetGroupWarmPoolInstanceReusePolicyArrayInput `pulumi:"instanceReusePolicies"`
 	MaxGroupPreparedCapacity pulumi.IntInput                               `pulumi:"maxGroupPreparedCapacity"`
-	// Minimum number of instances to maintain in the warm pool.
-	MinSize pulumi.IntInput `pulumi:"minSize"`
-	// Instance state to transition to after the lifecycle actions are complete.
-	PoolState pulumi.StringInput `pulumi:"poolState"`
+	MinSize                  pulumi.IntInput                               `pulumi:"minSize"`
+	PoolState                pulumi.StringInput                            `pulumi:"poolState"`
 }
 
 func (GetGroupWarmPoolArgs) ElementType() reflect.Type {
@@ -12996,7 +11970,6 @@ func (o GetGroupWarmPoolOutput) ToGetGroupWarmPoolOutputWithContext(ctx context.
 	return o
 }
 
-// List of instance reuse policy objects.
 func (o GetGroupWarmPoolOutput) InstanceReusePolicies() GetGroupWarmPoolInstanceReusePolicyArrayOutput {
 	return o.ApplyT(func(v GetGroupWarmPool) []GetGroupWarmPoolInstanceReusePolicy { return v.InstanceReusePolicies }).(GetGroupWarmPoolInstanceReusePolicyArrayOutput)
 }
@@ -13005,12 +11978,10 @@ func (o GetGroupWarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupWarmPool) int { return v.MaxGroupPreparedCapacity }).(pulumi.IntOutput)
 }
 
-// Minimum number of instances to maintain in the warm pool.
 func (o GetGroupWarmPoolOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupWarmPool) int { return v.MinSize }).(pulumi.IntOutput)
 }
 
-// Instance state to transition to after the lifecycle actions are complete.
 func (o GetGroupWarmPoolOutput) PoolState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupWarmPool) string { return v.PoolState }).(pulumi.StringOutput)
 }
@@ -13036,7 +12007,6 @@ func (o GetGroupWarmPoolArrayOutput) Index(i pulumi.IntInput) GetGroupWarmPoolOu
 }
 
 type GetGroupWarmPoolInstanceReusePolicy struct {
-	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	ReuseOnScaleIn bool `pulumi:"reuseOnScaleIn"`
 }
 
@@ -13052,7 +12022,6 @@ type GetGroupWarmPoolInstanceReusePolicyInput interface {
 }
 
 type GetGroupWarmPoolInstanceReusePolicyArgs struct {
-	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	ReuseOnScaleIn pulumi.BoolInput `pulumi:"reuseOnScaleIn"`
 }
 
@@ -13107,7 +12076,6 @@ func (o GetGroupWarmPoolInstanceReusePolicyOutput) ToGetGroupWarmPoolInstanceReu
 	return o
 }
 
-// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 func (o GetGroupWarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGroupWarmPoolInstanceReusePolicy) bool { return v.ReuseOnScaleIn }).(pulumi.BoolOutput)
 }

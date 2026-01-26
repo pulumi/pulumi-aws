@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationAgentGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
-        /// </summary>
         [Input("agentAliasArn", required: true)]
         public Input<string> AgentAliasArn { get; set; } = null!;
 

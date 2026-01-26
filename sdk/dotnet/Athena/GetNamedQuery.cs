@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Athena
 {
     public static class GetNamedQuery
     {
-        /// <summary>
-        /// Provides an Athena Named Query data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Athena.GetNamedQuery.Invoke(new()
-        ///     {
-        ///         Name = "athenaQueryName",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNamedQueryResult> InvokeAsync(GetNamedQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamedQueryResult>("aws:athena/getNamedQuery:getNamedQuery", args ?? new GetNamedQueryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides an Athena Named Query data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Athena.GetNamedQuery.Invoke(new()
-        ///     {
-        ///         Name = "athenaQueryName",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws:athena/getNamedQuery:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides an Athena Named Query data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Athena.GetNamedQuery.Invoke(new()
-        ///     {
-        ///         Name = "athenaQueryName",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws:athena/getNamedQuery:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
     }
@@ -87,21 +24,12 @@ namespace Pulumi.Aws.Athena
 
     public sealed class GetNamedQueryArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The plain language name for the query. Maximum length of 128.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The workgroup to which the query belongs. Defaults to `Primary`.
-        /// </summary>
         [Input("workgroup")]
         public string? Workgroup { get; set; }
 
@@ -113,21 +41,12 @@ namespace Pulumi.Aws.Athena
 
     public sealed class GetNamedQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The plain language name for the query. Maximum length of 128.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The workgroup to which the query belongs. Defaults to `Primary`.
-        /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
 
@@ -141,13 +60,7 @@ namespace Pulumi.Aws.Athena
     [OutputType]
     public sealed class GetNamedQueryResult
     {
-        /// <summary>
-        /// Database to which the query belongs.
-        /// </summary>
         public readonly string Database;
-        /// <summary>
-        /// Brief explanation of the query.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

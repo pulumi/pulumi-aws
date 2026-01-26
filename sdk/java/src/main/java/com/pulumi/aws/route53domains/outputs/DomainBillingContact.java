@@ -12,173 +12,61 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainBillingContact {
-    /**
-     * @return First line of the contact&#39;s address.
-     * 
-     */
     private String addressLine1;
-    /**
-     * @return Second line of contact&#39;s address, if any.
-     * 
-     */
     private String addressLine2;
-    /**
-     * @return The city of the contact&#39;s address.
-     * 
-     */
     private String city;
-    /**
-     * @return Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-     * 
-     */
     private String contactType;
-    /**
-     * @return Code for the country of the contact&#39;s address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-     * 
-     */
     private String countryCode;
-    /**
-     * @return Email address of the contact.
-     * 
-     */
     private String email;
-    /**
-     * @return A list of name-value pairs for parameters required by certain top-level domains.
-     * 
-     */
     private List<DomainBillingContactExtraParam> extraParams;
-    /**
-     * @return Fax number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     private String fax;
-    /**
-     * @return First name of contact.
-     * 
-     */
     private String firstName;
-    /**
-     * @return Last name of contact.
-     * 
-     */
     private String lastName;
-    /**
-     * @return Name of the organization for contact types other than `PERSON`.
-     * 
-     */
     private String organizationName;
-    /**
-     * @return The phone number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     private String phoneNumber;
-    /**
-     * @return The state or province of the contact&#39;s city.
-     * 
-     */
     private String state;
-    /**
-     * @return The zip or postal code of the contact&#39;s address.
-     * 
-     */
     private String zipCode;
 
     private DomainBillingContact() {}
-    /**
-     * @return First line of the contact&#39;s address.
-     * 
-     */
     public String addressLine1() {
         return this.addressLine1;
     }
-    /**
-     * @return Second line of contact&#39;s address, if any.
-     * 
-     */
     public String addressLine2() {
         return this.addressLine2;
     }
-    /**
-     * @return The city of the contact&#39;s address.
-     * 
-     */
     public String city() {
         return this.city;
     }
-    /**
-     * @return Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-     * 
-     */
     public String contactType() {
         return this.contactType;
     }
-    /**
-     * @return Code for the country of the contact&#39;s address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-     * 
-     */
     public String countryCode() {
         return this.countryCode;
     }
-    /**
-     * @return Email address of the contact.
-     * 
-     */
     public String email() {
         return this.email;
     }
-    /**
-     * @return A list of name-value pairs for parameters required by certain top-level domains.
-     * 
-     */
     public List<DomainBillingContactExtraParam> extraParams() {
         return this.extraParams;
     }
-    /**
-     * @return Fax number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     public String fax() {
         return this.fax;
     }
-    /**
-     * @return First name of contact.
-     * 
-     */
     public String firstName() {
         return this.firstName;
     }
-    /**
-     * @return Last name of contact.
-     * 
-     */
     public String lastName() {
         return this.lastName;
     }
-    /**
-     * @return Name of the organization for contact types other than `PERSON`.
-     * 
-     */
     public String organizationName() {
         return this.organizationName;
     }
-    /**
-     * @return The phone number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     public String phoneNumber() {
         return this.phoneNumber;
     }
-    /**
-     * @return The state or province of the contact&#39;s city.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return The zip or postal code of the contact&#39;s address.
-     * 
-     */
     public String zipCode() {
         return this.zipCode;
     }

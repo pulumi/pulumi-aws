@@ -16,55 +16,23 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
 
     public static final LaunchTemplateCpuOptionsArgs Empty = new LaunchTemplateCpuOptionsArgs();
 
-    /**
-     * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-     * 
-     */
     @Import(name="amdSevSnp")
     private @Nullable Output<String> amdSevSnp;
 
-    /**
-     * @return Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-     * 
-     */
     public Optional<Output<String>> amdSevSnp() {
         return Optional.ofNullable(this.amdSevSnp);
     }
 
-    /**
-     * The number of CPU cores for the instance.
-     * 
-     */
     @Import(name="coreCount")
     private @Nullable Output<Integer> coreCount;
 
-    /**
-     * @return The number of CPU cores for the instance.
-     * 
-     */
     public Optional<Output<Integer>> coreCount() {
         return Optional.ofNullable(this.coreCount);
     }
 
-    /**
-     * The number of threads per CPU core.
-     * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-     * Otherwise, specify the default value of 2.
-     * 
-     * Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
-     * 
-     */
     @Import(name="threadsPerCore")
     private @Nullable Output<Integer> threadsPerCore;
 
-    /**
-     * @return The number of threads per CPU core.
-     * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-     * Otherwise, specify the default value of 2.
-     * 
-     * Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
-     * 
-     */
     public Optional<Output<Integer>> threadsPerCore() {
         return Optional.ofNullable(this.threadsPerCore);
     }
@@ -95,73 +63,29 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
             $ = new LaunchTemplateCpuOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amdSevSnp Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amdSevSnp(@Nullable Output<String> amdSevSnp) {
             $.amdSevSnp = amdSevSnp;
             return this;
         }
 
-        /**
-         * @param amdSevSnp Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amdSevSnp(String amdSevSnp) {
             return amdSevSnp(Output.of(amdSevSnp));
         }
 
-        /**
-         * @param coreCount The number of CPU cores for the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreCount(@Nullable Output<Integer> coreCount) {
             $.coreCount = coreCount;
             return this;
         }
 
-        /**
-         * @param coreCount The number of CPU cores for the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreCount(Integer coreCount) {
             return coreCount(Output.of(coreCount));
         }
 
-        /**
-         * @param threadsPerCore The number of threads per CPU core.
-         * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-         * Otherwise, specify the default value of 2.
-         * 
-         * Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
-         * 
-         * @return builder
-         * 
-         */
         public Builder threadsPerCore(@Nullable Output<Integer> threadsPerCore) {
             $.threadsPerCore = threadsPerCore;
             return this;
         }
 
-        /**
-         * @param threadsPerCore The number of threads per CPU core.
-         * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-         * Otherwise, specify the default value of 2.
-         * 
-         * Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
-         * 
-         * @return builder
-         * 
-         */
         public Builder threadsPerCore(Integer threadsPerCore) {
             return threadsPerCore(Output.of(threadsPerCore));
         }

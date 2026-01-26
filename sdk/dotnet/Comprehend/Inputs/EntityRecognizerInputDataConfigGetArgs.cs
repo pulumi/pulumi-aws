@@ -12,59 +12,28 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
     public sealed class EntityRecognizerInputDataConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies location of the document annotation data.
-        /// See the `Annotations` Configuration Block section below.
-        /// One of `Annotations` or `EntityList` is required.
-        /// </summary>
         [Input("annotations")]
         public Input<Inputs.EntityRecognizerInputDataConfigAnnotationsGetArgs>? Annotations { get; set; }
 
         [Input("augmentedManifests")]
         private InputList<Inputs.EntityRecognizerInputDataConfigAugmentedManifestGetArgs>? _augmentedManifests;
-
-        /// <summary>
-        /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        /// Used if `DataFormat` is `AUGMENTED_MANIFEST`.
-        /// See the `AugmentedManifests` Configuration Block section below.
-        /// </summary>
         public InputList<Inputs.EntityRecognizerInputDataConfigAugmentedManifestGetArgs> AugmentedManifests
         {
             get => _augmentedManifests ?? (_augmentedManifests = new InputList<Inputs.EntityRecognizerInputDataConfigAugmentedManifestGetArgs>());
             set => _augmentedManifests = value;
         }
 
-        /// <summary>
-        /// The format for the training data.
-        /// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
 
-        /// <summary>
-        /// Specifies a collection of training documents.
-        /// Used if `DataFormat` is `COMPREHEND_CSV`.
-        /// See the `Documents` Configuration Block section below.
-        /// </summary>
         [Input("documents")]
         public Input<Inputs.EntityRecognizerInputDataConfigDocumentsGetArgs>? Documents { get; set; }
 
-        /// <summary>
-        /// Specifies location of the entity list data.
-        /// See the `EntityList` Configuration Block section below.
-        /// One of `EntityList` or `Annotations` is required.
-        /// </summary>
         [Input("entityList")]
         public Input<Inputs.EntityRecognizerInputDataConfigEntityListGetArgs>? EntityList { get; set; }
 
         [Input("entityTypes", required: true)]
         private InputList<Inputs.EntityRecognizerInputDataConfigEntityTypeGetArgs>? _entityTypes;
-
-        /// <summary>
-        /// Set of entity types to be recognized.
-        /// Has a maximum of 25 items.
-        /// See the `EntityTypes` Configuration Block section below.
-        /// </summary>
         public InputList<Inputs.EntityRecognizerInputDataConfigEntityTypeGetArgs> EntityTypes
         {
             get => _entityTypes ?? (_entityTypes = new InputList<Inputs.EntityRecognizerInputDataConfigEntityTypeGetArgs>());

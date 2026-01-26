@@ -17,62 +17,30 @@ public final class GetAssetsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAssetsArgs Empty = new GetAssetsArgs();
 
-    /**
-     * Outpost ARN.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return Outpost ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * Filters by list of Host IDs of a Dedicated Host.
-     * 
-     */
     @Import(name="hostIdFilters")
     private @Nullable Output<List<String>> hostIdFilters;
 
-    /**
-     * @return Filters by list of Host IDs of a Dedicated Host.
-     * 
-     */
     public Optional<Output<List<String>>> hostIdFilters() {
         return Optional.ofNullable(this.hostIdFilters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-     * 
-     */
     @Import(name="statusIdFilters")
     private @Nullable Output<List<String>> statusIdFilters;
 
-    /**
-     * @return Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-     * 
-     */
     public Optional<Output<List<String>>> statusIdFilters() {
         return Optional.ofNullable(this.statusIdFilters);
     }
@@ -104,106 +72,46 @@ public final class GetAssetsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAssetsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Outpost ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Outpost ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param hostIdFilters Filters by list of Host IDs of a Dedicated Host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostIdFilters(@Nullable Output<List<String>> hostIdFilters) {
             $.hostIdFilters = hostIdFilters;
             return this;
         }
 
-        /**
-         * @param hostIdFilters Filters by list of Host IDs of a Dedicated Host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostIdFilters(List<String> hostIdFilters) {
             return hostIdFilters(Output.of(hostIdFilters));
         }
 
-        /**
-         * @param hostIdFilters Filters by list of Host IDs of a Dedicated Host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostIdFilters(String... hostIdFilters) {
             return hostIdFilters(List.of(hostIdFilters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param statusIdFilters Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusIdFilters(@Nullable Output<List<String>> statusIdFilters) {
             $.statusIdFilters = statusIdFilters;
             return this;
         }
 
-        /**
-         * @param statusIdFilters Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusIdFilters(List<String> statusIdFilters) {
             return statusIdFilters(Output.of(statusIdFilters));
         }
 
-        /**
-         * @param statusIdFilters Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusIdFilters(String... statusIdFilters) {
             return statusIdFilters(List.of(statusIdFilters));
         }

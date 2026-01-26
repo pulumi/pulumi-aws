@@ -16,32 +16,16 @@ public final class AutomationRuleActionArgs extends com.pulumi.resources.Resourc
 
     public static final AutomationRuleActionArgs Empty = new AutomationRuleActionArgs();
 
-    /**
-     * A block that specifies that the automation rule action is an update to a finding field.  Documented below.
-     * 
-     */
     @Import(name="findingFieldsUpdate")
     private @Nullable Output<AutomationRuleActionFindingFieldsUpdateArgs> findingFieldsUpdate;
 
-    /**
-     * @return A block that specifies that the automation rule action is an update to a finding field.  Documented below.
-     * 
-     */
     public Optional<Output<AutomationRuleActionFindingFieldsUpdateArgs>> findingFieldsUpdate() {
         return Optional.ofNullable(this.findingFieldsUpdate);
     }
 
-    /**
-     * Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -71,44 +55,20 @@ public final class AutomationRuleActionArgs extends com.pulumi.resources.Resourc
             $ = new AutomationRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param findingFieldsUpdate A block that specifies that the automation rule action is an update to a finding field.  Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingFieldsUpdate(@Nullable Output<AutomationRuleActionFindingFieldsUpdateArgs> findingFieldsUpdate) {
             $.findingFieldsUpdate = findingFieldsUpdate;
             return this;
         }
 
-        /**
-         * @param findingFieldsUpdate A block that specifies that the automation rule action is an update to a finding field.  Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingFieldsUpdate(AutomationRuleActionFindingFieldsUpdateArgs findingFieldsUpdate) {
             return findingFieldsUpdate(Output.of(findingFieldsUpdate));
         }
 
-        /**
-         * @param type Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

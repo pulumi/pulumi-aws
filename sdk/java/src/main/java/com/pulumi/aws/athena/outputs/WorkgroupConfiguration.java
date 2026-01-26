@@ -19,149 +19,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfiguration {
-    /**
-     * @return Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
-     * 
-     */
     private @Nullable Integer bytesScannedCutoffPerQuery;
-    /**
-     * @return Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationCustomerContentEncryptionConfiguration customerContentEncryptionConfiguration;
-    /**
-     * @return Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
-     * 
-     */
     private @Nullable Boolean enableMinimumEncryptionConfiguration;
-    /**
-     * @return Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean enforceWorkgroupConfiguration;
-    /**
-     * @return Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
-    /**
-     * @return Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
-     * 
-     */
     private @Nullable String executionRole;
-    /**
-     * @return Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationIdentityCenterConfiguration identityCenterConfiguration;
-    /**
-     * @return Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationManagedQueryResultsConfiguration managedQueryResultsConfiguration;
-    /**
-     * @return Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationMonitoringConfiguration monitoringConfiguration;
-    /**
-     * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean publishCloudwatchMetricsEnabled;
-    /**
-     * @return If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
-     * 
-     */
     private @Nullable Boolean requesterPaysEnabled;
-    /**
-     * @return Configuration block with result settings. See Result Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
 
     private WorkgroupConfiguration() {}
-    /**
-     * @return Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
-     * 
-     */
     public Optional<Integer> bytesScannedCutoffPerQuery() {
         return Optional.ofNullable(this.bytesScannedCutoffPerQuery);
     }
-    /**
-     * @return Configuration block to specify the KMS key that is used to encrypt the user&#39;s data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationCustomerContentEncryptionConfiguration> customerContentEncryptionConfiguration() {
         return Optional.ofNullable(this.customerContentEncryptionConfiguration);
     }
-    /**
-     * @return Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
-     * 
-     */
     public Optional<Boolean> enableMinimumEncryptionConfiguration() {
         return Optional.ofNullable(this.enableMinimumEncryptionConfiguration);
     }
-    /**
-     * @return Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> enforceWorkgroupConfiguration() {
         return Optional.ofNullable(this.enforceWorkgroupConfiguration);
     }
-    /**
-     * @return Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
-     * 
-     */
     public Optional<WorkgroupConfigurationEngineVersion> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
-    /**
-     * @return Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
-     * 
-     */
     public Optional<String> executionRole() {
         return Optional.ofNullable(this.executionRole);
     }
-    /**
-     * @return Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationIdentityCenterConfiguration> identityCenterConfiguration() {
         return Optional.ofNullable(this.identityCenterConfiguration);
     }
-    /**
-     * @return Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationManagedQueryResultsConfiguration> managedQueryResultsConfiguration() {
         return Optional.ofNullable(this.managedQueryResultsConfiguration);
     }
-    /**
-     * @return Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationMonitoringConfiguration> monitoringConfiguration() {
         return Optional.ofNullable(this.monitoringConfiguration);
     }
-    /**
-     * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> publishCloudwatchMetricsEnabled() {
         return Optional.ofNullable(this.publishCloudwatchMetricsEnabled);
     }
-    /**
-     * @return If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
-     * 
-     */
     public Optional<Boolean> requesterPaysEnabled() {
         return Optional.ofNullable(this.requesterPaysEnabled);
     }
-    /**
-     * @return Configuration block with result settings. See Result Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationResultConfiguration> resultConfiguration() {
         return Optional.ofNullable(this.resultConfiguration);
     }

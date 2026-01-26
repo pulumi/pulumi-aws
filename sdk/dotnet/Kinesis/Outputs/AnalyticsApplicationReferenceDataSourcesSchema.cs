@@ -13,19 +13,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchema
     {
-        /// <summary>
-        /// The Record Column mapping for the streaming source data element.
-        /// See Record Columns below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> RecordColumns;
-        /// <summary>
-        /// The Encoding of the record in the streaming source.
-        /// </summary>
         public readonly string? RecordEncoding;
-        /// <summary>
-        /// The Record Format and mapping information to schematize a record.
-        /// See Record Format below for more details.
-        /// </summary>
         public readonly Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat RecordFormat;
 
         [OutputConstructor]

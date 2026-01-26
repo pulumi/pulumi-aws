@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class FileCacheLustreConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the cache deployment type. The only supported value is `CACHE_1`.
-        /// </summary>
         [Input("deploymentType", required: true)]
         public Input<string> DeploymentType { get; set; } = null!;
 
@@ -28,10 +25,6 @@ namespace Pulumi.Aws.Fsx.Inputs
 
         [Input("metadataConfigurations", required: true)]
         private InputList<Inputs.FileCacheLustreConfigurationMetadataConfigurationGetArgs>? _metadataConfigurations;
-
-        /// <summary>
-        /// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `MetadataConfiguration` block.
-        /// </summary>
         public InputList<Inputs.FileCacheLustreConfigurationMetadataConfigurationGetArgs> MetadataConfigurations
         {
             get => _metadataConfigurations ?? (_metadataConfigurations = new InputList<Inputs.FileCacheLustreConfigurationMetadataConfigurationGetArgs>());
@@ -41,15 +34,9 @@ namespace Pulumi.Aws.Fsx.Inputs
         [Input("mountName")]
         public Input<string>? MountName { get; set; }
 
-        /// <summary>
-        /// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
-        /// </summary>
         [Input("perUnitStorageThroughput", required: true)]
         public Input<int> PerUnitStorageThroughput { get; set; } = null!;
 
-        /// <summary>
-        /// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
-        /// </summary>
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }
 

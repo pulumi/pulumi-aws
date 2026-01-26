@@ -13,18 +13,8 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainMatchingAutoMerging
     {
-        /// <summary>
-        /// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        /// </summary>
         public readonly Outputs.DomainMatchingAutoMergingConflictResolution? ConflictResolution;
-        /// <summary>
-        /// A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-        /// * `MinAllowedConfidenceScoreForMerging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-        /// </summary>
         public readonly Outputs.DomainMatchingAutoMergingConsolidation? Consolidation;
-        /// <summary>
-        /// The flag that enables the auto-merging of duplicate profiles.
-        /// </summary>
         public readonly bool Enabled;
         public readonly double? MinAllowedConfidenceScoreForMerging;
 

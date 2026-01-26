@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class BudgetPlannedLimit {
-    /**
-     * @return (Required) The amount of cost or usage being measured for a budget.
-     * 
-     */
     private String amount;
-    /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     private String startTime;
-    /**
-     * @return (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-     * 
-     */
     private String unit;
 
     private BudgetPlannedLimit() {}
-    /**
-     * @return (Required) The amount of cost or usage being measured for a budget.
-     * 
-     */
     public String amount() {
         return this.amount;
     }
-    /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     public String startTime() {
         return this.startTime;
     }
-    /**
-     * @return (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-     * 
-     */
     public String unit() {
         return this.unit;
     }

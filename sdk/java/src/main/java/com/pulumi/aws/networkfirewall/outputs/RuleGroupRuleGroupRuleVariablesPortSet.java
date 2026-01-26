@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupRuleVariablesPortSet {
-    /**
-     * @return An unique alphanumeric string to identify the `portSet`.
-     * 
-     */
     private String key;
-    /**
-     * @return A configuration block that defines a set of port ranges. See Port Set below for details.
-     * 
-     */
     private RuleGroupRuleGroupRuleVariablesPortSetPortSet portSet;
 
     private RuleGroupRuleGroupRuleVariablesPortSet() {}
-    /**
-     * @return An unique alphanumeric string to identify the `portSet`.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return A configuration block that defines a set of port ranges. See Port Set below for details.
-     * 
-     */
     public RuleGroupRuleGroupRuleVariablesPortSetPortSet portSet() {
         return this.portSet;
     }

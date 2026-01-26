@@ -82,25 +82,16 @@ class GetCertificateAuthorityResult:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> _builtins.str:
-        """
-        Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
-        """
-        Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
     @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> _builtins.str:
-        """
-        The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        """
         return pulumi.get(self, "certificate_signing_request")
 
     @_builtins.property
@@ -119,17 +110,11 @@ class GetCertificateAuthorityResult:
     @_builtins.property
     @pulumi.getter(name="notAfter")
     def not_after(self) -> _builtins.str:
-        """
-        Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        """
         return pulumi.get(self, "not_after")
 
     @_builtins.property
     @pulumi.getter(name="notBefore")
     def not_before(self) -> _builtins.str:
-        """
-        Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        """
         return pulumi.get(self, "not_before")
 
     @_builtins.property
@@ -140,49 +125,31 @@ class GetCertificateAuthorityResult:
     @_builtins.property
     @pulumi.getter(name="revocationConfigurations")
     def revocation_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationResult']:
-        """
-        Nested attribute containing revocation configuration.
-        """
         return pulumi.get(self, "revocation_configurations")
 
     @_builtins.property
     @pulumi.getter
     def serial(self) -> _builtins.str:
-        """
-        Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        """
         return pulumi.get(self, "serial")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the certificate authority.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of user-defined tags that are attached to the certificate authority.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of the certificate authority.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="usageMode")
     def usage_mode(self) -> _builtins.str:
-        """
-        Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-        """
         return pulumi.get(self, "usage_mode")
 
 
@@ -214,21 +181,7 @@ def get_certificate_authority(arn: Optional[_builtins.str] = None,
                               tags: Optional[Mapping[str, _builtins.str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateAuthorityResult:
     """
-    Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate_authority(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
-
-
-    :param _builtins.str arn: ARN of the certificate authority.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -258,21 +211,7 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[_builtins.str]] 
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
-    Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate_authority(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
-
-
-    :param _builtins.str arn: ARN of the certificate authority.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

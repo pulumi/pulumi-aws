@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Network Monitor Probe.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmonitor.Monitor("example", {
- *     aggregationPeriod: 30,
- *     monitorName: "example",
- * });
- * const exampleProbe = new aws.networkmonitor.Probe("example", {
- *     monitorName: example.monitorName,
- *     destination: "127.0.0.1",
- *     destinationPort: 80,
- *     protocol: "TCP",
- *     sourceArn: exampleAwsSubnet.arn,
- *     packetSize: 200,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_networkmonitor_probe` using the monitor name and probe id. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e
- * ```
- */
 export class Probe extends pulumi.CustomResource {
     /**
      * Get an existing Probe resource's state with the given name, ID, and optional extra
@@ -66,46 +33,16 @@ export class Probe extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly addressFamily: pulumi.Output<string>;
-    /**
-     * The ARN of the attachment.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The destination IP address. This must be either IPV4 or IPV6.
-     */
     declare public readonly destination: pulumi.Output<string>;
-    /**
-     * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-     */
     declare public readonly destinationPort: pulumi.Output<number | undefined>;
-    /**
-     * The name of the monitor.
-     */
     declare public readonly monitorName: pulumi.Output<string>;
-    /**
-     * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     */
     declare public readonly packetSize: pulumi.Output<number>;
     declare public /*out*/ readonly probeId: pulumi.Output<string>;
-    /**
-     * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-     */
     declare public readonly protocol: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the subnet.
-     */
     declare public readonly sourceArn: pulumi.Output<string>;
-    /**
-     * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -173,46 +110,16 @@ export class Probe extends pulumi.CustomResource {
  */
 export interface ProbeState {
     addressFamily?: pulumi.Input<string>;
-    /**
-     * The ARN of the attachment.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The destination IP address. This must be either IPV4 or IPV6.
-     */
     destination?: pulumi.Input<string>;
-    /**
-     * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-     */
     destinationPort?: pulumi.Input<number>;
-    /**
-     * The name of the monitor.
-     */
     monitorName?: pulumi.Input<string>;
-    /**
-     * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     */
     packetSize?: pulumi.Input<number>;
     probeId?: pulumi.Input<string>;
-    /**
-     * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-     */
     protocol?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the subnet.
-     */
     sourceArn?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     vpcId?: pulumi.Input<string>;
 }
@@ -221,36 +128,12 @@ export interface ProbeState {
  * The set of arguments for constructing a Probe resource.
  */
 export interface ProbeArgs {
-    /**
-     * The destination IP address. This must be either IPV4 or IPV6.
-     */
     destination: pulumi.Input<string>;
-    /**
-     * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-     */
     destinationPort?: pulumi.Input<number>;
-    /**
-     * The name of the monitor.
-     */
     monitorName: pulumi.Input<string>;
-    /**
-     * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     */
     packetSize?: pulumi.Input<number>;
-    /**
-     * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-     */
     protocol: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the subnet.
-     */
     sourceArn: pulumi.Input<string>;
-    /**
-     * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApiEventConfigAuthProviderOpenidConnectConfig {
-    /**
-     * @return TTL in seconds for the authentication token.
-     * 
-     */
     private @Nullable Integer authTtl;
-    /**
-     * @return Client ID for the OpenID Connect provider.
-     * 
-     */
     private @Nullable String clientId;
-    /**
-     * @return TTL in seconds for the issued at time.
-     * 
-     */
     private @Nullable Integer iatTtl;
-    /**
-     * @return Issuer URL for the OpenID Connect provider.
-     * 
-     */
     private String issuer;
 
     private ApiEventConfigAuthProviderOpenidConnectConfig() {}
-    /**
-     * @return TTL in seconds for the authentication token.
-     * 
-     */
     public Optional<Integer> authTtl() {
         return Optional.ofNullable(this.authTtl);
     }
-    /**
-     * @return Client ID for the OpenID Connect provider.
-     * 
-     */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
-    /**
-     * @return TTL in seconds for the issued at time.
-     * 
-     */
     public Optional<Integer> iatTtl() {
         return Optional.ofNullable(this.iatTtl);
     }
-    /**
-     * @return Issuer URL for the OpenID Connect provider.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }

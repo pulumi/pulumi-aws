@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterClusterEndpoint struct {
-	// Cluster endpoint.
 	Endpoint *string `pulumi:"endpoint"`
-	// Region of the endpoint.
-	Region *string `pulumi:"region"`
+	Region   *string `pulumi:"region"`
 }
 
 // ClusterClusterEndpointInput is an input type that accepts ClusterClusterEndpointArgs and ClusterClusterEndpointOutput values.
@@ -32,10 +30,8 @@ type ClusterClusterEndpointInput interface {
 }
 
 type ClusterClusterEndpointArgs struct {
-	// Cluster endpoint.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// Region of the endpoint.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (ClusterClusterEndpointArgs) ElementType() reflect.Type {
@@ -89,12 +85,10 @@ func (o ClusterClusterEndpointOutput) ToClusterClusterEndpointOutputWithContext(
 	return o
 }
 
-// Cluster endpoint.
 func (o ClusterClusterEndpointOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// Region of the endpoint.
 func (o ClusterClusterEndpointOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -120,12 +114,9 @@ func (o ClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterClust
 }
 
 type SafetyRuleRuleConfig struct {
-	// Logical negation of the rule.
-	Inverted bool `pulumi:"inverted"`
-	// Number of controls that must be set when you specify an `ATLEAST` type rule.
-	Threshold int `pulumi:"threshold"`
-	// Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-	Type string `pulumi:"type"`
+	Inverted  bool   `pulumi:"inverted"`
+	Threshold int    `pulumi:"threshold"`
+	Type      string `pulumi:"type"`
 }
 
 // SafetyRuleRuleConfigInput is an input type that accepts SafetyRuleRuleConfigArgs and SafetyRuleRuleConfigOutput values.
@@ -140,12 +131,9 @@ type SafetyRuleRuleConfigInput interface {
 }
 
 type SafetyRuleRuleConfigArgs struct {
-	// Logical negation of the rule.
-	Inverted pulumi.BoolInput `pulumi:"inverted"`
-	// Number of controls that must be set when you specify an `ATLEAST` type rule.
-	Threshold pulumi.IntInput `pulumi:"threshold"`
-	// Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Inverted  pulumi.BoolInput   `pulumi:"inverted"`
+	Threshold pulumi.IntInput    `pulumi:"threshold"`
+	Type      pulumi.StringInput `pulumi:"type"`
 }
 
 func (SafetyRuleRuleConfigArgs) ElementType() reflect.Type {
@@ -225,17 +213,14 @@ func (o SafetyRuleRuleConfigOutput) ToSafetyRuleRuleConfigPtrOutputWithContext(c
 	}).(SafetyRuleRuleConfigPtrOutput)
 }
 
-// Logical negation of the rule.
 func (o SafetyRuleRuleConfigOutput) Inverted() pulumi.BoolOutput {
 	return o.ApplyT(func(v SafetyRuleRuleConfig) bool { return v.Inverted }).(pulumi.BoolOutput)
 }
 
-// Number of controls that must be set when you specify an `ATLEAST` type rule.
 func (o SafetyRuleRuleConfigOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v SafetyRuleRuleConfig) int { return v.Threshold }).(pulumi.IntOutput)
 }
 
-// Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
 func (o SafetyRuleRuleConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SafetyRuleRuleConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -264,7 +249,6 @@ func (o SafetyRuleRuleConfigPtrOutput) Elem() SafetyRuleRuleConfigOutput {
 	}).(SafetyRuleRuleConfigOutput)
 }
 
-// Logical negation of the rule.
 func (o SafetyRuleRuleConfigPtrOutput) Inverted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleRuleConfig) *bool {
 		if v == nil {
@@ -274,7 +258,6 @@ func (o SafetyRuleRuleConfigPtrOutput) Inverted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Number of controls that must be set when you specify an `ATLEAST` type rule.
 func (o SafetyRuleRuleConfigPtrOutput) Threshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleRuleConfig) *int {
 		if v == nil {
@@ -284,7 +267,6 @@ func (o SafetyRuleRuleConfigPtrOutput) Threshold() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
 func (o SafetyRuleRuleConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleRuleConfig) *string {
 		if v == nil {

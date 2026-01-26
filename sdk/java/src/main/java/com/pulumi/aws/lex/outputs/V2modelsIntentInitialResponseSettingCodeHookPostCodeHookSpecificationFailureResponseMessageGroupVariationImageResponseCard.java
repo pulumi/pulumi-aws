@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard {
-    /**
-     * @return Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
-     * 
-     */
     private @Nullable List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButton> buttons;
-    /**
-     * @return URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-     * 
-     */
     private @Nullable String imageUrl;
-    /**
-     * @return Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-     * 
-     */
     private @Nullable String subtitle;
-    /**
-     * @return Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-     * 
-     */
     private String title;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard() {}
-    /**
-     * @return Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
-     * 
-     */
     public List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButton> buttons() {
         return this.buttons == null ? List.of() : this.buttons;
     }
-    /**
-     * @return URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-     * 
-     */
     public Optional<String> imageUrl() {
         return Optional.ofNullable(this.imageUrl);
     }
-    /**
-     * @return Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-     * 
-     */
     public Optional<String> subtitle() {
         return Optional.ofNullable(this.subtitle);
     }
-    /**
-     * @return Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-     * 
-     */
     public String title() {
         return this.title;
     }

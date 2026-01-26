@@ -11,70 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Service.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
-//				Name:             pulumi.String("example"),
-//				AuthType:         pulumi.String("AWS_IAM"),
-//				CustomDomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
-// ```
 type Service struct {
 	pulumi.CustomResourceState
 
-	// ARN of the service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType pulumi.StringOutput `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
-	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	// Custom domain name of the service.
-	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
-	// DNS name of the service.
-	DnsEntries ServiceDnsEntryArrayOutput `pulumi:"dnsEntries"`
-	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of the service.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput        `pulumi:"arn"`
+	AuthType         pulumi.StringOutput        `pulumi:"authType"`
+	CertificateArn   pulumi.StringPtrOutput     `pulumi:"certificateArn"`
+	CustomDomainName pulumi.StringPtrOutput     `pulumi:"customDomainName"`
+	DnsEntries       ServiceDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	Name             pulumi.StringOutput        `pulumi:"name"`
+	Region           pulumi.StringOutput        `pulumi:"region"`
+	Status           pulumi.StringOutput        `pulumi:"status"`
+	Tags             pulumi.StringMapOutput     `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput     `pulumi:"tagsAll"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -107,53 +56,29 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// ARN of the service.
-	Arn *string `pulumi:"arn"`
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType *string `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// Custom domain name of the service.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// DNS name of the service.
-	DnsEntries []ServiceDnsEntry `pulumi:"dnsEntries"`
-	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the service.
-	Status *string `pulumi:"status"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string           `pulumi:"arn"`
+	AuthType         *string           `pulumi:"authType"`
+	CertificateArn   *string           `pulumi:"certificateArn"`
+	CustomDomainName *string           `pulumi:"customDomainName"`
+	DnsEntries       []ServiceDnsEntry `pulumi:"dnsEntries"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	Status           *string           `pulumi:"status"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type ServiceState struct {
-	// ARN of the service.
-	Arn pulumi.StringPtrInput
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the certificate.
-	CertificateArn pulumi.StringPtrInput
-	// Custom domain name of the service.
+	Arn              pulumi.StringPtrInput
+	AuthType         pulumi.StringPtrInput
+	CertificateArn   pulumi.StringPtrInput
 	CustomDomainName pulumi.StringPtrInput
-	// DNS name of the service.
-	DnsEntries ServiceDnsEntryArrayInput
-	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the service.
-	Status pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	DnsEntries       ServiceDnsEntryArrayInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Status           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -161,38 +86,22 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType *string `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// Custom domain name of the service.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AuthType         *string           `pulumi:"authType"`
+	CertificateArn   *string           `pulumi:"certificateArn"`
+	CustomDomainName *string           `pulumi:"customDomainName"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the certificate.
-	CertificateArn pulumi.StringPtrInput
-	// Custom domain name of the service.
+	AuthType         pulumi.StringPtrInput
+	CertificateArn   pulumi.StringPtrInput
 	CustomDomainName pulumi.StringPtrInput
-	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -282,54 +191,42 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
-// ARN of the service.
 func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 func (o ServiceOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the certificate.
 func (o ServiceOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// Custom domain name of the service.
 func (o ServiceOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
-// DNS name of the service.
 func (o ServiceOutput) DnsEntries() ServiceDnsEntryArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsEntryArrayOutput { return v.DnsEntries }).(ServiceDnsEntryArrayOutput)
 }
 
-// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
-//
-// The following arguments are optional:
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the service.
 func (o ServiceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

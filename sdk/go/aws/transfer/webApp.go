@@ -11,193 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Transfer Family Web App.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// assumeRoleTransfer, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "sts:AssumeRole",
-// "sts:SetContext",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "transfer.amazonaws.com",
-// },
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// Name: pulumi.String("example"),
-// AssumeRolePolicy: pulumi.String(assumeRoleTransfer.Json),
-// })
-// if err != nil {
-// return err
-// }
-// exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "s3:GetDataAccess",
-// "s3:ListCallerAccessGrants",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:s3:%v:%v:access-grants/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "s3:ResourceAccount",
-// },
-// },
-// },
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "s3:ListAccessGrantsInstances",
-// },
-// Resources: []string{
-// "*",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "s3:ResourceAccount",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Policy: pulumi.String(exampleGetPolicyDocument.Json),
-// Role: exampleRole.Name,
-// })
-// if err != nil {
-// return err
-// }
-// _, err = transfer.NewWebApp(ctx, "example", &transfer.WebAppArgs{
-// IdentityProviderDetails: &transfer.WebAppIdentityProviderDetailsArgs{
-// IdentityCenterConfig: &transfer.WebAppIdentityProviderDetailsIdentityCenterConfigArgs{
-// InstanceArn: pulumi.String(example.Arns[0]),
-// Role: exampleRole.Arn,
-// },
-// },
-// WebAppUnits: transfer.WebAppWebAppUnitArray{
-// &transfer.WebAppWebAppUnitArgs{
-// Provisioned: pulumi.Int(1),
-// },
-// },
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("test"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transfer Family Web App using the `web_app_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:transfer/webApp:WebApp example web_app-id-12345678
-// ```
 type WebApp struct {
 	pulumi.CustomResourceState
 
-	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
-	// ARN of the Web App.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-	EndpointDetails WebAppEndpointDetailsPtrOutput `pulumi:"endpointDetails"`
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
-	//
-	// The following arguments are optional:
+	AccessEndpoint          pulumi.StringOutput                    `pulumi:"accessEndpoint"`
+	Arn                     pulumi.StringOutput                    `pulumi:"arn"`
+	EndpointDetails         WebAppEndpointDetailsPtrOutput         `pulumi:"endpointDetails"`
 	IdentityProviderDetails WebAppIdentityProviderDetailsPtrOutput `pulumi:"identityProviderDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value pairs that can be used to group and search for web apps.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-	WebAppEndpointPolicy pulumi.StringOutput `pulumi:"webAppEndpointPolicy"`
-	// ID of the Wep App resource.
-	WebAppId pulumi.StringOutput `pulumi:"webAppId"`
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
-	WebAppUnits WebAppWebAppUnitArrayOutput `pulumi:"webAppUnits"`
+	Region                  pulumi.StringOutput                    `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                 `pulumi:"tagsAll"`
+	WebAppEndpointPolicy    pulumi.StringOutput                    `pulumi:"webAppEndpointPolicy"`
+	WebAppId                pulumi.StringOutput                    `pulumi:"webAppId"`
+	WebAppUnits             WebAppWebAppUnitArrayOutput            `pulumi:"webAppUnits"`
 }
 
 // NewWebApp registers a new resource with the given unique name, arguments, and options.
@@ -230,53 +56,29 @@ func GetWebApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebApp resources.
 type webAppState struct {
-	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-	AccessEndpoint *string `pulumi:"accessEndpoint"`
-	// ARN of the Web App.
-	Arn *string `pulumi:"arn"`
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-	EndpointDetails *WebAppEndpointDetails `pulumi:"endpointDetails"`
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
-	//
-	// The following arguments are optional:
+	AccessEndpoint          *string                        `pulumi:"accessEndpoint"`
+	Arn                     *string                        `pulumi:"arn"`
+	EndpointDetails         *WebAppEndpointDetails         `pulumi:"endpointDetails"`
 	IdentityProviderDetails *WebAppIdentityProviderDetails `pulumi:"identityProviderDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value pairs that can be used to group and search for web apps.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-	WebAppEndpointPolicy *string `pulumi:"webAppEndpointPolicy"`
-	// ID of the Wep App resource.
-	WebAppId *string `pulumi:"webAppId"`
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
-	WebAppUnits []WebAppWebAppUnit `pulumi:"webAppUnits"`
+	Region                  *string                        `pulumi:"region"`
+	Tags                    map[string]string              `pulumi:"tags"`
+	TagsAll                 map[string]string              `pulumi:"tagsAll"`
+	WebAppEndpointPolicy    *string                        `pulumi:"webAppEndpointPolicy"`
+	WebAppId                *string                        `pulumi:"webAppId"`
+	WebAppUnits             []WebAppWebAppUnit             `pulumi:"webAppUnits"`
 }
 
 type WebAppState struct {
-	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-	AccessEndpoint pulumi.StringPtrInput
-	// ARN of the Web App.
-	Arn pulumi.StringPtrInput
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-	EndpointDetails WebAppEndpointDetailsPtrInput
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
-	//
-	// The following arguments are optional:
+	AccessEndpoint          pulumi.StringPtrInput
+	Arn                     pulumi.StringPtrInput
+	EndpointDetails         WebAppEndpointDetailsPtrInput
 	IdentityProviderDetails WebAppIdentityProviderDetailsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value pairs that can be used to group and search for web apps.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-	WebAppEndpointPolicy pulumi.StringPtrInput
-	// ID of the Wep App resource.
-	WebAppId pulumi.StringPtrInput
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
-	WebAppUnits WebAppWebAppUnitArrayInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	WebAppEndpointPolicy    pulumi.StringPtrInput
+	WebAppId                pulumi.StringPtrInput
+	WebAppUnits             WebAppWebAppUnitArrayInput
 }
 
 func (WebAppState) ElementType() reflect.Type {
@@ -284,44 +86,24 @@ func (WebAppState) ElementType() reflect.Type {
 }
 
 type webAppArgs struct {
-	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-	AccessEndpoint *string `pulumi:"accessEndpoint"`
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-	EndpointDetails *WebAppEndpointDetails `pulumi:"endpointDetails"`
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
-	//
-	// The following arguments are optional:
+	AccessEndpoint          *string                        `pulumi:"accessEndpoint"`
+	EndpointDetails         *WebAppEndpointDetails         `pulumi:"endpointDetails"`
 	IdentityProviderDetails *WebAppIdentityProviderDetails `pulumi:"identityProviderDetails"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value pairs that can be used to group and search for web apps.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-	WebAppEndpointPolicy *string `pulumi:"webAppEndpointPolicy"`
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
-	WebAppUnits []WebAppWebAppUnit `pulumi:"webAppUnits"`
+	Region                  *string                        `pulumi:"region"`
+	Tags                    map[string]string              `pulumi:"tags"`
+	WebAppEndpointPolicy    *string                        `pulumi:"webAppEndpointPolicy"`
+	WebAppUnits             []WebAppWebAppUnit             `pulumi:"webAppUnits"`
 }
 
 // The set of arguments for constructing a WebApp resource.
 type WebAppArgs struct {
-	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-	AccessEndpoint pulumi.StringPtrInput
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-	EndpointDetails WebAppEndpointDetailsPtrInput
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
-	//
-	// The following arguments are optional:
+	AccessEndpoint          pulumi.StringPtrInput
+	EndpointDetails         WebAppEndpointDetailsPtrInput
 	IdentityProviderDetails WebAppIdentityProviderDetailsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value pairs that can be used to group and search for web apps.
-	Tags pulumi.StringMapInput
-	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-	WebAppEndpointPolicy pulumi.StringPtrInput
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
-	WebAppUnits WebAppWebAppUnitArrayInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	WebAppEndpointPolicy    pulumi.StringPtrInput
+	WebAppUnits             WebAppWebAppUnitArrayInput
 }
 
 func (WebAppArgs) ElementType() reflect.Type {
@@ -411,34 +193,26 @@ func (o WebAppOutput) ToWebAppOutputWithContext(ctx context.Context) WebAppOutpu
 	return o
 }
 
-// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 func (o WebAppOutput) AccessEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.AccessEndpoint }).(pulumi.StringOutput)
 }
 
-// ARN of the Web App.
 func (o WebAppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
 func (o WebAppOutput) EndpointDetails() WebAppEndpointDetailsPtrOutput {
 	return o.ApplyT(func(v *WebApp) WebAppEndpointDetailsPtrOutput { return v.EndpointDetails }).(WebAppEndpointDetailsPtrOutput)
 }
 
-// Block for details of the identity provider to use with the web app. See Identity provider details below.
-//
-// The following arguments are optional:
 func (o WebAppOutput) IdentityProviderDetails() WebAppIdentityProviderDetailsPtrOutput {
 	return o.ApplyT(func(v *WebApp) WebAppIdentityProviderDetailsPtrOutput { return v.IdentityProviderDetails }).(WebAppIdentityProviderDetailsPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebAppOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value pairs that can be used to group and search for web apps.
 func (o WebAppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -447,18 +221,14 @@ func (o WebAppOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
 func (o WebAppOutput) WebAppEndpointPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.WebAppEndpointPolicy }).(pulumi.StringOutput)
 }
 
-// ID of the Wep App resource.
 func (o WebAppOutput) WebAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.WebAppId }).(pulumi.StringOutput)
 }
 
-// Block for number of concurrent connections or the user sessions on the web app.
-// * provisioned - (Optional) Number of units of concurrent connections.
 func (o WebAppOutput) WebAppUnits() WebAppWebAppUnitArrayOutput {
 	return o.ApplyT(func(v *WebApp) WebAppWebAppUnitArrayOutput { return v.WebAppUnits }).(WebAppWebAppUnitArrayOutput)
 }

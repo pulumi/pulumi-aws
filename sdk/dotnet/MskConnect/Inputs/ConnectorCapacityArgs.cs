@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorCapacityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Information about the auto scaling parameters for the connector. See `Autoscaling` Block for details.
-        /// </summary>
         [Input("autoscaling")]
         public Input<Inputs.ConnectorCapacityAutoscalingArgs>? Autoscaling { get; set; }
 
-        /// <summary>
-        /// Details about a fixed capacity allocated to a connector. See `ProvisionedCapacity` Block for details.
-        /// </summary>
         [Input("provisionedCapacity")]
         public Input<Inputs.ConnectorCapacityProvisionedCapacityArgs>? ProvisionedCapacity { get; set; }
 

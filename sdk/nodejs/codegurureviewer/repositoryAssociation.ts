@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CodeGuru Reviewer Repository Association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {});
- * const exampleRepository = new aws.codecommit.Repository("example", {repositoryName: "example-repo"});
- * const exampleRepositoryAssociation = new aws.codegurureviewer.RepositoryAssociation("example", {
- *     repository: {
- *         codecommit: {
- *             name: exampleRepository.repositoryName,
- *         },
- *     },
- *     kmsKeyDetails: {
- *         encryptionOption: "CUSTOMER_MANAGED_CMK",
- *         kmsKeyId: example.keyId,
- *     },
- * });
- * ```
- */
 export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryAssociation resource's state with the given name, ID, and optional extra
@@ -59,52 +35,17 @@ export class RepositoryAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryAssociation.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ID of the repository association.
-     */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     */
     declare public /*out*/ readonly connectionArn: pulumi.Output<string>;
-    /**
-     * An object describing the KMS key to asssociate. Block is documented below.
-     */
     declare public readonly kmsKeyDetails: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
-    /**
-     * The name of the repository.
-     */
     declare public /*out*/ readonly name: pulumi.Output<string>;
-    /**
-     * The owner of the repository.
-     */
     declare public /*out*/ readonly owner: pulumi.Output<string>;
-    /**
-     * The provider type of the repository association.
-     */
     declare public /*out*/ readonly providerType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly repository: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationRepository>;
     declare public /*out*/ readonly s3RepositoryDetails: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail[]>;
-    /**
-     * The state of the repository association.
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * A description of why the repository association is in the current state.
-     */
     declare public /*out*/ readonly stateReason: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -165,52 +106,17 @@ export class RepositoryAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryAssociation resources.
  */
 export interface RepositoryAssociationState {
-    /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the repository association.
-     */
     associationId?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     */
     connectionArn?: pulumi.Input<string>;
-    /**
-     * An object describing the KMS key to asssociate. Block is documented below.
-     */
     kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
-    /**
-     * The name of the repository.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The owner of the repository.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * The provider type of the repository association.
-     */
     providerType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     *
-     * The following arguments are optional:
-     */
     repository?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
     s3RepositoryDetails?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail>[]>;
-    /**
-     * The state of the repository association.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * A description of why the repository association is in the current state.
-     */
     stateReason?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -220,19 +126,8 @@ export interface RepositoryAssociationState {
  * The set of arguments for constructing a RepositoryAssociation resource.
  */
 export interface RepositoryAssociationArgs {
-    /**
-     * An object describing the KMS key to asssociate. Block is documented below.
-     */
     kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     *
-     * The following arguments are optional:
-     */
     repository: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

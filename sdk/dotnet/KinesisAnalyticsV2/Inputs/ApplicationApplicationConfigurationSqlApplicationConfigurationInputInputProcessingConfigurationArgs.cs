@@ -12,9 +12,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
-        /// </summary>
         [Input("inputLambdaProcessor", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs> InputLambdaProcessor { get; set; } = null!;
 

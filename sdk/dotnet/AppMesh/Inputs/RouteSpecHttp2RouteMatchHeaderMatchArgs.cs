@@ -12,33 +12,18 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecHttp2RouteMatchHeaderMatchArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Header value sent by the client must match the specified value exactly.
-        /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
-        /// <summary>
-        /// Header value sent by the client must begin with the specified characters.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
-        /// <summary>
-        /// Object that specifies the range of numbers that the header value sent by the client must be included in.
-        /// </summary>
         [Input("range")]
         public Input<Inputs.RouteSpecHttp2RouteMatchHeaderMatchRangeArgs>? Range { get; set; }
 
-        /// <summary>
-        /// Header value sent by the client must include the specified characters.
-        /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }
 
-        /// <summary>
-        /// Header value sent by the client must end with the specified characters.
-        /// </summary>
         [Input("suffix")]
         public Input<string>? Suffix { get; set; }
 

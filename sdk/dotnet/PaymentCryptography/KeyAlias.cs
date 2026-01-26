@@ -9,82 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.PaymentCryptography
 {
-    /// <summary>
-    /// Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.PaymentCryptography.Key("test", new()
-    ///     {
-    ///         Exportable = true,
-    ///         KeyAttributes = new[]
-    ///         {
-    ///             new Aws.PaymentCryptography.Inputs.KeyKeyAttributeArgs
-    ///             {
-    ///                 KeyAlgorithm = "TDES_3KEY",
-    ///                 KeyClass = "SYMMETRIC_KEY",
-    ///                 KeyUsage = "TR31_P0_PIN_ENCRYPTION_KEY",
-    ///                 KeyModesOfUses = new[]
-    ///                 {
-    ///                     new Aws.PaymentCryptography.Inputs.KeyKeyAttributeKeyModesOfUseArgs
-    ///                     {
-    ///                         Decrypt = true,
-    ///                         Encrypt = true,
-    ///                         Wrap = true,
-    ///                         Unwrap = true,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testKeyAlias = new Aws.PaymentCryptography.KeyAlias("test", new()
-    ///     {
-    ///         AliasName = "alias/test-alias",
-    ///         KeyArn = test.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:paymentcryptography/keyAlias:KeyAlias")]
     public partial class KeyAlias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the Key Alias.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("aliasName")]
         public Output<string> AliasName { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the key.
-        /// </summary>
         [Output("keyArn")]
         public Output<string?> KeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -134,23 +67,12 @@ namespace Pulumi.Aws.PaymentCryptography
 
     public sealed class KeyAliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Key Alias.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("aliasName", required: true)]
         public Input<string> AliasName { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the key.
-        /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,23 +84,12 @@ namespace Pulumi.Aws.PaymentCryptography
 
     public sealed class KeyAliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Key Alias.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }
 
-        /// <summary>
-        /// ARN of the key.
-        /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -12,61 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Verified Permissions Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedpermissions.NewPolicy(ctx, "test", &verifiedpermissions.PolicyArgs{
-//				PolicyStoreId: pulumi.Any(testAwsVerifiedpermissionsPolicyStore.Id),
-//				Definition: &verifiedpermissions.PolicyDefinitionArgs{
-//					Static: &verifiedpermissions.PolicyDefinitionStaticArgs{
-//						Statement: pulumi.String("permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Verified Permissions Policy using the `policy_id,policy_store_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:verifiedpermissions/policy:Policy example policy-id-12345678,policy-store-id-12345678
-// ```
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// The date the policy was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The definition of the policy. See Definition below.
-	Definition PolicyDefinitionPtrOutput `pulumi:"definition"`
-	// The Policy ID of the policy.
-	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// The Policy Store ID of the policy store.
-	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	CreatedDate   pulumi.StringOutput       `pulumi:"createdDate"`
+	Definition    PolicyDefinitionPtrOutput `pulumi:"definition"`
+	PolicyId      pulumi.StringOutput       `pulumi:"policyId"`
+	PolicyStoreId pulumi.StringOutput       `pulumi:"policyStoreId"`
+	Region        pulumi.StringOutput       `pulumi:"region"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -102,29 +55,19 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// The date the policy was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The definition of the policy. See Definition below.
-	Definition *PolicyDefinition `pulumi:"definition"`
-	// The Policy ID of the policy.
-	PolicyId *string `pulumi:"policyId"`
-	// The Policy Store ID of the policy store.
-	PolicyStoreId *string `pulumi:"policyStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CreatedDate   *string           `pulumi:"createdDate"`
+	Definition    *PolicyDefinition `pulumi:"definition"`
+	PolicyId      *string           `pulumi:"policyId"`
+	PolicyStoreId *string           `pulumi:"policyStoreId"`
+	Region        *string           `pulumi:"region"`
 }
 
 type PolicyState struct {
-	// The date the policy was created.
-	CreatedDate pulumi.StringPtrInput
-	// The definition of the policy. See Definition below.
-	Definition PolicyDefinitionPtrInput
-	// The Policy ID of the policy.
-	PolicyId pulumi.StringPtrInput
-	// The Policy Store ID of the policy store.
+	CreatedDate   pulumi.StringPtrInput
+	Definition    PolicyDefinitionPtrInput
+	PolicyId      pulumi.StringPtrInput
 	PolicyStoreId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (PolicyState) ElementType() reflect.Type {
@@ -132,22 +75,16 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// The definition of the policy. See Definition below.
-	Definition *PolicyDefinition `pulumi:"definition"`
-	// The Policy Store ID of the policy store.
-	PolicyStoreId string `pulumi:"policyStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Definition    *PolicyDefinition `pulumi:"definition"`
+	PolicyStoreId string            `pulumi:"policyStoreId"`
+	Region        *string           `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// The definition of the policy. See Definition below.
-	Definition PolicyDefinitionPtrInput
-	// The Policy Store ID of the policy store.
+	Definition    PolicyDefinitionPtrInput
 	PolicyStoreId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -237,27 +174,22 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// The date the policy was created.
 func (o PolicyOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The definition of the policy. See Definition below.
 func (o PolicyOutput) Definition() PolicyDefinitionPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyDefinitionPtrOutput { return v.Definition }).(PolicyDefinitionPtrOutput)
 }
 
-// The Policy ID of the policy.
 func (o PolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// The Policy Store ID of the policy store.
 func (o PolicyOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

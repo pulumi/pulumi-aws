@@ -14,32 +14,16 @@ public final class EventConnectionAuthParametersOauthClientParametersArgs extend
 
     public static final EventConnectionAuthParametersOauthClientParametersArgs Empty = new EventConnectionAuthParametersOauthClientParametersArgs();
 
-    /**
-     * The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
-    /**
-     * @return The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
-    /**
-     * The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
-    /**
-     * @return The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
@@ -69,44 +53,20 @@ public final class EventConnectionAuthParametersOauthClientParametersArgs extend
             $ = new EventConnectionAuthParametersOauthClientParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientId The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientSecret The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
-        /**
-         * @param clientSecret The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }

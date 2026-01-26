@@ -7,25 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
- *
- * ## Example Usage
- *
- * The following shows outputting all Transit Gateway Route Table Ids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const example = await aws.ec2.getTransitGatewayRouteTables({});
- *     return {
- *         example: example.ids,
- *     };
- * }
- * ```
- */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,21 +21,8 @@ export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTables
  * A collection of arguments for invoking getTransitGatewayRouteTables.
  */
 export interface GetTransitGatewayRouteTablesArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetTransitGatewayRouteTablesFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired transit gateway route table.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     */
     tags?: {[key: string]: string};
 }
 
@@ -67,32 +35,10 @@ export interface GetTransitGatewayRouteTablesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of Transit Gateway Route Table identifiers.
-     */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
- *
- * ## Example Usage
- *
- * The following shows outputting all Transit Gateway Route Table Ids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const example = await aws.ec2.getTransitGatewayRouteTables({});
- *     return {
- *         example: example.ids,
- *     };
- * }
- * ```
- */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,20 +53,7 @@ export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRoute
  * A collection of arguments for invoking getTransitGatewayRouteTables.
  */
 export interface GetTransitGatewayRouteTablesOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetTransitGatewayRouteTablesFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired transit gateway route table.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

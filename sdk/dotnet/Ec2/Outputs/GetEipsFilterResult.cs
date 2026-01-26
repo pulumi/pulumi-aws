@@ -13,14 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetEipsFilterResult
     {
-        /// <summary>
-        /// Name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

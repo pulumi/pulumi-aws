@@ -17,40 +17,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInsightsPathResult {
-    /**
-     * @return ARN of the selected Network Insights Path.
-     * 
-     */
     private String arn;
-    /**
-     * @return AWS resource that is the destination of the path.
-     * 
-     */
     private String destination;
-    /**
-     * @return ARN of the destination.
-     * 
-     */
     private String destinationArn;
-    /**
-     * @return IP address of the AWS resource that is the destination of the path.
-     * 
-     */
     private String destinationIp;
-    /**
-     * @return Destination port.
-     * 
-     */
     private Integer destinationPort;
-    /**
-     * @return Filters of the network paths at the destination.
-     * 
-     */
     private List<GetNetworkInsightsPathFilterAtDestination> filterAtDestinations;
-    /**
-     * @return Filters of the network paths at the source.
-     * 
-     */
     private List<GetNetworkInsightsPathFilterAtSource> filterAtSources;
     private @Nullable List<GetNetworkInsightsPathFilter> filters;
     /**
@@ -59,80 +31,32 @@ public final class GetNetworkInsightsPathResult {
      */
     private String id;
     private String networkInsightsPathId;
-    /**
-     * @return Protocol.
-     * 
-     */
     private String protocol;
     private String region;
-    /**
-     * @return AWS resource that is the source of the path.
-     * 
-     */
     private String source;
-    /**
-     * @return ARN of the source.
-     * 
-     */
     private String sourceArn;
-    /**
-     * @return IP address of the AWS resource that is the source of the path.
-     * 
-     */
     private String sourceIp;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetNetworkInsightsPathResult() {}
-    /**
-     * @return ARN of the selected Network Insights Path.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return AWS resource that is the destination of the path.
-     * 
-     */
     public String destination() {
         return this.destination;
     }
-    /**
-     * @return ARN of the destination.
-     * 
-     */
     public String destinationArn() {
         return this.destinationArn;
     }
-    /**
-     * @return IP address of the AWS resource that is the destination of the path.
-     * 
-     */
     public String destinationIp() {
         return this.destinationIp;
     }
-    /**
-     * @return Destination port.
-     * 
-     */
     public Integer destinationPort() {
         return this.destinationPort;
     }
-    /**
-     * @return Filters of the network paths at the destination.
-     * 
-     */
     public List<GetNetworkInsightsPathFilterAtDestination> filterAtDestinations() {
         return this.filterAtDestinations;
     }
-    /**
-     * @return Filters of the network paths at the source.
-     * 
-     */
     public List<GetNetworkInsightsPathFilterAtSource> filterAtSources() {
         return this.filterAtSources;
     }
@@ -149,41 +73,21 @@ public final class GetNetworkInsightsPathResult {
     public String networkInsightsPathId() {
         return this.networkInsightsPathId;
     }
-    /**
-     * @return Protocol.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return AWS resource that is the source of the path.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return ARN of the source.
-     * 
-     */
     public String sourceArn() {
         return this.sourceArn;
     }
-    /**
-     * @return IP address of the AWS resource that is the source of the path.
-     * 
-     */
     public String sourceIp() {
         return this.sourceIp;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

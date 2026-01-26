@@ -12,21 +12,12 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
 
     public sealed class GetPrincipalApplicationAssignmentsApplicationAssignmentArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         [Input("principalId", required: true)]
         public string PrincipalId { get; set; } = null!;
 
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         [Input("principalType", required: true)]
         public string PrincipalType { get; set; } = null!;
 

@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterStepHadoopJarStep {
-    /**
-     * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
-     * 
-     */
     private @Nullable List<String> args;
-    /**
-     * @return Path to a JAR file run during the step.
-     * 
-     */
     private String jar;
-    /**
-     * @return Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-     * 
-     */
     private @Nullable String mainClass;
-    /**
-     * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-     * 
-     */
     private @Nullable Map<String,String> properties;
 
     private ClusterStepHadoopJarStep() {}
-    /**
-     * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
-     * 
-     */
     public List<String> args() {
         return this.args == null ? List.of() : this.args;
     }
-    /**
-     * @return Path to a JAR file run during the step.
-     * 
-     */
     public String jar() {
         return this.jar;
     }
-    /**
-     * @return Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-     * 
-     */
     public Optional<String> mainClass() {
         return Optional.ofNullable(this.mainClass);
     }
-    /**
-     * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-     * 
-     */
     public Map<String,String> properties() {
         return this.properties == null ? Map.of() : this.properties;
     }

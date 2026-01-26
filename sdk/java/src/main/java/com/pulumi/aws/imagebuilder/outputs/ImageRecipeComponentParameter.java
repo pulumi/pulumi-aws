@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ImageRecipeComponentParameter {
-    /**
-     * @return The name of the component parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The value for the named component parameter.
-     * 
-     */
     private String value;
 
     private ImageRecipeComponentParameter() {}
-    /**
-     * @return The name of the component parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value for the named component parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

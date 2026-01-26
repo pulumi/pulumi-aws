@@ -16,32 +16,16 @@ public final class GetInferenceProfileArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetInferenceProfileArgs Empty = new GetInferenceProfileArgs();
 
-    /**
-     * Inference Profile identifier.
-     * 
-     */
     @Import(name="inferenceProfileId", required=true)
     private Output<String> inferenceProfileId;
 
-    /**
-     * @return Inference Profile identifier.
-     * 
-     */
     public Output<String> inferenceProfileId() {
         return this.inferenceProfileId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class GetInferenceProfileArgs extends com.pulumi.resources.InvokeAr
             $ = new GetInferenceProfileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inferenceProfileId Inference Profile identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceProfileId(Output<String> inferenceProfileId) {
             $.inferenceProfileId = inferenceProfileId;
             return this;
         }
 
-        /**
-         * @param inferenceProfileId Inference Profile identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceProfileId(String inferenceProfileId) {
             return inferenceProfileId(Output.of(inferenceProfileId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

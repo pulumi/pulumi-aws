@@ -14,37 +14,21 @@ namespace Pulumi.Aws.S3.Inputs
     {
         [Input("events", required: true)]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
             set => _events = value;
         }
 
-        /// <summary>
-        /// Object key name prefix.
-        /// </summary>
         [Input("filterPrefix")]
         public Input<string>? FilterPrefix { get; set; }
 
-        /// <summary>
-        /// Object key name suffix.
-        /// </summary>
         [Input("filterSuffix")]
         public Input<string>? FilterSuffix { get; set; }
 
-        /// <summary>
-        /// Unique identifier for each of the notification configurations.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// SNS topic ARN.
-        /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
 

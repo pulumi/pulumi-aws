@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Chime.Outputs
     [OutputType]
     public sealed class VoiceConnectorStreamingMediaInsightsConfiguration
     {
-        /// <summary>
-        /// The media insights configuration that will be invoked by the Voice Connector.
-        /// </summary>
         public readonly string? ConfigurationArn;
-        /// <summary>
-        /// When `True`, the media insights configuration is not enabled. Defaults to `False`.
-        /// </summary>
         public readonly bool? Disabled;
 
         [OutputConstructor]

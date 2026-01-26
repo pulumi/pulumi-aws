@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DashboardSourceEntitySourceTemplate
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// List of dataset references. See data_set_references.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSourceEntitySourceTemplateDataSetReference> DataSetReferences;
 
         [OutputConstructor]

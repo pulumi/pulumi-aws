@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Msk
 {
     public static class GetVpcConnection
     {
-        /// <summary>
-        /// Get information on an Amazon MSK VPC Connection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
-        ///     {
-        ///         Arn = exampleAwsMskVpcConnection.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcConnectionResult> InvokeAsync(GetVpcConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcConnectionResult>("aws:msk/getVpcConnection:getVpcConnection", args ?? new GetVpcConnectionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an Amazon MSK VPC Connection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
-        ///     {
-        ///         Arn = exampleAwsMskVpcConnection.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws:msk/getVpcConnection:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an Amazon MSK VPC Connection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
-        ///     {
-        ///         Arn = exampleAwsMskVpcConnection.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws:msk/getVpcConnection:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Msk
 
     public sealed class GetVpcConnectionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the VPC Connection.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of key-value pairs assigned to the VPC Connection.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Msk
 
     public sealed class GetVpcConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the VPC Connection.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of key-value pairs assigned to the VPC Connection.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,34 +71,16 @@ namespace Pulumi.Aws.Msk
     public sealed class GetVpcConnectionResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// The authentication type for the client VPC Connection.
-        /// </summary>
         public readonly string Authentication;
-        /// <summary>
-        /// The list of subnets in the client VPC.
-        /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// The security groups attached to the ENIs for the broker nodes.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// Map of key-value pairs assigned to the VPC Connection.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
-        /// </summary>
         public readonly string TargetClusterArn;
-        /// <summary>
-        /// The VPC ID of the remote client.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

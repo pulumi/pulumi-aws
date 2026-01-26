@@ -12,110 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS App Mesh virtual service resource.
-//
-// ## Example Usage
-//
-// ### Virtual Node Provider
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				Name:     pulumi.String("servicea.simpleapp.local"),
-//				MeshName: pulumi.Any(simple.Id),
-//				Spec: &appmesh.VirtualServiceSpecArgs{
-//					Provider: &appmesh.VirtualServiceSpecProviderArgs{
-//						VirtualNode: &appmesh.VirtualServiceSpecProviderVirtualNodeArgs{
-//							VirtualNodeName: pulumi.Any(serviceb1.Name),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Virtual Router Provider
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				Name:     pulumi.String("servicea.simpleapp.local"),
-//				MeshName: pulumi.Any(simple.Id),
-//				Spec: &appmesh.VirtualServiceSpecArgs{
-//					Provider: &appmesh.VirtualServiceSpecProviderArgs{
-//						VirtualRouter: &appmesh.VirtualServiceSpecProviderVirtualRouterArgs{
-//							VirtualRouterName: pulumi.Any(serviceb.Name),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
-// ```
 type VirtualService struct {
 	pulumi.CustomResourceState
 
-	// ARN of the virtual service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Creation date of the virtual service.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Last update date of the virtual service.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringOutput `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// Virtual service specification to apply.
-	Spec VirtualServiceSpecOutput `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn             pulumi.StringOutput      `pulumi:"arn"`
+	CreatedDate     pulumi.StringOutput      `pulumi:"createdDate"`
+	LastUpdatedDate pulumi.StringOutput      `pulumi:"lastUpdatedDate"`
+	MeshName        pulumi.StringOutput      `pulumi:"meshName"`
+	MeshOwner       pulumi.StringOutput      `pulumi:"meshOwner"`
+	Name            pulumi.StringOutput      `pulumi:"name"`
+	Region          pulumi.StringOutput      `pulumi:"region"`
+	ResourceOwner   pulumi.StringOutput      `pulumi:"resourceOwner"`
+	Spec            VirtualServiceSpecOutput `pulumi:"spec"`
+	Tags            pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewVirtualService registers a new resource with the given unique name, arguments, and options.
@@ -154,53 +64,31 @@ func GetVirtualService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualService resources.
 type virtualServiceState struct {
-	// ARN of the virtual service.
-	Arn *string `pulumi:"arn"`
-	// Creation date of the virtual service.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Last update date of the virtual service.
-	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
-	MeshName *string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner *string `pulumi:"resourceOwner"`
-	// Virtual service specification to apply.
-	Spec *VirtualServiceSpec `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string             `pulumi:"arn"`
+	CreatedDate     *string             `pulumi:"createdDate"`
+	LastUpdatedDate *string             `pulumi:"lastUpdatedDate"`
+	MeshName        *string             `pulumi:"meshName"`
+	MeshOwner       *string             `pulumi:"meshOwner"`
+	Name            *string             `pulumi:"name"`
+	Region          *string             `pulumi:"region"`
+	ResourceOwner   *string             `pulumi:"resourceOwner"`
+	Spec            *VirtualServiceSpec `pulumi:"spec"`
+	Tags            map[string]string   `pulumi:"tags"`
+	TagsAll         map[string]string   `pulumi:"tagsAll"`
 }
 
 type VirtualServiceState struct {
-	// ARN of the virtual service.
-	Arn pulumi.StringPtrInput
-	// Creation date of the virtual service.
-	CreatedDate pulumi.StringPtrInput
-	// Last update date of the virtual service.
+	Arn             pulumi.StringPtrInput
+	CreatedDate     pulumi.StringPtrInput
 	LastUpdatedDate pulumi.StringPtrInput
-	// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringPtrInput
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringPtrInput
-	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringPtrInput
-	// Virtual service specification to apply.
-	Spec VirtualServiceSpecPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	MeshName        pulumi.StringPtrInput
+	MeshOwner       pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	ResourceOwner   pulumi.StringPtrInput
+	Spec            VirtualServiceSpecPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (VirtualServiceState) ElementType() reflect.Type {
@@ -208,34 +96,22 @@ func (VirtualServiceState) ElementType() reflect.Type {
 }
 
 type virtualServiceArgs struct {
-	// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
-	MeshName string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Virtual service specification to apply.
-	Spec VirtualServiceSpec `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	MeshName  string             `pulumi:"meshName"`
+	MeshOwner *string            `pulumi:"meshOwner"`
+	Name      *string            `pulumi:"name"`
+	Region    *string            `pulumi:"region"`
+	Spec      VirtualServiceSpec `pulumi:"spec"`
+	Tags      map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualService resource.
 type VirtualServiceArgs struct {
-	// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringInput
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshName  pulumi.StringInput
 	MeshOwner pulumi.StringPtrInput
-	// Name to use for the virtual service. Must be between 1 and 255 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Virtual service specification to apply.
-	Spec VirtualServiceSpecInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Spec      VirtualServiceSpecInput
+	Tags      pulumi.StringMapInput
 }
 
 func (VirtualServiceArgs) ElementType() reflect.Type {
@@ -325,57 +201,46 @@ func (o VirtualServiceOutput) ToVirtualServiceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARN of the virtual service.
 func (o VirtualServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation date of the virtual service.
 func (o VirtualServiceOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Last update date of the virtual service.
 func (o VirtualServiceOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
 func (o VirtualServiceOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
 }
 
-// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 func (o VirtualServiceOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
-// Name to use for the virtual service. Must be between 1 and 255 characters in length.
 func (o VirtualServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VirtualServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Resource owner's AWS account ID.
 func (o VirtualServiceOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual service specification to apply.
 func (o VirtualServiceOutput) Spec() VirtualServiceSpecOutput {
 	return o.ApplyT(func(v *VirtualService) VirtualServiceSpecOutput { return v.Spec }).(VirtualServiceSpecOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

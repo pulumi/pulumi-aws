@@ -16,32 +16,16 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
 
     public static final UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs Empty = new UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs();
 
-    /**
-     * The ID of your Amazon EFS file system.
-     * 
-     */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
 
-    /**
-     * The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-     * 
-     */
     @Import(name="fileSystemPath")
     private @Nullable Output<String> fileSystemPath;
 
-    /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-     * 
-     */
     public Optional<Output<String>> fileSystemPath() {
         return Optional.ofNullable(this.fileSystemPath);
     }
@@ -71,44 +55,20 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
             $ = new UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fileSystemId The ID of your Amazon EFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId The ID of your Amazon EFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param fileSystemPath The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemPath(@Nullable Output<String> fileSystemPath) {
             $.fileSystemPath = fileSystemPath;
             return this;
         }
 
-        /**
-         * @param fileSystemPath The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemPath(String fileSystemPath) {
             return fileSystemPath(Output.of(fileSystemPath));
         }

@@ -11,65 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolEmailConfiguration {
-    /**
-     * @return Email configuration set name from SES.
-     * 
-     */
     private @Nullable String configurationSet;
-    /**
-     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
-     * 
-     */
     private @Nullable String emailSendingAccount;
-    /**
-     * @return Sender’s email address or sender’s display name with their email address (e.g., `john{@literal @}example.com`, `John Smith &lt;john{@literal @}example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john{@literal @}example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
-     * 
-     */
     private @Nullable String fromEmailAddress;
-    /**
-     * @return REPLY-TO email address.
-     * 
-     */
     private @Nullable String replyToEmailAddress;
-    /**
-     * @return ARN of the SES verified email identity to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
-     * 
-     */
     private @Nullable String sourceArn;
 
     private UserPoolEmailConfiguration() {}
-    /**
-     * @return Email configuration set name from SES.
-     * 
-     */
     public Optional<String> configurationSet() {
         return Optional.ofNullable(this.configurationSet);
     }
-    /**
-     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
-     * 
-     */
     public Optional<String> emailSendingAccount() {
         return Optional.ofNullable(this.emailSendingAccount);
     }
-    /**
-     * @return Sender’s email address or sender’s display name with their email address (e.g., `john{@literal @}example.com`, `John Smith &lt;john{@literal @}example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john{@literal @}example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
-     * 
-     */
     public Optional<String> fromEmailAddress() {
         return Optional.ofNullable(this.fromEmailAddress);
     }
-    /**
-     * @return REPLY-TO email address.
-     * 
-     */
     public Optional<String> replyToEmailAddress() {
         return Optional.ofNullable(this.replyToEmailAddress);
     }
-    /**
-     * @return ARN of the SES verified email identity to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
-     * 
-     */
     public Optional<String> sourceArn() {
         return Optional.ofNullable(this.sourceArn);
     }

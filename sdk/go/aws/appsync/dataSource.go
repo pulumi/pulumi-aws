@@ -12,153 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppSync Data Source.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:          pulumi.String("example"),
-//				ReadCapacity:  pulumi.Int(1),
-//				WriteCapacity: pulumi.Int(1),
-//				HashKey:       pulumi.String("UserId"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("UserId"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"appsync.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("dynamodb:*"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleTable.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-//				Name: pulumi.String("example"),
-//				Role: exampleRole.ID(),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Name:               pulumi.String("my_appsync_example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewDataSource(ctx, "example", &appsync.DataSourceArgs{
-//				ApiId:          exampleGraphQLApi.ID(),
-//				Name:           pulumi.String("my_appsync_example"),
-//				ServiceRoleArn: exampleRole.Arn,
-//				Type:           pulumi.String("AMAZON_DYNAMODB"),
-//				DynamodbConfig: &appsync.DataSourceDynamodbConfigArgs{
-//					TableName: exampleTable.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
-// ```
 type DataSource struct {
 	pulumi.CustomResourceState
 
-	// API ID for the GraphQL API for the data source.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the data source.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// DynamoDB settings. See `dynamodbConfig` Block for details.
-	DynamodbConfig DataSourceDynamodbConfigPtrOutput `pulumi:"dynamodbConfig"`
-	// Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
-	ElasticsearchConfig DataSourceElasticsearchConfigPtrOutput `pulumi:"elasticsearchConfig"`
-	// AWS EventBridge settings. See `eventBridgeConfig` Block for details.
-	EventBridgeConfig DataSourceEventBridgeConfigPtrOutput `pulumi:"eventBridgeConfig"`
-	// HTTP settings. See `httpConfig` Block for details.
-	HttpConfig DataSourceHttpConfigPtrOutput `pulumi:"httpConfig"`
-	// AWS Lambda settings. See `lambdaConfig` Block for details.
-	LambdaConfig DataSourceLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
-	// User-supplied name for the data source.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
-	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrOutput `pulumi:"opensearchserviceConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
+	ApiId                    pulumi.StringOutput                         `pulumi:"apiId"`
+	Arn                      pulumi.StringOutput                         `pulumi:"arn"`
+	Description              pulumi.StringPtrOutput                      `pulumi:"description"`
+	DynamodbConfig           DataSourceDynamodbConfigPtrOutput           `pulumi:"dynamodbConfig"`
+	ElasticsearchConfig      DataSourceElasticsearchConfigPtrOutput      `pulumi:"elasticsearchConfig"`
+	EventBridgeConfig        DataSourceEventBridgeConfigPtrOutput        `pulumi:"eventBridgeConfig"`
+	HttpConfig               DataSourceHttpConfigPtrOutput               `pulumi:"httpConfig"`
+	LambdaConfig             DataSourceLambdaConfigPtrOutput             `pulumi:"lambdaConfig"`
+	Name                     pulumi.StringOutput                         `pulumi:"name"`
+	OpensearchserviceConfig  DataSourceOpensearchserviceConfigPtrOutput  `pulumi:"opensearchserviceConfig"`
+	Region                   pulumi.StringOutput                         `pulumi:"region"`
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
-	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
-	ServiceRoleArn pulumi.StringPtrOutput `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ServiceRoleArn           pulumi.StringPtrOutput                      `pulumi:"serviceRoleArn"`
+	Type                     pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
@@ -197,65 +67,37 @@ func GetDataSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSource resources.
 type dataSourceState struct {
-	// API ID for the GraphQL API for the data source.
-	ApiId *string `pulumi:"apiId"`
-	// ARN
-	Arn *string `pulumi:"arn"`
-	// Description of the data source.
-	Description *string `pulumi:"description"`
-	// DynamoDB settings. See `dynamodbConfig` Block for details.
-	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
-	// Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
-	ElasticsearchConfig *DataSourceElasticsearchConfig `pulumi:"elasticsearchConfig"`
-	// AWS EventBridge settings. See `eventBridgeConfig` Block for details.
-	EventBridgeConfig *DataSourceEventBridgeConfig `pulumi:"eventBridgeConfig"`
-	// HTTP settings. See `httpConfig` Block for details.
-	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
-	// AWS Lambda settings. See `lambdaConfig` Block for details.
-	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
-	// User-supplied name for the data source.
-	Name *string `pulumi:"name"`
-	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
-	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
+	ApiId                    *string                             `pulumi:"apiId"`
+	Arn                      *string                             `pulumi:"arn"`
+	Description              *string                             `pulumi:"description"`
+	DynamodbConfig           *DataSourceDynamodbConfig           `pulumi:"dynamodbConfig"`
+	ElasticsearchConfig      *DataSourceElasticsearchConfig      `pulumi:"elasticsearchConfig"`
+	EventBridgeConfig        *DataSourceEventBridgeConfig        `pulumi:"eventBridgeConfig"`
+	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
+	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
+	Name                     *string                             `pulumi:"name"`
+	OpensearchserviceConfig  *DataSourceOpensearchserviceConfig  `pulumi:"opensearchserviceConfig"`
+	Region                   *string                             `pulumi:"region"`
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
-	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
-	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
-	Type *string `pulumi:"type"`
+	ServiceRoleArn           *string                             `pulumi:"serviceRoleArn"`
+	Type                     *string                             `pulumi:"type"`
 }
 
 type DataSourceState struct {
-	// API ID for the GraphQL API for the data source.
-	ApiId pulumi.StringPtrInput
-	// ARN
-	Arn pulumi.StringPtrInput
-	// Description of the data source.
-	Description pulumi.StringPtrInput
-	// DynamoDB settings. See `dynamodbConfig` Block for details.
-	DynamodbConfig DataSourceDynamodbConfigPtrInput
-	// Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
-	ElasticsearchConfig DataSourceElasticsearchConfigPtrInput
-	// AWS EventBridge settings. See `eventBridgeConfig` Block for details.
-	EventBridgeConfig DataSourceEventBridgeConfigPtrInput
-	// HTTP settings. See `httpConfig` Block for details.
-	HttpConfig DataSourceHttpConfigPtrInput
-	// AWS Lambda settings. See `lambdaConfig` Block for details.
-	LambdaConfig DataSourceLambdaConfigPtrInput
-	// User-supplied name for the data source.
-	Name pulumi.StringPtrInput
-	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
-	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
+	ApiId                    pulumi.StringPtrInput
+	Arn                      pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	DynamodbConfig           DataSourceDynamodbConfigPtrInput
+	ElasticsearchConfig      DataSourceElasticsearchConfigPtrInput
+	EventBridgeConfig        DataSourceEventBridgeConfigPtrInput
+	HttpConfig               DataSourceHttpConfigPtrInput
+	LambdaConfig             DataSourceLambdaConfigPtrInput
+	Name                     pulumi.StringPtrInput
+	OpensearchserviceConfig  DataSourceOpensearchserviceConfigPtrInput
+	Region                   pulumi.StringPtrInput
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
-	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
-	ServiceRoleArn pulumi.StringPtrInput
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
-	Type pulumi.StringPtrInput
+	ServiceRoleArn           pulumi.StringPtrInput
+	Type                     pulumi.StringPtrInput
 }
 
 func (DataSourceState) ElementType() reflect.Type {
@@ -263,62 +105,36 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	// API ID for the GraphQL API for the data source.
-	ApiId string `pulumi:"apiId"`
-	// Description of the data source.
-	Description *string `pulumi:"description"`
-	// DynamoDB settings. See `dynamodbConfig` Block for details.
-	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
-	// Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
-	ElasticsearchConfig *DataSourceElasticsearchConfig `pulumi:"elasticsearchConfig"`
-	// AWS EventBridge settings. See `eventBridgeConfig` Block for details.
-	EventBridgeConfig *DataSourceEventBridgeConfig `pulumi:"eventBridgeConfig"`
-	// HTTP settings. See `httpConfig` Block for details.
-	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
-	// AWS Lambda settings. See `lambdaConfig` Block for details.
-	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
-	// User-supplied name for the data source.
-	Name *string `pulumi:"name"`
-	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
-	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
+	ApiId                    string                              `pulumi:"apiId"`
+	Description              *string                             `pulumi:"description"`
+	DynamodbConfig           *DataSourceDynamodbConfig           `pulumi:"dynamodbConfig"`
+	ElasticsearchConfig      *DataSourceElasticsearchConfig      `pulumi:"elasticsearchConfig"`
+	EventBridgeConfig        *DataSourceEventBridgeConfig        `pulumi:"eventBridgeConfig"`
+	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
+	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
+	Name                     *string                             `pulumi:"name"`
+	OpensearchserviceConfig  *DataSourceOpensearchserviceConfig  `pulumi:"opensearchserviceConfig"`
+	Region                   *string                             `pulumi:"region"`
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
-	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
-	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
-	Type string `pulumi:"type"`
+	ServiceRoleArn           *string                             `pulumi:"serviceRoleArn"`
+	Type                     string                              `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	// API ID for the GraphQL API for the data source.
-	ApiId pulumi.StringInput
-	// Description of the data source.
-	Description pulumi.StringPtrInput
-	// DynamoDB settings. See `dynamodbConfig` Block for details.
-	DynamodbConfig DataSourceDynamodbConfigPtrInput
-	// Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
-	ElasticsearchConfig DataSourceElasticsearchConfigPtrInput
-	// AWS EventBridge settings. See `eventBridgeConfig` Block for details.
-	EventBridgeConfig DataSourceEventBridgeConfigPtrInput
-	// HTTP settings. See `httpConfig` Block for details.
-	HttpConfig DataSourceHttpConfigPtrInput
-	// AWS Lambda settings. See `lambdaConfig` Block for details.
-	LambdaConfig DataSourceLambdaConfigPtrInput
-	// User-supplied name for the data source.
-	Name pulumi.StringPtrInput
-	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
-	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
+	ApiId                    pulumi.StringInput
+	Description              pulumi.StringPtrInput
+	DynamodbConfig           DataSourceDynamodbConfigPtrInput
+	ElasticsearchConfig      DataSourceElasticsearchConfigPtrInput
+	EventBridgeConfig        DataSourceEventBridgeConfigPtrInput
+	HttpConfig               DataSourceHttpConfigPtrInput
+	LambdaConfig             DataSourceLambdaConfigPtrInput
+	Name                     pulumi.StringPtrInput
+	OpensearchserviceConfig  DataSourceOpensearchserviceConfigPtrInput
+	Region                   pulumi.StringPtrInput
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
-	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
-	ServiceRoleArn pulumi.StringPtrInput
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
-	Type pulumi.StringInput
+	ServiceRoleArn           pulumi.StringPtrInput
+	Type                     pulumi.StringInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -408,72 +224,58 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
-// API ID for the GraphQL API for the data source.
 func (o DataSourceOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// ARN
 func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the data source.
 func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// DynamoDB settings. See `dynamodbConfig` Block for details.
 func (o DataSourceOutput) DynamodbConfig() DataSourceDynamodbConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceDynamodbConfigPtrOutput { return v.DynamodbConfig }).(DataSourceDynamodbConfigPtrOutput)
 }
 
-// Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
 func (o DataSourceOutput) ElasticsearchConfig() DataSourceElasticsearchConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceElasticsearchConfigPtrOutput { return v.ElasticsearchConfig }).(DataSourceElasticsearchConfigPtrOutput)
 }
 
-// AWS EventBridge settings. See `eventBridgeConfig` Block for details.
 func (o DataSourceOutput) EventBridgeConfig() DataSourceEventBridgeConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceEventBridgeConfigPtrOutput { return v.EventBridgeConfig }).(DataSourceEventBridgeConfigPtrOutput)
 }
 
-// HTTP settings. See `httpConfig` Block for details.
 func (o DataSourceOutput) HttpConfig() DataSourceHttpConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceHttpConfigPtrOutput { return v.HttpConfig }).(DataSourceHttpConfigPtrOutput)
 }
 
-// AWS Lambda settings. See `lambdaConfig` Block for details.
 func (o DataSourceOutput) LambdaConfig() DataSourceLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceLambdaConfigPtrOutput { return v.LambdaConfig }).(DataSourceLambdaConfigPtrOutput)
 }
 
-// User-supplied name for the data source.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 func (o DataSourceOutput) OpensearchserviceConfig() DataSourceOpensearchserviceConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceOpensearchserviceConfigPtrOutput { return v.OpensearchserviceConfig }).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 func (o DataSourceOutput) RelationalDatabaseConfig() DataSourceRelationalDatabaseConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceRelationalDatabaseConfigPtrOutput { return v.RelationalDatabaseConfig }).(DataSourceRelationalDatabaseConfigPtrOutput)
 }
 
-// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
 func (o DataSourceOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

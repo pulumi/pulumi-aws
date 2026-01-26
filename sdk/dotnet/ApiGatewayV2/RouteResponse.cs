@@ -9,82 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
-    /// <summary>
-    /// Manages an Amazon API Gateway Version 2 route response.
-    /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.RouteResponse("example", new()
-    ///     {
-    ///         ApiId = exampleAwsApigatewayv2Api.Id,
-    ///         RouteId = exampleAwsApigatewayv2Route.Id,
-    ///         RouteResponseKey = "$default",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Enabling Two-Way Communication
-    /// 
-    /// For websocket routes that require two-way communication enabled, an `aws.apigatewayv2.RouteResponse` needs to be added to the route with `RouteResponseKey = "$default"`. More information available  is available in [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-    /// 
-    /// You can only define the $default route response for WebSocket APIs. You can use an integration response to manipulate the response from a backend service. For more information, see [Overview of integration responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html#apigateway-websocket-api-integration-response-overview).
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigatewayv2/routeResponse:RouteResponse")]
     public partial class RouteResponse : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        /// </summary>
         [Output("modelSelectionExpression")]
         public Output<string?> ModelSelectionExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Response models for the route response.
-        /// </summary>
         [Output("responseModels")]
         public Output<ImmutableDictionary<string, string>?> ResponseModels { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the `aws.apigatewayv2.Route`.
-        /// </summary>
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
 
-        /// <summary>
-        /// Route response key.
-        /// </summary>
         [Output("routeResponseKey")]
         public Output<string> RouteResponseKey { get; private set; } = null!;
 
@@ -134,45 +76,26 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class RouteResponseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        /// </summary>
         [Input("modelSelectionExpression")]
         public Input<string>? ModelSelectionExpression { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("responseModels")]
         private InputMap<string>? _responseModels;
-
-        /// <summary>
-        /// Response models for the route response.
-        /// </summary>
         public InputMap<string> ResponseModels
         {
             get => _responseModels ?? (_responseModels = new InputMap<string>());
             set => _responseModels = value;
         }
 
-        /// <summary>
-        /// Identifier of the `aws.apigatewayv2.Route`.
-        /// </summary>
         [Input("routeId", required: true)]
         public Input<string> RouteId { get; set; } = null!;
 
-        /// <summary>
-        /// Route response key.
-        /// </summary>
         [Input("routeResponseKey", required: true)]
         public Input<string> RouteResponseKey { get; set; } = null!;
 
@@ -184,45 +107,26 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class RouteResponseState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        /// </summary>
         [Input("modelSelectionExpression")]
         public Input<string>? ModelSelectionExpression { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("responseModels")]
         private InputMap<string>? _responseModels;
-
-        /// <summary>
-        /// Response models for the route response.
-        /// </summary>
         public InputMap<string> ResponseModels
         {
             get => _responseModels ?? (_responseModels = new InputMap<string>());
             set => _responseModels = value;
         }
 
-        /// <summary>
-        /// Identifier of the `aws.apigatewayv2.Route`.
-        /// </summary>
         [Input("routeId")]
         public Input<string>? RouteId { get; set; }
 
-        /// <summary>
-        /// Route response key.
-        /// </summary>
         [Input("routeResponseKey")]
         public Input<string>? RouteResponseKey { get; set; }
 

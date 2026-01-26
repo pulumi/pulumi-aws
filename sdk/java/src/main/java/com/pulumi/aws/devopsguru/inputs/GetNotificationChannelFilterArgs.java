@@ -15,32 +15,16 @@ public final class GetNotificationChannelFilterArgs extends com.pulumi.resources
 
     public static final GetNotificationChannelFilterArgs Empty = new GetNotificationChannelFilterArgs();
 
-    /**
-     * Events to receive notifications for.
-     * 
-     */
     @Import(name="messageTypes", required=true)
     private Output<List<String>> messageTypes;
 
-    /**
-     * @return Events to receive notifications for.
-     * 
-     */
     public Output<List<String>> messageTypes() {
         return this.messageTypes;
     }
 
-    /**
-     * Severity levels to receive notifications for.
-     * 
-     */
     @Import(name="severities", required=true)
     private Output<List<String>> severities;
 
-    /**
-     * @return Severity levels to receive notifications for.
-     * 
-     */
     public Output<List<String>> severities() {
         return this.severities;
     }
@@ -70,64 +54,28 @@ public final class GetNotificationChannelFilterArgs extends com.pulumi.resources
             $ = new GetNotificationChannelFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(Output<List<String>> messageTypes) {
             $.messageTypes = messageTypes;
             return this;
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(List<String> messageTypes) {
             return messageTypes(Output.of(messageTypes));
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(String... messageTypes) {
             return messageTypes(List.of(messageTypes));
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(Output<List<String>> severities) {
             $.severities = severities;
             return this;
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(List<String> severities) {
             return severities(Output.of(severities));
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(String... severities) {
             return severities(List.of(severities));
         }

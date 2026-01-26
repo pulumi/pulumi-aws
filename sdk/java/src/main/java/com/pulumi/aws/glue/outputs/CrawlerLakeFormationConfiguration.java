@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerLakeFormationConfiguration {
-    /**
-     * @return Required for cross account crawls. For same account crawls as the target data, this can omitted.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-     * 
-     */
     private @Nullable Boolean useLakeFormationCredentials;
 
     private CrawlerLakeFormationConfiguration() {}
-    /**
-     * @return Required for cross account crawls. For same account crawls as the target data, this can omitted.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-     * 
-     */
     public Optional<Boolean> useLakeFormationCredentials() {
         return Optional.ofNullable(this.useLakeFormationCredentials);
     }

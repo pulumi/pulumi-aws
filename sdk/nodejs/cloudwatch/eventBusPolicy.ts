@@ -4,133 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create an EventBridge resource policy to support cross-account events.
- *
- * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * > **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
- *
- * ## Example Usage
- *
- * ### Account Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "DevAccountAccess",
- *         effect: "Allow",
- *         actions: ["events:PutEvents"],
- *         resources: ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["123456789012"],
- *         }],
- *     }],
- * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
- *     policy: test.then(test => test.json),
- *     eventBusName: testAwsCloudwatchEventBus.name,
- * });
- * ```
- *
- * ### Organization Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "OrganizationAccess",
- *         effect: "Allow",
- *         actions: [
- *             "events:DescribeRule",
- *             "events:ListRules",
- *             "events:ListTargetsByRule",
- *             "events:ListTagsForResource",
- *         ],
- *         resources: [
- *             "arn:aws:events:eu-west-1:123456789012:rule/*",
- *             "arn:aws:events:eu-west-1:123456789012:event-bus/default",
- *         ],
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         conditions: [{
- *             test: "StringEquals",
- *             variable: "aws:PrincipalOrgID",
- *             values: [example.id],
- *         }],
- *     }],
- * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
- *     policy: test.then(test => test.json),
- *     eventBusName: testAwsCloudwatchEventBus.name,
- * });
- * ```
- *
- * ### Multiple Statements
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             sid: "DevAccountAccess",
- *             effect: "Allow",
- *             actions: ["events:PutEvents"],
- *             resources: ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["123456789012"],
- *             }],
- *         },
- *         {
- *             sid: "OrganizationAccess",
- *             effect: "Allow",
- *             actions: [
- *                 "events:DescribeRule",
- *                 "events:ListRules",
- *                 "events:ListTargetsByRule",
- *                 "events:ListTagsForResource",
- *             ],
- *             resources: [
- *                 "arn:aws:events:eu-west-1:123456789012:rule/*",
- *                 "arn:aws:events:eu-west-1:123456789012:event-bus/default",
- *             ],
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["*"],
- *             }],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "aws:PrincipalOrgID",
- *                 values: [example.id],
- *             }],
- *         },
- *     ],
- * });
- * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
- *     policy: test.then(test => test.json),
- *     eventBusName: testAwsCloudwatchEventBus.name,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
- * ```
- */
 export class EventBusPolicy extends pulumi.CustomResource {
     /**
      * Get an existing EventBusPolicy resource's state with the given name, ID, and optional extra
@@ -159,18 +32,8 @@ export class EventBusPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventBusPolicy.__pulumiType;
     }
 
-    /**
-     * The name of the event bus to set the permissions on.
-     * If you omit this, the permissions are set on the `default` event bus.
-     */
     declare public readonly eventBusName: pulumi.Output<string | undefined>;
-    /**
-     * The text of the policy.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -207,18 +70,8 @@ export class EventBusPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventBusPolicy resources.
  */
 export interface EventBusPolicyState {
-    /**
-     * The name of the event bus to set the permissions on.
-     * If you omit this, the permissions are set on the `default` event bus.
-     */
     eventBusName?: pulumi.Input<string>;
-    /**
-     * The text of the policy.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -226,17 +79,7 @@ export interface EventBusPolicyState {
  * The set of arguments for constructing a EventBusPolicy resource.
  */
 export interface EventBusPolicyArgs {
-    /**
-     * The name of the event bus to set the permissions on.
-     * If you omit this, the permissions are set on the `default` event bus.
-     */
     eventBusName?: pulumi.Input<string>;
-    /**
-     * The text of the policy.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFleetVpcConfig {
-    /**
-     * @return A list of one or more security groups IDs in your Amazon VPC.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return A list of one or more subnet IDs in your Amazon VPC.
-     * 
-     */
     private List<String> subnets;
-    /**
-     * @return The ID of the Amazon VPC.
-     * 
-     */
     private String vpcId;
 
     private GetFleetVpcConfig() {}
-    /**
-     * @return A list of one or more security groups IDs in your Amazon VPC.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return A list of one or more subnet IDs in your Amazon VPC.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }
-    /**
-     * @return The ID of the Amazon VPC.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Time after which query generation will time out.
-        /// </summary>
         [Input("executionTimeoutSeconds")]
         public Input<int>? ExecutionTimeoutSeconds { get; set; }
 
-        /// <summary>
-        /// Configurations for context to use during query generation. See `GenerationContext` block for details.
-        /// </summary>
         [Input("generationContext")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextGetArgs>? GenerationContext { get; set; }
 

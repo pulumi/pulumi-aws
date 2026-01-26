@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterComputeConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("nodePools")]
         private InputList<string>? _nodePools;
-
-        /// <summary>
-        /// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `System`.
-        /// </summary>
         public InputList<string> NodePools
         {
             get => _nodePools ?? (_nodePools = new InputList<string>());
             set => _nodePools = value;
         }
 
-        /// <summary>
-        /// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
-        /// </summary>
         [Input("nodeRoleArn")]
         public Input<string>? NodeRoleArn { get; set; }
 

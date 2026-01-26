@@ -12,88 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon MSK Connect Custom Plugin Resource.
-//
-// ## Example Usage
-//
-// ### Basic configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: example.ID(),
-//				Key:    pulumi.String("debezium.zip"),
-//				Source: pulumi.NewFileAsset("debezium.zip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mskconnect.NewCustomPlugin(ctx, "example", &mskconnect.CustomPluginArgs{
-//				Name:        pulumi.String("debezium-example"),
-//				ContentType: pulumi.String("ZIP"),
-//				Location: &mskconnect.CustomPluginLocationArgs{
-//					S3: &mskconnect.CustomPluginLocationS3Args{
-//						BucketArn: example.Arn,
-//						FileKey:   exampleBucketObjectv2.Key,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-// ```
 type CustomPlugin struct {
 	pulumi.CustomResourceState
 
-	// the Amazon Resource Name (ARN) of the custom plugin.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// A summary description of the custom plugin.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// an ID of the latest successfully created revision of the custom plugin.
-	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
-	// Information about the location of a custom plugin. See `location` Block for details.
-	Location CustomPluginLocationOutput `pulumi:"location"`
-	// The name of the custom plugin..
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// the state of the custom plugin.
-	State pulumi.StringOutput `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput        `pulumi:"arn"`
+	ContentType    pulumi.StringOutput        `pulumi:"contentType"`
+	Description    pulumi.StringPtrOutput     `pulumi:"description"`
+	LatestRevision pulumi.IntOutput           `pulumi:"latestRevision"`
+	Location       CustomPluginLocationOutput `pulumi:"location"`
+	Name           pulumi.StringOutput        `pulumi:"name"`
+	Region         pulumi.StringOutput        `pulumi:"region"`
+	State          pulumi.StringOutput        `pulumi:"state"`
+	Tags           pulumi.StringMapOutput     `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput     `pulumi:"tagsAll"`
 }
 
 // NewCustomPlugin registers a new resource with the given unique name, arguments, and options.
@@ -132,49 +63,29 @@ func GetCustomPlugin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomPlugin resources.
 type customPluginState struct {
-	// the Amazon Resource Name (ARN) of the custom plugin.
-	Arn *string `pulumi:"arn"`
-	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-	ContentType *string `pulumi:"contentType"`
-	// A summary description of the custom plugin.
-	Description *string `pulumi:"description"`
-	// an ID of the latest successfully created revision of the custom plugin.
-	LatestRevision *int `pulumi:"latestRevision"`
-	// Information about the location of a custom plugin. See `location` Block for details.
-	Location *CustomPluginLocation `pulumi:"location"`
-	// The name of the custom plugin..
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// the state of the custom plugin.
-	State *string `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string               `pulumi:"arn"`
+	ContentType    *string               `pulumi:"contentType"`
+	Description    *string               `pulumi:"description"`
+	LatestRevision *int                  `pulumi:"latestRevision"`
+	Location       *CustomPluginLocation `pulumi:"location"`
+	Name           *string               `pulumi:"name"`
+	Region         *string               `pulumi:"region"`
+	State          *string               `pulumi:"state"`
+	Tags           map[string]string     `pulumi:"tags"`
+	TagsAll        map[string]string     `pulumi:"tagsAll"`
 }
 
 type CustomPluginState struct {
-	// the Amazon Resource Name (ARN) of the custom plugin.
-	Arn pulumi.StringPtrInput
-	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-	ContentType pulumi.StringPtrInput
-	// A summary description of the custom plugin.
-	Description pulumi.StringPtrInput
-	// an ID of the latest successfully created revision of the custom plugin.
+	Arn            pulumi.StringPtrInput
+	ContentType    pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
 	LatestRevision pulumi.IntPtrInput
-	// Information about the location of a custom plugin. See `location` Block for details.
-	Location CustomPluginLocationPtrInput
-	// The name of the custom plugin..
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// the state of the custom plugin.
-	State pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Location       CustomPluginLocationPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	State          pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (CustomPluginState) ElementType() reflect.Type {
@@ -182,34 +93,22 @@ func (CustomPluginState) ElementType() reflect.Type {
 }
 
 type customPluginArgs struct {
-	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-	ContentType string `pulumi:"contentType"`
-	// A summary description of the custom plugin.
-	Description *string `pulumi:"description"`
-	// Information about the location of a custom plugin. See `location` Block for details.
-	Location CustomPluginLocation `pulumi:"location"`
-	// The name of the custom plugin..
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ContentType string               `pulumi:"contentType"`
+	Description *string              `pulumi:"description"`
+	Location    CustomPluginLocation `pulumi:"location"`
+	Name        *string              `pulumi:"name"`
+	Region      *string              `pulumi:"region"`
+	Tags        map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomPlugin resource.
 type CustomPluginArgs struct {
-	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 	ContentType pulumi.StringInput
-	// A summary description of the custom plugin.
 	Description pulumi.StringPtrInput
-	// Information about the location of a custom plugin. See `location` Block for details.
-	Location CustomPluginLocationInput
-	// The name of the custom plugin..
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Location    CustomPluginLocationInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (CustomPluginArgs) ElementType() reflect.Type {
@@ -299,52 +198,42 @@ func (o CustomPluginOutput) ToCustomPluginOutputWithContext(ctx context.Context)
 	return o
 }
 
-// the Amazon Resource Name (ARN) of the custom plugin.
 func (o CustomPluginOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 func (o CustomPluginOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// A summary description of the custom plugin.
 func (o CustomPluginOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// an ID of the latest successfully created revision of the custom plugin.
 func (o CustomPluginOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
 }
 
-// Information about the location of a custom plugin. See `location` Block for details.
 func (o CustomPluginOutput) Location() CustomPluginLocationOutput {
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginLocationOutput { return v.Location }).(CustomPluginLocationOutput)
 }
 
-// The name of the custom plugin..
 func (o CustomPluginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomPluginOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// the state of the custom plugin.
 func (o CustomPluginOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomPluginOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomPluginOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

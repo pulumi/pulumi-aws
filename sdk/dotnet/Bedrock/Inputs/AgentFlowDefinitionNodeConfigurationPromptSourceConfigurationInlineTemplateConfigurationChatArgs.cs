@@ -22,10 +22,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("messages")]
         private InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>? _messages;
-
-        /// <summary>
-        /// A list of messages in the chat for the prompt. See Message for more information.
-        /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs> Messages
         {
             get => _messages ?? (_messages = new InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>());
@@ -34,19 +30,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("systems")]
         private InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs>? _systems;
-
-        /// <summary>
-        /// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs> Systems
         {
             get => _systems ?? (_systems = new InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs>());
             set => _systems = value;
         }
 
-        /// <summary>
-        /// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-        /// </summary>
         [Input("toolConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs>? ToolConfiguration { get; set; }
 

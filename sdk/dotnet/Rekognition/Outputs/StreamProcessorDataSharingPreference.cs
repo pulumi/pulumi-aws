@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Rekognition.Outputs
     public sealed class StreamProcessorDataSharingPreference
     {
         /// <summary>
-        /// Whether you are sharing data with Rekognition to improve model performance.
+        /// Do you want to share data with Rekognition to improve model performance.
         /// </summary>
         public readonly bool OptIn;
 

@@ -12,86 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			path, err := ec2.NewNetworkInsightsPath(ctx, "path", &ec2.NetworkInsightsPathArgs{
-//				Source:      pulumi.Any(source.Id),
-//				Destination: pulumi.Any(destination.Id),
-//				Protocol:    pulumi.String("tcp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewNetworkInsightsAnalysis(ctx, "analysis", &ec2.NetworkInsightsAnalysisArgs{
-//				NetworkInsightsPathId: path.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Insights Analyzes using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
-// ```
 type NetworkInsightsAnalysis struct {
 	pulumi.CustomResourceState
 
-	// Potential intermediate components of a feasible path. Described below.
-	AlternatePathHints NetworkInsightsAnalysisAlternatePathHintArrayOutput `pulumi:"alternatePathHints"`
-	// ARN of the Network Insights Analysis.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
-	Explanations NetworkInsightsAnalysisExplanationArrayOutput `pulumi:"explanations"`
-	// A list of ARNs for resources the path must traverse.
-	FilterInArns pulumi.StringArrayOutput `pulumi:"filterInArns"`
-	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+	AlternatePathHints    NetworkInsightsAnalysisAlternatePathHintArrayOutput    `pulumi:"alternatePathHints"`
+	Arn                   pulumi.StringOutput                                    `pulumi:"arn"`
+	Explanations          NetworkInsightsAnalysisExplanationArrayOutput          `pulumi:"explanations"`
+	FilterInArns          pulumi.StringArrayOutput                               `pulumi:"filterInArns"`
 	ForwardPathComponents NetworkInsightsAnalysisForwardPathComponentArrayOutput `pulumi:"forwardPathComponents"`
-	// ID of the Network Insights Path to run an analysis on.
-	//
-	// The following arguments are optional:
-	NetworkInsightsPathId pulumi.StringOutput `pulumi:"networkInsightsPathId"`
-	// Set to `true` if the destination was reachable.
-	PathFound pulumi.BoolOutput `pulumi:"pathFound"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
-	ReturnPathComponents NetworkInsightsAnalysisReturnPathComponentArrayOutput `pulumi:"returnPathComponents"`
-	// The date/time the analysis was started.
-	StartDate pulumi.StringOutput `pulumi:"startDate"`
-	// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// A message to provide more context when the `status` is `failed`.
-	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForCompletion pulumi.BoolPtrOutput `pulumi:"waitForCompletion"`
-	// The warning message.
-	WarningMessage pulumi.StringOutput `pulumi:"warningMessage"`
+	NetworkInsightsPathId pulumi.StringOutput                                    `pulumi:"networkInsightsPathId"`
+	PathFound             pulumi.BoolOutput                                      `pulumi:"pathFound"`
+	Region                pulumi.StringOutput                                    `pulumi:"region"`
+	ReturnPathComponents  NetworkInsightsAnalysisReturnPathComponentArrayOutput  `pulumi:"returnPathComponents"`
+	StartDate             pulumi.StringOutput                                    `pulumi:"startDate"`
+	Status                pulumi.StringOutput                                    `pulumi:"status"`
+	StatusMessage         pulumi.StringOutput                                    `pulumi:"statusMessage"`
+	Tags                  pulumi.StringMapOutput                                 `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                                 `pulumi:"tagsAll"`
+	WaitForCompletion     pulumi.BoolPtrOutput                                   `pulumi:"waitForCompletion"`
+	WarningMessage        pulumi.StringOutput                                    `pulumi:"warningMessage"`
 }
 
 // NewNetworkInsightsAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -127,77 +66,41 @@ func GetNetworkInsightsAnalysis(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInsightsAnalysis resources.
 type networkInsightsAnalysisState struct {
-	// Potential intermediate components of a feasible path. Described below.
-	AlternatePathHints []NetworkInsightsAnalysisAlternatePathHint `pulumi:"alternatePathHints"`
-	// ARN of the Network Insights Analysis.
-	Arn *string `pulumi:"arn"`
-	// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
-	Explanations []NetworkInsightsAnalysisExplanation `pulumi:"explanations"`
-	// A list of ARNs for resources the path must traverse.
-	FilterInArns []string `pulumi:"filterInArns"`
-	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+	AlternatePathHints    []NetworkInsightsAnalysisAlternatePathHint    `pulumi:"alternatePathHints"`
+	Arn                   *string                                       `pulumi:"arn"`
+	Explanations          []NetworkInsightsAnalysisExplanation          `pulumi:"explanations"`
+	FilterInArns          []string                                      `pulumi:"filterInArns"`
 	ForwardPathComponents []NetworkInsightsAnalysisForwardPathComponent `pulumi:"forwardPathComponents"`
-	// ID of the Network Insights Path to run an analysis on.
-	//
-	// The following arguments are optional:
-	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
-	// Set to `true` if the destination was reachable.
-	PathFound *bool `pulumi:"pathFound"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
-	ReturnPathComponents []NetworkInsightsAnalysisReturnPathComponent `pulumi:"returnPathComponents"`
-	// The date/time the analysis was started.
-	StartDate *string `pulumi:"startDate"`
-	// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-	Status *string `pulumi:"status"`
-	// A message to provide more context when the `status` is `failed`.
-	StatusMessage *string `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForCompletion *bool `pulumi:"waitForCompletion"`
-	// The warning message.
-	WarningMessage *string `pulumi:"warningMessage"`
+	NetworkInsightsPathId *string                                       `pulumi:"networkInsightsPathId"`
+	PathFound             *bool                                         `pulumi:"pathFound"`
+	Region                *string                                       `pulumi:"region"`
+	ReturnPathComponents  []NetworkInsightsAnalysisReturnPathComponent  `pulumi:"returnPathComponents"`
+	StartDate             *string                                       `pulumi:"startDate"`
+	Status                *string                                       `pulumi:"status"`
+	StatusMessage         *string                                       `pulumi:"statusMessage"`
+	Tags                  map[string]string                             `pulumi:"tags"`
+	TagsAll               map[string]string                             `pulumi:"tagsAll"`
+	WaitForCompletion     *bool                                         `pulumi:"waitForCompletion"`
+	WarningMessage        *string                                       `pulumi:"warningMessage"`
 }
 
 type NetworkInsightsAnalysisState struct {
-	// Potential intermediate components of a feasible path. Described below.
-	AlternatePathHints NetworkInsightsAnalysisAlternatePathHintArrayInput
-	// ARN of the Network Insights Analysis.
-	Arn pulumi.StringPtrInput
-	// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
-	Explanations NetworkInsightsAnalysisExplanationArrayInput
-	// A list of ARNs for resources the path must traverse.
-	FilterInArns pulumi.StringArrayInput
-	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+	AlternatePathHints    NetworkInsightsAnalysisAlternatePathHintArrayInput
+	Arn                   pulumi.StringPtrInput
+	Explanations          NetworkInsightsAnalysisExplanationArrayInput
+	FilterInArns          pulumi.StringArrayInput
 	ForwardPathComponents NetworkInsightsAnalysisForwardPathComponentArrayInput
-	// ID of the Network Insights Path to run an analysis on.
-	//
-	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringPtrInput
-	// Set to `true` if the destination was reachable.
-	PathFound pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
-	ReturnPathComponents NetworkInsightsAnalysisReturnPathComponentArrayInput
-	// The date/time the analysis was started.
-	StartDate pulumi.StringPtrInput
-	// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-	Status pulumi.StringPtrInput
-	// A message to provide more context when the `status` is `failed`.
-	StatusMessage pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForCompletion pulumi.BoolPtrInput
-	// The warning message.
-	WarningMessage pulumi.StringPtrInput
+	PathFound             pulumi.BoolPtrInput
+	Region                pulumi.StringPtrInput
+	ReturnPathComponents  NetworkInsightsAnalysisReturnPathComponentArrayInput
+	StartDate             pulumi.StringPtrInput
+	Status                pulumi.StringPtrInput
+	StatusMessage         pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	WaitForCompletion     pulumi.BoolPtrInput
+	WarningMessage        pulumi.StringPtrInput
 }
 
 func (NetworkInsightsAnalysisState) ElementType() reflect.Type {
@@ -205,34 +108,20 @@ func (NetworkInsightsAnalysisState) ElementType() reflect.Type {
 }
 
 type networkInsightsAnalysisArgs struct {
-	// A list of ARNs for resources the path must traverse.
-	FilterInArns []string `pulumi:"filterInArns"`
-	// ID of the Network Insights Path to run an analysis on.
-	//
-	// The following arguments are optional:
-	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForCompletion *bool `pulumi:"waitForCompletion"`
+	FilterInArns          []string          `pulumi:"filterInArns"`
+	NetworkInsightsPathId string            `pulumi:"networkInsightsPathId"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	WaitForCompletion     *bool             `pulumi:"waitForCompletion"`
 }
 
 // The set of arguments for constructing a NetworkInsightsAnalysis resource.
 type NetworkInsightsAnalysisArgs struct {
-	// A list of ARNs for resources the path must traverse.
-	FilterInArns pulumi.StringArrayInput
-	// ID of the Network Insights Path to run an analysis on.
-	//
-	// The following arguments are optional:
+	FilterInArns          pulumi.StringArrayInput
 	NetworkInsightsPathId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForCompletion pulumi.BoolPtrInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	WaitForCompletion     pulumi.BoolPtrInput
 }
 
 func (NetworkInsightsAnalysisArgs) ElementType() reflect.Type {
@@ -322,90 +211,72 @@ func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutputWithContex
 	return o
 }
 
-// Potential intermediate components of a feasible path. Described below.
 func (o NetworkInsightsAnalysisOutput) AlternatePathHints() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisAlternatePathHintArrayOutput {
 		return v.AlternatePathHints
 	}).(NetworkInsightsAnalysisAlternatePathHintArrayOutput)
 }
 
-// ARN of the Network Insights Analysis.
 func (o NetworkInsightsAnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
 func (o NetworkInsightsAnalysisOutput) Explanations() NetworkInsightsAnalysisExplanationArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisExplanationArrayOutput { return v.Explanations }).(NetworkInsightsAnalysisExplanationArrayOutput)
 }
 
-// A list of ARNs for resources the path must traverse.
 func (o NetworkInsightsAnalysisOutput) FilterInArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringArrayOutput { return v.FilterInArns }).(pulumi.StringArrayOutput)
 }
 
-// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 func (o NetworkInsightsAnalysisOutput) ForwardPathComponents() NetworkInsightsAnalysisForwardPathComponentArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisForwardPathComponentArrayOutput {
 		return v.ForwardPathComponents
 	}).(NetworkInsightsAnalysisForwardPathComponentArrayOutput)
 }
 
-// ID of the Network Insights Path to run an analysis on.
-//
-// The following arguments are optional:
 func (o NetworkInsightsAnalysisOutput) NetworkInsightsPathId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
 }
 
-// Set to `true` if the destination was reachable.
 func (o NetworkInsightsAnalysisOutput) PathFound() pulumi.BoolOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.BoolOutput { return v.PathFound }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInsightsAnalysisOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 func (o NetworkInsightsAnalysisOutput) ReturnPathComponents() NetworkInsightsAnalysisReturnPathComponentArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisReturnPathComponentArrayOutput {
 		return v.ReturnPathComponents
 	}).(NetworkInsightsAnalysisReturnPathComponentArrayOutput)
 }
 
-// The date/time the analysis was started.
 func (o NetworkInsightsAnalysisOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
 }
 
-// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
 func (o NetworkInsightsAnalysisOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A message to provide more context when the `status` is `failed`.
 func (o NetworkInsightsAnalysisOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkInsightsAnalysisOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkInsightsAnalysisOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
 func (o NetworkInsightsAnalysisOutput) WaitForCompletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.BoolPtrOutput { return v.WaitForCompletion }).(pulumi.BoolPtrOutput)
 }
 
-// The warning message.
 func (o NetworkInsightsAnalysisOutput) WarningMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.WarningMessage }).(pulumi.StringOutput)
 }

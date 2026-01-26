@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the distribution forwards and caches based on query strings.
+        /// Indicates whether the distribution forwards and caches based on query strings.
         /// </summary>
         [Input("option")]
         public Input<bool>? Option { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputList<string>? _queryStringsAllowedLists;
 
         /// <summary>
-        /// Specific query strings that the distribution forwards to the origin.
+        /// The specific query strings that the distribution forwards to the origin.
         /// </summary>
         public InputList<string> QueryStringsAllowedLists
         {

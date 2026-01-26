@@ -12,64 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS IdentityStore Group.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := identitystore.NewGroup(ctx, "this", &identitystore.GroupArgs{
-//				DisplayName:     pulumi.String("Example group"),
-//				Description:     pulumi.String("Example description"),
-//				IdentityStoreId: pulumi.Any(example.IdentityStoreIds[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A string containing the description of the group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-	ExternalIds GroupExternalIdArrayOutput `pulumi:"externalIds"`
-	// The identifier of the newly created group in the identity store.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// The globally unique identifier for the identity store.
-	//
-	// The following arguments are optional:
-	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Arn             pulumi.StringOutput        `pulumi:"arn"`
+	Description     pulumi.StringPtrOutput     `pulumi:"description"`
+	DisplayName     pulumi.StringOutput        `pulumi:"displayName"`
+	ExternalIds     GroupExternalIdArrayOutput `pulumi:"externalIds"`
+	GroupId         pulumi.StringOutput        `pulumi:"groupId"`
+	IdentityStoreId pulumi.StringOutput        `pulumi:"identityStoreId"`
+	Region          pulumi.StringOutput        `pulumi:"region"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -108,41 +60,23 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// ARN of the Group.
-	Arn *string `pulumi:"arn"`
-	// A string containing the description of the group.
-	Description *string `pulumi:"description"`
-	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
-	DisplayName *string `pulumi:"displayName"`
-	// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-	ExternalIds []GroupExternalId `pulumi:"externalIds"`
-	// The identifier of the newly created group in the identity store.
-	GroupId *string `pulumi:"groupId"`
-	// The globally unique identifier for the identity store.
-	//
-	// The following arguments are optional:
-	IdentityStoreId *string `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Arn             *string           `pulumi:"arn"`
+	Description     *string           `pulumi:"description"`
+	DisplayName     *string           `pulumi:"displayName"`
+	ExternalIds     []GroupExternalId `pulumi:"externalIds"`
+	GroupId         *string           `pulumi:"groupId"`
+	IdentityStoreId *string           `pulumi:"identityStoreId"`
+	Region          *string           `pulumi:"region"`
 }
 
 type GroupState struct {
-	// ARN of the Group.
-	Arn pulumi.StringPtrInput
-	// A string containing the description of the group.
-	Description pulumi.StringPtrInput
-	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
-	DisplayName pulumi.StringPtrInput
-	// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-	ExternalIds GroupExternalIdArrayInput
-	// The identifier of the newly created group in the identity store.
-	GroupId pulumi.StringPtrInput
-	// The globally unique identifier for the identity store.
-	//
-	// The following arguments are optional:
+	Arn             pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
+	DisplayName     pulumi.StringPtrInput
+	ExternalIds     GroupExternalIdArrayInput
+	GroupId         pulumi.StringPtrInput
 	IdentityStoreId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -150,30 +84,18 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// A string containing the description of the group.
-	Description *string `pulumi:"description"`
-	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
-	DisplayName string `pulumi:"displayName"`
-	// The globally unique identifier for the identity store.
-	//
-	// The following arguments are optional:
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Description     *string `pulumi:"description"`
+	DisplayName     string  `pulumi:"displayName"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
+	Region          *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// A string containing the description of the group.
-	Description pulumi.StringPtrInput
-	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
-	DisplayName pulumi.StringInput
-	// The globally unique identifier for the identity store.
-	//
-	// The following arguments are optional:
+	Description     pulumi.StringPtrInput
+	DisplayName     pulumi.StringInput
 	IdentityStoreId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -263,39 +185,30 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
-// ARN of the Group.
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A string containing the description of the group.
 func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 func (o GroupOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
 func (o GroupOutput) ExternalIds() GroupExternalIdArrayOutput {
 	return o.ApplyT(func(v *Group) GroupExternalIdArrayOutput { return v.ExternalIds }).(GroupExternalIdArrayOutput)
 }
 
-// The identifier of the newly created group in the identity store.
 func (o GroupOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// The globally unique identifier for the identity store.
-//
-// The following arguments are optional:
 func (o GroupOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

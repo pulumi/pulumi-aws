@@ -27,12 +27,6 @@ class RouteResponseArgs:
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] route_id: Identifier of the `apigatewayv2.Route`.
-        :param pulumi.Input[_builtins.str] route_response_key: Route response key.
-        :param pulumi.Input[_builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_models: Response models for the route response.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "route_id", route_id)
@@ -47,9 +41,6 @@ class RouteResponseArgs:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -59,9 +50,6 @@ class RouteResponseArgs:
     @_builtins.property
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the `apigatewayv2.Route`.
-        """
         return pulumi.get(self, "route_id")
 
     @route_id.setter
@@ -71,9 +59,6 @@ class RouteResponseArgs:
     @_builtins.property
     @pulumi.getter(name="routeResponseKey")
     def route_response_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Route response key.
-        """
         return pulumi.get(self, "route_response_key")
 
     @route_response_key.setter
@@ -83,9 +68,6 @@ class RouteResponseArgs:
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
@@ -95,9 +77,6 @@ class RouteResponseArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -107,9 +86,6 @@ class RouteResponseArgs:
     @_builtins.property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Response models for the route response.
-        """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
@@ -128,12 +104,6 @@ class _RouteResponseState:
                  route_response_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteResponse resources.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_models: Response models for the route response.
-        :param pulumi.Input[_builtins.str] route_id: Identifier of the `apigatewayv2.Route`.
-        :param pulumi.Input[_builtins.str] route_response_key: Route response key.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -151,9 +121,6 @@ class _RouteResponseState:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -163,9 +130,6 @@ class _RouteResponseState:
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
@@ -175,9 +139,6 @@ class _RouteResponseState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -187,9 +148,6 @@ class _RouteResponseState:
     @_builtins.property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Response models for the route response.
-        """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
@@ -199,9 +157,6 @@ class _RouteResponseState:
     @_builtins.property
     @pulumi.getter(name="routeId")
     def route_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the `apigatewayv2.Route`.
-        """
         return pulumi.get(self, "route_id")
 
     @route_id.setter
@@ -211,9 +166,6 @@ class _RouteResponseState:
     @_builtins.property
     @pulumi.getter(name="routeResponseKey")
     def route_response_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Route response key.
-        """
         return pulumi.get(self, "route_response_key")
 
     @route_response_key.setter
@@ -235,45 +187,9 @@ class RouteResponse(pulumi.CustomResource):
                  route_response_key: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon API Gateway Version 2 route response.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.RouteResponse("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            route_id=example_aws_apigatewayv2_route["id"],
-            route_response_key="$default")
-        ```
-
-        ## Enabling Two-Way Communication
-
-        For websocket routes that require two-way communication enabled, an `apigatewayv2.RouteResponse` needs to be added to the route with `route_response_key = "$default"`. More information available  is available in [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        You can only define the $default route response for WebSocket APIs. You can use an integration response to manipulate the response from a backend service. For more information, see [Overview of integration responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html#apigateway-websocket-api-integration-response-overview).
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
-        ```
-
+        Create a RouteResponse resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_models: Response models for the route response.
-        :param pulumi.Input[_builtins.str] route_id: Identifier of the `apigatewayv2.Route`.
-        :param pulumi.Input[_builtins.str] route_response_key: Route response key.
         """
         ...
     @overload
@@ -282,37 +198,7 @@ class RouteResponse(pulumi.CustomResource):
                  args: RouteResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon API Gateway Version 2 route response.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.RouteResponse("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            route_id=example_aws_apigatewayv2_route["id"],
-            route_response_key="$default")
-        ```
-
-        ## Enabling Two-Way Communication
-
-        For websocket routes that require two-way communication enabled, an `apigatewayv2.RouteResponse` needs to be added to the route with `route_response_key = "$default"`. More information available  is available in [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        You can only define the $default route response for WebSocket APIs. You can use an integration response to manipulate the response from a backend service. For more information, see [Overview of integration responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html#apigateway-websocket-api-integration-response-overview).
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
-        ```
-
+        Create a RouteResponse resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteResponseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -378,12 +264,6 @@ class RouteResponse(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_models: Response models for the route response.
-        :param pulumi.Input[_builtins.str] route_id: Identifier of the `apigatewayv2.Route`.
-        :param pulumi.Input[_builtins.str] route_response_key: Route response key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -400,48 +280,30 @@ class RouteResponse(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        """
         return pulumi.get(self, "model_selection_expression")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Response models for the route response.
-        """
         return pulumi.get(self, "response_models")
 
     @_builtins.property
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the `apigatewayv2.Route`.
-        """
         return pulumi.get(self, "route_id")
 
     @_builtins.property
     @pulumi.getter(name="routeResponseKey")
     def route_response_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Route response key.
-        """
         return pulumi.get(self, "route_response_key")
 

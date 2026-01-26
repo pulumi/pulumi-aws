@@ -13,15 +13,8 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolAdminCreateUserConfigResult
     {
-        /// <summary>
-        /// - Whether only admins can create users.
-        /// </summary>
         public readonly bool AllowAdminCreateUserOnly;
         public readonly ImmutableArray<Outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult> InviteMessageTemplates;
-        /// <summary>
-        /// - Number of days an unconfirmed user account remains valid.
-        /// * invite_message_template - Templates for invitation messages.
-        /// </summary>
         public readonly int UnusedAccountValidityDays;
 
         [OutputConstructor]

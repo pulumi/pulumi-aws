@@ -14,19 +14,12 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     {
         [Input("gitConfigurations")]
         private InputList<Inputs.PipelineTriggerAllGitConfigurationGetArgs>? _gitConfigurations;
-
-        /// <summary>
-        /// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `GitConfiguration` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerAllGitConfigurationGetArgs> GitConfigurations
         {
             get => _gitConfigurations ?? (_gitConfigurations = new InputList<Inputs.PipelineTriggerAllGitConfigurationGetArgs>());
             set => _gitConfigurations = value;
         }
 
-        /// <summary>
-        /// The source provider for the event. Possible value is `CodeStarSourceConnection`.
-        /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 

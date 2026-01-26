@@ -17,14 +17,14 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     public static final LicenseGrantAccepterState Empty = new LicenseGrantAccepterState();
 
     /**
-     * A list of the allowed operations for the grant.
+     * Allowed operations for the grant.
      * 
      */
     @Import(name="allowedOperations")
     private @Nullable Output<List<String>> allowedOperations;
 
     /**
-     * @return A list of the allowed operations for the grant.
+     * @return Allowed operations for the grant.
      * 
      */
     public Optional<Output<List<String>>> allowedOperations() {
@@ -32,14 +32,14 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the grant to accept.
+     * Amazon Resource Name (ARN) of the grant.
      * 
      */
     @Import(name="grantArn")
     private @Nullable Output<String> grantArn;
 
     /**
-     * @return The ARN of the grant to accept.
+     * @return Amazon Resource Name (ARN) of the grant.
      * 
      */
     public Optional<Output<String>> grantArn() {
@@ -47,14 +47,14 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The home region for the license.
+     * Home Region of the grant.
      * 
      */
     @Import(name="homeRegion")
     private @Nullable Output<String> homeRegion;
 
     /**
-     * @return The home region for the license.
+     * @return Home Region of the grant.
      * 
      */
     public Optional<Output<String>> homeRegion() {
@@ -62,14 +62,14 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the license for the grant.
+     * License ARN.
      * 
      */
     @Import(name="licenseArn")
     private @Nullable Output<String> licenseArn;
 
     /**
-     * @return The ARN of the license for the grant.
+     * @return License ARN.
      * 
      */
     public Optional<Output<String>> licenseArn() {
@@ -77,14 +77,14 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Name of the grant.
+     * Name of the grant.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Name of the grant.
+     * @return Name of the grant.
      * 
      */
     public Optional<Output<String>> name() {
@@ -92,14 +92,14 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The parent ARN.
+     * Parent ARN.
      * 
      */
     @Import(name="parentArn")
     private @Nullable Output<String> parentArn;
 
     /**
-     * @return The parent ARN.
+     * @return Parent ARN.
      * 
      */
     public Optional<Output<String>> parentArn() {
@@ -107,44 +107,36 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The target account for the grant.
+     * The grantee principal ARN.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
     /**
-     * @return The target account for the grant.
+     * @return The grantee principal ARN.
      * 
      */
     public Optional<Output<String>> principal() {
         return Optional.ofNullable(this.principal);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * The grant status.
+     * GrantAccepter status.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The grant status.
+     * @return GrantAccepter status.
      * 
      */
     public Optional<Output<String>> status() {
@@ -152,14 +144,14 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The grant version.
+     * GrantAccepter version.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The grant version.
+     * @return GrantAccepter version.
      * 
      */
     public Optional<Output<String>> version() {
@@ -200,7 +192,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowedOperations A list of the allowed operations for the grant.
+         * @param allowedOperations Allowed operations for the grant.
          * 
          * @return builder
          * 
@@ -211,7 +203,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowedOperations A list of the allowed operations for the grant.
+         * @param allowedOperations Allowed operations for the grant.
          * 
          * @return builder
          * 
@@ -221,7 +213,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowedOperations A list of the allowed operations for the grant.
+         * @param allowedOperations Allowed operations for the grant.
          * 
          * @return builder
          * 
@@ -231,7 +223,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param grantArn The ARN of the grant to accept.
+         * @param grantArn Amazon Resource Name (ARN) of the grant.
          * 
          * @return builder
          * 
@@ -242,7 +234,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param grantArn The ARN of the grant to accept.
+         * @param grantArn Amazon Resource Name (ARN) of the grant.
          * 
          * @return builder
          * 
@@ -252,7 +244,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param homeRegion The home region for the license.
+         * @param homeRegion Home Region of the grant.
          * 
          * @return builder
          * 
@@ -263,7 +255,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param homeRegion The home region for the license.
+         * @param homeRegion Home Region of the grant.
          * 
          * @return builder
          * 
@@ -273,7 +265,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param licenseArn The ARN of the license for the grant.
+         * @param licenseArn License ARN.
          * 
          * @return builder
          * 
@@ -284,7 +276,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param licenseArn The ARN of the license for the grant.
+         * @param licenseArn License ARN.
          * 
          * @return builder
          * 
@@ -294,7 +286,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The Name of the grant.
+         * @param name Name of the grant.
          * 
          * @return builder
          * 
@@ -305,7 +297,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The Name of the grant.
+         * @param name Name of the grant.
          * 
          * @return builder
          * 
@@ -315,7 +307,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parentArn The parent ARN.
+         * @param parentArn Parent ARN.
          * 
          * @return builder
          * 
@@ -326,7 +318,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parentArn The parent ARN.
+         * @param parentArn Parent ARN.
          * 
          * @return builder
          * 
@@ -336,7 +328,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param principal The target account for the grant.
+         * @param principal The grantee principal ARN.
          * 
          * @return builder
          * 
@@ -347,7 +339,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param principal The target account for the grant.
+         * @param principal The grantee principal ARN.
          * 
          * @return builder
          * 
@@ -356,29 +348,17 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param status The grant status.
+         * @param status GrantAccepter status.
          * 
          * @return builder
          * 
@@ -389,7 +369,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param status The grant status.
+         * @param status GrantAccepter status.
          * 
          * @return builder
          * 
@@ -399,7 +379,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The grant version.
+         * @param version GrantAccepter version.
          * 
          * @return builder
          * 
@@ -410,7 +390,7 @@ public final class LicenseGrantAccepterState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The grant version.
+         * @param version GrantAccepter version.
          * 
          * @return builder
          * 

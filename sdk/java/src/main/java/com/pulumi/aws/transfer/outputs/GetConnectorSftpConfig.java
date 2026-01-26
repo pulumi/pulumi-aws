@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectorSftpConfig {
-    /**
-     * @return List of the public portions of the host keys that are used to identify the servers the connector is connected to.
-     * 
-     */
     private List<String> trustedHostKeys;
-    /**
-     * @return Identifier for the secret in AWS Secrets Manager that contains the SFTP user&#39;s private key, and/or password.
-     * 
-     */
     private String userSecretId;
 
     private GetConnectorSftpConfig() {}
-    /**
-     * @return List of the public portions of the host keys that are used to identify the servers the connector is connected to.
-     * 
-     */
     public List<String> trustedHostKeys() {
         return this.trustedHostKeys;
     }
-    /**
-     * @return Identifier for the secret in AWS Secrets Manager that contains the SFTP user&#39;s private key, and/or password.
-     * 
-     */
     public String userSecretId() {
         return this.userSecretId;
     }

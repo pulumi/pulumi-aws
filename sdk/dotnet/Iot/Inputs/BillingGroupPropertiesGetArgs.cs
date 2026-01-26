@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class BillingGroupPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the Billing Group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

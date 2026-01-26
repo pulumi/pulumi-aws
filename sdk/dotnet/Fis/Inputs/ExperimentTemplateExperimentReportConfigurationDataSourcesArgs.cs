@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Fis.Inputs
     {
         [Input("cloudwatchDashboards")]
         private InputList<Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs>? _cloudwatchDashboards;
-
-        /// <summary>
-        /// The data sources for the experiment report. See below.
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs> CloudwatchDashboards
         {
             get => _cloudwatchDashboards ?? (_cloudwatchDashboards = new InputList<Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs>());

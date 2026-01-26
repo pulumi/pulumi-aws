@@ -15,26 +15,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanResult {
-    /**
-     * @return (Optional) The actions that the response plan starts at the beginning of an incident.
-     * 
-     */
     private List<GetResponsePlanAction> actions;
     private String arn;
-    /**
-     * @return The Chatbot chat channel used for collaboration during an incident.
-     * 
-     */
     private List<String> chatChannels;
-    /**
-     * @return The long format of the response plan name. This field can contain spaces.
-     * 
-     */
     private String displayName;
-    /**
-     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-     * 
-     */
     private List<String> engagements;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -42,52 +26,24 @@ public final class GetResponsePlanResult {
      */
     private String id;
     private List<GetResponsePlanIncidentTemplate> incidentTemplates;
-    /**
-     * @return Information about third-party services integrated into the response plan. The following values are supported:
-     * 
-     */
     private List<GetResponsePlanIntegration> integrations;
-    /**
-     * @return The name of the PagerDuty configuration.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return The tags applied to the response plan.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetResponsePlanResult() {}
-    /**
-     * @return (Optional) The actions that the response plan starts at the beginning of an incident.
-     * 
-     */
     public List<GetResponsePlanAction> actions() {
         return this.actions;
     }
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The Chatbot chat channel used for collaboration during an incident.
-     * 
-     */
     public List<String> chatChannels() {
         return this.chatChannels;
     }
-    /**
-     * @return The long format of the response plan name. This field can contain spaces.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-     * 
-     */
     public List<String> engagements() {
         return this.engagements;
     }
@@ -101,27 +57,15 @@ public final class GetResponsePlanResult {
     public List<GetResponsePlanIncidentTemplate> incidentTemplates() {
         return this.incidentTemplates;
     }
-    /**
-     * @return Information about third-party services integrated into the response plan. The following values are supported:
-     * 
-     */
     public List<GetResponsePlanIntegration> integrations() {
         return this.integrations;
     }
-    /**
-     * @return The name of the PagerDuty configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The tags applied to the response plan.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

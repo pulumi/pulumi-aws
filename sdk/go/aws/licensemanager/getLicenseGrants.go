@@ -11,49 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be used to get a set of license grant ARNs matching a filter.
-//
-// ## Example Usage
-//
-// The following shows getting all license grant ARNs granted to your account.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
-//				Filters: []licensemanager.GetLicenseGrantsFilter{
-//					{
-//						Name: "GranteePrincipalARN",
-//						Values: []string{
-//							fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...pulumi.InvokeOption) (*GetLicenseGrantsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLicenseGrantsResult
@@ -66,15 +23,12 @@ func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...p
 
 // A collection of arguments for invoking getLicenseGrants.
 type GetLicenseGrantsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                  `pulumi:"region"`
 }
 
 // A collection of values returned by getLicenseGrants.
 type GetLicenseGrantsResult struct {
-	// List of all the license grant ARNs found.
 	Arns    []string                 `pulumi:"arns"`
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
@@ -93,10 +47,8 @@ func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs
 
 // A collection of arguments for invoking getLicenseGrants.
 type GetLicenseGrantsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetLicenseGrantsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput            `pulumi:"region"`
 }
 
 func (GetLicenseGrantsOutputArgs) ElementType() reflect.Type {
@@ -118,7 +70,6 @@ func (o GetLicenseGrantsResultOutput) ToGetLicenseGrantsResultOutputWithContext(
 	return o
 }
 
-// List of all the license grant ARNs found.
 func (o GetLicenseGrantsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLicenseGrantsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

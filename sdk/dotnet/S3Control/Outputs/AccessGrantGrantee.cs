@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class AccessGrantGrantee
     {
-        /// <summary>
-        /// Grantee identifier.
-        /// </summary>
         public readonly string GranteeIdentifier;
-        /// <summary>
-        /// Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-        /// </summary>
         public readonly string GranteeType;
 
         [OutputConstructor]

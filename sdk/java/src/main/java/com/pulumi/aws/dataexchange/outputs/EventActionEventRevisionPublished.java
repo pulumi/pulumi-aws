@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EventActionEventRevisionPublished {
-    /**
-     * @return The ID of the data set to monitor for revision publications.
-     * Changing this value will recreate the resource.
-     * 
-     */
     private String dataSetId;
 
     private EventActionEventRevisionPublished() {}
-    /**
-     * @return The ID of the data set to monitor for revision publications.
-     * Changing this value will recreate the resource.
-     * 
-     */
     public String dataSetId() {
         return this.dataSetId;
     }

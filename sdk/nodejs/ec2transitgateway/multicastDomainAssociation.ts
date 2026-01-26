@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.TransitGateway("example", {multicastSupport: "enable"});
- * const exampleVpcAttachment = new aws.ec2transitgateway.VpcAttachment("example", {
- *     subnetIds: [exampleAwsSubnet.id],
- *     transitGatewayId: example.id,
- *     vpcId: exampleAwsVpc.id,
- * });
- * const exampleMulticastDomain = new aws.ec2transitgateway.MulticastDomain("example", {transitGatewayId: example.id});
- * const exampleMulticastDomainAssociation = new aws.ec2transitgateway.MulticastDomainAssociation("example", {
- *     subnetId: exampleAwsSubnet.id,
- *     transitGatewayAttachmentId: exampleVpcAttachment.id,
- *     transitGatewayMulticastDomainId: exampleMulticastDomain.id,
- * });
- * ```
- */
 export class MulticastDomainAssociation extends pulumi.CustomResource {
     /**
      * Get an existing MulticastDomainAssociation resource's state with the given name, ID, and optional extra
@@ -55,21 +32,9 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === MulticastDomainAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     */
     declare public readonly subnetId: pulumi.Output<string>;
-    /**
-     * The ID of the transit gateway attachment.
-     */
     declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
-    /**
-     * The ID of the transit gateway multicast domain.
-     */
     declare public readonly transitGatewayMulticastDomainId: pulumi.Output<string>;
 
     /**
@@ -114,21 +79,9 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MulticastDomainAssociation resources.
  */
 export interface MulticastDomainAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway attachment.
-     */
     transitGatewayAttachmentId?: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway multicast domain.
-     */
     transitGatewayMulticastDomainId?: pulumi.Input<string>;
 }
 
@@ -136,20 +89,8 @@ export interface MulticastDomainAssociationState {
  * The set of arguments for constructing a MulticastDomainAssociation resource.
  */
 export interface MulticastDomainAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     */
     subnetId: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway attachment.
-     */
     transitGatewayAttachmentId: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway multicast domain.
-     */
     transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

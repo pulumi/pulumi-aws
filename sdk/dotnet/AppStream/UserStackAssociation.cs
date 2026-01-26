@@ -9,80 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppStream
 {
-    /// <summary>
-    /// Manages an AppStream User Stack association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.AppStream.Stack("test", new()
-    ///     {
-    ///         Name = "STACK NAME",
-    ///     });
-    /// 
-    ///     var testUser = new Aws.AppStream.User("test", new()
-    ///     {
-    ///         AuthenticationType = "USERPOOL",
-    ///         UserName = "EMAIL",
-    ///     });
-    /// 
-    ///     var testUserStackAssociation = new Aws.AppStream.UserStackAssociation("test", new()
-    ///     {
-    ///         AuthenticationType = testUser.AuthenticationType,
-    ///         StackName = test.Name,
-    ///         UserName = testUser.UserName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appstream/userStackAssociation:UserStackAssociation")]
     public partial class UserStackAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Authentication type for the user.
-        /// </summary>
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether a welcome email is sent to a user after the user is created in the user pool.
-        /// </summary>
         [Output("sendEmailNotification")]
         public Output<bool?> SendEmailNotification { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the stack that is associated with the user.
-        /// </summary>
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
 
-        /// <summary>
-        /// Email address of the user who is associated with the stack.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -132,35 +73,18 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class UserStackAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication type for the user.
-        /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether a welcome email is sent to a user after the user is created in the user pool.
-        /// </summary>
         [Input("sendEmailNotification")]
         public Input<bool>? SendEmailNotification { get; set; }
 
-        /// <summary>
-        /// Name of the stack that is associated with the user.
-        /// </summary>
         [Input("stackName", required: true)]
         public Input<string> StackName { get; set; } = null!;
 
-        /// <summary>
-        /// Email address of the user who is associated with the stack.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -172,35 +96,18 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class UserStackAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication type for the user.
-        /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether a welcome email is sent to a user after the user is created in the user pool.
-        /// </summary>
         [Input("sendEmailNotification")]
         public Input<bool>? SendEmailNotification { get; set; }
 
-        /// <summary>
-        /// Name of the stack that is associated with the user.
-        /// </summary>
         [Input("stackName")]
         public Input<string>? StackName { get; set; }
 
-        /// <summary>
-        /// Email address of the user who is associated with the stack.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

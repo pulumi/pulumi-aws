@@ -30,16 +30,6 @@ class ResourceLfTagArgs:
                  timeouts: Optional[pulumi.Input['ResourceLfTagTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourceLfTag resource.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        :param pulumi.Input['ResourceLfTagDatabaseArgs'] database: Configuration block for a database resource. See Database for more details.
-        :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
-               
-               Exactly one of the following is required:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ResourceLfTagTableArgs'] table: Configuration block for a table resource. See Table for more details.
-        :param pulumi.Input['ResourceLfTagTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
-               
-               The following arguments are optional:
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -59,9 +49,6 @@ class ResourceLfTagArgs:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -71,9 +58,6 @@ class ResourceLfTagArgs:
     @_builtins.property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input['ResourceLfTagDatabaseArgs']]:
-        """
-        Configuration block for a database resource. See Database for more details.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -83,11 +67,6 @@ class ResourceLfTagArgs:
     @_builtins.property
     @pulumi.getter(name="lfTag")
     def lf_tag(self) -> Optional[pulumi.Input['ResourceLfTagLfTagArgs']]:
-        """
-        Set of LF-tags to attach to the resource. See LF Tag for more details.
-
-        Exactly one of the following is required:
-        """
         return pulumi.get(self, "lf_tag")
 
     @lf_tag.setter
@@ -97,9 +76,6 @@ class ResourceLfTagArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -109,9 +85,6 @@ class ResourceLfTagArgs:
     @_builtins.property
     @pulumi.getter
     def table(self) -> Optional[pulumi.Input['ResourceLfTagTableArgs']]:
-        """
-        Configuration block for a table resource. See Table for more details.
-        """
         return pulumi.get(self, "table")
 
     @table.setter
@@ -121,11 +94,6 @@ class ResourceLfTagArgs:
     @_builtins.property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> Optional[pulumi.Input['ResourceLfTagTableWithColumnsArgs']]:
-        """
-        Configuration block for a table with columns resource. See Table With Columns for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
@@ -154,16 +122,6 @@ class _ResourceLfTagState:
                  timeouts: Optional[pulumi.Input['ResourceLfTagTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceLfTag resources.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        :param pulumi.Input['ResourceLfTagDatabaseArgs'] database: Configuration block for a database resource. See Database for more details.
-        :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
-               
-               Exactly one of the following is required:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ResourceLfTagTableArgs'] table: Configuration block for a table resource. See Table for more details.
-        :param pulumi.Input['ResourceLfTagTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
-               
-               The following arguments are optional:
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -183,9 +141,6 @@ class _ResourceLfTagState:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -195,9 +150,6 @@ class _ResourceLfTagState:
     @_builtins.property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input['ResourceLfTagDatabaseArgs']]:
-        """
-        Configuration block for a database resource. See Database for more details.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -207,11 +159,6 @@ class _ResourceLfTagState:
     @_builtins.property
     @pulumi.getter(name="lfTag")
     def lf_tag(self) -> Optional[pulumi.Input['ResourceLfTagLfTagArgs']]:
-        """
-        Set of LF-tags to attach to the resource. See LF Tag for more details.
-
-        Exactly one of the following is required:
-        """
         return pulumi.get(self, "lf_tag")
 
     @lf_tag.setter
@@ -221,9 +168,6 @@ class _ResourceLfTagState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -233,9 +177,6 @@ class _ResourceLfTagState:
     @_builtins.property
     @pulumi.getter
     def table(self) -> Optional[pulumi.Input['ResourceLfTagTableArgs']]:
-        """
-        Configuration block for a table resource. See Table for more details.
-        """
         return pulumi.get(self, "table")
 
     @table.setter
@@ -245,11 +186,6 @@ class _ResourceLfTagState:
     @_builtins.property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> Optional[pulumi.Input['ResourceLfTagTableWithColumnsArgs']]:
-        """
-        Configuration block for a table with columns resource. See Table With Columns for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
@@ -281,42 +217,9 @@ class ResourceLfTag(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lake Formation Resource LF Tag.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.ResourceLfTag("example",
-            database={
-                "name": example_aws_glue_catalog_database["name"],
-            },
-            lf_tag={
-                "key": example_aws_lakeformation_lf_tag["key"],
-                "value": "stowe",
-            })
-        ```
-
-        ## Import
-
-        You cannot import this resource.
-
+        Create a ResourceLfTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        :param pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']] database: Configuration block for a database resource. See Database for more details.
-        :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
-               
-               Exactly one of the following is required:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
-        :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -325,30 +228,7 @@ class ResourceLfTag(pulumi.CustomResource):
                  args: Optional[ResourceLfTagArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lake Formation Resource LF Tag.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.ResourceLfTag("example",
-            database={
-                "name": example_aws_glue_catalog_database["name"],
-            },
-            lf_tag={
-                "key": example_aws_lakeformation_lf_tag["key"],
-                "value": "stowe",
-            })
-        ```
-
-        ## Import
-
-        You cannot import this resource.
-
+        Create a ResourceLfTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceLfTagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,16 +291,6 @@ class ResourceLfTag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        :param pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']] database: Configuration block for a database resource. See Database for more details.
-        :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
-               
-               Exactly one of the following is required:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
-        :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -438,53 +308,31 @@ class ResourceLfTag(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter
     def database(self) -> pulumi.Output[Optional['outputs.ResourceLfTagDatabase']]:
-        """
-        Configuration block for a database resource. See Database for more details.
-        """
         return pulumi.get(self, "database")
 
     @_builtins.property
     @pulumi.getter(name="lfTag")
     def lf_tag(self) -> pulumi.Output[Optional['outputs.ResourceLfTagLfTag']]:
-        """
-        Set of LF-tags to attach to the resource. See LF Tag for more details.
-
-        Exactly one of the following is required:
-        """
         return pulumi.get(self, "lf_tag")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def table(self) -> pulumi.Output[Optional['outputs.ResourceLfTagTable']]:
-        """
-        Configuration block for a table resource. See Table for more details.
-        """
         return pulumi.get(self, "table")
 
     @_builtins.property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> pulumi.Output[Optional['outputs.ResourceLfTagTableWithColumns']]:
-        """
-        Configuration block for a table with columns resource. See Table With Columns for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_with_columns")
 
     @_builtins.property

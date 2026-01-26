@@ -9,75 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpc
 {
-    /// <summary>
-    /// Resource for managing Security Group VPC Associations.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Vpc.SecurityGroupVpcAssociation("example", new()
-    ///     {
-    ///         SecurityGroupId = "sg-05f1f54ab49bb39a3",
-    ///         VpcId = "vpc-01df9d105095412ba",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `vpc_id` (String) VPC ID.
-    /// 
-    /// * `security_group_id` (String) Security Group ID.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import a Security Group VPC Association using the `security_group_id` and `vpc_id` arguments, separated by a comma (`,`). For example:
-    /// 
-    /// % pulumi import aws_vpc_security_group_vpc_association.example sg-12345,vpc-67890
-    /// </summary>
     [AwsResourceType("aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation")]
     public partial class SecurityGroupVpcAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.SecurityGroupVpcAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC to make the association with.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -127,24 +73,15 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class SecurityGroupVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.SecurityGroupVpcAssociationTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC to make the association with.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -156,30 +93,18 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class SecurityGroupVpcAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
 
-        /// <summary>
-        /// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.SecurityGroupVpcAssociationTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC to make the association with.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

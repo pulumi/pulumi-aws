@@ -62,18 +62,6 @@ class DocumentClassifierInputDataConfig(dict):
                  label_delimiter: Optional[_builtins.str] = None,
                  s3_uri: Optional[_builtins.str] = None,
                  test_s3_uri: Optional[_builtins.str] = None):
-        """
-        :param Sequence['DocumentClassifierInputDataConfigAugmentedManifestArgs'] augmented_manifests: List of training datasets produced by Amazon SageMaker AI Ground Truth.
-               Used if `data_format` is `AUGMENTED_MANIFEST`.
-               See the `augmented_manifests` Configuration Block section below.
-        :param _builtins.str data_format: The format for the training data.
-               One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        :param _builtins.str label_delimiter: Delimiter between labels when training a multi-label classifier.
-               Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
-               Default is `|`.
-        :param _builtins.str s3_uri: Location of training documents.
-               Used if `data_format` is `COMPREHEND_CSV`.
-        """
         if augmented_manifests is not None:
             pulumi.set(__self__, "augmented_manifests", augmented_manifests)
         if data_format is not None:
@@ -88,39 +76,21 @@ class DocumentClassifierInputDataConfig(dict):
     @_builtins.property
     @pulumi.getter(name="augmentedManifests")
     def augmented_manifests(self) -> Optional[Sequence['outputs.DocumentClassifierInputDataConfigAugmentedManifest']]:
-        """
-        List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        Used if `data_format` is `AUGMENTED_MANIFEST`.
-        See the `augmented_manifests` Configuration Block section below.
-        """
         return pulumi.get(self, "augmented_manifests")
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[_builtins.str]:
-        """
-        The format for the training data.
-        One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        """
         return pulumi.get(self, "data_format")
 
     @_builtins.property
     @pulumi.getter(name="labelDelimiter")
     def label_delimiter(self) -> Optional[_builtins.str]:
-        """
-        Delimiter between labels when training a multi-label classifier.
-        Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
-        Default is `|`.
-        """
         return pulumi.get(self, "label_delimiter")
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[_builtins.str]:
-        """
-        Location of training documents.
-        Used if `data_format` is `COMPREHEND_CSV`.
-        """
         return pulumi.get(self, "s3_uri")
 
     @_builtins.property
@@ -163,16 +133,6 @@ class DocumentClassifierInputDataConfigAugmentedManifest(dict):
                  document_type: Optional[_builtins.str] = None,
                  source_documents_s3_uri: Optional[_builtins.str] = None,
                  split: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] attribute_names: The JSON attribute that contains the annotations for the training documents.
-        :param _builtins.str s3_uri: Location of augmented manifest file.
-        :param _builtins.str annotation_data_s3_uri: Location of annotation files.
-        :param _builtins.str document_type: Type of augmented manifest.
-               One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-        :param _builtins.str source_documents_s3_uri: Location of source PDF files.
-        :param _builtins.str split: Purpose of data in augmented manifest.
-               One of `TRAIN` or `TEST`.
-        """
         pulumi.set(__self__, "attribute_names", attribute_names)
         pulumi.set(__self__, "s3_uri", s3_uri)
         if annotation_data_s3_uri is not None:
@@ -187,51 +147,31 @@ class DocumentClassifierInputDataConfigAugmentedManifest(dict):
     @_builtins.property
     @pulumi.getter(name="attributeNames")
     def attribute_names(self) -> Sequence[_builtins.str]:
-        """
-        The JSON attribute that contains the annotations for the training documents.
-        """
         return pulumi.get(self, "attribute_names")
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        Location of augmented manifest file.
-        """
         return pulumi.get(self, "s3_uri")
 
     @_builtins.property
     @pulumi.getter(name="annotationDataS3Uri")
     def annotation_data_s3_uri(self) -> Optional[_builtins.str]:
-        """
-        Location of annotation files.
-        """
         return pulumi.get(self, "annotation_data_s3_uri")
 
     @_builtins.property
     @pulumi.getter(name="documentType")
     def document_type(self) -> Optional[_builtins.str]:
-        """
-        Type of augmented manifest.
-        One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-        """
         return pulumi.get(self, "document_type")
 
     @_builtins.property
     @pulumi.getter(name="sourceDocumentsS3Uri")
     def source_documents_s3_uri(self) -> Optional[_builtins.str]:
-        """
-        Location of source PDF files.
-        """
         return pulumi.get(self, "source_documents_s3_uri")
 
     @_builtins.property
     @pulumi.getter
     def split(self) -> Optional[_builtins.str]:
-        """
-        Purpose of data in augmented manifest.
-        One of `TRAIN` or `TEST`.
-        """
         return pulumi.get(self, "split")
 
 
@@ -262,13 +202,6 @@ class DocumentClassifierOutputDataConfig(dict):
                  s3_uri: _builtins.str,
                  kms_key_id: Optional[_builtins.str] = None,
                  output_s3_uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str s3_uri: Destination path for the output documents.
-               The full path to the output file will be returned in `output_s3_uri`.
-        :param _builtins.str kms_key_id: KMS Key used to encrypt the output documents.
-               Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-        :param _builtins.str output_s3_uri: Full path for the output documents.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -278,27 +211,16 @@ class DocumentClassifierOutputDataConfig(dict):
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        Destination path for the output documents.
-        The full path to the output file will be returned in `output_s3_uri`.
-        """
         return pulumi.get(self, "s3_uri")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
-        """
-        KMS Key used to encrypt the output documents.
-        Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="outputS3Uri")
     def output_s3_uri(self) -> Optional[_builtins.str]:
-        """
-        Full path for the output documents.
-        """
         return pulumi.get(self, "output_s3_uri")
 
 
@@ -324,27 +246,17 @@ class DocumentClassifierVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] security_group_ids: List of security group IDs.
-        :param Sequence[_builtins.str] subnets: List of VPC subnets.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of security group IDs.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
-        """
-        List of VPC subnets.
-        """
         return pulumi.get(self, "subnets")
 
 
@@ -380,25 +292,6 @@ class EntityRecognizerInputDataConfig(dict):
                  data_format: Optional[_builtins.str] = None,
                  documents: Optional['outputs.EntityRecognizerInputDataConfigDocuments'] = None,
                  entity_list: Optional['outputs.EntityRecognizerInputDataConfigEntityList'] = None):
-        """
-        :param Sequence['EntityRecognizerInputDataConfigEntityTypeArgs'] entity_types: Set of entity types to be recognized.
-               Has a maximum of 25 items.
-               See the `entity_types` Configuration Block section below.
-        :param 'EntityRecognizerInputDataConfigAnnotationsArgs' annotations: Specifies location of the document annotation data.
-               See the `annotations` Configuration Block section below.
-               One of `annotations` or `entity_list` is required.
-        :param Sequence['EntityRecognizerInputDataConfigAugmentedManifestArgs'] augmented_manifests: List of training datasets produced by Amazon SageMaker AI Ground Truth.
-               Used if `data_format` is `AUGMENTED_MANIFEST`.
-               See the `augmented_manifests` Configuration Block section below.
-        :param _builtins.str data_format: The format for the training data.
-               One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        :param 'EntityRecognizerInputDataConfigDocumentsArgs' documents: Specifies a collection of training documents.
-               Used if `data_format` is `COMPREHEND_CSV`.
-               See the `documents` Configuration Block section below.
-        :param 'EntityRecognizerInputDataConfigEntityListArgs' entity_list: Specifies location of the entity list data.
-               See the `entity_list` Configuration Block section below.
-               One of `entity_list` or `annotations` is required.
-        """
         pulumi.set(__self__, "entity_types", entity_types)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -414,60 +307,31 @@ class EntityRecognizerInputDataConfig(dict):
     @_builtins.property
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> Sequence['outputs.EntityRecognizerInputDataConfigEntityType']:
-        """
-        Set of entity types to be recognized.
-        Has a maximum of 25 items.
-        See the `entity_types` Configuration Block section below.
-        """
         return pulumi.get(self, "entity_types")
 
     @_builtins.property
     @pulumi.getter
     def annotations(self) -> Optional['outputs.EntityRecognizerInputDataConfigAnnotations']:
-        """
-        Specifies location of the document annotation data.
-        See the `annotations` Configuration Block section below.
-        One of `annotations` or `entity_list` is required.
-        """
         return pulumi.get(self, "annotations")
 
     @_builtins.property
     @pulumi.getter(name="augmentedManifests")
     def augmented_manifests(self) -> Optional[Sequence['outputs.EntityRecognizerInputDataConfigAugmentedManifest']]:
-        """
-        List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        Used if `data_format` is `AUGMENTED_MANIFEST`.
-        See the `augmented_manifests` Configuration Block section below.
-        """
         return pulumi.get(self, "augmented_manifests")
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[_builtins.str]:
-        """
-        The format for the training data.
-        One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        """
         return pulumi.get(self, "data_format")
 
     @_builtins.property
     @pulumi.getter
     def documents(self) -> Optional['outputs.EntityRecognizerInputDataConfigDocuments']:
-        """
-        Specifies a collection of training documents.
-        Used if `data_format` is `COMPREHEND_CSV`.
-        See the `documents` Configuration Block section below.
-        """
         return pulumi.get(self, "documents")
 
     @_builtins.property
     @pulumi.getter(name="entityList")
     def entity_list(self) -> Optional['outputs.EntityRecognizerInputDataConfigEntityList']:
-        """
-        Specifies location of the entity list data.
-        See the `entity_list` Configuration Block section below.
-        One of `entity_list` or `annotations` is required.
-        """
         return pulumi.get(self, "entity_list")
 
 
@@ -495,9 +359,6 @@ class EntityRecognizerInputDataConfigAnnotations(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str,
                  test_s3_uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str s3_uri: Location of training annotations.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
         if test_s3_uri is not None:
             pulumi.set(__self__, "test_s3_uri", test_s3_uri)
@@ -505,9 +366,6 @@ class EntityRecognizerInputDataConfigAnnotations(dict):
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        Location of training annotations.
-        """
         return pulumi.get(self, "s3_uri")
 
     @_builtins.property
@@ -550,16 +408,6 @@ class EntityRecognizerInputDataConfigAugmentedManifest(dict):
                  document_type: Optional[_builtins.str] = None,
                  source_documents_s3_uri: Optional[_builtins.str] = None,
                  split: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] attribute_names: The JSON attribute that contains the annotations for the training documents.
-        :param _builtins.str s3_uri: Location of augmented manifest file.
-        :param _builtins.str annotation_data_s3_uri: Location of annotation files.
-        :param _builtins.str document_type: Type of augmented manifest.
-               One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-        :param _builtins.str source_documents_s3_uri: Location of source PDF files.
-        :param _builtins.str split: Purpose of data in augmented manifest.
-               One of `TRAIN` or `TEST`.
-        """
         pulumi.set(__self__, "attribute_names", attribute_names)
         pulumi.set(__self__, "s3_uri", s3_uri)
         if annotation_data_s3_uri is not None:
@@ -574,51 +422,31 @@ class EntityRecognizerInputDataConfigAugmentedManifest(dict):
     @_builtins.property
     @pulumi.getter(name="attributeNames")
     def attribute_names(self) -> Sequence[_builtins.str]:
-        """
-        The JSON attribute that contains the annotations for the training documents.
-        """
         return pulumi.get(self, "attribute_names")
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        Location of augmented manifest file.
-        """
         return pulumi.get(self, "s3_uri")
 
     @_builtins.property
     @pulumi.getter(name="annotationDataS3Uri")
     def annotation_data_s3_uri(self) -> Optional[_builtins.str]:
-        """
-        Location of annotation files.
-        """
         return pulumi.get(self, "annotation_data_s3_uri")
 
     @_builtins.property
     @pulumi.getter(name="documentType")
     def document_type(self) -> Optional[_builtins.str]:
-        """
-        Type of augmented manifest.
-        One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-        """
         return pulumi.get(self, "document_type")
 
     @_builtins.property
     @pulumi.getter(name="sourceDocumentsS3Uri")
     def source_documents_s3_uri(self) -> Optional[_builtins.str]:
-        """
-        Location of source PDF files.
-        """
         return pulumi.get(self, "source_documents_s3_uri")
 
     @_builtins.property
     @pulumi.getter
     def split(self) -> Optional[_builtins.str]:
-        """
-        Purpose of data in augmented manifest.
-        One of `TRAIN` or `TEST`.
-        """
         return pulumi.get(self, "split")
 
 
@@ -649,11 +477,6 @@ class EntityRecognizerInputDataConfigDocuments(dict):
                  s3_uri: _builtins.str,
                  input_format: Optional[_builtins.str] = None,
                  test_s3_uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str s3_uri: Location of training documents.
-        :param _builtins.str input_format: Specifies how the input files should be processed.
-               One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
         if input_format is not None:
             pulumi.set(__self__, "input_format", input_format)
@@ -663,18 +486,11 @@ class EntityRecognizerInputDataConfigDocuments(dict):
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        Location of training documents.
-        """
         return pulumi.get(self, "s3_uri")
 
     @_builtins.property
     @pulumi.getter(name="inputFormat")
     def input_format(self) -> Optional[_builtins.str]:
-        """
-        Specifies how the input files should be processed.
-        One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-        """
         return pulumi.get(self, "input_format")
 
     @_builtins.property
@@ -704,17 +520,11 @@ class EntityRecognizerInputDataConfigEntityList(dict):
 
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
-        """
-        :param _builtins.str s3_uri: Location of entity list.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        Location of entity list.
-        """
         return pulumi.get(self, "s3_uri")
 
 
@@ -722,19 +532,11 @@ class EntityRecognizerInputDataConfigEntityList(dict):
 class EntityRecognizerInputDataConfigEntityType(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: An entity type to be matched by the Entity Recognizer.
-               Cannot contain a newline (`\\n`), carriage return (`\\r`), or tab (`\\t`).
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        An entity type to be matched by the Entity Recognizer.
-        Cannot contain a newline (`\\n`), carriage return (`\\r`), or tab (`\\t`).
-        """
         return pulumi.get(self, "type")
 
 
@@ -760,27 +562,17 @@ class EntityRecognizerVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] security_group_ids: List of security group IDs.
-        :param Sequence[_builtins.str] subnets: List of VPC subnets.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of security group IDs.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
-        """
-        List of VPC subnets.
-        """
         return pulumi.get(self, "subnets")
 
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionOriginGroup
     {
-        /// <summary>
-        /// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-        /// </summary>
         public readonly Outputs.MultitenantDistributionOriginGroupFailoverCriteria? FailoverCriteria;
-        /// <summary>
-        /// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionOriginGroupMember> Members;
-        /// <summary>
-        /// Unique identifier for the origin group.
-        /// </summary>
         public readonly string OriginId;
 
         [OutputConstructor]

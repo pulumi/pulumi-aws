@@ -9,89 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GameLift
 {
-    /// <summary>
-    /// Provides an GameLift Script resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GameLift.Script("example", new()
-    ///     {
-    ///         Name = "example-script",
-    ///         StorageLocation = new Aws.GameLift.Inputs.ScriptStorageLocationArgs
-    ///         {
-    ///             Bucket = exampleAwsS3Bucket.Id,
-    ///             Key = exampleAwsS3Object.Key,
-    ///             RoleArn = exampleAwsIamRole.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import GameLift Scripts using the ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:gamelift/script:Script")]
     public partial class Script : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// GameLift Script ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the script
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Information indicating where your game script files are stored. See below.
-        /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.ScriptStorageLocation> StorageLocation { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Version that is associated with this script.
-        /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
-        /// <summary>
-        /// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-        /// </summary>
         [Output("zipFile")]
         public Output<string?> ZipFile { get; private set; } = null!;
 
@@ -141,45 +82,26 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class ScriptArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the script
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Information indicating where your game script files are stored. See below.
-        /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.ScriptStorageLocationArgs>? StorageLocation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Version that is associated with this script.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
-        /// <summary>
-        /// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-        /// </summary>
         [Input("zipFile")]
         public Input<string>? ZipFile { get; set; }
 
@@ -191,36 +113,20 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class ScriptState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// GameLift Script ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the script
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Information indicating where your game script files are stored. See below.
-        /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.ScriptStorageLocationGetArgs>? StorageLocation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -229,25 +135,15 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Version that is associated with this script.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
-        /// <summary>
-        /// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-        /// </summary>
         [Input("zipFile")]
         public Input<string>? ZipFile { get; set; }
 

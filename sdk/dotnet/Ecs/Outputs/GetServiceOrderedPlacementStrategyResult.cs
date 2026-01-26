@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceOrderedPlacementStrategyResult
     {
-        /// <summary>
-        /// Field to apply placement strategy against
-        /// </summary>
         public readonly string Field;
-        /// <summary>
-        /// Constraint type
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsScheduleShareRule
     {
-        /// <summary>
-        /// The IDs of the AWS accounts with which to share the snapshots.
-        /// </summary>
         public readonly ImmutableArray<string> TargetAccounts;
-        /// <summary>
-        /// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-        /// </summary>
         public readonly int? UnshareInterval;
-        /// <summary>
-        /// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-        /// </summary>
         public readonly string? UnshareIntervalUnit;
 
         [OutputConstructor]

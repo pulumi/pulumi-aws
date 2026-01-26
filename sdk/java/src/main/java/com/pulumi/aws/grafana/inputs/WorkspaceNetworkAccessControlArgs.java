@@ -15,32 +15,16 @@ public final class WorkspaceNetworkAccessControlArgs extends com.pulumi.resource
 
     public static final WorkspaceNetworkAccessControlArgs Empty = new WorkspaceNetworkAccessControlArgs();
 
-    /**
-     * An array of prefix list IDs.
-     * 
-     */
     @Import(name="prefixListIds", required=true)
     private Output<List<String>> prefixListIds;
 
-    /**
-     * @return An array of prefix list IDs.
-     * 
-     */
     public Output<List<String>> prefixListIds() {
         return this.prefixListIds;
     }
 
-    /**
-     * An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
-     * 
-     */
     @Import(name="vpceIds", required=true)
     private Output<List<String>> vpceIds;
 
-    /**
-     * @return An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
-     * 
-     */
     public Output<List<String>> vpceIds() {
         return this.vpceIds;
     }
@@ -70,64 +54,28 @@ public final class WorkspaceNetworkAccessControlArgs extends com.pulumi.resource
             $ = new WorkspaceNetworkAccessControlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefixListIds An array of prefix list IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixListIds(Output<List<String>> prefixListIds) {
             $.prefixListIds = prefixListIds;
             return this;
         }
 
-        /**
-         * @param prefixListIds An array of prefix list IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixListIds(List<String> prefixListIds) {
             return prefixListIds(Output.of(prefixListIds));
         }
 
-        /**
-         * @param prefixListIds An array of prefix list IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixListIds(String... prefixListIds) {
             return prefixListIds(List.of(prefixListIds));
         }
 
-        /**
-         * @param vpceIds An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceIds(Output<List<String>> vpceIds) {
             $.vpceIds = vpceIds;
             return this;
         }
 
-        /**
-         * @param vpceIds An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceIds(List<String> vpceIds) {
             return vpceIds(Output.of(vpceIds));
         }
 
-        /**
-         * @param vpceIds An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceIds(String... vpceIds) {
             return vpceIds(List.of(vpceIds));
         }

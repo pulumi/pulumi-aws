@@ -12,59 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS QuickSight Folder Membership.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewFolderMembership(ctx, "example", &quicksight.FolderMembershipArgs{
-//				FolderId:   pulumi.Any(exampleAwsQuicksightFolder.FolderId),
-//				MemberType: pulumi.String("DATASET"),
-//				MemberId:   pulumi.Any(exampleAwsQuicksightDataSet.DataSetId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
-// ```
 type FolderMembership struct {
 	pulumi.CustomResourceState
 
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Identifier for the folder.
-	FolderId pulumi.StringOutput `pulumi:"folderId"`
-	// ID of the asset (the dashboard, analysis, or dataset).
-	MemberId pulumi.StringOutput `pulumi:"memberId"`
-	// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-	//
-	// The following arguments are optional:
-	MemberType pulumi.StringOutput `pulumi:"memberType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	FolderId     pulumi.StringOutput `pulumi:"folderId"`
+	MemberId     pulumi.StringOutput `pulumi:"memberId"`
+	MemberType   pulumi.StringOutput `pulumi:"memberType"`
+	Region       pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewFolderMembership registers a new resource with the given unique name, arguments, and options.
@@ -107,30 +62,18 @@ func GetFolderMembership(ctx *pulumi.Context,
 // Input properties used for looking up and filtering FolderMembership resources.
 type folderMembershipState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Identifier for the folder.
-	FolderId *string `pulumi:"folderId"`
-	// ID of the asset (the dashboard, analysis, or dataset).
-	MemberId *string `pulumi:"memberId"`
-	// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-	//
-	// The following arguments are optional:
-	MemberType *string `pulumi:"memberType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FolderId     *string `pulumi:"folderId"`
+	MemberId     *string `pulumi:"memberId"`
+	MemberType   *string `pulumi:"memberType"`
+	Region       *string `pulumi:"region"`
 }
 
 type FolderMembershipState struct {
 	AwsAccountId pulumi.StringPtrInput
-	// Identifier for the folder.
-	FolderId pulumi.StringPtrInput
-	// ID of the asset (the dashboard, analysis, or dataset).
-	MemberId pulumi.StringPtrInput
-	// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-	//
-	// The following arguments are optional:
-	MemberType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	FolderId     pulumi.StringPtrInput
+	MemberId     pulumi.StringPtrInput
+	MemberType   pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (FolderMembershipState) ElementType() reflect.Type {
@@ -139,31 +82,19 @@ func (FolderMembershipState) ElementType() reflect.Type {
 
 type folderMembershipArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Identifier for the folder.
-	FolderId string `pulumi:"folderId"`
-	// ID of the asset (the dashboard, analysis, or dataset).
-	MemberId string `pulumi:"memberId"`
-	// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-	//
-	// The following arguments are optional:
-	MemberType string `pulumi:"memberType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FolderId     string  `pulumi:"folderId"`
+	MemberId     string  `pulumi:"memberId"`
+	MemberType   string  `pulumi:"memberType"`
+	Region       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FolderMembership resource.
 type FolderMembershipArgs struct {
 	AwsAccountId pulumi.StringPtrInput
-	// Identifier for the folder.
-	FolderId pulumi.StringInput
-	// ID of the asset (the dashboard, analysis, or dataset).
-	MemberId pulumi.StringInput
-	// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-	//
-	// The following arguments are optional:
-	MemberType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	FolderId     pulumi.StringInput
+	MemberId     pulumi.StringInput
+	MemberType   pulumi.StringInput
+	Region       pulumi.StringPtrInput
 }
 
 func (FolderMembershipArgs) ElementType() reflect.Type {
@@ -257,24 +188,18 @@ func (o FolderMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Identifier for the folder.
 func (o FolderMembershipOutput) FolderId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.FolderId }).(pulumi.StringOutput)
 }
 
-// ID of the asset (the dashboard, analysis, or dataset).
 func (o FolderMembershipOutput) MemberId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
 }
 
-// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-//
-// The following arguments are optional:
 func (o FolderMembershipOutput) MemberType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.MemberType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FolderMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

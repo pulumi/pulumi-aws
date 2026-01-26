@@ -9,104 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `aws.ec2.VpcIpamResourceDiscoveryAssociation` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var main = new Aws.Ec2.VpcIpamResourceDiscovery("main", new()
-    ///     {
-    ///         Description = "My IPAM Resource Discovery",
-    ///         OperatingRegions = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs
-    ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Test", "Main" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery")]
     public partial class VpcIpamResourceDiscovery : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM Resource Discovery
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A description for the IPAM Resource Discovery.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The home region of the Resource Discovery
-        /// </summary>
         [Output("ipamResourceDiscoveryRegion")]
         public Output<string> IpamResourceDiscoveryRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
-        /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
-        /// <summary>
-        /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
-        /// </summary>
         [Output("operatingRegions")]
         public Output<ImmutableArray<Outputs.VpcIpamResourceDiscoveryOperatingRegion>> OperatingRegions { get; private set; } = null!;
 
-        /// <summary>
-        /// The account ID for the account that manages the Resource Discovery
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -156,36 +85,22 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamResourceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the IPAM Resource Discovery.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("operatingRegions", required: true)]
         private InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>? _operatingRegions;
-
-        /// <summary>
-        /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
-        /// </summary>
         public InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs> OperatingRegions
         {
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>());
             set => _operatingRegions = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -200,60 +115,34 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamResourceDiscoveryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM Resource Discovery
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A description for the IPAM Resource Discovery.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The home region of the Resource Discovery
-        /// </summary>
         [Input("ipamResourceDiscoveryRegion")]
         public Input<string>? IpamResourceDiscoveryRegion { get; set; }
 
-        /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
-        /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
         [Input("operatingRegions")]
         private InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionGetArgs>? _operatingRegions;
-
-        /// <summary>
-        /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
-        /// </summary>
         public InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionGetArgs> OperatingRegions
         {
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionGetArgs>());
             set => _operatingRegions = value;
         }
 
-        /// <summary>
-        /// The account ID for the account that manages the Resource Discovery
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -262,10 +151,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

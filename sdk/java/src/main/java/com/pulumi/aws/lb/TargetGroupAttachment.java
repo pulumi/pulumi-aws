@@ -17,250 +17,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `aws.elb.Attachment` resource.
- * 
- * &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TargetGroup;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.lb.TargetGroupAttachment;
- * import com.pulumi.aws.lb.TargetGroupAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testTargetGroup = new TargetGroup("testTargetGroup");
- * 
- *         var testInstance = new Instance("testInstance");
- * 
- *         var test = new TargetGroupAttachment("test", TargetGroupAttachmentArgs.builder()
- *             .targetGroupArn(testTargetGroup.arn())
- *             .targetId(testInstance.id())
- *             .port(80)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Lambda Target
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TargetGroup;
- * import com.pulumi.aws.lb.TargetGroupArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import com.pulumi.aws.lb.TargetGroupAttachment;
- * import com.pulumi.aws.lb.TargetGroupAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new TargetGroup("test", TargetGroupArgs.builder()
- *             .name("test")
- *             .targetType("lambda")
- *             .build());
- * 
- *         var testFunction = new Function("testFunction");
- * 
- *         var withLb = new Permission("withLb", PermissionArgs.builder()
- *             .statementId("AllowExecutionFromlb")
- *             .action("lambda:InvokeFunction")
- *             .function(testFunction.name())
- *             .principal("elasticloadbalancing.amazonaws.com")
- *             .sourceArn(test.arn())
- *             .build());
- * 
- *         var testTargetGroupAttachment = new TargetGroupAttachment("testTargetGroupAttachment", TargetGroupAttachmentArgs.builder()
- *             .targetGroupArn(test.arn())
- *             .targetId(testFunction.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(withLb)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Target using QUIC
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TargetGroup;
- * import com.pulumi.aws.lb.TargetGroupArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.lb.TargetGroupAttachment;
- * import com.pulumi.aws.lb.TargetGroupAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new TargetGroup("test", TargetGroupArgs.builder()
- *             .name("test")
- *             .port(443)
- *             .protocol("QUIC")
- *             .build());
- * 
- *         var testInstance = new Instance("testInstance");
- * 
- *         var testTargetGroupAttachment = new TargetGroupAttachment("testTargetGroupAttachment", TargetGroupAttachmentArgs.builder()
- *             .targetGroupArn(test.arn())
- *             .targetId(testInstance.id())
- *             .port(443)
- *             .quicServerId("0x1a2b3c4d5e6f7a8b")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * You cannot import Target Group Attachments.
- * 
- */
 @ResourceType(type="aws:lb/targetGroupAttachment:TargetGroupAttachment")
 public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> availabilityZone;
 
-    /**
-     * @return The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
-     * 
-     */
     public Output<Optional<String>> availabilityZone() {
         return Codegen.optional(this.availabilityZone);
     }
-    /**
-     * The port on which targets receive traffic.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
-    /**
-     * @return The port on which targets receive traffic.
-     * 
-     */
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
     }
-    /**
-     * Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-     * 
-     */
     @Export(name="quicServerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> quicServerId;
 
-    /**
-     * @return Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-     * 
-     */
     public Output<Optional<String>> quicServerId() {
         return Codegen.optional(this.quicServerId);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ARN of the target group with which to register targets.
-     * 
-     */
     @Export(name="targetGroupArn", refs={String.class}, tree="[0]")
     private Output<String> targetGroupArn;
 
-    /**
-     * @return The ARN of the target group with which to register targets.
-     * 
-     */
     public Output<String> targetGroupArn() {
         return this.targetGroupArn;
     }
-    /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
-    /**
-     * @return The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetId() {
         return this.targetId;
     }

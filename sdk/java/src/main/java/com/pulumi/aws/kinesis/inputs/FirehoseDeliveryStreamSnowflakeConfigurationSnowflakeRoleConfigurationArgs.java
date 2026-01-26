@@ -16,32 +16,16 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
 
     public static final FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs Empty = new FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs();
 
-    /**
-     * Whether the Snowflake role is enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the Snowflake role is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The Snowflake role.
-     * 
-     */
     @Import(name="snowflakeRole")
     private @Nullable Output<String> snowflakeRole;
 
-    /**
-     * @return The Snowflake role.
-     * 
-     */
     public Optional<Output<String>> snowflakeRole() {
         return Optional.ofNullable(this.snowflakeRole);
     }
@@ -71,44 +55,20 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
             $ = new FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether the Snowflake role is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the Snowflake role is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param snowflakeRole The Snowflake role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowflakeRole(@Nullable Output<String> snowflakeRole) {
             $.snowflakeRole = snowflakeRole;
             return this;
         }
 
-        /**
-         * @param snowflakeRole The Snowflake role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowflakeRole(String snowflakeRole) {
             return snowflakeRole(Output.of(snowflakeRole));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterOpenMonitoringPrometheus
     {
-        /// <summary>
-        /// Configuration block for JMX Exporter. See OpenMonitoring prometheus JmxExporter Argument Reference below.
-        /// </summary>
         public readonly Outputs.ClusterOpenMonitoringPrometheusJmxExporter? JmxExporter;
-        /// <summary>
-        /// Configuration block for Node Exporter. See OpenMonitoring prometheus NodeExporter Argument Reference below.
-        /// </summary>
         public readonly Outputs.ClusterOpenMonitoringPrometheusNodeExporter? NodeExporter;
 
         [OutputConstructor]

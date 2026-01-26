@@ -16,32 +16,16 @@ public final class LocationFsxOntapFileSystemProtocolArgs extends com.pulumi.res
 
     public static final LocationFsxOntapFileSystemProtocolArgs Empty = new LocationFsxOntapFileSystemProtocolArgs();
 
-    /**
-     * Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-     * 
-     */
     @Import(name="nfs")
     private @Nullable Output<LocationFsxOntapFileSystemProtocolNfsArgs> nfs;
 
-    /**
-     * @return Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-     * 
-     */
     public Optional<Output<LocationFsxOntapFileSystemProtocolNfsArgs>> nfs() {
         return Optional.ofNullable(this.nfs);
     }
 
-    /**
-     * Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-     * 
-     */
     @Import(name="smb")
     private @Nullable Output<LocationFsxOntapFileSystemProtocolSmbArgs> smb;
 
-    /**
-     * @return Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-     * 
-     */
     public Optional<Output<LocationFsxOntapFileSystemProtocolSmbArgs>> smb() {
         return Optional.ofNullable(this.smb);
     }
@@ -71,44 +55,20 @@ public final class LocationFsxOntapFileSystemProtocolArgs extends com.pulumi.res
             $ = new LocationFsxOntapFileSystemProtocolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nfs Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nfs(@Nullable Output<LocationFsxOntapFileSystemProtocolNfsArgs> nfs) {
             $.nfs = nfs;
             return this;
         }
 
-        /**
-         * @param nfs Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nfs(LocationFsxOntapFileSystemProtocolNfsArgs nfs) {
             return nfs(Output.of(nfs));
         }
 
-        /**
-         * @param smb Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smb(@Nullable Output<LocationFsxOntapFileSystemProtocolSmbArgs> smb) {
             $.smb = smb;
             return this;
         }
 
-        /**
-         * @param smb Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smb(LocationFsxOntapFileSystemProtocolSmbArgs smb) {
             return smb(Output.of(smb));
         }

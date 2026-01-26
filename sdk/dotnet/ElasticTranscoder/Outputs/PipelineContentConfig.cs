@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
     [OutputType]
     public sealed class PipelineContentConfig
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
-        /// </summary>
         public readonly string? Bucket;
-        /// <summary>
-        /// The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
-        /// </summary>
         public readonly string? StorageClass;
 
         [OutputConstructor]

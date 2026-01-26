@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Fsx.Inputs
     {
         [Input("clientConfigurations", required: true)]
         private InputList<Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationGetArgs>? _clientConfigurations;
-
-        /// <summary>
-        /// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `ClientConfigurations` Block for details.
-        /// </summary>
         public InputList<Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationGetArgs> ClientConfigurations
         {
             get => _clientConfigurations ?? (_clientConfigurations = new InputList<Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationGetArgs>());

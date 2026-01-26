@@ -17,32 +17,16 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs exten
 
     public static final ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs Empty = new ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs();
 
-    /**
-     * Whether log delivery to Amazon CloudWatch Logs is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * The name of the CloudWatch log group that is the destination for log delivery.
-     * 
-     */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
-    /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
-     * 
-     */
     public Optional<Output<String>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
@@ -72,44 +56,20 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs exten
             $ = new ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether log delivery to Amazon CloudWatch Logs is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether log delivery to Amazon CloudWatch Logs is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param logGroup The name of the CloudWatch log group that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(@Nullable Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup The name of the CloudWatch log group that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }

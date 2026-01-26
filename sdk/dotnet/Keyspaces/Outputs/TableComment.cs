@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class TableComment
     {
-        /// <summary>
-        /// A description of the table.
-        /// </summary>
         public readonly string? Message;
 
         [OutputConstructor]

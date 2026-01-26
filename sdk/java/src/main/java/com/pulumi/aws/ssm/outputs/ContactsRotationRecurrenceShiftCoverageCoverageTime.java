@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContactsRotationRecurrenceShiftCoverageCoverageTime {
-    /**
-     * @return (Required) The end time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     private @Nullable ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd end;
-    /**
-     * @return (Required) The start time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     private @Nullable ContactsRotationRecurrenceShiftCoverageCoverageTimeStart start;
 
     private ContactsRotationRecurrenceShiftCoverageCoverageTime() {}
-    /**
-     * @return (Required) The end time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     public Optional<ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd> end() {
         return Optional.ofNullable(this.end);
     }
-    /**
-     * @return (Required) The start time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     public Optional<ContactsRotationRecurrenceShiftCoverageCoverageTimeStart> start() {
         return Optional.ofNullable(this.start);
     }

@@ -20,113 +20,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketV2LifecycleRule {
-    /**
-     * @return Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
-     * 
-     */
     private @Nullable Integer abortIncompleteMultipartUploadDays;
-    /**
-     * @return Specifies lifecycle rule status.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
-     * 
-     */
     private @Nullable List<BucketV2LifecycleRuleExpiration> expirations;
-    /**
-     * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
-     * 
-     */
     private @Nullable List<BucketV2LifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations;
-    /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
-     * 
-     */
     private @Nullable List<BucketV2LifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
-    /**
-     * @return Object key prefix identifying one or more objects to which the rule applies.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Specifies object tags key and value.
-     * 
-     */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
-     * 
-     */
     private @Nullable List<BucketV2LifecycleRuleTransition> transitions;
 
     private BucketV2LifecycleRule() {}
-    /**
-     * @return Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
-     * 
-     */
     public Optional<Integer> abortIncompleteMultipartUploadDays() {
         return Optional.ofNullable(this.abortIncompleteMultipartUploadDays);
     }
-    /**
-     * @return Specifies lifecycle rule status.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
-     * 
-     */
     public List<BucketV2LifecycleRuleExpiration> expirations() {
         return this.expirations == null ? List.of() : this.expirations;
     }
-    /**
-     * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
-     * 
-     */
     public List<BucketV2LifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpirations() {
         return this.noncurrentVersionExpirations == null ? List.of() : this.noncurrentVersionExpirations;
     }
-    /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
-     * 
-     */
     public List<BucketV2LifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions() {
         return this.noncurrentVersionTransitions == null ? List.of() : this.noncurrentVersionTransitions;
     }
-    /**
-     * @return Object key prefix identifying one or more objects to which the rule applies.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Specifies object tags key and value.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
-     * 
-     */
     public List<BucketV2LifecycleRuleTransition> transitions() {
         return this.transitions == null ? List.of() : this.transitions;
     }

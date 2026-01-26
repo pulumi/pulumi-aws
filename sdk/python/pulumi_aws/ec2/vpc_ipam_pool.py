@@ -37,23 +37,6 @@ class VpcIpamPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamPool resource.
-        :param pulumi.Input[_builtins.str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-        :param pulumi.Input[_builtins.str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
-        :param pulumi.Input[_builtins.int] allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-        :param pulumi.Input[_builtins.int] allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[_builtins.int] allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] allocation_resource_tags: Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        :param pulumi.Input[_builtins.bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-               within the CIDR range in the pool.
-        :param pulumi.Input[_builtins.str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-        :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM pool.
-        :param pulumi.Input[_builtins.str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[_builtins.str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-        :param pulumi.Input[_builtins.bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
@@ -89,9 +72,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-        """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
@@ -101,9 +81,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="ipamScopeId")
     def ipam_scope_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the scope in which you would like to create the IPAM pool.
-        """
         return pulumi.get(self, "ipam_scope_id")
 
     @ipam_scope_id.setter
@@ -113,9 +90,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="allocationDefaultNetmaskLength")
     def allocation_default_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-        """
         return pulumi.get(self, "allocation_default_netmask_length")
 
     @allocation_default_netmask_length.setter
@@ -125,9 +99,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="allocationMaxNetmaskLength")
     def allocation_max_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum netmask length that will be required for CIDR allocations in this pool.
-        """
         return pulumi.get(self, "allocation_max_netmask_length")
 
     @allocation_max_netmask_length.setter
@@ -137,9 +108,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="allocationMinNetmaskLength")
     def allocation_min_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The minimum netmask length that will be required for CIDR allocations in this pool.
-        """
         return pulumi.get(self, "allocation_min_netmask_length")
 
     @allocation_min_netmask_length.setter
@@ -149,9 +117,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="allocationResourceTags")
     def allocation_resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        """
         return pulumi.get(self, "allocation_resource_tags")
 
     @allocation_resource_tags.setter
@@ -161,10 +126,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="autoImport")
     def auto_import(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-        within the CIDR range in the pool.
-        """
         return pulumi.get(self, "auto_import")
 
     @auto_import.setter
@@ -174,9 +135,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="awsService")
     def aws_service(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-        """
         return pulumi.get(self, "aws_service")
 
     @aws_service.setter
@@ -186,9 +144,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter
     def cascade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-        """
         return pulumi.get(self, "cascade")
 
     @cascade.setter
@@ -198,9 +153,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the IPAM pool.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -210,9 +162,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        """
         return pulumi.get(self, "locale")
 
     @locale.setter
@@ -222,9 +171,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="publicIpSource")
     def public_ip_source(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-        """
         return pulumi.get(self, "public_ip_source")
 
     @public_ip_source.setter
@@ -234,9 +180,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-        """
         return pulumi.get(self, "publicly_advertisable")
 
     @publicly_advertisable.setter
@@ -246,9 +189,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -258,9 +198,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIpamPoolId")
     def source_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        """
         return pulumi.get(self, "source_ipam_pool_id")
 
     @source_ipam_pool_id.setter
@@ -270,9 +207,6 @@ class VpcIpamPoolArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -306,26 +240,6 @@ class _VpcIpamPoolState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPool resources.
-        :param pulumi.Input[_builtins.str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-        :param pulumi.Input[_builtins.int] allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-        :param pulumi.Input[_builtins.int] allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[_builtins.int] allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] allocation_resource_tags: Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM
-        :param pulumi.Input[_builtins.bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-               within the CIDR range in the pool.
-        :param pulumi.Input[_builtins.str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-        :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM pool.
-        :param pulumi.Input[_builtins.str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
-        :param pulumi.Input[_builtins.str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[_builtins.str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-        :param pulumi.Input[_builtins.bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input[_builtins.str] state: The ID of the IPAM
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if address_family is not None:
             pulumi.set(__self__, "address_family", address_family)
@@ -373,9 +287,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-        """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
@@ -385,9 +296,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="allocationDefaultNetmaskLength")
     def allocation_default_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-        """
         return pulumi.get(self, "allocation_default_netmask_length")
 
     @allocation_default_netmask_length.setter
@@ -397,9 +305,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="allocationMaxNetmaskLength")
     def allocation_max_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum netmask length that will be required for CIDR allocations in this pool.
-        """
         return pulumi.get(self, "allocation_max_netmask_length")
 
     @allocation_max_netmask_length.setter
@@ -409,9 +314,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="allocationMinNetmaskLength")
     def allocation_min_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The minimum netmask length that will be required for CIDR allocations in this pool.
-        """
         return pulumi.get(self, "allocation_min_netmask_length")
 
     @allocation_min_netmask_length.setter
@@ -421,9 +323,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="allocationResourceTags")
     def allocation_resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        """
         return pulumi.get(self, "allocation_resource_tags")
 
     @allocation_resource_tags.setter
@@ -433,9 +332,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of IPAM
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -445,10 +341,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="autoImport")
     def auto_import(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-        within the CIDR range in the pool.
-        """
         return pulumi.get(self, "auto_import")
 
     @auto_import.setter
@@ -458,9 +350,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="awsService")
     def aws_service(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-        """
         return pulumi.get(self, "aws_service")
 
     @aws_service.setter
@@ -470,9 +359,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter
     def cascade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-        """
         return pulumi.get(self, "cascade")
 
     @cascade.setter
@@ -482,9 +368,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the IPAM pool.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -494,9 +377,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="ipamScopeId")
     def ipam_scope_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the scope in which you would like to create the IPAM pool.
-        """
         return pulumi.get(self, "ipam_scope_id")
 
     @ipam_scope_id.setter
@@ -515,9 +395,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        """
         return pulumi.get(self, "locale")
 
     @locale.setter
@@ -536,9 +413,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="publicIpSource")
     def public_ip_source(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-        """
         return pulumi.get(self, "public_ip_source")
 
     @public_ip_source.setter
@@ -548,9 +422,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-        """
         return pulumi.get(self, "publicly_advertisable")
 
     @publicly_advertisable.setter
@@ -560,9 +431,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -572,9 +440,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="sourceIpamPoolId")
     def source_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        """
         return pulumi.get(self, "source_ipam_pool_id")
 
     @source_ipam_pool_id.setter
@@ -584,9 +449,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the IPAM
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -596,9 +458,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -608,9 +467,6 @@ class _VpcIpamPoolState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -642,79 +498,9 @@ class VpcIpamPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an IP address pool resource for IPAM.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.region,
-        }])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id,
-            locale=current.region)
-        ```
-
-        Nested Pools:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.region,
-        }])
-        parent = aws.ec2.VpcIpamPool("parent",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id)
-        parent_test = aws.ec2.VpcIpamPoolCidr("parent_test",
-            ipam_pool_id=parent.id,
-            cidr="172.20.0.0/16")
-        child = aws.ec2.VpcIpamPool("child",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id,
-            locale=current.region,
-            source_ipam_pool_id=parent.id)
-        child_test = aws.ec2.VpcIpamPoolCidr("child_test",
-            ipam_pool_id=child.id,
-            cidr="172.20.0.0/24")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
-        ```
-
+        Create a VpcIpamPool resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-        :param pulumi.Input[_builtins.int] allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-        :param pulumi.Input[_builtins.int] allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[_builtins.int] allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] allocation_resource_tags: Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        :param pulumi.Input[_builtins.bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-               within the CIDR range in the pool.
-        :param pulumi.Input[_builtins.str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-        :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM pool.
-        :param pulumi.Input[_builtins.str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
-        :param pulumi.Input[_builtins.str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[_builtins.str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-        :param pulumi.Input[_builtins.bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -723,60 +509,7 @@ class VpcIpamPool(pulumi.CustomResource):
                  args: VpcIpamPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IP address pool resource for IPAM.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.region,
-        }])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id,
-            locale=current.region)
-        ```
-
-        Nested Pools:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.region,
-        }])
-        parent = aws.ec2.VpcIpamPool("parent",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id)
-        parent_test = aws.ec2.VpcIpamPoolCidr("parent_test",
-            ipam_pool_id=parent.id,
-            cidr="172.20.0.0/16")
-        child = aws.ec2.VpcIpamPool("child",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id,
-            locale=current.region,
-            source_ipam_pool_id=parent.id)
-        child_test = aws.ec2.VpcIpamPoolCidr("child_test",
-            ipam_pool_id=child.id,
-            cidr="172.20.0.0/24")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
-        ```
-
+        Create a VpcIpamPool resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcIpamPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -880,26 +613,6 @@ class VpcIpamPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-        :param pulumi.Input[_builtins.int] allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-        :param pulumi.Input[_builtins.int] allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[_builtins.int] allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] allocation_resource_tags: Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM
-        :param pulumi.Input[_builtins.bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-               within the CIDR range in the pool.
-        :param pulumi.Input[_builtins.str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-        :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM pool.
-        :param pulumi.Input[_builtins.str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
-        :param pulumi.Input[_builtins.str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[_builtins.str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-        :param pulumi.Input[_builtins.bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        :param pulumi.Input[_builtins.str] state: The ID of the IPAM
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -931,90 +644,56 @@ class VpcIpamPool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-        """
         return pulumi.get(self, "address_family")
 
     @_builtins.property
     @pulumi.getter(name="allocationDefaultNetmaskLength")
     def allocation_default_netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-        """
         return pulumi.get(self, "allocation_default_netmask_length")
 
     @_builtins.property
     @pulumi.getter(name="allocationMaxNetmaskLength")
     def allocation_max_netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The maximum netmask length that will be required for CIDR allocations in this pool.
-        """
         return pulumi.get(self, "allocation_max_netmask_length")
 
     @_builtins.property
     @pulumi.getter(name="allocationMinNetmaskLength")
     def allocation_min_netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The minimum netmask length that will be required for CIDR allocations in this pool.
-        """
         return pulumi.get(self, "allocation_min_netmask_length")
 
     @_builtins.property
     @pulumi.getter(name="allocationResourceTags")
     def allocation_resource_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        """
         return pulumi.get(self, "allocation_resource_tags")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of IPAM
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoImport")
     def auto_import(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-        within the CIDR range in the pool.
-        """
         return pulumi.get(self, "auto_import")
 
     @_builtins.property
     @pulumi.getter(name="awsService")
     def aws_service(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-        """
         return pulumi.get(self, "aws_service")
 
     @_builtins.property
     @pulumi.getter
     def cascade(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-        """
         return pulumi.get(self, "cascade")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description for the IPAM pool.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="ipamScopeId")
     def ipam_scope_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the scope in which you would like to create the IPAM pool.
-        """
         return pulumi.get(self, "ipam_scope_id")
 
     @_builtins.property
@@ -1025,9 +704,6 @@ class VpcIpamPool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def locale(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        """
         return pulumi.get(self, "locale")
 
     @_builtins.property
@@ -1038,56 +714,35 @@ class VpcIpamPool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="publicIpSource")
     def public_ip_source(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-        """
         return pulumi.get(self, "public_ip_source")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-        """
         return pulumi.get(self, "publicly_advertisable")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceIpamPoolId")
     def source_ipam_pool_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-        """
         return pulumi.get(self, "source_ipam_pool_id")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the IPAM
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

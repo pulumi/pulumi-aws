@@ -15,32 +15,16 @@ public final class FilterFilterCriteriaEcrImageLastInUseAtArgs extends com.pulum
 
     public static final FilterFilterCriteriaEcrImageLastInUseAtArgs Empty = new FilterFilterCriteriaEcrImageLastInUseAtArgs();
 
-    /**
-     * (Required) The end of the port range, inclusive.
-     * 
-     */
     @Import(name="endInclusive")
     private @Nullable Output<String> endInclusive;
 
-    /**
-     * @return (Required) The end of the port range, inclusive.
-     * 
-     */
     public Optional<Output<String>> endInclusive() {
         return Optional.ofNullable(this.endInclusive);
     }
 
-    /**
-     * (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-     * 
-     */
     @Import(name="startInclusive")
     private @Nullable Output<String> startInclusive;
 
-    /**
-     * @return (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-     * 
-     */
     public Optional<Output<String>> startInclusive() {
         return Optional.ofNullable(this.startInclusive);
     }
@@ -70,44 +54,20 @@ public final class FilterFilterCriteriaEcrImageLastInUseAtArgs extends com.pulum
             $ = new FilterFilterCriteriaEcrImageLastInUseAtArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endInclusive (Required) The end of the port range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endInclusive(@Nullable Output<String> endInclusive) {
             $.endInclusive = endInclusive;
             return this;
         }
 
-        /**
-         * @param endInclusive (Required) The end of the port range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endInclusive(String endInclusive) {
             return endInclusive(Output.of(endInclusive));
         }
 
-        /**
-         * @param startInclusive (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startInclusive(@Nullable Output<String> startInclusive) {
             $.startInclusive = startInclusive;
             return this;
         }
 
-        /**
-         * @param startInclusive (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startInclusive(String startInclusive) {
             return startInclusive(Output.of(startInclusive));
         }

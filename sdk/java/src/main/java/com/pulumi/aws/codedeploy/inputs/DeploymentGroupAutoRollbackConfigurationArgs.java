@@ -17,36 +17,16 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
 
     public static final DeploymentGroupAutoRollbackConfigurationArgs Empty = new DeploymentGroupAutoRollbackConfigurationArgs();
 
-    /**
-     * Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
-     * 
-     * _Only one `autoRollbackConfiguration` is allowed_.
-     * 
-     */
     @Import(name="events")
     private @Nullable Output<List<String>> events;
 
-    /**
-     * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
-     * 
-     * _Only one `autoRollbackConfiguration` is allowed_.
-     * 
-     */
     public Optional<Output<List<String>>> events() {
         return Optional.ofNullable(this.events);
     }
@@ -76,60 +56,24 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
             $ = new DeploymentGroupAutoRollbackConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
-         * 
-         * _Only one `autoRollbackConfiguration` is allowed_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(@Nullable Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
-         * 
-         * _Only one `autoRollbackConfiguration` is allowed_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
-         * 
-         * _Only one `autoRollbackConfiguration` is allowed_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(String... events) {
             return events(List.of(events));
         }

@@ -12,33 +12,20 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// OAuth2 authorization endpoint URL.
-        /// </summary>
         [Input("authorizationEndpoint", required: true)]
         public Input<string> AuthorizationEndpoint { get; set; } = null!;
 
-        /// <summary>
-        /// OAuth2 authorization server issuer identifier.
-        /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 
         [Input("responseTypes")]
         private InputList<string>? _responseTypes;
-
-        /// <summary>
-        /// Set of OAuth2 response types supported by the authorization server.
-        /// </summary>
         public InputList<string> ResponseTypes
         {
             get => _responseTypes ?? (_responseTypes = new InputList<string>());
             set => _responseTypes = value;
         }
 
-        /// <summary>
-        /// OAuth2 token endpoint URL.
-        /// </summary>
         [Input("tokenEndpoint", required: true)]
         public Input<string> TokenEndpoint { get; set; } = null!;
 

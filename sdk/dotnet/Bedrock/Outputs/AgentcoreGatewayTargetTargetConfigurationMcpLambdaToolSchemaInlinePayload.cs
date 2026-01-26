@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload
     {
-        /// <summary>
-        /// Description of what the tool does.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Schema for the tool's input. See `SchemaDefinition` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema? InputSchema;
-        /// <summary>
-        /// Name of the tool.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Schema for the tool's output. See `SchemaDefinition` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema? OutputSchema;
 
         [OutputConstructor]

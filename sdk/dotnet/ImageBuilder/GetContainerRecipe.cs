@@ -11,75 +11,12 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetContainerRecipe
     {
-        /// <summary>
-        /// Provides details about an Image builder Container Recipe.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetContainerRecipe.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetContainerRecipeResult> InvokeAsync(GetContainerRecipeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerRecipeResult>("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args ?? new GetContainerRecipeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Image builder Container Recipe.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetContainerRecipe.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipeResult>("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args ?? new GetContainerRecipeInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Image builder Container Recipe.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetContainerRecipe.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipeResult>("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args ?? new GetContainerRecipeInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetContainerRecipeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the container recipe.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the container recipe.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetContainerRecipeInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the container recipe.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the container recipe.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,74 +71,26 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetContainerRecipeResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// List of objects with components for the container recipe.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetContainerRecipeComponentResult> Components;
-        /// <summary>
-        /// Type of the container.
-        /// </summary>
         public readonly string ContainerType;
-        /// <summary>
-        /// Date the container recipe was created.
-        /// </summary>
         public readonly string DateCreated;
-        /// <summary>
-        /// Description of the container recipe.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Dockerfile template used to build the image.
-        /// </summary>
         public readonly string DockerfileTemplateData;
-        /// <summary>
-        /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-        /// </summary>
         public readonly bool Encrypted;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of objects with instance configurations for building and testing container images.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetContainerRecipeInstanceConfigurationResult> InstanceConfigurations;
-        /// <summary>
-        /// KMS key used to encrypt the container image.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// Name of the container recipe.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Owner of the container recipe.
-        /// </summary>
         public readonly string Owner;
-        /// <summary>
-        /// Base image for the container recipe.
-        /// </summary>
         public readonly string ParentImage;
-        /// <summary>
-        /// Platform of the container recipe.
-        /// </summary>
         public readonly string Platform;
         public readonly string Region;
-        /// <summary>
-        /// Key-value map of resource tags for the container recipe.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Destination repository for the container image.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetContainerRecipeTargetRepositoryResult> TargetRepositories;
-        /// <summary>
-        /// Version of the container recipe.
-        /// </summary>
         public readonly string Version;
-        /// <summary>
-        /// Working directory used during build and test workflows.
-        /// </summary>
         public readonly string WorkingDirectory;
 
         [OutputConstructor]

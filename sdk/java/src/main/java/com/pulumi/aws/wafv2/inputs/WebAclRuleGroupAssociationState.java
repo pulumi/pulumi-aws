@@ -20,14 +20,14 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
     public static final WebAclRuleGroupAssociationState Empty = new WebAclRuleGroupAssociationState();
 
     /**
-     * Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+     * Managed rule group configuration.
      * 
      */
     @Import(name="managedRuleGroup")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupArgs> managedRuleGroup;
 
     /**
-     * @return Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+     * @return Managed rule group configuration.
      * 
      */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupArgs>> managedRuleGroup() {
@@ -35,14 +35,14 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
     }
 
     /**
-     * Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+     * Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
      * 
      */
     @Import(name="overrideAction")
     private @Nullable Output<String> overrideAction;
 
     /**
-     * @return Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+     * @return Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
      * 
      */
     public Optional<Output<String>> overrideAction() {
@@ -50,44 +50,36 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
     }
 
     /**
-     * Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+     * Priority of the rule within the Web ACL.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+     * @return Priority of the rule within the Web ACL.
      * 
      */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+     * Rule Group reference configuration.
      * 
      */
     @Import(name="ruleGroupReference")
     private @Nullable Output<WebAclRuleGroupAssociationRuleGroupReferenceArgs> ruleGroupReference;
 
     /**
-     * @return Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+     * @return Rule Group reference configuration.
      * 
      */
     public Optional<Output<WebAclRuleGroupAssociationRuleGroupReferenceArgs>> ruleGroupReference() {
@@ -95,14 +87,14 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
     }
 
     /**
-     * Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+     * Name of the rule to create in the Web ACL that references the rule group.
      * 
      */
     @Import(name="ruleName")
     private @Nullable Output<String> ruleName;
 
     /**
-     * @return Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+     * @return Name of the rule to create in the Web ACL that references the rule group.
      * 
      */
     public Optional<Output<String>> ruleName() {
@@ -119,16 +111,12 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
     /**
      * ARN of the Web ACL to associate the Rule Group with.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="webAclArn")
     private @Nullable Output<String> webAclArn;
 
     /**
      * @return ARN of the Web ACL to associate the Rule Group with.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> webAclArn() {
@@ -167,7 +155,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param managedRuleGroup Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+         * @param managedRuleGroup Managed rule group configuration.
          * 
          * @return builder
          * 
@@ -178,7 +166,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param managedRuleGroup Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+         * @param managedRuleGroup Managed rule group configuration.
          * 
          * @return builder
          * 
@@ -188,7 +176,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param overrideAction Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+         * @param overrideAction Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
          * 
          * @return builder
          * 
@@ -199,7 +187,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param overrideAction Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+         * @param overrideAction Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
          * 
          * @return builder
          * 
@@ -209,7 +197,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param priority Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+         * @param priority Priority of the rule within the Web ACL.
          * 
          * @return builder
          * 
@@ -220,7 +208,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param priority Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+         * @param priority Priority of the rule within the Web ACL.
          * 
          * @return builder
          * 
@@ -229,29 +217,17 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param ruleGroupReference Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+         * @param ruleGroupReference Rule Group reference configuration.
          * 
          * @return builder
          * 
@@ -262,7 +238,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param ruleGroupReference Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+         * @param ruleGroupReference Rule Group reference configuration.
          * 
          * @return builder
          * 
@@ -272,7 +248,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param ruleName Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+         * @param ruleName Name of the rule to create in the Web ACL that references the rule group.
          * 
          * @return builder
          * 
@@ -283,7 +259,7 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param ruleName Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+         * @param ruleName Name of the rule to create in the Web ACL that references the rule group.
          * 
          * @return builder
          * 
@@ -304,8 +280,6 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
         /**
          * @param webAclArn ARN of the Web ACL to associate the Rule Group with.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -316,8 +290,6 @@ public final class WebAclRuleGroupAssociationState extends com.pulumi.resources.
 
         /**
          * @param webAclArn ARN of the Web ACL to associate the Rule Group with.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

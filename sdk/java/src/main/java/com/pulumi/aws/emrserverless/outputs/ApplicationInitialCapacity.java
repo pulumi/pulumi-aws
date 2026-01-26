@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationInitialCapacity {
-    /**
-     * @return The initial capacity configuration per worker.
-     * 
-     */
     private @Nullable ApplicationInitialCapacityInitialCapacityConfig initialCapacityConfig;
-    /**
-     * @return The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-     * 
-     */
     private String initialCapacityType;
 
     private ApplicationInitialCapacity() {}
-    /**
-     * @return The initial capacity configuration per worker.
-     * 
-     */
     public Optional<ApplicationInitialCapacityInitialCapacityConfig> initialCapacityConfig() {
         return Optional.ofNullable(this.initialCapacityConfig);
     }
-    /**
-     * @return The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-     * 
-     */
     public String initialCapacityType() {
         return this.initialCapacityType;
     }

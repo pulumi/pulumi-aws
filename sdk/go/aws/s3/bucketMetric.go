@@ -12,150 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ### Add metrics configuration for entire S3 bucket
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("EntireBucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Add metrics configuration with S3 object filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("ImportantBlueDocuments"),
-//				Filter: &s3.BucketMetricFilterArgs{
-//					Prefix: pulumi.String("documents/"),
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Add metrics configuration with S3 object filter for S3 Access Point
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example_access_point, err := s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("example-access-point"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("ImportantBlueDocuments"),
-//				Filter: &s3.BucketMetricFilterArgs{
-//					AccessPoint: example_access_point.Arn,
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
-// ```
 type BucketMetric struct {
 	pulumi.CustomResourceState
 
-	// Name of the bucket to put metric configuration.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	Bucket pulumi.StringOutput         `pulumi:"bucket"`
 	Filter BucketMetricFilterPtrOutput `pulumi:"filter"`
-	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Name   pulumi.StringOutput         `pulumi:"name"`
+	Region pulumi.StringOutput         `pulumi:"region"`
 }
 
 // NewBucketMetric registers a new resource with the given unique name, arguments, and options.
@@ -191,24 +54,16 @@ func GetBucketMetric(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketMetric resources.
 type bucketMetricState struct {
-	// Name of the bucket to put metric configuration.
-	Bucket *string `pulumi:"bucket"`
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	Bucket *string             `pulumi:"bucket"`
 	Filter *BucketMetricFilter `pulumi:"filter"`
-	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name   *string             `pulumi:"name"`
+	Region *string             `pulumi:"region"`
 }
 
 type BucketMetricState struct {
-	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringPtrInput
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter BucketMetricFilterPtrInput
-	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 }
 
@@ -217,25 +72,17 @@ func (BucketMetricState) ElementType() reflect.Type {
 }
 
 type bucketMetricArgs struct {
-	// Name of the bucket to put metric configuration.
-	Bucket string `pulumi:"bucket"`
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	Bucket string              `pulumi:"bucket"`
 	Filter *BucketMetricFilter `pulumi:"filter"`
-	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name   *string             `pulumi:"name"`
+	Region *string             `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketMetric resource.
 type BucketMetricArgs struct {
-	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringInput
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter BucketMetricFilterPtrInput
-	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 }
 
@@ -326,22 +173,18 @@ func (o BucketMetricOutput) ToBucketMetricOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Name of the bucket to put metric configuration.
 func (o BucketMetricOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetric) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 func (o BucketMetricOutput) Filter() BucketMetricFilterPtrOutput {
 	return o.ApplyT(func(v *BucketMetric) BucketMetricFilterPtrOutput { return v.Filter }).(BucketMetricFilterPtrOutput)
 }
 
-// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 func (o BucketMetricOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketMetricOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetric) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

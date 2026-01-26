@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class ConnectionFunctionConnectionFunctionConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Comment to describe the function.
-        /// </summary>
         [Input("comment", required: true)]
         public Input<string> Comment { get; set; } = null!;
 
-        /// <summary>
-        /// Key value store associations. See `KeyValueStoreAssociation` below.
-        /// </summary>
         [Input("keyValueStoreAssociation")]
         public Input<Inputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationGetArgs>? KeyValueStoreAssociation { get; set; }
 
-        /// <summary>
-        /// Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-        /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;
 

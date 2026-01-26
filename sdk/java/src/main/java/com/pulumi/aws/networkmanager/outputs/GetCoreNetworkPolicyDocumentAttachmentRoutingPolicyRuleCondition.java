@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition {
-    /**
-     * @return Must be `routing-policy-label`.
-     * 
-     */
     private String type;
-    /**
-     * @return Routing policy label to match.
-     * 
-     */
     private String value;
 
     private GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition() {}
-    /**
-     * @return Must be `routing-policy-label`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Routing policy label to match.
-     * 
-     */
     public String value() {
         return this.value;
     }

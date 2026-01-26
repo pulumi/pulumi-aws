@@ -26,12 +26,6 @@ class ContributorInsightRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContributorInsightRule resource.
-        :param pulumi.Input[_builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        :param pulumi.Input[_builtins.str] rule_name: Unique name of the rule.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_state: State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "rule_definition", rule_definition)
         pulumi.set(__self__, "rule_name", rule_name)
@@ -45,9 +39,6 @@ class ContributorInsightRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleDefinition")
     def rule_definition(self) -> pulumi.Input[_builtins.str]:
-        """
-        Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        """
         return pulumi.get(self, "rule_definition")
 
     @rule_definition.setter
@@ -57,11 +48,6 @@ class ContributorInsightRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique name of the rule.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -71,9 +57,6 @@ class ContributorInsightRuleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -83,9 +66,6 @@ class ContributorInsightRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleState")
     def rule_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the rule. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "rule_state")
 
     @rule_state.setter
@@ -114,13 +94,6 @@ class _ContributorInsightRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ContributorInsightRule resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the Contributor Insight Rule.
-        :param pulumi.Input[_builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        :param pulumi.Input[_builtins.str] rule_name: Unique name of the rule.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] rule_state: State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -140,9 +113,6 @@ class _ContributorInsightRuleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -152,9 +122,6 @@ class _ContributorInsightRuleState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Contributor Insight Rule.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -164,9 +131,6 @@ class _ContributorInsightRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleDefinition")
     def rule_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        """
         return pulumi.get(self, "rule_definition")
 
     @rule_definition.setter
@@ -176,11 +140,6 @@ class _ContributorInsightRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the rule.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -190,9 +149,6 @@ class _ContributorInsightRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleState")
     def rule_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the rule. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "rule_state")
 
     @rule_state.setter
@@ -231,38 +187,9 @@ class ContributorInsightRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CloudWatch Contributor Insight Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.ContributorInsightRule("test",
-            rule_name="testing",
-            rule_state="ENABLED",
-            rule_definition="{\\"Schema\\":{\\"Name\\":\\"CloudWatchLogRule\\",\\"Version\\":1},\\"AggregateOn\\":\\"Count\\",\\"Contribution\\":{\\"Filters\\":[{\\"In\\":[\\"some-keyword\\"],\\"Match\\":\\"$.message\\"}],\\"Keys\\":[\\"$.country\\"]},\\"LogFormat\\":\\"JSON\\",\\"LogGroupNames\\":[\\"/aws/lambda/api-prod\\"]}")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
-        ```
-
+        Create a ContributorInsightRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        :param pulumi.Input[_builtins.str] rule_name: Unique name of the rule.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] rule_state: State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
         ...
     @overload
@@ -271,30 +198,7 @@ class ContributorInsightRule(pulumi.CustomResource):
                  args: ContributorInsightRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CloudWatch Contributor Insight Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.ContributorInsightRule("test",
-            rule_name="testing",
-            rule_state="ENABLED",
-            rule_definition="{\\"Schema\\":{\\"Name\\":\\"CloudWatchLogRule\\",\\"Version\\":1},\\"AggregateOn\\":\\"Count\\",\\"Contribution\\":{\\"Filters\\":[{\\"In\\":[\\"some-keyword\\"],\\"Match\\":\\"$.message\\"}],\\"Keys\\":[\\"$.country\\"]},\\"LogFormat\\":\\"JSON\\",\\"LogGroupNames\\":[\\"/aws/lambda/api-prod\\"]}")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
-        ```
-
+        Create a ContributorInsightRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ContributorInsightRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,13 +263,6 @@ class ContributorInsightRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the Contributor Insight Rule.
-        :param pulumi.Input[_builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        :param pulumi.Input[_builtins.str] rule_name: Unique name of the rule.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] rule_state: State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,43 +280,26 @@ class ContributorInsightRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Contributor Insight Rule.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="ruleDefinition")
     def rule_definition(self) -> pulumi.Output[_builtins.str]:
-        """
-        Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        """
         return pulumi.get(self, "rule_definition")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name of the rule.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter(name="ruleState")
     def rule_state(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        State of the rule. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "rule_state")
 
     @_builtins.property

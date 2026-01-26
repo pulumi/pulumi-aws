@@ -15,32 +15,16 @@ public final class UserPoolSchemaStringAttributeConstraintsArgs extends com.pulu
 
     public static final UserPoolSchemaStringAttributeConstraintsArgs Empty = new UserPoolSchemaStringAttributeConstraintsArgs();
 
-    /**
-     * Maximum length of an attribute value of the string type.
-     * 
-     */
     @Import(name="maxLength")
     private @Nullable Output<String> maxLength;
 
-    /**
-     * @return Maximum length of an attribute value of the string type.
-     * 
-     */
     public Optional<Output<String>> maxLength() {
         return Optional.ofNullable(this.maxLength);
     }
 
-    /**
-     * Minimum length of an attribute value of the string type.
-     * 
-     */
     @Import(name="minLength")
     private @Nullable Output<String> minLength;
 
-    /**
-     * @return Minimum length of an attribute value of the string type.
-     * 
-     */
     public Optional<Output<String>> minLength() {
         return Optional.ofNullable(this.minLength);
     }
@@ -70,44 +54,20 @@ public final class UserPoolSchemaStringAttributeConstraintsArgs extends com.pulu
             $ = new UserPoolSchemaStringAttributeConstraintsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxLength Maximum length of an attribute value of the string type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLength(@Nullable Output<String> maxLength) {
             $.maxLength = maxLength;
             return this;
         }
 
-        /**
-         * @param maxLength Maximum length of an attribute value of the string type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLength(String maxLength) {
             return maxLength(Output.of(maxLength));
         }
 
-        /**
-         * @param minLength Minimum length of an attribute value of the string type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minLength(@Nullable Output<String> minLength) {
             $.minLength = minLength;
             return this;
         }
 
-        /**
-         * @param minLength Minimum length of an attribute value of the string type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minLength(String minLength) {
             return minLength(Output.of(minLength));
         }

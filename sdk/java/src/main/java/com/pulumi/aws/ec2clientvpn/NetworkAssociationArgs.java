@@ -16,47 +16,23 @@ public final class NetworkAssociationArgs extends com.pulumi.resources.ResourceA
 
     public static final NetworkAssociationArgs Empty = new NetworkAssociationArgs();
 
-    /**
-     * The ID of the Client VPN endpoint.
-     * 
-     */
     @Import(name="clientVpnEndpointId", required=true)
     private Output<String> clientVpnEndpointId;
 
-    /**
-     * @return The ID of the Client VPN endpoint.
-     * 
-     */
     public Output<String> clientVpnEndpointId() {
         return this.clientVpnEndpointId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the subnet to associate with the Client VPN endpoint.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to associate with the Client VPN endpoint.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -87,65 +63,29 @@ public final class NetworkAssociationArgs extends com.pulumi.resources.ResourceA
             $ = new NetworkAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientVpnEndpointId The ID of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientVpnEndpointId(Output<String> clientVpnEndpointId) {
             $.clientVpnEndpointId = clientVpnEndpointId;
             return this;
         }
 
-        /**
-         * @param clientVpnEndpointId The ID of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
             return clientVpnEndpointId(Output.of(clientVpnEndpointId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subnetId The ID of the subnet to associate with the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet to associate with the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

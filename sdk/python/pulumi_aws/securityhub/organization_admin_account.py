@@ -23,8 +23,6 @@ class OrganizationAdminAccountArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationAdminAccount resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "admin_account_id", admin_account_id)
         if region is not None:
@@ -33,9 +31,6 @@ class OrganizationAdminAccountArgs:
     @_builtins.property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The AWS account identifier of the account to designate as the Security Hub administrator account.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -45,9 +40,6 @@ class OrganizationAdminAccountArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -62,8 +54,6 @@ class _OrganizationAdminAccountState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationAdminAccount resources.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if admin_account_id is not None:
             pulumi.set(__self__, "admin_account_id", admin_account_id)
@@ -73,9 +63,6 @@ class _OrganizationAdminAccountState:
     @_builtins.property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account identifier of the account to designate as the Security Hub administrator account.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -85,9 +72,6 @@ class _OrganizationAdminAccountState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -105,36 +89,9 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.Organization("example",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_account = aws.securityhub.Account("example")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts = pulumi.ResourceOptions(depends_on=[example]))
-        # Auto enable security hub in organization member accounts
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-        ```
-
+        Create a OrganizationAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -143,32 +100,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  args: OrganizationAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.Organization("example",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_account = aws.securityhub.Account("example")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts = pulumi.ResourceOptions(depends_on=[example]))
-        # Auto enable security hub in organization member accounts
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-        ```
-
+        Create a OrganizationAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,8 +150,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -232,16 +162,10 @@ class OrganizationAdminAccount(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account identifier of the account to designate as the Security Hub administrator account.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

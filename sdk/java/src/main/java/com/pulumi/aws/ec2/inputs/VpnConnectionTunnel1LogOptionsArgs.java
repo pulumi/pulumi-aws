@@ -15,17 +15,9 @@ public final class VpnConnectionTunnel1LogOptionsArgs extends com.pulumi.resourc
 
     public static final VpnConnectionTunnel1LogOptionsArgs Empty = new VpnConnectionTunnel1LogOptionsArgs();
 
-    /**
-     * Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
-     * 
-     */
     @Import(name="cloudwatchLogOptions")
     private @Nullable Output<VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs> cloudwatchLogOptions;
 
-    /**
-     * @return Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
-     * 
-     */
     public Optional<Output<VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs>> cloudwatchLogOptions() {
         return Optional.ofNullable(this.cloudwatchLogOptions);
     }
@@ -54,23 +46,11 @@ public final class VpnConnectionTunnel1LogOptionsArgs extends com.pulumi.resourc
             $ = new VpnConnectionTunnel1LogOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogOptions Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogOptions(@Nullable Output<VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs> cloudwatchLogOptions) {
             $.cloudwatchLogOptions = cloudwatchLogOptions;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogOptions Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogOptions(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs cloudwatchLogOptions) {
             return cloudwatchLogOptions(Output.of(cloudwatchLogOptions));
         }

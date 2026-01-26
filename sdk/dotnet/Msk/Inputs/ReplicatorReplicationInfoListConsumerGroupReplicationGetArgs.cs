@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Msk.Inputs
     {
         [Input("consumerGroupsToExcludes")]
         private InputList<string>? _consumerGroupsToExcludes;
-
-        /// <summary>
-        /// List of regular expression patterns indicating the consumer groups that should not be replicated.
-        /// </summary>
         public InputList<string> ConsumerGroupsToExcludes
         {
             get => _consumerGroupsToExcludes ?? (_consumerGroupsToExcludes = new InputList<string>());
@@ -26,25 +22,15 @@ namespace Pulumi.Aws.Msk.Inputs
 
         [Input("consumerGroupsToReplicates", required: true)]
         private InputList<string>? _consumerGroupsToReplicates;
-
-        /// <summary>
-        /// List of regular expression patterns indicating the consumer groups to copy.
-        /// </summary>
         public InputList<string> ConsumerGroupsToReplicates
         {
             get => _consumerGroupsToReplicates ?? (_consumerGroupsToReplicates = new InputList<string>());
             set => _consumerGroupsToReplicates = value;
         }
 
-        /// <summary>
-        /// Whether to periodically check for new consumer groups.
-        /// </summary>
         [Input("detectAndCopyNewConsumerGroups")]
         public Input<bool>? DetectAndCopyNewConsumerGroups { get; set; }
 
-        /// <summary>
-        /// Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-        /// </summary>
         [Input("synchroniseConsumerGroupOffsets")]
         public Input<bool>? SynchroniseConsumerGroupOffsets { get; set; }
 

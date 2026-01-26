@@ -12,96 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Backup vault policy resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleVault, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
-// Name: pulumi.String("example"),
-// })
-// if err != nil {
-// return err
-// }
-// example := exampleVault.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// current.AccountId,
-// },
-// },
-// },
-// Actions: []string{
-// "backup:DescribeBackupVault",
-// "backup:DeleteBackupVault",
-// "backup:PutBackupVaultAccessPolicy",
-// "backup:DeleteBackupVaultAccessPolicy",
-// "backup:GetBackupVaultAccessPolicy",
-// "backup:StartBackupJob",
-// "backup:GetBackupVaultNotifications",
-// "backup:PutBackupVaultNotifications",
-// },
-// Resources: []string{
-// arn,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = backup.NewVaultPolicy(ctx, "example", &backup.VaultPolicyArgs{
-// BackupVaultName: exampleVault.Name,
-// Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup vault policy using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
-// ```
 type VaultPolicy struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the vault.
-	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
-	// Name of the backup vault to add policy for.
+	BackupVaultArn  pulumi.StringOutput `pulumi:"backupVaultArn"`
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
-	// The backup vault access policy document in JSON format.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Policy          pulumi.StringOutput `pulumi:"policy"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewVaultPolicy registers a new resource with the given unique name, arguments, and options.
@@ -140,25 +57,17 @@ func GetVaultPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultPolicy resources.
 type vaultPolicyState struct {
-	// The ARN of the vault.
-	BackupVaultArn *string `pulumi:"backupVaultArn"`
-	// Name of the backup vault to add policy for.
+	BackupVaultArn  *string `pulumi:"backupVaultArn"`
 	BackupVaultName *string `pulumi:"backupVaultName"`
-	// The backup vault access policy document in JSON format.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy          *string `pulumi:"policy"`
+	Region          *string `pulumi:"region"`
 }
 
 type VaultPolicyState struct {
-	// The ARN of the vault.
-	BackupVaultArn pulumi.StringPtrInput
-	// Name of the backup vault to add policy for.
+	BackupVaultArn  pulumi.StringPtrInput
 	BackupVaultName pulumi.StringPtrInput
-	// The backup vault access policy document in JSON format.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy          pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (VaultPolicyState) ElementType() reflect.Type {
@@ -166,22 +75,16 @@ func (VaultPolicyState) ElementType() reflect.Type {
 }
 
 type vaultPolicyArgs struct {
-	// Name of the backup vault to add policy for.
-	BackupVaultName string `pulumi:"backupVaultName"`
-	// The backup vault access policy document in JSON format.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	BackupVaultName string  `pulumi:"backupVaultName"`
+	Policy          string  `pulumi:"policy"`
+	Region          *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VaultPolicy resource.
 type VaultPolicyArgs struct {
-	// Name of the backup vault to add policy for.
 	BackupVaultName pulumi.StringInput
-	// The backup vault access policy document in JSON format.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy          pulumi.StringInput
+	Region          pulumi.StringPtrInput
 }
 
 func (VaultPolicyArgs) ElementType() reflect.Type {
@@ -271,22 +174,18 @@ func (o VaultPolicyOutput) ToVaultPolicyOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// The ARN of the vault.
 func (o VaultPolicyOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
-// Name of the backup vault to add policy for.
 func (o VaultPolicyOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
-// The backup vault access policy document in JSON format.
 func (o VaultPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VaultPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

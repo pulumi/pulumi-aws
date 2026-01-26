@@ -15,9 +15,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     {
         public readonly string? H265PackagingType;
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings HlsSettings;
-        /// <summary>
-        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-        /// </summary>
         public readonly string? NameModifier;
         public readonly string? SegmentModifier;
 

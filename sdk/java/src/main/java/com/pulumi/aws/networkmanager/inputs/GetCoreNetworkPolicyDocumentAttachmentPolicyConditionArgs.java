@@ -16,62 +16,30 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
 
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs();
 
-    /**
-     * string value
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return string value
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-     * 
-     */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
-    /**
-     * @return Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-     * 
-     */
     public Optional<Output<String>> operator() {
         return Optional.ofNullable(this.operator);
     }
 
-    /**
-     * Must be `routing-policy-label`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Must be `routing-policy-label`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Routing policy label to match.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Routing policy label to match.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -103,86 +71,38 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs ext
             $ = new GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key string value
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key string value
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param operator Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operator(@Nullable Output<String> operator) {
             $.operator = operator;
             return this;
         }
 
-        /**
-         * @param operator Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operator(String operator) {
             return operator(Output.of(operator));
         }
 
-        /**
-         * @param type Must be `routing-policy-label`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Must be `routing-policy-label`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value Routing policy label to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Routing policy label to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

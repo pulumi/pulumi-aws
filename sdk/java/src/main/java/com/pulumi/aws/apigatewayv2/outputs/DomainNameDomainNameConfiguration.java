@@ -12,89 +12,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainNameDomainNameConfiguration {
-    /**
-     * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
-     * 
-     */
     private String certificateArn;
-    /**
-     * @return Endpoint type. Valid values: `REGIONAL`.
-     * 
-     */
     private String endpointType;
-    /**
-     * @return Amazon Route 53 Hosted Zone ID of the endpoint.
-     * 
-     */
     private @Nullable String hostedZoneId;
-    /**
-     * @return The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
-     * 
-     */
     private @Nullable String ipAddressType;
-    /**
-     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-     * 
-     */
     private @Nullable String ownershipVerificationCertificateArn;
-    /**
-     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-     * 
-     */
     private String securityPolicy;
-    /**
-     * @return Target domain name.
-     * 
-     */
     private @Nullable String targetDomainName;
 
     private DomainNameDomainNameConfiguration() {}
-    /**
-     * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
-     * 
-     */
     public String certificateArn() {
         return this.certificateArn;
     }
-    /**
-     * @return Endpoint type. Valid values: `REGIONAL`.
-     * 
-     */
     public String endpointType() {
         return this.endpointType;
     }
-    /**
-     * @return Amazon Route 53 Hosted Zone ID of the endpoint.
-     * 
-     */
     public Optional<String> hostedZoneId() {
         return Optional.ofNullable(this.hostedZoneId);
     }
-    /**
-     * @return The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
-     * 
-     */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
-    /**
-     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-     * 
-     */
     public Optional<String> ownershipVerificationCertificateArn() {
         return Optional.ofNullable(this.ownershipVerificationCertificateArn);
     }
-    /**
-     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-     * 
-     */
     public String securityPolicy() {
         return this.securityPolicy;
     }
-    /**
-     * @return Target domain name.
-     * 
-     */
     public Optional<String> targetDomainName() {
         return Optional.ofNullable(this.targetDomainName);
     }

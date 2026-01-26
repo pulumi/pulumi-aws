@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclChallengeConfig {
-    /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
-     * 
-     */
     private @Nullable WebAclChallengeConfigImmunityTimeProperty immunityTimeProperty;
 
     private WebAclChallengeConfig() {}
-    /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
-     * 
-     */
     public Optional<WebAclChallengeConfigImmunityTimeProperty> immunityTimeProperty() {
         return Optional.ofNullable(this.immunityTimeProperty);
     }

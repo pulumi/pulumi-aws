@@ -19,10 +19,6 @@ public final class GetImagesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of image objects containing image digest and tags. Each object has the following attributes:
-     * 
-     */
     private List<GetImagesImageId> imageIds;
     private String region;
     private @Nullable String registryId;
@@ -36,10 +32,6 @@ public final class GetImagesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of image objects containing image digest and tags. Each object has the following attributes:
-     * 
-     */
     public List<GetImagesImageId> imageIds() {
         return this.imageIds;
     }

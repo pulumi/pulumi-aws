@@ -7,151 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web Session Logger.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example-session-logs"});
- * const example = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["workspaces-web.amazonaws.com"],
- *         }],
- *         actions: ["s3:PutObject"],
- *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
- *     }],
- * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucket.id,
- *     policy: example.apply(example => example.json),
- * });
- * const exampleSessionLogger = new aws.workspacesweb.SessionLogger("example", {
- *     displayName: "example-session-logger",
- *     eventFilter: {
- *         all: {},
- *     },
- *     logConfiguration: {
- *         s3: {
- *             bucket: exampleBucket.id,
- *             folderStructure: "Flat",
- *             logFileFormat: "Json",
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleBucketPolicy],
- * });
- * ```
- *
- * ### Complete Configuration with KMS Encryption
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucket = new aws.s3.Bucket("example", {
- *     bucket: "example-session-logs",
- *     forceDestroy: true,
- * });
- * const example = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["workspaces-web.amazonaws.com"],
- *         }],
- *         actions: ["s3:PutObject"],
- *         resources: [
- *             exampleBucket.arn,
- *             pulumi.interpolate`${exampleBucket.arn}/*`,
- *         ],
- *     }],
- * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucket.id,
- *     policy: example.apply(example => example.json),
- * });
- * const current = aws.getPartition({});
- * const currentGetCallerIdentity = aws.getCallerIdentity({});
- * const kmsKeyPolicy = Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [`arn:${current.partition}:iam::${currentGetCallerIdentity.accountId}:root`],
- *             }],
- *             actions: ["kms:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["workspaces-web.amazonaws.com"],
- *             }],
- *             actions: [
- *                 "kms:Encrypt",
- *                 "kms:GenerateDataKey*",
- *                 "kms:ReEncrypt*",
- *                 "kms:Decrypt",
- *             ],
- *             resources: ["*"],
- *         },
- *     ],
- * }));
- * const exampleKey = new aws.kms.Key("example", {
- *     description: "KMS key for WorkSpaces Web Session Logger",
- *     policy: kmsKeyPolicy.then(kmsKeyPolicy => kmsKeyPolicy.json),
- * });
- * const exampleSessionLogger = new aws.workspacesweb.SessionLogger("example", {
- *     displayName: "example-session-logger",
- *     customerManagedKey: exampleKey.arn,
- *     additionalEncryptionContext: {
- *         Environment: "Production",
- *         Application: "WorkSpacesWeb",
- *     },
- *     eventFilter: {
- *         includes: [
- *             "SessionStart",
- *             "SessionEnd",
- *         ],
- *     },
- *     logConfiguration: {
- *         s3: {
- *             bucket: exampleBucket.id,
- *             bucketOwner: currentGetCallerIdentity.then(currentGetCallerIdentity => currentGetCallerIdentity.accountId),
- *             folderStructure: "NestedByDate",
- *             keyPrefix: "workspaces-web-logs/",
- *             logFileFormat: "JsonLines",
- *         },
- *     },
- *     tags: {
- *         Name: "example-session-logger",
- *         Environment: "Production",
- *     },
- * }, {
- *     dependsOn: [
- *         exampleBucketPolicy,
- *         exampleKey,
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web Session Logger using the `session_logger_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678
- * ```
- */
 export class SessionLogger extends pulumi.CustomResource {
     /**
      * Get an existing SessionLogger resource's state with the given name, ID, and optional extra
@@ -180,47 +35,15 @@ export class SessionLogger extends pulumi.CustomResource {
         return obj['__pulumiType'] === SessionLogger.__pulumiType;
     }
 
-    /**
-     * Map of additional encryption context key-value pairs.
-     */
     declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * List of ARNs of the web portals associated with the session logger.
-     */
     declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
-    /**
-     * ARN of the customer managed KMS key used to encrypt sensitive information.
-     */
     declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
-    /**
-     * Human-readable display name for the session logger resource. Forces replacement if changed.
-     */
     declare public readonly displayName: pulumi.Output<string | undefined>;
-    /**
-     * Event filter that determines which events are logged. See Event Filter below.
-     */
     declare public readonly eventFilter: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter | undefined>;
-    /**
-     * Configuration block for specifying where logs are delivered. See Log Configuration below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly logConfiguration: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the session logger.
-     */
     declare public /*out*/ readonly sessionLoggerArn: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -268,47 +91,15 @@ export class SessionLogger extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SessionLogger resources.
  */
 export interface SessionLoggerState {
-    /**
-     * Map of additional encryption context key-value pairs.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * List of ARNs of the web portals associated with the session logger.
-     */
     associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ARN of the customer managed KMS key used to encrypt sensitive information.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * Human-readable display name for the session logger resource. Forces replacement if changed.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Event filter that determines which events are logged. See Event Filter below.
-     */
     eventFilter?: pulumi.Input<inputs.workspacesweb.SessionLoggerEventFilter>;
-    /**
-     * Configuration block for specifying where logs are delivered. See Log Configuration below.
-     *
-     * The following arguments are optional:
-     */
     logConfiguration?: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the session logger.
-     */
     sessionLoggerArn?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -316,34 +107,11 @@ export interface SessionLoggerState {
  * The set of arguments for constructing a SessionLogger resource.
  */
 export interface SessionLoggerArgs {
-    /**
-     * Map of additional encryption context key-value pairs.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the customer managed KMS key used to encrypt sensitive information.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * Human-readable display name for the session logger resource. Forces replacement if changed.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Event filter that determines which events are logged. See Event Filter below.
-     */
     eventFilter?: pulumi.Input<inputs.workspacesweb.SessionLoggerEventFilter>;
-    /**
-     * Configuration block for specifying where logs are delivered. See Log Configuration below.
-     *
-     * The following arguments are optional:
-     */
     logConfiguration?: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

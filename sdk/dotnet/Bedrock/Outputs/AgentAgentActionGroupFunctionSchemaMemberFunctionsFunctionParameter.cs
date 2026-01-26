@@ -13,23 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter
     {
-        /// <summary>
-        /// Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Name of the parameter.
-        /// 
-        /// **Note:** The argument name `MapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-        /// </summary>
         public readonly string MapBlockKey;
-        /// <summary>
-        /// Whether the parameter is required for the agent to complete the function for action group invocation.
-        /// </summary>
         public readonly bool? Required;
-        /// <summary>
-        /// Data type of the parameter. Valid values: `String`, `Number`, `Integer`, `Boolean`, `Array`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

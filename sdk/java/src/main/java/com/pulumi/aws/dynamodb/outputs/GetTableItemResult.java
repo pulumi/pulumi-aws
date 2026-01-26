@@ -19,10 +19,6 @@ public final class GetTableItemResult {
      * 
      */
     private String id;
-    /**
-     * @return JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
-     * 
-     */
     private String item;
     private String key;
     private @Nullable String projectionExpression;
@@ -40,10 +36,6 @@ public final class GetTableItemResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
-     * 
-     */
     public String item() {
         return this.item;
     }

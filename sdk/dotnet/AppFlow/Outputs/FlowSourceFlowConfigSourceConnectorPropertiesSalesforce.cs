@@ -14,13 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce
     {
         public readonly string? DataTransferApi;
-        /// <summary>
-        /// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-        /// </summary>
         public readonly bool? EnableDynamicFieldUpdate;
-        /// <summary>
-        /// Whether Amazon AppFlow includes deleted files in the flow run.
-        /// </summary>
         public readonly bool? IncludeDeletedRecords;
         public readonly string Object;
 
